@@ -1,71 +1,73 @@
 ---
-title: Swashbuckle'ı ve ASP.NET Core ile çalışmaya başlama
+title: Swashbuckle ve ASP.NET Core kullanmaya başlayın
 author: zuckerthoben
-description: Swagger kullanıcı arabirimini tümleştirmek için ASP.NET Core web API projesi için Swashbuckle eklemeyi öğrenin.
+description: Swagger Kullanıcı arabirimini bütünleştirmek için ASP.NET Core Web API Projenize swashbuckle ekleme hakkında bilgi edinin.
 ms.author: scaddie
 ms.custom: mvc
 ms.date: 06/21/2019
 uid: tutorials/get-started-with-swashbuckle
-ms.openlocfilehash: 033f2dda9942f91f23158cf2d986062157a3b69e
-ms.sourcegitcommit: 06a455d63ff7d6b571ca832e8117f4ac9d646baf
+ms.openlocfilehash: 0ffd437bbb48ef1c7a9159fbf3ac41441613f434
+ms.sourcegitcommit: 849af69ee3c94cdb9fd8fa1f1bb8f5a5dda7b9eb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67316606"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68372066"
 ---
-# <a name="get-started-with-swashbuckle-and-aspnet-core"></a><span data-ttu-id="accc8-103">Swashbuckle'ı ve ASP.NET Core ile çalışmaya başlama</span><span class="sxs-lookup"><span data-stu-id="accc8-103">Get started with Swashbuckle and ASP.NET Core</span></span>
+# <a name="get-started-with-swashbuckle-and-aspnet-core"></a><span data-ttu-id="ee5e7-103">Swashbuckle ve ASP.NET Core kullanmaya başlayın</span><span class="sxs-lookup"><span data-stu-id="ee5e7-103">Get started with Swashbuckle and ASP.NET Core</span></span>
 
-<span data-ttu-id="accc8-104">Tarafından [Shayne boyer'ın](https://twitter.com/spboyer) ve [Scott Addie](https://twitter.com/Scott_Addie)</span><span class="sxs-lookup"><span data-stu-id="accc8-104">By [Shayne Boyer](https://twitter.com/spboyer) and [Scott Addie](https://twitter.com/Scott_Addie)</span></span>
+<span data-ttu-id="ee5e7-104">, [Shayne Boyer](https://twitter.com/spboyer) ve [Scott Ade](https://twitter.com/Scott_Addie) tarafından</span><span class="sxs-lookup"><span data-stu-id="ee5e7-104">By [Shayne Boyer](https://twitter.com/spboyer) and [Scott Addie](https://twitter.com/Scott_Addie)</span></span>
 
-<span data-ttu-id="accc8-105">[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/tutorials/web-api-help-pages-using-swagger/samples/) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))</span><span class="sxs-lookup"><span data-stu-id="accc8-105">[View or download sample code](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/tutorials/web-api-help-pages-using-swagger/samples/) ([how to download](xref:index#how-to-download-a-sample))</span></span>
+<span data-ttu-id="ee5e7-105">[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/tutorials/web-api-help-pages-using-swagger/samples/) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))</span><span class="sxs-lookup"><span data-stu-id="ee5e7-105">[View or download sample code](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/tutorials/web-api-help-pages-using-swagger/samples/) ([how to download](xref:index#how-to-download-a-sample))</span></span>
 
-<span data-ttu-id="accc8-106">Swashbuckle'ı için üç ana bileşeni vardır:</span><span class="sxs-lookup"><span data-stu-id="accc8-106">There are three main components to Swashbuckle:</span></span>
+<span data-ttu-id="ee5e7-106">Swashbuckle için üç ana bileşen vardır:</span><span class="sxs-lookup"><span data-stu-id="ee5e7-106">There are three main components to Swashbuckle:</span></span>
 
-* <span data-ttu-id="accc8-107">[Swashbuckle.AspNetCore.Swagger](https://www.nuget.org/packages/Swashbuckle.AspNetCore.Swagger/): Swagger nesne modeli ve kullanıma sunmak için bir ara yazılım `SwaggerDocument` JSON uç noktalar olarak nesneleri.</span><span class="sxs-lookup"><span data-stu-id="accc8-107">[Swashbuckle.AspNetCore.Swagger](https://www.nuget.org/packages/Swashbuckle.AspNetCore.Swagger/): a Swagger object model and middleware to expose `SwaggerDocument` objects as JSON endpoints.</span></span>
+* <span data-ttu-id="ee5e7-107">[Swashbuckle. aspnetcore. Swagger](https://www.nuget.org/packages/Swashbuckle.AspNetCore.Swagger/): nesneleri JSON uç noktaları olarak göstermek `SwaggerDocument` için Swagger nesne modeli ve ara yazılımı.</span><span class="sxs-lookup"><span data-stu-id="ee5e7-107">[Swashbuckle.AspNetCore.Swagger](https://www.nuget.org/packages/Swashbuckle.AspNetCore.Swagger/): a Swagger object model and middleware to expose `SwaggerDocument` objects as JSON endpoints.</span></span>
 
-* <span data-ttu-id="accc8-108">[Swashbuckle.AspNetCore.SwaggerGen](https://www.nuget.org/packages/Swashbuckle.AspNetCore.SwaggerGen/): oluşturan bir Swagger Oluşturucusu `SwaggerDocument` nesneleri doğrudan, rotalara, denetleyicilere ve modeller.</span><span class="sxs-lookup"><span data-stu-id="accc8-108">[Swashbuckle.AspNetCore.SwaggerGen](https://www.nuget.org/packages/Swashbuckle.AspNetCore.SwaggerGen/): a Swagger generator that builds `SwaggerDocument` objects directly from your routes, controllers, and models.</span></span> <span data-ttu-id="accc8-109">Bu genellikle otomatik olarak Swagger JSON kullanıma sunmak için Swagger uç nokta ara yazılımı ile birleştirilir.</span><span class="sxs-lookup"><span data-stu-id="accc8-109">It's typically combined with the Swagger endpoint middleware to automatically expose Swagger JSON.</span></span>
+* <span data-ttu-id="ee5e7-108">[Swashbuckle. aspnetcore. SwaggerGen](https://www.nuget.org/packages/Swashbuckle.AspNetCore.SwaggerGen/): `SwaggerDocument` nesneleri doğrudan rotalarınız, Denetleyicilerinizden ve modellerden oluşturan bir Swagger Oluşturucu.</span><span class="sxs-lookup"><span data-stu-id="ee5e7-108">[Swashbuckle.AspNetCore.SwaggerGen](https://www.nuget.org/packages/Swashbuckle.AspNetCore.SwaggerGen/): a Swagger generator that builds `SwaggerDocument` objects directly from your routes, controllers, and models.</span></span> <span data-ttu-id="ee5e7-109">Swagger JSON 'yi otomatik olarak göstermek için genellikle Swagger uç nokta ara yazılımı ile birleştirilir.</span><span class="sxs-lookup"><span data-stu-id="ee5e7-109">It's typically combined with the Swagger endpoint middleware to automatically expose Swagger JSON.</span></span>
 
-* <span data-ttu-id="accc8-110">[Swashbuckle.AspNetCore.SwaggerUI](https://www.nuget.org/packages/Swashbuckle.AspNetCore.SwaggerUI/): katıştırılmış bir Swagger kullanıcı arabirimini aracı sürümü.</span><span class="sxs-lookup"><span data-stu-id="accc8-110">[Swashbuckle.AspNetCore.SwaggerUI](https://www.nuget.org/packages/Swashbuckle.AspNetCore.SwaggerUI/): an embedded version of the Swagger UI tool.</span></span> <span data-ttu-id="accc8-111">Bu, web API işlevleri tanımlamak için zengin, özelleştirilebilir bir deneyim oluşturmak için Swagger JSON yorumlar.</span><span class="sxs-lookup"><span data-stu-id="accc8-111">It interprets Swagger JSON to build a rich, customizable experience for describing the web API functionality.</span></span> <span data-ttu-id="accc8-112">Genel metotlar için yerleşik test harnesses içerir.</span><span class="sxs-lookup"><span data-stu-id="accc8-112">It includes built-in test harnesses for the public methods.</span></span>
+* <span data-ttu-id="ee5e7-110">[Swashbuckle. AspNetCore. SwaggerUI](https://www.nuget.org/packages/Swashbuckle.AspNetCore.SwaggerUI/): Swagger Kullanıcı arabirimi aracının gömülü bir sürümü.</span><span class="sxs-lookup"><span data-stu-id="ee5e7-110">[Swashbuckle.AspNetCore.SwaggerUI](https://www.nuget.org/packages/Swashbuckle.AspNetCore.SwaggerUI/): an embedded version of the Swagger UI tool.</span></span> <span data-ttu-id="ee5e7-111">Web API işlevlerini açıklamak için bir zengin ve özelleştirilebilir deneyim oluşturmak üzere Swagger JSON 'u yorumlar.</span><span class="sxs-lookup"><span data-stu-id="ee5e7-111">It interprets Swagger JSON to build a rich, customizable experience for describing the web API functionality.</span></span> <span data-ttu-id="ee5e7-112">Ortak yöntemler için yerleşik test gücünden içerir.</span><span class="sxs-lookup"><span data-stu-id="ee5e7-112">It includes built-in test harnesses for the public methods.</span></span>
 
-## <a name="package-installation"></a><span data-ttu-id="accc8-113">Paket yüklemesi</span><span class="sxs-lookup"><span data-stu-id="accc8-113">Package installation</span></span>
+## <a name="package-installation"></a><span data-ttu-id="ee5e7-113">Paket yüklemesi</span><span class="sxs-lookup"><span data-stu-id="ee5e7-113">Package installation</span></span>
 
-<span data-ttu-id="accc8-114">Swashbuckle'ı ile aşağıdaki yaklaşımlardan eklenebilir:</span><span class="sxs-lookup"><span data-stu-id="accc8-114">Swashbuckle can be added with the following approaches:</span></span>
+<span data-ttu-id="ee5e7-114">Aşağıdaki yaklaşımlar ile swashbuckle eklenebilir:</span><span class="sxs-lookup"><span data-stu-id="ee5e7-114">Swashbuckle can be added with the following approaches:</span></span>
 
-### <a name="visual-studiotabvisual-studio"></a>[<span data-ttu-id="accc8-115">Visual Studio</span><span class="sxs-lookup"><span data-stu-id="accc8-115">Visual Studio</span></span>](#tab/visual-studio)
+### <a name="visual-studiotabvisual-studio"></a>[<span data-ttu-id="ee5e7-115">Visual Studio</span><span class="sxs-lookup"><span data-stu-id="ee5e7-115">Visual Studio</span></span>](#tab/visual-studio)
 
-* <span data-ttu-id="accc8-116">Gelen **Paket Yöneticisi Konsolu** penceresi:</span><span class="sxs-lookup"><span data-stu-id="accc8-116">From the **Package Manager Console** window:</span></span>
-  * <span data-ttu-id="accc8-117">Git **görünümü** > **diğer Windows** > **Paket Yöneticisi Konsolu**</span><span class="sxs-lookup"><span data-stu-id="accc8-117">Go to **View** > **Other Windows** > **Package Manager Console**</span></span>
-  * <span data-ttu-id="accc8-118">Dizin gidin *TodoApi.csproj* dosya var</span><span class="sxs-lookup"><span data-stu-id="accc8-118">Navigate to the directory in which the *TodoApi.csproj* file exists</span></span>
-  * <span data-ttu-id="accc8-119">Aşağıdaki komutu yürütün:</span><span class="sxs-lookup"><span data-stu-id="accc8-119">Execute the following command:</span></span>
+* <span data-ttu-id="ee5e7-116">**Paket Yöneticisi konsol** penceresinde:</span><span class="sxs-lookup"><span data-stu-id="ee5e7-116">From the **Package Manager Console** window:</span></span>
+  * <span data-ttu-id="ee5e7-117"> > **Diğer**Windowspaket > **Yöneticisi konsolunu** görüntüle ' ye git</span><span class="sxs-lookup"><span data-stu-id="ee5e7-117">Go to **View** > **Other Windows** > **Package Manager Console**</span></span>
+  * <span data-ttu-id="ee5e7-118">*TodoApi. csproj* dosyasının bulunduğu dizine gidin</span><span class="sxs-lookup"><span data-stu-id="ee5e7-118">Navigate to the directory in which the *TodoApi.csproj* file exists</span></span>
+  * <span data-ttu-id="ee5e7-119">Aşağıdaki komutu yürütün:</span><span class="sxs-lookup"><span data-stu-id="ee5e7-119">Execute the following command:</span></span>
 
     ```powershell
     Install-Package Swashbuckle.AspNetCore -Version 5.0.0-rc2
     ```
 
-* <span data-ttu-id="accc8-120">Gelen **NuGet paketlerini Yönet** iletişim:</span><span class="sxs-lookup"><span data-stu-id="accc8-120">From the **Manage NuGet Packages** dialog:</span></span>
-  * <span data-ttu-id="accc8-121">Projeye sağ **Çözüm Gezgini** > **NuGet paketlerini Yönet**</span><span class="sxs-lookup"><span data-stu-id="accc8-121">Right-click the project in **Solution Explorer** > **Manage NuGet Packages**</span></span>
-  * <span data-ttu-id="accc8-122">Ayarlama **paket kaynağı** "nuget.org'da"</span><span class="sxs-lookup"><span data-stu-id="accc8-122">Set the **Package source** to "nuget.org"</span></span>
-  * <span data-ttu-id="accc8-123">Arama kutusuna "Swashbuckle.AspNetCore"</span><span class="sxs-lookup"><span data-stu-id="accc8-123">Enter "Swashbuckle.AspNetCore" in the search box</span></span>
-  * <span data-ttu-id="accc8-124">"Swashbuckle.AspNetCore" paketinden seçin **Gözat** sekmesine **yükleyin**</span><span class="sxs-lookup"><span data-stu-id="accc8-124">Select the "Swashbuckle.AspNetCore" package from the **Browse** tab and click **Install**</span></span>
+* <span data-ttu-id="ee5e7-120">**NuGet Paketlerini Yönet** iletişim kutusunda:</span><span class="sxs-lookup"><span data-stu-id="ee5e7-120">From the **Manage NuGet Packages** dialog:</span></span>
+  * <span data-ttu-id="ee5e7-121">**Çözüm Gezgini** > **NuGet Paketlerini Yönet** ' de projeye sağ tıklayın</span><span class="sxs-lookup"><span data-stu-id="ee5e7-121">Right-click the project in **Solution Explorer** > **Manage NuGet Packages**</span></span>
+  * <span data-ttu-id="ee5e7-122">**Paket kaynağını** "NuGet.org" olarak ayarlayın</span><span class="sxs-lookup"><span data-stu-id="ee5e7-122">Set the **Package source** to "nuget.org"</span></span>
+  * <span data-ttu-id="ee5e7-123">"Ön sürümü dahil et" seçeneğinin etkinleştirildiğinden emin olun</span><span class="sxs-lookup"><span data-stu-id="ee5e7-123">Ensure the "Include prerelease" option is enabled</span></span>
+  * <span data-ttu-id="ee5e7-124">Arama kutusuna "swashbuckle. AspNetCore" yazın</span><span class="sxs-lookup"><span data-stu-id="ee5e7-124">Enter "Swashbuckle.AspNetCore" in the search box</span></span>
+  * <span data-ttu-id="ee5e7-125">**Araştır** sekmesinden en son "swashbuckle. aspnetcore" paketini seçin ve sonra da **yüklensin** ' e tıklayın.</span><span class="sxs-lookup"><span data-stu-id="ee5e7-125">Select the latest "Swashbuckle.AspNetCore" package from the **Browse** tab and click **Install**</span></span>
 
-### <a name="visual-studio-for-mactabvisual-studio-mac"></a>[<span data-ttu-id="accc8-125">Mac için Visual Studio</span><span class="sxs-lookup"><span data-stu-id="accc8-125">Visual Studio for Mac</span></span>](#tab/visual-studio-mac)
+### <a name="visual-studio-for-mactabvisual-studio-mac"></a>[<span data-ttu-id="ee5e7-126">Mac için Visual Studio</span><span class="sxs-lookup"><span data-stu-id="ee5e7-126">Visual Studio for Mac</span></span>](#tab/visual-studio-mac)
 
-* <span data-ttu-id="accc8-126">Sağ *paketleri* klasöründe **çözüm bölmesi** > **paketleri Ekle...**</span><span class="sxs-lookup"><span data-stu-id="accc8-126">Right-click the *Packages* folder in **Solution Pad** > **Add Packages...**</span></span>
-* <span data-ttu-id="accc8-127">Ayarlama **paketleri Ekle** pencerenin **kaynak** "nuget.org" açılır menüsünü</span><span class="sxs-lookup"><span data-stu-id="accc8-127">Set the **Add Packages** window's **Source** drop-down to "nuget.org"</span></span>
-* <span data-ttu-id="accc8-128">Arama kutusuna "Swashbuckle.AspNetCore"</span><span class="sxs-lookup"><span data-stu-id="accc8-128">Enter "Swashbuckle.AspNetCore" in the search box</span></span>
-* <span data-ttu-id="accc8-129">Sonuçlar bölmesinde "Swashbuckle.AspNetCore" paketi seçin ve tıklayın **' paket Ekle**</span><span class="sxs-lookup"><span data-stu-id="accc8-129">Select the "Swashbuckle.AspNetCore" package from the results pane and click **Add Package**</span></span>
+* <span data-ttu-id="ee5e7-127">**Çözüm bölmesi**  paket > **Ekle...** ' da paketler klasörüne sağ tıklayın.</span><span class="sxs-lookup"><span data-stu-id="ee5e7-127">Right-click the *Packages* folder in **Solution Pad** > **Add Packages...**</span></span>
+* <span data-ttu-id="ee5e7-128">**Paket Ekle** penceresinin **kaynak** açılan penceresini "NuGet.org" olarak ayarlayın</span><span class="sxs-lookup"><span data-stu-id="ee5e7-128">Set the **Add Packages** window's **Source** drop-down to "nuget.org"</span></span>
+* <span data-ttu-id="ee5e7-129">"Yayın öncesi paketleri göster" seçeneğinin etkin olduğundan emin olun</span><span class="sxs-lookup"><span data-stu-id="ee5e7-129">Ensure the "Show pre-release packages" option is enabled</span></span>
+* <span data-ttu-id="ee5e7-130">Arama kutusuna "swashbuckle. AspNetCore" yazın</span><span class="sxs-lookup"><span data-stu-id="ee5e7-130">Enter "Swashbuckle.AspNetCore" in the search box</span></span>
+* <span data-ttu-id="ee5e7-131">Sonuçlar bölmesinden en son "swashbuckle. AspNetCore" paketini seçin ve **paket Ekle** ' ye tıklayın.</span><span class="sxs-lookup"><span data-stu-id="ee5e7-131">Select the latest "Swashbuckle.AspNetCore" package from the results pane and click **Add Package**</span></span>
 
-### <a name="visual-studio-codetabvisual-studio-code"></a>[<span data-ttu-id="accc8-130">Visual Studio Code</span><span class="sxs-lookup"><span data-stu-id="accc8-130">Visual Studio Code</span></span>](#tab/visual-studio-code)
+### <a name="visual-studio-codetabvisual-studio-code"></a>[<span data-ttu-id="ee5e7-132">Visual Studio Code</span><span class="sxs-lookup"><span data-stu-id="ee5e7-132">Visual Studio Code</span></span>](#tab/visual-studio-code)
 
-<span data-ttu-id="accc8-131">Aşağıdaki komutu çalıştırın **tümleşik Terminalini**:</span><span class="sxs-lookup"><span data-stu-id="accc8-131">Run the following command from the **Integrated Terminal**:</span></span>
+<span data-ttu-id="ee5e7-133">**Tümleşik terminalden**aşağıdaki komutu çalıştırın:</span><span class="sxs-lookup"><span data-stu-id="ee5e7-133">Run the following command from the **Integrated Terminal**:</span></span>
 
 ```console
 dotnet add TodoApi.csproj package Swashbuckle.AspNetCore -v 5.0.0-rc2
 ```
 
-### <a name="net-core-clitabnetcore-cli"></a>[<span data-ttu-id="accc8-132">.NET Core CLI</span><span class="sxs-lookup"><span data-stu-id="accc8-132">.NET Core CLI</span></span>](#tab/netcore-cli)
+### <a name="net-core-clitabnetcore-cli"></a>[<span data-ttu-id="ee5e7-134">.NET Core CLI</span><span class="sxs-lookup"><span data-stu-id="ee5e7-134">.NET Core CLI</span></span>](#tab/netcore-cli)
 
-<span data-ttu-id="accc8-133">Şu komutu çalıştırın:</span><span class="sxs-lookup"><span data-stu-id="accc8-133">Run the following command:</span></span>
+<span data-ttu-id="ee5e7-135">Şu komutu çalıştırın:</span><span class="sxs-lookup"><span data-stu-id="ee5e7-135">Run the following command:</span></span>
 
 ```console
 dotnet add TodoApi.csproj package Swashbuckle.AspNetCore -v 5.0.0-rc2
@@ -73,13 +75,13 @@ dotnet add TodoApi.csproj package Swashbuckle.AspNetCore -v 5.0.0-rc2
 
 ---
 
-## <a name="add-and-configure-swagger-middleware"></a><span data-ttu-id="accc8-134">Ekleme ve Swagger ara yazılımını yapılandırma</span><span class="sxs-lookup"><span data-stu-id="accc8-134">Add and configure Swagger middleware</span></span>
+## <a name="add-and-configure-swagger-middleware"></a><span data-ttu-id="ee5e7-136">Swagger ara yazılım ekleme ve yapılandırma</span><span class="sxs-lookup"><span data-stu-id="ee5e7-136">Add and configure Swagger middleware</span></span>
 
-<span data-ttu-id="accc8-135">İçinde `Startup` sınıfı, kullanmak için aşağıdaki ad alanı alma `OpenApiInfo` sınıfı:</span><span class="sxs-lookup"><span data-stu-id="accc8-135">In the `Startup` class, import the following namespace to use the `OpenApiInfo` class:</span></span>
+<span data-ttu-id="ee5e7-137">Sınıfında, `OpenApiInfo` sınıfını kullanmak için aşağıdaki ad alanını içeri aktarın: `Startup`</span><span class="sxs-lookup"><span data-stu-id="ee5e7-137">In the `Startup` class, import the following namespace to use the `OpenApiInfo` class:</span></span>
 
 [!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/2.0/TodoApi.Swashbuckle/Startup2.cs?name=snippet_InfoClassNamespace)]
 
-<span data-ttu-id="accc8-136">Swagger oluşturucusunu Hizmetleri koleksiyona eklemek `Startup.ConfigureServices` yöntemi:</span><span class="sxs-lookup"><span data-stu-id="accc8-136">Add the Swagger generator to the services collection in the `Startup.ConfigureServices` method:</span></span>
+<span data-ttu-id="ee5e7-138">`Startup.ConfigureServices` Yöntemdeki Services koleksiyonuna Swagger oluşturucuyu ekleyin:</span><span class="sxs-lookup"><span data-stu-id="ee5e7-138">Add the Swagger generator to the services collection in the `Startup.ConfigureServices` method:</span></span>
 
 ::: moniker range="<= aspnetcore-2.0"
 
@@ -93,47 +95,47 @@ dotnet add TodoApi.csproj package Swashbuckle.AspNetCore -v 5.0.0-rc2
 
 ::: moniker-end
 
-<span data-ttu-id="accc8-137">İçinde `Startup.Configure` yöntemi, oluşturulan JSON belgesini ve Swagger kullanıcı arabirimini sunulması için Ara yazılımlarını etkinleştir:</span><span class="sxs-lookup"><span data-stu-id="accc8-137">In the `Startup.Configure` method, enable the middleware for serving the generated JSON document and the Swagger UI:</span></span>
+<span data-ttu-id="ee5e7-139">`Startup.Configure` Yönteminde, oluşturulan JSON belgesine ve Swagger Kullanıcı arabirimine hizmet veren ara yazılımı etkinleştirin:</span><span class="sxs-lookup"><span data-stu-id="ee5e7-139">In the `Startup.Configure` method, enable the middleware for serving the generated JSON document and the Swagger UI:</span></span>
 
 [!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/2.0/TodoApi.Swashbuckle/Startup2.cs?name=snippet_Configure&highlight=4,8-11)]
 
-<span data-ttu-id="accc8-138">Önceki `UseSwaggerUI` yöntem çağrısının sağlayan [statik dosya ara yazılımlarını](xref:fundamentals/static-files).</span><span class="sxs-lookup"><span data-stu-id="accc8-138">The preceding `UseSwaggerUI` method call enables the [Static File Middleware](xref:fundamentals/static-files).</span></span> <span data-ttu-id="accc8-139">.NET Framework veya .NET targeting, Core 1.x sürümüne, ekleme [Microsoft.AspNetCore.StaticFiles](https://www.nuget.org/packages/Microsoft.AspNetCore.StaticFiles/) NuGet paketini projeye.</span><span class="sxs-lookup"><span data-stu-id="accc8-139">If targeting .NET Framework or .NET Core 1.x, add the [Microsoft.AspNetCore.StaticFiles](https://www.nuget.org/packages/Microsoft.AspNetCore.StaticFiles/) NuGet package to the project.</span></span>
+<span data-ttu-id="ee5e7-140">Önceki `UseSwaggerUI` Yöntem çağrısı [statik dosya ara yazılımını](xref:fundamentals/static-files)sunar.</span><span class="sxs-lookup"><span data-stu-id="ee5e7-140">The preceding `UseSwaggerUI` method call enables the [Static File Middleware](xref:fundamentals/static-files).</span></span> <span data-ttu-id="ee5e7-141">.NET Framework veya .NET Core 1. x 'i hedefliyorsanız, projeye [Microsoft. AspNetCore. StaticFiles](https://www.nuget.org/packages/Microsoft.AspNetCore.StaticFiles/) NuGet paketini ekleyin.</span><span class="sxs-lookup"><span data-stu-id="ee5e7-141">If targeting .NET Framework or .NET Core 1.x, add the [Microsoft.AspNetCore.StaticFiles](https://www.nuget.org/packages/Microsoft.AspNetCore.StaticFiles/) NuGet package to the project.</span></span>
 
-<span data-ttu-id="accc8-140">Uygulamayı başlatın ve gidin `http://localhost:<port>/swagger/v1/swagger.json`.</span><span class="sxs-lookup"><span data-stu-id="accc8-140">Launch the app, and navigate to `http://localhost:<port>/swagger/v1/swagger.json`.</span></span> <span data-ttu-id="accc8-141">Uç noktaları açıklayan oluşturulan belgenin gösterildiği görünür [Swagger belirtimi (swagger.json)](xref:tutorials/web-api-help-pages-using-swagger#swagger-specification-swaggerjson).</span><span class="sxs-lookup"><span data-stu-id="accc8-141">The generated document describing the endpoints appears as shown in [Swagger specification (swagger.json)](xref:tutorials/web-api-help-pages-using-swagger#swagger-specification-swaggerjson).</span></span>
+<span data-ttu-id="ee5e7-142">Uygulamayı başlatın ve adresine `http://localhost:<port>/swagger/v1/swagger.json`gidin.</span><span class="sxs-lookup"><span data-stu-id="ee5e7-142">Launch the app, and navigate to `http://localhost:<port>/swagger/v1/swagger.json`.</span></span> <span data-ttu-id="ee5e7-143">Uç noktaları tanımlayan oluşturulan belge, [Swagger belirtiminde (Swagger. JSON)](xref:tutorials/web-api-help-pages-using-swagger#swagger-specification-swaggerjson)gösterildiği gibi görünür.</span><span class="sxs-lookup"><span data-stu-id="ee5e7-143">The generated document describing the endpoints appears as shown in [Swagger specification (swagger.json)](xref:tutorials/web-api-help-pages-using-swagger#swagger-specification-swaggerjson).</span></span>
 
-<span data-ttu-id="accc8-142">Swagger kullanıcı arabirimini şu yolda bulunabilir: `http://localhost:<port>/swagger`.</span><span class="sxs-lookup"><span data-stu-id="accc8-142">The Swagger UI can be found at `http://localhost:<port>/swagger`.</span></span> <span data-ttu-id="accc8-143">Swagger kullanıcı Arabirimi API'yi keşfedin ve diğer programlarda dahil edilip derecelendirilir.</span><span class="sxs-lookup"><span data-stu-id="accc8-143">Explore the API via Swagger UI and incorporate it in other programs.</span></span>
+<span data-ttu-id="ee5e7-144">Swagger Kullanıcı arabirimi adresinde `http://localhost:<port>/swagger`bulunabilir.</span><span class="sxs-lookup"><span data-stu-id="ee5e7-144">The Swagger UI can be found at `http://localhost:<port>/swagger`.</span></span> <span data-ttu-id="ee5e7-145">Swagger Kullanıcı arabirimi aracılığıyla API 'YI keşfet ve diğer programlarda birleştirme.</span><span class="sxs-lookup"><span data-stu-id="ee5e7-145">Explore the API via Swagger UI and incorporate it in other programs.</span></span>
 
 > [!TIP]
-> <span data-ttu-id="accc8-144">Swagger kullanıcı arabirimini uygulamanın kök dizininde hizmet (`http://localhost:<port>/`) ayarlayın `RoutePrefix` boş bir dize özelliğini:</span><span class="sxs-lookup"><span data-stu-id="accc8-144">To serve the Swagger UI at the app's root (`http://localhost:<port>/`), set the `RoutePrefix` property to an empty string:</span></span>
+> <span data-ttu-id="ee5e7-146">Swagger Kullanıcı arabirimine uygulamanın kökünde (`http://localhost:<port>/`) hizmeti sağlamak için, `RoutePrefix` özelliğini boş bir dizeye ayarlayın:</span><span class="sxs-lookup"><span data-stu-id="ee5e7-146">To serve the Swagger UI at the app's root (`http://localhost:<port>/`), set the `RoutePrefix` property to an empty string:</span></span>
 >
 > [!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/2.0/TodoApi.Swashbuckle/Startup3.cs?name=snippet_UseSwaggerUI&highlight=4)]
 
-<span data-ttu-id="accc8-145">IIS veya ters bir proxy ile #using Directories ayarlarsanız Swagger uç nokta kullanarak bir göreli yol `./` önek.</span><span class="sxs-lookup"><span data-stu-id="accc8-145">If using directories with IIS or a reverse proxy, set the Swagger endpoint to a relative path using the `./` prefix.</span></span> <span data-ttu-id="accc8-146">Örneğin: `./swagger/v1/swagger.json`</span><span class="sxs-lookup"><span data-stu-id="accc8-146">For example, `./swagger/v1/swagger.json`.</span></span> <span data-ttu-id="accc8-147">Kullanarak `/swagger/v1/swagger.json` URL (artı kullandıysanız rota öneki) true kökünde JSON dosyasını bulmak için uygulama bildirir.</span><span class="sxs-lookup"><span data-stu-id="accc8-147">Using `/swagger/v1/swagger.json` instructs the app to look for the JSON file at the true root of the URL (plus the route prefix, if used).</span></span> <span data-ttu-id="accc8-148">Örneğin, `http://localhost:<port>/<route_prefix>/swagger/v1/swagger.json` yerine `http://localhost:<port>/<virtual_directory>/<route_prefix>/swagger/v1/swagger.json`.</span><span class="sxs-lookup"><span data-stu-id="accc8-148">For example, use `http://localhost:<port>/<route_prefix>/swagger/v1/swagger.json` instead of `http://localhost:<port>/<virtual_directory>/<route_prefix>/swagger/v1/swagger.json`.</span></span>
+<span data-ttu-id="ee5e7-147">IIS veya ters proxy ile dizin kullanıyorsanız, Swagger uç noktasını, `./` öneki kullanılarak göreli bir yol olarak ayarlayın.</span><span class="sxs-lookup"><span data-stu-id="ee5e7-147">If using directories with IIS or a reverse proxy, set the Swagger endpoint to a relative path using the `./` prefix.</span></span> <span data-ttu-id="ee5e7-148">Örneğin: `./swagger/v1/swagger.json`.</span><span class="sxs-lookup"><span data-stu-id="ee5e7-148">For example, `./swagger/v1/swagger.json`.</span></span> <span data-ttu-id="ee5e7-149">Kullanarak `/swagger/v1/swagger.json` , uygulamanın URL 'nin gerçek kökünde json dosyasını aramasını söyler (Ayrıca kullanılıyorsa rota öneki).</span><span class="sxs-lookup"><span data-stu-id="ee5e7-149">Using `/swagger/v1/swagger.json` instructs the app to look for the JSON file at the true root of the URL (plus the route prefix, if used).</span></span> <span data-ttu-id="ee5e7-150">Örneğin, `http://localhost:<port>/<route_prefix>/swagger/v1/swagger.json` `http://localhost:<port>/<virtual_directory>/<route_prefix>/swagger/v1/swagger.json`yerine kullanın.</span><span class="sxs-lookup"><span data-stu-id="ee5e7-150">For example, use `http://localhost:<port>/<route_prefix>/swagger/v1/swagger.json` instead of `http://localhost:<port>/<virtual_directory>/<route_prefix>/swagger/v1/swagger.json`.</span></span>
 
-## <a name="customize-and-extend"></a><span data-ttu-id="accc8-149">Özelleştirme ve genişletme</span><span class="sxs-lookup"><span data-stu-id="accc8-149">Customize and extend</span></span>
+## <a name="customize-and-extend"></a><span data-ttu-id="ee5e7-151">Özelleştirme ve genişletme</span><span class="sxs-lookup"><span data-stu-id="ee5e7-151">Customize and extend</span></span>
 
-<span data-ttu-id="accc8-150">Swagger temanızı eşleştirmek için nesne modeli belgelemekten ve kullanıcı arabirimini özelleştirme seçenekleri sağlar.</span><span class="sxs-lookup"><span data-stu-id="accc8-150">Swagger provides options for documenting the object model and customizing the UI to match your theme.</span></span>
+<span data-ttu-id="ee5e7-152">Swagger, nesne modelini belgeleme ve Kullanıcı arabirimini temanızla eşleşecek şekilde özelleştirme seçenekleri sağlar.</span><span class="sxs-lookup"><span data-stu-id="ee5e7-152">Swagger provides options for documenting the object model and customizing the UI to match your theme.</span></span>
 
-### <a name="api-info-and-description"></a><span data-ttu-id="accc8-151">API bilgisi ve açıklama</span><span class="sxs-lookup"><span data-stu-id="accc8-151">API info and description</span></span>
+### <a name="api-info-and-description"></a><span data-ttu-id="ee5e7-153">API bilgisi ve açıklaması</span><span class="sxs-lookup"><span data-stu-id="ee5e7-153">API info and description</span></span>
 
-<span data-ttu-id="accc8-152">Yapılandırma eylemi geçirilen `AddSwaggerGen` yöntemi yazar, lisans ve açıklaması gibi bilgileri ekler:</span><span class="sxs-lookup"><span data-stu-id="accc8-152">The configuration action passed to the `AddSwaggerGen` method adds information such as the author, license, and description:</span></span>
+<span data-ttu-id="ee5e7-154">`AddSwaggerGen` Yöntemine geçirilen yapılandırma eylemi yazar, lisans ve açıklama gibi bilgileri ekler:</span><span class="sxs-lookup"><span data-stu-id="ee5e7-154">The configuration action passed to the `AddSwaggerGen` method adds information such as the author, license, and description:</span></span>
 
 [!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/2.0/TodoApi.Swashbuckle/Startup4.cs?name=snippet_AddSwaggerGen)]
 
-<span data-ttu-id="accc8-153">Swagger kullanıcı arabirimini sürüme ait bilgileri görüntüler:</span><span class="sxs-lookup"><span data-stu-id="accc8-153">The Swagger UI displays the version's information:</span></span>
+<span data-ttu-id="ee5e7-155">Swagger Kullanıcı arabirimi, sürümün bilgilerini görüntüler:</span><span class="sxs-lookup"><span data-stu-id="ee5e7-155">The Swagger UI displays the version's information:</span></span>
 
-![Swagger kullanıcı Arabirimi ile sürüm bilgisi: açıklama, yazar ve daha fazla bağlantıya göz atın](web-api-help-pages-using-swagger/_static/custom-info.png)
+![Sürüm bilgileriyle Swagger Kullanıcı arabirimi: Açıklama, yazar ve daha fazla bağlantı görüntüle](web-api-help-pages-using-swagger/_static/custom-info.png)
 
-### <a name="xml-comments"></a><span data-ttu-id="accc8-155">XML açıklamaları</span><span class="sxs-lookup"><span data-stu-id="accc8-155">XML comments</span></span>
+### <a name="xml-comments"></a><span data-ttu-id="ee5e7-157">XML açıklamaları</span><span class="sxs-lookup"><span data-stu-id="ee5e7-157">XML comments</span></span>
 
-<span data-ttu-id="accc8-156">XML açıklamaları aşağıdaki yaklaşımlardan ile etkin hale getirilebilir:</span><span class="sxs-lookup"><span data-stu-id="accc8-156">XML comments can be enabled with the following approaches:</span></span>
+<span data-ttu-id="ee5e7-158">XML açıklamaları aşağıdaki yaklaşımlar ile etkinleştirilebilir:</span><span class="sxs-lookup"><span data-stu-id="ee5e7-158">XML comments can be enabled with the following approaches:</span></span>
 
-#### <a name="visual-studiotabvisual-studio"></a>[<span data-ttu-id="accc8-157">Visual Studio</span><span class="sxs-lookup"><span data-stu-id="accc8-157">Visual Studio</span></span>](#tab/visual-studio)
+#### <a name="visual-studiotabvisual-studio"></a>[<span data-ttu-id="ee5e7-159">Visual Studio</span><span class="sxs-lookup"><span data-stu-id="ee5e7-159">Visual Studio</span></span>](#tab/visual-studio)
 
 ::: moniker range=">= aspnetcore-2.0"
 
-* <span data-ttu-id="accc8-158">Projeye sağ **Çözüm Gezgini** seçip **< project_name > .csproj Düzenle**.</span><span class="sxs-lookup"><span data-stu-id="accc8-158">Right-click the project in **Solution Explorer** and select **Edit <project_name>.csproj**.</span></span>
-* <span data-ttu-id="accc8-159">El ile vurgulanan satırları ekleyin *.csproj* dosyası:</span><span class="sxs-lookup"><span data-stu-id="accc8-159">Manually add the highlighted lines to the *.csproj* file:</span></span>
+* <span data-ttu-id="ee5e7-160">**Çözüm Gezgini** projeye sağ tıklayın ve **düzenle < Project_Name >. csproj**' yı seçin.</span><span class="sxs-lookup"><span data-stu-id="ee5e7-160">Right-click the project in **Solution Explorer** and select **Edit <project_name>.csproj**.</span></span>
+* <span data-ttu-id="ee5e7-161">Vurgulanan satırları *. csproj* dosyasına el ile ekleyin:</span><span class="sxs-lookup"><span data-stu-id="ee5e7-161">Manually add the highlighted lines to the *.csproj* file:</span></span>
 
 [!code-xml[](../tutorials/web-api-help-pages-using-swagger/samples/2.1/TodoApi.Swashbuckle/TodoApi.csproj?name=snippet_SuppressWarnings&highlight=1-2,4)]
 
@@ -141,17 +143,17 @@ dotnet add TodoApi.csproj package Swashbuckle.AspNetCore -v 5.0.0-rc2
 
 ::: moniker range="<= aspnetcore-1.1"
 
-* <span data-ttu-id="accc8-160">Projeye sağ **Çözüm Gezgini** seçip **özellikleri**.</span><span class="sxs-lookup"><span data-stu-id="accc8-160">Right-click the project in **Solution Explorer** and select **Properties**.</span></span>
-* <span data-ttu-id="accc8-161">Denetleme **XML belge dosyası** altında kutusunda **çıkış** bölümünü **derleme** sekmesi.</span><span class="sxs-lookup"><span data-stu-id="accc8-161">Check the **XML documentation file** box under the **Output** section of the **Build** tab.</span></span>
+* <span data-ttu-id="ee5e7-162">Projeye sağ **Çözüm Gezgini** seçip **özellikleri**.</span><span class="sxs-lookup"><span data-stu-id="ee5e7-162">Right-click the project in **Solution Explorer** and select **Properties**.</span></span>
+* <span data-ttu-id="ee5e7-163">**Build** sekmesinin **output** bölümünün altındaki **XML belge dosyası** kutusunu işaretleyin.</span><span class="sxs-lookup"><span data-stu-id="ee5e7-163">Check the **XML documentation file** box under the **Output** section of the **Build** tab.</span></span>
 
 ::: moniker-end
 
-#### <a name="visual-studio-for-mactabvisual-studio-mac"></a>[<span data-ttu-id="accc8-162">Mac için Visual Studio</span><span class="sxs-lookup"><span data-stu-id="accc8-162">Visual Studio for Mac</span></span>](#tab/visual-studio-mac)
+#### <a name="visual-studio-for-mactabvisual-studio-mac"></a>[<span data-ttu-id="ee5e7-164">Mac için Visual Studio</span><span class="sxs-lookup"><span data-stu-id="ee5e7-164">Visual Studio for Mac</span></span>](#tab/visual-studio-mac)
 
 ::: moniker range=">= aspnetcore-2.0"
 
-* <span data-ttu-id="accc8-163">Gelen *çözüm bölmesi*, basın **denetim** ve proje adına tıklayın.</span><span class="sxs-lookup"><span data-stu-id="accc8-163">From the *Solution Pad*, press **control** and click the project name.</span></span> <span data-ttu-id="accc8-164">Gidin **Araçları** > **dosyasını düzenleyin**.</span><span class="sxs-lookup"><span data-stu-id="accc8-164">Navigate to **Tools** > **Edit File**.</span></span>
-* <span data-ttu-id="accc8-165">El ile vurgulanan satırları ekleyin *.csproj* dosyası:</span><span class="sxs-lookup"><span data-stu-id="accc8-165">Manually add the highlighted lines to the *.csproj* file:</span></span>
+* <span data-ttu-id="ee5e7-165">*Çözüm bölmesi*, **Denetim** ' e basın ve proje adına tıklayın.</span><span class="sxs-lookup"><span data-stu-id="ee5e7-165">From the *Solution Pad*, press **control** and click the project name.</span></span> <span data-ttu-id="ee5e7-166">**Araçlar** > **dosya düzenleme**sayfasına gidin.</span><span class="sxs-lookup"><span data-stu-id="ee5e7-166">Navigate to **Tools** > **Edit File**.</span></span>
+* <span data-ttu-id="ee5e7-167">Vurgulanan satırları *. csproj* dosyasına el ile ekleyin:</span><span class="sxs-lookup"><span data-stu-id="ee5e7-167">Manually add the highlighted lines to the *.csproj* file:</span></span>
 
 [!code-xml[](../tutorials/web-api-help-pages-using-swagger/samples/2.1/TodoApi.Swashbuckle/TodoApi.csproj?name=snippet_SuppressWarnings&highlight=1-2,4)]
 
@@ -159,14 +161,14 @@ dotnet add TodoApi.csproj package Swashbuckle.AspNetCore -v 5.0.0-rc2
 
 ::: moniker range="<= aspnetcore-1.1"
 
-* <span data-ttu-id="accc8-166">Açık **proje seçenekleri** iletişim > **derleme** > **derleyici**</span><span class="sxs-lookup"><span data-stu-id="accc8-166">Open the **Project Options** dialog > **Build** > **Compiler**</span></span>
-* <span data-ttu-id="accc8-167">Denetleme **xml belgeleri oluştur** altında kutusunda **genel seçenekleri** bölümü</span><span class="sxs-lookup"><span data-stu-id="accc8-167">Check the **Generate xml documentation** box under the **General Options** section</span></span>
+* <span data-ttu-id="ee5e7-168">**Derleme**   derleyicisi>proje> seçenekleri iletişim kutusunu açın</span><span class="sxs-lookup"><span data-stu-id="ee5e7-168">Open the **Project Options** dialog > **Build** > **Compiler**</span></span>
+* <span data-ttu-id="ee5e7-169">**Genel Seçenekler** bölümünün altındaki **XML oluştur belge** kutusunu işaretleyin</span><span class="sxs-lookup"><span data-stu-id="ee5e7-169">Check the **Generate xml documentation** box under the **General Options** section</span></span>
 
 ::: moniker-end
 
-#### <a name="visual-studio-codetabvisual-studio-code"></a>[<span data-ttu-id="accc8-168">Visual Studio Code</span><span class="sxs-lookup"><span data-stu-id="accc8-168">Visual Studio Code</span></span>](#tab/visual-studio-code)
+#### <a name="visual-studio-codetabvisual-studio-code"></a>[<span data-ttu-id="ee5e7-170">Visual Studio Code</span><span class="sxs-lookup"><span data-stu-id="ee5e7-170">Visual Studio Code</span></span>](#tab/visual-studio-code)
 
-<span data-ttu-id="accc8-169">El ile vurgulanan satırları ekleyin *.csproj* dosyası:</span><span class="sxs-lookup"><span data-stu-id="accc8-169">Manually add the highlighted lines to the *.csproj* file:</span></span>
+<span data-ttu-id="ee5e7-171">Vurgulanan satırları *. csproj* dosyasına el ile ekleyin:</span><span class="sxs-lookup"><span data-stu-id="ee5e7-171">Manually add the highlighted lines to the *.csproj* file:</span></span>
 
 ::: moniker range=">= aspnetcore-2.0"
 
@@ -180,9 +182,9 @@ dotnet add TodoApi.csproj package Swashbuckle.AspNetCore -v 5.0.0-rc2
 
 ::: moniker-end
 
-#### <a name="net-core-clitabnetcore-cli"></a>[<span data-ttu-id="accc8-170">.NET Core CLI</span><span class="sxs-lookup"><span data-stu-id="accc8-170">.NET Core CLI</span></span>](#tab/netcore-cli)
+#### <a name="net-core-clitabnetcore-cli"></a>[<span data-ttu-id="ee5e7-172">.NET Core CLI</span><span class="sxs-lookup"><span data-stu-id="ee5e7-172">.NET Core CLI</span></span>](#tab/netcore-cli)
 
-<span data-ttu-id="accc8-171">El ile vurgulanan satırları ekleyin *.csproj* dosyası:</span><span class="sxs-lookup"><span data-stu-id="accc8-171">Manually add the highlighted lines to the *.csproj* file:</span></span>
+<span data-ttu-id="ee5e7-173">Vurgulanan satırları *. csproj* dosyasına el ile ekleyin:</span><span class="sxs-lookup"><span data-stu-id="ee5e7-173">Manually add the highlighted lines to the *.csproj* file:</span></span>
 
 ::: moniker range=">= aspnetcore-2.0"
 
@@ -198,13 +200,13 @@ dotnet add TodoApi.csproj package Swashbuckle.AspNetCore -v 5.0.0-rc2
 
 ---
 
-<span data-ttu-id="accc8-172">XML açıklamaları'nı etkinleştirme, belgelenmemiş genel türler ve üyeler için hata ayıklama bilgileri sağlar.</span><span class="sxs-lookup"><span data-stu-id="accc8-172">Enabling XML comments provides debug information for undocumented public types and members.</span></span> <span data-ttu-id="accc8-173">Belgelenmemiş türleri ve üyeleri tarafından uyarı iletisinde gösterilir.</span><span class="sxs-lookup"><span data-stu-id="accc8-173">Undocumented types and members are indicated by the warning message.</span></span> <span data-ttu-id="accc8-174">Örneğin, aşağıdaki ileti uyarı kodu 1591 ihlalini gösterir:</span><span class="sxs-lookup"><span data-stu-id="accc8-174">For example, the following message indicates a violation of warning code 1591:</span></span>
+<span data-ttu-id="ee5e7-174">XML açıklamalarını etkinleştirmek, belgelenmemiş ortak türler ve Üyeler için hata ayıklama bilgileri sağlar.</span><span class="sxs-lookup"><span data-stu-id="ee5e7-174">Enabling XML comments provides debug information for undocumented public types and members.</span></span> <span data-ttu-id="ee5e7-175">Belgelenmemiş türler ve Üyeler uyarı iletisiyle belirtilir.</span><span class="sxs-lookup"><span data-stu-id="ee5e7-175">Undocumented types and members are indicated by the warning message.</span></span> <span data-ttu-id="ee5e7-176">Örneğin, aşağıdaki ileti 1591 uyarı kodunu ihlal eder:</span><span class="sxs-lookup"><span data-stu-id="ee5e7-176">For example, the following message indicates a violation of warning code 1591:</span></span>
 
 ```text
 warning CS1591: Missing XML comment for publicly visible type or member 'TodoController.GetAll()'
 ```
 
-<span data-ttu-id="accc8-175">Proje genelinde uyarıları bastırmak için proje dosyasında yok saymak için uyarı kodlarının noktalı virgülle ayrılmış bir listesini tanımlar.</span><span class="sxs-lookup"><span data-stu-id="accc8-175">To suppress warnings project-wide, define a semicolon-delimited list of warning codes to ignore in the project file.</span></span> <span data-ttu-id="accc8-176">Ekleme için uyarı kodlarının `$(NoWarn);` geçerlidir [ C# varsayılan değerler](https://github.com/dotnet/sdk/blob/2eb6c546931b5bcb92cd3128b93932a980553ea1/src/Tasks/Microsoft.NET.Build.Tasks/targets/Microsoft.NET.Sdk.CSharp.props#L16) çok.</span><span class="sxs-lookup"><span data-stu-id="accc8-176">Appending the warning codes to `$(NoWarn);` applies the [C# default values](https://github.com/dotnet/sdk/blob/2eb6c546931b5bcb92cd3128b93932a980553ea1/src/Tasks/Microsoft.NET.Build.Tasks/targets/Microsoft.NET.Sdk.CSharp.props#L16) too.</span></span>
+<span data-ttu-id="ee5e7-177">Uyarıları proje genelinde gizlemek için, proje dosyasında yoksayılacak uyarı kodlarının noktalı virgülle ayrılmış bir listesini tanımlayın.</span><span class="sxs-lookup"><span data-stu-id="ee5e7-177">To suppress warnings project-wide, define a semicolon-delimited list of warning codes to ignore in the project file.</span></span> <span data-ttu-id="ee5e7-178">Uyarı kodlarının `$(NoWarn);` eklenmesi [ C# varsayılan değerleri](https://github.com/dotnet/sdk/blob/2eb6c546931b5bcb92cd3128b93932a980553ea1/src/Tasks/Microsoft.NET.Build.Tasks/targets/Microsoft.NET.Sdk.CSharp.props#L16) de uygular.</span><span class="sxs-lookup"><span data-stu-id="ee5e7-178">Appending the warning codes to `$(NoWarn);` applies the [C# default values](https://github.com/dotnet/sdk/blob/2eb6c546931b5bcb92cd3128b93932a980553ea1/src/Tasks/Microsoft.NET.Build.Tasks/targets/Microsoft.NET.Sdk.CSharp.props#L16) too.</span></span>
 
 ::: moniker range=">= aspnetcore-2.0"
 
@@ -218,7 +220,7 @@ warning CS1591: Missing XML comment for publicly visible type or member 'TodoCon
 
 ::: moniker-end
 
-<span data-ttu-id="accc8-177">Yalnızca belirli üyeleri için uyarıları bastırmak için kod içine [#pragma Uyarısı](/dotnet/csharp/language-reference/preprocessor-directives/preprocessor-pragma-warning) önişlemci yönergeleri.</span><span class="sxs-lookup"><span data-stu-id="accc8-177">To suppress warnings only for specific members, enclose the code in [#pragma warning](/dotnet/csharp/language-reference/preprocessor-directives/preprocessor-pragma-warning) preprocessor directives.</span></span> <span data-ttu-id="accc8-178">Bu yaklaşım, API belgeleri kullanıma sunulan olmamalıdır kod için kullanışlıdır. Aşağıdaki örnekte, tüm uyarı kodu CS1591 göz ardı edilir `Program` sınıfı.</span><span class="sxs-lookup"><span data-stu-id="accc8-178">This approach is useful for code that shouldn't be exposed via the API docs. In the following example, warning code CS1591 is ignored for the entire `Program` class.</span></span> <span data-ttu-id="accc8-179">Zorlama uyarı kodun sınıf tanımının kapanışında geri yüklenir.</span><span class="sxs-lookup"><span data-stu-id="accc8-179">Enforcement of the warning code is restored at the close of the class definition.</span></span> <span data-ttu-id="accc8-180">Birden çok uyarı kodlarının virgülle ayrılmış bir liste belirtin.</span><span class="sxs-lookup"><span data-stu-id="accc8-180">Specify multiple warning codes with a comma-delimited list.</span></span>
+<span data-ttu-id="ee5e7-179">Yalnızca belirli Üyeler için uyarıları gizlemek için, kodu [#pragma uyarı](/dotnet/csharp/language-reference/preprocessor-directives/preprocessor-pragma-warning) Önişlemci yönergeleri arasına alın.</span><span class="sxs-lookup"><span data-stu-id="ee5e7-179">To suppress warnings only for specific members, enclose the code in [#pragma warning](/dotnet/csharp/language-reference/preprocessor-directives/preprocessor-pragma-warning) preprocessor directives.</span></span> <span data-ttu-id="ee5e7-180">Bu yaklaşım, API belgeleri aracılığıyla sunulmaması gereken kod için yararlıdır. Aşağıdaki örnekte, tüm `Program` sınıf için uyarı kodu CS1591 yok sayılır.</span><span class="sxs-lookup"><span data-stu-id="ee5e7-180">This approach is useful for code that shouldn't be exposed via the API docs. In the following example, warning code CS1591 is ignored for the entire `Program` class.</span></span> <span data-ttu-id="ee5e7-181">Uyarı kodu zorlaması sınıf tanımının kapandığına geri yüklenir.</span><span class="sxs-lookup"><span data-stu-id="ee5e7-181">Enforcement of the warning code is restored at the close of the class definition.</span></span> <span data-ttu-id="ee5e7-182">Virgülle ayrılmış bir liste ile birden çok uyarı kodu belirtin.</span><span class="sxs-lookup"><span data-stu-id="ee5e7-182">Specify multiple warning codes with a comma-delimited list.</span></span>
 
 ```csharp
 namespace TodoApi
@@ -238,7 +240,7 @@ namespace TodoApi
 }
 ```
 
-<span data-ttu-id="accc8-181">Oluşturulan XML dosyası yukarıdaki yönergeleri ile kullanmak için Swagger'ı yapılandırın.</span><span class="sxs-lookup"><span data-stu-id="accc8-181">Configure Swagger to use the XML file that's generated with the preceding instructions.</span></span> <span data-ttu-id="accc8-182">Linux veya Windows olmayan işletim sistemleri için dosya adlarını ve yollarını büyük küçük harfe duyarlı olabilir.</span><span class="sxs-lookup"><span data-stu-id="accc8-182">For Linux or non-Windows operating systems, file names and paths can be case-sensitive.</span></span> <span data-ttu-id="accc8-183">Örneğin, bir *TodoApi.XML* dosya, Windows ancak değil CentOS geçerlidir.</span><span class="sxs-lookup"><span data-stu-id="accc8-183">For example, a *TodoApi.XML* file is valid on Windows but not CentOS.</span></span>
+<span data-ttu-id="ee5e7-183">Swagger 'yi yukarıdaki yönergelerle oluşturulan XML dosyasını kullanacak şekilde yapılandırın.</span><span class="sxs-lookup"><span data-stu-id="ee5e7-183">Configure Swagger to use the XML file that's generated with the preceding instructions.</span></span> <span data-ttu-id="ee5e7-184">Linux veya Windows dışı işletim sistemleri için dosya adları ve yolları büyük/küçük harfe duyarlı olabilir.</span><span class="sxs-lookup"><span data-stu-id="ee5e7-184">For Linux or non-Windows operating systems, file names and paths can be case-sensitive.</span></span> <span data-ttu-id="ee5e7-185">Örneğin, *TodoApi. xml* dosyası Windows üzerinde geçerlidir ancak CentOS değildir.</span><span class="sxs-lookup"><span data-stu-id="ee5e7-185">For example, a *TodoApi.XML* file is valid on Windows but not CentOS.</span></span>
 
 ::: moniker range=">= aspnetcore-2.1"
 
@@ -258,17 +260,17 @@ namespace TodoApi
 
 ::: moniker-end
 
-<span data-ttu-id="accc8-184">Önceki kodda, [yansıma](/dotnet/csharp/programming-guide/concepts/reflection) web API projesi, eşleşen bir XML dosya adı oluşturmak için kullanılır.</span><span class="sxs-lookup"><span data-stu-id="accc8-184">In the preceding code, [Reflection](/dotnet/csharp/programming-guide/concepts/reflection) is used to build an XML file name matching that of the web API project.</span></span> <span data-ttu-id="accc8-185">[AppContext.BaseDirectory](xref:System.AppContext.BaseDirectory*) özelliği, bir XML dosyasının yolu oluşturmak için kullanılır.</span><span class="sxs-lookup"><span data-stu-id="accc8-185">The [AppContext.BaseDirectory](xref:System.AppContext.BaseDirectory*) property is used to construct a path to the XML file.</span></span> <span data-ttu-id="accc8-186">XML belge dosyası kullanmadan bazı Swagger özellikler (örneğin, şemaların giriş parametreleri veya HTTP yöntemleri ve ilgili özniteliklerden yanıt kodları) çalışır.</span><span class="sxs-lookup"><span data-stu-id="accc8-186">Some Swagger features (for example, schemata of input parameters or HTTP methods and response codes from the respective attributes) work without the use of an XML documentation file.</span></span> <span data-ttu-id="accc8-187">Çoğu özelliği için yöntemi özetler ve açıklamalar parametrelerinin ve yanıt kodları, bir XML dosyasının zorunludur.</span><span class="sxs-lookup"><span data-stu-id="accc8-187">For most features, namely method summaries and the descriptions of parameters and response codes, the use of an XML file is mandatory.</span></span>
+<span data-ttu-id="ee5e7-186">Yukarıdaki kodda, [yansıma](/dotnet/csharp/programming-guide/concepts/reflection) , Web API projesi ile eşleşen bir XML dosya adı oluşturmak için kullanılır.</span><span class="sxs-lookup"><span data-stu-id="ee5e7-186">In the preceding code, [Reflection](/dotnet/csharp/programming-guide/concepts/reflection) is used to build an XML file name matching that of the web API project.</span></span> <span data-ttu-id="ee5e7-187">[AppContext. BaseDirectory](xref:System.AppContext.BaseDirectory*) ÖZELLIĞI, XML dosyasının yolunu oluşturmak için kullanılır.</span><span class="sxs-lookup"><span data-stu-id="ee5e7-187">The [AppContext.BaseDirectory](xref:System.AppContext.BaseDirectory*) property is used to construct a path to the XML file.</span></span> <span data-ttu-id="ee5e7-188">Bazı Swagger özellikleri (örneğin, bir XML belge dosyası kullanılmadan, giriş parametrelerinin veya HTTP yöntemlerinin ve yanıt kodlarının) bir bölümü çalışır.</span><span class="sxs-lookup"><span data-stu-id="ee5e7-188">Some Swagger features (for example, schemata of input parameters or HTTP methods and response codes from the respective attributes) work without the use of an XML documentation file.</span></span> <span data-ttu-id="ee5e7-189">Çoğu özellik için, yöntem özetleri ve parametrelerin ve yanıt kodlarının açıklamaları, bir XML dosyası kullanımı zorunludur.</span><span class="sxs-lookup"><span data-stu-id="ee5e7-189">For most features, namely method summaries and the descriptions of parameters and response codes, the use of an XML file is mandatory.</span></span>
 
-<span data-ttu-id="accc8-188">Swagger kullanıcı arabirimini üç eğik çizgi açıklama eklemek için bir eylem için bölüm başlığı açıklama ekleyerek geliştirir.</span><span class="sxs-lookup"><span data-stu-id="accc8-188">Adding triple-slash comments to an action enhances the Swagger UI by adding the description to the section header.</span></span> <span data-ttu-id="accc8-189">Ekleme bir [ \<Özet >](/dotnet/csharp/programming-guide/xmldoc/summary) öğesi yukarıdaki `Delete` eylem:</span><span class="sxs-lookup"><span data-stu-id="accc8-189">Add a [\<summary>](/dotnet/csharp/programming-guide/xmldoc/summary) element above the `Delete` action:</span></span>
+<span data-ttu-id="ee5e7-190">Bir eyleme Üçlü eğik çizgi açıklamaları eklemek, Bölüm üstbilgisine açıklama ekleyerek Swagger Kullanıcı arabirimini geliştirir.</span><span class="sxs-lookup"><span data-stu-id="ee5e7-190">Adding triple-slash comments to an action enhances the Swagger UI by adding the description to the section header.</span></span> <span data-ttu-id="ee5e7-191">Eylemin`Delete` üstüne bir [ \<Summary >](/dotnet/csharp/programming-guide/xmldoc/summary) öğesi ekleyin:</span><span class="sxs-lookup"><span data-stu-id="ee5e7-191">Add a [\<summary>](/dotnet/csharp/programming-guide/xmldoc/summary) element above the `Delete` action:</span></span>
 
 [!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/2.0/TodoApi.Swashbuckle/Controllers/TodoController.cs?name=snippet_Delete&highlight=1-3)]
 
-<span data-ttu-id="accc8-190">Önceki kodun iç metni Swagger kullanıcı arabirimini görüntüler `<summary>` öğesi:</span><span class="sxs-lookup"><span data-stu-id="accc8-190">The Swagger UI displays the inner text of the preceding code's `<summary>` element:</span></span>
+<span data-ttu-id="ee5e7-192">Swagger Kullanıcı arabirimi, önceki kodun `<summary>` öğesinin iç metnini görüntüler:</span><span class="sxs-lookup"><span data-stu-id="ee5e7-192">The Swagger UI displays the inner text of the preceding code's `<summary>` element:</span></span>
 
-![Swagger 'Belirli bir Todoıtem siler.' XML açıklama gösteren bir kullanıcı Arabirimi](web-api-help-pages-using-swagger/_static/triple-slash-comments.png)
+![XML açıklamasını gösteren Swagger Kullanıcı arabirimi, belirli bir TodoItem siler.](web-api-help-pages-using-swagger/_static/triple-slash-comments.png)
 
-<span data-ttu-id="accc8-193">Kullanıcı Arabirimi tarafından oluşturulan JSON şema yönetilir:</span><span class="sxs-lookup"><span data-stu-id="accc8-193">The UI is driven by the generated JSON schema:</span></span>
+<span data-ttu-id="ee5e7-195">Kullanıcı arabirimi, oluşturulan JSON şeması tarafından çalıştırılır:</span><span class="sxs-lookup"><span data-stu-id="ee5e7-195">The UI is driven by the generated JSON schema:</span></span>
 
 ```json
 "delete": {
@@ -297,7 +299,7 @@ namespace TodoApi
 }
 ```
 
-<span data-ttu-id="accc8-194">Ekleme bir [ \<remarks >](/dotnet/csharp/programming-guide/xmldoc/remarks) öğesine `Create` eylem yöntemi belgeleri.</span><span class="sxs-lookup"><span data-stu-id="accc8-194">Add a [\<remarks>](/dotnet/csharp/programming-guide/xmldoc/remarks) element to the `Create` action method documentation.</span></span> <span data-ttu-id="accc8-195">Belirtilen bilgilerini tamamlayan `<summary>` öğesi ve daha güçlü bir Swagger kullanıcı Arabirimi sağlar.</span><span class="sxs-lookup"><span data-stu-id="accc8-195">It supplements information specified in the `<summary>` element and provides a more robust Swagger UI.</span></span> <span data-ttu-id="accc8-196">`<remarks>` Metin, JSON veya XML öğesi içeriği oluşabilir.</span><span class="sxs-lookup"><span data-stu-id="accc8-196">The `<remarks>` element content can consist of text, JSON, or XML.</span></span>
+<span data-ttu-id="ee5e7-196">Eylem yöntemi belgelerine bir [ \<açıklama >](/dotnet/csharp/programming-guide/xmldoc/remarks) öğesi ekleyin. `Create`</span><span class="sxs-lookup"><span data-stu-id="ee5e7-196">Add a [\<remarks>](/dotnet/csharp/programming-guide/xmldoc/remarks) element to the `Create` action method documentation.</span></span> <span data-ttu-id="ee5e7-197">`<summary>` Öğesinde belirtilen bilgileri tamamlar ve daha sağlam bir Swagger Kullanıcı arabirimi sağlar.</span><span class="sxs-lookup"><span data-stu-id="ee5e7-197">It supplements information specified in the `<summary>` element and provides a more robust Swagger UI.</span></span> <span data-ttu-id="ee5e7-198">`<remarks>` Öğe içeriği metin, JSON veya XML içerebilir.</span><span class="sxs-lookup"><span data-stu-id="ee5e7-198">The `<remarks>` element content can consist of text, JSON, or XML.</span></span>
 
 ::: moniker range="<= aspnetcore-2.0"
 
@@ -311,19 +313,19 @@ namespace TodoApi
 
 ::: moniker-end
 
-<span data-ttu-id="accc8-197">Bu ek açıklamaları olan kullanıcı Arabirimi geliştirmeleri dikkat edin:</span><span class="sxs-lookup"><span data-stu-id="accc8-197">Notice the UI enhancements with these additional comments:</span></span>
+<span data-ttu-id="ee5e7-199">Bu ek açıklamalarla UI geliştirmelerini göz unutmayın:</span><span class="sxs-lookup"><span data-stu-id="ee5e7-199">Notice the UI enhancements with these additional comments:</span></span>
 
-![Swagger kullanıcı Arabirimi ile gösterilen ek açıklamaları](web-api-help-pages-using-swagger/_static/xml-comments-extended.png)
+![Ek açıklamaların gösterildiği Swagger Kullanıcı arabirimi](web-api-help-pages-using-swagger/_static/xml-comments-extended.png)
 
-### <a name="data-annotations"></a><span data-ttu-id="accc8-199">Veri açıklamaları</span><span class="sxs-lookup"><span data-stu-id="accc8-199">Data annotations</span></span>
+### <a name="data-annotations"></a><span data-ttu-id="ee5e7-201">Veri açıklamaları</span><span class="sxs-lookup"><span data-stu-id="ee5e7-201">Data annotations</span></span>
 
-<span data-ttu-id="accc8-200">Öznitelikler bulundu, modeliyle süslemek [System.ComponentModel.DataAnnotations](/dotnet/api/system.componentmodel.dataannotations) Swagger kullanıcı Arabirimi bileşenleri sürücü yardımcı olması için ad alanı.</span><span class="sxs-lookup"><span data-stu-id="accc8-200">Decorate the model with attributes, found in the [System.ComponentModel.DataAnnotations](/dotnet/api/system.componentmodel.dataannotations) namespace, to help drive the Swagger UI components.</span></span>
+<span data-ttu-id="ee5e7-202">[System. ComponentModel. datanot](/dotnet/api/system.componentmodel.dataannotations) ad alanında bulunan ve bu modeli, Swagger Kullanıcı Arabirimi bileşenlerini kullanmanıza yardımcı olacak şekilde görüntüler.</span><span class="sxs-lookup"><span data-stu-id="ee5e7-202">Decorate the model with attributes, found in the [System.ComponentModel.DataAnnotations](/dotnet/api/system.componentmodel.dataannotations) namespace, to help drive the Swagger UI components.</span></span>
 
-<span data-ttu-id="accc8-201">Ekleme `[Required]` özniteliğini `Name` özelliği `TodoItem` sınıfı:</span><span class="sxs-lookup"><span data-stu-id="accc8-201">Add the `[Required]` attribute to the `Name` property of the `TodoItem` class:</span></span>
+<span data-ttu-id="ee5e7-203">`[Required]` Özniteliğini sınıfının`TodoItem` özelliğine ekleyin: `Name`</span><span class="sxs-lookup"><span data-stu-id="ee5e7-203">Add the `[Required]` attribute to the `Name` property of the `TodoItem` class:</span></span>
 
 [!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/2.0/TodoApi.Swashbuckle/Models/TodoItem.cs?highlight=10)]
 
-<span data-ttu-id="accc8-202">Bu öznitelik varlığını UI davranışını değiştirir ve temel alınan JSON şemasını değiştirir:</span><span class="sxs-lookup"><span data-stu-id="accc8-202">The presence of this attribute changes the UI behavior and alters the underlying JSON schema:</span></span>
+<span data-ttu-id="ee5e7-204">Bu özniteliğin varlığı, Kullanıcı arabirimi davranışını değiştirir ve temel alınan JSON şemasını değiştirir:</span><span class="sxs-lookup"><span data-stu-id="ee5e7-204">The presence of this attribute changes the UI behavior and alters the underlying JSON schema:</span></span>
 
 ```json
 "definitions": {
@@ -349,7 +351,7 @@ namespace TodoApi
 },
 ```
 
-<span data-ttu-id="accc8-203">Ekleme `[Produces("application/json")]` özniteliği için API denetleyicisi.</span><span class="sxs-lookup"><span data-stu-id="accc8-203">Add the `[Produces("application/json")]` attribute to the API controller.</span></span> <span data-ttu-id="accc8-204">Denetleyicinin eylemleri bir yanıt içerik türü desteği bildirmek için amacı olan *application/json*:</span><span class="sxs-lookup"><span data-stu-id="accc8-204">Its purpose is to declare that the controller's actions support a response content type of *application/json*:</span></span>
+<span data-ttu-id="ee5e7-205">`[Produces("application/json")]` Özniteliği API denetleyicisine ekleyin.</span><span class="sxs-lookup"><span data-stu-id="ee5e7-205">Add the `[Produces("application/json")]` attribute to the API controller.</span></span> <span data-ttu-id="ee5e7-206">Amaç, denetleyicinin eylemlerinin bir *uygulama/JSON*yanıt içerik türünü desteklediğini bildirsağlamaktır:</span><span class="sxs-lookup"><span data-stu-id="ee5e7-206">Its purpose is to declare that the controller's actions support a response content type of *application/json*:</span></span>
 
 ::: moniker range="<= aspnetcore-2.0"
 
@@ -363,17 +365,17 @@ namespace TodoApi
 
 ::: moniker-end
 
-<span data-ttu-id="accc8-205">**Yanıt içerik türü** açılan denetleyicinin GET eylemler için varsayılan olarak bu içerik türünü seçer:</span><span class="sxs-lookup"><span data-stu-id="accc8-205">The **Response Content Type** drop-down selects this content type as the default for the controller's GET actions:</span></span>
+<span data-ttu-id="ee5e7-207">**Yanıt Içerik türü** açılan liste, denetleyicinin al eylemleri için varsayılan olarak bu içerik türünü seçer:</span><span class="sxs-lookup"><span data-stu-id="ee5e7-207">The **Response Content Type** drop-down selects this content type as the default for the controller's GET actions:</span></span>
 
-![Swagger kullanıcı Arabirimi ile varsayılan yanıt içerik türü](web-api-help-pages-using-swagger/_static/json-response-content-type.png)
+![Varsayılan yanıt içerik türüyle Swagger Kullanıcı arabirimi](web-api-help-pages-using-swagger/_static/json-response-content-type.png)
 
-<span data-ttu-id="accc8-207">Web API'SİNDEKİ veri ek açıklamaları kullanımı arttıkça, UI ve API tarafından Yardım sayfaları daha açıklayıcı ve yararlı olur.</span><span class="sxs-lookup"><span data-stu-id="accc8-207">As the usage of data annotations in the web API increases, the UI and API help pages become more descriptive and useful.</span></span>
+<span data-ttu-id="ee5e7-209">Web API 'sindeki veri ek açıklamaların kullanımı arttıkça, UI ve API Yardım sayfaları daha açıklayıcı ve yararlı hale gelir.</span><span class="sxs-lookup"><span data-stu-id="ee5e7-209">As the usage of data annotations in the web API increases, the UI and API help pages become more descriptive and useful.</span></span>
 
-### <a name="describe-response-types"></a><span data-ttu-id="accc8-208">Yanıt türleri açıklanmaktadır</span><span class="sxs-lookup"><span data-stu-id="accc8-208">Describe response types</span></span>
+### <a name="describe-response-types"></a><span data-ttu-id="ee5e7-210">Yanıt türlerini açıkla</span><span class="sxs-lookup"><span data-stu-id="ee5e7-210">Describe response types</span></span>
 
-<span data-ttu-id="accc8-209">Bir web API'sini kullanan geliştiriciler hangi iade ile en ilgili&mdash;özellikle yanıt türleri ve hata kodları (standart varsa).</span><span class="sxs-lookup"><span data-stu-id="accc8-209">Developers consuming a web API are most concerned with what's returned&mdash;specifically response types and error codes (if not standard).</span></span> <span data-ttu-id="accc8-210">Hata kodları ve yanıt türleri XML açıklamaları ve verileri ek açıklamalar içinde belirtilir.</span><span class="sxs-lookup"><span data-stu-id="accc8-210">The response types and error codes are denoted in the XML comments and data annotations.</span></span>
+<span data-ttu-id="ee5e7-211">Bir Web API 'si kullanan geliştiriciler, özellikle yanıt türleri ve hata&mdash;kodları (Standart değilse) döndürülmesiyle ilgilidir.</span><span class="sxs-lookup"><span data-stu-id="ee5e7-211">Developers consuming a web API are most concerned with what's returned&mdash;specifically response types and error codes (if not standard).</span></span> <span data-ttu-id="ee5e7-212">Yanıt türleri ve hata kodları XML açıklamaları ve veri ek açıklamalarında gösterilir.</span><span class="sxs-lookup"><span data-stu-id="ee5e7-212">The response types and error codes are denoted in the XML comments and data annotations.</span></span>
 
-<span data-ttu-id="accc8-211">`Create` Eylem başarılı olduğunda bir HTTP 201 durum kodunu döndürür.</span><span class="sxs-lookup"><span data-stu-id="accc8-211">The `Create` action returns an HTTP 201 status code on success.</span></span> <span data-ttu-id="accc8-212">Gönderilen istek gövdesi null olduğunda, bir HTTP 400 durum kodu döndürülür.</span><span class="sxs-lookup"><span data-stu-id="accc8-212">An HTTP 400 status code is returned when the posted request body is null.</span></span> <span data-ttu-id="accc8-213">Swagger kullanıcı arabirimini uygun belgelerinde tüketici bu beklenen sonuçları bilgisine sahip değil.</span><span class="sxs-lookup"><span data-stu-id="accc8-213">Without proper documentation in the Swagger UI, the consumer lacks knowledge of these expected outcomes.</span></span> <span data-ttu-id="accc8-214">Aşağıdaki örnekte vurgulanan satırları ekleyerek bu sorunu düzeltin:</span><span class="sxs-lookup"><span data-stu-id="accc8-214">Fix that problem by adding the highlighted lines in the following example:</span></span>
+<span data-ttu-id="ee5e7-213">`Create` Eylem başarılı olduğunda bir http 201 durum kodu döndürür.</span><span class="sxs-lookup"><span data-stu-id="ee5e7-213">The `Create` action returns an HTTP 201 status code on success.</span></span> <span data-ttu-id="ee5e7-214">Postalanan istek gövdesi null olduğunda bir HTTP 400 durum kodu döndürülür.</span><span class="sxs-lookup"><span data-stu-id="ee5e7-214">An HTTP 400 status code is returned when the posted request body is null.</span></span> <span data-ttu-id="ee5e7-215">Swagger Kullanıcı arabiriminde doğru belgeler olmadan, tüketici beklenen bu sonuçlar hakkında bilgi sahibi yoktur.</span><span class="sxs-lookup"><span data-stu-id="ee5e7-215">Without proper documentation in the Swagger UI, the consumer lacks knowledge of these expected outcomes.</span></span> <span data-ttu-id="ee5e7-216">Aşağıdaki örneğe vurgulanan satırları ekleyerek bu sorunu giderebilirsiniz:</span><span class="sxs-lookup"><span data-stu-id="ee5e7-216">Fix that problem by adding the highlighted lines in the following example:</span></span>
 
 ::: moniker range="<= aspnetcore-2.0"
 
@@ -387,46 +389,46 @@ namespace TodoApi
 
 ::: moniker-end
 
-<span data-ttu-id="accc8-215">Swagger kullanıcı arabirimini açıkça beklenen HTTP yanıt kodları artık belgeler:</span><span class="sxs-lookup"><span data-stu-id="accc8-215">The Swagger UI now clearly documents the expected HTTP response codes:</span></span>
+<span data-ttu-id="ee5e7-217">Swagger Kullanıcı arabirimi artık beklenen HTTP yanıt kodlarını açıkça belgelemektedir:</span><span class="sxs-lookup"><span data-stu-id="ee5e7-217">The Swagger UI now clearly documents the expected HTTP response codes:</span></span>
 
-![Swagger kullanıcı Arabirimi POST yanıt sınıf açıklaması 'yeni oluşturulan bir Todo öğesini döndürür' gösteren ve '400 - öğe null ise' durum kodu ve yanıt iletilerinin altında nedeni](web-api-help-pages-using-swagger/_static/data-annotations-response-types.png)
+![Yanıt Iletileri ' ndeki durum kodu ve nedeni için, POST Response sınıfının Description ', yeni oluşturulan Todo öğesini döndürür ve ' 400-öğesi null ise '](web-api-help-pages-using-swagger/_static/data-annotations-response-types.png)
 
 ::: moniker range=">= aspnetcore-2.2"
 
-<span data-ttu-id="accc8-217">Açıkça bireysel eylemleri dekore etmeye alternatif olarak ASP.NET Core 2.2 veya sonraki sürümlerde, kuralları kullanılabilir `[ProducesResponseType]`.</span><span class="sxs-lookup"><span data-stu-id="accc8-217">In ASP.NET Core 2.2 or later, conventions can be used as an alternative to explicitly decorating individual actions with `[ProducesResponseType]`.</span></span> <span data-ttu-id="accc8-218">Daha fazla bilgi için bkz. <xref:web-api/advanced/conventions>.</span><span class="sxs-lookup"><span data-stu-id="accc8-218">For more information, see <xref:web-api/advanced/conventions>.</span></span>
+<span data-ttu-id="ee5e7-219">ASP.NET Core 2,2 veya üzeri sürümlerde kurallar, ile `[ProducesResponseType]`tek tek eylemleri açıkça dekorasyon alternatifi olarak kullanılabilir.</span><span class="sxs-lookup"><span data-stu-id="ee5e7-219">In ASP.NET Core 2.2 or later, conventions can be used as an alternative to explicitly decorating individual actions with `[ProducesResponseType]`.</span></span> <span data-ttu-id="ee5e7-220">Daha fazla bilgi için bkz. <xref:web-api/advanced/conventions>.</span><span class="sxs-lookup"><span data-stu-id="ee5e7-220">For more information, see <xref:web-api/advanced/conventions>.</span></span>
 
 ::: moniker-end
 
-### <a name="customize-the-ui"></a><span data-ttu-id="accc8-219">Kullanıcı arabirimini özelleştirme</span><span class="sxs-lookup"><span data-stu-id="accc8-219">Customize the UI</span></span>
+### <a name="customize-the-ui"></a><span data-ttu-id="ee5e7-221">Kullanıcı arabirimini özelleştirme</span><span class="sxs-lookup"><span data-stu-id="ee5e7-221">Customize the UI</span></span>
 
-<span data-ttu-id="accc8-220">Hem işlevsel hem de edileni hisse senedi kullanıcı Arabirimi.</span><span class="sxs-lookup"><span data-stu-id="accc8-220">The stock UI is both functional and presentable.</span></span> <span data-ttu-id="accc8-221">Ancak, API belgeleri sayfaları markanız veya tema temsil etmelidir.</span><span class="sxs-lookup"><span data-stu-id="accc8-221">However, API documentation pages should represent your brand or theme.</span></span> <span data-ttu-id="accc8-222">Swashbuckle bileşenleri marka statik dosyaları sunmak için kaynak ekleme ve bu dosyaları barındırmak için klasör yapısını oluşturma gerektirir.</span><span class="sxs-lookup"><span data-stu-id="accc8-222">Branding the Swashbuckle components requires adding the resources to serve static files and building the folder structure to host those files.</span></span>
+<span data-ttu-id="ee5e7-222">Hisse senedi Kullanıcı arabirimi hem işlevsel hem de edileni.</span><span class="sxs-lookup"><span data-stu-id="ee5e7-222">The stock UI is both functional and presentable.</span></span> <span data-ttu-id="ee5e7-223">Ancak, API belge sayfaları markanızı veya temanızı temsil etmelidir.</span><span class="sxs-lookup"><span data-stu-id="ee5e7-223">However, API documentation pages should represent your brand or theme.</span></span> <span data-ttu-id="ee5e7-224">Marka, swashbuckle bileşenleri, statik dosyalara ve bu dosyaları barındırmak için klasör yapısını oluşturmaya yönelik kaynakların eklenmesini gerektirir.</span><span class="sxs-lookup"><span data-stu-id="ee5e7-224">Branding the Swashbuckle components requires adding the resources to serve static files and building the folder structure to host those files.</span></span>
 
-<span data-ttu-id="accc8-223">.NET Framework veya .NET targeting, Core 1.x sürümüne, ekleme [Microsoft.AspNetCore.StaticFiles](https://www.nuget.org/packages/Microsoft.AspNetCore.StaticFiles) NuGet paketini projeye:</span><span class="sxs-lookup"><span data-stu-id="accc8-223">If targeting .NET Framework or .NET Core 1.x, add the [Microsoft.AspNetCore.StaticFiles](https://www.nuget.org/packages/Microsoft.AspNetCore.StaticFiles) NuGet package to the project:</span></span>
+<span data-ttu-id="ee5e7-225">.NET Framework veya .NET Core 1. x 'i hedefliyorsanız, [Microsoft. AspNetCore. StaticFiles](https://www.nuget.org/packages/Microsoft.AspNetCore.StaticFiles) NuGet paketini projeye ekleyin:</span><span class="sxs-lookup"><span data-stu-id="ee5e7-225">If targeting .NET Framework or .NET Core 1.x, add the [Microsoft.AspNetCore.StaticFiles](https://www.nuget.org/packages/Microsoft.AspNetCore.StaticFiles) NuGet package to the project:</span></span>
 
 ```xml
 <PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="2.0.0" />
 ```
 
-<span data-ttu-id="accc8-224">Önceki NuGet paketini, .NET Core'u hedefleyen zaten yüklü 2.x ve kullanarak [metapackage](xref:fundamentals/metapackage).</span><span class="sxs-lookup"><span data-stu-id="accc8-224">The preceding NuGet package is already installed if targeting .NET Core 2.x and using the [metapackage](xref:fundamentals/metapackage).</span></span>
+<span data-ttu-id="ee5e7-226">Önceki NuGet paketi, .NET Core 2. x hedefleniyorsa ve [metapackage](xref:fundamentals/metapackage)kullanılarak zaten yüklüdür.</span><span class="sxs-lookup"><span data-stu-id="ee5e7-226">The preceding NuGet package is already installed if targeting .NET Core 2.x and using the [metapackage](xref:fundamentals/metapackage).</span></span>
 
-<span data-ttu-id="accc8-225">Statik dosya ara yazılımlarını etkinleştir:</span><span class="sxs-lookup"><span data-stu-id="accc8-225">Enable Static File Middleware:</span></span>
+<span data-ttu-id="ee5e7-227">Statik dosya ara yazılımını etkinleştir:</span><span class="sxs-lookup"><span data-stu-id="ee5e7-227">Enable Static File Middleware:</span></span>
 
 [!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/2.0/TodoApi.Swashbuckle/Startup.cs?name=snippet_Configure&highlight=3)]
 
-<span data-ttu-id="accc8-226">İçeriğini alma *dist* klasöründen [Swagger kullanıcı Arabirimi GitHub deposunu](https://github.com/swagger-api/swagger-ui/tree/master/dist).</span><span class="sxs-lookup"><span data-stu-id="accc8-226">Acquire the contents of the *dist* folder from the [Swagger UI GitHub repository](https://github.com/swagger-api/swagger-ui/tree/master/dist).</span></span> <span data-ttu-id="accc8-227">Bu klasör, Swagger kullanıcı Arabirimi sayfası için gerekli varlıkları içerir.</span><span class="sxs-lookup"><span data-stu-id="accc8-227">This folder contains the necessary assets for the Swagger UI page.</span></span>
+<span data-ttu-id="ee5e7-228">[Swagger Kullanıcı arabirimi GitHub deposundan](https://github.com/swagger-api/swagger-ui/tree/master/dist) *Dist* klasörünün içeriğini alın.</span><span class="sxs-lookup"><span data-stu-id="ee5e7-228">Acquire the contents of the *dist* folder from the [Swagger UI GitHub repository](https://github.com/swagger-api/swagger-ui/tree/master/dist).</span></span> <span data-ttu-id="ee5e7-229">Bu klasör, Swagger Kullanıcı arabirimi sayfası için gerekli varlıkları içerir.</span><span class="sxs-lookup"><span data-stu-id="ee5e7-229">This folder contains the necessary assets for the Swagger UI page.</span></span>
 
-<span data-ttu-id="accc8-228">Oluşturma bir *wwwroot/swagger/UI* klasörü ve içeriği dosyaya kopyalayın *dist* klasör.</span><span class="sxs-lookup"><span data-stu-id="accc8-228">Create a *wwwroot/swagger/ui* folder, and copy into it the contents of the *dist* folder.</span></span>
+<span data-ttu-id="ee5e7-230">Bir *Wwwroot/Swagger/UI* klasörü oluşturun ve bunu *Dist* klasörünün içeriğine kopyalayın.</span><span class="sxs-lookup"><span data-stu-id="ee5e7-230">Create a *wwwroot/swagger/ui* folder, and copy into it the contents of the *dist* folder.</span></span>
 
-<span data-ttu-id="accc8-229">Oluşturma bir *custom.css* dosyasındaki *wwwroot/swagger/UI*, sayfa üstbilgisindeki özelleştirmek için aşağıdaki CSS ile:</span><span class="sxs-lookup"><span data-stu-id="accc8-229">Create a *custom.css* file, in *wwwroot/swagger/ui*, with the following CSS to customize the page header:</span></span>
+<span data-ttu-id="ee5e7-231">Sayfa üstbilgisini özelleştirmek için aşağıdaki CSS ile *Wwwroot/Swagger/UI*içinde *özel bir. css* dosyası oluşturun:</span><span class="sxs-lookup"><span data-stu-id="ee5e7-231">Create a *custom.css* file, in *wwwroot/swagger/ui*, with the following CSS to customize the page header:</span></span>
 
 [!code-css[](../tutorials/web-api-help-pages-using-swagger/samples/2.0/TodoApi.Swashbuckle/wwwroot/swagger/ui/custom.css)]
 
-<span data-ttu-id="accc8-230">Başvuru *custom.css* içinde *index.html* dosya, herhangi bir CSS dosyaları sonra:</span><span class="sxs-lookup"><span data-stu-id="accc8-230">Reference *custom.css* in the *index.html* file, after any other CSS files:</span></span>
+<span data-ttu-id="ee5e7-232">Diğer CSS dosyalarından sonra *index. html* dosyasındaki *Custom. css* dosyasına başvurun:</span><span class="sxs-lookup"><span data-stu-id="ee5e7-232">Reference *custom.css* in the *index.html* file, after any other CSS files:</span></span>
 
 [!code-html[](../tutorials/web-api-help-pages-using-swagger/samples/2.0/TodoApi.Swashbuckle/wwwroot/swagger/ui/index.html?name=snippet_SwaggerUiCss&highlight=3)]
 
-<span data-ttu-id="accc8-231">Gözat *index.html* , sayfa `http://localhost:<port>/swagger/ui/index.html`.</span><span class="sxs-lookup"><span data-stu-id="accc8-231">Browse to the *index.html* page at `http://localhost:<port>/swagger/ui/index.html`.</span></span> <span data-ttu-id="accc8-232">Girin `http://localhost:<port>/swagger/v1/swagger.json` başlığının metin seçeneğine tıklayıp **Araştır** düğmesi.</span><span class="sxs-lookup"><span data-stu-id="accc8-232">Enter `http://localhost:<port>/swagger/v1/swagger.json` in the header's textbox, and click the **Explore** button.</span></span> <span data-ttu-id="accc8-233">Sonuçta elde edilen sayfanın şu şekilde görünür:</span><span class="sxs-lookup"><span data-stu-id="accc8-233">The resulting page looks as follows:</span></span>
+<span data-ttu-id="ee5e7-233">Konumundaki`http://localhost:<port>/swagger/ui/index.html` *index. html* sayfasına gidin.</span><span class="sxs-lookup"><span data-stu-id="ee5e7-233">Browse to the *index.html* page at `http://localhost:<port>/swagger/ui/index.html`.</span></span> <span data-ttu-id="ee5e7-234">Üstbilginin `http://localhost:<port>/swagger/v1/swagger.json` metin kutusuna girip **keşfet** düğmesine tıklayın.</span><span class="sxs-lookup"><span data-stu-id="ee5e7-234">Enter `http://localhost:<port>/swagger/v1/swagger.json` in the header's textbox, and click the **Explore** button.</span></span> <span data-ttu-id="ee5e7-235">Elde edilen sayfa şu şekilde görünür:</span><span class="sxs-lookup"><span data-stu-id="ee5e7-235">The resulting page looks as follows:</span></span>
 
-![Swagger kullanıcı Arabirimi ile özel üst bilgi başlığı](web-api-help-pages-using-swagger/_static/custom-header.png)
+![Özel üstbilgi başlıklı Swagger Kullanıcı arabirimi](web-api-help-pages-using-swagger/_static/custom-header.png)
 
-<span data-ttu-id="accc8-235">Sayfa ile yapabileceğiniz çok daha fazla yoktur.</span><span class="sxs-lookup"><span data-stu-id="accc8-235">There's much more you can do with the page.</span></span> <span data-ttu-id="accc8-236">UI kaynakları, tam özelliklerine bakın [Swagger kullanıcı Arabirimi GitHub deposunu](https://github.com/swagger-api/swagger-ui).</span><span class="sxs-lookup"><span data-stu-id="accc8-236">See the full capabilities for the UI resources at the [Swagger UI GitHub repository](https://github.com/swagger-api/swagger-ui).</span></span>
+<span data-ttu-id="ee5e7-237">Sayfada yapabileceğiniz çok daha fazla şey vardır.</span><span class="sxs-lookup"><span data-stu-id="ee5e7-237">There's much more you can do with the page.</span></span> <span data-ttu-id="ee5e7-238">[Swagger Kullanıcı arabirimi GitHub DEPOSUNDAKI](https://github.com/swagger-api/swagger-ui)UI kaynakları için tam yeteneklere bakın.</span><span class="sxs-lookup"><span data-stu-id="ee5e7-238">See the full capabilities for the UI resources at the [Swagger UI GitHub repository](https://github.com/swagger-api/swagger-ui).</span></span>
