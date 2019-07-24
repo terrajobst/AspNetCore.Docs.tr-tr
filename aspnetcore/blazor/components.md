@@ -1,48 +1,48 @@
 ---
-title: Oluşturma ve ASP.NET Core Razor bileşenleri kullanma
+title: ASP.NET Core Razor bileşenleri oluşturma ve kullanma
 author: guardrex
-description: Oluşturma ve bileşen ömürleri yönetme verilere bağlayın ve olayları işlemek nasıl dahil olmak üzere, Razor bileşenlerini kullanma hakkında bilgi edinin.
+description: Veri bağlama, olayları işleme ve bileşen yaşam döngülerini yönetme dahil Razor bileşenleri oluşturmayı ve kullanmayı öğrenin.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
 ms.date: 07/05/2019
 uid: blazor/components
-ms.openlocfilehash: 81100ebb0fdaf877df8c9e696c81b86324f8c0d0
-ms.sourcegitcommit: 040aedca220ed24ee1726e6886daf6906f95a028
+ms.openlocfilehash: efed57f20c64b0f9c9bd5cc29a98e01408546a18
+ms.sourcegitcommit: f30b18442ed12831c7e86b0db249183ccd749f59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67892246"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68412411"
 ---
-# <a name="create-and-use-aspnet-core-razor-components"></a>Oluşturma ve ASP.NET Core Razor bileşenleri kullanma
+# <a name="create-and-use-aspnet-core-razor-components"></a>ASP.NET Core Razor bileşenleri oluşturma ve kullanma
 
-Tarafından [Luke Latham](https://github.com/guardrex) ve [Daniel Roth](https://github.com/danroth27)
+, [Luke Latham](https://github.com/guardrex) ve [Daniel Roth](https://github.com/danroth27) tarafından
 
 [Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/blazor/common/samples/) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
 
-Blazor uygulamaları kullanılarak oluşturulur *bileşenleri*. Bir bileşen, kullanıcı arabirimi (UI), sayfa, iletişim veya form gibi kendi içinde bir öbektir. Bir bileşeni, HTML biçimlendirmesi ve veri ekleme veya UI olaylarına yanıt vermek için gereken işleme mantığı içerir. Esnek ve basit bileşenlerdir. Bunlar iç içe geçmiş, yeniden kullanılabilir ve projeler arasında paylaşılan.
+Blazor uygulamaları, *bileşenleri*kullanılarak oluşturulmuştur. Bir bileşen, bir sayfa, iletişim veya form gibi bir kullanıcı arabirimi (UI) öbekidir. Bir bileşen, veri eklemek veya UI olaylarına yanıt vermek için gereken HTML işaretlemesini ve işleme mantığını içerir. Bileşenler esnek ve hafif. Bunlar, iç içe geçmiş, yeniden kullanılabilir ve projeler arasında paylaşılabilir.
 
 ## <a name="component-classes"></a>Bileşen sınıfları
 
-Bileşenleri içinde uygulanan [Razor](xref:mvc/views/razor) bileşen dosyaları ( *.razor*) bir birleşimi kullanılarak C# ve HTML biçimlendirmesi. Bir bileşenin Blazor, resmi olarak adlandırılır bir *Razor bileşen*.
+Bileşenler, C# ve HTML Işaretlemesi kullanılarak [Razor](xref:mvc/views/razor) bileşen dosyalarında ( *. Razor*) uygulanır. Blazor içindeki bir bileşen, bir *Razor bileşeni*olarak adlandırılır.
 
-Bileşenlerini kullanarak yazarı olduğu *.cshtml* dosyaları kullanarak Razor bileşen dosyaları tanımlanmış olduğu sürece dosya uzantısı `_RazorComponentInclude` MSBuild özelliği. Örneğin, belirten bir uygulamayı tüm *.cshtml* altında dosyaları *sayfaları* klasör Razor bileşenleri dosyaları kabul:
+Dosyalar, `_RazorComponentInclude` MSBuild özelliği kullanılarak Razor bileşen dosyaları olarak tanımlandığı sürece *. cshtml* dosya uzantısı kullanılarak yazılabilir. Örneğin, *Sayfalar* klasörü altındaki tüm *. cshtml* dosyalarının Razor bileşenleri dosyası olarak değerlendirilip değerlendirilmeyeceğini belirten bir uygulama:
 
 ```xml
 <_RazorComponentInclude>Pages\**\*.cshtml</_RazorComponentInclude>
 ```
 
-Bir bileşen için kullanıcı Arabirimi, HTML kullanılarak tanımlanır. (Örneğin, döngü, koşullular, ifadeleri) dinamik işleme mantığı, katıştırılmış kullanarak eklenir C# adlı söz dizimi [Razor](xref:mvc/views/razor). Bir uygulamanın ne zaman derlenir, HTML biçimlendirmesi ve C# işleme mantığı, bir bileşen sınıfı dönüştürülür. Oluşturulan sınıfın adı dosya adıyla aynıdır.
+Bir bileşen için Kullanıcı arabirimi HTML kullanılarak tanımlanır. Dinamik işleme mantığı (örneğin, döngüler, koşullar, ifadeler) C# [Razor](xref:mvc/views/razor)adlı gömülü bir sözdizimi kullanılarak eklenir. Bir uygulama derlendiğinde, HTML biçimlendirme ve C# işleme mantığı bir bileşen sınıfına dönüştürülür. Oluşturulan sınıfın adı, dosyanın adıyla eşleşir.
 
-Bileşen sınıfı üyeleri tanımlanmış bir `@code` blok. İçinde `@code` blok, bileşen durumu (Özellikler, alanlar) olay işleme için veya başka bir bileşen mantığı tanımlamak için yöntemleri ile belirtilir. Birden fazla `@code` bloğu izin verilebilir.
+Bileşen sınıfının üyeleri bir `@code` blokta tanımlanır. `@code` Bloğunda, bileşen durumu (özellikler, alanlar) olay işleme yöntemleriyle veya diğer bileşen mantığını tanımlamaya yönelik yöntemlerle belirtilir. Birden çok blok izin verilir. `@code`
 
 > [!NOTE]
-> ASP.NET Core, önceki sürümlerinde `@functions` blokları için aynı amaca kullanılmış `@code` engeller. `@functions` çalışmaya devam blokları, ancak kullanmanızı öneririz `@code` yönergesi.
+> Önceki ASP.NET Core sürümlerinde bloklar, `@functions` `@code` bloklarla aynı amaçla kullanılmıştı. `@functions`bloklar çalışmaya devam eder, ancak `@code` yönergesini kullanmanızı öneririz.
 
-Bileşen üyeleri, ardından bileşenin parçası mantığı kullanarak işleme olarak kullanılabilir C# ile başlayan ifadeleri `@`. Örneğin, bir C# alan ekleyerek işlenen `@` alan adı. Aşağıdaki örnek, değerlendirir ve işler:
+Bileşen üyeleri daha sonra, ile C# `@`başlayan ifadeler kullanılarak bileşen işleme mantığının bir parçası olarak kullanılabilir. Örneğin, bir C# alan, alan adının önüne eklenerek `@` işlenir. Aşağıdaki örnek değerlendirilir ve işler:
 
-* `_headingFontStyle` CSS özellik değerini `font-style`.
-* `_headingText` içeriği için `<h1>` öğesi.
+* `_headingFontStyle`için CSS özellik değerine `font-style`.
+* `_headingText``<h1>` öğenin içeriğine.
 
 ```cshtml
 <h1 style="font-style:@_headingFontStyle">@_headingText</h1>
@@ -53,19 +53,19 @@ Bileşen üyeleri, ardından bileşenin parçası mantığı kullanarak işleme 
 }
 ```
 
-Bileşen, bileşen başlangıçta işlenen sonra olaylara yanıt olarak, işleme ağacında yeniden oluşturur. Blazor yeni bir işleme ağacı Öncekine karşı karşılaştırır ve herhangi bir değişiklik tarayıcının belge nesne modeli (DOM) için geçerlidir.
+Bileşen ilk olarak işlendikten sonra, bileşen işleme ağacını olaylara yanıt olarak yeniden oluşturur. Blazor ardından yeni işleme ağacını önceki bir ile karşılaştırır ve tarayıcının Belge Nesne Modeli (DOM) üzerinde herhangi bir değişiklik uygular.
 
-Bileşenleri sıradan C# sınıfları ve bir projesi içinde her yerden yerleştirilebilir. Web sayfaları genellikle üreten bileşenler bulunan *sayfaları* klasör. Sayfası olmayan bileşenleri yerleştirildiğinde sık *paylaşılan* klasör veya özel bir klasör projeye eklendi. Özel bir klasör kullanmayı ekleyin ya da özel klasör ad alanı ana bileşen veya uygulamanın *_Imports.razor* dosya. Örneğin, aşağıdaki ad alanı bileşenlerde yapar bir *bileşenleri* klasör uygulamanın kök ad alanı olduğunda kullanılabilen `WebApplication`:
+Bileşenler sıradan C# sınıflardır ve bir proje içinde herhangi bir yere yerleştirilebilir. Web sayfalarını üreten bileşenler genellikle *Sayfalar* klasöründe bulunur. Sayfa olmayan bileşenler sıklıkla *paylaşılan* klasöre veya projeye eklenen özel bir klasöre yerleştirilir. Özel bir klasör kullanmak için, özel klasörün ad alanını üst bileşene veya uygulamanın *_ımports. Razor* dosyasına ekleyin. Örneğin, aşağıdaki ad alanı, uygulamanın kök ad alanı  `WebApplication`olduğunda bir bileşenler klasöründeki bileşenleri kullanılabilir yapar:
 
 ```cshtml
 @using WebApplication.Components
 ```
 
-## <a name="integrate-components-into-razor-pages-and-mvc-apps"></a>Bileşenleri Razor sayfaları ve MVC uygulamalarla tümleştirin
+## <a name="integrate-components-into-razor-pages-and-mvc-apps"></a>Bileşenleri Razor Pages ve MVC uygulamalarıyla tümleştirme
 
-Bileşenleri ile mevcut Razor sayfaları ve MVC uygulamaları kullanın. Var olan sayfaları veya Razor bileşenler kullanmaya görünümleri yeniden gerek yoktur. Sayfa veya Görünüm işlendiğinde bileşenleri aynı anda prerendered.
+Mevcut Razor Pages ve MVC uygulamalarıyla bileşenleri kullanın. Razor bileşenleri kullanmak için mevcut sayfaları veya görünümleri yeniden yazmanız gerekmez. Sayfa veya görünüm işlendiğinde, bileşenler aynı anda önceden işlenir.
 
-Bir bileşenden bir sayfa ya da Görünüm işlemek için `RenderComponentAsync<TComponent>` HTML yardımcı yöntemi:
+Bir sayfadan veya görünümden bir bileşeni işlemek için `RenderComponentAsync<TComponent>` HTML yardımcı yöntemini kullanın:
 
 ```cshtml
 <div id="Counter">
@@ -73,88 +73,88 @@ Bir bileşenden bir sayfa ya da Görünüm işlemek için `RenderComponentAsync<
 </div>
 ```
 
-Sayfalar ve görünümler bileşenleri kullanabilirsiniz, ancak listesiyse true değil. Bileşenler, kısmi görünümleri ve bölümler gibi görünümü ve sayfa belirli senaryoları kullanamazsınız. Bir bileşene dönüştürerek bir bileşende kısmi görünümü, kısmi görünümü mantıksal çarpanını mantığı kullanılacak.
+Sayfalar ve görünümler bileşenleri kullanırken, listesiyse doğru değildir. Bileşenler, kısmi görünümler ve bölümler gibi görüntüleme ve sayfaya özgü senaryolar kullanamaz. Bir bileşende kısmi görünümden mantığı kullanmak için kısmi görünüm mantığını bir bileşene ayırın.
 
-Blazor sunucu tarafı uygulamalar yönetilen bileşenleri işlenmiş ve bileşen durumunu şeklini hakkında daha fazla bilgi için bkz: <xref:blazor/hosting-models> makalesi.
+Bileşenlerin nasıl işlendiği ve bileşen durumunun Blazor sunucu tarafı uygulamalarda nasıl yönetildiği hakkında daha fazla bilgi için <xref:blazor/hosting-models> makalesine bakın.
 
 ## <a name="using-components"></a>Bileşenleri kullanma
 
-Bileşenleri, diğer bileşenlerin bunları bildirerek içerebilir HTML öğesi söz dizimini kullanarak. Bir bileşen kullanma için işaretleme, etiketin adını bileşen türü olduğu gibi HTML etiketleri arar.
+Bileşenler, HTML öğesi söz dizimini kullanarak bildirerek diğer bileşenleri içerebilir. Bir bileşeni kullanmak için biçimlendirme, etiket adının bileşen türü olduğu bir HTML etiketi gibi görünür.
 
-Aşağıdaki biçimlendirmede *Index.razor* işleyen bir `HeadingComponent` örneği:
+*Index. Razor* dosyasında aşağıdaki biçimlendirme bir `HeadingComponent` örneği işler:
 
 [!code-cshtml[](common/samples/3.x/BlazorSample/Pages/Index.razor?name=snippet_HeadingComponent)]
 
-*Components/HeadingComponent.razor*:
+*Bileşenler/HeadingComponent. Razor*:
 
 [!code-cshtml[](common/samples/3.x/BlazorSample/Components/HeadingComponent.razor)]
 
 ## <a name="component-parameters"></a>Bileşen parametreleri
 
-Bileşenleri olabilir *bileşeni parametreleri*, hangi özellikleri kullanılarak tanımlanır (genellikle *genel olmayan*) ile bileşen sınıfı üzerinde `[Parameter]` özniteliği. Öznitelikleri bir bileşen için bağımsız değişken biçimlendirme içinde belirtmek için kullanın.
+Bileşenler bileşen`[Parameter]` sınıfında özniteliği kullanılarak tanımlanan *bileşen parametrelerine*sahip olabilir (genellikle *genel olmayan*). Biçimlendirme içindeki bir bileşenin bağımsız değişkenlerini belirtmek için öznitelikleri kullanın.
 
-*Components/ChildComponent.razor*:
+*Bileşenler/ChildComponent. Razor*:
 
 [!code-cshtml[](common/samples/3.x/BlazorSample/Components/ChildComponent.razor?highlight=11-12)]
 
-Aşağıdaki örnekte, `ParentComponent` değerini ayarlar `Title` özelliği `ChildComponent`.
+Aşağıdaki örnekte `ParentComponent` , öğesinin `Title` özelliğinin değerini ayarlar. `ChildComponent`
 
-*Pages/ParentComponent.razor*:
+*Pages/ParentComponent. Razor*:
 
 [!code-cshtml[](common/samples/3.x/BlazorSample/Pages/ParentComponent.razor?name=snippet_ParentComponent&highlight=5-6)]
 
-## <a name="child-content"></a>Alt içeriğin
+## <a name="child-content"></a>Alt içerik
 
-Bileşenleri başka bir bileşen içeriğini ayarlayabilirsiniz. Atama bileşen alıcı bileşeni belirtin etiketleri arasında içerik sağlar.
+Bileşenler, başka bir bileşenin içeriğini ayarlayabilir. Atama bileşeni, alıcı bileşeni belirten Etiketler arasında içerik sağlar.
 
-Aşağıdaki örnekte, `ChildComponent` sahip bir `ChildContent` temsil eden özellik bir `RenderFragment`. Değerini `ChildContent` bileşenin işaretlemede içeriği burada işleneceğini konumlandırıldı. Değerini `ChildContent` ana bileşenden alınan ve önyükleme bölmenin içinde işlenen `panel-body`.
+Aşağıdaki örnekte,, `ChildComponent` ' a `RenderFragment`temsil eden `ChildContent` bir özelliğine sahiptir. Değeri `ChildContent` , bileşenin, içeriğin işlenmesi gereken biçimlendirmesinde konumlandırılır. Değeri `ChildContent` , ana bileşenden alınır ve önyükleme `panel-body`paneli içinde işlenir.
 
-*Components/ChildComponent.razor*:
+*Bileşenler/ChildComponent. Razor*:
 
 [!code-cshtml[](common/samples/3.x/BlazorSample/Components/ChildComponent.razor?highlight=3,14-15)]
 
 > [!NOTE]
-> Özellik Alma `RenderFragment` içeriği adlı `ChildContent` kural tarafından.
+> `RenderFragment` İçeriği alan özelliğin kural tarafından adlandırılması `ChildContent` gerekir.
 
-Aşağıdaki `ParentComponent` içerik işleme için sağlayabilir `ChildComponent` içeriğini yerleştirerek `<ChildComponent>` etiketler.
+Aşağıdakiler `ParentComponent` `<ChildComponent>` , `ChildComponent` içeriği etiketlerin içine yerleştirerek işleme için içerik sağlayabilir.
 
-*Pages/ParentComponent.razor*:
+*Pages/ParentComponent. Razor*:
 
 [!code-cshtml[](common/samples/3.x/BlazorSample/Pages/ParentComponent.razor?name=snippet_ParentComponent&highlight=7-8)]
 
 ## <a name="data-binding"></a>Veri bağlama
 
-Veri bağlama bileşenleri hem DOM öğeleri ile gerçekleştirilir `@bind` özniteliği. Aşağıdaki örnek bağlar `_italicsCheck` alan için onay kutusunun işaretli durumu:
+Hem bileşenlere hem de Dom öğelerine veri bağlama, `@bind` özniteliğiyle birlikte gerçekleştirilir. Aşağıdaki örnek, `_italicsCheck` alanı onay kutusunun işaretli durumuna bağlar:
 
 ```cshtml
 <input type="checkbox" class="form-check-input" id="italicsCheck" 
     @bind="_italicsCheck" />
 ```
 
-Onay kutusunu işaretli ve seçildiğinde özelliğin değerini şekilde güncelleştirilir `true` ve `false`sırasıyla.
+Onay kutusu seçildiğinde ve kaldırıldığında, özelliğin değeri sırasıyla `true` ve `false`olarak güncelleştirilir.
 
-Yalnızca bileşen, özelliğin değerinin değiştirilmesi için değil yanıt oluşturulduğunda onay kutusunu kullanıcı Arabiriminde güncelleştirilir. Olay işleyici kodu yürütüldükten sonra bileşenleri kendilerini işleme olduğundan, özellik güncelleştirmeleri genellikle kullanıcı Arabiriminde hemen yansıtılır.
+Onay kutusu kullanıcı arabiriminde, özelliğin değerini değiştirme yanıt olarak değil, yalnızca bileşen işlendiğinde güncelleştirilir. Bileşenler olay işleyicisi kodu yürütüldükten sonra kendilerini oluşturduğundan, özellik güncelleştirmeleri genellikle kullanıcı arabirimine hemen yansıtılır.
 
-Kullanarak `@bind` ile bir `CurrentValue` özelliği (`<input @bind="CurrentValue" />`) aslında aşağıdakine eşdeğerdir:
+`CurrentValue` Özelliği `@bind` (`<input @bind="CurrentValue" />`) ile kullanmak, temelde aşağıdakilere eşdeğerdir:
 
 ```cshtml
 <input value="@CurrentValue" 
     @onchange="@((UIChangeEventArgs __e) => CurrentValue = __e.Value)" />
 ```
 
-Bileşen işlendiğinde `value` giriş öğesinin geldiği `CurrentValue` özelliği. Kullanıcı, metin kutusuna yazdığında `onchange` olay tetiklenir ve `CurrentValue` özelliği değiştirilmiş değerine ayarlanır. Gerçekte, kod oluşturma biraz daha karmaşık olduğundan `@bind` tür dönüştürmeleri gerçekleştirildiği birkaç durum işler. Giren İlkesi `@bind` geçerli değerini bir ifade ile ilişkilendirir bir `value` kayıtlı işleyici kullanarak öznitelik ve işleyicilerini değişiklikler.
+Bileşen işlendiğinde, `value` giriş öğesi `CurrentValue` özelliğinden gelir. Kullanıcı metin kutusunda yazdığında, `onchange` olay tetiklenir `CurrentValue` ve özellik değiştirilen değere ayarlanır. Tür dönüştürmelerinde birkaç durum olduğu için, gerçekte kod oluşturma biraz `@bind` daha karmaşıktır. İlke ' de `@bind` , bir ifadenin geçerli değerini bir `value` özniteliğiyle ilişkilendirir ve kayıtlı işleyiciyi kullanarak değişiklikleri işler.
 
-İşleme yanı sıra `onchange` olaylarıyla `@bind` söz dizimi, özelliği veya alanı belirterek diğer olayları kullanarak bağlanabilir bir `@bind-value` özniteliğini bir `event` parametresi. Aşağıdaki örnek bağlar `CurrentValue` özelliği `oninput` olay:
+`onchange` Sözdizimi ile `@bind` olayların işlenmesine ek olarak, bir özellik veya alan `event` parametresi ile bir `@bind-value` özniteliği belirtilerek diğer olaylar kullanılarak bağlanabilir. Aşağıdaki örnek, `oninput` olay için `CurrentValue` özelliği bağlar:
 
 ```cshtml
 <input @bind-value="CurrentValue" @bind-value:event="oninput" />
 ```
 
-Farklı `onchange`, öğe odağından çıktığında tetiklenen `oninput` değeri metin kutusunda değiştiğinde harekete geçirilir.
+' `onchange`In aksine, öğe odağı kaybettiğinde harekete geçirilir, `oninput` metin kutusunun değeri değiştiğinde harekete geçirilir.
 
 **Biçim dizeleri**
 
-Veri bağlama ile birlikte çalışır <xref:System.DateTime> biçim dizeleri. Para birimi veya sayı biçimleri gibi diğer biçim ifadeleri şu anda kullanılamıyor.
+Veri bağlama biçim dizeleriyle birlikte <xref:System.DateTime> çalışmaktadır. Para birimi veya sayı biçimleri gibi diğer biçim ifadeleri şu anda kullanılamaz.
 
 ```cshtml
 <input @bind="StartDate" @bind:format="yyyy-MM-dd" />
@@ -165,13 +165,13 @@ Veri bağlama ile birlikte çalışır <xref:System.DateTime> biçim dizeleri. P
 }
 ```
 
-`@bind:format` Özniteliği uygulamak için tarih biçimini belirtir `value` , `<input>` öğesi. Biçimi de değer ayrıştırmak için kullanılan zaman bir `onchange` olayı oluşur.
+`@bind:format` Özniteliği öğesi`<input>` için uygulanacak `value` tarih biçimini belirtir. Biçim Ayrıca bir `onchange` olay gerçekleştiğinde değeri ayrıştırmak için de kullanılır.
 
 **Bileşen parametreleri**
 
-Bağlama bileşeni parametreleri de tanır burada `@bind-{property}` bir özellik değeri bileşenlerinde bağlayabilirsiniz.
+Bağlama Ayrıca bileşen parametrelerini de tanır, `@bind-{property}` burada bir özellik değeri bileşenler arasında bağlanabilir.
 
-Aşağıdaki alt bileşen (`ChildComponent`) sahip bir `Year` bileşen parametresi ve `YearChanged` geri çağırma:
+Aşağıdaki alt bileşende (`ChildComponent`) bir `Year` bileşen parametresi ve `YearChanged` geri çağırması vardır:
 
 ```cshtml
 <h2>Child Component</h2>
@@ -187,9 +187,9 @@ Aşağıdaki alt bileşen (`ChildComponent`) sahip bir `Year` bileşen parametre
 }
 ```
 
-`EventCallback<T>` açıklanan [EventCallback](#eventcallback) bölümü.
+`EventCallback<T>`, [Eventcallback](#eventcallback) bölümünde açıklanmaktadır.
 
-Aşağıdaki ana bileşen kullanan `ChildComponent` ve bağlar `ParentYear` üst parametresinden `Year` alt bileşen parametresi:
+Aşağıdaki üst bileşen öğesini kullanır `ChildComponent` ve üst `Year` öğeden `ParentYear` parametreyi alt bileşen üzerindeki parametresine bağlar:
 
 ```cshtml
 @page "/ParentComponent"
@@ -200,7 +200,7 @@ Aşağıdaki ana bileşen kullanan `ChildComponent` ve bağlar `ParentYear` üst
 
 <ChildComponent @bind-Year="ParentYear" />
 
-<button class="btn btn-primary" @onclick="@ChangeTheYear">
+<button class="btn btn-primary" @onclick="ChangeTheYear">
     Change Year to 1986
 </button>
 
@@ -215,7 +215,7 @@ Aşağıdaki ana bileşen kullanan `ChildComponent` ve bağlar `ParentYear` üst
 }
 ```
 
-Yükleme `ParentComponent` aşağıdaki biçimlendirme oluşturur:
+Yüklemesi aşağıdaki biçimlendirmeyi üretir: `ParentComponent`
 
 ```html
 <h1>Parent Component</h1>
@@ -227,7 +227,7 @@ Yükleme `ParentComponent` aşağıdaki biçimlendirme oluşturur:
 <p>Year: 1978</p>
 ```
 
-Varsa değerini `ParentYear` düğmesini seçerek özelliği değiştirildiğinde `ParentComponent`, `Year` özelliği `ChildComponent` güncelleştirilir. Öğesinin yeni değeri `Year` Arabiriminde işlenen olduğunda `ParentComponent` rerendered:
+`ParentYear` Özelliğin değeri, `ParentComponent` içindekidüğme`ChildComponent` seçilerek değiştirilirse, öğesinin özelliğigüncellenir.`Year` Yeni değeri `Year` , `ParentComponent` yeniden kullanıldığında kullanıcı arabiriminde işlenir:
 
 ```html
 <h1>Parent Component</h1>
@@ -239,15 +239,15 @@ Varsa değerini `ParentYear` düğmesini seçerek özelliği değiştirildiğind
 <p>Year: 1986</p>
 ```
 
-`Year` Bir yardımcı olduğundan parametre bağlanabilir `YearChanged` türüyle eşleşen olay `Year` parametresi.
+Parametrenin türüyle `YearChanged` `Year` eşleşenbiryardımcıolayı`Year` olduğundan parametre bağlanabilir.
 
-Kural olarak, `<ChildComponent @bind-Year="ParentYear" />` yazma temelde eşdeğerdir:
+Kurala göre, `<ChildComponent @bind-Year="ParentYear" />` temelde yazmaya eşdeğerdir:
 
 ```cshtml
 <ChildComponent @bind-Year="ParentYear" @bind-Year:event="YearChanged" />
 ```
 
-Genel olarak, bir özelliği karşılık gelen olay işleyicisi kullanarak bir bağlanabilir `@bind-property:event` özniteliği. Örneğin, özellik `MyProp` bağlanabilir `MyEventHandler` aşağıdaki iki öznitelikleri kullanarak:
+Genel olarak, bir özellik öznitelik kullanılarak `@bind-property:event` karşılık gelen bir olay işleyicisine bağlanabilir. Örneğin, özelliği `MyProp` aşağıdaki iki öznitelik `MyEventHandler` kullanılarak bağlanabilir:
 
 ```cshtml
 <MyComponent @bind-MyProp="MyValue" @bind-MyProp:event="MyEventHandler" />
@@ -255,12 +255,12 @@ Genel olarak, bir özelliği karşılık gelen olay işleyicisi kullanarak bir b
 
 ## <a name="event-handling"></a>Olay işleme
 
-Razor bileşenleri olay işleme özellikleri sağlar. İçin bir HTML öğesi öznitelik adlı `on<event>` (örneğin, `onclick` ve `onsubmit`) temsilci türü belirtilmiş bir değer ile Razor bileşenlerini değerlendirir özniteliğin değeri bir olay işleyicisi. Özniteliğin adı her zaman ile başlayan `@on`.
+Razor bileşenleri olay işleme özellikleri sağlar. Temsilci türü belirtilmiş bir değer ile `on<event>` adlı bir HTML öğesi `onclick` özniteliği `onsubmit`için (örneğin, ve), Razor bileşenleri özniteliğin değerini bir olay işleyicisi olarak değerlendirir. Özniteliğin adı her zaman ile `@on`başlar.
 
-Aşağıdaki kod çağrıları `UpdateHeading` Arabiriminde düğme seçildiğinde yöntemi:
+Aşağıdaki kod, Kullanıcı arabiriminde `UpdateHeading` düğme seçildiğinde yöntemini çağırır:
 
 ```cshtml
-<button class="btn btn-primary" @onclick="@UpdateHeading">
+<button class="btn btn-primary" @onclick="UpdateHeading">
     Update heading
 </button>
 
@@ -272,10 +272,10 @@ Aşağıdaki kod çağrıları `UpdateHeading` Arabiriminde düğme seçildiğin
 }
 ```
 
-Aşağıdaki kod çağrıları `CheckChanged` onay kutusunu kullanıcı Arabiriminde değiştirildiğinde yöntemi:
+Aşağıdaki kod, Kullanıcı arabiriminde `CheckChanged` onay kutusu değiştirildiğinde yöntemini çağırır:
 
 ```cshtml
-<input type="checkbox" class="form-check-input" @onchange="@CheckChanged" />
+<input type="checkbox" class="form-check-input" @onchange="CheckboxChanged" />
 
 @code {
     private void CheckChanged()
@@ -285,12 +285,12 @@ Aşağıdaki kod çağrıları `CheckChanged` onay kutusunu kullanıcı Arabirim
 }
 ```
 
-Olay işleyicileri zaman uyumsuz ve dönüş ayrıca olabilir bir <xref:System.Threading.Tasks.Task>. El ile çağırmaya gerek yoktur `StateHasChanged()`. Ortaya çıkan özel durumlar günlüğe kaydedilir.
+Olay işleyicileri Ayrıca zaman uyumsuz olabilir ve döndürebilir <xref:System.Threading.Tasks.Task>. El ile çağırmanız `StateHasChanged()`gerekmez. Özel durumlar oluştuğunda günlüğe kaydedilir.
 
-Aşağıdaki örnekte, `UpdateHeading` düğmesi seçili olduğunda zaman uyumsuz olarak adlandırılır:
+Aşağıdaki örnekte, `UpdateHeading` düğme seçildiğinde zaman uyumsuz olarak çağrılır:
 
 ```cshtml
-<button class="btn btn-primary" @onclick="@UpdateHeading">
+<button class="btn btn-primary" @onclick="UpdateHeading">
     Update heading
 </button>
 
@@ -302,25 +302,25 @@ Aşağıdaki örnekte, `UpdateHeading` düğmesi seçili olduğunda zaman uyumsu
 }
 ```
 
-Bazı olaylar için olaya özgü olay bağımsız değişken türleri de izin verilir. Bu olay türleri birine erişimi gerekli değilse, yöntem çağrısında gerekli değildir.
+Bazı olaylarda olaya özgü olay bağımsız değişkeni türlerine izin verilir. Bu olay türlerinden birine erişim gerekmiyorsa, yöntem çağrısında gerekli değildir.
 
-Desteklenen [UIEventArgs](https://github.com/aspnet/AspNetCore/blob/master/src/Components/Components/src/UIEventArgs.cs) aşağıdaki tabloda gösterilmiştir.
+Desteklenen [Uıeventargs](https://github.com/aspnet/AspNetCore/blob/master/src/Components/Components/src/UIEventArgs.cs) aşağıdaki tabloda gösterilmiştir.
 
 | Olay | örneği |
 | ----- | ----- |
 | Pano | `UIClipboardEventArgs` |
-| Sürükle  | `UIDragEventArgs` &ndash; `DataTransfer` bir Sürükle ve bırak işlemi sırasında sürüklenen verileri tutmak için kullanılır ve bir veya daha fazla tutabilir `UIDataTransferItem`. `UIDataTransferItem` temsil eder bir veri öğesi sürükleyin. |
+| Sürükle  | `UIDragEventArgs`sürükle ve bırak işlemi sırasında sürüklenen verileri tutmak için kullanılır ve bir veya daha fazla `UIDataTransferItem`tutabilir. &ndash; `DataTransfer` `UIDataTransferItem`bir sürükle veri öğesini temsil eder. |
 | Hata | `UIErrorEventArgs` |
-| Odağı | `UIFocusEventArgs` &ndash; İçin destek içermez `relatedTarget`. |
-| `<input>` Değişiklik | `UIChangeEventArgs` |
+| Çı | `UIFocusEventArgs`&ndash; İçin`relatedTarget`destek içermez. |
+| `<input>`değişebilir | `UIChangeEventArgs` |
 | Klavye | `UIKeyboardEventArgs` |
-| Fare | `UIMouseEventArgs` |
+| Tığında | `UIMouseEventArgs` |
 | Fare işaretçisi | `UIPointerEventArgs` |
 | Fare tekerleği | `UIWheelEventArgs` |
 | İlerleme durumu | `UIProgressEventArgs` |
-| Dokunma | `UITouchEventArgs` &ndash; `UITouchPoint` dokunmaya duyarlı cihazda tek bir iletişim noktası temsil eder. |
+| Dokunma | `UITouchEventArgs`&ndash; dokunarakduyarlıbircihazdakitekbir`UITouchPoint` iletişim noktasını temsil eder. |
 
-Özellikleri ve olay davranışını önceki tabloda olayları işleme hakkında daha fazla bilgi için bkz: [UIEventArgs](https://github.com/aspnet/AspNetCore/blob/master/src/Components/Components/src/UIEventArgs.cs) başvuru kaynak.
+Yukarıdaki tablodaki olayların özellikleri ve olay işleme davranışı hakkında bilgi için başvuru kaynağında [Uıeventargs](https://github.com/aspnet/AspNetCore/blob/master/src/Components/Components/src/UIEventArgs.cs) bölümüne bakın.
   
 Lambda ifadeleri de kullanılabilir:
 
@@ -328,7 +328,7 @@ Lambda ifadeleri de kullanılabilir:
 <button @onclick="@(e => Console.WriteLine("Hello, world!"))">Say hello</button>
 ```
 
-Genellikle gibi ek değerler kapatmak uygun olan öğeleri kümesi yineleme olduğunda. Aşağıdaki örnek, üç oluşturur düğmeler, her biri çağıran `UpdateHeading` olay bağımsız değişken geçirme (`UIMouseEventArgs`) ve düğme sayısı (`buttonNumber`) kullanıcı Arabiriminde seçili olduğunda:
+Genellikle, bir dizi öğe üzerinde yineleme yaparken olduğu gibi ek değerlerin üzerinde kapatılabilir. Aşağıdaki örnek, her biri `UpdateHeading` Kullanıcı arabiriminde seçildiğinde bir olay bağımsız değişkeni (`UIMouseEventArgs`) ve düğme numarası (`buttonNumber`) geçiren üç düğme oluşturur:
 
 ```cshtml
 <h2>@message</h2>
@@ -355,26 +355,26 @@ Genellikle gibi ek değerler kapatmak uygun olan öğeleri kümesi yineleme oldu
 ```
 
 > [!NOTE]
-> Yapmak **değil** Döngü değişkeninin kullanın (`i`) içinde bir `for` bir lambda ifadesinde doğrudan döngü. Aksi takdirde aynı değişkene neden tüm lambda ifadeleri tarafından kullanılan `i`değerini tüm lambda içinde ile aynı. Yerel bir değişkende değeri her zaman yakalama (`buttonNumber` önceki örnekte) ve ardından kullanın.
+> Döngü değişkenini (`i`) bir `for` döngüde doğrudan bir lambda ifadesinde kullanmayın. Aksi halde, tüm lambda ifadeleri tarafından değeri tüm Lambdalar aynı olmasına neden olan `i`değişken aynı değişken kullanılır. Her zaman değerini yerel bir değişkende (`buttonNumber` önceki örnekte) yakalayın ve sonra kullanın.
 
 ### <a name="eventcallback"></a>EventCallback
 
-İç içe geçmiş bileşen sık karşılaşılan bir senaryodur arzusu bir alt bileşen olay gerçekleştiğinde bir ana bileşenin yöntemini çalıştırılacak olan&mdash;Örneğin, bir `onclick` olay alt gerçekleşir. Bileşenlerinde olaylar oluşturmak için kullanmak bir `EventCallback`. Ana bileşenin bir alt bileşen için bir geri çağırma yöntemi atayabilirsiniz `EventCallback`.
+İç içe bileşenler içeren yaygın bir senaryo, alt bileşen olayı&mdash;olduğunda bir üst bileşenin yöntemini, `onclick` örneğin bir olay gerçekleştiğinde bir olay oluştuğunda çalıştırmak için gereklidir. Olayları bileşenler genelinde göstermek için bir `EventCallback`kullanın. Bir üst bileşen bir alt bileşene `EventCallback`geri çağırma yöntemi atayabilir.
 
-`ChildComponent` Örnekte bir düğme nasıl ait uygulama gösterilmektedir `onclick` işleyici ayarlandığından almak için bir `EventCallback` temsilci örnekten 's `ParentComponent`. `EventCallback` İle yazılan `UIMouseEventArgs`, uygun olduğu bir `onclick` çevre cihazı olay:
+Örnek `ChildComponent` uygulamada, bir `onclick` düğmenin işleyicisinin örnek `ParentComponent`tarafından bir `EventCallback` temsilci almak üzere nasıl ayarlandığı gösterilmektedir. ,, Bir çevre `UIMouseEventArgs`cihazından bir `onclick` olay için uygun olan ile öğesine yazılır: `EventCallback`
 
 [!code-cshtml[](common/samples/3.x/BlazorSample/Components/ChildComponent.razor?highlight=5-7,17-18)]
 
-`ParentComponent` Çocuğun ayarlar `EventCallback<T>` için kendi `ShowMessage` yöntemi:
+, `ParentComponent` Alt`ShowMessage` öğenin yöntemine göre ayarlar: `EventCallback<T>`
 
 [!code-cshtml[](common/samples/3.x/BlazorSample/Pages/ParentComponent.razor?name=snippet_ParentComponent&highlight=6,16-19)]
 
-İçinde düğme seçildiğinde `ChildComponent`:
+Düğme ' de `ChildComponent`seçildiğinde:
 
-* `ParentComponent`'S `ShowMessage` yöntemi çağrılır. `messageText` Güncelleştirilen ve görüntülenen `ParentComponent`.
-* Bir çağrı `StateHasChanged` geri çağırma'nın yöntemi gerekli değildir (`ShowMessage`). `StateHasChanged` rerender için otomatik olarak çağrılan `ParentComponent`, bileşen içinde alt yürütme olay işleyicilerinde rerendering alt olaylarını tetiklemek gibi.
+* `ParentComponent` Öğesinin`ShowMessage` yöntemi çağrılır. `messageText`güncelleştirilir ve içinde `ParentComponent`görüntülenir.
+* Geri çağırma yönteminde `StateHasChanged` (`ShowMessage`) bir çağrısı gerekli değildir. `StateHasChanged`alt olaylar, alt öğe içinde yürütülen `ParentComponent`olay işleyicilerinde bileşen rerendering tetiklenmesi için otomatik olarak çağrılır.
 
-`EventCallback` ve `EventCallback<T>` zaman uyumsuz temsilciler izin verir. `EventCallback<T>` türü kesin olarak belirtilmiş ve belirli bir bağımsız değişken türü gerektirir. `EventCallback` zayıf yazılmış ve herhangi bir bağımsız değişken türü sağlar.
+`EventCallback`ve `EventCallback<T>` zaman uyumsuz temsilcilere izin verir. `EventCallback<T>`kesin bir şekilde türdedir ve belirli bir bağımsız değişken türü gerektirir. `EventCallback`zayıf ve bağımsız değişken türüne izin veriyor.
 
 ```cshtml
 <p><b>@messageText</b></p>
@@ -389,19 +389,19 @@ Genellikle gibi ek değerler kapatmak uygun olan öğeleri kümesi yineleme oldu
 }
 ```
 
-Çağırma bir `EventCallback` veya `EventCallback<T>` ile `InvokeAsync` ve await <xref:System.Threading.Tasks.Task>:
+Bir `EventCallback` veya `EventCallback<T>` ile <xref:System.Threading.Tasks.Task>çağırın ve şunu bekler: `InvokeAsync`
 
 ```csharp
 await callback.InvokeAsync(arg);
 ```
 
-Kullanım `EventCallback` ve `EventCallback<T>` olay işleme ve bileşen parametre bağlama için.
+Olay `EventCallback` işleme `EventCallback<T>` ve bağlama bileşeni parametreleri için ve kullanın.
 
-Kesin olarak belirlenmiş tercih `EventCallback<T>` üzerinden `EventCallback`. `EventCallback<T>` Bileşen kullanıcıları için daha iyi hata geri bildirim sağlar. Diğer UI olay işleyicilerine benzer, olay parametresi belirten isteğe bağlıdır. Kullanım `EventCallback` çağırma işlemine geçirilen değer olduğunda.
+Kesin olarak belirlenmiş `EventCallback<T>` `EventCallback`türü tercih edin. `EventCallback<T>`bileşenin kullanıcılarına daha iyi hata geri bildirimi sağlar. Diğer UI olay işleyicileriyle benzer şekilde, olay parametresini belirtmek isteğe bağlıdır. Geri `EventCallback` çağırmaya hiçbir değer geçirilmemişse kullanın.
 
-## <a name="capture-references-to-components"></a>Bileşenleri başvurular yakalama
+## <a name="capture-references-to-components"></a>Bileşenlere başvuruları yakala
 
-Bileşen başvurularını komutları gibi bu örneğe verebilir böylece bileşen örneğinin başvurmak için bir yol sağlar `Show` veya `Reset`. Bir bileşen başvurusunu yakalamak için ekleme bir `@ref` özniteliği alt bileşen ve aynı ada ve aynı türe sahip bir alan alt bileşeni olarak tanımlayabilirsiniz.
+Bileşen başvuruları, bir bileşen örneğine başvurmak için bir yol sağlar; böylece, veya `Show` `Reset`gibi komutları bu örneğe verebilirsiniz. Bir bileşen başvurusunu yakalamak için, alt bileşene `@ref` bir öznitelik ekleyin ve ardından aynı ada ve alt bileşenle aynı türe sahip bir alan tanımlayın.
 
 ```cshtml
 <MyLoginDialog @ref="loginDialog" ... />
@@ -416,19 +416,19 @@ Bileşen başvurularını komutları gibi bu örneğe verebilir böylece bileşe
 }
 ```
 
-Bileşen işlendiğinde `loginDialog` alanı ile doldurulur `MyLoginDialog` alt bileşen örneği. Ardından bileşen örneği üzerinde .NET yöntemlerini çağırabilirsiniz.
+Bileşen işlendiğinde, `loginDialog` alan `MyLoginDialog` alt bileşen örneğiyle doldurulur. Daha sonra bileşen örneğinde .NET yöntemlerini çağırabilirsiniz.
 
 > [!IMPORTANT]
-> `loginDialog` Değişkeni bileşeni işlenir ve çıktısını içeren sonra yalnızca doldurulmuş `MyLoginDialog` öğesi. O noktaya kadar hiçbir şey yoktur başvurmak için. Bileşen oluşturma işlemini tamamladıktan sonra bileşenleri başvurularını değiştirmek üzere `OnAfterRenderAsync` veya `OnAfterRender` yöntemleri.
+> Değişken yalnızca bileşen işlendikten sonra ve çıktısı `MyLoginDialog` öğesi içerdiğinde doldurulur. `loginDialog` Bu noktaya kadar başvurulmasına hiçbir şey yok. Bileşen işlemesini tamamladıktan sonra bileşen başvurularını işlemek için, `OnAfterRenderAsync` veya `OnAfterRender` yöntemlerini kullanın.
 
-Bileşen başvurularını yakalarken kullanmak için benzer bir sözdizimi [öğesi başvuruları yakalama](xref:blazor/javascript-interop#capture-references-to-elements), öyle bir [JavaScript birlikte çalışma](xref:blazor/javascript-interop) özelliği. Bileşen başvurularını JavaScript kodunu geçirilen olmayan&mdash;yalnızca .NET kodda kullanılırlar.
+Bileşen başvurularını yakalama, [öğe başvurularını yakalamak](xref:blazor/javascript-interop#capture-references-to-elements)için benzer bir sözdizimi kullanın, bir [JavaScript birlikte çalışma](xref:blazor/javascript-interop) özelliği değildir. Bileşen başvuruları yalnızca .net kodunda kullanıldıkları JavaScript&mdash;koduna aktarılmaz.
 
 > [!NOTE]
-> Yapmak **değil** alt bileşenlerin durumunu kesilecek bileşen başvuruları kullanın. Bunun yerine, normal bildirim temelli parametreler alt bileşenler için veri aktarmak için kullanın. Normal bildirim temelli parametreler sonucunda otomatik olarak doğru zamanlarda rerender alt bileşenlerle kullanma.
+> Alt bileşenlerin durumunu bulunmamalıdır için bileşen **başvurularını kullanmayın.** Bunun yerine, alt bileşenlere veri geçirmek için normal bildirime dayalı parametreleri kullanın. Normal bildirime dayalı parametrelerin kullanımı, otomatik olarak doğru zamanların yeniden yönlendirmesi için alt bileşenlerde oluşur.
 
-## <a name="use-key-to-control-the-preservation-of-elements-and-components"></a>Kullanım @key öğeleri ve bileşenleri korunması denetlemek için
+## <a name="use-key-to-control-the-preservation-of-elements-and-components"></a>Öğelerin @key ve bileşenlerin korunmasını denetlemek için kullanın
 
-Öğeleri veya bileşenleri ve öğeleri veya bileşenleri listesini sonradan işleme değiştirdiğinizde Blazor'ın ayırırken algoritması, önceki öğeleri veya bileşenleri tutulabilir ve model nesneleri için bunları nasıl eşlemelisiniz karar vermeniz gerekir. Genellikle bu işlemi otomatik olarak yüklenir ve göz ardı edilebilir, ancak işlemini denetlemek için burada isteyebileceğiniz durumlar vardır.
+Bir öğe veya bileşen listesi işlenirken ve öğeler ya da bileşenler daha sonra değiştiğinde, Blazor 'in yayılma algoritması, önceki öğelerin veya bileşenlerin ne zaman tutulacağına ve model nesnelerinin bunlara nasıl eşleneceğine karar vermelidir. Normalde, bu işlem otomatiktir ve yoksayılabilir, ancak işlemi denetlemek isteyebileceğiniz durumlar vardır.
 
 Aşağıdaki örnek göz önünde bulundurun:
 
@@ -444,9 +444,9 @@ Aşağıdaki örnek göz önünde bulundurun:
 }
 ```
 
-İçeriğini `People` koleksiyon değişebilir ile eklenen, silinen veya Girişleri'yeniden sıralanabilir. Bileşen rerenders, `<DetailsEditor>` bileşeni farklı almak için değişebilir `Details` parametre değerleri. Bu işlem, beklenenden daha karmaşık rerendering neden olabilir. Bazı durumlarda, rerendering kayıp öğesi odak gibi görünür davranış farklılıklarının neden olabilir.
+`People` Koleksiyonun içeriği, ekli, silinmiş veya yeniden sıralanmış girdilerle değişebilir. Bileşen yeniden oluşturulduğunda, `<DetailsEditor>` bileşen farklı `Details` parametre değerleri almak için değişebilir. Bu, beklenenden daha karmaşık rerendering oluşmasına neden olabilir. Bazı durumlarda rerendering, kayıp öğe odağı gibi görünür davranış farklılıklarına yol açabilir.
 
-Eşleme işlemi ile denetlenebilir `@key` yönerge özniteliği. `@key` öğeleri veya bileşenleri anahtarın değerine göre korunmasını sağlamak fark alma işlemini algoritması neden olur:
+Eşleme işlemi, `@key` Directive özniteliğiyle denetlenebilir. `@key`, anahtar değerine göre öğelerin veya bileşenlerin korunmasını güvence altına almak için dağıtılmış algoritmaya neden olur:
 
 ```csharp
 @foreach (var person in People)
@@ -460,22 +460,22 @@ Eşleme işlemi ile denetlenebilir `@key` yönerge özniteliği. `@key` öğeler
 }
 ```
 
-Zaman `People` koleksiyonu değişiklikleri ayırırken algoritması korur arasındaki ilişkiyi `<DetailsEditor>` örnekleri ve `person` örnekleri:
+Koleksiyon değiştiğinde, yayılma algoritması örnekler ve `person` örnekler arasındaki `<DetailsEditor>` ilişkilendirmeyi korur: `People`
 
-* Varsa bir `Person` hizmetinden silinir `People` listesi, yalnızca ilgili `<DetailsEditor>` örneği, kullanıcı Arabiriminden kaldırılır. Diğer örnekleri sol değişmez.
-* Varsa bir `Person` listesinde yeni bir tane bazı konumunda eklenen `<DetailsEditor>` örneğine karşılık gelen o konumdan eklenir. Diğer örnekleri sol değişmez.
-* Varsa `Person` girişleri yeniden sıralanır, karşılık gelen `<DetailsEditor>` örnekleri korunur ve kullanıcı Arabiriminde yeniden sıralanabilir.
+* Bir `Person` , `People` listeden silinirse, yalnızca ilgili `<DetailsEditor>` örnek kullanıcı arabiriminden kaldırılır. Diğer örnekler değişmeden bırakılır.
+* Listedeki bir `Person` konuma eklenirse, ilgili konuma bir yeni `<DetailsEditor>` örnek eklenir. Diğer örnekler değişmeden bırakılır.
+* Girişler `Person` yeniden Sıralansa, ilgili `<DetailsEditor>` örnekler Kullanıcı arabiriminde korunur ve yeniden sıralanır.
 
-Bazı senaryolarda kullanım `@key` rerendering karmaşıklığını en aza indirir ve durum bilgisi olan bölümleri DOM, odak konumu gibi değiştirme ile ilgili olası sorunları önler.
+Bazı senaryolarda, kullanımı `@key` rerendering karmaşıklığını en aza indirir ve odak konumu gibi Dom 'ın durum bilgisi olan kısımlarıyla ilgili olası sorunları önler.
 
 > [!IMPORTANT]
-> Anahtarlar, her bir kapsayıcı öğe veya bileşeni için yereldir. Anahtarları genel belge boyunca karşılaştırıldığında değildir.
+> Anahtarlar her kapsayıcı öğesi veya bileşeni için yereldir. Anahtarlar belge genelinde küresel olarak karşılaştırılmaz.
 
-### <a name="when-to-use-key"></a>Ne zaman kullanılır? @key
+### <a name="when-to-use-key"></a>Ne zaman kullanılır?@key
 
-Genellikle, kullanılacak mantıklıdır `@key` listesini işlenen her (örneğin, bir `@foreach` bloğu) ve tanımlamak için uygun bir değer var. `@key`.
+Genellikle, bir liste işlendiğinde (örneğin `@key` , bir `@foreach` blokta) ve tanımlamak için uygun bir değer varsa, `@key`bu işlem kullanım açısından mantıklı olur.
 
-Ayrıca `@key` bir nesne değiştirildiğinde bir öğe veya bileşen alt koruma gelen Blazor önlemek için:
+Bir nesne değiştiğinde Blazor `@key` 'in bir öğeyi veya bileşen alt ağacını koruma altına almasını engellemek için de kullanabilirsiniz:
 
 ```cshtml
 <div @key="@currentPerson">
@@ -483,26 +483,26 @@ Ayrıca `@key` bir nesne değiştirildiğinde bir öğe veya bileşen alt koruma
 </div>
 ```
 
-Varsa `@currentPerson` değişiklikleri `@key` özniteliği yönergesi, tüm atmak Blazor zorlar `<div>` ve alt öğeler ve alt ağacı içinde yeni öğeler ve bileşenleri ile kullanıcı arabirimini yeniden oluşturma. Bu, hiçbir kullanıcı Arabirimi durumu ne zaman korunduğunu garantilemeye ihtiyacınız varsa yararlı olabilir `@currentPerson` değişiklikler.
+Değişiklik `@currentPerson` olursa `@key` , öznitelik yönergesi Blazor tüm `<div>` alt öğelerini atmayı ve yeni öğeler ve bileşenlerle Kullanıcı arabiriminde alt ağacı yeniden oluşturmayı zorlar. Değişiklik sırasında `@currentPerson` hiçbir Kullanıcı arabirimi durumunun korunmayacağını garanti etmeniz gerekirse bu yararlı olabilir.
 
-### <a name="when-not-to-use-key"></a>Kullanılmayacağı zaman @key
+### <a name="when-not-to-use-key"></a>Ne zaman kullanılmaz@key
 
-Performans maliyetine ne zaman yoktur ile ayırırken `@key`. Performans maliyetini büyük değildir, ancak yalnızca belirtin `@key` öğe veya bileşen korunması denetleme kuralları yararlı uygulama ise.
+İle `@key`yayılma yaparken bir performans maliyeti vardır. Performans maliyeti büyük değildir, ancak yalnızca öğenin veya `@key` bileşen koruma kurallarının denetlenmesi uygulamanın avantajına göre belirleyin.
 
-Bile `@key` değil kullanılan Blazor alt öğe ve bileşen örnekleri mümkün olduğunca korur. Yalnızca önyüklenebildiği `@key` üzerinden denetimdir *nasıl* modeli örnek eşleme seçme ayırırken algoritması yerine korunan bileşen örneklerine eşleştirilir.
+`@key` Kullanılmasa bile, Blazor alt öğe ve bileşen örneklerini mümkün olduğunca korur. Kullanmanın `@key` tek avantajı model örneklerinin, eşlemeyi seçme algoritması yerine, korunan bileşen örneklerine *nasıl* eşlendiğine ilişkin denetimdir.
 
-### <a name="what-values-to-use-for-key"></a>Hangi için kullanılacak değerleri @key
+### <a name="what-values-to-use-for-key"></a>İçin kullanılacak değerler@key
 
-Aşağıdaki tür için değer birini sağlamak mantıklı genellikle `@key`:
+Genellikle, için `@key`aşağıdaki değer türlerinden birini sağlamak mantıklı olur:
 
-* Model nesne örnekleri (örneğin, bir `Person` örneği önceki örnekte olduğu gibi). Bu, üzerinde nesne başvuru eşitliğine dayalı korunmasını sağlar.
-* Benzersiz tanımlayıcıları (örneğin, birincil anahtar değerlerini türü `int`, `string`, veya `Guid`).
+* Model nesne örnekleri (örneğin, `Person` önceki örnekte olduğu gibi). Bu, nesne başvurusu eşitliğine göre koruma sağlar.
+* Benzersiz tanımlayıcılar (örneğin, veya `int` `Guid`türündeki `string`birincil anahtar değerleri).
 
-Beklenmedik bir şekilde bırakmayan bir değeri sağlama kaçının. Varsa `@key="@someObject.GetHashCode()"` karma kodları ilgisiz nesnelerin aynı olabileceğinden, beklenmeyen çakışmaları oluşabilir sağlanır. Çakışan varsa `@key` değerleri aynı üst öğe içinde istenen `@key` değerleri olmaz dikkate alınır.
+Beklenmedik bir şekilde çakışacak bir değer vermekten kaçının. `@key="@someObject.GetHashCode()"` Sağlanırsa, ilişkisiz nesnelerin karma kodları aynı olabileceğinden beklenmeyen çakışıyor oluşabilir. Aynı üst öğe içinde çakışan `@key` değerleristeniyorsa,değerleronaylanmaz.`@key`
 
 ## <a name="lifecycle-methods"></a>Yaşam döngüsü yöntemleri
 
-`OnInitAsync` ve `OnInit` bileşeni başlatmak için kod yürütebilir. Zaman uyumsuz bir işlemi gerçekleştirmek için `OnInitAsync` ve `await` anahtar sözcüğü, işlemi:
+`OnInitAsync`ve `OnInit` bileşeni başlatmak için kodu yürütün. Zaman uyumsuz bir işlem gerçekleştirmek için, `OnInitAsync` `await` ve işlem üzerinde anahtar sözcüğünü kullanın:
 
 ```csharp
 protected override async Task OnInitAsync()
@@ -511,7 +511,7 @@ protected override async Task OnInitAsync()
 }
 ```
 
-Eşzamanlı bir işlem için kullanmak `OnInit`:
+Zaman uyumlu bir işlem için şunu `OnInit`kullanın:
 
 ```csharp
 protected override void OnInit()
@@ -520,7 +520,7 @@ protected override void OnInit()
 }
 ```
 
-`OnParametersSetAsync` ve `OnParametersSet` bir bileşen üst öğesinden parametreleri aldı ve özelliklerine değerler atanır çağırılır. Bu yöntemler bileşen başlatmadan sonra yürütülür ve her bileşenin oluşturulur:
+`OnParametersSetAsync`ve `OnParametersSet` bir bileşen üst öğeden parametreler aldığında ve değerler özelliklerine atandığında çağrılır. Bu yöntemler bileşen başlatıldıktan sonra ve bileşen her işlendiğinde yürütülür:
 
 ```csharp
 protected override async Task OnParametersSetAsync()
@@ -536,7 +536,7 @@ protected override void OnParametersSet()
 }
 ```
 
-`OnAfterRenderAsync` ve `OnAfterRender` bir bileşen oluşturma tamamlandıktan sonra çağrılır. Öğe ve bileşen başvuruları bu noktada doldurulur. Bu aşama, işlenmiş DOM öğeleri üzerinde çalışan üçüncü taraf JavaScript kitaplıklarını etkinleştirme gibi işlenmiş içeriği kullanarak ek başlatma adımları gerçekleştirmek için kullanın.
+`OnAfterRenderAsync`ve `OnAfterRender` bir bileşen işlemeyi tamamladıktan sonra çağrılır. Öğe ve bileşen başvuruları bu noktada doldurulur. İşlenmiş DOM öğelerinde çalışan üçüncü taraf JavaScript kitaplıklarını etkinleştirme gibi, işlenmiş içeriği kullanarak ek başlatma adımları gerçekleştirmek için bu aşamayı kullanın.
 
 ```csharp
 protected override async Task OnAfterRenderAsync()
@@ -552,19 +552,19 @@ protected override void OnAfterRender()
 }
 ```
 
-### <a name="handle-incomplete-async-actions-at-render"></a>Tamamlanmamış zaman uyumsuz işleme eylemlerini işlemek
+### <a name="handle-incomplete-async-actions-at-render"></a>İşleme sırasında tamamlanmamış zaman uyumsuz eylemleri işle
 
-Yaşam döngüsü olayları zaman uyumsuz eylemlerin bileşeni işlenmeden önce tamamlanmamış olabilir. Nesneleri olabilir `null` veya yaşam döngüsü metodu yürütülürken verilerle doldurulmuş önişlemcinin. Nesneleri başlatıldığını onaylamak için işleme mantığı sağlar. Yer tutucu nesneleri sırasında kullanıcı Arabirimi öğeleri (örneğin, bir yükleme iletisi) işleme olan `null`.
+Yaşam döngüsü olaylarında gerçekleştirilen zaman uyumsuz eylemler, bileşen işlenmeden önce tamamlanmamış olabilir. Yaşam döngüsü yöntemi `null` yürütülürken nesneler, verilerle tamamen doldurulmuş olabilir. Nesnelerin başlatıldığını onaylamak için işleme mantığı sağlayın. Nesneler olduğunda `null`yer tutucu Kullanıcı arabirimi öğelerini (örneğin, bir yükleme iletisi) işleme.
 
-İçinde `FetchData` Blazor şablonlarının bileşen `OnInitAsync` kopyalanmamasına için geçersiz kılındı tahmin veri alma (`forecasts`). Zaman `forecasts` olduğu `null`, kullanıcıya yüklenirken bir ileti görüntülenir. Sonra `Task` tarafından döndürülen `OnInitAsync` tamamlandıktan, bileşen, güncelleştirilmiş durumuyla rerendered.
+Blazor şablonlarının `OnInitAsync`bileşeninde, Asychronously tahmin verileri al (`forecasts`) için geçersiz kılınır. `FetchData` Ne zaman olduğunda `forecasts` ,kullanıcıyabiryüklemeiletisigörüntülenir.`null` İşlem tamamlandıktan sonra, bileşen güncelleştirilmiş duruma `Task` `OnInitAsync` geri döner.
 
-*Pages/FetchData.razor*:
+*Pages/FetchData. Razor*:
 
 [!code-cshtml[](components/samples_snapshot/3.x/FetchData.razor?highlight=9)]
 
-### <a name="execute-code-before-parameters-are-set"></a>Parametreleri ayarlamadan önce kod yürütme
+### <a name="execute-code-before-parameters-are-set"></a>Parametreler ayarlanmadan önce kodu yürütün
 
-`SetParameters` parametreleri ayarlamadan önce kodu çalıştırmak için geçersiz kılınabilir:
+`SetParameters`Parametreler ayarlanmadan önce kodu yürütmek için geçersiz kılınabilir:
 
 ```csharp
 public override void SetParameters(ParameterCollection parameters)
@@ -575,11 +575,11 @@ public override void SetParameters(ParameterCollection parameters)
 }
 ```
 
-Varsa `base.SetParameters` değilse çağrılır, özel kod yolu gerekli gelen parametre değeri yorumlayabilir. Örneğin, gelen parametreleri sınıfındaki özellikleri atanması için gerekli değildir.
+Çağrılmadıysa `base.SetParameters` , özel kod gelen parametreler değerini gerekli herhangi bir şekilde yorumlayabilir. Örneğin, gelen parametrelerin, sınıftaki özelliklere atanması gerekmez.
 
-### <a name="suppress-refreshing-of-the-ui"></a>Kullanıcı Arabiriminde yenileme Gizle
+### <a name="suppress-refreshing-of-the-ui"></a>Kullanıcı arabiriminin yenilenmesini gösterme
 
-`ShouldRender` Kullanıcı Arabiriminde yenilemeyi engellemek için geçersiz kılınabilir. Uygulama döndürürse `true`, UI yenilenir. Bile `ShouldRender` olan geçersiz kılınan, bileşen her zaman başlangıçta işlenir.
+`ShouldRender`Kullanıcı arabiriminin yenilenmesini gizlemek için geçersiz kılınabilir. Uygulama döndürürse `true`, Kullanıcı arabirimi yenilenir. `ShouldRender` Geçersiz kılınsa bile, bileşen her zaman ilk olarak işlenir.
 
 ```csharp
 protected override bool ShouldRender()
@@ -590,9 +590,9 @@ protected override bool ShouldRender()
 }
 ```
 
-## <a name="component-disposal-with-idisposable"></a>IDisposable ile bileşen elden çıkarma
+## <a name="component-disposal-with-idisposable"></a>IDisposable ile bileşen atma
 
-Bir bileşen uyguluyorsa <xref:System.IDisposable>, [Dispose yöntemini](/dotnet/standard/garbage-collection/implementing-dispose) bileşeni Arabiriminden kaldırıldığında çağrılır. Aşağıdaki bileşen `@implements IDisposable` ve `Dispose` yöntemi:
+Bir bileşen uygularsa <xref:System.IDisposable>, bileşen kullanıcı arabiriminden kaldırıldığında [Dispose yöntemi](/dotnet/standard/garbage-collection/implementing-dispose) çağırılır. Aşağıdaki bileşen `@implements IDisposable` `Dispose` ve yöntemini kullanır:
 
 ```csharp
 @using System
@@ -610,31 +610,31 @@ Bir bileşen uyguluyorsa <xref:System.IDisposable>, [Dispose yöntemini](/dotnet
 
 ## <a name="routing"></a>Yönlendirme
 
-İçinde Blazor yönlendirme uygulamasında erişilebilir her bileşeni için bir rota şablonu sağlayarak gerçekleştirilir.
+Blazor ' de yönlendirme, uygulamadaki her erişilebilir bileşene bir rota şablonu sunarak elde edilir.
 
-Bir Razor dosya ile bir `@page` yönergesi derlendiğinde, oluşturulan sınıfın belirli bir <xref:Microsoft.AspNetCore.Mvc.RouteAttribute> belirten rota şablonu. Çalışma zamanında bileşen sınıfları ile yönlendirici arar bir `RouteAttribute` ve hangi bileşen istenen URL ile eşleşen bir rota şablonuna sahip işler.
+Bir `@page` yönergeyle bir Razor dosyası derlendiğinde, oluşturulan sınıfa yol şablonu <xref:Microsoft.AspNetCore.Mvc.RouteAttribute> belirtilerek verilir. Çalışma zamanında, yönlendirici bileşen sınıflarını bir `RouteAttribute` ile arar ve hangi bileşenin istenen URL ile eşleşen bir rota şablonuna sahip olduğunu işler.
 
-Bir bileşenin birden çok yol şablonu uygulanabilir. Aşağıdaki bileşen isteklerine yanıt veren `/BlazorRoute` ve `/DifferentBlazorRoute`:
+Birden çok yol şablonu, bir bileşene uygulanabilir. Aşağıdaki bileşen ve `/BlazorRoute` `/DifferentBlazorRoute`için isteklere yanıt verir:
 
 [!code-cshtml[](common/samples/3.x/BlazorSample/Pages/BlazorRoute.razor?name=snippet_BlazorRoute)]
 
-## <a name="route-parameters"></a>Yol parametreleri
+## <a name="route-parameters"></a>Rota parametreleri
 
-Sağlanan yol şablondan, rota parametrelerinin bileşenleri alabilir `@page` yönergesi. Yönlendirici, karşılık gelen bileşen parametreleri doldurmak için rota parametrelerini kullanır.
+Bileşenler, `@page` yönergede belirtilen yol şablonundan rota parametreleri alabilir. Yönlendirici, karşılık gelen bileşen parametrelerini doldurmak için yol parametrelerini kullanır.
 
-*Rota parametresinin bileşen*:
+*Rota parametresi bileşeni*:
 
 [!code-cshtml[](common/samples/3.x/BlazorSample/Pages/RouteParameter.razor?name=snippet_RouteParameter)]
 
-İsteğe bağlı parametreler desteklenmez, bu nedenle iki `@page` yönergeleri, yukarıdaki örnekte uygulanır. İlk Gezinti parametresi olmadan bileşenine izin verir. İkinci `@page` yönergesi gereken `{text}` rota parametresi ve değeri atar `Text` özelliği.
+İsteğe bağlı parametreler desteklenmez, bu nedenle `@page` Yukarıdaki örnekte iki yönergeler uygulanır. İlki, bir parametre olmadan bileşene gezinmesine izin verir. İkinci `@page` yönerge, `{text}` yol parametresini alır ve değeri `Text` özelliğine atar.
 
-## <a name="base-class-inheritance-for-a-code-behind-experience"></a>Bir "code-behind" deneyimi için temel sınıf devralma
+## <a name="base-class-inheritance-for-a-code-behind-experience"></a>"Arka plan kod" deneyimi için temel sınıf devralma
 
-Bileşen dosyaları karıştırmak HTML biçimlendirmesi ve C# aynı dosyada kod işleme. `@inherits` Yönergesi, bileşen biçimlendirme işleme koddan ayıran bir "code-behind" deneyimiyle Blazor uygulamaları sağlamak için kullanılabilir.
+Bileşen dosyaları aynı dosyada HTML biçimlendirme C# ve işleme kodu karışımını. Yönergesi `@inherits` , bileşen işaretlemesini işleme kodundan ayıran "arka plan kod" deneyimiyle Blazor uygulamalar sağlamak için kullanılabilir.
 
-[Örnek uygulaması](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/blazor/common/samples/) nasıl bir bileşen bir temel sınıf devralma işlemi yapabileceğini gösterir `BlazorRocksBase`, bileşenin özellikleri ve yöntemleri sağlar.
+[Örnek uygulama](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/blazor/common/samples/) , bileşenin özelliklerini ve yöntemlerini sağlamak için bir bileşenin temel sınıfı `BlazorRocksBase`nasıl devralmasını gösterir.
 
-*Pages/BlazorRocks.razor*:
+*Pages/BlazorRocks. Razor*:
 
 [!code-cshtml[](common/samples/3.x/BlazorSample/Pages/BlazorRocks.razor?name=snippet_BlazorRocks)]
 
@@ -642,18 +642,18 @@ Bileşen dosyaları karıştırmak HTML biçimlendirmesi ve C# aynı dosyada kod
 
 [!code-csharp[](common/samples/3.x/BlazorSample/Pages/BlazorRocksBase.cs)]
 
-Temel sınıfın türetilmesi `ComponentBase`.
+Taban sınıfın türevi `ComponentBase`olması gerekir.
 
-## <a name="import-components"></a>İçeri aktarma bileşenleri
+## <a name="import-components"></a>Bileşenleri içeri aktar
 
-Ad alanı, Razor ile yazılmış bir bileşenin dayanır:
+Razor ile yazılmış bir bileşenin ad alanı temel alınarak belirlenir:
 
 * Projenin `RootNamespace`.
-* Bileşen yolu proje kök. Örneğin, `ComponentsSample/Pages/Index.razor` ad alanındaki `ComponentsSample.Pages`. Bileşenleri izleyin C# bağlama kurallarını olarak adlandırın. Durumunda, *Index.razor*, tüm bileşenleri aynı klasörde *sayfaları*ve üst klasör *ComponentsSample*, kapsam içindedir.
+* Proje kökünden bileşene olan yol. Örneğin, `ComponentsSample/Pages/Index.razor` ad alanı `ComponentsSample.Pages`. Bileşenler ad C# bağlama kurallarını izler. *Index. Razor*söz konusu olduğunda, aynı klasördeki, *sayfalardaki*ve üst klasördeki tüm bileşenler ( *componentssample*) kapsamdadır.
 
-Farklı bir ad alanında tanımlanan bileşenleri Razor'ın kullanarak kapsamına alınabilir [ \@kullanarak](xref:mvc/views/razor#using) yönergesi.
+Farklı bir ad alanında tanımlanan bileşenler, Razor 'in [ \@using](xref:mvc/views/razor#using) yönergesi kullanılarak kapsama getirilebilir.
 
-Başka bir bileşen `NavMenu.razor`, klasörde mevcut `ComponentsSample/Shared/`, bileşen kullanılabilir `Index.razor` aşağıdaki `@using` deyimi:
+Klasöründe `NavMenu.razor` `Index.razor` `@using` başka bir bileşen varsa, bileşeni aşağıdaki ifadesiyle birlikte kullanılabilir: `ComponentsSample/Shared/`
 
 ```cshtml
 @using ComponentsSample.Shared
@@ -663,7 +663,7 @@ This is the Index page.
 <NavMenu></NavMenu>
 ```
 
-Bileşenleri de başvurabilir bunların tam nitelikli adlarını kullanarak gereksinimini kaldıran [ \@kullanarak](xref:mvc/views/razor#using) yönergesi:
+Bileşenlere Ayrıca kendi tam adları kullanılarak başvurulabilir, bu da [ \@using](xref:mvc/views/razor#using) yönergesinin gereksinimini ortadan kaldırır:
 
 ```cshtml
 This is the Index page.
@@ -672,36 +672,36 @@ This is the Index page.
 ```
 
 > [!NOTE]
-> `global::` Nitelik desteklenmez.
+> `global::` Nitelendirme desteklenmiyor.
 >
-> Diğer adlı bileşenleriyle alma `using` deyimleri (örneğin, `@using Foo = Bar`) desteklenmiyor.
+> Diğer ad `using` deyimleri (örneğin, `@using Foo = Bar`) ile bileşenleri içeri aktarma desteklenmiyor.
 >
-> Kısmen nitelenmiş adlar desteklenmez. Örneğin, ekleme `@using ComponentsSample` ve bunlara başvurma `NavMenu.razor` ile `<Shared.NavMenu></Shared.NavMenu>` desteklenmiyor.
+> Kısmen nitelenmiş adlar desteklenmez. Örneğin, ile `@using ComponentsSample` `NavMenu.razor` eklemevebaşvurudesteklenmez`<Shared.NavMenu></Shared.NavMenu>` .
 
 ## <a name="razor-support"></a>Razor desteği
 
-**Razor yönergesi**
+**Razor yönergeleri**
 
-Razor yönergeleri, aşağıdaki tabloda gösterilmiştir.
+Razor yönergeleri aşağıdaki tabloda gösterilmiştir.
 
 | Yönergesi | Açıklama |
 | --------- | ----------- |
-| [\@Kod](xref:mvc/views/razor#section-5) | Ekler bir C# bileşenine kod bloğu. `@code` bir diğer adıdır `@functions`. `@code` üzerinden önerilen `@functions`. Birden fazla `@code` bloğu izin verilebilir. |
-| [\@İşlevleri](xref:mvc/views/razor#section-5) | Ekler bir C# bileşenine kod bloğu. Seçin `@code` üzerinden `@functions` için C# kod blokları. |
+| [\@kodudur](xref:mvc/views/razor#section-5) | Bir bileşene C# kod bloğu ekler. `@code`, öğesinin `@functions`diğer adıdır. `@code`önerilir `@functions`. Birden çok blok izin verilir. `@code` |
+| [\@lerdir](xref:mvc/views/razor#section-5) | Bir bileşene C# kod bloğu ekler. Kod `@code` blokları `@functions` için C# üzerinde seçim yapın. |
 | `@implements` | Oluşturulan bileşen sınıfı için bir arabirim uygular. |
-| [\@Devralan](xref:mvc/views/razor#section-3) | Bileşen devralan sınıf tam denetim sağlar. |
-| [\@ekleme](xref:mvc/views/razor#section-4) | Hizmet ekleme gelen etkinleştirir [hizmet kapsayıcı](xref:fundamentals/dependency-injection). Daha fazla bilgi için [görünümlere bağımlılık ekleme](xref:mvc/views/dependency-injection). |
-| `@layout` | Bir düzen bileşeni belirtir. Düzen bileşenleri, kod yinelemesi ve tutarsızlık önlemek için kullanılır. |
-| [\@Sayfa](xref:razor-pages/index#razor-pages) | Bileşen doğrudan istekleri işleyeceğini belirtir. `@page` Yönergesi, bir rota ve isteğe bağlı parametreler ile belirtilebilir. Razor sayfaları aksine `@page` yönergesi üst dosyanın ilk yönerge olması gerekmez. Daha fazla bilgi için [yönlendirme](xref:blazor/routing). |
-| [\@kullanma](xref:mvc/views/razor#using) | Ekler C# `using` yönergesini oluşturulan bileşen sınıfı. Bu kapsamın içine o ad alanında tanımlanan tüm bileşenleri de getirir. |
-| [\@Namespace](xref:mvc/views/razor#section-6) | Ad alanı oluşturulan bileşen sınıfının ayarlar. |
-| [\@Özniteliği](xref:mvc/views/razor#section-7) | Bir öznitelik için oluşturulan bileşen sınıfı ekler. |
+| [\@alıp](xref:mvc/views/razor#section-3) | Bileşenin devraldığı sınıfın tam denetimini sağlar. |
+| [\@eklenecek](xref:mvc/views/razor#section-4) | [Hizmet kapsayıcısından](xref:fundamentals/dependency-injection)hizmet eklenmesine izin vermez. Daha fazla bilgi için [görünümlere bağımlılık ekleme](xref:mvc/views/dependency-injection). |
+| `@layout` | Bir düzen bileşeni belirtir. Düzen bileşenleri kod yinelemeyi ve tutarsızlığın önüne geçmek için kullanılır. |
+| [\@sayfasında](xref:razor-pages/index#razor-pages) | Bileşenin istekleri doğrudan işlemesi gerektiğini belirtir. Yönerge `@page` , bir yol ve isteğe bağlı parametrelerle birlikte belirtilebilir. Razor Pages aksine, `@page` yönergenin dosyanın en üstündeki ilk yönerge olması gerekmez. Daha fazla bilgi için bkz. [yönlendirme](xref:blazor/routing). |
+| [\@kullanarak](xref:mvc/views/razor#using) | C# Oluşturulan bileşen sınıfına yönergesini`using` ekler. Bu Ayrıca, bu ad alanında tanımlanan tüm bileşenleri kapsama alanına getirir. |
+| [\@uzayına](xref:mvc/views/razor#section-6) | Oluşturulan bileşen sınıfının ad alanını ayarlar. |
+| [\@özniteliğe](xref:mvc/views/razor#section-7) | Oluşturulan bileşen sınıfına bir öznitelik ekler. |
 
-**Koşullu HTML öğesi özniteliklerini**
+**Koşullu HTML öğesi öznitelikleri**
 
-HTML öğesi özniteliklerini .NET değerine göre koşullu olarak işlenir. Değer ise `false` veya `null`, öznitelik işlenen değil. Değer ise `true`, öznitelik işlenen simge.
+HTML öğesi öznitelikleri, .NET değerine göre koşullu olarak işlenir. Değer veya `false` `null`ise, öznitelik işlenmez. Değer ise `true`, öznitelik küçültülmüş olarak işlenir.
 
-Aşağıdaki örnekte, `IsCompleted` belirler `checked` öğenin biçimlendirmesi içinde işlenir:
+Aşağıdaki örnekte, `IsCompleted` öğesinin biçimlendirmesinde işlenip işlenmeyeceğini `checked` belirler:
 
 ```cshtml
 <input type="checkbox" checked="@IsCompleted" />
@@ -712,30 +712,30 @@ Aşağıdaki örnekte, `IsCompleted` belirler `checked` öğenin biçimlendirmes
 }
 ```
 
-Varsa `IsCompleted` olduğu `true`, onay kutusunu olarak işlenir:
+`IsCompleted` İse`true`, onay kutusu şu şekilde işlenir:
 
 ```html
 <input type="checkbox" checked />
 ```
 
-Varsa `IsCompleted` olduğu `false`, onay kutusunu olarak işlenir:
+`IsCompleted` İse`false`, onay kutusu şu şekilde işlenir:
 
 ```html
 <input type="checkbox" />
 ```
 
-**Razor hakkında daha fazla bilgi**
+**Razor ile ilgili ek bilgi**
 
-Razor hakkında daha fazla bilgi için bkz. [Razor söz dizimi başvurusu](xref:mvc/views/razor).
+Razor hakkında daha fazla bilgi için [Razor söz dizimi başvurusuna](xref:mvc/views/razor)bakın.
 
 ## <a name="raw-html"></a>Ham HTML
 
-Dizeler genellikle DOM metin düğümleri kullanarak içeriyor olabilir herhangi bir biçimlendirme yok sayıldı ve düz metin kabul yani işlenir. Ham HTML oluşturmak için bir HTML içeriği kaydırma bir `MarkupString` değeri. Değer HTML veya SVG ayrıştırılması ve DOM'a eklenmesi
+Dizeler normalde DOM metin düğümleri kullanılarak işlenir. Bu, içerdikleri tüm biçimlendirmenin yok sayıldığı ve değişmez değer olarak kabul edildiği anlamına gelir. Ham HTML işlemek için, HTML içeriğini bir `MarkupString` değerde sarın. Değer HTML veya SVG olarak ayrıştırılır ve DOM 'a eklenir.
 
 > [!WARNING]
-> Herhangi bir yapıda ham HTML'yi işlemeye güvenilmeyen kaynak bir **güvenlik riski** ve kaçınılmalıdır!
+> Güvenilmeyen bir kaynaktan oluşturulan ham HTML işleme bir **güvenlik riskidir** ve kaçınılması gerekir!
 
-Aşağıdaki örnek, gösterir kullanarak `MarkupString` bir bileşenin işlenen çıkışı için bir statik HTML içeriği bloğunu ekleyin:
+Aşağıdaki örnek, bir bileşenin işlenmiş `MarkupString` çıktısına statik HTML içeriği bloğunu eklemek için türünün kullanımını gösterir:
 
 ```html
 @((MarkupString)myMarkup)
@@ -746,22 +746,22 @@ Aşağıdaki örnek, gösterir kullanarak `MarkupString` bir bileşenin işlenen
 }
 ```
 
-## <a name="templated-components"></a>Şablonlu bileşenleri
+## <a name="templated-components"></a>Şablonlu bileşenler
 
-Şablonlu bileşenleri bileşenin işleme mantığı bir parçası olarak kullanılabilir bir parametre olarak bir veya daha fazla kullanıcı Arabirimi şablonları kabul bileşenlerdir. Şablonlu bileşenleri normal bileşenleri daha fazla yeniden kullanılabilir olan üst düzey bileşeni yazmanızı sağlar. Birkaç örnek şunlardır:
+Şablonlu bileşenler, bir veya daha fazla UI şablonunu parametre olarak kabul eden bileşenlerdir, daha sonra bileşen işleme mantığının bir parçası olarak kullanılabilir. Şablonlu bileşenler, normal bileşenlerden daha yeniden kullanılabilir olan üst düzey bileşenleri yazmanıza izin verir. Birkaç örnek şunlardır:
 
-* Bir tablonun üst bilgi, satırları ve alt bilgisi için şablonları belirtmesine imkan tanıyan bir tablo bileşeni.
-* Bir listedeki öğeleri işleme için bir şablon belirtmesine imkan tanıyan bir liste bileşeni.
+* Kullanıcının tablo üst bilgisi, satırları ve altbilgisi için şablon belirtmesini sağlayan tablo bileşeni.
+* Bir kullanıcının bir listedeki öğeleri işlemek için şablon belirlemesine izin veren bir liste bileşenidir.
 
 ### <a name="template-parameters"></a>Şablon parametreleri
 
-Şablonlu bir bileşen türünde bir veya daha fazla bileşen parametreleri belirterek tanımlanmış `RenderFragment` veya `RenderFragment<T>`. Bir işleme parça bileşen tarafından işlenen kullanıcı arabiriminin bir kesimi temsil eder. Bir işleme parça, isteğe bağlı olarak işleme parça çağrıldığında belirtilebilecek bir parametre alır.
+Şablonlu bir bileşen, veya `RenderFragment` `RenderFragment<T>`türünde bir veya daha fazla bileşen parametresi belirtilerek tanımlanır. Bir işleme parçası, bileşen tarafından işlenen bir kullanıcı arabiriminin segmentini temsil eder. Bir işleme parçası isteğe bağlı olarak, işleme parçası çağrıldığında belirtilebileceğini bir parametre alır.
 
-`TableTemplate` Bileşen:
+`TableTemplate`bileşeninde
 
 [!code-cshtml[](common/samples/3.x/BlazorSample/Components/TableTemplate.razor)]
 
-Şablonlu bir bileşen kullanırken, şablon parametrelerinin parametrelerinin adları eşleşen alt öğeleri kullanılarak belirtilebilir (`TableHeader` ve `RowTemplate` aşağıdaki örnekte):
+Şablonlu bir bileşen kullanırken, şablon parametreleri parametrelerin adlarıyla (`TableHeader` ve `RowTemplate` aşağıdaki örnekte) eşleşen alt öğeler kullanılarak belirtilebilir:
 
 ```cshtml
 <TableTemplate Items="@pets">
@@ -778,7 +778,7 @@ Aşağıdaki örnek, gösterir kullanarak `MarkupString` bir bileşenin işlenen
 
 ### <a name="template-context-parameters"></a>Şablon bağlam parametreleri
 
-Bileşen Türü bağımsız değişkenleri `RenderFragment<T>` öğeleri adlı örtük bir parametre olarak geçirilen `context` (örneğin önceki kod örneğinde,'den `@context.PetId`), ancak parametre adını kullanarak değiştirebilirsiniz `Context` alt özniteliği öğe. Aşağıdaki örnekte, `RowTemplate` öğenin `Context` özniteliği belirtir `pet` parametresi:
+Öğe olarak geçirilmiş türdeki `RenderFragment<T>` bileşen bağımsız değişkenleri adlı `context` örtük bir parametreye sahiptir (örneğin, `@context.PetId`Yukarıdaki kod örneğinden), ancak alt öğe `Context` özniteliğini kullanarak parametre adını değiştirebilirsiniz dosyalarında. Aşağıdaki örnekte, `RowTemplate` `Context` öğesinin özniteliği `pet` parametresini belirtir:
 
 ```cshtml
 <TableTemplate Items="@pets">
@@ -793,7 +793,7 @@ Bileşen Türü bağımsız değişkenleri `RenderFragment<T>` öğeleri adlı �
 </TableTemplate>
 ```
 
-Alternatif olarak, belirtebileceğiniz `Context` bileşen öğesindeki özniteliği. Belirtilen `Context` özniteliği için tüm belirtilen şablon parametreleri geçerlidir. Örtük alt içeriğin içerik parametresi adını belirlemek istediğinizde bu kullanışlı olabilir (herhangi bir sarmalama olmadan alt öğesi). Aşağıdaki örnekte, `Context` özniteliği görünür `TableTemplate` öğenin ve tüm şablon parametreleri için geçerlidir:
+Alternatif olarak, bileşen öğesi üzerinde `Context` özniteliğini de belirtebilirsiniz. Belirtilen `Context` öznitelik, belirtilen tüm şablon parametreleri için geçerlidir. Bu, örtük alt içerik (herhangi bir sarmalama alt öğesi olmadan) için içerik parametre adını belirtmek istediğinizde yararlı olabilir. Aşağıdaki örnekte, `Context` özniteliği `TableTemplate` öğesinde görünür ve tüm şablon parametreleri için geçerlidir:
 
 ```cshtml
 <TableTemplate Items="@pets" Context="pet">
@@ -808,13 +808,13 @@ Alternatif olarak, belirtebileceğiniz `Context` bileşen öğesindeki özniteli
 </TableTemplate>
 ```
 
-### <a name="generic-typed-components"></a>Genel yazılmış bileşenler
+### <a name="generic-typed-components"></a>Genel olarak yazılmış bileşenler
 
-Şablonlu bileşenleri çoğunlukla genel olarak yazılmalıdır. Örneğin, genel `ListViewTemplate` bileşeni oluşturmak için kullanılabilir `IEnumerable<T>` değerleri. Genel bileşen tanımlamak için `@typeparam` tür parametreleri belirtmek için:
+Şablonlu bileşenler çoğunlukla genel olarak türdedir. Örneğin, değerleri işlemek `ListViewTemplate` `IEnumerable<T>` için genel bir bileşen kullanılabilir. Genel bir bileşen tanımlamak için, tür parametrelerini `@typeparam` belirtmek için yönergesini kullanın:
 
 [!code-cshtml[](common/samples/3.x/BlazorSample/Components/ListViewTemplate.razor)]
 
-Tür parametresi, genel yazılmış bileşenler kullanırken, mümkünse algılanır:
+Genel türsüz bileşenleri kullanırken tür parametresi mümkünse algılanır:
 
 ```cshtml
 <ListViewTemplate Items="@pets">
@@ -824,7 +824,7 @@ Tür parametresi, genel yazılmış bileşenler kullanırken, mümkünse algıla
 </ListViewTemplate>
 ```
 
-Aksi takdirde, tür parametresi açık tür parametresinin adıyla eşleşen bir özniteliği kullanılarak belirtilmelidir. Aşağıdaki örnekte, `TItem="Pet"` türünü belirtir:
+Aksi halde tür parametresi, tür parametresinin adıyla eşleşen bir öznitelik kullanılarak açıkça belirtilmelidir. Aşağıdaki örnekte, `TItem="Pet"` türü belirtir:
 
 ```cshtml
 <ListViewTemplate Items="@pets" TItem="Pet">
@@ -834,15 +834,15 @@ Aksi takdirde, tür parametresi açık tür parametresinin adıyla eşleşen bir
 </ListViewTemplate>
 ```
 
-## <a name="cascading-values-and-parameters"></a>Geçişli değerleri ve parametreler
+## <a name="cascading-values-and-parameters"></a>Değerleri ve parametreleri basamaklama
 
-Bazı senaryolarda, akış verileri kullanarak bir alt bileşen bir üst bileşeninden kullanışsız [bileşeni parametreleri](#component-parameters), özellikle birçok bileşen katmanları olduğunda. Geçişli değerleri ve parametre bir üst bileşeni tüm alt öğe bileşenleri için bir değer sağlamak için kullanışlı bir yol sağlayarak bu sorunu çözer. Ayrıca basamaklı değerleri ve parametreler koordine etmek, bileşenler için bir yaklaşım sağlar.
+Bazı senaryolarda, özellikle birden çok bileşen katmanı olduğunda, [bileşen parametreleri](#component-parameters)kullanarak bir üst bileşenden bir alt bileşene veri akışı yapmak uygun değildir. Değerleri ve parametreleri basamaklama, bir üst bileşenin tüm alt bileşenlerine değer sağlaması için kullanışlı bir yol sağlayarak bu sorunu çözebilir. Basamaklı değerler ve parametreler, bileşenlerin koordinasyonu için bir yaklaşım sağlar.
 
-### <a name="theme-example"></a>Tema örnek
+### <a name="theme-example"></a>Tema örneği
 
-Aşağıdaki örnekte, örnek uygulamadan `ThemeInfo` sınıfı, böylece tüm düğmelerin belirli bir uygulamanın parçası içinde aynı stili paylaşır bileşen hiyerarşisi akış için tema bilgileri belirtir.
+Örnek uygulamadan aşağıdaki örnekte, `ThemeInfo` sınıfı, uygulamanın belirli bir bölümündeki tüm düğmelerin aynı stili paylaştığı şekilde bileşen hiyerarşisinin akışını yapmak için tema bilgilerini belirtir.
 
-*UIThemeClasses/ThemeInfo.cs*:
+*Uıthemeclasses/Themeınfo. cs*:
 
 ```csharp
 public class ThemeInfo
@@ -851,11 +851,11 @@ public class ThemeInfo
 }
 ```
 
-Üst bileşeni, geçişli değeri bileşenini kullanarak basamaklı bir değer sağlayabilirsiniz. `CascadingValue` Bileşeni bileşen hiyerarşisi bir alt ağacı sarmalar ve o alt ağacı içinde tüm bileşenleri tek bir değer sağlar.
+Bir üst bileşen basamaklı değer bileşeni kullanılarak basamaklı bir değer sağlayabilir. `CascadingValue` Bileşen, bileşen hiyerarşisinin bir alt ağacını sarmalanmış ve bu alt ağaçta bulunan tüm bileşenlere tek bir değer sağlar.
 
-Örneğin, örnek uygulamayı tema bilgileri belirtir (`ThemeInfo`) bir düzen gövdesini oluşturan tüm bileşenlerin basamaklı bir parametre olarak uygulamanın düzenleri `@Body` özelliği. `ButtonClass` bir değeri atanır `btn-success` Düzen bileşende. Bu özelliği üzerinden herhangi bir alt bileşen tüketebileceği `ThemeInfo` basamaklı nesnesi.
+Örneğin, örnek uygulama, uygulamanın düzenleriyle,`ThemeInfo` `@Body` özelliğin düzen gövdesini oluşturan tüm bileşenler için bir geçişli parametre olarak tema bilgilerini () belirtir. `ButtonClass`öğesinin `btn-success` bir değeri, düzen bileşeninde atanır. Tüm alt bileşenler bu özelliği `ThemeInfo` basamaklı nesne aracılığıyla kullanabilir.
 
-`CascadingValuesParametersLayout` Bileşen:
+`CascadingValuesParametersLayout`bileşeninde
 
 ```cshtml
 @inherits LayoutComponentBase
@@ -881,7 +881,7 @@ public class ThemeInfo
 }
 ```
 
-Yapmak için geçişli değerlerini kullanmak, bileşenlerini kullanarak basamaklı parametreleri bildirmek `[CascadingParameter]` özniteliği veya bir dize adı değerine göre:
+Basamaklı değerleri kullanmak için, bileşenler `[CascadingParameter]` özniteliği kullanarak veya dize adı değerini temel alarak basamaklı parametreleri bildirir:
 
 ```cshtml
 <CascadingValue Value=@PermInfo Name="UserPermissions">...</CascadingValue>
@@ -890,13 +890,13 @@ Yapmak için geçişli değerlerini kullanmak, bileşenlerini kullanarak basamak
 private PermInfo Permissions { get; set; }
 ```
 
-Bir dize adı değeri bağlamayla aynı türde birden fazla basamaklı değerler varsa ve aynı alt ağacı içinde ayrılmaları gerekiyorsa geçerlidir.
+Aynı türde birden fazla basamaklı değer varsa ve bunları aynı alt ağaçta ayırt etmeniz gerekiyorsa, bir dize adı değeri ile bağlama geçerlidir.
 
-Basamaklı değerler türüne göre geçişli parametrelerine bağlı.
+Basamaklı değerler, türe göre basamaklı parametrelere bağlanır.
 
-Örnek uygulamada `CascadingValuesParametersTheme` bileşeni bağlar `ThemeInfo` basamaklı basamaklı bir parametre değeri. Parametre için bir bileşen tarafından görüntülenen düğmeleri CSS sınıfının ayarlamak için kullanılır.
+Örnek uygulamada, `CascadingValuesParametersTheme` bileşen `ThemeInfo` basamaklı değeri basamaklı bir parametreye bağlar. Parametresi, bileşen tarafından görünen düğmelerden birine ait CSS sınıfını ayarlamak için kullanılır.
 
-`CascadingValuesParametersTheme` Bileşen:
+`CascadingValuesParametersTheme`bileşeninde
 
 ```cshtml
 @page "/cascadingvaluesparameterstheme"
@@ -908,13 +908,13 @@ Basamaklı değerler türüne göre geçişli parametrelerine bağlı.
 <p>Current count: @currentCount</p>
 
 <p>
-    <button class="btn" @onclick="@IncrementCount">
+    <button class="btn" @onclick="IncrementCount">
         Increment Counter (Unthemed)
     </button>
 </p>
 
 <p>
-    <button class="btn @ThemeInfo.ButtonClass" @onclick="@IncrementCount">
+    <button class="btn @ThemeInfo.ButtonClass" @onclick="IncrementCount">
         Increment Counter (Themed)
     </button>
 </p>
@@ -934,37 +934,37 @@ Basamaklı değerler türüne göre geçişli parametrelerine bağlı.
 
 ### <a name="tabset-example"></a>TabSet örneği
 
-Geçişli parametreleri, bileşen hiyerarşi işbirliği yapmak bileşenler de olanak tanır. Örneğin, aşağıdakileri dikkate alın *TabSet* örnek uygulamada örnek.
+Basamaklı parametreler, bileşenlerin bileşen hiyerarşisinde işbirliği yapmasına de olanak tanır. Örneğin, örnek uygulamada aşağıdaki *Tabset* örneğini göz önünde bulundurun.
 
-Örnek uygulamanın bir `ITab` uygulama sekme arabirimi:
+Örnek uygulamada, sekmelerin uygulandığı `ITab` bir arabirim vardır:
 
 [!code-cs[](common/samples/3.x/BlazorSample/UIInterfaces/ITab.cs)]
 
-`CascadingValuesParametersTabSet` Bileşen `TabSet` birkaç içeren bileşen `Tab` bileşenler:
+Bileşen, `TabSet` çeşitli`Tab` bileşenleri içeren bileşenini kullanır: `CascadingValuesParametersTabSet`
 
 [!code-cshtml[](common/samples/3.x/BlazorSample/Pages/CascadingValuesParametersTabSet.razor?name=snippet_TabSet)]
 
-Alt `Tab` bileşenleri olmayan açıkça için parametre olarak geçirilen `TabSet`. Bunun yerine, alt `Tab` bileşenlerdir içeriği alt parçası `TabSet`. Ancak, `TabSet` yine her biri hakkında bilmesi gereken `Tab` bileşen böylece üstbilgileri ve etkin sekmede işleyebilirsiniz. Ek kod gerek kalmadan bu koordinasyon sağlamak `TabSet` bileşen *kendisini basamaklı bir değer sağlayabilirsiniz* , ardından alındığından descendent `Tab` bileşenleri.
+Alt `Tab` bileşenler, `TabSet`öğesine açıkça parametre olarak aktarılmaz. Bunun yerine, alt `Tab` bileşenleri `TabSet`öğesinin alt içeriğinin bir parçasıdır. Bununla birlikte, `TabSet` üst bilgileri ve etkin sekmeyi işleyebilmesi için her `Tab` bileşen hakkında hala bilmeniz gerekir. Ek kod `TabSet` gerektirmeden bu koordinasyonu etkinleştirmek için bileşen, kendisini alt `Tab` bileşenler tarafından çekilen *basamaklı bir değer olarak sağlayabilir* .
 
-`TabSet` Bileşen:
+`TabSet`bileşeninde
 
 [!code-cshtml[](common/samples/3.x/BlazorSample/Components/TabSet.razor)]
 
-Bloğun `Tab` bileşenleri yakalama içeren `TabSet` basamaklı bir parametre olarak bu nedenle `Tab` bileşenleri eklemek için kendilerini `TabSet` ve hangi sekmesi etkin olduğu koordinat.
+Alt bileşenler, kapsayan `TabSet` ' i `Tab` basamaklı bir parametre olarak yakalar, bu nedenle bileşenler, bu sekmenin `TabSet` etkin olduğu ve koordinasyonu üzerine eklenir. `Tab`
 
-`Tab` Bileşen:
+`Tab`bileşeninde
 
 [!code-cshtml[](common/samples/3.x/BlazorSample/Components/Tab.razor)]
 
 ## <a name="razor-templates"></a>Razor şablonları
 
-İşleme parçaları, Razor şablon söz dizimi kullanılarak tanımlanabilir. Razor şablonları UI parçacık tanımlayın ve aşağıdaki biçimi varsayar için bir yol sağlar:
+Oluşturma parçaları Razor şablonu sözdizimi kullanılarak tanımlanabilir. Razor şablonları, bir UI parçacığı tanımlamak ve aşağıdaki biçimi varsaymak için bir yoldur:
 
 ```cshtml
 @<{HTML tag}>...</{HTML tag}>
 ```
 
-Aşağıdaki örnek nasıl belirtileceğini göstermektedir `RenderFragment` ve `RenderFragment<T>` değerleri ve doğrudan bir bileşen şablonlarını işlemesi. İşleme parçaları de geçirilebilir bağımsız değişkenleri olarak [şablonlu bileşenleri](#templated-components).
+Aşağıdaki örnek, bir bileşeni doğrudan bir `RenderFragment` bileşende `RenderFragment<T>` nasıl belirtdiğini ve işleneceğini gösterir. Oluşturma parçaları, [şablonlu bileşenlere](#templated-components)bağımsız değişken olarak da geçirilebilir.
 
 ```cshtml
 @timeTemplate
@@ -983,7 +983,7 @@ Aşağıdaki örnek nasıl belirtileceğini göstermektedir `RenderFragment` ve 
 }
 ```
 
-Önceki kodun çıktısı oluşturulur:
+Önceki kodun işlenmiş çıktısı:
 
 ```html
 <p>The time is 10/04/2018 01:26:52.</p>
@@ -993,12 +993,12 @@ Aşağıdaki örnek nasıl belirtileceğini göstermektedir `RenderFragment` ve 
 
 ## <a name="manual-rendertreebuilder-logic"></a>El ile RenderTreeBuilder mantığı
 
-`Microsoft.AspNetCore.Components.RenderTree` bileşenleri ve bileşenleri el ile oluşturma da dahil olmak üzere öğeleri işlemek için yöntemler sağlar C# kod.
+`Microsoft.AspNetCore.Components.RenderTree`C# kodu kodda el ile oluşturma dahil olmak üzere bileşenleri ve öğeleri düzenleme yöntemleri sağlar.
 
 > [!NOTE]
-> Kullanım `RenderTreeBuilder` bileşenler oluşturmak için Gelişmiş bir senaryodur. Hatalı biçimlendirilmiş bir bileşen (örneğin, bir kapatılmamış biçimlendirme etiketi) tanımsız davranışlara neden olabilir.
+> Bileşenlerini oluşturmak `RenderTreeBuilder` için kullanımı gelişmiş bir senaryodur. Hatalı biçimlendirilmiş bir bileşen (örneğin, kapatılmamış bir biçimlendirme etiketi) tanımsız davranışa neden olabilir.
 
-Aşağıdakileri göz önünde bulundurun `PetDetails` el ile başka bir bileşene dönüştürerek yerleşik bileşeni:
+Aşağıdaki `PetDetails` bileşeni, başka bir bileşende el ile yerleşik olarak kullanılabilecek şekilde göz önünde bulundurun:
 
 ```cshtml
 <h2>Pet Details Component</h2>
@@ -1012,9 +1012,9 @@ Aşağıdakileri göz önünde bulundurun `PetDetails` el ile başka bir bileşe
 }
 ```
 
-Aşağıdaki örnekte, bir döngüde `CreateComponent` yöntemi oluşturur üç `PetDetails` bileşenleri. Çağrılırken `RenderTreeBuilder` bileşenler oluşturmak için yöntemleri (`OpenComponent` ve `AddAttribute`), sıra numaraları olan kaynak kodu satır numaraları. Kod, değil ayrı çağrı çağrılarını ayrı satırlara karşılık gelen sıra numaraları Blazor fark algoritması kullanır. Bir bileşen ile oluştururken `RenderTreeBuilder` yöntemleri, sabit kodlamayın seri numaraları için bağımsız değişkenler. **Sıra numarası oluşturmak için bir hesaplama veya sayaç kullanarak düşük performansa neden olabilir.** Daha fazla bilgi için [sıra numaraları ilişkilendirmek için kod satır numaraları ve değil yürütme sırası](#sequence-numbers-relate-to-code-line-numbers-and-not-execution-order) bölümü.
+Aşağıdaki örnekte, `CreateComponent` yöntemindeki döngü üç `PetDetails` bileşen oluşturur. Bileşenleri ( `RenderTreeBuilder` `OpenComponent` ve`AddAttribute`) oluşturmak için yöntemler çağrılırken, dizi numaraları kaynak kodu satır numaralarıdır. Blazor fark algoritması, ayrı çağrı etkinleştirmeleri değil ayrı kod satırlarına karşılık gelen sıra numaralarına dayanır. Yöntemler içeren `RenderTreeBuilder` bir bileşen oluştururken, dizi numaralarına yönelik bağımsız değişkenleri kod olarak kodlayın. **Sıra numarasını oluşturmak için bir hesaplama veya sayaç kullanmak kötü performansa neden olabilir.** Daha fazla bilgi için bkz. [kod satırı numaralarıyla Ilgili sıra numaraları ve yürütme sırası çalışmıyor](#sequence-numbers-relate-to-code-line-numbers-and-not-execution-order) bölümü.
 
-`BuiltContent` Bileşen:
+`BuiltContent`bileşeninde
 
 ```cshtml
 @page "/BuiltContent"
@@ -1023,7 +1023,7 @@ Aşağıdaki örnekte, bir döngüde `CreateComponent` yöntemi oluşturur üç 
 
 @CustomRender
 
-<button type="button" @onclick="@RenderComponent">
+<button type="button" @onclick="RenderComponent">
     Create three Pet Details components
 </button>
 
@@ -1047,13 +1047,13 @@ Aşağıdaki örnekte, bir döngüde `CreateComponent` yöntemi oluşturur üç 
 }
 ```
 
-### <a name="sequence-numbers-relate-to-code-line-numbers-and-not-execution-order"></a>Seri numaraları için kod satır numaraları ve değil yürütme sırası arasında bir ilişki
+### <a name="sequence-numbers-relate-to-code-line-numbers-and-not-execution-order"></a>Sıra numaraları, kod satırı numaralarıyla ilgilidir ve yürütme sırası değildir
 
-Blazor `.razor` dosyaları her zaman derlenir. Bu büyük olasılıkla için harika bir avantajı, `.razor` çünkü derleme adımı çalışma zamanında uygulama performansını bilgi eklenmek üzere kullanılabilir.
+Blazor `.razor` dosyaları her zaman derlenir. Derleme adımının çalışma zamanında uygulama performansını geliştiren `.razor` bilgileri eklemek için kullanılabilmesi için bu büyük olasılıkla harika bir avantajdır.
 
-Bu geliştirmeler anahtar bir örnek içeren *sıra numaraları*. Sıra numaraları, hangi kod ayrı ve sıralı satırlarından çıkışları gelen çalışma zamanı gösterir. Çalışma zamanı, genel ağaç fark algoritması için normalde mümkün olandan çok daha hızlı doğrusal zamanda verimli ağaç farkları oluşturmak için bu bilgileri kullanır.
+Bu geliştirmelerin önemli bir örneği *sıra numarası*içerir. Sıra numaraları, hangi çıkışların ayrı ve sıralı kod satırlarından geldiğini çalışma zamanına işaret ediyor. Çalışma zamanı, doğrusal bir zamanda, genel ağaç farkı algoritması için genellikle mümkün olandan çok daha hızlı olan etkili ağaç SLA 'ları oluşturmak için bu bilgileri kullanır.
 
-Aşağıdakileri göz önünde bulundurun basit `.razor` dosyası:
+Aşağıdaki basit `.razor` dosyayı göz önünde bulundurun:
 
 ```cshtml
 @if (someFlag)
@@ -1064,7 +1064,7 @@ Aşağıdakileri göz önünde bulundurun basit `.razor` dosyası:
 Second
 ```
 
-Yukarıdaki kod, aşağıdaki gibi bir şey derler:
+Yukarıdaki kod, aşağıdakine benzer şekilde derlenir:
 
 ```csharp
 if (someFlag)
@@ -1075,26 +1075,26 @@ if (someFlag)
 builder.AddContent(1, "Second");
 ```
 
-Ne zaman kodu yürütür, ilk kez, `someFlag` olduğu `true`, oluşturucu alır:
+Kod ilk kez `someFlag` `true`çalıştırıldığında, Oluşturucu şunları alır:
 
 | Sequence | Tür      | Veri   |
 | :------: | --------- | :----: |
-| 0        | Metin düğümü | ilk  |
+| 0        | Metin düğümü | adı  |
 | 1\.        | Metin düğümü | Saniye |
 
-Bu Imagine `someFlag` olur `false`, ve biçimlendirme yeniden oluşturulur. Bu kez, oluşturucu alır:
+`someFlag` Olduğunu`false`düşünün ve biçimlendirme yeniden işlenir. Bu kez, Oluşturucu şunları alır:
 
 | Sequence | Tür       | Veri   |
 | :------: | ---------- | :----: |
 | 1\.        | Metin düğümü  | Saniye |
 
-Çalışma zamanı bir fark gerçekleştirdiğinde, görür öğe dizisi `0` kaldırıldı, aşağıdaki Önemsiz oluşturmasını sağlayacak şekilde *betiğini Düzenle*:
+Çalışma zamanı bir fark gerçekleştirdiğinde, sıradaki `0` öğenin kaldırıldığını görür, bu nedenle aşağıdaki önemsiz *düzenleme betiğini*oluşturur:
 
-* İlk metin düğümü kaldırın.
+* İlk metin düğümünü kaldırın.
 
-#### <a name="what-goes-wrong-if-you-generate-sequence-numbers-programmatically"></a>Sıra numaraları programlı olarak oluşturursanız yanlış unsurları
+#### <a name="what-goes-wrong-if-you-generate-sequence-numbers-programmatically"></a>Program aracılığıyla sıra numaraları oluşturursanız ne yanlış gider
 
-Bunun yerine aşağıdaki ağaç Oluşturucu mantığı işlemek yazdığınız varsayalım:
+Aşağıdaki işleme Ağacı Oluşturucusu mantığını yazmanız yerine düşünün:
 
 ```csharp
 var seq = 0;
@@ -1107,32 +1107,32 @@ if (someFlag)
 builder.AddContent(seq++, "Second");
 ```
 
-Şimdi ilk çıktı.
+Şimdi ilk çıktı:
 
 | Sequence | Tür      | Veri   |
 | :------: | --------- | :----: |
-| 0        | Metin düğümü | ilk  |
+| 0        | Metin düğümü | adı  |
 | 1\.        | Metin düğümü | Saniye |
 
-Bu sonuç için önceki durum, aynı olduğundan negatif hiçbir sorun yoktur. `someFlag` olan `false` işleme ve çıktısını ikinci olan:
+Bu sonuç önceki bir durum ile aynıdır, bu nedenle olumsuz bir sorun yoktur. `someFlag``false` ikinci işleme ve çıktı:
 
 | Sequence | Tür      | Veri   |
 | :------: | --------- | ------ |
 | 0        | Metin düğümü | Saniye |
 
-Fark algoritması, bu kez görür *iki* değişiklikleri oluşmuş ve algoritma aşağıdaki düzenleme komut dosyası oluşturur:
+Bu kez, fark algoritması *iki* değişikliğin oluştuğunu görür ve algoritma aşağıdaki düzenleme betiğini üretir:
 
-* İlk metin düğümü değiştirin `Second`.
-* İkinci metin düğümü kaldırın.
+* İlk metin düğümünün değerini olarak `Second`değiştirin.
+* İkinci metin düğümünü kaldırın.
 
-Sıra numaraları oluşturma tüm hakkında yararlı bilgiler nerede kaybetti `if/else` dallar ve döngüler özgün koda mevcut. Bu bir fark sonuçlarını **iki kez sürece** önceki gibi.
+Sıra numaralarının oluşturulması, `if/else` dal ve döngülerin orijinal kodda bulunduğu yer hakkındaki tüm yararlı bilgileri kaybetti. Bu, daha önce olduğu gibi bir fark **ile iki kez** sonuçlanır.
 
-Bu basit bir örnektir. Karmaşık ve iç içe yapılar ve özellikle döngüler daha gerçekçi durumda da, performans maliyeti daha ciddi. Hemen hangi döngü blokları veya dallar eklenen veya kaldırılan tanımlamak yerine, derin bir şekilde işleme ağaçlara recurse ve onu hakkında misinformed çünkü genellikle derleme çok uzun düzenleme betiklerini fark algoritmasına sahip eski ve yeni yapılar birbiriyle ilgilidir.
+Bu, önemsiz bir örnektir. Karmaşık ve derin iç içe yapıları ve özellikle döngülerle daha gerçekçi durumlarda performans maliyeti daha önemlidir. Hangi döngü bloklarının veya dallarının eklendiğini veya kaldırıldığını hemen belirlemek yerine, fark algoritmasının işleme ağaçlarına katmaları ve genellikle eski ve yeni yapıların nasıl olduğu hakkında yanlış bir biçimde düzenleme betikleri oluşturması birbirleriyle ilişkilendir.
 
-#### <a name="guidance-and-conclusions"></a>Yönergeler ve sonuçları
+#### <a name="guidance-and-conclusions"></a>Kılavuz ve ekibinizle
 
-* Sıra numaraları dinamik olarak üretilen uygulama performans düşebilir.
-* Framework'te derleme zamanında yakalanır sürece gerekli bilgileri mevcut olmadığından kendi sıra numaraları çalışma zamanında otomatik olarak oluşturulamıyor.
-* El ile uygulanan uzun bloklarını yazmayın `RenderTreeBuilder` mantığı. Tercih ettiğiniz `.razor` dosyaları ve sıra numaraları ile dağıtılacak derleyici sağlar.
-* Sıra numaraları sabittir, fark algoritması yalnızca bir sıra numaraları değeri artırmak gerektirir. İlk değer ve boşluklar önemli değildir. Yasal bir seçenek olan sıra numarası kod satır numarasını kullanın veya sıfırdan başlayın ve olanlara ya da yüz artırmak için (veya herhangi bir tercih edilen aralığı). 
-* Ağaç ayırırken diğer UI çerçeveleri bunları kullanmayın Blazor seri numaraları kullanır. Sıra numaraları kullanılır ve Blazor sıra numaraları ile otomatik olarak yazma geliştiriciler için ilgilenen bir derleme adımı avantajlarından fark alma işlemini çok daha hızlı `.razor` dosyaları.
+* Sıra numaraları dinamik olarak oluşturulursa uygulama performansı de vardır.
+* Altyapı, derleme zamanında yakalanmadığı takdirde gerekli bilgiler bulunmadığından, çalışma zamanında kendi sıra numaralarını otomatik olarak oluşturamaz.
+* El ile uygulanan `RenderTreeBuilder` mantık uzun blokları yazmayın. Dosyaları `.razor` tercih edin ve derleyicinin sıra numaralarıyla uğraşmak için izin verin.
+* Dizi numaraları sabit kodluysa, fark algoritması yalnızca değer değerinde sıra numaralarının artırılmasını gerektirir. İlk değer ve boşluklar ilgisiz. Tek bir seçenek, kod satırı numarasını sıra numarası olarak kullanmak veya sıfırdan başlayıp bir ya da yüzlerce (ya da tercih edilen aralığa) artırmak için kullanılır. 
+* Blazor, sıra numaralarını kullanır, diğer ağaç dağıtma Kullanıcı arabirimi çerçeveleri bunları kullanmaz. Dizi numaraları kullanıldığında ve Blazor, geliştiricilerin yazma `.razor` dosyaları için otomatik olarak sıra numaralarıyla ilgilenen bir derleme adımının avantajına sahiptir.

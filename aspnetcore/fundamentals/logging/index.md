@@ -6,12 +6,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 07/11/2019
 uid: fundamentals/logging/index
-ms.openlocfilehash: cdb5cad2302cc8ec02107021005b8590efce7533
-ms.sourcegitcommit: b40613c603d6f0cc71f3232c16df61550907f550
+ms.openlocfilehash: 4fe677e69478284db2ccab655c35b5744b6f63f9
+ms.sourcegitcommit: 059ab380744fa3be3b69aa90d431b563c57092cf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68308213"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68410916"
 ---
 # <a name="logging-in-aspnet-core"></a>ASP.NET Core oturum açma
 
@@ -865,14 +865,11 @@ ASP.NET 4. x için [Microsoft. ApplicationInsights. Web](https://www.nuget.org/p
 Daha fazla bilgi için aşağıdaki kaynaklara bakın:
 
 * [Application Insights genel bakış](/azure/application-insights/app-insights-overview)
-* [ASP.NET Core uygulamalar için Application Insights](/azure/azure-monitor/app/asp-net-core-no-visualstudio) -günlük kaydı ile birlikte Application Insights telemetrinin tam aralığını uygulamak istiyorsanız buraya başlayın.
+* [ASP.NET Core uygulamalar için Application Insights](/azure/azure-monitor/app/asp-net-core) -günlük kaydı ile birlikte Application Insights telemetrinin tam aralığını uygulamak istiyorsanız buraya başlayın.
 * [.NET Core ILogger günlükleri Için Applicationınsightsloggerprovider](/azure/azure-monitor/app/ilogger) -günlük sağlayıcısını Application Insights telemetri olmadan uygulamak istiyorsanız buraya başlayın.
-* [Günlüğe kaydetme bağdaştırıcılarını Application Insights](https://github.com/Microsoft/ApplicationInsights-dotnet-logging/blob/develop/README.md).
+* [Günlüğe kaydetme bağdaştırıcılarını Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-trace-logs).
 * Microsoft Learn sitede Application Insights SDK-etkileşimli öğreticisini [yükleyip başlatın](/learn/modules/instrument-web-app-code-with-application-insights) .
 ::: moniker-end
-
-> [!NOTE]
-> 5/1/2019 itibariyle, [ASP.NET Core için Application Insights](/azure/azure-monitor/app/asp-net-core) başlıklı makale güncel değildir ve öğretici adımları çalışmaz. Bunun yerine [ASP.NET Core uygulamalar için Application Insights](/azure/azure-monitor/app/asp-net-core-no-visualstudio) bakın. Sorunun farkındayız ve düzeltmek için çalışıyoruz.
 
 ## <a name="third-party-logging-providers"></a>Üçüncü taraf günlük oluşturma sağlayıcıları
 
