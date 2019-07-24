@@ -5,14 +5,14 @@ description: Veri bağlama, olayları işleme ve bileşen yaşam döngülerini y
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 07/05/2019
+ms.date: 07/23/2019
 uid: blazor/components
-ms.openlocfilehash: efed57f20c64b0f9c9bd5cc29a98e01408546a18
-ms.sourcegitcommit: f30b18442ed12831c7e86b0db249183ccd749f59
+ms.openlocfilehash: 123e6e1f798aa5a111bd9eabb492c3e015ae0c5d
+ms.sourcegitcommit: 051f068c78931432e030b60094c38376d64d013e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68412411"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68440316"
 ---
 # <a name="create-and-use-aspnet-core-razor-components"></a>ASP.NET Core Razor bileşenleri oluşturma ve kullanma
 
@@ -121,6 +121,75 @@ Aşağıdakiler `ParentComponent` `<ChildComponent>` , `ChildComponent` içeriğ
 *Pages/ParentComponent. Razor*:
 
 [!code-cshtml[](common/samples/3.x/BlazorSample/Pages/ParentComponent.razor?name=snippet_ParentComponent&highlight=7-8)]
+
+## <a name="attribute-splatting-and-arbitrary-parameters"></a>Öznitelik döndürme ve rastgele parametreler
+
+Bileşenler, bileşen tarafından tanımlanan parametrelere ek olarak ek öznitelikler yakalayabilir ve işleyebilir. Ek öznitelikler bir sözlükte yakalanıp *, daha sonra* bileşen `@attributes` Razor yönergesi kullanılarak işlendiğinde bir öğe üzerine bırakılabilir. Bu senaryo, çeşitli özelleştirmeleri destekleyen bir işaretleme öğesi üreten bir bileşen tanımlarken yararlıdır. Örneğin, çok sayıda parametreyi destekleyen bir `<input>` için öznitelikleri ayrı olarak tanımlamak sıkıcı olabilir.
+
+Aşağıdaki `<input>` örnekte, ilk öğesi (`id="useIndividualParams"`) bağımsız bileşen parametrelerini kullanır, ancak ikinci `<input>` öğe (`id="useAttributesDict"`) öznitelik splatesini kullanır:
+
+```cshtml
+<input id="useIndividualParams"
+       maxlength="@Maxlength"
+       placeholder="@Placeholder"
+       required="@Required"
+       size="@Size" />
+
+<input id="useAttributesDict"
+       @attributes="InputAttributes" />
+
+@code {
+    [Parameter]
+    private string Maxlength { get; set; } = "10";
+
+    [Parameter]
+    private string Placeholder { get; set; } = "Input placeholder text";
+
+    [Parameter]
+    private string Required { get; set; } = "required";
+
+    [Parameter]
+    private string Size { get; set; } = "50";
+
+    [Parameter]
+    private Dictionary<string, object> InputAttributes { get; set; } =
+        new Dictionary<string, object>()
+        {
+            { "maxlength", "10" }, 
+            { "placeholder", "Input placeholder text" }, 
+            { "required", "true" }, 
+            { "size", "50" }
+        };
+```
+
+Parametrenin türü dize anahtarlarıyla atanabilir `Dictionary<string, object>` olmalıdır. `IEnumerable<KeyValuePair<string, object>>` Ve`IReadOnlyDictionary<string, object>` kullanarak bu senaryodaki seçenekler de vardır.
+
+Her iki `<input>` yaklaşımın de kullanıldığı işlenen öğeler aynıdır:
+
+```html
+<input id="useIndividualParams"
+       maxlength="10"
+       placeholder="Input placeholder text"
+       required="required"
+       size="50">
+
+<input id="useAttributesDict"
+       maxlength="10"
+       placeholder="Input placeholder text"
+       required="true"
+       size="50">
+```
+
+Rastgele öznitelikleri kabul etmek için `[Parameter]` `CaptureUnmatchedAttributes` özelliği olarak `true`ayarlanmış özniteliği kullanarak bir bileşen parametresi tanımlayın:
+
+```cshtml
+@code {
+    [Parameter(CaptureUnmatchedAttributes = true)]
+    private Dictionary<string, object> InputAttributes { get; set; }
+}
+```
+
+`CaptureUnmatchedAttributes` Üzerindeki`[Parameter]` özelliği, bu parametrenin diğer bir parametreyle eşleşmeyen tüm özniteliklerle eşleşmesini sağlar. Bir bileşen yalnızca ile `CaptureUnmatchedAttributes`tek bir parametre tanımlayabilir.
 
 ## <a name="data-binding"></a>Veri bağlama
 

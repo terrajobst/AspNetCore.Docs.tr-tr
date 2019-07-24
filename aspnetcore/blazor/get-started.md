@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 07/23/2019
 uid: blazor/get-started
-ms.openlocfilehash: 9ebe1e2d36f96bfa214c2389535c28db5db5020a
-ms.sourcegitcommit: f30b18442ed12831c7e86b0db249183ccd749f59
+ms.openlocfilehash: b4609858be43acf9d1b2d8be5eff4879fd56f49f
+ms.sourcegitcommit: 051f068c78931432e030b60094c38376d64d013e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68412409"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68440308"
 ---
 # <a name="get-started-with-aspnet-core-blazor"></a>ASP.NET Core Blazor kullanmaya başlama
 
@@ -34,19 +34,18 @@ Blazor kullanmaya başlama:
 
    1 \. **ASP.net ve Web geliştirme** iş yüküyle en son [Visual Studio önizlemesini](https://visualstudio.com/vs/preview) yüklersiniz.
 
-   2 \. Visual Studio Market en son [Blazor uzantısını](https://go.microsoft.com/fwlink/?linkid=870389) yükler. Bu adım Blazor şablonlarının Visual Studio tarafından kullanılabilmesini sağlar.
+   2 \. Yeni bir proje oluşturun.
 
-   3 \. Yeni bir proje oluşturun.
+   3 \. **Blazor uygulamasını**seçin. **İleri**’yi seçin.
 
-   4 \. Seçin **ASP.NET Core Web uygulaması**. **İleri**’yi seçin.
+   4 \. **Proje adı** alanında bir proje adı girin veya varsayılan proje adını kabul edin. **Konum** girişinin doğru olduğunu onaylayın veya proje için bir konum belirtin. **Oluştur**’u seçin.
 
-   5 \. **Proje adı** alanında bir proje adı girin veya varsayılan proje adını kabul edin. **Konum** girişinin doğru olduğunu onaylayın veya proje için bir konum belirtin. **Oluştur**’u seçin.
+   5 \. Blazor istemci tarafı deneyimi için **Blazor (istemci tarafı)** şablonunu seçin. Blazor sunucu tarafı deneyimi için **Blazor Server uygulama** şablonunu seçin. **Oluştur**’u seçin. İki Blazor barındırma modeli, sunucu tarafı ve istemci tarafı hakkında daha fazla bilgi için bkz <xref:blazor/hosting-models>.
 
-   6 \. **Yeni bir ASP.NET Core Web uygulaması oluştur** iletişim kutusunda, **.net Core** ve **ASP.NET Core 3,0** ' un seçili olduğunu doğrulayın.
+   6 \. Uygulamayı çalıştırmak için **F5** tuşuna basın.
 
-   7 \. Blazor istemci tarafı deneyimi için **Blazor WebAssembly uygulama** şablonunu seçin. Blazor sunucu tarafı deneyimi için **Blazor Server uygulama** şablonunu seçin. **Oluştur**’u seçin. İki Blazor barındırma modeli, sunucu tarafı ve istemci tarafı hakkında daha fazla bilgi için bkz <xref:blazor/hosting-models>.
-
-   8 \. Uygulamayı çalıştırmak için **F5** tuşuna basın.
+   > [!NOTE]
+   > ASP.NET Core Blazor 'nin önceki bir önizleme sürümü için Blazor Visual Studio uzantısı 'nı yüklediyseniz (Preview 6 veya daha önceki bir sürümü), uzantıyı Preview 7 ' de kaldırabilirsiniz. Blazor şablonlarının bir komut kabuğu 'na yüklenmesi artık Visual Studio 'daki şablonları yüzey için yeterlidir.
 
    # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
