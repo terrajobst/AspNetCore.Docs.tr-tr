@@ -4,14 +4,14 @@ author: rick-anderson
 description: ASP.NET Core bir Razor sayfasına nasıl doğrulama ekleneceğini öğrenin.
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/05/2018
+ms.date: 7/23/2019
 uid: tutorials/razor-pages/validation
-ms.openlocfilehash: 8495849c89ca3d6fd2b2006b61ce2ec75ff504a5
-ms.sourcegitcommit: 849af69ee3c94cdb9fd8fa1f1bb8f5a5dda7b9eb
+ms.openlocfilehash: d6d45dc7154bf415c3b098299d066b6fb37cf64d
+ms.sourcegitcommit: 16502797ea749e2690feaa5e652a65b89c007c89
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "67815647"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68483257"
 ---
 # <a name="add-validation-to-an-aspnet-core-razor-page"></a>ASP.NET Core Razor sayfasına doğrulama ekleme
 
@@ -56,9 +56,9 @@ Tarayıcıda JavaScript devre dışı bırakıldığında, formun hatalarla gön
 
 İsteğe bağlı, test sunucusu-tarafı doğrulaması:
 
-* Tarayıcıda JavaScript 'ı devre dışı bırakın. Bunu tarayıcınızın geliştirici araçlarını kullanarak yapabilirsiniz. Tarayıcıda JavaScript 'ı devre dışı bırakadıysanız başka bir tarayıcı deneyin.
+* Tarayıcıda JavaScript 'ı devre dışı bırakın. Tarayıcının geliştirici araçlarını kullanarak JavaScript 'ı devre dışı bırakabilirsiniz. Tarayıcıda JavaScript 'ı devre dışı bırakadıysanız başka bir tarayıcı deneyin.
 * Oluşturma veya düzenleme sayfasının `OnPostAsync` yönteminde bir kesme noktası ayarlayın.
-* Doğrulama hatalarıyla bir form gönderebilirsiniz.
+* Geçersiz verilerle form gönderme.
 * Model durumunun geçersiz olduğunu doğrulayın:
 
   ```csharp
@@ -68,7 +68,7 @@ Tarayıcıda JavaScript devre dışı bırakıldığında, formun hatalarla gön
    }
   ```
 
-Aşağıdaki kod, öğreticide daha önce iskele aldığınız *Create. cshtml* sayfasının bir bölümünü gösterir. İlk formu görüntülemek ve bir hata durumunda formu yeniden görüntülemek için sayfa oluşturma ve düzenleme sayfaları tarafından kullanılır.
+Aşağıdaki kod, öğreticide daha önce *Create. cshtml* sayfa scafkatın bir bölümünü gösterir. İlk formu görüntülemek ve bir hata durumunda formu yeniden görüntülemek için sayfa oluşturma ve düzenleme sayfaları tarafından kullanılır.
 
 [!code-cshtml[](razor-pages-start/sample/RazorPagesMovie/Pages/Movies/Create.cshtml?range=14-20)]
 
@@ -117,13 +117,72 @@ Genellikle, modellerinizde sabit tarihleri derlemek iyi bir uygulamadır, bu ned
 
 Aşağıdaki kod, öznitelikleri tek bir satırda birleştirmeyi gösterir:
 
-[!code-csharp[](razor-pages-start/sample/RazorPagesMovie22/Models/MovieDateRatingDAmult.cs?name=snippet1)]
+[!code-csharp[](razor-pages-start/sample/RazorPagesMovie30/Models/MovieDateRatingDAmult.cs?name=snippet1)]
 
 [Razor Pages kullanmaya başlayın ve EF Core](xref:data/ef-rp/intro) gelişmiş EF Core işlemlerini Razor Pages gösterir.
 
+### <a name="apply-migrations"></a>Geçişleri Uygula
+
+Sınıfa uygulanan Dataek açıklamaları şemayı değiştirir. Örneğin, `Title` alanına uygulanan veri ek açıklamaları:
+
+[!code-csharp[](razor-pages-start/sample/RazorPagesMovie30/Models/MovieDateRatingDA.cs?name=snippet11)]
+
+* Karakterleri 60 olarak sınırlandırır.
+* Bir `null` değere izin vermez.
+
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+
+`Movie` Tabloda Şu anda aşağıdaki şema vardır:
+
+``` sql
+CREATE TABLE [dbo].[Movie] (
+    [ID]          INT             IDENTITY (1, 1) NOT NULL,
+    [Title]       NVARCHAR (MAX)  NULL,
+    [ReleaseDate] DATETIME2 (7)   NOT NULL,
+    [Genre]       NVARCHAR (MAX)  NULL,
+    [Price]       DECIMAL (18, 2) NOT NULL,
+    [Rating]      NVARCHAR (MAX)  NULL,
+    CONSTRAINT [PK_Movie] PRIMARY KEY CLUSTERED ([ID] ASC)
+);
+```
+
+Önceki şema değişiklikleri, EF 'in özel durum oluşturmasına neden olmaz. Ancak, şemanın modelle tutarlı olması için bir geçiş oluşturun.
+
+**Araçlar** menüsünde **NuGet Paket Yöneticisi > Paket Yöneticisi konsolu**' nu seçin.
+PMC'de aşağıdaki komutları girin:
+
+```powershell
+Add-Migration New_DataAnnotations
+Update-Database
+```
+
+`Update-Database``New_DataAnnotations` sınıfının `Up` yöntemlerini çalıştırır. `Up` Yöntemi inceleyin:
+
+[!code-csharp[](razor-pages-start/sample/RazorPagesMovie30/Migrations/20190724163003_New_DataAnnotations.cs?name=snippet)]
+
+Güncelleştirilmiş `Movie` tablo aşağıdaki şemaya sahiptir:
+
+``` sql
+CREATE TABLE [dbo].[Movie] (
+    [ID]          INT             IDENTITY (1, 1) NOT NULL,
+    [Title]       NVARCHAR (60)   NOT NULL,
+    [ReleaseDate] DATETIME2 (7)   NOT NULL,
+    [Genre]       NVARCHAR (30)   NOT NULL,
+    [Price]       DECIMAL (18, 2) NOT NULL,
+    [Rating]      NVARCHAR (5)    NOT NULL,
+    CONSTRAINT [PK_Movie] PRIMARY KEY CLUSTERED ([ID] ASC)
+);
+```
+
+# <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Visual Studio Code/Mac için Visual Studio](#tab/visual-studio-code+visual-studio-mac)
+
+SQLite için geçişler gerekli değildir.
+
+---
+
 ### <a name="publish-to-azure"></a>Azure'a Yayımlama
 
-Azure 'a dağıtma hakkında bilgi için bkz [. Öğretici: SQL veritabanı](/azure/app-service/app-service-web-tutorial-dotnet-sqldatabase)ile Azure 'da bir ASP.NET uygulaması oluşturun. Bu yönergeler bir ASP.NET Core uygulaması değil, bir ASP.NET uygulaması içindir, ancak adımlar aynıdır.
+Azure 'a dağıtma hakkında bilgi için bkz [. Öğretici: SQL veritabanı](/azure/app-service/app-service-web-tutorial-dotnetcore-sqldb)ile Azure 'da bir ASP.NET Core uygulaması oluşturun.
 
 Razor Pages için bu giriş tamamlanırken teşekkürler. [Razor Pages kullanmaya başlayın ve](xref:data/ef-rp/intro) Bu öğreticiye en uygun harika bir izleme EF Core.
 

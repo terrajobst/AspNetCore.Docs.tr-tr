@@ -5,14 +5,14 @@ description: Veri bağlama, olayları işleme ve bileşen yaşam döngülerini y
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 07/23/2019
+ms.date: 07/24/2019
 uid: blazor/components
-ms.openlocfilehash: 123e6e1f798aa5a111bd9eabb492c3e015ae0c5d
-ms.sourcegitcommit: 051f068c78931432e030b60094c38376d64d013e
+ms.openlocfilehash: 0bca723ba32d96a69bff1b3138051611d94b2a37
+ms.sourcegitcommit: 16502797ea749e2690feaa5e652a65b89c007c89
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68440316"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68483150"
 ---
 # <a name="create-and-use-aspnet-core-razor-components"></a>ASP.NET Core Razor bileşenleri oluşturma ve kullanma
 
@@ -160,9 +160,10 @@ Aşağıdaki `<input>` örnekte, ilk öğesi (`id="useIndividualParams"`) bağı
             { "required", "true" }, 
             { "size", "50" }
         };
+}
 ```
 
-Parametrenin türü dize anahtarlarıyla atanabilir `Dictionary<string, object>` olmalıdır. `IEnumerable<KeyValuePair<string, object>>` Ve`IReadOnlyDictionary<string, object>` kullanarak bu senaryodaki seçenekler de vardır.
+Parametrenin türü dize anahtarlarıyla gerçekleştirmelidir `IEnumerable<KeyValuePair<string, object>>` . Bu senaryoda ayrıca bir seçenek de vardır.`IReadOnlyDictionary<string, object>`
 
 Her iki `<input>` yaklaşımın de kullanıldığı işlenen öğeler aynıdır:
 
@@ -189,7 +190,7 @@ Rastgele öznitelikleri kabul etmek için `[Parameter]` `CaptureUnmatchedAttribu
 }
 ```
 
-`CaptureUnmatchedAttributes` Üzerindeki`[Parameter]` özelliği, bu parametrenin diğer bir parametreyle eşleşmeyen tüm özniteliklerle eşleşmesini sağlar. Bir bileşen yalnızca ile `CaptureUnmatchedAttributes`tek bir parametre tanımlayabilir.
+`CaptureUnmatchedAttributes` Üzerindeki`[Parameter]` özelliği, parametresinin diğer bir parametreyle eşleşmeyen tüm özniteliklerle eşleşmesini sağlar. Bir bileşen yalnızca ile `CaptureUnmatchedAttributes`tek bir parametre tanımlayabilir. İle `CaptureUnmatchedAttributes` kullanılan özellik türü dize anahtarlarıyla `Dictionary<string, object>` atanabilir olmalıdır. `IEnumerable<KeyValuePair<string, object>>`Ayrıca `IReadOnlyDictionary<string, object>` , Bu senaryodaki seçenekler de vardır.
 
 ## <a name="data-binding"></a>Veri bağlama
 
@@ -1148,7 +1149,7 @@ Kod ilk kez `someFlag` `true`çalıştırıldığında, Oluşturucu şunları al
 
 | Sequence | Tür      | Veri   |
 | :------: | --------- | :----: |
-| 0        | Metin düğümü | adı  |
+| 0        | Metin düğümü | Adı  |
 | 1\.        | Metin düğümü | Saniye |
 
 `someFlag` Olduğunu`false`düşünün ve biçimlendirme yeniden işlenir. Bu kez, Oluşturucu şunları alır:
@@ -1180,7 +1181,7 @@ builder.AddContent(seq++, "Second");
 
 | Sequence | Tür      | Veri   |
 | :------: | --------- | :----: |
-| 0        | Metin düğümü | adı  |
+| 0        | Metin düğümü | Adı  |
 | 1\.        | Metin düğümü | Saniye |
 
 Bu sonuç önceki bir durum ile aynıdır, bu nedenle olumsuz bir sorun yoktur. `someFlag``false` ikinci işleme ve çıktı:
