@@ -1,75 +1,77 @@
 ---
 title: ASP.NET Core Razor sayfasına yeni bir alan ekleyin
 author: rick-anderson
-description: Entity Framework Core ile bir Razor sayfası için yeni bir alan ekleme işlemi açıklanır
+description: Entity Framework Core ile Razor sayfasına nasıl yeni bir alan ekleneceğini gösterir
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/05/2018
+ms.date: 7/23/2019
 uid: tutorials/razor-pages/new-field
-ms.openlocfilehash: 904207ed775cc689c36953c29d202788580d8f60
-ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
+ms.openlocfilehash: a1c0622d97e0d2b0a5601e27688f4be7cbe068dc
+ms.sourcegitcommit: 16502797ea749e2690feaa5e652a65b89c007c89
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67815318"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68483306"
 ---
 # <a name="add-a-new-field-to-a-razor-page-in-aspnet-core"></a>ASP.NET Core Razor sayfasına yeni bir alan ekleyin
 
 Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
 
+::: moniker range=">= aspnetcore-3.0"
+
 [!INCLUDE[](~/includes/rp/download.md)]
 
-Bu bölümdeki [Entity Framework](/ef/core/get-started/aspnetcore/new-db) için Code First Migrations kullanılır:
+Bu bölümde [Entity Framework](/ef/core/get-started/aspnetcore/new-db) için Code First Migrations kullanılır:
 
 * Modele yeni bir alan ekleyin.
-* Yeni alan şema değişikliği veritabanına geçirin.
+* Yeni alan şeması değişikliğini veritabanına geçirin.
 
-EF Code First otomatik olarak Code First bir veritabanı oluşturmak için kullanırken:
+Bir veritabanını otomatik olarak oluşturmak için EF Code First kullanırken Code First:
 
-* Veritabanı şeması öğesinden oluşturulan model sınıfları ile eşitlenmiş olup olmadığını izlemek için veritabanında bir tablo ekler.
-* EF, model sınıfları sahip bir veritabanı eşit değilse bir özel durum oluşturur.
+* Veritabanı şemasının oluşturulduğu model sınıflarıyla uyumlu olup olmadığını izlemek için veritabanına bir tablo ekler.
+* Model sınıfları DB ile eşitlenmiyorsa, EF bir özel durum oluşturur.
 
-Şema/modelinin eşitlenmiş otomatik doğrulama tutarsız veritabanı kod sorunlarını bulmayı kolaylaştırır.
+Şema/modelin eşitlemede otomatik olarak doğrulanması, tutarsız veritabanı/kod sorunlarını bulmayı kolaylaştırır.
 
-## <a name="adding-a-rating-property-to-the-movie-model"></a>Film modeli derecelendirme özellik ekleme
+## <a name="adding-a-rating-property-to-the-movie-model"></a>Film modeline bir derecelendirme özelliği ekleme
 
-Açık *Models/Movie.cs* dosya ve ekleme bir `Rating` özelliği:
+*Modeller/film. cs* dosyasını açın ve bir `Rating` özellik ekleyin:
 
-[!code-csharp[](razor-pages-start/sample/RazorPagesMovie22/Models/MovieDateRating.cs?highlight=13&name=snippet)]
+[!code-csharp[](razor-pages-start/sample/RazorPagesMovie30/Models/MovieDateRating.cs?highlight=13&name=snippet)]
 
-Uygulama oluşturun.
+Uygulamayı derleyin.
 
-Düzen *Pages/Movies/Index.cshtml*ve bir `Rating` alan:
+*Sayfaları/filmleri/dizini. cshtml*'yi düzenleyin ve bir `Rating` alan ekleyin:
 
-[!code-cshtml[](razor-pages-start/sample/RazorPagesMovie22/Pages/Movies/IndexRating.cshtml.?highlight=40-42,61-63)]
+[!code-cshtml[](razor-pages-start/sample/RazorPagesMovie30/SnapShots/IndexRating.cshtml?highlight=40-42,61-63)]
 
-Aşağıdaki sayfalar güncelleştirin:
+Aşağıdaki sayfaları güncelleştirin:
 
-* Ekleme `Rating` silme ve ayrıntıları sayfaları alanı.
-* Güncelleştirme [Create.cshtml](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie22/Pages/Movies/Create.cshtml) ile bir `Rating` alan.
-* Ekleme `Rating` Düzenle sayfasında alanı.
+* `Rating` Alanı silme ve Ayrıntılar sayfalarına ekleyin.
+* [Create. cshtml](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie30/Pages/Movies/Create.cshtml) dosyasını bir `Rating` alanla güncelleştirin.
+* `Rating` Alanı düzenleme sayfasına ekleyin.
 
-Uygulama DB yeni alanı içerecek şekilde güncelleştirilene kadar çalışmaz. Şimdi uygulamayı oluşturur çalıştırırsanız bir `SqlException`:
+VERITABANı yeni alanı içerecek şekilde güncelleştirilene kadar uygulama çalışmaz. Şimdi çalıştırırsanız uygulama şunu oluşturur `SqlException`:
 
 `SqlException: Invalid column name 'Rating'.`
 
-Bu hata, veritabanının film tablonun şeması farklı olan güncelleştirilmiş film model sınıfı kaynaklanır. (Yok hiçbir `Rating` veritabanı tablosundaki sütun.)
+Bu hata, güncelleştirilmiş film modeli sınıfının, veritabanının film tablosunun şemasından farklı olmasından kaynaklanır. (Veritabanı tablosunda sütun `Rating` yok.)
 
-Hatayı çözümlemek için birkaç yaklaşım vardır:
+Hatayı çözmek için birkaç yaklaşım vardır:
 
-1. Otomatik olarak bırakın ve yeni model sınıfı şeması kullanarak veritabanını yeniden oluşturma Entity Framework vardır. Bu yaklaşım, Geliştirme döngüsünün başlarında kullanışlıdır; model ve veritabanı şeması birlikte hızla geliştirilebilen olanak tanır. Olumsuz tarafı, veritabanındaki mevcut verileri kaybetmek ' dir. Bu yaklaşım, bir üretim veritabanında kullanmayın! Bir veritabanı üzerinde şema değişikliklerini bırakarak ve veritabanı test verileri ile otomatik olarak oluşturmak için bir Başlatıcısı kullanarak genellikle bir uygulama geliştirmek için bir üretken yoludur.
+1. Yeni model sınıfı şemasını kullanarak veritabanını otomatik olarak bırakıp yeniden oluşturmaya Entity Framework. Bu yaklaşım, geliştirme döngüsünün başlarında daha erken bir yoldur; modeli ve veritabanı şemasını birlikte hızla gelişmenize olanak tanır. Downsıde, veritabanında var olan verileri kaybetmeniz. Bu yaklaşımı bir üretim veritabanında kullanmayın! DB 'yi şema değişikliklerinde bırakıp bir başlatıcı kullanarak veritabanının test verileriyle otomatik olarak çekirdeğini oluşturmak, genellikle bir uygulama geliştirmeye yönelik üretken bir yoldur.
 
-2. Açıkça model sınıfları eşleşecek şekilde var olan veritabanı şeması değiştirin. Bu yaklaşımın avantajı, verilerinizi korumak olmasıdır. Bu değişikliği yapmak ya da el ile veya bir veritabanı oluşturma betiği değiştirin.
+2. Mevcut veritabanının şemasını model sınıflarıyla eşleşecek şekilde açıkça değiştirin. Bu yaklaşımın avantajı, verilerinizi tutmanızı kullanmaktır. Bu değişikliği el ile ya da bir veritabanı değişiklik betiği oluşturarak yapabilirsiniz.
 
-3. Veritabanı şemasını güncelleştirmek için Code First Migrations'ı kullanın.
+3. Veritabanı şemasını güncelleştirmek için Code First Migrations kullanın.
 
-Bu öğreticide, Code First Migrations'ı kullanın.
+Bu öğretici için Code First Migrations kullanın.
 
-Güncelleştirme `SeedData` böylece yeni bir sütun için bir değer sağlar sınıfını. Aşağıda bir örnek değişikliği gösterilmiştir, ancak her biri için bu değişikliği yapmak istersiniz `new Movie` blok.
+`SeedData` Sınıfını yeni sütun için bir değer sağlayacak şekilde güncelleştirin. Aşağıda örnek bir değişiklik gösterilmektedir, ancak her `new Movie` bir blok için bu değişikliği yapmak isteyeceksiniz.
 
-[!code-csharp[](razor-pages-start/sample/RazorPagesMovie22/Models/SeedDataRating.cs?name=snippet1&highlight=8)]
+[!code-csharp[](razor-pages-start/sample/RazorPagesMovie30/Models/SeedDataRating.cs?name=snippet1&highlight=8)]
 
-Bkz: [SeedData.cs dosya tamamlandı](https://github.com/aspnet/AspNetCore.Docs/blob/master/aspnetcore/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie22/Models/SeedDataRating.cs).
+[Tamamlanan SeedData.cs dosyasına](https://github.com/aspnet/AspNetCore.Docs/blob/master/aspnetcore/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie30/Models/SeedDataRating.cs)bakın.
 
 Çözümü oluşturun.
 
@@ -79,7 +81,7 @@ Bkz: [SeedData.cs dosya tamamlandı](https://github.com/aspnet/AspNetCore.Docs/b
 
 ### <a name="add-a-migration-for-the-rating-field"></a>Derecelendirme alanı için bir geçiş ekleyin
 
-Gelen **Araçları** menüsünde **NuGet Paket Yöneticisi > Paket Yöneticisi Konsolu**.
+**Araçlar** menüsünde **NuGet Paket Yöneticisi > Paket Yöneticisi konsolu**' nu seçin.
 PMC'de aşağıdaki komutları girin:
 
 ```powershell
@@ -87,38 +89,163 @@ Add-Migration Rating
 Update-Database
 ```
 
-`Add-Migration` Komutu framework bildirir:
+`Add-Migration` Komut, çerçeveye şunları belirtir:
 
-* Karşılaştırma `Movie` ile model `Movie` DB şema.
-* Yeni modeline DB şema geçişi için kod oluşturun.
+* `Movie` Modeli`Movie` DB şemasıyla karşılaştırın.
+* DB şemasını yeni modele geçirmek için kod oluşturun.
 
-Adı "Sıralama" isteğe bağlıdır ve geçiş dosyasını adlandırmak için kullanılır. Geçiş dosya için anlamlı bir ad kullanmak yararlıdır.
+"Derecelendirme" adı rastgele olur ve geçiş dosyasını adlandırmak için kullanılır. Geçiş dosyası için anlamlı bir ad kullanılması yararlı olur.
 
-`Update-Database` Komutu veritabanı için şema değişiklikleri uygulamak için framework bildirir.
+`Update-Database` Komutu, çerçeveye şema değişikliklerini veritabanına uygulamasını söyler.
 
 <a name="ssox"></a>
 
-DB tüm kayıtların silerseniz, başlatıcı DB çekirdeğini ve dahil `Rating` alan. Tarayıcıda veya gelen silme bağlantıları kullanarak bunu yapabilirsiniz [Sql Server Nesne Gezgini](xref:tutorials/razor-pages/sql#ssox) (SSOX).
+Veritabanındaki tüm kayıtları silerseniz, başlatıcı DB 'yi temel alır ve `Rating` alanını içerir. Bunu, tarayıcıda veya [SQL Server Nesne Gezgini](xref:tutorials/razor-pages/sql#ssox) (ssox) silme bağlantılarıyla yapabilirsiniz.
 
-Başka bir seçenek veritabanını silin ve veritabanını yeniden oluşturmaya geçişleri kullanmaktır. SSOX veritabanında silmek için:
+Başka bir seçenek de veritabanını silmek ve geçişleri kullanarak veritabanını yeniden oluşturmaktır. SSOX 'te veritabanını silmek için:
 
-* Veritabanı içinde SSOX seçin.
-* Veritabanını sağ tıklatın ve seçin *Sil*.
-* Denetleme **var olan bağlantıları kapatın**.
+* SSOX 'te veritabanını seçin.
+* Veritabanına sağ tıklayın ve *Sil*' i seçin.
+* **Mevcut bağlantıları kapat**' a bakın.
 * **Tamam**’ı seçin.
-* İçinde [PMC](xref:tutorials/razor-pages/new-field#pmc), veritabanını güncelleştir:
+* [PMC](xref:tutorials/razor-pages/new-field#pmc)'de veritabanını güncelleştirin:
 
   ```powershell
   Update-Database
   ```
 
-# <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Visual Studio Code'u / Visual Studio Mac için](#tab/visual-studio-code+visual-studio-mac)
+# <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Visual Studio Code/Mac için Visual Studio](#tab/visual-studio-code+visual-studio-mac)
 
-### <a name="drop-and-re-create-the-database"></a>Bırakın ve veritabanını yeniden oluşturun
+### <a name="drop-and-re-create-the-database"></a>Veritabanını bırakıp yeniden oluşturun
 
 [!INCLUDE[](~/includes/RP-mvc-shared/sqlite-warn.md)]
 
-Veritabanını silin ve veritabanını yeniden oluşturmaya geçişleri kullanın. Veritabanını silmek için veritabanı dosyasını silin (*MvcMovie.db*). Ardından çalıştırın `ef database update` komutu:
+Geçiş klasörünü silin.  Veritabanını yeniden oluşturmak için aşağıdaki komutları kullanın.
+
+```console
+dotnet ef database drop
+dotnet ef migrations add InitialCreate
+dotnet ef database update
+```
+
+---
+
+Uygulamayı çalıştırın ve bir `Rating` alan ile film oluşturabileceğiniz/düzenleyebileceğiniz/görüntüleydiğinizi doğrulayın. Veritabanı birlikte olmazsa, `SeedData.Initialize` yönteminde bir kesme noktası ayarlayın.
+
+## <a name="additional-resources"></a>Ek kaynaklar
+
+* [Bu öğreticinin YouTube sürümü](https://youtu.be/3i7uMxiGGR8)
+
+> [!div class="step-by-step"]
+> [Öncekini Sonraki arama](xref:tutorials/razor-pages/search)
+> ekleniyor[: Doğrulama ekleme](xref:tutorials/razor-pages/validation)
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
+
+[!INCLUDE[](~/includes/rp/download.md)]
+
+Bu bölümde [Entity Framework](/ef/core/get-started/aspnetcore/new-db) için Code First Migrations kullanılır:
+
+* Modele yeni bir alan ekleyin.
+* Yeni alan şeması değişikliğini veritabanına geçirin.
+
+Bir veritabanını otomatik olarak oluşturmak için EF Code First kullanırken Code First:
+
+* Veritabanı şemasının oluşturulduğu model sınıflarıyla uyumlu olup olmadığını izlemek için veritabanına bir tablo ekler.
+* Model sınıfları DB ile eşitlenmiyorsa, EF bir özel durum oluşturur.
+
+Şema/modelin eşitlemede otomatik olarak doğrulanması, tutarsız veritabanı/kod sorunlarını bulmayı kolaylaştırır.
+
+## <a name="adding-a-rating-property-to-the-movie-model"></a>Film modeline bir derecelendirme özelliği ekleme
+
+*Modeller/film. cs* dosyasını açın ve bir `Rating` özellik ekleyin:
+
+[!code-csharp[](razor-pages-start/sample/RazorPagesMovie22/Models/MovieDateRating.cs?highlight=13&name=snippet)]
+
+Uygulamayı derleyin.
+
+*Sayfaları/filmleri/dizini. cshtml*'yi düzenleyin ve bir `Rating` alan ekleyin:
+
+[!code-cshtml[](razor-pages-start/sample/RazorPagesMovie22/Pages/Movies/IndexRating.cshtml?highlight=40-42,61-63)]
+
+Aşağıdaki sayfaları güncelleştirin:
+
+* `Rating` Alanı silme ve Ayrıntılar sayfalarına ekleyin.
+* [Create. cshtml](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie22/Pages/Movies/Create.cshtml) dosyasını bir `Rating` alanla güncelleştirin.
+* `Rating` Alanı düzenleme sayfasına ekleyin.
+
+VERITABANı yeni alanı içerecek şekilde güncelleştirilene kadar uygulama çalışmaz. Şimdi çalıştırırsanız uygulama şunu oluşturur `SqlException`:
+
+`SqlException: Invalid column name 'Rating'.`
+
+Bu hata, güncelleştirilmiş film modeli sınıfının, veritabanının film tablosunun şemasından farklı olmasından kaynaklanır. (Veritabanı tablosunda sütun `Rating` yok.)
+
+Hatayı çözmek için birkaç yaklaşım vardır:
+
+1. Yeni model sınıfı şemasını kullanarak veritabanını otomatik olarak bırakıp yeniden oluşturmaya Entity Framework. Bu yaklaşım, geliştirme döngüsünün başlarında daha erken bir yoldur; modeli ve veritabanı şemasını birlikte hızla gelişmenize olanak tanır. Downsıde, veritabanında var olan verileri kaybetmeniz. Bu yaklaşımı bir üretim veritabanında kullanmayın! DB 'yi şema değişikliklerinde bırakıp bir başlatıcı kullanarak veritabanının test verileriyle otomatik olarak çekirdeğini oluşturmak, genellikle bir uygulama geliştirmeye yönelik üretken bir yoldur.
+
+2. Mevcut veritabanının şemasını model sınıflarıyla eşleşecek şekilde açıkça değiştirin. Bu yaklaşımın avantajı, verilerinizi tutmanızı kullanmaktır. Bu değişikliği el ile ya da bir veritabanı değişiklik betiği oluşturarak yapabilirsiniz.
+
+3. Veritabanı şemasını güncelleştirmek için Code First Migrations kullanın.
+
+Bu öğretici için Code First Migrations kullanın.
+
+`SeedData` Sınıfını yeni sütun için bir değer sağlayacak şekilde güncelleştirin. Aşağıda örnek bir değişiklik gösterilmektedir, ancak her `new Movie` bir blok için bu değişikliği yapmak isteyeceksiniz.
+
+[!code-csharp[](razor-pages-start/sample/RazorPagesMovie22/Models/SeedDataRating.cs?name=snippet1&highlight=8)]
+
+[Tamamlanan SeedData.cs dosyasına](https://github.com/aspnet/AspNetCore.Docs/blob/master/aspnetcore/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie22/Models/SeedDataRating.cs)bakın.
+
+Çözümü oluşturun.
+
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+
+<a name="pmc"></a>
+
+### <a name="add-a-migration-for-the-rating-field"></a>Derecelendirme alanı için bir geçiş ekleyin
+
+**Araçlar** menüsünde **NuGet Paket Yöneticisi > Paket Yöneticisi konsolu**' nu seçin.
+PMC'de aşağıdaki komutları girin:
+
+```powershell
+Add-Migration Rating
+Update-Database
+```
+
+`Add-Migration` Komut, çerçeveye şunları belirtir:
+
+* `Movie` Modeli`Movie` DB şemasıyla karşılaştırın.
+* DB şemasını yeni modele geçirmek için kod oluşturun.
+
+"Derecelendirme" adı rastgele olur ve geçiş dosyasını adlandırmak için kullanılır. Geçiş dosyası için anlamlı bir ad kullanılması yararlı olur.
+
+`Update-Database` Komutu, çerçeveye şema değişikliklerini veritabanına uygulamasını söyler.
+
+<a name="ssox"></a>
+
+Veritabanındaki tüm kayıtları silerseniz, başlatıcı DB 'yi temel alır ve `Rating` alanını içerir. Bunu, tarayıcıda veya [SQL Server Nesne Gezgini](xref:tutorials/razor-pages/sql#ssox) (ssox) silme bağlantılarıyla yapabilirsiniz.
+
+Başka bir seçenek de veritabanını silmek ve geçişleri kullanarak veritabanını yeniden oluşturmaktır. SSOX 'te veritabanını silmek için:
+
+* SSOX 'te veritabanını seçin.
+* Veritabanına sağ tıklayın ve *Sil*' i seçin.
+* **Mevcut bağlantıları kapat**' a bakın.
+* **Tamam**’ı seçin.
+* [PMC](xref:tutorials/razor-pages/new-field#pmc)'de veritabanını güncelleştirin:
+
+  ```powershell
+  Update-Database
+  ```
+
+# <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Visual Studio Code/Mac için Visual Studio](#tab/visual-studio-code+visual-studio-mac)
+
+### <a name="drop-and-re-create-the-database"></a>Veritabanını bırakıp yeniden oluşturun
+
+[!INCLUDE[](~/includes/RP-mvc-shared/sqlite-warn.md)]
+
+Veritabanını silin ve geçişleri kullanarak veritabanını yeniden oluşturun. Veritabanını silmek için veritabanı dosyasını (*Mvcmovie. db*) silin. Ardından şu `ef database update` komutu çalıştırın:
 
 ```console
 dotnet ef database update
@@ -126,12 +253,14 @@ dotnet ef database update
 
 ---
 
-Uygulamayı çalıştırın ve kontrol edebilirsiniz oluşturma/düzenleme/görüntüleme filmlerle bir `Rating` alan. Veritabanı çekirdek değeri oluşturulmuş değil, bir kesme noktası ayarlayın `SeedData.Initialize` yöntemi.
+Uygulamayı çalıştırın ve bir `Rating` alan ile film oluşturabileceğiniz/düzenleyebileceğiniz/görüntüleydiğinizi doğrulayın. Veritabanı birlikte olmazsa, `SeedData.Initialize` yönteminde bir kesme noktası ayarlayın.
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-* [Bu öğreticide YouTube sürümü](https://youtu.be/3i7uMxiGGR8)
+* [Bu öğreticinin YouTube sürümü](https://youtu.be/3i7uMxiGGR8)
 
 > [!div class="step-by-step"]
-> [Önceki: Arama ekleme](xref:tutorials/razor-pages/search)
-> [sonraki: Doğrulama ekleme](xref:tutorials/razor-pages/validation)
+> [Öncekini Sonraki arama](xref:tutorials/razor-pages/search)
+> ekleniyor[: Doğrulama ekleme](xref:tutorials/razor-pages/validation)
+
+::: moniker-end

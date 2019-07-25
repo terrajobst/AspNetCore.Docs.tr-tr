@@ -5,14 +5,14 @@ description: ASP.NET Core uygulamalarının Azure App Service ve Internet Inform
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 07/17/2019
+ms.date: 07/18/2019
 uid: test/troubleshoot-azure-iis
-ms.openlocfilehash: 46d4a11c594844e059fa8555255d7321f7b48631
-ms.sourcegitcommit: b40613c603d6f0cc71f3232c16df61550907f550
+ms.openlocfilehash: deae568a6ba88c9a8365b9d7f2df629899bc64a1
+ms.sourcegitcommit: 16502797ea749e2690feaa5e652a65b89c007c89
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68308823"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68483313"
 ---
 # <a name="troubleshoot-aspnet-core-on-azure-app-service-and-iis"></a>Azure App Service ve IIS 'de ASP.NET Core sorunlarını giderme
 
@@ -48,6 +48,31 @@ Visual Studio'da varsayılan olarak bir ASP.NET Core projesi [IIS Express](/iis/
 Visual Studio'da varsayılan olarak bir ASP.NET Core projesi [IIS Express](/iis/extensions/introduction-to-iis-express/iis-express-overview) hata ayıklama sırasında barındırma. Yerel olarak hata ayıklamada oluşan *502,5 Işlem hatası* , bu konudaki öneri kullanılarak tanılanabilir.
 
 ::: moniker-end
+
+### <a name="40314-forbidden"></a>403,14 yasak
+
+Uygulama başlatılamıyor. Aşağıdaki hata günlüğe kaydedilir:
+
+```
+The Web server is configured to not list the contents of this directory.
+```
+
+Hata genellikle barındırma sisteminde, aşağıdaki senaryolardan birini içeren bozuk bir dağıtım nedeniyle oluşur:
+
+* Uygulama, barındırma sisteminde yanlış klasöre dağıtılır.
+* Dağıtım işlemi, uygulamanın tüm dosyalarını ve klasörlerini barındırma sistemindeki dağıtım klasörüne taşıyamadı.
+* *Web. config* dosyası dağıtımda yok veya *Web. config* dosyası içerikleri hatalı biçimlendirilmiş.
+
+Aşağıdaki adımları uygulayın:
+
+1. Tüm dosya ve klasörleri barındırma sistemindeki dağıtım klasöründen silin.
+1. Visual Studio, PowerShell veya el ile dağıtım gibi normal dağıtım yönteminizi kullanarak, uygulamanın *Yayımlama* klasörünün içeriğini barındırma sistemine yeniden dağıtın:
+   * *Web. config* dosyasının dağıtımda mevcut olduğunu ve içeriğinin doğru olduğunu doğrulayın.
+   * Azure App Service barındırırken, uygulamanın `D:\home\site\wwwroot` klasöre dağıtıldığını doğrulayın.
+   * Uygulama IIS tarafından barındırılıyorsa, uygulamanın **IIS yöneticisinin** **temel ayarlarında**gösterilen IIS **fiziksel yoluna** dağıtıldığını doğrulayın.
+1. Barındırma sistemindeki dağıtımı projenin *Yayımla* klasörünün içeriğiyle karşılaştırarak uygulamanın tüm dosya ve klasörlerinin dağıtıldığını doğrulayın.
+
+Yayımlanan ASP.NET Core uygulamasının düzeni hakkında daha fazla bilgi için bkz <xref:host-and-deploy/directory-structure>. *Web. config* dosyası hakkında daha fazla bilgi için bkz <xref:host-and-deploy/aspnet-core-module#configuration-with-webconfig>.
 
 ### <a name="500-internal-server-error"></a>500 İç sunucu hatası
 
@@ -192,6 +217,8 @@ Uygulama havuzunun 32-bit ayarının doğru olduğundan emin olun:
 1. Ayarlama **32-Bit uygulamaları etkinleştir**:
    * Bir 32-bit (x86) dağıtma, uygulama ayarlarsanız değer `True`.
    * Bir 64-bit (x64) dağıtma, uygulama ayarlarsanız değer `False`.
+
+Proje dosyasındaki bir `<Platform>` MSBuild özelliği ve uygulamanın yayınlanan bit durumu arasında bir çakışma olmadığını doğrulayın.
 
 ### <a name="connection-reset"></a>Bağlantı sıfırlama
 
