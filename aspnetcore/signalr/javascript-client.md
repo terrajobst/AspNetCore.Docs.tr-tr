@@ -5,14 +5,14 @@ description: ASP.NET Core SignalR JavaScript istemcisi genel bakış.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: bradyg
 ms.custom: mvc
-ms.date: 04/17/2019
+ms.date: 06/28/2019
 uid: signalr/javascript-client
-ms.openlocfilehash: 8b645304b597db0c37fb9cd8814c493ca1c6ee62
-ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
+ms.openlocfilehash: f314e1fe0ef0ea73a28b332404a09f2956524132
+ms.sourcegitcommit: f30b18442ed12831c7e86b0db249183ccd749f59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67814958"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68412387"
 ---
 # <a name="aspnet-core-signalr-javascript-client"></a>ASP.NET Core SignalR JavaScript istemcisi
 
@@ -26,12 +26,27 @@ ASP.NET Core SignalR JavaScript istemci kitaplığı, geliştiricilerin, sunucu 
 
 SignalR JavaScript istemci kitaplığı olarak teslim edilen bir [npm](https://www.npmjs.com/) paket. Visual Studio kullanıyorsanız, çalıştırma `npm install` gelen **Paket Yöneticisi Konsolu** while kök klasöründe. Visual Studio Code için komutu çalıştırın **tümleşik Terminalini**.
 
+::: moniker range=">= aspnetcore-3.0"
+
+  ```console
+  npm init -y
+  npm install @microsoft/signalr
+  ```
+
+npm paket içeriğini yükler *node_modules\\@microsoft\signalr\dist\browser* klasör. Adlı yeni bir klasör oluşturun *signalr* altında *wwwroot\\LIB* klasör. Kopyalama *signalr.js* dosyasını *wwwroot\lib\signalr* klasör.
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
+
   ```console
   npm init -y
   npm install @aspnet/signalr
   ```
 
 npm paket içeriğini yükler *node_modules\\@aspnet\signalr\dist\browser* klasör. Adlı yeni bir klasör oluşturun *signalr* altında *wwwroot\\LIB* klasör. Kopyalama *signalr.js* dosyasını *wwwroot\lib\signalr* klasör.
+
+::: moniker-end
 
 ## <a name="use-the-signalr-javascript-client"></a>SignalR JavaScript istemcisi kullanma
 
@@ -60,19 +75,19 @@ Kötü amaçlı bir siteyi başka bir siteden hassas verileri okumasını önlem
 JavaScript istemcilerinin şirket hub'ları genel yöntemleri çağırmak [çağırma](/javascript/api/%40aspnet/signalr/hubconnection#invoke) yöntemi [HubConnection](/javascript/api/%40aspnet/signalr/hubconnection). `invoke` Yöntemi iki bağımsız değişkeni kabul eder:
 
 * Hub yönteminin adı. Aşağıdaki örnekte, yöntem hub'ında addır `SendMessage`.
-* Hub yönteminin içinde tanımlanan tüm bağımsız değişkenler. Aşağıdaki örnekte, bağımsız değişkeni addır `message`. Kod örneği, Internet Explorer dışındaki tüm bilinen tarayıcılar'ın geçerli sürümlerinde desteklenen ok işlev sözdizimi kullanır.
+* Hub yönteminin içinde tanımlanan tüm bağımsız değişkenler. Aşağıdaki örnekte, bağımsız değişkeni addır `message`. Örnek kod, Internet Explorer hariç tüm büyük tarayıcıların güncel sürümlerinde desteklenen ok işlev sözdizimini kullanır.
 
   [!code-javascript[Call hub methods](javascript-client/sample/wwwroot/js/chat.js?range=24)]
 
 > [!NOTE]
-> Azure SignalR hizmeti kullanıyorsanız, *sunucusuz modu*, bir istemciden hub yöntemlerini çağıramazsınız. Daha fazla bilgi için [SignalR hizmeti belgeleri](/azure/azure-signalr/signalr-concept-serverless-development-config).
+> Azure SignalR hizmetini *sunucusuz modda*kullanıyorsanız, bir istemciden hub yöntemleri çağrılamaz. Daha fazla bilgi için bkz. [SignalR hizmeti belgeleri](/azure/azure-signalr/signalr-concept-serverless-development-config).
 
-`invoke` Yöntemi döndürür bir JavaScript [Promise](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise). `Promise` Dönüş değeriyle (varsa) sunucusundaki yöntemi döndüğünde çözümlenir. Yöntem sunucuda bir hata oluşturursa `Promise` hata iletisiyle reddedildi. Kullanım `then` ve `catch` yöntemlerde `Promise` bu durumları idare kendisine (veya `await` sözdizimi).
+Yöntemi bir JavaScript Promise döndürür. [](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise) `invoke` , `Promise` Sunucu üzerindeki yöntemi döndürdüğünde (varsa) dönüş değeri ile çözümlenir. Sunucu üzerindeki yöntem bir hata `Promise` oluşturursa, hata iletisiyle reddedilir. Bu durumları ( `catch` veya `Promise` `then` söz`await` dizimini) işlemek için kendi üzerinde ve yöntemlerini kullanın.
 
-`send` Yöntemi döndürür bir JavaScript `Promise`. `Promise` Zaman sunucuya ileti gönderildi çözümlenir. İleti gönderilirken bir hata varsa `Promise` hata iletisiyle reddedildi. Kullanım `then` ve `catch` yöntemlerde `Promise` bu durumları idare kendisine (veya `await` sözdizimi).
+Yöntemi bir JavaScript `Promise`döndürür. `send` `Promise` İleti sunucuya gönderildiğinde çözümlenir. İleti `Promise` gönderilirken bir hata oluşursa, hata iletisiyle reddedilir. Bu durumları ( `catch` veya `Promise` `then` söz`await` dizimini) işlemek için kendi üzerinde ve yöntemlerini kullanın.
 
 > [!NOTE]
-> Kullanarak `send` sunucunun bir ileti aldı kadar beklemez. Sonuç olarak, veri ya da hataları sunucudan döndürmek mümkün değildir.
+> Kullanmak `send` sunucu iletiyi almaa kadar beklemez. Sonuç olarak, sunucudan veri veya hata döndürülmesi mümkün değildir.
 
 ## <a name="call-client-methods-from-hub"></a>İstemci hub'ından yöntemleri çağırma
 
@@ -113,9 +128,9 @@ Kullanım [configureLogging](/javascript/api/%40aspnet/signalr/hubconnectionbuil
 
 ::: moniker range=">= aspnetcore-3.0"
 
-### <a name="automatically-reconnect"></a>Otomatik olarak yeniden
+### <a name="automatically-reconnect"></a>Otomatik olarak yeniden bağlan
 
-SignalR JavaScript istemcisi kullanarak otomatik olarak yeniden yapılandırılabilir `withAutomaticReconnect` metodunda [HubConnectionBuilder](/javascript/api/%40aspnet/signalr/hubconnectionbuilder). Varsayılan olarak otomatik olarak yeniden olmaz.
+SignalR için JavaScript istemcisi, `withAutomaticReconnect` [hubconnectionbuilder](/javascript/api/%40aspnet/signalr/hubconnectionbuilder)'daki yöntemi kullanılarak otomatik olarak yeniden bağlanacak şekilde yapılandırılabilir. Varsayılan olarak otomatik olarak yeniden bağlanmaz.
 
 ```javascript
 const connection = new signalR.HubConnectionBuilder()
@@ -124,9 +139,9 @@ const connection = new signalR.HubConnectionBuilder()
     .build();
 ```
 
-Herhangi bir parametre olmadan `withAutomaticReconnect()` dört girişimi başarısız olduktan sonra durduruluyor, her bir yeniden bağlanma denemesi denemeden önce sırasıyla 0, 2, 10 ve 30 saniye bekleyin üzere istemciyi yapılandırır.
+Herhangi bir parametre olmadan `withAutomaticReconnect()` , her yeniden bağlanma denemesini denemeden önce, dört başarısız denemeden sonra durdurulan istemciyi 0, 2, 10 ve 30 saniye bekleyecek şekilde yapılandırır.
 
-Yeniden bağlanma girişimleri başlatmadan önce `HubConnection` geçiş olur `HubConnectionState.Reconnecting` belirtin ve yangın kendi `onreconnecting` geçiş yerine geri çağırmaları `Disconnected` durumu ve tetikleme kendi `onclose` geri çağırmaları ister bir `HubConnection`otomatik yeniden olmadan yapılandırılmış. Bu, bağlantısı kesilmiş kullanıcıları uyarın ve UI öğelerini devre dışı bırakmak için bir fırsat sağlar.
+Yeniden bağlanma `HubConnection` girişimlerini başlatmadan önce, duruma geçiş `HubConnectionState.Reconnecting` yapılır ve geri çağırmaları bir `onreconnecting` `Disconnected` `onclose` `HubConnection`durumageçmekyerinegeriçağırmalarıtetikleyerekotomatik yeniden bağlanma olmadan yapılandırılır. Bu, kullanıcıların bağlantının kaybedildiği ve Kullanıcı arabirimi öğelerini devre dışı bırakan kullanıcıları uyarma fırsatı sağlar.
 
 ```javascript
 connection.onreconnecting((error) => {
@@ -140,12 +155,12 @@ connection.onreconnecting((error) => {
 });
 ```
 
-İstemci ilk dört girişimlerinin içinde başarıyla bağlanırsa `HubConnection` geri geçeceğiyle `Connected` belirtin ve yangın kendi `onreconnected` geri çağırmaları. Bu, bağlantı yeniden kurulmadan kullanıcılara bildirmek için bir fırsat sağlar.
+İstemci ilk dört deneme `HubConnection` süresi içinde başarıyla yeniden `Connected` bağlanırsa, durum durumuna geçer ve `onreconnected` geri çağırmaları harekete geçirebilir. Bu, kullanıcılara bağlantı yeniden kurulmadığını bildirmek için bir fırsat sağlar.
 
-Bağlantı tamamen yeni sunucuya baktığı yeni `connectionId` için sağlanan `onreconnected` geri çağırma.
+Bağlantı sunucuya tamamen yeni göründüğünden `connectionId` `onreconnected` geri aramaya yeni bir verilecek.
 
 > [!WARNING]
-> `onreconnected` Geri çağırma'nın `connectionId` varsa parametresi tanımsız olur `HubConnection` için yapılandırılan [anlaşma atla](xref:signalr/configuration#configure-client-options).
+> Geri aramanın parametresi, [anlaşmayı atlayacak](xref:signalr/configuration#configure-client-options)şekilde yapılandırıldıysa tanımsız olur. `HubConnection` `connectionId` `onreconnected`
 
 ```javascript
 connection.onreconnected((connectionId) => {
@@ -159,7 +174,7 @@ connection.onreconnected((connectionId) => {
 });
 ```
 
-`withAutomaticReconnect()` Yapılandırma olmayacaktır `HubConnection` başlangıç hataları elle gerek ilk hataları yeniden denemek için:
+`withAutomaticReconnect()`, `HubConnection` ilk başlatma başarısızlıklarını yeniden denemek üzere yapılandırmaz, bu nedenle başlatma hatalarının el ile işlenmesi gerekir:
 
 ```javascript
 async function start() {
@@ -175,7 +190,7 @@ async function start() {
 };
 ```
 
-İstemci ilk dört girişimlerinin içinde başarıyla yeniden değil `HubConnection` geçiş olur `Disconnected` belirtin ve yangın kendi [onclose](/javascript/api/%40aspnet/signalr/hubconnection#onclose) geri çağırmalar. Bu bağlantıyı kalıcı olarak kesildi ve sayfayı yenilemeyi önerilir kullanıcılara bildirmek için bir fırsat sağlar:
+İstemci ilk dört denemeden `HubConnection` sonra başarıyla yeniden bağlanmazsa, `Disconnected` durumuna geçer ve [OnClose](/javascript/api/%40aspnet/signalr/hubconnection#onclose) geri aramalarını harekete geçirebilir. Bu, kullanıcılara bağlantının kalıcı olarak kaybedilmediğini bildirme ve sayfayı yenilemeyi önerme olanağı sağlar:
 
 ```javascript
 connection.onclose((error) => {
@@ -189,7 +204,7 @@ connection.onclose((error) => {
 });
 ```
 
-Özel bir bağlantıyı kesmeden önce yeniden bağlanma denemesi sayısını yapılandırma veya yeniden zamanlamayı değiştirmek için `withAutomaticReconnect` yeniden bağlanma girişimleri başlatmadan önce beklenecek milisaniye cinsinden gecikme değeri temsil eden sayı dizisi kabul eder.
+Bağlantıyı kesmeden veya yeniden bağlanma zamanlamasını değiştirmeden önce özel sayıda yeniden bağlantı girişimi yapılandırmak için, `withAutomaticReconnect` her bir yeniden bağlanma denemesine başlamadan önce beklenecek gecikme süresi temsil eden bir sayı dizisi kabul eder.
 
 ```javascript
 const connection = new signalR.HubConnectionBuilder()
@@ -200,52 +215,51 @@ const connection = new signalR.HubConnectionBuilder()
     // .withAutomaticReconnect([0, 2000, 10000, 30000]) yields the default behavior
 ```
 
-Yukarıdaki örnekte yapılandırır `HubConnection` hemen bağlantı kaybedildikten sonra yeniden bağlantılar denemesi başlatılacak. Bu aynı zamanda varsayılan yapılandırması için geçerlidir.
+Yukarıdaki örnek, `HubConnection` bağlantı kaybolduktan hemen sonra yeniden bağlanmaya başlamak için öğesini yapılandırır. Bu, varsayılan yapılandırma için de geçerlidir.
 
-İlk yeniden deneme başarısız olursa, ikinci yeniden bağlanma denemesi de 2 Varsayılan yapılandırmada gibi saniye beklemek yerine başlayacaktır.
+İlk yeniden bağlantı girişimi başarısız olursa, ikinci yeniden bağlanma denemesi de varsayılan yapılandırmada olduğu gibi 2 saniye beklemek yerine hemen başlatılır.
 
-İkinci yeniden bağlanma denemesi başarısız olursa, üçüncü yeniden denemede yeniden gibi varsayılan yapılandırması olan 10 saniye içinde başlar.
+İkinci yeniden bağlantı girişimi başarısız olursa, üçüncü yeniden bağlanma denemesi varsayılan yapılandırma gibi 10 saniye içinde başlar.
 
-Bir çalışan yerine hata üçüncü yeniden bağlanma girişimi yapıldıktan sonra özel davranış ardından tekrar varsayılan davranış durdurarak kareninkinden daha girişimi 30 başka bir Varsayılan yapılandırmada gibi saniye içinde yeniden.
+Özel davranış daha sonra varsayılan şekilde yeniden bağlantı kurmayı denemek yerine, üçüncü yeniden bağlantı girişimi başarısızlığından sonra varsayılan davranıştan sonra yeniden bir kez daha fazla yeniden bağlantı kurmaya çalışır.
 
-Zamanlama ve otomatik sayısı daha fazla denetime yeniden bağlanma girişimleri, isterseniz `withAutomaticReconnect` kabul eden bir nesneyi uygulama `IReconnectPolicy` adlı tek bir yöntem olan arabirimi `nextRetryDelayInMilliseconds`.
+Otomatik yeniden bağlanma girişimlerinin zamanlaması ve sayısı üzerinde daha fazla denetime sahip olmak isterseniz, `withAutomaticReconnect` adlı `nextRetryDelayInMilliseconds`tek bir yöntemine sahip olan `IRetryPolicy` arabirimini uygulayan nesneyi kabul eder.
 
-`nextRetryDelayInMilliseconds` iki bağımsız değişkeni alır `previousRetryCount` ve `elapsedMilliseconds`, her iki numarayı olduğu. Yeniden bağlanma denemesi ilk önce her ikisini de `previousRetryCount` ve `elapsedMilliseconds` sıfır olur. Başarısız tekrar deneme girişimleri sonra `previousRetryCount` birer birer artar ve `elapsedMilliseconds` şimdiye milisaniye cinsinden yeniden bağlanmayı harcanan süreyi yansıtacak şekilde güncelleştirilir.
+`nextRetryDelayInMilliseconds`türünde `RetryContext`tek bir bağımsız değişken alır. `previousRetryCount` ,,`retryReason` `RetryContext` `elapsedMilliseconds` Ve sırasıyla bir`number`olan üç özelliğe sahiptir:.`number` `Error` İlk yeniden bağlanma denemesinden önce, `previousRetryCount` ve `elapsedMilliseconds` sıfır olur ve `retryReason` bağlantının kaybolmasına neden olan hata olacaktır. Her başarısız yeniden deneme denemesinden `previousRetryCount` sonra `elapsedMilliseconds` bir artırılır. Bu, şimdiye kadar geçen sürenin süresini yansıtacak şekilde güncelleştirilir ve `retryReason` en son yeniden bağlanma denemesine neden olan hata olur Neden.
 
-`nextRetryDelayInMilliseconds` bir sonraki yeniden denemeden önce beklenecek milisaniye sayısını temsil eden bir sayı döndürmelidir veya `null` varsa `HubConnection` yeniden bağlanmayı durdurmanız gerekir.
+`nextRetryDelayInMilliseconds`sonraki yeniden bağlanma girişiminden önce beklenecek milisaniye sayısını temsil eden bir sayı döndürmelidir veya bunun `null` `HubConnection` yeniden bağlanması durdurulmalıdır.
 
 ```javascript
 const connection = new signalR.HubConnectionBuilder()
     .withUrl("/chatHub")
     .withAutomaticReconnect({
-        nextRetryDelayInMilliseconds: (previousRetryCount, elapsedMilliseconds) => {
-            if (elapsedMilliseconds < 60000) {
-                // If we've been reconnecting for less than 60 seconds so far,
-                // wait between 0 and 10 seconds before the next reconnect attempt.
-                return Math.random() * 10000;
-            } else {
-                // If we've been reconnecting for more than 60 seconds so far, stop reconnecting.
-                return null;
-            }
-        }
-    })
+        nextRetryDelayInMilliseconds: retryContext => {
+          if (retryContext.elapsedMilliseconds < 60000) {
+            // If we've been reconnecting for less than 60 seconds so far,
+            // wait between 0 and 10 seconds before the next reconnect attempt.
+            return Math.random() * 10000;
+          } else {
+            // If we've been reconnecting for more than 60 seconds so far, stop reconnecting.
+            return null;
+          }
+        })
     .build();
 ```
 
-Alternatif olarak, istemci gösterildiği şekilde el ile yeniden bağlanacak kod yazabileceğiniz [el ile yeniden](#manually-reconnect).
+Alternatif olarak, [el ile yeniden bağlanma](#manually-reconnect)bölümünde gösterildiği gibi istemcinizi el ile yeniden bağlayacaksınız.
 
 ::: moniker-end
 
-### <a name="manually-reconnect"></a>El ile yeniden
+### <a name="manually-reconnect"></a>El ile yeniden bağlan
 
 ::: moniker range="< aspnetcore-3.0"
 
 > [!WARNING]
-> Önce 3.0, SignalR için JavaScript istemci otomatik olarak yeniden değil. İstemcinizi el ile yeniden kod yazmanız gerekir.
+> 3,0 ' den önce, SignalR için JavaScript istemcisi otomatik olarak yeniden bağlanmaz. İstemcinizi el ile yeniden kod yazmanız gerekir.
 
 ::: moniker-end
 
-Aşağıdaki kod tipik el ile yeniden yaklaşımı gösterir:
+Aşağıdaki kod, genel bir el ile yeniden bağlantı yaklaşımını göstermektedir:
 
 1. Bir işlev (Bu durumda, `start` işlevi) bağlantıyı başlatmak için oluşturulur.
 1. Çağrı `start` bağlantının işlevinde `onclose` olay işleyicisi.
@@ -263,4 +277,4 @@ Gerçek uygulama bir üstel geri alma kullanın veya ancak bir belirtilen sayıd
 * [.NET istemcisi](xref:signalr/dotnet-client)
 * [Azure'a Yayımlama](xref:signalr/publish-to-azure-web-app)
 * [Çıkış noktaları arası istekleri (CORS)](xref:security/cors)
-* [Sunucusuz Azure SignalR hizmeti belgeleri](/azure/azure-signalr/signalr-concept-serverless-development-config)
+* [Azure SignalR hizmeti sunucusuz belgeleri](/azure/azure-signalr/signalr-concept-serverless-development-config)

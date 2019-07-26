@@ -5,12 +5,12 @@ description: Kodu sunucu tabanlı Web sayfalarını eklemek için Razor söz diz
 ms.author: riande
 ms.date: 06/12/2019
 uid: mvc/views/razor
-ms.openlocfilehash: 87c5b97a653c139b8b79f4270e0d9d0081815433
-ms.sourcegitcommit: 335a88c1b6e7f0caa8a3a27db57c56664d676d34
+ms.openlocfilehash: 634623aa6df860a2ff728da4e65d277326db37e2
+ms.sourcegitcommit: 051f068c78931432e030b60094c38376d64d013e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/12/2019
-ms.locfileid: "67034945"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68440362"
 ---
 # <a name="razor-syntax-reference-for-aspnet-core"></a>ASP.NET Core Razor söz dizimi başvurusu
 
@@ -174,7 +174,7 @@ Kod aşağıdaki HTML'yi oluşturur:
 
 ::: moniker range=">= aspnetcore-3.0"
 
-Kod bloklarında bildirmek [yerel işlevler](/dotnet/csharp/programming-guide/classes-and-structs/local-functions) şablon oluşturma yöntemleri olarak görev yapacak biçimlendirme ile:
+Kod blokları ' nda, şablon oluşturma yöntemleri olarak kullanılacak biçimlendirme ile [yerel işlevler](/dotnet/csharp/programming-guide/classes-and-structs/local-functions) bildirin:
 
 ```cshtml
 @{
@@ -241,7 +241,7 @@ Tüm bir satırı geri kalanı bir kod bloğunun içine HTML olarak işlemek iç
 
 Olmadan `@:` kodda bir Razor çalışma zamanı hatası oluşturulur.
 
-Uyarı: Ek `@` Razor dosyadaki karakterler deyimleri derleyici hatalarını blok içindeki neden olabilir. Bu derleyici hataları önce bildirilen hatayı gerçek bir hata oluştuğu için anlamak zor olabilir. Bu hata, tek bir kod bloğunun birden çok örtük/açık ifadelere birleştirdikten sonra yaygındır.
+Uyarı: Razor `@` dosyasındaki fazla karakter, bloktaki daha sonra bulunan deyimlerde derleyici hatalarına neden olabilir. Bu derleyici hataları önce bildirilen hatayı gerçek bir hata oluştuğu için anlamak zor olabilir. Bu hata, tek bir kod bloğunun birden çok örtük/açık ifadelere birleştirdikten sonra yaygındır.
 
 ## <a name="control-structures"></a>Denetim yapıları
 
@@ -549,7 +549,7 @@ Aşağıdaki kodu oluşturulmuş Razor olan C# sınıfı:
 
 ::: moniker range=">= aspnetcore-3.0"
 
-`@functions` Biçimlendirme sahip oldukları zaman yöntemleri şablon oluşturma yöntemleri olarak hizmet eder:
+`@functions`Yöntemler, işaretlemelerdeki şablon oluşturma yöntemleri olarak görev yapar:
 
 ```cshtml
 @{
@@ -576,37 +576,34 @@ Kod aşağıdaki HTML'yi oluşturur:
 
 ### <a name="attribute"></a>@attribute
 
-`@attribute` Yönergesi, oluşturulan sayfa veya Görünüm sınıfı için belirli bir öznitelik ekler. Aşağıdaki örnek ekler `[Authorize]` özniteliği:
+`@attribute` Yönergesi verilen özniteliği oluşturulan sayfanın veya görünümün sınıfına ekler. Aşağıdaki örnek `[Authorize]` özniteliğini ekler:
 
 ```cshtml
 @attribute [Authorize]
 ```
 
-> [!WARNING]
-> ASP.NET Core 3.0 Önizleme 6 sürümde, bilinen bir sorun var. burada `@attribute` yönergeleri çalışmıyor  *\_Imports.razor* ve  *\_ViewImports.cshtml* dosyaları. Bu çözüm getirilecektir Önizleme 7 sürümü.
-
 ### <a name="namespace"></a>@namespace
 
-`@namespace` Yönergesi, oluşturulan sayfa veya Görünüm sınıfının ad alanını ayarlar:
+`@namespace` Yönergesi oluşturulan sayfanın veya görünümün sınıfının ad alanını ayarlar:
 
 ```cshtml
 @namespace Your.Namespace.Here
 ```
 
-Bir sayfa ya da Görünüm API'si ile Açıklama alıyorsa bir `@namespace` yönergesi, özgün dosyanın ad alanı göre bu ad alanı da ayarlanır. 
+Bir sayfa veya görünüm API 'yi bir `@namespace` yönergeyle içeri aktardığında, özgün dosyanın ad alanı bu ad alanına göre ayarlanır. 
 
-Varsa *MyApp/sayfaları/\_ViewImports.cshtml* içeren `@namespace Hello.World`, ad alanı sayfalar veya içe görünümler `Hello.World` ad alanı aşağıdaki tabloda gösterilen şekilde ayarlayın.
+*MyApp\_/Pages/viewwimports. cshtml* içeriyorsa `@namespace Hello.World`, `Hello.World` ad alanını içeri alan sayfaların veya görünümlerin ad alanı aşağıdaki tabloda gösterildiği gibi ayarlanır.
 
 | Sayfa (veya Görünüm)                     | Ad Alanı               |
 | ---------------------------------- | ----------------------- |
-| *MyApp/Pages/Index.cshtml*         | `Hello.World`           |
-| *MyApp/Pages/MorePages/Bar.cshtml* | `Hello.World.MorePages` |
+| *MyApp/Pages/Index. cshtml*         | `Hello.World`           |
+| *MyApp/Pages/te Pages/Bar. cshtml* | `Hello.World.MorePages` |
 
-Birden çok içeri aktarma dosyanız varsa `@namespace` yönerge, en yakın bir sayfaya veya dizin zinciri görünümünde dosya kullanılır.
+Birden çok içeri aktarma dosyasında `@namespace` yönerge varsa, Dizin zincirindeki sayfaya veya görünüme en yakın dosya kullanılır.
 
 ### <a name="section"></a>@section
 
-`@section` Yönergesi ile birlikte kullanılan [Düzen](xref:mvc/views/layout) sayfalarını veya HTML sayfasının farklı bölümlerini içeriğini işlemek için görünümleri etkinleştirmek için. Daha fazla bilgi için [bölümleri](xref:mvc/views/layout#layout-sections-label).
+Yönerge, sayfaların veya görünümlerin HTML sayfasının farklı bölümlerinde içerik işlemesini sağlamak için düzen ile birlikte kullanılır. [](xref:mvc/views/layout) `@section` Daha fazla bilgi için [bölümleri](xref:mvc/views/layout#layout-sections-label).
 
 ## <a name="templated-razor-delegates"></a>Şablonlu Razor temsilciler
 
@@ -819,7 +816,7 @@ Razor görüntüleme motorunu büyük küçük harfe duyarlı aramalar, görün�
 * Dosya tabanlı kaynağı:
   * Büyük küçük harfe duyarlı dosya sistemleri (örneğin, Windows) ile işletim sistemlerinde, fiziksel dosya sağlayıcısı aramaları büyük küçük harfe duyarlı. Örneğin, `return View("Test")` eşleşmelerini sonuçlanıyor */Views/Home/Test.cshtml*, */Views/home/test.cshtml*ve diğer büyük/küçük harf değişken.
   * Büyük küçük harfe duyarlı dosya sistemlerindeki (örneğin, Linux, OSX ile `EmbeddedFileProvider`), büyük küçük harfe duyarlı aramalar. Örneğin, `return View("Test")` özellikle eşleşen */Views/Home/Test.cshtml*.
-* Önceden derlenmiş görünümler: ASP.NET Core 2.0 ve daha sonra önceden derlenmiş görünümleri arama büyük/küçük harf tüm işletim sistemlerinde büyük harflere duyarlı değildir. Davranış Windows fiziksel dosya Sağlayıcısı'nın davranış aynıdır. Önceden derlenmiş iki görünüm yalnızca durumda farklıysa, arama sonucu belirleyici değildir.
+* Önceden derlenmiş görünümler: ASP.NET Core 2,0 ve üzeri sürümlerde, önceden derlenmiş görünümleri aramak tüm işletim sistemlerinde büyük/küçük harfe duyarlı değildir. Davranış Windows fiziksel dosya Sağlayıcısı'nın davranış aynıdır. Önceden derlenmiş iki görünüm yalnızca durumda farklıysa, arama sonucu belirleyici değildir.
 
 Geliştiriciler, dosya ve dizin adlarını büyük küçük harfleri büyük/küçük harf eşleşmesi için önerilir:
 
