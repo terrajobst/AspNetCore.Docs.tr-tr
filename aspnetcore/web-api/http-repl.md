@@ -5,14 +5,14 @@ description: HTTP REPL .NET Core küresel aracının bir ASP.NET Core Web API 's
 monikerRange: '>= aspnetcore-2.1'
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 07/23/2019
+ms.date: 07/25/2019
 uid: web-api/http-repl
-ms.openlocfilehash: 29a29b98b31ac8e48545789928a8e83573ca9af5
-ms.sourcegitcommit: b1662379b6aeca66ef6c696bd2300c81aa74a514
+ms.openlocfilehash: e719d599545810d723840b0800cd6a2b4f96b123
+ms.sourcegitcommit: fbc66827e319d28bebed678ea5fd42f582fe3c34
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 07/25/2019
-ms.locfileid: "68485806"
+ms.locfileid: "68493579"
 ---
 # <a name="test-web-apis-with-the-http-repl"></a>HTTP REPL ile Web API 'Lerini test etme
 
@@ -21,7 +21,8 @@ ms.locfileid: "68485806"
 HTTP okuma-değerlendirme-yazdırma döngüsü (REPL):
 
 * .NET Core 'un her yerde desteklenen basit, platformlar arası bir komut satırı aracı desteklenir.
-* ASP.NET Core Web API 'Lerini test etmek ve sonuçlarını görüntülemek için HTTP istekleri yapmak amacıyla kullanılır.
+* ASP.NET Core Web API 'Lerini (ve non-ASP.NET çekirdek Web API 'Leri) test etmek ve sonuçlarını görüntülemek için kullanılır.
+* Localhost ve Azure App Service dahil olmak üzere herhangi bir ortamda barındırılan Web API 'Lerini test etme özelliğine sahiptir.
 
 Aşağıdaki [http fiilleri](https://github.com/microsoft/api-guidelines/blob/vNext/Guidelines.md#74-supported-methods) desteklenir:
 
