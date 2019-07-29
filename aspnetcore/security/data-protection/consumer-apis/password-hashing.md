@@ -1,29 +1,29 @@
 ---
-title: ASP.NET Core karma parolalar
+title: ASP.NET Core 'de karma parolalar
 author: rick-anderson
-description: ASP.NET Core veri koruma API'lerini kullanarak parolaları karma öğrenin.
+description: ASP.NET Core veri koruma API 'Lerini kullanarak parolaların karmasını öğrenin.
 ms.author: riande
 ms.date: 10/14/2016
 uid: security/data-protection/consumer-apis/password-hashing
-ms.openlocfilehash: 70301ffffbaaf3c5ff0642b19b80e40be83aa438
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: bd4b8fcf6a5a16a86ada97bbd3519f872d1417b7
+ms.sourcegitcommit: 0efb9e219fef481dee35f7b763165e488aa6cf9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64902672"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68602459"
 ---
-# <a name="hash-passwords-in-aspnet-core"></a>ASP.NET Core karma parolalar
+# <a name="hash-passwords-in-aspnet-core"></a>ASP.NET Core 'de karma parolalar
 
-Veri koruma kod tabanı içeren bir paket *Microsoft.AspNetCore.Cryptography.KeyDerivation* şifreleme anahtar türetme işlevleri içerir. Bu paket, bir tek başına bileşeni ve veri koruma sistemin geri kalanı üzerinde bağımlılık yok. Tamamen bağımsız olarak kullanılabilir. Veri koruma kod kolaylık tabanı yanı sıra kaynağı yok.
+Veri koruma kodu tabanı, şifreleme anahtar türetme işlevlerini içeren *Microsoft. AspNetCore. Cryptography. Keytüretme* paketini içerir. Bu paket tek başına bir bileşendir ve veri koruma sisteminin geri kalanı üzerinde hiçbir bağımlılığı yoktur. Tamamen bağımsız olarak kullanılabilir. Kaynak, bir kolaylık olarak veri koruma kodu tabanının yanında bulunur.
 
-Paket şu anda bir yöntem sunar `KeyDerivation.Pbkdf2` sağlayan kullanarak bir parolayı karma [PBKDF2 algoritması](https://tools.ietf.org/html/rfc2898#section-5.2). Bu API .NET Framework'ün varolan çok benzer [Rfc2898DeriveBytes türü](/dotnet/api/system.security.cryptography.rfc2898derivebytes), ancak üç önemli farklılıklar vardır:
+Paket şu anda [PBKDF2 algoritmasını](https://tools.ietf.org/html/rfc2898#section-5.2)kullanarak `KeyDerivation.Pbkdf2` bir parolayı karma olarak sağlayan bir yöntem sunmaktadır. Bu API .NET Framework var olan [Rfc2898DeriveBytes türüne](/dotnet/api/system.security.cryptography.rfc2898derivebytes)çok benzer, ancak üç önemli ayrımlar vardır:
 
-1. `KeyDerivation.Pbkdf2` Yöntem, birden çok PRFs tüketen destekler (şu anda `HMACSHA1`, `HMACSHA256`, ve `HMACSHA512`) bilgileriyse `Rfc2898DeriveBytes` destekler yazın `HMACSHA1`.
+1. `HMACSHA512` `HMACSHA1` `HMACSHA1` `Rfc2898DeriveBytes` Yöntemi birden çok prfs (Şu anda, `HMACSHA256`ve) kullanmayı destekler, ancak tür yalnızca destekler. `KeyDerivation.Pbkdf2`
 
-2. `KeyDerivation.Pbkdf2` Yöntemi geçerli işletim sistemini algılar ve bazı durumlarda çok daha iyi performans sağlayan yordamının en iyileştirilmiş uygulamayı seçme dener. (İsteğe bağlı olarak Windows 8'de yaklaşık 10 aktarım hızı x sunar `Rfc2898DeriveBytes`.)
+2. `KeyDerivation.Pbkdf2` Yöntemi, geçerli işletim sistemini algılar ve yordamın en iyi duruma getirilmiş uygulamasını seçme girişimlerini, belirli durumlarda çok daha iyi performans sağlar. (Windows 8 ' de, 10 ' un `Rfc2898DeriveBytes`aktarım hızını yaklaşık olarak sunar.)
 
-3. `KeyDerivation.Pbkdf2` Yöntemi çağıran tüm parametreleri belirtmek gerektirir (salt, PRF ve yineleme sayısı). `Rfc2898DeriveBytes` Türü için varsayılan değerleri sağlar.
+3. `KeyDerivation.Pbkdf2` Yöntemi, çağıranın tüm parametreleri (anahtar, prf ve yineleme sayısı) belirtmesini gerektirir. `Rfc2898DeriveBytes` Türü bunlar için varsayılan değerleri sağlar.
 
 [!code-csharp[](password-hashing/samples/passwordhasher.cs)]
 
-Bkz: [kaynak kodu](https://github.com/aspnet/Identity/blob/master/src/Core/PasswordHasher.cs) için ASP.NET Core kimliğin `PasswordHasher` gerçek dünya için tür kullanım örneği.
+Gerçek dünya kullanım örneği için ASP.NET Core kimliğin `PasswordHasher` türü için [kaynak koda](https://github.com/aspnet/AspNetCore/blob/master/src/Identity/Extensions.Core/src/PasswordHasher.cs) bakın.

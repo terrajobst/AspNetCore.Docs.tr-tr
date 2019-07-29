@@ -5,14 +5,14 @@ description: ASP.NET Core uygulamaları Windows Server Internet Information Serv
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 07/16/2019
+ms.date: 07/28/2019
 uid: host-and-deploy/iis/index
-ms.openlocfilehash: a3d8c87fdb1cbc3b8b11b15f797190d626edad59
-ms.sourcegitcommit: b40613c603d6f0cc71f3232c16df61550907f550
+ms.openlocfilehash: 7677173493e68f5a5656c18533e0ae13a7c5bece
+ms.sourcegitcommit: 0efb9e219fef481dee35f7b763165e488aa6cf9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68308059"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68602463"
 ---
 # <a name="host-aspnet-core-on-windows-with-iis"></a>Windows IIS üzerinde ASP.NET Core barındırma
 
@@ -30,6 +30,8 @@ Aşağıdaki işletim sistemleri desteklenir:
 [Http. sys sunucusu](xref:fundamentals/servers/httpsys) (eski adıyla WebListener), IIS ile ters proxy yapılandırmasında çalışmaz. Kullanım [Kestrel sunucu](xref:fundamentals/servers/kestrel).
 
 Azure'da barındırma hakkında daha fazla bilgi için bkz: <xref:host-and-deploy/azure-apps/index>.
+
+Sorun giderme kılavuzu için bkz <xref:test/troubleshoot>.
 
 ## <a name="supported-platforms"></a>Desteklenen platformlar
 

@@ -5,14 +5,14 @@ description: Veri bağlama, olayları işleme ve bileşen yaşam döngülerini y
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 07/24/2019
+ms.date: 07/25/2019
 uid: blazor/components
-ms.openlocfilehash: fa98f5c16d926db9c056032eff6d1edc5721aadd
-ms.sourcegitcommit: fbc66827e319d28bebed678ea5fd42f582fe3c34
+ms.openlocfilehash: 38f6512315a63b1ac5831c43a7a5efac231a27d5
+ms.sourcegitcommit: 0efb9e219fef481dee35f7b763165e488aa6cf9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68493527"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68602421"
 ---
 # <a name="create-and-use-aspnet-core-razor-components"></a>ASP.NET Core Razor bileşenleri oluşturma ve kullanma
 
@@ -107,7 +107,7 @@ Aşağıdaki örnekte `ParentComponent` , öğesinin `Title` özelliğinin değe
 
 Bileşenler, başka bir bileşenin içeriğini ayarlayabilir. Atama bileşeni, alıcı bileşeni belirten Etiketler arasında içerik sağlar.
 
-Aşağıdaki örnekte,, `ChildComponent` ' a `RenderFragment`temsil eden `ChildContent` bir özelliğine sahiptir. Değeri `ChildContent` , bileşenin, içeriğin işlenmesi gereken biçimlendirmesinde konumlandırılır. Değeri `ChildContent` , ana bileşenden alınır ve önyükleme `panel-body`paneli içinde işlenir.
+Aşağıdaki örnekte `ChildComponent` , öğesinin işlemek için bir kullanıcı arabirimi segmentini temsil `RenderFragment`eden öğesini temsil eden bir `ChildContent` özelliği vardır. Değeri `ChildContent` , bileşenin, içeriğin işlenmesi gereken biçimlendirmesinde konumlandırılır. Değeri `ChildContent` , ana bileşenden alınır ve önyükleme `panel-body`paneli içinde işlenir.
 
 *Bileşenler/ChildComponent. Razor*:
 
@@ -825,7 +825,7 @@ Aşağıdaki örnek, bir bileşenin işlenmiş `MarkupString` çıktısına stat
 
 ### <a name="template-parameters"></a>Şablon parametreleri
 
-Şablonlu bir bileşen, veya `RenderFragment` `RenderFragment<T>`türünde bir veya daha fazla bileşen parametresi belirtilerek tanımlanır. Bir işleme parçası, bileşen tarafından işlenen bir kullanıcı arabiriminin segmentini temsil eder. Bir işleme parçası isteğe bağlı olarak, işleme parçası çağrıldığında belirtilebileceğini bir parametre alır.
+Şablonlu bir bileşen, veya `RenderFragment` `RenderFragment<T>`türünde bir veya daha fazla bileşen parametresi belirtilerek tanımlanır. Bir işleme parçası, işlenecek Kullanıcı arabiriminin bir kesimini temsil eder. `RenderFragment<T>`işleme parçası çağrıldığında belirtilebildiği bir tür parametresi alır.
 
 `TableTemplate`bileşeninde
 

@@ -4,14 +4,14 @@ author: jamesnk
 description: ASP.NET Core için gRPC 'de kimlik doğrulama ve yetkilendirmeyi nasıl kullanacağınızı öğrenin.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: jamesnk
-ms.date: 06/07/2019
+ms.date: 07/26/2019
 uid: grpc/authn-and-authz
-ms.openlocfilehash: 49024295e4db7976924397bb24567d92d6298562
-ms.sourcegitcommit: b40613c603d6f0cc71f3232c16df61550907f550
+ms.openlocfilehash: 34f7f8a5a22159329b3d6c4524943434c460c7fb
+ms.sourcegitcommit: 0efb9e219fef481dee35f7b763165e488aa6cf9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68308817"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68602431"
 ---
 # <a name="authentication-and-authorization-in-grpc-for-aspnet-core"></a>ASP.NET Core için gRPC 'de kimlik doğrulaması ve yetkilendirme
 
@@ -106,12 +106,25 @@ public Ticketer.TicketerClient CreateClientWithCert(
 
 ### <a name="other-authentication-mechanisms"></a>Diğer kimlik doğrulama mekanizmaları
 
-Taşıyıcı belirtecinin ve istemci sertifikası kimlik doğrulamasının yanı sıra, OAuth, OpenID ve Negotiate gibi ASP.NET Core tüm desteklenen kimlik doğrulama mekanizmaları gRPC ile çalışmalıdır. Sunucu tarafında kimlik doğrulamasını yapılandırma hakkında daha fazla bilgi için [ASP.NET Core kimlik doğrulamasını](xref:security/authentication/identity) ziyaret edin.
+Desteklenen birçok ASP.NET Core kimlik doğrulama mekanizması gRPC ile çalışır:
 
-İstemci tarafı yapılandırması, kullanmakta olduğunuz kimlik doğrulama mekanizmasına bağlı olacaktır. Önceki taşıyıcı belirteç ve istemci sertifikası kimlik doğrulaması örnekleri, GRPC istemcisinin, gRPC çağrılarına kimlik doğrulama meta verileri gönderecek şekilde yapılandırılabilmesinin birkaç yolunu göstermektedir:
+* Azure Active Directory
+* İstemci sertifikası
+* IdentityServer
+* JWT belirteci
+* OAuth 2,0
+* OpenID Connect
+* WS-Federation
+
+Sunucuda kimlik doğrulamasını yapılandırma hakkında daha fazla bilgi için, [ASP.NET Core kimlik doğrulaması](xref:security/authentication/identity)' na bakın.
+
+GRPC istemcisini kimlik doğrulaması kullanacak şekilde yapılandırmak, kullanmakta olduğunuz kimlik doğrulama mekanizmasına bağlı olarak değişir. Önceki taşıyıcı belirteci ve istemci sertifikası örnekleri, GRPC istemcisinin, gRPC çağrılarına yönelik kimlik doğrulama meta verilerini gönderecek şekilde yapılandırılabilmesinin birkaç yolunu gösterir:
 
 * Türü kesin belirlenmiş GRPC istemcileri `HttpClient` dahili olarak kullanılır. Kimlik doğrulaması [`HttpClientHandler`](/dotnet/api/system.net.http.httpclienthandler), veya için `HttpClient`özel [`HttpMessageHandler`](/dotnet/api/system.net.http.httpmessagehandler) örnekler eklenerek yapılandırılabilir.
 * Her GRPC çağrısının isteğe bağlı `CallOptions` bir bağımsız değişkeni vardır. Özel üstbilgiler, seçeneğin üstbilgiler koleksiyonu kullanılarak gönderilebilir.
+
+> [!NOTE]
+> Windows kimlik doğrulaması (NTLM/Kerberos/Negotiate), gRPC ile kullanılamaz. gRPC için HTTP/2 ve HTTP/2 Windows kimlik doğrulamasını desteklemez.
 
 ## <a name="authorize-users-to-access-services-and-service-methods"></a>Kullanıcılara hizmetlere ve hizmet yöntemlerine erişim yetkisi verme
 
