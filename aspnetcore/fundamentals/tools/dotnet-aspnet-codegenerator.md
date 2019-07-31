@@ -1,153 +1,153 @@
 ---
-title: DotNet aspnet codegenerator komutu
+title: DotNet ASPNET-CodeGenerator komutu
 author: rick-anderson
-description: Dotnet aspnet codegenerator komut iskele oluşturulduğunu ASP.NET Core projeleri.
+description: DotNet ASPNET-CodeGenerator komutu yapı ASP.NET Core projeler.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.date: 07/04/2019
 uid: fundamentals/tools/dotnet-aspnet-codegenerator
-ms.openlocfilehash: c96362f320efd84c35dc07294a2968a2c687ee94
-ms.sourcegitcommit: b9e914ef274b5ec359582f299724af6234dce135
+ms.openlocfilehash: c2c815735ad1b4dcec761b26ea3992a4effebe62
+ms.sourcegitcommit: 979dbfc5e9ce09b9470789989cddfcfb57079d94
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67596132"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68682697"
 ---
-# <a name="dotnet-aspnet-codegenerator"></a><span data-ttu-id="98889-103">DotNet aspnet CodeGenerator öğesinden</span><span class="sxs-lookup"><span data-stu-id="98889-103">dotnet aspnet-codegenerator</span></span>
+# <a name="dotnet-aspnet-codegenerator"></a><span data-ttu-id="44c57-103">DotNet ASPNET-CodeGenerator</span><span class="sxs-lookup"><span data-stu-id="44c57-103">dotnet aspnet-codegenerator</span></span>
 
-<span data-ttu-id="98889-104">Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)</span><span class="sxs-lookup"><span data-stu-id="98889-104">By [Rick Anderson](https://twitter.com/RickAndMSFT)</span></span>
+<span data-ttu-id="44c57-104">Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)</span><span class="sxs-lookup"><span data-stu-id="44c57-104">By [Rick Anderson](https://twitter.com/RickAndMSFT)</span></span>
 
-<span data-ttu-id="98889-105">`dotnet aspnet-codegenerator` -ASP.NET Core yapı iskelesi altyapısı çalıştırır.</span><span class="sxs-lookup"><span data-stu-id="98889-105">`dotnet aspnet-codegenerator` - Runs the ASP.NET Core scaffolding engine.</span></span> <span data-ttu-id="98889-106">`dotnet aspnet-codegenerator` olduğunu komut satırından iskelesini gerekli yalnızca, yapı iskelesi Visual Studio ile kullanmak için gereksinim değildir.</span><span class="sxs-lookup"><span data-stu-id="98889-106">`dotnet aspnet-codegenerator` is only required to scaffold from the command line, it's not need to use scaffolding with Visual Studio.</span></span>
+<span data-ttu-id="44c57-105">`dotnet aspnet-codegenerator`-ASP.NET Core scafkatlama altyapısını çalıştırır.</span><span class="sxs-lookup"><span data-stu-id="44c57-105">`dotnet aspnet-codegenerator` - Runs the ASP.NET Core scaffolding engine.</span></span> <span data-ttu-id="44c57-106">`dotnet aspnet-codegenerator`yalnızca komut satırından yapı iskelesi sağlamak için gereklidir, Visual Studio ile scafkatlamayı kullanmak gerekli değildir.</span><span class="sxs-lookup"><span data-stu-id="44c57-106">`dotnet aspnet-codegenerator` is only required to scaffold from the command line, it's not needed to use scaffolding with Visual Studio.</span></span>
 
-<span data-ttu-id="98889-107">Bu makalede açıklanan [.NET Core 2.1 SDK](https://dotnet.microsoft.com/download/dotnet-core/2.1) ve daha sonra.</span><span class="sxs-lookup"><span data-stu-id="98889-107">This article applies to [.NET Core 2.1 SDK](https://dotnet.microsoft.com/download/dotnet-core/2.1) and later.</span></span>
+<span data-ttu-id="44c57-107">Bu makale [.NET Core 2,1 SDK](https://dotnet.microsoft.com/download/dotnet-core/2.1) ve üzeri için geçerlidir.</span><span class="sxs-lookup"><span data-stu-id="44c57-107">This article applies to [.NET Core 2.1 SDK](https://dotnet.microsoft.com/download/dotnet-core/2.1) and later.</span></span>
 
-## <a name="installing-aspnet-codegenerator"></a><span data-ttu-id="98889-108">ASP.NET codegenerator yükleme</span><span class="sxs-lookup"><span data-stu-id="98889-108">Installing aspnet-codegenerator</span></span>
+## <a name="installing-aspnet-codegenerator"></a><span data-ttu-id="44c57-108">ASPNET-CodeGenerator yükleniyor</span><span class="sxs-lookup"><span data-stu-id="44c57-108">Installing aspnet-codegenerator</span></span>
 
-<span data-ttu-id="98889-109">`dotnet-aspnet-codegenerator` olan bir [genel aracı](/dotnet/core/tools/global-tools) , yüklü olması gerekir.</span><span class="sxs-lookup"><span data-stu-id="98889-109">`dotnet-aspnet-codegenerator` is a [global tool](/dotnet/core/tools/global-tools) that must be installed.</span></span> <span data-ttu-id="98889-110">Aşağıdaki komut, en son kararlı sürümünü yükler `dotnet-aspnet-codegenerator` aracı:</span><span class="sxs-lookup"><span data-stu-id="98889-110">The following command installs the latest stable version of the `dotnet-aspnet-codegenerator` tool:</span></span>
+<span data-ttu-id="44c57-109">`dotnet-aspnet-codegenerator`yüklenmesi gereken [küresel bir araçtır](/dotnet/core/tools/global-tools) .</span><span class="sxs-lookup"><span data-stu-id="44c57-109">`dotnet-aspnet-codegenerator` is a [global tool](/dotnet/core/tools/global-tools) that must be installed.</span></span> <span data-ttu-id="44c57-110">Aşağıdaki komut `dotnet-aspnet-codegenerator` aracın en son kararlı sürümünü yüklüyor:</span><span class="sxs-lookup"><span data-stu-id="44c57-110">The following command installs the latest stable version of the `dotnet-aspnet-codegenerator` tool:</span></span>
 
 ```console
 dotnet tool install -g dotnet-aspnet-codegenerator
 ```
 
-<span data-ttu-id="98889-111">Aşağıdaki komutu kullanarak güncelleştirmeleri `dotnet-aspnet-codegenerator` en son kararlı sürümü kullanıma yüklü .NET Core SDK'ları için:</span><span class="sxs-lookup"><span data-stu-id="98889-111">The following command updates `dotnet-aspnet-codegenerator` to the latest stable version available from the installed .NET Core SDKs:</span></span>
+<span data-ttu-id="44c57-111">Aşağıdaki komut, yüklü `dotnet-aspnet-codegenerator` .NET Core SDK 'larında kullanılabilen en son kararlı sürümü güncelleştirir:</span><span class="sxs-lookup"><span data-stu-id="44c57-111">The following command updates `dotnet-aspnet-codegenerator` to the latest stable version available from the installed .NET Core SDKs:</span></span>
 
 ```console
 dotnet tool update -g dotnet-aspnet-codegenerator
 ```
 
-## <a name="synopsis"></a><span data-ttu-id="98889-112">Synopsis</span><span class="sxs-lookup"><span data-stu-id="98889-112">Synopsis</span></span>
+## <a name="synopsis"></a><span data-ttu-id="44c57-112">Özeti</span><span class="sxs-lookup"><span data-stu-id="44c57-112">Synopsis</span></span>
 
 ```
 dotnet aspnet-codegenerator [arguments] [-p|--project] [-n|--nuget-package-dir] [-c|--configuration] [-tfm|--target-framework] [-b|--build-base-path] [--no-build] 
 dotnet aspnet-codegenerator [-h|--help]
 ```
 
-## <a name="description"></a><span data-ttu-id="98889-113">Açıklama</span><span class="sxs-lookup"><span data-stu-id="98889-113">Description</span></span>
+## <a name="description"></a><span data-ttu-id="44c57-113">Açıklama</span><span class="sxs-lookup"><span data-stu-id="44c57-113">Description</span></span>
 
-<span data-ttu-id="98889-114">`dotnet aspnet-codegenerator` Genel komutu, ASP.NET Core Kod Oluşturucusu ve yapı iskelesi altyapısı çalıştırır.</span><span class="sxs-lookup"><span data-stu-id="98889-114">The `dotnet aspnet-codegenerator` global command runs the ASP.NET Core code generator and scaffolding engine.</span></span>
+<span data-ttu-id="44c57-114">`dotnet aspnet-codegenerator` Genel komut ASP.NET Core kod Oluşturucu ve yapı iskelesi altyapısını çalıştırır.</span><span class="sxs-lookup"><span data-stu-id="44c57-114">The `dotnet aspnet-codegenerator` global command runs the ASP.NET Core code generator and scaffolding engine.</span></span>
 
-## <a name="arguments"></a><span data-ttu-id="98889-115">Arguments</span><span class="sxs-lookup"><span data-stu-id="98889-115">Arguments</span></span>
+## <a name="arguments"></a><span data-ttu-id="44c57-115">Arguments</span><span class="sxs-lookup"><span data-stu-id="44c57-115">Arguments</span></span>
 
 `generator`
 
-<span data-ttu-id="98889-116">Çalıştırılacak Kod Oluşturucu.</span><span class="sxs-lookup"><span data-stu-id="98889-116">The code generator to run.</span></span> <span data-ttu-id="98889-117">Aşağıdaki oluşturucuları kullanılabilir:</span><span class="sxs-lookup"><span data-stu-id="98889-117">The following generators are available:</span></span>
+<span data-ttu-id="44c57-116">Çalıştırılacak kod Oluşturucu.</span><span class="sxs-lookup"><span data-stu-id="44c57-116">The code generator to run.</span></span> <span data-ttu-id="44c57-117">Aşağıdaki oluşturucular kullanılabilir:</span><span class="sxs-lookup"><span data-stu-id="44c57-117">The following generators are available:</span></span>
 
-| <span data-ttu-id="98889-118">Oluşturucu</span><span class="sxs-lookup"><span data-stu-id="98889-118">Generator</span></span> | <span data-ttu-id="98889-119">Çalışma</span><span class="sxs-lookup"><span data-stu-id="98889-119">Operation</span></span> |
+| <span data-ttu-id="44c57-118">Oluşturucu</span><span class="sxs-lookup"><span data-stu-id="44c57-118">Generator</span></span> | <span data-ttu-id="44c57-119">Çalışma</span><span class="sxs-lookup"><span data-stu-id="44c57-119">Operation</span></span> |
 | ----------------- | ------------ | 
-| <span data-ttu-id="98889-120">Alan</span><span class="sxs-lookup"><span data-stu-id="98889-120">area</span></span>      | [<span data-ttu-id="98889-121">Bir alan iskelesini kurar.</span><span class="sxs-lookup"><span data-stu-id="98889-121">Scaffolds an Area</span></span>](/aspnet/core/mvc/controllers/areas) |
-  <span data-ttu-id="98889-122">denetleyici</span><span class="sxs-lookup"><span data-stu-id="98889-122">controller</span></span>| [<span data-ttu-id="98889-123">Bir denetleyici iskele oluşturulduğunu</span><span class="sxs-lookup"><span data-stu-id="98889-123">Scaffolds a controller</span></span>](/aspnet/core/tutorials/first-mvc-app/adding-model) |
-  <span data-ttu-id="98889-124">kimlik</span><span class="sxs-lookup"><span data-stu-id="98889-124">identity</span></span>  | [<span data-ttu-id="98889-125">İskelesini kurar kimlik</span><span class="sxs-lookup"><span data-stu-id="98889-125">Scaffolds Identity</span></span>](/aspnet/core/security/authentication/scaffold-identity) |
-  <span data-ttu-id="98889-126">razorpage</span><span class="sxs-lookup"><span data-stu-id="98889-126">razorpage</span></span> | [<span data-ttu-id="98889-127">Razor sayfaları iskelesini kurar</span><span class="sxs-lookup"><span data-stu-id="98889-127">Scaffolds Razor Pages</span></span>](/aspnet/core/tutorials/razor-pages/model) |
-  <span data-ttu-id="98889-128">Görünümü</span><span class="sxs-lookup"><span data-stu-id="98889-128">view</span></span>      | [<span data-ttu-id="98889-129">Bir görünüm iskele oluşturulduğunu</span><span class="sxs-lookup"><span data-stu-id="98889-129">Scaffolds a view</span></span>](/aspnet/core/mvc/views/overview) |
+| <span data-ttu-id="44c57-120">Alan</span><span class="sxs-lookup"><span data-stu-id="44c57-120">area</span></span>      | [<span data-ttu-id="44c57-121">Bir alanı dolandırın</span><span class="sxs-lookup"><span data-stu-id="44c57-121">Scaffolds an Area</span></span>](/aspnet/core/mvc/controllers/areas) |
+  <span data-ttu-id="44c57-122">denetleyici</span><span class="sxs-lookup"><span data-stu-id="44c57-122">controller</span></span>| [<span data-ttu-id="44c57-123">Bir denetleyiciyi yapı iskelesi</span><span class="sxs-lookup"><span data-stu-id="44c57-123">Scaffolds a controller</span></span>](/aspnet/core/tutorials/first-mvc-app/adding-model) |
+  <span data-ttu-id="44c57-124">kimlik</span><span class="sxs-lookup"><span data-stu-id="44c57-124">identity</span></span>  | [<span data-ttu-id="44c57-125">Yapı iskelesi kimliği</span><span class="sxs-lookup"><span data-stu-id="44c57-125">Scaffolds Identity</span></span>](/aspnet/core/security/authentication/scaffold-identity) |
+  <span data-ttu-id="44c57-126">razorpage</span><span class="sxs-lookup"><span data-stu-id="44c57-126">razorpage</span></span> | [<span data-ttu-id="44c57-127">Yapı iskelesi Razor Pages</span><span class="sxs-lookup"><span data-stu-id="44c57-127">Scaffolds Razor Pages</span></span>](/aspnet/core/tutorials/razor-pages/model) |
+  <span data-ttu-id="44c57-128">görünümü</span><span class="sxs-lookup"><span data-stu-id="44c57-128">view</span></span>      | [<span data-ttu-id="44c57-129">Bir görünümü dolandırın</span><span class="sxs-lookup"><span data-stu-id="44c57-129">Scaffolds a view</span></span>](/aspnet/core/mvc/views/overview) |
 
-## <a name="options"></a><span data-ttu-id="98889-130">Seçenekler</span><span class="sxs-lookup"><span data-stu-id="98889-130">Options</span></span>
+## <a name="options"></a><span data-ttu-id="44c57-130">Seçenekler</span><span class="sxs-lookup"><span data-stu-id="44c57-130">Options</span></span>
 
 `-n|--nuget-package-dir`
 
-<span data-ttu-id="98889-131">NuGet paket dizinini belirtir.</span><span class="sxs-lookup"><span data-stu-id="98889-131">Specifies the NuGet package directory.</span></span>
+<span data-ttu-id="44c57-131">NuGet paket dizinini belirtir.</span><span class="sxs-lookup"><span data-stu-id="44c57-131">Specifies the NuGet package directory.</span></span>
 
 `-c|--configuration {Debug|Release}`
 
-<span data-ttu-id="98889-132">Derleme yapılandırmasını tanımlar.</span><span class="sxs-lookup"><span data-stu-id="98889-132">Defines the build configuration.</span></span> <span data-ttu-id="98889-133">Varsayılan değer `Debug` şeklindedir.</span><span class="sxs-lookup"><span data-stu-id="98889-133">The default value is `Debug`.</span></span>
+<span data-ttu-id="44c57-132">Yapı yapılandırmasını tanımlar.</span><span class="sxs-lookup"><span data-stu-id="44c57-132">Defines the build configuration.</span></span> <span data-ttu-id="44c57-133">Varsayılan değer `Debug` şeklindedir.</span><span class="sxs-lookup"><span data-stu-id="44c57-133">The default value is `Debug`.</span></span>
 
 `-tfm|--target-framework`
 
-<span data-ttu-id="98889-134">Hedef [Framework](/dotnet/standard/frameworks) kullanılacak.</span><span class="sxs-lookup"><span data-stu-id="98889-134">Target [Framework](/dotnet/standard/frameworks) to use.</span></span> <span data-ttu-id="98889-135">Örneğin: `net46`</span><span class="sxs-lookup"><span data-stu-id="98889-135">For example, `net46`.</span></span>
+<span data-ttu-id="44c57-134">Kullanılacak hedef [çerçeve](/dotnet/standard/frameworks) .</span><span class="sxs-lookup"><span data-stu-id="44c57-134">Target [Framework](/dotnet/standard/frameworks) to use.</span></span> <span data-ttu-id="44c57-135">Örneğin: `net46`.</span><span class="sxs-lookup"><span data-stu-id="44c57-135">For example, `net46`.</span></span>
 
 `-b|--build-base-path`
 
-<span data-ttu-id="98889-136">Derleme temel yol.</span><span class="sxs-lookup"><span data-stu-id="98889-136">The build base path.</span></span>
+<span data-ttu-id="44c57-136">Yapı temel yolu.</span><span class="sxs-lookup"><span data-stu-id="44c57-136">The build base path.</span></span>
 
 `-h|--help`
 
-<span data-ttu-id="98889-137">Komut için kısa bir Yardım yazdırır.</span><span class="sxs-lookup"><span data-stu-id="98889-137">Prints out a short help for the command.</span></span>
+<span data-ttu-id="44c57-137">Komut için kısa bir yardım yazdırır.</span><span class="sxs-lookup"><span data-stu-id="44c57-137">Prints out a short help for the command.</span></span>
 
 `--no-build`
 
-<span data-ttu-id="98889-138">Çalıştırmadan önce projeyi derle değil.</span><span class="sxs-lookup"><span data-stu-id="98889-138">Doesn't build the project before running.</span></span> <span data-ttu-id="98889-139">Ayrıca örtülü olarak ayarlar `--no-restore` bayrağı.</span><span class="sxs-lookup"><span data-stu-id="98889-139">It also implicitly sets the `--no-restore` flag.</span></span>
+<span data-ttu-id="44c57-138">Çalıştırmadan önce projeyi oluşturmaz.</span><span class="sxs-lookup"><span data-stu-id="44c57-138">Doesn't build the project before running.</span></span> <span data-ttu-id="44c57-139">Ayrıca `--no-restore` bayrağı örtülü olarak ayarlar.</span><span class="sxs-lookup"><span data-stu-id="44c57-139">It also implicitly sets the `--no-restore` flag.</span></span>
 
 `-p|--project <PATH>`
 
-<span data-ttu-id="98889-140">(Klasör adı veya tam yolu) çalıştırmak için proje dosyasının yolunu belirtir.</span><span class="sxs-lookup"><span data-stu-id="98889-140">Specifies the path of the project file to run (folder name or full path).</span></span> <span data-ttu-id="98889-141">Belirtilmezse, geçerli dizin için varsayılan olarak.</span><span class="sxs-lookup"><span data-stu-id="98889-141">If not specified, it defaults to the current directory.</span></span>
+<span data-ttu-id="44c57-140">Çalıştırılacak proje dosyasının yolunu belirtir (klasör adı veya tam yol).</span><span class="sxs-lookup"><span data-stu-id="44c57-140">Specifies the path of the project file to run (folder name or full path).</span></span> <span data-ttu-id="44c57-141">Belirtilmezse, varsayılan olarak geçerli dizini alır.</span><span class="sxs-lookup"><span data-stu-id="44c57-141">If not specified, it defaults to the current directory.</span></span>
 
-## <a name="generator-options"></a><span data-ttu-id="98889-142">Oluşturucu seçenekleri</span><span class="sxs-lookup"><span data-stu-id="98889-142">Generator options</span></span>
+## <a name="generator-options"></a><span data-ttu-id="44c57-142">Oluşturucu seçenekleri</span><span class="sxs-lookup"><span data-stu-id="44c57-142">Generator options</span></span>
 
-<span data-ttu-id="98889-143">Aşağıdaki bölümlerde seçenekler için desteklenen oluşturucuları vermektedir:</span><span class="sxs-lookup"><span data-stu-id="98889-143">The following sections detail the options available for the supported generators:</span></span>
+<span data-ttu-id="44c57-143">Aşağıdaki bölümler, desteklenen oluşturucular için kullanılabilen seçenekleri ayrıntılandırır:</span><span class="sxs-lookup"><span data-stu-id="44c57-143">The following sections detail the options available for the supported generators:</span></span>
 
-* <span data-ttu-id="98889-144">Alan</span><span class="sxs-lookup"><span data-stu-id="98889-144">Area</span></span>
-* <span data-ttu-id="98889-145">Denetleyici</span><span class="sxs-lookup"><span data-stu-id="98889-145">Controller</span></span>
-* <span data-ttu-id="98889-146">Kimlik</span><span class="sxs-lookup"><span data-stu-id="98889-146">Identity</span></span>  
-* <span data-ttu-id="98889-147">razorpage</span><span class="sxs-lookup"><span data-stu-id="98889-147">Razorpage</span></span>
-* <span data-ttu-id="98889-148">Görüntüle</span><span class="sxs-lookup"><span data-stu-id="98889-148">View</span></span>
+* <span data-ttu-id="44c57-144">Alan</span><span class="sxs-lookup"><span data-stu-id="44c57-144">Area</span></span>
+* <span data-ttu-id="44c57-145">Kumandasını</span><span class="sxs-lookup"><span data-stu-id="44c57-145">Controller</span></span>
+* <span data-ttu-id="44c57-146">Kimlik</span><span class="sxs-lookup"><span data-stu-id="44c57-146">Identity</span></span>  
+* <span data-ttu-id="44c57-147">Razorpage</span><span class="sxs-lookup"><span data-stu-id="44c57-147">Razorpage</span></span>
+* <span data-ttu-id="44c57-148">Görüntüle</span><span class="sxs-lookup"><span data-stu-id="44c57-148">View</span></span>
 
 <a name="area"></a>
 
-### <a name="area-options"></a><span data-ttu-id="98889-149">Alan seçenekleri</span><span class="sxs-lookup"><span data-stu-id="98889-149">Area options</span></span>
+### <a name="area-options"></a><span data-ttu-id="44c57-149">Alan seçenekleri</span><span class="sxs-lookup"><span data-stu-id="44c57-149">Area options</span></span>
 
-<span data-ttu-id="98889-150">Bu araç, denetleyicileri ve görünümleri ile ASP.NET Core web projeleri için tasarlanmıştır.</span><span class="sxs-lookup"><span data-stu-id="98889-150">This tool is intended for ASP.NET Core web projects with controllers and views.</span></span> <span data-ttu-id="98889-151">Razor sayfaları uygulamalar için tasarlanmamıştır.</span><span class="sxs-lookup"><span data-stu-id="98889-151">It's not intended for Razor Pages apps.</span></span>
+<span data-ttu-id="44c57-150">Bu araç, denetleyiciler ve görünümler içeren ASP.NET Core Web projelerine yöneliktir.</span><span class="sxs-lookup"><span data-stu-id="44c57-150">This tool is intended for ASP.NET Core web projects with controllers and views.</span></span> <span data-ttu-id="44c57-151">Razor Pages uygulamalarına yönelik değildir.</span><span class="sxs-lookup"><span data-stu-id="44c57-151">It's not intended for Razor Pages apps.</span></span>
 
-<span data-ttu-id="98889-152">Kullanım: `dotnet aspnet-codegenerator area AreaNameToGenerate`</span><span class="sxs-lookup"><span data-stu-id="98889-152">Usage: `dotnet aspnet-codegenerator area AreaNameToGenerate`</span></span>
+<span data-ttu-id="44c57-152">Kullanım: `dotnet aspnet-codegenerator area AreaNameToGenerate`</span><span class="sxs-lookup"><span data-stu-id="44c57-152">Usage: `dotnet aspnet-codegenerator area AreaNameToGenerate`</span></span>
 
-<span data-ttu-id="98889-153">Önceki komutta aşağıdaki klasörleri oluşturur:</span><span class="sxs-lookup"><span data-stu-id="98889-153">The preceding command generates the following folders:</span></span>
+<span data-ttu-id="44c57-153">Yukarıdaki komut aşağıdaki klasörleri oluşturur:</span><span class="sxs-lookup"><span data-stu-id="44c57-153">The preceding command generates the following folders:</span></span>
 
-* <span data-ttu-id="98889-154">*Alanlar*</span><span class="sxs-lookup"><span data-stu-id="98889-154">*Areas*</span></span>
-  * <span data-ttu-id="98889-155">*AreaNameToGenerate*</span><span class="sxs-lookup"><span data-stu-id="98889-155">*AreaNameToGenerate*</span></span>
-    * <span data-ttu-id="98889-156">*Denetleyiciler*</span><span class="sxs-lookup"><span data-stu-id="98889-156">*Controllers*</span></span>
-    * <span data-ttu-id="98889-157">*Veri*</span><span class="sxs-lookup"><span data-stu-id="98889-157">*Data*</span></span>
-    * <span data-ttu-id="98889-158">*Modelleri*</span><span class="sxs-lookup"><span data-stu-id="98889-158">*Models*</span></span>
-    * <span data-ttu-id="98889-159">*Görünümler*</span><span class="sxs-lookup"><span data-stu-id="98889-159">*Views*</span></span>
+* <span data-ttu-id="44c57-154">*Alanlar*</span><span class="sxs-lookup"><span data-stu-id="44c57-154">*Areas*</span></span>
+  * <span data-ttu-id="44c57-155">*AreaNameToGenerate*</span><span class="sxs-lookup"><span data-stu-id="44c57-155">*AreaNameToGenerate*</span></span>
+    * <span data-ttu-id="44c57-156">*Denetleyiciler*</span><span class="sxs-lookup"><span data-stu-id="44c57-156">*Controllers*</span></span>
+    * <span data-ttu-id="44c57-157">*Veri*</span><span class="sxs-lookup"><span data-stu-id="44c57-157">*Data*</span></span>
+    * <span data-ttu-id="44c57-158">*Modelde*</span><span class="sxs-lookup"><span data-stu-id="44c57-158">*Models*</span></span>
+    * <span data-ttu-id="44c57-159">*Görünümler*</span><span class="sxs-lookup"><span data-stu-id="44c57-159">*Views*</span></span>
 
 <a name="ctl"></a>
 
-### <a name="controller-options"></a><span data-ttu-id="98889-160">Denetleyici seçenekleri</span><span class="sxs-lookup"><span data-stu-id="98889-160">Controller options</span></span>
+### <a name="controller-options"></a><span data-ttu-id="44c57-160">Denetleyici Seçenekleri</span><span class="sxs-lookup"><span data-stu-id="44c57-160">Controller options</span></span>
 
-<span data-ttu-id="98889-161">Aşağıdaki tabloda seçeneklerini listeler `aspnet-codegenerator` `controller` ve `razorpage`:</span><span class="sxs-lookup"><span data-stu-id="98889-161">The following table lists options for  `aspnet-codegenerator` `controller` and `razorpage`:</span></span>
+<span data-ttu-id="44c57-161">Aşağıdaki tabloda `aspnet-codegenerator` `controller` ve seçeneklerilistelenmiştir:`razorpage`</span><span class="sxs-lookup"><span data-stu-id="44c57-161">The following table lists options for  `aspnet-codegenerator` `controller` and `razorpage`:</span></span>
 
 [!INCLUDE [aspnet-codegenerator-args-md.md](~/includes/aspnet-codegenerator-args-md.md)]
 
-<span data-ttu-id="98889-162">Benzersiz seçenekleri aşağıdaki tabloda listelenmektedir `aspnet-codegenerator controller`:</span><span class="sxs-lookup"><span data-stu-id="98889-162">The following table lists options unique to  `aspnet-codegenerator controller`:</span></span>
+<span data-ttu-id="44c57-162">Aşağıdaki tabloda aşağıdakiler için `aspnet-codegenerator controller`benzersiz seçenekler listelenmektedir:</span><span class="sxs-lookup"><span data-stu-id="44c57-162">The following table lists options unique to  `aspnet-codegenerator controller`:</span></span>
 
-| <span data-ttu-id="98889-163">Seçenek</span><span class="sxs-lookup"><span data-stu-id="98889-163">Option</span></span>               | <span data-ttu-id="98889-164">Açıklama</span><span class="sxs-lookup"><span data-stu-id="98889-164">Description</span></span>|
+| <span data-ttu-id="44c57-163">Seçenek</span><span class="sxs-lookup"><span data-stu-id="44c57-163">Option</span></span>               | <span data-ttu-id="44c57-164">Açıklama</span><span class="sxs-lookup"><span data-stu-id="44c57-164">Description</span></span>|
 | ----------------- | ------------ |
-| <span data-ttu-id="98889-165">--controllerName veya - ad</span><span class="sxs-lookup"><span data-stu-id="98889-165">--controllerName or -name</span></span> | <span data-ttu-id="98889-166">Denetleyicinin adı.</span><span class="sxs-lookup"><span data-stu-id="98889-166">Name of the controller.</span></span> |
-| <span data-ttu-id="98889-167">--useAsyncActions veya zaman - uyumsuz</span><span class="sxs-lookup"><span data-stu-id="98889-167">--useAsyncActions or -async</span></span> | <span data-ttu-id="98889-168">Zaman uyumsuz denetleyici eylemleri oluşturur.</span><span class="sxs-lookup"><span data-stu-id="98889-168">Generate async controller actions.</span></span> |
-| <span data-ttu-id="98889-169">--noViews veya -nv</span><span class="sxs-lookup"><span data-stu-id="98889-169">--noViews or -nv</span></span> | <span data-ttu-id="98889-170">Oluşturma **hiçbir** görünümleri.</span><span class="sxs-lookup"><span data-stu-id="98889-170">Generate **no** views.</span></span> |
-| <span data-ttu-id="98889-171">--restWithNoViews veya -API</span><span class="sxs-lookup"><span data-stu-id="98889-171">--restWithNoViews or -api</span></span>  | <span data-ttu-id="98889-172">Bir REST stili API denetleyicisi oluşturur.</span><span class="sxs-lookup"><span data-stu-id="98889-172">Generate a Controller with REST style API.</span></span> <span data-ttu-id="98889-173">`noViews` kabul edilir ve tüm ilgili seçenekleri görüntüleyin göz ardı edilir.</span><span class="sxs-lookup"><span data-stu-id="98889-173">`noViews` is assumed and any view related options are ignored.</span></span> |
-| <span data-ttu-id="98889-174">--readWriteActions veya - Eylemler</span><span class="sxs-lookup"><span data-stu-id="98889-174">--readWriteActions or -actions</span></span> | <span data-ttu-id="98889-175">Bir model olmadan okuma/yazma eylemleri ile denetleyicisi oluşturur.</span><span class="sxs-lookup"><span data-stu-id="98889-175">Generate controller with read/write actions without a model.</span></span> |
+| <span data-ttu-id="44c57-165">--controllerName veya-Name</span><span class="sxs-lookup"><span data-stu-id="44c57-165">--controllerName or -name</span></span> | <span data-ttu-id="44c57-166">Denetleyicinin adı.</span><span class="sxs-lookup"><span data-stu-id="44c57-166">Name of the controller.</span></span> |
+| <span data-ttu-id="44c57-167">--Kullanılan Asyncactions veya-async</span><span class="sxs-lookup"><span data-stu-id="44c57-167">--useAsyncActions or -async</span></span> | <span data-ttu-id="44c57-168">Zaman uyumsuz denetleyici eylemleri oluştur.</span><span class="sxs-lookup"><span data-stu-id="44c57-168">Generate async controller actions.</span></span> |
+| <span data-ttu-id="44c57-169">--noViews veya-NV</span><span class="sxs-lookup"><span data-stu-id="44c57-169">--noViews or -nv</span></span> | <span data-ttu-id="44c57-170">**Hiçbir** görünüm oluşturun.</span><span class="sxs-lookup"><span data-stu-id="44c57-170">Generate **no** views.</span></span> |
+| <span data-ttu-id="44c57-171">--restWithNoViews veya-API</span><span class="sxs-lookup"><span data-stu-id="44c57-171">--restWithNoViews or -api</span></span>  | <span data-ttu-id="44c57-172">REST stili API ile bir denetleyici oluşturun.</span><span class="sxs-lookup"><span data-stu-id="44c57-172">Generate a Controller with REST style API.</span></span> <span data-ttu-id="44c57-173">`noViews`varsayılır ve tüm görünümle ilgili seçenekler yok sayılır.</span><span class="sxs-lookup"><span data-stu-id="44c57-173">`noViews` is assumed and any view related options are ignored.</span></span> |
+| <span data-ttu-id="44c57-174">--readWriteActions veya-Actions</span><span class="sxs-lookup"><span data-stu-id="44c57-174">--readWriteActions or -actions</span></span> | <span data-ttu-id="44c57-175">Model olmadan okuma/yazma eylemleri ile denetleyici oluşturun.</span><span class="sxs-lookup"><span data-stu-id="44c57-175">Generate controller with read/write actions without a model.</span></span> |
 
-<span data-ttu-id="98889-176">Kullanım `-h` geçiş Yardımı `aspnet-codegenerator controller` komutu:</span><span class="sxs-lookup"><span data-stu-id="98889-176">Use the `-h` switch for help on the `aspnet-codegenerator controller` command:</span></span>
+<span data-ttu-id="44c57-176">Komutuyla ilgili yardım için `-h` `aspnet-codegenerator controller` anahtarı kullanın:</span><span class="sxs-lookup"><span data-stu-id="44c57-176">Use the `-h` switch for help on the `aspnet-codegenerator controller` command:</span></span>
 
 ```console
 dotnet aspnet-codegenerator controller -h
 ```
 
-<span data-ttu-id="98889-177">Bkz: [film modeli iskelesini](/aspnet/core/tutorials/razor-pages/model) ilişkin bir örnek `dotnet aspnet-codegenerator controller`.</span><span class="sxs-lookup"><span data-stu-id="98889-177">See [Scaffold the movie model](/aspnet/core/tutorials/razor-pages/model) for an example of `dotnet aspnet-codegenerator controller`.</span></span>
+<span data-ttu-id="44c57-177">Bir örneği `dotnet aspnet-codegenerator controller`için bkz. [film modelini yapı iskelesi](/aspnet/core/tutorials/razor-pages/model) .</span><span class="sxs-lookup"><span data-stu-id="44c57-177">See [Scaffold the movie model](/aspnet/core/tutorials/razor-pages/model) for an example of `dotnet aspnet-codegenerator controller`.</span></span>
 
-### <a name="razorpage"></a><span data-ttu-id="98889-178">razorpage</span><span class="sxs-lookup"><span data-stu-id="98889-178">Razorpage</span></span>
+### <a name="razorpage"></a><span data-ttu-id="44c57-178">Razorpage</span><span class="sxs-lookup"><span data-stu-id="44c57-178">Razorpage</span></span>
 
 <a name="rp"></a>
 
-<span data-ttu-id="98889-179">Razor sayfaları kullanılacak şablonu ve yeni sayfa adı belirterek ayrı ayrı başladınız.</span><span class="sxs-lookup"><span data-stu-id="98889-179">Razor Pages can be individually scaffolded by specifying the name of the new page and the template to use.</span></span> <span data-ttu-id="98889-180">Desteklenen şablonları şunlardır:</span><span class="sxs-lookup"><span data-stu-id="98889-180">The supported templates are:</span></span>
+<span data-ttu-id="44c57-179">Razor Pages yeni sayfanın adı ve kullanılacak şablon belirtilerek tek tek iskele alınabilir.</span><span class="sxs-lookup"><span data-stu-id="44c57-179">Razor Pages can be individually scaffolded by specifying the name of the new page and the template to use.</span></span> <span data-ttu-id="44c57-180">Desteklenen şablonlar şunlardır:</span><span class="sxs-lookup"><span data-stu-id="44c57-180">The supported templates are:</span></span>
 
 * `Empty`
 * `Create`
@@ -156,13 +156,13 @@ dotnet aspnet-codegenerator controller -h
 * `Details`
 * `List`
 
-<span data-ttu-id="98889-181">Örneğin, aşağıdaki komutu oluşturmak için Düzen şablonunu kullanır *MyEdit.cshtml* ve *MyEdit.cshtml.cs*:</span><span class="sxs-lookup"><span data-stu-id="98889-181">For example, the following command uses the Edit template to generate *MyEdit.cshtml* and *MyEdit.cshtml.cs*:</span></span>
+<span data-ttu-id="44c57-181">Örneğin, aşağıdaki komut *myedit. cshtml* ve *MyEdit.cshtml.cs*oluşturmak için düzenleme şablonunu kullanır:</span><span class="sxs-lookup"><span data-stu-id="44c57-181">For example, the following command uses the Edit template to generate *MyEdit.cshtml* and *MyEdit.cshtml.cs*:</span></span>
 
 ```console
 dotnet aspnet-codegenerator razorpage MyEdit Edit -m Movie -dc RazorPagesMovieContext -outDir Pages/Movies
 ```
 
-<span data-ttu-id="98889-182">Genellikle, şablon ve oluşturulan dosya adı belirtilmedi ve aşağıdaki şablonlardan oluşturulur:</span><span class="sxs-lookup"><span data-stu-id="98889-182">Typically, the template and generated file name is not specified, and the following templates are created:</span></span>
+<span data-ttu-id="44c57-182">Genellikle, şablon ve oluşturulan dosya adı belirtilmez ve aşağıdaki şablonlar oluşturulur:</span><span class="sxs-lookup"><span data-stu-id="44c57-182">Typically, the template and generated file name is not specified, and the following templates are created:</span></span>
 
 * `Create`
 * `Edit`
@@ -170,26 +170,26 @@ dotnet aspnet-codegenerator razorpage MyEdit Edit -m Movie -dc RazorPagesMovieCo
 * `Details`
 * `List`
 
-<span data-ttu-id="98889-183">Aşağıdaki tabloda seçeneklerini listeler `aspnet-codegenerator` `razorpage` ve `controller`:</span><span class="sxs-lookup"><span data-stu-id="98889-183">The following table lists options for  `aspnet-codegenerator` `razorpage` and `controller`:</span></span>
+<span data-ttu-id="44c57-183">Aşağıdaki tabloda `aspnet-codegenerator` `razorpage` ve seçeneklerilistelenmiştir:`controller`</span><span class="sxs-lookup"><span data-stu-id="44c57-183">The following table lists options for  `aspnet-codegenerator` `razorpage` and `controller`:</span></span>
 
 [!INCLUDE [aspnet-codegenerator-args-md.md](~/includes/aspnet-codegenerator-args-md.md)]
 
-<span data-ttu-id="98889-184">Benzersiz seçenekleri aşağıdaki tabloda listelenmektedir `aspnet-codegenerator razorpage`:</span><span class="sxs-lookup"><span data-stu-id="98889-184">The following table lists options unique to  `aspnet-codegenerator razorpage`:</span></span>
+<span data-ttu-id="44c57-184">Aşağıdaki tabloda aşağıdakiler için `aspnet-codegenerator razorpage`benzersiz seçenekler listelenmektedir:</span><span class="sxs-lookup"><span data-stu-id="44c57-184">The following table lists options unique to  `aspnet-codegenerator razorpage`:</span></span>
 
-| <span data-ttu-id="98889-185">Seçenek</span><span class="sxs-lookup"><span data-stu-id="98889-185">Option</span></span>               | <span data-ttu-id="98889-186">Açıklama</span><span class="sxs-lookup"><span data-stu-id="98889-186">Description</span></span>|
+| <span data-ttu-id="44c57-185">Seçenek</span><span class="sxs-lookup"><span data-stu-id="44c57-185">Option</span></span>               | <span data-ttu-id="44c57-186">Açıklama</span><span class="sxs-lookup"><span data-stu-id="44c57-186">Description</span></span>|
 | ----------------- | ------------ |
-|   <span data-ttu-id="98889-187">--namespaceName veya - ad alanı</span><span class="sxs-lookup"><span data-stu-id="98889-187">--namespaceName or -namespace</span></span> | <span data-ttu-id="98889-188">Oluşturulan PageModel için kullanılacak ad alanı adı</span><span class="sxs-lookup"><span data-stu-id="98889-188">The name of the namespace to use for the generated PageModel</span></span> |
-| <span data-ttu-id="98889-189">--partialView veya - kısmi</span><span class="sxs-lookup"><span data-stu-id="98889-189">--partialView or -partial</span></span> | <span data-ttu-id="98889-190">Kısmi görünüm oluşturur.</span><span class="sxs-lookup"><span data-stu-id="98889-190">Generate a partial view.</span></span> <span data-ttu-id="98889-191">Belirtilirse, bu düzen seçenekleri -l ve - udl göz ardı edilir.</span><span class="sxs-lookup"><span data-stu-id="98889-191">Layout options -l and -udl are ignored if this is specified.</span></span> |
-| <span data-ttu-id="98889-192">--noPageModel veya - npm</span><span class="sxs-lookup"><span data-stu-id="98889-192">--noPageModel or -npm</span></span> | <span data-ttu-id="98889-193">Boş şablon için bir PageModel sınıfı oluşturun değil geç</span><span class="sxs-lookup"><span data-stu-id="98889-193">Switch to not generate a PageModel class for Empty template</span></span> |
+|   <span data-ttu-id="44c57-187">--namespaceName veya-Namespace</span><span class="sxs-lookup"><span data-stu-id="44c57-187">--namespaceName or -namespace</span></span> | <span data-ttu-id="44c57-188">Oluşturulan PageModel için kullanılacak ad alanının adı</span><span class="sxs-lookup"><span data-stu-id="44c57-188">The name of the namespace to use for the generated PageModel</span></span> |
+| <span data-ttu-id="44c57-189">--partialView veya-Partial</span><span class="sxs-lookup"><span data-stu-id="44c57-189">--partialView or -partial</span></span> | <span data-ttu-id="44c57-190">Kısmi bir görünüm oluşturun.</span><span class="sxs-lookup"><span data-stu-id="44c57-190">Generate a partial view.</span></span> <span data-ttu-id="44c57-191">Bu belirtilirse, düzen seçenekleri-l ve-UDL yok sayılır.</span><span class="sxs-lookup"><span data-stu-id="44c57-191">Layout options -l and -udl are ignored if this is specified.</span></span> |
+| <span data-ttu-id="44c57-192">--noPageModel veya-NPM</span><span class="sxs-lookup"><span data-stu-id="44c57-192">--noPageModel or -npm</span></span> | <span data-ttu-id="44c57-193">Boş şablon için bir PageModel sınıfı oluşturmamı geç</span><span class="sxs-lookup"><span data-stu-id="44c57-193">Switch to not generate a PageModel class for Empty template</span></span> |
 
-<span data-ttu-id="98889-194">Kullanım `-h` geçiş Yardımı `aspnet-codegenerator razorpage` komutu:</span><span class="sxs-lookup"><span data-stu-id="98889-194">Use the `-h` switch for help on the `aspnet-codegenerator razorpage` command:</span></span>
+<span data-ttu-id="44c57-194">Komutuyla ilgili yardım için `-h` `aspnet-codegenerator razorpage` anahtarı kullanın:</span><span class="sxs-lookup"><span data-stu-id="44c57-194">Use the `-h` switch for help on the `aspnet-codegenerator razorpage` command:</span></span>
 
 ```console
 dotnet aspnet-codegenerator razorpage -h
 ```
 
-<span data-ttu-id="98889-195">Bkz: [film modeli iskelesini](/aspnet/core/tutorials/razor-pages/model) ilişkin bir örnek `dotnet aspnet-codegenerator razorpage`.</span><span class="sxs-lookup"><span data-stu-id="98889-195">See [Scaffold the movie model](/aspnet/core/tutorials/razor-pages/model) for an example of `dotnet aspnet-codegenerator razorpage`.</span></span>
+<span data-ttu-id="44c57-195">Bir örneği `dotnet aspnet-codegenerator razorpage`için bkz. [film modelini yapı iskelesi](/aspnet/core/tutorials/razor-pages/model) .</span><span class="sxs-lookup"><span data-stu-id="44c57-195">See [Scaffold the movie model](/aspnet/core/tutorials/razor-pages/model) for an example of `dotnet aspnet-codegenerator razorpage`.</span></span>
 
-### <a name="identity"></a><span data-ttu-id="98889-196">Kimlik</span><span class="sxs-lookup"><span data-stu-id="98889-196">Identity</span></span>
+### <a name="identity"></a><span data-ttu-id="44c57-196">Kimlik</span><span class="sxs-lookup"><span data-stu-id="44c57-196">Identity</span></span>
 
-<span data-ttu-id="98889-197">Bkz: [iskelesini kimlik](/aspnet/core/security/authentication/scaffold-identity)</span><span class="sxs-lookup"><span data-stu-id="98889-197">See [Scaffold Identity](/aspnet/core/security/authentication/scaffold-identity)</span></span>
+<span data-ttu-id="44c57-197">Bkz. [Yapı Iskelesi kimliği](/aspnet/core/security/authentication/scaffold-identity)</span><span class="sxs-lookup"><span data-stu-id="44c57-197">See [Scaffold Identity](/aspnet/core/security/authentication/scaffold-identity)</span></span>
