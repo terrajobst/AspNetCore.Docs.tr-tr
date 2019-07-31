@@ -1,39 +1,39 @@
 ---
-title: ASP.NET core'da ilke tabanlı yetkilendirme
+title: ASP.NET Core ilke tabanlı yetkilendirme
 author: rick-anderson
-description: Oluşturma ve ASP.NET Core uygulaması yetkilendirme gereksinimlerini zorunlu tutmak için yetkilendirme ilkesi işleyicileri kullanma hakkında bilgi edinin.
+description: ASP.NET Core uygulamasında yetkilendirme gereksinimlerini zorlama için yetkilendirme ilkesi işleyicileri oluşturma ve kullanma hakkında bilgi edinin.
 ms.author: riande
 ms.custom: mvc
 ms.date: 04/05/2019
 uid: security/authorization/policies
-ms.openlocfilehash: 67337c847ba71df3fe61250996ec944632ad5d57
-ms.sourcegitcommit: 1bb3f3f1905b4e7d4ca1b314f2ce6ee5dd8be75f
+ms.openlocfilehash: 60625944d4ba31da6b98bdf947991088dc75ed87
+ms.sourcegitcommit: 7001657c00358b082734ba4273693b9b3ed35d2a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2019
-ms.locfileid: "66837351"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68669963"
 ---
-# <a name="policy-based-authorization-in-aspnet-core"></a>ASP.NET core'da ilke tabanlı yetkilendirme
+# <a name="policy-based-authorization-in-aspnet-core"></a>ASP.NET Core ilke tabanlı yetkilendirme
 
-Aslında, [rol tabanlı yetkilendirme](xref:security/authorization/roles) ve [beyana dayalı yetkilendirme](xref:security/authorization/claims) bir gereksinim, bir gereksinim işleyici ve önceden yapılandırılmış bir ilke kullanın. Bu yapı taşlarını kodu yetkilendirme değerlendirmeleri ifade destekler. Daha zengin, yeniden kullanılabilir, test edilebilir yetkilendirme yapısı sonucudur.
+Kapakların altında [rol tabanlı yetkilendirme](xref:security/authorization/roles) ve [talep tabanlı yetkilendirme](xref:security/authorization/claims) , bir gereksinim, gereksinim işleyicisi ve önceden yapılandırılmış bir ilke kullanır. Bu yapı taşları, koddaki yetkilendirme değerlendirmeleri ifadesini destekler. Sonuç daha zengin, yeniden kullanılabilir ve test edilebilir bir yetkilendirme yapısıdır.
 
-Bir yetkilendirme ilkesi, bir veya daha fazla gereksinimlerini oluşur. İçinde yetkilendirme hizmet yapılandırmasının bir parçası olarak kayıtlı olduğu `Startup.ConfigureServices` yöntemi:
+Yetkilendirme ilkesi bir veya daha fazla gereksinimden oluşur. Bu, yetkilendirme hizmeti yapılandırmasının bir parçası olarak kaydedilir, `Startup.ConfigureServices` yöntemi:
 
 [!code-csharp[](policies/samples/PoliciesAuthApp1/Startup.cs?range=32-33,48-53,61,66)]
 
-Önceki örnekte, bir "AtLeast21" ilke oluşturulur. Tek bir gereksinim olan&mdash;, gereksinim parametre olarak sağlanan bir en düşük yaş.
+Yukarıdaki örnekte, "AtLeast21" ilkesi oluşturulur. Bu, gereksinimle bir&mdash;parametre olarak sağlanan minimum Age 'in tek bir gereksinimine sahiptir.
 
-## <a name="iauthorizationservice"></a>Iauthorizationservice 
+## <a name="iauthorizationservice"></a>IAuthorizationService 
 
-Yetkilendirme başarılı olup olmadığını belirleyen birincil hizmet <xref:Microsoft.AspNetCore.Authorization.IAuthorizationService>:
+Yetkilendirmenin başarılı <xref:Microsoft.AspNetCore.Authorization.IAuthorizationService>olup olmadığını belirleyen birincil hizmet:
 
 [!code-csharp[](policies/samples/stubs/copy_of_IAuthorizationService.cs?highlight=24-25,48-49&name=snippet)]
 
-Yukarıdaki kod, iki yöntem vurgular [Iauthorizationservice](https://github.com/aspnet/AspNetCore/blob/v2.2.4/src/Security/Authorization/Core/src/IAuthorizationService.cs).
+Yukarıdaki kod, [IAuthorizationService](https://github.com/aspnet/AspNetCore/blob/v2.2.4/src/Security/Authorization/Core/src/IAuthorizationService.cs)'in iki yöntemini vurgular.
 
-<xref:Microsoft.AspNetCore.Authorization.IAuthorizationRequirement> bir işaretleyici yok yöntemleri ve yetkilendirme başarılı olup olmadığını izleme mekanizması ile hizmetidir.
+<xref:Microsoft.AspNetCore.Authorization.IAuthorizationRequirement>, yöntemi olmayan bir işaret hizmetidir ve yetkilendirme işleminin başarılı olup olmadığını izlemeye yönelik mekanizmaya yöneliktir.
 
-Her <xref:Microsoft.AspNetCore.Authorization.IAuthorizationHandler> gereksinimler karşılanırsa denetlemek için sorumludur:
+Gereksinimlerin <xref:Microsoft.AspNetCore.Authorization.IAuthorizationHandler> karşılanıp karşılanmadığını denetlenmekten her biri sorumludur:
 <!--The following code is a copy/paste from 
 https://github.com/aspnet/AspNetCore/blob/v2.2.4/src/Security/Authorization/Core/src/IAuthorizationHandler.cs -->
 
@@ -52,13 +52,13 @@ public interface IAuthorizationHandler
 }
 ```
 
-<xref:Microsoft.AspNetCore.Authorization.AuthorizationHandlerContext> Sınıfı, işleyici gereksinimlerin karşılanmış olmadığını işaretlemek için kullanır:
+Bu <xref:Microsoft.AspNetCore.Authorization.AuthorizationHandlerContext> sınıf, işleyicinin gereksinimlerin karşılanıp karşılanmadığını işaretlemek için kullandığı şeydir:
 
 ```csharp
  context.Succeed(requirement)
 ```
 
-Aşağıdaki kod Basitleştirilmiş (ve ek açıklamalı yorumlar ile) gösterir. varsayılan kimlik doğrulama servisi uygulaması:
+Aşağıdaki kod, yetkilendirme hizmetinin Basitleştirilmiş (ve açıklamalar ile açıklamalı) varsayılan uygulamasını gösterir:
 
 ```csharp
 public async Task<AuthorizationResult> AuthorizeAsync(ClaimsPrincipal user, 
@@ -81,7 +81,7 @@ public async Task<AuthorizationResult> AuthorizeAsync(ClaimsPrincipal user,
 }
 ```
 
-Aşağıdaki kod tipik bir gösterir `ConfigureServices`:
+Aşağıdaki kod tipik `ConfigureServices`bir göstermektedir:
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -102,91 +102,91 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-Kullanım <xref:Microsoft.AspNetCore.Authorization.IAuthorizationService> veya `[Authorize(Policy = "Something"]` yetkilendirme için.
+Yetkilendirme <xref:Microsoft.AspNetCore.Authorization.IAuthorizationService> için `[Authorize(Policy = "Something")]` veya kullanın.
 
-## <a name="applying-policies-to-mvc-controllers"></a>MVC denetleyicileri için ilkelerini uygulama
+## <a name="applying-policies-to-mvc-controllers"></a>MVC denetleyicilerine ilke uygulama
 
-Razor sayfaları kullanıyorsanız, bkz. [ilkeleri Razor sayfaları için uygulama](#applying-policies-to-razor-pages) bu belgedeki.
+Razor Pages kullanıyorsanız, bkz. bu belgedeki [Razor Pages Ilkeleri uygulama](#applying-policies-to-razor-pages) .
 
-İlkeleri kullanarak denetleyicilerine uygulanır `[Authorize]` özniteliği ile ilke adı. Örneğin:
+İlkeler, ilke adı ile `[Authorize]` özniteliği kullanılarak denetleyicilere uygulanır. Örneğin:
 
 [!code-csharp[](policies/samples/PoliciesAuthApp1/Controllers/AlcoholPurchaseController.cs?name=snippet_AlcoholPurchaseControllerClass&highlight=4)]
 
-## <a name="applying-policies-to-razor-pages"></a>Razor sayfaları için ilkelerini uygulama
+## <a name="applying-policies-to-razor-pages"></a>Razor Pages ilke uygulanıyor
 
-İlkeleri kullanarak Razor sayfaları için uygulanır `[Authorize]` özniteliği ile ilke adı. Örneğin:
+İlkeler, ilke adı ile `[Authorize]` özniteliği kullanılarak Razor Pages uygulanır. Örneğin:
 
 [!code-csharp[](policies/samples/PoliciesAuthApp2/Pages/AlcoholPurchase.cshtml.cs?name=snippet_AlcoholPurchaseModelClass&highlight=4)]
 
-İlkeler ayrıca uygulanabilir Razor sayfaları kullanarak bir [yetkilendirme kuralı](xref:security/authorization/razor-pages-authorization).
+İlkeler, [Yetkilendirme kuralı](xref:security/authorization/razor-pages-authorization)kullanılarak Razor Pages da uygulanabilir.
 
 ## <a name="requirements"></a>Gereksinimler
 
-Bir yetkilendirme gereksinimi, bir ilke geçerli kullanıcı asıl adı değerlendirmek için kullanabileceğiniz parametreler koleksiyonudur. "AtLeast21" ilkemizi tek bir parametre gereksinimidir&mdash;en düşük yaş. Bir gereksinim uygulayan [IAuthorizationRequirement](/dotnet/api/microsoft.aspnetcore.authorization.iauthorizationrequirement), bir boş işaretleyici arabirim olduğu. Bir parametreli en düşük yaş gereksinim şu şekilde uygulanabilir:
+Yetkilendirme gereksinimi, bir ilkenin geçerli kullanıcı sorumlusunu değerlendirmek için kullanabileceği veri parametreleri koleksiyonudur. "AtLeast21" ilkenizde, gereksinim en düşük yaş olan tek bir&mdash;parametredir. Bir gereksinim, boş bir işaret arabirimi olan [ıauthorizationrequirement](/dotnet/api/microsoft.aspnetcore.authorization.iauthorizationrequirement)'ı uygular. Parametreli en düşük yaş gereksinimi aşağıdaki gibi uygulanabilir:
 
 [!code-csharp[](policies/samples/PoliciesAuthApp1/Services/Requirements/MinimumAgeRequirement.cs?name=snippet_MinimumAgeRequirementClass)]
 
-Bir yetkilendirme ilkesi birden fazla yetkilendirme gereksinimi varsa, başarılı olması ilke değerlendirmesi için sırayla tüm gereksinimleri geçmesi gerekir. Diğer bir deyişle, tek bir Yetkilendirme İlkesi'ne eklemiş birden çok yetkilendirme gereksinimlerini şirket kabul edilir bir **ve** temel.
+Yetkilendirme ilkesi birden çok yetkilendirme gereksinimi içeriyorsa, ilke değerlendirmesinin başarılı olması için tüm gereksinimlerin geçmesi gerekir. Diğer bir deyişle, tek bir yetkilendirme ilkesine eklenen birden çok yetkilendirme gereksinimi bir **ve** temelinde değerlendirilir.
 
 > [!NOTE]
-> Bir gereksinim veri veya özellikleri sahip olması gerekmez.
+> Bir gereksinimin veri veya özellikleri olması gerekmez.
 
 <a name="security-authorization-policies-based-authorization-handler"></a>
 
 ## <a name="authorization-handlers"></a>Yetkilendirme işleyicileri
 
-Bir gereksinimin özelliklerin değerlendirilmesi için bir yetkilendirme işleyicisi sorumludur. Yetkilendirme işleyici gereksinimleri bir sağlanan karşı değerlendirir [AuthorizationHandlerContext](/dotnet/api/microsoft.aspnetcore.authorization.authorizationhandlercontext) erişim izninin olup olmadığını belirlemek için.
+Bir yetkilendirme işleyicisi, bir gereksinimin özelliklerinin değerlendirilmesinden sorumludur. Yetkilendirme işleyicisi, erişim izni verilip verilmediğini belirlemede, gereksinimleri belirtilen [Authorizationhandlercontext](/dotnet/api/microsoft.aspnetcore.authorization.authorizationhandlercontext) 'e göre değerlendirir.
 
-Bir gereksinim olabilir [birden fazla işleyici](#security-authorization-policies-based-multiple-handlers). Bir işleyici devralabilir [AuthorizationHandler\<TRequirement >](/dotnet/api/microsoft.aspnetcore.authorization.authorizationhandler-1)burada `TRequirement` işlenecek gereksinimdir. Alternatif olarak, bir işleyici uygulayabilir [IAuthorizationHandler](/dotnet/api/microsoft.aspnetcore.authorization.iauthorizationhandler) gereksinim birden fazla tür işlemek için.
+Bir gereksinimin [birden çok işleyicisi](#security-authorization-policies-based-multiple-handlers)olabilir. Bir işleyici, [authorizationhandler\<trequirement >](/dotnet/api/microsoft.aspnetcore.authorization.authorizationhandler-1)devralınabilir, burada `TRequirement` işlenme gereksinimidir. Alternatif olarak, bir işleyici birden fazla gereksinim türünü işlemek için [ıauthorizationhandler](/dotnet/api/microsoft.aspnetcore.authorization.iauthorizationhandler) uygulayabilir.
 
 ### <a name="use-a-handler-for-one-requirement"></a>Bir gereksinim için bir işleyici kullanın
 
 <a name="security-authorization-handler-example"></a>
 
-Tek gereksinim, en düşük yaş işleyici yararlanan bire bir ilişki örneği verilmiştir:
+Aşağıda, en az bir yaş işleyicisinin tek bir gereksinimin kullanıldığı bire bir ilişkiye örnek verilmiştir:
 
 [!code-csharp[](policies/samples/PoliciesAuthApp1/Services/Handlers/MinimumAgeHandler.cs?name=snippet_MinimumAgeHandlerClass)]
 
-Yukarıdaki kod, geçerli kullanıcının asıl bilinen ve güvenilir bir veren tarafından verildi talep doğum tarihi varsa belirler. Yetkilendirme talep eksik olduğunda olamaz, bu durumda tamamlanmış bir görevin döndürülür. Bir talep mevcut olduğunda, kullanıcının yaşını hesaplanır. Kullanıcı ihtiyaç tarafından tanımlanan en düşük yaş karşılıyorsa, Yetkilendirme başarılı olduğunu varsayar. Yetkilendirme başarılı olduğunda `context.Succeed` memnun gereksinimiyle tek parametre olarak çağrılır.
+Önceki kod, geçerli kullanıcı sorumlusunun bilinen ve güvenilir bir veren tarafından verilen bir Doğum talebi tarihi olup olmadığını belirler. Talep eksik olduğunda yetkilendirme gerçekleşemez, bu durumda tamamlanan bir görev döndürülür. Bir talep bulunduğunda, kullanıcının yaşı hesaplanır. Kullanıcı gereksinim tarafından tanımlanan en düşük yaşı karşılıyorsa, Yetkilendirme başarılı olur. Yetkilendirme başarılı olduğunda, `context.Succeed` tek parametresi olarak tatmin eden gereksinimle çağrılır.
 
-### <a name="use-a-handler-for-multiple-requirements"></a>Birden fazla gereksinimi için bir işleyici kullanın
+### <a name="use-a-handler-for-multiple-requirements"></a>Birden çok gereksinim için bir işleyici kullanın
 
-Bir izni işleyici gereksinimleri üç farklı türde işleyebilir bire çok ilişkisi örneği verilmiştir:
+Aşağıda, bir izin işleyicisinin üç farklı gereksinim türünü işleyebileceği bir çoktan çoğa ilişkiye örnek verilmiştir:
 
 [!code-csharp[](policies/samples/PoliciesAuthApp1/Services/Handlers/PermissionHandler.cs?name=snippet_PermissionHandlerClass)]
 
-Yukarıdaki kod trafiğiyle [PendingRequirements](/dotnet/api/microsoft.aspnetcore.authorization.authorizationhandlercontext.pendingrequirements#Microsoft_AspNetCore_Authorization_AuthorizationHandlerContext_PendingRequirements)&mdash;gereksinimlerini içermeyen bir özelliğin başarılı olarak işaretlenmiş. İçin bir `ReadPermission` gereksinimi, kullanıcının sahibi veya bir sponsor istenen kaynağa erişim için olmalıdır. Durumunda, bir `EditPermission` veya `DeletePermission` gereksinimi, isterse istenen kaynağa erişim için bir sahip olması gerekir.
+Yukarıdaki kod, [pendingrequirements](/dotnet/api/microsoft.aspnetcore.authorization.authorizationhandlercontext.pendingrequirements#Microsoft_AspNetCore_Authorization_AuthorizationHandlerContext_PendingRequirements)&mdash;öğesine geçer ve başarılı olarak işaretlenmemiş gereksinimleri içeren bir özelliktir. Bir `ReadPermission` gereksinim için, kullanıcı istenen kaynağa erişmek için bir sahip veya sponsor olmalıdır. `EditPermission` Veya`DeletePermission` gereksinimi söz konusu olduğunda, istenen kaynağa erişmek için sahip olması gerekir.
 
 <a name="security-authorization-policies-based-handler-registration"></a>
 
 ### <a name="handler-registration"></a>İşleyici kaydı
 
-İşleyicileri, yapılandırma sırasında Hizmetleri koleksiyondaki kaydedilir. Örneğin:
+İşleyiciler, yapılandırma sırasında hizmetler koleksiyonuna kaydedilir. Örneğin:
 
 [!code-csharp[](policies/samples/PoliciesAuthApp1/Startup.cs?range=32-33,48-53,61,62-63,66)]
 
-Yukarıdaki kod kaydeder `MinimumAgeHandler` çağırarak singleton olarak `services.AddSingleton<IAuthorizationHandler, MinimumAgeHandler>();`. Yerleşik birini kullanarak işleyicileri kaydedilebilir [hizmet yaşam süreleri](xref:fundamentals/dependency-injection#service-lifetimes).
+Yukarıdaki kod, çağırarak `MinimumAgeHandler` `services.AddSingleton<IAuthorizationHandler, MinimumAgeHandler>();`tek bir olarak kaydedilir. İşleyiciler, yerleşik [hizmet yaşam sürelerinin](xref:fundamentals/dependency-injection#service-lifetimes)herhangi biri kullanılarak kaydedilebilir.
 
-## <a name="what-should-a-handler-return"></a>Ne bir işleyici döndürmelidir?
+## <a name="what-should-a-handler-return"></a>İşleyici ne döndürmelidir?
 
-Unutmayın `Handle` yönteminde [işleyici örnek](#security-authorization-handler-example) herhangi bir değer döndürür. Başarı veya başarısızlık belirtilen durumunun nasıl mi?
+`Handle` [İşleyici örnekteki](#security-authorization-handler-example) yöntemin değer döndürmediğini unutmayın. Başarı ya da hatanın durumu nasıl belirtilir?
 
-* Çağırarak bir işleyici başarı belirten `context.Succeed(IAuthorizationRequirement requirement)`, gereksinim geçirmeden başarıyla doğrulanmış.
+* Bir işleyici çağırarak `context.Succeed(IAuthorizationRequirement requirement)`başarılı bir şekilde doğrulanan gereksinimi geçirerek başarılı olduğunu gösterir.
 
-* Bir işleyici olarak aynı gereksinim için diğer işleyicilerin başarabilir hatalarını genellikle işlemek zorunda değildir.
+* Aynı gereksinim için diğer işleyiciler başarılı olabileceğinden, işleyicinin sorunları genellikle işlemesi gerekmez.
 
-* Diğer gereksinim işleyicilerine başarılı olsa bile hata, garanti çağrısı `context.Fail`.
+* Diğer gereksinim işleyicileri başarılı olsa bile hatayı güvence altına almak için çağrısı `context.Fail`yapın.
 
-Bir işleyici çağırırsa `context.Succeed` veya `context.Fail`, diğer tüm işleyiciler yine de denir. Bu, yan etkileri gibi başka bir işleyiciye başarıyla doğrulandı veya bir gereksinim başarısız olsa bile gerçekleşir günlüğünü üretmek gereksinimleri sağlar. Ayarlandığında `false`, [InvokeHandlersAfterFailure](/dotnet/api/microsoft.aspnetcore.authorization.authorizationoptions.invokehandlersafterfailure#Microsoft_AspNetCore_Authorization_AuthorizationOptions_InvokeHandlersAfterFailure) özelliği (ASP.NET Core 1.1 bulunan ve üzeri) short-circuits işleyicileri yürütülmesi zaman `context.Fail` çağrılır. `InvokeHandlersAfterFailure` Varsayılan olarak `true`, bu durumda tüm işleyicileri olarak da adlandırılır.
+Bir işleyici veya `context.Fail`çağırırsa `context.Succeed` , diğer tüm işleyiciler hala çağırılır. Bu, başka bir işleyicinin bir gereksinimi başarıyla doğrulayan veya başarısız olsa bile, gereksinimlerin günlüğe kaydetme gibi yan etkileri üretmesine olanak tanır. Olarak ayarlandığında, `false` [ınvokehandlersafterfailure](/dotnet/api/microsoft.aspnetcore.authorization.authorizationoptions.invokehandlersafterfailure#Microsoft_AspNetCore_Authorization_AuthorizationOptions_InvokeHandlersAfterFailure) özelliği (ASP.NET Core 1,1 ve üzeri sürümlerde mevcuttur), çağrıldığında işleyicilerin `context.Fail` yürütülmesi için kısa devre dışı. `InvokeHandlersAfterFailure`Varsayılan olarak `true`, bu durumda tüm işleyiciler çağrılır.
 
 > [!NOTE]
-> Kimlik doğrulaması başarısız olursa yetkilendirme işleyicileri çağrılır.
+> Yetkilendirme işleyicileri, kimlik doğrulama başarısız olsa bile çağrılır.
 
 <a name="security-authorization-policies-based-multiple-handlers"></a>
 
-## <a name="why-would-i-want-multiple-handlers-for-a-requirement"></a>Birden fazla işleyici için bir gereksinim neden kullanmalıyım?
+## <a name="why-would-i-want-multiple-handlers-for-a-requirement"></a>Bir gereksinim için neden birden çok işleyici istiyorum?
 
-Değerlendirme olmasını istediğiniz durumlarda bir **veya** temelinde tek bir gereksinim için birden çok işleyicisini uygulayın. Örneğin, Microsoft yalnızca anahtar kartlarla açtığınız kapılar sahiptir. Anahtar kartınız evde bırakırsanız resepsiyonist geçici bir etiket yazdırır ve kapısını açar. Bu senaryoda, tek bir gereksinim yoktur *BuildingEntry*, ancak her biri tek bir gereksinim İnceleme birden fazla işleyici.
+Değerlendirmenin bir **veya** temelinde olmasını istediğiniz durumlarda, tek bir gereksinim için birden çok işleyici uygulayın. Örneğin, Microsoft yalnızca ana kartlarla açık olan kapılara sahiptir. Ana kartınızı evden bırakırsanız, alıcı geçici bir etiket yazdırır ve kapıyı sizin için açar. Bu senaryoda, tek bir gereksinimi incelerken tek bir gereksinimin, *Buildingentry*, ancak birden çok işleyici vardır.
 
 *BuildingEntryRequirement.cs*
 
@@ -200,23 +200,23 @@ Değerlendirme olmasını istediğiniz durumlarda bir **veya** temelinde tek bir
 
 [!code-csharp[](policies/samples/PoliciesAuthApp1/Services/Handlers/TemporaryStickerHandler.cs?name=snippet_TemporaryStickerHandlerClass)]
 
-Her iki işleyicileri olduğundan emin olun [kayıtlı](xref:security/authorization/policies#security-authorization-policies-based-handler-registration). Bir ilke olduğunda ya da işleyici başarılı olursa değerlendirir `BuildingEntryRequirement`, ilke değerlendirmesi başarılı olur.
+Her iki işleyicinin de [kaydedildiğinden](xref:security/authorization/policies#security-authorization-policies-based-handler-registration)emin olun. Bir ilke değerlendirirken `BuildingEntryRequirement`her iki işleyici de başarılı olursa, ilke değerlendirmesi başarılı olur.
 
-## <a name="using-a-func-to-fulfill-a-policy"></a>Bir ilkeyi karşılamak için bir func kullanma
+## <a name="using-a-func-to-fulfill-a-policy"></a>İlkeyi yerine getirmek için bir Func kullanma
 
-Hangi getirdikten bir ilke kod içinde ifade basit olduğu durumlar olabilir. Sağlamanız mümkündür bir `Func<AuthorizationHandlerContext, bool>` ilkenizle yapılandırırken `RequireAssertion` İlkesi Oluşturucu.
+Kodun kodda hızlı bir şekilde kullanılması için bir ilkeyi karşıladığı durumlar olabilir. İlke Oluşturucu `Func<AuthorizationHandlerContext, bool>` `RequireAssertion` ile ilkenizi yapılandırırken bir sağlamak mümkündür.
 
-Örneğin, önceki `BadgeEntryHandler` şu şekilde yazılması:
+Örneğin, önceki `BadgeEntryHandler` , aşağıdaki gibi yeniden yazılabilir:
 
 [!code-csharp[](policies/samples/PoliciesAuthApp1/Startup.cs?range=50-51,55-61)]
 
-## <a name="accessing-mvc-request-context-in-handlers"></a>MVC istek bağlamı işleyicilerde erişme
+## <a name="accessing-mvc-request-context-in-handlers"></a>İşleyicilerde MVC istek bağlamına erişme
 
-`HandleRequirementAsync` Yetkilendirme işleyicisinde uygulaması yöntemi iki parametreye sahiptir: bir `AuthorizationHandlerContext` ve `TRequirement` işlemekte olduğunuz. MVC veya Jabbr gibi çerçeveleri için herhangi bir nesne eklemek ücretsiz `Resource` özelliği `AuthorizationHandlerContext` fazladan bilgi geçirmek için.
+Bir yetkilendirme işleyicisinde uyguladığınız `AuthorizationHandlerContext` `TRequirement` yöntemin iki parametresi vardır: bir ve işleme çalışıyorsunuz. `HandleRequirementAsync` MVC veya jabbr gibi çerçeveler, `Resource` `AuthorizationHandlerContext` daha fazla bilgi geçirmek için üzerinde özelliğine herhangi bir nesne eklemek ücretsizdir.
 
-Örneğin, MVC bir örneğini geçirir [AuthorizationFilterContext](/dotnet/api/?term=AuthorizationFilterContext) içinde `Resource` özelliği. Bu özellik erişim sağlayan `HttpContext`, `RouteData`ve başka MVC ve Razor sayfaları tarafından sağlanan her şey.
+Örneğin, MVC, `Resource` özelliğinde [authorizationfiltercontext](/dotnet/api/?term=AuthorizationFilterContext) örneğini geçirir. Bu özellik, `RouteData`, ve `HttpContext`için MVC ve Razor Pages tarafından sağlanan diğer her şeye erişim sağlar.
 
-Kullanımını `Resource` framework belirli bir özelliktir. Bilgileri kullanarak `Resource` özelliği, Yetkilendirme İlkeleri belirli çerçeveleri için sınırlar. Cast `Resource` özelliğini kullanarak `is` anahtar sözcüğü, dönüştürme işleminin başarılı değil, kodunuzu kilitlenme emin olmak için onaylayın ile bir `InvalidCastException` diğer çerçeveler çalıştırdığınızda:
+`Resource` Özelliğin kullanımı Framework 'e özgüdür. Özelliğindeki bilgilerin kullanılması, `Resource` yetkilendirme ilkelerinizi belirli çerçeveler ile sınırlandırır. Anahtar sözcüğünü `Resource` kullanarak özelliği atamalısınız ve sonra, kodunuzun diğer çerçeveler üzerinde çalıştırıldığında bir `InvalidCastException` ile çökmemesini sağlamak için dönüştürmenin başarılı olduğunu doğrulayın: `is`
 
 ```csharp
 // Requires the following import:
