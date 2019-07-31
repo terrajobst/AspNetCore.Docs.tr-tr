@@ -5,12 +5,12 @@ description: Bu öğretici dizisinde Razor Pages ASP.NET Core nasıl kullanılac
 ms.author: riande
 ms.date: 07/25/2019
 uid: tutorials/razor-pages/razor-pages-start
-ms.openlocfilehash: 1605197188d97f27a884739a72400da2d5818b1a
-ms.sourcegitcommit: 849af69ee3c94cdb9fd8fa1f1bb8f5a5dda7b9eb
+ms.openlocfilehash: 57a10895c718c539ece280afcb27cb4033c7fb45
+ms.sourcegitcommit: 979dbfc5e9ce09b9470789989cddfcfb57079d94
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68371968"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68682801"
 ---
 # <a name="tutorial-get-started-with-razor-pages-in-aspnet-core"></a>Öğretici: ASP.NET Core Razor Pages kullanmaya başlama
 
@@ -83,8 +83,8 @@ Bu öğreticinin sonunda, daha sonraki öğreticilerde oluşturacağınız çal�
   code -r RazorPagesMovie
   ```
 
-  * Komut RazorPagesMovie klasöründe yeni bir Razor Pages projesi oluşturur.  `dotnet new`
-  * Komut, Visual Studio Code geçerli örneğindeki RazorPagesMovie klasörünü açar.  `code`
+  * Komut RazorPagesMovie klasöründe yeni bir Razor Pages projesi oluşturur. `dotnet new`
+  * Komut, Visual Studio Code geçerli örneğindeki RazorPagesMovie klasörünü açar. `code`
 
 * Durum çubuğunun omnisharp Yangın simgesi yeşil ' i etkinleştirdikten sonra, gerekli varlıkların derleme **ve hata ayıklama için ' RazorPagesMovie ' içinde eksik olduğunu soran bir iletişim kutusu yok. Bunları ekleyin mi?** **Evet**' i seçin.
 
@@ -133,7 +133,7 @@ Visual Studio 'da **dosya > aç**' ı seçin ve ardından *RazorPagesMovie. cspr
 
   [!INCLUDE[](~/includes/trustCertMac.md)]
 
-* Hata ayıklayıcı olmadan çalıştırmak için **cmd-opt-F5** tuşuna basın.
+* Hata ayıklayıcı olmadan çalıştırmak için **alt-cmd-ENTER** tuşlarına basın. Alternatif olarak, menü çubuğuna gidin ve hata ayıklama olmadan Başlat > Çalıştır ' a gidin.
 
   Visual Studio, [Kestrel](xref:fundamentals/servers/kestrel)başlatır, bir tarayıcı başlatır ve şuraya gider `http://localhost:5001`.
 
@@ -253,8 +253,8 @@ Bu öğreticinin sonunda, daha sonraki öğreticilerde oluşturacağınız çal�
   code -r RazorPagesMovie
   ```
 
-  * Komut RazorPagesMovie klasöründe yeni bir Razor Pages projesi oluşturur.  `dotnet new`
-  * Komut, Visual Studio Code geçerli örneğindeki RazorPagesMovie klasörünü açar.  `code`
+  * Komut RazorPagesMovie klasöründe yeni bir Razor Pages projesi oluşturur. `dotnet new`
+  * Komut, Visual Studio Code geçerli örneğindeki RazorPagesMovie klasörünü açar. `code`
 
 * Durum çubuğunun omnisharp Yangın simgesi yeşil ' i etkinleştirdikten sonra, gerekli varlıkların derleme **ve hata ayıklama için ' RazorPagesMovie ' içinde eksik olduğunu soran bir iletişim kutusu yok. Bunları ekleyin mi?** **Evet**' i seçin.
 

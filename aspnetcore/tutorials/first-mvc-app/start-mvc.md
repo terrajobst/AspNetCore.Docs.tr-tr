@@ -5,30 +5,189 @@ description: ASP.NET Core MVC ile çalışmaya başlama hakkında bilgi edinin.
 ms.author: riande
 ms.date: 04/24/2019
 uid: tutorials/first-mvc-app/start-mvc
-ms.openlocfilehash: 91564bac02df77632a3b56b6dbddeb3b622f6438
-ms.sourcegitcommit: d6e51c60439f03a8992bda70cc982ddb15d3f100
+ms.openlocfilehash: b3544769b0e40fc27f5b6c939c6d7b5f9082f854
+ms.sourcegitcommit: 979dbfc5e9ce09b9470789989cddfcfb57079d94
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67555851"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68682805"
 ---
 # <a name="get-started-with-aspnet-core-mvc"></a>ASP.NET Core MVC ile çalışmaya başlama
 
 Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
 
+::: moniker range=">= aspnetcore-3.0"
+
 [!INCLUDE [consider RP](~/includes/razor.md)]
 
-Bu öğreticide bir ASP.NET Core MVC web uygulaması oluşturmaya ilişkin temel bilgileri size öğretir.
+Bu öğretici, ASP.NET Core MVC web uygulaması oluşturma hakkında temel bilgileri öğretir.
 
-Uygulama bir veritabanı başlık yönetir. Aşağıdakilerin nasıl yapıldığını öğreneceksiniz:
+Uygulama, bir film başlıkları veritabanını yönetir. Aşağıdakilerin nasıl yapıldığını öğreneceksiniz:
 
 > [!div class="checklist"]
-> * Bir web uygulaması oluşturun.
-> * Ekleme ve bir modeli iskelesini.
-> * Bir veritabanı ile çalışır.
+> * Bir Web uygulaması oluşturun.
+> * Bir modeli ekleyin ve yapı iskelesi yapın.
+> * Bir veritabanıyla çalışın.
 > * Arama ve doğrulama ekleyin.
 
-Sonunda, yönetmek ve film verileri görüntüleyen bir uygulama vardır.
+Sonunda, film verilerini yönetebilen ve görüntüleyebilen bir uygulamanız vardır.
+
+[!INCLUDE[](~/includes/mvc-intro/download.md)]
+
+## <a name="prerequisites"></a>Önkoşullar
+
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+
+[!INCLUDE[](~/includes/net-core-prereqs-vs-3.0.md)]
+
+# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+
+[!INCLUDE[](~/includes/net-core-prereqs-vsc-3.0.md)]
+
+# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Mac için Visual Studio](#tab/visual-studio-mac)
+
+[!INCLUDE[](~/includes/net-core-prereqs-mac-3.0.md)]
+
+---
+
+## <a name="create-a-web-app"></a>Web uygulaması oluşturma
+
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+
+* Visual Studio 'da **Yeni proje oluştur**' u seçin.
+
+* **ASP.NET Core Web uygulamasını** seçip **İleri**' yi seçin.
+
+![Yeni ASP.NET Core Web uygulaması](start-mvc/_static/np_2.1.png)
+
+* Projeyi **Mvcfilmi** olarak adlandırın ve **Oluştur**' u seçin. Kodu kopyaladığınızda, ad alanının eşleşmesi için, projeyi **Mvcfilmi** olarak adlandırmak önemlidir.
+
+  ![Yeni ASP.NET Core Web uygulaması](start-mvc/_static/config.png)
+
+* **Web uygulaması (Model-View-Controller)** öğesini seçin ve ardından **Oluştur**' u seçin.
+
+![Yeni proje iletişim kutusu, sol bölmede .NET Core, ASP.NET Core Web ](start-mvc/_static/new_project22-21.png)
+
+Visual Studio, az önce oluşturduğunuz MVC projesi için varsayılan şablonu kullandı. Şimdi bir proje adı girip birkaç seçenek belirleyerek, çalışan bir uygulamanız var. Bu, temel bir başlatıcı projem.
+
+# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+
+Öğreticide familar, VS Code ile varsayılmıştır. Daha fazla bilgi için bkz. [vs Code kullanmaya](https://code.visualstudio.com/docs) başlama ve [Yardım Visual Studio Code](#visual-studio-code-help) .
+
+* Açık [tümleşik Terminalini](https://code.visualstudio.com/docs/editor/integrated-terminal).
+* Dizinleri (`cd`), projeyi içerecek bir klasöre değiştirin.
+* Şu komutu çalıştırın:
+
+   ```console
+   dotnet new mvc -o MvcMovie
+   code -r MvcMovie
+   ```
+
+  * **Gerekli varlıkların derlenmesi ve hata ayıklaması için ' mvcfilmi ' içinde eksik olan bir iletişim kutusu görüntülenir. Bunları ekleyin mi?**  **Evet** ' i seçin
+
+  * `dotnet new mvc -o MvcMovie`: *Mvcmovie* klasöründe yeni BIR ASP.NET Core MVC projesi oluşturur.
+  * `code -r MvcMovie`: Visual Studio Code ' de *Mvcmovie. csproj* proje dosyasını yükler.
+
+# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Mac için Visual Studio](#tab/visual-studio-mac)
+
+* **Dosya** > **yeni çözüm**' ü seçin.
+
+  ![Yeni çözüm macOS](./start-mvc/_static/new_project_vsmac.png)
+
+* **Daha sonra** **.NET Core** > **App** > **Web uygulaması (Model-View-Controller)** > öğesini seçin.
+
+  ![macOS yeni proje iletişim kutusu](./start-mvc/_static/new_project_mvc_vsmac.png)
+
+* **Yeni ASP.NET Core Web API 'Nizi yapılandırın** iletişim kutusunda, **.NET Core 3,0**'nin **hedef çerçevesini** ayarlayın.
+
+<!-- 
+  ![macOS .NET Core 2.2 selection](./start-mvc/_static/new_project_22_vsmac.png)
+-->
+
+* Projeyi **Mvcfilmi**olarak adlandırın ve **Oluştur**' u seçin.
+
+---
+
+### <a name="run-the-app"></a>Uygulamayı çalıştırma
+
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+
+Uygulamayı hata ayıklamasız modda çalıştırmak için **CTRL-F5** ' i seçin.
+
+[!INCLUDE[](~/includes/trustCertVS.md)]
+
+* Visual Studio [IIS Express](/iis/extensions/introduction-to-iis-express/iis-express-overview) başlar ve uygulamayı çalıştırır. Adres çubuğunda `localhost:port#` , gibi `example.com`bir şey gösterilmediğine dikkat edin. Bunun nedeni `localhost` , Yerel bilgisayarınız için Standart ana bilgisayar adıdır. Visual Studio bir Web projesi oluşturduğunda, Web sunucusu için rastgele bir bağlantı noktası kullanılır.
+* Uygulamayı CTRL + F5 (hata ayıklama modu) ile başlatmak, kod değişiklikleri yapmanıza, dosyayı kaydetmenize, tarayıcıyı yenilemanıza ve kod değişikliklerini görmenize olanak tanır. Birçok geliştirici, uygulamayı hızlı bir şekilde başlatmak ve değişiklikleri görüntülemek için hata ayıklama olmayan modu kullanmayı tercih eder.
+* Hata **ayıklama menü öğesinden** uygulamayı hata ayıklama veya hata ayıklama olmayan modda başlatabilirsiniz:
+
+  ![Hata ayıklama menüsü](start-mvc/_static/debug_menu.png)
+
+* **IIS Express** düğmesini seçerek uygulamada hata ayıklaması yapabilirsiniz
+
+  ![IIS Express](start-mvc/_static/iis_express.png)
+
+
+  Aşağıdaki görüntüde uygulama gösterilmektedir:
+
+  ![Giriş veya dizin sayfası](start-mvc/_static/home2.2.png)
+
+# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+
+Hata ayıklayıcı olmadan çalıştırmak için CTRL + F5 tuşlarına basın.
+
+[!INCLUDE[](~/includes/trustCertVSC.md)]
+
+  Visual Studio Code, [Kestrel](xref:fundamentals/servers/kestrel)başlatır, bir tarayıcı başlatır ve şuraya gider `https://localhost:5001`. Adres çubuğu gibi `example.com`bir `localhost:port:5001` şey gösterir. Bunun nedeni `localhost` , yerel bilgisayar için Standart ana bilgisayar adıdır. Localhost yalnızca yerel bilgisayardan Web isteklerine hizmet verir.
+
+  Uygulamayı CTRL + F5 (hata ayıklama modu) ile başlatmak, kod değişiklikleri yapmanıza, dosyayı kaydetmenize, tarayıcıyı yenilemanıza ve kod değişikliklerini görmenize olanak tanır. Birçok geliştirici, sayfayı yenilemek ve değişiklikleri görüntülemek için hata ayıklama olmayan modu kullanmayı tercih eder.
+
+* İzlemeye izin vermek için **kabul et** ' i seçin. Bu uygulama kişisel bilgileri izlemez. Şablon tarafından oluşturulan kod, [genel veri koruma yönetmeliği (GDPR)](xref:security/gdpr)buluşmanıza yardımcı olan varlıkları içerir.
+
+  ![Giriş veya dizin sayfası](start-mvc/_static/privacy.png)
+
+  Aşağıdaki görüntüde izlemeyi kabul ettikten sonra uygulama gösterilmektedir:
+
+  ![Giriş veya dizin sayfası](start-mvc/_static/home2.2.png)
+
+# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Mac için Visual Studio](#tab/visual-studio-mac)
+
+Uygulamayı başlatmak için**hata ayıklama olmadan Başlat** ' **ı seçin.**  >  Mac için Visual Studio, [Kestrel](xref:fundamentals/servers/index#kestrel) Server 'ı başlatır, bir tarayıcı başlatır ve `http://localhost:port`' a gider ve *bağlantı noktası* rastgele seçilmiş bir bağlantı noktası numarasıdır.
+
+[!INCLUDE[](~/includes/trustCertMac.md)]
+
+* Adres çubuğu gibi `example.com`bir `localhost:port#` şey gösterir. Bunun nedeni `localhost` , Yerel bilgisayarınız için Standart ana bilgisayar adıdır. Visual Studio bir Web projesi oluşturduğunda, Web sunucusu için rastgele bir bağlantı noktası kullanılır. Uygulamayı çalıştırdığınızda, farklı bir bağlantı noktası numarası görürsünüz.
+* Uygulamayı **Çalıştır** menüsünden Hata Ayıkla veya hata ayıklama olmayan modda başlatabilirsiniz.
+
+  Aşağıdaki görüntüde uygulama gösterilmektedir:
+
+  ![Giriş veya dizin sayfası](./start-mvc/_static/output_macos.png)
+
+---
+
+[!INCLUDE[](~/includes/vs-vsc-vsmac-help.md)]
+
+Bu öğreticinin bir sonraki bölümünde, MVC hakkında bilgi edinirsiniz ve kod yazmaya başlayabilirsiniz.
+
+> [!div class="step-by-step"]
+> [Next](adding-controller.md)
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
+
+[!INCLUDE [consider RP](~/includes/razor.md)]
+
+Bu öğretici, ASP.NET Core MVC web uygulaması oluşturma hakkında temel bilgileri öğretir.
+
+Uygulama, bir film başlıkları veritabanını yönetir. Aşağıdakilerin nasıl yapıldığını öğreneceksiniz:
+
+> [!div class="checklist"]
+> * Bir Web uygulaması oluşturun.
+> * Bir modeli ekleyin ve yapı iskelesi yapın.
+> * Bir veritabanıyla çalışın.
+> * Arama ve doğrulama ekleyin.
+
+Sonunda, film verilerini yönetebilen ve görüntüleyebilen bir uygulamanız vardır.
 
 [!INCLUDE[](~/includes/mvc-intro/download.md)]
 
@@ -51,29 +210,29 @@ Sonunda, yönetmek ve film verileri görüntüleyen bir uygulama vardır.
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-* Visual Studio seçin **yeni bir proje oluşturma**.
+* Visual Studio 'da **Yeni proje oluştur**' u seçin.
 
-* Selecct **ASP.NET Core Web uygulaması** seçip **sonraki**.
+* **ASP.NET Core Web uygulamasını** seçip **İleri**' yi seçin.
 
 ![Yeni ASP.NET Core Web uygulaması](start-mvc/_static/np_2.1.png)
 
-* Projeyi adlandırın **MvcMovie** seçip **Oluştur**. Projeyi adlandırın önemlidir **MvcMovie** kod kopyaladığınızda, ad alanı eşleşmesi.
+* Projeyi **Mvcfilmi** olarak adlandırın ve **Oluştur**' u seçin. Kodu kopyaladığınızda, ad alanının eşleşmesi için, projeyi **Mvcfilmi** olarak adlandırmak önemlidir.
 
   ![Yeni ASP.NET Core Web uygulaması](start-mvc/_static/config.png)
 
 
-* Seçin **Web Application(Model-View-Controller)** ve ardından **Oluştur**.
+* **Web uygulaması (Model-View-Controller)** öğesini seçin ve ardından **Oluştur**' u seçin.
 
-![Yeni Proje iletişim kutusunda, sol bölmede, ASP.NET Core web .NET Core ](start-mvc/_static/new_project22-21.png)
+![Yeni proje iletişim kutusu, sol bölmede .NET Core, ASP.NET Core Web ](start-mvc/_static/new_project22-21.png)
 
-Visual Studio, yeni oluşturduğunuz MVC projesi için varsayılan şablonu kullanılır. Çalışan bir uygulamayı şu anda bir proje adı girerek ve bazı Seçenekler'i seçerek sizde. Bu temel başlangıç projesini ve başlatmak için iyi bir yerdir.
+Visual Studio, az önce oluşturduğunuz MVC projesi için varsayılan şablonu kullandı. Şimdi bir proje adı girip birkaç seçenek belirleyerek, çalışan bir uygulamanız var. Bu, temel bir başlatıcı projem ve başlamak için iyi bir yerdir.
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
-Bu öğretici, VS Code ile familarity varsayar. Bkz: [VS Code ile çalışmaya başlama](https://code.visualstudio.com/docs) ve [Visual Studio Code Yardım](#visual-studio-code-help) daha fazla bilgi için.
+Öğreticide familar, VS Code ile varsayılmıştır. Daha fazla bilgi için bkz. [vs Code kullanmaya](https://code.visualstudio.com/docs) başlama ve [Yardım Visual Studio Code](#visual-studio-code-help) .
 
 * Açık [tümleşik Terminalini](https://code.visualstudio.com/docs/editor/integrated-terminal).
-* Dizinleri (`cd`) proje içeren bir klasör.
+* Dizinleri (`cd`), projeyi içerecek bir klasöre değiştirin.
 * Şu komutu çalıştırın:
 
    ```console
@@ -81,26 +240,26 @@ Bu öğretici, VS Code ile familarity varsayar. Bkz: [VS Code ile çalışmaya b
    code -r MvcMovie
    ```
 
-  * Bir iletişim kutusu görünür **gerekli varlıkları oluşturun ve hata ayıklama 'MvcMovie' eksik. Bunları eklensin mi?**  Seçin **Evet**
+  * **Gerekli varlıkların derlenmesi ve hata ayıklaması için ' mvcfilmi ' içinde eksik olan bir iletişim kutusu görüntülenir. Bunları ekleyin mi?**  **Evet** ' i seçin
 
-  * `dotnet new mvc -o MvcMovie`: yeni bir ASP.NET Core MVC projesindeki oluşturur *MvcMovie* klasör.
-  * `code -r MvcMovie`: Yükleri *MvcMovie.csproj* proje dosyası Visual Studio code'da.
+  * `dotnet new mvc -o MvcMovie`: *Mvcmovie* klasöründe yeni BIR ASP.NET Core MVC projesi oluşturur.
+  * `code -r MvcMovie`: Visual Studio Code ' de *Mvcmovie. csproj* proje dosyasını yükler.
 
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Mac için Visual Studio](#tab/visual-studio-mac)
 
-* Seçin **dosya** > **yeni çözüm**.
+* **Dosya** > **yeni çözüm**' ü seçin.
 
   ![Yeni çözüm macOS](./start-mvc/_static/new_project_vsmac.png)
 
-* Seçin **.NET Core** > **uygulama** > **Web uygulaması (Model-View-Controller)**  > **sonraki**.
+* **Daha sonra** **.NET Core** > **App** > **Web uygulaması (Model-View-Controller)** > öğesini seçin.
 
   ![macOS yeni proje iletişim kutusu](./start-mvc/_static/new_project_mvc_vsmac.png)
 
-* İçinde **, yeni ASP.NET Core Web API'sini yapılandırma** iletişim kutusunda varsayılan değerleri kabul **hedef Framework'ü** , **.NET Core 2.2**.
+* **Yeni ASP.NET Core Web API 'Nizi yapılandırın** iletişim kutusunda, **.NET Core 2,2**'nin varsayılan **hedef çerçevesini** kabul edin.
 
-  ![macOS .NET Core 2.2 seçimi](./start-mvc/_static/new_project_22_vsmac.png)
+  ![macOS .NET Core 2,2 seçimi](./start-mvc/_static/new_project_22_vsmac.png)
 
-* Projeyi adlandırın **MvcMovie**ve ardından **Oluştur**.
+* Projeyi **Mvcfilmi**olarak adlandırın ve **Oluştur**' u seçin.
 
 ---
 
@@ -108,68 +267,70 @@ Bu öğretici, VS Code ile familarity varsayar. Bkz: [VS Code ile çalışmaya b
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-Seçin **Ctrl-F5** uygulamayı olmayan hata ayıklama modunda çalıştırmak için.
+Uygulamayı hata ayıklamasız modda çalıştırmak için **CTRL-F5** ' i seçin.
 
 [!INCLUDE[](~/includes/trustCertVS.md)]
 
-* Visual Studio başlatır [IIS Express](/iis/extensions/introduction-to-iis-express/iis-express-overview) ve uygulamayı çalıştırır. Adres çubuğuna gösteren uyarı `localhost:port#` gibi bir şey `example.com`. Çünkü `localhost` standart, yerel bilgisayar adıdır. Visual Studio, bir web projesi oluşturduğunda, web sunucusu için rastgele bir bağlantı noktası kullanılır.
-* Ctrl + F5 (hata ayıklama olmayan mod) ile uygulamayı çalıştırdığınızda, kod değişiklikleri yapabilir, dosyayı kaydetmek, tarayıcıyı yenileyin ve kod değişikliklerini görebilirsiniz olanak tanır. Geliştiricilerin çoğu, hızlı bir şekilde uygulamayı başlatın ve değişiklikleri görmek için hata ayıklama olmayan modu kullanmayı tercih eder.
-* Uygulamada hata ayıklama veya hata ayıklama olmayan moddan başlatabilirsiniz **hata ayıklama** menü öğesi:
+* Visual Studio [IIS Express](/iis/extensions/introduction-to-iis-express/iis-express-overview) başlar ve uygulamayı çalıştırır. Adres çubuğunda `localhost:port#` , gibi `example.com`bir şey gösterilmediğine dikkat edin. Bunun nedeni `localhost` , Yerel bilgisayarınız için Standart ana bilgisayar adıdır. Visual Studio bir Web projesi oluşturduğunda, Web sunucusu için rastgele bir bağlantı noktası kullanılır.
+* Uygulamayı CTRL + F5 (hata ayıklama modu) ile başlatmak, kod değişiklikleri yapmanıza, dosyayı kaydetmenize, tarayıcıyı yenilemanıza ve kod değişikliklerini görmenize olanak tanır. Birçok geliştirici, uygulamayı hızlı bir şekilde başlatmak ve değişiklikleri görüntülemek için hata ayıklama olmayan modu kullanmayı tercih eder.
+* Hata **ayıklama menü öğesinden** uygulamayı hata ayıklama veya hata ayıklama olmayan modda başlatabilirsiniz:
 
-  ![Menü hata ayıklama](start-mvc/_static/debug_menu.png)
+  ![Hata ayıklama menüsü](start-mvc/_static/debug_menu.png)
 
-* Seçerek uygulama hatalarını ayıklayabilir **IIS Express** düğmesi
+* **IIS Express** düğmesini seçerek uygulamada hata ayıklaması yapabilirsiniz
 
   ![IIS Express](start-mvc/_static/iis_express.png)
 
-* Seçin **kabul** izleme için onay verme. Bu uygulama, kişisel bilgi izlemez. Oluşturulan şablon kodunun karşılamanıza yardımcı olmak üzere varlıkları içeren [genel veri koruma yönetmeliği (GDPR)](xref:security/gdpr).
+* İzlemeye izin vermek için **kabul et** ' i seçin. Bu uygulama kişisel bilgileri izlemez. Şablon tarafından oluşturulan kod, [genel veri koruma yönetmeliği (GDPR)](xref:security/gdpr)buluşmanıza yardımcı olan varlıkları içerir.
 
-  ![Giriş ya da dizin sayfası](start-mvc/_static/privacy.png)
+  ![Giriş veya dizin sayfası](start-mvc/_static/privacy.png)
 
-  Aşağıdaki görüntüde, izleme kabul ettikten sonra uygulama gösterilir:
+  Aşağıdaki görüntüde izlemeyi kabul ettikten sonra uygulama gösterilmektedir:
 
-  ![Giriş ya da dizin sayfası](start-mvc/_static/home2.2.png)
+  ![Giriş veya dizin sayfası](start-mvc/_static/home2.2.png)
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
-Hata Ayıklayıcı olmadan çalıştırmak için CTRL + F5 tuşlarına basın.
+Hata ayıklayıcı olmadan çalıştırmak için CTRL + F5 tuşlarına basın.
 
 [!INCLUDE[](~/includes/trustCertVSC.md)]
 
-  Visual Studio Code başlar [Kestrel](xref:fundamentals/servers/kestrel), bir tarayıcı başlatır ve gider `https://localhost:5001`. Adres çubuğu gösterir `localhost:port:5001` gibi bir şey `example.com`. Çünkü `localhost` standart yerel bilgisayar adıdır. Localhost yalnızca yerel bilgisayara gelen web isteklerini işlevi görür.
+  Visual Studio Code, [Kestrel](xref:fundamentals/servers/kestrel)başlatır, bir tarayıcı başlatır ve şuraya gider `https://localhost:5001`. Adres çubuğu gibi `example.com`bir `localhost:port:5001` şey gösterir. Bunun nedeni `localhost` , yerel bilgisayar için Standart ana bilgisayar adıdır. Localhost yalnızca yerel bilgisayardan Web isteklerine hizmet verir.
 
-  Ctrl + F5 (hata ayıklama olmayan mod) ile uygulamayı çalıştırdığınızda, kod değişiklikleri yapabilir, dosyayı kaydetmek, tarayıcıyı yenileyin ve kod değişikliklerini görebilirsiniz olanak tanır. Geliştiricilerin çoğu, sayfayı yenileyin ve değişiklikleri görüntülemek için hata ayıklama olmayan modu kullanmayı tercih eder.
+  Uygulamayı CTRL + F5 (hata ayıklama modu) ile başlatmak, kod değişiklikleri yapmanıza, dosyayı kaydetmenize, tarayıcıyı yenilemanıza ve kod değişikliklerini görmenize olanak tanır. Birçok geliştirici, sayfayı yenilemek ve değişiklikleri görüntülemek için hata ayıklama olmayan modu kullanmayı tercih eder.
 
-* Seçin **kabul** izleme için onay verme. Bu uygulama, kişisel bilgi izlemez. Oluşturulan şablon kodunun karşılamanıza yardımcı olmak üzere varlıkları içeren [genel veri koruma yönetmeliği (GDPR)](xref:security/gdpr).
+* İzlemeye izin vermek için **kabul et** ' i seçin. Bu uygulama kişisel bilgileri izlemez. Şablon tarafından oluşturulan kod, [genel veri koruma yönetmeliği (GDPR)](xref:security/gdpr)buluşmanıza yardımcı olan varlıkları içerir.
 
-  ![Giriş ya da dizin sayfası](start-mvc/_static/privacy.png)
+  ![Giriş veya dizin sayfası](start-mvc/_static/privacy.png)
 
-  Aşağıdaki görüntüde, izleme kabul ettikten sonra uygulama gösterilir:
+  Aşağıdaki görüntüde izlemeyi kabul ettikten sonra uygulama gösterilmektedir:
 
-  ![Giriş ya da dizin sayfası](start-mvc/_static/home2.2.png)
+  ![Giriş veya dizin sayfası](start-mvc/_static/home2.2.png)
 
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Mac için Visual Studio](#tab/visual-studio-mac)
 
-Seçin **çalıştırma** > **hata ayıklama olmadan Başlat** uygulamayı başlatın. Başlatıldığında Mac için Visual Studio [Kestrel](xref:fundamentals/servers/index#kestrel) sunucusunda, bir tarayıcı başlatır ve gider `http://localhost:port`burada *bağlantı noktası* bir rastgele seçilen bağlantı noktası numarasıdır.
+Uygulamayı başlatmak için**hata ayıklama olmadan Başlat** ' **ı seçin.**  >  Mac için Visual Studio, [Kestrel](xref:fundamentals/servers/index#kestrel) Server 'ı başlatır, bir tarayıcı başlatır ve `http://localhost:port`' a gider ve *bağlantı noktası* rastgele seçilmiş bir bağlantı noktası numarasıdır.
 
 [!INCLUDE[](~/includes/trustCertMac.md)]
 
-* Adres çubuğu gösterir `localhost:port#` gibi bir şey `example.com`. Çünkü `localhost` standart, yerel bilgisayar adıdır. Visual Studio, bir web projesi oluşturduğunda, web sunucusu için rastgele bir bağlantı noktası kullanılır. Uygulamayı çalıştırdığınızda, farklı bir bağlantı noktası görürsünüz.
-* Uygulamada hata ayıklama veya hata ayıklama olmayan moddan başlatabilirsiniz **çalıştırma** menüsü.
+* Adres çubuğu gibi `example.com`bir `localhost:port#` şey gösterir. Bunun nedeni `localhost` , Yerel bilgisayarınız için Standart ana bilgisayar adıdır. Visual Studio bir Web projesi oluşturduğunda, Web sunucusu için rastgele bir bağlantı noktası kullanılır. Uygulamayı çalıştırdığınızda, farklı bir bağlantı noktası numarası görürsünüz.
+* Uygulamayı **Çalıştır** menüsünden Hata Ayıkla veya hata ayıklama olmayan modda başlatabilirsiniz.
 
-* Seçin **kabul** izleme için onay verme. Bu uygulama, kişisel bilgi izlemez. Oluşturulan şablon kodunun karşılamanıza yardımcı olmak üzere varlıkları içeren [genel veri koruma yönetmeliği (GDPR)](xref:security/gdpr).
+* İzlemeye izin vermek için **kabul et** ' i seçin. Bu uygulama kişisel bilgileri izlemez. Şablon tarafından oluşturulan kod, [genel veri koruma yönetmeliği (GDPR)](xref:security/gdpr)buluşmanıza yardımcı olan varlıkları içerir.
 
-  ![Giriş ya da dizin sayfası](./start-mvc/_static/output_privacy_macos.png)
+  ![Giriş veya dizin sayfası](./start-mvc/_static/output_privacy_macos.png)
 
-  Aşağıdaki görüntüde, izleme kabul ettikten sonra uygulama gösterilir:
+  Aşağıdaki görüntüde izlemeyi kabul ettikten sonra uygulama gösterilmektedir:
 
-  ![Giriş ya da dizin sayfası](./start-mvc/_static/output_macos.png)
+  ![Giriş veya dizin sayfası](./start-mvc/_static/output_macos.png)
 
 ---
 
 [!INCLUDE[](~/includes/vs-vsc-vsmac-help.md)]
 
-Bu öğreticinin sonraki bölümünde, MVC konusunda bilgi ve biraz kod yazmaya başlayın.
+Bu öğreticinin bir sonraki bölümünde, MVC hakkında bilgi edinirsiniz ve kod yazmaya başlayabilirsiniz.
 
 > [!div class="step-by-step"]
 > [Next](adding-controller.md)
+
+::: moniker-end
