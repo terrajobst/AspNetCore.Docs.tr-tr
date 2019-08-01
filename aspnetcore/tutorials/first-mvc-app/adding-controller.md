@@ -1,84 +1,200 @@
 ---
-title: Denetleyici için bir ASP.NET Core MVC uygulaması ekleme
+title: ASP.NET Core MVC uygulamasına denetleyici ekleme
 author: rick-anderson
-description: Bir denetleyici için basit bir ASP.NET Core MVC uygulaması eklemeyi öğrenin.
+description: Basit bir ASP.NET Core MVC uygulamasına denetleyici eklemeyi öğrenin.
 ms.author: riande
 ms.date: 02/28/2017
 uid: tutorials/first-mvc-app/adding-controller
-ms.openlocfilehash: f28dc96b66fce736242d26a2584fea0a23375e23
-ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
+ms.openlocfilehash: ab97b875956ec262623ed9862ace6a930331d80d
+ms.sourcegitcommit: 979dbfc5e9ce09b9470789989cddfcfb57079d94
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67815199"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68682320"
 ---
-# <a name="add-a-controller-to-an-aspnet-core-mvc-app"></a>Denetleyici için bir ASP.NET Core MVC uygulaması ekleme
+# <a name="add-a-controller-to-an-aspnet-core-mvc-app"></a>ASP.NET Core MVC uygulamasına denetleyici ekleme
 
 Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-Model-View-Controller (MVC) tasarım örüntüsü, bir uygulamayı üç ana bileşene ayırır: **M**odel, **V**görünümü, ve **C**ontroller. MVC örüntüsü, daha fazla test edilebilir ve geleneksel tek yapılı uygulamaları daha kolay güncelleştirmek uygulamalar oluşturmanıza yardımcı olur. MVC tabanlı uygulamalar içerir:
+::: moniker range=">= aspnetcore-3.0"
 
-* **M**odels: Uygulama verilerini temsil eden sınıf. Model sınıfları, veriler için iş kuralları zorlamak için doğrulama mantığını kullanın. Genellikle, model nesneleri alabilir ve model durumu bir veritabanında depolar. Bu öğreticide, bir `Movie` model film verileri bir veritabanından alır, görünüme sağlar veya güncelleştirir. Güncelleştirilmiş veriyi veritabanına yazılır.
+Model-View-Controller (MVC) mimari modeli, bir uygulamayı üç ana bileşene ayırır: **M**odel, **V**IEW ve **C**ontroller. MVC deseninin daha kararlı ve geleneksel tek parçalı uygulamalardan güncelleştirilmesi daha kolay olan uygulamalar oluşturmanıza yardımcı olur. MVC tabanlı uygulamalar şunları içerir:
 
-* **V**iews: Görünümler, uygulamanın kullanıcı arabirimini (UI) görüntüleyen bileşenlerdir. Genellikle, bu UI model verileri görüntüler.
+* **A**odels: Uygulamanın verilerini temsil eden sınıflar. Model sınıfları, bu veriler için iş kurallarını zorlamak üzere doğrulama mantığını kullanır. Genellikle, model nesneleri bir veritabanında model durumunu alır ve saklar. Bu öğreticide, bir `Movie` model bir veritabanından film verileri alır, bunu görünüme sağlar veya güncelleştirir. Güncelleştirilmiş veriler bir veritabanına yazılır.
 
-* **C**ontrollers: Tarayıcı istekleri işleyen sınıflar. Bunlar, model verileri almak ve bir yanıt döndüreceğini görünüm şablonları arayın. Bir MVC uygulamasında, görünüm yalnızca bilgileri görüntüler; Denetleyici, işler ve kullanıcı girişini ve etkileşimini yanıt verir. Örneğin, denetleyici rota veri ve sorgu dizesi değerlerini işler ve bu değerleri modele geçirir. Model, bu değerleri, veritabanını sorgulamak için kullanabilirsiniz. Örneğin, `https://localhost:1234/Home/About` rota verilerini sahip `Home` (denetleyicisi) ve `About` (giriş denetleyicisine çağrılacak eylem yöntemi). `https://localhost:1234/Movies/Edit/5` kimlikli film düzenlemek için bir istek = 5 film denetleyicisi kullanarak. Rota verileri, öğreticinin ilerleyen bölümlerinde açıklanmıştır.
+* **V**ıews: Görünümler, uygulamanın kullanıcı arabirimini (UI) görüntüleyen bileşenlerdir. Genellikle, bu kullanıcı arabirimi model verilerini görüntüler.
 
-MVC örüntüsü, öğeler arasında gevşek bir bağlantı sağlamasının yanı sıra uygulama (giriş mantığı, iş mantığı ve UI mantığı) farklı yönlerini birbirlerinden ayıran uygulamalar oluşturmanıza yardımcı olur. Her bir mantık türünün uygulamanın nerede bulunmalıdır desenini belirtir. UI mantığı görünümde yer alır. Giriş mantığı denetleyicide yer alır. İş mantığı modelde yer alır. Bu ayırma, uygulama oluştururken başka kodunu etkilemeden aynı anda bir yönüne çalışmanıza olanak sağladığından karmaşıklığını yönetmenize yardımcı olur. Örneğin, kodu görüntüle bağlı iş mantığı kod olarak üzerinde çalışabilir.
+* **C**ontrolleyiciler: Tarayıcı isteklerini işleyen sınıflar. Model verileri alır ve yanıt döndüren çağrı görünümü şablonları. MVC uygulamasında, görünüm yalnızca bilgileri görüntüler; denetleyici, Kullanıcı girişini ve etkileşimini işler ve yanıtlar. Örneğin, denetleyici rota verilerini ve sorgu dizesi değerlerini işler ve bu değerleri modele geçirir. Model bu değerleri veritabanını sorgulamak için kullanabilir. Örneğin, `https://localhost:5001/Home/Privacy` `Home` (denetleyici) ve `Privacy` (ana denetleyicide çağrılacak eylem yöntemi) verilerinin yolunu içerir. `https://localhost:5001/Movies/Edit/5`filmi film denetleyicisi kullanarak, ID = 5 olan filmi düzenleme isteği. Rota verileri öğreticide daha sonra açıklanmaktadır.
 
-Biz Bu öğretici serisinin bu kavramları kapsar ve bunları bir film uygulaması oluşturmak için nasıl kullanacağınızı gösterir. MVC proje klasörleri içeren *denetleyicileri* ve *görünümleri*.
+MVC deseninin uygulamanın farklı yönlerini (Giriş mantığı, iş mantığı ve Kullanıcı arabirimi mantığı) ayıran uygulamalar oluşturmanıza yardımcı olur. bu öğeler arasında gevşek bir bağ sağlanır. Bu model, her bir mantık türünün uygulamada nerede bulunması gerektiğini belirtir. Kullanıcı arabirimi mantığı görünüme aittir. Giriş mantığı denetleyiciye aittir. İş mantığı modele aittir. Bu ayrım, bir uygulama oluşturduğunuzda karmaşıklığın yönetilmesine yardımcı olur, çünkü uygulamanın bir tek tarafında, başka bir kodu etkilemeden bir kez çalışmanıza olanak sağlar. Örneğin, iş mantığı koduna bağlı kalmadan görünüm kodu üzerinde çalışabilirsiniz.
+
+Bu kavramları, bu öğretici serisinde ele alınmaktadır ve bir film uygulaması oluşturmak için nasıl kullanacağınızı gösterir. MVC projesi *denetleyiciler* ve *Görünümler*için klasörler içerir.
 
 ## <a name="add-a-controller"></a>Denetleyici ekleme
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-* İçinde **Çözüm Gezgini**, sağ **denetleyicileri > Ekle > denetleyicisi**
-  ![bağlamsal menü](adding-controller/_static/add_controller.png)
+* **Çözüm Gezgini**, denetleyiciler öğesine sağ tıklayın **> > denetleyicisi**
+  ![bağlamsal menü ekleyin](adding-controller/_static/add_controller.png)
 
-* İçinde **İskele Ekle** iletişim kutusunda **MVC denetleyicisi - boş**
+* **Yapı Iskelesi Ekle** iletişim kutusunda, **MVC denetleyicisi-boş** seçeneğini belirleyin
 
-  ![MVC denetleyicisi ekleyin ve adlandırın](adding-controller/_static/ac.png)
+  ![MVC denetleyicisi ekleme ve adlandırma](adding-controller/_static/ac.png)
 
-* İçinde **boş MVC denetleyicisi Ekle iletişim**, girin **HelloWorldController** seçip **ekleme**.
+* **Boş MVC denetleyicisi Ekle iletişim kutusunda**, **Merhaba worldcontroller** yazın ve **Ekle**' yi seçin.
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
-Seçin **GEZGİNİ** simgesine ve ardından Denetim tıklayın (sağ tıklama) **denetleyicileri > yeni dosya** ve yeni dosya adı *HelloWorldController.cs*.
+**Gezgin** simgesini seçin ve ardından **Yeni Dosya > denetleyiciler** ' i (sağ tıklayın) ve yeni dosyayı *HelloWorldController.cs*olarak adlandırın.
 
   ![Bağlamsal menü](~/tutorials/first-mvc-app-xplat/adding-controller/_static/new_file.png)
 
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Mac için Visual Studio](#tab/visual-studio-mac)
 
-İçinde **Çözüm Gezgini**, sağ **denetleyicileri > Ekle > yeni dosya**.
+**Çözüm Gezgini**, denetleyiciler ' e sağ tıklayın **> yeni > dosya ekleyin**.
 ![Bağlamsal menü](~/tutorials/first-mvc-app-mac/adding-controller/_static/add_controller.png)
 
-Seçin **ASP.NET Core** ve **MVC denetleyici sınıfı**.
+**ASP.NET Core** ve **MVC denetleyici sınıfı**' nı seçin.
 
-Denetleyici adı **HelloWorldController**.
+Denetleyiciyi **Merhaba Dünya denetleyicisine**adlandırın.
 
-![MVC denetleyicisi ekleyin ve adlandırın](~/tutorials/first-mvc-app-mac/adding-controller/_static/ac.png)
+![MVC denetleyicisi ekleme ve adlandırma](~/tutorials/first-mvc-app-mac/adding-controller/_static/ac.png)
 
 ---
 
-Öğesinin içeriğini değiştirin *Controllers/HelloWorldController.cs* aşağıdaki:
+*Controllers/HelloWorldController. cs* içeriğini aşağıdakiler ile değiştirin:
 
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/HelloWorldController.cs?name=snippet_1)]
 
-Her `public` bir denetleyici yöntemi bir HTTP uç noktası olarak çağrılabilir. Yukarıdaki örnekte her iki yöntem bir dize döndürür. Her bir yöntemin önceki yorumlar unutmayın.
+Bir `public` denetleyicideki her yöntem bir HTTP uç noktası olarak çağrılabilir. Yukarıdaki örnekte her iki yöntem de bir dize döndürür. Her yöntemden önceki açıklamalara göz önüne alın.
 
-Web uygulamasındaki hedeflenebilir bir URL bir HTTP uç noktası olduğu gibi `https://localhost:5001/HelloWorld`ve kullanılan protokol birleştirir: `HTTPS`, (TCP bağlantı noktası dahil) web sunucusu ağ konumu: `localhost:5001` ve hedef URI `HelloWorld`.
+HTTP uç noktası, `https://localhost:5001/HelloWorld`gibi Web uygulamasındaki bir hedeflenebilir URL 'sidir ve `HTTPS`kullanılan protokolü, Web sunucusunun ağ konumunu (TCP bağlantı noktası dahil): `localhost:5001` ve hedef URI `HelloWorld`'yi birleştirir.
 
-İlk yorum durumları bu bir [HTTP GET](https://www.w3schools.com/tags/ref_httpmethods.asp) ekleyerek çağrılan yöntem `/HelloWorld/` temel URL'si. İkinci yorumu belirtir bir [HTTP GET](https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html) ekleyerek çağrılan yöntem `/HelloWorld/Welcome/` URL'si. Daha sonra öğreticide yapı iskelesi altyapısı oluşturmak için kullanılan `HTTP POST` verileri güncelleştirme yöntemleri.
+İlk açıklama bu, temel URL 'ye eklenerek `/HelloWorld/` çağrılan bir [http get](https://www.w3schools.com/tags/ref_httpmethods.asp) yöntemi olduğunu belirtir. İkinci açıklama URL 'ye eklenerek `/HelloWorld/Welcome/` çağrılan bir [http get](https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html) yöntemini belirtir. Öğreticide daha sonra, verileri güncelleştiren Yöntemler oluşturmak `HTTP POST` için scafkatlama altyapısı kullanılır.
 
-Uygulamayı hata ayıklama olmayan modda çalıştırın ve adres çubuğuna yoluna "HelloWorld" ekleyin. `Index` Yöntemi bir dize döndürür.
+Uygulamayı hata ayıklama modunda çalıştırın ve adres çubuğundaki yola "HelloWorld" ekleyin. `Index` Yöntemi bir dize döndürür.
 
-![Bu bir uygulama yanıtı gösteren tarayıcı penceresinde my varsayılan eylemi değildir](~/tutorials/first-mvc-app/adding-controller/_static/hell1.png)
+![Bu varsayılan eylemm olan uygulama yanıtını gösteren tarayıcı penceresi](~/tutorials/first-mvc-app/adding-controller/_static/hell1.png)
 
-MVC denetleyici sınıflarına (ve içlerindeki eylem yöntemleri) gelen URL bağlı olarak çağırır. Varsayılan [URL yönlendirme mantığı](xref:mvc/controllers/routing) MVC tarafından bu gibi bir biçim ne çağırmak için kod belirlemek için kullanır:
+MVC, gelen URL 'ye bağlı olarak denetleyici sınıflarını (ve içindeki eylem yöntemlerini) çağırır. MVC tarafından kullanılan varsayılan [URL yönlendirme mantığı](xref:mvc/controllers/routing) , çağrılacak kodu belirlemek için şöyle bir biçim kullanır:
 
 `/[Controller]/[ActionName]/[Parameters]`
 
-Yönlendirme biçimini ayarlama `Configure` yönteminde *Startup.cs* dosya.
+Yönlendirme biçimi `Configure` *Startup.cs* dosyasındaki yönteminde ayarlanır.
+
+[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie3/Startup.cs?name=snippet_1&highlight=5)]
+
+Uygulamaya gözatıp hiçbir URL kesimini sağlamadığınızda, varsayılan olarak "giriş" denetleyicisi ve yukarıda vurgulanan şablon satırında belirtilen "Dizin" yöntemi varsayılan olarak belirtilir.
+
+İlk URL segmenti, çalıştırılacak denetleyici sınıfını belirler. Bu `localhost:xxxx/HelloWorld` nedenle **HelloWorld**Controller sınıfıyla eşlenir. URL segmentinin ikinci bölümü, sınıfındaki Action metodunu belirler. Bu `localhost:xxxx/HelloWorld/Index` nedenle, `HelloWorldController` sınıfın `Index` yönteminin çalışmasına neden olur. Yalnızca göz atmanızı `localhost:xxxx/HelloWorld` `Index` ve yönteme varsayılan olarak çağrıldığına dikkat edin. Bunun nedeni `Index` , açıkça bir yöntem adı belirtilmemişse bir denetleyicide çağrılacak varsayılan yöntemdir. URL segmentinin ( `id`) üçüncü bölümü rota verileri içindir. Rota verileri öğreticide daha sonra açıklanmaktadır.
+
+konumuna gözatın `https://localhost:xxxx/HelloWorld/Welcome`. Yöntemi çalışır ve dizeyi `This is the Welcome action method...`döndürür. `Welcome` Bu URL için denetleyici `HelloWorld` , ve `Welcome` eylem yöntemidir. URL 'nin bir `[Parameters]` bölümünü henüz kullanmadınız.
+
+![Uygulamanın uygulama yanıtını gösteren tarayıcı penceresi, hoş geldiniz eylemi yöntemidir](~/tutorials/first-mvc-app/adding-controller/_static/welcome.png)
+
+URL 'den denetleyiciye bazı parametre bilgilerini geçirmek için kodu değiştirin. Örneğin: `/HelloWorld/Welcome?name=Rick&numtimes=4`. `Welcome` Yöntemi aşağıdaki kodda gösterildiği gibi iki parametre içerecek şekilde değiştirin.
+
+[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/HelloWorldController.cs?name=snippet_2)]
+
+Yukarıdaki kod:
+
+* Parametresi için C# hiçbir değer geçirilmemişse, `numTimes` parametrenin varsayılan olarak 1 ' e ait olduğunu belirtmek için isteğe bağlı parametre özelliğini kullanır. <!-- remove for simplified -->
+* Uygulamayı `HtmlEncoder.Default.Encode` kötü amaçlı girişten korumak için kullanır (yani JavaScript).
+* Içinde`$"Hello {name}, NumTimes is: {numTimes}"` [enterpolasyonlu dizeler](/dotnet/articles/csharp/language-reference/keywords/interpolated-strings) kullanır. <!-- remove for simplified -->
+
+Uygulamayı çalıştırın ve şu konuma gidin:
+
+   `https://localhost:xxxx/HelloWorld/Welcome?name=Rick&numtimes=4`
+
+(Xxxx değerini bağlantı noktası numaranız ile değiştirin.) URL 'de ve `name` `numtimes` için farklı değerler deneyebilirsiniz. MVC [model bağlama](xref:mvc/models/model-binding) sistemi, adlandırılmış parametreleri adres çubuğundaki sorgu dizesinden yöntemdeki parametrelere otomatik olarak eşler. Daha fazla bilgi için bkz. [model bağlama](xref:mvc/models/model-binding) .
+
+![Hello Rick uygulama yanıtını gösteren tarayıcı penceresi, NumTimes: 4](~/tutorials/first-mvc-app/adding-controller/_static/rick4.png)
+
+Yukarıdaki görüntüde,`Parameters`URL segmenti () kullanılmaz `name` , ve `numTimes` parametreleri [sorgu dizeleri](https://wikipedia.org/wiki/Query_string)olarak geçirilir. Yukarıdaki URL 'deki (soru işareti) bir ayırıcı ve sorgu dizeleri izler. `?` `&` Karakter Sorgu dizelerini ayırır.
+
+`Welcome` Yöntemini aşağıdaki kodla değiştirin:
+
+[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/HelloWorldController.cs?name=snippet_3)]
+
+Uygulamayı çalıştırın ve aşağıdaki URL 'YI girin:`https://localhost:xxx/HelloWorld/Welcome/3?name=Rick`
+
+Bu kez, üçüncü URL segmenti rota parametresiyle `id`eşleşti. Yöntemi, `MapControllerRoute` yöntemindeki URL şablonuyla `id` eşleşen bir parametre içerir. `Welcome` Sondaki `?` (içinde `id?`) `id` parametresinin isteğe bağlı olduğunu gösterir.
+
+[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie3/Startup.cs?name=snippet_1&highlight=5)]
+
+Bu örneklerde, denetleyici MVC 'nin "VC" bölümünü (yani, **V**IEW ve **C**) çalışır. Denetleyici HTML 'i doğrudan döndürüyor. Genellikle, bu, kod ve bakım için çok daha fazla hale geldiği için denetleyicilerin doğrudan HTML döndürmesini istemezsiniz. Bunun yerine, genellikle HTML yanıtı oluşturmak için ayrı bir Razor görünümü şablon dosyası kullanırsınız. Bunu bir sonraki öğreticide yapabilirsiniz.
+
+> [!div class="step-by-step"]
+> [Önceki](start-mvc.md)
+> [İleri](adding-view.md)
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
+
+Model-View-Controller (MVC) mimari modeli, bir uygulamayı üç ana bileşene ayırır: **M**odel, **V**IEW ve **C**ontroller. MVC deseninin daha kararlı ve geleneksel tek parçalı uygulamalardan güncelleştirilmesi daha kolay olan uygulamalar oluşturmanıza yardımcı olur. MVC tabanlı uygulamalar şunları içerir:
+
+* **A**odels: Uygulamanın verilerini temsil eden sınıflar. Model sınıfları, bu veriler için iş kurallarını zorlamak üzere doğrulama mantığını kullanır. Genellikle, model nesneleri bir veritabanında model durumunu alır ve saklar. Bu öğreticide, bir `Movie` model bir veritabanından film verileri alır, bunu görünüme sağlar veya güncelleştirir. Güncelleştirilmiş veriler bir veritabanına yazılır.
+
+* **V**ıews: Görünümler, uygulamanın kullanıcı arabirimini (UI) görüntüleyen bileşenlerdir. Genellikle, bu kullanıcı arabirimi model verilerini görüntüler.
+
+* **C**ontrolleyiciler: Tarayıcı isteklerini işleyen sınıflar. Model verileri alır ve yanıt döndüren çağrı görünümü şablonları. MVC uygulamasında, görünüm yalnızca bilgileri görüntüler; denetleyici, Kullanıcı girişini ve etkileşimini işler ve yanıtlar. Örneğin, denetleyici rota verilerini ve sorgu dizesi değerlerini işler ve bu değerleri modele geçirir. Model bu değerleri veritabanını sorgulamak için kullanabilir. Örneğin, `https://localhost:5001/Home/About` `Home` (denetleyici) ve `About` (ana denetleyicide çağrılacak eylem yöntemi) verilerinin yolunu içerir. `https://localhost:5001/Movies/Edit/5`filmi film denetleyicisi kullanarak, ID = 5 olan filmi düzenleme isteği. Rota verileri öğreticide daha sonra açıklanmaktadır.
+
+MVC deseninin uygulamanın farklı yönlerini (Giriş mantığı, iş mantığı ve Kullanıcı arabirimi mantığı) ayıran uygulamalar oluşturmanıza yardımcı olur. bu öğeler arasında gevşek bir bağ sağlanır. Bu model, her bir mantık türünün uygulamada nerede bulunması gerektiğini belirtir. Kullanıcı arabirimi mantığı görünüme aittir. Giriş mantığı denetleyiciye aittir. İş mantığı modele aittir. Bu ayrım, bir uygulama oluşturduğunuzda karmaşıklığın yönetilmesine yardımcı olur, çünkü uygulamanın bir tek tarafında, başka bir kodu etkilemeden bir kez çalışmanıza olanak sağlar. Örneğin, iş mantığı koduna bağlı kalmadan görünüm kodu üzerinde çalışabilirsiniz.
+
+Bu kavramları, bu öğretici serisinde ele alınmaktadır ve bir film uygulaması oluşturmak için nasıl kullanacağınızı gösterir. MVC projesi *denetleyiciler* ve *Görünümler*için klasörler içerir.
+
+## <a name="add-a-controller"></a>Denetleyici ekleme
+
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+
+* **Çözüm Gezgini**, denetleyiciler öğesine sağ tıklayın **> > denetleyicisi**
+  ![bağlamsal menü ekleyin](adding-controller/_static/add_controller.png)
+
+* **Yapı Iskelesi Ekle** iletişim kutusunda, **MVC denetleyicisi-boş** seçeneğini belirleyin
+
+  ![MVC denetleyicisi ekleme ve adlandırma](adding-controller/_static/ac.png)
+
+* **Boş MVC denetleyicisi Ekle iletişim kutusunda**, **Merhaba worldcontroller** yazın ve **Ekle**' yi seçin.
+
+# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+
+**Gezgin** simgesini seçin ve ardından **Yeni Dosya > denetleyiciler** ' i (sağ tıklayın) ve yeni dosyayı *HelloWorldController.cs*olarak adlandırın.
+
+  ![Bağlamsal menü](~/tutorials/first-mvc-app-xplat/adding-controller/_static/new_file.png)
+
+# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Mac için Visual Studio](#tab/visual-studio-mac)
+
+**Çözüm Gezgini**, denetleyiciler ' e sağ tıklayın **> yeni > dosya ekleyin**.
+![Bağlamsal menü](~/tutorials/first-mvc-app-mac/adding-controller/_static/add_controller.png)
+
+**ASP.NET Core** ve **MVC denetleyici sınıfı**' nı seçin.
+
+Denetleyiciyi **Merhaba Dünya denetleyicisine**adlandırın.
+
+![MVC denetleyicisi ekleme ve adlandırma](~/tutorials/first-mvc-app-mac/adding-controller/_static/ac.png)
+
+---
+
+*Controllers/HelloWorldController. cs* içeriğini aşağıdakiler ile değiştirin:
+
+[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/HelloWorldController.cs?name=snippet_1)]
+
+Bir `public` denetleyicideki her yöntem bir HTTP uç noktası olarak çağrılabilir. Yukarıdaki örnekte her iki yöntem de bir dize döndürür. Her yöntemden önceki açıklamalara göz önüne alın.
+
+HTTP uç noktası, `https://localhost:5001/HelloWorld`gibi Web uygulamasındaki bir hedeflenebilir URL 'sidir ve `HTTPS`kullanılan protokolü, Web sunucusunun ağ konumunu (TCP bağlantı noktası dahil): `localhost:5001` ve hedef URI `HelloWorld`'yi birleştirir.
+
+İlk açıklama bu, temel URL 'ye eklenerek `/HelloWorld/` çağrılan bir [http get](https://www.w3schools.com/tags/ref_httpmethods.asp) yöntemi olduğunu belirtir. İkinci açıklama URL 'ye eklenerek `/HelloWorld/Welcome/` çağrılan bir [http get](https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html) yöntemini belirtir. Öğreticide daha sonra, verileri güncelleştiren Yöntemler oluşturmak `HTTP POST` için scafkatlama altyapısı kullanılır.
+
+Uygulamayı hata ayıklama modunda çalıştırın ve adres çubuğundaki yola "HelloWorld" ekleyin. `Index` Yöntemi bir dize döndürür.
+
+![Bu varsayılan eylemm olan uygulama yanıtını gösteren tarayıcı penceresi](~/tutorials/first-mvc-app/adding-controller/_static/hell1.png)
+
+MVC, gelen URL 'ye bağlı olarak denetleyici sınıflarını (ve içindeki eylem yöntemlerini) çağırır. MVC tarafından kullanılan varsayılan [URL yönlendirme mantığı](xref:mvc/controllers/routing) , çağrılacak kodu belirlemek için şöyle bir biçim kullanır:
+
+`/[Controller]/[ActionName]/[Parameters]`
+
+Yönlendirme biçimi `Configure` *Startup.cs* dosyasındaki yönteminde ayarlanır.
 
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Startup.cs?name=snippet_1&highlight=5)]
 
@@ -87,46 +203,48 @@ Add link to explain lambda.
 Remove link for simplified tutorial.
 -->
 
-Uygulamaya göz atma ve herhangi bir URL kesimleri kaynağı yok, "Home" denetleyiciye varsayılanlar ve "Index" yöntem yukarıda vurgulanmış olan şablon satırında belirtilen.
+Uygulamaya gözatıp hiçbir URL kesimini sağlamadığınızda, varsayılan olarak "giriş" denetleyicisi ve yukarıda vurgulanan şablon satırında belirtilen "Dizin" yöntemi varsayılan olarak belirtilir.
 
-İlk URL kesimini çalıştırmak için denetleyici sınıfını belirler. Bu nedenle `localhost:xxxx/HelloWorld` eşlendiği `HelloWorldController` sınıfı. URL kesimi ikinci bölümü sınıfı eylem yöntemine belirler. Bu nedenle `localhost:xxxx/HelloWorld/Index` neden `Index` yöntemi `HelloWorldController` çalıştırmak için sınıf. Yalnızca gözatmak için olan bildirim `localhost:xxxx/HelloWorld` ve `Index` yöntemi varsayılan olarak çağrıldı. Bunun nedeni, `Index` bir yöntem adı açıkça belirtilmezse, bir denetleyicisinde çağrılacak için varsayılan yöntemdir. URL kesimi üçüncü bölümü ( `id`) için rota veri. Rota verileri, öğreticinin ilerleyen bölümlerinde açıklanmıştır.
+İlk URL segmenti, çalıştırılacak denetleyici sınıfını belirler. Bu `localhost:xxxx/HelloWorld` nedenle, `HelloWorldController` sınıfıyla eşlenir. URL segmentinin ikinci bölümü, sınıfındaki Action metodunu belirler. Bu `localhost:xxxx/HelloWorld/Index` nedenle, `HelloWorldController` sınıfın `Index` yönteminin çalışmasına neden olur. Yalnızca göz atmanızı `localhost:xxxx/HelloWorld` `Index` ve yönteme varsayılan olarak çağrıldığına dikkat edin. Bunun nedeni `Index` , açıkça bir yöntem adı belirtilmemişse bir denetleyicide çağrılacak varsayılan yöntemdir. URL segmentinin ( `id`) üçüncü bölümü rota verileri içindir. Rota verileri öğreticide daha sonra açıklanmaktadır.
 
-konumuna gözatın `https://localhost:xxxx/HelloWorld/Welcome`. `Welcome` Yöntemi çalışır ve bir dize döndürür `This is the Welcome action method...`. Bu URL için denetleyicisidir `HelloWorld` ve `Welcome` eylem yöntemi. Kullanmadığınız `[Parameters]` henüz URL parçası.
+konumuna gözatın `https://localhost:xxxx/HelloWorld/Welcome`. Yöntemi çalışır ve dizeyi `This is the Welcome action method...`döndürür. `Welcome` Bu URL için denetleyici `HelloWorld` , ve `Welcome` eylem yöntemidir. URL 'nin bir `[Parameters]` bölümünü henüz kullanmadınız.
 
-![Bu bir uygulama yanıtı gösteren tarayıcı penceresi olan Hoş Geldiniz eylem yöntemi](~/tutorials/first-mvc-app/adding-controller/_static/welcome.png)
+![Uygulamanın uygulama yanıtını gösteren tarayıcı penceresi, hoş geldiniz eylemi yöntemidir](~/tutorials/first-mvc-app/adding-controller/_static/welcome.png)
 
-Bazı parametre bilgileri URL'den denetleyiciye geçirmek için kodu değiştirin. Örneğin: `/HelloWorld/Welcome?name=Rick&numtimes=4`. Değişiklik `Welcome` aşağıdaki kodda gösterildiği gibi iki parametre eklemek için yöntemi.
+URL 'den denetleyiciye bazı parametre bilgilerini geçirmek için kodu değiştirin. Örneğin: `/HelloWorld/Welcome?name=Rick&numtimes=4`. `Welcome` Yöntemi aşağıdaki kodda gösterildiği gibi iki parametre içerecek şekilde değiştirin.
 
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/HelloWorldController.cs?name=snippet_2)]
 
 Yukarıdaki kod:
 
-* C# isteğe bağlı parametre özelliği belirtmek için kullanılan `numTimes` parametre varsayılan olarak 1 için bu parametre için değer iletilmezse. <!-- remove for simplified -->
-* Kullanan `HtmlEncoder.Default.Encode` kötü amaçlı giriş (yani, JavaScript) uygulama korumak için.
-* Kullanan [Ara değerli dizeler](/dotnet/articles/csharp/language-reference/keywords/interpolated-strings) içinde `$"Hello {name}, NumTimes is: {numTimes}"`. <!-- remove for simplified -->
+* Parametresi için C# hiçbir değer geçirilmemişse, `numTimes` parametrenin varsayılan olarak 1 ' e ait olduğunu belirtmek için isteğe bağlı parametre özelliğini kullanır. <!-- remove for simplified -->
+* Uygulamayı `HtmlEncoder.Default.Encode` kötü amaçlı girişten korumak için kullanır (yani JavaScript).
+* Içinde`$"Hello {name}, NumTimes is: {numTimes}"` [enterpolasyonlu dizeler](/dotnet/articles/csharp/language-reference/keywords/interpolated-strings) kullanır. <!-- remove for simplified -->
 
-Uygulamayı çalıştırın ve göz atın:
+Uygulamayı çalıştırın ve şu konuma gidin:
 
    `https://localhost:xxxx/HelloWorld/Welcome?name=Rick&numtimes=4`
 
-(Xxxx, bağlantı noktası numarasıyla değiştirin.) İçin farklı değerler deneyebilirsiniz `name` ve `numtimes` URL. MVC [model bağlama](xref:mvc/models/model-binding) sistem yönteminizi parametrelerinde adres çubuğundaki Sorgu dizesinden adlandırılmış parametreleri otomatik olarak eşlenir. Bkz: [Model bağlama](xref:mvc/models/model-binding) daha fazla bilgi için.
+(Xxxx değerini bağlantı noktası numaranız ile değiştirin.) URL 'de ve `name` `numtimes` için farklı değerler deneyebilirsiniz. MVC [model bağlama](xref:mvc/models/model-binding) sistemi, adlandırılmış parametreleri adres çubuğundaki sorgu dizesinden yöntemdeki parametrelere otomatik olarak eşler. Daha fazla bilgi için bkz. [model bağlama](xref:mvc/models/model-binding) .
 
-![Bir uygulama yanıtı Hello Rick NumTimes gösteren tarayıcı penceresinde: 4](~/tutorials/first-mvc-app/adding-controller/_static/rick4.png)
+![Hello Rick uygulama yanıtını gösteren tarayıcı penceresi, NumTimes: 4](~/tutorials/first-mvc-app/adding-controller/_static/rick4.png)
 
-URL kesimi yukarıdaki görüntüde (`Parameters`) kullanılmaz, `name` ve `numTimes` parametreleri olarak geçirilir [sorgu dizeleri](https://wikipedia.org/wiki/Query_string). `?` (Soru işareti) ayırıcı yukarıdaki URL'ye olduğu ve sorgu dizelerini izleyin. `&` Karakter sorgu dizeleri ayırır.
+Yukarıdaki görüntüde,`Parameters`URL segmenti () kullanılmaz `name` , ve `numTimes` parametreleri [sorgu dizeleri](https://wikipedia.org/wiki/Query_string)olarak geçirilir. Yukarıdaki URL 'deki (soru işareti) bir ayırıcı ve sorgu dizeleri izler. `?` `&` Karakter Sorgu dizelerini ayırır.
 
-Değiştirin `Welcome` yöntemini aşağıdaki kod ile:
+`Welcome` Yöntemini aşağıdaki kodla değiştirin:
 
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/HelloWorldController.cs?name=snippet_3)]
 
-Uygulamayı çalıştırın ve aşağıdaki URL'yi girin: `https://localhost:xxx/HelloWorld/Welcome/3?name=Rick`
+Uygulamayı çalıştırın ve aşağıdaki URL 'YI girin:`https://localhost:xxx/HelloWorld/Welcome/3?name=Rick`
 
-Bu süre üçüncü URL kesimini eşleşen bir rota parametresini `id`. `Welcome` Yöntemi içeren bir parametre `id` URL şablonda eşleşen `MapRoute` yöntemi. Sondaki `?` (içinde `id?`) gösteren `id` parametresi isteğe bağlıdır.
+Bu kez, üçüncü URL segmenti rota parametresiyle `id`eşleşti. Yöntemi, `MapRoute` yöntemindeki URL şablonuyla `id` eşleşen bir parametre içerir. `Welcome` Sondaki `?` (içinde `id?`) `id` parametresinin isteğe bağlı olduğunu gösterir.
 
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Startup.cs?name=snippet_1&highlight=5)]
 
-Bu örneklerde denetleyici MVC "VC" kısmını yapmak - diğer bir deyişle, denetleyici ve görünüm iş. Denetleyici HTML doğrudan döndürüyor. Genellikle, kod ve sürdürmek için çok kullanışsız olur beri HTML doğrudan döndürerek denetleyicileri istemezsiniz. Bunun yerine, genellikle ayrı bir Razor görünüm şablon dosyası HTML yanıtı oluşturmak için kullanın. Sonraki öğreticide bunu.
+Bu örneklerde, denetleyici MVC 'nin "VC" bölümünü (yani, görünüm ve denetleyici çalışır) yapıyor. Denetleyici HTML 'i doğrudan döndürüyor. Genellikle, bu, kod ve bakım için çok daha fazla hale geldiği için denetleyicilerin doğrudan HTML döndürmesini istemezsiniz. Bunun yerine, genellikle HTML yanıtı oluşturmaya yardımcı olması için ayrı bir Razor görünümü şablon dosyası kullanırsınız. Bunu bir sonraki öğreticide yapabilirsiniz.
 
 > [!div class="step-by-step"]
 > [Önceki](start-mvc.md)
 > [İleri](adding-view.md)
+
+::: moniker-end
