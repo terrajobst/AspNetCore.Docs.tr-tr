@@ -1,63 +1,63 @@
 ---
 title: ASP.NET Core MVC’ye Genel Bakış
 author: ardalis
-description: ASP.NET Core MVC web uygulamaları oluşturmaya yönelik zengin bir altyapı nasıl olduğunu öğrenin ve API'leri kullanarak Model-View-Controller tasarım deseni.
+description: ASP.NET Core MVC 'nin, Model-View-Controller tasarım modelini kullanarak Web uygulamaları ve API 'Ler oluşturmak için zengin bir çatı olduğunu öğrenin.
 ms.author: riande
-ms.date: 01/08/2018
+ms.date: 08/01/2019
 uid: mvc/overview
-ms.openlocfilehash: 819bc93a7580626bf586b984b0ce169306df56d9
-ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
+ms.openlocfilehash: 7f09751850cbfa7bb3dc79656d4530445a9767b1
+ms.sourcegitcommit: 3204bc89ae6354b61ee0a9b2770ebe5214b7790c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67815350"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68707816"
 ---
 # <a name="overview-of-aspnet-core-mvc"></a>ASP.NET Core MVC’ye Genel Bakış
 
-Tarafından [Steve Smith](https://ardalis.com/)
+[Steve Smith](https://ardalis.com/) tarafından
 
-ASP.NET Core MVC web uygulamaları oluşturmaya yönelik zengin bir altyapı olan ve API'leri kullanarak Model-View-Controller tasarım deseni.
+ASP.NET Core MVC, Model-View-Controller tasarım modelini kullanarak Web uygulamaları ve API 'Ler oluşturmaya yönelik zengin bir çerçevedir.
 
-## <a name="what-is-the-mvc-pattern"></a>MVC düzeni nedir?
+## <a name="what-is-the-mvc-pattern"></a>MVC deseninin anlamı nedir?
 
-Model-View-Controller (MVC) tasarım örüntüsü, uygulamanın üç ana bileşenleri gruplar halinde ayırır: Modelleri, görünümleri ve denetleyicileri. Bu düzen, elde yardımcı olur [görev ayrımı nettir](/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#separation-of-concerns). Bu düzeni kullanmak, kullanıcı isteklerini, kullanıcı eylemlerini gerçekleştirmek ve/veya sorguların sonuçlarını almak için modeli ile çalışmak için sorumlu denetleyicisi yönlendirilir. Denetleyici kullanıcıya görüntülenecek görünüm seçer ve gerektirdiği modeli verilerle sağlar.
+Model-View-Controller (MVC) mimari modeli, bir uygulamayı üç ana bileşen grubuna ayırır: Modeller, görünümler ve denetleyiciler. Bu model [, kaygıları ayrımı](/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#separation-of-concerns)elde etmeye yardımcı olur. Bu modeli kullanarak Kullanıcı istekleri, kullanıcı eylemlerini gerçekleştirmek ve/veya sorguların sonuçlarını almak için modeliyle çalışmaktan sorumlu bir denetleyiciye yönlendirilir. Denetleyici, kullanıcıya görüntülenecek görünümü seçer ve gereken model verilerini sağlar.
 
-Aşağıdaki diyagramda üç ana bileşenleri gösterilmektedir ve hangilerinin diğer başvuru:
+Aşağıdaki diyagramda üç ana bileşen gösterilmektedir ve bunlar diğerlerine başvuramazlar:
 
-![MVC düzeni](overview/_static/mvc.png)
+![MVC kalıbı](overview/_static/mvc.png)
 
-Bu kabul edilebilir açıklıkta sorumlulukları karmaşıklık açısından uygulama kodu, hata ayıklama ve sorun (model, görünüm veya denetleyicisi) tek bir iş olan test etmek daha kolay ölçeklendirme yardımcı olur. Bu güncelleştirme, test ve iki veya daha fazlası üç bu alanlar arasında yayılabilir bağımlılıkları olan hata ayıklama kodu daha zordur. Örneğin, kullanıcı arabirimi mantığı, iş mantığı daha sık değiştirmek için eğilimi gösterir. Sunu kod ve iş mantığı tek bir nesnede birleştirildiğinde, kullanıcı arabirimi her değiştiğinde iş mantığı içeren bir nesne değiştirilmesi gerekir. Bu genellikle hataları sunar ve iş mantığı her en düşük kullanıcı arabirimi değişiklikten sonra çözülüp gerektirir.
+Bu sorumlulukların bu şekilde çıkarılması, tek bir işi olan bir şeyi (model, görünüm veya denetleyici) kodlanmasını, hata ayıklamayı ve test etmek daha kolay olduğundan, uygulamayı karmaşıklık bakımından ölçeklendirmenize yardımcı olur. Bu üç alandan oluşan iki veya daha fazla bağımlılığı kapsayan bağımlılıklara sahip kodu güncelleştirmek, test etmek ve hata ayıklamak daha zordur. Örneğin, Kullanıcı arabirimi mantığı iş mantığından daha sık değişmeyi eğilimi gösterir. Sunum kodu ve iş mantığı tek bir nesnede birleştirilirse, Kullanıcı arabirimi her değiştirildiğinde iş mantığı içeren bir nesne değiştirilmelidir. Bu genellikle hataları tanıtır ve her bir en az kullanıcı arabirimi değişikliğinden sonra iş mantığının yeniden test edilmesini gerektirir.
 
 > [!NOTE]
-> Hem görünümü hem de denetleyicisi modeline bağlıdır. Ancak, model, görünüm ne denetleyici bağlıdır. Bu, ayrımı başlıca avantajlarından biridir. Bu ayrım modeli oluşturulan test edilmiş ve görsel sunumunu bağımsız sağlar.
+> Hem görünüm hem de denetleyici modele bağlıdır. Ancak, model ne görünüm ne de yoksa denetleyiciye bağlıdır. Bu, ayrımı önemli avantajlarından biridir. Bu ayrım, modelin görsel sunudan bağımsız olarak oluşturulup test etmesine olanak tanır.
 
 ### <a name="model-responsibilities"></a>Model sorumlulukları
 
-Bir MVC uygulamasında Model, uygulama ve iş mantığı veya tarafından yapılması gereken işlemlerin durumunu temsil eder. İş mantığı modelde, uygulamanın durumunu kalıcı hale getirmeniz için herhangi bir uygulama mantığı ile birlikte kapsüllenmiş. Kesin türü belirtilmiş görünümler, verileri içerecek şekilde tasarlanmış ViewModel türleri genellikle bu görünümde göstermek için kullanın. Denetleyici oluşturur ve bu ViewModel örnekler modelinden doldurur.
+MVC uygulamasındaki model, uygulamanın durumunu ve bunun gerçekleştirilmesi gereken tüm iş mantığını veya işlemlerini temsil eder. İş mantığı, uygulamanın durumunu kalıcı hale getirme için herhangi bir uygulama mantığıyla birlikte, modelde kapsüllenmelidir. Türü kesin belirlenmiş görünümler genellikle bu görünümde görüntülenecek verileri içerecek şekilde tasarlanan ViewModel türlerini kullanır. Denetleyici bu ViewModel örneklerini modelden oluşturur ve doldurur.
 
-### <a name="view-responsibilities"></a>Görünümünü Sorumluluklar
+### <a name="view-responsibilities"></a>Sorumlulukları görüntüle
 
-Görünümler kullanıcı arabirimi aracılığıyla içerik sunmak için sorumlu olursunuz. Kullandıkları [Razor görünüm altyapısı](#razor-view-engine) HTML biçimlendirmesini ekleme .NET kodu için. Görünümler içinde en az bir mantıksal olmalıdır ve bunlara herhangi bir mantık içerik sunmak için sebeple ilişkili olmalıdır. Harika bir fırsat mantığı görünümde gerçekleştirmek için gereken dosyaları bir karmaşık modeli verileri görüntülemek için fark ederseniz, kullanmayı bir [görünümü bileşen](views/view-components.md), ViewModel, ya da görünümü basitleştirmek için şablonu görüntüle.
+Görünümler, kullanıcı arabiriminden içerik sunmadan sorumludur. .NET kodunu HTML biçimlendirmesine eklemek için [Razor görüntüleme altyapısını](#razor-view-engine) kullanırlar. Görünümler içinde en az mantık olmalıdır ve içerdikleri tüm mantığın içerik sunumu ile ilişkilendirilmesi gerekir. Karmaşık bir modelden veri görüntülemek için dosyaları görüntüle bölümünde harika bir mantık kullanımı gereksinimini fark ederseniz, görünümü basitleştirmek için bir [Görünüm bileşeni](views/view-components.md), ViewModel veya görünüm şablonu kullanmayı düşünün.
 
 ### <a name="controller-responsibilities"></a>Denetleyici sorumlulukları
 
-Denetleyicileri, kullanıcı etkileşimi işlemek, modelle çalışan ve sonuç olarak işlemek için bir görünüm seçin bileşenlerdir. Bir MVC uygulamasında, görünüm yalnızca bilgileri görüntüler; Denetleyici, işler ve kullanıcı girişini ve etkileşimini yanıt verir. MVC örüntüsü, denetleyici ilk giriş noktasıdır ve hangi modelle çalışmak için türleri ve işlemek için hangi görünümün seçmek için sorumludur (Bu nedenle adını - denetimleri uygulama için belirtilen bir isteğin nasıl yanıt vereceğini).
+Denetleyiciler, kullanıcı etkileşimini işleyen, modeliyle çalışan ve sonunda işlenecek bir görünüm olan bileşenleridir. MVC uygulamasında, görünüm yalnızca bilgileri görüntüler; denetleyici, Kullanıcı girişini ve etkileşimini işler ve yanıtlar. MVC modelinde, denetleyici ilk giriş noktasıdır ve hangi model türlerinin birlikte çalışacağını ve hangi görünümün işleneceğini seçmekten sorumludur (Bu nedenle adı, uygulamanın belirli bir istek için nasıl yanıt verdiğini denetler).
 
 > [!NOTE]
-> Denetleyicileri, çok fazla sorumluluklara göre aşırı karmaşık olmamalıdır. Fazla karmaşık hale gelmesini denetleyicisi mantıksal tutmak için iş mantığı denetleyicisi dışında ve etki alanı modeline gönderin.
+> Denetleyiciler çok fazla sorumluluk tarafından aşırı karmaşık olmamalıdır. Denetleyici mantığının aşırı karmaşık hale gelmesini sağlamak için, denetleyiciden ve etki alanı modeline kadar iş mantığı gönderin.
 
 >[!TIP]
-> Denetleyici eylemleri sık aynı tür eylemler gerçekleştirmek bulursanız, bu ortak Eylemler içine Taşı [filtreleri](#filters).
+> Denetleyici eylemlerinizin aynı tür eylemleri sıklıkla gerçekleştirmesini fark ederseniz, bu ortak eylemleri [filtrelere](#filters)taşıyın.
 
-## <a name="what-is-aspnet-core-mvc"></a>ASP.NET Core MVC nedir
+## <a name="what-is-aspnet-core-mvc"></a>ASP.NET Core MVC nedir?
 
-ASP.NET Core MVC, bir basit, açık kaynaklı bir ASP.NET Core ile kullanılmak için iyileştirilmiş yüksek düzeyde sınanabilir bir sunu çerçevesidir çerçevedir.
+ASP.NET Core MVC çerçevesi, ASP.NET Core birlikte kullanılmak üzere en iyi duruma getirilmiş hafif, açık kaynaklı ve yüksek düzeyde bir sunum çerçevesidir.
 
-ASP.NET Core MVC, ilgilenilecek alanların temiz bir biçimde ayrılmasını sağlayan dinamik Web siteleri oluşturmak için desen tabanlı bir yöntem sağlar. İşaretleme üzerinde tam denetim verir, TDD kullanımı kolay geliştirme destekler ve en son web standartlarını kullanır.
+ASP.NET Core MVC, sorunların temiz bir şekilde ayrılmasını sağlayan dinamik Web siteleri oluşturmak için desen tabanlı bir yol sağlar. Biçimlendirme üzerinde tam denetim elde etmenizi sağlar, TDD kullanımı kolay geliştirmeyi destekler ve en son web standartlarını kullanır.
 
 ## <a name="features"></a>Özellikler
 
-ASP.NET Core MVC aşağıdakileri içerir:
+ASP.NET Core MVC şunları içerir:
 
 * [Yönlendirme](#routing)
 * [Model bağlama](#model-binding)
@@ -65,48 +65,48 @@ ASP.NET Core MVC aşağıdakileri içerir:
 * [Bağımlılık ekleme](../fundamentals/dependency-injection.md)
 * [Filtreler](#filters)
 * [Alanlar](#areas)
-* [Web API'leri](#web-apis)
-* [Test Edilebilirlik](#testability)
-* [Razor görünüm altyapısı](#razor-view-engine)
-* [Kesin türü belirtilmiş görünümler](#strongly-typed-views)
+* [Web API 'Leri](#web-apis)
+* [Test edilebilirlik](#testability)
+* [Razor Görünüm altyapısı](#razor-view-engine)
+* [Türü kesin belirlenmiş görünümler](#strongly-typed-views)
 * [Etiket Yardımcıları](#tag-helpers)
-* [Görünüm bileşenleri](#view-components)
+* [Bileşenleri görüntüle](#view-components)
 
 ### <a name="routing"></a>Yönlendirme
 
-ASP.NET Core MVC üzerine kurulmuştur [ASP.NET Core'nın Yönlendirme](../fundamentals/routing.md), olanak tanıyan güçlü bir URL eşlemesi bileşeni, anlaşılabilir ve aranabilir URL'lere sahip uygulamalar oluşturun. Bu, web sunucunuzdaki dosyaları nasıl düzenlendiği için bakmadan bağlantı oluşturma ve arama motoru iyileştirmesi (SEO) için iyi iş uygulamanızın URL adlandırma modelleri tanımlamanıza olanak sağlar. Rota değeri kısıtlamaları, Varsayılanları ve isteğe bağlı değerler destekleyen bir kullanışlı bir yol şablonu söz dizimini kullanarak yollarınızı tanımlayabilirsiniz.
+ASP.NET Core MVC, gelişmiş ve aranabilir URL 'Ler içeren uygulamalar oluşturmanıza olanak tanıyan güçlü bir URL eşleme bileşeni olan [ASP.NET Core yönlendirmenin](../fundamentals/routing.md)üzerine kurulmuştur. Bu, uygulamanızın URL adlandırma düzenlerini, Web sunucunuzdaki dosyaların nasıl düzenleneceğine bakılmaksızın, arama motoru iyileştirmesi (SEO) ve bağlantı oluşturma için iyi bir şekilde tanımlamanıza olanak sağlar. Yol değer kısıtlamalarını, Varsayılanları ve isteğe bağlı değerleri destekleyen uygun bir yol şablonu sözdizimi kullanarak rotalarınızı tanımlayabilirsiniz.
 
-*Kural tabanlı yönlendirme* genel URL tanımlamanızı biçimleri sağlar, uygulamanızın kabul eder ve her birini nasıl biçimlendirir belirli bir eylem yöntemine üzerinde denetleyici eşler. Gelen bir istek alındığında, yönlendirme altyapısını URL ayrıştırır ve tanımlanmış URL biçimlerinden biri kendisine eşleşir ve ardından ilişkili denetleyicinin eylem yöntemini çağırır.
+*Kural tabanlı yönlendirme* , uygulamanızın kabul ettiği URL biçimlerini ve bu biçimlerin her birinin verilen denetleyicide belirli bir eylem yöntemiyle nasıl eşlendiğini genel olarak tanımlamanızı sağlar. Gelen bir istek alındığında, yönlendirme altyapısı URL 'YI ayrıştırır ve tanımlanan URL biçimlerinden biriyle eşleştirir ve ardından ilişkili denetleyicinin eylem yöntemini çağırır.
 
 ```csharp
 routes.MapRoute(name: "Default", template: "{controller=Home}/{action=Index}/{id?}");
 ```
 
-*Öznitelik yönlendirme* denetleyici ve Eylemler, uygulamanızın yollar tanımlayan öznitelikleri ile tasarlayarak yönlendirme bilgilerini belirtmenize olanak sağlar. Başka bir deyişle, denetleyici ve eylem ile ilişkili oldukları yanındaki rota tanımlarınızı yerleştirilir.
+*Öznitelik yönlendirme* , denetleyicilerinizi ve eylemlerinizi uygulamanızın yollarını tanımlayan özniteliklerle süsleyerek yönlendirme bilgilerini belirtmenizi sağlar. Bu, yol tanımlarınızın ilişkili oldukları denetleyicinin ve eylemin yanına yerleştirildiği anlamına gelir.
 
 ```csharp
 [Route("api/[controller]")]
 public class ProductsController : Controller
 {
-  [HttpGet("{id}")]
-  public IActionResult GetProduct(int id)
-  {
-    ...
-  }
+    [HttpGet("{id}")]
+    public IActionResult GetProduct(int id)
+    {
+      ...
+    }
 }
 ```
 
 ### <a name="model-binding"></a>Model bağlama
 
-ASP.NET Core MVC [model bağlama](models/model-binding.md) istemci isteği verilerini (form değerleri, rota verileri, sorgu dizesi parametreleri, HTTP üst bilgileri) denetleyicisi işleyebileceği nesnelerine dönüştürür. Sonuç olarak, denetleyici mantığınızı gelen istek verileri başarınızda yapması gerekmez; yalnızca kendi eylem yöntemlerine parametre olarak veri yok.
+ASP.NET Core MVC [model bağlama](models/model-binding.md) , istemci isteği verilerini (form değerleri, rota verileri, sorgu dizesi PARAMETRELERI, http üstbilgileri) denetleyicinin işleyebileceği nesnelere dönüştürür. Sonuç olarak, denetleyici mantığınızın gelen istek verilerini oluşturma işini yapması gerekmez; Yalnızca Eylem yöntemlerine parametre olarak verileri içerir.
 
 ```csharp
 public async Task<IActionResult> Login(LoginViewModel model, string returnUrl = null) { ... }
-   ```
+```
 
 ### <a name="model-validation"></a>Model doğrulaması
 
-ASP.NET Core MVC destekler [doğrulama](models/validation.md) modeli nesnenizle veri ek açıklama doğrulama özniteliklerinin dekorasyon olarak. Doğrulama özniteliklerinin değerleri sunucuya gönderilen önce istemci tarafında denetlenir yanı denetleyici eylemini önce sunucu üzerinde çağrılır.
+ASP.NET Core MVC, model nesneniz veri ek açıklaması doğrulama öznitelikleriyle süsleyerek [doğrulamayı](models/validation.md) destekler. Doğrulama öznitelikleri, değerler sunucuya gönderilmeden önce istemci tarafında ve denetleyici eylemi çağrılmadan önce sunucuda denetlenir.
 
 ```csharp
 using System.ComponentModel.DataAnnotations;
@@ -139,16 +139,17 @@ public async Task<IActionResult> Login(LoginViewModel model, string returnUrl = 
 }
 ```
 
-Çerçeve doğrulama isteği verileri istemci ve sunucu işler. Belirtilen model türleri üzerinde doğrulama mantığı işlenmiş görünüm örtük ek açıklamaları olarak eklenir ve tarayıcı ile zorlanır [jQuery doğrulaması](https://jqueryvalidation.org/).
+Çerçeve, istek verilerini hem istemcide hem de sunucuda doğrulamayı işler. Model türlerinde belirtilen doğrulama mantığı, işlenen görünümlere obtrusive ek açıklamaları olarak eklenir ve [jQuery doğrulaması](https://jqueryvalidation.org/)ile tarayıcıda zorlanır.
 
 ### <a name="dependency-injection"></a>Bağımlılık ekleme
 
-ASP.NET Core için yerleşik desteği vardır [bağımlılık ekleme (dı)](../fundamentals/dependency-injection.md). ASP.NET Core MVC, [denetleyicileri](controllers/dependency-injection.md) istek gerekli hizmetleri aracılığıyla bunları izlemek izin verme oluşturucuları, [açık bağımlılıkları ilkesine](/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#explicit-dependencies).
+ASP.NET Core, [bağımlılık ekleme (dı)](../fundamentals/dependency-injection.md)için yerleşik desteğe sahiptir. ASP.NET Core MVC 'de, [denetleyiciler](controllers/dependency-injection.md) oluşturucuları aracılığıyla gerekli hizmetleri talep edebilir ve bu kullanıcıların [Açık bağımlılıklar ilkesini](/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#explicit-dependencies)izleyebilmesine olanak tanır.
 
-Uygulamanızı kullanabilirsiniz [görünümünde bağımlılık ekleme dosyaları](views/dependency-injection.md)kullanarak `@inject` yönergesi:
+Uygulamanız Ayrıca, `@inject` yönergeyi [görüntüleme dosyalarını kullanarak bağımlılık ekleme](views/dependency-injection.md)işlemini de kullanabilir:
 
 ```cshtml
 @inject SomeService ServiceName
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -162,7 +163,7 @@ Uygulamanızı kullanabilirsiniz [görünümünde bağımlılık ekleme dosyalar
 
 ### <a name="filters"></a>FilTReleri
 
-[Filtreler](controllers/filters.md) özel durum işleme veya yetkilendirme gibi çapraz kesme konuları kapsülleyen geliştiricilerin yardımcı. Filtreleri eylem yöntemleri için çalışan özel öncesi ve sonrası işleme mantığı etkinleştirmek ve belirli bir istek için yürütme işlem hattı içindeki bazı noktalarda çalıştırmak için yapılandırılabilir. Filtreler denetleyicileri veya öznitelikleri eylemleri uygulanabilir (veya genel olarak çalıştırılabilir). Birkaç filtreleri (gibi `Authorize`) Framework'e dahil edilen. `[Authorize]` MVC yetkilendirme filtrelerini oluşturmak için kullanılan özniteliğidir.
+[Filtreler](controllers/filters.md) , geliştiricilerin özel durum işleme veya yetkilendirme gibi çapraz sorunları yalıtmalarına yardımcı olur. Filtreler, eylem yöntemleri için özel ön ve son işlem dışı mantığı çalıştırmayı etkinleştirir ve belirli bir istek için yürütme işlem hattının içindeki belirli noktalarda çalışacak şekilde yapılandırılabilir. Filtreler, denetleyicilere veya eylemlere öznitelik olarak uygulanabilir (veya küresel olarak çalıştırılabilir). Birçok filtre ( `Authorize`gibi) çerçeveye dahil edilir. `[Authorize]`, MVC yetkilendirme filtrelerini oluşturmak için kullanılan özniteliktir.
 
 ```csharp
 [Authorize]
@@ -171,39 +172,39 @@ public class AccountController : Controller
 
 ### <a name="areas"></a>Alanlar
 
-[Alanları](controllers/areas.md) büyük bir ASP.NET Core MVC Web uygulaması işlevsel gruplamalarda daha küçük bölümlere ayırmak için bir yol sağlar. Bir alan, bir uygulama içinde bir MVC yapısıdır. Bir MVC projesi mantıksal bileşenler modeli, denetleyici ve görünüm gibi farklı klasörlerde tutulur ve MVC bu bileşenler arasındaki ilişki oluşturmak için adlandırma kuralları kullanır. Büyük bir uygulama için ayrı yüksek düzey alanlarına işlev uygulamasını bölümleme için yararlı olabilir. Örneğin, bir e-ticaret uygulamayla kullanıma alma ve faturalandırma arama vb. gibi birden çok iş birimleri. Bu birimlerin her biri kendi mantıksal bileşen görünümleri, denetleyicilere ve modelleri sahip.
+[Bölgeler](controllers/areas.md) , büyük BIR ASP.NET Core MVC web uygulamasını daha küçük işlevsel gruplandırmalar halinde bölümlemek için bir yol sağlar. Bir alan, bir uygulamanın içindeki bir MVC yapısıdır. MVC projesinde model, denetleyici ve görünüm gibi mantıksal bileşenler farklı klasörlerde tutulur ve MVC bu bileşenler arasındaki ilişkiyi oluşturmak için adlandırma kurallarını kullanır. Büyük bir uygulama için, uygulamayı işlevlerin ayrı üst düzey alanlarında bölümlemek avantajlı olabilir. Örneğin, kullanıma alma, faturalandırma ve arama gibi birden çok iş birimi içeren bir e-ticaret uygulaması. Bu birimlerin her birinin kendi mantıksal bileşen görünümleri, denetleyicileri ve modelleri vardır.
 
 ### <a name="web-apis"></a>Web API'leri
 
-ASP.NET Core MVC, web siteleri oluşturmak için harika bir platform olmaya ek olarak, Web API'leri oluşturmaya yönelik harika desteğe sahiptir. Bir çeşit tarayıcılar ve mobil cihazlar dahil olmak üzere istemciye ulaşan hizmetler oluşturabilirsiniz.
+Web siteleri oluşturmak için harika bir platform olmanın yanı sıra, ASP.NET Core MVC, Web API 'Leri oluşturmaya yönelik harika destek içerir. Tarayıcılar ve mobil cihazlar dahil olmak üzere çok çeşitli istemcilere ulaşan hizmetler oluşturabilirsiniz.
 
-HTTP İçerik anlaşma desteği için yerleşik destekle framework içerir [veri biçimlendirme](xref:web-api/advanced/formatting) JSON veya XML. Yazma [özel biçimlendiriciler](xref:web-api/advanced/custom-formatters) kendi biçimleri için destek eklemek için.
+Framework, verileri JSON veya XML olarak [biçimlendirmeye](xref:web-api/advanced/formatting) yönelik yerleşik destek ile http içerik anlaşması için destek içerir. Kendi biçimlerinizin desteğini eklemek için [özel](xref:web-api/advanced/custom-formatters) biçimleri yazın.
 
-Bağlantı oluşturma, Hiper medyayı desteğini etkinleştirmek için kullanın. Kolayca desteğini etkinleştirme [çıkış noktaları arası kaynak paylaşımı (CORS)](https://www.w3.org/TR/cors/) böylece Web API'leri, birden çok Web uygulaması arasında paylaşılabilir.
+Hiper medya desteğini etkinleştirmek için bağlantı oluşturma kullanın. Web API 'lerinizin birden çok Web uygulaması arasında paylaşılabilmesi için, [çıkış noktaları arası kaynak paylaşımı (CORS)](https://www.w3.org/TR/cors/) desteğini kolayca etkinleştirin.
 
-### <a name="testability"></a>Test Edilebilirlik
+### <a name="testability"></a>Test edilebilirlik
 
-Framework'ün kullanımını arabirimleri ve bağımlılık ekleme kılmaktadır için birim testi ve framework, Özellikler (örneğin, Entity Framework için TestHost ve Inmemory sağlayıcısı) içerir [tümleştirme testleri](xref:test/integration-tests) hızlı ve kolay de. Daha fazla bilgi edinin [denetleyicisi mantıksal test etme](controllers/testing.md).
+Çerçevenin arabirimlerin ve bağımlılık ekleme özelliğinin kullanımı, birim testine uygun hale getirir ve Framework, [tümleştirme testlerini](xref:test/integration-tests) hızlı ve kolay hale getirmek için özellikler (Entity Framework Için bir testhost ve InMemory sağlayıcısı gibi) içerir. [Denetleyici mantığını test etme](controllers/testing.md)hakkında daha fazla bilgi edinin.
 
-### <a name="razor-view-engine"></a>Razor görünüm altyapısı
+### <a name="razor-view-engine"></a>Razor Görünüm altyapısı
 
-[ASP.NET Core MVC görünümleri](views/overview.md) kullanın [Razor görünüm altyapısı](views/razor.md) görünüm işlemek için. Razor, katıştırılmış C# kodunu kullanarak görünümlerini tanımlamak için bir compact, ifadesel ve akıcı şablon biçimlendirme dilidir. Razor, web içeriği sunucusundaki dinamik olarak oluşturmak için kullanılır. Sunucu kodu, istemci tarafı içeriği ve kod ile düzgün bir şekilde karıştırabilirsiniz.
+[MVC görünümleri ASP.NET Core](views/overview.md) , görünümleri Işlemek için [Razor görüntüleme altyapısını](views/razor.md) kullanır. Razor, gömülü C# kod kullanarak görünümler tanımlamaya yönelik kompakt, açıklayıcı ve akışkan şablonu biçimlendirme dilidir. Razor, sunucu üzerinde dinamik olarak Web içeriği oluşturmak için kullanılır. Sunucu kodunu istemci tarafı içeriğiyle ve kodla düzgün bir şekilde karıştırabilirsiniz.
 
-```text
+```cshtml
 <ul>
-  @for (int i = 0; i < 5; i++) {
-    <li>List item @i</li>
-  }
+    @for (int i = 0; i < 5; i++) {
+        <li>List item @i</li>
+    }
 </ul>
 ```
 
-Tanımlayabilirsiniz Razor görünüm altyapısı kullanılarak [düzenleri](views/layout.md), [kısmi görünümler](views/partial.md) ve bölümleri değiştirilebilir.
+Razor görünüm altyapısını kullanarak [düzenler](views/layout.md), [kısmi görünümler](views/partial.md) ve değiştirilebilir bölümler tanımlayabilirsiniz.
 
-### <a name="strongly-typed-views"></a>Kesin türü belirtilmiş görünümler
+### <a name="strongly-typed-views"></a>Türü kesin belirlenmiş görünümler
 
-MVC Razor görünümleri, modelinize göre türü kesin olarak. Denetleyicileri tür denetlemesi ve IntelliSense desteği sağlamak kendi görünümlerinizi etkinleştirme görünüme kesin türü belirtilmiş bir model geçirebilirsiniz.
+MVC 'de Razor görünümleri modelinize göre kesin bir şekilde yazılabilir. Denetleyiciler, görünümlerinizin tür denetlemesi ve IntelliSense desteği olmasını sağlayan görünümlere kesin olarak belirlenmiş bir model geçirebilir.
 
-Örneğin, bir türü modelin aşağıdaki görünümü işleyen `IEnumerable<Product>`:
+Örneğin, aşağıdaki görünüm türünde `IEnumerable<Product>`bir model işler:
 
 ```cshtml
 @model IEnumerable<Product>
@@ -217,9 +218,9 @@ MVC Razor görünümleri, modelinize göre türü kesin olarak. Denetleyicileri 
 
 ### <a name="tag-helpers"></a>Etiket Yardımcıları
 
-[Etiket Yardımcıları](views/tag-helpers/intro.md) sunucu tarafı kodu oluşturma ve Razor dosyalarında HTML öğeleri işleme katılmak etkinleştirin. Etiket Yardımcıları özel etiketler tanımlamak için kullanabilirsiniz (örneğin, `<environment>`) veya mevcut olan etiketlerin davranışını değiştirmek için (örneğin, `<label>`). Etiket Yardımcıları öğe adı ve öznitelikleri temel alan belirli öğeleri bağlayın. Bunlar, bir HTML düzenleme deneyimi hala korurken, sunucu tarafı işleme avantajlarını sağlar.
+[Etiket Yardımcıları](views/tag-helpers/intro.md) , Razor dosyalarında HTML öğeleri oluşturma ve oluşturma ile sunucu tarafı kodunun katılmasını sağlar. Etiket Yardımcıları kullanarak özel Etiketler tanımlayabilir (örneğin, `<environment>`) veya varolan etiketlerin davranışını değiştirebilirsiniz (örneğin, `<label>`). Etiket Yardımcıları, öğe adı ve öznitelikleri temelinde belirli öğelere bağlanır. Bunlar, hala HTML düzenlemesi deneyimini korurken sunucu tarafı işlemenin avantajlarını sağlar.
 
-Birçok yerleşik etiket Yardımcıları için formlar, bağlantılar, yükleme varlıklar ve ortak GitHub depoları ve NuGet olarak daha kullanılabilir ve daha fazla - paketleri oluşturma gibi ortak görevler - vardır. Etiket Yardımcıları C# dilinde yazılmış ve öğe adı, öznitelik adı veya üst etiketi dayalı HTML öğeleri hedeflenir. Örneğin, LinkTagHelper bağlantısı oluşturmak için kullanılabilir yerleşik `Login` eylemi `AccountsController`:
+Yaygın görevler için, genel GitHub depolarında ve NuGet paketleri olarak formlar, bağlantılar, yükleme varlıkları ve daha fazlasını ve daha fazlasını oluşturma gibi birçok yerleşik etiket yardımcıları vardır. Etiket Yardımcıları ' de C#yazılır ve öğe adı, öznitelik adı veya üst etıkete göre HTML öğelerini hedefleyin. Örneğin, yerleşik linakghelper, `Login` eyleminin `AccountsController`bir bağlantısını oluşturmak için kullanılabilir:
 
 ```cshtml
 <p>
@@ -228,7 +229,7 @@ Birçok yerleşik etiket Yardımcıları için formlar, bağlantılar, yükleme 
 </p>
 ```
 
-`EnvironmentTagHelper` Farklı betikler görünümleriniz (örneğin, ham veya küçültülmüş) çalışma zamanı ortamı, geliştirme, hazırlama veya üretim gibi temel dahil etmek için kullanılabilir:
+, `EnvironmentTagHelper` Geliştirme, hazırlama veya üretim gibi çalışma zamanı ortamına göre görünümlerinizde farklı betikler (örneğin, ham veya küçültülmüş) dahil etmek için kullanılabilir:
 
 ```cshtml
 <environment names="Development">
@@ -242,14 +243,14 @@ Birçok yerleşik etiket Yardımcıları için formlar, bağlantılar, yükleme 
 </environment>
 ```
 
-Etiket Yardımcıları, bir HTML kullanımı kolay geliştirme deneyimi ve HTML ve Razor biçimlendirme oluşturmak için zengin IntelliSense ortamı sağlar. Yerleşik etiket Yardımcıları çoğu mevcut HTML öğeleri hedef ve öğe için sunucu tarafı öznitelikler sağlar.
+Etiket Yardımcıları, HTML ve Razor biçimlendirmesi oluşturmaya yönelik zengin bir IntelliSense ortamı ve HTML kullanımı kolay bir geliştirme deneyimi sağlar. Yerleşik etiket yardımcıların çoğu, var olan HTML öğelerini hedefleyin ve öğesi için sunucu tarafı öznitelikleri sağlar.
 
-### <a name="view-components"></a>Görünüm bileşenleri
+### <a name="view-components"></a>Bileşenleri görüntüle
 
-[Görüntüleme bileşenleri](views/view-components.md) işleme mantığının paketleyin ve uygulamanın tamamında yeniden olanak sağlar. Benzer şekilde oldukları [kısmi görünümler](views/partial.md), ancak ilişkili mantığı.
+[Görünüm bileşenleri](views/view-components.md) , işleme mantığını paketlemenize ve uygulamanın tamamında yeniden kullanmanıza olanak tanır. Bunlar, [kısmen görünümlere](views/partial.md)benzer ancak ilişkili mantığa benzer.
 
 ## <a name="compatibility-version"></a>Uyumluluk sürümü
 
-<xref:Microsoft.Extensions.DependencyInjection.MvcCoreMvcBuilderExtensions.SetCompatibilityVersion*> Yöntemi kabul etme veya potansiyel olarak davranışı sunulan içinde ASP.NET Core MVC 2.1 veya üzeri bozucu değişiklikler çevirme için bir uygulama sağlar.
+Yöntemi <xref:Microsoft.Extensions.DependencyInjection.MvcCoreMvcBuilderExtensions.SetCompatibilityVersion*> , bir uygulamanın ASP.NET Core MVC 2,1 veya sonraki bir sürümde sunulmuş olabilecek davranış değişikliklerinin kabul etmesine veya devre dışı olmasına izin verir.
 
 Daha fazla bilgi için bkz. <xref:mvc/compatibility-version>.
