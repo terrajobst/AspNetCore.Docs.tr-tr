@@ -5,12 +5,12 @@ description: Basit bir ASP.NET Core MVC uygulamasına görünüm ekleme
 ms.author: riande
 ms.date: 03/04/2017
 uid: tutorials/first-mvc-app/adding-view
-ms.openlocfilehash: 38efd234d919cd0427928df73388e65ce13527d1
-ms.sourcegitcommit: 979dbfc5e9ce09b9470789989cddfcfb57079d94
+ms.openlocfilehash: b6a3b1e673b8b67530b82c7d850e810a6c11e555
+ms.sourcegitcommit: 3204bc89ae6354b61ee0a9b2770ebe5214b7790c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68681882"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68707884"
 ---
 # <a name="add-a-view-to-an-aspnet-core-mvc-app"></a>ASP.NET Core MVC uygulamasına görünüm ekleme
 
@@ -73,6 +73,7 @@ Razor kullanarak bir görünüm şablonu dosyası oluşturursunuz. Razor tabanl�
 *Views/HelloWorld/Index. cshtml* Razor görünüm dosyasının içeriğini aşağıdakiler ile değiştirin:
 
 [!code-HTML[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie22/Views/HelloWorld/Index1.cshtml?highlight=7)]
+
 
           `https://localhost:xxxx/HelloWorld` sayfasına gidin. `return View();`' Deki `Index` yöntemiçokfazladeğil,yönteminintarayıcıyayanıtişlemekiçinbirgörünümşablonu`HelloWorldController` dosyası kullanması gerektiğini belirten ifadesini çalıştırdı. Bir görünüm şablonu dosya adı belirtilmediğinden, MVC varsayılan görünüm dosyasını kullanmaya göre varsayılan olarak ayarlanmış. Varsayılan görünüm dosyası yöntemiyle aynı ada sahiptir (`Index`), bu nedenle */views/HelloWorld/Index.cshtml* kullanılır. Aşağıdaki görüntüde "görünüm Şablonumuzdan Merhaba!" dizesi gösterilmektedir görünümde sabit kodlanmış.
 
@@ -168,8 +169,8 @@ Yukarıdaki `ViewData` örnekte sözlük, denetleyicideki verileri bir görünü
 Sonraki öğreticide, bir film veritabanı oluşturulur.
 
 > [!div class="step-by-step"]
-> [Önceki](adding-controller.md)
-> [İleri](adding-model.md)
+> [Önceki](adding-controller.md)İleri
+> [](adding-model.md)
 
 ::: moniker-end
 
@@ -223,13 +224,14 @@ Razor kullanarak bir görünüm şablonu dosyası oluşturursunuz. Razor tabanl�
   * **Ad** kutusuna *Index. cshtml* yazın.
   * **Yeni**' yi seçin.
 
-![Yeni öğe Ekle iletişim kutusu](adding-view/_static/add_view.png)
+![Yeni öğe Ekle iletişim kutusu](adding-view/_static/add_view_mac.png)
 
 ---
 
 *Views/HelloWorld/Index. cshtml* Razor görünüm dosyasının içeriğini aşağıdakiler ile değiştirin:
 
 [!code-HTML[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie22/Views/HelloWorld/Index1.cshtml?highlight=7)]
+
 
           `https://localhost:xxxx/HelloWorld` sayfasına gidin. `return View();`' Deki `Index` yöntemiçokfazladeğil,yönteminintarayıcıyayanıtişlemekiçinbirgörünümşablonu`HelloWorldController` dosyası kullanması gerektiğini belirten ifadesini çalıştırdı. Bir görünüm şablonu dosya adı belirtilmediğinden, MVC varsayılan görünüm dosyasını kullanmaya göre varsayılan olarak ayarlanmış. Varsayılan görünüm dosyası yöntemiyle aynı ada sahiptir (`Index`), bu nedenle */views/HelloWorld/Index.cshtml* kullanılır. Aşağıdaki görüntüde "görünüm Şablonumuzdan Merhaba!" dizesi gösterilmektedir görünümde sabit kodlanmış.
 
@@ -328,7 +330,7 @@ Yukarıdaki `ViewData` örnekte sözlük, denetleyicideki verileri bir görünü
 Sonraki öğreticide, bir film veritabanı oluşturulur.
 
 > [!div class="step-by-step"]
-> [Önceki](adding-controller.md)
-> [İleri](adding-model.md)
+> [Önceki](adding-controller.md)İleri
+> [](adding-model.md)
 
 ::: moniker-end
