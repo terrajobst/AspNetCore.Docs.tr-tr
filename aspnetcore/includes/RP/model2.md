@@ -2,7 +2,7 @@
 
 ### <a name="add-a-database-context-class"></a>Veritabanı bağlamı sınıfı ekleme
 
-Aşağıdaki `RazorPagesMovieContext` sınıfı *veri* klasörüne ekleyin:
+RazorPagesMovie projesinde, *veri*adlı yeni bir klasör oluşturun. Aşağıdaki `RazorPagesMovieContext` sınıfı *veri* klasörüne ekleyin:
 
 [!code-csharp[](~/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie22/Data/RazorPagesMovieContext.cs)]
 
@@ -20,7 +20,7 @@ Aşağıdaki Vurgulanan kodda gösterildiği gibi *appSettings. JSON* dosyasına
 
 ### <a name="add-required-nuget-packages"></a>Gerekli NuGet paketlerini ekleyin
 
-SQLite, Entity Framework Core ve CodeGeneration eklemek için aşağıdaki .NET Core CLI komutlarını çalıştırın. projeye tasarım:
+RazorPagesMovie projesi için bir Terminal açın.  Tasarım/yerleşim çubuğunda Proje adına sağ tıklayın ve terminalde **aç > araçlar** ' a gidin. Termial içinde aşağıdaki .NET Core CLI komutlarını çalıştırın. Bu komutlar, SQLite, Entity Framework Core ve CodeGeneration. Design öğesine, projeye tasarım ekler:
 
 ```console
 dotnet add package Microsoft.EntityFrameworkCore.SQLite --version 3.0.0-*
