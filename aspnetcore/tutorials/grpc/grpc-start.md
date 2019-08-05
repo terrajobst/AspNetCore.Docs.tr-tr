@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-3.0'
 ms.author: johluo
 ms.date: 06/12/2019
 uid: tutorials/grpc/grpc-start
-ms.openlocfilehash: 3e90e3b17186757fe157fb6641888786bb7a0df2
-ms.sourcegitcommit: f30b18442ed12831c7e86b0db249183ccd749f59
+ms.openlocfilehash: 6a3a7446a488ef54d99d6c7605980c18890b9ad0
+ms.sourcegitcommit: 4fe3ae892f54dc540859bff78741a28c2daa9a38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68412530"
+ms.lasthandoff: 08/04/2019
+ms.locfileid: "68776636"
 ---
 # <a name="tutorial-create-a-grpc-client-and-server-in-aspnet-core"></a>Öğretici: ASP.NET Core bir gRPC istemcisi ve sunucusu oluşturma
 
@@ -71,7 +71,7 @@ Bu öğreticide şunları yaptınız:
   code -r GrpcGreeter
   ```
 
-  * Komut grpcgreeter klasöründe yeni bir GRPC hizmeti oluşturur.  `dotnet new`
+  * Komut grpcgreeter klasöründe yeni bir GRPC hizmeti oluşturur. `dotnet new`
   * Komut, Visual Studio Code yeni bir örneğinde *grpcgreeter* klasörünü açar. `code`
 
   **Gerekli varlıkların derlenmesi ve hata ayıklaması için ' grpcgreeter ' içinde eksik bir iletişim kutusu görüntülenir. Bunları ekleyin mi?**
@@ -192,8 +192,8 @@ Install-Package Grpc.Tools
 
 * **Çözüm Gezgini** > **NuGet Paketlerini Yönet** ' de projeye sağ tıklayın
 * **Tarayıcı** sekmesini seçin.
-* Arama kutusuna **GRPC. Core** girin.
-* **Araştır** sekmesinden **GRPC. Core** paketini seçin ve ardından **Install**' ı seçin.
+* Arama kutusuna **GRPC .net. Client** girin.
+* **Araştır** sekmesinden **GRPC .net. Client** paketini seçin ve ardından **Install**' ı seçin.
 * `Google.Protobuf` Ve`Grpc.Tools`için tekrarlayın.
 
 ### <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
@@ -208,7 +208,7 @@ dotnet add GrpcGreeterClient.csproj package Grpc.Tools
 
 ### <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Mac için Visual Studio](#tab/visual-studio-mac)
 
-* **Çözüm bölmesi**  paket > **Ekle** ' de paketler klasörüne sağ tıklayın
+* **Çözüm bölmesi** paket > **Ekle** ' de paketler klasörüne sağ tıklayın
 * Arama kutusuna **GRPC .net. Client** girin.
 * Sonuçlar bölmesinden **GRPC .net. Client** paketini seçin ve **paket Ekle** ' yi seçin.
 * `Google.Protobuf` Ve`Grpc.Tools`için tekrarlayın.
@@ -269,7 +269,7 @@ Greeter istemcisi zaman uyumsuz `SayHello` yöntemi çağırır. `SayHello` Ça�
 ### <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * Greeter hizmetinde, hata ayıklayıcı olmadan `Ctrl+F5` sunucuyu başlatmak için tuşuna basın.
-* Projede, hata ayıklayıcı olmadan sunucuyu başlatmak için tuşuna basın `Ctrl+F5`. `GrpcGreeterClient`
+* Projede, hata ayıklayıcı olmadan istemcisini başlatmak için tuşuna basın `Ctrl+F5`. `GrpcGreeterClient`
 
 ### <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Visual Studio Code/Mac için Visual Studio](#tab/visual-studio-code+visual-studio-mac)
 

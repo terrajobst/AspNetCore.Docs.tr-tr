@@ -18,18 +18,19 @@ Aşağıdaki Vurgulanan kodda gösterildiği gibi *appSettings. JSON* dosyasına
 
 [!code-json[](~/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie30/appsettings_SQLite.json?highlight=10-12)]
 
-### <a name="add-required-nuget-packages"></a>Gerekli NuGet paketlerini ekleyin
+### <a name="add-nuget-packages-and-ef-tools"></a>NuGet paketleri ve EF araçları ekleme
 
-RazorPagesMovie projesi için bir Terminal açın.  Tasarım/yerleşim çubuğunda Proje adına sağ tıklayın ve terminalde **aç > araçlar** ' a gidin. Termial içinde aşağıdaki .NET Core CLI komutlarını çalıştırın. Bu komutlar, SQLite, Entity Framework Core ve CodeGeneration. Design öğesine, projeye tasarım ekler:
+RazorPagesMovie projesi için bir Terminal açın.  Tasarım/yerleşim çubuğunda Proje adına sağ tıklayın ve terminalde **aç > araçlar** ' a gidin. Termial içinde aşağıdaki .NET Core CLI komutlarını çalıştırın:
 
 ```console
+dotnet tool install --global dotnet-ef --version 3.0.0-*
 dotnet add package Microsoft.EntityFrameworkCore.SQLite --version 3.0.0-*
 dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design --version 3.0.0-*
 dotnet add package Microsoft.EntityFrameworkCore.Design --version 3.0.0-*
 dotnet add package Microsoft.EntityFrameworkCore.SqlServer --version 3.0.0-*
 ```
 
-Paket `Microsoft.VisualStudio.Web.CodeGeneration.Design` , yapı iskelesi için gereklidir.
+Yukarıdaki komutlar, .NET CLı için Entity Framework Core araçları ve projeye birkaç paket ekler. Paket `Microsoft.VisualStudio.Web.CodeGeneration.Design` , yapı iskelesi için gereklidir.
 
 <a name="reg"></a>
 

@@ -6,12 +6,12 @@ ms.author: riande
 ms.date: 12/18/2018
 ms.custom: mvc, seodec18
 uid: security/authorization/secure-data
-ms.openlocfilehash: 222ae1d6212b838e5c70f831960fa23a9924a0ae
-ms.sourcegitcommit: 7a40c56bf6a6aaa63a7ee83a2cac9b3a1d77555e
+ms.openlocfilehash: 4b94cc53777308deb26521a079d8a1c2742744db
+ms.sourcegitcommit: 4fe3ae892f54dc540859bff78741a28c2daa9a38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67856148"
+ms.lasthandoff: 08/04/2019
+ms.locfileid: "68776740"
 ---
 # <a name="create-an-aspnet-core-app-with-user-data-protected-by-authorization"></a>Kullanıcı verilerinin yetkilendirme tarafından korunduğu ile bir ASP.NET Core uygulaması oluşturma
 
@@ -37,13 +37,13 @@ Bu öğretici, kullanıcı verilerinin yetkilendirme tarafından korunduğu ile 
 * **Yöneticileri** onaylayabilecek veya reddedebilecek kişi verilerini. Yalnızca onaylanan kişilere, kullanıcılar tarafından görülebilir.
 * **Yöneticiler** Onayla/Reddet ve herhangi bir veri düzenleme/silme kullanabilirsiniz.
 
-Bu belgedeki görüntüleri, en son şablonları tam olarak eşleşmiyor.
+Bu belgedeki görüntüler, en son şablonlarla tam olarak eşleşmez.
 
 Aşağıdaki görüntüde, kullanıcı Rick (`rick@example.com`) açmıştır. Rick yalnızca onaylanan kişiler görüntüleyebilir ve **Düzenle**/**Sil**/**Yeni Oluştur** kendi kişiler için bağlantılar. Yalnızca en son kaydını görüntüler Rick tarafından oluşturulan **Düzenle** ve **Sil** bağlantıları. Bir yöneticinin "Onaylandı" durum olana kadar diğer kullanıcılar en son kaydını görmez.
 
 ![Oturum Rick gösteren ekran görüntüsü](secure-data/_static/rick.png)
 
-Aşağıdaki görüntüde, `manager@contoso.com` ve yönetici rolünde imzalanır:
+Aşağıdaki görüntüde, `manager@contoso.com` ve yöneticisinin rolünde oturum açıldı:
 
 ![Gösteren ekran görüntüsü manager@contoso.com oturum açıldı](secure-data/_static/manager1.png)
 
@@ -53,7 +53,7 @@ Aşağıdaki resimde, bir kişi ayrıntıları görünümünü yöneticileri gö
 
 **Onayla** ve **Reddet** düğmeleri yalnızca Yöneticiler ve Yöneticiler için görüntülenir.
 
-Aşağıdaki görüntüde, `admin@contoso.com` ve yönetici rolünde imzalanır:
+Aşağıdaki görüntüde, `admin@contoso.com` ve yönetici rolünde oturum açıldı:
 
 ![Gösteren ekran görüntüsü admin@contoso.com oturum açıldı](secure-data/_static/admin.png)
 
@@ -65,9 +65,9 @@ Uygulama tarafından oluşturulan [yapı iskelesi](xref:tutorials/first-mvc-app/
 
 Örnek aşağıdaki yetkilendirme işleyicilerini içerir:
 
-* `ContactIsOwnerAuthorizationHandler`: Bir kullanıcı yalnızca kendi verilerini düzenleyebilir sağlar.
-* `ContactManagerAuthorizationHandler`: Yöneticileri onaylayabilir veya kişiler sağlar.
-* `ContactAdministratorsAuthorizationHandler`: Yöneticilerin onaylama veya reddetme kişiler ve kişiler düzenleme/silme olanak sağlar.
+* `ContactIsOwnerAuthorizationHandler`: Kullanıcının yalnızca verilerini düzenleyebilmesini sağlar.
+* `ContactManagerAuthorizationHandler`: Yöneticilerin kişileri onaylamasını veya reddetmesini sağlar.
+* `ContactAdministratorsAuthorizationHandler`: Yöneticilerin kişileri onaylamasını veya reddetmesini ve kişileri düzenlemesini/silmesini sağlar.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -122,7 +122,7 @@ Kullanıcıların kimliklerinin doğrulanmasını istemek için varsayılan kiml
 
  Kimlik doğrulaması ile Razor sayfası, denetleyici veya eylem yöntemi düzeyinde dışında iyileştirilmiş `[AllowAnonymous]` özniteliği. Kullanıcıların kimliklerinin doğrulanmasını istemek için varsayılan kimlik doğrulama İlkesi ayarı, yeni eklenen Razor sayfaları ve denetleyicileri korur. Kimlik doğrulaması varsayılan olarak gerekli olan bağlı olan, yeni denetleyicileri ve dahil etmek için Razor sayfaları hakkında daha fazla güvenli `[Authorize]` özniteliği.
 
-Ekleme [AllowAnonymous](/dotnet/api/microsoft.aspnetcore.authorization.allowanonymousattribute) dizin ve gizlilik sayfaları, böylece bunlar kaydetmeden önce anonim kullanıcılar siteyle ilgili bilgileri elde edebilirsiniz.
+Anonim kullanıcıların, kaydolmadan önce site hakkında bilgi alması için dizin ve gizlilik sayfalarına [AllowAnonymous](/dotnet/api/microsoft.aspnetcore.authorization.allowanonymousattribute) ekleyin.
 
 [!code-csharp[](secure-data/samples/final3/Pages/Index.cshtml.cs?highlight=1,7)]
 
@@ -159,7 +159,7 @@ Oluşturma bir `ContactIsOwnerAuthorizationHandler` sınıfını *yetkilendirme*
 `ContactIsOwnerAuthorizationHandler` Çağrıları [bağlamı. Başarılı](/dotnet/api/microsoft.aspnetcore.authorization.authorizationhandlercontext.succeed#Microsoft_AspNetCore_Authorization_AuthorizationHandlerContext_Succeed_Microsoft_AspNetCore_Authorization_IAuthorizationRequirement_) kişi sahibi kimliği doğrulanmış geçerli kullanıcı ise. Yetkilendirme işleyicileri genellikle:
 
 * Dönüş `context.Succeed` gereksinimleri karşılanmadığı zaman.
-* Dönüş `Task.CompletedTask` zaman olmayan gereksinimleri karşılanıyor. `Task.CompletedTask` Başarı veya başarısızlık değil&mdash;çalıştırmak, diğer yetkilendirme işleyicileri sağlar.
+* Dönüş `Task.CompletedTask` zaman olmayan gereksinimleri karşılanıyor. `Task.CompletedTask`başarılı veya başarısız&mdash;değil, diğer yetkilendirme işleyicilerinin çalışmasına izin verir.
 
 Açıkça başarısız gerekiyorsa, iade [bağlamı. Başarısız](/dotnet/api/microsoft.aspnetcore.authorization.authorizationhandlercontext.fail).
 
@@ -242,7 +242,7 @@ Delete sayfa modeli, kişi hakkında kullanıcıyı silme izni doğrulamak için
 
 Şu anda kullanıcı Arabirimi gösterir düzenleyin ve kişiler kullanıcı değiştiremez bağlantılarını silin.
 
-Yetkilendirme hizmetinde ekleme *Pages/_ViewImports.cshtml* tüm görünümlere kullanılabilir olacak şekilde dosya:
+Tüm görünümlerde kullanılabilmesi için *Sayfalar/_Viewwimports. cshtml* dosyasına yetkilendirme hizmetini ekleme:
 
 [!code-cshtml[](secure-data/samples/final3/Pages/_ViewImports.cshtml?highlight=6-99)]
 
@@ -269,14 +269,14 @@ Güncelleştirme ayrıntıları sayfa modeli:
 
 Bkz: [bu sorunu](https://github.com/aspnet/AspNetCore.Docs/issues/8502) hakkında bilgi için:
 
-* Bir kullanıcıdan ayrıcalıklarının kaldırılması. Örneğin, bir kullanıcı bir sohbet uygulaması ses kapatma.
+* Bir kullanıcıdan ayrıcalıklarının kaldırılması. Örneğin, bir sohbet uygulamasındaki kullanıcıyı kapatma.
 * Bir kullanıcı ayrıcalıkları ekleniyor.
 
 ## <a name="test-the-completed-app"></a>Tamamlanmış uygulamayı test etme
 
 Kapsanan kullanıcı hesapları için bir parola belirlemediyseniz kullanın [gizli dizi Yöneticisi aracını](xref:security/app-secrets#secret-manager) parola ayarlamak için:
 
-* Güçlü bir parola seçin: Sekiz kullanın veya daha fazla karakter ve en az bir büyük harf karakter, sayı ve simge. Örneğin, `Passw0rd!` güçlü parola gereksinimlerini karşılıyor.
+* Güçlü bir parola seçin: Sekiz veya daha fazla karakter ve en az bir büyük harf karakter, sayı ve simge kullanın. Örneğin, `Passw0rd!` güçlü parola gereksinimlerini karşılıyor.
 * Aşağıdaki komutu yürütün proje klasöründen burada `<PW>` parola:
 
   ```console
@@ -314,7 +314,7 @@ Bir kişi, yöneticinin tarayıcıda oluşturur. Silme için URL'yi kopyalayın 
   dotnet new webapp -o ContactManager -au Individual -uld
   ```
 
-* Ekleme *Models/Contact.cs*:
+* *Modeller/Ilgili kişi ekle. cs*:
 
   [!code-csharp[](secure-data/samples/starter2.1/Models/Contact.cs?name=snippet1)]
 
@@ -330,9 +330,9 @@ dotnet ef migrations add initial
 dotnet ef database update
   ```
 
-Bir hata ile karşılaşırsanız `dotnet aspnet-codegenerator razorpage` komutu, bkz: [bu GitHub sorunu](https://github.com/aspnet/Scaffolding/issues/984).
+`dotnet aspnet-codegenerator razorpage` Komutuyla bir hata yaşarsanız, [Bu GitHub sorununa](https://github.com/aspnet/Scaffolding/issues/984)bakın.
 
-* Güncelleştirme **ContactManager** içinde yer işareti *Pages/Shared/_Layout.cshtml* dosyası:
+* *Pages/Shared/_Layout. cshtml* dosyasındaki **ContactManager** bağlayıcısını güncelleştirin:
 
  ```cshtml
 <a class="navbar-brand" asp-area="" asp-page="/Contacts/Index">ContactManager</a>
@@ -342,7 +342,7 @@ Bir hata ile karşılaşırsanız `dotnet aspnet-codegenerator razorpage` komutu
 
 ### <a name="seed-the-database"></a>Veritabanının çekirdeğini oluşturma
 
-Ekleme [SeedData](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/authorization/secure-data/samples/starter3/Data/SeedData.cs) sınıfının *veri* klasörü:
+*Veri* klasörüne [seeddata](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/authorization/secure-data/samples/starter3/Data/SeedData.cs) sınıfını ekleyin:
 
 [!code-csharp[](secure-data/samples/starter3/Data/SeedData.cs)]
 
@@ -366,7 +366,7 @@ Aşağıdaki görüntüde, kullanıcı Rick (`rick@example.com`) açmıştır. R
 
 ![Oturum Rick gösteren ekran görüntüsü](secure-data/_static/rick.png)
 
-Aşağıdaki görüntüde, `manager@contoso.com` ve yönetici rolünde imzalanır:
+Aşağıdaki görüntüde, `manager@contoso.com` ve yöneticisinin rolünde oturum açıldı:
 
 ![Gösteren ekran görüntüsü manager@contoso.com oturum açıldı](secure-data/_static/manager1.png)
 
@@ -376,7 +376,7 @@ Aşağıdaki resimde, bir kişi ayrıntıları görünümünü yöneticileri gö
 
 **Onayla** ve **Reddet** düğmeleri yalnızca Yöneticiler ve Yöneticiler için görüntülenir.
 
-Aşağıdaki görüntüde, `admin@contoso.com` ve yönetici rolünde imzalanır:
+Aşağıdaki görüntüde, `admin@contoso.com` ve yönetici rolünde oturum açıldı:
 
 ![Gösteren ekran görüntüsü admin@contoso.com oturum açıldı](secure-data/_static/admin.png)
 
@@ -388,9 +388,9 @@ Uygulama tarafından oluşturulan [yapı iskelesi](xref:tutorials/first-mvc-app/
 
 Örnek aşağıdaki yetkilendirme işleyicilerini içerir:
 
-* `ContactIsOwnerAuthorizationHandler`: Bir kullanıcı yalnızca kendi verilerini düzenleyebilir sağlar.
-* `ContactManagerAuthorizationHandler`: Yöneticileri onaylayabilir veya kişiler sağlar.
-* `ContactAdministratorsAuthorizationHandler`: Yöneticilerin onaylama veya reddetme kişiler ve kişiler düzenleme/silme olanak sağlar.
+* `ContactIsOwnerAuthorizationHandler`: Kullanıcının yalnızca verilerini düzenleyebilmesini sağlar.
+* `ContactManagerAuthorizationHandler`: Yöneticilerin kişileri onaylamasını veya reddetmesini sağlar.
+* `ContactAdministratorsAuthorizationHandler`: Yöneticilerin kişileri onaylamasını veya reddetmesini ve kişileri düzenlemesini/silmesini sağlar.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -482,7 +482,7 @@ Oluşturma bir `ContactIsOwnerAuthorizationHandler` sınıfını *yetkilendirme*
 `ContactIsOwnerAuthorizationHandler` Çağrıları [bağlamı. Başarılı](/dotnet/api/microsoft.aspnetcore.authorization.authorizationhandlercontext.succeed#Microsoft_AspNetCore_Authorization_AuthorizationHandlerContext_Succeed_Microsoft_AspNetCore_Authorization_IAuthorizationRequirement_) kişi sahibi kimliği doğrulanmış geçerli kullanıcı ise. Yetkilendirme işleyicileri genellikle:
 
 * Dönüş `context.Succeed` gereksinimleri karşılanmadığı zaman.
-* Dönüş `Task.CompletedTask` zaman olmayan gereksinimleri karşılanıyor. `Task.CompletedTask` Başarı veya başarısızlık değil&mdash;çalıştırmak, diğer yetkilendirme işleyicileri sağlar.
+* Dönüş `Task.CompletedTask` zaman olmayan gereksinimleri karşılanıyor. `Task.CompletedTask`başarılı veya başarısız&mdash;değil, diğer yetkilendirme işleyicilerinin çalışmasına izin verir.
 
 Açıkça başarısız gerekiyorsa, iade [bağlamı. Başarısız](/dotnet/api/microsoft.aspnetcore.authorization.authorizationhandlercontext.fail).
 
@@ -592,25 +592,26 @@ Güncelleştirme ayrıntıları sayfa modeli:
 
 Bkz: [bu sorunu](https://github.com/aspnet/AspNetCore.Docs/issues/8502) hakkında bilgi için:
 
-* Bir kullanıcıdan ayrıcalıklarının kaldırılması. Örneğin, bir kullanıcı bir sohbet uygulaması ses kapatma.
+* Bir kullanıcıdan ayrıcalıklarının kaldırılması. Örneğin, bir sohbet uygulamasındaki kullanıcıyı kapatma.
 * Bir kullanıcı ayrıcalıkları ekleniyor.
 
 ## <a name="test-the-completed-app"></a>Tamamlanmış uygulamayı test etme
 
 Kapsanan kullanıcı hesapları için bir parola belirlemediyseniz kullanın [gizli dizi Yöneticisi aracını](xref:security/app-secrets#secret-manager) parola ayarlamak için:
 
-* Güçlü bir parola seçin: Sekiz kullanın veya daha fazla karakter ve en az bir büyük harf karakter, sayı ve simge. Örneğin, `Passw0rd!` güçlü parola gereksinimlerini karşılıyor.
+* Güçlü bir parola seçin: Sekiz veya daha fazla karakter ve en az bir büyük harf karakter, sayı ve simge kullanın. Örneğin, `Passw0rd!` güçlü parola gereksinimlerini karşılıyor.
 * Aşağıdaki komutu yürütün proje klasöründen burada `<PW>` parola:
 
   ```console
   dotnet user-secrets set SeedUserPW <PW>
   ```
 
-* Bırakın ve veritabanını güncelleştir
+* Veritabanını bırakma ve güncelleştirme
+
     ```console
      dotnet ef database drop -f
      dotnet ef database update  
-```
+     ```
 
 * Veritabanının çekirdeğini oluşturma için uygulamayı yeniden başlatın.
 
@@ -640,7 +641,7 @@ Bir kişi, yöneticinin tarayıcıda oluşturur. Silme için URL'yi kopyalayın 
   dotnet new webapp -o ContactManager -au Individual -uld
   ```
 
-* Ekleme *Models/Contact.cs*:
+* *Modeller/Ilgili kişi ekle. cs*:
 
   [!code-csharp[](secure-data/samples/starter2.1/Models/Contact.cs?name=snippet1)]
 

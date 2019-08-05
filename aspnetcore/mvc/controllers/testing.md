@@ -1,183 +1,183 @@
 ---
-title: ASP.NET Core denetleyicisi mantıksal test
+title: ASP.NET Core 'de test denetleyicisi mantığı
 author: ardalis
-description: ASP.NET Core Moq ve xUnit ile test denetleyicisi mantıksal öğrenin.
+description: Moq ve xUnit ile ASP.NET Core denetleyici mantığını test etme hakkında bilgi edinin.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 07/06/2019
+ms.date: 08/03/2019
 uid: mvc/controllers/testing
-ms.openlocfilehash: 8dd2fc5d581dbcb11afbcdc0c154c0e2640f9259
-ms.sourcegitcommit: 91cc1f07ef178ab709ea42f8b3a10399c970496e
+ms.openlocfilehash: 6238454b4fb809179d78d4e743e79abadb994e5c
+ms.sourcegitcommit: 4fe3ae892f54dc540859bff78741a28c2daa9a38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67622736"
+ms.lasthandoff: 08/04/2019
+ms.locfileid: "68776596"
 ---
-# <a name="test-controller-logic-in-aspnet-core"></a>ASP.NET Core denetleyicisi mantıksal test
+# <a name="test-controller-logic-in-aspnet-core"></a>ASP.NET Core 'de test denetleyicisi mantığı
 
-Tarafından [Steve Smith](https://ardalis.com/)
+[Steve Smith](https://ardalis.com/) tarafından
 
-[Denetleyicileri](xref:mvc/controllers/actions) merkezi bir rol herhangi bir ASP.NET Core MVC uygulamasında Yürüt. Bu nedenle, denetleyicileri beklendiği gibi davranan bir güven olması gerekir. Uygulamayı bir üretim ortamına dağıtılmadan önce otomatikleştirilmiş testleri hatalar da algılanabilir.
+[Denetleyiciler](xref:mvc/controllers/actions) herhangi BIR ASP.NET Core MVC uygulamasında merkezi bir rol oynar. Bu nedenle, denetleyicilerin amaçlanan gibi davrandığına güvenmelisiniz. Otomatik testler, uygulama bir üretim ortamına dağıtılmadan önce hataları tespit edebilir.
 
-[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/controllers/testing/sample) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
+[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/controllers/testing/samples/) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
 
-## <a name="unit-tests-of-controller-logic"></a>Denetleyici mantıksal birim testleri
+## <a name="unit-tests-of-controller-logic"></a>Denetleyici mantığının birim testleri
 
-[Birim testleri](/dotnet/articles/core/testing/unit-testing-with-dotnet-test) bir uygulamanın bir parçası, altyapısını ve bağımlılıklarını yalıtımdan test içerir. Test denetleyicisi mantıksal birimi, yalnızca tek bir eylem içeriği olduğunda değil davranışı bağımlılıklarından biri veya framework'ün test.
+[Birim testleri](/dotnet/articles/core/testing/unit-testing-with-dotnet-test) , bir uygulamanın bir bölümünü altyapısından ve bağımlılıklarından yalıtımıyla test etmeyi içerir. Birim testi denetleyici mantığı olduğunda, yalnızca tek bir eylemin içerikleri test edilir, onun bağımlılıkları veya çerçevenin kendisi değildir.
 
-Denetleyicinin davranışına odaklanmak için denetleyici eylemleri, birim testleri ayarlayın. Bir denetleyici birim testi senaryoları gibi önler [filtreleri](xref:mvc/controllers/filters), [yönlendirme](xref:fundamentals/routing), ve [model bağlama](xref:mvc/models/model-binding). Tarafından işlenmesini kapsayan topluca bir isteğe yanıt bileşenleri arasındaki etkileşimdir testleri *tümleştirme testleri*. Tümleştirme testleri hakkında daha fazla bilgi için bkz. <xref:test/integration-tests>.
+Denetleyicinin davranışına odaklanmak için denetleyici eylemlerinin birim testlerini ayarlayın. Denetleyici birim testi [Filtreler](xref:mvc/controllers/filters), [yönlendirme](xref:fundamentals/routing)ve [model bağlama](xref:mvc/models/model-binding)gibi senaryoları önler. Bir isteğe topluca yanıt veren bileşenler arasındaki etkileşimleri kapsayan testler, *tümleştirme testleri*tarafından işlenir. Tümleştirme testleri hakkında daha fazla bilgi için bkz <xref:test/integration-tests>.
 
-Özel Filtreler ve yollar yazıyorsanız, birim testi bunları ayrı, testleri belirli bir denetleyici eylemi bir parçası olarak değil.
+Özel filtreler ve rotalar yazıyorsanız, birim, belirli bir denetleyici eyleminde testlerin bir parçası olarak değil, yalıtımına göre test eder.
 
-Denetleyici birim testleri göstermek için örnek uygulama aşağıdaki denetleyicide gözden geçirin. Giriş denetleyicisine oturumları fırtınası listesini görüntüler ve bir POST isteği ile yeni fırtınası oturumlarının oluşturulmasına izin verir:
+Denetleyici birim testlerini göstermek için örnek uygulamada aşağıdaki denetleyiciyi gözden geçirin. Ana denetleyici bir beyin fırtınası oturumlarının listesini görüntüler ve yeni beyin fırtınası oturumlarının bir POST isteğiyle oluşturulmasına izin verir:
 
 [!code-csharp[](testing/samples/2.x/TestingControllersSample/src/TestingControllersSample/Controllers/HomeController.cs?name=snippet_HomeController&highlight=1,5,10,31-32)]
 
 Önceki denetleyici:
 
-* Aşağıdaki [özel bağımlılıklar ilkesine](/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#explicit-dependencies).
-* Bekliyor [bağımlılık ekleme (dı)](xref:fundamentals/dependency-injection) bir örneğini sağlamak için `IBrainstormSessionRepository`.
-* Test edilebilir bir sahte ile `IBrainstormSessionRepository` gibi bir sahte nesne çerçevesi kullanılarak hizmet [Moq](https://www.nuget.org/packages/Moq/). A *sahte nesne* test etmek için kullanılan özellik ve yöntem davranışlarını önceden belirlenmiş bir dizi üretilmiş bir nesnedir. Daha fazla bilgi için [tümleştirme testleri giriş](xref:test/integration-tests#introduction-to-integration-tests).
+* [Açık bağımlılıklar ilkesini](/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#explicit-dependencies)izler.
+* Bir örneği `IBrainstormSessionRepository`sağlamak için [bağımlılık ekleme (dı)](xref:fundamentals/dependency-injection) bekliyor.
+* , [Moq](https://www.nuget.org/packages/Moq/)gibi bir sahte nesne çerçevesi `IBrainstormSessionRepository` kullanılarak bir moclenmiş hizmetle test edilebilir. Bir ilişkili *nesne* , test için kullanılan önceden tanımlanmış bir özellik ve Yöntem davranışları kümesine sahip bir fabricobject nesnesidir. Daha fazla bilgi için bkz. [tümleştirme testlerine giriş](xref:test/integration-tests#introduction-to-integration-tests).
 
-`HTTP GET Index` Yöntemi hiçbir döngü ya da dallanma ve yalnızca çağrıları bir yöntemi vardır. Bu eylem için birim testi:
+`HTTP GET Index` Metodun döngüsü veya dallanmayı yoktur ve yalnızca bir yöntem çağırır. Bu eylemin birim testi:
 
-* Mocks `IBrainstormSessionRepository` kullanarak hizmet `GetTestSessions` yöntemi. `GetTestSessions` tarihler ve oturum adları ile iki sahte beyin fırtınasını oturumu oluşturur.
-* Yürütür `Index` yöntemi.
-* Onaylamalar yöntemi tarafından döndürülen sonuç sağlar:
-  * A <xref:Microsoft.AspNetCore.Mvc.ViewResult> döndürülür.
-  * [ViewDataDictionary.Model](xref:Microsoft.AspNetCore.Mvc.ViewFeatures.ViewDataDictionary.Model*) olduğu bir `StormSessionViewModel`.
-  * İki fırtınası oturumları burada depolanır `ViewDataDictionary.Model`.
+* Yöntemini kullanarak hizmeti`IBrainstormSessionRepository`gizler. `GetTestSessions` `GetTestSessions`Tarih ve oturum adlarıyla iki adet sahte beyin fırtınası oturumu oluşturur.
+* `Index` Yöntemini yürütür.
+* Yöntemi tarafından döndürülen sonuç üzerinde onaylama işlemleri yapar:
+  * Bir <xref:Microsoft.AspNetCore.Mvc.ViewResult> döndürülür.
+  * [ViewDataDictionary. model](xref:Microsoft.AspNetCore.Mvc.ViewFeatures.ViewDataDictionary.Model*) bir `StormSessionViewModel`.
+  * İçinde depolanan iki beyin fırtınası oturumu vardır `ViewDataDictionary.Model`.
 
 [!code-csharp[](testing/samples/2.x/TestingControllersSample/tests/TestingControllersSample.Tests/UnitTests/HomeControllerTests.cs?name=snippet_Index_ReturnsAViewResult_WithAListOfBrainstormSessions&highlight=14-17)]
 
 [!code-csharp[](testing/samples/2.x/TestingControllersSample/tests/TestingControllersSample.Tests/UnitTests/HomeControllerTests.cs?name=snippet_GetTestSessions)]
 
-Giriş denetleyicinin `HTTP POST Index` yöntemi testleri doğrular:
+Ana denetleyicinin `HTTP POST Index` Yöntem sınamaları şunları doğrular:
 
-* Zaman [ModelState.IsValid](xref:Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary.IsValid*) olduğu `false`, eylem yöntemine döndürür bir *400 Hatalı istek* <xref:Microsoft.AspNetCore.Mvc.ViewResult> uygun verileri.
-* Zaman `ModelState.IsValid` olduğu `true`:
-  * `Add` Deposunda yöntemi çağrılır.
-  * A <xref:Microsoft.AspNetCore.Mvc.RedirectToActionResult> doğru bağımsız değişkenleri ile döndürülür.
+* [ModelState. IsValid](xref:Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary.IsValid*) `false`olduğunda, eylem yöntemi uygun verilerle *400 hatalı bir istek* <xref:Microsoft.AspNetCore.Mvc.ViewResult> döndürür.
+* `ModelState.IsValid` Ne zaman :`true`
+  * Depodaki `Add` yöntem çağrılır.
+  * Doğru <xref:Microsoft.AspNetCore.Mvc.RedirectToActionResult> bağımsız değişkenlerle bir döndürülür.
 
-Geçersiz model durumu hataları kullanarak ekleyerek test <xref:Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary.AddModelError*> ilk test aşağıda gösterildiği gibi:
+Geçersiz bir model durumu, aşağıdaki ilk testte gösterildiği gibi <xref:Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary.AddModelError*> kullanılarak hatalar eklenerek test edilir:
 
 [!code-csharp[](testing/samples/2.x/TestingControllersSample/tests/TestingControllersSample.Tests/UnitTests/HomeControllerTests.cs?name=snippet_ModelState_ValidOrInvalid&highlight=9,16-17,38-41)]
 
-Zaman [ModelState](xref:Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary) geçersiz, aynı `ViewResult` bir GET isteği olduğu gibi döndürülür. Test, geçersiz bir modelde geçirmek çalışmaz. Geçersiz bir model geçirme olmadığından geçerli bir yaklaşım, model bağlama çalışmadığından bu yana (rağmen bir [tümleştirme test](xref:test/integration-tests) model bağlama kullanın). Bu durumda, model bağlama test değil. Bu birim testlerini kod içinde eylem yönteminin yalnızca test edersiniz.
+[ModelState](xref:Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary) geçerli olmadığında, bir get isteği `ViewResult` için de aynı döndürülür. Test geçersiz bir modeli geçirmeye çalışmıyor. Model bağlama çalışmadığından (bir [tümleştirme testi](xref:test/integration-tests) model bağlamayı kullansa da), geçersiz bir modelin geçirilmesi geçerli bir yaklaşım değildir. Bu durumda model bağlama sınanmamıştır. Bu birim testleri yalnızca eylem yöntemindeki kodu test eder.
 
-O zaman ikinci test doğrular `ModelState` geçerlidir:
+İkinci test, `ModelState` geçerli olduğunda doğrular:
 
-* Yeni bir `BrainstormSession` (depo) eklenir.
-* Yöntem döndürür bir `RedirectToActionResult` beklenen özelliklere sahip.
+* Yeni `BrainstormSession` bir eklendi (depo aracılığıyla).
+* Yöntemi, beklenen özelliklerle `RedirectToActionResult` bir döndürür.
 
-Adı olmayan sahte çağrıları normalde yoksayıldı, ancak arama `Verifiable` Kurulum sonunda çağrı sahte doğrulama testinde izin verir. Bu çağrı ile gerçekleştirilir `mockRepo.Verify`, beklenen yöntemi çağrılırsa değildi testi başarısız.
+Çağrılmayan hiçbir çağrı normalde yok sayılır, ancak kurulum çağrısının sonunda çağrılması `Verifiable` testte sahte doğrulamaya izin verir. Bu, öğesine `mockRepo.Verify`yapılan çağrısıyla gerçekleştirilir ve bu, beklenen yöntemin çağrılmaması durumunda test başarısız olur.
 
 > [!NOTE]
-> Bu örnekte kullanılan Moq kitaplığı doğrulanabilir ya da "strict" mocks doğrulanamaz mocks ("belirsiz" mocks veya yer tutucular olarak da bilinir) ile birlikte mümkün kılar. Daha fazla bilgi edinin [Moq ile sahte davranışını özelleştirme](https://github.com/Moq/moq4/wiki/Quickstart#customizing-mock-behavior).
+> Bu örnekte kullanılan moq kitaplığı, doğrulanabilir olmayan bir şekilde ("gevşek" bir veya saplamalar olarak da adlandırılır) doğrulanabilir veya "katı" olarak karışık bir şekilde karışık bir şekilde karıştırılamaz. [Moq Ile sahte davranışı özelleştirme](https://github.com/Moq/moq4/wiki/Quickstart#customizing-mock-behavior)hakkında daha fazla bilgi edinin.
 
-[SessionController](https://github.com/aspnet/AspNetCore.Docs/blob/master/aspnetcore/mvc/controllers/testing/samples/2.x/TestingControllersSample/src/TestingControllersSample/Controllers/SessionController.cs) örnek uygulama belirli fırtınası oturumuyla ilgili bilgileri görüntüler. Denetleyici geçersiz dağıtılacak mantığı içerir `id` değerleri (iki `return` bu senaryolarınızı kapsaması amacıyla aşağıdaki örnek senaryolarda). En son `return` yeni bir ifade döndürür `StormSessionViewModel` görünümüne (*Controllers/SessionController.cs*):
+Örnek uygulamadaki [Sessioncontroller](https://github.com/aspnet/AspNetCore.Docs/blob/master/aspnetcore/mvc/controllers/testing/samples/2.x/TestingControllersSample/src/TestingControllersSample/Controllers/SessionController.cs) , belirli bir beyin fırtınası oturumuyla ilgili bilgileri görüntüler. Denetleyici geçersiz `id` değerlerle ilgilenme mantığını içerir (bu senaryoları kapsayan aşağıdaki örnekte `return` iki senaryo vardır). Son `return` ifade, görünüme (*Controllers/sessioncontroller. cs*) yeni `StormSessionViewModel` bir döndürür:
 
 [!code-csharp[](testing/samples/2.x/TestingControllersSample/src/TestingControllersSample/Controllers/SessionController.cs?name=snippet_SessionController&highlight=12-16,18-22,31)]
 
-Birim testleri içeren her bir test `return` oturumu denetleyicisi senaryoda `Index` eylem:
+Birim testleri, oturum denetleyicisi `return` `Index` eyleminde her senaryo için bir test içerir:
 
 [!code-csharp[](testing/samples/2.x/TestingControllersSample/tests/TestingControllersSample.Tests/UnitTests/SessionControllerTests.cs?name=snippet_SessionControllerTests&highlight=2,11-14,18,31-32,36,50-55)]
 
-Fikirlerinizi denetleyiciye taşıma, uygulamayı bir web API işlevleri üzerinde kullanıma sunar. `api/ideas` yolu:
+Uygulama, fikirler denetleyicisine geçiş yaparken, bir Web API 'si olarak `api/ideas` yol üzerinde işlevselliği kullanıma sunar:
 
-* Fikirlerinizi listesini (`IdeaDTO`) ilişkili bir fırtınası ile oturum tarafından döndürülen `ForSession` yöntemi.
-* `Create` Yöntemi yeni fikirleri oturuma ekler.
+* Bir beyin fırtınası oturumuyla ilişkili`IdeaDTO`fikirler () listesi, `ForSession` yöntemi tarafından döndürülür.
+* `Create` Yöntemi bir oturuma yeni fikirler ekler.
 
 [!code-csharp[](testing/samples/2.x/TestingControllersSample/src/TestingControllersSample/Api/IdeasController.cs?name=snippet_ForSessionAndCreate&highlight=1-2,21-22)]
 
-API çağrıları doğrudan iş etki alanı varlığı geri dönmekten kaçının. Etki alanı varlıklarının:
+İş etki alanı varlıklarını doğrudan API çağrıları aracılığıyla döndürmekten kaçının. Etki alanı varlıkları:
 
-* Genellikle istemcinin ihtiyaç duyduğu daha fazla veri içerir.
-* Gereksiz yere uygulamanın iç etki alanı modeli herkese açık bir API ile birleştirin.
+* Genellikle istemcinin gerektirdiğinden daha fazla veri içerir.
+* Genel olarak sunulan API ile uygulamanın iç etki alanı modelini gereksiz bir şekilde yapın.
 
-Etki alanı varlıklarının istemciye döndürülen türleri arasında eşleme gerçekleştirilebilir:
+Etki alanı varlıkları ve istemciye döndürülen türler arasında eşleme gerçekleştirilebilir:
 
-* El ile bir LINQ `Select`, örnek uygulamayı kullanır. Daha fazla bilgi için [LINQ (dil ile tümleşik sorgu)](/dotnet/standard/using-linq).
-* Bir kitaplığı ile otomatik olarak gibi [AutoMapper](https://github.com/AutoMapper/AutoMapper).
+* Örnek uygulamanın kullandığı şekilde `Select`bir LINQ ile el ile. Daha fazla bilgi için bkz. [LINQ (dil Ile tümleşik sorgu)](/dotnet/standard/using-linq).
+* Otomatik olarak bir kitaplıkla (örneğin, [Automaber](https://github.com/AutoMapper/AutoMapper)).
 
-Ardından, birim testleri için örnek uygulamayı gösterir `Create` ve `ForSession` fikirleri denetleyicinin API yöntemleri.
+Ardından, örnek uygulama, fikirler denetleyicisinin `Create` ve `ForSession` API yöntemlerine yönelik birim testlerini gösterir.
 
-Örnek uygulamayı iki tane `ForSession` testleri. İlk test belirler `ForSession` döndürür bir <xref:Microsoft.AspNetCore.Mvc.NotFoundObjectResult> (HTTP bulunamadı) geçersiz bir oturum için:
+Örnek uygulama iki `ForSession` test içerir. İlk test, geçersiz bir `ForSession` <xref:Microsoft.AspNetCore.Mvc.NotFoundObjectResult> oturum için (http bulunamadı) döndürüp döndürmeyeceğini belirler:
 
 [!code-csharp[](testing/samples/2.x/TestingControllersSample/tests/TestingControllersSample.Tests/UnitTests/ApiIdeasControllerTests.cs?name=snippet_ApiIdeasControllerTests4&highlight=5,7-8,15-16)]
 
-İkinci `ForSession` test belirler, `ForSession` oturumu fikirleri listesini döndürür (`<List<IdeaDTO>>`) geçerli bir oturum için. Denetimleri de onaylamak için ilk fikir inceleyin, `Name` özelliği doğru:
+İkinci `ForSession` test, geçerli bir `ForSession` oturum için oturum fikirleri (`<List<IdeaDTO>>`) listesini döndürüp döndürmeyeceğini belirler. Denetimler Ayrıca, `Name` özelliğinin doğru olduğunu onaylamak için ilk fikri de inceler:
 
 [!code-csharp[](testing/samples/2.x/TestingControllersSample/tests/TestingControllersSample.Tests/UnitTests/ApiIdeasControllerTests.cs?name=snippet_ApiIdeasControllerTests5&highlight=5,7-8,15-18)]
 
-Davranışını test etmek için `Create` yöntemi zaman `ModelState` olan geçersiz, örnek uygulamayı model hatası denetleyiciye testin bir parçası ekler. Model doğrulama testi veya birim testleri bağlamasında model çalışmayın&mdash;yalnızca eylem yöntemin davranışını geçersiz ile karşılaşıldığında test `ModelState`:
+`Create` Geçersiz`ModelState` olduğunda yönteminin davranışını test etmek için, örnek uygulama, testin bir parçası olarak denetleyiciye bir model hatası ekler. Birim testlerinde&mdash;model doğrulamayı veya model bağlamayı sınamayı denemeyin, ancak geçersiz `ModelState`kılma sırasında eylem yönteminin davranışını test edin:
 
 [!code-csharp[](testing/samples/2.x/TestingControllersSample/tests/TestingControllersSample.Tests/UnitTests/ApiIdeasControllerTests.cs?name=snippet_ApiIdeasControllerTests1&highlight=7,13)]
 
-İkinci testi `Create` döndüren havuzda bağlıdır `null`, sahte depo döndürmek için yapılandırılmış `null`. Bir test veritabanı oluşturmaya gerek yoktur (bellekte veya başka türlü) ve bu sonuç döndüren bir sorgu oluşturun. Örnek kodu gösterildiği gibi tek bir deyimde test gerçekleştirilebilir:
+İkinci testi `Create` , döndürülen `null`depoya bağlıdır, bu nedenle, sahte depo döndürecek `null`şekilde yapılandırılır. Bir test veritabanı (bellekte veya başka türlü) oluşturmanız gerekmez ve bu sonucu döndüren bir sorgu oluşturun. Örnek kodun gösterildiği gibi, test tek bir bildirimde gerçekleştirilebilir:
 
 [!code-csharp[](testing/samples/2.x/TestingControllersSample/tests/TestingControllersSample.Tests/UnitTests/ApiIdeasControllerTests.cs?name=snippet_ApiIdeasControllerTests2&highlight=7-8,15)]
 
-Üçüncü `Create` testi `Create_ReturnsNewlyCreatedIdeaForSession`, doğrular deponun `UpdateAsync` yöntemi çağrılır. Sahte çağrılır `Verifiable`ve sahte deponun `Verify` yöntemi doğrulanabilir yöntemi yürütüldüğünde doğrulamak için çağrılır. Birim testin sorumluluk emin olmak için değil `UpdateAsync` yöntemi kaydedilmiş veri&mdash;ile bir tümleştirme testini gerçekleştirilebilir.
+Üçüncü `Create` `UpdateAsync` test ,deponunyöntemininçağrıldığınıdoğrular.`Create_ReturnsNewlyCreatedIdeaForSession` , İle birlikte `Verifiable`çağrılır ve doğrulanabilen yöntemin yürütüldüğünü onaylamak için, moclenmiş `Verify` deponun yöntemi çağırılır. `UpdateAsync` Yöntemin bir tümleştirme testiyle gerçekleştirilebilecek verileri&mdash;kaydettiğinizden emin olmak için birim testin sorumluluğu bu değildir.
 
 [!code-csharp[](testing/samples/2.x/TestingControllersSample/tests/TestingControllersSample.Tests/UnitTests/ApiIdeasControllerTests.cs?name=snippet_ApiIdeasControllerTests3&highlight=20-22,28-33)]
 
 ## <a name="test-actionresultlttgt"></a>Test ActionResult&lt;T&gt;
 
-ASP.NET Core 2.1 veya daha sonra [actionresult öğesini&lt;T&gt; ](xref:web-api/action-return-types#actionresultt-type) (<xref:Microsoft.AspNetCore.Mvc.ActionResult%601>) dönüş türetme bir türü sayesinde `ActionResult` veya belirli bir tür döndürür.
+ASP.NET Core 2,1 veya sonraki sürümlerde [&lt;ActionResult T&gt; ](xref:web-api/action-return-types#actionresultt-type) (<xref:Microsoft.AspNetCore.Mvc.ActionResult%601>), belirli bir türden türetilen `ActionResult` veya döndürülen bir türü döndürmenizi sağlar.
 
-Örnek uygulamayı döndüren bir yöntem içerir. bir `List<IdeaDTO>` belirli bir oturum için `id`. Varsa oturum `id` , denetleyici döndürür yok <xref:Microsoft.AspNetCore.Mvc.ControllerBase.NotFound*>:
+Örnek uygulama, belirli bir oturum `List<IdeaDTO>` `id`için döndüren bir yöntemi içerir. Oturum `id` yoksa, denetleyici şunu döndürür <xref:Microsoft.AspNetCore.Mvc.ControllerBase.NotFound*>:
 
 [!code-csharp[](testing/samples/2.x/TestingControllersSample/src/TestingControllersSample/Api/IdeasController.cs?name=snippet_ForSessionActionResult&highlight=10,21)]
 
-İki test `ForSessionActionResult` denetleyicisi dahil edilecek `ApiIdeasControllerTests`.
+`ForSessionActionResult` Denetleyicinin iki testi uygulamasına dahil `ApiIdeasControllerTests`edilmiştir.
 
-İlk test denetleyicisi döndürdüğünü onaylar bir `ActionResult` ancak varolmayan bir oturum için fikir değil varolmayan bir listesi `id`:
+İlk test, denetleyicinin varolmayan bir oturum `ActionResult` `id`için varolmayan bir fikirler listesi döndürdüğünü doğrular:
 
-* `ActionResult` Türü `ActionResult<List<IdeaDTO>>`.
-* <xref:Microsoft.AspNetCore.Mvc.ActionResult`1.Result*> Olduğu bir <xref:Microsoft.AspNetCore.Mvc.NotFoundObjectResult>.
+* `ActionResult` Türü .`ActionResult<List<IdeaDTO>>`
+* , <xref:Microsoft.AspNetCore.Mvc.ActionResult`1.Result*> Bir .<xref:Microsoft.AspNetCore.Mvc.NotFoundObjectResult>
 
 [!code-csharp[](testing/samples/2.x/TestingControllersSample/tests/TestingControllersSample.Tests/UnitTests/ApiIdeasControllerTests.cs?name=snippet_ForSessionActionResult_ReturnsNotFoundObjectResultForNonexistentSession&highlight=7,10,13-14)]
 
-Geçerli bir oturum için `id`, ikinci test yöntemi döndürdüğünü onaylar:
+Geçerli bir oturum `id`için ikinci test, yöntemin döndürdüğünü onaylar:
 
-* Bir `ActionResult` ile bir `List<IdeaDTO>` türü.
-* [Actionresult öğesini&lt;T&gt;. Değer](xref:Microsoft.AspNetCore.Mvc.ActionResult%601.Value*) olduğu bir `List<IdeaDTO>` türü.
-* Listedeki ilk öğeye sahte oturumda depolanan fikir eşleşen geçerli bir fikir olduğunu (çağırılarak `GetTestSession`).
+* Bir `ActionResult` tür`List<IdeaDTO>` ile.
+* [ActionResult&lt;T&gt;. Değer](xref:Microsoft.AspNetCore.Mvc.ActionResult%601.Value*) bir `List<IdeaDTO>` türdür.
+* Listedeki ilk öğe, sahte oturumda saklanan fikrle eşleşen geçerli bir fikrdir (çağırarak `GetTestSession`elde edilir).
 
 [!code-csharp[](testing/samples/2.x/TestingControllersSample/tests/TestingControllersSample.Tests/UnitTests/ApiIdeasControllerTests.cs?name=snippet_ForSessionActionResult_ReturnsIdeasForSession&highlight=7-8,15-18)]
 
-Örnek uygulamayı yeni bir oluşturmak için bir yöntem de içerir. `Idea` belirli bir oturum için. Denetleyici döndürür:
+Örnek uygulama, belirli bir oturum için yeni `Idea` bir oluşturma yöntemi de içerir. Denetleyici şunu döndürür:
 
-* <xref:Microsoft.AspNetCore.Mvc.ControllerBase.BadRequest*> için geçersiz bir model.
-* <xref:Microsoft.AspNetCore.Mvc.ControllerBase.NotFound*> oturum yoksa.
-* <xref:Microsoft.AspNetCore.Mvc.ControllerBase.CreatedAtAction*> oturum ile yeni fikir güncelleştirildiğinde.
+* <xref:Microsoft.AspNetCore.Mvc.ControllerBase.BadRequest*>geçersiz bir model.
+* <xref:Microsoft.AspNetCore.Mvc.ControllerBase.NotFound*>oturum yoksa.
+* <xref:Microsoft.AspNetCore.Mvc.ControllerBase.CreatedAtAction*>oturum yeni fikrle güncelleştirildiği zaman.
 
 [!code-csharp[](testing/samples/2.x/TestingControllersSample/src/TestingControllersSample/Api/IdeasController.cs?name=snippet_CreateActionResult&highlight=9,16,29)]
 
-Üç testleri `CreateActionResult` dahil `ApiIdeasControllerTests`.
+' Ye üç `CreateActionResult` test dahildir. `ApiIdeasControllerTests`
 
-İlk metin teyit bir <xref:Microsoft.AspNetCore.Mvc.ControllerBase.BadRequest*> için geçersiz bir model döndürülür.
+İlk metin, bir <xref:Microsoft.AspNetCore.Mvc.ControllerBase.BadRequest*> geçersiz model için döndürüldüğünü onaylar.
 
 [!code-csharp[](testing/samples/2.x/TestingControllersSample/tests/TestingControllersSample.Tests/UnitTests/ApiIdeasControllerTests.cs?name=snippet_CreateActionResult_ReturnsBadRequest_GivenInvalidModel&highlight=7,13-14)]
 
-İkinci test denetleyen bir <xref:Microsoft.AspNetCore.Mvc.ControllerBase.NotFound*> oturum yoksa döndürülür.
+İkinci test, oturum yoksa bir <xref:Microsoft.AspNetCore.Mvc.ControllerBase.NotFound*> ' ın döndürülüp döndürülmediğini denetler.
 
 [!code-csharp[](testing/samples/2.x/TestingControllersSample/tests/TestingControllersSample.Tests/UnitTests/ApiIdeasControllerTests.cs?name=snippet_CreateActionResult_ReturnsNotFoundObjectResultForNonexistentSession&highlight=5,15,22-23)]
 
-Geçerli bir oturum için `id`, son testte, onaylar:
+Geçerli bir oturum `id`için son test şunları onaylar:
 
-* Yöntem döndürür bir `ActionResult` ile bir `BrainstormSession` türü.
-* [Actionresult öğesini&lt;T&gt;. Sonuç](xref:Microsoft.AspNetCore.Mvc.ActionResult%601.Result*) olduğu bir <xref:Microsoft.AspNetCore.Mvc.CreatedAtActionResult>. `CreatedAtActionResult` için benzer bir *201 oluşturuldu* yanıtıyla bir `Location` başlığı.
-* [Actionresult öğesini&lt;T&gt;. Değer](xref:Microsoft.AspNetCore.Mvc.ActionResult%601.Value*) olduğu bir `BrainstormSession` türü.
-* Oturum güncelleştirmek için sahte arama `UpdateAsync(testSession)`, çağrıldı. `Verifiable` Yöntem çağrısının yürüterek işaretli `mockRepo.Verify()` içinde onaylar.
-* İki `Idea` nesneleri, oturum için döndürülür.
-* Son öğe ( `Idea` sahte çağrısı tarafından eklenen `UpdateAsync`) eşleşen `newIdea` test oturumu eklenir.
+* Yöntemi bir `ActionResult` `BrainstormSession` türü ile döndürür.
+* [ActionResult&lt;T&gt;. Sonuç](xref:Microsoft.AspNetCore.Mvc.ActionResult%601.Result*) bir <xref:Microsoft.AspNetCore.Mvc.CreatedAtActionResult>. `CreatedAtActionResult`, bir `Location` üst bilgiyle *201 oluşturulan* yanıta benzerdir.
+* [ActionResult&lt;T&gt;. Değer](xref:Microsoft.AspNetCore.Mvc.ActionResult%601.Value*) bir `BrainstormSession` türdür.
+* Oturumu `UpdateAsync(testSession)`güncelleştirmek için kullanılan sahte çağrı, çağrıldı. Yöntem çağrısı onaylamalarda yürütülerek `mockRepo.Verify()`denetlenir. `Verifiable`
+* Oturum `Idea` için iki nesne döndürülür.
+* Son öğe ( `Idea` sahte `UpdateAsync`çağrının eklendiği), `newIdea` testteki oturuma eklenen ile eşleşir.
 
 [!code-csharp[](testing/samples/2.x/TestingControllersSample/tests/TestingControllersSample.Tests/UnitTests/ApiIdeasControllerTests.cs?name=snippet_CreateActionResult_ReturnsNewlyCreatedIdeaForSession&highlight=20-22,28-34)]
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * <xref:test/integration-tests>
-* [Oluşturma ve birim testlerini Visual Studio ile çalıştırma](/visualstudio/test/unit-test-your-code).
+* [Visual Studio ile birim testleri oluşturun ve çalıştırın](/visualstudio/test/unit-test-your-code).
