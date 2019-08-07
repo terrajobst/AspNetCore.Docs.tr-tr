@@ -5,12 +5,12 @@ description: Basit bir ASP.NET Core MVC uygulamasına görünüm ekleme
 ms.author: riande
 ms.date: 8/04/2019
 uid: tutorials/first-mvc-app/adding-view
-ms.openlocfilehash: 757e2bd0679c837fff2d9f813395ef24388cc8f5
-ms.sourcegitcommit: b5e63714afc26e94be49a92619586df5189ed93a
+ms.openlocfilehash: 1c29b59f9306774316ff37eeb57cc441fe5c7370
+ms.sourcegitcommit: 2eb605f4f20ac4dd9de6c3b3e3453e108a357a21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68739604"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68820085"
 ---
 # <a name="add-a-view-to-an-aspnet-core-mvc-app"></a>ASP.NET Core MVC uygulamasına görünüm ekleme
 
@@ -74,7 +74,7 @@ Razor kullanarak bir görünüm şablonu dosyası oluşturursunuz. Razor tabanl�
 
 [!code-HTML[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie22/Views/HelloWorld/Index1.cshtml?highlight=7)]
 
-          `https://localhost:xxxx/HelloWorld` sayfasına gidin. `return View();`' Deki `Index` yöntemiçokfazladeğil,yönteminintarayıcıyayanıtişlemekiçinbirgörünümşablonu`HelloWorldController` dosyası kullanması gerektiğini belirten ifadesini çalıştırdı. Bir görünüm şablonu dosya adı belirtilmediğinden, MVC varsayılan görünüm dosyasını kullanmaya göre varsayılan olarak ayarlanmış. Varsayılan görünüm dosyası yöntemiyle aynı ada sahiptir (`Index`), bu nedenle */views/HelloWorld/Index.cshtml* kullanılır. Aşağıdaki görüntüde "görünüm Şablonumuzdan Merhaba!" dizesi gösterilmektedir görünümde sabit kodlanmış.
+          `https://localhost:{PORT}/HelloWorld` sayfasına gidin. `return View();`' Deki `Index` yöntemiçokfazladeğil,yönteminintarayıcıyayanıtişlemekiçinbirgörünümşablonu`HelloWorldController` dosyası kullanması gerektiğini belirten ifadesini çalıştırdı. Bir görünüm şablonu dosya adı belirtilmediğinden, MVC varsayılan görünüm dosyasını kullanmaya göre varsayılan olarak ayarlanmış. Varsayılan görünüm dosyası yöntemiyle aynı ada sahiptir (`Index`), bu nedenle */views/HelloWorld/Index.cshtml* kullanılır. Aşağıdaki görüntüde "görünüm Şablonumuzdan Merhaba!" dizesi gösterilmektedir görünümde sabit kodlanmış.
 
 ![Tarayıcı penceresi](~/tutorials/first-mvc-app/adding-view/_static/hell_template.png)
 
@@ -127,7 +127,7 @@ Başlık ve `<h2>` öğe biraz farklı olduğundan, hangi kod bitini görüntül
 <title>@ViewData["Title"] - Movie App</title>
    ```
 
-Değişikliği kaydedin ve öğesine `https://localhost:xxxx/HelloWorld`gidin. Tarayıcı başlığı, birincil başlık ve ikincil başlıkların değiştirildiğini unutmayın. (Tarayıcıda değişiklik görmüyorsanız, önbelleğe alınmış içeriği görüntülüyor olabilirsiniz. Sunucudan gelen yanıtı zorlamak için tarayıcınızda CTRL + F5 tuşlarına basın.) Tarayıcı başlığı *Index. cshtml* Görünüm `ViewData["Title"]` şablonunda ve düzen dosyasına eklenen ek "-film uygulaması" olarak ayarlandığımızda oluşturulur.
+Değişikliği kaydedin ve öğesine `https://localhost:{PORT}/HelloWorld`gidin. Tarayıcı başlığı, birincil başlık ve ikincil başlıkların değiştirildiğini unutmayın. (Tarayıcıda değişiklik görmüyorsanız, önbelleğe alınmış içeriği görüntülüyor olabilirsiniz. Sunucudan gelen yanıtı zorlamak için tarayıcınızda CTRL + F5 tuşlarına basın.) Tarayıcı başlığı *Index. cshtml* Görünüm `ViewData["Title"]` şablonunda ve düzen dosyasına eklenen ek "-film uygulaması" olarak ayarlandığımızda oluşturulur.
 
 *Index. cshtml* görünüm şablonundaki içerik *views/Shared/_Layout. cshtml* görünüm şablonuyla birleştirilir. Tarayıcıya tek bir HTML yanıtı gönderilir. Düzen şablonları, bir uygulamadaki tüm sayfalara uygulanan değişiklikler yapmayı kolaylaştırır. Daha fazla bilgi için bkz. [Düzen](xref:mvc/views/layout).
 
@@ -157,7 +157,7 @@ Bir görünüm şablonunun yanıt işlemesi için gereken verileri sağlamaktan 
 
 Değişikliklerinizi kaydedin ve aşağıdaki URL 'ye gidin:
 
-`https://localhost:xxxx/HelloWorld/Welcome?name=Rick&numtimes=4`
+`https://localhost:{PORT}/HelloWorld/Welcome?name=Rick&numtimes=4`
 
 Veriler URL 'den alınır ve [MVC model Bağlayıcısı](xref:mvc/models/model-binding) kullanılarak denetleyiciye geçirilir. Denetleyici, verileri bir `ViewData` sözlükte paketler ve bu nesneyi görünüme geçirir. Daha sonra Görünüm, verileri tarayıcıda HTML olarak işler.
 
@@ -231,7 +231,7 @@ Razor kullanarak bir görünüm şablonu dosyası oluşturursunuz. Razor tabanl�
 
 [!code-HTML[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie22/Views/HelloWorld/Index1.cshtml?highlight=7)]
 
-          `https://localhost:xxxx/HelloWorld` sayfasına gidin. `return View();`' Deki `Index` yöntemiçokfazladeğil,yönteminintarayıcıyayanıtişlemekiçinbirgörünümşablonu`HelloWorldController` dosyası kullanması gerektiğini belirten ifadesini çalıştırdı. Bir görünüm şablonu dosya adı belirtilmediğinden, MVC varsayılan görünüm dosyasını kullanmaya göre varsayılan olarak ayarlanmış. Varsayılan görünüm dosyası yöntemiyle aynı ada sahiptir (`Index`), bu nedenle */views/HelloWorld/Index.cshtml* kullanılır. Aşağıdaki görüntüde "görünüm Şablonumuzdan Merhaba!" dizesi gösterilmektedir görünümde sabit kodlanmış.
+          `https://localhost:{PORT}/HelloWorld` sayfasına gidin. `return View();`' Deki `Index` yöntemiçokfazladeğil,yönteminintarayıcıyayanıtişlemekiçinbirgörünümşablonu`HelloWorldController` dosyası kullanması gerektiğini belirten ifadesini çalıştırdı. Bir görünüm şablonu dosya adı belirtilmediğinden, MVC varsayılan görünüm dosyasını kullanmaya göre varsayılan olarak ayarlanmış. Varsayılan görünüm dosyası yöntemiyle aynı ada sahiptir (`Index`), bu nedenle */views/HelloWorld/Index.cshtml* kullanılır. Aşağıdaki görüntüde "görünüm Şablonumuzdan Merhaba!" dizesi gösterilmektedir görünümde sabit kodlanmış.
 
 ![Tarayıcı penceresi](~/tutorials/first-mvc-app/adding-view/_static/hell_template.png)
 
@@ -287,7 +287,7 @@ Başlık ve `<h2>` öğe biraz farklı olduğundan, hangi kod bitini görüntül
 <title>@ViewData["Title"] - Movie App</title>
    ```
 
-Değişikliği kaydedin ve öğesine `https://localhost:xxxx/HelloWorld`gidin. Tarayıcı başlığı, birincil başlık ve ikincil başlıkların değiştirildiğini unutmayın. (Tarayıcıda değişiklik görmüyorsanız, önbelleğe alınmış içeriği görüntülüyor olabilirsiniz. Sunucudan gelen yanıtı zorlamak için tarayıcınızda CTRL + F5 tuşlarına basın.) Tarayıcı başlığı *Index. cshtml* Görünüm `ViewData["Title"]` şablonunda ve düzen dosyasına eklenen ek "-film uygulaması" olarak ayarlandığımızda oluşturulur.
+Değişikliği kaydedin ve öğesine `https://localhost:{PORT}/HelloWorld`gidin. Tarayıcı başlığı, birincil başlık ve ikincil başlıkların değiştirildiğini unutmayın. (Tarayıcıda değişiklik görmüyorsanız, önbelleğe alınmış içeriği görüntülüyor olabilirsiniz. Sunucudan gelen yanıtı zorlamak için tarayıcınızda CTRL + F5 tuşlarına basın.) Tarayıcı başlığı *Index. cshtml* Görünüm `ViewData["Title"]` şablonunda ve düzen dosyasına eklenen ek "-film uygulaması" olarak ayarlandığımızda oluşturulur.
 
 Ayrıca, *Index. cshtml* görünüm şablonundaki içeriğin *Görünümler/Shared/_Layout. cshtml* görünüm şablonuyla nasıl birleştirildiğine ve tarayıcıya tek bir HTML yanıtının gönderildiğine dikkat edin. Düzen şablonları, uygulamanızdaki tüm sayfalara uygulanan değişiklikler yapmayı gerçekten kolaylaştırır. Daha fazla bilgi için bkz. [Düzen](xref:mvc/views/layout).
 
@@ -317,7 +317,7 @@ Bir görünüm şablonunun yanıt işlemesi için gereken verileri sağlamaktan 
 
 Değişikliklerinizi kaydedin ve aşağıdaki URL 'ye gidin:
 
-`https://localhost:xxxx/HelloWorld/Welcome?name=Rick&numtimes=4`
+`https://localhost:{PORT}/HelloWorld/Welcome?name=Rick&numtimes=4`
 
 Veriler URL 'den alınır ve [MVC model Bağlayıcısı](xref:mvc/models/model-binding) kullanılarak denetleyiciye geçirilir. Denetleyici, verileri bir `ViewData` sözlükte paketler ve bu nesneyi görünüme geçirir. Daha sonra Görünüm, verileri tarayıcıda HTML olarak işler.
 

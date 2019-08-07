@@ -1,7 +1,7 @@
 ---
-title: İstemci IP Güvenli ASP.NET Core için liste
+title: ASP.NET Core için istemci IP SafeList
 author: damienbod
-description: Uzak IP adresleri, onaylanan IP adreslerinden oluşan bir liste karşı doğrulamak için bir ara yazılım ya da eylem filtreleri yazmayı öğrenin.
+description: Uzak IP adreslerini onaylanan IP adresleri listesine göre doğrulamak için ara yazılım veya eylem filtreleri yazmayı öğrenin.
 ms.author: tdykstra
 ms.custom: mvc
 ms.date: 08/31/2018
@@ -13,64 +13,64 @@ ms.contentlocale: tr-TR
 ms.lasthandoff: 07/15/2019
 ms.locfileid: "68223930"
 ---
-# <a name="client-ip-safelist-for-aspnet-core"></a>İstemci IP Güvenli ASP.NET Core için liste
+# <a name="client-ip-safelist-for-aspnet-core"></a>ASP.NET Core için istemci IP SafeList
 
-Tarafından [Damien Bowden](https://twitter.com/damien_bod) ve [Tom Dykstra](https://github.com/tdykstra)
+By [Davmıen Bowden](https://twitter.com/damien_bod) ve [Tom Dykstra](https://github.com/tdykstra)
  
-Bu makalede, bir IP güvenli liste (beyaz liste olarak da bilinir) ASP.NET Core uygulaması uygulamak için üç yol gösterilir. Şunları kullanabilirsiniz:
+Bu makalede bir ASP.NET Core uygulamasında bir IP SafeList (beyaz liste olarak da bilinir) uygulamanın üç yolu gösterilmektedir. Şunu kullanabilirsiniz:
 
-* Uzak IP adresi her isteğin denetlemek için ara yazılımı.
-* Uzak IP adresi belirli denetleyicileri veya eylem yöntemleri için isteklerin denetlemek için eylem filtreleri.
-* Razor sayfaları filtreleri Razor sayfaları için isteklerin uzak IP adresini denetleyin.
+* Her isteğin uzak IP adresini denetlemek için ara yazılım.
+* Belirli denetleyiciler veya eylem yöntemlerine yönelik isteklerin uzak IP adresini denetlemek için eylem filtreleri.
+* Razor sayfalarına yönelik isteklerin uzak IP adresini denetlemek için filtreler Razor Pages.
 
-Her durumda, bir uygulama ayarı onaylı istemci IP adreslerini içeren bir dize olarak depolanır. Ara yazılım veya filtre bir listeye dizeyi ayrıştırır ve uzak IP listesinde olup olmadığını denetler. Aksi durumda, bir HTTP 403 Yasak durum kodu döndürülür.
+Her durumda, onaylanan istemci IP adreslerini içeren bir dize bir uygulama ayarında saklanır. Ara yazılım veya filtre, dizeyi bir liste olarak ayrıştırır ve uzak IP 'nin listede olup olmadığını denetler. Aksi takdirde, HTTP 403 yasaklanmış durum kodu döndürülür.
 
 [Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/ip-safelist/samples/2.x/ClientIpAspNetCore) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
 
-## <a name="the-safelist"></a>Güvenli liste
+## <a name="the-safelist"></a>SafeList
 
-Listenin yapılandırılan *appsettings.json* dosya. Bu, noktalı virgülle ayrılmış listesidir ve IPv4 ve IPv6 adreslerini içermelidir.
+Liste *appSettings. JSON* dosyasında yapılandırılır. Bu, noktalı virgülle ayrılmış bir liste ve IPv4 ve IPv6 adresleri içerebilir.
 
 [!code-json[](ip-safelist/samples/2.x/ClientIpAspNetCore/appsettings.json?highlight=2)]
 
 ## <a name="middleware"></a>Ara yazılım
 
-`Configure` Yöntemi ara yazılımı ekler ve güvenli liste dize bir oluşturucu parametresi geçirilir.
+`Configure` Yöntemi, ara yazılımı ekler ve bir Oluşturucu parametresinde SafeList dizesini buna geçirir.
 
 [!code-csharp[](ip-safelist/samples/2.x/ClientIpAspNetCore/Startup.cs?name=snippet_Configure&highlight=10)]
 
-Ara yazılım bir diziye dizeyi ayrıştırır ve dizideki uzak IP adresi arar. Uzak IP adresi bulunmazsa, ara yazılım 401 HTTP Yasak döndürür. Bu doğrulama işlemi, HTTP Get isteklerini atlanır.
+Ara yazılım, dizeyi bir dizi olarak ayrıştırır ve dizideki uzak IP adresini arar. Uzak IP adresi bulunamazsa, ara yazılım HTTP 401 yasak değerini döndürür. Bu doğrulama işlemi HTTP GET istekleri için atlanır.
 
 [!code-csharp[](ip-safelist/samples/2.x/ClientIpAspNetCore/AdminSafeListMiddleware.cs?name=snippet_ClassOnly)]
 
 ## <a name="action-filter"></a>Eylem filtresi
 
-Yalnızca belirli denetleyicileri veya eylem yöntemleri için bir güvenli liste istiyorsanız, bir eyleme eylem filtresi kullanın. Örnek buradadır: 
+Yalnızca belirli denetleyiciler veya eylem yöntemleri için bir SafeList istiyorsanız, bir eylem filtresi kullanın. Örnek buradadır: 
 
 [!code-csharp[](ip-safelist/samples/2.x/ClientIpAspNetCore/Filters/ClientIdCheckFilter.cs)]
 
-Eylem filtresi Hizmetleri kapsayıcıya eklenir.
+Eylem filtresi, hizmetler kapsayıcısına eklenir.
 
 [!code-csharp[](ip-safelist/samples/2.x/ClientIpAspNetCore/Startup.cs?name=snippet_ConfigureServices&highlight=3)]
 
-Filtre, bir denetleyici veya eylem yöntemi kullanılabilir.
+Filtre daha sonra bir denetleyici veya eylem yönteminde kullanılabilir.
 
 [!code-csharp[](ip-safelist/samples/2.x/ClientIpAspNetCore/Controllers/ValuesController.cs?name=snippet_Filter&highlight=1)]
 
-Filtrenin uygulandığı örnek uygulamada, `Get` yöntemi. Bunu göndererek uygulamayı test ettiğinizde bir `Get` API istek, öznitelik istemci IP adresini doğrulama. Ara yazılım, herhangi bir HTTP yöntemi ile API çağrısı yaparak test ettiğinizde, istemci IP'sini doğruluyor.
+Örnek uygulamada, filtre `Get` yöntemine uygulanır. Bu nedenle, bir `Get` API isteği göndererek uygulamayı test ettiğinizde, öznitelik istemci IP adresini doğruluyor. API 'YI başka bir HTTP yöntemiyle çağırarak test ettiğinizde, ara yazılım istemci IP 'sini doğruluyor.
 
-## <a name="razor-pages-filter"></a>Razor sayfaları Filtrele 
+## <a name="razor-pages-filter"></a>Razor Pages filtresi 
 
-Bir Razor sayfaları uygulaması için bir güvenli liste istiyorsanız, bir Razor sayfaları filtresini kullanın. Örnek buradadır: 
+Razor Pages bir uygulama için bir SafeList istiyorsanız, bir Razor Pages filtresi kullanın. Örnek buradadır: 
 
 [!code-csharp[](ip-safelist/samples/2.x/ClientIpAspNetCore/Filters/ClientIdCheckPageFilter.cs)]
 
-MVC filtreleri koleksiyon ekleyerek bu filtre etkindir.
+Bu filtre, MVC filtreleri koleksiyonuna eklenerek etkinleştirilir.
 
 [!code-csharp[](ip-safelist/samples/2.x/ClientIpAspNetCore/Startup.cs?name=snippet_ConfigureServices&highlight=7-9)]
 
-Uygulamayı çalıştırın ve bir Razor sayfası istek istemci IP'sini Razor sayfaları filtre doğruluyor.
+Uygulamayı çalıştırıp bir Razor sayfası istediğinizde Razor Pages filtresi istemci IP 'sini doğruluyor.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[ASP.NET Core ara yazılım hakkında daha fazla bilgi](xref:fundamentals/middleware/index).
+[ASP.NET Core ara yazılım hakkında daha fazla bilgi edinin](xref:fundamentals/middleware/index).

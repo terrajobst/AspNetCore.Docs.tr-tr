@@ -5,14 +5,14 @@ description: ASP.NET Core bağımlılık ekleme ve nasıl kullanılacağı hakk�
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 07/24/2019
+ms.date: 08/06/2019
 uid: fundamentals/dependency-injection
-ms.openlocfilehash: 100eab0bdee12a6e61ac26538c83aa997f8eaee3
-ms.sourcegitcommit: 16502797ea749e2690feaa5e652a65b89c007c89
+ms.openlocfilehash: 27ae8ac979c267c666d6d63f4d1dd862ff20edba
+ms.sourcegitcommit: 2eb605f4f20ac4dd9de6c3b3e3453e108a357a21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68483198"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68819868"
 ---
 # <a name="dependency-injection-in-aspnet-core"></a>ASP.NET Core bağımlılık ekleme
 
@@ -175,7 +175,7 @@ Kapsamlı ömür Hizmetleri (<xref:Microsoft.Extensions.DependencyInjection.Serv
 
 ### <a name="singleton"></a>Adet
 
-Tek yaşam süresi Hizmetleri<xref:Microsoft.AspNet.OData.Builder.ODataModelBuilder.AddSingleton*>() her istendiğinde oluşturulur ( `Startup.ConfigureServices` veya çalıştırıldığında ve hizmet kaydıyla bir örnek belirtildiğinde). Her sonraki istek aynı örneği kullanır. Uygulama tek davranış gerektiriyorsa, hizmet kapsayıcısının hizmetin ömrünü yönetmesine izin verilmesi önerilir. Tekil tasarım modelini uygulamayın ve nesnenin sınıfındaki ömrünü yönetmek için Kullanıcı kodu sağlayın.
+Tek yaşam süresi Hizmetleri<xref:Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton*>() her istendiğinde oluşturulur ( `Startup.ConfigureServices` veya çalıştırıldığında ve hizmet kaydıyla bir örnek belirtildiğinde). Her sonraki istek aynı örneği kullanır. Uygulama tek davranış gerektiriyorsa, hizmet kapsayıcısının hizmetin ömrünü yönetmesine izin verilmesi önerilir. Tekil tasarım modelini uygulamayın ve nesnenin sınıfındaki ömrünü yönetmek için Kullanıcı kodu sağlayın.
 
 > [!WARNING]
 > Kapsamlı bir hizmetin tek bir bilgisayardan çözümlenmesi tehlikelidir. Bu, sonraki istekleri işlerken hizmetin yanlış duruma gelmesine neden olabilir.

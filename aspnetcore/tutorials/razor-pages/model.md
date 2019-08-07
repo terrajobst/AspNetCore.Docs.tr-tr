@@ -5,12 +5,12 @@ description: Entity Framework Core (EF Core) kullanarak bir veritabanında filml
 ms.author: riande
 ms.date: 07/22/2019
 uid: tutorials/razor-pages/model
-ms.openlocfilehash: 1c944a10ced7219aa9b0635b822f27081c92995f
-ms.sourcegitcommit: 4fe3ae892f54dc540859bff78741a28c2daa9a38
+ms.openlocfilehash: 6132f7b907014b4f57bb9ae0300e00b6ecb23f1a
+ms.sourcegitcommit: 2eb605f4f20ac4dd9de6c3b3e3453e108a357a21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/04/2019
-ms.locfileid: "68776726"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68820073"
 ---
 # <a name="add-a-model-to-a-razor-pages-app-in-aspnet-core"></a>Bir ASP.NET Core Razor sayfaları uygulama için model ekleme
 
@@ -166,7 +166,7 @@ Bu bölümde, Paket Yöneticisi Konsolu (PMC'yi) için kullanılır:
 PMC'de aşağıdaki komutları girin:
 
 ```PMC
-Add-Migration Initial
+Add-Migration InitialCreate
 Update-Database
 ```
 

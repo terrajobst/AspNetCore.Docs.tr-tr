@@ -4,14 +4,14 @@ author: rick-anderson
 description: ASP.NET Core ile Web API 'SI oluşturmayı öğrenin.
 ms.author: riande
 ms.custom: mvc
-ms.date: 07/11/2019
+ms.date: 08/05/2019
 uid: tutorials/first-web-api
-ms.openlocfilehash: 60235af56077127093ac1d77338bc228a6edf073
-ms.sourcegitcommit: 0efb9e219fef481dee35f7b763165e488aa6cf9c
+ms.openlocfilehash: 855d05fa2b9c1a7572212c40adbe61bb396f4bac
+ms.sourcegitcommit: 2eb605f4f20ac4dd9de6c3b3e3453e108a357a21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68602490"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68819842"
 ---
 # <a name="tutorial-create-a-web-api-with-aspnet-core"></a>Öğretici: ASP.NET Core ile Web API 'SI oluşturma
 
@@ -41,7 +41,7 @@ Bu öğretici yandaki API oluşturur:
 |/Api/TodoItems al | Tüm yapılacak iş öğeleri al | Yok. | Yapılacaklar öğelerinin bir dizisi|
 |/Api/TodoItems/{id} al | Bir öğeyi Kimliğine göre Al | Yok. | Yapılacak iş öğesi|
 |POST/api/TodoItems | Yeni Öğe Ekle | Yapılacak iş öğesi | Yapılacak iş öğesi |
-|/Api/TodoItems/{id} koy | Mevcut öğeyi güncelleştirin &nbsp; | Yapılacak iş öğesi | None |
+|/Api/TodoItems/{id} koy | Mevcut öğeyi güncelleştirin &nbsp; | Yapılacak iş öğesi | Yok. |
 |/Api/TodoItems/{id} &nbsp; Sil&nbsp; | Öğeyi Sil &nbsp; &nbsp; | Hiçbiri | Hiçbiri|
 
 Aşağıdaki diyagramda, bu uygulamanın tasarımını gösterir.
@@ -71,7 +71,7 @@ Aşağıdaki diyagramda, bu uygulamanın tasarımını gösterir.
 * **Dosya** menüsünden **Yeni** > **Proje**' yi seçin.
 * **ASP.NET Core Web uygulaması** şablonunu seçin ve **İleri**' ye tıklayın.
 * Projeyi *TodoApi* olarak adlandırın ve **Oluştur**' a tıklayın.
-* **Yeni bir ASP.NET Core Web uygulaması oluştur** iletişim kutusunda, **.net Core** ve **ASP.NET Core 3,0** ' un seçili olduğunu doğrulayın. **API** şablonunu seçin ve **Oluştur**' a tıklayın. **Docker desteğini etkinleştir** **' i seçmeyin** .
+* **Yeni bir ASP.NET Core Web uygulaması oluştur** iletişim kutusunda, **.net Core** ve **ASP.NET Core 3,0** ' un seçili olduğunu doğrulayın. **API** şablonunu seçin ve **Oluştur**' a tıklayın. **Docker desteğini etkinleştir**' i seçmeyin.
 
 ![VS yeni proje iletişim kutusu](first-web-api/_static/vs3.png)
 
@@ -130,7 +130,7 @@ Uygulamayı çalıştırmak için CTRL + F5 tuşlarına basın. Bir tarayıcıda
 
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Mac için Visual Studio](#tab/visual-studio-mac)
 
-Uygulamayı başlatmak için**hata ayıklamayı Başlat** ' **ı seçin.**  >  Mac için Visual Studio bir tarayıcı ile başlatarak `https://localhost:<port>`burada `<port>` bir rastgele seçilen bağlantı noktası numarasıdır. HTTP 404 (bulunamadı) hatası döndürülür. Append `/WeatherForecast` URL'sine (URL'yi `https://localhost:<port>/WeatherForecast`).
+Uygulamayı başlatmak için**hata ayıklamayı Başlat** ' ı seçin. >  Mac için Visual Studio bir tarayıcı ile başlatarak `https://localhost:<port>`burada `<port>` bir rastgele seçilen bağlantı noktası numarasıdır. HTTP 404 (bulunamadı) hatası döndürülür. Append `/WeatherForecast` URL'sine (URL'yi `https://localhost:<port>/WeatherForecast`).
 
 ---
 
@@ -483,7 +483,7 @@ Bu öğretici yandaki API oluşturur:
 |/Api/TodoItems al | Tüm yapılacak iş öğeleri al | Yok. | Yapılacaklar öğelerinin bir dizisi|
 |/Api/TodoItems/{id} al | Bir öğeyi Kimliğine göre Al | Yok. | Yapılacak iş öğesi|
 |POST/api/TodoItems | Yeni Öğe Ekle | Yapılacak iş öğesi | Yapılacak iş öğesi |
-|/Api/TodoItems/{id} koy | Mevcut öğeyi güncelleştirin &nbsp; | Yapılacak iş öğesi | None |
+|/Api/TodoItems/{id} koy | Mevcut öğeyi güncelleştirin &nbsp; | Yapılacak iş öğesi | Yok. |
 |/Api/TodoItems/{id} &nbsp; Sil&nbsp; | Öğeyi Sil &nbsp; &nbsp; | Hiçbiri | Hiçbiri|
 
 Aşağıdaki diyagramda, bu uygulamanın tasarımını gösterir.
@@ -513,7 +513,7 @@ Aşağıdaki diyagramda, bu uygulamanın tasarımını gösterir.
 * **Dosya** menüsünden **Yeni** > **Proje**' yi seçin.
 * **ASP.NET Core Web uygulaması** şablonunu seçin ve **İleri**' ye tıklayın.
 * Projeyi *TodoApi* olarak adlandırın ve **Oluştur**' a tıklayın.
-* **Yeni bir ASP.NET Core Web uygulaması oluştur** iletişim kutusunda, **.net Core** ve **ASP.NET Core 2,2** ' un seçili olduğunu doğrulayın. **API** şablonunu seçin ve **Oluştur**' a tıklayın. **Docker desteğini etkinleştir** **' i seçmeyin** .
+* **Yeni bir ASP.NET Core Web uygulaması oluştur** iletişim kutusunda, **.net Core** ve **ASP.NET Core 2,2** ' un seçili olduğunu doğrulayın. **API** şablonunu seçin ve **Oluştur**' a tıklayın. **Docker desteğini etkinleştir**' i seçmeyin.
 
 ![VS yeni proje iletişim kutusu](first-web-api/_static/vs.png)
 
@@ -566,7 +566,7 @@ Uygulamayı çalıştırmak için CTRL + F5 tuşlarına basın. Bir tarayıcıda
 
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Mac için Visual Studio](#tab/visual-studio-mac)
 
-Uygulamayı başlatmak için**hata ayıklamayı Başlat** ' **ı seçin.**  >  Mac için Visual Studio bir tarayıcı ile başlatarak `https://localhost:<port>`burada `<port>` bir rastgele seçilen bağlantı noktası numarasıdır. HTTP 404 (bulunamadı) hatası döndürülür. Append `/api/values` URL'sine (URL'yi `https://localhost:<port>/api/values`).
+Uygulamayı başlatmak için**hata ayıklamayı Başlat** ' ı seçin. >  Mac için Visual Studio bir tarayıcı ile başlatarak `https://localhost:<port>`burada `<port>` bir rastgele seçilen bağlantı noktası numarasıdır. HTTP 404 (bulunamadı) hatası döndürülür. Append `/api/values` URL'sine (URL'yi `https://localhost:<port>/api/values`).
 
 ---
 
@@ -728,6 +728,7 @@ Dönüş türünü `GetTodoItems` ve `GetTodoItem` yöntemler [actionresult öğ
 * Öğe istenen kimliği eşleşirse, yöntem bir 404 döndürür [NotFound](/dotnet/api/microsoft.aspnetcore.mvc.controllerbase.notfound) hata kodu.
 * Aksi takdirde yöntem bir JSON yanıt gövdesine 200 döndürür. Döndüren `item` sonuçları bir HTTP 200 yanıtı.
 
+
 ## <a name="test-the-gettodoitems-method"></a>Test GetTodoItems yöntemi
 
 Bu öğreticide Postman web API'si test etmek için kullanılır.
@@ -736,10 +737,19 @@ Bu öğreticide Postman web API'si test etmek için kullanılır.
 * Web uygulaması başlatın.
 * Postman'i başlatın.
 * Devre dışı **SSL sertifika doğrulama**
+
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+
+* **Dosya** ayarlarından (Genel sekmesinden) SSL sertifikası doğrulamasını devre dışı bırakın. >
+
+# <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Visual Studio Code/Mac için Visual Studio](#tab/visual-studio-code+visual-studio-mac)
+
+* **Postman** > **tercihleri** ' nden (**genel** sekmesinden) **SSL sertifikası doğrulamasını**devre dışı bırakın. Alternatif olarak, wranı seçin ve **Ayarlar**' ı seçip SSL sertifikası doğrulamasını devre dışı bırakın.
+
+---
   
-  * Gelen **Dosya > Ayarlar** (**genel* sekmesinde), devre dışı **SSL sertifika doğrulama**.
-    > [!WARNING]
-    > Test denetleyicisi sonra SSL sertifika doğrulamasını yeniden etkinleştirin.
+> [!WARNING]
+> Test denetleyicisi sonra SSL sertifika doğrulamasını yeniden etkinleştirin.
 
 * Yeni bir istek oluşturun.
   * HTTP yöntemi kümesine **alma**.
@@ -751,7 +761,7 @@ Bu öğreticide Postman web API'si test etmek için kullanılır.
 
 ## <a name="add-a-create-method"></a>Create yöntemi ekleme
 
-Aşağıdaki `PostTodoItem` yöntemi:
+`PostTodoItem` *Controllers/TodoController. cs*içindeki şu yöntemi ekleyin: 
 
 [!code-csharp[](first-web-api/samples/2.2/TodoApi/Controllers/TodoController.cs?name=snippet_Create)]
 

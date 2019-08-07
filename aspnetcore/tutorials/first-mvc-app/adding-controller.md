@@ -3,14 +3,14 @@ title: ASP.NET Core MVC uygulamasına denetleyici ekleme
 author: rick-anderson
 description: Basit bir ASP.NET Core MVC uygulamasına denetleyici eklemeyi öğrenin.
 ms.author: riande
-ms.date: 02/28/2017
+ms.date: 08/05/2017
 uid: tutorials/first-mvc-app/adding-controller
-ms.openlocfilehash: ab97b875956ec262623ed9862ace6a930331d80d
-ms.sourcegitcommit: 979dbfc5e9ce09b9470789989cddfcfb57079d94
+ms.openlocfilehash: 1c54959130f3a9959d4d4fdb8dcaa0d37ee2f046
+ms.sourcegitcommit: 2eb605f4f20ac4dd9de6c3b3e3453e108a357a21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68682320"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68820056"
 ---
 # <a name="add-a-controller-to-an-aspnet-core-mvc-app"></a>ASP.NET Core MVC uygulamasına denetleyici ekleme
 
@@ -86,9 +86,9 @@ Yönlendirme biçimi `Configure` *Startup.cs* dosyasındaki yönteminde ayarlan�
 
 Uygulamaya gözatıp hiçbir URL kesimini sağlamadığınızda, varsayılan olarak "giriş" denetleyicisi ve yukarıda vurgulanan şablon satırında belirtilen "Dizin" yöntemi varsayılan olarak belirtilir.
 
-İlk URL segmenti, çalıştırılacak denetleyici sınıfını belirler. Bu `localhost:xxxx/HelloWorld` nedenle **HelloWorld**Controller sınıfıyla eşlenir. URL segmentinin ikinci bölümü, sınıfındaki Action metodunu belirler. Bu `localhost:xxxx/HelloWorld/Index` nedenle, `HelloWorldController` sınıfın `Index` yönteminin çalışmasına neden olur. Yalnızca göz atmanızı `localhost:xxxx/HelloWorld` `Index` ve yönteme varsayılan olarak çağrıldığına dikkat edin. Bunun nedeni `Index` , açıkça bir yöntem adı belirtilmemişse bir denetleyicide çağrılacak varsayılan yöntemdir. URL segmentinin ( `id`) üçüncü bölümü rota verileri içindir. Rota verileri öğreticide daha sonra açıklanmaktadır.
+İlk URL segmenti, çalıştırılacak denetleyici sınıfını belirler. Bu `localhost:{PORT}/HelloWorld` nedenle **HelloWorld**Controller sınıfıyla eşlenir. URL segmentinin ikinci bölümü, sınıfındaki Action metodunu belirler. Bu `localhost:{PORT}/HelloWorld/Index` nedenle, `HelloWorldController` sınıfın `Index` yönteminin çalışmasına neden olur. Yalnızca göz atmanızı `localhost:{PORT}/HelloWorld` `Index` ve yönteme varsayılan olarak çağrıldığına dikkat edin. Bunun nedeni `Index` , açıkça bir yöntem adı belirtilmemişse bir denetleyicide çağrılacak varsayılan yöntemdir. URL segmentinin ( `id`) üçüncü bölümü rota verileri içindir. Rota verileri öğreticide daha sonra açıklanmaktadır.
 
-konumuna gözatın `https://localhost:xxxx/HelloWorld/Welcome`. Yöntemi çalışır ve dizeyi `This is the Welcome action method...`döndürür. `Welcome` Bu URL için denetleyici `HelloWorld` , ve `Welcome` eylem yöntemidir. URL 'nin bir `[Parameters]` bölümünü henüz kullanmadınız.
+konumuna gözatın `https://localhost:{PORT}/HelloWorld/Welcome`. Yöntemi çalışır ve dizeyi `This is the Welcome action method...`döndürür. `Welcome` Bu URL için denetleyici `HelloWorld` , ve `Welcome` eylem yöntemidir. URL 'nin bir `[Parameters]` bölümünü henüz kullanmadınız.
 
 ![Uygulamanın uygulama yanıtını gösteren tarayıcı penceresi, hoş geldiniz eylemi yöntemidir](~/tutorials/first-mvc-app/adding-controller/_static/welcome.png)
 
@@ -104,9 +104,9 @@ Yukarıdaki kod:
 
 Uygulamayı çalıştırın ve şu konuma gidin:
 
-   `https://localhost:xxxx/HelloWorld/Welcome?name=Rick&numtimes=4`
+   `https://localhost:{PORT}/HelloWorld/Welcome?name=Rick&numtimes=4`
 
-(Xxxx değerini bağlantı noktası numaranız ile değiştirin.) URL 'de ve `name` `numtimes` için farklı değerler deneyebilirsiniz. MVC [model bağlama](xref:mvc/models/model-binding) sistemi, adlandırılmış parametreleri adres çubuğundaki sorgu dizesinden yöntemdeki parametrelere otomatik olarak eşler. Daha fazla bilgi için bkz. [model bağlama](xref:mvc/models/model-binding) .
+(Bağlantı `{PORT}` noktası numaranız ile değiştirin.) URL 'de ve `name` `numtimes` için farklı değerler deneyebilirsiniz. MVC [model bağlama](xref:mvc/models/model-binding) sistemi, adlandırılmış parametreleri adres çubuğundaki sorgu dizesinden yöntemdeki parametrelere otomatik olarak eşler. Daha fazla bilgi için bkz. [model bağlama](xref:mvc/models/model-binding) .
 
 ![Hello Rick uygulama yanıtını gösteren tarayıcı penceresi, NumTimes: 4](~/tutorials/first-mvc-app/adding-controller/_static/rick4.png)
 
@@ -116,7 +116,7 @@ Yukarıdaki görüntüde,`Parameters`URL segmenti () kullanılmaz `name` , ve `n
 
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/HelloWorldController.cs?name=snippet_3)]
 
-Uygulamayı çalıştırın ve aşağıdaki URL 'YI girin:`https://localhost:xxx/HelloWorld/Welcome/3?name=Rick`
+Uygulamayı çalıştırın ve aşağıdaki URL 'YI girin:`https://localhost:{PORT}/HelloWorld/Welcome/3?name=Rick`
 
 Bu kez, üçüncü URL segmenti rota parametresiyle `id`eşleşti. Yöntemi, `MapControllerRoute` yöntemindeki URL şablonuyla `id` eşleşen bir parametre içerir. `Welcome` Sondaki `?` (içinde `id?`) `id` parametresinin isteğe bağlı olduğunu gösterir.
 
@@ -125,8 +125,8 @@ Bu kez, üçüncü URL segmenti rota parametresiyle `id`eşleşti. Yöntemi, `Ma
 Bu örneklerde, denetleyici MVC 'nin "VC" bölümünü (yani, **V**IEW ve **C**) çalışır. Denetleyici HTML 'i doğrudan döndürüyor. Genellikle, bu, kod ve bakım için çok daha fazla hale geldiği için denetleyicilerin doğrudan HTML döndürmesini istemezsiniz. Bunun yerine, genellikle HTML yanıtı oluşturmak için ayrı bir Razor görünümü şablon dosyası kullanırsınız. Bunu bir sonraki öğreticide yapabilirsiniz.
 
 > [!div class="step-by-step"]
-> [Önceki](start-mvc.md)
-> [İleri](adding-view.md)
+> [Önceki](start-mvc.md)İleri
+> [](adding-view.md)
 
 ::: moniker-end
 
@@ -205,9 +205,9 @@ Remove link for simplified tutorial.
 
 Uygulamaya gözatıp hiçbir URL kesimini sağlamadığınızda, varsayılan olarak "giriş" denetleyicisi ve yukarıda vurgulanan şablon satırında belirtilen "Dizin" yöntemi varsayılan olarak belirtilir.
 
-İlk URL segmenti, çalıştırılacak denetleyici sınıfını belirler. Bu `localhost:xxxx/HelloWorld` nedenle, `HelloWorldController` sınıfıyla eşlenir. URL segmentinin ikinci bölümü, sınıfındaki Action metodunu belirler. Bu `localhost:xxxx/HelloWorld/Index` nedenle, `HelloWorldController` sınıfın `Index` yönteminin çalışmasına neden olur. Yalnızca göz atmanızı `localhost:xxxx/HelloWorld` `Index` ve yönteme varsayılan olarak çağrıldığına dikkat edin. Bunun nedeni `Index` , açıkça bir yöntem adı belirtilmemişse bir denetleyicide çağrılacak varsayılan yöntemdir. URL segmentinin ( `id`) üçüncü bölümü rota verileri içindir. Rota verileri öğreticide daha sonra açıklanmaktadır.
+İlk URL segmenti, çalıştırılacak denetleyici sınıfını belirler. Bu `localhost:{PORT}/HelloWorld` nedenle, `HelloWorldController` sınıfıyla eşlenir. URL segmentinin ikinci bölümü, sınıfındaki Action metodunu belirler. Bu `localhost:{PORT}/HelloWorld/Index` nedenle, `HelloWorldController` sınıfın `Index` yönteminin çalışmasına neden olur. Yalnızca göz atmanızı `localhost:{PORT}/HelloWorld` `Index` ve yönteme varsayılan olarak çağrıldığına dikkat edin. Bunun nedeni `Index` , açıkça bir yöntem adı belirtilmemişse bir denetleyicide çağrılacak varsayılan yöntemdir. URL segmentinin ( `id`) üçüncü bölümü rota verileri içindir. Rota verileri öğreticide daha sonra açıklanmaktadır.
 
-konumuna gözatın `https://localhost:xxxx/HelloWorld/Welcome`. Yöntemi çalışır ve dizeyi `This is the Welcome action method...`döndürür. `Welcome` Bu URL için denetleyici `HelloWorld` , ve `Welcome` eylem yöntemidir. URL 'nin bir `[Parameters]` bölümünü henüz kullanmadınız.
+konumuna gözatın `https://localhost:{PORT}/HelloWorld/Welcome`. Yöntemi çalışır ve dizeyi `This is the Welcome action method...`döndürür. `Welcome` Bu URL için denetleyici `HelloWorld` , ve `Welcome` eylem yöntemidir. URL 'nin bir `[Parameters]` bölümünü henüz kullanmadınız.
 
 ![Uygulamanın uygulama yanıtını gösteren tarayıcı penceresi, hoş geldiniz eylemi yöntemidir](~/tutorials/first-mvc-app/adding-controller/_static/welcome.png)
 
@@ -223,9 +223,9 @@ Yukarıdaki kod:
 
 Uygulamayı çalıştırın ve şu konuma gidin:
 
-   `https://localhost:xxxx/HelloWorld/Welcome?name=Rick&numtimes=4`
+   `https://localhost:{PORT}/HelloWorld/Welcome?name=Rick&numtimes=4`
 
-(Xxxx değerini bağlantı noktası numaranız ile değiştirin.) URL 'de ve `name` `numtimes` için farklı değerler deneyebilirsiniz. MVC [model bağlama](xref:mvc/models/model-binding) sistemi, adlandırılmış parametreleri adres çubuğundaki sorgu dizesinden yöntemdeki parametrelere otomatik olarak eşler. Daha fazla bilgi için bkz. [model bağlama](xref:mvc/models/model-binding) .
+(Bağlantı `{PORT}` noktası numaranız ile değiştirin.) URL 'de ve `name` `numtimes` için farklı değerler deneyebilirsiniz. MVC [model bağlama](xref:mvc/models/model-binding) sistemi, adlandırılmış parametreleri adres çubuğundaki sorgu dizesinden yöntemdeki parametrelere otomatik olarak eşler. Daha fazla bilgi için bkz. [model bağlama](xref:mvc/models/model-binding) .
 
 ![Hello Rick uygulama yanıtını gösteren tarayıcı penceresi, NumTimes: 4](~/tutorials/first-mvc-app/adding-controller/_static/rick4.png)
 
@@ -235,7 +235,7 @@ Yukarıdaki görüntüde,`Parameters`URL segmenti () kullanılmaz `name` , ve `n
 
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/HelloWorldController.cs?name=snippet_3)]
 
-Uygulamayı çalıştırın ve aşağıdaki URL 'YI girin:`https://localhost:xxx/HelloWorld/Welcome/3?name=Rick`
+Uygulamayı çalıştırın ve aşağıdaki URL 'YI girin:`https://localhost:{PORT}/HelloWorld/Welcome/3?name=Rick`
 
 Bu kez, üçüncü URL segmenti rota parametresiyle `id`eşleşti. Yöntemi, `MapRoute` yöntemindeki URL şablonuyla `id` eşleşen bir parametre içerir. `Welcome` Sondaki `?` (içinde `id?`) `id` parametresinin isteğe bağlı olduğunu gösterir.
 
@@ -244,7 +244,7 @@ Bu kez, üçüncü URL segmenti rota parametresiyle `id`eşleşti. Yöntemi, `Ma
 Bu örneklerde, denetleyici MVC 'nin "VC" bölümünü (yani, görünüm ve denetleyici çalışır) yapıyor. Denetleyici HTML 'i doğrudan döndürüyor. Genellikle, bu, kod ve bakım için çok daha fazla hale geldiği için denetleyicilerin doğrudan HTML döndürmesini istemezsiniz. Bunun yerine, genellikle HTML yanıtı oluşturmaya yardımcı olması için ayrı bir Razor görünümü şablon dosyası kullanırsınız. Bunu bir sonraki öğreticide yapabilirsiniz.
 
 > [!div class="step-by-step"]
-> [Önceki](start-mvc.md)
-> [İleri](adding-view.md)
+> [Önceki](start-mvc.md)İleri
+> [](adding-view.md)
 
 ::: moniker-end
