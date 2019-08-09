@@ -5,12 +5,12 @@ description: Entity Framework Core (EF Core) kullanarak bir veritabanında filml
 ms.author: riande
 ms.date: 07/22/2019
 uid: tutorials/razor-pages/model
-ms.openlocfilehash: 6132f7b907014b4f57bb9ae0300e00b6ecb23f1a
-ms.sourcegitcommit: 2eb605f4f20ac4dd9de6c3b3e3453e108a357a21
+ms.openlocfilehash: 39e2a38e0b91b7dbecf05c084ca0be5e312dcb0d
+ms.sourcegitcommit: 2719c70cd15a430479ab4007ff3e197fbf5dfee0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68820073"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68862866"
 ---
 # <a name="add-a-model-to-a-razor-pages-app-in-aspnet-core"></a>Bir ASP.NET Core Razor sayfaları uygulama için model ekleme
 
@@ -135,18 +135,30 @@ Tamamlamak **ekleme Razor sayfaları (CRUD) Entity Framework kullanarak** ileti�
 
 ---
 
-İskele işlem oluşturur ve aşağıdaki dosyaları güncelleştirir:
-
 ### <a name="files-created"></a>Oluşturulan dosyalar
+
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+
+İskele işlem oluşturur ve aşağıdaki dosyaları güncelleştirir:
 
 * *Sayfalar/filmler*: Oluşturma, silme, ayrıntılar, düzenleme ve dizin oluşturma.
 * *Data/RazorPagesMovieContext.cs*
 
-### <a name="file-updated"></a>Dosya güncelleştirildi
+### <a name="updated"></a>Güncellendi
 
 * *Startup.cs*
 
 Oluşturulan ve güncelleştirilen dosyalar, sonraki bölümde açıklanmıştır.
+
+# <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Visual Studio Code/Mac için Visual Studio](#tab/visual-studio-code+visual-studio-mac)
+
+Yapı iskelesi işlemi aşağıdaki dosyaları oluşturur:
+
+* *Sayfalar/filmler*: Oluşturma, silme, ayrıntılar, düzenleme ve dizin oluşturma.
+
+Oluşturulan dosyalar sonraki bölümde açıklanmaktadır.
+
+---
 
 <a name="pmc"></a>
 

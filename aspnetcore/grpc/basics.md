@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-3.0'
 ms.author: johluo
 ms.date: 07/03/2019
 uid: grpc/basics
-ms.openlocfilehash: 700fe9463317f9ee30dfe4ebf5201c7b9c0c5ad6
-ms.sourcegitcommit: f30b18442ed12831c7e86b0db249183ccd749f59
+ms.openlocfilehash: b236fe6914cf7b780a9d02398ec9c92660dc1063
+ms.sourcegitcommit: 2719c70cd15a430479ab4007ff3e197fbf5dfee0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68412473"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68862851"
 ---
 # <a name="grpc-services-with-c"></a>C ile gRPC Hizmetleri\#
 
@@ -52,9 +52,9 @@ Bu paket hem sunucu hem de istemci projeleri için gereklidir. Metapackage öğe
 
 [!code-xml[](~/tutorials/grpc/grpc-start/sample/GrpcGreeter/GrpcGreeter.csproj?highlight=1&range=12)]
 
-İstemci projeleri doğrudan başvurmalıdır `Grpc.Tools` . Çalışma zamanında araç paketi gerekli değildir, bu nedenle bağımlılık şu şekilde işaretlenir `PrivateAssets="All"`:
+İstemci projeleri, GRPC `Grpc.Tools` istemcisini kullanmak için gereken diğer paketlerle birlikte doğrudan başvurmalıdır. Çalışma zamanında araç paketi gerekli değildir, bu nedenle bağımlılık şu şekilde işaretlenir `PrivateAssets="All"`:
 
-[!code-xml[](~/tutorials/grpc/grpc-start/sample/GrpcGreeterClient/GrpcGreeterClient.csproj?highlight=1&range=11)]
+[!code-xml[](~/tutorials/grpc/grpc-start/sample/GrpcGreeterClient/GrpcGreeterClient.csproj?highlight=3&range=9-11)]
 
 ## <a name="generated-c-assets"></a>Oluşturulan C# varlıklar
 
@@ -64,7 +64,7 @@ Sunucu tarafı varlıklar için, soyut bir hizmet temel türü oluşturulur. Tem
 
 [!code-csharp[](~/tutorials/grpc/grpc-start/sample/GrpcGreeter/Services/GreeterService.cs?name=snippet)]
 
-İstemci tarafı varlıklar için somut bir istemci türü oluşturulur. *. Proto* dosyasındaki GRPC çağrıları, çağrılabilecek somut türdeki yöntemlere çevrilir. Daha önce açıklanan örnek için somut `GreeterClient` bir tür oluşturulur. `greet.proto` Sunucuya `GreeterClient.SayHello` bir GRPC çağrısı başlatmak için çağrısı yapın.
+İstemci tarafı varlıklar için somut bir istemci türü oluşturulur. *. Proto* dosyasındaki GRPC çağrıları, çağrılabilecek somut türdeki yöntemlere çevrilir. Daha önce açıklanan örnek için somut `GreeterClient` bir tür oluşturulur. `greet.proto` Sunucuya `GreeterClient.SayHelloAsync` bir GRPC çağrısı başlatmak için çağrısı yapın.
 
 [!code-csharp[](~/tutorials/grpc/grpc-start/sample/GrpcGreeterClient/Program.cs?highlight=3-6&name=snippet)]
 

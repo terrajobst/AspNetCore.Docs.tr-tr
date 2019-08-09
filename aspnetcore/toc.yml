@@ -301,6 +301,8 @@
           uid: blazor/javascript-interop
         - name: Güvenlik ve Kimlik
           uid: security/blazor/index
+        - name: Durum yönetimi
+          uid: blazor/state-management
         - name: Hataları işleme
           uid: blazor/handle-errors
         - name: Hata ayıklama

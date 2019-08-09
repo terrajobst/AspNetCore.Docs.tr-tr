@@ -4,14 +4,14 @@ author: juntaoluo
 description: Bu öğreticide, ASP.NET Core bir gRPC hizmeti ve gRPC istemcisinin nasıl oluşturulacağı gösterilmektedir. GRPC hizmeti projesi oluşturmayı, Proto dosyasını düzenlemeyi ve çift yönlü akış araması eklemeyi öğrenin.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: johluo
-ms.date: 06/12/2019
+ms.date: 08/07/2019
 uid: tutorials/grpc/grpc-start
-ms.openlocfilehash: 6a3a7446a488ef54d99d6c7605980c18890b9ad0
-ms.sourcegitcommit: 4fe3ae892f54dc540859bff78741a28c2daa9a38
+ms.openlocfilehash: b56195f3da4ff95f292852902c6e33a40e96b582
+ms.sourcegitcommit: 2719c70cd15a430479ab4007ff3e197fbf5dfee0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/04/2019
-ms.locfileid: "68776636"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68862984"
 ---
 # <a name="tutorial-create-a-grpc-client-and-server-in-aspnet-core"></a>Öğretici: ASP.NET Core bir gRPC istemcisi ve sunucusu oluşturma
 
@@ -123,6 +123,11 @@ info: Microsoft.Hosting.Lifetime[0]
       Hosting environment: Development
 info: Microsoft.Hosting.Lifetime[0]
 ```
+
+> [!NOTE]
+> GRPC şablonu, [Aktarım Katmanı Güvenliği (TLS)](https://tools.ietf.org/html/rfc5246)kullanmak üzere yapılandırılmıştır. gRPC istemcilerinin, sunucuyu çağırmak için HTTPS kullanması gerekir.
+>
+> macOS, TLS ile ASP.NET Core gRPC 'yi desteklemez. MacOS 'ta gRPC hizmetlerini başarıyla çalıştırmak için ek yapılandırma gerekir. Daha fazla bilgi için bkz. [macOS 'Ta GRPC ve ASP.NET Core](xref:grpc/aspnetcore#grpc-and-aspnet-core-on-macos).
 
 ### <a name="examine-the-project-files"></a>Proje dosyalarını inceleyin
 

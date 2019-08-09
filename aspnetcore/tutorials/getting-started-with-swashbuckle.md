@@ -6,12 +6,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 06/21/2019
 uid: tutorials/get-started-with-swashbuckle
-ms.openlocfilehash: 0ffd437bbb48ef1c7a9159fbf3ac41441613f434
-ms.sourcegitcommit: 849af69ee3c94cdb9fd8fa1f1bb8f5a5dda7b9eb
+ms.openlocfilehash: ec40b98d756e4b34bf3fed52ac31f7c58a377a78
+ms.sourcegitcommit: 2719c70cd15a430479ab4007ff3e197fbf5dfee0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68372066"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68863004"
 ---
 # <a name="get-started-with-swashbuckle-and-aspnet-core"></a>Swashbuckle ve ASP.NET Core kullanmaya başlayın
 
@@ -51,7 +51,7 @@ Aşağıdaki yaklaşımlar ile swashbuckle eklenebilir:
 
 ### <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Mac için Visual Studio](#tab/visual-studio-mac)
 
-* **Çözüm bölmesi**  paket > **Ekle...** ' da paketler klasörüne sağ tıklayın.
+* **Çözüm bölmesi** paket > **Ekle...** ' da paketler klasörüne sağ tıklayın.
 * **Paket Ekle** penceresinin **kaynak** açılan penceresini "NuGet.org" olarak ayarlayın
 * "Yayın öncesi paketleri göster" seçeneğinin etkin olduğundan emin olun
 * Arama kutusuna "swashbuckle. AspNetCore" yazın
@@ -116,6 +116,8 @@ IIS veya ters proxy ile dizin kullanıyorsanız, Swagger uç noktasını, `./` �
 
 Swagger, nesne modelini belgeleme ve Kullanıcı arabirimini temanızla eşleşecek şekilde özelleştirme seçenekleri sağlar.
 
+Başlangıç sınıfında, aşağıdaki ad alanlarını ekleyin:[!code-csharp[](~/tutorials/web-api-help-pages-using-swagger/samples/2.0/TodoApi.Swashbuckle/Startup2.cs?name=snippet_PreReqNamespaces)]
+
 ### <a name="api-info-and-description"></a>API bilgisi ve açıklaması
 
 `AddSwaggerGen` Yöntemine geçirilen yapılandırma eylemi yazar, lisans ve açıklama gibi bilgileri ekler:
@@ -161,7 +163,7 @@ XML açıklamaları aşağıdaki yaklaşımlar ile etkinleştirilebilir:
 
 ::: moniker range="<= aspnetcore-1.1"
 
-* **Derleme**   derleyicisi>proje> seçenekleri iletişim kutusunu açın
+* **Derleme** derleyicisi>proje> seçenekleri iletişim kutusunu açın
 * **Genel Seçenekler** bölümünün altındaki **XML oluştur belge** kutusunu işaretleyin
 
 ::: moniker-end

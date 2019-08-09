@@ -7,12 +7,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 07/25/2019
 uid: web-api/http-repl
-ms.openlocfilehash: e719d599545810d723840b0800cd6a2b4f96b123
-ms.sourcegitcommit: fbc66827e319d28bebed678ea5fd42f582fe3c34
+ms.openlocfilehash: 0e80fcd76a4d3efcd35140c52e0f6f0ae0f27932
+ms.sourcegitcommit: 2719c70cd15a430479ab4007ff3e197fbf5dfee0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68493579"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68862961"
 ---
 # <a name="test-web-apis-with-the-http-repl"></a>HTTP REPL ile Web API 'Lerini test etme
 
@@ -532,12 +532,12 @@ HTTP POST isteği vermek için:
 
 1. JSON şablonunu model doğrulama gereksinimlerini karşılayacak şekilde değiştirin:
 
-  ```json
-  {
-    "id": 0,
-    "name": "Scott Addie"
-  }
-  ```
+    ```json
+    {
+      "id": 0,
+      "name": "Scott Addie"
+    }
+    ```
 
 1. *. Tmp* dosyasını kaydedin ve metin düzenleyicisini kapatın. Aşağıdaki çıktı komut kabuğu 'nda görünür:
 
