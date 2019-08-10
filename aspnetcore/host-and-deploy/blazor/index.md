@@ -1,36 +1,36 @@
 ---
-title: Barındırma ve ASP.NET Core Blazor dağıtma
+title: ASP.NET Core Blazor barındırma ve dağıtma
 author: guardrex
-description: Ana bilgisayar ve Blazor uygulamaları dağıtmak nasıl keşfedin.
+description: Blazor uygulamalarının nasıl barındırılacağını ve dağıtılacağını öğrenin.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
 ms.date: 06/14/2019
 uid: host-and-deploy/blazor/index
-ms.openlocfilehash: 8a5ac5c58e7ceab07e55da8b61ebb01f7ac984bc
-ms.sourcegitcommit: 4ef0362ef8b6e5426fc5af18f22734158fe587e1
+ms.openlocfilehash: d18abbf33c71dca5130bfc6b503b46c1d5bce537
+ms.sourcegitcommit: 776367717e990bdd600cb3c9148ffb905d56862d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67153195"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68913933"
 ---
-# <a name="host-and-deploy-aspnet-core-blazor"></a>Barındırma ve ASP.NET Core Blazor dağıtma
+# <a name="host-and-deploy-aspnet-core-blazor"></a>ASP.NET Core Blazor barındırma ve dağıtma
 
-Tarafından [Luke Latham](https://github.com/guardrex), [Rainer Stropek](https://www.timecockpit.com), ve [Daniel Roth](https://github.com/danroth27)
+, [Luke Latham](https://github.com/guardrex), [Rainer Stropek](https://www.timecockpit.com)ve [Daniel Roth](https://github.com/danroth27) tarafından
 
 ## <a name="publish-the-app"></a>Uygulamayı yayımlama
 
-Uygulamalar, yayın Yapılandırması'nda dağıtım için yayımlanır.
+Uygulamalar yayın yapılandırmasında dağıtım için yayımlanır.
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-1. Seçin **derleme** > **yayımlama {uygulama}** gezinti çubuğundan.
-1. Seçin *hedef yayımlama*. Yerel olarak yayımlamak için seçin **klasör**.
-1. Varsayılan konumu kabul **bir klasör seçin** alanına veya farklı bir konum belirtin. **Yayımla** düğmesini seçin.
+1. Gezinti çubuğundan **Build** > **Publish {APPLICATION}** öğesini seçin.
+1. *Yayımla hedefini*seçin. Yerel olarak yayımlamak için **klasör**' ü seçin.
+1. **Klasör seçin** alanında varsayılan konumu kabul edin veya farklı bir konum belirtin. **Yayımla** düğmesini seçin.
 
-# <a name="visual-studio-code--net-core-clitabvisual-studio-codenetcore-cli"></a>[Visual Studio Code / .NET Core CLI](#tab/visual-studio-code+netcore-cli)
+# <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
 
-Kullanım [dotnet yayımlama](/dotnet/core/tools/dotnet-publish) komutu bir sürüm yapılandırması ile uygulama yayımlama:
+Uygulamayı bir sürüm yapılandırmasıyla yayımlamak için [DotNet Publish](/dotnet/core/tools/dotnet-publish) komutunu kullanın:
 
 ```console
 dotnet publish -c Release
@@ -38,21 +38,21 @@ dotnet publish -c Release
 
 ---
 
-Uygulama Tetikleyicileri yayımlama bir [geri](/dotnet/core/tools/dotnet-restore) proje bağımlılıklarının ve [yapılar](/dotnet/core/tools/dotnet-build) dağıtım için bir varlık oluşturmadan önce proje. Yapı işleminin bir parçası olarak, kullanılmayan yöntemleri ve derlemeleri, uygulama indirme boyutunu küçültmek ve yükleme süreleri için kaldırılır.
+Uygulamanın yayımlanması, projenin bağımlılıklarını [geri yüklemeyi](/dotnet/core/tools/dotnet-restore) tetikler ve dağıtım için varlıkları oluşturmadan önce projeyi [oluşturur](/dotnet/core/tools/dotnet-build) . Yapı işleminin bir parçası olarak, uygulama indirme boyutunu ve yükleme sürelerini azaltmak için kullanılmayan Yöntemler ve derlemeler kaldırılır.
 
-Bir Blazor istemci-tarafı uygulaması yayımlanan */bin/yayın / {hedef çerçeve} /publish/ {derleme adı} / dist* klasör. İçin yayımlanan bir Blazor sunucu tarafı uygulamayı */bin/yayın / {hedef çerçeve} / publish* klasör.
+Blazor istemci tarafı uygulaması */BIN/Release/{Target Framework}/publish/{ASSEMBLY Name}/Dist* klasörüne yayımlanır. Blazor sunucu tarafı bir uygulama */BIN/Release/{Target Framework}/Publish* klasörüne yayımlanır.
 
-Varlıkları klasöründe, web sunucusuna dağıtılır. Dağıtım işlemini kullanımda geliştirme araçları bağlı olarak otomatik veya el ile olabilir.
+Klasördeki varlıklar Web sunucusuna dağıtılır. Dağıtım, kullanımdaki geliştirme araçlarına bağlı olarak el ile veya otomatik bir süreç olabilir.
 
 ## <a name="deployment"></a>Dağıtım
 
-Dağıtım yönergeleri için aşağıdaki konulara bakın:
+Dağıtım Kılavuzu için aşağıdaki konulara bakın:
 
 * <xref:host-and-deploy/blazor/client-side>
 * <xref:host-and-deploy/blazor/server-side>
 
-## <a name="blazor-serverless-hosting-with-azure-storage"></a>Azure Depolama'yı barındıran sunucusuz Blazor
+## <a name="blazor-serverless-hosting-with-azure-storage"></a>Azure depolama ile Blazor sunucusuz barındırma
 
-Gelen istemci tarafı uygulamalar Blazor sunulduğundan [Azure depolama](https://azure.microsoft.com/services/storage/) statik içeriği doğrudan bir depolama kapsayıcısı olarak.
+Blazor istemci tarafı uygulamalar, doğrudan bir depolama kapsayıcısından statik içerik olarak [Azure depolama](https://azure.microsoft.com/services/storage/) 'dan sunulabilir.
 
-Daha fazla bilgi için [konak ve ASP.NET Core Blazor istemci-tarafı (tek başına dağıtımı) dağıtın: Azure depolama](xref:host-and-deploy/blazor/client-side#azure-storage).
+Daha fazla bilgi için bkz [. konak ve dağıtım ASP.NET Core Blazor istemci tarafı (tek başına dağıtım): Azure depolama](xref:host-and-deploy/blazor/client-side#azure-storage).

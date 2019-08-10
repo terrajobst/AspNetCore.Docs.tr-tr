@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 08/02/2019
 uid: blazor/components
-ms.openlocfilehash: c5525542516d7b1318c26d12a5f59b0ded8dc659
-ms.sourcegitcommit: 2eb605f4f20ac4dd9de6c3b3e3453e108a357a21
+ms.openlocfilehash: 43457bffd748ebba68cc86d33fdeb98dc419704b
+ms.sourcegitcommit: 776367717e990bdd600cb3c9148ffb905d56862d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68819777"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68913887"
 ---
 # <a name="create-and-use-aspnet-core-razor-components"></a>ASP.NET Core Razor bileşenleri oluşturma ve kullanma
 
@@ -26,10 +26,12 @@ Blazor uygulamaları, *bileşenleri*kullanılarak oluşturulmuştur. Bir bileşe
 
 Bileşenler, C# ve HTML Işaretlemesi kullanılarak [Razor](xref:mvc/views/razor) bileşen dosyalarında ( *. Razor*) uygulanır. Blazor içindeki bir bileşen, bir *Razor bileşeni*olarak adlandırılır.
 
-Dosyalar, `_RazorComponentInclude` MSBuild özelliği kullanılarak Razor bileşen dosyaları olarak tanımlandığı sürece *. cshtml* dosya uzantısı kullanılarak yazılabilir. Örneğin, *Sayfalar* klasörü altındaki tüm *. cshtml* dosyalarının Razor bileşenleri dosyası olarak değerlendirilip değerlendirilmeyeceğini belirten bir uygulama:
+Bileşenler *. cshtml* dosya uzantısı kullanılarak yazılabilir. Component *. cshtml* dosyalarını tanımlamak için proje dosyasındaki MSBuildözelliğinikullanın.`_RazorComponentInclude` Örneğin, *Sayfalar* klasörü altındaki tüm *. cshtml* dosyalarının Razor bileşenleri dosyası olarak değerlendirilip değerlendirilmeyeceğini belirten bir uygulama:
 
 ```xml
-<_RazorComponentInclude>Pages\**\*.cshtml</_RazorComponentInclude>
+<PropertyGroup>
+  <_RazorComponentInclude>Pages\**\*.cshtml</_RazorComponentInclude>
+</PropertyGroup>
 ```
 
 Bir bileşen için Kullanıcı arabirimi HTML kullanılarak tanımlanır. Dinamik işleme mantığı (örneğin, döngüler, koşullar, ifadeler) C# [Razor](xref:mvc/views/razor)adlı gömülü bir sözdizimi kullanılarak eklenir. Bir uygulama derlendiğinde, HTML biçimlendirme ve C# işleme mantığı bir bileşen sınıfına dönüştürülür. Oluşturulan sınıfın adı, dosyanın adıyla eşleşir.
@@ -378,7 +380,7 @@ Bazı olaylar için olay bağımsız değişkeni türlerine izin verilir. Bu ola
 
 Desteklenen [Uıeventargs](https://github.com/aspnet/AspNetCore/blob/release/3.0-preview8/src/Components/Components/src/UIEventArgs.cs) aşağıdaki tabloda gösterilmiştir.
 
-| Olay | örneği |
+| Olay | Sınıf |
 | ----- | ----- |
 | Pano | `UIClipboardEventArgs` |
 | Sürükle  | `UIDragEventArgs`sürükle ve bırak işlemi sırasında sürüklenen verileri tutmak için kullanılır ve bir veya daha fazla `UIDataTransferItem`tutabilir. &ndash; `DataTransfer` `UIDataTransferItem`bir sürükle veri öğesini temsil eder. |
@@ -1130,14 +1132,14 @@ builder.AddContent(1, "Second");
 
 Kod ilk kez `someFlag` `true`çalıştırıldığında, Oluşturucu şunları alır:
 
-| Sequence | Tür      | Veri   |
+| Dizisi | Type      | Data   |
 | :------: | --------- | :----: |
 | 0        | Metin düğümü | Adı  |
 | 1\.        | Metin düğümü | Saniye |
 
 `someFlag` Olduğunu`false`düşünün ve biçimlendirme yeniden işlenir. Bu kez, Oluşturucu şunları alır:
 
-| Sequence | Tür       | Veri   |
+| Dizisi | Type       | Data   |
 | :------: | ---------- | :----: |
 | 1\.        | Metin düğümü  | Saniye |
 
@@ -1162,14 +1164,14 @@ builder.AddContent(seq++, "Second");
 
 Şimdi ilk çıktı:
 
-| Sequence | Tür      | Veri   |
+| Dizisi | Type      | Data   |
 | :------: | --------- | :----: |
 | 0        | Metin düğümü | Adı  |
 | 1\.        | Metin düğümü | Saniye |
 
 Bu sonuç önceki bir durum ile aynıdır, bu nedenle olumsuz bir sorun yoktur. `someFlag``false` ikinci işleme ve çıktı:
 
-| Sequence | Tür      | Veri   |
+| Dizisi | Type      | Data   |
 | :------: | --------- | ------ |
 | 0        | Metin düğümü | Saniye |
 

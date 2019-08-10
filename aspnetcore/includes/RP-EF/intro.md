@@ -1,1 +1,3 @@
-Contoso University web uygulamasını EF Core ve Visual Studio kullanarak Razor sayfaları web uygulamaları oluşturma işlemini gösterir. Öğretici serisinin hakkında daha fazla bilgi için bkz. [ilk öğreticide](xref:data/ef-rp/intro).
+Contoso Üniversitesi web uygulaması, EF Core ve Visual Studio kullanarak Razor Pages Web uygulamaları oluşturmayı gösterir. Öğretici serisi hakkında daha fazla bilgi için [ilk öğreticiye](xref:data/ef-rp/intro)bakın.
+
+Çözemediğiniz sorunlarla karşılaşırsanız, [Tamamlanmış uygulamayı](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-rp/intro/samples) indirin ve öğreticiyi izleyerek bu kodu oluşturduğunuz şekilde karşılaştırın.

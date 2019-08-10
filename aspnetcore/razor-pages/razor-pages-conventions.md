@@ -1,40 +1,40 @@
 ---
-title: İçinde ASP.NET Core Razor sayfalar yol ve uygulama kuralları
+title: ASP.NET Core Razor Pages yol ve uygulama kuralları
 author: guardrex
-description: Nasıl yol ve uygulama modeli sağlayıcısı kuralları sayfası denetimi yönlendirme, bulma ve işleme yardımcı keşfedin.
+description: Yönlendirme ve uygulama modeli sağlayıcısı kurallarının sayfa yönlendirmeyi, bulmayı ve işlemeyi denetlemenize nasıl yardımcı olduğunu öğrenin.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 03/07/2019
+ms.date: 08/08/2019
 uid: razor-pages/razor-pages-conventions
-ms.openlocfilehash: 59c8af648b50deb51f3762c14348d08acd48886e
-ms.sourcegitcommit: bee530454ae2b3c25dc7ffebf93536f479a14460
+ms.openlocfilehash: c93f169c422d260f738faba4812861521f383e51
+ms.sourcegitcommit: 776367717e990bdd600cb3c9148ffb905d56862d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67724450"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68914971"
 ---
-# <a name="razor-pages-route-and-app-conventions-in-aspnet-core"></a>İçinde ASP.NET Core Razor sayfalar yol ve uygulama kuralları
+# <a name="razor-pages-route-and-app-conventions-in-aspnet-core"></a>ASP.NET Core Razor Pages yol ve uygulama kuralları
 
 Tarafından [Luke Latham](https://github.com/guardrex)
 
-Sayfa kullanmayı öğrenin [rota ve uygulama sağlayıcısı kuralları modeli](xref:mvc/controllers/application-model#conventions) sayfasına yönlendirme, bulma ve Razor sayfaları uygulamalarda işleme denetlemek için.
+Razor Pages uygulamalarında sayfa yönlendirmeyi, bulmayı ve işlemeyi denetlemek için sayfa [yolu ve uygulama modeli sağlayıcısı kurallarını](xref:mvc/controllers/application-model#conventions) nasıl kullanacağınızı öğrenin.
 
-Özel sayfa yolları her bir sayfayı yapılandırmanız gerektiğinde sahip sayfalar için yönlendirmeyi yapılandırma [AddPageRoute kuralı](#configure-a-page-route) bu konunun ilerleyen bölümlerinde açıklanmıştır.
+Ayrı sayfalar için özel sayfa yolları yapılandırmanız gerektiğinde, bu konunun ilerleyen kısımlarında açıklanan [Addpageroute kuralına](#configure-a-page-route) sahip sayfalara yönlendirmeyi yapılandırın.
 
-Bir sayfa yolu belirtin, yol kesimleri ekleyin veya bir rota için parametreleri eklemek için sayfanın kullanın `@page` yönergesi. Daha fazla bilgi için [özel yollar](xref:razor-pages/index#custom-routes).
+Bir sayfa yolu belirtmek, yol kesimleri eklemek veya bir rotaya parametre eklemek için, sayfanın `@page` yönergesini kullanın. Daha fazla bilgi için bkz. [özel rotalar](xref:razor-pages/index#custom-routes).
 
-Yol segmentlerini veya parametre adları kullanılamaz, ayrılmış sözcükler vardır. Daha fazla bilgi için [yönlendirme: Yönlendirme adları ayrılmış](xref:fundamentals/routing#reserved-routing-names).
+Yol kesimleri veya parametre adları olarak kullanılamayan ayrılmış sözcükler vardır. Daha fazla bilgi için bkz [. yönlendirme: Ayrılmış yönlendirme adları](xref:fundamentals/routing#reserved-routing-names).
 
 [Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/razor-pages/razor-pages-conventions/samples/) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
 
-| Senaryo | Örnek gösterir... |
+| Senaryo | Örnek gösterilmektedir... |
 | -------- | --------------------------- |
-| [Model kuralları](#model-conventions)<br><br>Conventions.Add<ul><li>IPageRouteModelConvention</li><li>IPageApplicationModelConvention</li><li>IPageHandlerModelConvention</li></ul> | Bir uygulamanın sayfaları için bir rota şablonu ve üst bilgi ekleyin. |
-| [Rota eylem kuralları sayfası](#page-route-action-conventions)<ul><li>AddFolderRouteModelConvention</li><li>AddPageRouteModelConvention</li><li>AddPageRoute</li></ul> | Bir rota şablonu, bir klasördeki sayfalara ve tek bir sayfaya ekleyin. |
-| [Sayfa modeli eylem kuralları](#page-model-action-conventions)<ul><li>AddFolderApplicationModelConvention</li><li>AddPageApplicationModelConvention</li><li>ConfigureFilter (filtre sınıfı, lambda ifadesi veya filtresi Fabrika)</li></ul> | Bir klasördeki sayfalara üstbilgi ekleme, tek bir sayfaya bir üst bilgi ekleme ve yapılandırma bir [filtre Fabrika](xref:mvc/controllers/filters#ifilterfactory) uygulamanın sayfaları için bir başlık eklemek için. |
+| [Model kuralları](#model-conventions)<br><br>Kurallar. Add<ul><li>Ipageroutemodelconvention</li><li>IPageApplicationModelConvention</li><li>Ipagehandlermodelconvention</li></ul> | Uygulamanın sayfalarına bir yol şablonu ve üst bilgi ekleyin. |
+| [Sayfa yolu eylem kuralları](#page-route-action-conventions)<ul><li>AddFolderRouteModelConvention</li><li>AddPageRouteModelConvention</li><li>AddPageRoute</li></ul> | Bir klasördeki sayfalara ve tek bir sayfaya rota şablonu ekleyin. |
+| [Sayfa modeli eylem kuralları](#page-model-action-conventions)<ul><li>AddFolderApplicationModelConvention</li><li>AddPageApplicationModelConvention</li><li>ConfigureFilter (filtre sınıfı, lambda ifadesi veya filtre fabrikası)</li></ul> | Bir klasördeki sayfalara üst bilgi ekleyin, tek bir sayfaya üst bilgi ekleyin ve bir [filtre fabrikası](xref:mvc/controllers/filters#ifilterfactory) yapılandırarak uygulamanın sayfalarına üst bilgi ekleyin. |
 
-Razor sayfaları kuralları eklenir ve kullanılarak yapılandırılan <xref:Microsoft.Extensions.DependencyInjection.MvcRazorPagesMvcBuilderExtensions.AddRazorPagesOptions*> genişletme yöntemi için <xref:Microsoft.Extensions.DependencyInjection.MvcServiceCollectionExtensions.AddMvc*> hizmet koleksiyonu üzerinde `Startup` sınıfı. Aşağıdaki kural örnekleri, bu konunun ilerleyen bölümlerinde açıklanmıştır:
+Razor Pages kurallar, <xref:Microsoft.Extensions.DependencyInjection.MvcRazorPagesMvcBuilderExtensions.AddRazorPagesOptions*> `Startup` sınıfındaki hizmet koleksiyonuna öğesine <xref:Microsoft.Extensions.DependencyInjection.MvcServiceCollectionExtensions.AddMvc*> genişletme yöntemi kullanılarak eklenir ve yapılandırılır. Aşağıdaki kural örnekleri bu konunun ilerleyen kısımlarında açıklanmıştır:
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -43,11 +43,16 @@ public void ConfigureServices(IServiceCollection services)
         .AddRazorPagesOptions(options =>
             {
                 options.Conventions.Add( ... );
-                options.Conventions.AddFolderRouteModelConvention("/OtherPages", model => { ... });
-                options.Conventions.AddPageRouteModelConvention("/About", model => { ... });
-                options.Conventions.AddPageRoute("/Contact", "TheContactPage/{text?}");
-                options.Conventions.AddFolderApplicationModelConvention("/OtherPages", model => { ... });
-                options.Conventions.AddPageApplicationModelConvention("/About", model => { ... });
+                options.Conventions.AddFolderRouteModelConvention(
+                    "/OtherPages", model => { ... });
+                options.Conventions.AddPageRouteModelConvention(
+                    "/About", model => { ... });
+                options.Conventions.AddPageRoute(
+                    "/Contact", "TheContactPage/{text?}");
+                options.Conventions.AddFolderApplicationModelConvention(
+                    "/OtherPages", model => { ... });
+                options.Conventions.AddPageApplicationModelConvention(
+                    "/About", model => { ... });
                 options.Conventions.ConfigureFilter(model => { ... });
                 options.Conventions.ConfigureFilter( ... );
             });
@@ -56,127 +61,207 @@ public void ConfigureServices(IServiceCollection services)
 
 ## <a name="route-order"></a>Rota sırası
 
-Rota belirtme bir <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.AttributeRouteModel.Order*> (yol ile eşleşen) işlemek için.
+Rotalar bir <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.AttributeRouteModel.Order*> işlem için (rota eşleştirme) belirtir.
 
 | Sipariş verme            | Davranış |
 | :--------------: | -------- |
-| -1               | Rotanın diğer yollar işlenmeden önce işlenir. |
-| 0                | Sipariş belirtilmediyse (varsayılan değer). Atama yok `Order` (`Order = null`) rota varsayılanları `Order` işleme için 0 (sıfır). |
-| 1, 2, &hellip; n | Rota işlem sırasını belirtir. |
+| -1               | Yol, diğer rotalar işlenmeden önce işlenir. |
+| 0                | Sıra belirtilmemiş (varsayılan değer). Atama `Order` değil (`Order = null`), işleme için `Order` varsayılan yolu 0 (sıfır) olarak belirler. |
+| 1, 2, &hellip; n | Yol işleme sırasını belirtir. |
 
-Yönlendirme işlemi kurala göre belirlenir:
+Yol işleme, kurala göre belirlenir:
 
-* Yollar, sıralı olarak işlenir (-1, 0, 1, 2 &hellip; n).
-* Yollar olduğunda aynı `Order`en belirli bir yol ilk less yazımına özgü yol tarafından izlenen eşleşir.
-* Zaman aynı yollar `Order` ve aynı parametre sayısıyla istek URL'si, yollar, eklemiş sırayla işlenir <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.PageConventionCollection>.
+* Yollar sıralı sırada işlenir (-1, 0, 1, 2, &hellip; n).
+* Yollar aynı `Order`olduğunda, en belirli yol önce daha az özel yollarla eşleştirilir.
+* Aynı `Order` ve aynı parametre sayısına sahip rotalar bir istek URL 'siyle eşleşiyorsa, rotalar <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.PageConventionCollection>öğesine eklendikleri sırada işlenir.
 
-Mümkünse, bağlı olarak belirlenen rota işleme sipariş kaçının. Genellikle, yönlendirme ile URL ile eşleşen doğru yolu seçer. Rota ayarlamanız gerekirse `Order` uygulamanın yönlendirme düzeni, büyük olasılıkla istemcilere kafa karıştırıcı ve kırılgan korumak için yönlendirmek için özellikler doğru ister. Uygulamanın yönlendirme şeması basitleştirmek arama yapın. Örnek uygulama, tek bir uygulama kullanarak çeşitli Yönlendirme senaryoları göstermek için sipariş işleme açık bir yol gerekiyor. Ancak, uygulama ayarı rotanın önlemek denemelidir `Order` üretim uygulamalarında.
+Mümkünse, belirlenen bir yol işleme sırasına bağlı olarak kullanmaktan kaçının. Genellikle Yönlendirme, URL eşleştirme ile doğru yolu seçer. İstekleri doğru yönlendirmek için yol `Order` özelliklerini ayarlamanız gerekiyorsa, uygulamanın yönlendirme şeması büyük olasılıkla istemciler için kafa karıştırıcı olur ve bakım için kırıcı olur. Uygulamanın yönlendirme şemasını basitleştirecek şekilde arama yapın. Örnek uygulama, tek bir uygulama kullanarak birkaç yönlendirme senaryosunu göstermek için açık bir yol işleme sırası gerektirir. Ancak, üretim uygulamalarında rota `Order` ayarlama uygulamalarından kaçınmaya çalışmalısınız.
 
-Yönlendirme razor sayfaları ve MVC denetleyicisi yönlendirme paylaşım uygulaması. Rota sırası MVC konularında bilgi şu adreste [denetleyici eylemlerine yönlendirme: Öznitelik rotaları sıralama](xref:mvc/controllers/routing#ordering-attribute-routes).
+Razor Pages yönlendirme ve MVC denetleyici yönlendirme bir uygulamayı paylaşır. MVC konularındaki yol sırasıyla ilgili bilgiler, denetleyici eylemlerine yönlendirme [sırasında mevcuttur: Öznitelik yollarını](xref:mvc/controllers/routing#ordering-attribute-routes)sıralama.
 
 ## <a name="model-conventions"></a>Model kuralları
 
-Bir temsilci eklemek <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.IPageConvention> eklemek için [model kuralları](xref:mvc/controllers/application-model#conventions) Razor sayfaları için geçerlidir.
+Razor Pages için uygulanan <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.IPageConvention> [model kuralları](xref:mvc/controllers/application-model#conventions) eklemek için bir temsilci ekleyin.
 
-### <a name="add-a-route-model-convention-to-all-pages"></a>Tüm sayfalar için bir yol modeli Kuralı Ekle
+### <a name="add-a-route-model-convention-to-all-pages"></a>Tüm sayfalara bir rota modeli kuralı ekleme
 
-Kullanım <xref:Microsoft.AspNetCore.Mvc.RazorPages.RazorPagesOptions.Conventions> oluşturmak ve eklemek için bir <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.IPageRouteModelConvention> koleksiyonuna <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.IPageConvention> sayfasına yönlendirme sırasında uygulanan örnek model oluşturma.
+Sayfa <xref:Microsoft.AspNetCore.Mvc.RazorPages.RazorPagesOptions.Conventions> yönlendirme modeli oluşturma sırasında uygulanan <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.IPageRouteModelConvention> <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.IPageConvention> örnek koleksiyonu oluşturmak ve eklemek için kullanın.
 
-Örnek uygulamayı ekler bir `{globalTemplate?}` uygulamadaki tüm sayfalar için rota şablonu:
+Örnek uygulama, uygulamadaki tüm `{globalTemplate?}` sayfalara bir rota şablonu ekler:
+
+::: moniker range=">= aspnetcore-3.0"
+
+[!code-csharp[](razor-pages-conventions/samples/3.x/SampleApp/Conventions/GlobalTemplatePageRouteModelConvention.cs?name=snippet1)]
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
 
 [!code-csharp[](razor-pages-conventions/samples/2.x/SampleApp/Conventions/GlobalTemplatePageRouteModelConvention.cs?name=snippet1)]
 
-<xref:Microsoft.AspNetCore.Mvc.ApplicationModels.AttributeRouteModel.Order*> Özelliği <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.AttributeRouteModel> ayarlanır `1`. Bu örnek uygulamada davranışı aşağıdaki yol sağlar:
+::: moniker-end
 
-* Bir rota şablonu için `TheContactPage/{text?}` konusunda daha sonra eklenir. İlgili kişi sayfası yol varsayılan sıralamasını sahip `null` (`Order = 0`), önce eşleşecek şekilde `{globalTemplate?}` rota şablonu.
-* Bir `{aboutTemplate?}` rota şablonu konusunda daha sonra eklenir. `{aboutTemplate?}` Şablon verildiğinde bir `Order` , `2`. Ne zaman hakkında sayfası istenen adresindeki `/About/RouteDataValue`, "RouteDataValue" içine yüklenir `RouteData.Values["globalTemplate"]` (`Order = 1`) ve `RouteData.Values["aboutTemplate"]` (`Order = 2`) ayarı nedeniyle `Order` özelliği.
-* Bir `{otherPagesTemplate?}` rota şablonu konusunda daha sonra eklenir. `{otherPagesTemplate?}` Şablon verildiğinde bir `Order` , `2`. Ne zaman tüm sayfa içinde *sayfaları/OtherPages* klasörü ile bir rota parametresini istenen (örneğin, `/OtherPages/Page1/RouteDataValue`), "RouteDataValue" içine yüklenir `RouteData.Values["globalTemplate"]` (`Order = 1`) ve `RouteData.Values["otherPagesTemplate"]` (`Order = 2`) ayarı nedeniyle `Order` özelliği.
+İçin <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.AttributeRouteModel.Order*> özelliği <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.AttributeRouteModel> olarak`1`ayarlanır. Bu, örnek uygulamada aşağıdaki yol eşleştirme davranışını sağlar:
 
-Mümkün olduğunda, ayarlamamanız `Order`, içindeki sonuçlar `Order = 0`. Doğru yol seçmek için yönlendirme kullanır.
+* İçin `TheContactPage/{text?}` bir yol şablonu, konusuna daha sonra eklenir. İletişim sayfası yolu, `null` (`Order = 0`) varsayılan sırasına sahiptir, bu `{globalTemplate?}` nedenle yol şablonundan önce eşleşir.
+* Konuya `{aboutTemplate?}` daha sonra bir yol şablonu eklenir. `{aboutTemplate?}` Şablonuna`Order` bir verilebilir .`2` Hakkında sayfası `/About/RouteDataValue`istendiğinde,`Order = 2` `RouteData.Values["aboutTemplate"]` `RouteData.Values["globalTemplate"]` özelliğinayarlanması`Order` nedeniyle "routedatavalue", (`Order = 1`) içine () yüklenir.
+* Konuya `{otherPagesTemplate?}` daha sonra bir yol şablonu eklenir. `{otherPagesTemplate?}` Şablonuna`Order` bir verilebilir .`2` *Sayfalar/diğer sayfalar* klasöründeki herhangi `/OtherPages/Page1/RouteDataValue`bir sayfa bir yol parametresiyle (örneğin,) istendiğinde, "routedatavalue`Order = 2` `RouteData.Values["globalTemplate"]` "`Order = 1` `RouteData.Values["otherPagesTemplate"]`, `Order` özelliği.
 
-Razor sayfaları seçenekleri ekleme gibi <xref:Microsoft.AspNetCore.Mvc.RazorPages.RazorPagesOptions.Conventions>, MVC hizmet koleksiyona eklendiğinde, eklenen `Startup.ConfigureServices`. Bir örnek için bkz. [örnek uygulaması](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/razor-pages/razor-pages-conventions/samples/).
+Mümkün olan `Order` `Order = 0`yerlerde, ' yi ayarlayın. Doğru yolu seçmek için yönlendirmeyi güvenin.
+
+' Deki <xref:Microsoft.AspNetCore.Mvc.RazorPages.RazorPagesOptions.Conventions> `Startup.ConfigureServices`hizmet koleksiyonuna MVC eklendiğinde ekleme gibi Razor Pages seçenekleri eklenir. Örnek için bkz. [örnek uygulama](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/razor-pages/razor-pages-conventions/samples/).
+
+::: moniker range=">= aspnetcore-3.0"
+
+[!code-csharp[](razor-pages-conventions/samples/3.x/SampleApp/Startup.cs?name=snippet1)]
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
 
 [!code-csharp[](razor-pages-conventions/samples/2.x/SampleApp/Startup.cs?name=snippet1)]
 
-Örnek kullanıcının hakkında sayfası, istek `localhost:5000/About/GlobalRouteValue` ve sonucu inceleyin:
+::: moniker-end
 
-![Hakkında sayfası GlobalRouteValue ile bir yol kesimi istenir. Rota veri değeri sayfanın OnGet yöntemi yakalanır işlenen sayfada gösterilir.](razor-pages-conventions/_static/about-page-global-template.png)
+Örnekteki hakkında daha `localhost:5000/About/GlobalRouteValue` fazla bilgi isteyin ve sonucu inceleyin:
 
-### <a name="add-an-app-model-convention-to-all-pages"></a>Tüm sayfalar için bir uygulama modeli Kuralı Ekle
+![Hakkında sayfası, GlobalRouteValue 'un rota segmentiyle istenir. İşlenen sayfa, yol veri değerinin sayfanın OnGet yönteminde yakalandığını gösterir.](razor-pages-conventions/_static/about-page-global-template.png)
 
-Kullanım <xref:Microsoft.AspNetCore.Mvc.RazorPages.RazorPagesOptions.Conventions> oluşturmak ve eklemek için bir <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.IPageApplicationModelConvention> koleksiyonuna <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.IPageConvention> sayfasında uygulama modeli oluşturma sırasında uygulanan örnekleri.
+### <a name="add-an-app-model-convention-to-all-pages"></a>Tüm sayfalara uygulama modeli kuralı ekleme
 
-Bu ve diğer kuralları daha sonra bu konudaki göstermek için örnek uygulamayı içeren bir `AddHeaderAttribute` sınıfı. Sınıf oluşturucu kabul eden bir `name` dize ve `values` dize dizisi. Bu değerler kullanılır, `OnResultExecuting` yöntemi yanıt üst bilgisini ayarlayın. Tam sınıf gösterilen [sayfa modeli eylem kuralları](#page-model-action-conventions) konunun ilerleyen bölümlerinde.
+Oluşturma <xref:Microsoft.AspNetCore.Mvc.RazorPages.RazorPagesOptions.Conventions> ve sayfa uygulama modeli oluşturma <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.IPageApplicationModelConvention> sırasında uygulanan <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.IPageConvention> örnek koleksiyonuna eklemek için kullanın.
 
-Örnek uygulama kullandığı `AddHeaderAttribute` üst bilgi eklemek için sınıfı `GlobalHeader`, uygulamadaki tüm sayfalar için:
+Bu ve diğer kuralları konunun ilerleyen kısımlarında göstermek için, örnek uygulama bir `AddHeaderAttribute` sınıfı içerir. Sınıf Oluşturucusu bir `name` dize ve bir `values` dize dizisi kabul eder. Bu değerler, `OnResultExecuting` bir yanıt üst bilgisi ayarlamak için yönteminde kullanılır. Tam sınıf, konusunun ilerleyen kısımlarında [sayfa modeli eylem kuralları](#page-model-action-conventions) bölümünde gösterilir.
+
+Örnek uygulama, uygulama içindeki `AddHeaderAttribute` tüm sayfalara `GlobalHeader`üst bilgi eklemek için sınıfını kullanır:
+
+::: moniker range=">= aspnetcore-3.0"
+
+[!code-csharp[](razor-pages-conventions/samples/3.x/SampleApp/Conventions/GlobalHeaderPageApplicationModelConvention.cs?name=snippet1)]
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
 
 [!code-csharp[](razor-pages-conventions/samples/2.x/SampleApp/Conventions/GlobalHeaderPageApplicationModelConvention.cs?name=snippet1)]
 
+::: moniker-end
+
 *Startup.cs*:
+
+::: moniker range=">= aspnetcore-3.0"
+
+[!code-csharp[](razor-pages-conventions/samples/3.x/SampleApp/Startup.cs?name=snippet2)]
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
 
 [!code-csharp[](razor-pages-conventions/samples/2.x/SampleApp/Startup.cs?name=snippet2)]
 
-Örnek kullanıcının hakkında sayfası, istek `localhost:5000/About` ve sonucu görüntülemek için üst bilgileri inceleyin:
+::: moniker-end
 
-![Yanıt Üstbilgileri hakkında sayfasının GlobalHeader eklendiğini gösterir.](razor-pages-conventions/_static/about-page-global-header.png)
+Örnekteki hakkında daha `localhost:5000/About` fazla bilgi isteyin ve sonucu görüntülemek için üst bilgileri inceleyin:
 
-### <a name="add-a-handler-model-convention-to-all-pages"></a>Tüm sayfalar için bir işleyici modeli Kuralı Ekle
+![Hakkında sayfasının yanıt üstbilgileri GlobalHeader 'ın eklendiğini gösterir.](razor-pages-conventions/_static/about-page-global-header.png)
 
-Kullanım <xref:Microsoft.AspNetCore.Mvc.RazorPages.RazorPagesOptions.Conventions> oluşturmak ve eklemek için bir <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.IPageHandlerModelConvention> koleksiyonuna <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.IPageConvention> sırasında uygulanan örnek işleyici modeli oluşturma sayfası.
+### <a name="add-a-handler-model-convention-to-all-pages"></a>Tüm sayfalara bir işleyici modeli kuralı ekleme
+
+Sayfa <xref:Microsoft.AspNetCore.Mvc.RazorPages.RazorPagesOptions.Conventions> işleyici modelinin oluşturulması sırasında uygulanan <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.IPageHandlerModelConvention> <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.IPageConvention> örnek koleksiyonu oluşturmak ve eklemek için kullanın.
+
+::: moniker range=">= aspnetcore-3.0"
+
+[!code-csharp[](razor-pages-conventions/samples/3.x/SampleApp/Conventions/GlobalPageHandlerModelConvention.cs?name=snippet1)]
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
 
 [!code-csharp[](razor-pages-conventions/samples/2.x/SampleApp/Conventions/GlobalPageHandlerModelConvention.cs?name=snippet1)]
 
+::: moniker-end
+
 *Startup.cs*:
+
+::: moniker range=">= aspnetcore-3.0"
+
+[!code-csharp[](razor-pages-conventions/samples/3.x/SampleApp/Startup.cs?name=snippet10)]
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
 
 [!code-csharp[](razor-pages-conventions/samples/2.x/SampleApp/Startup.cs?name=snippet10)]
 
-## <a name="page-route-action-conventions"></a>Rota eylem kuralları sayfası
+::: moniker-end
 
-Öğesinden türetilen varsayılan rota model sağlayıcısı <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.IPageRouteModelProvider> sayfa yolları yapılandırmak için genişletilebilirlik noktaları sağlamak için tasarlanmış kuralları çağırır.
+## <a name="page-route-action-conventions"></a>Sayfa yolu eylem kuralları
 
-### <a name="folder-route-model-convention"></a>Klasör yolu model kuralı
+Sayfa yollarının yapılandırılması için genişletilebilirlik noktaları sağlamak üzere <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.IPageRouteModelProvider> tasarlanan, çağıran kurallarından türetilen varsayılan yol modeli sağlayıcısı.
 
-Kullanım <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.PageConventionCollection.AddFolderRouteModelConvention*> oluşturmak ve eklemek için bir <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.IPageRouteModelConvention> , çağıran bir eylem üzerinde <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.PageRouteModel> belirtilen klasör altındaki tüm sayfalar için.
+### <a name="folder-route-model-convention"></a>Klasör Yönlendirme modeli kuralı
 
-Örnek uygulama kullandığı <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.PageConventionCollection.AddFolderRouteModelConvention*> eklemek için bir `{otherPagesTemplate?}` sayfaları için rota şablonu *OtherPages* klasörü:
+Belirtilen <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.PageConventionCollection.AddFolderRouteModelConvention*> klasörün altındaki tüm sayfalar <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.PageRouteModel> için <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.IPageRouteModelConvention> üzerinde bir eylem çağıran bir eylem oluşturmak ve eklemek için kullanın.
+
+Örnek uygulama, <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.PageConventionCollection.AddFolderRouteModelConvention*> *diğer sayfalar* klasöründeki sayfalara `{otherPagesTemplate?}` bir yol şablonu eklemek için kullanır:
+
+::: moniker range=">= aspnetcore-3.0"
+
+[!code-csharp[](razor-pages-conventions/samples/3.x/SampleApp/Startup.cs?name=snippet3)]
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
 
 [!code-csharp[](razor-pages-conventions/samples/2.x/SampleApp/Startup.cs?name=snippet3)]
 
-<xref:Microsoft.AspNetCore.Mvc.ApplicationModels.AttributeRouteModel.Order*> Özelliği <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.AttributeRouteModel> ayarlanır `2`. Bu şablonu sağlar `{globalTemplate?}` (önceki konuya ayarlamak `1`) için tek yol değeri sağlandığında konumu ilk rota veri değeri öncelik verilir. Bir sayfa varsa *sayfaları/OtherPages* klasör yolu bir parametre istenen (örneğin, `/OtherPages/Page1/RouteDataValue`), "RouteDataValue" içine yüklenir `RouteData.Values["globalTemplate"]` (`Order = 1`) ve `RouteData.Values["otherPagesTemplate"]` (`Order = 2`) ayarı nedeniyle `Order` özelliği.
+::: moniker-end
 
-Mümkün olduğunda, ayarlamamanız `Order`, içindeki sonuçlar `Order = 0`. Doğru yol seçmek için yönlendirme kullanır.
+İçin <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.AttributeRouteModel.Order*> özelliği <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.AttributeRouteModel> olarak`2`ayarlanır. Bu, tek bir rota değeri `{globalTemplate?}` sağlandığında, ( `1`konusunda daha önce, konusunda daha önce olan) şablonun ilk yol veri değeri konumu için öncelik verilmesini sağlar. *Sayfalar/otherpages* `/OtherPages/Page1/RouteDataValue`klasöründeki bir sayfa bir rota parametresi değeri (örneğin,) ile isteniyorsa, "routedatavalue `RouteData.Values["globalTemplate"]` "`Order = 1`, `RouteData.Values["otherPagesTemplate"]` `Order = 2` `Order` özelliği.
 
-Örnek kullanıcının Sayfa1 sayfanın istek `localhost:5000/OtherPages/Page1/GlobalRouteValue/OtherPagesRouteValue` ve sonucu inceleyin:
+Mümkün olan `Order` `Order = 0`yerlerde, ' yi ayarlayın. Doğru yolu seçmek için yönlendirmeyi güvenin.
 
-![OtherPages klasöründe Sayfa1 GlobalRouteValue ve OtherPagesRouteValue yol kesimini ile istenir. Rota veri değerleri sayfa OnGet yönteminde yakalanır işlenen sayfada gösterilir.](razor-pages-conventions/_static/otherpages-page1-global-and-otherpages-templates.png)
+Örnekteki Sayfa1 sayfasını `localhost:5000/OtherPages/Page1/GlobalRouteValue/OtherPagesRouteValue` isteyin ve sonucu inceleyin:
 
-### <a name="page-route-model-convention"></a>Sayfa yolu model kuralı
+![Diğer sayfalar klasöründeki Sayfa1, GlobalRouteValue ve OtherPagesRouteValue yol kesimiyle istenir. İşlenen sayfa, yol veri değerlerinin sayfanın OnGet yönteminde yakalandığını gösterir.](razor-pages-conventions/_static/otherpages-page1-global-and-otherpages-templates.png)
 
-Kullanım <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.PageConventionCollection.AddPageRouteModelConvention*> oluşturmak ve eklemek için bir <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.IPageRouteModelConvention> , çağıran bir eylem üzerinde <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.PageRouteModel> sayfanın belirtilen ada sahip.
+### <a name="page-route-model-convention"></a>Sayfa yönlendirme modeli kuralı
 
-Örnek uygulama kullandığı `AddPageRouteModelConvention` eklemek için bir `{aboutTemplate?}` hakkında sayfasına rota şablonu:
+Sayfa <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.PageConventionCollection.AddPageRouteModelConvention*> <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.PageRouteModel> için belirtilen ada sahip bir <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.IPageRouteModelConvention> eylemi çağıran bir eylem oluşturmak ve eklemek için kullanın.
+
+Örnek uygulama, hakkında `AddPageRouteModelConvention` sayfasına bir `{aboutTemplate?}` yol şablonu eklemek için kullanır:
+
+::: moniker range=">= aspnetcore-3.0"
+
+[!code-csharp[](razor-pages-conventions/samples/3.x/SampleApp/Startup.cs?name=snippet4)]
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
 
 [!code-csharp[](razor-pages-conventions/samples/2.x/SampleApp/Startup.cs?name=snippet4)]
 
-<xref:Microsoft.AspNetCore.Mvc.ApplicationModels.AttributeRouteModel.Order*> Özelliği <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.AttributeRouteModel> ayarlanır `2`. Bu şablonu sağlar `{globalTemplate?}` (önceki konuya ayarlamak `1`) için tek yol değeri sağlandığında konumu ilk rota veri değeri öncelik verilir. Bir rota parametresi değer ile hakkında sayfası istenirse, `/About/RouteDataValue`, "RouteDataValue" içine yüklenir `RouteData.Values["globalTemplate"]` (`Order = 1`) ve `RouteData.Values["aboutTemplate"]` (`Order = 2`) ayarı nedeniyle `Order` özelliği.
+::: moniker-end
 
-Mümkün olduğunda, ayarlamamanız `Order`, içindeki sonuçlar `Order = 0`. Doğru yol seçmek için yönlendirme kullanır.
+İçin <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.AttributeRouteModel.Order*> özelliği <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.AttributeRouteModel> olarak`2`ayarlanır. Bu, tek bir rota değeri `{globalTemplate?}` sağlandığında, ( `1`konusunda daha önce, konusunda daha önce olan) şablonun ilk yol veri değeri konumu için öncelik verilmesini sağlar. Hakkında sayfasında `/About/RouteDataValue`bir yol parametresi değeri varsa, `RouteData.Values["aboutTemplate"]` `Order = 2` `RouteData.Values["globalTemplate"]` özelliğin`Order` ayarlanması nedeniyle "routedatavalue" (`Order = 1`) içine () yüklenir.
 
-Örnek kullanıcının hakkında sayfası, istek `localhost:5000/About/GlobalRouteValue/AboutRouteValue` ve sonucu inceleyin:
+Mümkün olan `Order` `Order = 0`yerlerde, ' yi ayarlayın. Doğru yolu seçmek için yönlendirmeyi güvenin.
 
-![Sayfa hakkında GlobalRouteValue ve AboutRouteValue için yol kesimleri ile istenir. Rota veri değerleri sayfa OnGet yönteminde yakalanır işlenen sayfada gösterilir.](razor-pages-conventions/_static/about-page-global-and-about-templates.png)
+Örnekteki hakkında daha `localhost:5000/About/GlobalRouteValue/AboutRouteValue` fazla bilgi isteyin ve sonucu inceleyin:
+
+![GlobalRouteValue ve AboutRouteValue için rota kesimlerle ilgili sayfa hakkında bilgi istenir. İşlenen sayfa, yol veri değerlerinin sayfanın OnGet yönteminde yakalandığını gösterir.](razor-pages-conventions/_static/about-page-global-and-about-templates.png)
 
 ::: moniker range=">= aspnetcore-2.2"
 
-## <a name="use-a-parameter-transformer-to-customize-page-routes"></a>Sayfa yollar özelleştirmek için bir parametre transformer kullanma
+## <a name="use-a-parameter-transformer-to-customize-page-routes"></a>Sayfa yollarını özelleştirmek için bir parametre transformatörü kullanın
 
-ASP.NET Core tarafından oluşturulan sayfa yollar, bir parametre transformer kullanma özelleştirilebilir. Bir parametre transformer uygulayan `IOutboundParameterTransformer` ve parametre değerine dönüştürür. Örneğin, bir özel `SlugifyParameterTransformer` parametre transformer değişiklikleri `SubscriptionManagement` yönlendirmek için değer `subscription-management`.
+ASP.NET Core tarafından oluşturulan sayfa yolları, bir parametre transformatörü kullanılarak özelleştirilebilir. Bir parametre transformatörü, `IOutboundParameterTransformer` parametrelerinin değerini uygular ve dönüştürür. Örneğin, özel `SlugifyParameterTransformer` bir parametre transformatörü `SubscriptionManagement` rota değerini olarak `subscription-management`değiştirir.
 
-`PageRouteTransformerConvention` Sayfa rota modeli kuralı bir uygulamayı otomatik olarak oluşturulan sayfa yollar klasör ve dosya adı kesimlerini parametresi transformer uygular. Örneğin, Razor sayfaları dosya */Pages/SubscriptionManagement/ViewAll.cshtml* gelen yeniden yolunu gerekir `/SubscriptionManagement/ViewAll` için `/subscription-management/view-all`.
+`PageRouteTransformerConvention` Sayfa yolu modeli kuralı, bir uygulamadaki otomatik olarak oluşturulan sayfa yollarının klasör ve dosya adı kesimlerine bir parametre transformatörü uygular. Örneğin, */Pages/subscriptionmanagement/viewAll.exe* konumundaki Razor Pages dosyasında, yolu ' dan `/SubscriptionManagement/ViewAll` `/subscription-management/view-all`' a yeniden yazılır.
 
-`PageRouteTransformerConvention` Razor sayfaları klasör ve dosya adı gelirler otomatik olarak oluşturulan bir sayfa yolu parçalarını yalnızca dönüştürür. Yol kesimleri ile eklenen dönüştürmez `@page` yönergesi. Kuralı tarafından eklenen rotaları da dönüştürmez <xref:Microsoft.Extensions.DependencyInjection.PageConventionCollectionExtensions.AddPageRoute*>.
+`PageRouteTransformerConvention`yalnızca Razor Pages klasörü ve dosya adından gelen bir sayfa yolunun otomatik olarak oluşturulan segmentlerini dönüştürür. `@page` Yönergeyle eklenen yol parçalarını dönüştürmez. Kural, tarafından <xref:Microsoft.Extensions.DependencyInjection.PageConventionCollectionExtensions.AddPageRoute*>eklenen yolları da dönüştürmez.
 
-`PageRouteTransformerConvention` Bir seçenek olarak kayıtlı `Startup.ConfigureServices`:
+, `PageRouteTransformerConvention` İçinde`Startup.ConfigureServices`bir seçenek olarak kaydedilir:
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -204,99 +289,179 @@ public class SlugifyParameterTransformer : IOutboundParameterTransformer
 
 ::: moniker-end
 
-## <a name="configure-a-page-route"></a>Bir sayfa yolunu Yapılandır
+## <a name="configure-a-page-route"></a>Sayfa yolu yapılandırma
 
-Kullanım <xref:Microsoft.Extensions.DependencyInjection.PageConventionCollectionExtensions.AddPageRoute*> belirtilen sayfa yolunda bir sayfa için bir yol yapılandırmak için. Oluşturulan Bağlantılar sayfasını, belirtilen rota kullanın. `AddPageRoute` kullanan `AddPageRouteModelConvention` rota oluşturmak için.
+Belirtilen <xref:Microsoft.Extensions.DependencyInjection.PageConventionCollectionExtensions.AddPageRoute*> sayfa yolundaki sayfaya bir yol yapılandırmak için kullanın. Sayfa için oluşturulan bağlantılar belirtilen rotayı kullanır. `AddPageRoute`yolu `AddPageRouteModelConvention` oluşturmak için kullanır.
 
-Örnek uygulama için bir yol oluşturur `/TheContactPage` için *Contact.cshtml*:
+Örnek uygulama, *Contact. cshtml*için `/TheContactPage` bir yol oluşturur:
+
+::: moniker range=">= aspnetcore-3.0"
+
+[!code-csharp[](razor-pages-conventions/samples/3.x/SampleApp/Startup.cs?name=snippet5)]
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
 
 [!code-csharp[](razor-pages-conventions/samples/2.x/SampleApp/Startup.cs?name=snippet5)]
 
-İlgili kişi sayfası aynı zamanda adresinden ulaşılabilir `/Contact` aracılığıyla varsayılan yolu.
+::: moniker-end
 
-İlgili kişi sayfası örnek uygulamanın özel yol için bir isteğe bağlı sağlar `text` yol kesimi (`{text?}`). Sayfa Ayrıca bu isteğe bağlı bir segmente içerir, `@page` ziyaretçi sayfasına erişen durumunda yönerge kendi `/Contact` rota:
+İletişim sayfasına, varsayılan yolu `/Contact` üzerinden de erişilebilir.
+
+Örnek uygulamanın kişi sayfasına özel yolu, isteğe bağlı `text` bir yol segmentine (`{text?}`) izin verir. Bu sayfa, ziyaretçinin `@page` `/Contact` yolunda sayfaya erişmesi durumunda bu isteğe bağlı segmenti de içerir:
+
+::: moniker range=">= aspnetcore-3.0"
+
+[!code-cshtml[](razor-pages-conventions/samples/3.x/SampleApp/Pages/Contact.cshtml?highlight=1)]
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
 
 [!code-cshtml[](razor-pages-conventions/samples/2.x/SampleApp/Pages/Contact.cshtml?highlight=1)]
 
-URL için oluşturulan Not **kişi** işlenen sayfanın bağlantısını yansıtan güncelleştirilmiş yolu:
+::: moniker-end
 
-![Gezinti çubuğunda, uygulama kişi bağlantısı örneği](razor-pages-conventions/_static/contact-link.png)
+İşlenmiş sayfadaki **kişi** bağlantısı IÇIN oluşturulan URL 'nin güncelleştirilmiş yolu yansıttığını unutmayın:
 
-![İşlenmiş HTML kişi bağlantıya inceleyerek gösterir href ayarlamak ' / TheContactPage'](razor-pages-conventions/_static/contact-link-source.png)
+![Gezinti çubuğundaki örnek uygulama Iletişim bağlantısı](razor-pages-conventions/_static/contact-link.png)
 
-İlgili kişi sayfasını ya da kendi sıradan rota ziyaret edin `/Contact`, ya da özel rota `/TheContactPage`. Ek bir sağlarsanız `text` yol kesimi sayfada gösterilir HTML ile kodlanmış segment sağlamanız:
+![İşlenmiş HTML 'deki kişi bağlantısının inceleniyor href 'in '/theContact tpage ' olarak ayarlandığını belirtir](razor-pages-conventions/_static/contact-link-source.png)
 
-![URL'deki 'MetinDeğeri' bir isteğe bağlı 'text' yol kesimi sağlama edge tarayıcı örneği. İşlenen sayfada 'text' segmenti değeri gösterilir.](razor-pages-conventions/_static/route-segment-with-custom-route.png)
+Kendi normal rotasında `/Contact`, veya özel `/TheContactPage`rotada kişi sayfasını ziyaret edin. Ek `text` bir rota kesimi sağlarsanız, sayfada sağladığınız HTML kodlu segment görüntülenir:
+
+![Edge tarayıcı, URL 'de ' TextValue ' öğesinin isteğe bağlı ' text ' yol segmentini sağlamaya yönelik örnek. İşlenmiş sayfa ' metin ' segmenti değerini gösterir.](razor-pages-conventions/_static/route-segment-with-custom-route.png)
 
 ## <a name="page-model-action-conventions"></a>Sayfa modeli eylem kuralları
 
-Uygulayan varsayılan sayfa modeli sağlayıcısı <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.IPageApplicationModelProvider> sayfa modelleri yapılandırmak için genişletilebilirlik noktaları sağlamak için tasarlanmış kuralları çağırır. Bu kuralları oluştururken ve sayfa bulma ve işleme senaryoları değiştirme yararlı olur.
+Uygulayan <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.IPageApplicationModelProvider> varsayılan sayfa modeli sağlayıcısı, sayfa modellerini yapılandırmak için genişletilebilirlik noktaları sağlamak üzere tasarlanan kuralları çağırır. Bu kurallar sayfa bulma ve işleme senaryolarını oluştururken ve değiştirirken yararlıdır.
 
-Bu bölümdeki örnekler için örnek uygulamayı kullanan bir `AddHeaderAttribute` sınıfının bir <xref:Microsoft.AspNetCore.Mvc.Filters.ResultFilterAttribute>, bir yanıt üstbilgisi, geçerli:
+Bu bölümdeki örneklerde, örnek uygulama bir yanıt üst bilgisi uygulayan olan `AddHeaderAttribute` bir <xref:Microsoft.AspNetCore.Mvc.Filters.ResultFilterAttribute>sınıfı kullanır:
+
+::: moniker range=">= aspnetcore-3.0"
+
+[!code-csharp[](razor-pages-conventions/samples/3.x/SampleApp/Filters/AddHeader.cs?name=snippet1)]
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
 
 [!code-csharp[](razor-pages-conventions/samples/2.x/SampleApp/Filters/AddHeader.cs?name=snippet1)]
 
-Kuralları kullanarak örnek bir klasördeki tüm sayfalar için ve tek sayfalı bir öznitelik uygulamak nasıl gösterir.
+::: moniker-end
+
+Kurallar kullanılarak, örnek bir klasördeki tüm sayfalara ve tek bir sayfaya özniteliğin nasıl uygulanacağını gösterir.
 
 **Klasör uygulama modeli kuralı**
 
-Kullanım <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.PageConventionCollection.AddFolderApplicationModelConvention*> oluşturmak ve eklemek için bir <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.IPageApplicationModelConvention> , çağıran bir eylem üzerinde <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.PageApplicationModel> belirtilen klasör altındaki tüm sayfalar için örnekleri.
+Belirtilen <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.PageConventionCollection.AddFolderApplicationModelConvention*> klasör altındaki tüm sayfalar için <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.IPageApplicationModelConvention> <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.PageApplicationModel> örneklere bir eylem çağıran bir eylem oluşturmak ve eklemek için kullanın.
 
-Örnek, kullanımını gösterir. `AddFolderApplicationModelConvention` bir üst bilgisi ekleyerek `OtherPagesHeader`, içinde sayfalara *OtherPages* uygulama klasörü:
+Örnek, uygulamasının, uygulamanın `AddFolderApplicationModelConvention` *diğer sayfalar* klasörünün içindeki sayfalara bir `OtherPagesHeader`başlık ekleyerek kullanımını gösterir:
+
+::: moniker range=">= aspnetcore-3.0"
+
+[!code-csharp[](razor-pages-conventions/samples/3.x/SampleApp/Startup.cs?name=snippet6)]
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
 
 [!code-csharp[](razor-pages-conventions/samples/2.x/SampleApp/Startup.cs?name=snippet6)]
 
-Örnek kullanıcının Sayfa1 sayfanın istek `localhost:5000/OtherPages/Page1` ve sonucu görüntülemek için üst bilgileri inceleyin:
+::: moniker-end
 
-![Yanıt Üstbilgileri OtherPages/Sayfa1 sayfanın OtherPagesHeader eklendiğini gösterir.](razor-pages-conventions/_static/page1-otherpages-header.png)
+Örnekteki Sayfa1 sayfasını `localhost:5000/OtherPages/Page1` isteyin ve sonucu görüntülemek için üst bilgileri inceleyin:
+
+![Diğer sayfalar/Sayfa1 sayfasının yanıt üstbilgileri, OtherPagesHeader öğesinin eklendiğini gösterir.](razor-pages-conventions/_static/page1-otherpages-header.png)
 
 **Sayfa uygulama modeli kuralı**
 
-Kullanım <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.PageConventionCollection.AddPageApplicationModelConvention*> oluşturmak ve eklemek için bir <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.IPageApplicationModelConvention> , çağıran bir eylem üzerinde <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.PageApplicationModel> sayfanın belirtilen ada sahip.
+Sayfa <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.PageConventionCollection.AddPageApplicationModelConvention*> <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.PageApplicationModel> için belirtilen ada sahip bir <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.IPageApplicationModelConvention> eylemi çağıran bir eylem oluşturmak ve eklemek için kullanın.
 
-Örnek, kullanımını gösterir. `AddPageApplicationModelConvention` bir üst bilgisi ekleyerek `AboutHeader`, hakkında sayfası:
+Örnek, hakkında sayfasına bir `AddPageApplicationModelConvention` `AboutHeader`başlık ekleyerek öğesinin kullanımını gösterir:
+
+::: moniker range=">= aspnetcore-3.0"
+
+[!code-csharp[](razor-pages-conventions/samples/3.x/SampleApp/Startup.cs?name=snippet7)]
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
 
 [!code-csharp[](razor-pages-conventions/samples/2.x/SampleApp/Startup.cs?name=snippet7)]
 
-Örnek kullanıcının hakkında sayfası, istek `localhost:5000/About` ve sonucu görüntülemek için üst bilgileri inceleyin:
+::: moniker-end
 
-![Yanıt Üstbilgileri hakkında sayfasının AboutHeader eklendiğini gösterir.](razor-pages-conventions/_static/about-page-about-header.png)
+Örnekteki hakkında daha `localhost:5000/About` fazla bilgi isteyin ve sonucu görüntülemek için üst bilgileri inceleyin:
 
-**Bir filtre yapılandırın**
+![Hakkında sayfasının yanıt üstbilgileri AboutHeader eklendiğini gösterir.](razor-pages-conventions/_static/about-page-about-header.png)
 
-<xref:Microsoft.Extensions.DependencyInjection.PageConventionCollectionExtensions.ConfigureFilter*> Belirtilen filtre uygulamak için yapılandırır. Bir filtre sınıfı uygulayabilirsiniz, ancak örnek uygulama, Sahne Arkası filtre döndüren bir Fabrika olarak uygulanan bir lambda ifadesinde bir filtre uygulamak gösterilmektedir:
+**Filtre yapılandırma**
+
+<xref:Microsoft.Extensions.DependencyInjection.PageConventionCollectionExtensions.ConfigureFilter*>Belirtilen filtreyi uygulamak için yapılandırır. Bir filtre sınıfı uygulayabilirsiniz, ancak örnek uygulama bir lambda ifadesinde bir filtrenin nasıl uygulanacağını gösterir, bu da bir filtre döndüren bir fabrika olarak arka planda uygulandı:
+
+::: moniker range=">= aspnetcore-3.0"
+
+[!code-csharp[](razor-pages-conventions/samples/3.x/SampleApp/Startup.cs?name=snippet8)]
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
 
 [!code-csharp[](razor-pages-conventions/samples/2.x/SampleApp/Startup.cs?name=snippet8)]
 
-Sayfa uygulama modeli Page2 sayfasına yol kesimleri için göreli yolu denetlemek için kullanılan *OtherPages* klasör. Koşul başarılı olursa, bir üst bilgi eklenir. Aksi takdirde, `EmptyFilter` uygulanır.
+::: moniker-end
 
-`EmptyFilter` olan bir [eylem filtresi](xref:mvc/controllers/filters#action-filters). Eylem filtreleri Razor sayfaları tarafından göz ardı edilir beri `EmptyFilter` yolu içermiyor beklendiği gibi hiçbir etkisi `OtherPages/Page2`.
+Sayfa uygulama modeli, *diğer sayfalar* klasöründeki Page2 sayfasına yol açan parçaların göreli yolunu denetlemek için kullanılır. Koşul geçerse, bir üst bilgi eklenir. `EmptyFilter` Aksi takdirde, uygulanır.
 
-Örnek kullanıcının Page2 sayfanın istek `localhost:5000/OtherPages/Page2` ve sonucu görüntülemek için üst bilgileri inceleyin:
+`EmptyFilter`bir [eylem filtresidir](xref:mvc/controllers/filters#action-filters). Eylem filtreleri Razor Pages `EmptyFilter` tarafından yoksayıldığından, yol içermiyorsa `OtherPages/Page2`amacına göre hiçbir etkiye sahip değildir.
 
-![OtherPagesPage2Header Page2 için yanıta eklenir.](razor-pages-conventions/_static/page2-filter-header.png)
+Örnek Page2 sayfasını `localhost:5000/OtherPages/Page2` isteyin ve sonucu görüntülemek için üst bilgileri inceleyin:
 
-**Bir filtre fabrikayı yapılandırma**
+![OtherPagesPage2Header, Page2 için yanıta eklenir.](razor-pages-conventions/_static/page2-filter-header.png)
 
-<xref:Microsoft.Extensions.DependencyInjection.PageConventionCollectionExtensions.ConfigureFilter*> Belirtilen Üreteç uygulamak için yapılandırır [filtreleri](xref:mvc/controllers/filters) tüm Razor sayfaları için.
+**Filtre fabrikası yapılandırma**
 
-Örnek uygulamasını kullanarak bir örnek sağlar. bir [filtre Fabrika](xref:mvc/controllers/filters#ifilterfactory) bir üst bilgisi ekleyerek `FilterFactoryHeader`, uygulamanın sayfaları için iki değerleriyle:
+<xref:Microsoft.Extensions.DependencyInjection.PageConventionCollectionExtensions.ConfigureFilter*>Tüm Razor Pages [filtre](xref:mvc/controllers/filters) uygulamak için belirtilen fabrikası yapılandırır.
+
+Örnek uygulama, uygulamanın sayfalarına iki değerli bir başlık `FilterFactoryHeader`ekleyerek bir [filtre fabrikası](xref:mvc/controllers/filters#ifilterfactory) kullanmanın bir örneğini sağlar:
+
+::: moniker range=">= aspnetcore-3.0"
+
+[!code-csharp[](razor-pages-conventions/samples/3.x/SampleApp/Startup.cs?name=snippet9)]
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
 
 [!code-csharp[](razor-pages-conventions/samples/2.x/SampleApp/Startup.cs?name=snippet9)]
 
+::: moniker-end
+
 *AddHeaderWithFactory.cs*:
+
+::: moniker range=">= aspnetcore-3.0"
+
+[!code-csharp[](razor-pages-conventions/samples/3.x/SampleApp/Factories/AddHeaderWithFactory.cs?name=snippet1)]
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
 
 [!code-csharp[](razor-pages-conventions/samples/2.x/SampleApp/Factories/AddHeaderWithFactory.cs?name=snippet1)]
 
-Örnek kullanıcının hakkında sayfası, istek `localhost:5000/About` ve sonucu görüntülemek için üst bilgileri inceleyin:
+::: moniker-end
 
-![İki FilterFactoryHeader üst bilgileri eklendiğinden hakkında sayfasının yanıt üst bilgileri gösterin.](razor-pages-conventions/_static/about-page-filter-factory-header.png)
+Örnekteki hakkında daha `localhost:5000/About` fazla bilgi isteyin ve sonucu görüntülemek için üst bilgileri inceleyin:
 
-## <a name="mvc-filters-and-the-page-filter-ipagefilter"></a>MVC filtreleri ve sayfa filtresi (IPageFilter)
+![Hakkında sayfasının yanıt üstbilgileri iki FilterFactoryHeader üst bilgisinin eklendiğini gösterir.](razor-pages-conventions/_static/about-page-filter-factory-header.png)
 
-MVC [eylem filtrelerini](xref:mvc/controllers/filters#action-filters) Razor sayfaları işleyici yöntemleri kullandığından Razor sayfaları tarafından göz ardı edilir. MVC filtre diğer türleri kullanabilmeniz için kullanılabilir: [Yetkilendirme](xref:mvc/controllers/filters#authorization-filters), [özel durum](xref:mvc/controllers/filters#exception-filters), [kaynak](xref:mvc/controllers/filters#resource-filters), ve [sonucu](xref:mvc/controllers/filters#result-filters). Daha fazla bilgi için [filtreleri](xref:mvc/controllers/filters) konu.
+## <a name="mvc-filters-and-the-page-filter-ipagefilter"></a>MVC filtreleri ve sayfa filtresi (ıpagefilter)
 
-Sayfa filtresi (<xref:Microsoft.AspNetCore.Mvc.Filters.IPageFilter>) Razor sayfaları için geçerli bir filtredir. Daha fazla bilgi için [yöntemleri Razor sayfaları için filtre](xref:razor-pages/filter).
+Razor Pages işleyici yöntemleri kullandığından, MVC [eylem filtreleri](xref:mvc/controllers/filters#action-filters) Razor Pages tarafından yok sayılır. Diğer MVC filtresi türleri şunları kullanabilirsiniz: [Yetkilendirme](xref:mvc/controllers/filters#authorization-filters), [özel durum](xref:mvc/controllers/filters#exception-filters), [kaynak](xref:mvc/controllers/filters#resource-filters)ve [sonuç](xref:mvc/controllers/filters#result-filters). Daha fazla bilgi için [Filtreler](xref:mvc/controllers/filters) konusuna bakın.
+
+Sayfa filtresi (<xref:Microsoft.AspNetCore.Mvc.Filters.IPageFilter>) Razor Pages için geçerli bir filtredir. Daha fazla bilgi için bkz. [Razor Pages Için filtre yöntemleri](xref:razor-pages/filter).
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 

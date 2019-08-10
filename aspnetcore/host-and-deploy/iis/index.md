@@ -5,18 +5,20 @@ description: ASP.NET Core uygulamaları Windows Server Internet Information Serv
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 07/28/2019
+ms.date: 07/31/2019
 uid: host-and-deploy/iis/index
-ms.openlocfilehash: 7677173493e68f5a5656c18533e0ae13a7c5bece
-ms.sourcegitcommit: 0efb9e219fef481dee35f7b763165e488aa6cf9c
+ms.openlocfilehash: df4d74a2800ef586091347289561a03b31e33f44
+ms.sourcegitcommit: 776367717e990bdd600cb3c9148ffb905d56862d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68602463"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68913938"
 ---
 # <a name="host-aspnet-core-on-windows-with-iis"></a>Windows IIS üzerinde ASP.NET Core barındırma
 
 Tarafından [Luke Latham](https://github.com/guardrex)
+
+ASP.NET Core uygulamasını bir IIS sunucusuna yayımlamaya yönelik bir öğretici deneyimi için, bkz <xref:tutorials/publish-to-iis>.
 
 [Paket barındırma .NET Core'u yükleme](#install-the-net-core-hosting-bundle)
 
@@ -139,7 +141,7 @@ Barındırma ile ilgili daha fazla bilgi için bkz: [ASP.NET Core ana](xref:fund
 
 ### <a name="enable-the-iisintegration-components"></a>IISIntegration bileşenlerini etkinleştir
 
-IIS ile  tümleştirmeyi sağlayan <xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder*> bir konak ayarlamaya başlamak için tipik bir program.cs çağrısı:
+IIS ile tümleştirmeyi sağlayan <xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder*> bir konak ayarlamaya başlamak için tipik bir program.cs çağrısı:
 
 ```csharp
 public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>

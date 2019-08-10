@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 08/06/2019
 uid: blazor/handle-errors
-ms.openlocfilehash: d247b6b6df4cfd1b099e4da0343b9c3751ae6cc8
-ms.sourcegitcommit: 2eb605f4f20ac4dd9de6c3b3e3453e108a357a21
+ms.openlocfilehash: 52f55af99881b09c84d9cf88f5845efcb1ea76a1
+ms.sourcegitcommit: 776367717e990bdd600cb3c9148ffb905d56862d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68820105"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68913861"
 ---
 # <a name="handle-errors-in-aspnet-core-blazor-apps"></a>ASP.NET Core Blazor uygulamalarında hataları işleme
 
@@ -75,7 +75,7 @@ Hangi olayların günlüğe kaydedileceğini ve günlüğe kaydedilen olayların
 Blazor bir bileşenin örneğini oluşturduğunda:
 
 * Bileşenin Oluşturucusu çağrılır.
-* [@inject](xref:blazor/dependency-injection#request-a-service-in-a-component) Yönerge veya [[Ekleme]](xref:blazor/dependency-injection#request-a-service-in-a-component) özniteliği aracılığıyla bileşen oluşturucusuna sağlanan tüm dı hizmetlerinin oluşturucuları çağrılır. 
+* Bileşen Oluşturucusu veya [@inject](xref:blazor/dependency-injection#request-a-service-in-a-component) [[Ekleme]](xref:blazor/dependency-injection#request-a-service-in-a-component) özniteliği aracılığıyla bileşen oluşturucusuna sağlanan tek başına bir veya daha fazla olmayan hizmetin oluşturucuları çağrılır. 
 
 Herhangi `[Inject]` bir özellik için yürütülen herhangi bir Oluşturucu veya ayarlayıcı işlenmeyen bir özel durum oluşturduğunda devre dışı olur. Framework bileşeni örneklemediğinden özel durum önemlidir. Oluşturucu mantığı özel durumlar oluşturmayabilir, uygulama hata işleme ve günlüğe kaydetme ile [try-catch](/dotnet/csharp/language-reference/keywords/try-catch) ifadesini kullanarak özel durumları yakalemelidir.
 
@@ -109,7 +109,7 @@ Oluşturma mantığındaki null başvuru özel durumunu engellemek için, üyele
 
 [!code-cshtml[](handle-errors/samples_snapshot/3.x/person-example.razor?highlight=1)]
 
-Yukarıdaki kod örneği, olduğunu `@person` `null`varsayar. Genellikle, kodun yapısı, bileşenin işlendiği sırada bir nesnenin var olmasını garanti eder. Bu durumlarda, işleme mantığını denetlemek `null` gerekli değildir. Önceki örnekte, bileşen örneklendiği `person` `person` zaman oluşturulduğu için, mevcut olması garantisini alabilir.
+Önceki kod olmadığını `person` `null`varsayar. Genellikle, kodun yapısı, bileşenin işlendiği sırada bir nesnenin var olmasını garanti eder. Bu durumlarda, işleme mantığını denetlemek `null` gerekli değildir. Önceki örnekte, bileşen örneklendiği `person` `person` zaman oluşturulduğu için, mevcut olması garantisini alabilir.
 
 ### <a name="event-handlers"></a>Olay işleyicileri
 

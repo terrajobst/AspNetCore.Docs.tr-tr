@@ -5,7 +5,7 @@ Mac 'te bir komut terminaline ilk kez erişmek için aşağıdaki ayar yapıland
 * **Sistem tercihleri > klavye > kısayolları > Hizmetleri**' ne gidin.
 * **Dosya ve klasörler**altında, **klasördeki yeni terminalin** seçili olduğunu doğrulayın.
 
-Yukarıdaki yönergeler, bir komut terminaline iki şekilde erişim sağlar: **Visual Studios** veya **Finder**'dan içinden. 
+Yukarıdaki yönergeler, bir komut terminaline iki şekilde erişmenizi sağlar: **Visual Studio** Içinden veya **Finder**'dan. 
 
 #### <a name="to-access-a-command-terminal-from-visual-studio-for-mac"></a>Mac için Visual Studio bir komut terminaline erişmek için:
 

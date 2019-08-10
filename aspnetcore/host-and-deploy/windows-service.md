@@ -1,52 +1,52 @@
 ---
-title: ASP.NET Core bir Windows hizmetinde barındırma
+title: Windows hizmetinde konak ASP.NET Core
 author: guardrex
-description: ASP.NET Core uygulaması bir Windows hizmetinde barındırmayı öğrenin.
+description: ASP.NET Core uygulamasının bir Windows hizmetinde nasıl barındıralınacağını öğrenin.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: tdykstra
 ms.custom: mvc
 ms.date: 06/03/2019
 uid: host-and-deploy/windows-service
-ms.openlocfilehash: 3a254af4d56cb4abc7004a67b0d0b42de2b878b1
-ms.sourcegitcommit: 47cc13ab90913af9a2887cef0896bb4e9aba4dd5
+ms.openlocfilehash: 703edff19d82d10415bedb9b92d83709c275100f
+ms.sourcegitcommit: 776367717e990bdd600cb3c9148ffb905d56862d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/26/2019
-ms.locfileid: "67399109"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68913910"
 ---
-# <a name="host-aspnet-core-in-a-windows-service"></a>ASP.NET Core bir Windows hizmetinde barındırma
+# <a name="host-aspnet-core-in-a-windows-service"></a>Windows hizmetinde konak ASP.NET Core
 
-Tarafından [Luke Latham](https://github.com/guardrex) ve [Tom Dykstra](https://github.com/tdykstra)
+[Luke Latham](https://github.com/guardrex) ve [Tom Dykstra](https://github.com/tdykstra) tarafından
 
-ASP.NET Core uygulaması Windows barındırılabilen bir [Windows hizmeti](/dotnet/framework/windows-services/introduction-to-windows-service-applications) IIS kullanmadan. Bir Windows hizmeti olarak barındırıldığında sunucu yeniden başlatıldıktan sonra uygulamayı otomatik olarak başlar.
+Bir ASP.NET Core uygulaması, IIS kullanmadan Windows [hizmeti](/dotnet/framework/windows-services/introduction-to-windows-service-applications) olarak Windows üzerinde barındırılabilir. Windows hizmeti olarak barındırıldığı zaman, uygulama otomatik olarak sunucu yeniden başlatıldıktan sonra başlatılır.
 
 [Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/host-and-deploy/windows-service/) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-* [ASP.NET Core SDK 2.1 veya üzeri](https://dotnet.microsoft.com/download)
-* [PowerShell 6.2 veya üstü](https://github.com/PowerShell/PowerShell)
+* [ASP.NET Core SDK 2,1 veya üzeri](https://dotnet.microsoft.com/download)
+* [PowerShell 6,2 veya üzeri](https://github.com/PowerShell/PowerShell)
 
 ::: moniker range=">= aspnetcore-3.0"
 
-## <a name="worker-service-template"></a>Çalışan hizmet şablonu
+## <a name="worker-service-template"></a>Çalışan hizmeti şablonu
 
-ASP.NET Core çalışan hizmet şablonu yazmak için bir başlangıç noktası sağlar. hizmet uygulamaları uzun süre çalışan. Şablon, bir Windows hizmeti uygulaması için temel olarak kullanmak için:
+ASP.NET Core Worker hizmeti şablonu, uzun süre çalışan hizmet uygulamalarını yazmak için bir başlangıç noktası sağlar. Şablonu bir Windows Hizmeti uygulamasının temeli olarak kullanmak için:
 
-1. .NET Core şablonundan bir çalışan Service uygulaması oluşturun.
-1. Sunulan yönergeleri [uygulama yapılandırması](#app-configuration) bir Windows hizmeti olarak çalıştırabilmeniz için çalışan hizmet uygulamasını güncelleştirmek için bölüm.
+1. .NET Core şablonundan bir çalışan hizmeti uygulaması oluşturun.
+1. Çalışan hizmeti uygulamasını bir Windows hizmeti olarak çalışacak şekilde güncelleştirmek için [uygulama yapılandırma](#app-configuration) bölümündeki yönergeleri izleyin.
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 1. Yeni bir proje oluşturun.
 1. Seçin **ASP.NET Core Web uygulaması**. **İleri**’yi seçin.
-1. Bir proje adı belirtin **proje adı** alan veya varsayılan proje adı kabul edin. **Oluştur**’u seçin.
-1. İçinde **yeni bir ASP.NET Core Web uygulaması oluşturma** iletişim kutusunda onaylayın **.NET Core** ve **ASP.NET Core 3.0** seçilir.
-1. Seçin **çalışan hizmet** şablonu. **Oluştur**’u seçin.
+1. **Proje adı** alanında bir proje adı girin veya varsayılan proje adını kabul edin. **Oluştur**’u seçin.
+1. **Yeni bir ASP.NET Core Web uygulaması oluştur** iletişim kutusunda, **.net Core** ve **ASP.NET Core 3,0** ' un seçili olduğunu doğrulayın.
+1. **Çalışan hizmeti** şablonunu seçin. **Oluştur**’u seçin.
 
-# <a name="visual-studio-code--net-core-clitabvisual-studio-codenetcore-cli"></a>[Visual Studio Code / .NET Core CLI](#tab/visual-studio-code+netcore-cli)
+# <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
 
-Çalışan hizmetin kullanın (`worker`) şablonuyla [yeni dotnet](/dotnet/core/tools/dotnet-new) komut kabuğu komutunu. Aşağıdaki örnekte, bir çalışan hizmet uygulaması adlandırılmış oluşturulduğunda `ContosoWorkerService`. İçin bir klasör `ContosoWorkerService` uygulama komut yürütülürken otomatik olarak oluşturulur.
+Çalışan hizmeti (`worker`) şablonunu bir komut kabuğundan [DotNet New](/dotnet/core/tools/dotnet-new) komutuyla birlikte kullanın. Aşağıdaki örnekte, adlı `ContosoWorkerService`bir çalışan hizmeti uygulaması oluşturulur. Komut yürütüldüğünde, `ContosoWorkerService` uygulamanın bir klasörü otomatik olarak oluşturulur.
 
 ```console
 dotnet new worker -o ContosoWorkerService
@@ -60,13 +60,13 @@ dotnet new worker -o ContosoWorkerService
 
 ::: moniker range=">= aspnetcore-3.0"
 
-`IHostBuilder.UseWindowsService`, tarafından sağlanan [Microsoft.Extensions.Hosting.WindowsServices](https://www.nuget.org/packages/Microsoft.Extensions.Hosting.WindowsServices) paketini, ana bilgisayar oluşturma sırasında çağrılır. Uygulamayı yöntemi bir Windows hizmeti olarak çalışıyorsa:
+`IHostBuilder.UseWindowsService`, ana bilgisayar oluşturulurken [Microsoft. Extensions. Hosting. WindowsServices](https://www.nuget.org/packages/Microsoft.Extensions.Hosting.WindowsServices) paketi tarafından verilen çağrılır. Uygulama bir Windows hizmeti olarak çalışıyorsa, yöntemi:
 
-* Ana kullanım ömrü ayarlar `WindowsServiceLifetime`.
-* İçerik kök ayarlar.
-* Varsayılan kaynak adıyla uygulama adı ile olay günlüğü için günlük kaydını etkinleştirir.
-  * Günlük düzeyi kullanılarak yapılandırılabilir `Logging:LogLevel:Default` anahtarını *appsettings. Production.JSON* dosya.
-  * Yalnızca Yöneticiler yeni olay kaynakları oluşturabilirsiniz. Uygulama adı kullanarak bir olay kaynağı oluşturulamıyor olduğunda bir uyarı günlüğe kaydedilir *uygulama* kaynağı ve olay günlüklerini devre dışı bırakıldı.
+* Ana bilgisayar ömrünü olarak `WindowsServiceLifetime`ayarlar.
+* İçerik kökünü ayarlar.
+* Varsayılan kaynak adı olarak uygulama adı ile olay günlüğüne günlük kaydını sağlar.
+  * Günlük düzeyi appSettings içindeki `Logging:LogLevel:Default` anahtar kullanılarak yapılandırılabilir *. Production. JSON* dosyası.
+  * Yeni olay kaynakları yalnızca yöneticiler tarafından oluşturulabilir. Uygulama adı kullanılarak bir olay kaynağı oluşturuoluşturumadığında, *uygulama* kaynağına bir uyarı kaydedilir ve olay günlükleri devre dışı bırakılır.
 
 [!code-csharp[](windows-service/samples/3.x/AspNetCoreService/Program.cs?name=snippet_Program)]
 
@@ -74,18 +74,18 @@ dotnet new worker -o ContosoWorkerService
 
 ::: moniker range="< aspnetcore-3.0"
 
-Uygulama için paket başvuruları gerekiyor. [Microsoft.AspNetCore.Hosting.WindowsServices](https://www.nuget.org/packages/Microsoft.AspNetCore.Hosting.WindowsServices) ve [Microsoft.Extensions.Logging.EventLog](https://www.nuget.org/packages/Microsoft.Extensions.Logging.EventLog).
+Uygulama [Microsoft. AspNetCore. Hosting. WindowsServices](https://www.nuget.org/packages/Microsoft.AspNetCore.Hosting.WindowsServices) ve [Microsoft. Extensions. Logging. EventLog](https://www.nuget.org/packages/Microsoft.Extensions.Logging.EventLog)için paket başvuruları gerektirir.
 
-Test ve hizmet dışında çalışırken hata ayıklama için uygulamayı bir hizmet veya bir konsol uygulaması olarak çalışıp çalışmadığını belirlemek için kod ekleyin. Hata ayıklayıcıyı eklediyseniz veya inceleyin `--console` anahtar. İki koşuldan birinin (uygulamayı değil çalıştırma hizmet olarak) true ise, çağrı <xref:Microsoft.AspNetCore.Hosting.WebHostExtensions.Run*>. Koşullar (uygulama, hizmet olarak çalıştırıldığında) false olduğunda:
+Bir hizmetin dışında çalışırken test ve hata ayıklamak için, uygulamanın bir hizmet olarak mı yoksa bir konsol uygulaması mi çalıştığını belirleme kodu ekleyin. Hata ayıklayıcının ekli olduğunu veya bir `--console` anahtarın mevcut olup olmadığını denetleyin. Her iki koşul de geçerliyse (uygulama bir hizmet olarak çalıştırılmadıysa), çağırın <xref:Microsoft.AspNetCore.Hosting.WebHostExtensions.Run*>. Koşullar yanlışsa (uygulama bir hizmet olarak çalıştırılır):
 
-* Çağrı <xref:System.IO.Directory.SetCurrentDirectory*> ve uygulamanın yayımlanmış konumuna bir yol kullanın. Remove() çağırmayın <xref:System.IO.Directory.GetCurrentDirectory*> bir Windows hizmeti uygulaması döndürüldüğünden yolunu almak için *C:\\WINDOWS\\system32* klasör zaman <xref:System.IO.Directory.GetCurrentDirectory*> çağrılır. Daha fazla bilgi için [geçerli dizin ve içerik kök](#current-directory-and-content-root) bölümü. Bu adım, uygulamanın yapılandırılan önce gerçekleştirilir `CreateWebHostBuilder`.
-* Çağrı <xref:Microsoft.AspNetCore.Hosting.WindowsServices.WebHostWindowsServiceExtensions.RunAsService*> uygulamasını bir hizmet olarak çalıştırmak için.
+* Uygulamanın <xref:System.IO.Directory.SetCurrentDirectory*> yayımlanmış konumunun yolunu çağırın ve kullanın. Bir Windows <xref:System.IO.Directory.GetCurrentDirectory*> hizmeti uygulaması çağrıldığında *C:\\Windows\\system32* klasörünü <xref:System.IO.Directory.GetCurrentDirectory*> döndürdüğünden yolu almak için çağırmayın. Daha fazla bilgi için [geçerli dizin ve içerik kökü](#current-directory-and-content-root) bölümüne bakın. Bu adım, uygulamanın ' de `CreateWebHostBuilder`yapılandırılmadan önce gerçekleştirilir.
+* Uygulamayı <xref:Microsoft.AspNetCore.Hosting.WindowsServices.WebHostWindowsServiceExtensions.RunAsService*> bir hizmet olarak çalıştırmak için çağırın.
 
-Çünkü [komut satırı yapılandırma sağlayıcısı](xref:fundamentals/configuration/index#command-line-configuration-provider) komut satırı bağımsız değişkenleri için ad-değer çiftleri gerektirir `--console` anahtarı bağımsız değişkenlerden önce kaldırılır <xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder*> bağımsız değişkenleri alır.
+[Komut satırı yapılandırma sağlayıcısı](xref:fundamentals/configuration/index#command-line-configuration-provider) komut satırı bağımsız değişkenleri için ad-değer çiftleri gerektirdiğinden, `--console` bağımsız değişkenleri almadan önce <xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder*> anahtar bağımsız değişkenlerden kaldırılır.
 
-Windows olay günlüğüne yazmak için olay günlüğü Sağlayıcısı Ekle <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder.ConfigureLogging*>. İle günlük tutma düzeyini ayarlamaya `Logging:LogLevel:Default` anahtarını *appsettings. Production.JSON* dosya.
+Windows olay günlüğü 'ne yazmak için EventLog sağlayıcısını öğesine <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder.ConfigureLogging*>ekleyin. Günlük kaydı düzeyini `Logging:LogLevel:Default` appSettings içindeki anahtarla ayarlayın *. Production. JSON* dosyası.
 
-Aşağıdaki örnekte, örnek uygulamadan `RunAsCustomService` yerine adlı <xref:Microsoft.AspNetCore.Hosting.WindowsServices.WebHostWindowsServiceExtensions.RunAsService*> uygulama içinde ömür olayları işlemek için. Daha fazla bilgi için [başlatılması ve durdurulması olaylarını işlemek](#handle-starting-and-stopping-events) bölümü.
+Örnek uygulamadan aşağıdaki örnekte, `RunAsCustomService` uygulama içindeki ömür olaylarını işlemek için <xref:Microsoft.AspNetCore.Hosting.WindowsServices.WebHostWindowsServiceExtensions.RunAsService*> yerine çağrılır. Daha fazla bilgi için [olayları başlatma ve durdurma olaylarını](#handle-starting-and-stopping-events) inceleyin bölümüne bakın.
 
 [!code-csharp[](windows-service/samples/2.x/AspNetCoreService/Program.cs?name=snippet_Program)]
 
@@ -93,20 +93,20 @@ Aşağıdaki örnekte, örnek uygulamadan `RunAsCustomService` yerine adlı <xre
 
 ## <a name="deployment-type"></a>Dağıtım türü
 
-Bilgi ve dağıtım senaryoları hakkında daha fazla öneri için bkz. [.NET Core uygulama dağıtımı](/dotnet/core/deploying/).
+Dağıtım senaryoları hakkında bilgi ve öneriler için bkz. [.NET Core uygulama dağıtımı](/dotnet/core/deploying/).
 
-### <a name="framework-dependent-deployment-fdd"></a>Framework bağımlı dağıtım (FDD)
+### <a name="framework-dependent-deployment-fdd"></a>Çerçeveye bağımlı dağıtım (FDD)
 
-.NET Core hedef sistemdeki bir paylaşılan sistem genelinde sürüm varlığını Framework bağımlı dağıtım (FDD) kullanır. Bu makaledeki yönergeleri izleyerek FDD senaryo benimsenen, SDK'sı bir çalıştırılabilir dosyası oluşturur ( *.exe*) adlı bir *framework bağımlı yürütülebilir*.
+Çerçeveye bağımlı dağıtım (FDD), hedef sistemde .NET Core 'un paylaşılan sistem genelindeki bir sürümünün varlığına dayanır. Bu makaledeki kılavuzdan sonra FDD senaryosu benimsendiği zaman SDK, *çerçeveye bağlı yürütülebilir dosya*olarak adlandırılan yürütülebilir bir dosya ( *. exe*) oluşturur.
 
 ::: moniker range=">= aspnetcore-3.0"
 
-Aşağıdaki özellik öğeleri, proje dosyasına ekleyin:
+Aşağıdaki özellik öğelerini proje dosyasına ekleyin:
 
-* `<OutputType>` &ndash; Uygulama türü Çıktı (`Exe` yürütülebilir dosya için).
-* `<LangVersion>` &ndash; C# Dil sürümü (`latest` veya `preview`).
+* `<OutputType>`Uygulamanın çıkış türü (`Exe` yürütülebilir için). &ndash;
+* `<LangVersion>`Dil sürümü(`latest` veya`preview`). &ndash; C#
 
-A *web.config* normalde bir ASP.NET Core uygulaması yayımlama sırasında oluşturulur, dosya, bir Windows hizmet uygulaması için gereksiz. Oluşturulmasını devre dışı bırakmak için *web.config* ekleyin `<IsTransformWebConfigDisabled>` özelliğini `true`.
+Bir ASP.NET Core uygulaması yayımlandığında normalde üretilen bir *Web. config* dosyası, Windows Hizmetleri uygulaması için gereksizdir. *Web. config* dosyasının oluşturulmasını devre dışı bırakmak için, `<IsTransformWebConfigDisabled>` özelliğini öğesine `true`ekleyin.
 
 ```xml
 <PropertyGroup>
@@ -121,9 +121,9 @@ A *web.config* normalde bir ASP.NET Core uygulaması yayımlama sırasında olu�
 
 ::: moniker range="= aspnetcore-2.2"
 
-Windows [çalışma zamanı tanımlayıcı (RID)](/dotnet/core/rid-catalog) ([\<RuntimeIdentifier >](/dotnet/core/tools/csproj#runtimeidentifier)) hedef Framework'ü içerir. Aşağıdaki örnekte, RID kümesine `win7-x64`. `<SelfContained>` Özelliği `false`. Bu özellikler, yürütülebilir bir dosya oluşturmak için SDK'sı isteyin ( *.exe*) Windows ve paylaşılan olan .NET Core Framework'e bağlı bir uygulama dosyası.
+Windows [çalışma zamanı tanımlayıcısı (RID)](/dotnet/core/rid-catalog) ([\<runtimeıdentifier >](/dotnet/core/tools/csproj#runtimeidentifier)), hedef Framework 'ü içerir. Aşağıdaki örnekte, RID olarak `win7-x64`ayarlanır. `<SelfContained>` Özelliği olarak`false`ayarlanır. Bu özellikler SDK 'nın Windows için bir yürütülebilir ( *. exe*) dosya ve paylaşılan .NET Core çerçevesine bağlı bir uygulama oluşturmasını ister.
 
-A *web.config* normalde bir ASP.NET Core uygulaması yayımlama sırasında oluşturulur, dosya, bir Windows hizmet uygulaması için gereksiz. Oluşturulmasını devre dışı bırakmak için *web.config* ekleyin `<IsTransformWebConfigDisabled>` özelliğini `true`.
+Bir ASP.NET Core uygulaması yayımlandığında normalde üretilen bir *Web. config* dosyası, Windows Hizmetleri uygulaması için gereksizdir. *Web. config* dosyasının oluşturulmasını devre dışı bırakmak için, `<IsTransformWebConfigDisabled>` özelliğini öğesine `true`ekleyin.
 
 ```xml
 <PropertyGroup>
@@ -138,11 +138,11 @@ A *web.config* normalde bir ASP.NET Core uygulaması yayımlama sırasında olu�
 
 ::: moniker range="= aspnetcore-2.1"
 
-Windows [çalışma zamanı tanımlayıcı (RID)](/dotnet/core/rid-catalog) ([\<RuntimeIdentifier >](/dotnet/core/tools/csproj#runtimeidentifier)) hedef Framework'ü içerir. Aşağıdaki örnekte, RID kümesine `win7-x64`. `<SelfContained>` Özelliği `false`. Bu özellikler, yürütülebilir bir dosya oluşturmak için SDK'sı isteyin ( *.exe*) Windows ve paylaşılan olan .NET Core Framework'e bağlı bir uygulama dosyası.
+Windows [çalışma zamanı tanımlayıcısı (RID)](/dotnet/core/rid-catalog) ([\<runtimeıdentifier >](/dotnet/core/tools/csproj#runtimeidentifier)), hedef Framework 'ü içerir. Aşağıdaki örnekte, RID olarak `win7-x64`ayarlanır. `<SelfContained>` Özelliği olarak`false`ayarlanır. Bu özellikler SDK 'nın Windows için bir yürütülebilir ( *. exe*) dosya ve paylaşılan .NET Core çerçevesine bağlı bir uygulama oluşturmasını ister.
 
-`<UseAppHost>` Özelliği `true`. Bu özellik etkinleştirme yolu hizmetiyle sağlar (bir yürütülebilir dosya *.exe*) bir FDD için.
+`<UseAppHost>` Özelliği olarak`true`ayarlanır. Bu özellik, bir FDD için bir etkinleştirme yolu (yürütülebilir, *. exe*) ile hizmeti sağlar.
 
-A *web.config* normalde bir ASP.NET Core uygulaması yayımlama sırasında oluşturulur, dosya, bir Windows hizmet uygulaması için gereksiz. Oluşturulmasını devre dışı bırakmak için *web.config* ekleyin `<IsTransformWebConfigDisabled>` özelliğini `true`.
+Bir ASP.NET Core uygulaması yayımlandığında normalde üretilen bir *Web. config* dosyası, Windows Hizmetleri uygulaması için gereksizdir. *Web. config* dosyasının oluşturulmasını devre dışı bırakmak için, `<IsTransformWebConfigDisabled>` özelliğini öğesine `true`ekleyin.
 
 ```xml
 <PropertyGroup>
@@ -156,26 +156,26 @@ A *web.config* normalde bir ASP.NET Core uygulaması yayımlama sırasında olu�
 
 ::: moniker-end
 
-### <a name="self-contained-deployment-scd"></a>Kendi başına dağıtım (SCD)
+### <a name="self-contained-deployment-scd"></a>Kendi içinde dağıtım (SCD)
 
-Kendi başına dağıtım (SCD), konak sistemindeki paylaşılan bir çerçeve varlığına içermez. Çalışma zamanı ve uygulamanın bağımlılıklarını uygulamayla birlikte dağıtılır.
+Kendinden bağımsız dağıtım (SCD), ana bilgisayar sisteminde paylaşılan bir Framework varlığına güvenmez. Çalışma zamanı ve uygulamanın bağımlılıkları uygulamayla birlikte dağıtılır.
 
-Bir Windows [çalışma zamanı tanımlayıcı (RID)](/dotnet/core/rid-catalog) dahil `<PropertyGroup>` , hedef Framework'ü içerir:
+Hedef Framework 'ü içeren ' de `<PropertyGroup>` bir Windows [çalışma zamanı tanımlayıcısı (RID)](/dotnet/core/rid-catalog) bulunur:
 
 ```xml
 <RuntimeIdentifier>win7-x64</RuntimeIdentifier>
 ```
 
-İçin birden fazla RID yayımlamak için:
+Birden çok RID için yayımlamak için:
 
-* RID noktalı virgülle ayrılmış bir liste sağlar.
-* Özellik adını kullanan [ \<RuntimeIdentifiers >](/dotnet/core/tools/csproj#runtimeidentifiers) (çoğul).
+* RID 'leri, noktalı virgülle ayrılmış bir liste olarak belirtin.
+* > (Plural) adlı [ \<runtimetanımlayıcılar](/dotnet/core/tools/csproj#runtimeidentifiers) özelliğini kullanın.
 
-Daha fazla bilgi için [.NET Core RID Kataloğu](/dotnet/core/rid-catalog).
+Daha fazla bilgi için bkz. [.NET Core RID kataloğu](/dotnet/core/rid-catalog).
 
 ::: moniker range="< aspnetcore-3.0"
 
-A `<SelfContained>` özelliği `true`:
+Bir `<SelfContained>` özellik şu şekilde `true`ayarlanır:
 
 ```xml
 <SelfContained>true</SelfContained>
@@ -183,48 +183,48 @@ A `<SelfContained>` özelliği `true`:
 
 ::: moniker-end
 
-## <a name="service-user-account"></a>Hizmet kullanıcı hesabı
+## <a name="service-user-account"></a>Hizmet Kullanıcı hesabı
 
-Bir hizmet için bir kullanıcı hesabı oluşturmak için kullanın [yeni LocalUser](/powershell/module/microsoft.powershell.localaccounts/new-localuser) cmdlet'i bir yönetim PowerShell 6'yı komut kabuğundan.
+Bir hizmet için Kullanıcı hesabı oluşturmak için, bir yönetim PowerShell 6 komut kabuğundan [New-LocalUser](/powershell/module/microsoft.powershell.localaccounts/new-localuser) cmdlet 'ini kullanın.
 
-Windows 10 Ekim 2018 Güncelleştirmesi (sürüm 1809/derleme 10.0.17763) veya daha sonra:
+Windows 10 Ekim 2018 Güncelleştirmesi (sürüm 1809/Build 10.0.17763) veya sonraki sürümler:
 
 ```PowerShell
 New-LocalUser -Name {NAME}
 ```
 
-Windows 10 Ekim 2018'den önceki Windows işletim sisteminde Update (sürüm 1809/derleme 10.0.17763):
+Windows 10 Ekim 2018 (sürüm 1809/Build 10.0.17763) sürümünden önceki Windows IŞLETIM sistemlerinde:
 
 ```console
 powershell -Command "New-LocalUser -Name {NAME}"
 ```
 
-Sağlayan bir [güçlü parola](/windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements) istendiğinde.
+İstendiğinde [güçlü bir parola](/windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements) sağlayın.
 
-Sürece `-AccountExpires` parametre tarafından sağlanan [yeni LocalUser](/powershell/module/microsoft.powershell.localaccounts/new-localuser) bir sona erme cmdlet'iyle <xref:System.DateTime>, hesabın süresi sona ermiyor.
+Parametresi New [-LocalUser](/powershell/module/microsoft.powershell.localaccounts/new-localuser) cmdlet 'ine bir süre sonu <xref:System.DateTime>ile sağlanmamışsa hesabın süresi dolmaz. `-AccountExpires`
 
-Daha fazla bilgi için [Microsoft.PowerShell.LocalAccounts](/powershell/module/microsoft.powershell.localaccounts/) ve [hizmeti kullanıcı hesaplarını](/windows/desktop/services/service-user-accounts).
+Daha fazla bilgi için bkz. [Microsoft. PowerShell. LocalAccounts](/powershell/module/microsoft.powershell.localaccounts/) ve [hizmet Kullanıcı hesapları](/windows/desktop/services/service-user-accounts).
 
-Active Directory kullanarak kullanıcıları yönetme için alternatif bir yaklaşım, yönetilen hizmet hesaplarını kullanmaktır. Daha fazla bilgi için [Grup yönetilen hizmet hesaplarına genel bakış](/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview).
+Active Directory kullanırken kullanıcıları yönetmeye yönelik alternatif bir yaklaşım, yönetilen hizmet hesaplarını kullanmaktır. Daha fazla bilgi için bkz. [Grup yönetilen hizmet hesaplarına genel bakış](/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview).
 
-## <a name="log-on-as-a-service-rights"></a>Bir hizmet hakları oturum açın
+## <a name="log-on-as-a-service-rights"></a>Hizmet hakları olarak oturum açma
 
-Kurmak için *hizmet oturum açma* rights hizmeti kullanıcı hesabı için:
+Hizmet Kullanıcı hesabı için *hizmet hakları olarak oturum* açma oluşturmak için:
 
-1. Yerel Güvenlik İlkesi Düzenleyicisi'ni çalıştırarak açmak *secpol.msc*.
-1. Genişletin **yerel ilkeler** düğümünü seçip alt **kullanıcı hakları ataması**.
-1. Açık **hizmet oturum açma** ilkesi.
-1. Seçin **kullanıcı veya grup ekleme**.
-1. Aşağıdaki yaklaşımlardan birini kullanarak nesne adı (kullanıcı hesabı) sağlayın:
-   1. Kullanıcı hesabını yazın (`{DOMAIN OR COMPUTER NAME\USER}`) nesne adını seçin ve alan **Tamam** kullanıcı ilkesine eklemek için.
-   1. **Gelişmiş**'i seçin. Seçin **Şimdi Bul**. Kullanıcı hesabı listeden seçin. **Tamam**’ı seçin. Seçin **Tamam** yeniden kullanıcı ilkesine eklemek için.
-1. Seçin **Tamam** veya **Uygula** değişiklikleri kabul etmek için.
+1. Yerel Güvenlik Ilkesi düzenleyicisini, *secpol. msc*' i çalıştırarak açın.
+1. **Yerel ilkeler** düğümünü genişletin ve **Kullanıcı hakları ataması**' nı seçin.
+1. **Hizmet olarak oturum** açma ilkesi açın.
+1. **Kullanıcı veya Grup Ekle**' yi seçin.
+1. Aşağıdaki yaklaşımlardan birini kullanarak nesne adını (Kullanıcı hesabı) sağlayın:
+   1. Kullanıcı hesabını (`{DOMAIN OR COMPUTER NAME\USER}`) nesne adı alanına yazın ve kullanıcıyı ilkeye eklemek için **Tamam** ' ı seçin.
+   1. **Gelişmiş**'i seçin. **Şimdi bul**' u seçin. Listeden Kullanıcı hesabını seçin. **Tamam**’ı seçin. Kullanıcıyı ilkeye eklemek için yeniden **Tamam ' ı** seçin.
+1. Değişiklikleri kabul etmek için **Tamam ' ı** veya **Uygula** ' yı seçin.
 
-## <a name="create-and-manage-the-windows-service"></a>Oluşturma ve yönetme Windows hizmeti
+## <a name="create-and-manage-the-windows-service"></a>Windows hizmetini oluşturma ve yönetme
 
 ### <a name="create-a-service"></a>Bir hizmet oluşturma
 
-Bir hizmeti kaydetmek için PowerShell komutlarını kullanın. Bir yönetici PowerShell 6'yı komut kabuğundan, aşağıdaki komutları yürütün:
+Bir hizmeti kaydetmek için PowerShell komutlarını kullanın. Bir yönetim PowerShell 6 komut kabuğundan aşağıdaki komutları yürütün:
 
 ```powershell
 $acl = Get-Acl "{EXE PATH}"
@@ -236,49 +236,49 @@ $acl | Set-Acl "{EXE PATH}"
 New-Service -Name {NAME} -BinaryPathName {EXE FILE PATH} -Credential {DOMAIN OR COMPUTER NAME\USER} -Description "{DESCRIPTION}" -DisplayName "{DISPLAY NAME}" -StartupType Automatic
 ```
 
-* `{EXE PATH}` &ndash; Konaktaki uygulamanın klasör yolu (örneğin, `d:\myservice`). Uygulamanın yürütülebilir yolu dahil değildir. Sonunda eğik çizgi gerekli değildir.
-* `{DOMAIN OR COMPUTER NAME\USER}` &ndash; Hizmeti kullanıcı hesabını (örneğin, `Contoso\ServiceUser`).
-* `{NAME}` &ndash; Hizmet adı (örneğin, `MyService`).
-* `{EXE FILE PATH}` &ndash; Uygulamanın yürütülebilir dosya yolu (örneğin, `d:\myservice\myservice.exe`). Uzantılı dosya adı yürütülebilir dosyası içerir.
-* `{DESCRIPTION}` &ndash; Hizmet açıklaması (örneğin, `My sample service`).
-* `{DISPLAY NAME}` &ndash; Hizmet görünen adı (örneğin, `My Service`).
+* `{EXE PATH}`Konaktaki uygulamanın klasörünün yolu (örneğin, `d:\myservice`). &ndash; Uygulamanın yürütülebilir dosyasını yola eklemeyin. Sondaki eğik çizgi gerekli değildir.
+* `{DOMAIN OR COMPUTER NAME\USER}`Hizmet Kullanıcı hesabı (örneğin, `Contoso\ServiceUser`). &ndash;
+* `{NAME}`Hizmet adı (örneğin, `MyService`). &ndash;
+* `{EXE FILE PATH}`Uygulamanın yürütülebilir yolu (örneğin, `d:\myservice\myservice.exe`). &ndash; Yürütülebilir dosyanın dosya adını uzantısına ekleyin.
+* `{DESCRIPTION}`Hizmet açıklaması (örneğin, `My sample service`). &ndash;
+* `{DISPLAY NAME}`Hizmet görünen adı (örneğin, `My Service`). &ndash;
 
-### <a name="start-a-service"></a>Bir hizmeti Başlat
+### <a name="start-a-service"></a>Hizmet başlatma
 
-Bir hizmet PowerShell 6'yı aşağıdaki komutla başlatın:
+Aşağıdaki PowerShell 6 komutuyla bir hizmet başlatın:
 
 ```powershell
 Start-Service -Name {NAME}
 ```
 
-Komut hizmeti başlatmak için birkaç saniye sürer.
+Komutun başlatılması birkaç saniye sürer.
 
-### <a name="determine-a-services-status"></a>Bir hizmetin durumunu belirleme
+### <a name="determine-a-services-status"></a>Hizmetin durumunu belirleme
 
-Bir hizmetin durumunu denetlemek için aşağıdaki PowerShell 6 komutu kullanın:
+Bir hizmetin durumunu denetlemek için aşağıdaki PowerShell 6 komutunu kullanın:
 
 ```powershell
 Get-Service -Name {NAME}
 ```
 
-Durumu aşağıdaki değerlerden biri olarak bildirilir:
+Durum, aşağıdaki değerlerden biri olarak bildirilir:
 
 * `Starting`
 * `Running`
 * `Stopping`
 * `Stopped`
 
-### <a name="stop-a-service"></a>Bir hizmeti Durdur
+### <a name="stop-a-service"></a>Bir hizmeti durdur
 
-Powershell 6'yı aşağıdaki komutla bir hizmet durdurun:
+Aşağıdaki PowerShell 6 komutuyla bir hizmeti durdurun:
 
 ```powershell
 Stop-Service -Name {NAME}
 ```
 
-### <a name="remove-a-service"></a>Bir hizmeti Kaldır
+### <a name="remove-a-service"></a>Hizmeti Kaldır
 
-Bir hizmeti durdurmak için kısa bir gecikmeyle, hizmet Powershell 6'yı aşağıdaki komutla kaldırın:
+Bir hizmeti durdurmak için kısa bir gecikmeden sonra, aşağıdaki PowerShell 6 komutuyla bir hizmeti kaldırın:
 
 ```powershell
 Remove-Service -Name {NAME}
@@ -286,61 +286,61 @@ Remove-Service -Name {NAME}
 
 ::: moniker range="< aspnetcore-3.0"
 
-## <a name="handle-starting-and-stopping-events"></a>Başlatma ve durdurma olayları işleme
+## <a name="handle-starting-and-stopping-events"></a>Olayları başlatma ve durdurma olaylarını işleme
 
-İşlenecek <xref:Microsoft.AspNetCore.Hosting.WindowsServices.WebHostService.OnStarting*>, <xref:Microsoft.AspNetCore.Hosting.WindowsServices.WebHostService.OnStarted*>, ve <xref:Microsoft.AspNetCore.Hosting.WindowsServices.WebHostService.OnStopping*> olayları:
+, <xref:Microsoft.AspNetCore.Hosting.WindowsServices.WebHostService.OnStarting*> <xref:Microsoft.AspNetCore.Hosting.WindowsServices.WebHostService.OnStarted*>Ve olaylarınıişlemekiçin:<xref:Microsoft.AspNetCore.Hosting.WindowsServices.WebHostService.OnStopping*>
 
-1. Türetilen bir sınıf oluşturmanız <xref:Microsoft.AspNetCore.Hosting.WindowsServices.WebHostService> ile `OnStarting`, `OnStarted`, ve `OnStopping` yöntemleri:
+1. `OnStarting`, <xref:Microsoft.AspNetCore.Hosting.WindowsServices.WebHostService> Ve`OnStarted`yöntemleriyle türetilen bir sınıfoluşturun:`OnStopping`
 
    [!code-csharp[](windows-service/samples/2.x/AspNetCoreService/CustomWebHostService.cs?name=snippet_CustomWebHostService)]
 
-2. Bir genişletme yöntemi için oluşturma <xref:Microsoft.AspNetCore.Hosting.IWebHost> Geçiren `CustomWebHostService` için <xref:System.ServiceProcess.ServiceBase.Run*>:
+2. ' A <xref:Microsoft.AspNetCore.Hosting.IWebHost> `CustomWebHostService` geçişi içinbirgenişletmeyöntemioluşturun:<xref:System.ServiceProcess.ServiceBase.Run*>
 
    [!code-csharp[](windows-service/samples/2.x/AspNetCoreService/WebHostServiceExtensions.cs?name=ExtensionsClass)]
 
-3. İçinde `Program.Main`, çağrı `RunAsCustomService` genişletme yöntemi yerine <xref:Microsoft.AspNetCore.Hosting.WindowsServices.WebHostWindowsServiceExtensions.RunAsService*>:
+3. İçinde `Program.Main`, `RunAsCustomService` yerine<xref:Microsoft.AspNetCore.Hosting.WindowsServices.WebHostWindowsServiceExtensions.RunAsService*>genişletme yöntemini çağırın:
 
    ```csharp
    host.RunAsCustomService();
    ```
 
-   Konumu görmek için <xref:Microsoft.AspNetCore.Hosting.WindowsServices.WebHostWindowsServiceExtensions.RunAsService*> içinde `Program.Main`, gösterilen kod örneği başvurmak [dağıtım türü](#deployment-type) bölümü.
+   <xref:Microsoft.AspNetCore.Hosting.WindowsServices.WebHostWindowsServiceExtensions.RunAsService*> Konumunu`Program.Main`görmek için, [dağıtım türü](#deployment-type) bölümünde gösterilen kod örneğine bakın.
 
 ::: moniker-end
 
 ## <a name="proxy-server-and-load-balancer-scenarios"></a>Ara sunucu ve yük dengeleyici senaryoları
 
-Internet'ten veya kurumsal ağ istekleri etkileşim ve bir proxy'nin arkasındaysa veya yük dengeleyici Hizmetleri ek yapılandırma gerektirebilir. Daha fazla bilgi için bkz. <xref:host-and-deploy/proxy-load-balancer>.
+Internet 'ten veya şirket ağından gelen isteklerle etkileşime geçen ve bir ara sunucu veya yük dengeleyicinin arkasındaki Hizmetler ek yapılandırma gerektirebilir. Daha fazla bilgi için bkz. <xref:host-and-deploy/proxy-load-balancer>.
 
-## <a name="configure-https"></a>HTTPS yapılandırma
+## <a name="configure-https"></a>HTTPS 'yi yapılandırma
 
-Güvenli bir uç nokta ile bir hizmeti yapılandırmak için:
+Hizmeti güvenli bir uç noktayla yapılandırmak için:
 
-1. Barındırma system, platformun sertifika edinme ve dağıtım mekanizmalarını kullanarak bir X.509 sertifikası oluşturun.
+1. Platformunuzun sertifika alımı ve dağıtım mekanizmalarını kullanarak barındırma sistemi için bir X. 509.440 sertifikası oluşturun.
 
-1. Belirtin bir [Kestrel sunucu HTTPS uç noktası yapılandırması](xref:fundamentals/servers/kestrel#endpoint-configuration) sertifikayı kullanmak için.
+1. Sertifikayı kullanmak için bir [Kestrel Server HTTPS uç noktası yapılandırması](xref:fundamentals/servers/kestrel#endpoint-configuration) belirtin.
 
-Hizmet uç noktası güvenli hale getirmek için ASP.NET Core HTTPS geliştirme sertifikası kullanılması desteklenmiyor.
+Hizmet uç noktasının güvenliğini sağlamak için ASP.NET Core HTTPS geliştirme sertifikası kullanılması desteklenmez.
 
-## <a name="current-directory-and-content-root"></a>Geçerli dizin ve içerik kök
+## <a name="current-directory-and-content-root"></a>Geçerli dizin ve içerik kökü
 
-Geçerli çalışma dizini çağırarak döndürülen <xref:System.IO.Directory.GetCurrentDirectory*> bir Windows hizmeti için *C:\\WINDOWS\\system32* klasör. *System32* klasör değil bir hizmetin dosyaları (örneğin, ayarları) depolamak için uygun bir konum. Korumak ve bir hizmetin varlıklar ve ayar dosyaları erişmek için aşağıdaki yaklaşımlardan birini kullanın.
+Windows hizmeti için çağırarak <xref:System.IO.Directory.GetCurrentDirectory*> döndürülen geçerli çalışma dizini *C:\\Windows\\system32* klasörüdür. *System32* klasörü, bir hizmetin dosyalarını (örneğin, ayarlar dosyaları) depolamak için uygun bir konum değildir. Bir hizmetin varlık ve ayar dosyalarını sürdürmek ve erişmek için aşağıdaki yaklaşımlardan birini kullanın.
 
 ::: moniker range=">= aspnetcore-3.0"
 
-### <a name="use-contentrootpath-or-contentrootfileprovider"></a>Kullanım ContentRootPath veya ContentRootFileProvider
+### <a name="use-contentrootpath-or-contentrootfileprovider"></a>ContentRootPath veya ContentRootFileProvider kullanın
 
-Kullanım [IHostEnvironment.ContentRootPath](xref:Microsoft.Extensions.Hosting.IHostEnvironment.ContentRootPath) veya <xref:Microsoft.Extensions.Hosting.IHostEnvironment.ContentRootFileProvider> uygulamanın kaynaklar bulunamıyor.
+[Ihostenvironment. contentrootpath](xref:Microsoft.Extensions.Hosting.IHostEnvironment.ContentRootPath) kullanın veya <xref:Microsoft.Extensions.Hosting.IHostEnvironment.ContentRootFileProvider> bir uygulamanın kaynaklarını bulun.
 
 ::: moniker-end
 
 ::: moniker range="< aspnetcore-3.0"
 
-### <a name="set-the-content-root-path-to-the-apps-folder"></a>Uygulamanın klasör için içerik kök yolu ayarlayın
+### <a name="set-the-content-root-path-to-the-apps-folder"></a>Uygulamanın klasörü için içerik kök yolunu ayarla
 
-<xref:Microsoft.Extensions.Hosting.IHostingEnvironment.ContentRootPath*> Sağlanan aynı yol `binPath` hizmet oluşturulduğunda bağımsız değişken. Çağırmak yerine `GetCurrentDirectory` ayarları dosyalara olan yolları oluşturmak için arama <xref:System.IO.Directory.SetCurrentDirectory*> ile içerik uygulamanın kök yolu.
+, <xref:Microsoft.Extensions.Hosting.IHostingEnvironment.ContentRootPath*> Bir hizmet oluşturulduğunda `binPath` bağımsız değişkene aynı yol olarak sağlanır. Ayarlar dosyalarına yollar `GetCurrentDirectory` oluşturmak için çağırmak yerine, uygulamanın içerik kökünün <xref:System.IO.Directory.SetCurrentDirectory*> yolunu çağırın.
 
-İçinde `Program.Main`, hizmetin yürütülebilir dosya klasörü yolunu belirlemek ve uygulamanın içerik kök'kurmak için yolunu kullanın:
+İçinde `Program.Main`, hizmetin yürütülebilir dosyasının yolunu belirleyin ve uygulamanın içerik kökünü oluşturmak için yolu kullanın:
 
 ```csharp
 var pathToExe = Process.GetCurrentProcess().MainModule.FileName;
@@ -354,15 +354,15 @@ CreateWebHostBuilder(args)
 
 ::: moniker-end
 
-### <a name="store-a-services-files-in-a-suitable-location-on-disk"></a>Disk üzerinde uygun bir konumda bir hizmetin dosyaları Store
+### <a name="store-a-services-files-in-a-suitable-location-on-disk"></a>Hizmetin dosyalarını diskte uygun bir konumda depolayın
 
-Mutlak bir yol belirtin <xref:Microsoft.Extensions.Configuration.FileConfigurationExtensions.SetBasePath*> kullanırken bir <xref:Microsoft.Extensions.Configuration.IConfigurationBuilder> dosyaları içeren klasör.
+Dosyaları içeren klasöre <xref:Microsoft.Extensions.Configuration.IConfigurationBuilder> kullanırken ile <xref:Microsoft.Extensions.Configuration.FileConfigurationExtensions.SetBasePath*> mutlak bir yol belirtin.
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 ::: moniker range=">= aspnetcore-3.0"
 
-* [Kestrel'i uç nokta Yapılandırması](xref:fundamentals/servers/kestrel#endpoint-configuration) (HTTPS yapılandırma ve SNI desteği içerir)
+* [Kestrel uç noktası yapılandırması](xref:fundamentals/servers/kestrel#endpoint-configuration) (HTTPS yapılandırması ve SNı desteği içerir)
 * <xref:fundamentals/host/generic-host>
 * <xref:test/troubleshoot>
 
@@ -370,7 +370,7 @@ Mutlak bir yol belirtin <xref:Microsoft.Extensions.Configuration.FileConfigurati
 
 ::: moniker range="< aspnetcore-3.0"
 
-* [Kestrel'i uç nokta Yapılandırması](xref:fundamentals/servers/kestrel#endpoint-configuration) (HTTPS yapılandırma ve SNI desteği içerir)
+* [Kestrel uç noktası yapılandırması](xref:fundamentals/servers/kestrel#endpoint-configuration) (HTTPS yapılandırması ve SNı desteği içerir)
 * <xref:fundamentals/host/web-host>
 * <xref:test/troubleshoot>
 
