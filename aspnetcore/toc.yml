@@ -104,8 +104,6 @@
         - name: Razor Pages ile EF Core
           displayName: tutorial
           items:
-            - name: Genel Bakış
-              uid: data/ef-rp/index
             - name: Kullanmaya başlayın
               uid: data/ef-rp/intro
             - name: 'Oluşturma, Okuma, Güncelleştirme ve Silme'
@@ -581,8 +579,6 @@
       items:
         - name: Razor Pages ile EF Core
           items:
-            - name: Genel Bakış
-              uid: data/ef-rp/index
             - name: Kullanmaya başlayın
               uid: data/ef-rp/intro
             - name: 'Oluşturma, Okuma, Güncelleştirme ve Silme'
@@ -701,6 +697,8 @@
         - name: Genel Bakış
           displayName: 'deploy, publish'
           uid: host-and-deploy/iis/index
+        - name: IIS’de yayımlama öğreticisi
+          uid: tutorials/publish-to-iis
         - name: ASP.NET Core Modülü
           displayName: 'deploy, publish'
           uid: host-and-deploy/aspnet-core-module
