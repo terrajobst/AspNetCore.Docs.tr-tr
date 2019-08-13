@@ -5,12 +5,12 @@ description: Temel bir ASP.NET Core MVC uygulamasına aramanın nasıl eklenece�
 ms.author: riande
 ms.date: 12/13/2018
 uid: tutorials/first-mvc-app/search
-ms.openlocfilehash: ed6c7a095143670b7d06e43db3a428dec9bf97ad
-ms.sourcegitcommit: 3204bc89ae6354b61ee0a9b2770ebe5214b7790c
+ms.openlocfilehash: 97ee5f66c142780d54d28013c109da61241d967b
+ms.sourcegitcommit: 2719c70cd15a430479ab4007ff3e197fbf5dfee0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68707837"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68862954"
 ---
 # <a name="add-search-to-an-aspnet-core-mvc-app"></a>ASP.NET Core MVC uygulamasına arama ekleme
 
@@ -85,7 +85,7 @@ Bu yöntemi eklerseniz, Invoker `[HttpPost] Index` yöntemi yöntemiyle eşleşi
 
 ![HttpPost dizininden uygulama yanıtı olan tarayıcı penceresi: hayalet üzerinde filtrele](~/tutorials/first-mvc-app/search/_static/fo.png)
 
-Ancak, bu `[HttpPost]` `Index` yöntemin bu sürümünü eklemeseniz bile, tümünün nasıl uygulandığını gösteren bir sınırlama vardır. Belirli bir arama için yer işareti koymak istediğinizi veya aynı film filtrelenmiş listesini görmek için onlara tıklabilecekleri bir bağlantı göndermek istediğinizi düşünün. HTTP POST isteğinin URL 'SI GET isteğinin URL 'siyle (localhost: xxxxx/filmler/dizin) aynı olduğunu ve URL 'de arama bilgisi olmadığını unutmayın. Arama dizesi bilgileri sunucuya [form alanı değeri](https://developer.mozilla.org/docs/Learn/HTML/Forms/Sending_and_retrieving_form_data)olarak gönderilir. Tarayıcı geliştirici araçları veya harika [Fiddler aracının](https://www.telerik.com/fiddler)olduğunu doğrulayabilirsiniz. Aşağıdaki görüntüde Chrome tarayıcı geliştirici araçları gösterilmektedir:
+Ancak, bu `[HttpPost]` `Index` yöntemin bu sürümünü eklemeseniz bile, tümünün nasıl uygulandığını gösteren bir sınırlama vardır. Belirli bir arama için yer işareti koymak istediğinizi veya aynı film filtrelenmiş listesini görmek için onlara tıklabilecekleri bir bağlantı göndermek istediğinizi düşünün. HTTP POST isteğinin URL 'SI GET isteğinin URL 'siyle (localhost: {PORT}/filmler/dizin) aynı olduğunu fark edin; URL 'de arama bilgisi yok. Arama dizesi bilgileri sunucuya [form alanı değeri](https://developer.mozilla.org/docs/Learn/HTML/Forms/Sending_and_retrieving_form_data)olarak gönderilir. Tarayıcı geliştirici araçları veya harika [Fiddler aracının](https://www.telerik.com/fiddler)olduğunu doğrulayabilirsiniz. Aşağıdaki görüntüde Chrome tarayıcı geliştirici araçları gösterilmektedir:
 
 ![Microsoft Edge 'de Geliştirici Araçları, bir searchString değeri hayalet olan bir istek gövdesini gösteren ağ sekmesi](~/tutorials/first-mvc-app/search/_static/f12_rb.png)
 
