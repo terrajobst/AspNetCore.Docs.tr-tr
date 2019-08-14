@@ -1,116 +1,110 @@
 ---
-title: ASP.NET core'da yanıt sıkıştırma
+title: ASP.NET Core 'de yanıt sıkıştırması
 author: guardrex
-description: Yanıt sıkıştırma ve ASP.NET Core uygulamalarında yanıt sıkıştırma ara yazılımı kullanma hakkında bilgi edinin.
-monikerRange: '>= aspnetcore-1.1'
+description: Yanıt sıkıştırması ve ASP.NET Core uygulamalarında yanıt sıkıştırma ara yazılımı kullanma hakkında bilgi edinin.
+monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/13/2019
+ms.date: 08/09/2019
 uid: performance/response-compression
-ms.openlocfilehash: d5d2da3dc0a8a452de97d98161d429389d2f7638
-ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
+ms.openlocfilehash: e320e87179f9f1b9773a55c380684a3f3f712632
+ms.sourcegitcommit: 89fcc6cb3e12790dca2b8b62f86609bed6335be9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67815610"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68993469"
 ---
-# <a name="response-compression-in-aspnet-core"></a>ASP.NET core'da yanıt sıkıştırma
+# <a name="response-compression-in-aspnet-core"></a>ASP.NET Core 'de yanıt sıkıştırması
 
 Tarafından [Luke Latham](https://github.com/guardrex)
 
 [Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/performance/response-compression/samples) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
 
-Ağ bant genişliği sınırlı bir kaynaktır. Yanıt boyutu genellikle azaltma, uygulama yanıt verme hızını genellikle önemli ölçüde artırır. Yük boyutları azaltmak için bir uygulamanın yanıtları sıkıştırma yoludur.
+Ağ bant genişliği sınırlı bir kaynaktır. Yanıt boyutunu azaltmak genellikle önemli ölçüde önemli ölçüde bir uygulamanın yanıt hızını artırır. Yük boyutlarını azaltmanın bir yolu, uygulamanın yanıtlarını sıkıştırmaktır.
 
-## <a name="when-to-use-response-compression-middleware"></a>Yanıt sıkıştırma ara yazılımı kullanma zamanı
+## <a name="when-to-use-response-compression-middleware"></a>Yanıt sıkıştırma ara yazılımı ne zaman kullanılır?
 
-IIS, Apache veya Ngınx sunucu tabanlı yanıt sıkıştırma teknolojileri kullanın. Ara yazılım performansını büyük olasılıkla, sunucu modüllerinin eşleşmiyor. [HTTP.sys sunucu](xref:fundamentals/servers/httpsys) sunucu ve [Kestrel](xref:fundamentals/servers/kestrel) sunucusu şu anda yerleşik sıkıştırma desteği sağlamaz.
+IIS, Apache veya NGINX 'te sunucu tabanlı yanıt sıkıştırma teknolojilerini kullanın. Ara yazılım performansı büyük olasılıkla sunucu modülleriyle eşleşmemelidir. [Http. sys Server](xref:fundamentals/servers/httpsys) Server ve [Kestrel](xref:fundamentals/servers/kestrel) Server şu anda yerleşik sıkıştırma desteği sunmaz.
 
-Yanıt sıkıştırma ara yazılımı, işiniz kullanın:
+Şu durumlarda yanıt sıkıştırma ara yazılımını kullanın:
 
 * Aşağıdaki sunucu tabanlı sıkıştırma teknolojileri kullanılamıyor:
-  * [IIS dinamik sıkıştırması Modülü](https://www.iis.net/overview/reliability/dynamiccachingandcompression)
-  * [Apache mod_deflate Modülü](https://httpd.apache.org/docs/current/mod/mod_deflate.html)
-  * [Ngınx sıkıştırma ve açma](https://www.nginx.com/resources/admin-guide/compression-and-decompression/)
+  * [IIS dinamik sıkıştırma modülü](https://www.iis.net/overview/reliability/dynamiccachingandcompression)
+  * [Apache mod_deflate modülü](https://httpd.apache.org/docs/current/mod/mod_deflate.html)
+  * [NGINX sıkıştırma ve açma](https://www.nginx.com/resources/admin-guide/compression-and-decompression/)
 * Doğrudan barındırma:
-  * [HTTP.sys sunucu](xref:fundamentals/servers/httpsys) (eski adıyla WebListener olarak adlandırılır)
-  * [Kestrel'i sunucusu](xref:fundamentals/servers/kestrel)
+  * [Http. sys sunucusu](xref:fundamentals/servers/httpsys) (eski adıyla WebListener)
+  * [Kestrel sunucusu](xref:fundamentals/servers/kestrel)
 
 ## <a name="response-compression"></a>Yanıt sıkıştırma
 
-Genellikle, yerel olarak sıkıştırılmış herhangi bir yanıt, yanıt sıkıştırması arasında yararlı olabilir. Yerel olarak genellikle sıkıştırılmış yanıtlarını içerir: CSS, JavaScript, HTML, XML ve JSON. PNG dosyaları gibi yerel olarak sıkıştırılmış varlıklar sıkıştırın olmamalıdır. Daha fazla yerel olarak sıkıştırılmış bir yanıt sıkıştırma çalışırsanız, küçük bir ek boyut ve iletim zaman kısalma sıkıştırma işlemek için geçen zaman büyük olasılıkla overshadowed. Yaklaşık 150-1000 bayt (bağlı olarak dosyanın içeriği ve sıkıştırma verimliliğini) küçük dosyaları sıkıştırma. Küçük dosyalar sıkıştırılıyor yükünü bir sıkıştırılmış dosyayı sıkıştırılmamış dosyasından büyük üretebilir.
+Genellikle, yerel olarak sıkıştırılmamış herhangi bir yanıt, yanıt sıkıştırmasından faydalanabilir. Yerel olarak sıkıştırılan yanıtlar genellikle şunları içerir: CSS, JavaScript, HTML, XML ve JSON. PNG dosyaları gibi yerel olarak sıkıştırılan varlıkları sıkıştırmamanız gerekir. Yerel olarak sıkıştırılan bir yanıtı daha fazla sıkıştırmaya çalışırsanız, boyut ve iletim süresi bakımından küçük bir ek azaltma büyük olasılıkla sıkıştırmayı işlemek için geçen süre kadar fazla gölgelenir. 150-1000 bayttan daha küçük dosyaları sıkıştırmayın (dosyanın içeriğine ve sıkıştırma verimliliğine bağlı olarak). Küçük dosyaları sıkıştırma ek yükü sıkıştırılmamış dosyadan daha büyük bir sıkıştırılmış dosya üretebilir.
 
-Sıkıştırılmış içerik işleme bir istemci, istemci yeteneklerini sunucusu göndererek bilgilendirmeniz `Accept-Encoding` istek üst bilgisi. Bir sunucu sıkıştırılmış içerik gönderdiğinde bilgileri içermelidir `Content-Encoding` sıkıştırılmış yanıt nasıl kodlandığını üzerinde başlığı. Ara yazılım tarafından desteklenen içerik kodlama gösterimleri aşağıdaki tabloda gösterilmektedir.
+Bir istemci sıkıştırılmış içeriği işleyebilir, istemci, `Accept-Encoding` üst bilgiyi istekle birlikte göndererek yeteneklerini bilgilendirmelidir. Bir sunucu sıkıştırılmış içerik gönderdiğinde, sıkıştırılan yanıtın kodlanmasının `Content-Encoding` üst bilgisine bilgi içermelidir. Ara yazılım tarafından desteklenen içerik kodlama göstergeleri aşağıdaki tabloda gösterilmiştir.
 
 ::: moniker range=">= aspnetcore-2.2"
 
-| `Accept-Encoding` Üstbilgi değerleri | Desteklenen bir ara yazılım | Açıklama |
+| `Accept-Encoding`üst bilgi değerleri | Desteklenen ara yazılım | Açıklama |
 | ------------------------------- | :------------------: | ----------- |
 | `br`                            | Evet (varsayılan)        | [Brotli sıkıştırılmış veri biçimi](https://tools.ietf.org/html/rfc7932) |
-| `deflate`                       | Hayır                   | [DEFLATE sıkıştırılmış veri biçimi](https://tools.ietf.org/html/rfc1951) |
-| `exi`                           | Hayır                   | [W3C XML verimli değişimi](https://tools.ietf.org/id/draft-varga-netconf-exi-capability-00.html) |
+| `deflate`                       | Hayır                   | [Sıkıştırılmış veri biçimini söndür](https://tools.ietf.org/html/rfc1951) |
+| `exi`                           | Hayır                   | [W3C verimli XML değişim](https://tools.ietf.org/id/draft-varga-netconf-exi-capability-00.html) |
 | `gzip`                          | Evet                  | [Gzip dosya biçimi](https://tools.ietf.org/html/rfc1952) |
-| `identity`                      | Evet                  | "Kodlaması" tanımlayıcısı: Yanıt kodlanmalı değil. |
-| `pack200-gzip`                  | Hayır                   | [Ağ aktarım biçimi için Java arşivleri](https://jcp.org/aboutJava/communityprocess/review/jsr200/index.html) |
-| `*`                             | Evet                  | Kodlama açıkça istenen herhangi bir kullanılabilir içerik |
+| `identity`                      | Evet                  | "Kodlama yok" tanımlayıcısı: Yanıt kodlanmamalıdır. |
+| `pack200-gzip`                  | Hayır                   | [Java arşivleri için ağ aktarım biçimi](https://jcp.org/aboutJava/communityprocess/review/jsr200/index.html) |
+| `*`                             | Evet                  | Tüm kullanılabilir içerik kodlamaları açıkça istenmedi |
 
 ::: moniker-end
 
 ::: moniker range="< aspnetcore-2.2"
 
-| `Accept-Encoding` Üstbilgi değerleri | Desteklenen bir ara yazılım | Açıklama |
+| `Accept-Encoding`üst bilgi değerleri | Desteklenen ara yazılım | Açıklama |
 | ------------------------------- | :------------------: | ----------- |
 | `br`                            | Hayır                   | [Brotli sıkıştırılmış veri biçimi](https://tools.ietf.org/html/rfc7932) |
-| `deflate`                       | Hayır                   | [DEFLATE sıkıştırılmış veri biçimi](https://tools.ietf.org/html/rfc1951) |
-| `exi`                           | Hayır                   | [W3C XML verimli değişimi](https://tools.ietf.org/id/draft-varga-netconf-exi-capability-00.html) |
+| `deflate`                       | Hayır                   | [Sıkıştırılmış veri biçimini söndür](https://tools.ietf.org/html/rfc1951) |
+| `exi`                           | Hayır                   | [W3C verimli XML değişim](https://tools.ietf.org/id/draft-varga-netconf-exi-capability-00.html) |
 | `gzip`                          | Evet (varsayılan)        | [Gzip dosya biçimi](https://tools.ietf.org/html/rfc1952) |
-| `identity`                      | Evet                  | "Kodlaması" tanımlayıcısı: Yanıt kodlanmalı değil. |
-| `pack200-gzip`                  | Hayır                   | [Ağ aktarım biçimi için Java arşivleri](https://jcp.org/aboutJava/communityprocess/review/jsr200/index.html) |
-| `*`                             | Evet                  | Kodlama açıkça istenen herhangi bir kullanılabilir içerik |
+| `identity`                      | Evet                  | "Kodlama yok" tanımlayıcısı: Yanıt kodlanmamalıdır. |
+| `pack200-gzip`                  | Hayır                   | [Java arşivleri için ağ aktarım biçimi](https://jcp.org/aboutJava/communityprocess/review/jsr200/index.html) |
+| `*`                             | Evet                  | Tüm kullanılabilir içerik kodlamaları açıkça istenmedi |
 
 ::: moniker-end
 
-Daha fazla bilgi için [IANA resmi içerik kodlama listesi](https://www.iana.org/assignments/http-parameters/http-parameters.xml#http-content-coding-registry).
+Daha fazla bilgi için, [IANA resmi Içerik kodlama listesine](https://www.iana.org/assignments/http-parameters/http-parameters.xml#http-content-coding-registry)bakın.
 
-Ara yazılım özel ek sıkıştırmasını sağlayıcıları eklemenizi sağlayan `Accept-Encoding` üstbilgi değerleri. Daha fazla bilgi için [özel sağlayıcılar](#custom-providers) aşağıda.
+Ara yazılım, özel `Accept-Encoding` üst bilgi değerleri için ek sıkıştırma sağlayıcıları eklemenize olanak tanır. Daha fazla bilgi için aşağıdaki [özel sağlayıcılar](#custom-providers) bölümüne bakın.
 
-Ara yazılım kalite değeri tepki uyumlu (qvalue, `q`) sıkıştırma düzeni önceliğini belirlemek için istemci tarafından gönderilen ağırlığı. Daha fazla bilgi için [RFC 7231: Kabul kodlama](https://tools.ietf.org/html/rfc7231#section-5.3.4).
+Ara yazılım, sıkıştırma düzenlerini önceliklendirmek için istemci tarafından gönderildiğinde kalite değeri ( `q`qvalue,) ağırlığa yeniden davranıyor. Daha fazla bilgi için bkz [. RFC 7231: Accept-Encoding](https://tools.ietf.org/html/rfc7231#section-5.3.4).
 
-Sıkıştırma hız ve sıkıştırma verimliliğini arasında bir denge sıkıştırma algoritmaları tabidir. *Verimliliği* bu bağlamda sıkıştırma sonrasında çıkış boyutunu ifade eder. En küçük boyuta göre en sağlanır *en iyi* sıkıştırma.
+Sıkıştırma algoritmaları, sıkıştırma hızı ve sıkıştırmanın verimliliği arasında bir zorunluluğunu getirir tabidir. Bu bağlamdaki *verimlilik* , sıkıştırmadan sonra çıkışın boyutunu ifade eder. En en uygun sıkıştırma, en *iyi* boyut ile elde edilir.
 
-Gönderme, önbelleğe alma ve sıkıştırılmış içerik almak isteyen ilgili üstbilgileri, aşağıdaki tabloda açıklanmıştır.
+Sıkıştırılmış içerik isteme, gönderme, önbelleğe alma ve alma ile ilgili üstbilgiler aşağıdaki tabloda açıklanmıştır.
 
 | Üstbilgi             | Rol |
 | ------------------ | ---- |
-| `Accept-Encoding`  | İstemciden sunucuya istemcinin kabul edilebilir düzenleri kodlama içeriği belirtmek için gönderilen. |
-| `Content-Encoding` | Sunucudan yükünde içerik kodlamasını belirtmek için istemciye gönderilebilir. |
-| `Content-Length`   | Sıkıştırma oluştuğunda `Content-Length` üstbilgi kaldırılır, yanıt sıkıştırılmışsa, gövde içeriği sonraki değişiklikler. |
-| `Content-MD5`      | Sıkıştırma oluştuğunda `Content-MD5` üst bilgisi kaldırıldı, gövde içeriği değiştirildi ve karma artık geçerli değil. |
-| `Content-Type`     | İçeriğin MIME türünü belirtir. Her yanıt belirtmeniz gerekir, `Content-Type`. Ara yazılımın yanıt sıkıştırılmış belirlemek için bu değer denetler. Bir ara yazılım belirtir [MIME türleri varsayılan](#mime-types) kodlama, ancak değiştirin veya MIME türleri ekleyin. |
-| `Vary`             | Değerine sahip bir sunucu tarafından gönderilen `Accept-Encoding` proxy'leri ve istemcilere `Vary` üst bilgisi gösterir önbelleğe alması proxy ve istemci için (farklı) değerini temel alarak yanıtlarını `Accept-Encoding` isteği üstbilgisi. İçerik döndüren sonucunu `Vary: Accept-Encoding` başlığıdır hem sıkıştırılmış ve sıkıştırılmamış yanıtları ayrı olarak önbelleğe. |
+| `Accept-Encoding`  | İstemci için kabul edilebilir içerik kodlama düzenlerini göstermek üzere istemciden sunucusuna gönderilir. |
+| `Content-Encoding` | Yük içindeki içeriğin kodlamasını göstermek için sunucudan istemciye gönderilir. |
+| `Content-Length`   | Sıkıştırma gerçekleştiğinde `Content-Length` , yanıt sıkıştırıldığında gövde içeriği değiştiği için başlık kaldırılır. |
+| `Content-MD5`      | Sıkıştırma gerçekleştiğinde `Content-MD5` , gövde içeriği değiştiğinden ve karma artık geçerli olmadığından başlık kaldırılır. |
+| `Content-Type`     | İçeriğin MIME türünü belirtir. Her yanıt, değerini `Content-Type`belirtmelidir. Ara yazılım, yanıtın sıkıştırılıp sıkıştırılmadığını belirlemede bu değeri denetler. Ara yazılım, kodlayamadığı bir dizi [varsayılan MIME türünü](#mime-types) belirtir, ancak MIME türlerini değiştirebilir veya ekleyebilirsiniz. |
+| `Vary`             | Sunucu tarafından istemciler ve proxy 'ler `Accept-Encoding` için bir değere sahip olduğunda `Vary` , üst bilgi, isteğin `Accept-Encoding` üst bilgisinin değerine göre önbelleğe alma (değişiklik) gereken yanıtı istemciye veya proxy 'ye bildirir. `Vary: Accept-Encoding` Üst bilgiyle içerik döndürmesinin sonucu, hem sıkıştırılmış hem de sıkıştırılmamış yanıtların ayrı olarak önbelleğe alınma sonucudur. |
 
-Yanıt sıkıştırma ara yazılımı ile özelliklerini [örnek uygulaması](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/performance/response-compression/samples). Örnek gösterilmektedir:
+[Örnek uygulamayla](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/performance/response-compression/samples)yanıt sıkıştırma ara yazılımı 'nın özelliklerini gezin. Örnek şunu gösterir:
 
-* Gzip ve özel sıkıştırmasını sağlayıcıları kullanarak uygulama yanıtlarının sıkıştırılması.
-* Bir MIME türü sıkıştırma için MIME türleri varsayılan listeye ekleme.
+* Gzip ve özel sıkıştırma sağlayıcıları kullanılarak uygulama yanıtlarının sıkıştırılması.
+* Sıkıştırma için varsayılan MIME türleri listesine MIME türü ekleme.
 
 ## <a name="package"></a>Paket
 
-::: moniker range=">= aspnetcore-2.1"
+::: moniker range=">= aspnetcore-3.0"
 
-Ara yazılım bir projeye dahil etmek için bir başvuru ekleyin. [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app), içeren [Microsoft.AspNetCore.ResponseCompression](https://www.nuget.org/packages/Microsoft.AspNetCore.ResponseCompression/) paket.
-
-::: moniker-end
-
-::: moniker range="= aspnetcore-2.0"
-
-Ara yazılım bir projeye dahil etmek için bir başvuru ekleyin. [Microsoft.AspNetCore.All metapackage](xref:fundamentals/metapackage), içeren [Microsoft.AspNetCore.ResponseCompression](https://www.nuget.org/packages/Microsoft.AspNetCore.ResponseCompression/) paket.
+Yanıt sıkıştırma ara yazılımı, ASP.NET Core uygulamalarında örtük olarak bulunan [Microsoft. AspNetCore. ResponseCompression](https://www.nuget.org/packages/Microsoft.AspNetCore.ResponseCompression/) paketi tarafından sağlanır.
 
 ::: moniker-end
 
-::: moniker range="< aspnetcore-2.0"
+::: moniker range="< aspnetcore-3.0"
 
-Ara yazılım bir projeye dahil etmek için bir başvuru ekleyin. [Microsoft.AspNetCore.ResponseCompression](https://www.nuget.org/packages/Microsoft.AspNetCore.ResponseCompression/) paket.
+Ara yazılımı bir projeye eklemek için Microsoft. AspNetCore. [ResponseCompression](https://www.nuget.org/packages/Microsoft.AspNetCore.ResponseCompression/) paketini içeren [Microsoft. Aspnetcore. app metapackage](xref:fundamentals/metapackage-app)öğesine bir başvuru ekleyin.
 
 ::: moniker-end
 
@@ -118,13 +112,13 @@ Ara yazılım bir projeye dahil etmek için bir başvuru ekleyin. [Microsoft.Asp
 
 ::: moniker range=">= aspnetcore-2.2"
 
-Aşağıdaki kod nasıl yanıt sıkıştırma ara yazılımı varsayılan MIME türleri ve sıkıştırmasını sağlayıcıları için etkinleştirileceğini gösterir ([Brotli](#brotli-compression-provider) ve [Gzip](#gzip-compression-provider)):
+Aşağıdaki kod, varsayılan MIME türleri ve sıkıştırma sağlayıcıları için yanıt sıkıştırma ara yazılımı 'nın nasıl etkinleştirileceğini gösterir ([Brotli](#brotli-compression-provider) ve [gzip](#gzip-compression-provider)):
 
 ::: moniker-end
 
 ::: moniker range="< aspnetcore-2.2"
 
-Aşağıdaki kod nasıl yanıt sıkıştırma ara yazılımı varsayılan MIME türleri için etkinleştirileceğini gösterir ve [Gzip sıkıştırma sağlayıcısı](#gzip-compression-provider):
+Aşağıdaki kod, varsayılan MIME türleri ve [gzip sıkıştırma sağlayıcısı](#gzip-compression-provider)Için yanıt sıkıştırma ara yazılımını nasıl etkinleştireceğinizi göstermektedir:
 
 ::: moniker-end
 
@@ -145,41 +139,41 @@ public class Startup
 
 Notlar:
 
-* `app.UseResponseCompression` önce çağrılmalıdır `app.UseMvc`.
-* Gibi bir araç kullanın [Fiddler](https://www.telerik.com/fiddler), [Firebug](https://getfirebug.com/), veya [Postman](https://www.getpostman.com/) ayarlanacak `Accept-Encoding` istek üst bilgisi ve yanıt üstbilgileri, boyutu ve gövde çalışın.
+* `app.UseResponseCompression`öğesinden önce `app.UseMvc`çağrılmalıdır.
+* `Accept-Encoding` İstek üst bilgisini ayarlamak ve yanıt üst bilgilerini, boyutunu ve gövdesini incelemek için [Fiddler](https://www.telerik.com/fiddler), [Firebug](https://getfirebug.com/)veya [Postman](https://www.getpostman.com/) gibi bir araç kullanın.
 
-Örnek uygulamaya talebinizi `Accept-Encoding` üstbilgi ve yanıt sıkıştırılmamış olup olmadığına bakın. `Content-Encoding` Ve `Vary` üstbilgileri yanıtta mevcut değildir.
+`Accept-Encoding` Üstbilgi olmadan örnek uygulamaya bir istek gönderir ve yanıtın sıkıştırılmamış olduğunu gözlemleyin. `Content-Encoding` Ve`Vary` başlıkları yanıtta yok.
 
-![Accept-Encoding üst bilgisi olmayan bir isteğinin sonucunu gösteren fiddler penceresi. Yanıt yok sıkıştırılmaz.](response-compression/_static/request-uncompressed.png)
+![Accept-Encoding üst bilgisi olmadan bir isteğin sonucunu gösteren Fiddler penceresi. Yanıt sıkıştırılmaz.](response-compression/_static/request-uncompressed.png)
 
 ::: moniker range=">= aspnetcore-2.2"
 
-Örnek uygulamada talebinizi `Accept-Encoding: br` üst bilgisi (Brotli sıkıştırma) ve yanıt sıkıştırılmışsa gözlemleyin. `Content-Encoding` Ve `Vary` üstbilgileri yanıtta mevcut.
+`Accept-Encoding: br` Üstbilgi (Brotli Compression) ile örnek uygulamaya bir istek gönderir ve yanıtın sıkıştırıldığını gözlemleyin. `Content-Encoding` Ve`Vary` üstbilgileri yanıtta mevcuttur.
 
-![Accept-Encoding üst bilgisiyle bir isteğinin sonucunu ve br değerini gösteren fiddler penceresi. Değişiklik gösterebilir ve Content-Encoding üstbilgilerini yanıta eklenir. Yanıt sıkıştırılmışsa.](response-compression/_static/request-compressed-br.png)
+![Accept-Encoding üst bilgisi ve br değeri olan bir isteğin sonucunu gösteren Fiddler penceresi. Değişiklik ve Içerik kodlama üstbilgileri yanıta eklenir. Yanıt sıkıştırıldı.](response-compression/_static/request-compressed-br.png)
 
 ::: moniker-end
 
 ::: moniker range="< aspnetcore-2.2"
 
-Örnek uygulamada talebinizi `Accept-Encoding: gzip` üstbilgi ve yanıt sıkıştırılmışsa gözlemleyin. `Content-Encoding` Ve `Vary` üstbilgileri yanıtta mevcut.
+`Accept-Encoding: gzip` Üstbilgi ile örnek uygulamaya bir istek gönderir ve yanıtın sıkıştırıldığını gözlemleyin. `Content-Encoding` Ve`Vary` üstbilgileri yanıtta mevcuttur.
 
-![Accept-Encoding üst bilgisiyle bir isteğinin sonucunu ve gzip değerini gösteren fiddler penceresi. Değişiklik gösterebilir ve Content-Encoding üstbilgilerini yanıta eklenir. Yanıt sıkıştırılmışsa.](response-compression/_static/request-compressed.png)
+![Accept-Encoding üst bilgisi ve gzip değeri ile bir isteğin sonucunu gösteren Fiddler penceresi. Değişiklik ve Içerik kodlama üstbilgileri yanıta eklenir. Yanıt sıkıştırıldı.](response-compression/_static/request-compressed.png)
 
 ::: moniker-end
 
-## <a name="providers"></a>sağlayıcıları
+## <a name="providers"></a>Sağlayıcılarla
 
 ::: moniker range=">= aspnetcore-2.2"
 
 ### <a name="brotli-compression-provider"></a>Brotli sıkıştırma sağlayıcısı
 
-Kullanım <xref:Microsoft.AspNetCore.ResponseCompression.BrotliCompressionProvider> ile yanıtları sıkıştırma [Brotli sıkıştırılmış veri biçimi](https://tools.ietf.org/html/rfc7932).
+[Brotli sıkıştırılmış veri biçimiyle](https://tools.ietf.org/html/rfc7932)yanıtları sıkıştırmak içinöğesinikullanın.<xref:Microsoft.AspNetCore.ResponseCompression.BrotliCompressionProvider>
 
-Sıkıştırma yok sağlayıcıları için açıkça eklenirse <xref:Microsoft.AspNetCore.ResponseCompression.CompressionProviderCollection>:
+Hiçbir sıkıştırma sağlayıcısı açıkça öğesine <xref:Microsoft.AspNetCore.ResponseCompression.CompressionProviderCollection>eklenmemişse:
 
-* Brotli sıkıştırma sağlayıcısı sıkıştırmasını sağlayıcıları ile birlikte bir dizi varsayılan olarak eklenir [Gzip sıkıştırma sağlayıcısı](#gzip-compression-provider).
-* Sıkıştırma Brotli sıkıştırma için varsayılan olarak Brotli sıkıştırılmış veri biçimi, istemci tarafından desteklenir. Gzip sıkıştırma istemcinin desteklediğinde sıkıştırma Brotli istemci tarafından desteklenmiyorsa, Gzip için varsayılan olarak.
+* Brotli sıkıştırma sağlayıcısı, [gzip sıkıştırma sağlayıcısıyla](#gzip-compression-provider)birlikte, varsayılan olarak sıkıştırma sağlayıcılarının dizisine eklenir.
+* Brotli sıkıştırılmış veri biçimi istemci tarafından desteklenerek sıkıştırma varsayılan olarak Brotli Compression. Brotli istemci tarafından desteklenmiyorsa, istemci gzip sıkıştırmasını destekliyorsa sıkıştırma varsayılan olarak gzip olur.
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -188,17 +182,31 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-Tüm sıkıştırmasını sağlayıcıları açıkça eklendiğinde Brotoli sıkıştırma sağlayıcının eklenmesi gerekir:
+Herhangi bir sıkıştırma sağlayıcısı açıkça eklendiğinde, Brotoli sıkıştırma sağlayıcısının eklenmesi gerekir:
 
-[!code-csharp[](response-compression/samples/2.x/Startup.cs?name=snippet1&highlight=5)]
+::: moniker-end
 
-Sıkıştırma düzeyi ile ayarlanmış <xref:Microsoft.AspNetCore.ResponseCompression.BrotliCompressionProviderOptions>. Brotli sıkıştırma sağlayıcısı varsayılan olarak en hızlı sıkıştırma düzeyini ([CompressionLevel.Fastest](xref:System.IO.Compression.CompressionLevel)), hangi değil üretebilir en verimli sıkıştırma. En verimli sıkıştırma isterseniz, ara yazılım en iyi sıkıştırma için yapılandırın.
+::: moniker range=">= aspnetcore-3.0"
+
+[!code-csharp[](response-compression/samples/3.x/SampleApp/Startup.cs?name=snippet1&highlight=5)]
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
+
+[!code-csharp[](response-compression/samples/2.x/SampleApp/Startup.cs?name=snippet1&highlight=5)]
+
+::: moniker-end
+
+::: moniker range=">= aspnetcore-2.2"
+
+Sıkıştırma düzeyini ile <xref:Microsoft.AspNetCore.ResponseCompression.BrotliCompressionProviderOptions>ayarlayın. Brotli sıkıştırma sağlayıcısı, en hızlı sıkıştırma düzeyi ([CompressionLevel. en hızlı](xref:System.IO.Compression.CompressionLevel)) olarak varsayılan olarak en verimli sıkıştırmayı oluşturmayabilir. En verimli sıkıştırma isteniyorsa, ara yazılımı en uygun sıkıştırma için yapılandırın.
 
 | Sıkıştırma düzeyi | Açıklama |
 | ----------------- | ----------- |
-| [CompressionLevel.Fastest](xref:System.IO.Compression.CompressionLevel) | Sıkıştırma, elde edilen çıkış en uygun şekilde sıkıştırılmaz olsa bile, mümkün olan en kısa sürede tamamlamanız gerekir. |
-| [CompressionLevel.NoCompression](xref:System.IO.Compression.CompressionLevel) | Sıkıştırma yok gerçekleştirilmelidir. |
-| [CompressionLevel.Optimal](xref:System.IO.Compression.CompressionLevel) | Sıkıştırma tamamlanması daha uzun sürer bile yanıtları en uygun şekilde, sıkıştırılmış olması gerekir. |
+| [CompressionLevel. en hızlı](xref:System.IO.Compression.CompressionLevel) | Elde edilen çıktı en iyi şekilde sıkıştırısa bile, sıkıştırma mümkün olduğunca hızlı tamamlanır. |
+| [CompressionLevel. NoCompression](xref:System.IO.Compression.CompressionLevel) | Sıkıştırma gerçekleştirilmemelidir. |
+| [CompressionLevel. optimum](xref:System.IO.Compression.CompressionLevel) | Sıkıştırmanın tamamlanmasının daha uzun sürse bile yanıtlar en iyi şekilde sıkıştırılır. |
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -216,21 +224,21 @@ public void ConfigureServices(IServiceCollection services)
 
 ### <a name="gzip-compression-provider"></a>Gzip sıkıştırma sağlayıcısı
 
-Kullanım <xref:Microsoft.AspNetCore.ResponseCompression.GzipCompressionProvider> ile yanıtları sıkıştırma [Gzip dosya biçimi](https://tools.ietf.org/html/rfc1952).
+[Gzip dosya biçimiyle](https://tools.ietf.org/html/rfc1952)yanıtları sıkıştırmak içinöğesinikullanın.<xref:Microsoft.AspNetCore.ResponseCompression.GzipCompressionProvider>
 
-Sıkıştırma yok sağlayıcıları için açıkça eklenirse <xref:Microsoft.AspNetCore.ResponseCompression.CompressionProviderCollection>:
+Hiçbir sıkıştırma sağlayıcısı açıkça öğesine <xref:Microsoft.AspNetCore.ResponseCompression.CompressionProviderCollection>eklenmemişse:
 
 ::: moniker range=">= aspnetcore-2.2"
 
-* Gzip sıkıştırma sağlayıcısı sıkıştırmasını sağlayıcıları ile birlikte bir dizi varsayılan olarak eklenir [Brotli sıkıştırma sağlayıcısı](#brotli-compression-provider).
-* Sıkıştırma Brotli sıkıştırma için varsayılan olarak Brotli sıkıştırılmış veri biçimi, istemci tarafından desteklenir. Gzip sıkıştırma istemcinin desteklediğinde sıkıştırma Brotli istemci tarafından desteklenmiyorsa, Gzip için varsayılan olarak.
+* Gzip sıkıştırma sağlayıcısı varsayılan olarak, [Brotli sıkıştırma sağlayıcısıyla](#brotli-compression-provider)birlikte sıkıştırma sağlayıcılarının dizisine eklenir.
+* Brotli sıkıştırılmış veri biçimi istemci tarafından desteklenerek sıkıştırma varsayılan olarak Brotli Compression. Brotli istemci tarafından desteklenmiyorsa, istemci gzip sıkıştırmasını destekliyorsa sıkıştırma varsayılan olarak gzip olur.
 
 ::: moniker-end
 
 ::: moniker range="< aspnetcore-2.2"
 
-* Gzip sıkıştırma sağlayıcısı sıkıştırmasını sağlayıcıları dizisi için varsayılan olarak eklenir.
-* Gzip sıkıştırma istemcinin desteklediğinde, Gzip sıkıştırma varsayılan olarak.
+* Gzip sıkıştırma sağlayıcısı, varsayılan olarak sıkıştırma sağlayıcılarının dizisine eklenir.
+* İstemci gzip sıkıştırmasını destekliyorsa, sıkıştırma varsayılan olarak gzip olur.
 
 ::: moniker-end
 
@@ -241,27 +249,27 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-Gzip sıkıştırma sağlayıcısı herhangi sıkıştırmasını sağlayıcıları açıkça eklendiğinde eklenmesi gerekir:
+Herhangi bir sıkıştırma sağlayıcısı açık olarak eklendiğinde gzip sıkıştırma sağlayıcısının eklenmesi gerekir:
 
-::: moniker range=">= aspnetcore-2.2"
+::: moniker range=">= aspnetcore-3.0"
 
-[!code-csharp[](response-compression/samples/2.x/Startup.cs?name=snippet1&highlight=6)]
-
-::: moniker-end
-
-::: moniker range="< aspnetcore-2.2"
-
-[!code-csharp[](response-compression/samples/1.x/Startup.cs?name=snippet2&highlight=5)]
+[!code-csharp[](response-compression/samples/3.x/SampleApp/Startup.cs?name=snippet1&highlight=6)]
 
 ::: moniker-end
 
-Sıkıştırma düzeyi ile ayarlanmış <xref:Microsoft.AspNetCore.ResponseCompression.GzipCompressionProviderOptions>. Gzip sıkıştırma sağlayıcısı varsayılan olarak en hızlı sıkıştırma düzeyini ([CompressionLevel.Fastest](xref:System.IO.Compression.CompressionLevel)), hangi değil üretebilir en verimli sıkıştırma. En verimli sıkıştırma isterseniz, ara yazılım en iyi sıkıştırma için yapılandırın.
+::: moniker range="< aspnetcore-3.0"
+
+[!code-csharp[](response-compression/samples/2.x/SampleApp/Startup.cs?name=snippet1&highlight=6)]
+
+::: moniker-end
+
+Sıkıştırma düzeyini ile <xref:Microsoft.AspNetCore.ResponseCompression.GzipCompressionProviderOptions>ayarlayın. Gzip sıkıştırma sağlayıcısı, en hızlı sıkıştırma düzeyine ([CompressionLevel. en hızlı](xref:System.IO.Compression.CompressionLevel)) göre varsayılan olarak en verimli sıkıştırmayı oluşturmayabilir. En verimli sıkıştırma isteniyorsa, ara yazılımı en uygun sıkıştırma için yapılandırın.
 
 | Sıkıştırma düzeyi | Açıklama |
 | ----------------- | ----------- |
-| [CompressionLevel.Fastest](xref:System.IO.Compression.CompressionLevel) | Sıkıştırma, elde edilen çıkış en uygun şekilde sıkıştırılmaz olsa bile, mümkün olan en kısa sürede tamamlamanız gerekir. |
-| [CompressionLevel.NoCompression](xref:System.IO.Compression.CompressionLevel) | Sıkıştırma yok gerçekleştirilmelidir. |
-| [CompressionLevel.Optimal](xref:System.IO.Compression.CompressionLevel) | Sıkıştırma tamamlanması daha uzun sürer bile yanıtları en uygun şekilde, sıkıştırılmış olması gerekir. |
+| [CompressionLevel. en hızlı](xref:System.IO.Compression.CompressionLevel) | Elde edilen çıktı en iyi şekilde sıkıştırısa bile, sıkıştırma mümkün olduğunca hızlı tamamlanır. |
+| [CompressionLevel. NoCompression](xref:System.IO.Compression.CompressionLevel) | Sıkıştırma gerçekleştirilmemelidir. |
+| [CompressionLevel. optimum](xref:System.IO.Compression.CompressionLevel) | Sıkıştırmanın tamamlanmasının daha uzun sürse bile yanıtlar en iyi şekilde sıkıştırılır. |
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -277,33 +285,33 @@ public void ConfigureServices(IServiceCollection services)
 
 ### <a name="custom-providers"></a>Özel sağlayıcılar
 
-Özel sıkıştırma uygulamalarıyla oluşturma <xref:Microsoft.AspNetCore.ResponseCompression.ICompressionProvider>. <xref:Microsoft.AspNetCore.ResponseCompression.ICompressionProvider.EncodingName*> Temsil eden bu kodlama içeriğe `ICompressionProvider` üretir. Ara yazılım, belirtilen liste göre sağlayıcıyı seçmek için bu bilgileri kullanır. `Accept-Encoding` isteği üstbilgisi.
+İle <xref:Microsoft.AspNetCore.ResponseCompression.ICompressionProvider>özel sıkıştırma uygulamaları oluşturun. , <xref:Microsoft.AspNetCore.ResponseCompression.ICompressionProvider.EncodingName*> Bunun`ICompressionProvider` ürettiği içerik kodlamasını temsil eder. Ara yazılım bu bilgileri, isteğin `Accept-Encoding` üstbilgisinde belirtilen listeye göre sağlayıcıyı seçmek için kullanır.
 
-Örnek uygulama kullanma, istemci bir istek gönderir `Accept-Encoding: mycustomcompression` başlığı. Ara yazılım özel sıkıştırma uygulaması kullanır ve yanıtı döndürür bir `Content-Encoding: mycustomcompression` başlığı. İstemci, sırayla çalışmak özel sıkıştırma uygulaması için özel kodlama sıkıştırmasını mümkün olması gerekir.
+İstemci, örnek uygulamayı kullanarak `Accept-Encoding: mycustomcompression` üst bilgiyle bir istek gönderir. Ara yazılım özel sıkıştırma uygulamasını kullanır ve bir `Content-Encoding: mycustomcompression` üst bilgiyle yanıtı döndürür. Özel bir sıkıştırma uygulamasının çalışması için istemcinin özel kodlamayı açıp açabilmesi gerekir.
 
-::: moniker range=">= aspnetcore-2.2"
+::: moniker range=">= aspnetcore-3.0"
 
-[!code-csharp[](response-compression/samples/2.x/Startup.cs?name=snippet1&highlight=7)]
+[!code-csharp[](response-compression/samples/3.x/SampleApp/Startup.cs?name=snippet1&highlight=7)]
 
-[!code-csharp[](response-compression/samples/2.x/CustomCompressionProvider.cs?name=snippet1)]
-
-::: moniker-end
-
-::: moniker range="< aspnetcore-2.2"
-
-[!code-csharp[](response-compression/samples/1.x/Startup.cs?name=snippet2&highlight=6)]
-
-[!code-csharp[](response-compression/samples/1.x/CustomCompressionProvider.cs?name=snippet1)]
+[!code-csharp[](response-compression/samples/3.x/SampleApp/CustomCompressionProvider.cs?name=snippet1)]
 
 ::: moniker-end
 
-Örnek uygulamada talebinizi `Accept-Encoding: mycustomcompression` üstbilgi ve yanıt üstbilgileri gözlemleyin. `Vary` Ve `Content-Encoding` üstbilgileri yanıtta mevcut. (Gösterilmemiştir) yanıt gövdesi olarak örnek sıkıştırılmaz. Sıkıştırma uygulamasında hiç `CustomCompressionProvider` sınıfının örneği. Ancak, bu tür bir sıkıştırma algoritması burada uygulamak örnek gösterir.
+::: moniker range="< aspnetcore-3.0"
 
-![Accept-Encoding üst bilgisiyle bir isteğinin sonucunu ve mycustomcompression değerini gösteren fiddler penceresi. Değişiklik gösterebilir ve Content-Encoding üstbilgilerini yanıta eklenir.](response-compression/_static/request-custom-compression.png)
+[!code-csharp[](response-compression/samples/2.x/SampleApp/Startup.cs?name=snippet1&highlight=7)]
+
+[!code-csharp[](response-compression/samples/2.x/SampleApp/CustomCompressionProvider.cs?name=snippet1)]
+
+::: moniker-end
+
+`Accept-Encoding: mycustomcompression` Üstbilgi ile örnek uygulamaya bir istek gönderir ve yanıt üst bilgilerini gözlemleyin. `Vary` Ve`Content-Encoding` üstbilgileri yanıtta mevcuttur. Yanıt gövdesi (gösterilmez) örnek tarafından sıkıştırılmaz. Örnek `CustomCompressionProvider` sınıfında bir sıkıştırma uygulamanız yok. Ancak örnek, bu tür bir sıkıştırma algoritmasını nerede uygulayacağınızı gösterir.
+
+![Accept-Encoding üst bilgisi ve mycustomcompression değeri ile bir isteğin sonucunu gösteren Fiddler penceresi. Değişiklik ve Içerik kodlama üstbilgileri yanıta eklenir.](response-compression/_static/request-custom-compression.png)
 
 ## <a name="mime-types"></a>MIME türleri
 
-Ara yazılım bir varsayılan sıkıştırma için MIME türlerini belirtir:
+Ara yazılım, sıkıştırma için varsayılan bir MIME türleri kümesi belirtir:
 
 * `application/javascript`
 * `application/json`
@@ -314,67 +322,55 @@ Ara yazılım bir varsayılan sıkıştırma için MIME türlerini belirtir:
 * `text/plain`
 * `text/xml`
 
-Yanıt sıkıştırma ara yazılımı seçenekleri MIME türleri ekleyin veya değiştirin. Unutmayın, joker karakter MIME türleri gibi `text/*` desteklenmez. Örnek uygulama için bir MIME türü ekler `image/svg+xml` sıkıştırır ve ASP.NET Core hizmet başlık resmi (*banner.svg*).
+MIME türlerini, yanıt sıkıştırma ara yazılım seçenekleriyle değiştirin veya ekleyin. Gibi joker karakter MIME türlerinin `text/*` desteklenmediğini unutmayın. Örnek uygulama, için `image/svg+xml` bir MIME türü ekler ve ASP.NET Core başlık görüntüsünü (*Banner. SVG*) sıkıştırır ve sunar.
 
-::: moniker range=">= aspnetcore-2.2"
+::: moniker range=">= aspnetcore-3.0"
 
-[!code-csharp[](response-compression/samples/2.x/Startup.cs?name=snippet1&highlight=8-10)]
-
-::: moniker-end
-
-::: moniker range="< aspnetcore-2.2"
-
-[!code-csharp[](response-compression/samples/1.x/Startup.cs?name=snippet2&highlight=7-9)]
+[!code-csharp[](response-compression/samples/3.x/SampleApp/Startup.cs?name=snippet1&highlight=8-10)]
 
 ::: moniker-end
 
-## <a name="compression-with-secure-protocol"></a>Güvenli protokol sıkıştırması
+::: moniker range="< aspnetcore-3.0"
 
-Sıkıştırılmış yanıtlar güvenli bağlantılar üzerinden ile denetlenebilir `EnableForHttps` seçeneği, varsayılan olarak devre dışıdır. Sıkıştırma ile dinamik olarak oluşturulan sayfaları kullanarak yol açabilir. güvenlik sorunları gibi [SUÇ](https://wikipedia.org/wiki/CRIME_(security_exploit)) ve [ihlal](https://wikipedia.org/wiki/BREACH_(security_exploit)) saldırıları.
-
-## <a name="adding-the-vary-header"></a>Vary üstbilgi ekleme
-
-::: moniker range=">= aspnetcore-2.0"
-
-Yanıtları sıkıştırma zaman temelinde `Accept-Encoding` üst bilgi, potansiyel olarak birden çok sıkıştırılmış sürümlerinin yanıtın ve sıkıştırılmamış bir vardır. Birden çok sürümünün var ve depolanması gereken, istemci ve proxy önbellek isteyin için `Vary` üst bilgisi ile eklenen bir `Accept-Encoding` değeri. ASP.NET Core 2.0 veya sonraki sürümlerde, ara yazılım ekler `Vary` otomatik olarak yanıt sıkıştırılmışsa, üst bilgisi.
+[!code-csharp[](response-compression/samples/2.x/SampleApp/Startup.cs?name=snippet1&highlight=8-10)]
 
 ::: moniker-end
 
-::: moniker range="< aspnetcore-2.0"
+## <a name="compression-with-secure-protocol"></a>Güvenli protokolle sıkıştırma
 
-Yanıtları sıkıştırma zaman temelinde `Accept-Encoding` üst bilgi, potansiyel olarak birden çok sıkıştırılmış sürümlerinin yanıtın ve sıkıştırılmamış bir vardır. Birden çok sürümünün var ve depolanması gereken, istemci ve proxy önbellek isteyin için `Vary` üst bilgisi ile eklenen bir `Accept-Encoding` değeri. İçinde ASP.NET Core 1.x, ekleme `Vary` üstbilgisi yanıt için el ile gerçekleştirilir:
+Güvenli bağlantılar üzerinden sıkıştırılan yanıtlar, varsayılan olarak devre dışı `EnableForHttps` bırakılan seçeneğiyle denetlenebilir. Dinamik olarak oluşturulan sayfalarla sıkıştırma kullanmak, SUA ve [ihlal](https://wikipedia.org/wiki/BREACH_(security_exploit)) saldırıları gibi güvenlik [](https://wikipedia.org/wiki/CRIME_(security_exploit)) sorunlarına neden olabilir.
 
-[!code-csharp[](response-compression/samples/1.x/Startup.cs?name=snippet1)]
+## <a name="adding-the-vary-header"></a>Vary üst bilgisi ekleniyor
 
-::: moniker-end
+`Accept-Encoding` Üstbilgileri temel alarak yanıtları sıkıştırırken, büyük olasılıkla birden çok sıkıştırılmış yanıt ve sıkıştırılmamış bir sürüm vardır. İstemci ve proxy 'nin birden çok sürümün var olduğunu ve depolanması gerektiğini bildirmek için, `Vary` üst bilgi bir `Accept-Encoding` değerle eklenir. ASP.NET Core 2,0 veya sonraki bir sürümde, yanıt sıkıştırıldığında `Vary` ara yazılım üstbilgiyi otomatik olarak ekler.
 
-## <a name="middleware-issue-when-behind-an-nginx-reverse-proxy"></a>Ters proxy arkasında olduğunda bir Ngınx ara yazılım sorunu
+## <a name="middleware-issue-when-behind-an-nginx-reverse-proxy"></a>NGINX ters proxy 'nin arkasında ara yazılım sorunu
 
-Bir isteği Ngınx tarafından proxy olduğunda `Accept-Encoding` üstbilgi kaldırılır. Kaldırılmasını `Accept-Encoding` üst bilgi yanıtı sıkıştırmasını ara yazılım engeller. Daha fazla bilgi için [NGINX: Sıkıştırma ve açma](https://www.nginx.com/resources/admin-guide/compression-and-decompression/). Bu sorunu tarafından izlenen [Nginx için doğrudan sıkıştırma ekleyeceğimi (aspnet/BasicMiddleware \#123)](https://github.com/aspnet/BasicMiddleware/issues/123).
+Bir istek NGINX tarafından proxy oluşturulduğunda, `Accept-Encoding` üst bilgi kaldırılır. `Accept-Encoding` Üstbilgiyi kaldırmak, ara yazılımın yanıtı sıkıştırmasını önler. Daha fazla bilgi için bkz [. NGINX: Sıkıştırma ve açma](https://www.nginx.com/resources/admin-guide/compression-and-decompression/). Bu sorun, [NGINX (ASPNET/basicara yazılım \#123) için geçişli sıkıştırmayı](https://github.com/aspnet/BasicMiddleware/issues/123)düzenleyerek izlenir.
 
-## <a name="working-with-iis-dynamic-compression"></a>IIS dinamik sıkıştırması ile çalışma
+## <a name="working-with-iis-dynamic-compression"></a>IIS dinamik sıkıştırma ile çalışma
 
-Bir active IIS dinamik sıkıştırması bir uygulama için devre dışı bırakmak istediğiniz sunucu düzeyinde yapılandırılan modülü varsa, ek olarak modülle devre dışı *web.config* dosya. Daha fazla bilgi için [devre dışı bırakma IIS modüllerini](xref:host-and-deploy/iis/modules#disabling-iis-modules).
+Bir uygulama için devre dışı bırakmak istediğiniz sunucu düzeyinde yapılandırılmış etkin bir IIS dinamik sıkıştırma modülünüzün varsa, modülü *Web. config* dosyasına ek olarak devre dışı bırakın. Daha fazla bilgi için bkz. [IIS modüllerini devre dışı bırakma](xref:host-and-deploy/iis/modules#disabling-iis-modules).
 
 ## <a name="troubleshooting"></a>Sorun giderme
 
-Gibi bir araç kullanın [Fiddler](https://www.telerik.com/fiddler), [Firebug](https://getfirebug.com/), veya [Postman](https://www.getpostman.com/), ayarlamak izin `Accept-Encoding` istek üst bilgisi ve yanıt üstbilgileri, boyutu ve gövde çalışın. Varsayılan olarak, aşağıdaki koşullara uyması yanıtları yanıt sıkıştırma ara yazılımı sıkıştırır:
+[Fiddler](https://www.telerik.com/fiddler), [Firebug](https://getfirebug.com/)veya [Postman](https://www.getpostman.com/)gibi bir araç kullanarak `Accept-Encoding` istek üst bilgisini ayarlamanıza ve yanıt üst bilgilerini, boyutunu ve gövdesini incelemeye olanak tanır. Varsayılan olarak, yanıt sıkıştırma ara yazılımı aşağıdaki koşullara uyan yanıtları sıkıştırır:
 
 ::: moniker range=">= aspnetcore-2.2"
 
-* `Accept-Encoding` Üst bilgi değeri olan mevcut `br`, `gzip`, `*`, veya sizin belirlediğiniz bir özel sıkıştırma sağlayıcısı ile eşleşen özel kodlama. Değeri olmamalıdır `identity` veya bir kalite değeri (qvalue, `q`) 0 (sıfır) ayarlama.
-* MIME türü (`Content-Type`) ayarlanmalıdır ve yapılandırılmış bir MIME türü eşleşmelidir <xref:Microsoft.AspNetCore.ResponseCompression.ResponseCompressionOptions>.
-* İstek içermemelidir `Content-Range` başlığı.
-* İstek, yanıt sıkıştırma ara yazılımı seçenekleri güvenli Protokolü (https) yapılandırılmadığı sürece güvenli olmayan bir protokol (http) kullanmanız gerekir. *Tehlike Not [yukarıda açıklanan](#compression-with-secure-protocol) güvenli içerik sıkıştırmayı etkinleştirilirken.*
+* Üst bilgi,,, veya oluşturduğunuz özel `br`bir sıkıştırma `*`sağlayıcısıyla eşleşen özel bir kodlama değeri `gzip`ile birlikte bulunur. `Accept-Encoding` Değer `identity` , 0 (sıfır) olarak bir kalite değeri (qvalue, `q`) ayarı içermemelidir.
+* MIME türü (`Content-Type`) ayarlanmalıdır ve <xref:Microsoft.AspNetCore.ResponseCompression.ResponseCompressionOptions>üzerinde yapılandırılmış bir MIME türüyle eşleşmelidir.
+* İstek `Content-Range` üstbilgiyi içermemelidir.
+* Yanıt sıkıştırma ara yazılımı seçeneklerinde güvenli Protokolü (https) yapılandırılmadığı takdirde istek güvenli olmayan protokol (http) kullanmalıdır. *Güvenli içerik sıkıştırması etkinleştirildiğinde [yukarıda açıklanan](#compression-with-secure-protocol) tehlikede göz önünde yer.*
 
 ::: moniker-end
 
 ::: moniker range="< aspnetcore-2.2"
 
-* `Accept-Encoding` Üst bilgi değeri olan mevcut `gzip`, `*`, veya sizin belirlediğiniz bir özel sıkıştırma sağlayıcısı ile eşleşen özel kodlama. Değeri olmamalıdır `identity` veya bir kalite değeri (qvalue, `q`) 0 (sıfır) ayarlama.
-* MIME türü (`Content-Type`) ayarlanmalıdır ve yapılandırılmış bir MIME türü eşleşmelidir <xref:Microsoft.AspNetCore.ResponseCompression.ResponseCompressionOptions>.
-* İstek içermemelidir `Content-Range` başlığı.
-* İstek, yanıt sıkıştırma ara yazılımı seçenekleri güvenli Protokolü (https) yapılandırılmadığı sürece güvenli olmayan bir protokol (http) kullanmanız gerekir. *Tehlike Not [yukarıda açıklanan](#compression-with-secure-protocol) güvenli içerik sıkıştırmayı etkinleştirilirken.*
+* Üst bilgi, veya oluşturduğunuz özel bir sıkıştırma `gzip`sağlayıcısıyla `*`eşleşen özel bir kodlama değeriyle birlikte bulunur. `Accept-Encoding` Değer `identity` , 0 (sıfır) olarak bir kalite değeri (qvalue, `q`) ayarı içermemelidir.
+* MIME türü (`Content-Type`) ayarlanmalıdır ve <xref:Microsoft.AspNetCore.ResponseCompression.ResponseCompressionOptions>üzerinde yapılandırılmış bir MIME türüyle eşleşmelidir.
+* İstek `Content-Range` üstbilgiyi içermemelidir.
+* Yanıt sıkıştırma ara yazılımı seçeneklerinde güvenli Protokolü (https) yapılandırılmadığı takdirde istek güvenli olmayan protokol (http) kullanmalıdır. *Güvenli içerik sıkıştırması etkinleştirildiğinde [yukarıda açıklanan](#compression-with-secure-protocol) tehlikede göz önünde yer.*
 
 ::: moniker-end
 
@@ -382,7 +378,7 @@ Gibi bir araç kullanın [Fiddler](https://www.telerik.com/fiddler), [Firebug](h
 
 * <xref:fundamentals/startup>
 * <xref:fundamentals/middleware/index>
-* [Mozilla Geliştirici ağ: Kabul kodlama](https://developer.mozilla.org/docs/Web/HTTP/Headers/Accept-Encoding)
-* [RFC 7231 bölüm 3.1.2.1: Content Codings](https://tools.ietf.org/html/rfc7231#section-3.1.2.1)
-* [RFC 7230 bölüm 4.2.3: Gzip kodlama](https://tools.ietf.org/html/rfc7230#section-4.2.3)
-* [GZIP dosyası biçim belirtimi sürümü 4.3](https://www.ietf.org/rfc/rfc1952.txt)
+* [Mozilla Geliştirici Ağı: Kabul etme-kodlama](https://developer.mozilla.org/docs/Web/HTTP/Headers/Accept-Encoding)
+* [RFC 7231 Bölüm 3.1.2.1: İçerik Işbirliği](https://tools.ietf.org/html/rfc7231#section-3.1.2.1)
+* [RFC 7230 Bölüm 4.2.3: Gzip kodlaması](https://tools.ietf.org/html/rfc7230#section-4.2.3)
+* [GZIP dosya biçimi belirtimi sürüm 4,3](https://www.ietf.org/rfc/rfc1952.txt)

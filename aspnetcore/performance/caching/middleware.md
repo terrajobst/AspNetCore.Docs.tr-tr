@@ -5,14 +5,14 @@ description: ASP.NET Core 'de yanıt önbelleğe alma ara yazılımını yapıla
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 08/08/2019
+ms.date: 08/09/2019
 uid: performance/caching/middleware
-ms.openlocfilehash: 6371f42b100f70c6042064a6372c7b9e41fd5c73
-ms.sourcegitcommit: 776367717e990bdd600cb3c9148ffb905d56862d
+ms.openlocfilehash: 838a08c12316d218501f26d5905f9e31ab93dfc9
+ms.sourcegitcommit: 89fcc6cb3e12790dca2b8b62f86609bed6335be9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68914989"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68994222"
 ---
 # <a name="response-caching-middleware-in-aspnet-core"></a>ASP.NET Core 'de yanıt önbelleğe alma ara yazılımı
 
@@ -24,57 +24,57 @@ Bu makalede, yanıt önbelleğe alma ara yazılımı ASP.NET Core bir uygulamada
 
 ## <a name="configuration"></a>Yapılandırma
 
-Microsoft. [aspnetcore. app metapackage](xref:fundamentals/metapackage-app) kullanın veya [Microsoft. Aspnetcore. responsecaching](https://www.nuget.org/packages/Microsoft.AspNetCore.ResponseCaching/) paketine bir paket başvurusu ekleyin.
+::: moniker range=">= aspnetcore-3.0"
+
+Yanıt önbelleğe alma ara yazılımı, ASP.NET Core uygulamalarına örtük olarak eklenen [Microsoft. AspNetCore. responsecaching](https://www.nuget.org/packages/Microsoft.AspNetCore.ResponseCaching/) paketi tarafından kullanılabilir hale getirilir.
 
 ' `Startup.ConfigureServices`De, yanıt önbelleğe alma ara yazılımını hizmet koleksiyonuna ekleyin:
 
-::: moniker range=">= aspnetcore-3.0"
-
 [!code-csharp[](middleware/samples/3.x/ResponseCachingMiddleware/Startup.cs?name=snippet1&highlight=3)]
-
-::: moniker-end
-
-::: moniker range="< aspnetcore-3.0"
-
-[!code-csharp[](middleware/samples/2.x/ResponseCachingMiddleware/Startup.cs?name=snippet1&highlight=3)]
-
-::: moniker-end
 
 Uygulamayı, içindeki `Startup.Configure`istek işleme işlem hattına bir ara <xref:Microsoft.AspNetCore.Builder.ResponseCachingExtensions.UseResponseCaching*> yazılım ekleyen uzantı yöntemiyle ara yazılımı kullanacak şekilde yapılandırın:
 
-::: moniker range=">= aspnetcore-3.0"
-
 [!code-csharp[](middleware/samples/3.x/ResponseCachingMiddleware/Startup.cs?name=snippet2&highlight=16)]
-
-::: moniker-end
-
-::: moniker range="< aspnetcore-3.0"
-
-[!code-csharp[](middleware/samples/2.x/ResponseCachingMiddleware/Startup.cs?name=snippet2&highlight=14)]
-
-::: moniker-end
 
 Örnek uygulama, sonraki isteklerde önbelleğe almayı denetlemek için üstbilgiler ekler:
 
 * [Cache-Control](https://tools.ietf.org/html/rfc7234#section-5.2) &ndash; 10 saniyeye kadar önbelleklenebilir yanıtları önbelleğe alır.
 * [Farklılık gösterir](https://tools.ietf.org/html/rfc7231#section-7.1.4) &ndash; Yalnızca [sonrakiisteklerinüstbilgisiözgünistektenbiriyleeşleşiyorsaönbelleğealınmışbiryanıta`Accept-Encoding`](https://tools.ietf.org/html/rfc7231#section-5.3.4) yönelik ara yazılımı yapılandırır.
 
-::: moniker range=">= aspnetcore-3.0"
-
 [!code-csharp[](middleware/samples_snippets/3.x/AddHeaders.cs)]
-
-::: moniker-end
-
-::: moniker range="< aspnetcore-3.0"
-
-[!code-csharp[](middleware/samples_snippets/2.x/AddHeaders.cs)]
-
-::: moniker-end
 
 Yanıt önbelleğe alma ara yazılımı yalnızca 200 (Tamam) durum kodu ile sonuçlanan sunucu yanıtlarını önbelleğe alır. [Hata sayfaları](xref:fundamentals/error-handling)dahil diğer tüm yanıtlar, ara yazılım tarafından yok sayılır.
 
 > [!WARNING]
 > Kimliği doğrulanmış istemciler için içerik içeren yanıtların, ara yazılımın bu yanıtları depolamasını ve hizmet vermek için önbelleğe alınamaz olarak işaretlenmesi gerekir. Bir yanıtın önbelleklenmesini nasıl belirlediği hakkında bilgi için bkz. [önbelleğe alma koşulları](#conditions-for-caching) .
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
+
+Microsoft. [aspnetcore. app metapackage](xref:fundamentals/metapackage-app) kullanın veya [Microsoft. Aspnetcore. responsecaching](https://www.nuget.org/packages/Microsoft.AspNetCore.ResponseCaching/) paketine bir paket başvurusu ekleyin.
+
+' `Startup.ConfigureServices`De, yanıt önbelleğe alma ara yazılımını hizmet koleksiyonuna ekleyin:
+
+[!code-csharp[](middleware/samples/2.x/ResponseCachingMiddleware/Startup.cs?name=snippet1&highlight=3)]
+
+Uygulamayı, içindeki `Startup.Configure`istek işleme işlem hattına bir ara <xref:Microsoft.AspNetCore.Builder.ResponseCachingExtensions.UseResponseCaching*> yazılım ekleyen uzantı yöntemiyle ara yazılımı kullanacak şekilde yapılandırın:
+
+[!code-csharp[](middleware/samples/2.x/ResponseCachingMiddleware/Startup.cs?name=snippet2&highlight=14)]
+
+Örnek uygulama, sonraki isteklerde önbelleğe almayı denetlemek için üstbilgiler ekler:
+
+* [Cache-Control](https://tools.ietf.org/html/rfc7234#section-5.2) &ndash; 10 saniyeye kadar önbelleklenebilir yanıtları önbelleğe alır.
+* [Farklılık gösterir](https://tools.ietf.org/html/rfc7231#section-7.1.4) &ndash; Yalnızca [sonrakiisteklerinüstbilgisiözgünistektenbiriyleeşleşiyorsaönbelleğealınmışbiryanıta`Accept-Encoding`](https://tools.ietf.org/html/rfc7231#section-5.3.4) yönelik ara yazılımı yapılandırır.
+
+[!code-csharp[](middleware/samples_snippets/2.x/AddHeaders.cs)]
+
+Yanıt önbelleğe alma ara yazılımı yalnızca 200 (Tamam) durum kodu ile sonuçlanan sunucu yanıtlarını önbelleğe alır. [Hata sayfaları](xref:fundamentals/error-handling)dahil diğer tüm yanıtlar, ara yazılım tarafından yok sayılır.
+
+> [!WARNING]
+> Kimliği doğrulanmış istemciler için içerik içeren yanıtların, ara yazılımın bu yanıtları depolamasını ve hizmet vermek için önbelleğe alınamaz olarak işaretlenmesi gerekir. Bir yanıtın önbelleklenmesini nasıl belirlediği hakkında bilgi için bkz. [önbelleğe alma koşulları](#conditions-for-caching) .
+
+::: moniker-end
 
 ## <a name="options"></a>Seçenekler
 
@@ -123,7 +123,7 @@ Aşağıdaki tabloda, yanıt önbelleğini etkileyen HTTP üstbilgileri hakkınd
 | Üstbilgi | Ayrıntılar |
 | ------ | ------- |
 | `Authorization` | Üst bilgi varsa yanıt önbelleğe alınmaz. |
-| `Cache-Control` | Ara yazılım yalnızca `public` önbellek yönergesi ile işaretlenmiş önbelleğe alma yanıtlarını dikkate alır. Aşağıdaki parametrelerle önbelleğe alma denetimi:<ul><li>Maksimum yaş</li><li>en fazla-eski&#8224;</li><li>en az-yeni</li><li>yeniden doğrulama gerekir</li><li>önbellek yok</li><li>mağaza yok</li><li>yalnızca-if-önbelleğe alındı</li><li>özel</li><li>public</li><li>s-maxage</li><li>ara sunucu-yeniden doğrulama&#8225;</li></ul>&#8224;İçin `max-stale`hiçbir sınır belirtilmemişse, ara yazılım hiçbir eylemde bulunmaz.<br>&#8225;`proxy-revalidate`, ile `must-revalidate`aynı etkiye sahiptir.<br><br>Daha fazla bilgi için bkz [. RFC 7231: Cache-Control yönergeleri](https://tools.ietf.org/html/rfc7234#section-5.2.1)iste. |
+| `Cache-Control` | Ara yazılım yalnızca `public` önbellek yönergesi ile işaretlenmiş önbelleğe alma yanıtlarını dikkate alır. Aşağıdaki parametrelerle önbelleğe alma denetimi:<ul><li>Maksimum yaş</li><li>en fazla-eski&#8224;</li><li>en az-yeni</li><li>yeniden doğrulama gerekir</li><li>önbellek yok</li><li>mağaza yok</li><li>yalnızca-if-önbelleğe alındı</li><li>private</li><li>public</li><li>s-maxage</li><li>ara sunucu-yeniden doğrulama&#8225;</li></ul>&#8224;İçin `max-stale`hiçbir sınır belirtilmemişse, ara yazılım hiçbir eylemde bulunmaz.<br>&#8225;`proxy-revalidate`, ile `must-revalidate`aynı etkiye sahiptir.<br><br>Daha fazla bilgi için bkz [. RFC 7231: Cache-Control yönergeleri](https://tools.ietf.org/html/rfc7234#section-5.2.1)iste. |
 | `Pragma` | İstekteki `Pragma: no-cache` bir üst bilgi, ile `Cache-Control: no-cache`aynı etkiyi üretir. Bu üst bilgi, varsa `Cache-Control` başlıktaki ilgili yönergeler tarafından geçersiz kılınır. HTTP/1.0 ile geriye dönük uyumluluk için değerlendirilir. |
 | `Set-Cookie` | Üst bilgi varsa yanıt önbelleğe alınmaz. İstek işleme ardışık düzeninde bir veya daha fazla tanımlama bilgisi ayarlayan herhangi bir ara yazılım, yanıt önbelleğe alma ara hattının yanıtı önbelleğe almasını önler (örneğin, [tanımlama bilgisi tabanlı TempData sağlayıcısı](xref:fundamentals/app-state#tempdata)).  |
 | `Vary` | `Vary` Üst bilgi, başka bir üst bilgi tarafından önbelleğe alınan yanıtı değiştirmek için kullanılır. Örneğin, üst bilgi `Vary: Accept-Encoding` `Accept-Encoding: gzip` ve `Accept-Encoding: text/plain` ayrı ayrı istekler için yanıtları önbelleğe alan üstbilgiyi ekleyerek kodlamaya göre yanıtları önbelleğe alır. Üstbilgi değeri `*` olan bir yanıt hiçbir şekilde depolanmaz. |

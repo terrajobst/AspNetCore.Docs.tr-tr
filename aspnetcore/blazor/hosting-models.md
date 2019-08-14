@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 07/01/2019
 uid: blazor/hosting-models
-ms.openlocfilehash: 9dd96ff6e3539bf1c3e932b33776b16d0fbb2d34
-ms.sourcegitcommit: 849af69ee3c94cdb9fd8fa1f1bb8f5a5dda7b9eb
+ms.openlocfilehash: 64393e826cb17550085f468f5916fca55973908f
+ms.sourcegitcommit: 89fcc6cb3e12790dca2b8b62f86609bed6335be9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68371794"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68993384"
 ---
 # <a name="aspnet-core-blazor-hosting-models"></a>Blazor barındırma modellerini ASP.NET Core
 
@@ -28,10 +28,9 @@ Blazor için sorumlu barındırma modeli, WebAssembly üzerinde tarayıcıda ist
 
 ![Blazor istemci tarafı: Blazor uygulaması, tarayıcı içindeki bir kullanıcı arabirimi iş parçacığında çalışır.](hosting-models/_static/client-side.png)
 
-İstemci tarafı barındırma modelini kullanarak bir Blazor uygulaması oluşturmak için aşağıdaki şablonlardan birini kullanın:
+İstemci tarafı barındırma modelini kullanarak bir Blazor uygulaması oluşturmak için, **Blazor WebAssembly uygulama** şablonunu ([DotNet New blazorwasm](/dotnet/core/tools/dotnet-new)) kullanın.
 
-* **Blazor (istemci tarafı)** ([DotNet New blazor](/dotnet/core/tools/dotnet-new)) &ndash; Statik dosyalar kümesi olarak dağıtılır.
-* **Blazor (ASP.NET Core barındırılan)** ([DotNet New blazorhosted](/dotnet/core/tools/dotnet-new)) &ndash; Bir ASP.NET Core sunucusu tarafından barındırılır. ASP.NET Core uygulaması, Blazor uygulamasını istemcilere sunar. Blazor istemci tarafı uygulaması, Web API çağrıları veya [SignalR](xref:signalr/introduction)kullanarak ağ üzerinden sunucu ile etkileşime geçebilir.
+**Blazor WebAssembly uygulama** şablonunu seçtikten sonra, **ASP.NET Core barındırılan** onay kutusunu ([DotNet New blazorwasm--hosted](/dotnet/core/tools/dotnet-new)) seçerek uygulamayı ASP.NET Core arka ucunu kullanacak şekilde yapılandırma seçeneğiniz vardır. ASP.NET Core uygulaması, Blazor uygulamasını istemcilere sunar. Blazor istemci tarafı uygulaması, Web API çağrıları veya [SignalR](xref:signalr/introduction)kullanarak ağ üzerinden sunucu ile etkileşime geçebilir.
 
 Şablonlar şunları ele alan *blazor. webassembly. js* betiğini içerir:
 
@@ -58,7 +57,7 @@ Sunucu tarafı barındırma modeliyle, uygulama sunucuda ASP.NET Core bir uygula
 
 ![Tarayıcı, bir SignalR bağlantısı üzerinden sunucusunda (bir ASP.NET Core uygulamasının içinde barındırılan) uygulamayla etkileşime girer.](hosting-models/_static/server-side.png)
 
-Sunucu tarafı barındırma modelini kullanarak bir Blazor uygulaması oluşturmak için ASP.NET Core **Blazor Server uygulama** şablonunu ([DotNet New blazorserverside](/dotnet/core/tools/dotnet-new)) kullanın. ASP.NET Core uygulaması, sunucu tarafı uygulamayı barındırır ve istemcilerin bağlanacağı SignalR uç noktasını oluşturur.
+Sunucu tarafı barındırma modelini kullanarak bir Blazor uygulaması oluşturmak için ASP.NET Core **Blazor Server uygulama** şablonunu ([DotNet New blazorserver](/dotnet/core/tools/dotnet-new)) kullanın. ASP.NET Core uygulaması, sunucu tarafı uygulamayı barındırır ve istemcilerin bağlanacağı SignalR uç noktasını oluşturur.
 
 ASP.NET Core uygulama, eklenecek uygulamanın `Startup` sınıfına başvurur:
 

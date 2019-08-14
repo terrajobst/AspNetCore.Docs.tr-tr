@@ -1,38 +1,38 @@
 ---
-title: 'Öğretici: ASP.NET Core Razor sayfaları web uygulaması oluşturma'
+title: 'Öğretici: ASP.NET Core ile Razor Pages Web uygulaması oluşturma'
 author: rick-anderson
-description: Visual Studio, ASP.NET Core ve EF Core ile Windows üzerinde Razor sayfaları web uygulaması oluşturun.
+description: Visual Studio, ASP.NET Core ve EF Core ile Windows üzerinde Razor Pages bir Web uygulaması oluşturun.
 ms.author: riande
-ms.date: 09/08/2017
+ms.date: 08/09/2019
 uid: tutorials/razor-pages/index
-ms.openlocfilehash: c3dcc18844f2a12a2a116b11cb007cb833203dc3
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 7c722a0992b9cf30731a11b31c839f183d40b9a0
+ms.sourcegitcommit: 89fcc6cb3e12790dca2b8b62f86609bed6335be9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64901055"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68994312"
 ---
-# <a name="tutorial-create-a-razor-pages-web-app-with-aspnet-core"></a>Öğretici: ASP.NET Core Razor sayfaları web uygulaması oluşturma
+# <a name="tutorial-create-a-razor-pages-web-app-with-aspnet-core"></a>Öğretici: ASP.NET Core ile Razor Pages Web uygulaması oluşturma
 
-Bu öğretici serisinde, Razor sayfaları web uygulaması oluşturmaya ilişkin temel bilgileri açıklar. 
+Bu öğretici dizisinde Razor Pages Web uygulaması oluşturma temelleri açıklanmaktadır. 
 
 [!INCLUDE[](~/includes/advancedRP.md)]
 
-Bu seri, aşağıdaki öğreticilerde içerir:
+Bu seri aşağıdaki öğreticileri içerir:
 
 1. [Razor Sayfaları web uygulaması oluşturma](xref:tutorials/razor-pages/razor-pages-start)
-1. [Model için bir Razor sayfaları uygulaması ekleme](xref:tutorials/razor-pages/model)
-1. [İskele (Oluştur) Razor sayfaları](xref:tutorials/razor-pages/page)
-1. [Bir veritabanı ile çalışma](xref:tutorials/razor-pages/sql)
-1. [Razor sayfaları güncelleştirme](xref:tutorials/razor-pages/da1)
+1. [Razor Pages uygulamasına model ekleme](xref:tutorials/razor-pages/model)
+1. [Yapı iskelesi (oluşturma) Razor sayfaları](xref:tutorials/razor-pages/page)
+1. [Bir veritabanıyla çalışma](xref:tutorials/razor-pages/sql)
+1. [Razor sayfalarını güncelleştirme](xref:tutorials/razor-pages/da1)
 1. [Arama ekleme](xref:tutorials/razor-pages/search)
 1. [Yeni alan ekleme](xref:tutorials/razor-pages/new-field)
 1. [Doğrulama ekleme](xref:tutorials/razor-pages/validation)
 
-Sonunda, görüntüler ve filmler veritabanını yönetebilen bir uygulaması oluşturmuş olacaksınız.
+Son olarak, bir film veritabanını görüntüleyebilen ve yönetebileceğini bir uygulamanıza sahip olacaksınız.
 
 ![Örnek uygulamanın örnek sayfası](index/_static/sample-page.png)
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-* [Bu öğreticide YouTube sürümü](https://www.youtube.com/watch?v=F0SP7Ry4flQ&feature=youtu.be)
+* [Bu öğreticinin YouTube sürümü](https://www.youtube.com/watch?v=F0SP7Ry4flQ&feature=youtu.be)

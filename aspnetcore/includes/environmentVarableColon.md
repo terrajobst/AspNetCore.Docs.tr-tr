@@ -1,1 +1,1 @@
-Ortam değişkenleri, iki nokta üst üste ayırıcı hiyerarşik anahtarlarla çalışırken (`:`) (örneğin, Bash) tüm platformlarda çalışmayabilir. Çift alt çizgi (`__`) tüm platformları tarafından desteklenir ve virgül ile değiştirilir.
+Ortam değişkenlerinde hiyerarşik anahtarlarla çalışırken, bir iki nokta ayırıcı (`:`) tüm platformlarda çalışmayabilir (örneğin, Bash). Çift alt çizgi (`__`) tüm platformlar tarafından desteklenir ve otomatik olarak iki nokta ile değiştirilmiştir.

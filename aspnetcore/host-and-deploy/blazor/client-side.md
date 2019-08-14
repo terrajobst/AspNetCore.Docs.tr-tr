@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 07/10/2019
 uid: host-and-deploy/blazor/client-side
-ms.openlocfilehash: be6b6c245440cb085a1a6b115f4f087306f7cc83
-ms.sourcegitcommit: b40613c603d6f0cc71f3232c16df61550907f550
+ms.openlocfilehash: e9a42bd4e8511d426761746047fed2d4f7dfc6dd
+ms.sourcegitcommit: 89fcc6cb3e12790dca2b8b62f86609bed6335be9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68308082"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68994086"
 ---
 # <a name="host-and-deploy-aspnet-core-blazor-client-side"></a>Konak ve dağıtım ASP.NET Core Blazor istemci tarafı
 
@@ -148,7 +148,7 @@ Uygulama üzerinde `http://localhost:port/CoolApp`yerel olarak yanıt verir.
 
 Daha fazla bilgi için, [yol temel ana bilgisayar yapılandırma değerindeki](#path-base)bölümüne bakın.
 
-Bir uygulama, [istemci tarafı barındırma modelini](xref:blazor/hosting-models#client-side) ( **Blazor (istemci tarafı)** proje `blazor` şablonunu temel alan, [DotNet yeni](/dotnet/core/tools/dotnet-new) komut kullanılırken şablon) kullanıyorsa ve bir ASP.NET Core uygulamasında IIS alt uygulaması olarak barındırılıyorsa, devralınan ASP.NET Core modülü işleyicisini devre dışı bırakın veya *Web. config* dosyasındaki kök (üst) `<handlers>` uygulamanın bölümünün alt uygulama tarafından devralınamayacağını doğrulayın.
+Bir uygulama, [istemci tarafı barındırma modelini](xref:blazor/hosting-models#client-side) ( **Blazor webassembly uygulama** projesi `blazorwasm` şablonuna göre, [DotNet yeni](/dotnet/core/tools/dotnet-new) komutu kullanılırken şablon) kullanıyorsa ve bir ASP.NET Core uygulamasında IIS alt uygulaması olarak barındırılıyorsa, devralınan ASP.NET Core modülü işleyicisini devre dışı bırakın veya *Web. config* dosyasındaki kök (üst) `<handlers>` uygulamanın bölümünün alt uygulama tarafından devralınamayacağını doğrulayın.
 
 Dosyaya bir `<handlers>` bölüm ekleyerek uygulamanın yayınlanan *Web. config* dosyasındaki işleyiciyi kaldırın:
 
@@ -180,7 +180,7 @@ Alternatif olarak, `<system.webServer>` şu şekilde `<location>` `inheritInChil
 
 *Barındırılan bir dağıtım* , Blazor istemci tarafı uygulamasını Web sunucusunda çalışan [ASP.NET Core bir uygulamadan](xref:index) tarayıcılara sunar.
 
-Blazor uygulaması, yayımlanan çıktıda ASP.NET Core uygulamasına dahildir, böylece iki uygulama birlikte dağıtılır. ASP.NET Core uygulamasını barındırabilen bir Web sunucusu gereklidir. Barındırılan bir dağıtım için, Visual Studio **Blazor (ASP.NET Core hosted)** proje şablonunu (`blazorhosted` [DotNet New](/dotnet/core/tools/dotnet-new) komutu kullanılırken şablon) içerir.
+Blazor uygulaması, yayımlanan çıktıda ASP.NET Core uygulamasına dahildir, böylece iki uygulama birlikte dağıtılır. ASP.NET Core uygulamasını barındırabilen bir Web sunucusu gereklidir. Barındırılan bir dağıtım için Visual Studio, **barındırılan** seçeneği belirlenmiş olarak **Blazor webassembly uygulama** projesi`blazorwasm` şablonunu ( [DotNet New](/dotnet/core/tools/dotnet-new) komutu kullanılırken şablon) içerir.
 
 Uygulama barındırma ve dağıtım ASP.NET Core hakkında daha fazla bilgi için bkz <xref:host-and-deploy/index>.
 
