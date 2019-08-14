@@ -1,14 +1,16 @@
-* Aşağıdaki komutu çalıştırarak HTTPS geliştirme sertifikası güven:
+* Aşağıdaki komutu çalıştırarak HTTPS geliştirme sertifikasına güvenin:
 
   ```console
   dotnet dev-certs https --trust
   ```
+  
+  Yukarıdaki komut Linux üzerinde çalışmaz. Bir sertifikaya güvenmek için Linux dağıtım belgelerine bakın.
 
-  Yukarıdaki komut, aşağıdaki iletişim kutusunu görüntüler:
+  Yukarıdaki komutta aşağıdaki iletişim kutusu görüntülenir:
 
   ![Güvenlik Uyarısı iletişim kutusu](~/getting-started/_static/cert.png)
 
-* Seçin **Evet** geliştirme sertifikasına güvenmek kabul etmesi durumunda.
+* Geliştirme sertifikasına güvenmeyi kabul ediyorsanız **Evet** ' i seçin.
 
-  Bkz: [ASP.NET Core HTTPS geliştirme sertifikasına güvenmek](xref:security/enforcing-ssl#trust-the-aspnet-core-https-development-certificate-on-windows-and-macos) daha fazla bilgi için.
+  Daha fazla bilgi için bkz. [ASP.NET Core https geliştirme sertifikasına güvenin](xref:security/enforcing-ssl#trust-the-aspnet-core-https-development-certificate-on-windows-and-macos) .
   
