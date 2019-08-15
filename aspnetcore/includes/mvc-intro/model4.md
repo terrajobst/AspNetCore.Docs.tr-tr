@@ -5,7 +5,7 @@ Aşağıdaki tabloda ASP.NET Core kod Oluşturucu parametrelerinin ayrıntılar�
 | -a  | Modelin adı. |
 | -dc  | Veri bağlamı. |
 | -UDL | Varsayılan düzeni kullanın. |
-| --relativeFolderPath | Görünümleri oluşturmak için göreli çıkış klasörü yolu. |
+| --relativeFolderPath | Dosyaları oluşturmak için göreli çıkış klasörü yolu. |
 | --useDefaultLayout | Görünümler için varsayılan düzen kullanılmalıdır. |
 | --referenceScriptLibraries | Sayfaları `_ValidationScriptsPartial` Düzenle ve oluştur 'a ekler |
 
