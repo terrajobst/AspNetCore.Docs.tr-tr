@@ -1,0 +1,1 @@
+<span data-ttu-id="ff277-101">EF Core için CLı araçları hakkında daha fazla bilgi için bkz. [.net CLI için EF Core araçları başvurusu](/ef/core/miscellaneous/cli/dotnet).</span><span class="sxs-lookup"><span data-stu-id="ff277-101">For more information on the CLI tools for EF Core, see [EF Core tools reference for .Net CLI](/ef/core/miscellaneous/cli/dotnet).</span></span>
