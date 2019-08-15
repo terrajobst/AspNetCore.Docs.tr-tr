@@ -547,6 +547,8 @@
       uid: grpc/migration
     - name: gRPC hizmetlerini HTTP API’leriyle karşılaştırma
       uid: grpc/comparison
+    - name: Sorun giderme
+      uid: grpc/troubleshoot
 - name: 'Test etme, hata ayıklama ve sorun giderme'
   items:
     - name: Birim testi

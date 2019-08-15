@@ -5,12 +5,12 @@ description: ASP.NET Core MVC ile çalışmaya başlama hakkında bilgi edinin.
 ms.author: riande
 ms.date: 08/05/2019
 uid: tutorials/first-mvc-app/start-mvc
-ms.openlocfilehash: f6a92423546ebd9d4c8e1a92fb81b6b72f847f61
-ms.sourcegitcommit: 2eb605f4f20ac4dd9de6c3b3e3453e108a357a21
+ms.openlocfilehash: 36f4811f876a6e35440445103a1f86ae06b31b6a
+ms.sourcegitcommit: 476ea5ad86a680b7b017c6f32098acd3414c0f6c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68820092"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69022519"
 ---
 # <a name="get-started-with-aspnet-core-mvc"></a>ASP.NET Core MVC ile çalışmaya başlama
 
@@ -126,7 +126,6 @@ Uygulamayı hata ayıklamasız modda çalıştırmak için **CTRL-F5** ' i seçi
 
   ![IIS Express](start-mvc/_static/iis_express.png)
 
-
   Aşağıdaki görüntüde uygulama gösterilmektedir:
 
   ![Giriş veya dizin sayfası](start-mvc/_static/home2.2.png)
@@ -140,12 +139,6 @@ Hata ayıklayıcı olmadan çalıştırmak için CTRL + F5 tuşlarına basın.
   Visual Studio Code, [Kestrel](xref:fundamentals/servers/kestrel)başlatır, bir tarayıcı başlatır ve şuraya gider `https://localhost:5001`. Adres çubuğu gibi `example.com`bir `localhost:port:5001` şey gösterir. Bunun nedeni `localhost` , yerel bilgisayar için Standart ana bilgisayar adıdır. Localhost yalnızca yerel bilgisayardan Web isteklerine hizmet verir.
 
   Uygulamayı CTRL + F5 (hata ayıklama modu) ile başlatmak, kod değişiklikleri yapmanıza, dosyayı kaydetmenize, tarayıcıyı yenilemanıza ve kod değişikliklerini görmenize olanak tanır. Birçok geliştirici, sayfayı yenilemek ve değişiklikleri görüntülemek için hata ayıklama olmayan modu kullanmayı tercih eder.
-
-* İzlemeye izin vermek için **kabul et** ' i seçin. Bu uygulama kişisel bilgileri izlemez. Şablon tarafından oluşturulan kod, [genel veri koruma yönetmeliği (GDPR)](xref:security/gdpr)buluşmanıza yardımcı olan varlıkları içerir.
-
-  ![Giriş veya dizin sayfası](start-mvc/_static/privacy.png)
-
-  Aşağıdaki görüntüde izlemeyi kabul ettikten sonra uygulama gösterilmektedir:
 
   ![Giriş veya dizin sayfası](start-mvc/_static/home2.2.png)
 
