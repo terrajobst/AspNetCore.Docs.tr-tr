@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 08/13/2019
 uid: blazor/components
-ms.openlocfilehash: a95c186d30eaf342f10ecbe6f7add242d4679a0f
-ms.sourcegitcommit: 89fcc6cb3e12790dca2b8b62f86609bed6335be9
+ms.openlocfilehash: 8cb2dc4c3cd22fe71fe15c22762948f9dcd3c08f
+ms.sourcegitcommit: f5f0ff65d4e2a961939762fb00e654491a2c772a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68993409"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69030352"
 ---
 # <a name="create-and-use-aspnet-core-razor-components"></a>ASP.NET Core Razor bileşenleri oluşturma ve kullanma
 
@@ -519,7 +519,10 @@ Kesin olarak belirlenmiş `EventCallback<T>` `EventCallback`türü tercih edin. 
 
 ## <a name="capture-references-to-components"></a>Bileşenlere başvuruları yakala
 
-Bileşen başvuruları, bir bileşen örneğine başvurmak için bir yol sağlar; böylece, veya `Show` `Reset`gibi komutları bu örneğe verebilirsiniz. Bir bileşen başvurusunu yakalamak için, alt bileşene [@ref](xref:mvc/views/razor#ref) bir öznitelik ekleyin ve ardından aynı ada ve alt bileşenle aynı türe sahip bir alan tanımlayın.
+Bileşen başvuruları, bir bileşen örneğine başvurmak için bir yol sağlar; böylece, veya `Show` `Reset`gibi komutları bu örneğe verebilirsiniz. Bir bileşen başvurusunu yakalamak için:
+
+* Alt bileşene [@ref](xref:mvc/views/razor#ref) bir öznitelik ekleyin.
+* Alt bileşenle aynı türde bir alan tanımlayın.
 
 ```cshtml
 <MyLoginDialog @ref="loginDialog" ... />
@@ -538,6 +541,30 @@ Bileşen işlendiğinde, `loginDialog` alan `MyLoginDialog` alt bileşen örneğ
 
 > [!IMPORTANT]
 > Değişken yalnızca bileşen işlendikten sonra ve çıktısı `MyLoginDialog` öğesi içerdiğinde doldurulur. `loginDialog` Bu noktaya kadar başvurulmasına hiçbir şey yok. Bileşen işlemesini tamamladıktan sonra bileşen başvurularını işlemek için, `OnAfterRenderAsync` veya `OnAfterRender` yöntemlerini kullanın.
+
+<!-- HOLD https://github.com/aspnet/AspNetCore.Docs/pull/13818
+Component references provide a way to reference a component instance so that you can issue commands to that instance, such as `Show` or `Reset`.
+
+The Razor compiler automatically generates a backing field for element and component references when using [@ref](xref:mvc/views/razor#ref). In the following example, there's no need to create a `myLoginDialog` field for the `LoginDialog` component:
+
+```cshtml
+<LoginDialog @ref="myLoginDialog" ... />
+
+@code {
+    private void OnSomething()
+    {
+        myLoginDialog.Show();
+    }
+}
+```
+
+When the component is rendered, the generated `myLoginDialog` field is populated with the `LoginDialog` component instance. You can then invoke .NET methods on the component instance.
+
+In some cases, a backing field is required. For example, declare a backing field when referencing generic components. To suppress backing field generation, specify the `@ref:suppressField` parameter.
+
+> [!IMPORTANT]
+> The generated `myLoginDialog` variable is only populated after the component is rendered and its output includes the `LoginDialog` element. Until that point, there's nothing to reference. To manipulate components references after the component has finished rendering, use the `OnAfterRenderAsync` or `OnAfterRender` methods.
+-->
 
 Bileşen başvurularını yakalama, [öğe başvurularını yakalamak](xref:blazor/javascript-interop#capture-references-to-elements)için benzer bir sözdizimi kullanın, bir [JavaScript birlikte çalışma](xref:blazor/javascript-interop) özelliği değildir. Bileşen başvuruları yalnızca .net kodunda kullanıldıkları JavaScript&mdash;koduna aktarılmaz.
 
@@ -620,19 +647,19 @@ Bu değerlerin çakışmayın için `@key` kullanıldığından emin olun. Aynı
 
 ## <a name="lifecycle-methods"></a>Yaşam döngüsü yöntemleri
 
-`OnInitAsync`ve `OnInit` bileşeni başlatmak için kodu yürütün. Zaman uyumsuz bir işlem gerçekleştirmek için, `OnInitAsync` `await` ve işlem üzerinde anahtar sözcüğünü kullanın:
+`OnInitializedAsync`ve `OnInitialized` bileşeni başlatmak için kodu yürütün. Zaman uyumsuz bir işlem gerçekleştirmek için, `OnInitializedAsync` `await` ve işlem üzerinde anahtar sözcüğünü kullanın:
 
 ```csharp
-protected override async Task OnInitAsync()
+protected override async Task OnInitializedAsync()
 {
     await ...
 }
 ```
 
-Zaman uyumlu bir işlem için şunu `OnInit`kullanın:
+Zaman uyumlu bir işlem için şunu `OnInitialized`kullanın:
 
 ```csharp
-protected override void OnInit()
+protected override void OnInitialized()
 {
     ...
 }
@@ -674,7 +701,7 @@ protected override void OnAfterRender()
 
 Yaşam döngüsü olaylarında gerçekleştirilen zaman uyumsuz eylemler, bileşen işlenmeden önce tamamlanmamış olabilir. Yaşam döngüsü yöntemi `null` yürütülürken nesneler, verilerle tamamen doldurulmuş olabilir. Nesnelerin başlatıldığını onaylamak için işleme mantığı sağlayın. Nesneler olduğunda `null`yer tutucu Kullanıcı arabirimi öğelerini (örneğin, bir yükleme iletisi) işleme.
 
-Blazor şablonlarının `OnInitAsync`bileşeninde, Asychronously tahmin verileri al (`forecasts`) için geçersiz kılınır. `FetchData` Ne zaman olduğunda `forecasts` ,kullanıcıyabiryüklemeiletisigörüntülenir.`null` İşlem tamamlandıktan sonra, bileşen güncelleştirilmiş duruma `Task` `OnInitAsync` geri döner.
+Blazor şablonlarının `OnInitializedAsync`bileşeninde, Asychronously tahmin verileri al (`forecasts`) için geçersiz kılınır. `FetchData` Ne zaman olduğunda `forecasts` ,kullanıcıyabiryüklemeiletisigörüntülenir.`null` İşlem tamamlandıktan sonra, bileşen güncelleştirilmiş duruma `Task` `OnInitializedAsync` geri döner.
 
 *Pages/FetchData. Razor*:
 
@@ -685,7 +712,7 @@ Blazor şablonlarının `OnInitAsync`bileşeninde, Asychronously tahmin verileri
 `SetParameters`Parametreler ayarlanmadan önce kodu yürütmek için geçersiz kılınabilir:
 
 ```csharp
-public override void SetParameters(ParameterCollection parameters)
+public override void SetParameters(ParameterView parameters)
 {
     ...
 

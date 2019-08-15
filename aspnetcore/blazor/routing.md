@@ -5,14 +5,14 @@ description: Uygulamalardaki istekleri yönlendirme ve gezinti bağlantısı bil
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 07/02/2019
+ms.date: 08/13/2019
 uid: blazor/routing
-ms.openlocfilehash: 70cae6b3a21fe3537d6841a6716398a5fc45db62
-ms.sourcegitcommit: f30b18442ed12831c7e86b0db249183ccd749f59
+ms.openlocfilehash: 197b1a91b3540d21639c3ee775b2c490da7b23fe
+ms.sourcegitcommit: f5f0ff65d4e2a961939762fb00e654491a2c772a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68412394"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69030391"
 ---
 # <a name="aspnet-core-blazor-routing"></a>ASP.NET Core Blazor yönlendirme
 
@@ -28,7 +28,7 @@ Blazor sunucu tarafı [ASP.NET Core uç nokta yönlendirme](xref:fundamentals/ro
 
 ## <a name="route-templates"></a>Rota şablonları
 
-`Router` Bileşen yönlendirmeyi sağlar ve erişilebilir her bileşene bir yol şablonu sağlanır. Bileşen App. Razor dosyasında görünür:  `Router`
+`Router` Bileşen yönlendirmeyi sağlar ve erişilebilir her bileşene bir yol şablonu sağlanır. Bileşen App. Razor dosyasında görünür: `Router`
 
 Blazor sunucu tarafı bir uygulamada:
 
@@ -117,6 +117,18 @@ Aşağıdaki `NavMenu` bileşen, bileşenlerin nasıl [](https://getbootstrap.co
 * `NavLinkMatch.Prefix`(*varsayılan*) Geçerli URL 'nin herhangi bir önekiyle eşleştiğinde etkin olur.`NavLink` &ndash;
 
 `NavLink` Yukarıdaki örnekte, ana `href=""` giriş `active` URL 'siyle eşleşir ve yalnızca uygulamanın varsayılan temel yol URL 'sindeki CSS sınıfını alır (örneğin, `https://localhost:5001/`). `NavLink` İkincisi, Kullanıcı ön `active` eki olan herhangi bir `MyComponent` URL 'yi ziyaret ettiğinde sınıfı alır (örneğin, `https://localhost:5001/MyComponent` ve `https://localhost:5001/MyComponent/AnotherSegment`).
+
+Ek `NavLink` bileşen öznitelikleri, işlenen tutturucu etiketine geçirilir. Aşağıdaki örnekte, `NavLink` bileşen `target` özniteliğini içerir:
+
+```cshtml
+<NavLink href="my-page" target="_blank">My page</NavLink>
+```
+
+Aşağıdaki HTML biçimlendirmesi işlenir:
+
+```html
+<a href="my-page" target="_blank" rel="noopener noreferrer">My page</a>
+```
 
 ## <a name="uri-and-navigation-state-helpers"></a>URI ve gezinti durumu yardımcıları
 

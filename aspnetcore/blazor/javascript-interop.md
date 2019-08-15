@@ -5,14 +5,14 @@ description: Blazor Apps 'teki JavaScript 'ten .NET ve .NET yöntemlerinden Java
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 07/31/2019
+ms.date: 08/13/2019
 uid: blazor/javascript-interop
-ms.openlocfilehash: 09fbf12da5dae6fbada58e263b6a90e5d7d4a932
-ms.sourcegitcommit: 979dbfc5e9ce09b9470789989cddfcfb57079d94
+ms.openlocfilehash: ffd25fe0288159681f7fc052fc09e1f6fc425404
+ms.sourcegitcommit: f5f0ff65d4e2a961939762fb00e654491a2c772a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68681876"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69030311"
 ---
 # <a name="aspnet-core-blazor-javascript-interop"></a>ASP.NET Core Blazor JavaScript birlikte çalışması
 
@@ -121,10 +121,10 @@ Soyutlama `IJSRuntime` , sunucu tarafı senaryolara izin vermek için zaman uyum
 
 Bazı [JavaScript birlikte çalışma](xref:blazor/javascript-interop) senaryoları HTML öğelerine başvuru gerektirir. Örneğin, bir kullanıcı arabirimi kitaplığı başlatma için bir öğe başvurusu gerektirebilir veya `focus` ya `play`da gibi bir öğe üzerinde komut benzeri API 'ler çağırmanız gerekebilir.
 
-Aşağıdaki yaklaşımı kullanarak bir bileşen içindeki HTML öğelerine başvuruları yakalayabilirsiniz:
+Aşağıdaki yaklaşımı kullanarak bir bileşen içindeki HTML öğelerine başvuruları yakalayın:
 
 * HTML öğesine `@ref` bir öznitelik ekleyin.
-* Adı `@ref` özniteliğin değeriyle eşleşen bir `ElementRef` tür alanı tanımlayın.
+* Adı `@ref` özniteliğin değeriyle eşleşen bir `ElementReference` tür alanı tanımlayın.
 
 Aşağıdaki örnek, `username` `<input>` öğesine bir başvuru yakalama göstermektedir:
 
@@ -132,14 +132,14 @@ Aşağıdaki örnek, `username` `<input>` öğesine bir başvuru yakalama göste
 <input @ref="username" ... />
 
 @code {
-    ElementRef username;
+    ElementReference username;
 }
 ```
 
 > [!NOTE]
-> Blazor başvurulan öğelerle etkileşime geçtiğinde DOM 'ı doldurma veya işleme gibi yakalanan öğe **başvurularını kullanmayın.** Bunun yapılması, bildirim temelli işleme modeliyle karışabilir.
+> Blazor başvurulan öğelerle ETKILEŞIME geçtiğinde Dom 'ı doldurma veya işleme gibi yakalanan öğe başvurularını kullanmayın. Bunun yapılması, bildirim temelli işleme modeliyle karışabilir.
 
-.NET kodu açısından düşünüldüğünde, donuk bir `ElementRef` tanıtıcıdır. İle`ElementRef` yapabileceğiniz *tek* şey, JavaScript birlikte çalışması aracılığıyla JavaScript koduna geçer. Bunu yaptığınızda, JavaScript tarafı kodu normal Dom API 'leri ile kullanılabilecek `HTMLElement` bir örnek alır.
+.NET kodu açısından düşünüldüğünde, donuk bir `ElementReference` tanıtıcıdır. İle`ElementReference` yapabileceğiniz *tek* şey, JavaScript birlikte çalışması aracılığıyla JavaScript koduna geçer. Bunu yaptığınızda, JavaScript tarafı kodu normal Dom API 'leri ile kullanılabilecek `HTMLElement` bir örnek alır.
 
 Örneğin, aşağıdaki kod bir öğe üzerinde odağı ayarlamaya izin veren bir .NET genişletme yöntemi tanımlar:
 
@@ -153,14 +153,29 @@ window.exampleJsFunctions = {
 }
 ```
 
-Öğesini `IJSRuntime.InvokeAsync<T>` kullanarak bir `exampleJsFunctions.focusElement` öğesi odaklamak `ElementRef` için kullanın ve ile çağırın:
+Öğesini `IJSRuntime.InvokeAsync<T>` kullanarak bir `exampleJsFunctions.focusElement` öğesi odaklamak `ElementReference` için kullanın ve ile çağırın:
 
-[!code-cshtml[](javascript-interop/samples_snapshot/component1.razor?highlight=1,3,7,11-12)]
+```cshtml
+@inject IJSRuntime JSRuntime
+
+<input @ref="username" />
+<button @onclick="SetFocus">Set focus on username</button>
+
+@code {
+    private ElementReference username;
+
+    public async void SetFocus()
+    {
+        await JSRuntime.InvokeAsync<object>(
+                "exampleJsFunctions.focusElement", username);
+    }
+}
+```
 
 Bir öğeyi odaklamak için bir genişletme yöntemi kullanmak için, `IJSRuntime` örneği alan bir statik genişletme yöntemi oluşturun:
 
 ```csharp
-public static Task Focus(this ElementRef elementRef, IJSRuntime jsRuntime)
+public static Task Focus(this ElementReference elementRef, IJSRuntime jsRuntime)
 {
     return jsRuntime.InvokeAsync<object>(
         "exampleJsFunctions.focusElement", elementRef);
@@ -169,10 +184,71 @@ public static Task Focus(this ElementRef elementRef, IJSRuntime jsRuntime)
 
 Yöntemi doğrudan nesnesi üzerinde çağrılır. Aşağıdaki örnek, statik `Focus` metodun `JsInteropClasses` ad alanından kullanılabildiğini varsayar:
 
-[!code-cshtml[](javascript-interop/samples_snapshot/component2.razor?highlight=1,4,8,12)]
+```cshtml
+@inject IJSRuntime JSRuntime
+@using JsInteropClasses
+
+<input @ref="username" />
+<button @onclick="SetFocus">Set focus on username</button>
+
+@code {
+    private ElementReference username;
+
+    public async Task SetFocus()
+    {
+        await username.Focus(JSRuntime);
+    }
+}
+```
 
 > [!IMPORTANT]
-> `username` Değişken yalnızca bileşen işlendikten sonra doldurulur. Doldurulmamış bir `ElementRef` JavaScript koduna geçirilirse JavaScript kodu bir `null`değeri alır. Bileşen işlemeyi tamamladıktan sonra öğe başvurularını değiştirmek için (bir öğe üzerinde ilk odağı ayarlamak için) `OnAfterRenderAsync` veya `OnAfterRender` [bileşen yaşam döngüsü yöntemlerini](xref:blazor/components#lifecycle-methods) kullanın.
+> `username` Değişken yalnızca bileşen işlendikten sonra doldurulur. Doldurulmamış bir `ElementReference` JavaScript koduna geçirilirse JavaScript kodu bir `null`değeri alır. Bileşen işlemeyi tamamladıktan sonra öğe başvurularını değiştirmek için (bir öğe üzerinde ilk odağı ayarlamak için) `OnAfterRenderAsync` veya [](xref:blazor/components#lifecycle-methods) `OnAfterRender` bileşen yaşam döngüsü yöntemlerini kullanın.
+
+<!-- HOLD https://github.com/aspnet/AspNetCore.Docs/pull/13818
+Capture a reference to an HTML element in a component by adding an `@ref` attribute to the HTML element. The following example shows capturing a reference to the `username` `<input>` element:
+
+```cshtml
+<input @ref="username" ... />
+```
+
+> [!NOTE]
+> Do **not** use captured element references as a way of populating or manipulating the DOM when Blazor interacts with the elements referenced. Doing so may interfere with the declarative rendering model.
+
+As far as .NET code is concerned, an `ElementReference` is an opaque handle. The *only* thing you can do with `ElementReference` is pass it through to JavaScript code via JavaScript interop. When you do so, the JavaScript-side code receives an `HTMLElement` instance, which it can use with normal DOM APIs.
+
+For example, the following code defines a .NET extension method that enables setting the focus on an element:
+
+*exampleJsInterop.js*:
+
+```javascript
+window.exampleJsFunctions = {
+  focusElement : function (element) {
+    element.focus();
+  }
+}
+```
+
+Use `IJSRuntime.InvokeAsync<T>` and call `exampleJsFunctions.focusElement` with an `ElementReference` to focus an element:
+
+[!code-cshtml[](javascript-interop/samples_snapshot/component1.razor?highlight=1,3,9-10)]
+
+To use an extension method to focus an element, create a static extension method that receives the `IJSRuntime` instance:
+
+```csharp
+public static Task Focus(this ElementReference elementRef, IJSRuntime jsRuntime)
+{
+    return jsRuntime.InvokeAsync<object>(
+        "exampleJsFunctions.focusElement", elementRef);
+}
+```
+
+The method is called directly on the object. The following example assumes that the static `Focus` method is available from the `JsInteropClasses` namespace:
+
+[!code-cshtml[](javascript-interop/samples_snapshot/component2.razor?highlight=1,4,10)]
+
+> [!IMPORTANT]
+> The `username` variable is only populated after the component is rendered. If an unpopulated `ElementReference` is passed to JavaScript code, the JavaScript code receives a value of `null`. To manipulate element references after the component has finished rendering (to set the initial focus on an element) use the `OnAfterRenderAsync` or `OnAfterRender` [component lifecycle methods](xref:blazor/components#lifecycle-methods).
+-->
 
 ## <a name="invoke-net-methods-from-javascript-functions"></a>JavaScript işlevlerinden .NET yöntemlerini çağır
 
