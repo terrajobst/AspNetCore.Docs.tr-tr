@@ -1,16 +1,18 @@
-Aşağıdaki tabloda, ASP.NET Core Kod Oluşturucu parametreleri ayrıntıları:
+Aşağıdaki tabloda ASP.NET Core kod Oluşturucu parametrelerinin ayrıntıları verilmiştir:
 
 | Parametre               | Açıklama|
 | ----------------- | ------------ |
-| -m  | Modelin adı. |
+| -a  | Modelin adı. |
 | -dc  | Veri bağlamı. |
-| -udl | Ekran düzenini kullanın. |
-| --relativeFolderPath | Görünümleri oluşturmak için göreli çıkış klasör yolu. |
-| --useDefaultLayout | Varsayılan düzen görünümleri için kullanılmalıdır. |
-| --referenceScriptLibraries | Ekler `_ValidationScriptsPartial` düzenleyip sayfaları oluşturmak için |
+| -UDL | Varsayılan düzeni kullanın. |
+| --relativeFolderPath | Görünümleri oluşturmak için göreli çıkış klasörü yolu. |
+| --useDefaultLayout | Görünümler için varsayılan düzen kullanılmalıdır. |
+| --referenceScriptLibraries | Sayfaları `_ValidationScriptsPartial` Düzenle ve oluştur 'a ekler |
 
-Kullanım `h` hakkında Yardım almak için anahtar `aspnet-codegenerator controller` komutu:
+Komutuyla ilgili yardım almak için anahtarıkullanın:`h` `aspnet-codegenerator controller`
 
 ```console
 dotnet aspnet-codegenerator controller -h
 ```
+
+Daha fazla bilgi için bkz. [DotNet ASPNET-CodeGenerator](xref:fundamentals/tools/dotnet-aspnet-codegenerator)

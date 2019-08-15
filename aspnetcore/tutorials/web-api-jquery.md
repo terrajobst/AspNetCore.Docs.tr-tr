@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 07/20/2019
 uid: tutorials/web-api-jquery
-ms.openlocfilehash: eb8b2453fd037170a49f531fea4c3ef1c056292d
-ms.sourcegitcommit: 0efb9e219fef481dee35f7b763165e488aa6cf9c
+ms.openlocfilehash: a319e4b4ce09e9b09afeaff065d5740276deb115
+ms.sourcegitcommit: 476ea5ad86a680b7b017c6f32098acd3414c0f6c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68602587"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69022554"
 ---
 # <a name="tutorial-call-an-aspnet-core-web-api-with-jquery"></a>Öğretici: JQuery ile ASP.NET Core Web API 'SI çağırma
 
@@ -29,7 +29,8 @@ ASP.NET Core 2,2 için, [Web API 'Sini jQuery Ile çağırma](xref:tutorials/fir
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Tüm [öğreticiyi: Web API 'SI oluşturma](xref:tutorials/first-web-api)
+* Tüm [öğreticiyi: Web API 'SI oluşturma](xref:tutorials/first-web-api)
+* CSS, HTML, JavaScript ve jQuery ile benzerlik
 
 ## <a name="call-the-api-with-jquery"></a>JQuery ile API çağırma
 

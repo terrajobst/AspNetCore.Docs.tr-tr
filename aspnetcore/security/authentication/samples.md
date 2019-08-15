@@ -1,34 +1,59 @@
 ---
-title: ASP.NET Core kimlik doğrulaması örnekleri
+title: ASP.NET Core için kimlik doğrulama örnekleri
 author: rick-anderson
-description: ASP.NET Core depodaki kimlik doğrulaması örneklere bağlantılar sağlar.
+description: ASP.NET Core deposundaki kimlik doğrulama örneklerine bağlantılar sağlar.
 ms.author: riande
 ms.date: 01/31/2019
 uid: security/authentication/samples
-ms.openlocfilehash: 7b3c911d60ad4737ebd12ce6f7628ad624b11658
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: efa177245faceddad4eb80de9e6f6d38e1a4261c
+ms.sourcegitcommit: 476ea5ad86a680b7b017c6f32098acd3414c0f6c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64902936"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69022417"
 ---
-# <a name="authentication-samples-for-aspnet-core"></a>ASP.NET Core kimlik doğrulaması örnekleri
+# <a name="authentication-samples-for-aspnet-core"></a>ASP.NET Core için kimlik doğrulama örnekleri
 
 Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-[ASP.NET Core depo](https://github.com/aspnet/AspNetCore) aşağıdaki kimlik doğrulama örnekleri içeren *AspNetCore/src/güvenlik/samples* klasörü:
+::: moniker range=">= aspnetcore-3.0"
+
+[ASP.NET Core deposu](https://github.com/aspnet/AspNetCore) , *aspnetcore/src/Security/Samples* klasöründe aşağıdaki kimlik doğrulama örneklerini içerir:
 
 * [Talep dönüştürme](https://github.com/aspnet/AspNetCore/tree/release/2.2/src/Security/samples/ClaimsTransformation)
 * [Tanımlama bilgisi kimlik doğrulaması](https://github.com/aspnet/AspNetCore/tree/release/2.2/src/Security/samples/Cookies)
-* [Özel ilke sağlayıcısı - IAuthorizationPolicyProvider](https://github.com/aspnet/AspNetCore/tree/release/2.2/src/Security/samples/CustomPolicyProvider)
-* [Dinamik kimlik doğrulama düzenleri ve seçenekleri](https://github.com/aspnet/AspNetCore/tree/release/2.2/src/Security/samples/DynamicSchemes)
-* [Dış talep](https://github.com/aspnet/AspNetCore/tree/release/2.2/src/Security/samples/Identity.ExternalClaims)
-* [Tanımlama bilgisi ve yanıtı temel alarak başka bir kimlik doğrulama düzeni arasında seçme](https://github.com/aspnet/AspNetCore/tree/release/2.2/src/Security/samples/PathSchemeSelection)
-* [Statik dosyalar için erişimi kısıtlar](https://github.com/aspnet/AspNetCore/tree/release/2.2/src/Security/samples/StaticFilesAuth)
+* [Özel ilke sağlayıcısı-ıauthorizationpolicyprovider](https://github.com/aspnet/AspNetCore/tree/release/2.2/src/Security/samples/CustomPolicyProvider)
+* [Dinamik kimlik doğrulama şemaları ve seçenekleri](https://github.com/aspnet/AspNetCore/tree/release/2.2/src/Security/samples/DynamicSchemes)
+* [Dış talepler](https://github.com/aspnet/AspNetCore/tree/release/2.2/src/Security/samples/Identity.ExternalClaims)
+* [İsteğe bağlı tanımlama bilgisi ve başka bir kimlik doğrulama düzeni arasında seçim yapma](https://github.com/aspnet/AspNetCore/tree/release/2.2/src/Security/samples/PathSchemeSelection)
+* [Statik dosyalara erişimi kısıtlar](https://github.com/aspnet/AspNetCore/tree/release/2.2/src/Security/samples/StaticFilesAuth)
 
-## <a name="run-the-samples"></a>Örnekleri çalıştırma
+## <a name="run-the-samples"></a>Örnekleri çalıştırın
 
-* Seçin bir [dal](https://github.com/aspnet/AspNetCore). Örneğin, `release/2.2`
-* Kopyala veya indir [ASP.NET Core depo](https://github.com/aspnet/AspNetCore).
-* Yüklediğiniz doğrulayın [.NET Core SDK'sı](https://www.microsoft.com/net/download/all) ASP.NET Core deponun kopyasını eşleşen sürümü.
-* Bir örnek gidin *AspNetCore/src/güvenlik/samples* örnekle çalıştırıp `dotnet run`.
+* Bir [dal](https://github.com/aspnet/AspNetCore)seçin. Örneğin, `Tag:v3.0.0`
+* [ASP.NET Core deposunu](https://github.com/aspnet/AspNetCore)kopyalayın veya indirin.
+* ASP.NET Core deposunun kopyası ile eşleşen [.NET Core SDK](https://www.microsoft.com/net/download/all) sürümünü yüklediğinizi doğrulayın.
+* *Aspnetcore/src/Security/Samples* içindeki bir örneğe gidin ve örneği ile `dotnet run`çalıştırın.
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
+
+[ASP.NET Core deposu](https://github.com/aspnet/AspNetCore) , *aspnetcore/src/Security/Samples* klasöründe aşağıdaki kimlik doğrulama örneklerini içerir:
+
+* [Talep dönüştürme](https://github.com/aspnet/AspNetCore/tree/release/2.2/src/Security/samples/ClaimsTransformation)
+* [Tanımlama bilgisi kimlik doğrulaması](https://github.com/aspnet/AspNetCore/tree/release/2.2/src/Security/samples/Cookies)
+* [Özel ilke sağlayıcısı-ıauthorizationpolicyprovider](https://github.com/aspnet/AspNetCore/tree/release/2.2/src/Security/samples/CustomPolicyProvider)
+* [Dinamik kimlik doğrulama şemaları ve seçenekleri](https://github.com/aspnet/AspNetCore/tree/release/2.2/src/Security/samples/DynamicSchemes)
+* [Dış talepler](https://github.com/aspnet/AspNetCore/tree/release/2.2/src/Security/samples/Identity.ExternalClaims)
+* [İsteğe bağlı tanımlama bilgisi ve başka bir kimlik doğrulama düzeni arasında seçim yapma](https://github.com/aspnet/AspNetCore/tree/release/2.2/src/Security/samples/PathSchemeSelection)
+* [Statik dosyalara erişimi kısıtlar](https://github.com/aspnet/AspNetCore/tree/release/2.2/src/Security/samples/StaticFilesAuth)
+
+## <a name="run-the-samples"></a>Örnekleri çalıştırın
+
+* Bir [dal](https://github.com/aspnet/AspNetCore)seçin. Örneğin, `release/2.2`
+* [ASP.NET Core deposunu](https://github.com/aspnet/AspNetCore)kopyalayın veya indirin.
+* ASP.NET Core deposunun kopyası ile eşleşen [.NET Core SDK](https://www.microsoft.com/net/download/all) sürümünü yüklediğinizi doğrulayın.
+* *Aspnetcore/src/Security/Samples* içindeki bir örneğe gidin ve örneği ile `dotnet run`çalıştırın.
+
+::: moniker-end

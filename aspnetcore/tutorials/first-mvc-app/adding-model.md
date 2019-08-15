@@ -1,38 +1,401 @@
 ---
-title: Bir ASP.NET Core MVC uygulaması için bir model ekleme
+title: ASP.NET Core MVC uygulamasına model ekleme
 author: rick-anderson
-description: Bir model için basit bir ASP.NET Core uygulamasını ekleyin.
+description: Basit bir ASP.NET Core uygulamasına model ekleyin.
 ms.author: riande
-ms.date: 02/25/2019
+ms.date: 8/15/2019
 uid: tutorials/first-mvc-app/adding-model
-ms.openlocfilehash: fcfe97e2228c21ffea8fe7ec5df8e2ea9c398828
-ms.sourcegitcommit: 1bb3f3f1905b4e7d4ca1b314f2ce6ee5dd8be75f
+ms.openlocfilehash: 038ea8cf7c72e4aaca6e06c0208d3dd1d5597577
+ms.sourcegitcommit: 476ea5ad86a680b7b017c6f32098acd3414c0f6c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2019
-ms.locfileid: "66837323"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69022455"
 ---
-# <a name="add-a-model-to-an-aspnet-core-mvc-app"></a>Bir ASP.NET Core MVC uygulaması için bir model ekleme
+# <a name="add-a-model-to-an-aspnet-core-mvc-app"></a>ASP.NET Core MVC uygulamasına model ekleme
 
-Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT) ve [Tom Dykstra](https://github.com/tdykstra)
+[Rick Anderson](https://twitter.com/RickAndMSFT) ve [Tom Dykstra](https://github.com/tdykstra) tarafından
 
-Bu bölümde, bir veritabanında filmler yönetmek için sınıflar ekleyin. Bu sınıflar olacaktır "**M**odel" parçası **M**VC uygulama.
+Bu bölümde, bir veritabanında film yönetmeye yönelik sınıflar eklersiniz. Bu sınıflar, **d**VC uygulamasının "**d**odel" parçası olacaktır.
 
-Bu sınıflar ile kullandığınız [Entity Framework Core](/ef/core) bir veritabanıyla çalışmak için (EF Core). EF Core, yazmanız gereken veri erişim kodu kolaylaştıran bir nesne ilişkisel eşleme (ORM) çerçevedir.
+Bu sınıfları bir veritabanıyla çalışmak için [Entity Framework Core](/ef/core) (EF Core) ile birlikte kullanırsınız. EF Core, yazmanız gereken veri erişim kodunu kolaylaştıran bir nesne ilişkisel eşleme (ORM) çerçevesidir.
 
-Oluşturduğunuz modeli sınıfları POCO sınıfları olarak bilinen (gelen **P**larak **O**ld **C**LR **O**nesnelerin) herhangi bir bağımlılık sahiptirler yoktur çünkü EF Core. Bunlar yalnızca veritabanında depolanan verilerin özelliklerini tanımlayın.
+Oluşturduğunuz model sınıfları, EF Core hiçbir bağımlılığı olmadığından, POCO sınıfları olarak bilinir ( **P**Lain **O**). Yalnızca veritabanında depolanacak verilerin özelliklerini tanımlar.
 
-Bu öğreticide model sınıfları ilk yazma ve EF Core veritabanı oluşturur. Burada ele alınmamaktadır alternatif bir yaklaşım, varolan bir veritabanından model sınıfları oluşturmaktır. Bu yaklaşımı hakkında daha fazla bilgi için bkz. [ASP.NET Core - mevcut veritabanı](/ef/core/get-started/aspnetcore/existing-db).
+Bu öğreticide, önce model sınıflarını yazdığınızda EF Core veritabanını oluşturur. Burada kapsanmayan alternatif bir yaklaşım var olan bir veritabanından model sınıfları oluşturmaktır. Bu yaklaşım hakkında daha fazla bilgi için bkz. [ASP.NET Core-var olan veritabanı](/ef/core/get-started/aspnetcore/existing-db).
 
-## <a name="add-a-data-model-class"></a>Bir veri modeli sınıfı Ekle
+::: moniker range=">= aspnetcore-3.0"
+
+## <a name="add-a-data-model-class"></a>Veri modeli sınıfı ekleme
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-Sağ *modelleri* klasör > **Ekle** > **sınıfı**. Sınıf adı **film**.
+**Sınıf**Ekle > > *modeller* klasörüne sağ tıklayın. Dosyayı *Movie.cs*olarak adlandırın.
+
+# <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Visual Studio Code/Mac için Visual Studio](#tab/visual-studio-code+visual-studio-mac)
+
+*Modeller* klasörüne *Movie.cs* adlı bir dosya ekleyin.
+
+---
+
+*Movie.cs* dosyasını aşağıdaki kodla güncelleştirin:
+
+[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie3/Models/Movie.cs)]
+
+Sınıfı, birincil anahtar `Id` için veritabanı için gerekli olan bir alanı içerir. `Movie`
+
+`Date`Üzerindeki [](/dotnet/api/microsoft.aspnetcore.mvc.dataannotations.internal.datatypeattributeadapter) `ReleaseDate` DataType özniteliği, veri türünü belirtir (). Bu öznitelikle:
+
+  * Kullanıcının Tarih alanına saat bilgilerini girmesi gerekli değildir.
+  * Zaman bilgisi değil yalnızca tarih görüntülenir.
+
+[Veri açıklamaları](/dotnet/api/system.componentmodel.dataannotations) sonraki bir öğreticide ele alınmıştır.
+
+## <a name="add-nuget-packages"></a>NuGet paketleri Ekle
+
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+
+**Araçlar** menüsünde **NuGet Paket Yöneticisi** > **Paket Yöneticisi konsolu** (PMC) öğesini seçin.
+
+![PMC menüsü](~/tutorials/first-mvc-app/adding-model/_static/pmc.png)
+
+PMC 'de şu komutu çalıştırın:
+
+```powershell
+Install-Package Microsoft.EntityFrameworkCore.SqlServer -IncludePrerelease
+```
+
+Yukarıdaki komut, EF Core SQL Server sağlayıcısını ekler. Sağlayıcı paketi, EF Core paketini bir bağımlılık olarak yüklüyor. Ek paketler, öğreticinin sonraki bölümlerinde bulunan yapı iskelesi adımında otomatik olarak yüklenir.
+
+# <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Visual Studio Code/Mac için Visual Studio](#tab/visual-studio-code+visual-studio-mac)
+
+Aşağıdaki .NET Core CLI komutları çalıştırın:
+
+```console
+dotnet tool install --global dotnet-ef --version 3.0.0-*
+dotnet add package Microsoft.EntityFrameworkCore.SQLite --version 3.0.0-*
+dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design --version 3.0.0-*
+dotnet add package Microsoft.EntityFrameworkCore.Design --version 3.0.0-*
+dotnet add package Microsoft.EntityFrameworkCore.SqlServer --version 3.0.0-*
+```
+
+Yukarıdaki komutlar şunları ekler:
+
+* .NET CLı için Entity Framework Core araçları.
+* EF Core paketini bir bağımlılık olarak yükleyecek EF Core SQLite sağlayıcı.
+* Yapı iskelesi için gereken paketler: `Microsoft.VisualStudio.Web.CodeGeneration.Design` ve `Microsoft.EntityFrameworkCore.SqlServer`.
+
+---
+
+<a name="dc"></a>
+
+## <a name="create-a-database-context-class"></a>Veritabanı bağlamı sınıfı oluşturma
+
+`Movie` Model için EF Core işlevselliği (oluşturma, okuma, güncelleştirme, silme) koordine etmek için bir veritabanı bağlamı sınıfı gerekir. Veritabanı bağlamı [Microsoft. EntityFrameworkCore. DbContext](/dotnet/api/microsoft.entityframeworkcore.dbcontext) öğesinden türetilir ve veri modeline dahil edilecek varlıkları belirtir.
+
+Bir *veri* klasörü oluşturun.
+
+Aşağıdaki kodla bir *Data/MvcMovieContext. cs* dosyası ekleyin: 
+
+[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie3/zDocOnly/MvcMovieContext.cs?name=snippet)]
+
+Önceki kod, varlık kümesi için bir [dbset\<filmi >](/dotnet/api/microsoft.entityframeworkcore.dbset-1) özelliği oluşturur. Entity Framework terminolojisinde, bir varlık kümesini genellikle bir veritabanı tablosuna karşılık gelir. Bir varlık tablosunda bir satıra karşılık gelir.
+
+<a name="reg"></a>
+
+## <a name="register-the-database-context"></a>Veritabanı bağlamı Kaydet
+
+ASP.NET Core, [bağımlılık ekleme (dı)](xref:fundamentals/dependency-injection)ile oluşturulmuştur. Hizmetlerin (EF Core DB bağlamı gibi) uygulama başlatma sırasında DI ile kayıtlı olması gerekir. Bu hizmetler (örneğin, Razor sayfaları) gerektiren bileşenler bu hizmetler Oluşturucu parametresi üzerinden sağlanır. Bir DB bağlamı örneği alır Oluşturucu kodu öğreticinin ilerleyen bölümlerinde gösterilmektedir. Bu bölümde, veritabanı bağlamını dı kapsayıcısına kaydedersiniz.
+
+Aşağıdaki `using` deyimlerini *Startup.cs*üst kısmına ekleyin:
+
+```csharp
+using MvcMovie.Data;
+using Microsoft.EntityFrameworkCore;
+```
+
+Aşağıdaki Vurgulanan kodu içine `Startup.ConfigureServices`ekleyin:
+
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+
+[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie3/Startup.cs?name=snippet_ConfigureServices&highlight=6-7)]
+
+# <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Visual Studio Code/Mac için Visual Studio](#tab/visual-studio-code+visual-studio-mac)
+
+[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie3/Startup.cs?name=snippet_UseSqlite&highlight=6-7)]
+
+---
+
+Bağlantı dizesi adı için bağlam üzerinde bir yöntemi çağırarak geçirilen bir [DbContextOptions](/dotnet/api/microsoft.entityframeworkcore.dbcontextoptions) nesne. Yerel geliştirme için [ASP.NET Core yapılandırma sistemi](xref:fundamentals/configuration/index) bağlantı dizesinden okur *appsettings.json* dosya.
+
+<a name="cs"></a>
+
+## <a name="add-a-database-connection-string"></a>Veritabanı bağlantı dizesi Ekle
+
+*AppSettings. JSON* dosyasına bir bağlantı dizesi ekleyin:
+
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+
+[!code-json[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie3/appsettings.json?highlight=10-12)]
+
+# <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Visual Studio Code/Mac için Visual Studio](#tab/visual-studio-code+visual-studio-mac)
+
+[!code-json[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie3/appsettings_SQLite.json?highlight=10-12)]
+
+---
+
+Projeyi derleyici hatalarına yönelik bir denetim olarak derleyin.
+
+## <a name="scaffold-movie-pages"></a>Yapı iskelesi film sayfaları
+
+Film modeli için oluşturma, okuma, güncelleştirme ve silme (CRUD) sayfaları üretmek için scafkatlama aracını kullanın.
+
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+
+**Çözüm Gezgini**, *denetleyiciler* klasörüne sağ tıklayıp **yeni > yapı iskelesi > öğesi ekleyin**.
+
+![Yukarıdaki adımın görünümü](adding-model/_static/add_controller21.png)
+
+**Yapı Ekle** iletişim kutusunda, **Entity Framework > Ekle ' yi kullanarak views ile MVC denetleyicisi '** ni seçin.
+
+![Yapı Iskelesi Ekle iletişim kutusu](adding-model/_static/add_scaffold21.png)
+
+**Denetleyici Ekle** iletişim kutusunu doldurun:
+
+* **Model Sınıfı:** *Film (MvcMovie. modeller)*
+* **Veri bağlamı sınıfı:** *MvcMovieContext (MvcMovie. Data)*
+
+![Veri bağlamı Ekle](adding-model/_static/dc3.png)
+
+* **Görünümler:** Her seçeneğin varsayılan kısmını işaretli tut
+* **Denetleyici adı:** Varsayılan *MoviesController* tut
+* **Ekle** 'yi seçin
+
+Visual Studio şunları oluşturur:
+
+* Bir filmler denetleyicisi (*denetleyiciler/MoviesController. cs*)
+* Razor oluşturma, silme, ayrıntılar, düzenleme ve dizin sayfaları için dosyaları görüntüleme (*Görünümler/filmler/\*. cshtml*)
+
+Bu dosyaların otomatik olarak oluşturulması, *Yapı iskelesi*olarak bilinir.
+
+### <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code) 
+
+* Proje dizininde bir komut penceresi açın (içeren dizine *Program.cs*, *Startup.cs*, ve *.csproj* dosyaları).
+
+* Linux 'ta, scafkatlama aracı yolunu dışarı aktarın:
+
+  ```console
+    export PATH=$HOME/.dotnet/tools:$PATH
+  ```
+
+* Şu komutu çalıştırın:
+
+  ```console
+     dotnet aspnet-codegenerator controller -name MoviesController -m Movie -dc MvcMovieContext --relativeFolderPath Controllers --useDefaultLayout --referenceScriptLibraries
+  ```
+
+  [!INCLUDE [explains scaffold generated params](~/includes/mvc-intro/model4.md)]
+
+### <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Mac için Visual Studio](#tab/visual-studio-mac)
+
+* Proje dizininde bir komut penceresi açın (içeren dizine *Program.cs*, *Startup.cs*, ve *.csproj* dosyaları).
+
+* Şu komutu çalıştırın:
+
+  ```console
+     dotnet aspnet-codegenerator controller -name MoviesController -m Movie -dc MvcMovieContext --relativeFolderPath Controllers --useDefaultLayout --referenceScriptLibraries
+  ```
+
+  [!INCLUDE [explains scaffold generated params](~/includes/mvc-intro/model4.md)]
+
+---
+
+<!-- End of tabs                  -->
+
+Veritabanı mevcut olmadığından, scafkatmış sayfaları henüz kullanamazsınız. Uygulamayı çalıştırır ve **film uygulaması** bağlantısına tıklarsanız, *veritabanı* açılamıyor veya *böyle bir tablo yok: Film* hata iletisi.
+
+<a name="migration"></a>
+
+## <a name="initial-migration"></a>İlk geçiş
+
+Veritabanını oluşturmak için EF Core [geçişleri](xref:data/ef-mvc/migrations) özelliğini kullanın. Geçişler, veri modelinizle eşleşecek bir veritabanı oluşturmanıza ve güncelleştirmenize olanak sağlayan bir araç kümesidir.
+
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+
+**Araçlar** menüsünde **NuGet Paket Yöneticisi** > **Paket Yöneticisi konsolu** (PMC) öğesini seçin.
+
+PMC'de aşağıdaki komutları girin:
+
+```console
+Add-Migration InitialCreate
+Update-Database
+```
+
+* `Add-Migration InitialCreate`: Bir *geçişler/{timestamp} _ınitialcreate. cs* geçiş dosyası oluşturur. `InitialCreate` Bağımsız değişkeni geçiş adıdır. Herhangi bir ad kullanılabilir, ancak kurala göre, geçişi açıklayan bir ad seçilidir. Bu ilk geçiş olduğundan, oluşturulan sınıf veritabanı şemasını oluşturmak için kod içerir. Veritabanı şeması, `MvcMovieContext` sınıfında belirtilen modeli temel alır.
+
+* `Update-Database`: Veritabanını, önceki komutun oluşturulduğu en son geçişe güncelleştirir. Bu komut, veritabanını `Up` oluşturan *geçişler/{Time-damga} _ınitialcreate. cs* dosyasındaki yöntemini çalıştırır.
+
+  Database Update komutu aşağıdaki uyarıyı üretir: 
+
+  > ' Movie ' varlık türündeki ' Price ' ondalık sütunu için tür belirtilmedi. Bu, varsayılan duyarlık ve ölçeğe uygun olmadıkları takdirde değerlerin sessizce kesilmesine neden olur. ' Hasccolumntype () ' kullanarak tüm değerleri barındırabilecek SQL Server sütun türünü açıkça belirtin.
+
+  Bu uyarıyı yoksayabilirsiniz, daha sonraki bir öğreticide düzeltilecektir.
+
+[!INCLUDE [more information on the PMC tools for EF Core](~/includes/ef-pmc.md)]
+
+# <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Visual Studio Code/Mac için Visual Studio](#tab/visual-studio-code+visual-studio-mac)
+
+Aşağıdaki .NET Core CLI komutları çalıştırın:
+
+```console
+dotnet ef migrations add InitialCreate
+dotnet ef database update
+```
+
+* `ef migrations add InitialCreate`: Bir *geçişler/{timestamp} _ınitialcreate. cs* geçiş dosyası oluşturur. `InitialCreate` Bağımsız değişkeni geçiş adıdır. Herhangi bir ad kullanılabilir, ancak kurala göre, geçişi açıklayan bir ad seçilidir. Bu ilk geçiş olduğundan, oluşturulan sınıf veritabanı şemasını oluşturmak için kod içerir. Veritabanı şeması `MvcMovieContext` sınıfında belirtilen modeli temel alır ( *Data/mvcmoviecontext. cs* dosyasında).
+
+* `ef database update`: Veritabanını, önceki komutun oluşturulduğu en son geçişe güncelleştirir. Bu komut, veritabanını `Up` oluşturan *geçişler/{Time-damga} _ınitialcreate. cs* dosyasındaki yöntemini çalıştırır.
+
+[!INCLUDE [ more information on the CLI tools for EF Core](~/includes/ef-cli.md)]
+
+---
+
+### <a name="the-initialcreate-class"></a>Initialcreate sınıfı
+
+*Geçişleri/{timestamp} _ınitialcreate. cs* geçiş dosyasını inceleyin:
+
+[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie3/Migrations/20190805165915_InitialCreate.cs?name=snippet)]
+
+ Yöntemi, film tablosunu oluşturur ve birincil anahtar `Id` olarak yapılandırır. `Up` Yöntemi, `Up` geçiş tarafından yapılan şema değişikliklerini geri alır. `Down`
+
+<a name="test"></a>
+
+## <a name="test-the-app"></a>Uygulamayı test etme
+
+* Uygulamayı çalıştırın ve **film uygulaması** bağlantısına tıklayın.
+
+  Aşağıdakilerden birine benzer bir özel durum alırsanız:
+
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+
+  ```console
+  SqlException: Cannot open database "MvcMovieContext-1" requested by the login. The login failed.
+  ```
+
+# <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Visual Studio Code/Mac için Visual Studio](#tab/visual-studio-code+visual-studio-mac)
+
+  ```console
+  SqliteException: SQLite Error 1: 'no such table: Movie'.
+  ```
+
+---
+  Muhtemelen [geçişler adımını](#migration)kaçırdınız.
+
+* **Oluştur** sayfasını test edin. Veri girin ve gönderebilirsiniz.
+
+  > [!NOTE]
+  > Ondalık virgül kullanımı girmeniz mümkün olmayabilir `Price` alan. Desteklemek için [jQuery doğrulama](https://jqueryvalidation.org/) virgül İngilizce olmayan yerel (",") bir ondalık noktasının ve ABD İngilizce olmayan tarih biçimleri, uygulamayı Eğer gerekir. Genelleştirme hakkında yönergeler için bkz. [bu GitHub sorunu](https://github.com/aspnet/AspNetCore.Docs/issues/4076#issuecomment-326590420).
+
+* **Düzenleme**, **Ayrıntılar**ve **silme** sayfalarını test edin.
+
+## <a name="dependency-injection-in-the-controller"></a>Denetleyiciye bağımlılık ekleme
+
+*Controllers/MoviesController. cs* dosyasını açın ve oluşturucuyu inceleyin:
+
+<!-- l.. Make copy of Movies controller (or use the old one as I did in the 3.0 upgrade) because we comment out the initial index method and update it later  -->
+
+[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie22/Controllers/MC1.cs?name=snippet_1)]
+
+Oluşturucu, veritabanı bağlamını (`MvcMovieContext`) denetleyiciye eklemek için [bağımlılık ekleme](xref:fundamentals/dependency-injection) işlemini kullanır. Her bir veritabanı bağlamı kullanılan [CRUD](https://wikipedia.org/wiki/Create,_read,_update_and_delete) denetleyici yöntemleri.
+
+<a name="strongly-typed-models-keyword-label"></a>
+<a name="strongly-typed-models-and-the--keyword"></a>
+
+## <a name="strongly-typed-models-and-the-model-keyword"></a>Türü kesin belirlenmiş modeller ve @model anahtar sözcüğü
+
+Bu öğreticide daha önce, bir denetleyicinin `ViewData` sözlüğü kullanarak bir görünüme nasıl veri veya nesne geçirekullanabileceğinizi gördünüz. Sözlük `ViewData` , bir görünüme bilgi geçirmek için uygun, geç bağlanan bir yol sağlayan dinamik bir nesnedir.
+
+MVC Ayrıca, kesin olarak belirlenmiş model nesnelerini bir görünüme geçirmeye olanak tanır. Bu kesin türü belirtilmiş yaklaşım derleme zamanı kodu denetimini sunar. Yapı iskelesi mekanizması bu yaklaşımı (yani, türü kesin belirlenmiş bir model geçirerek) `MoviesController` sınıf ve görünümlerle kullandı.
+
+`Details` *Controllers/MoviesController. cs* dosyasındaki oluşturulan yöntemi inceleyin:
+
+[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie22/Controllers/MC1.cs?name=snippet_details)]
+
+`id` Parametre genellikle rota verileri olarak geçirilir. Örneğin `https://localhost:5001/movies/details/1` :
+
+* `movies` Denetleyicinin denetleyicisi (ilk URL segmenti).
+* Eylem `details` (ikinci URL segmenti).
+* Kimliği 1 ' e (son URL segmenti).
+
+Ayrıca, `id` aşağıdaki gibi bir sorgu dizesi ile de geçiş yapabilirsiniz:
+
+`https://localhost:5001/movies/details?id=1`
+
+Parametre `id` , bir kimlik değeri sağlanmadığından [null yapılabilir](/dotnet/csharp/programming-guide/nullable-types/index) bir`int?`tür () olarak tanımlanır.
+
+Bir [lambda ifadesi](/dotnet/articles/csharp/programming-guide/statements-expressions-operators/lambda-expressions) , rota verileriyle veya `FirstOrDefaultAsync` sorgu dizesi değeriyle eşleşen film varlıklarını seçmek için öğesine geçirilir.
+
+```csharp
+var movie = await _context.Movie
+    .FirstOrDefaultAsync(m => m.Id == id);
+```
+
+Bir film bulunursa, `Movie` `Details` görünüme bir model örneği geçirilir:
+
+```csharp
+return View(movie);
+   ```
+
+*Görünümler/filmler/ayrıntılar. cshtml* dosyasının içeriğini inceleyin:
+
+[!code-html[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie22/Views/Movies/DetailsOriginal.cshtml)]
+
+Görünüm dosyasının en üstündeki ifade,görünümünbeklediğinesnetürünübelirtir.`@model` Film denetleyicisi oluşturulduğunda, aşağıdaki `@model` ifade eklenmiştir:
+
+```HTML
+@model MvcMovie.Models.Movie
+   ```
+
+Bu `@model` yönerge, denetleyicinin görünüme geçirildiği filme erişimine izin verir. `Model` Nesne kesin olarak belirlenmiş. Örneğin, *details. cshtml* görünümünde, kod her film alanını `DisplayNameFor` `DisplayFor` türü kesin belirlenmiş `Model` nesne ile HTML yardımcılarının içine geçirir. Ve yöntemleri ve görünümleri de bir `Movie` model nesnesi iletir. `Edit` `Create`
+
+*Index. cshtml* görünümünü ve `Index` filmler denetleyicisindeki yöntemini inceleyin. Yöntemi çağırdığında kodun nasıl bir `List` nesne oluşturduğunu fark edin. `View` Kod bu `Movies` listeyi `Index` eylem yönteminden görünüme geçirir:
+
+[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie22/Controllers/MC1.cs?name=snippet_index)]
+
+Film denetleyicisi oluşturulduğunda, yapı iskelesi *Index. cshtml* dosyasının en üstüne `@model` aşağıdaki ifadeyi içeriyordu:
+
+<!-- Copy Index.cshtml to IndexOriginal.cshtml -->
+
+[!code-html[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie22/Views/Movies/IndexOriginal.cshtml?range=1)]
+
+Yönergesi, kesin olarak belirlenmiş bir `Model` nesne kullanarak denetleyicinin görünüme geçirildiği film listesine erişmenizi sağlar. `@model` Örneğin, *Index. cshtml* görünümünde, kod kesin türü belirtilmiş `foreach` `Model` nesne üzerinde bir deyimle birlikte filmlerde döngü yapılır:
+
+[!code-html[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie22/Views/Movies/IndexOriginal.cshtml?highlight=1,31,34,37,40,43,46-48)]
+
+Nesne türü kesin belirlenmiş olduğundan (bir `IEnumerable<Movie>` nesne olarak), döngüdeki her öğe olarak `Movie`yazılır. `Model` Diğer avantajların yanı sıra, kodu derleme zaman denetimini alacağınız anlamına gelir.
+
+## <a name="additional-resources"></a>Ek kaynaklar
+
+* [Etiket Yardımcıları](xref:mvc/views/tag-helpers/intro)
+* [Genelleştirme ve yerelleştirme](xref:fundamentals/localization)
+
+> [!div class="step-by-step"]
+> [Daha önce](adding-view.md)
+> [SQL ile çalışan](working-with-sql.md) bir görünüm ekleme
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
+
+## <a name="add-a-data-model-class"></a>Veri modeli sınıfı ekleme
+
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+
+**Sınıf**Ekle > > *modeller* klasörüne sağ tıklayın. Sınıf adı **film**.
 
 [!INCLUDE [model 1b](~/includes/mvc-intro/model1b.md)]
 
-# <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Visual Studio Code'u / Visual Studio Mac için](#tab/visual-studio-code+visual-studio-mac)
+# <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Visual Studio Code/Mac için Visual Studio](#tab/visual-studio-code+visual-studio-mac)
 
 * Bir sınıfa eklemek *modelleri* adlı klasöre *Movie.cs*.
 
@@ -47,34 +410,34 @@ Bu bölümde, film modeli iskele kurulmuş. Diğer bir deyişle, yapı iskelesi 
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-İçinde **Çözüm Gezgini**, sağ *denetleyicileri* klasör **> Ekle > Yeni iskele kurulmuş öğe**.
+**Çözüm Gezgini**, *denetleyiciler* klasörüne sağ tıklayıp **yeni > yapı iskelesi > öğesi ekleyin**.
 
-![Yukarıdaki adımı görünümü](adding-model/_static/add_controller21.png)
+![Yukarıdaki adımın görünümü](adding-model/_static/add_controller21.png)
 
-İçinde **İskele Ekle** iletişim kutusunda **MVC denetleyici Entity Framework kullanarak görünümler ile > Ekle**.
+**Yapı Ekle** iletişim kutusunda, **Entity Framework > Ekle ' yi kullanarak views ile MVC denetleyicisi '** ni seçin.
 
-![İskele iletişim kutusu Ekle](adding-model/_static/add_scaffold21.png)
+![Yapı Iskelesi Ekle iletişim kutusu](adding-model/_static/add_scaffold21.png)
 
-Tamamlamak **denetleyici Ekle** iletişim:
+**Denetleyici Ekle** iletişim kutusunu doldurun:
 
-* **Model sınıfı:** *Film (MvcMovie.Models)*
-* **Veri bağlamı sınıfı:** Seçin **+** simgesi ve varsayılan ekleme **MvcMovie.Models.MvcMovieContext**
+* **Model Sınıfı:** *Film (MvcMovie. modeller)*
+* **Veri bağlamı sınıfı:** Simgeyi seçin ve varsayılan **mvcmovie. modeller. mvcmoviecontext öğesini ekleyin** **+**
 
 ![Veri bağlamı Ekle](adding-model/_static/dc.png)
 
-* **Görünümler:** Varsayılan her bir seçeneğin işaretli bırakın
-* **Denetleyici adı:** Varsayılan tutun *MoviesController*
-* Seçin **Ekle**
+* **Görünümler:** Her seçeneğin varsayılan kısmını işaretli tut
+* **Denetleyici adı:** Varsayılan *MoviesController* tut
+* **Ekle** 'yi seçin
 
 ![Denetleyici Ekle iletişim kutusu](adding-model/_static/add_controller2.png)
 
-Visual Studio oluşturur:
+Visual Studio şunları oluşturur:
 
-* Bir Entity Framework Core [veritabanı bağlamı sınıfının](xref:data/ef-mvc/intro#create-the-database-context) (*Data/MvcMovieContext.cs*)
-* Denetleyici filmler (*Controllers/MoviesController.cs*)
-* Razor görünümü oluştur, Sil, Ayrıntılar, düzenleme ve dizin sayfaları için dosyaları (*görünümler/filmler/\*.cshtml*)
+* Entity Framework Core [veritabanı bağlam sınıfı](xref:data/ef-mvc/intro#create-the-database-context) (*Data/MvcMovieContext. cs*)
+* Bir filmler denetleyicisi (*denetleyiciler/MoviesController. cs*)
+* Razor oluşturma, silme, ayrıntılar, düzenleme ve dizin sayfaları için dosyaları görüntüleme (*Görünümler/filmler/\*. cshtml*)
 
-Veritabanı bağlamı otomatik olarak oluşturulmasını ve [CRUD](https://wikipedia.org/wiki/Create,_read,_update_and_delete) (oluşturma, okuma, güncelleştirme ve silme) eylem metotları ve görünümleri olarak bilinir *yapı iskelesi*.
+Veritabanı bağlamı ve [CRUD](https://wikipedia.org/wiki/Create,_read,_update_and_delete) (oluşturma, okuma, güncelleştirme ve silme) eylem yöntemlerinin ve görünümlerinin otomatik olarak oluşturulması, *Yapı iskelesi*olarak bilinir.
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
@@ -87,6 +450,12 @@ Veritabanı bağlamı otomatik olarak oluşturulmasını ve [CRUD](https://wikip
   ```console
    dotnet tool install --global dotnet-aspnet-codegenerator
    ```
+
+* Linux 'ta, scafkatlama aracı yolunu dışarı aktarın:
+
+  ```console
+    export PATH=$HOME/.dotnet/tools:$PATH
+  ```
 
 * Şu komutu çalıştırın:
 
@@ -113,13 +482,15 @@ Veritabanı bağlamı otomatik olarak oluşturulmasını ve [CRUD](https://wikip
      dotnet aspnet-codegenerator controller -name MoviesController -m Movie -dc MvcMovieContext --relativeFolderPath Controllers --useDefaultLayout --referenceScriptLibraries
   ```
 
-[!INCLUDE [explains scaffold gen params](~/includes/RP/model4.md)]
+[!INCLUDE [explains scaffold generated params](~/includes/mvc-intro/model4.md)]
 
 ---
 
 <!-- End of VS tabs                  -->
 
-Uygulamayı çalıştırın ve tıklayarak **Mvc film** bağlantı, size bir hata aşağıdakine benzer:
+Uygulamayı çalıştırır ve **MVC filmi** bağlantısına tıklarsanız aşağıdakine benzer bir hata alırsınız:
+
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 ``` error
 An unhandled exception occurred while processing the request.
@@ -130,7 +501,18 @@ Login failed for user 'Rick'.
 System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString
 ```
 
-Veritabanını oluşturmak gereken ve EF Core kullandığınız [geçişler](xref:data/ef-mvc/migrations) Bunu yapmak için özellik. Geçişler, veri modelinizi eşleşen bir veritabanı oluşturun ve verilerinizi değişiklikleri model veritabanı şeması güncelleştirmesine olanak sağlar.
+# <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Visual Studio Code/Mac için Visual Studio](#tab/visual-studio-code+visual-studio-mac)
+
+``` error
+An unhandled exception occurred while processing the request.
+SqliteException: SQLite Error 1: 'no such table: Movie'.
+Microsoft.Data.Sqlite.SqliteException.ThrowExceptionForRC(int rc, sqlite3 db)
+
+```
+
+---
+
+Veritabanını oluşturmanız ve bunu yapmak için EF Core [geçişleri](xref:data/ef-mvc/migrations) özelliğini kullanmanız gerekir. Geçişler veri modelinize uyan bir veritabanı oluşturmanıza ve veri modeliniz değiştiğinde veritabanı şemasını güncelleştirmenize olanak tanır.
 
 <a name="pmc"></a>
 
@@ -143,7 +525,7 @@ Bu bölümde, aşağıdaki görevler tamamlanır:
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-1. Gelen **Araçları** menüsünde **NuGet Paket Yöneticisi** > **Paket Yöneticisi Konsolu** (PMC).
+1. **Araçlar** menüsünde **NuGet Paket Yöneticisi** > **Paket Yöneticisi konsolu** (PMC) öğesini seçin.
 
    ![PMC menüsü](~/tutorials/first-mvc-app/adding-model/_static/pmc.png)
 
@@ -156,43 +538,43 @@ Bu bölümde, aşağıdaki görevler tamamlanır:
 
    `Add-Migration` Komut, ilk veritabanı şeması oluşturmak için kod oluşturur.
 
-   Belirtilen model veritabanı şeması dayanır `MvcMovieContext` sınıfı. `Initial` Geçiş adı olmayan bağımsız değişken. Herhangi bir ad kullanılabilir, ancak kural olarak, geçiş tanımlayan bir ad kullanılır. Daha fazla bilgi için bkz. <xref:data/ef-mvc/migrations>.
+   Veritabanı şeması, `MvcMovieContext` sınıfında belirtilen modeli temel alır. `Initial` Bağımsız değişkeni geçiş adıdır. Herhangi bir ad kullanılabilir, ancak kurala göre, geçişi açıklayan bir ad kullanılır. Daha fazla bilgi için bkz. <xref:data/ef-mvc/migrations>.
 
    `Update-Database` Komutu çalıştırmaları `Up` yöntemi *geçişleri / {zaman damgası} _InitialCreate.cs* dosyasını veritabanı oluşturur.
 
-# <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Visual Studio Code'u / Visual Studio Mac için](#tab/visual-studio-code+visual-studio-mac)
+# <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Visual Studio Code/Mac için Visual Studio](#tab/visual-studio-code+visual-studio-mac)
 
 [!INCLUDE [initial migration](~/includes/RP/model3.md)]
 
 `ef migrations add InitialCreate` Komut, ilk veritabanı şeması oluşturmak için kod oluşturur.
 
-Belirtilen model veritabanı şeması dayanır `MvcMovieContext` sınıfı (içinde *Data/MvcMovieContext.cs* dosyası). `InitialCreate` Geçiş adı olmayan bağımsız değişken. Herhangi bir ad kullanılabilir, ancak kural olarak, geçiş tanımlayan bir ad seçilir.
+Veritabanı şeması `MvcMovieContext` sınıfında belirtilen modeli temel alır ( *Data/mvcmoviecontext. cs* dosyasında). `InitialCreate` Bağımsız değişkeni geçiş adıdır. Herhangi bir ad kullanılabilir, ancak kurala göre, geçişi açıklayan bir ad seçilidir.
 
 ---
 
 ## <a name="examine-the-context-registered-with-dependency-injection"></a>Bağımlılık ekleme ile kayıtlı bağlamını İnceleme
 
-ASP.NET Core ile oluşturulmuş [bağımlılık ekleme (dı)](xref:fundamentals/dependency-injection). Hizmetler (örneğin, EF Core DB bağlamı) DI, uygulama başlatma sırasında kaydedilir. Bu hizmetler (örneğin, Razor sayfaları) gerektiren bileşenler bu hizmetler Oluşturucu parametresi üzerinden sağlanır. Bir DB bağlamı örneği alır Oluşturucu kodu öğreticinin ilerleyen bölümlerinde gösterilmektedir.
+ASP.NET Core, [bağımlılık ekleme (dı)](xref:fundamentals/dependency-injection)ile oluşturulmuştur. Hizmetler (EF Core DB bağlamı gibi) uygulama başlatma sırasında dı ile kaydedilir. Bu hizmetler (örneğin, Razor sayfaları) gerektiren bileşenler bu hizmetler Oluşturucu parametresi üzerinden sağlanır. Bir DB bağlamı örneği alır Oluşturucu kodu öğreticinin ilerleyen bölümlerinde gösterilmektedir.
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-Yapı iskelesi aracı otomatik olarak oluşturulmuş bir veritabanı bağlamını ve DI kapsayıcı ile kayıtlı.
+Scafkatlama aracı otomatik olarak bir DB bağlamı oluşturup dı kapsayıcısına kaydetti.
 
-Aşağıdaki inceleyin `Startup.ConfigureServices` yöntemi. Vurgulanan satırı iskele kurucu tarafından eklendi:
+Aşağıdaki `Startup.ConfigureServices` yöntemi inceleyin. Vurgulanan satırı iskele kurucu tarafından eklendi:
 
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie22/Startup.cs?name=snippet_ConfigureServices&highlight=14-15)]
 
-`MvcMovieContext` EF Core işlevleri (oluşturma, okuma, güncelleştirme, silme, vb.) için koordinatları `Movie` modeli. Veri bağlamı (`MvcMovieContext`) türetilir [Microsoft.EntityFrameworkCore.DbContext](/dotnet/api/microsoft.entityframeworkcore.dbcontext). Hangi varlıkları veri modelinde yer alan veri bağlamını belirtir:
+`MvcMovieContext` EF Core işlevleri (oluşturma, okuma, güncelleştirme, silme, vb.) için koordinatları `Movie` modeli. Veri bağlamı (`MvcMovieContext`) türetilir [Microsoft.EntityFrameworkCore.DbContext](/dotnet/api/microsoft.entityframeworkcore.dbcontext). Veri bağlamı, veri modeline hangi varlıkların ekleneceğini belirtir:
 
-[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie22/Data/MvcMovieContext.cs)]
+[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie3/Data/MvcMovieContext.cs)]
 
-Yukarıdaki kod oluşturur bir [olan DB\<film >](/dotnet/api/microsoft.entityframeworkcore.dbset-1) varlık kümesi özelliği. Entity Framework terminolojisinde, bir varlık kümesini genellikle bir veritabanı tablosuna karşılık gelir. Bir varlık tablosunda bir satıra karşılık gelir.
+Önceki kod, varlık kümesi için bir [dbset\<filmi >](/dotnet/api/microsoft.entityframeworkcore.dbset-1) özelliği oluşturur. Entity Framework terminolojisinde, bir varlık kümesini genellikle bir veritabanı tablosuna karşılık gelir. Bir varlık tablosunda bir satıra karşılık gelir.
 
 Bağlantı dizesi adı için bağlam üzerinde bir yöntemi çağırarak geçirilen bir [DbContextOptions](/dotnet/api/microsoft.entityframeworkcore.dbcontextoptions) nesne. Yerel geliştirme için [ASP.NET Core yapılandırma sistemi](xref:fundamentals/configuration/index) bağlantı dizesinden okur *appsettings.json* dosya.
 
-# <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Visual Studio Code'u / Visual Studio Mac için](#tab/visual-studio-code+visual-studio-mac)
+# <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Visual Studio Code/Mac için Visual Studio](#tab/visual-studio-code+visual-studio-mac)
 
-Bir DB bağlamı oluşturduğunuz ve DI kapsayıcı ile kayıtlı.
+Bir DB bağlamı oluşturdunuz ve bunu DI kapsayıcısı ile kaydettiniz.
 
 ---
 
@@ -202,7 +584,7 @@ Bir DB bağlamı oluşturduğunuz ve DI kapsayıcı ile kayıtlı.
 
 * Uygulamayı çalıştırın ve ekleme `/Movies` tarayıcıda URL'sine (`http://localhost:port/movies`).
 
-Bir veritabanı özel aşağıdakine benzer alırsanız:
+Aşağıdakine benzer bir veritabanı özel durumu alırsanız:
 
 ```console
 SqlException: Cannot open database "MvcMovieContext-GUID" requested by the login. The login failed.
@@ -211,95 +593,95 @@ Login failed for user 'User-name'.
 
 Eksik [geçişler adım](#pmc).
 
-* Test **Oluştur** bağlantı. Veri göndermek ve girin.
+* Test **Oluştur** bağlantı. Veri girin ve gönderebilirsiniz.
 
   > [!NOTE]
   > Ondalık virgül kullanımı girmeniz mümkün olmayabilir `Price` alan. Desteklemek için [jQuery doğrulama](https://jqueryvalidation.org/) virgül İngilizce olmayan yerel (",") bir ondalık noktasının ve ABD İngilizce olmayan tarih biçimleri, uygulamayı Eğer gerekir. Genelleştirme hakkında yönergeler için bkz. [bu GitHub sorunu](https://github.com/aspnet/AspNetCore.Docs/issues/4076#issuecomment-326590420).
 
 * Test **Düzenle**, **ayrıntıları**, ve **Sil** bağlantıları.
 
-İnceleme `Startup` sınıfı:
+`Startup` Sınıfı inceleyin:
 
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie22/Startup.cs?name=snippet_ConfigureServices&highlight=13-99)]
 
-Önceki vurgulanmış kodu eklenmesini film veritabanı bağlamı gösterir [bağımlılık ekleme](xref:fundamentals/dependency-injection) kapsayıcı:
+Önceki vurgulanan kod, [bağımlılık ekleme](xref:fundamentals/dependency-injection) kapsayıcısına eklenen film veritabanı bağlamını gösterir:
 
-* `services.AddDbContext<MvcMovieContext>(options =>` Veritabanı ve bağlantı dizesini belirtir.
-* `=>` olan bir [lambda işleci](/dotnet/articles/csharp/language-reference/operators/lambda-operator)
+* `services.AddDbContext<MvcMovieContext>(options =>`kullanılacak veritabanını ve bağlantı dizesini belirtir.
+* `=>`bir [lambda operatörü](/dotnet/articles/csharp/language-reference/operators/lambda-operator)
 
-Açık *Controllers/MoviesController.cs* dosya ve oluşturucu inceleyin:
+*Controllers/MoviesController. cs* dosyasını açın ve oluşturucuyu inceleyin:
 
 <!-- l.. Make copy of Movies controller because we comment out the initial index method and update it later  -->
 
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie22/Controllers/MC1.cs?name=snippet_1)]
 
-Oluşturucu kullanan [bağımlılık ekleme](xref:fundamentals/dependency-injection) veritabanı bağlamı eklemesine (`MvcMovieContext`) içine denetleyici. Her bir veritabanı bağlamı kullanılan [CRUD](https://wikipedia.org/wiki/Create,_read,_update_and_delete) denetleyici yöntemleri.
+Oluşturucu, veritabanı bağlamını (`MvcMovieContext`) denetleyiciye eklemek için [bağımlılık ekleme](xref:fundamentals/dependency-injection) işlemini kullanır. Her bir veritabanı bağlamı kullanılan [CRUD](https://wikipedia.org/wiki/Create,_read,_update_and_delete) denetleyici yöntemleri.
 
 <a name="strongly-typed-models-keyword-label"></a>
 <a name="strongly-typed-models-and-the--keyword"></a>
 
-## <a name="strongly-typed-models-and-the-model-keyword"></a>Kesin olarak modelleri ve @model anahtar sözcüğü
+## <a name="strongly-typed-models-and-the-model-keyword"></a>Türü kesin belirlenmiş modeller ve @model anahtar sözcüğü
 
-Bu öğreticide daha önce nasıl bir denetleyici veri veya nesneleri kullanarak bir görünüm geçirebilirsiniz gördüğünüz `ViewData` sözlüğü. `ViewData` Sözlüktür bilgi bir görünüme iletmek için kullanışlı bir geç bağlanan yol sağlayan bir dinamik Nesne.
+Bu öğreticide daha önce, bir denetleyicinin `ViewData` sözlüğü kullanarak bir görünüme nasıl veri veya nesne geçirekullanabileceğinizi gördünüz. Sözlük `ViewData` , bir görünüme bilgi geçirmek için uygun, geç bağlanan bir yol sağlayan dinamik bir nesnedir.
 
-MVC, model nesneleri bir görünüme kesin geçirme özelliği yazılan de sağlar. Bu türü kesin belirlenmiş bir yaklaşım daha iyi derleme zamanında kodunuzu denetimi sağlar. (Bu, türü kesin belirlenmiş bir model geçirdiğini) Bu yaklaşımı kullanılan yapı iskelesi mekanizması `MoviesController` sınıfı ve metotları ve görünümleri oluştururken görünümleri.
+MVC Ayrıca, kesin olarak belirlenmiş model nesnelerini bir görünüme geçirmeye olanak tanır. Bu kesin türü belirtilmiş yaklaşım, kodunuzun daha iyi derleme zaman denetimini sunar. Yapı iskelesi mekanizması, bu yaklaşımı (yani, türü kesin belirlenmiş bir model geçirerek), yöntem ve `MoviesController` görünümleri oluştururken sınıfı ve görünümleri ile kullandı.
 
-Oluşturulan inceleyin `Details` yönteminde *Controllers/MoviesController.cs* dosyası:
+`Details` *Controllers/MoviesController. cs* dosyasındaki oluşturulan yöntemi inceleyin:
 
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie22/Controllers/MC1.cs?name=snippet_details)]
 
-`id` Parametre rota verileri genel olarak geçirilir. Örneğin `https://localhost:5001/movies/details/1` ayarlar:
+`id` Parametre genellikle rota verileri olarak geçirilir. Örneğin `https://localhost:5001/movies/details/1` :
 
-* Denetleyiciye `movies` denetleyici (ilk URL kesimini).
-* Eyleme `details` (ikinci URL kesimini).
-* 1 (son URL kesimini) kimliği.
+* `movies` Denetleyicinin denetleyicisi (ilk URL segmenti).
+* Eylem `details` (ikinci URL segmenti).
+* Kimliği 1 ' e (son URL segmenti).
 
-Ayrıca, geçirebilirsiniz `id` ile bir sorgu dizesi şu şekilde:
+Ayrıca, `id` aşağıdaki gibi bir sorgu dizesi ile de geçiş yapabilirsiniz:
 
 `https://localhost:5001/movies/details?id=1`
 
-`id` Parametresi olarak tanımlanmış olan bir [boş değer atanabilir tür](/dotnet/csharp/programming-guide/nullable-types/index) (`int?`) durumda bir kimlik değeri sağlanmadı.
+Parametre `id` , bir kimlik değeri sağlanmadığından [null yapılabilir](/dotnet/csharp/programming-guide/nullable-types/index) bir`int?`tür () olarak tanımlanır.
 
-A [lambda ifadesi](/dotnet/articles/csharp/programming-guide/statements-expressions-operators/lambda-expressions) için geçirilen `FirstOrDefaultAsync` rota verileri veya sorgu dizesi değeriyle eşleşen film varlıkları seçin.
+Bir [lambda ifadesi](/dotnet/articles/csharp/programming-guide/statements-expressions-operators/lambda-expressions) , rota verileriyle veya `FirstOrDefaultAsync` sorgu dizesi değeriyle eşleşen film varlıklarını seçmek için öğesine geçirilir.
 
 ```csharp
 var movie = await _context.Movie
     .FirstOrDefaultAsync(m => m.Id == id);
 ```
 
-Bir filmi bulunursa örneği `Movie` modeline geçirilir `Details` görüntüle:
+Bir film bulunursa, `Movie` `Details` görünüme bir model örneği geçirilir:
 
 ```csharp
 return View(movie);
    ```
 
-İçeriğini incelemek *Views/Movies/Details.cshtml* dosyası:
+*Görünümler/filmler/ayrıntılar. cshtml* dosyasının içeriğini inceleyin:
 
 [!code-html[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie22/Views/Movies/DetailsOriginal.cshtml)]
 
-Ekleyerek bir `@model` deyimi görünüm dosyası üst kısmındaki görünümü bekliyor nesne türünü belirtebilirsiniz. Aşağıdaki film denetleyicisi oluşturduğunuzda `@model` deyimi otomatik olarak dahil edilen en üstündeki *Details.cshtml* dosyası:
+Görünüm dosyasının üst `@model` kısmına bir ifade ekleyerek, görünümün beklediği nesne türünü belirtebilirsiniz. Film denetleyicisini oluştururken, *Ayrıntılar. cshtml* dosyasının en `@model` üstüne aşağıdaki ifade otomatik olarak eklenmiştir:
 
 ```HTML
 @model MvcMovie.Models.Movie
    ```
 
-Bu `@model` yönergesi kullanarak denetleyici görünüm tarafından geçirilen film erişmenize olanak sağlayan bir `Model` türü kesin belirlenmiş bir nesne. Örneğin, *Details.cshtml* görünümü, kod, her filmin alanına geçirir `DisplayNameFor` ve `DisplayFor` HTML Yardımcıları ile kesin olarak belirlenmiş `Model` nesne. `Create` Ve `Edit` metotları ve görünümleri de başarılı bir `Movie` model nesnesi.
+Bu `@model` yönerge, kesin olarak belirlenmiş bir `Model` nesne kullanarak denetleyicinin görünüme geçirildiği filme erişmenizi sağlar. Örneğin, *details. cshtml* görünümünde, kod her film alanını `DisplayNameFor` `DisplayFor` türü kesin belirlenmiş `Model` nesne ile HTML yardımcılarının içine geçirir. Ve yöntemleri ve görünümleri de bir `Movie` model nesnesi iletir. `Edit` `Create`
 
-İnceleme *Index.cshtml* görünümü ve `Index` denetleyici filmler yöntemi. Kodun nasıl oluşturduğunu fark bir `List` nesne çağırdığında `View` yöntemi. Bu kod geçirir `Movies` gelen listesinde `Index` eylem yöntemine görünümü:
+*Index. cshtml* görünümünü ve `Index` filmler denetleyicisindeki yöntemini inceleyin. Yöntemi çağırdığında kodun nasıl bir `List` nesne oluşturduğunu fark edin. `View` Kod bu `Movies` listeyi `Index` eylem yönteminden görünüme geçirir:
 
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie22/Controllers/MC1.cs?name=snippet_index)]
 
-Denetleyici filmler oluşturduğunuzda otomatik olarak iskele kurma özelliği aşağıdaki dahil `@model` en üstündeki deyimi *Index.cshtml* dosyası:
+Film denetleyicisini oluştururken, yapı iskelesi *Index. cshtml* dosyasının en üstüne aşağıdaki `@model` ifadeyi otomatik olarak dahil edin:
 
 <!-- Copy Index.cshtml to IndexOriginal.cshtml -->
 
 [!code-html[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie22/Views/Movies/IndexOriginal.cshtml?range=1)]
 
-`@model` Yönergesi kullanarak görünüm tarafından geçirilen denetleyici filmler listesini erişmenize olanak sağlayan bir `Model` türü kesin belirlenmiş bir nesne. Örneğin, *Index.cshtml* görüntülemek, filmlerle kodunu döner bir `foreach` deyimi kesin olarak belirlenmiş üzerinden `Model` nesnesi:
+Yönergesi, kesin olarak belirlenmiş bir `Model` nesne kullanarak denetleyicinin görünüme geçirildiği film listesine erişmenizi sağlar. `@model` Örneğin, *Index. cshtml* görünümünde, kod kesin türü belirtilmiş `foreach` `Model` nesne üzerinde bir deyimle birlikte filmlerde döngü yapılır:
 
 [!code-html[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie22/Views/Movies/IndexOriginal.cshtml?highlight=1,31,34,37,40,43,46-48)]
 
-Çünkü `Model` nesne türü kesin belirlenmiş (olarak bir `IEnumerable<Movie>` nesne), Döngüdeki her bir öğe olarak yazılan `Movie`. Diğer avantajlar arasında bu derleme zamanında kodu denetimi Al anlamına gelir:
+Nesne türü kesin belirlenmiş olduğundan (bir `IEnumerable<Movie>` nesne olarak), döngüdeki her öğe olarak `Movie`yazılır. `Model` Diğer avantajların yanı sıra, kodun derleme zaman denetimini alacağınız anlamına gelir:
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
@@ -307,5 +689,7 @@ Denetleyici filmler oluşturduğunuzda otomatik olarak iskele kurma özelliği a
 * [Genelleştirme ve yerelleştirme](xref:fundamentals/localization)
 
 > [!div class="step-by-step"]
-> [Önceki Görünüm ekleme](adding-view.md)
-> [sonraki SQL ile çalışma](working-with-sql.md)
+> [Daha önce](adding-view.md)
+> [SQL ile çalışan](working-with-sql.md) bir görünüm ekleme
+
+::: moniker-end
