@@ -3,14 +3,14 @@ title: ASP.NET Core bölgeler
 author: rick-anderson
 description: Alanların ilgili işlevleri bir grup içinde ayrı bir ad alanı (yönlendirme için) ve klasör yapısı (görünümler için) olarak düzenlemek için kullanılan bir ASP.NET MVC özelliği olduğunu öğrenin.
 ms.author: riande
-ms.date: 08/07/2019
+ms.date: 08/16/2019
 uid: mvc/controllers/areas
-ms.openlocfilehash: e44c726c47caa3dd0c8c92e3a2502a590bee82d1
-ms.sourcegitcommit: 2719c70cd15a430479ab4007ff3e197fbf5dfee0
+ms.openlocfilehash: d0af3092776ee09469c879fffd3047c50b1a59b4
+ms.sourcegitcommit: 4cb0c7e74355f2e87c60e2a196f842b937247a99
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68862789"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69545797"
 ---
 # <a name="areas-in-aspnet-core"></a>ASP.NET Core bölgeler
 
@@ -136,7 +136,7 @@ Aşağıdaki kod varsayılan alan klasörünü ' den `"Areas"` `"MyAreas"`' a de
 
 ## <a name="areas-with-razor-pages"></a>Razor Pages alan bölgeler
 
-Razor Pages bulunan alanlar ve uygulamanın kökündeki *alanlar&lt;/alan&gt;adı/Pages* klasörü. [Örnek indirme](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/controllers/areas/samples) ile birlikte aşağıdaki klasör yapısı kullanılır
+Razor Pages olan alanlarda, uygulamanın kökünde bir *Areas/<area name>/Pages* klasörü gerekir. Aşağıdaki klasör yapısı [örnek uygulamayla](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/controllers/areas/samples)birlikte kullanılır:
 
 * Proje adı
   * Alanlar
