@@ -1,15 +1,15 @@
-Blazor sunucu tarafı uygulama prerendering karşın, bir tarayıcı bağlantı kuran taşınmadığından çünkü çağırma JavaScript gibi belirli eylemleri mümkün değildir. Bileşenleri prerendered, farklı şekilde işlemek gerekebilir.
+Blazor sunucu tarafı bir uygulama prerendering olduğunda, tarayıcıyla bir bağlantı kurulmadığından, JavaScript 'e çağırma gibi bazı eylemler mümkün değildir. Bileşenler, ön işlenmiş olduğunda farklı şekilde işlenmesi gerekebilir.
 
-Birlikte çalışma JavaScript gecikme, tarayıcı bağlantısı kurulduktan sonra kullanabileceğiniz kadar çağıran `OnAfterRenderAsync` bileşen yaşam döngüsü olayı. Bu olay, yalnızca uygulama tam olarak işlenir ve istemci bağlantı kurulduktan sonra çağrılır.
+Tarayıcı bağlantısı kurulana kadar JavaScript birlikte çalışma çağrılarını geciktirmek için `OnAfterRenderAsync` bileşen yaşam döngüsü olayını kullanabilirsiniz. Bu olay yalnızca uygulama tam olarak işlendikten ve istemci bağlantısı kurulduktan sonra çağırılır.
 
 ```cshtml
 @using Microsoft.JSInterop
 @inject IJSRuntime JSRuntime
 
-<input @ref="myInput" value="Value set during render" />
+<input @ref="myInput" @ref:suppressField value="Value set during render" />
 
 @code {
-    private ElementRef myInput;
+    private ElementReference myInput;
 
     protected override void OnAfterRender()
     {
@@ -19,11 +19,11 @@ Birlikte çalışma JavaScript gecikme, tarayıcı bağlantısı kurulduktan son
 }
 ```
 
-Aşağıdaki bileşen prerendering ile uyumlu bir şekilde bir bileşenin başlatma mantığının parçası olarak JavaScript birlikte çalışma nasıl yapılacağı açıklanır. Bileşen içinde bir işleme güncelleştirmesi tetiklemek mümkün olduğunu gösterir. `OnAfterRenderAsync`. Geliştirici, bu senaryoda, sonsuz bir döngüye oluşturmaktan kaçının gerekir.
+Aşağıdaki bileşen, prerendering ile uyumlu bir şekilde bileşenin başlatma mantığının bir parçası olarak JavaScript birlikte çalışabilirinin nasıl kullanılacağını göstermektedir. Bileşen içinden bir işleme güncelleştirmesi tetiklemenin `OnAfterRenderAsync`mümkün olduğunu gösterir. Geliştirici Bu senaryoda sonsuz bir döngü oluşturmaktan kaçınmalıdır.
 
-Burada `JSRuntime.InvokeAsync` çağrıldığında `ElementRef` yalnızca kullanılan `OnAfterRenderAsync` ve değil herhangi bir önceki yaşam döngüsü yöntemdeki sonra kadar hiçbir JavaScript öğe olduğundan bileşen işlenir.
+Burada `JSRuntime.InvokeAsync` çağrılır, bileşen `ElementRef` işlenene kadar JavaScript `OnAfterRenderAsync` öğesi olmadığından, yalnızca ' de ' de kullanılır.
 
-`StateHasChanged` JavaScript birlikte çalışma çağrısından alınan yeni durumu ile birlikte bileşen rerender için çağrılır. Kodun sonsuz bir döngüye oluşturmaz, çünkü `StateHasChanged` yalnızca aldığında çağrılan `infoFromJs` olduğu `null`.
+`StateHasChanged`bileşeni JavaScript birlikte çalışma çağrısından alınan yeni durumla yeniden eklemek için çağırılır. Kod sonsuz döngü oluşturmaz çünkü `StateHasChanged` yalnızca olduğu `null`zaman `infoFromJs` çağrılır.
 
 ```cshtml
 @page "/prerendered-interop"
@@ -39,12 +39,12 @@ Burada `JSRuntime.InvokeAsync` çağrıldığında `ElementRef` yalnızca kullan
 
 <p>
     Set value via JS interop call:
-    <input id="val-set-by-interop" @ref="myElem" />
+    <input id="val-set-by-interop" @ref="myElem" @ref:suppressField />
 </p>
 
 @code {
     private string infoFromJs;
-    private ElementRef myElem;
+    private ElementReference myElem;
 
     protected override async Task OnAfterRenderAsync()
     {
@@ -68,7 +68,7 @@ Burada `JSRuntime.InvokeAsync` çağrıldığında `ElementRef` yalnızca kullan
 }
 ```
 
-Farklı içerik olup olmadığını uygulama şu anda içerik prerendering olduğundan üzerinde temel koşullu olarak işlemek için `IsConnected` özelliği `IComponentContext` hizmeti. Sunucu tarafı çalıştırırken `IsConnected` yalnızca döndürür `true` etkin bir istemcinin bağlantısı varsa. Her zaman döndürür `true` istemci-tarafı çalışırken.
+Uygulamanın Şu anda prerendering içerik olduğunu temel alarak farklı içerikleri koşullu olarak işlemek için, `IsConnected` `IComponentContext` hizmette özelliğini kullanın. Sunucu tarafı `IsConnected` çalışırken yalnızca istemciye etkin bir bağlantı `true` varsa döndürür. İstemci tarafı çalışırken `true` her zaman döndürülür.
 
 ```cshtml
 @page "/isconnected-example"

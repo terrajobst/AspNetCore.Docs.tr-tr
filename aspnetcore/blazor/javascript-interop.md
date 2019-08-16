@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 08/13/2019
 uid: blazor/javascript-interop
-ms.openlocfilehash: ffd25fe0288159681f7fc052fc09e1f6fc425404
-ms.sourcegitcommit: f5f0ff65d4e2a961939762fb00e654491a2c772a
+ms.openlocfilehash: 00ea14ca95c328b5f8779785a92aa0720a96eb05
+ms.sourcegitcommit: 7a46973998623aead757ad386fe33602b1658793
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 08/15/2019
-ms.locfileid: "69030311"
+ms.locfileid: "69487552"
 ---
 # <a name="aspnet-core-blazor-javascript-interop"></a>ASP.NET Core Blazor JavaScript birlikte çalışması
 
@@ -125,11 +125,12 @@ Aşağıdaki yaklaşımı kullanarak bir bileşen içindeki HTML öğelerine ba�
 
 * HTML öğesine `@ref` bir öznitelik ekleyin.
 * Adı `@ref` özniteliğin değeriyle eşleşen bir `ElementReference` tür alanı tanımlayın.
+* Alan oluşturmayı yedeklemeyi bastırın parametresinibelirtin.`@ref:suppressField` Daha fazla bilgi için bkz. [3.0.0-preview9 içinde için @ref otomatik yedekleme alanı desteğini kaldırma](https://github.com/aspnet/Announcements/issues/381).
 
 Aşağıdaki örnek, `username` `<input>` öğesine bir başvuru yakalama göstermektedir:
 
 ```cshtml
-<input @ref="username" ... />
+<input @ref="username" @ref:suppressField ... />
 
 @code {
     ElementReference username;
@@ -158,7 +159,7 @@ window.exampleJsFunctions = {
 ```cshtml
 @inject IJSRuntime JSRuntime
 
-<input @ref="username" />
+<input @ref="username" @ref:suppressField />
 <button @onclick="SetFocus">Set focus on username</button>
 
 @code {
@@ -188,7 +189,7 @@ Yöntemi doğrudan nesnesi üzerinde çağrılır. Aşağıdaki örnek, statik `
 @inject IJSRuntime JSRuntime
 @using JsInteropClasses
 
-<input @ref="username" />
+<input @ref="username" @ref:suppressField />
 <button @onclick="SetFocus">Set focus on username</button>
 
 @code {

@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 08/13/2019
 uid: blazor/components
-ms.openlocfilehash: 8cb2dc4c3cd22fe71fe15c22762948f9dcd3c08f
-ms.sourcegitcommit: f5f0ff65d4e2a961939762fb00e654491a2c772a
+ms.openlocfilehash: 752f49f020acf26efcb304ed5e28e27c478dac83
+ms.sourcegitcommit: 7a46973998623aead757ad386fe33602b1658793
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 08/15/2019
-ms.locfileid: "69030352"
+ms.locfileid: "69487589"
 ---
 # <a name="create-and-use-aspnet-core-razor-components"></a>ASP.NET Core Razor bileşenleri oluşturma ve kullanma
 
@@ -523,9 +523,10 @@ Bileşen başvuruları, bir bileşen örneğine başvurmak için bir yol sağlar
 
 * Alt bileşene [@ref](xref:mvc/views/razor#ref) bir öznitelik ekleyin.
 * Alt bileşenle aynı türde bir alan tanımlayın.
+* Alan oluşturmayı yedeklemeyi bastırın parametresinibelirtin.`@ref:suppressField` Daha fazla bilgi için bkz. [3.0.0-preview9 içinde için @ref otomatik yedekleme alanı desteğini kaldırma](https://github.com/aspnet/Announcements/issues/381).
 
 ```cshtml
-<MyLoginDialog @ref="loginDialog" ... />
+<MyLoginDialog @ref="loginDialog" @ref:suppressField ... />
 
 @code {
     private MyLoginDialog loginDialog;
