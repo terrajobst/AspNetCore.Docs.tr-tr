@@ -3,14 +3,14 @@ title: ASP.NET Core Razor Pages scafkatlama
 author: rick-anderson
 description: Yapı iskelesi tarafından oluşturulan Razor Pages açıklar.
 ms.author: riande
-ms.date: 07/22/2019
+ms.date: 08/17/2019
 uid: tutorials/razor-pages/page
-ms.openlocfilehash: 741ee4291cacbb1de0f8341673c8fd6ef0c9a462
-ms.sourcegitcommit: 849af69ee3c94cdb9fd8fa1f1bb8f5a5dda7b9eb
+ms.openlocfilehash: 00a8458b9bee4d30c5774a980ff5c23fb8872737
+ms.sourcegitcommit: 38cac2552029fc19428722bb204ff9e16eb94225
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68371837"
+ms.lasthandoff: 08/18/2019
+ms.locfileid: "69573149"
 ---
 # <a name="scaffolded-razor-pages-in-aspnet-core"></a>ASP.NET Core Razor Pages scafkatlama
 
@@ -28,7 +28,7 @@ Bu öğreticide, [önceki öğreticide](xref:tutorials/razor-pages/model)scafkat
 
 [!code-csharp[](razor-pages-start/snapshot_sample3/RazorPagesMovie30/Pages/Movies/Index.cshtml.cs)]
 
-Razor Pages, öğesinden `PageModel`türetilir. Kural gereği, `PageModel`-türetilmiş sınıfı çağrılır `<PageName>Model`. Oluşturucu, `RazorPagesMovieContext` sayfasına eklemek için [bağımlılık ekleme](xref:fundamentals/dependency-injection) işlemini kullanır. Tüm yapı iskelesi sayfaları bu düzene uyar. Entity Framework ile zaman uyumsuz programlama hakkında daha fazla bilgi için bkz. [zaman uyumsuz kod](xref:data/ef-rp/intro#asynchronous-code) .
+Razor Pages, öğesinden `PageModel`türetilir. Kural gereği, `PageModel`-türetilmiş sınıfı çağrılır `<PageName>Model`. Oluşturucu, `RazorPagesMovieContext` sayfasına eklemek için [bağımlılık ekleme](xref:fundamentals/dependency-injection) işlemini kullanır. Tüm yapı iskelesi sayfaları bu düzene uyar. Entity Framework zaman uyumsuz programlama hakkında daha fazla bilgi için bkz. [zaman uyumsuz kod](xref:data/ef-rp/intro#asynchronous-code) .
 
 Sayfa için bir istek yapıldığında, `OnGetAsync` yöntemi Razor sayfasına bir film listesi döndürür. `OnGetAsync`ya `OnGet` da bir Razor sayfasında, sayfanın durumunu başlatmak için çağrılır. Bu durumda, `OnGetAsync` filmlerin bir listesini alır ve görüntüler.
 
@@ -94,7 +94,7 @@ Satır `@*Markup removed for brevity.*@` bir Razor açıklamadır. HTML yorumlar
 
 ### <a name="update-the-layout"></a>Düzeni güncelleştirme
 
-Pages/ *Shared/_Layout. cshtml* dosyasındaki   öğesiniRazorPagesMovieyerinefilmi`<title>` görüntüleyecek şekilde değiştirin.
+Pages/ *Shared/_Layout. cshtml* dosyasındaki öğesiniRazorPagesMovieyerinefilmi`<title>` görüntüleyecek şekilde değiştirin.
 
 [!code-cshtml[](razor-pages-start/sample/RazorPagesMovie30/Pages/Shared/_Layout.cshtml?range=1-6&highlight=6)]
 
@@ -219,7 +219,7 @@ Bu öğreticide, [önceki öğreticide](xref:tutorials/razor-pages/model)scafkat
 
 [!code-csharp[](razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Index.cshtml.cs)]
 
-Razor Pages, öğesinden `PageModel`türetilir. Kural gereği, `PageModel`-türetilmiş sınıfı çağrılır `<PageName>Model`. Oluşturucu, `RazorPagesMovieContext` sayfasına eklemek için [bağımlılık ekleme](xref:fundamentals/dependency-injection) işlemini kullanır. Tüm yapı iskelesi sayfaları bu düzene uyar. Entity Framework ile zaman uyumsuz programlama hakkında daha fazla bilgi için bkz. [zaman uyumsuz kod](xref:data/ef-rp/intro#asynchronous-code) .
+Razor Pages, öğesinden `PageModel`türetilir. Kural gereği, `PageModel`-türetilmiş sınıfı çağrılır `<PageName>Model`. Oluşturucu, `RazorPagesMovieContext` sayfasına eklemek için [bağımlılık ekleme](xref:fundamentals/dependency-injection) işlemini kullanır. Tüm yapı iskelesi sayfaları bu düzene uyar. Entity Framework zaman uyumsuz programlama hakkında daha fazla bilgi için bkz. [zaman uyumsuz kod](xref:data/ef-rp/intro#asynchronous-code) .
 
 Sayfa için bir istek yapıldığında, `OnGetAsync` yöntemi Razor sayfasına bir film listesi döndürür. `OnGetAsync`ya `OnGet` da bir Razor sayfasında, sayfanın durumunu başlatmak için çağrılır. Bu durumda, `OnGetAsync` filmlerin bir listesini alır ve görüntüler.
 
@@ -280,7 +280,7 @@ Satır `@*Markup removed for brevity.*@` , düzen dosyanızda görünmeyen bir R
 
 ### <a name="update-the-layout"></a>Düzeni güncelleştirme
 
-Pages/ *Shared/_Layout. cshtml* dosyasındaki   öğesiniRazorPagesMovieyerinefilmi`<title>` görüntüleyecek şekilde değiştirin.
+Pages/ *Shared/_Layout. cshtml* dosyasındaki öğesiniRazorPagesMovieyerinefilmi`<title>` görüntüleyecek şekilde değiştirin.
 
 [!code-cshtml[](razor-pages-start/sample/RazorPagesMovie22/Pages/Shared/_Layout.cshtml?range=1-6&highlight=6)]
 
