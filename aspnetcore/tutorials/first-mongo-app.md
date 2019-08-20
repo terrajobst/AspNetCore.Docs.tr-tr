@@ -1,21 +1,24 @@
 ---
 title: MongoDB ile ASP.NET Core ile web API'si oluşturma
 author: prkhandelwal
-description: Bu öğreticide bir ASP.NET Core web API'sini kullanarak bir MongoDB NoSQL veritabanı oluşturma işlemini gösterir.
+description: Bu öğreticide, MongoDB NoSQL veritabanı kullanarak ASP.NET Core Web API 'sinin nasıl oluşturulacağı gösterilmektedir.
+monikerRange: '>= aspnetcore-2.1'
 ms.author: scaddie
 ms.custom: mvc, seodec18
-ms.date: 07/10/2019
+ms.date: 08/17/2019
 uid: tutorials/first-mongo-app
-ms.openlocfilehash: 99b28407a249a5c0bc6a0cf3a285c04f1d6187a7
-ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
+ms.openlocfilehash: 2f7202945b3de03709b5f2e192a03549e55a04f7
+ms.sourcegitcommit: 257cc3fe8c1d61341aa3b07e5bc0fa3d1c1c1d1c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67815666"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69583618"
 ---
 # <a name="create-a-web-api-with-aspnet-core-and-mongodb"></a>MongoDB ile ASP.NET Core ile web API'si oluşturma
 
 Tarafından [Pratik Khandelwal](https://twitter.com/K2Prk) ve [Scott Addie](https://twitter.com/Scott_Addie)
+
+::: moniker range=">= aspnetcore-3.0"
 
 Bu öğreticide web API'si temel oluşturma, okuma, güncelleştirme ve silme (CRUD) işlemleri gerçekleştiren oluşturur bir [MongoDB](https://www.mongodb.com/what-is-mongodb) NoSQL veritabanı.
 
@@ -26,28 +29,28 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 > * MongoDB veritabanı oluşturma
 > * MongoDB koleksiyonu ve şema tanımlayın
 > * Bir web API'sini MongoDB CRUD işlemleri gerçekleştirme
-> * JSON seri hale getirme özelleştirmek
+> * JSON serileştirmesini özelleştirme
 
-[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/tutorials/first-mongo-app/sample) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
+[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/tutorials/first-mongo-app/samples) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-* [.NET core SDK 2.2 veya üzeri](https://www.microsoft.com/net/download/all)
-* [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=inline+link&utm_content=download+vs2019) ile **ASP.NET ve web geliştirme** iş yükü
+* [.NET Core SDK 3,0 veya üzeri](https://www.microsoft.com/net/download/all)
+* **ASP.net ve Web geliştirme** iş yüküyle [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=inline+link&utm_content=download+vs2019)
 * [MongoDB](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-windows/)
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
-* [.NET core SDK 2.2 veya üzeri](https://www.microsoft.com/net/download/all)
+* [.NET Core SDK 3,0 veya üzeri](https://www.microsoft.com/net/download/all)
 * [Visual Studio Code](https://code.visualstudio.com/download)
 * [Visual Studio Code için C#](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)
 * [MongoDB](https://docs.mongodb.com/manual/administration/install-community/)
 
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Mac için Visual Studio](#tab/visual-studio-mac)
 
-* [.NET core SDK 2.2 veya üzeri](https://www.microsoft.com/net/download/all)
+* [.NET Core SDK 3,0 veya üzeri](https://www.microsoft.com/net/download/all)
 * [Mac 7,7 veya sonraki bir sürümü için Visual Studio](https://visualstudio.microsoft.com/downloads/)
 * [MongoDB](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-os-x/)
 
@@ -55,90 +58,90 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 ## <a name="configure-mongodb"></a>MongoDB yapılandırın
 
-Windows kullanıyorsanız, MongoDB yüklü *C:\\Program dosyaları\\MongoDB* varsayılan olarak. Ekleme *C:\\Program dosyaları\\MongoDB\\sunucu\\\<version_number >\\bin* için `Path` ortam değişkeni. Bu değişiklik yerden MongoDB erişim sağlar, geliştirme makinenizde.
+Windows kullanıyorsanız MongoDB varsayılan olarak *C:\\Program Files\\MongoDB* konumunda yüklüdür. Ortam değişkenine *C\\: program\\Files MongoDB\\\\Server\<Version_Number\\> bin* ekleyin. `Path` Bu değişiklik yerden MongoDB erişim sağlar, geliştirme makinenizde.
 
 Mongo kabuğunu veritabanı oluşturma, koleksiyonları yapın ve belgeleri depolamak için aşağıdaki adımları kullanın. Mongo Kabuğu komutları hakkında daha fazla bilgi için bkz. [mongo kabuğunu çalışma](https://docs.mongodb.com/manual/mongo/#working-with-the-mongo-shell).
 
-1. Geliştirme makinenizde verilerin depolanması için bir dizin seçin. Örneğin, *C:\\BooksData* Windows üzerinde. Yoksa dizini oluşturun. Mongo kabuğunu yeni dizinleri oluşturmaz.
+1. Geliştirme makinenizde verilerin depolanması için bir dizin seçin. Örneğin, *C:\\Windows üzerinde booksdata* . Yoksa dizini oluşturun. Mongo kabuğunu yeni dizinleri oluşturmaz.
 1. Bir komut kabuğunu açın. Varsayılan bağlantı noktası 27017 mongodb'ye bağlanmak için aşağıdaki komutu çalıştırın. Değiştirmeyi unutmayın `<data_directory_path>` önceki adımda seçtiğiniz dizini.
 
-    ```console
-    mongod --dbpath <data_directory_path>
-    ```
+   ```console
+   mongod --dbpath <data_directory_path>
+   ```
 
 1. Başka bir komut kabuğu örneği açın. Aşağıdaki komutu çalıştırarak varsayılan test veritabanı'na bağlanma:
 
-    ```console
-    mongo
-    ```
+   ```console
+   mongo
+   ```
 
 1. Bir komut kabuğu'nda aşağıdaki komutu çalıştırın:
 
-    ```console
-    use BookstoreDb
-    ```
+   ```console
+   use BookstoreDb
+   ```
 
-    Adlı bir veritabanı zaten mevcut olmayan halinde *BookstoreDb* oluşturulur. Veritabanı mevcut değilse, bağlantı işlemleri için açılır.
+   Adlı bir veritabanı zaten mevcut olmayan halinde *BookstoreDb* oluşturulur. Veritabanı mevcut değilse, bağlantı işlemleri için açılır.
 
 1. Oluşturma bir `Books` koleksiyon aşağıdaki komutu kullanarak:
 
-    ```console
-    db.createCollection('Books')
-    ```
+   ```console
+   db.createCollection('Books')
+   ```
 
-    Aşağıdaki sonucu görüntülenir:
+   Aşağıdaki sonucu görüntülenir:
 
-    ```console
-    { "ok" : 1 }
-    ```
+   ```console
+   { "ok" : 1 }
+   ```
 
 1. İçin bir şema tanımlayabilir `Books` toplama ve ekleme iki belge aşağıdaki komutu kullanarak:
 
-    ```console
-    db.Books.insertMany([{'Name':'Design Patterns','Price':54.93,'Category':'Computers','Author':'Ralph Johnson'}, {'Name':'Clean Code','Price':43.15,'Category':'Computers','Author':'Robert C. Martin'}])
-    ```
+   ```console
+   db.Books.insertMany([{'Name':'Design Patterns','Price':54.93,'Category':'Computers','Author':'Ralph Johnson'}, {'Name':'Clean Code','Price':43.15,'Category':'Computers','Author':'Robert C. Martin'}])
+   ```
 
-    Aşağıdaki sonucu görüntülenir:
+   Aşağıdaki sonucu görüntülenir:
 
-    ```console
-    {
-      "acknowledged" : true,
-      "insertedIds" : [
-        ObjectId("5bfd996f7b8e48dc15ff215d"),
-        ObjectId("5bfd996f7b8e48dc15ff215e")
-      ]
-    }
-    ```
+   ```console
+   {
+     "acknowledged" : true,
+     "insertedIds" : [
+       ObjectId("5bfd996f7b8e48dc15ff215d"),
+       ObjectId("5bfd996f7b8e48dc15ff215e")
+     ]
+   }
+   ```
   
-  > [!NOTE]
-  > Kimliğin gösterilen bu makalede, bu örneği çalıştırdığınızda kimlikleri eşleşmez.
+   > [!NOTE]
+   > Bu makalede gösterilen KIMLIK, bu örneği çalıştırdığınızda kimliklerle eşleşmeyecektir.
 
 1. Aşağıdaki komutu kullanarak veritabanında belgelerini görüntüleyin:
 
-    ```console
-    db.Books.find({}).pretty()
-    ```
+   ```console
+   db.Books.find({}).pretty()
+   ```
 
-    Aşağıdaki sonucu görüntülenir:
+   Aşağıdaki sonucu görüntülenir:
 
-    ```console
-    {
-      "_id" : ObjectId("5bfd996f7b8e48dc15ff215d"),
-      "Name" : "Design Patterns",
-      "Price" : 54.93,
-      "Category" : "Computers",
-      "Author" : "Ralph Johnson"
-    }
-    {
-      "_id" : ObjectId("5bfd996f7b8e48dc15ff215e"),
-      "Name" : "Clean Code",
-      "Price" : 43.15,
-      "Category" : "Computers",
-      "Author" : "Robert C. Martin"
-    }
-    ```
+   ```console
+   {
+     "_id" : ObjectId("5bfd996f7b8e48dc15ff215d"),
+     "Name" : "Design Patterns",
+     "Price" : 54.93,
+     "Category" : "Computers",
+     "Author" : "Ralph Johnson"
+   }
+   {
+     "_id" : ObjectId("5bfd996f7b8e48dc15ff215e"),
+     "Name" : "Clean Code",
+     "Price" : 43.15,
+     "Category" : "Computers",
+     "Author" : "Robert C. Martin"
+   }
+   ```
 
-    Şema girmiş ekler `_id` türünün özelliği `ObjectId` her belge için.
+   Şema girmiş ekler `_id` türünün özelliği `ObjectId` her belge için.
 
 Veritabanı hazırdır. ASP.NET Core web API'si oluşturmaya başlayabilirsiniz.
 
@@ -146,43 +149,43 @@ Veritabanı hazırdır. ASP.NET Core web API'si oluşturmaya başlayabilirsiniz.
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-1. Git **dosya** > **yeni** > **proje**.
-1. Seçin **ASP.NET Core Web uygulaması** proje türü ve seçin **sonraki**.
-1. Projeyi adlandırın *BooksApi*seçip **Oluştur**.
-1. Seçin **.NET Core** hedef çerçeve ve **ASP.NET Core 2.2**. Seçin **API** proje şablonu, belirleyin **Oluştur**.
-1. Ziyaret [NuGet Galerisi: Mongodb](https://www.nuget.org/packages/MongoDB.Driver/) için MongoDB .NET sürücüsü en son kararlı sürümünü belirlemek için. İçinde **Paket Yöneticisi Konsolu** penceresinde proje kök dizinine gidin. MongoDB için .NET sürücüsünü yüklemek için aşağıdaki komutu çalıştırın:
+1. **Dosya** > yeni Proje> ' ye gidin.
+1. **ASP.NET Core Web uygulaması** proje türünü seçin ve **İleri**' yi seçin.
+1. Projeyi *Booksapı*olarak adlandırın ve **Oluştur**' u seçin.
+1. **.NET Core** hedef çerçevesini ve **3,0 ASP.NET Core**seçin. **API** proje şablonunu seçin ve **Oluştur**' u seçin.
+1. [NuGet galerisini ziyaret edin: MongoDB. Driver](https://www.nuget.org/packages/MongoDB.Driver/) için .net sürücüsünün en son kararlı sürümünü belirleme. İçinde **Paket Yöneticisi Konsolu** penceresinde proje kök dizinine gidin. MongoDB için .NET sürücüsünü yüklemek için aşağıdaki komutu çalıştırın:
 
-    ```powershell
-    Install-Package MongoDB.Driver -Version {VERSION}
-    ```
+   ```powershell
+   Install-Package MongoDB.Driver -Version {VERSION}
+   ```
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 1. Bir komut kabuğu'nda aşağıdaki komutları çalıştırın:
 
-    ```console
-    dotnet new webapi -o BooksApi
-    code BooksApi
-    ```
+   ```console
+   dotnet new webapi -o BooksApi
+   code BooksApi
+   ```
 
-    .NET Core'u hedefleyen yeni bir ASP.NET Core web API projesi oluşturulur ve Visual Studio Code'da açılır.
+   .NET Core'u hedefleyen yeni bir ASP.NET Core web API projesi oluşturulur ve Visual Studio Code'da açılır.
 
-1. Durum çubuğunun OmniSharp sonra soran bir iletişim kutusu yangın simgesi yeşile **gerekli varlıkları oluşturun ve hata ayıklama 'BooksApi' eksik. Bunları eklensin mi?** . Seçin **Evet**.
-1. Ziyaret [NuGet Galerisi: Mongodb](https://www.nuget.org/packages/MongoDB.Driver/) için MongoDB .NET sürücüsü en son kararlı sürümünü belirlemek için. Açık **tümleşik Terminalini** ve proje kök dizinine gidin. MongoDB için .NET sürücüsünü yüklemek için aşağıdaki komutu çalıştırın:
+1. Durum çubuğunun omnisharp Yangın simgesi yeşil ' i etkinleştirdikten sonra, **gerekli varlıkların derleme ve hata ayıklama için ' booksapı ' içinde eksik bir iletişim kutusu yok. Bunları ekleyin mi?** . **Evet**' i seçin.
+1. [NuGet galerisini ziyaret edin: MongoDB. Driver](https://www.nuget.org/packages/MongoDB.Driver/) için .net sürücüsünün en son kararlı sürümünü belirleme. Açık **tümleşik Terminalini** ve proje kök dizinine gidin. MongoDB için .NET sürücüsünü yüklemek için aşağıdaki komutu çalıştırın:
 
-    ```console
-    dotnet add BooksApi.csproj package MongoDB.Driver -v {VERSION}
-    ```
+   ```console
+   dotnet add BooksApi.csproj package MongoDB.Driver -v {VERSION}
+   ```
 
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Mac için Visual Studio](#tab/visual-studio-mac)
 
-1. Git **dosya** > **yeni çözüm** >  **.NET Core** > **uygulama**.
-1. Seçin **ASP.NET Core Web API'si** C# proje şablonu, belirleyin **sonraki**.
-1. Seçin **.NET Core 2.2** gelen **hedef Framework'ü** seçin ve açılır listede **sonraki**.
-1. Girin *BooksApi* için **proje adı**seçip **Oluştur**.
+1. **Dosya** yeniçözüm> **.NET Core** **uygulaması**sayfasına gidin. > >
+1. **ASP.NET Core Web API** C# proje şablonunu seçin ve **İleri**' yi seçin.
+1. **Hedef çerçeve** açılır listesinden **.NET Core 3,0** ' i seçin ve **İleri**' yi seçin.
+1. **Proje adı**Için *booksapı* girin ve **Oluştur**' u seçin.
 1. İçinde **çözüm** paneli, projenin sağ **bağımlılıkları** düğümünü seçip alt **paketleri Ekle**.
-1. Girin *MongoDB.Driver* arama kutusunda *MongoDB.Driver* paketini bulun ve seçin **Paketi Ekle**.
-1. Seçin **kabul** düğmesine **lisans kabulü** iletişim.
+1. Arama kutusuna *MongoDB. Driver* girin, *MongoDB. Driver* paketini seçin ve **paket Ekle**' yi seçin.
+1. **Lisans kabulü** Iletişim kutusunda **kabul et** düğmesini seçin.
 
 ---
 
@@ -191,174 +194,527 @@ Veritabanı hazırdır. ASP.NET Core web API'si oluşturmaya başlayabilirsiniz.
 1. Ekleme bir *modelleri* proje kök dizini.
 1. Ekleme bir `Book` sınıfının *modelleri* aşağıdaki kod ile dizin:
 
-    ```csharp
-    using MongoDB.Bson;
-    using MongoDB.Bson.Serialization.Attributes;
-    
-    namespace BooksApi.Models
-    {
-        public class Book
-        {
-            [BsonId]
-            [BsonRepresentation(BsonType.ObjectId)]
-            public string Id { get; set; }
-    
-            [BsonElement("Name")]
-            public string BookName { get; set; }
-    
-            public decimal Price { get; set; }
-    
-            public string Category { get; set; }
-    
-            public string Author { get; set; }
-        }
-    }
-    ```
+   ```csharp
+   using MongoDB.Bson;
+   using MongoDB.Bson.Serialization.Attributes;
 
-    Önceki sınıfında `Id` özelliği:
-    
-    * Ortak dil çalışma zamanı (CLR) nesnesi için MongoDB koleksiyonu eşlemek için gereklidir.
-    * İle açıklanıyor [[BsonId]](https://api.mongodb.com/csharp/current/html/T_MongoDB_Bson_Serialization_Attributes_BsonIdAttribute.htm) belgenin birincil anahtarı olarak bu özellik belirlemek için.
-    * İle açıklanıyor [[BsonRepresentation(BsonType.ObjectId)]](https://api.mongodb.com/csharp/current/html/T_MongoDB_Bson_Serialization_Attributes_BsonRepresentationAttribute.htm) parametre türü olarak geçirerek izin vermek için `string` yerine bir [objectID](https://api.mongodb.com/csharp/current/html/T_MongoDB_Bson_ObjectId.htm) yapısı. Mongo işleme dönüştürme `string` için `ObjectId`.
-    
-    `BookName` Özelliği ile ek açıklamalı [[BsonElement]](https://api.mongodb.com/csharp/current/html/T_MongoDB_Bson_Serialization_Attributes_BsonElementAttribute.htm) özniteliği. Özniteliğin değerini `Name` özellik adında MongoDB koleksiyonu temsil eder.
+   namespace BooksApi.Models
+   {
+       public class Book
+       {
+           [BsonId]
+           [BsonRepresentation(BsonType.ObjectId)]
+           public string Id { get; set; }
+
+           [BsonElement("Name")]
+           public string BookName { get; set; }
+
+           public decimal Price { get; set; }
+
+           public string Category { get; set; }
+
+           public string Author { get; set; }
+       }
+   }
+   ```
+
+   Önceki sınıfta, `Id` özelliği:
+
+   * Ortak dil çalışma zamanı (CLR) nesnesini MongoDB koleksiyonuna eşlemek için gereklidir.
+   * Bu özelliği belgenin birincil anahtarı olarak belirlemek için [[Bsonıd]](https://api.mongodb.com/csharp/current/html/T_MongoDB_Bson_Serialization_Attributes_BsonIdAttribute.htm) ile açıklama eklenir.
+   * [[Bsongösterimi (bsontype. ObjectID)]](https://api.mongodb.com/csharp/current/html/T_MongoDB_Bson_Serialization_Attributes_BsonRepresentationAttribute.htm) ile, parametreyi `string` [ObjectID](https://api.mongodb.com/csharp/current/html/T_MongoDB_Bson_ObjectId.htm) yapısı yerine tür olarak geçirmeyi sağlamak için açıklama eklenir. Mongo, ' den `string` ' ye `ObjectId`dönüştürmeyi işler.
+
+   Özelliği [ [bsonelement]](https://api.mongodb.com/csharp/current/html/T_MongoDB_Bson_Serialization_Attributes_BsonElementAttribute.htm) özniteliğiyle açıklama eklenir. `BookName` Özniteliğinin değeri `Name` , MongoDB koleksiyonundaki özellik adını temsil eder.
 
 ## <a name="add-a-configuration-model"></a>Yapılandırma modeli ekleme
 
-1. Aşağıdaki veritabanı yapılandırma değerlerini eklemek *appsettings.json*:
+1. Aşağıdaki veritabanı yapılandırma değerlerini *appSettings. JSON*öğesine ekleyin:
 
-    [!code-json[](first-mongo-app/sample/BooksApi/appsettings.json?highlight=2-6)]
+   [!code-json[](first-mongo-app/samples/3.x/SampleApp/appsettings.json?highlight=2-6)]
 
-1. Ekleme bir *BookstoreDatabaseSettings.cs* dosyasını *modelleri* aşağıdaki kod ile dizin:
+1. *Modeller* dizinine aşağıdaki kodla bir *BookstoreDatabaseSettings.cs* dosyası ekleyin:
 
-    [!code-csharp[](first-mongo-app/sample/BooksApi/Models/BookstoreDatabaseSettings.cs)]
+   [!code-csharp[](first-mongo-app/samples/3.x/SampleApp/Models/BookstoreDatabaseSettings.cs)]
 
-    Önceki `BookstoreDatabaseSettings` depolamak için kullanılan sınıf *appsettings.json* dosyanın `BookstoreDatabaseSettings` özellik değerleri. JSON ve C# özellik adları adlı aynı şekilde eşleme işlemini kolaylaştırmak için.
+   Yukarıdaki `BookstoreDatabaseSettings` sınıf, `BookstoreDatabaseSettings` *appSettings. JSON* dosyasının özellik değerlerini depolamak için kullanılır. JSON ve C# Özellik adları, eşleme sürecini kolaylaştırmak için aynı şekilde adlandırılır.
 
-1. Aşağıdaki vurgulanmış kodu ekleyin `Startup.ConfigureServices`:
+1. Aşağıdaki Vurgulanan kodu öğesine `Startup.ConfigureServices`ekleyin:
 
-    [!code-csharp[](first-mongo-app/sample_snapshot/BooksApi/Startup.ConfigureServices.AddDbSettings.cs?highlight=3-7)]
+   [!code-csharp[](first-mongo-app/samples_snapshot/3.x/SampleApp/Startup.ConfigureServices.AddDbSettings.cs?highlight=3-7)]
 
-    Yukarıdaki kodda:
+   Önceki kodda:
 
-    * Yapılandırma örneğine *appsettings.json* dosyanın `BookstoreDatabaseSettings` bölümüne bağlar, bağımlılık ekleme (dı) kapsayıcısında kaydedilir. Örneğin, bir `BookstoreDatabaseSettings` nesnenin `ConnectionString` özelliği ile doldurulur `BookstoreDatabaseSettings:ConnectionString` özelliğinde *appsettings.json*.
-    * `IBookstoreDatabaseSettings` Arabirimi ile tek DI kayıtlı [hizmet ömrü](xref:fundamentals/dependency-injection#service-lifetimes). Arabirim örneğinin eklenen, çözümler bir `BookstoreDatabaseSettings` nesne.
+   * *AppSettings. JSON* dosyasının `BookstoreDatabaseSettings` bölüm bağlandığı yapılandırma örneği, bağımlılık ekleme (dı) kapsayıcısına kaydedilir. Örneğin `BookstoreDatabaseSettings` , bir `ConnectionString` nesnenin `BookstoreDatabaseSettings:ConnectionString` özelliği *appSettings. JSON*içindeki özelliği ile doldurulur.
+   * Arabirim `IBookstoreDatabaseSettings` , tek bir [hizmet ömrü](xref:fundamentals/dependency-injection#service-lifetimes)ile dı 'ye kaydedilir. Eklenen arabirim örneği bir `BookstoreDatabaseSettings` nesne olarak çözümlenir.
 
-1. Üstüne aşağıdaki kodu ekleyin *Startup.cs* çözümlenecek `BookstoreDatabaseSettings` ve `IBookstoreDatabaseSettings` başvuruları:
+1. `BookstoreDatabaseSettings` Ve`IBookstoreDatabaseSettings` başvurularını çözümlemek için aşağıdaki kodu Startup.cs 'in en üstüne ekleyin:
 
-    [!code-csharp[](first-mongo-app/sample/BooksApi/Startup.cs?name=snippet_UsingBooksApiModels)]
+   [!code-csharp[](first-mongo-app/samples/3.x/SampleApp/Startup.cs?name=snippet_UsingBooksApiModels)]
 
-## <a name="add-a-crud-operations-service"></a>CRUD işlemleri hizmet ekleme
+## <a name="add-a-crud-operations-service"></a>CRUD işlemleri hizmeti ekleme
 
 1. Ekleme bir *Hizmetleri* proje kök dizini.
 1. Ekleme bir `BookService` sınıfının *Hizmetleri* aşağıdaki kod ile dizin:
 
-    [!code-csharp[](first-mongo-app/sample/BooksApi/Services/BookService.cs?name=snippet_BookServiceClass)]
+   [!code-csharp[](first-mongo-app/samples/3.x/SampleApp/Services/BookService.cs?name=snippet_BookServiceClass)]
 
-    Önceki kodda, bir `IBookstoreDatabaseSettings` Oluşturucu ekleme örneği DI alınır. Bu tekniği erişim sağlayan *appsettings.json* eklenmiştir yapılandırma değerlerini [yapılandırma modeli ekleme](#add-a-configuration-model) bölümü.
+   Yukarıdaki kodda, bir `IBookstoreDatabaseSettings` örnek oluşturucu ekleme yoluyla dı 'den alınır. Bu teknik, [yapılandırma modeli ekleme](#add-a-configuration-model) bölümüne eklenen *appSettings. JSON* yapılandırma değerlerine erişim sağlar.
 
-1. Aşağıdaki vurgulanmış kodu ekleyin `Startup.ConfigureServices`:
+1. Aşağıdaki Vurgulanan kodu öğesine `Startup.ConfigureServices`ekleyin:
 
-    [!code-csharp[](first-mongo-app/sample_snapshot/BooksApi/Startup.ConfigureServices.AddSingletonService.cs?highlight=9)]
+   [!code-csharp[](first-mongo-app/samples_snapshot/3.x/SampleApp/Startup.ConfigureServices.AddSingletonService.cs?highlight=9)]
 
-    Önceki kodda, `BookService` sınıfı Oluşturucu ekleme sınıfları tüketen desteklemek için DI ile kaydedilir. Singleton hizmet ömrü uygundur çünkü `BookService` doğrudan bağımlılık vereceğine `MongoClient`. Resmi başına [Mongo istemci yeniden yönergeleri](https://mongodb.github.io/mongo-csharp-driver/2.8/reference/driver/connecting/#re-use), `MongoClient` DI tekil hizmet ömrü ile kayıtlı olması gerekir.
+   Önceki kodda, `BookService` sınıfı, tüketen sınıflarda Oluşturucu ekleme işlemini desteklemek için dı ile kaydedilir. Tek hizmet ömrü en uygundur çünkü `BookService` doğrudan bir `MongoClient`bağımlılık alır. Resmi [Mongo istemci yeniden kullanım yönergelerine](https://mongodb.github.io/mongo-csharp-driver/2.8/reference/driver/connecting/#re-use)göre, `MongoClient` tek bir hizmet ömrü ile dı 'ye kaydedilmelidir.
 
-1. Üstüne aşağıdaki kodu ekleyin *Startup.cs* çözümlenecek `BookService` başvurusu:
+1. `BookService` Başvuruyu çözümlemek için aşağıdaki kodu *Startup.cs* 'in en üstüne ekleyin:
 
-    [!code-csharp[](first-mongo-app/sample/BooksApi/Startup.cs?name=snippet_UsingBooksApiServices)]
+   [!code-csharp[](first-mongo-app/samples/3.x/SampleApp/Startup.cs?name=snippet_UsingBooksApiServices)]
 
 `BookService` Sınıfını kullanan aşağıdaki `MongoDB.Driver` veritabanında CRUD işlemleri gerçekleştirmek için üyeleri:
 
-* [MongoClient](https://api.mongodb.com/csharp/current/html/T_MongoDB_Driver_MongoClient.htm) &ndash; veritabanı işlemleri gerçekleştirmek için kullanılan bir sunucuyu okur. Bu sınıfın oluşturucusu, MongoDB bağlantı dizesini sağlanır:
+* [Mongoclient](https://api.mongodb.com/csharp/current/html/T_MongoDB_Driver_MongoClient.htm) &ndash; Veritabanı işlemlerini gerçekleştirmek için sunucu örneğini okur. Bu sınıfın oluşturucusu, MongoDB bağlantı dizesini sağlanır:
 
-    [!code-csharp[](first-mongo-app/sample/BooksApi/Services/BookService.cs?name=snippet_BookServiceConstructor&highlight=3)]
+  [!code-csharp[](first-mongo-app/samples/3.x/SampleApp/Services/BookService.cs?name=snippet_BookServiceConstructor&highlight=3)]
 
-* [IMongoDatabase](https://api.mongodb.com/csharp/current/html/T_MongoDB_Driver_IMongoDatabase.htm) &ndash; işlemleri gerçekleştirmek için kullanılan Mongo veritabanını temsil eder. Bu öğreticide genel [belirtilmiş\<TDocument > (koleksiyon)](https://api.mongodb.com/csharp/current/html/M_MongoDB_Driver_IMongoDatabase_GetCollection__1.htm) yöntemi belirli bir koleksiyondaki verileri erişim elde etmek için arabirim. Bu yöntemi çağrıldıktan sonra koleksiyonu karşı bir CRUD işlemleri gerçekleştirin. İçinde `GetCollection<TDocument>(collection)` yöntem çağrısı:
+* [Imongodatabase](https://api.mongodb.com/csharp/current/html/T_MongoDB_Driver_IMongoDatabase.htm) &ndash; İşlemleri gerçekleştirmek için Mongo veritabanını temsil eder. Bu öğretici, belirli bir koleksiyondaki verilere erişim kazanmak için arabirimdeki genel [GetCollection\<tdocument > (Collection)](https://api.mongodb.com/csharp/current/html/M_MongoDB_Driver_IMongoDatabase_GetCollection__1.htm) yöntemini kullanır. Bu yöntem çağrıldıktan sonra, koleksiyonda CRUD işlemleri gerçekleştirin. İçinde `GetCollection<TDocument>(collection)` yöntem çağrısı:
+
   * `collection` Koleksiyon adını temsil eder.
   * `TDocument` Bir koleksiyonda depolanan CLR nesne türünü temsil eder.
 
-`GetCollection<TDocument>(collection)` döndürür bir [MongoCollection](https://api.mongodb.com/csharp/current/html/T_MongoDB_Driver_MongoCollection.htm) koleksiyonu temsil eden nesne. Bu öğreticide, aşağıdaki yöntemlerden koleksiyonunda çağrılır:
+`GetCollection<TDocument>(collection)`koleksiyonu temsil eden bir [Mongocollection](https://api.mongodb.com/csharp/current/html/T_MongoDB_Driver_MongoCollection.htm) nesnesi döndürür. Bu öğreticide, aşağıdaki yöntemlerden koleksiyonunda çağrılır:
 
-* [DeleteOne](https://api.mongodb.com/csharp/current/html/M_MongoDB_Driver_IMongoCollection_1_DeleteOne.htm) &ndash; sağlanan arama ölçütleriyle eşleşen tek bir belge siler.
-* [Bulma\<TDocument >](https://api.mongodb.com/csharp/current/html/M_MongoDB_Driver_IMongoCollectionExtensions_Find__1_1.htm) &ndash; sağlanan arama ölçütleriyle eşleşen koleksiyondaki tüm belgeleri döndürür.
-* [InsertOne](https://api.mongodb.com/csharp/current/html/M_MongoDB_Driver_IMongoCollection_1_InsertOne.htm) &ndash; belirtilen nesne koleksiyonunda yeni bir belge olarak ekler.
-* [ReplaceOne](https://api.mongodb.com/csharp/current/html/M_MongoDB_Driver_IMongoCollection_1_ReplaceOne.htm) &ndash; sağlanan nesne ile sağlanan arama ölçütleriyle eşleşen tek bir belge değiştirir.
+* [Deleteone](https://api.mongodb.com/csharp/current/html/M_MongoDB_Driver_IMongoCollection_1_DeleteOne.htm) &ndash; Belirtilen arama ölçütleriyle eşleşen tek bir belgeyi siler.
+* [Tdocument >\<](https://api.mongodb.com/csharp/current/html/M_MongoDB_Driver_IMongoCollectionExtensions_Find__1_1.htm) &ndash; bul, koleksiyonda belirtilen arama ölçütleriyle eşleşen tüm belgeleri döndürür.
+* [Insertone](https://api.mongodb.com/csharp/current/html/M_MongoDB_Driver_IMongoCollection_1_InsertOne.htm) &ndash; Belirtilen nesneyi, koleksiyonda yeni bir belge olarak ekler.
+* [Replaceone](https://api.mongodb.com/csharp/current/html/M_MongoDB_Driver_IMongoCollection_1_ReplaceOne.htm) &ndash; Belirtilen arama ölçütleriyle eşleşen tek belgeyi, belirtilen nesneyle değiştirir.
 
 ## <a name="add-a-controller"></a>Denetleyici ekleme
 
 Ekleme bir `BooksController` sınıfının *denetleyicileri* aşağıdaki kod ile dizin:
 
-[!code-csharp[](first-mongo-app/sample/BooksApi/Controllers/BooksController.cs)]
+[!code-csharp[](first-mongo-app/samples/3.x/SampleApp/Controllers/BooksController.cs)]
 
 Önceki web API denetleyicisi:
 
 * Kullanan `BookService` CRUD işlemleri gerçekleştirmek için sınıf.
 * GET, POST, PUT ve DELETE HTTP isteklerini desteklemek için eylem yöntemleri içerir.
-* Çağrıları <xref:System.Web.Http.ApiController.CreatedAtRoute*> içinde `Create` döndürülecek eylem yöntemi bir [HTTP 201](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html) yanıt. Durum kodu 201 sunucuda yeni bir kaynak oluşturan bir HTTP POST yöntemi için standart yanıttır. `CreatedAtRoute` Ayrıca ekler bir `Location` yanıt üst bilgisi. `Location` Üst bilgisi, yeni oluşturulan kitap URI'sini belirtir.
+* [Http 201](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html) yanıtı döndürmek için <xref:System.Web.Http.ApiController.CreatedAtRoute*> eylemyöntemindekiçağrılar.`Create` Durum kodu 201, sunucuda yeni bir kaynak oluşturan HTTP POST yöntemi için standart yanıttır. `CreatedAtRoute`Ayrıca yanıta bir `Location` üst bilgi ekler. `Location` Üst bilgi, yeni oluşturulan kitabın URI 'sini belirtir.
 
-## <a name="test-the-web-api"></a>Web API'sini test etme
+## <a name="test-the-web-api"></a>Web API 'sini test etme
 
 1. Uygulamayı derleyin ve çalıştırın.
 
-1. Gidin `http://localhost:<port>/api/books` test denetleyicisi için parametresiz `Get` eylem yöntemi. Aşağıdaki JSON yanıtı gösterilir:
+1. Denetleyicinin parametresiz `http://localhost:<port>/api/books` `Get` eylem yöntemini sınamak için öğesine gidin. Aşağıdaki JSON yanıtı gösterilir:
 
-    ```json
-    [
-      {
-        "id":"5bfd996f7b8e48dc15ff215d",
-        "bookName":"Design Patterns",
-        "price":54.93,
-        "category":"Computers",
-        "author":"Ralph Johnson"
-      },
-      {
-        "id":"5bfd996f7b8e48dc15ff215e",
-        "bookName":"Clean Code",
-        "price":43.15,
-        "category":"Computers",
-        "author":"Robert C. Martin"
-      }
-    ]
-    ```
+   ```json
+   [
+     {
+       "id":"5bfd996f7b8e48dc15ff215d",
+       "bookName":"Design Patterns",
+       "price":54.93,
+       "category":"Computers",
+       "author":"Ralph Johnson"
+     },
+     {
+       "id":"5bfd996f7b8e48dc15ff215e",
+       "bookName":"Clean Code",
+       "price":43.15,
+       "category":"Computers",
+       "author":"Robert C. Martin"
+     }
+   ]
+   ```
 
-1. Gidin `http://localhost:<port>/api/books/{id here}` test denetleyicisi için aşırı yüklenmiş `Get` eylem yöntemi. Aşağıdaki JSON yanıtı gösterilir:
+1. Denetleyicinin aşırı `http://localhost:<port>/api/books/{id here}` yüklenmiş `Get` eylem yöntemini sınamak için öğesine gidin. Aşağıdaki JSON yanıtı gösterilir:
 
-    ```json
-    {
-      "id":"{ID}",
-      "bookName":"Clean Code",
-      "price":43.15,
-      "category":"Computers",
-      "author":"Robert C. Martin"
-    }
-    ```
+   ```json
+   {
+     "id":"{ID}",
+     "bookName":"Clean Code",
+     "price":43.15,
+     "category":"Computers",
+     "author":"Robert C. Martin"
+   }
+   ```
 
-## <a name="configure-json-serialization-options"></a>JSON seri hale getirme seçenekleri yapılandırın
+## <a name="configure-json-serialization-options"></a>JSON serileştirme seçeneklerini yapılandırma
 
-Döndürülen JSON yanıtları değiştirmek için iki ayrıntı [web API'si Test](#test-the-web-api) bölümü:
+[Web API 'Sini test](#test-the-web-api) etme bölümünde döndürülen JSON yanıtları hakkında iki ayrıntı vardır:
 
-* Özellik adlarını ortası büyük olan varsayılan büyük/küçük harf Pascal eşleşecek şekilde değiştirilmesi gereken CLR nesnenin özellik adları büyük/küçük harfleri.
-* `bookName` Özelliği olarak döndürülmesi `Name`.
+* ' Varsayılan ortası büyük/küçük harf özelliği, CLR nesnesinin özellik adlarının Pascal büyük küçük harfleriyle eşleşecek şekilde değiştirilmelidir.
+* `bookName` Özelliği olarak`Name`döndürülmelidir.
 
-Yukarıdaki gereksinimleri karşılamak için aşağıdaki değişiklikleri yapın:
+Önceki gereksinimleri karşılamak için aşağıdaki değişiklikleri yapın:
 
-1. İçinde `Startup.ConfigureServices`, aşağıdaki vurgulanmış kodu için zincir `AddMvc` yöntem çağrısı:
+1. JSON.NET, ASP.NET paylaşılan çerçevesinden kaldırılmıştır. [Microsoft. AspNetCore. Mvc. NewtonsoftJson](https://nuget.org/packages/Microsoft.AspNetCore.Mvc.NewtonsoftJson)öğesine bir paket başvurusu ekleyin.
 
-    [!code-csharp[](first-mongo-app/sample/BooksApi/Startup.cs?name=snippet_ConfigureServices&highlight=12)]
+1. ' `Startup.ConfigureServices`De, aşağıdaki vurgulanmış kodu `AddMvc` yöntem çağrısına zincirle:
 
-    Önceki değişiklikle, web API'SİNİN özellik adlarını JSON yanıtı eşleşme karşılık gelen özellik adlarını CLR nesne türü seri hale. Örneğin, `Book` sınıfın `Author` serileştiren özelliğini olarak `Author`.
+   [!code-csharp[](first-mongo-app/samples/3.x/SampleApp/Startup.cs?name=snippet_ConfigureServices&highlight=12)]
 
-1. İçinde *Models/Book.cs*, açıklama `BookName` aşağıdaki özellik [[Item]](https://www.newtonsoft.com/json/help/html/T_Newtonsoft_Json_JsonPropertyAttribute.htm) özniteliği:
+   Önceki değişiklik ile, Web API 'sinin seri hale getirilmiş JSON yanıtındaki Özellik adları CLR nesne türündeki ilgili özellik adlarıyla eşleşir. Örneğin, `Book` `Author` sınıfın özelliği olarak `Author`serileştirir.
 
-    [!code-csharp[](first-mongo-app/sample/BooksApi/Models/Book.cs?name=snippet_BookNameProperty&highlight=2)]
+1. *Modeller/Book. cs*' de, aşağıdaki `BookName` [[jsonproperty]](https://www.newtonsoft.com/json/help/html/T_Newtonsoft_Json_JsonPropertyAttribute.htm) özniteliğiyle özelliğe not ekleyin:
 
-    `[JsonProperty]` Özniteliğin değerini `Name` seri hale getirilmiş JSON yanıtı web API'SİNİN name özelliği temsil eder.
+   [!code-csharp[](first-mongo-app/samples/3.x/SampleApp/Models/Book.cs?name=snippet_BookNameProperty&highlight=2)]
 
-1. Üstüne aşağıdaki kodu ekleyin *Models/Book.cs* çözümlenecek `[JsonProperty]` öznitelik başvurusu:
+   Özniteliğinin değeri, Web API 'sinin serileştirilmiş JSON yanıtında özellik adını temsileder.`Name` `[JsonProperty]`
 
-    [!code-csharp[](first-mongo-app/sample/BooksApi/Models/Book.cs?name=snippet_NewtonsoftJsonImport)]
+1. Aşağıdaki kodu *modeller/Book. cs* ' nin üst kısmına ekleyerek `[JsonProperty]` öznitelik başvurusunu çözümleyin:
 
-1. Tanımlı adımları yineleyin [web API'si Test](#test-the-web-api) bölümü. JSON özellik adları fark dikkat edin.
+   [!code-csharp[](first-mongo-app/samples/3.x/SampleApp/Models/Book.cs?name=snippet_NewtonsoftJsonImport)]
+
+1. [Web API 'Sini test](#test-the-web-api) etme bölümünde tanımlanan adımları yineleyin. JSON Özellik adlarındaki farka dikkat edin.
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
+
+Bu öğreticide web API'si temel oluşturma, okuma, güncelleştirme ve silme (CRUD) işlemleri gerçekleştiren oluşturur bir [MongoDB](https://www.mongodb.com/what-is-mongodb) NoSQL veritabanı.
+
+Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
+
+> [!div class="checklist"]
+> * MongoDB yapılandırın
+> * MongoDB veritabanı oluşturma
+> * MongoDB koleksiyonu ve şema tanımlayın
+> * Bir web API'sini MongoDB CRUD işlemleri gerçekleştirme
+> * JSON serileştirmesini özelleştirme
+
+[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/tutorials/first-mongo-app/samples) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
+
+## <a name="prerequisites"></a>Önkoşullar
+
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+
+* [.NET Core SDK 2,2](https://www.microsoft.com/net/download/all)
+* **ASP.net ve Web geliştirme** iş yüküyle [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=inline+link&utm_content=download+vs2019)
+* [MongoDB](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-windows/)
+
+# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+
+* [.NET Core SDK 2,2](https://www.microsoft.com/net/download/all)
+* [Visual Studio Code](https://code.visualstudio.com/download)
+* [Visual Studio Code için C#](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)
+* [MongoDB](https://docs.mongodb.com/manual/administration/install-community/)
+
+# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Mac için Visual Studio](#tab/visual-studio-mac)
+
+* [.NET Core SDK 2,2](https://www.microsoft.com/net/download/all)
+* [Mac 7,7 veya sonraki bir sürümü için Visual Studio](https://visualstudio.microsoft.com/downloads/)
+* [MongoDB](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-os-x/)
+
+---
+
+## <a name="configure-mongodb"></a>MongoDB yapılandırın
+
+Windows kullanıyorsanız MongoDB varsayılan olarak *C:\\Program Files\\MongoDB* konumunda yüklüdür. Ortam değişkenine *C\\: program\\Files MongoDB\\\\Server\<Version_Number\\> bin* ekleyin. `Path` Bu değişiklik yerden MongoDB erişim sağlar, geliştirme makinenizde.
+
+Mongo kabuğunu veritabanı oluşturma, koleksiyonları yapın ve belgeleri depolamak için aşağıdaki adımları kullanın. Mongo Kabuğu komutları hakkında daha fazla bilgi için bkz. [mongo kabuğunu çalışma](https://docs.mongodb.com/manual/mongo/#working-with-the-mongo-shell).
+
+1. Geliştirme makinenizde verilerin depolanması için bir dizin seçin. Örneğin, *C:\\Windows üzerinde booksdata* . Yoksa dizini oluşturun. Mongo kabuğunu yeni dizinleri oluşturmaz.
+1. Bir komut kabuğunu açın. Varsayılan bağlantı noktası 27017 mongodb'ye bağlanmak için aşağıdaki komutu çalıştırın. Değiştirmeyi unutmayın `<data_directory_path>` önceki adımda seçtiğiniz dizini.
+
+   ```console
+   mongod --dbpath <data_directory_path>
+   ```
+
+1. Başka bir komut kabuğu örneği açın. Aşağıdaki komutu çalıştırarak varsayılan test veritabanı'na bağlanma:
+
+   ```console
+   mongo
+   ```
+
+1. Bir komut kabuğu'nda aşağıdaki komutu çalıştırın:
+
+   ```console
+   use BookstoreDb
+   ```
+
+   Adlı bir veritabanı zaten mevcut olmayan halinde *BookstoreDb* oluşturulur. Veritabanı mevcut değilse, bağlantı işlemleri için açılır.
+
+1. Oluşturma bir `Books` koleksiyon aşağıdaki komutu kullanarak:
+
+   ```console
+   db.createCollection('Books')
+   ```
+
+   Aşağıdaki sonucu görüntülenir:
+
+   ```console
+   { "ok" : 1 }
+   ```
+
+1. İçin bir şema tanımlayabilir `Books` toplama ve ekleme iki belge aşağıdaki komutu kullanarak:
+
+   ```console
+   db.Books.insertMany([{'Name':'Design Patterns','Price':54.93,'Category':'Computers','Author':'Ralph Johnson'}, {'Name':'Clean Code','Price':43.15,'Category':'Computers','Author':'Robert C. Martin'}])
+   ```
+
+   Aşağıdaki sonucu görüntülenir:
+
+   ```console
+   {
+     "acknowledged" : true,
+     "insertedIds" : [
+       ObjectId("5bfd996f7b8e48dc15ff215d"),
+       ObjectId("5bfd996f7b8e48dc15ff215e")
+     ]
+   }
+   ```
+  
+   > [!NOTE]
+   > Bu makalede gösterilen KIMLIK, bu örneği çalıştırdığınızda kimliklerle eşleşmeyecektir.
+
+1. Aşağıdaki komutu kullanarak veritabanında belgelerini görüntüleyin:
+
+   ```console
+   db.Books.find({}).pretty()
+   ```
+
+   Aşağıdaki sonucu görüntülenir:
+
+   ```console
+   {
+     "_id" : ObjectId("5bfd996f7b8e48dc15ff215d"),
+     "Name" : "Design Patterns",
+     "Price" : 54.93,
+     "Category" : "Computers",
+     "Author" : "Ralph Johnson"
+   }
+   {
+     "_id" : ObjectId("5bfd996f7b8e48dc15ff215e"),
+     "Name" : "Clean Code",
+     "Price" : 43.15,
+     "Category" : "Computers",
+     "Author" : "Robert C. Martin"
+   }
+   ```
+
+   Şema girmiş ekler `_id` türünün özelliği `ObjectId` her belge için.
+
+Veritabanı hazırdır. ASP.NET Core web API'si oluşturmaya başlayabilirsiniz.
+
+## <a name="create-the-aspnet-core-web-api-project"></a>ASP.NET Core web API projesi oluşturma
+
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+
+1. **Dosya** > yeni Proje> ' ye gidin.
+1. **ASP.NET Core Web uygulaması** proje türünü seçin ve **İleri**' yi seçin.
+1. Projeyi *Booksapı*olarak adlandırın ve **Oluştur**' u seçin.
+1. **.NET Core** hedef çerçevesini ve **2,2 ASP.NET Core**seçin. **API** proje şablonunu seçin ve **Oluştur**' u seçin.
+1. [NuGet galerisini ziyaret edin: MongoDB. Driver](https://www.nuget.org/packages/MongoDB.Driver/) için .net sürücüsünün en son kararlı sürümünü belirleme. İçinde **Paket Yöneticisi Konsolu** penceresinde proje kök dizinine gidin. MongoDB için .NET sürücüsünü yüklemek için aşağıdaki komutu çalıştırın:
+
+   ```powershell
+   Install-Package MongoDB.Driver -Version {VERSION}
+   ```
+
+# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+
+1. Bir komut kabuğu'nda aşağıdaki komutları çalıştırın:
+
+   ```console
+   dotnet new webapi -o BooksApi
+   code BooksApi
+   ```
+
+   .NET Core'u hedefleyen yeni bir ASP.NET Core web API projesi oluşturulur ve Visual Studio Code'da açılır.
+
+1. Durum çubuğunun omnisharp Yangın simgesi yeşil ' i etkinleştirdikten sonra, **gerekli varlıkların derleme ve hata ayıklama için ' booksapı ' içinde eksik bir iletişim kutusu yok. Bunları ekleyin mi?** . **Evet**' i seçin.
+1. [NuGet galerisini ziyaret edin: MongoDB. Driver](https://www.nuget.org/packages/MongoDB.Driver/) için .net sürücüsünün en son kararlı sürümünü belirleme. Açık **tümleşik Terminalini** ve proje kök dizinine gidin. MongoDB için .NET sürücüsünü yüklemek için aşağıdaki komutu çalıştırın:
+
+   ```console
+   dotnet add BooksApi.csproj package MongoDB.Driver -v {VERSION}
+   ```
+
+# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Mac için Visual Studio](#tab/visual-studio-mac)
+
+1. **Dosya** yeniçözüm> **.NET Core** **uygulaması**sayfasına gidin. > >
+1. **ASP.NET Core Web API** C# proje şablonunu seçin ve **İleri**' yi seçin.
+1. **Hedef çerçeve** açılır listesinden **.NET Core 2,2** ' i seçin ve **İleri**' yi seçin.
+1. **Proje adı**Için *booksapı* girin ve **Oluştur**' u seçin.
+1. İçinde **çözüm** paneli, projenin sağ **bağımlılıkları** düğümünü seçip alt **paketleri Ekle**.
+1. Arama kutusuna *MongoDB. Driver* girin, *MongoDB. Driver* paketini seçin ve **paket Ekle**' yi seçin.
+1. **Lisans kabulü** Iletişim kutusunda **kabul et** düğmesini seçin.
+
+---
+
+## <a name="add-an-entity-model"></a>Varlık modeli ekleme
+
+1. Ekleme bir *modelleri* proje kök dizini.
+1. Ekleme bir `Book` sınıfının *modelleri* aşağıdaki kod ile dizin:
+
+   ```csharp
+   using MongoDB.Bson;
+   using MongoDB.Bson.Serialization.Attributes;
+
+   namespace BooksApi.Models
+   {
+       public class Book
+       {
+           [BsonId]
+           [BsonRepresentation(BsonType.ObjectId)]
+           public string Id { get; set; }
+
+           [BsonElement("Name")]
+           public string BookName { get; set; }
+
+           public decimal Price { get; set; }
+
+           public string Category { get; set; }
+
+           public string Author { get; set; }
+       }
+   }
+   ```
+
+   Önceki sınıfta, `Id` özelliği:
+
+   * Ortak dil çalışma zamanı (CLR) nesnesini MongoDB koleksiyonuna eşlemek için gereklidir.
+   * Bu özelliği belgenin birincil anahtarı olarak belirlemek için [[Bsonıd]](https://api.mongodb.com/csharp/current/html/T_MongoDB_Bson_Serialization_Attributes_BsonIdAttribute.htm) ile açıklama eklenir.
+   * [[Bsongösterimi (bsontype. ObjectID)]](https://api.mongodb.com/csharp/current/html/T_MongoDB_Bson_Serialization_Attributes_BsonRepresentationAttribute.htm) ile, parametreyi `string` [ObjectID](https://api.mongodb.com/csharp/current/html/T_MongoDB_Bson_ObjectId.htm) yapısı yerine tür olarak geçirmeyi sağlamak için açıklama eklenir. Mongo, ' den `string` ' ye `ObjectId`dönüştürmeyi işler.
+
+   Özelliği [ [bsonelement]](https://api.mongodb.com/csharp/current/html/T_MongoDB_Bson_Serialization_Attributes_BsonElementAttribute.htm) özniteliğiyle açıklama eklenir. `BookName` Özniteliğinin değeri `Name` , MongoDB koleksiyonundaki özellik adını temsil eder.
+
+## <a name="add-a-configuration-model"></a>Yapılandırma modeli ekleme
+
+1. Aşağıdaki veritabanı yapılandırma değerlerini *appSettings. JSON*öğesine ekleyin:
+
+   [!code-json[](first-mongo-app/samples/2.x/SampleApp/appsettings.json?highlight=2-6)]
+
+1. *Modeller* dizinine aşağıdaki kodla bir *BookstoreDatabaseSettings.cs* dosyası ekleyin:
+
+   [!code-csharp[](first-mongo-app/samples/2.x/SampleApp/Models/BookstoreDatabaseSettings.cs)]
+
+   Yukarıdaki `BookstoreDatabaseSettings` sınıf, `BookstoreDatabaseSettings` *appSettings. JSON* dosyasının özellik değerlerini depolamak için kullanılır. JSON ve C# Özellik adları, eşleme sürecini kolaylaştırmak için aynı şekilde adlandırılır.
+
+1. Aşağıdaki Vurgulanan kodu öğesine `Startup.ConfigureServices`ekleyin:
+
+   [!code-csharp[](first-mongo-app/samples_snapshot/2.x/SampleApp/Startup.ConfigureServices.AddDbSettings.cs?highlight=3-7)]
+
+   Önceki kodda:
+
+   * *AppSettings. JSON* dosyasının `BookstoreDatabaseSettings` bölüm bağlandığı yapılandırma örneği, bağımlılık ekleme (dı) kapsayıcısına kaydedilir. Örneğin `BookstoreDatabaseSettings` , bir `ConnectionString` nesnenin `BookstoreDatabaseSettings:ConnectionString` özelliği *appSettings. JSON*içindeki özelliği ile doldurulur.
+   * Arabirim `IBookstoreDatabaseSettings` , tek bir [hizmet ömrü](xref:fundamentals/dependency-injection#service-lifetimes)ile dı 'ye kaydedilir. Eklenen arabirim örneği bir `BookstoreDatabaseSettings` nesne olarak çözümlenir.
+
+1. `BookstoreDatabaseSettings` Ve`IBookstoreDatabaseSettings` başvurularını çözümlemek için aşağıdaki kodu Startup.cs 'in en üstüne ekleyin:
+
+   [!code-csharp[](first-mongo-app/samples/2.x/SampleApp/Startup.cs?name=snippet_UsingBooksApiModels)]
+
+## <a name="add-a-crud-operations-service"></a>CRUD işlemleri hizmeti ekleme
+
+1. Ekleme bir *Hizmetleri* proje kök dizini.
+1. Ekleme bir `BookService` sınıfının *Hizmetleri* aşağıdaki kod ile dizin:
+
+   [!code-csharp[](first-mongo-app/samples/2.x/SampleApp/Services/BookService.cs?name=snippet_BookServiceClass)]
+
+   Yukarıdaki kodda, bir `IBookstoreDatabaseSettings` örnek oluşturucu ekleme yoluyla dı 'den alınır. Bu teknik, [yapılandırma modeli ekleme](#add-a-configuration-model) bölümüne eklenen *appSettings. JSON* yapılandırma değerlerine erişim sağlar.
+
+1. Aşağıdaki Vurgulanan kodu öğesine `Startup.ConfigureServices`ekleyin:
+
+   [!code-csharp[](first-mongo-app/samples_snapshot/2.x/SampleApp/Startup.ConfigureServices.AddSingletonService.cs?highlight=9)]
+
+   Önceki kodda, `BookService` sınıfı, tüketen sınıflarda Oluşturucu ekleme işlemini desteklemek için dı ile kaydedilir. Tek hizmet ömrü en uygundur çünkü `BookService` doğrudan bir `MongoClient`bağımlılık alır. Resmi [Mongo istemci yeniden kullanım yönergelerine](https://mongodb.github.io/mongo-csharp-driver/2.8/reference/driver/connecting/#re-use)göre, `MongoClient` tek bir hizmet ömrü ile dı 'ye kaydedilmelidir.
+
+1. `BookService` Başvuruyu çözümlemek için aşağıdaki kodu *Startup.cs* 'in en üstüne ekleyin:
+
+   [!code-csharp[](first-mongo-app/samples/2.x/SampleApp/Startup.cs?name=snippet_UsingBooksApiServices)]
+
+`BookService` Sınıfını kullanan aşağıdaki `MongoDB.Driver` veritabanında CRUD işlemleri gerçekleştirmek için üyeleri:
+
+* [Mongoclient](https://api.mongodb.com/csharp/current/html/T_MongoDB_Driver_MongoClient.htm) &ndash; Veritabanı işlemlerini gerçekleştirmek için sunucu örneğini okur. Bu sınıfın oluşturucusu, MongoDB bağlantı dizesini sağlanır:
+
+  [!code-csharp[](first-mongo-app/samples/2.x/SampleApp/Services/BookService.cs?name=snippet_BookServiceConstructor&highlight=3)]
+
+* [Imongodatabase](https://api.mongodb.com/csharp/current/html/T_MongoDB_Driver_IMongoDatabase.htm) &ndash; İşlemleri gerçekleştirmek için Mongo veritabanını temsil eder. Bu öğretici, belirli bir koleksiyondaki verilere erişim kazanmak için arabirimdeki genel [GetCollection\<tdocument > (Collection)](https://api.mongodb.com/csharp/current/html/M_MongoDB_Driver_IMongoDatabase_GetCollection__1.htm) yöntemini kullanır. Bu yöntem çağrıldıktan sonra, koleksiyonda CRUD işlemleri gerçekleştirin. İçinde `GetCollection<TDocument>(collection)` yöntem çağrısı:
+
+  * `collection` Koleksiyon adını temsil eder.
+  * `TDocument` Bir koleksiyonda depolanan CLR nesne türünü temsil eder.
+
+`GetCollection<TDocument>(collection)`koleksiyonu temsil eden bir [Mongocollection](https://api.mongodb.com/csharp/current/html/T_MongoDB_Driver_MongoCollection.htm) nesnesi döndürür. Bu öğreticide, aşağıdaki yöntemlerden koleksiyonunda çağrılır:
+
+* [Deleteone](https://api.mongodb.com/csharp/current/html/M_MongoDB_Driver_IMongoCollection_1_DeleteOne.htm) &ndash; Belirtilen arama ölçütleriyle eşleşen tek bir belgeyi siler.
+* [Tdocument >\<](https://api.mongodb.com/csharp/current/html/M_MongoDB_Driver_IMongoCollectionExtensions_Find__1_1.htm) &ndash; bul, koleksiyonda belirtilen arama ölçütleriyle eşleşen tüm belgeleri döndürür.
+* [Insertone](https://api.mongodb.com/csharp/current/html/M_MongoDB_Driver_IMongoCollection_1_InsertOne.htm) &ndash; Belirtilen nesneyi, koleksiyonda yeni bir belge olarak ekler.
+* [Replaceone](https://api.mongodb.com/csharp/current/html/M_MongoDB_Driver_IMongoCollection_1_ReplaceOne.htm) &ndash; Belirtilen arama ölçütleriyle eşleşen tek belgeyi, belirtilen nesneyle değiştirir.
+
+## <a name="add-a-controller"></a>Denetleyici ekleme
+
+Ekleme bir `BooksController` sınıfının *denetleyicileri* aşağıdaki kod ile dizin:
+
+[!code-csharp[](first-mongo-app/samples/2.x/SampleApp/Controllers/BooksController.cs)]
+
+Önceki web API denetleyicisi:
+
+* Kullanan `BookService` CRUD işlemleri gerçekleştirmek için sınıf.
+* GET, POST, PUT ve DELETE HTTP isteklerini desteklemek için eylem yöntemleri içerir.
+* [Http 201](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html) yanıtı döndürmek için <xref:System.Web.Http.ApiController.CreatedAtRoute*> eylemyöntemindekiçağrılar.`Create` Durum kodu 201, sunucuda yeni bir kaynak oluşturan HTTP POST yöntemi için standart yanıttır. `CreatedAtRoute`Ayrıca yanıta bir `Location` üst bilgi ekler. `Location` Üst bilgi, yeni oluşturulan kitabın URI 'sini belirtir.
+
+## <a name="test-the-web-api"></a>Web API 'sini test etme
+
+1. Uygulamayı derleyin ve çalıştırın.
+
+1. Denetleyicinin parametresiz `http://localhost:<port>/api/books` `Get` eylem yöntemini sınamak için öğesine gidin. Aşağıdaki JSON yanıtı gösterilir:
+
+   ```json
+   [
+     {
+       "id":"5bfd996f7b8e48dc15ff215d",
+       "bookName":"Design Patterns",
+       "price":54.93,
+       "category":"Computers",
+       "author":"Ralph Johnson"
+     },
+     {
+       "id":"5bfd996f7b8e48dc15ff215e",
+       "bookName":"Clean Code",
+       "price":43.15,
+       "category":"Computers",
+       "author":"Robert C. Martin"
+     }
+   ]
+   ```
+
+1. Denetleyicinin aşırı `http://localhost:<port>/api/books/{id here}` yüklenmiş `Get` eylem yöntemini sınamak için öğesine gidin. Aşağıdaki JSON yanıtı gösterilir:
+
+   ```json
+   {
+     "id":"{ID}",
+     "bookName":"Clean Code",
+     "price":43.15,
+     "category":"Computers",
+     "author":"Robert C. Martin"
+   }
+   ```
+
+## <a name="configure-json-serialization-options"></a>JSON serileştirme seçeneklerini yapılandırma
+
+[Web API 'Sini test](#test-the-web-api) etme bölümünde döndürülen JSON yanıtları hakkında iki ayrıntı vardır:
+
+* ' Varsayılan ortası büyük/küçük harf özelliği, CLR nesnesinin özellik adlarının Pascal büyük küçük harfleriyle eşleşecek şekilde değiştirilmelidir.
+* `bookName` Özelliği olarak`Name`döndürülmelidir.
+
+Önceki gereksinimleri karşılamak için aşağıdaki değişiklikleri yapın:
+
+1. ' `Startup.ConfigureServices`De, aşağıdaki vurgulanmış kodu `AddMvc` yöntem çağrısına zincirle:
+
+   [!code-csharp[](first-mongo-app/samples/2.x/SampleApp/Startup.cs?name=snippet_ConfigureServices&highlight=12)]
+
+   Önceki değişiklik ile, Web API 'sinin seri hale getirilmiş JSON yanıtındaki Özellik adları CLR nesne türündeki ilgili özellik adlarıyla eşleşir. Örneğin, `Book` `Author` sınıfın özelliği olarak `Author`serileştirir.
+
+1. *Modeller/Book. cs*' de, aşağıdaki `BookName` [[jsonproperty]](https://www.newtonsoft.com/json/help/html/T_Newtonsoft_Json_JsonPropertyAttribute.htm) özniteliğiyle özelliğe not ekleyin:
+
+   [!code-csharp[](first-mongo-app/samples/2.x/SampleApp/Models/Book.cs?name=snippet_BookNameProperty&highlight=2)]
+
+   Özniteliğinin değeri, Web API 'sinin serileştirilmiş JSON yanıtında özellik adını temsileder.`Name` `[JsonProperty]`
+
+1. Aşağıdaki kodu *modeller/Book. cs* ' nin üst kısmına ekleyerek `[JsonProperty]` öznitelik başvurusunu çözümleyin:
+
+   [!code-csharp[](first-mongo-app/samples/2.x/SampleApp/Models/Book.cs?name=snippet_NewtonsoftJsonImport)]
+
+1. [Web API 'Sini test](#test-the-web-api) etme bölümünde tanımlanan adımları yineleyin. JSON Özellik adlarındaki farka dikkat edin.
+
+::: moniker-end
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -1,81 +1,81 @@
 ---
-title: 'Öğretici: -EF çekirdekli ASP.NET MVC geçişleri özelliğini kullanma'
-description: Bu öğreticide, ASP.NET Core MVC uygulamasındaki veri modeli değişikliklerini yönetmek için EF Core geçişleri özelliğini kullanarak başlatın.
-author: rick-anderson
+title: 'Öğretici: EF Core ile geçiş özelliğini kullanma-ASP.NET MVC'
+description: Bu öğreticide, ASP.NET Core MVC uygulamasındaki veri modeli değişikliklerini yönetmek için EF Core geçişleri özelliğini kullanmaya başlayabilirsiniz.
+author: tdykstra
 ms.author: tdykstra
 ms.custom: mvc
 ms.date: 03/27/2019
 ms.topic: tutorial
 uid: data/ef-mvc/migrations
-ms.openlocfilehash: 35569a4d75abf1c18a3750d9785c3cf55a35ea69
-ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
+ms.openlocfilehash: 7ee383ff5fcd9dd79503321aaa188fd85ef18d7a
+ms.sourcegitcommit: 257cc3fe8c1d61341aa3b07e5bc0fa3d1c1c1d1c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67813763"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69583458"
 ---
-# <a name="tutorial-using-the-migrations-feature---aspnet-mvc-with-ef-core"></a>Öğretici: -EF çekirdekli ASP.NET MVC geçişleri özelliğini kullanma
+# <a name="tutorial-using-the-migrations-feature---aspnet-mvc-with-ef-core"></a>Öğretici: EF Core ile geçiş özelliğini kullanma-ASP.NET MVC
 
-Bu öğreticide, veri modeli değişikliklerini yönetmek için EF Core geçişleri özelliğini kullanarak başlatın. Sonraki öğreticilerde, veri modeli değiştikçe daha fazla geçişleri ekleyeceksiniz.
+Bu öğreticide, veri modeli değişikliklerini yönetmek için EF Core geçişleri özelliğini kullanmaya başlayabilirsiniz. Sonraki öğreticilerde, veri modelini değiştirirken daha fazla geçiş ekleyeceksiniz.
 
 Bu öğreticide şunları yaptınız:
 
 > [!div class="checklist"]
-> * Geçiş hakkında bilgi edinin
-> * Bağlantı dizesini değiştirin
-> * Bir başlangıç geçiş oluştur
+> * Geçişler hakkında bilgi edinin
+> * Bağlantı dizesini değiştirme
+> * İlk geçiş oluşturma
 > * Yukarı ve aşağı yöntemleri inceleyin
-> * Veri modeli anlık görüntü hakkında bilgi edinin
-> * Geçiş Uygula
+> * Veri modeli anlık görüntüsü hakkında bilgi edinin
+> * Geçişi Uygula
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 * [Sıralama, filtreleme ve sayfalama](sort-filter-page.md)
 
-## <a name="about-migrations"></a>Geçiş hakkında
+## <a name="about-migrations"></a>Geçişler hakkında
 
-Yeni bir uygulama geliştirdiğinizde, model değişiklikleri sık ve her zaman veri modelinizi değiştirir, veritabanı ile eşitlenmemiş alır. Bu öğretici, yoksa veritabanını oluşturmak için Entity Framework yapılandırarak başlatıldı. Ardından, veri modeli değiştirmek--eklemek, kaldırmak veya varlık sınıflarını değiştirmek veya DbContext sınıfınıza--değiştirmek, her zaman veritabanını silebilir ve EF modeli eşleşir ve test verileri ile çekirdeğini yeni bir tane oluşturur.
+Yeni bir uygulama geliştirirken, veri modeliniz sıklıkla değişir ve model her değiştiğinde veritabanıyla eşitlenmemiş olur. Mevcut değilse veritabanını oluşturmak için Entity Framework yapılandırarak bu öğreticileri başlatmış olursunuz. Veri modelini her değiştirdiğinizde (varlık sınıfları ekleyin, kaldırın veya değiştirin ya da DbContext sınıfınızı değiştirin); veritabanını silebilir ve EF, modelle eşleşen yeni bir tane oluşturur ve test verileriyle birlikte olur.
 
-Veritabanı veri modeli ile eşitlenmiş tutmak için bu yöntemi de uygulamayı üretim ortamına dağıtmadan kadar çalışır. Üretim ortamında genellikle tutmak istediğiniz ve her şey her zaman kaybetmek istemediğiniz veri depolama uygulama çalıştırılırken, yeni bir sütun ekleme gibi bir değişiklik yapın. EF Core geçişleri özelliği, yeni bir veritabanı oluşturmak yerine veritabanı şemasını güncelleştirmek EF sağlayarak bu sorunu çözer.
+Veritabanını veri modeliyle eşitlenmiş halde tutma yöntemi, uygulamayı üretime dağıtana kadar iyi çalışır. Uygulama üretimde çalışırken, genellikle tutmak istediğiniz verileri saklar ve yeni sütun ekleme gibi her değişiklik yaptığınızda her şeyi kaybetmek istemezsiniz. EF Core geçişleri özelliği, yeni bir veritabanı oluşturmak yerine EF 'in veritabanı şemasını güncelleştirmesine olanak sağlayarak bu sorunu çözer.
 
-Migrations ile çalışmak için kullanabileceğiniz **Paket Yöneticisi Konsolu** (PMC) veya komut satırı arabirimi (CLI).  Bu öğreticiler CLI komutlarının nasıl kullanılacağını gösterir. PMC hakkında bilgilerine [Bu öğreticinin sonunda](#pmc).
+Geçişlerle çalışmak için **Paket Yöneticisi konsolu 'nu** (PMC) veya komut satırı ARABIRIMINI (CLI) kullanabilirsiniz.  Bu öğreticiler CLı komutlarının nasıl kullanılacağını göstermektedir. PMC hakkındaki bilgiler [Bu öğreticinin sonunda](#pmc).
 
-## <a name="change-the-connection-string"></a>Bağlantı dizesini değiştirin
+## <a name="change-the-connection-string"></a>Bağlantı dizesini değiştirme
 
-İçinde *appsettings.json* dosya, ContosoUniversity2 veya kullanmakta olduğunuz bilgisayarda kullanmadığınız bazı diğer adı için bağlantı dizesinde veritabanının adını değiştirin.
+*AppSettings. JSON* dosyasında, bağlantı dizesindeki veritabanının adını ContosoUniversity2 veya kullandığınız bilgisayarda kullanmadığınız başka bir ad olarak değiştirin.
 
 [!code-json[](intro/samples/cu/appsettings2.json?range=1-4)]
 
-Bu değişiklik, ilk geçiş yeni bir veritabanı oluşturacaksınız böylece projeyi ayarlar. Bu migrations ile kullanmaya başlamak için gerekli değildir, ancak daha sonra neden iyi bir fikir olduğunu görürsünüz.
+Bu değişiklik projeyi ilk geçişin yeni bir veritabanı oluşturacak şekilde ayarlar. Bu, geçişleri kullanmaya başlamak için gerekli değildir, ancak daha sonra iyi bir fikir olduğunu göreceksiniz.
 
 > [!NOTE]
-> Veritabanı adının değiştirilmesi alternatif olarak, veritabanı silebilirsiniz. Kullanım **SQL Server Nesne Gezgini** (SSOX) veya `database drop` CLI komutunu:
+> Veritabanı adını değiştirmeye alternatif olarak, veritabanını silebilirsiniz. **SQL Server Nesne Gezgini** (ssox) veya `database drop` CLI komutunu kullanın:
 >
 > ```console
 > dotnet ef database drop
 > ```
 >
-> Aşağıdaki bölümde, CLI komutlarını çalıştırma açıklanmaktadır.
+> Aşağıdaki bölümde CLı komutlarının nasıl çalıştırılacağı açıklanmaktadır.
 
-## <a name="create-an-initial-migration"></a>Bir başlangıç geçiş oluştur
+## <a name="create-an-initial-migration"></a>İlk geçiş oluşturma
 
-Yaptığınız değişiklikleri kaydedin ve projeyi derleyin. Ardından bir komut penceresi açın ve proje klasörüne gidin. Bunu yapmanın hızlı bir yolu aşağıda verilmiştir:
+Değişikliklerinizi kaydedin ve projeyi derleyin. Sonra bir komut penceresi açın ve proje klasörüne gidin. Bunu yapmanın hızlı bir yolu aşağıda verilmiştir:
 
-* İçinde **Çözüm Gezgini**, projeye sağ tıklayıp seçin **klasörü dosya Gezgini'nde Aç** bağlam menüsünden.
+* **Çözüm Gezgini**' de projeye sağ tıklayın ve bağlam menüsünden **klasörü dosya Gezgini 'nde aç** ' ı seçin.
 
-  ![Dosya Gezgini menü öğesini Aç](migrations/_static/open-in-file-explorer.png)
+  ![Dosya Gezgini menü öğesinde aç](migrations/_static/open-in-file-explorer.png)
 
-* Adres çubuğunda "cmd" girin ve Enter tuşuna basın.
+* Adres çubuğuna "cmd" yazın ve ENTER tuşuna basın.
 
   ![Komut penceresini aç](migrations/_static/open-command-window.png)
 
-Komut penceresinde aşağıdaki komutu girin:
+Komut penceresine aşağıdaki komutu girin:
 
 ```console
 dotnet ef migrations add InitialCreate
 ```
 
-Komut penceresinde aşağıdaki gibi bir çıktı görürsünüz:
+Komut penceresinde aşağıdakine benzer bir çıktı görürsünüz:
 
 ```console
 info: Microsoft.EntityFrameworkCore.Infrastructure[10403]
@@ -84,39 +84,39 @@ Done. To undo this action, use 'ef migrations remove'
 ```
 
 > [!NOTE]
-> Bir hata iletisi görürseniz *hiçbir yürütülebilir bulunan eşleşen komut "dotnet-ef"* , bakın [bu blog gönderisini](https://thedatafarm.com/data-access/no-executable-found-matching-command-dotnet-ef/) sorun giderme Yardımı.
+> *"DotNet-EF" komutuyla eşleşen yürütülebilir dosya bulunamadı*hata iletisi görürseniz, sorun giderme konusunda yardım için [Bu blog gönderisine](https://thedatafarm.com/data-access/no-executable-found-matching-command-dotnet-ef/) bakın.
 
-Bir hata iletisi görürseniz " *... dosyaya erişemiyor ContosoUniversity.dll başka bir işlem tarafından kullanıldığı için.* ", IIS Express simgesi Windows Sistem tepsisinde bulun ve sağ tıklayın ve ardından tıklayın **ContosoUniversity > durdurma Site**.
+Bir hata iletisi görürseniz "*dosyaya erişilemiyor... ContosoUniversity. dll başka bir işlem tarafından kullanıldığından. "Windows Sistem tepsisindeki IIS Express simgesini bulun ve sağ tıklayın, ardından **contosouniversity > siteyi durdur**' a tıklayın.*
 
 ## <a name="examine-up-and-down-methods"></a>Yukarı ve aşağı yöntemleri inceleyin
 
-Ne zaman yürütülen `migrations add` EF oluşturulan veritabanı sıfırdan oluşturacak kod komutu. Bu kodu *geçişler* klasöründe adlı dosyayı  *\<zaman damgası > _InitialCreate.cs*. `Up` Yöntemi `InitialCreate` sınıf veri modeli varlık kümeleri için karşılık gelen veritabanı tabloları oluşturur ve `Down` yöntemi siler, bunları, aşağıdaki örnekte gösterildiği gibi.
+`migrations add` Komutunu çalıştırdığınızda, EF, veritabanını sıfırdan oluşturacak kodu oluşturmuş olur. Bu kod,  *\<zaman damgası adı > _ınitialcreate. cs*adlı dosyada *geçişler* klasöründedir. Sınıfının yöntemi, veri modeli `Down` varlık kümelerine karşılık gelen veritabanı tablolarını oluşturur ve aşağıdaki örnekte gösterildiği gibi yöntemi onları siler. `Up` `InitialCreate`
 
 [!code-csharp[](intro/samples/cu/Migrations/20170215220724_InitialCreate.cs?range=92-118)]
 
-Geçişleri çağrıları `Up` geçiş için veri modeli değişikliklerini uygulamak için yöntemi. Güncelleştirme, geçişler çağrıları geri almak için bir komutu girdiğinizde `Down` yöntemi.
+Geçişler, `Up` geçiş için veri modeli değişikliklerini uygulamak üzere yöntemini çağırır. Güncelleştirmeyi geri almak için bir komut girdiğinizde, geçişler `Down` yöntemini çağırır.
 
-Girdiğiniz zaman, oluşturulan ilk geçiş için bu kodu `migrations add InitialCreate` komutu. Geçiş name parametresi (Bu örnekte "InitialCreate"), dosya adı için kullanılır ve istediğiniz olabilir. Bir sözcük veya tümcecik geçiş yapıldığını özetleyen seçmek en iyisidir. Örneğin, bir sonraki geçiş "AddDepartmentTable" adını verebilirsiniz.
+Bu kod, `migrations add InitialCreate` komutunu girdiğinizde oluşturulan ilk geçişe yöneliktir. Geçiş adı parametresi (örnekteki "ınitialcreate") dosya adı için kullanılır ve istediğiniz her şey olabilir. Geçiş sırasında nelerin yapıldığını özetleyen bir sözcük veya tümcecik seçmek en iyisidir. Örneğin, "AddDepartmentTable" adlı bir geçişe daha sonra ad yazabilirsiniz.
 
-Veritabanı zaten mevcut olduğunda ilk geçiş oluşturduysanız, veritabanı oluşturma kod oluşturulur ancak bu veritabanı zaten veri modelinde eşleştiğinden çalıştırmak gerekli değildir. Burada veritabanı yok henüz veritabanınızı oluşturmak için bu kodu çalıştıracak başka bir ortama uygulamasını dağıttığınızda, bu nedenle, ilk test etmek için iyi bir fikirdir. İşte bu geçişleri sıfırdan yeni bir tane oluşturabilirsiniz. böylece daha önce--bağlantı dizesinde veritabanının adı değiştirildi.
+Veritabanı zaten mevcut olduğunda ilk geçişi oluşturduysanız veritabanı oluşturma kodu oluşturulur, ancak veritabanı veri modeliyle zaten eşleştiğinden çalıştırması gerekmez. Uygulamayı, veritabanının mevcut olmadığı başka bir ortama dağıttığınızda, bu kod veritabanınızı oluşturmak için çalışır, bu nedenle ilk önce test etmek iyi bir fikirdir. Bu nedenle, bağlantı dizesinde veritabanının adını daha önce değiştirmiş olursunuz. böylece geçişler sıfırdan yeni bir tane oluşturabilir.
 
-## <a name="the-data-model-snapshot"></a>Veri modeli anlık görüntü
+## <a name="the-data-model-snapshot"></a>Veri modeli anlık görüntüsü
 
-Geçişleri oluşturur bir *anlık görüntü* içinde geçerli veritabanı şeması *Migrations/SchoolContextModelSnapshot.cs*. Bir geçiş eklediğinizde, anlık görüntü dosyası ve veri modelini karşılaştırarak değişiklikler EF belirler.
+Geçişler, *geçiş/SchoolContextModelSnapshot. cs*içinde geçerli veritabanı şemasının bir *anlık görüntüsünü* oluşturur. Bir geçiş eklediğinizde EF, veri modeli Snapshot dosyası ile karşılaştırılarak nelerin değiştirildiğini belirler.
 
-Bir geçiş silerken kullanın [dotnet ef geçişleri Kaldır](/ef/core/miscellaneous/cli/dotnet#dotnet-ef-migrations-remove) komutu. `dotnet ef migrations remove` geçiş siler ve anlık görüntü doğru sıfırlama sağlar.
+Bir geçişi silerken [DotNet EF geçişleri kaldır](/ef/core/miscellaneous/cli/dotnet#dotnet-ef-migrations-remove) komutunu kullanın. `dotnet ef migrations remove`geçişi siler ve anlık görüntünün doğru şekilde sıfırlanmasını sağlar.
 
-Bkz: [EF Core geçişleri ekip ortamlarında](/ef/core/managing-schemas/migrations/teams) anlık görüntü dosyası nasıl kullanıldığı hakkında daha fazla bilgi için.
+Anlık görüntü dosyasının nasıl kullanıldığı hakkında daha fazla bilgi için bkz. [Takım ortamlarında EF Core geçişleri](/ef/core/managing-schemas/migrations/teams) .
 
-## <a name="apply-the-migration"></a>Geçiş Uygula
+## <a name="apply-the-migration"></a>Geçişi Uygula
 
-Komut penceresinde, tablo ve veritabanı içinde oluşturmak için aşağıdaki komutu girin.
+Komut penceresinde, veritabanı ve tabloları oluşturmak için aşağıdaki komutu girin.
 
 ```console
 dotnet ef database update
 ```
 
-Komut çıktısı benzer `migrations add` komutu dışında SQL veritabanı ayarlama, komutları için günlüklerine bakın. Aşağıdaki örnek çıktıda, günlükleri çoğunu göz ardı edilir. Bu günlük iletilerinin ayrıntı düzeyini görmek isterseniz, içinde günlük düzeyini değiştirmek *appsettings. Development.JSON* dosya. Daha fazla bilgi için bkz. <xref:fundamentals/logging/index>.
+Komutun çıktısı, veritabanının ayarlandığı SQL komutlarının günlüklerini görbelirtilmedikçe, `migrations add` komuta benzer. Günlüklerin çoğu aşağıdaki örnek çıktıda atlanır. Günlük iletilerinde bu ayrıntı düzeyini görmemeyi tercih ediyorsanız, appSettings 'de günlük düzeyini değiştirebilirsiniz *. Development. JSON* dosyası. Daha fazla bilgi için bkz. <xref:fundamentals/logging/index>.
 
 ```text
 info: Microsoft.EntityFrameworkCore.Infrastructure[10403]
@@ -147,44 +147,44 @@ info: Microsoft.EntityFrameworkCore.Database.Command[20101]
 Done.
 ```
 
-Kullanım **SQL Server Nesne Gezgini** ilk öğreticide yaptığınız gibi veritabanı incelemek için.  Ek fark edeceksiniz bir \_ \_EFMigrationsHistory tablo, hangi geçişleri veritabanına uygulanmış olduğunu izler. Bu tablodaki verileri görüntüleyebilir ve ilk geçiş için bir satır görürsünüz. (Önceki CLI çıktı örneği son günlüğünde bu satırı oluşturur INSERT deyimini gösterir.)
+İlk öğreticide yaptığınız gibi veritabanını incelemek için **SQL Server Nesne Gezgini** kullanın.  Hangi geçişlerin veritabanına uygulandığını izleyen bir \_ \_EFMigrationsHistory tablosunun eklenmesini fark edeceksiniz. Bu tablodaki verileri görüntüleyin ve ilk geçiş için bir satır görürsünüz. (Önceki CLı çıkış örneğinde son oturum, bu satırı oluşturan INSERT ifadesini gösterir.)
 
-Her şeyin hala önceki ile aynı çalıştığını doğrulamak için uygulamayı çalıştırın.
+Her şeyin daha önce olduğu gibi çalıştığını doğrulamak için uygulamayı çalıştırın.
 
 ![Öğrenciler dizin sayfası](migrations/_static/students-index.png)
 
 <a id="pmc"></a>
 
-## <a name="compare-cli-and-pmc"></a>CLI ile PMC karşılaştırma
+## <a name="compare-cli-and-pmc"></a>CLı ve PMC karşılaştırması
 
-Geçişleri yönetme .NET Core CLI komutlarını veya Visual Studio'da PowerShell cmdlet'leri kullanılabilir EF tooling **Paket Yöneticisi Konsolu** (PMC) penceresi. Bu öğreticide, CLI'yı kullanma gösterilmektedir, ancak isterseniz PMC'yi kullanabilirsiniz.
+Geçişleri yönetmek için EF araçları, .NET Core CLI komutlardan veya Visual Studio **Paket Yöneticisi konsolu** (PMC) penceresindeki PowerShell cmdlet 'lerinde bulunabilir. Bu öğreticide, CLı 'nın nasıl kullanılacağı gösterilmektedir, ancak isterseniz PMC 'yi kullanabilirsiniz.
 
-EF komutları PMC'yi komutlar için bulunan [Microsoft.EntityFrameworkCore.Tools](https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.Tools) paket. Bu paket dahil [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app), uygulamanız için bir paket başvurusu varsa, bir paket başvurusu ekleme yapmak zorunda kalmazsınız `Microsoft.AspNetCore.App`.
+PMC komutlarına yönelik EF komutları [Microsoft. EntityFrameworkCore. Tools](https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.Tools) paketidir. Bu paket [Microsoft. AspNetCore. app metapackage](xref:fundamentals/metapackage-app)içinde bulunur, bu nedenle uygulamanıza yönelik `Microsoft.AspNetCore.App`bir paket başvurusu varsa bir paket başvurusu eklemeniz gerekmez.
 
-**Önemli:** Bunun için CLI'ı yükleme düzenleyerek biri aynı pakette olmadığını *.csproj* dosya. Bu ada içinde sona erecek `Tools`, biten CLI paket adı aksine `Tools.DotNet`.
+**Önemli:** Bu, *. csproj* dosyasını düzenleyerek CLI için yüklediğiniz paket ile aynı değildir. Bu `Tools`adın adı ile biten CLI paketi adından `Tools.DotNet`farklı olarak.
 
-CLI komutları hakkında daha fazla bilgi için bkz. [.NET Core CLI](/ef/core/miscellaneous/cli/dotnet).
+CLı komutları hakkında daha fazla bilgi için bkz. [.NET Core CLI](/ef/core/miscellaneous/cli/dotnet).
 
-PMC komutlar hakkında daha fazla bilgi için bkz. [Paket Yöneticisi Konsolu (Visual Studio)](/ef/core/miscellaneous/cli/powershell).
+PMC komutları hakkında daha fazla bilgi için bkz. [Paket Yöneticisi Konsolu (Visual Studio)](/ef/core/miscellaneous/cli/powershell).
 
-## <a name="get-the-code"></a>Kodu alma
+## <a name="get-the-code"></a>Kodu alın
 
-[İndirme veya tamamlanmış uygulamanın görüntüleyin.](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final)
+[Tamamlanmış uygulamayı indirin veya görüntüleyin.](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final)
 
 ## <a name="next-step"></a>Sonraki adım
 
 Bu öğreticide şunları yaptınız:
 
 > [!div class="checklist"]
-> * Geçiş hakkında bilgi edindiniz
-> * NuGet geçiş paketleri hakkında bilgi edindiniz
-> * Bağlantı dizesi değişti
-> * Bir başlangıç geçiş oluşturulan
-> * Yukarı ve aşağı yöntem incelenir.
-> * Veri modeli anlık görüntü hakkında bilgi edindiniz
+> * Geçişler hakkında öğrenildi
+> * NuGet geçiş paketleri hakkında bilgi edinildi
+> * Bağlantı dizesi değiştirildi
+> * İlk geçiş oluşturuldu
+> * Yukarı ve aşağı yöntemleri İnceleme
+> * Veri modeli anlık görüntüsü hakkında bilgi edinildi
 > * Geçiş uygulandı
 
-Veri modelini genişletme hakkında daha ileri seviyeli konulara göz atan başlamak için sonraki öğreticiye ilerleyin. Süreç boyunca oluşturun ve ek geçişlerin uygulayın.
+Veri modelini genişletme hakkında daha gelişmiş konulara bakmak için sonraki öğreticiye ilerleyin. Ek geçişler oluşturma ve uygulama gibi.
 
 > [!div class="nextstepaction"]
-> [Oluşturun ve ek geçişlerin uygulayın](complex-data-model.md)
+> [Ek geçişler oluşturma ve uygulama](complex-data-model.md)

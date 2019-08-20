@@ -1,7 +1,12 @@
-Bu öğretici, görünümleri ve denetleyicileri ile ASP.NET Core MVC ve Entity Framework Core öğretir. Razor sayfaları, ASP.NET Core 2.0, daha kolay ve daha üretken building web kullanıcı Arabirimi sağlayan bir sayfa tabanlı programlama modeli içinde yeni bir alternatif olur. Öneririz [Razor sayfaları](xref:data/ef-rp/intro) MVC sürüm üzerinden öğretici. Razor sayfaları öğretici:
+Bu öğretici, ASP.NET Core MVC ve denetleyiciler ve görünümlerle Entity Framework Core öğretir. [Razor Pages](xref:razor-pages/index) , ASP.NET Core 2,0 ' de tanıtılan alternatif bir programlama modelidir. Yeni geliştirme için, denetleyiciler ve görünümlerle MVC üzerinde Razor Pages önerilir. Bu öğreticinin [Razor Pages](xref:data/ef-rp/intro) bir sürümü bulunmaktadır. Her öğreticide diğer malzemeler ele alınmaktadır:
 
-* İzlemek daha kolay olur.
-* Daha fazla EF Core en iyi uygulamalar sağlanır.
-* Daha verimli sorgular kullanır.
-* En yeni API ile daha güncel değil.
-* Daha fazla özellikleri kapsar.
+Bu MVC öğreticisine bazı şeyler Razor Pages öğreticiye sahip değildir:
+
+* Veri modelinde devralma uygulama
+* Ham SQL sorguları gerçekleştirme
+* Kodu basitleştirmek için dinamik LINQ kullanma
+ 
+Razor Pages öğreticide şunları gerçekleştirmeyen şeyler:
+
+* İlgili verileri yüklemek için Select metodunu kullanın
+* ASP.NET Core 3,0 için kullanılabilen bir sürüm

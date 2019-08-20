@@ -1,17 +1,17 @@
 ---
 title: ASP.NET core'da - eşzamanlılık - 8 8 EF çekirdekli Razor sayfaları
-author: rick-anderson
+author: tdykstra
 description: Bu öğreticide, birden çok kullanıcı aynı anda aynı varlık güncelleştirdiğinizde çakışmalarına gösterilmektedir.
 ms.author: riande
 ms.custom: mvc
 ms.date: 07/22/2019
 uid: data/ef-rp/concurrency
-ms.openlocfilehash: 4d1e8ef2f55910fa5456171e45311feacff16919
-ms.sourcegitcommit: 776367717e990bdd600cb3c9148ffb905d56862d
+ms.openlocfilehash: df3cc9eb3d0c1748ca9cd194ee58e4614bba24d5
+ms.sourcegitcommit: 257cc3fe8c1d61341aa3b07e5bc0fa3d1c1c1d1c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68914922"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69583401"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---concurrency---8-of-8"></a>ASP.NET core'da - eşzamanlılık - 8 8 EF çekirdekli Razor sayfaları
 
@@ -307,7 +307,7 @@ Tarayıcı değiştirilen değer ve güncelleştirilmiş rowVersion göstergesi 
 
 ![Departman düzenleme değişikliğinden sonra sayfa 2](concurrency/_static/edit-after-change-230.png)
 
-**Kaydet**’e tıklayın. Veritabanı değerleriyle eşleşmeyen tüm alanlar için hata iletileri görürsünüz:
+**Kaydet**'e tıklayın. Veritabanı değerleriyle eşleşmeyen tüm alanlar için hata iletileri görürsünüz:
 
 ![Departman düzenleme sayfa hata iletisi](concurrency/_static/edit-error30.png)
 

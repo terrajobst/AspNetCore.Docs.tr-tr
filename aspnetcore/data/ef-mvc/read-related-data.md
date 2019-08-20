@@ -1,17 +1,17 @@
 ---
 title: 'Öğretici: EF Core ile ilgili verileri okuma-ASP.NET MVC'
 description: Bu öğreticide ilgili verileri okuyabilir ve görüntüleyebilirsiniz. Bu, Entity Framework, gezinti özelliklerine yüklediği verileri okur.
-author: rick-anderson
+author: tdykstra
 ms.author: tdykstra
 ms.date: 03/27/2019
 ms.topic: tutorial
 uid: data/ef-mvc/read-related-data
-ms.openlocfilehash: 20f801e23f3e75d7915bcb7c095060b68d9cb03f
-ms.sourcegitcommit: 2eb605f4f20ac4dd9de6c3b3e3453e108a357a21
+ms.openlocfilehash: 43d05d0a5f938e60cdb54a0025d8bc277059c2e3
+ms.sourcegitcommit: 257cc3fe8c1d61341aa3b07e5bc0fa3d1c1c1d1c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68819779"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69583436"
 ---
 # <a name="tutorial-read-related-data---aspnet-mvc-with-ef-core"></a>Öğretici: EF Core ile ilgili verileri okuma-ASP.NET MVC
 

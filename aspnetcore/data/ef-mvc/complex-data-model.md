@@ -1,102 +1,102 @@
 ---
-title: 'Öğretici: ASP.NET MVC ile EF Core - karmaşık veri modeli oluşturma'
-description: Bu öğreticide, daha fazla varlıklar ve ilişkiler ekleyin ve veri modelini, doğrulama, biçimlendirme ve eşleme kuralları belirterek özelleştirin.
-author: rick-anderson
+title: 'Öğretici: EF Core ile karmaşık veri modeli oluşturma-ASP.NET MVC'
+description: Bu öğreticide, daha fazla varlık ve ilişki ekleyin ve biçimlendirme, doğrulama ve eşleme kurallarını belirterek veri modelini özelleştirin.
+author: tdykstra
 ms.author: tdykstra
 ms.custom: mvc
 ms.date: 03/27/2019
 ms.topic: tutorial
 uid: data/ef-mvc/complex-data-model
-ms.openlocfilehash: 8ef458108e60850d0d54e7b1e6472c5b92984ccc
-ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
+ms.openlocfilehash: 3563bf279f2ed9c9d79b5a9da2709e18511620d2
+ms.sourcegitcommit: 257cc3fe8c1d61341aa3b07e5bc0fa3d1c1c1d1c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67813535"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69583279"
 ---
-# <a name="tutorial-create-a-complex-data-model---aspnet-mvc-with-ef-core"></a>Öğretici: ASP.NET MVC ile EF Core - karmaşık veri modeli oluşturma
+# <a name="tutorial-create-a-complex-data-model---aspnet-mvc-with-ef-core"></a>Öğretici: EF Core ile karmaşık veri modeli oluşturma-ASP.NET MVC
 
-Önceki öğreticilerde, bir basit veri modeliyle üç varlıklarının oluşturulma çalışmıştır. Bu öğreticide, daha fazla varlıklar ve ilişkiler ekleyeceksiniz ve biçimlendirme, doğrulama ve veritabanı eşleme kurallarını belirterek veri modeli özelleştireceksiniz.
+Önceki öğreticilerde, üç varlıktan oluşan basit bir veri modeliyle çalıştık. Bu öğreticide, daha fazla varlık ve ilişki ekleyeceksiniz ve biçimlendirme, doğrulama ve veritabanı eşleme kurallarını belirterek veri modelini özelleştireceksiniz.
 
-İşlemi tamamladığınızda, varlık sınıfları, aşağıdaki çizimde gösterilen tamamlanmış veri modeli oluşturan:
+İşiniz bittiğinde, varlık sınıfları aşağıdaki çizimde gösterilen tamamlanmış veri modelini oluşturacak:
 
 ![Varlık diyagramı](complex-data-model/_static/diagram.png)
 
 Bu öğreticide şunları yaptınız:
 
 > [!div class="checklist"]
-> * Veri modelini özelleştirin
-> * Öğrenci varlık için değişiklik
-> * Eğitmen varlık oluşturma
-> * OfficeAssignment varlık oluşturma
-> * Kurs varlığı değiştirme
-> * Departman varlık oluşturma
-> * Kayıt varlığı değiştirme
-> * Veritabanı bağlamı güncelleştir
-> * Çekirdek veritabanı test verileri ile
-> * Bir geçiş ekleyin
-> * Bağlantı dizesini değiştirin
-> * Veritabanını Güncelleştir
+> * Veri modelini özelleştirme
+> * Öğrenci varlığında değişiklik yap
+> * Eğitmen varlığı oluşturma
+> * OfficeAssignment varlığı oluştur
+> * Kurs varlığını değiştirme
+> * Departman varlığı oluştur
+> * Kayıt varlığını değiştirme
+> * Veritabanı bağlamını güncelleştirme
+> * Test verileriyle çekirdek veritabanı
+> * Geçiş Ekle
+> * Bağlantı dizesini değiştirme
+> * Veritabanını güncelleştirme
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-* [EF Core migrations'ı kullanma](migrations.md)
+* [EF Core geçişleri kullanma](migrations.md)
 
-## <a name="customize-the-data-model"></a>Veri modelini özelleştirin
+## <a name="customize-the-data-model"></a>Veri modelini özelleştirme
 
-Bu bölümde, veri modeli, biçimlendirme, doğrulama ve veritabanı eşleme kurallarını belirten öznitelikleri kullanarak özelleştirmek nasıl görürsünüz. Daha sonra oluşturacağınız aşağıdaki bölümler birkaç ekleyerek eksiksiz Okul veri modeli sınıfları zaten oluşturduğunuz ve modelde kalan varlık türleri için yeni sınıflar oluşturma öznitelikleri.
+Bu bölümde, biçimlendirme, doğrulama ve veritabanı eşleme kurallarını belirten öznitelikleri kullanarak veri modelini nasıl özelleştireceğinizi göreceksiniz. Ardından, aşağıdaki bölümlerde, zaten oluşturduğunuz sınıflara öznitelikler ekleyerek ve modeldeki kalan varlık türleri için yeni sınıflar oluşturarak tüm okul veri modelini oluşturacaksınız.
 
-### <a name="the-datatype-attribute"></a>Veri türü özniteliği
+### <a name="the-datatype-attribute"></a>DataType özniteliği
 
-Tüm bu alan için önem verdiğiniz rağmen tarih Öğrenci kayıt tarihler için tüm web sayfalarının şu anda zaman tarihi ile birlikte görüntüler. Veri ek açıklama öznitelikleri kullanarak bir Yapabileceğiniz kodu görüntüleme biçimini gösteren veriler her görünümde düzeltir Değiştir. Bir özniteliğe ekleyeceksiniz, yapmak nasıl bir örnek görmek için `EnrollmentDate` özelliğinde `Student` sınıfı.
+Öğrenci kayıt tarihleri için tüm Web sayfaları Şu anda tarihle birlikte görüntülenir, ancak bu alan için tüm önemli bir tarih olması gerekir. Veri ek açıklaması özniteliklerini kullanarak, verileri gösteren her görünümde görüntü biçimini giderecek bir kod değişikliği yapabilirsiniz. Bunun nasıl yapılacağını gösteren bir örnek görmek için, `EnrollmentDate` `Student` sınıfındaki özelliğine bir özniteliği ekleyeceksiniz.
 
-İçinde *Models/Student.cs*, ekleme bir `using` bildirimi `System.ComponentModel.DataAnnotations` ad alanı ve ekleme `DataType` ve `DisplayFormat` özniteliklerini `EnrollmentDate` özelliği, aşağıdaki örnekte gösterildiği gibi:
+*Modeller/öğrenci. cs*' `using` de, `DataType` `System.ComponentModel.DataAnnotations` adalanı`DisplayFormat` için bir ifade ekleyin ve aşağıdaki örnekte gösterildiği gibi özelliğeveöznitelikleriniekleyin:`EnrollmentDate`
 
 [!code-csharp[](intro/samples/cu/Models/Student.cs?name=snippet_DataType&highlight=3,12-13)]
 
-`DataType` Özniteliği veritabanı iç türünden daha belirli bir veri türü belirtmek için kullanılır. Bu durumda yalnızca tarih değil tarih ve saati izlemek istiyoruz. `DataType` Tarih, saat, telefon numarası, para birimi, EmailAddress ve diğer birçok veri türlerini numaralandırma sağlar. `DataType` Özniteliğini de otomatik olarak türe özgü özellikler sağlamak için uygulamayı etkinleştirin. Örneğin, bir `mailto:` bağlantısını için oluşturulamaz `DataType.EmailAddress`, ve bir tarih seçici için sağlanan `DataType.Date` HTML5 destekleyen tarayıcılarda. `DataType` Öznitelik HTML 5 yayan `data-` HTML 5 tarayıcılar anlayabilirsiniz (okunur veri dash) öznitelikleri. `DataType` Öznitelikleri, tüm doğrulama sağlamadığınızdan.
+`DataType` Özniteliği, veritabanı iç türünden daha belirgin bir veri türü belirtmek için kullanılır. Bu durumda, tarihi ve saati değil yalnızca tarihi izlemek istiyoruz. `DataType` Sabit listesi, tarih, saat, PhoneNumber, para birimi, emaadresi gibi birçok veri türünü sağlar. `DataType` Özniteliği Ayrıca uygulamanın türe özgü özellikleri otomatik olarak sağlamasını da sağlayabilir. Örneğin, için `DataType.EmailAddress`bir `mailto:` bağlantı oluşturulabilir ve HTML5 'i destekleyen tarayıcılarda için `DataType.Date` bir tarih seçici sağlaneklenebilir. Özniteliği HTML 5 tarayıcılarının anlayabilmesi için HTML 5 `data-` (bir veri Dash) öznitelikleri yayar. `DataType` `DataType` Öznitelikler hiçbir doğrulama sağlamaz.
 
-`DataType.Date` Görüntülenen tarih biçimi belirtmiyor. Varsayılan olarak, sunucunun CultureInfo üzerinde temel alan varsayılan biçimler göre veri alanı görüntülenir.
+`DataType.Date`görüntülenen tarihin biçimini belirtmez. Varsayılan olarak, veri alanı sunucunun CultureInfo öğesine göre varsayılan biçimlere göre görüntülenir.
 
-`DisplayFormat` Açıkça tarih biçimini belirtmek için özniteliği kullanılır:
+`DisplayFormat` Öznitelik, tarih biçimini açıkça belirtmek için kullanılır:
 
 ```csharp
 [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
 ```
 
-`ApplyFormatInEditMode` Ayar değeri düzenlemek için metin kutusunda görüntülendiğinde biçimlendirme da uygulanması gerektiğini belirtir. (, Bazı alanlar için--örneğin para birimi değerleri için para birimi simgesi metin kutusundaki düzenleme için istediğiniz değil istemeyebilirsiniz.)
+`ApplyFormatInEditMode` Ayar, bir metin kutusunda değer görüntülenmek üzere görüntülendiğinde biçimlendirmenin de uygulanacağını belirtir. (Bazı alanlar için bunu istemiyor olabilirsiniz; örneğin, para birimi değerleri için metin kutusundaki para birimi sembolünü düzenlemenin değiştirilmesini istemeyebilirsiniz.)
 
-Kullanabileceğiniz `DisplayFormat` özniteliği kendisi, ancak bu, genellikle kullanmak iyi bir fikir `DataType` ayrıca özniteliği. `DataType` Özniteliği bir ekranda işlenecek nasıl aksine veri semantiği iletmez ve ile elde etmezsiniz aşağıdaki avantajları sağlar `DisplayFormat`:
+Özniteliğini kendisi kullanabilirsiniz, ancak `DataType` özniteliği de kullanmak iyi bir fikir olabilir. `DisplayFormat` Özniteliği, bir ekranda nasıl `DisplayFormat`işlenirim aksine, verilerin semantiğini sunar ve aşağıdaki avantajları sağlar: `DataType`
 
-* Tarayıcı HTML5 özellikleri etkinleştirebilirsiniz (örneğin, bir Takvim denetimi, yerel ayara uygun bir para birimi simgesi, e-posta bağlantıları göstermek, bazı istemci-tarafı giriş doğrulama, vs.).
+* Tarayıcı HTML5 özelliklerini etkinleştirebilir (örneğin, bir Takvim denetimini, yerel ayara uygun para birimi sembolünü, e-posta bağlantılarını, bazı istemci tarafı giriş doğrulamasını vb. göstermek için).
 
-* Varsayılan olarak, tarayıcı, yerel ayarları temel alarak doğru biçimde kullanarak verileri işlemez.
+* Varsayılan olarak tarayıcı, verileri yerel ayarınızı temel alarak doğru biçimi kullanarak işleyebilir.
 
-Daha fazla bilgi için [ \<Giriş > Etiket Yardımcısı belgeleri](../../mvc/views/working-with-forms.md#the-input-tag-helper).
+Daha fazla bilgi için bkz [ \<. Giriş > etiketi Yardımcısı belgeleri](../../mvc/views/working-with-forms.md#the-input-tag-helper).
 
-Uygulamayı çalıştırın, Öğrenciler dizin sayfasına gidin ve süreleri artık kayıt tarihlerini gösterilir dikkat edin. Aynı Öğrenci modelini kullanan herhangi bir görünüm için geçerli olacaktır.
+Uygulamayı çalıştırın, öğrenciler dizin sayfasına gidin ve kayıt tarihleri için saatlerin artık gösterilmediğine dikkat edin. Aynı değer öğrenci modelini kullanan herhangi bir görünüm için de geçerli olacaktır.
 
-![Tarihleri gösteren Öğrenciler dizin sayfası](complex-data-model/_static/dates-no-times.png)
+![Öğrenciler Dizin sayfası tarihleri zamansız gösterme](complex-data-model/_static/dates-no-times.png)
 
 ### <a name="the-stringlength-attribute"></a>StringLength özniteliği
 
-Veri doğrulama kuralları ve öznitelikleri kullanarak bir doğrulama hata iletisi de belirtebilirsiniz. `StringLength` Özniteliği veritabanında en fazla uzunluk ayarlar ve istemci tarafı ve sunucu tarafı sağlayan ASP.NET Core MVC doğrulamasını. En az dize uzunluğu Bu öznitelikte belirtebilirsiniz, ancak en düşük değer, veritabanı şema üzerinde hiçbir etkisi yoktur.
+Ayrıca, öznitelikleri kullanarak veri doğrulama kuralları ve doğrulama hata iletileri de belirtebilirsiniz. `StringLength` Öznitelik, veritabanında en fazla uzunluğu ayarlar ve ASP.NET Core MVC için istemci tarafı ve sunucu tarafı doğrulaması sağlar. Bu öznitelikte en küçük dize uzunluğunu da belirtebilirsiniz, ancak en küçük değerin veritabanı şemasında hiçbir etkisi yoktur.
 
-Kullanıcılar için bir ad 50 karakterden uzun girmeyin sağlamak istediğinizi varsayın. Bu kısıtlama eklemek için Ekle `StringLength` özniteliklerini `LastName` ve `FirstMidName` aşağıdaki örnekte gösterildiği gibi özellikleri:
+Kullanıcıların bir ad için 50 ' den fazla karakter girmemesini istediğinizi varsayalım. Bu kısıtlamayı eklemek için aşağıdaki örnekte `StringLength` gösterildiği gibi öznitelikleri `LastName` ve `FirstMidName` özelliklerine ekleyin:
 
 [!code-csharp[](intro/samples/cu/Models/Student.cs?name=snippet_StringLength&highlight=10,12)]
 
-`StringLength` Özniteliği olmaz önlemek bir kullanıcı için bir ad boşluk girmesini. Kullanabileceğiniz `RegularExpression` girişi kısıtlamaları uygulamak için özniteliği. Örneğin, aşağıdaki kod, ilk karakterin büyük harf olacak ve alfabetik olarak kalan karakterler gerektirir:
+Öznitelik `StringLength` , bir kullanıcının ad için boşluk girmesini engellemez. Girişe kısıtlama uygulamak için `RegularExpression` özniteliğini kullanabilirsiniz. Örneğin, aşağıdaki kod ilk karakterin büyük küçük harf olmasını ve geri kalan karakterlerin alfabetik olmasını gerektirir:
 
 ```csharp
 [RegularExpression(@"^[A-Z]+[a-zA-Z""'\s-]*$")]
 ```
 
-`MaxLength` Özniteliği benzer işlevsellik sağlar `StringLength` özniteliği ancak istemci tarafı sağlamaz doğrulama.
+Öznitelik, `StringLength` özniteliğe benzer ancak istemci tarafı doğrulaması sağlamayan işlevselliği sağlar. `MaxLength`
 
-Veritabanı modeli, artık veritabanı şemasını değişikliği gerektiren bir şekilde değiştirilmiştir. Geçişler, uygulama kullanıcı Arabirimi kullanarak veritabanına eklemiş olabileceğiniz herhangi bir veri kaybetmeden şemasını güncelleştirmek için kullanacaksınız.
+Veritabanı modeli, veritabanı şemasında değişiklik yapılmasını gerektiren bir şekilde değiştirildi. Uygulama kullanıcı arabirimini kullanarak, veritabanına eklemiş olduğunuz herhangi bir veriyi kaybetmeden Şemayı güncelleştirmek için geçişleri kullanacaksınız.
 
-Yaptığınız değişiklikleri kaydedin ve projeyi derleyin. Ardından proje klasöründe komut penceresi açın ve aşağıdaki komutları girin:
+Değişikliklerinizi kaydedin ve projeyi derleyin. Ardından proje klasöründe komut penceresini açın ve aşağıdaki komutları girin:
 
 ```console
 dotnet ef migrations add MaxLengthOnNames
@@ -106,25 +106,25 @@ dotnet ef migrations add MaxLengthOnNames
 dotnet ef database update
 ```
 
-`migrations add` Komut uyarır veri kaybı oluşabileceği uzunluğu en fazla iki sütun için daha kısa değişiklik yapmadığından.  Geçişleri adlı bir dosya oluşturur  *\<zaman damgası > _MaxLengthOnNames.cs*. Kod içinde bu dosyayı içeren `Up` yönteminin veritabanı geçerli bir veri modeli eşleşecek şekilde güncelleştirir. `database update` Komutun çalıştığını, kod.
+Bu `migrations add` komut, iki sütun için en fazla uzunluğu daha kısa hale yaptığından, veri kaybının gerçekleşebileceğini uyarır.  Geçişler,  *\<_maxlengthonnames. CS > zaman damgası*adlı bir dosya oluşturur. Bu dosya, geçerli veri modeliyle `Up` eşleşecek şekilde veritabanını güncelleştirecek yöntemdeki kodu içerir. `database update` Komut bu kodu çalıştırdı.
 
-Geçişleri dosya adının önüne zaman damgası, Entity Framework tarafından geçişlerin sıralamak için kullanılır. Veritabanını Güncelleştir komutu çalıştırmadan önce birden çok geçiş oluşturabilirsiniz ve ardından tüm geçişlerde içinde oluşturuldukları sırada uygulanır.
+Geçiş dosyası adının ön eki olan zaman damgası, geçişleri sıralamak için Entity Framework tarafından kullanılır. Update-database komutunu çalıştırmadan önce birden çok geçiş oluşturabilirsiniz ve sonra tüm geçişler oluşturuldukları sırada uygulanır.
 
-Uygulamayı çalıştırın, seçin **Öğrenciler** sekmesinde **Yeni Oluştur**, ya da adı 50 karakterden uzun girmeyi deneyin. Uygulama, bunu yapmanızı engeller. 
+Uygulamayı çalıştırın, **öğrenciler** sekmesini seçin, **Yeni oluştur**' a tıklayın ve 50 karakterden daha uzun bir ad girmeyi deneyin. Uygulamanın bunu yapmasını önleyebilmelidir. 
 
-### <a name="the-column-attribute"></a>Sütun özniteliği
+### <a name="the-column-attribute"></a>Column özniteliği
 
-Sınıfları ve özellikleri veritabanına nasıl eşlendiğini denetlemek için öznitelikleri de kullanabilirsiniz. Adı kullanmışsınız varsayalım `FirstMidName` -ad alanı da ikinci adı içeriyor olabileceğinden alan. Ancak, veritabanı sütununun adı için istediğiniz `FirstName`veritabanına karşı özel sorgular yazmak kullanıcılar bu adı alışmanızı sağlamak için. Bu eşleme yapmak için kullanabileceğiniz `Column` özniteliği.
+Ayrıca, sınıflarınızın ve özelliklerinin veritabanına nasıl eşlenildiğini denetlemek için özniteliklerini de kullanabilirsiniz. Alan aynı zamanda bir orta ad `FirstMidName` içerebileceğinden, birinci ad alanı için adı kullandığınızı varsayalım. Ancak veritabanına karşı geçici sorgular yazmayacak olan kullanıcılar `FirstName`bu ada alışkın olduğundan, veritabanı sütununun adlandırılmak istiyorsunuz. Bu eşlemeyi yapmak için `Column` özniteliğini kullanabilirsiniz.
 
-`Column` Özniteliği belirtir, bu, veritabanı oluşturulduktan sonra sütunun `Student` eşleyen tablo `FirstMidName` özelliği adlandırılacak `FirstName`. Diğer bir deyişle, ne zaman kodunuzu başvurduğu `Student.FirstMidName`, veri kaynağından gelir veya içinde güncelleştirilmesi `FirstName` sütununun `Student` tablo. Sütun adları belirtmezseniz, özellik adı olarak aynı adı verilir.
+Özniteliği veritabanı oluşturulduğunda `FirstMidName` , özelliği ile eşlenen `Student` tablonun sütununun adlandırılacağını `FirstName`belirtir. `Column` Diğer bir deyişle, kodunuz öğesine `Student.FirstMidName`başvurduğunda, veriler `Student` tablonun `FirstName` sütununda gelir veya güncelleştirilir. Sütun adları belirtmezseniz, bunlar Özellik adı ile aynı ada verilir.
 
-İçinde *Student.cs* ekleyin bir `using` bildirimi `System.ComponentModel.DataAnnotations.Schema` ve sütun ad özniteliğini ekleyin `FirstMidName` vurgulanan aşağıdaki kodda gösterildiği gibi özelliği:
+*Student.cs* dosyasında, için `using` `System.ComponentModel.DataAnnotations.Schema` bir ifade ekleyin ve aşağıdaki vurgulanmış kodda gösterildiği gibi, `FirstMidName` özelliği için bir sütun adı özniteliği ekleyin:
 
 [!code-csharp[](intro/samples/cu/Models/Student.cs?name=snippet_Column&highlight=4,14)]
 
-Ek `Column` özniteliği değişiklikleri model yedekleme `SchoolContext`, veritabanı eşleşmeyecektir.
+`Column` Özniteliği ekleme modeli, tarafından `SchoolContext`yedeklendiğinden, veritabanıyla eşleşmeyecek şekilde değişir.
 
-Yaptığınız değişiklikleri kaydedin ve projeyi derleyin. Ardından proje klasöründe komut penceresi açın ve başka bir geçiş oluşturmak için aşağıdaki komutları girin:
+Değişikliklerinizi kaydedin ve projeyi derleyin. Ardından proje klasöründe komut penceresini açın ve başka bir geçiş oluşturmak için aşağıdaki komutları girin:
 
 ```console
 dotnet ef migrations add ColumnFirstName
@@ -134,28 +134,28 @@ dotnet ef migrations add ColumnFirstName
 dotnet ef database update
 ```
 
-İçinde **SQL Server Nesne Gezgini**, Öğrenci Tablo Tasarımcısı çift tıklayarak açın **Öğrenci** tablo.
+**SQL Server Nesne Gezgini**, öğrenci tablosuna çift tıklayarak öğrenci tablosu tasarımcısını açın.
 
-![Geçiş sonrasında SSOX Öğrenciler tabloda](complex-data-model/_static/ssox-after-migration.png)
+![Geçişlerde SSOX 'teki öğrenciler tablosu](complex-data-model/_static/ssox-after-migration.png)
 
-İlk iki geçişlerin uygulamadan önce ad sütunu türü nvarchar(MAX) yoktu. FirstName FirstMidName nvarchar(50) ve sütun adı değişti artık oldukları.
+İlk iki geçişi uygulamadan önce ad sütunları nvarchar (MAX) türünde. Artık nvarchar (50) ve sütun adı FirstMidName iken FirstName olarak değiştirilmiştir.
 
 > [!Note]
-> Aşağıdaki bölümlerde tüm varlık sınıfları oluşturma tamamlanmadan önce derlemek denerseniz derleyici hataları alabilirsiniz.
+> Aşağıdaki bölümlerde tüm varlık sınıflarını oluşturmayı bitirmeden önce derlemeyi denerseniz Derleyici hataları alabilirsiniz.
 
-## <a name="changes-to-student-entity"></a>Öğrenci varlık için değişiklikler
+## <a name="changes-to-student-entity"></a>Öğrenci varlığındaki değişiklikler
 
-![Öğrenci varlık](complex-data-model/_static/student-entity.png)
+![Öğrenci varlığı](complex-data-model/_static/student-entity.png)
 
-İçinde *Models/Student.cs*, eklediğiniz kod daha önce aşağıdaki kodla değiştirin. Değişiklikler vurgulanır.
+*Modeller/öğrenci. cs*' de, daha önce eklediğiniz kodu aşağıdaki kodla değiştirin. Değişiklikler vurgulanır.
 
 [!code-csharp[](intro/samples/cu/Models/Student.cs?name=snippet_BeforeInheritance&highlight=11,13,15,18,22,24-31)]
 
 ### <a name="the-required-attribute"></a>Gerekli öznitelik
 
-`Required` Öznitelik adı özellikleri gerekli alanları yapar. `Required` Öznitelik değer türleri gibi atanamaz türler için gerekli olmayan (DateTime, int, çift, float, vs.). Null olamaz türleri gerekli alanları otomatik olarak kabul edilir.
+`Required` Özniteliği, ad özellikleri gerekli alanları yapar. Değer türleri (DateTime, int, Double, float, vb.) gibi null yapılamayan türler için öznitelikgereklideğildir.`Required` Null olmayan türler otomatik olarak gerekli alanlar olarak değerlendirilir.
 
-Kullanarak kaldırabilirsiniz `Required` için en az uzunluk parametresi ile değiştirin ve öznitelik `StringLength` özniteliği:
+Özniteliği kaldırabilir `Required` ve `StringLength` özniteliği için bir minimum length parametresiyle değiştirebilirsiniz:
 
 ```csharp
 [Display(Name = "Last Name")]
@@ -163,92 +163,92 @@ Kullanarak kaldırabilirsiniz `Required` için en az uzunluk parametresi ile de�
 public string LastName { get; set; }
 ```
 
-### <a name="the-display-attribute"></a>Görüntüleme özniteliği
+### <a name="the-display-attribute"></a>Display özniteliği
 
-`Display` Özniteliği, metin kutuları için açıklama yazısını "Ad", "Soyadı", "Tam adı" ve "Kayıt tarihi" özellik adı yerine (Sözcük bölünmesi boşluk olan) her örnek olması gerektiğini belirtir.
+`Display` Öznitelik, metin kutularının açıklamalı alt yazısının her örnekteki Özellik adı yerine "ilk ad", "soyadı", "tam ad" ve "kayıt tarihi" olması gerektiğini belirtir (kelimeleri hiçbir alan içermez).
 
-### <a name="the-fullname-calculated-property"></a>Hesaplanan FullName özelliği
+### <a name="the-fullname-calculated-property"></a>FullName hesaplanmış özelliği
 
-`FullName` diğer iki özellikleri birleştirilerek oluşturulur bir değer döndüren bir hesaplanan özelliktir. Bu nedenle yalnızca bir alma erişimcisi ve Hayır sahip `FullName` sütunu veritabanında oluşturulur.
+`FullName`, iki diğer özelliğin bitiştirerek oluşturulmuş bir değer döndüren hesaplanmış bir özelliktir. Bu nedenle, yalnızca bir get erişimcisine sahiptir ve veritabanında `FullName` hiçbir sütun oluşturulmaz.
 
-## <a name="create-instructor-entity"></a>Eğitmen varlık oluşturma
+## <a name="create-instructor-entity"></a>Eğitmen varlığı oluşturma
 
-![Eğitmen varlık](complex-data-model/_static/instructor-entity.png)
+![Eğitmen varlığı](complex-data-model/_static/instructor-entity.png)
 
-Oluşturma *Models/Instructor.cs*, şablon kodunu aşağıdaki kodla değiştirin:
+Şablon kodunu aşağıdaki kodla değiştirerek *modeller/eğitmen. cs*oluşturun:
 
 [!code-csharp[](intro/samples/cu/Models/Instructor.cs?name=snippet_BeforeInheritance)]
 
-Çeşitli özellikler Öğrenci ve Eğitmen varlıkları aynı olduğuna dikkat edin. İçinde [uygulama devralma](inheritance.md) bu serideki sonraki öğretici, artıklığı ortadan kaldırmak için bu kodu yeniden düzenleyin.
+Öğrenci ve eğitmen varlıklarında birçok özellik aynı olduğuna dikkat edin. Devralma öğreticisini bu serinin ilerleyen kısımlarında [uyguladığınızda](inheritance.md) , artıklığı ortadan kaldırmak için bu kodu yeniden düzenlemelisiniz.
 
-Yazma böylece birden çok öznitelik bir satıra koyabilirsiniz `HireDate` gibi öznitelikleri:
+Birden çok özniteliği tek bir satıra koyabilirsiniz, böylece `HireDate` öznitelikleri aşağıdaki şekilde yazabilirsiniz:
 
 ```csharp
 [DataType(DataType.Date),Display(Name = "Hire Date"),DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
 ```
 
-### <a name="the-courseassignments-and-officeassignment-navigation-properties"></a>CourseAssignments ve OfficeAssignment Gezinti özellikleri
+### <a name="the-courseassignments-and-officeassignment-navigation-properties"></a>Courseatamalar ve OfficeAssignment gezinti özellikleri
 
-`CourseAssignments` Ve `OfficeAssignment` Gezinti özellikleri özelliklerdir.
+`CourseAssignments` Ve`OfficeAssignment` özellikleri gezinti özellikleridir.
 
-Bir eğitmen kursları herhangi bir sayıda öğretebiliriz, bu nedenle `CourseAssignments` bir koleksiyon olarak tanımlandı.
+Bir eğitmen herhangi bir sayıda kurs öğretebilir, bu `CourseAssignments` nedenle bir koleksiyon olarak tanımlanır.
 
 ```csharp
 public ICollection<CourseAssignment> CourseAssignments { get; set; }
 ```
 
-Bir gezinme özelliği birden çok varlık tutarsanız türünü, girişler eklenir, silindi, güncelleştirildi ve bir liste olması gerekir.  Belirtebileceğiniz `ICollection<T>` ya da bir tür gibi `List<T>` veya `HashSet<T>`. Belirtirseniz `ICollection<T>`, EF oluşturur bir `HashSet<T>` varsayılan olarak koleksiyon.
+Bir gezinti özelliği birden çok varlık tukiyorsa, türü girişlerin eklenebileceği, silinebileceği ve güncelleştirilemeyebilir bir liste olmalıdır.  Veya gibi bir `ICollection<T>` tür `List<T>` `HashSet<T>`belirtebilirsiniz. Belirtirseniz `ICollection<T>`, EF varsayılan olarak bir `HashSet<T>` koleksiyon oluşturur.
 
-Bunlar neden neden `CourseAssignment` varlıkları açıklanmıştır aşağıda çoktan çoğa ilişkiler hakkında bölümünde.
+Bunların varlıkların, `CourseAssignment` çoktan çoğa ilişkiler hakkında bölümünde aşağıda açıklanmasının nedeni aşağıda açıklanmıştır.
 
-Contoso University iş kuralları durum bir eğitmen yalnızca en fazla bir office olabilir böylece `OfficeAssignment` özelliği (Bu, hiçbir office atanırsa null olabilir) tek bir OfficeAssignment varlık içerir.
+Contoso Üniversitesi iş kuralları, bir eğitmenin yalnızca en fazla bir ofisin olabileceğini, bu nedenle `OfficeAssignment` özelliğin tek bir OfficeAssignment varlığı (Office atanmamışsa null olabilir) bulundurduğunu belirten bir durumdur.
 
 ```csharp
 public OfficeAssignment OfficeAssignment { get; set; }
 ```
 
-## <a name="create-officeassignment-entity"></a>OfficeAssignment varlık oluşturma
+## <a name="create-officeassignment-entity"></a>OfficeAssignment varlığı oluştur
 
-![OfficeAssignment varlık](complex-data-model/_static/officeassignment-entity.png)
+![OfficeAssignment varlığı](complex-data-model/_static/officeassignment-entity.png)
 
-Oluşturma *Models/OfficeAssignment.cs* aşağıdaki kod ile:
+Aşağıdaki kodla *modeller/OfficeAssignment. cs* oluşturun:
 
 [!code-csharp[](intro/samples/cu/Models/OfficeAssignment.cs)]
 
-### <a name="the-key-attribute"></a>Anahtar öznitelik
+### <a name="the-key-attribute"></a>Anahtar özniteliği
 
-Eğitmen ve OfficeAssignment varlıklar arasındaki bir sıfır-veya-bire bir ilişki yoktur. Atanan Eğitmeni ile ilgili bir ofis ataması yalnızca var ve bu nedenle birincil anahtarı da Eğitmen varlık, yabancı anahtar. Ancak kimliği veya Classnameıd adlandırma kuralı adının izleyin değil çünkü Entity Framework otomatik olarak Instructorıd bu varlığın birincil anahtarı tanınmıyor. Bu nedenle, `Key` özniteliği anahtar olarak tanımlamak için kullanılır:
+Eğitmen ve OfficeAssignment varlıkları arasında bire sıfır veya-bir ilişki vardır. Office ataması, atandığı eğitmenle ilişkili olarak yalnızca kendi birincil anahtarı da eğitmen varlığına ait yabancı anahtarıdır. Ancak Entity Framework, adı ID veya Classnameıd adlandırma kuralını izlemediği için bu varlığın birincil anahtarı olarak Komutctorıd 'yi otomatik olarak tanıyamaz. Bu nedenle, `Key` özniteliği anahtar olarak tanımlamak için kullanılır:
 
 ```csharp
 [Key]
 public int InstructorID { get; set; }
 ```
 
-Ayrıca `Key` varlığın birincil anahtarı yok ancak Classnameıd veya kimliği dışındaki ad özelliği denemek istiyorsanız özniteliği
+Varlık kendi birincil anahtarına sahip `Key` olsa da, özelliği classnameıd veya ID dışında bir şey olarak adlandırmak istiyorsanız özniteliğini de kullanabilirsiniz.
 
-Sütunu için tanımlayıcı bir ilişkisi olduğundan varsayılan olarak, olmayan-veritabanında oluşturulmuş olarak anahtar EF değerlendirir.
+Varsayılan olarak, tam olarak, sütun tanımlayıcı bir ilişki için olduğundan EF, anahtarı veritabanı olmayan bir şekilde değerlendirir.
 
-### <a name="the-instructor-navigation-property"></a>Eğitmen gezinme özelliği
+### <a name="the-instructor-navigation-property"></a>Eğitmen gezintisi özelliği
 
-Boş değer atanabilir bir eğitmen varlık sahip `OfficeAssignment` gezinti özelliği (bir eğitmen bir ofis ataması olmayabilir çünkü), ve OfficeAssignment varlık atanamayan bir sahip `Instructor` gezinti özelliği (bir ofis ataması yapılamıyor çünkü Mevcut bir eğitmen-- `InstructorID` null değer alamaz). Eğitmen varlığın ilgili OfficeAssignment varlık olduğunda, her varlık, gezinti özelliğinin diğer bir başvuru gerekir.
+Eğitmen varlığı null yapılabilir `OfficeAssignment` bir gezinti özelliğine sahiptir (bir eğitmenin bir Office ataması olmayabilir) ve OfficeAssignment varlığı null yapılamayan `Instructor` bir gezinti özelliğine sahiptir (bir Office ataması bir eğitmen olmadan var-- `InstructorID` null değer atanamaz). Bir eğitmen varlığı ilgili bir OfficeAssignment varlığına sahip olduğunda, her varlığın gezinti özelliğinde diğer birine bir başvurusu olur.
 
-Put bir `[Required]` Eğitmen Gezinti özelliğindeki ilgili Eğitmen olmalıdır, ancak, çünkü bunu yapmak zorunda olmadığınız belirtmek için özniteliği `InstructorID` (aynı zamanda olan bu tablo anahtarı), yabancı anahtar null atanamaz.
+İlgili bir eğitmen olması `[Required]` gerektiğini belirtmek için eğitmen gezinti özelliğine bir öznitelik koyabilirsiniz, ancak `InstructorID` yabancı anahtar (aynı zamanda bu tabloya yönelik olan anahtar) null değer atanamaz olduğundan bunu yapmanız gerekmez.
 
-## <a name="modify-course-entity"></a>Kurs varlığı değiştirme
+## <a name="modify-course-entity"></a>Kurs varlığını değiştirme
 
-![Kurs varlık](complex-data-model/_static/course-entity.png)
+![Kurs varlığı](complex-data-model/_static/course-entity.png)
 
-İçinde *Models/Course.cs*, eklediğiniz kod daha önce aşağıdaki kodla değiştirin. Değişiklikler vurgulanır.
+*Modeller/kurs. cs*' de, daha önce eklediğiniz kodu aşağıdaki kodla değiştirin. Değişiklikler vurgulanır.
 
 [!code-csharp[](intro/samples/cu/Models/Course.cs?name=snippet_Final&highlight=2,10,13,16,19,21,23)]
 
-Kurs varlık bir yabancı anahtar özelliğine sahip `DepartmentID` ilgili bölüm varlık ve onu işaret ettiği sahip bir `Department` gezinme özelliği.
+Kurs varlığının, ilgili departman varlığını işaret eden `DepartmentID` ve bir `Department` gezinti özelliği olan yabancı anahtar özelliği vardır.
 
-Entity Framework gezinme özelliğinin bağını ilgili varlık olduğunda veri modelinizi yabancı bir anahtar özellik eklemenize gerek yoktur.  EF otomatik olarak ihtiyaç duyulan yere, veritabanında yabancı anahtarlar oluşturur ve oluşturur [gölge Özellikler](/ef/core/modeling/shadow-properties) bunlar için. Ancak yabancı anahtar veri modelinde sahip güncelleştirmeleri daha basit ve daha verimli hale getirebilir. Departman Varlığı düzenlemek için bir kurs varlık getiren, örneğin, null, yükleme şekilde kurs varlık güncelleştirdiğinizde varsa ilk bölüm varlık getirilemedi. Yabancı anahtar özelliği `DepartmentID` içerdiği veri modelinde güncelleştirmeden önce departmanı varlık getiren gerekmez.
+Entity Framework, ilgili varlık için bir gezinti özelliği olduğunda, veri modelinize yabancı anahtar özelliği eklemenizi gerektirmez.  EF, gerektiğinde otomatik olarak yabancı anahtarlar oluşturur ve bunlar için [gölge Özellikler](/ef/core/modeling/shadow-properties) oluşturur. Ancak veri modelinde yabancı anahtar olması, güncelleştirmeleri daha basit ve daha verimli hale getirir. Örneğin, düzenlemek üzere bir kurs varlığı aldığınızda, bunu yüklemezseniz departman varlığı null olur, bu nedenle kurs varlığını güncelleştirdiğinizde öncelikle departman varlığını almanız gerekir. Yabancı anahtar özelliği `DepartmentID` veri modeline dahil edildiğinde, güncelleştirmeden önce bölüm varlığını almanız gerekmez.
 
 ### <a name="the-databasegenerated-attribute"></a>DatabaseGenerated özniteliği
 
-`DatabaseGenerated` Özniteliğini `None` parametresi `CourseID` birincil anahtar değerlerini kullanıcı tarafından sağlanan yerine veritabanı tarafından oluşturulan özelliği belirtir.
+`DatabaseGenerated` Özelliğindeki parametresi`None` olan özniteliği, birincil anahtar değerlerinin veritabanı tarafından oluşturulması yerine Kullanıcı tarafından sağlandığını belirtir. `CourseID`
 
 ```csharp
 [DatabaseGenerated(DatabaseGeneratedOption.None)]
@@ -256,71 +256,71 @@ Entity Framework gezinme özelliğinin bağını ilgili varlık olduğunda veri 
 public int CourseID { get; set; }
 ```
 
-Varsayılan olarak Entity Framework, birincil anahtar değerlerini veritabanı tarafından oluşturulan varsayar. Çoğu senaryoda, istediğiniz olmasıdır. Ancak, kurs varlıklar için 1000 serisi gibi bir kullanıcı tarafından belirtilen kurs numarası bir bölümü, başka bir bölüme, 2000 serilerinin için kullanabilir ve benzeri.
+Varsayılan olarak, Entity Framework birincil anahtar değerlerinin veritabanı tarafından oluşturulduğunu varsayar. Bu, Çoğu senaryoda istediğiniz şeydir. Ancak, kurs varlıkları için bir departman için 1000 serisi, başka bir departman için 2000 serisi vb. gibi kullanıcı tarafından belirtilen bir kurs numarası kullanırsınız.
 
-`DatabaseGenerated` Özniteliği de kullanılabilir olması durumunda veritabanı sütunlarını tarihi kaydetmek için kullanılan bir satır oluşturulurken veya güncelleştirilirken gibi varsayılan değerleri oluşturmak için.  Daha fazla bilgi için [üretilen özellikleri](/ef/core/modeling/generated-properties).
+`DatabaseGenerated` Özniteliği, bir satırın oluşturulduğu veya güncelleştirildiği tarihi kaydetmek için kullanılan veritabanı sütunlarında olduğu gibi varsayılan değerleri oluşturmak için de kullanılabilir.  Daha fazla bilgi için bkz. [üretilen Özellikler](/ef/core/modeling/generated-properties).
 
 ### <a name="foreign-key-and-navigation-properties"></a>Yabancı anahtar ve gezinti özellikleri
 
-Kurs varlık Gezinti özellikleri ve yabancı anahtar özelliklerini aşağıdaki ilişkileri yansıtır:
+Kurs varlığındaki yabancı anahtar özellikleri ve gezinti özellikleri aşağıdaki ilişkileri yansıtır:
 
-Bu yüzden bir kurs bir bölüme atanan bir `DepartmentID` yabancı anahtar ve `Department` yukarıda belirtilen nedenlerden dolayı gezinme özelliği.
+Bir kurs bir departmana atanır, bu nedenle yukarıda bahsedilen nedenlerden dolayı `DepartmentID` bir yabancı anahtar ve `Department` bir gezinti özelliği vardır.
 
 ```csharp
 public int DepartmentID { get; set; }
 public Department Department { get; set; }
 ```
 
-Herhangi bir sayıda Öğrenciler içinde kayıtlı bir kurs olabilir böylece `Enrollments` olan bir koleksiyon gezinme özelliği:
+Bir kurs, kayıtlı sayıda öğrenciye sahip olabilir, bu nedenle `Enrollments` gezinti özelliği bir koleksiyondur:
 
 ```csharp
 public ICollection<Enrollment> Enrollments { get; set; }
 ```
 
-Bir kurs birden çok Eğitmenler tarafından verilen böylece `CourseAssignments` olan bir koleksiyon gezinme özelliği (tür `CourseAssignment` açıklanan [daha sonra](#many-to-many-relationships)):
+Kurs, birden fazla eğitmen tarafından tada olabilir, bu nedenle `CourseAssignments` gezinti özelliği bir koleksiyon olur (tür `CourseAssignment` [daha sonra](#many-to-many-relationships)açıklanmıştır):
 
 ```csharp
 public ICollection<CourseAssignment> CourseAssignments { get; set; }
 ```
 
-## <a name="create-department-entity"></a>Departman varlık oluşturma
+## <a name="create-department-entity"></a>Departman varlığı oluştur
 
-![Departman varlık](complex-data-model/_static/department-entity.png)
+![Bölüm varlığı](complex-data-model/_static/department-entity.png)
 
-Oluşturma *Models/Department.cs* aşağıdaki kod ile:
+Aşağıdaki kodla *modeller/departman. cs* oluşturun:
 
 [!code-csharp[](intro/samples/cu/Models/Department.cs?name=snippet_Begin)]
 
-### <a name="the-column-attribute"></a>Sütun özniteliği
+### <a name="the-column-attribute"></a>Column özniteliği
 
-Daha önce kullandığınız `Column` sütun adı eşlemesini değiştirmek için özniteliği. Departman varlık kodunda `Column` sütunu veritabanında SQL Server para türü kullanılarak tanımlanır için SQL veri türü eşlemesi değiştirmek için özniteliği kullanılıyor:
+Daha önce, `Column` sütun adı eşlemesini değiştirmek için özniteliğini kullandınız. Bölüm varlığının kodunda, `Column` sütun, veritabanının SQL Server para türü kullanılarak tanımlanacak şekilde SQL veri türü eşlemesini değiştirmek için kullanılır:
 
 ```csharp
 [Column(TypeName="money")]
 public decimal Budget { get; set; }
 ```
 
-Sütun eşlemesi Entity Framework seçtiği özelliği için tanımladığınız CLR türüne göre uygun SQL Server veri türü için genelde gerekli değildir. CLR `decimal` türü bir SQL Server eşlenir `decimal` türü. Ancak, bu durumda sütunu para birimi miktarları bulunduran ve para veri türü için daha uygun olduğunu biliyor.
+Entity Framework, özellik için tanımladığınız CLR türüne göre uygun SQL Server veri türünü seçtiği için sütun eşlemesi genellikle gerekli değildir. CLR `decimal` türü SQL Server `decimal` bir türe eşlenir. Ancak bu durumda, sütunun para birimi tutarlarını tutuını ve para veri türü bunun için daha uygun olduğunu bilirsiniz.
 
 ### <a name="foreign-key-and-navigation-properties"></a>Yabancı anahtar ve gezinti özellikleri
 
-Yabancı anahtar ve gezinti özellikleri, aşağıdaki ilişkileri yansıtır:
+Yabancı anahtar ve gezinti özellikleri aşağıdaki ilişkileri yansıtır:
 
-Bir bölüm olabilir veya bir yönetici olmayabilir ve yönetici her zaman bir eğitmen. Bu nedenle `InstructorID` Eğitmen varlığı için yabancı anahtar özelliği bulunur ve sonra bir soru işareti eklenir `int` özelliği null olarak işaretlemek için ataması yazın. Gezinme özelliğini adlı `Administrator` ancak bir eğitmen varlık tutar:
+Bir departman yönetici olabilir veya olmayabilir ve yönetici her zaman bir eğitmendir. Bu nedenle, `int` özelliği,eğitmenvarlığınayabancıanahtarolarakdahiledilirvetüratamadansonraözelliğinullyapılabilirolarakişaretlemekiçinbir`InstructorID` soru işareti eklenir. Gezinti özelliği adlandırılır `Administrator` ancak bir eğitmen varlığı tutar:
 
 ```csharp
 public int? InstructorID { get; set; }
 public Instructor Administrator { get; set; }
 ```
 
-Kursları gezinti özelliği bu nedenle departman birçok kursları olabilir:
+Bir departmanın birçok kursu olabilir, bu nedenle bir kurs gezintisi özelliği vardır:
 
 ```csharp
 public ICollection<Course> Courses { get; set; }
 ```
 
 > [!NOTE]
-> Kural gereği, art arda silme için alamayan yabancı anahtarlar ve çoktan çoğa ilişkiler için Entity Framework sağlar. Bu, bir geçiş eklemeye çalıştığınızda bir özel durum neden olur, döngüsel art arda silme kuralları'nda neden olabilir. Örneğin, Department.InstructorID özelliği null olarak tanımlamadığınız varsa EF sorun olmasını istediğiniz değil Eğitmen sildiğinizde bölümü silmek için bir cascade delete kuralı yapılandırın. İş kurallarınızı gerekirse `InstructorID` özelliğini alamayan, art arda silme ilişkiyi devre dışı bırakmak için aşağıdaki fluent API'si deyimi kullanılacak olurdu:
+> Kurala göre Entity Framework, null olamayan yabancı anahtarlar ve çoktan çoğa ilişkiler için art arda silme imkanı sağlar. Bu, bir geçiş eklemeye çalıştığınızda bir özel duruma neden olacak dairesel basamaklı silme kurallarına neden olabilir. Örneğin, Department. Komutctorıd özelliğini null yapılabilir olarak tanımlamadıysanız, bu, bir basamak silme kuralını, eğitmeni sildiğinizde, ne yapmak istediğinize ilişkin olmayan bir şeyi silmek için yapılandırır. İş kurallarınız `InstructorID` özelliği null değer atanamaz olarak gerektiriyorsa, ilişkide basamaklı silmeyi devre dışı bırakmak için aşağıdaki Fluent API ifadesini kullanmanız gerekir:
 >
 > ```csharp
 > modelBuilder.Entity<Department>()
@@ -329,26 +329,26 @@ public ICollection<Course> Courses { get; set; }
 >    .OnDelete(DeleteBehavior.Restrict)
 > ```
 
-## <a name="modify-enrollment-entity"></a>Kayıt varlığı değiştirme
+## <a name="modify-enrollment-entity"></a>Kayıt varlığını değiştirme
 
-![Kayıt varlık](complex-data-model/_static/enrollment-entity.png)
+![Kayıt varlığı](complex-data-model/_static/enrollment-entity.png)
 
-İçinde *Models/Enrollment.cs*, eklediğiniz kod daha önce aşağıdaki kodla değiştirin:
+*Modeller/kayıt. cs*' de, daha önce eklediğiniz kodu aşağıdaki kodla değiştirin:
 
 [!code-csharp[](intro/samples/cu/Models/Enrollment.cs?name=snippet_Final&highlight=1-2,16)]
 
 ### <a name="foreign-key-and-navigation-properties"></a>Yabancı anahtar ve gezinti özellikleri
 
-Aşağıdaki ilişkileri ve gezinti özelliklerini yabancı anahtar özelliklerini yansıtır:
+Yabancı anahtar özellikleri ve gezinti özellikleri aşağıdaki ilişkileri yansıtır:
 
-Yani bir kaydı tek bir kurs için olan bir `CourseID` yabancı anahtar özellik ve `Course` gezinti özelliği:
+Kayıt kaydı tek bir kurs için olduğundan, `CourseID` yabancı anahtar özelliği ve bir `Course` gezinti özelliği vardır:
 
 ```csharp
 public int CourseID { get; set; }
 public Course Course { get; set; }
 ```
 
-Bu yüzden bir kayıt için tek bir öğrenci, kaydıdır bir `StudentID` yabancı anahtar özellik ve `Student` gezinti özelliği:
+Kayıt kaydı tek bir öğrenci içindir, bu nedenle bir `StudentID` yabancı anahtar özelliği ve bir `Student` gezinti özelliği vardır:
 
 ```csharp
 public int StudentID { get; set; }
@@ -357,47 +357,47 @@ public Student Student { get; set; }
 
 ## <a name="many-to-many-relationships"></a>Çoktan çoğa ilişkiler
 
-Öğrenci ve kursu varlıklar arasında çoktan çoğa bir ilişki yoktur ve kayıt varlık işlevleri bire çok birleşme tablo olarak *yüküyle* veritabanında. "Yüke sahip" kayıt tablosu yabancı anahtarlar için birleştirilmiş tablolarında (Bu durumda, bir birincil anahtar ve bir sınıf özelliği) yanı sıra ek verileri içerdiğini gösterir.
+Öğrenci ve kurs varlıkları arasında çok-çok ilişkisi vardır ve kayıt varlığı, veritabanında *Yük içeren* çoktan çoğa bir JOIN tablosu gibi çalışır. "Yük ile", kayıt tablosunun birleştirilmiş tablolar için yabancı anahtarlar (Bu durumda bir birincil anahtar ve bir sınıf özelliği) yanında ek veriler içerdiği anlamına gelir.
 
-Aşağıdaki çizim, bu ilişkiler bir varlık diyagramda nasıl göründüğünü gösterir. (Bu diyagramda EF için Entity Framework güç araçları kullanılarak oluşturulan 6.x; diyagram oluşturma, öğreticinin bir parçası değil, yalnızca kullanıldığı bir çizim olarak burada.)
+Aşağıdaki çizimde bu ilişkilerin bir varlık diyagramında nasıl göründüğünü gösterilmektedir. (Bu diyagram EF 6. x için Entity Framework güç araçları kullanılarak oluşturulmuştur; diyagramı oluşturmak öğreticinin bir parçası değildir, burada yalnızca bir çizim olarak kullanılmaktadır.)
 
-![Öğrenci Kursluk çok-çok ilişkisi](complex-data-model/_static/student-course.png)
+![Öğrenci-çok fazla ilişki](complex-data-model/_static/student-course.png)
 
 Her ilişki ucu ve bir yıldız işareti (*) 1 diğer sırasında bir-çok ilişkisi belirten bulunur.
 
-Sınıf bilgileri kayıt tablosu eklemediyseniz, yalnızca CourseID ve StudentID iki yabancı anahtar içermesi gerekir. Bu durumda, bu bire çok birleşme tablo yükü olmadan (veya saf birleşim tablosu) veritabanında olacaktır. Bu tür çoktan çoğa ilişki bir eğitmen ve kurs varlıkların ve sonraki adımınız yükü olmadan bir JOIN tablo olarak çalışması için bir varlık sınıfı oluşturmaktır.
+Kayıt tablosu, sınıf bilgilerini içermiyorsa, yalnızca iki yabancı anahtar olan CourseID ve Studentitıd 'yi içermelidir. Bu durumda, veritabanına yük (veya saf bir JOIN tablosu) olmadan çok-çok arasında bir JOIN tablosu olacaktır. Eğitmen ve kurs varlıklarının bu tür çok-çok ilişkisi vardır ve bir sonraki adımınız, yük olmadan bir JOIN tablosu olarak çalışacak bir varlık sınıfı oluşturmaktır.
 
-(Çok-çok ilişkileri ve EF Core için örtük birleşim tabloları değil EF 6.x destekler. Daha fazla bilgi için [tartışma EF Core GitHub deposunda](https://github.com/aspnet/EntityFramework/issues/1368).)
+(EF 6. x, çoktan çoğa ilişkiler için örtük birleştirmeyi destekler, ancak EF Core. Daha fazla bilgi için, [EF Core GitHub deposundaki tartışmaya](https://github.com/aspnet/EntityFramework/issues/1368)bakın.)
 
-## <a name="the-courseassignment-entity"></a>CourseAssignment varlık
+## <a name="the-courseassignment-entity"></a>Courseatama varlığı
 
-![CourseAssignment varlık](complex-data-model/_static/courseassignment-entity.png)
+![Courseatama varlığı](complex-data-model/_static/courseassignment-entity.png)
 
-Oluşturma *Models/CourseAssignment.cs* aşağıdaki kod ile:
+Aşağıdaki kodla *modeller/Courseatama. cs* oluşturun:
 
 [!code-csharp[](intro/samples/cu/Models/CourseAssignment.cs)]
 
-### <a name="join-entity-names"></a>Varlık adları katılın
+### <a name="join-entity-names"></a>Varlık adlarını Birleştir
 
-Eğitmen kursları çoktan çoğa ilişki için veritabanında bir birleşim tablo gereklidir ve bir varlık kümesi tarafından temsil edilmesini vardır. Bir birleşim varlık adı yaygındır `EntityName1EntityName2`, bu durumda olacak `CourseInstructor`. Ancak, ilişkiyi tanımlayan bir ad seçmenizi öneririz. Veri modelleri basit ' ı başlatın ve, sık yükü daha sonra başlama Hayır yükü birleştirmelerle büyütün. Bir tanımlayıcı varlık adla başlatırsanız, daha sonra adını değiştirmek zorunda kalmazsınız. Birleştirme varlık ideal olarak, iş etki alanında kendi doğal (muhtemelen tek sözcük) adına sahip. Örneğin, kitaplar ve müşterilerin derecelendirmeleri bağ kurulamadı. Bu ilişki için `CourseAssignment` değerinden daha iyi bir seçimdir `CourseInstructor`.
+Eğitim--çok ilişkisi için veritabanında bir JOIN tablosu gereklidir ve bir varlık kümesi tarafından temsil edilir. Bu örnekte olduğu gibi bir JOIN varlığı `EntityName1EntityName2`adı yaygın olarak kullanılır. `CourseInstructor` Ancak, ilişkiyi açıklayan bir ad seçmenizi öneririz. Veri modelleri, daha sonra yükleri daha sonra almak için, yük olmayan birleşimler olmadan basit ve büyümeye başlar. Açıklayıcı bir varlık adıyla başladıysanız, daha sonra adı değiştirmeniz gerekmez. İdeal olarak, JOIN varlığının iş etki alanında kendi doğal (muhtemelen tek bir kelime) adına sahip olması gerekir. Örneğin, kitaplar ve müşteriler derecelendirmeler aracılığıyla bağlanabilir. Bu ilişki için, `CourseAssignment` daha iyi bir `CourseInstructor`seçenektir.
 
 ### <a name="composite-key"></a>Bileşik anahtar
 
-Yabancı anahtarlar benzersiz olarak boş değer atanabilir ve birlikte olmadığından tablonun her satırı tanımlamak, ayrı bir birincil anahtar için gerek yoktur. *Instructorıd* ve *CourseID* özellikleri, bileşik bir birincil anahtar olarak çalışması. Kullanarak EF bileşik birincil anahtarları tanımlamak için tek yolu olduğundan *fluent API'si* (Bu öznitelikleri kullanarak yapılamaz). Sonraki bölümde bileşik bir birincil anahtar yapılandırmak nasıl göreceksiniz.
+Yabancı anahtarlar null değer atanmadığından ve tablodaki her satırı benzersiz bir şekilde tanımladığından, ayrı bir birincil anahtar gerekmez. *Komutctorıd* ve *CourseID* özellikleri bir bileşik birincil anahtar olarak çalışır. EF için bileşik birincil anahtarları tanımlamanın tek yolu *Fluent API* kullanmaktır (öznitelikleri kullanılarak gerçekleştirilemez). Bir sonraki bölümde bileşik birincil anahtarı nasıl yapılandıracağınızı göreceksiniz.
 
-Bileşik anahtarın bir kurs ve bir eğitmen için birden çok satır için birden çok satır olabilse kurs ve aynı eğitmen için birden fazla satır olamaz sağlar. `Enrollment` Birleştirme varlık çoğaltmaları bu tür mümkün olduğundan, kendi birincil anahtar tanımlar. Böyle yinelenen önlemek için benzersiz bir dizin yabancı anahtar alanları eklediğinizde veya yapılandırma `Enrollment` benzer şekilde birincil Bileşik anahtarı `CourseAssignment`. Daha fazla bilgi için [dizinleri](/ef/core/modeling/indexes).
+Bileşik anahtar, tek bir kurs için birden çok satır ve bir eğitmen için birden fazla satır, aynı eğitmen ve kurs için birden çok satıra sahip olmanızı sağlar. `Enrollment` JOIN varlığı kendi birincil anahtarını tanımlar, bu nedenle bu sıralamanın yinelemeleri mümkündür. Bu tür yinelemeleri engellemek için yabancı anahtar alanlarına benzersiz bir dizin ekleyebilir veya `Enrollment` `CourseAssignment`benzer bir birincil bileşik anahtarla yapılandırabilirsiniz. Daha fazla bilgi için bkz. [dizinler](/ef/core/modeling/indexes).
 
-## <a name="update-the-database-context"></a>Veritabanı bağlamı güncelleştir
+## <a name="update-the-database-context"></a>Veritabanı bağlamını güncelleştirme
 
-Aşağıdaki vurgulanmış kodu ekleyin *Data/SchoolContext.cs* dosyası:
+*Data/SchoolContext. cs* dosyasına aşağıdaki vurgulanmış kodu ekleyin:
 
 [!code-csharp[](intro/samples/cu/Data/SchoolContext.cs?name=snippet_BeforeInheritance&highlight=15-18,25-31)]
 
-Bu kod, yeni varlıkları ekleyen ve CourseAssignment varlığın bileşik birincil anahtarını yapılandırır.
+Bu kod yeni varlıkları ekler ve Courseatama varlığının bileşik birincil anahtarını yapılandırır.
 
-## <a name="about-a-fluent-api-alternative"></a>Bir fluent API'si alternatif hakkında
+## <a name="about-a-fluent-api-alternative"></a>Fluent API alternatifi hakkında
 
-Kodda `OnModelCreating` yöntemi `DbContext` sınıfının kullandığı *fluent API'si* EF davranışı yapılandırmak için. Bu örnekte olduğu gibi tek bir deyimde içine bir dizi yöntem çağrılarını birlikte stringing genellikle kullanıldığından API'sı "fluent" çağrılan [EF Core belgeleri](/ef/core/modeling/#use-fluent-api-to-configure-a-model):
+Sınıf yöntemindeki kod, EF davranışını yapılandırmak için Fluent API kullanır. `OnModelCreating` `DbContext` Bu örnekte, [EF Core belgelerinden](/ef/core/modeling/#use-fluent-api-to-configure-a-model)farklı olarak, bir dizi yöntemi çağıran tek bir bildirimde dize tarafından KULLANıLDıĞıNDAN, API "floent" olarak adlandırılır:
 
 ```csharp
 protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -408,31 +408,31 @@ protected override void OnModelCreating(ModelBuilder modelBuilder)
 }
 ```
 
-Bu öğreticide, yalnızca özniteliklerle yapamayacağınız veritabanı eşleme fluent API'si kullanıyorsunuz. Ancak, çoğu biçimlendirmeyi, doğrulama ve öznitelikleri kullanarak yapabileceğiniz eşleme kurallarını belirtmek için fluent API'sini kullanabilirsiniz. Bazı öznitelikler gibi `MinimumLength` fluent API'si ile uygulanamaz. Daha önce de belirtildiği `MinimumLength` şemasını değiştirmez, yalnızca bir istemci ve sunucu tarafı doğrulama kuralı uygular.
+Bu öğreticide, yalnızca öznitelikleri ile yapaamıyoruz veritabanı eşlemesi için Fluent API kullanıyorsunuz. Ancak, özniteliklerini kullanarak yapabileceğiniz biçimlendirme, doğrulama ve eşleme kurallarının çoğunu belirtmek için Fluent API de kullanabilirsiniz. Gibi bazı öznitelikler `MinimumLength` Fluent API uygulanamaz. Daha önce belirtildiği gibi `MinimumLength` , şemayı değiştirmez, yalnızca bir istemci ve sunucu tarafı doğrulama kuralı uygular.
 
-Bazı geliştiriciler özel olarak bunlar kendi varlık sınıfları "temiz" olan fluent API'sini kullanmayı tercih edin İstediğiniz ve fluent API'sini kullanarak yalnızca yapılabilir birkaç özelleştirmeleri öznitelikleri ve fluent API'si karıştırabilirsiniz, ancak genel olarak önerilen uygulama bu iki yaklaşımdan birini seçin ve bu tutarlı bir şekilde mümkün olduğunca kullanmaktır. Her ikisini de kullanıyorsanız, çakışma olduğunda Fluent API'si özniteliklerini geçersiz kılar.
+Bazı geliştiriciler, varlık sınıflarının "temiz" olmasını sağlamak için Fluent API özel olarak kullanmayı tercih eder. İsterseniz öznitelikleri ve Fluent API karıştırabilir ve yalnızca Fluent API kullanılarak gerçekleştirilebilecek bazı özelleştirmeler de vardır ancak genel olarak önerilen uygulama, bu iki yaklaşımdan birini seçmek ve bunları mümkün olduğunca tutarlı bir şekilde kullanmaktır. Her ikisini de kullanırsanız, bir çakışma olduğunda, akıcı API 'nin öznitelikleri geçersiz kıldığını unutmayın.
 
-Fluent API'si ve öznitelikler hakkında daha fazla bilgi için bkz. [yapılandırma yöntemleri,](/ef/core/modeling/).
+Öznitelikler ile Fluent API hakkında daha fazla bilgi için bkz. [yapılandırma yöntemleri](/ef/core/modeling/).
 
-## <a name="entity-diagram-showing-relationships"></a>Varlık diyagramda gösteren ilişkileri
+## <a name="entity-diagram-showing-relationships"></a>Ilişkileri gösteren varlık diyagramı
 
-Aşağıdaki resimde tamamlanmış Okul model için Entity Framework Power Tools oluşturduğunuz diyagramda gösterilmektedir.
+Aşağıdaki çizimde, Entity Framework Power Tools 'un tamamlanmış okul modeli için kullandığı diyagram gösterilmektedir.
 
 ![Varlık diyagramı](complex-data-model/_static/diagram.png)
 
-Çoğa bir ilişki yanı sıra (1 \*), eğitmen ve OfficeAssignment varlıkları ve sıfır-veya-bir-çok ilişki çizgisi arasındaki bir sıfır-veya-bir ilişki satırı (için 1 0..1) burada görebilirsiniz (0..1 için *) arasında Eğitmen ve departman varlıklar.
+Bire çok ilişki çizgilerinin yanı sıra (1 \*' den fazla), eğitmen ve OfficeAssignment varlıkları arasında bire sıfır veya-bir ilişki satırını (1 ila 0.. 1) ve arasında (0.. 1 ile * arasında) Eğitmen ve departman varlıkları.
 
-## <a name="seed-database-with-test-data"></a>Çekirdek veritabanı test verileri ile
+## <a name="seed-database-with-test-data"></a>Test verileriyle çekirdek veritabanı
 
-Değiştirin *Data/DbInitializer.cs* oluşturduğunuz yeni varlıklar için çekirdek veri sağlamak için aşağıdaki kodu dosyası.
+*Veri/Dbınınitializer. cs* dosyasındaki kodu, oluşturduğunuz yeni varlıklar için çekirdek verileri sağlamak üzere aşağıdaki kodla değiştirin.
 
 [!code-csharp[](intro/samples/cu/Data/DbInitializer.cs?name=snippet_Final)]
 
-İlk öğreticide gördüğünüz gibi çoğu bu kod, yalnızca yeni varlık nesnesi oluşturur ve örnek veri özelliklerini test etmek için gerektiği gibi yükler. Çoktan çoğa ilişkilerin nasıl işleneceğini dikkat edin: kod içindeki varlık oluşturarak ilişkileri oluşturur `Enrollments` ve `CourseAssignment` varlık kümeleri katılın.
+İlk öğreticide gördüğünüz gibi, bu kodun çoğu yalnızca yeni varlık nesneleri oluşturur ve test için gereken şekilde, örnek verileri özelliklere yükler. Çoktan çoğa ilişkilerin nasıl işlendiği hakkında dikkat edin: kod, `Enrollments` ve `CourseAssignment` varlık kümelerinde varlıklar oluşturarak ilişkiler oluşturur.
 
-## <a name="add-a-migration"></a>Bir geçiş ekleyin
+## <a name="add-a-migration"></a>Geçiş Ekle
 
-Yaptığınız değişiklikleri kaydedin ve projeyi derleyin. Ardından proje klasöründe komut penceresi açın ve girin `migrations add` komut (yapma güncelleştirme database komutu henüz):
+Değişikliklerinizi kaydedin ve projeyi derleyin. Ardından proje klasöründe komut penceresini açın ve `migrations add` komutu girin (henüz Update-database komutunu yapmayın):
 
 ```console
 dotnet ef migrations add ComplexDataModel
@@ -445,31 +445,31 @@ An operation was scaffolded that may result in the loss of data. Please review t
 Done. To undo this action, use 'ef migrations remove'
 ```
 
-Çalıştırmayı denediyseniz `database update` bu noktada komut (yapma, henüz), şu hatayı elde edersiniz:
+`database update` Komutu bu noktada çalıştırmayı denediyseniz (henüz yapmayın), şu hatayı alırsınız:
 
-> ALTER TABLE deyimini "FK_dbo. yabancı anahtar kısıtlaması ile çakıştı. Course_dbo. Department_DepartmentID". Veritabanı "ContosoUniversity" Tablo "dbo. çakışma oluştu Departman", sütun 'DepartmentID'.
+> ALTER TABLE ifadesi, "FK_dbo" adlı yabancı anahtar kısıtlaması ile çakışıyor. Course_dbo. Department_DepartmentID". "ContosoUniversity" veritabanında, "dbo" tablosunda çakışma oluştu. Bölüm ", sütun ' DepartmentID '.
 
-Bazen, mevcut verilerle geçişleri yürüttüğünüzde, yabancı anahtar kısıtlamaları karşılamak için veritabanına saplama verisini eklemek gerekir. Oluşturulan kod `Up` yöntemi atanamayan DepartmentID yabancı anahtar kurs tabloya ekler. Varsa satırları kurs tabloda kod çalıştığında `AddColumn` SQL Server hangi değerin null olamaz sütununda put bilmediği işlemi başarısız olur. Bu öğretici için geçiş yeni bir veritabanı üzerinde çalıştırdığınız, ancak bir üretim uygulamasında aşağıdaki yönergeler bunu nasıl yapacağınız örneği böylece mevcut veri işleme geçiş yapması gerekebilir.
+Bazı durumlarda, mevcut verilerle geçişleri yürüttüğünüzde, yabancı anahtar kısıtlamalarını karşılamak için saplama verilerini veritabanına eklemeniz gerekir. `Up` Yönteminde oluşturulan kod, kurs tablosuna null yapılamayan bir DepartmentID yabancı anahtar ekler. Kurs tablosunda kod çalıştırıldığında zaten satırlar varsa, SQL Server null olmayan sütuna hangi değerin yerleştirileceğini `AddColumn` bilmediği için işlem başarısız olur. Bu öğreticide, geçişi yeni bir veritabanında çalıştıracaksınız, ancak bir üretim uygulamasında geçiş, mevcut verileri işleyeceğinizden, bu sayede bunun nasıl yapılacağını gösteren bir örnek gösterilmektedir.
 
-Yeni bir sütun bir varsayılan değeri vermek için kodu değiştirmek zorunda mevcut verilerle çalışacak ve bir saplama bölüm oluşturun, bu geçiş yapmak için "varsayılan Departman olarak görev yapacak Temp" adlı. Sonuç olarak, kurs satır var olan tüm sonra "Temp" departmanına ilişkilendirilir `Up` yöntemi çalışır.
+Bu geçişi mevcut verilerle birlikte çalışarak, yeni sütuna varsayılan bir değer vermek için kodu değiştirmeniz ve varsayılan departman görevi gören "Temp" adlı bir saplama departmanı oluşturmanız gerekir. Sonuç olarak, mevcut kurs satırları, `Up` Yöntem çalıştıktan sonra "geçici" departmanla ilgili olacaktır.
 
-* Açık *{timestamp}_ComplexDataModel.cs* dosya.
+* *{Timestamp} _ComplexDataModel. cs* dosyasını açın.
 
-* DepartmentID sütun kurs tablosuna ekleyen bir kod satırı açıklama satırı yapın.
+* DepartmentID sütununu kurs tablosuna ekleyen kod satırını açıklama satırı yapın.
 
   [!code-csharp[](intro/samples/cu/Migrations/20170215234014_ComplexDataModel.cs?name=snippet_CommentOut&highlight=9-13)]
 
-* Departman tablosu oluşturan kodu sonra aşağıdaki vurgulanmış kodu ekleyin:
+* Departman tablosunu oluşturan koddan sonra aşağıdaki vurgulanmış kodu ekleyin:
 
   [!code-csharp[](intro/samples/cu/Migrations/20170215234014_ComplexDataModel.cs?name=snippet_CreateDefaultValue&highlight=22-32)]
 
-Bir üretim uygulamasında, kod veya betiklerde departmanı satır eklemek ve yeni bölüm satırları kurs satırları ilişkili yazmalısınız. Ardından artık "Temp" departman veya Course.DepartmentID sütununda Varsayılan değer ihtiyacınız olacaktı.
+Bir üretim uygulamasında, departman satırları eklemek ve kurs satırlarını yeni departman satırlarıyla ilişkilendirmek için kod veya komut dosyaları yazın. Bundan sonra "geçici" Departmanı veya kurs. DepartmentID sütununda Varsayılan değer gerekmez.
 
-Yaptığınız değişiklikleri kaydedin ve projeyi derleyin.
+Değişikliklerinizi kaydedin ve projeyi derleyin.
 
-## <a name="change-the-connection-string"></a>Bağlantı dizesini değiştirin
+## <a name="change-the-connection-string"></a>Bağlantı dizesini değiştirme
 
-Artık bir artık yeni koda sahip `DbInitializer` yeni varlıklar için çekirdek veri için boş bir veritabanı ekler sınıfı. Yeni bir boş veritabanı oluşturma EF yapmak için bağlantı dizesinde veritabanının adını *appsettings.json* ContosoUniversity3 veya kullanmakta olduğunuz bilgisayarda kullanmadığınız bazı diğer adı.
+Artık `DbInitializer` sınıfta yeni varlıklar için tohum verilerini boş bir veritabanına ekleyen yeni kodunuz var. EF 'in yeni boş bir veritabanı oluşturmasını sağlamak için *appSettings. JSON* içindeki bağlantı dizesinde veritabanının adını ContosoUniversity3 veya kullandığınız bilgisayarda kullanmadığınız başka bir adla değiştirin.
 
 ```json
 {
@@ -478,58 +478,58 @@ Artık bir artık yeni koda sahip `DbInitializer` yeni varlıklar için çekirde
   },
 ```
 
-Değişiklik Kaydet *appsettings.json*.
+Değişiklerinizi *appSettings. JSON*' da kaydedin.
 
 > [!NOTE]
-> Veritabanı adının değiştirilmesi alternatif olarak, veritabanı silebilirsiniz. Kullanım **SQL Server Nesne Gezgini** (SSOX) veya `database drop` CLI komutunu:
+> Veritabanı adını değiştirmeye alternatif olarak, veritabanını silebilirsiniz. **SQL Server Nesne Gezgini** (ssox) veya `database drop` CLI komutunu kullanın:
 >
 > ```console
 > dotnet ef database drop
 > ```
 
-## <a name="update-the-database"></a>Veritabanını Güncelleştir
+## <a name="update-the-database"></a>Veritabanını güncelleştirme
 
-Veritabanı adı değiştirilmiş veya silinmiş veritabanı sonra çalıştırın `database update` geçişlerin yürütmek için komut penceresinde komutu.
+Veritabanı adını değiştirdikten veya veritabanını sildikten sonra, geçişleri yürütmek için komut penceresinde `database update` komutunu çalıştırın.
 
 ```console
 dotnet ef database update
 ```
 
-Neden için uygulamayı çalıştırın `DbInitializer.Initialize` çalıştırın ve yeni veritabanını doldurmak için yöntem.
+`DbInitializer.Initialize` Yöntemi çalıştırmak ve yeni veritabanını doldurmak için uygulamayı çalıştırın.
 
-Daha önce yaptığınız gibi veritabanı SSOX içinde açın ve genişletin **tabloları** tüm tabloların oluşturulduğunu görmek için düğümü. (Önceki süreyi açın SSOX hala varsa, tıklayın **Yenile** düğmesi.)
+Veritabanını daha önce yaptığınız gibi SSOX içinde açın ve tabloların tümünün oluşturulduğunu görmek için **Tables** düğümünü genişletin. (Yine de bir daha önceki zamanda SSOX açıksa **Yenile** düğmesine tıklayın.)
 
-![SSOX tablolarında](complex-data-model/_static/ssox-tables.png)
+![SSOX içindeki tablolar](complex-data-model/_static/ssox-tables.png)
 
-Veritabanının çekirdeğini Başlatıcı kodu tetiklemek için uygulamayı çalıştırın.
+Veritabanını gösteren Başlatıcı kodunu tetiklemek için uygulamayı çalıştırın.
 
-Sağ **CourseAssignment** tablosunu seçip **görünüm verilerini** , veri içinde olduğunu doğrulayın.
+**Courseatama** tablosuna sağ tıklayın ve verileri **görüntüle** ' yi seçerek veri içerdiğinden emin olun.
 
-![SSOX CourseAssignment verileri](complex-data-model/_static/ssox-ci-data.png)
+![SSOX 'te Courseatama verileri](complex-data-model/_static/ssox-ci-data.png)
 
-## <a name="get-the-code"></a>Kodu alma
+## <a name="get-the-code"></a>Kodu alın
 
-[İndirme veya tamamlanmış uygulamanın görüntüleyin.](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final)
+[Tamamlanmış uygulamayı indirin veya görüntüleyin.](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Bu öğreticide şunları yaptınız:
 
 > [!div class="checklist"]
-> * Özelleştirilmiş veri modeli
-> * Öğrenci varlığa yapılan değişiklikler
-> * Oluşturulan Eğitmen varlık
-> * Oluşturulan OfficeAssignment varlık
-> * Değiştirilen kurs varlık
-> * Oluşturulan departmanı varlık
-> * Değiştirilen kayıt varlık
+> * Veri modeli özelleştirildi
+> * Öğrenci varlığında değişiklikler yapıldı
+> * Eğitmen varlığı oluşturuldu
+> * OfficeAssignment varlığı oluşturuldu
+> * Değiştirilen kurs varlığı
+> * Departman varlığı oluşturuldu
+> * Değiştirilen kayıt varlığı
 > * Veritabanı bağlamı güncelleştirildi
-> * Kapsanan veritabanı test verileri ile
-> * Bir geçiş eklendi
-> * Bağlantı dizesi değişti
+> * Test verileriyle birlikte sağlanan veritabanı
+> * Geçiş eklendi
+> * Bağlantı dizesi değiştirildi
 > * Veritabanı güncelleştirildi
 
-İlgili veri erişimi hakkında daha fazla bilgi edinmek için sonraki öğreticiye ilerleyin.
+İlgili verilere erişme hakkında daha fazla bilgi edinmek için sonraki öğreticiye ilerleyin.
 
 > [!div class="nextstepaction"]
-> [Sonraki: İlgili verileri erişimi](read-related-data.md)
+> [İleri İlgili verilere erişin](read-related-data.md)

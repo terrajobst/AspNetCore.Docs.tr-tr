@@ -7,12 +7,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 08/05/2019
 uid: security/authentication/identity/spa
-ms.openlocfilehash: 6b8818cc89a87e66ecec445ff8071348aacde64a
-ms.sourcegitcommit: 2eb605f4f20ac4dd9de6c3b3e3453e108a357a21
+ms.openlocfilehash: cb51df0267a5eabd4a2694727e9c896d0554265e
+ms.sourcegitcommit: 257cc3fe8c1d61341aa3b07e5bc0fa3d1c1c1d1c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68819925"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69583602"
 ---
 # <a name="authentication-and-authorization-for-spas"></a>Maça kimlik doğrulaması ve yetkilendirme
 
@@ -93,9 +93,9 @@ Bu yardımcı yöntemi, IdentityServer 'ı desteklenen yapılandırmamızı kull
 
 Bu yardımcı yöntemi, varsayılan kimlik doğrulama işleyicisi olarak uygulama için bir ilke düzeni yapılandırır. İlke, kimlik URL 'SI alanı "/Identity" içindeki herhangi bir alt yol için tüm isteklerin kimlik işlemesini sağlamak üzere yapılandırılır. Diğer tüm istekleri işler. `JwtBearerHandler` Ayrıca, bu yöntem, IdentityServer ile bir `<<ApplicationName>>API` API kaynağını varsayılan `<<ApplicationName>>API` kapsamına kaydeder ve bu uygulama için IdentityServer tarafından verilen belirteçleri doğrulamak üzere JWT taşıyıcı belirteç ara yazılımını yapılandırır.
 
-### <a name="sampledatacontroller"></a>SampleDataController
+### <a name="weatherforecastcontroller"></a>Dalgalı bir denetleyici
 
-*Controllers\sampledatacontroller.cs* dosyasında, kullanıcıya kaynağa erişim için `[Authorize]` varsayılan ilkeye göre yetkilendirilmiş olması gerektiğini belirten sınıfa uygulanan özniteliğe dikkat edin. Varsayılan yetkilendirme ilkesi, yukarıda `AddIdentityServerJwt` `JwtBearerHandler` belirtilen ilke şemasına tarafından yapılandırılan varsayılan kimlik doğrulama şemasını kullanacak şekilde yapılandırılmış olur ve bu tür bir yardımcı yöntemi tarafından yapılandırılmış bir için varsayılan işleyici uygulamaya yönelik istekler.
+*Controllers\dalgalı therforebir Controller.cs* dosyasında, kullanıcıya kaynağa erişim için `[Authorize]` varsayılan ilkeye göre yetkilendirilmiş olması gerektiğini belirten sınıfa uygulanan özniteliğe dikkat edin. Varsayılan yetkilendirme ilkesi, yukarıda `AddIdentityServerJwt` `JwtBearerHandler` belirtilen ilke şemasına tarafından yapılandırılan varsayılan kimlik doğrulama şemasını kullanacak şekilde yapılandırılmış olur ve bu tür bir yardımcı yöntemi tarafından yapılandırılmış bir için varsayılan işleyici uygulamaya yönelik istekler.
 
 ### <a name="applicationdbcontext"></a>ApplicationDbContext
 
