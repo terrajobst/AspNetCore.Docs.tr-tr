@@ -966,6 +966,8 @@
           uid: security/key-vault-configuration
     - name: HTTPS'yi zorunlu tutma
       uid: security/enforcing-ssl
+    - name: HTTPS ile Docker’ı barındırma
+      uid: security/docker-https
     - name: AB Genel Veri Koruma Yönetmeliği (GDPR) desteği
       uid: security/gdpr
     - name: İstek sahteciliğinden koruma
