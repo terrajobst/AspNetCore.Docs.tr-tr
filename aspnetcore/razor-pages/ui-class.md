@@ -4,15 +4,15 @@ author: Rick-Anderson
 description: Yeniden kullanılabilir Razor kısmi görünümler, ASP.NET Core sınıf kitaplığında kullanarak kullanıcı Arabirimi oluşturma açıklanır.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
-ms.date: 06/28/2019
+ms.date: 08/20/2019
 ms.custom: mvc, seodec18
 uid: razor-pages/ui-class
-ms.openlocfilehash: 77c7d4a318610fcd424da0485abd41d11e3fad6a
-ms.sourcegitcommit: fbc66827e319d28bebed678ea5fd42f582fe3c34
+ms.openlocfilehash: 468d961c291810ca4dfbe615acd972cfd6e7572a
+ms.sourcegitcommit: 41f2c1a6b316e6e368a4fd27a8b18d157cef91e1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68493559"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69886400"
 ---
 # <a name="create-reusable-ui-using-the-razor-class-library-project-in-aspnet-core"></a>ASP.NET Core 'de Razor Sınıf Kitaplığı projesini kullanarak yeniden kullanılabilir kullanıcı arabirimi oluşturma
 
@@ -236,13 +236,49 @@ RCL, RCL 'nin tüketen uygulaması tarafından başvurulabilen, yardımcı stati
 
 Yardımcı varlıkları RCL 'nin bir parçası olarak dahil etmek için, sınıf kitaplığında bir *Wwwroot* klasörü oluşturun ve gerekli dosyaları bu klasöre ekleyin.
 
-RCL 'yi paketleyerek, *Wwwroot* klasöründeki tüm yardımcı varlıklar pakete otomatik olarak eklenir ve pakete başvuran uygulamalar için kullanılabilir hale getirilir.
+RCL 'yi paketleyerek, *Wwwroot* klasöründeki tüm yardımcı varlıklar pakete otomatik olarak eklenir.
 
 ### <a name="consume-content-from-a-referenced-rcl"></a>Başvurulan bir RCL 'den içerik tüketme
 
 RCL 'nin *Wwwroot* klasörüne dahil edilen dosyalar, ön ek `_content/{LIBRARY NAME}/`altında tüketen uygulamaya sunulur. Örneğin, *Razor. Class. lib* adlı bir kitaplık, konumundaki `_content/Razor.Class.Lib/`statik içeriğe bir yol ile sonuçlanır.
 
-Tüketen uygulama `<script>` `<style>`, ,,vediğerHTMLetiketleriylekitaplıktarafındansunulanstatikvarlıklarabaşvurur.`<img>` Tüketen uygulamada [statik dosya desteği](xref:fundamentals/static-files) etkinleştirilmiş olmalıdır.
+Tüketen uygulama `<script>` `<style>`, ,,vediğerHTMLetiketleriylekitaplıktarafındansunulanstatikvarlıklarabaşvurur.`<img>` Kullanan uygulamada [statik dosya desteğinin](xref:fundamentals/static-files) etkinleştirilmesi `Startup.Configure`gerekir:
+
+```csharp
+public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+{
+    ...
+
+    app.UseStaticFiles();
+
+    ...
+}
+```
+
+Yapı çıktısından (`dotnet run`) kullanan uygulamayı çalıştırırken, varsayılan olarak, statik Web varlıkları geliştirme ortamında etkinleştirilmiştir. Derleme çıktılarından çalışırken diğer ortamlardaki varlıkları desteklemek için, *program.cs*içindeki konak `UseStaticWebAssets` Oluşturucu 'da çağırın:
+
+```csharp
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Hosting;
+
+public class Program
+{
+    public static void Main(string[] args)
+    {
+        CreateHostBuilder(args).Build().Run();
+    }
+
+    public static IHostBuilder CreateHostBuilder(string[] args) =>
+        Host.CreateDefaultBuilder(args)
+            .ConfigureWebHostDefaults(webBuilder =>
+            {
+                webBuilder.UseStaticWebAssets();
+                webBuilder.UseStartup<Startup>();
+            });
+}
+```
+
+Yayımlanan `UseStaticWebAssets` çıktısından (`dotnet publish`) bir uygulama çalıştırılırken çağırma gerekmez.
 
 ### <a name="multi-project-development-flow"></a>Çoklu projeli geliştirme akışı
 

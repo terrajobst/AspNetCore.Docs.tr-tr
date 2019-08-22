@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.date: 02/04/2019
 ms.topic: tutorial
 uid: data/ef-mvc/crud
-ms.openlocfilehash: fd83542984e95978ef52195fb0de10d6d8a6c1c3
-ms.sourcegitcommit: 257cc3fe8c1d61341aa3b07e5bc0fa3d1c1c1d1c
+ms.openlocfilehash: 975738200f9ea621c38b395be123b1d05c78298e
+ms.sourcegitcommit: 41f2c1a6b316e6e368a4fd27a8b18d157cef91e1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69583207"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69886312"
 ---
 # <a name="tutorial-implement-crud-functionality---aspnet-mvc-with-ef-core"></a>Öğretici: EF Core ile CRUD Işlevselliği uygulama-ASP.NET MVC
 
@@ -58,7 +58,7 @@ Aşağıdaki URL 'de, varsayılan yol eğitmeni denetleyici olarak eşler, eylem
 http://localhost:1230/Instructor/Index/1?courseID=2021
 ```
 
-URL 'nin son bölümü ("? CourseID = 2021") bir sorgu dizesi değeridir. Model Ciltçi, sorgu dizesi değeri olarak geçirirseniz, kimlik değerini `Details` Yöntem `id` parametresine de geçilecektir:
+URL 'nin son bölümü ("? CourseID = 2021") bir sorgu dizesi değeridir. Model Ciltçi, sorgu dizesi değeri olarak geçirirseniz, kimlik değerini `Index` Yöntem `id` parametresine de geçilecektir:
 
 ```
 http://localhost:1230/Instructor/Index?id=1&CourseID=2021
