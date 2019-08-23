@@ -1,18 +1,18 @@
 ---
 title: ASP.NET Core MVC 'de model doğrulaması
-author: tdykstra
+author: rick-anderson
 description: ASP.NET Core MVC ve Razor Pages model doğrulaması hakkında bilgi edinin.
 ms.author: riande
 ms.custom: mvc
 ms.date: 04/06/2019
 monikerRange: '>= aspnetcore-2.1'
 uid: mvc/models/validation
-ms.openlocfilehash: 43b69e9b7588ad575f203200c5bc59a4272d0066
-ms.sourcegitcommit: 849af69ee3c94cdb9fd8fa1f1bb8f5a5dda7b9eb
+ms.openlocfilehash: eb18d3a701a4d1937ac6eb9f61916f348b95882a
+ms.sourcegitcommit: 8835b6777682da6fb3becf9f9121c03f89dc7614
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "67814106"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69975252"
 ---
 # <a name="model-validation-in-aspnet-core-mvc-and-razor-pages"></a>ASP.NET Core MVC ve Razor Pages model doğrulaması
 
@@ -157,9 +157,9 @@ Yerleşik öznitelikler tarafından sağlanmayan doğrulamaya ihtiyacınız vars
 
 Yerleşik doğrulama özniteliklerinin işlemeyen senaryolar için özel doğrulama öznitelikleri oluşturabilirsiniz. Öğesinden <xref:System.ComponentModel.DataAnnotations.ValidationAttribute>devralan bir sınıf oluşturun ve <xref:System.ComponentModel.DataAnnotations.ValidationAttribute.IsValid*> yöntemi geçersiz kılın.
 
-Yöntemi, doğrulanacak girdi olan Value adlı bir nesne kabul eder.  `IsValid` Aşırı yükleme, model bağlama `ValidationContext` tarafından oluşturulan model örneği gibi ek bilgiler sağlayan bir nesneyi de kabul eder.
+Yöntemi, doğrulanacak girdi olan Value adlı bir nesne kabul eder. `IsValid` Aşırı yükleme, model bağlama `ValidationContext` tarafından oluşturulan model örneği gibi ek bilgiler sağlayan bir nesneyi de kabul eder.
 
-Aşağıdaki örnek, *Klasik* tarz bir filmin yayın tarihinin belirtilen yıldan daha sonra olmadığını doğrular. Öznitelik önce tarzı denetler ve yalnızca klasik ise devam eder.  `[ClassicMovie2]` Classics olarak tanımlanan filmler için, öznitelik oluşturucusuna geçirilen sınırdan daha sonra olmadığından emin olmak için yayın tarihini denetler.)
+Aşağıdaki örnek, *Klasik* tarz bir filmin yayın tarihinin belirtilen yıldan daha sonra olmadığını doğrular. Öznitelik önce tarzı denetler ve yalnızca klasik ise devam eder. `[ClassicMovie2]` Classics olarak tanımlanan filmler için, öznitelik oluşturucusuna geçirilen sınırdan daha sonra olmadığından emin olmak için yayın tarihini denetler.)
 
 [!code-csharp[](validation/sample/Attributes/ClassicMovieAttribute.cs?name=snippet_ClassicMovieAttribute)]
 

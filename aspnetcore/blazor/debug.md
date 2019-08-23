@@ -5,14 +5,14 @@ description: Blazor uygulamalarında hata ayıklamayı öğrenin.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 07/31/2019
+ms.date: 08/22/2019
 uid: blazor/debug
-ms.openlocfilehash: 37c6009727a4f62b61793adca0d83cdd53be4b9a
-ms.sourcegitcommit: 3204bc89ae6354b61ee0a9b2770ebe5214b7790c
+ms.openlocfilehash: c3188a1fe1b699b787f7a95630f3918d295d0f68
+ms.sourcegitcommit: 8835b6777682da6fb3becf9f9121c03f89dc7614
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68707807"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69974905"
 ---
 # <a name="debug-aspnet-core-blazor"></a>Hata ayıklama ASP.NET Core Blazor
 
@@ -51,6 +51,10 @@ Hata ayıklama aşağıdaki tarayıcılardan birini gerektirir:
 1. Uygulamaya tarayıcıda erişin.
 1. Klavye odağını geliştirici araçları paneline değil uygulamaya yerleştirin. Hata ayıklama başlatıldığında geliştirici araçları paneli kapatılabilir.
 1. Aşağıdaki Blazor özgü klavye kısayolunu seçin:
+   * `Shift+Alt+D`Windows/Linux 'ta
+   * `Shift+Cmd+D`macOS 'ta
+1. Uzaktan hata ayıklama etkinken tarayıcıyı yeniden başlatmak için ekranda listelenen adımları izleyin.
+1. Hata ayıklama oturumu başlatmak için aşağıdaki Blazor özgü klavye kısayolunu bir kez daha seçin:
    * `Shift+Alt+D`Windows/Linux 'ta
    * `Shift+Cmd+D`macOS 'ta
 

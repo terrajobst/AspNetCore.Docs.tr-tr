@@ -1,18 +1,18 @@
 ---
 title: ASP.NET Core hataları işleme
-author: tdykstra
+author: rick-anderson
 description: ASP.NET Core uygulamalarında hataların nasıl işleneceğini öğrenin.
 monikerRange: '>= aspnetcore-2.1'
-ms.author: tdykstra
+ms.author: riande
 ms.custom: mvc
 ms.date: 07/10/2019
 uid: fundamentals/error-handling
-ms.openlocfilehash: f9f91455b273b99608ca6f1524df6cb748a26669
-ms.sourcegitcommit: b40613c603d6f0cc71f3232c16df61550907f550
+ms.openlocfilehash: 652a97a6b7fbe4c8cc678b86a92eea59937e809c
+ms.sourcegitcommit: 8835b6777682da6fb3becf9f9121c03f89dc7614
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68308202"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69975578"
 ---
 # <a name="handle-errors-in-aspnet-core"></a>ASP.NET Core hataları işleme
 
@@ -73,7 +73,7 @@ Hata <xref:Microsoft.AspNetCore.Diagnostics.IExceptionHandlerPathFeature> işley
 [!code-csharp[](error-handling/samples/2.x/ErrorHandlingSample/Pages/Error.cshtml.cs?name=snippet_ExceptionHandlerPathFeature&3,7)]
 
 > [!WARNING]
-> İstemcilere  hassas hata bilgileri sunma. Hatalara hizmet vermek bir güvenlik riskidir.
+> İstemcilere hassas hata bilgileri sunma. Hatalara hizmet vermek bir güvenlik riskidir.
 
 [Örnek uygulamadaki](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/error-handling/samples)özel durum işleme sayfasını görmek için, `ProdEnvironment` ve `ErrorHandlerPage` ön işlemci yönergelerini kullanın ve giriş sayfasında **özel durum Tetikle** ' yi seçin.
 
@@ -86,7 +86,7 @@ Hata <xref:Microsoft.AspNetCore.Diagnostics.IExceptionHandlerPathFeature> işley
 [!code-csharp[](error-handling/samples/2.x/ErrorHandlingSample/Startup.cs?name=snippet_HandlerPageLambda)]
 
 > [!WARNING]
-> <xref:Microsoft.AspNetCore.Diagnostics.IExceptionHandlerFeature> Ya  da<xref:Microsoft.AspNetCore.Diagnostics.IExceptionHandlerPathFeature> istemcilerinden önemli hata bilgileri sunma. Hatalara hizmet vermek bir güvenlik riskidir.
+> <xref:Microsoft.AspNetCore.Diagnostics.IExceptionHandlerFeature> Ya da<xref:Microsoft.AspNetCore.Diagnostics.IExceptionHandlerPathFeature> istemcilerinden önemli hata bilgileri sunma. Hatalara hizmet vermek bir güvenlik riskidir.
 
 [Örnek uygulamada](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/error-handling/samples)lambda işlemenin özel durum işleme sonucunu görmek için, `ProdEnvironment` ve `ErrorHandlerLambda` ön işlemci yönergelerini kullanın ve giriş sayfasında **özel durum Tetikle** ' yi seçin.
 

@@ -1,350 +1,350 @@
 ---
-title: ASP.NET Core Ara yazılımıyla HTTP işleyicilerini ve modülleri geçirme
+title: ASP.NET Core ara yazılıma HTTP işleyicileri ve modülleri geçirme
 author: rick-anderson
 description: ''
-ms.author: tdykstra
+ms.author: riande
 ms.date: 12/07/2016
 uid: migration/http-modules
-ms.openlocfilehash: 84381210910c66a7d121120b8c6b0f046cae8c4f
-ms.sourcegitcommit: a1283d486ac1dcedfc7ea302e1cc882833e2c515
+ms.openlocfilehash: bdf27ccb742d4bc05bac71e6c96d71c38dcb4b62
+ms.sourcegitcommit: 8835b6777682da6fb3becf9f9121c03f89dc7614
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67207801"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69975487"
 ---
-# <a name="migrate-http-handlers-and-modules-to-aspnet-core-middleware"></a>ASP.NET Core Ara yazılımıyla HTTP işleyicilerini ve modülleri geçirme
+# <a name="migrate-http-handlers-and-modules-to-aspnet-core-middleware"></a>ASP.NET Core ara yazılıma HTTP işleyicileri ve modülleri geçirme
 
-Bu makale mevcut ASP.NET geçirme [HTTP modüller ve işleyiciler system.webserver gelen](/iis/configuration/system.webserver/) ASP.NET core'a [ara yazılım](xref:fundamentals/middleware/index).
+Bu makalede [, System. webserver 'deki mevcut ASP.net http modüllerinin ve işleyicilerinin](/iis/configuration/system.webserver/) ASP.NET Core [Ara yazılıma](xref:fundamentals/middleware/index)nasıl geçirileceği gösterilmektedir.
 
-## <a name="modules-and-handlers-revisited"></a>Modüller ve işleyiciler revisited
+## <a name="modules-and-handlers-revisited"></a>Modüller ve işleyiciler yeniden ziyaret edildi
 
-ASP.NET Core ara yazılımı için devam etmeden önce şimdi ilk HTTP modüller ve işleyiciler nasıl özeti:
+ASP.NET Core ara yazılıma devam etmeden önce, ilk olarak HTTP modüllerinin ve işleyicilerinin nasıl çalıştığını görelim:
 
-![Modül işleyicisi](http-modules/_static/moduleshandlers.png)
+![Modüller Işleyicisi](http-modules/_static/moduleshandlers.png)
 
-**İşleyicileri şunlardır:**
+**İşleyiciler şunlardır:**
 
-* Uygulayan sınıflar [IHttpHandler](/dotnet/api/system.web.ihttphandler)
+* [IHttpHandler](/dotnet/api/system.web.ihttphandler) uygulayan sınıflar
 
-* Gibi belirli dosya adı veya uzantısı, istekleri işlemek için kullanılan *.report*
+* Verilen bir dosya adına veya uzantıya sahip istekleri işlemek için kullanılır *. rapor*
 
-* [Yapılandırılmış](/iis/configuration/system.webserver/handlers/) içinde *Web.config*
+* *Web. config* 'de [yapılandırıldı](/iis/configuration/system.webserver/handlers/)
 
 **Modüller şunlardır:**
 
-* Uygulayan sınıflar [IHttpModule](/dotnet/api/system.web.ihttpmodule)
+* [IHttpModule](/dotnet/api/system.web.ihttpmodule) uygulayan sınıflar
 
 * Her istek için çağrılır
 
-* Şunları (bir isteğin diğer işlemleri durdurmak) kısa devre oluşturur
+* Kısa devre verebilir (bir isteğin daha fazla işlenmesini durdurabilirsiniz)
 
-* HTTP yanıtı ekleyin veya kendi oluşturmak için
+* HTTP yanıtına ekleme yapabilir veya kendi kendine oluşturma
 
-* [Yapılandırılmış](/iis/configuration/system.webserver/modules/) içinde *Web.config*
+* *Web. config* 'de [yapılandırıldı](/iis/configuration/system.webserver/modules/)
 
-**Hangi modüllerin gelen istekleri işleme sırası tarafından belirlenir:**
+**Modüllerin gelen istekleri işleme sırası şu şekilde belirlenir:**
 
-1. [Uygulama yaşam döngüsü](https://msdn.microsoft.com/library/ms227673.aspx), ASP.NET tarafından tetiklenen bir serisi olayları olduğu: [BeginRequest](/dotnet/api/system.web.httpapplication.beginrequest), [AuthenticateRequest](/dotnet/api/system.web.httpapplication.authenticaterequest), etc. Her modülü, bir veya daha fazla olay işleyicisi oluşturabilirsiniz.
+1. ASP.NET tarafından tetiklenen bir seri olay olan [uygulama yaşam döngüsü](https://msdn.microsoft.com/library/ms227673.aspx): [BeginRequest](/dotnet/api/system.web.httpapplication.beginrequest), [kimlik doğrulayan terequest](/dotnet/api/system.web.httpapplication.authenticaterequest), vb. Her modül, bir veya daha fazla olay için bir işleyici oluşturabilir.
 
-2. Aynı olay, siparişin, bunlar yapılandırılmış için *Web.config*.
+2. Aynı olay için, *Web. config*'de yapılandırıldıkları sıra.
 
-Modüller yanı sıra, yaşam döngüsü olayları için işleyiciler ekleyebilirsiniz, *Global.asax.cs* dosya. Bu işleyiciler, yapılandırılmış modülleri işleyiciler sonra çalıştırın.
+Modüllere ek olarak, *Global.asax.cs* dosyanıza yaşam döngüsü olaylarının işleyicilerini ekleyebilirsiniz. Bu işleyiciler, yapılandırılan modüllerdeki işleyicilerden sonra çalışır.
 
-## <a name="from-handlers-and-modules-to-middleware"></a>İşleyicileri ve modüllerinden Ara yazılıma
+## <a name="from-handlers-and-modules-to-middleware"></a>İşleyiciler ve modüllerden ara yazılıma
 
-**Ara yazılım HTTP modüller ve işleyiciler basit şunlardır:**
+**Ara yazılım HTTP modülleriyle ve işleyicilerinden daha basittir:**
 
-* Modüller, işleyiciler *Global.asax.cs*, *Web.config* (hariç IIS yapılandırması) ve uygulama yaşam döngüsü kayboldu
+* Modüller, işleyiciler, *Global.asax.cs*, *Web. config* (IIS yapılandırması hariç) ve uygulama yaşam döngüsü kayboldu
 
-* Ara yazılım tarafından devralınırsa hem modüller ve işleyiciler rollerini alınmış
+* Her iki modülün ve işleyicinin rolleri, ara yazılım tarafından ele alınmıştır
 
-* Ara yazılım, kod kullanarak yapılandırılmış yerine *Web.config*
+* Ara yazılım, *Web. config* yerine kod kullanılarak yapılandırılır
 
-* [İşlem hattı dallanma](xref:fundamentals/middleware/index#use-run-and-map) yalnızca URL de istek üst bilgileri, sorgu dizeleri, vb. üzerinde dayalı belirli ara yazılımı için istekleri gönderdiğiniz sağlar.
+* [Ardışık düzen dallandırma](xref:fundamentals/middleware/index#use-run-and-map) , yalnızca URL 'ye değil, istek üst bilgileri, sorgu dizeleri vb. gibi belirli bir ara yazılıma istek göndermenizi sağlar.
 
-**Ara yazılım modüllerini çok benzer:**
+**Ara yazılım, modüllere çok benzer:**
 
-* Her istek için asıl çağrılır
+* Her istek için prensibi çağrıldı
 
-* Bir istek tarafından iki duruma [isteğin sonraki Ara yazılıma geçmiyor.](#http-modules-shortcircuiting-middleware)
+* İstek, bir [sonraki ara yazılıma geçirilmeyen](#http-modules-shortcircuiting-middleware) bir istek için kısa devre verebilir
 
-* Kendi HTTP yanıtı oluşturmak için
+* Kendi HTTP yanıtlarını oluşturabilebiliyor
 
-**Ara yazılım ve modülleri farklı bir sırada işlenir:**
+**Ara yazılım ve modüller farklı bir sırayla işlenir:**
 
-* Ara yazılım sırası içinde eklenir istek ardışık düzende modülleri sırasını çoğunlukla tabanlı çalıştırırken sırasını temel [uygulama yaşam döngüsü](https://msdn.microsoft.com/library/ms227673.aspx) olayları
+* Ara yazılım sırası, istek işlem hattına eklendikleri sıraya göre, modüller sırası genellikle [uygulama yaşam döngüsü](https://msdn.microsoft.com/library/ms227673.aspx) olaylarına dayalıdır
 
-* Modüller sırasını istekleri ve yanıtları için aynı olsa da Ara yazılım yanıtları için istekleri, tersine sırasıdır
+* Yanıt için ara yazılım sırası, istekler için bu istekten ters, modüller sırası istekler ve yanıtlar için de aynıdır
 
-* Bkz: [IApplicationBuilder ile bir ara yazılım ardışık düzenini oluşturun](xref:fundamentals/middleware/index#create-a-middleware-pipeline-with-iapplicationbuilder)
+* Bkz. [IApplicationBuilder ile ara yazılım işlem hattı oluşturma](xref:fundamentals/middleware/index#create-a-middleware-pipeline-with-iapplicationbuilder)
 
 ![Ara yazılım](http-modules/_static/middleware.png)
 
-Yukarıdaki görüntüde, kimlik doğrulaması ara yazılım istek nasıl short-circuited unutmayın.
+Yukarıdaki görüntüde, kimlik doğrulama ara, isteği kabul eden bir şekilde kabul edin.
 
-## <a name="migrating-module-code-to-middleware"></a>Ara yazılıma modülü kod geçirme
+## <a name="migrating-module-code-to-middleware"></a>Modül kodunu ara yazılıma geçirme
 
-Var olan bir HTTP modülü, aşağıdakine benzer görünecektir:
+Var olan bir HTTP modülü şuna benzer olacaktır:
 
 [!code-csharp[](../migration/http-modules/sample/Asp.Net4/Asp.Net4/Modules/MyModule.cs?highlight=6,8,24,31)]
 
-Gösterildiği [ara yazılım](xref:fundamentals/middleware/index) sayfasında, bir ASP.NET Core ara yazılımı olduğunu gösteren bir sınıf bir `Invoke` yöntemi alma bir `HttpContext` ve döndüren bir `Task`. Yeni Ara yazılımınızı şöyle görünür:
+[Ara](xref:fundamentals/middleware/index) yazılım sayfasında gösterildiği gibi, ASP.NET Core bir ara yazılım, bir `Invoke` `HttpContext` ve döndüren bir `Task`yöntemi ortaya çıkaran bir sınıftır. Yeni ara yazılım şu şekilde görünür:
 
 <a name="http-modules-usemiddleware"></a>
 
 [!code-csharp[](../migration/http-modules/sample/Asp.Net.Core/Middleware/MyMiddleware.cs?highlight=9,13,20,24,28,30,32)]
 
-Yukarıdaki ara yazılım şablonu bölümünden alındığı [yazma ara yazılımı](xref:fundamentals/middleware/write).
+Yukarıdaki ara yazılım şablonu, [Ara yazılım yazma](xref:fundamentals/middleware/write)bölümündeki bölümden alınmıştır.
 
-*MyMiddlewareExtensions* yardımcı bir sınıf içinde ara yazılımını yapılandırma kolaylaştırır, `Startup` sınıfı. `UseMyMiddleware` Yöntemi, ara yazılım sınıfı istek ardışık düzene ekler. Ara yazılım tarafından gerekli hizmetleri Ara oluşturucuda eklenen.
+*MyMiddlewareExtensions* yardımcı sınıfı, kendi ara ortamınızı sınıfınıza `Startup` yapılandırmayı kolaylaştırır. Yöntemi `UseMyMiddleware` , ara yazılım sınıfınızı istek ardışık düzenine ekler. Ara yazılım tarafından istenen hizmetler, ara yazılım oluşturucusuna eklenir.
 
 <a name="http-modules-shortcircuiting-middleware"></a>
 
-Örneğin kullanıcının yetkili olmayan bir istek modülünüzde sonlandırabilir:
+Modülünüzün bir isteği sonlandırabilir, örneğin Kullanıcı yetkilendirilmezse:
 
 [!code-csharp[](../migration/http-modules/sample/Asp.Net4/Asp.Net4/Modules/MyTerminatingModule.cs?highlight=9,10,11,12,13&name=snippet_Terminate)]
 
-Bir ara yazılım değil çağırarak bu işleme `Invoke` ardışık düzende sonraki ara yazılımı üzerinde. Yanıt yolu geri ardışık düzeninden yaptığında, yine de önceki middlewares çağrılacak çünkü bu tam olarak istek sonlandırmaz aklınızda bulundurun.
+Bir ara yazılım, işlem hattındaki `Invoke` sonraki ara yazılıma çağrı gerçekleştirerek bunu işler. Yanıt işlem hattı üzerinden geri geldiğinde, önceki middlewares hala çağrıldığı için, bu, isteği tamamen sonlandıramadığından emin olun.
 
 [!code-csharp[](../migration/http-modules/sample/Asp.Net.Core/Middleware/MyTerminatingMiddleware.cs?highlight=7,8&name=snippet_Terminate)]
 
-Modülün işlevi yeni Ara yazılımınızı geçirdiğinizde, kodunuzu için derle değil bulabilirsiniz `HttpContext` sınıf, ASP.NET Core önemli ölçüde değişti. [Daha sonra](#migrating-to-the-new-httpcontext), yeni ASP.NET temel HttpContext geçirmeyi öğreneceksiniz.
+Modülünüzün işlevselliğini yeni ara yazılıma geçirdiğinizde, `HttpContext` sınıf ASP.NET Core içinde önemli ölçüde değiştiğinden kodunuzun derlenmediğini fark edebilirsiniz. [Daha sonra](#migrating-to-the-new-httpcontext), yeni ASP.NET Core HttpContext 'e nasıl geçirebileceğiniz göreceksiniz.
 
-## <a name="migrating-module-insertion-into-the-request-pipeline"></a>İstek ardışık düzenini uygulamasına geçirme modülü ekleme
+## <a name="migrating-module-insertion-into-the-request-pipeline"></a>Modül ekleme isteği ardışık düzenine geçiriliyor
 
-HTTP modüllerinden, istek kullanarak işlem hattı genellikle eklenir *Web.config*:
+HTTP modülleri, genellikle *Web. config*kullanılarak istek ardışık düzenine eklenir:
 
 [!code-xml[](../migration/http-modules/sample/Asp.Net4/Asp.Net4/Web.config?highlight=6&range=1-3,32-33,36,43,50,101)]
 
-Bu dönüştürme [yeni Ara yazılımınızı ekleme](xref:fundamentals/middleware/index#create-a-middleware-pipeline-with-iapplicationbuilder) istek işlem hattı için `Startup` sınıfı:
+[Yeni ara ortamınızı](xref:fundamentals/middleware/index#create-a-middleware-pipeline-with-iapplicationbuilder) sınıfınızdaki `Startup` istek ardışık düzenine ekleyerek bunu dönüştürün:
 
 [!code-csharp[](../migration/http-modules/sample/Asp.Net.Core/Startup.cs?name=snippet_Configure&highlight=16)]
 
-Bir modül olarak işlenen bir olayın noktanın tam yeni Ara yazılımınızı eklediğiniz yerde işlem hattındaki bağlıdır (`BeginRequest`, `EndRequest`, vs.) ve modül listenizde, siparişi *Web.config*.
+Yeni ara ortamınızı eklediğiniz tam nokta, bir modül (`BeginRequest`, `EndRequest`, vb.) olarak işlenen olaya ve *Web. config*dosyasındaki modüller listenizde bulunan sıraya bağlıdır.
 
-Daha önce belirtildiği gibi ASP.NET Core hiçbir uygulama yaşam döngüsü yoktur ve modülleri tarafından kullanılan sırası yanıtlarını ara yazılımı tarafından işlenme sırasını farklıdır. Bu daha zor sıralama kullanacağınıza karar vermeniz.
+Daha önce belirtildiği gibi, ASP.NET Core hiçbir uygulama yaşam döngüsü yoktur ve bu işlem, yaşam döngüsünün işlenme sırası modüller tarafından kullanılan siparişten farklıdır. Bu, sipariş kararlarınızı daha zor hale getirir.
 
-Sıralama bir soruna dönüşmesi durumunda, bağımsız olarak sıralanabilir birden fazla ara yazılım bileşenlerine modülünüzde bölebilirsiniz.
+Sıralama bir sorun haline gelirse, modülünüzü bağımsız olarak sıralanmış birden fazla ara yazılım bileşenine bölebilirsiniz.
 
-## <a name="migrating-handler-code-to-middleware"></a>Ara yazılıma geçirilmesi işleyici kodu
+## <a name="migrating-handler-code-to-middleware"></a>İşleyici kodunu ara yazılıma geçirme
 
-Bir HTTP işleyicisini şuna benzer:
+HTTP işleyicisi şuna benzer:
 
 [!code-csharp[](../migration/http-modules/sample/Asp.Net4/Asp.Net4/HttpHandlers/ReportHandler.cs?highlight=5,7,13,14,15,16)]
 
-ASP.NET Core projenizde, bu şuna benzer bir ara yazılım için çevirir:
+ASP.NET Core projenizde bunu şuna benzer bir ara yazılıma çevirmeniz gerekir:
 
 [!code-csharp[](../migration/http-modules/sample/Asp.Net.Core/Middleware/ReportHandlerMiddleware.cs?highlight=7,9,13,20,21,22,23,40,42,44)]
 
-Bu ara yazılım modüllerini karşılık gelen bir ara yazılım çok benzer. Yalnızca gerçek fark burada hiçbir yoktur `_next.Invoke(context)`. Olacaktır işleyici çağırmak için hiçbir sonraki ara yazılım istek ardışık düzenini sonunda olduğundan, mantıklıdır.
+Bu ara yazılım, modüllerle ilgili olan ara yazılıma çok benzer. Gerçek fark, burada hiçbir çağrı olmadığı için `_next.Invoke(context)`geçerlidir. Bu anlamlı hale gelir, çünkü işleyici istek ardışık düzeninin sonunda olduğundan, çağırmak için bir sonraki ara yazılım olmayacaktır.
 
-## <a name="migrating-handler-insertion-into-the-request-pipeline"></a>İstek ardışık düzenini uygulamasına geçirme işleyici ekleme
+## <a name="migrating-handler-insertion-into-the-request-pipeline"></a>İşleyici ekleme isteği ardışık düzenine geçiriliyor
 
-Bir HTTP işleyicisini yapılandırma yapılır *Web.config* ve şuna benzer:
+HTTP işleyicisini yapılandırma *Web. config* dosyasında yapılır ve şuna benzer:
 
 [!code-xml[](../migration/http-modules/sample/Asp.Net4/Asp.Net4/Web.config?highlight=6&range=1-3,32,46-48,50,101)]
 
-Bu istek işlem hattı, yeni bir işleyici Ara yazılımınızı ekleyerek dönüştüremedi, `Startup` sınıfı, ara yazılım modüllerini dönüştürülen benzer. Bu yaklaşım, tüm istekler için yeni bir işleyici Ara yazılımınızı gönderir sorunudur. Ancak, yalnızca ara yazılımınızı ulaşmak için istekleri belirli bir uzantıya sahip istersiniz. Bu, HTTP işleyicisi ile olan aynı işlevleri verirsiniz.
+Bu, yeni işleyici ara ortamınızı sınıfınızdaki `Startup` istek ardışık düzenine ekleyerek, modüllerden dönüştürülen ara yazılıma benzer şekilde dönüştürebilirsiniz. Bu yaklaşımla ilgili sorun, tüm istekleri yeni işleyici ara yazılıma göndermektir. Ancak, yalnızca belirli bir uzantıya sahip isteklerin ara yazılıma ulaşmasını istiyorsunuz. Bu, size HTTP işleyiciniz ile aynı işlevselliği sağlar.
 
-İstekleri belirli bir uzantıya sahip bir işlem hattı oluşturmak için bir çözüm ise kullanarak `MapWhen` genişletme yöntemi. Aynı bunu `Configure` diğer ara yazılımdan eklediğiniz yöntemi:
+Bir çözüm, `MapWhen` genişletme yöntemi kullanılarak belirli bir uzantıya sahip istekler için ardışık düzeni dallandırmayı kullanmaktır. Bunu, diğer ara yazılımı eklediğiniz `Configure` yöntemde yapabilirsiniz:
 
 [!code-csharp[](../migration/http-modules/sample/Asp.Net.Core/Startup.cs?name=snippet_Configure&highlight=27-34)]
 
-`MapWhen` Bu parametreleri alır:
+`MapWhen`Şu parametreleri alır:
 
-1. Alan bir lambda `HttpContext` ve döndürür `true` istek dalını giderseniz. Bu, yalnızca kendi uzantı üzerinde ancak istek üstbilgilerini, sorgu dizesi parametrelerini temel istekleri dallandırabilirsiniz anlamına gelir.
+1. ' İ alan ve isteğin `HttpContext` dala gitmesi `true` gerekiyorsa, döndüren bir lambda. Bu, yalnızca uzantısına göre değil, istek üst bilgileri, sorgu dizesi parametreleri vb. için istekleri dallayabileceğiniz anlamına gelir.
 
-2. Alan bir lambda bir `IApplicationBuilder` ve dal için tüm ara yazılımı ekler. Başka bir deyişle, ek bir ara yazılım dala önünde işleyici Ara yazılımınızı ekleyebilirsiniz.
+2. `IApplicationBuilder` Ve dalı için tüm ara yazılımı ekleyen bir lambda. Bu, işleyici ara uçınızın önünde dala ek ara yazılım ekleyebileceğiniz anlamına gelir.
 
-Tüm istekleri dal çağrılacak önce ara yazılım ardışık düzenine eklenen; Dal üzerinde herhangi bir etkisi olacaktır.
+Dal tüm isteklerde çağrılmadan önce işlem hattına eklenen ara yazılım; dalın üzerinde hiçbir etkisi olmaz.
 
-## <a name="loading-middleware-options-using-the-options-pattern"></a>Yükleme seçenekleri desenini kullanarak, ara yazılım seçenekleri
+## <a name="loading-middleware-options-using-the-options-pattern"></a>Seçenekler modelini kullanarak ara yazılım seçeneklerini yükleme
 
-Bazı modüller ve işleyiciler depolanan yapılandırma seçeneğiniz *Web.config*. ASP.NET Core yerine yeni bir yapılandırma modeli ancak kullanılır *Web.config*.
+Bazı modüller ve işleyiciler, *Web. config*dosyasında depolanan yapılandırma seçeneklerine sahiptir. Ancak ASP.NET Core ' de, *Web. config*yerine yeni bir yapılandırma modeli kullanılır.
 
-Yeni [yapılandırma sistemi](xref:fundamentals/configuration/index) bunu çözmek için bu seçeneği sunar:
+Yeni [yapılandırma sistemi](xref:fundamentals/configuration/index) , bunu çözümlemek için size bu seçenekleri sunar:
 
-* Ara yazılım seçeneklere gösterildiği gibi doğrudan ekleme [sonraki bölümde](#loading-middleware-options-through-direct-injection).
+* [Sonraki bölümde](#loading-middleware-options-through-direct-injection)gösterildiği gibi, seçenekleri doğrudan ara yazılıma ekleyin.
 
-* Kullanım [seçenekleri deseni](xref:fundamentals/configuration/options):
+* [Seçenekler modelini](xref:fundamentals/configuration/options)kullanın:
 
-1. Örneğin, ara yazılım seçenekleri tutmak için bir sınıf oluşturun:
+1. Ara yazılım seçeneklerinizi barındıracak bir sınıf oluşturun, örneğin:
 
    [!code-csharp[](http-modules/sample/Asp.Net.Core/Middleware/MyMiddlewareWithParams.cs?name=snippet_Options)]
 
-2. Seçenek değerleri Store
+2. Seçenek değerlerini depolama
 
-   Yapılandırma sistemi seçenek değerleri istediğiniz herhangi bir yerde depolamanıza olanak sağlar. Ancak, en siteleri kullanım *appsettings.json*, biz bu yaklaşımı benimsemeye:
+   Yapılandırma sistemi istediğiniz her yerde seçenek değerlerini depolamanıza olanak tanır. Ancak, çoğu site *appSettings. JSON*kullanır, bu nedenle bu yaklaşımı ele alacağız:
 
    [!code-json[](http-modules/sample/Asp.Net.Core/appsettings.json?range=1,14-18)]
 
-   *MyMiddlewareOptionsSection* bir bölüm adı'aşağıda verilmiştir. Seçenekleri sınıfınızın adıyla aynı olması gerekmez.
+   Burada *MyMiddlewareOptionsSection* bir bölüm adıdır. Seçenek sınıfınızın adıyla aynı olması gerekmez.
 
-3. Seçenek değerleri seçenekleri sınıfıyla ilişkilendirme
+3. Seçenek değerlerini Options sınıfıyla ilişkilendirin
 
-    Seçenek türünün ilişkilendirmek için ASP.NET Core'nın bağımlılık ekleme framework seçenekleri deseni kullanır (gibi `MyMiddlewareOptions`) ile bir `MyMiddlewareOptions` gerçek seçenekleri nesnesi.
+    Seçenekler stili, seçenek türünü (gibi `MyMiddlewareOptions`) gerçek seçeneklere sahip bir `MyMiddlewareOptions` nesneyle ilişkilendirmek için ASP.NET Core bağımlılık ekleme çerçevesini kullanır.
 
-    Güncelleştirme, `Startup` sınıfı:
+    `Startup` Sınıfınızı güncelleştirin:
 
-   1. Kullanıyorsanız *appsettings.json*, yapılandırma Oluşturucu'da ekleme `Startup` Oluşturucusu:
+   1. *AppSettings. JSON*kullanıyorsanız, `Startup` oluşturucunun yapılandırma oluşturucusuna ekleyin:
 
       [!code-csharp[](../migration/http-modules/sample/Asp.Net.Core/Startup.cs?name=snippet_Ctor&highlight=5-6)]
 
-   2. Seçenekleri Hizmeti'ni yapılandırın:
+   2. Seçenekler hizmetini yapılandırın:
 
       [!code-csharp[](../migration/http-modules/sample/Asp.Net.Core/Startup.cs?name=snippet_ConfigureServices&highlight=4)]
 
-   3. Seçeneklerinizi, seçenek sınıfı ile ilişkilendirin:
+   3. Seçeneklerinizi seçenekler sınıfınız ile ilişkilendirin:
 
       [!code-csharp[](../migration/http-modules/sample/Asp.Net.Core/Startup.cs?name=snippet_ConfigureServices&highlight=6-8)]
 
-4. Seçenekler, ara yazılım Oluşturucu içine yerleştirir. Bu, seçenekleri bir denetleyici içine ekleme için benzer.
+4. Seçenekleri, ara yazılım yapıcısına ekleyin. Bu, ekleme seçeneklerine bir denetleyiciye benzer.
 
    [!code-csharp[](../migration/http-modules/sample/Asp.Net.Core/Middleware/MyMiddlewareWithParams.cs?name=snippet_MiddlewareWithParams&highlight=4,7,10,15-16)]
 
-   [UseMiddleware](#http-modules-usemiddleware) , ara yazılım ekler genişletme yöntemi `IApplicationBuilder` bağımlılık ekleme üstlenir.
+   Ara ortamınızı bağımlılık ekleme ' ye `IApplicationBuilder` ekleyen [useara yazılım](#http-modules-usemiddleware) genişletme yöntemi.
 
-   Bu sınırlı değildir `IOptions` nesneleri. Ara yazılımınızı gerektiren herhangi bir nesne, bu şekilde yerleştirilebilir.
+   Bu `IOptions` nesnelerle sınırlı değildir. Bu şekilde, ara yazılım için gereken diğer tüm nesneler bu şekilde eklenebilir.
 
-## <a name="loading-middleware-options-through-direct-injection"></a>Ara yazılım seçenekleri aracılığıyla doğrudan ekleme yükleniyor
+## <a name="loading-middleware-options-through-direct-injection"></a>Doğrudan ekleme yoluyla ara yazılım seçeneklerini yükleme
 
-Seçenekleri deseni gevşek seçenekleri değerleri ve tüketicilerini eşlemeyi oluşturan avantajına sahiptir. Bir seçenek sınıfı gerçek seçenekleri değerleri ile ilişkilendirdiğiniz sonra başka bir sınıf seçenekleri bağımlılık ekleme çerçevesi aracılığıyla erişebilir. Geçici bir çözüm seçenekleri değerleri geçirmek için gerek yoktur.
+Seçenekler deseninin, seçenek değerleri ve tüketicileri arasında gevşek bir bağlantısını oluşturduğunu avantajı vardır. Bir seçenek sınıfını gerçek seçenek değerleriyle ilişkilendirdikten sonra, diğer herhangi bir sınıf, bağımlılık ekleme çerçevesi aracılığıyla seçeneklere erişim alabilir. Seçenek değerlerini geçirmeye gerek yoktur.
 
-Aynı ara yazılım farklı seçeneklerle iki kez kullanmak istiyorsanız, bunu ancak ayırır. Kullanılan farklı dallara farklı rollere izin verme örneğin bir yetkilendirme ara yazılımı. İki farklı seçenekler nesneleri bir seçenek sınıfı ile ilişkilendiremezsiniz.
+Bu, farklı seçeneklerle aynı ara yazılımı iki kez kullanmak istiyorsanız bu seçeneği keser. Örneğin farklı dallarda farklı rollere izin veren bir yetkilendirme ara yazılımı. İki farklı seçenek nesnesini tek bir seçenek sınıfıyla ilişkilendiremezsiniz.
 
-Çözüm seçenekleri nesneleri gerçek seçenekleri değerleriyle almaktır, `Startup` sınıfı ve bunları doğrudan Ara yazılımınızı her bir örneğini geçirin.
+Çözüm, seçenek nesnelerini sınıfınıza `Startup` gerçek seçenek değerleriyle almak ve bunları doğrudan ara yazılım örneğine iletmektir.
 
-1. İkinci bir anahtar ekler *appsettings.json*
+1. *AppSettings. JSON* öğesine ikinci bir anahtar ekleyin
 
-   İkinci bir set seçenekleri eklemek için *appsettings.json* dosya, yeni bir anahtar benzersiz şekilde tanımlamak için kullanın:
+   *AppSettings. JSON* dosyasına ikinci bir seçenek kümesi eklemek için, benzersiz bir şekilde tanımlamak için yeni bir anahtar kullanın:
 
    [!code-json[](http-modules/sample/Asp.Net.Core/appsettings.json?range=1,10-18&highlight=2-5)]
 
-2. Seçenekleri değerleri almak ve bunları ara yazılımıyla geçirin. `Use...` (Bu, ara yazılım ardışık düzene ekler) genişletme yöntemi olduğunu seçeneği değerleri geçirmek için mantıksal bir yer: 
+2. Seçenek değerlerini alın ve bunları ara yazılıma geçirin. `Use...` Genişletme yöntemi (ara yazılımını işlem hattına ekleyen), seçenek değerlerinde geçirilecek mantıksal bir yerdir: 
 
    [!code-csharp[](http-modules/sample/Asp.Net.Core/Startup.cs?name=snippet_Configure&highlight=20-23)]
 
-3. Seçenekler parametresi gerçekleştirilecek Ara yazılımlarını etkinleştir. Bir aşırı yüklemesini sağlamak `Use...` uzantı metodu (Seçenekler parametresi alır ve buna ileten `UseMiddleware`). Zaman `UseMiddleware` çağrılır ara yazılım nesnesi örneğini oluşturduğunda parametrelerle, bu parametreleri, ara yazılım Oluşturucu için geçirir.
+3. Bir seçenek parametresi almak için ara yazılımı etkinleştirin. `Use...` Uzantı yönteminin bir aşırı yüklemesini sağlayın (Options parametresini alır ve ' ye `UseMiddleware`geçirir). `UseMiddleware` Parametreler ile çağrıldığında, ara yazılım nesnesini örnekleyen zaman, parametreleri ara yazılım yapıcısına geçirir.
 
    [!code-csharp[](../migration/http-modules/sample/Asp.Net.Core/Middleware/MyMiddlewareWithParams.cs?name=snippet_Extensions&highlight=9-14)]
 
-   Bu seçenekler nesnesinde nasıl sarmalar Not bir `OptionsWrapper` nesne. Bu uygulayan `IOptions`ara yazılım Oluşturucu tarafından beklendiği gibi.
+   Bunun `OptionsWrapper` nesne içindeki Options nesnesini nasıl saryacağını aklınızda edin. Bu, `IOptions`ara yazılım oluşturucusu tarafından beklendiği şekilde uygulanır.
 
-## <a name="migrating-to-the-new-httpcontext"></a>İçin yeni HttpContext geçirme
+## <a name="migrating-to-the-new-httpcontext"></a>Yeni HttpContext 'e geçiş
 
-Daha önce gördüğünüzle, `Invoke` Ara yazılımınızı yönteminde türünde bir parametre alan `HttpContext`:
+Daha önce, `Invoke` ara ortamınızdaki yöntemin türünde `HttpContext`bir parametre alıp aldıklarını gördünüz:
 
 ```csharp
 public async Task Invoke(HttpContext context)
 ```
 
-`HttpContext` ASP.NET Core önemli ölçüde değişti. Bu bölümde, en sık kullanılan özelliklerini çevrilecek gösterilmektedir [System.Web.HttpContext](/dotnet/api/system.web.httpcontext) yeni `Microsoft.AspNetCore.Http.HttpContext`.
+`HttpContext`ASP.NET Core içinde önemli ölçüde değişmiştir. Bu bölümde, en yaygın olarak kullanılan [System. Web. HttpContext](/dotnet/api/system.web.httpcontext) özelliklerinin yeni `Microsoft.AspNetCore.Http.HttpContext`sürümüne nasıl çevrilebileceğini gösterir.
 
 ### <a name="httpcontext"></a>HttpContext
 
-**HttpContext.Items** çevrilir:
+**HttpContext. Items** şu şekilde çevirir:
 
 [!code-csharp[](http-modules/sample/Asp.Net.Core/Middleware/HttpContextDemoMiddleware.cs?name=snippet_Items)]
 
-**Benzersiz istek kimliği (System.Web.HttpContext karşılık gelen)**
+**Benzersiz istek KIMLIĞI (System. Web. HttpContext karşılığı)**
 
-Her istek için benzersiz bir kimlik sağlar. Günlükleri dahil etmek çok kullanışlıdır.
+Size her istek için benzersiz bir kimlik verir. Günlüklerinizi eklemek çok yararlı.
 
 [!code-csharp[](http-modules/sample/Asp.Net.Core/Middleware/HttpContextDemoMiddleware.cs?name=snippet_Trace)]
 
-### <a name="httpcontextrequest"></a>HttpContext.Request
+### <a name="httpcontextrequest"></a>HttpContext. Request
 
-**HttpContext.Request.HttpMethod** çevrilir:
+**HttpContext. Request. HttpMethod** şu şekilde çevirir:
 
 [!code-csharp[](http-modules/sample/Asp.Net.Core/Middleware/HttpContextDemoMiddleware.cs?name=snippet_Method)]
 
-**HttpContext.Request.QueryString** çevrilir:
+**HttpContext. Request. QueryString** şu şekilde çevirir:
 
 [!code-csharp[](http-modules/sample/Asp.Net.Core/Middleware/HttpContextDemoMiddleware.cs?name=snippet_Query)]
 
-**HttpContext.Request.Url** ve **HttpContext.Request.RawUrl** için çevir:
+**HttpContext. Request. URL** ve **HttpContext. Request. RawUrl** şu şekilde çeviri yapar:
 
 [!code-csharp[](http-modules/sample/Asp.Net.Core/Middleware/HttpContextDemoMiddleware.cs?name=snippet_Url)]
 
-**HttpContext.Request.IsSecureConnection** çevrilir:
+**HttpContext. Request. IsSecureConnection** şu şekilde çevirir:
 
 [!code-csharp[](http-modules/sample/Asp.Net.Core/Middleware/HttpContextDemoMiddleware.cs?name=snippet_Secure)]
 
-**HttpContext.Request.UserHostAddress** çevrilir:
+**HttpContext. Request. UserHostAddress** şu şekilde çevirir:
 
 [!code-csharp[](http-modules/sample/Asp.Net.Core/Middleware/HttpContextDemoMiddleware.cs?name=snippet_Host)]
 
-**HttpContext.Request.Cookies** çevrilir:
+**HttpContext. Request. Cookies** şu şekilde çevirir:
 
 [!code-csharp[](http-modules/sample/Asp.Net.Core/Middleware/HttpContextDemoMiddleware.cs?name=snippet_Cookies)]
 
-**HttpContext.Request.RequestContext.RouteData** çevrilir:
+**HttpContext. Request. RequestContext. RouteData** şu şekilde çevirir:
 
 [!code-csharp[](http-modules/sample/Asp.Net.Core/Middleware/HttpContextDemoMiddleware.cs?name=snippet_Route)]
 
-**HttpContext.Request.Headers** çevrilir:
+**HttpContext. Request. Headers** şu şekilde çevirir:
 
 [!code-csharp[](http-modules/sample/Asp.Net.Core/Middleware/HttpContextDemoMiddleware.cs?name=snippet_Headers)]
 
-**HttpContext.Request.UserAgent** çevrilir:
+**HttpContext. Request. UserAgent** şu şekilde çevirir:
 
 [!code-csharp[](http-modules/sample/Asp.Net.Core/Middleware/HttpContextDemoMiddleware.cs?name=snippet_Agent)]
 
-**HttpContext.Request.UrlReferrer** çevrilir:
+**HttpContext. Request. Urlbaşvuran** şu şekilde çevirir:
 
 [!code-csharp[](http-modules/sample/Asp.Net.Core/Middleware/HttpContextDemoMiddleware.cs?name=snippet_Referrer)]
 
-**HttpContext.Request.ContentType** çevrilir:
+**HttpContext. Request. ContentType şuna** çevirir:
 
 [!code-csharp[](http-modules/sample/Asp.Net.Core/Middleware/HttpContextDemoMiddleware.cs?name=snippet_Type)]
 
-**HttpContext.Request.Form** çevrilir:
+**HttpContext. Request. form** şu şekilde çevirir:
 
 [!code-csharp[](http-modules/sample/Asp.Net.Core/Middleware/HttpContextDemoMiddleware.cs?name=snippet_Form)]
 
 > [!WARNING]
-> Yalnızca içerik alt tür ise form değerlerini okumasını *x-www-form-urlencoded işlemek* veya *form verisinin*.
+> Form değerlerini yalnızca içerik alt türü *x-www-form-urlencoded* veya *form-Data*ise okuyun.
 
-**HttpContext.Request.InputStream** çevrilir:
+**HttpContext. Request. InputStream** şu şekilde çevirir:
 
 [!code-csharp[](http-modules/sample/Asp.Net.Core/Middleware/HttpContextDemoMiddleware.cs?name=snippet_Input)]
 
 > [!WARNING]
-> Bu kod yalnızca bir işlem hattı, sonunda bir işleyici türü Ara kullanın.
+> Bu kodu yalnızca bir işlem hattının sonundaki bir işleyici türü ara yazılım içinde kullanın.
 >
->İstek başına yalnızca bir kez yukarıda da gösterildiği gibi ham gövde okuyabilirsiniz. İlk salt okunur, boş bir gövdeyi okuyacaksa sonra gövdesi okumaya çalışırken bir ara yazılım.
+>Ham gövdeyi, her istek için yukarıda yalnızca bir kez gösterildiği gibi okuyabilirsiniz. İlk okuduktan sonra gövde okumayı deneyen ara yazılım boş bir gövde okur.
 >
->Bu, bir arabellek yapıldığı için bir form daha önce gösterildiği gibi okuma için geçerli değildir.
+>Bu, bir arabelleğin yapıldığı için daha önce gösterildiği gibi bir formu okumak için uygulanmaz.
 
-### <a name="httpcontextresponse"></a>HttpContext.Response
+### <a name="httpcontextresponse"></a>HttpContext. Response
 
-**HttpContext.Response.Status** ve **HttpContext.Response.StatusDescription** için çevir:
+**HttpContext. Response. Status** ve **HttpContext. Response. StatusDescription** şu şekilde çeviri yapar:
 
 [!code-csharp[](http-modules/sample/Asp.Net.Core/Middleware/HttpContextDemoMiddleware.cs?name=snippet_Status)]
 
-**HttpContext.Response.ContentEncoding** ve **HttpContext.Response.ContentType** için çevir:
+**HttpContext. Response. Contentenkodlamaya** ve **HttpContext. Response. ContentType şuna** çevir:
 
 [!code-csharp[](http-modules/sample/Asp.Net.Core/Middleware/HttpContextDemoMiddleware.cs?name=snippet_RespType)]
 
-**HttpContext.Response.ContentType** üzerinde kendi ayrıca için çevirir:
+Yalnızca **HttpContext. Response. ContentType şuna** çevrilir:
 
 [!code-csharp[](http-modules/sample/Asp.Net.Core/Middleware/HttpContextDemoMiddleware.cs?name=snippet_RespTypeOnly)]
 
-**HttpContext.Response.Output** çevrilir:
+**HttpContext. Response. Output** şu şekilde çevirir:
 
 [!code-csharp[](http-modules/sample/Asp.Net.Core/Middleware/HttpContextDemoMiddleware.cs?name=snippet_Output)]
 
-**HttpContext.Response.TransmitFile**
+**HttpContext. Response. TransmitFile**
 
-Dosya tanıtıcısıyla ele [burada](../fundamentals/request-features.md#middleware-and-request-features).
+Bir dosya sunma [burada](../fundamentals/request-features.md#middleware-and-request-features)ele alınmıştır.
 
-**HttpContext.Response.Headers**
+**HttpContext. Response. Headers**
 
-Yanıt üst bilgileri gönderme gerçeğiyle karmaşık yanıt gövdesi için herhangi bir şey yazıldıktan sonra ayarını yaparsanız, bunlar değil gönderilir.
+Yanıt üst bilgilerinin gönderilmesi, yanıt gövdesine herhangi bir şey yazıldıktan sonra ayarlandıklarında, gönderilmeyeceği için karmaşıktır.
 
-Sağ yanıt başlatır için yazmadan önce çağrılacak bir geri çağırma yöntemi ayarlamak için kullanılan çözümüdür. Bu en iyi başlangıcında gerçekleştirilir `Invoke` Ara yazılımınızı yöntemi. Buna, yanıt üstbilgilerini ayarlar bu geri çağırma yöntemi var.
+Çözüm, yanıt başladıktan sonra hemen çağrılacak bir geri çağırma yöntemi ayarlamak olacaktır. Bu en iyi işlem, ara ortamınızdaki `Invoke` yöntemin başlangıcında yapılır. Yanıt başlıklarınızı ayarlayan bu geri çağırma yöntemidir.
 
-Aşağıdaki kod olarak adlandırılan bir geri çağırma yöntemi ayarlar `SetHeaders`:
+Aşağıdaki kod, adlı `SetHeaders`bir geri çağırma yöntemi ayarlar:
 
 ```csharp
 public async Task Invoke(HttpContext httpContext)
@@ -353,13 +353,13 @@ public async Task Invoke(HttpContext httpContext)
     httpContext.Response.OnStarting(SetHeaders, state: httpContext);
 ```
 
-`SetHeaders` Geri çağırma yöntemi şuna benzeyecektir:
+`SetHeaders` Geri çağırma yöntemi şöyle görünür:
 
 [!code-csharp[](http-modules/sample/Asp.Net.Core/Middleware/HttpContextDemoMiddleware.cs?name=snippet_SetHeaders)]
 
-**HttpContext.Response.Cookies**
+**HttpContext. Response. Cookies**
 
-Tanımlama bilgilerini seyahat tarayıcıya bir *Set-Cookie* yanıtı üstbilgisi. Sonuç olarak, tanımlama bilgileri gönderme kullanılanlarla aynı geri çağırma yanıt üst bilgilerini göndermek için gerektirir:
+Tanımlama bilgileri bir *set-Cookie* yanıt üst bilgisinde tarayıcıya seyahat ediyor. Sonuç olarak, tanımlama bilgilerinin gönderilmesi yanıt üst bilgilerini göndermek için kullanılan geri çağırma işlemini gerektirir:
 
 ```csharp
 public async Task Invoke(HttpContext httpContext)
@@ -369,13 +369,13 @@ public async Task Invoke(HttpContext httpContext)
     httpContext.Response.OnStarting(SetHeaders, state: httpContext);
 ```
 
-`SetCookies` Geri çağırma yöntemi, aşağıdaki gibi görünür:
+`SetCookies` Geri çağırma yöntemi aşağıdaki gibi görünür:
 
 [!code-csharp[](http-modules/sample/Asp.Net.Core/Middleware/HttpContextDemoMiddleware.cs?name=snippet_SetCookies)]
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-* [HTTP işleyicilerini ve HTTP modüllerini genel bakış](/iis/configuration/system.webserver/)
+* [HTTP Işleyicileri ve HTTP modüllerine genel bakış](/iis/configuration/system.webserver/)
 * [Yapılandırma](xref:fundamentals/configuration/index)
 * [Uygulama Başlatma](xref:fundamentals/startup)
 * [Ara Yazılım](xref:fundamentals/middleware/index)

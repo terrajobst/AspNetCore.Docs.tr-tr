@@ -3,16 +3,16 @@ title: ASP.NET Core Web sunucusu uygulamasını Kestrel
 author: guardrex
 description: ASP.NET Core platformlar arası Web sunucusu olan Kestrel hakkında bilgi edinin.
 monikerRange: '>= aspnetcore-2.1'
-ms.author: tdykstra
+ms.author: riande
 ms.custom: mvc
 ms.date: 06/24/2019
 uid: fundamentals/servers/kestrel
-ms.openlocfilehash: 1266813524bb5f33c50ff4e0a0961570f21689f1
-ms.sourcegitcommit: 16502797ea749e2690feaa5e652a65b89c007c89
+ms.openlocfilehash: 763f65ea26367e56c2ff1392eea51e62fc663ee6
+ms.sourcegitcommit: 8835b6777682da6fb3becf9f9121c03f89dc7614
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68483222"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69975534"
 ---
 # <a name="kestrel-web-server-implementation-in-aspnet-core"></a>ASP.NET Core Web sunucusu uygulamasını Kestrel
 
@@ -285,7 +285,7 @@ Ara yazılım içindeki belirli bir istek üzerindeki ayarı geçersiz kılabili
 
 Uygulama isteği okumaya başladıktan sonra bir istek üzerindeki sınırı yapılandırmayı denerseniz bir özel durum oluşturulur. Özelliğin salt okuma `IsReadOnly` durumunda olup olmadığını belirten bir özellik vardır. Bu, sınırı yapılandırmanın çok geç olduğunu gösterir. `MaxRequestBodySize`
 
-Bir uygulama [ASP.NET Core modülünün](xref:host-and-deploy/aspnet-core-module)arkasında [çalıştırıldığında](xref:host-and-deploy/iis/index#out-of-process-hosting-model) , IIS sınırı zaten ayarladığı için Kestrel 'nin istek gövdesi boyut sınırı devre dışı bırakılır.
+Bir uygulama [ASP.NET Core modülünün](xref:host-and-deploy/aspnet-core-module)arkasında [](xref:host-and-deploy/iis/index#out-of-process-hosting-model) çalıştırıldığında, IIS sınırı zaten ayarladığı için Kestrel 'nin istek gövdesi boyut sınırı devre dışı bırakılır.
 
 ### <a name="minimum-request-body-data-rate"></a>En az istek gövdesi veri hızı
 
@@ -329,7 +329,7 @@ Ara yazılım içindeki istek başına düşen minimum hız sınırlarını geç
 
 ::: moniker range=">= aspnetcore-3.0"
 
-Önceki <xref:Microsoft.AspNetCore.Server.Kestrel.Core.Features.IHttpMinResponseDataRateFeature> örnekte başvurulan, http/2 isteklerinde hız sınırlarını `HttpContext.Features` değiştirmek, protokolün istek çoğullama desteği nedeniyle http/2 için genel olarak desteklenmediği için, http/2 istekleri için ' de mevcut değildir. `null` `HttpContext.Features` `IHttpMinRequestBodyDataRateFeature.MinDataRate`  Ancak, http/2 istekleri için yine de vardır, çünkü okuma hızı sınırı, bir http/2 isteği için de olarak ayarlanarak tamamen istek temelli olarak devre dışı bırakılabilir. <xref:Microsoft.AspNetCore.Server.Kestrel.Core.Features.IHttpMinRequestBodyDataRateFeature> Bunun dışında bir değere `null` ayarlamaya çalışılması `NotSupportedException` veyabirhttp/2isteğiverilmeye`IHttpMinRequestBodyDataRateFeature.MinDataRate` neden olur.
+Önceki <xref:Microsoft.AspNetCore.Server.Kestrel.Core.Features.IHttpMinResponseDataRateFeature> örnekte başvurulan, http/2 isteklerinde hız sınırlarını `HttpContext.Features` değiştirmek, protokolün istek çoğullama desteği nedeniyle http/2 için genel olarak desteklenmediği için, http/2 istekleri için ' de mevcut değildir. `null` `HttpContext.Features` `IHttpMinRequestBodyDataRateFeature.MinDataRate` Ancak, http/2 istekleri için yine de vardır, çünkü okuma hızı sınırı, bir http/2 isteği için de olarak ayarlanarak tamamen istek temelli olarak devre dışı bırakılabilir. <xref:Microsoft.AspNetCore.Server.Kestrel.Core.Features.IHttpMinRequestBodyDataRateFeature> Bunun dışında bir değere `null` ayarlamaya çalışılması `NotSupportedException` veyabirhttp/2isteğiverilmeye`IHttpMinRequestBodyDataRateFeature.MinDataRate` neden olur.
 
 Http/1. x ve http `KestrelServerOptions.Limits` /2 bağlantılarına hala uygulanan sunucu genelindeki hız sınırları.
 
@@ -750,7 +750,7 @@ Herhangi bir sertifika düğümü için **yol** ve **parola** kullanmanın alter
 * Her uç nokta için parametresigereklidir.`Url` Bu parametrenin biçimi, en üst düzey `Urls` yapılandırma parametresiyle aynıdır, ancak tek bir değerle sınırlı olur.
 * Bu uç noktalar, üst düzey `Urls` yapılandırmada tanımlananlar yerine bunlara ekleme yerine bunların yerini alır. Kullanılarak `Listen` kodda tanımlanan uç noktalar yapılandırma bölümünde tanımlanan uç noktalar ile birikimlidir.
 * Bu `Certificate` bölüm isteğe bağlıdır. `Certificate` Bölüm belirtilmemişse, önceki senaryolarda tanımlanan varsayılanlar kullanılır. Kullanılabilir varsayılan değer yoksa, sunucu bir özel durum oluşturur ve başlayamaz.
-* &ndash; &ndash;  Bu bölüm hem yol parolasını hem de konu deposu sertifikalarını destekler. `Certificate`
+* &ndash;&ndash; Bu bölüm hem yol parolasını hem de konu deposu sertifikalarını destekler. `Certificate`
 * Herhangi bir sayıda uç nokta, bağlantı noktası çakışmalarına neden olmadıkları sürece bu şekilde tanımlanabilir.
 * `options.Configure(context.Configuration.GetSection("Kestrel"))`yapılandırılmış bir `KestrelConfigurationLoader` uç noktanın `.Endpoint(string name, options => { })` ayarlarını tamamlamak için kullanılabilecek bir yöntemi olan bir döndürür:
 

@@ -2,19 +2,27 @@
 title: 'Öğretici: ASP.NET MVC web uygulamasında EF Core ile çalışmaya başlama'
 description: Bu, Contoso Üniversitesi örnek uygulamasının sıfırdan nasıl oluşturulacağını açıklayan bir öğretici serisinin ilkisidir.
 author: tdykstra
-ms.author: tdykstra
+ms.author: riande
 ms.custom: mvc
 ms.date: 02/06/2019
 ms.topic: tutorial
 uid: data/ef-mvc/intro
-ms.openlocfilehash: 1b68c20ba206a5afe36f307525879f91d03d95d1
-ms.sourcegitcommit: 257cc3fe8c1d61341aa3b07e5bc0fa3d1c1c1d1c
+ms.openlocfilehash: 3450ac5b46e2a03b5d58c8760b78a52065343992
+ms.sourcegitcommit: 6189b0ced9c115248c6ede02efcd0b29d31f2115
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69583334"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69985367"
 ---
 # <a name="tutorial-get-started-with-ef-core-in-an-aspnet-mvc-web-app"></a>Öğretici: ASP.NET MVC web uygulamasında EF Core ile çalışmaya başlama
+
+::: moniker range=">= aspnetcore-3.0"
+
+Bu öğretici 3,0 ASP.NET Core güncelleştirilmedi. [Razor Pages sürümü](xref:data/ef-rp/intro) güncelleştirildi. Bunun ne zaman güncelleştirilemeyebilir hakkında bilgi edinmek için [Bu GitHub sorununa](https://github.com/aspnet/AspNetCore.Docs/issues/13920)bakın.
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
 
 [!INCLUDE [RP better than MVC](~/includes/RP-EF/rp-over-mvc.md)]
 
@@ -378,3 +386,5 @@ Temel CRUD (oluşturma, okuma, güncelleştirme, silme) işlemlerini nasıl ger�
 
 > [!div class="nextstepaction"]
 > [Temel CRUD işlevlerini uygulama](crud.md)
+
+::: moniker-end

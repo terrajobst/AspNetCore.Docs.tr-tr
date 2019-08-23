@@ -2,17 +2,17 @@
 title: 'Öğretici: EF Core ile ilgili verileri güncelleştirme-ASP.NET MVC'
 description: Bu öğreticide, yabancı anahtar alanlarını ve gezinti özelliklerini güncelleştirerek ilgili verileri güncelleştireceksiniz.
 author: tdykstra
-ms.author: tdykstra
+ms.author: riande
 ms.custom: mvc
 ms.date: 03/27/2019
 ms.topic: tutorial
 uid: data/ef-mvc/update-related-data
-ms.openlocfilehash: 4bf444d3334f32ff80a6e21607b250c00e0dc7ca
-ms.sourcegitcommit: 257cc3fe8c1d61341aa3b07e5bc0fa3d1c1c1d1c
+ms.openlocfilehash: 85849cfbb6f453103c4013ce49be4afbf506d7b5
+ms.sourcegitcommit: 8835b6777682da6fb3becf9f9121c03f89dc7614
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69583420"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69975146"
 ---
 # <a name="tutorial-update-related-data---aspnet-mvc-with-ef-core"></a>Öğretici: EF Core ile ilgili verileri güncelleştirme-ASP.NET MVC
 

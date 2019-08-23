@@ -1,35 +1,35 @@
 ---
-title: ASP.NET core'da HTTP.sys web sunucusu uygulaması
+title: ASP.NET Core 'de HTTP. sys Web sunucusu uygulama
 author: guardrex
-description: HTTP.sys, ASP.NET Core, Windows için bir web sunucusu hakkında bilgi edinin. HTTP.sys çekirdek modu sürücüsü üzerinde oluşturulmuş, HTTP.sys için IIS olmadan İnternet'e doğrudan bağlantı için kullanılan Kestrel alternatiftir.
+description: Windows üzerinde ASP.NET Core için bir Web sunucusu olan HTTP. sys hakkında bilgi edinin. HTTP. sys çekirdek modu sürücüsü üzerine inşa edilen HTTP. sys, Kestrel için IIS olmadan doğrudan Internet bağlantısı için kullanılabilen bir alternatiftir.
 monikerRange: '>= aspnetcore-2.1'
-ms.author: tdykstra
+ms.author: riande
 ms.custom: mvc
 ms.date: 06/20/2019
 uid: fundamentals/servers/httpsys
-ms.openlocfilehash: 3f48cda8f89d3f3dcce220cad4e405472b510df4
-ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
+ms.openlocfilehash: 5ee866c862f16c2c22539bf880b5a93415504fb1
+ms.sourcegitcommit: 8835b6777682da6fb3becf9f9121c03f89dc7614
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67814884"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69975512"
 ---
-# <a name="httpsys-web-server-implementation-in-aspnet-core"></a>ASP.NET core'da HTTP.sys web sunucusu uygulaması
+# <a name="httpsys-web-server-implementation-in-aspnet-core"></a>ASP.NET Core 'de HTTP. sys Web sunucusu uygulama
 
-Tarafından [Tom Dykstra](https://github.com/tdykstra), [Chris Ross](https://github.com/Tratcher), ve [Luke Latham](https://github.com/guardrex)
+[Tom Dykstra](https://github.com/tdykstra), [Chris](https://github.com/Tratcher), ve [Luke Latham](https://github.com/guardrex) tarafından
 
-[HTTP.sys](/iis/get-started/introduction-to-iis/introduction-to-iis-architecture#hypertext-transfer-protocol-stack-httpsys) olduğu bir [ASP.NET Core web sunucusu](xref:fundamentals/servers/index) Windows üzerinde yalnızca çalışır. HTTP.sys olan alternatif [Kestrel](xref:fundamentals/servers/kestrel) sunucu ve teklifler bazı özellikleri Kestrel sağlamaz.
+[Http. sys](/iis/get-started/introduction-to-iis/introduction-to-iis-architecture#hypertext-transfer-protocol-stack-httpsys) , yalnızca Windows üzerinde çalışan [ASP.NET Core için bir Web sunucusudur](xref:fundamentals/servers/index) . HTTP. sys, [Kestrel](xref:fundamentals/servers/kestrel) Server için bir alternatiftir ve Kestrel tarafından sağlamayan bazı özellikler sunar.
 
 > [!IMPORTANT]
-> HTTP.sys ile uyumlu olmayan [ASP.NET Core Modülü](xref:host-and-deploy/aspnet-core-module) ve IIS veya IIS Express ile kullanılamaz.
+> HTTP. sys [ASP.NET Core modülüyle](xref:host-and-deploy/aspnet-core-module) uyumlu DEĞILDIR ve ııs veya IIS Express ile kullanılamaz.
 
-HTTP.sys aşağıdaki özellikleri destekler:
+HTTP. sys aşağıdaki özellikleri destekler:
 
 * [Windows kimlik doğrulaması](xref:security/authentication/windowsauth)
-* Bağlantı noktası paylaşma
-* SNI ile HTTPS
-* HTTP/2 üzerinden TLS (Windows 10 veya üzeri)
-* Doğrudan bir dosya aktarımı
+* Bağlantı noktası Paylaşımı
+* SNı ile HTTPS
+* TLS üzerinden HTTP/2 (Windows 10 veya üzeri)
+* Doğrudan dosya iletimi
 * Yanıtları Önbelleğe Alma
 * WebSockets (Windows 8 veya üzeri)
 
@@ -40,26 +40,26 @@ Desteklenen Windows sürümleri:
 
 [Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/servers/httpsys/sample) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
 
-## <a name="when-to-use-httpsys"></a>HTTP.sys kullanıldığı durumlar
+## <a name="when-to-use-httpsys"></a>HTTP. sys ne zaman kullanılır
 
-HTTP.sys dağıtımları için yararlıdır burada:
+HTTP. sys, şu durumlarda olduğu dağıtımlar için yararlıdır:
 
-* IIS kullanmadan sunucunun İnternete doğrudan kullanıma sunmak için bir gereksinim yoktur.
+* Sunucuyu IIS kullanmadan doğrudan Internet 'e sunmaya gerek vardır.
 
-  ![HTTP.sys doğrudan Internet ile iletişim kurar.](httpsys/_static/httpsys-to-internet.png)
+  ![HTTP. sys doğrudan Internet ile iletişim kurar](httpsys/_static/httpsys-to-internet.png)
 
-* Bir iç dağıtım Kestrel içinde kullanılabilir değil bir özellik gibi gerektirir [Windows kimlik doğrulaması](xref:security/authentication/windowsauth).
+* İç dağıtım, [Windows kimlik doğrulaması](xref:security/authentication/windowsauth)gibi Kestrel 'de kullanılamayan bir özelliği gerektirir.
 
-  ![HTTP.sys iç ağa ile doğrudan iletişim kurar.](httpsys/_static/httpsys-to-internal.png)
+  ![HTTP. sys doğrudan iç ağla iletişim kurar](httpsys/_static/httpsys-to-internal.png)
 
-HTTP.sys, birçok türde saldırılara karşı korur ve sağlamlık, güvenlik ve tam özellikli bir web sunucusu ölçeklenebilirliğini sağlayan olgun teknolojisidir. IIS'nin, HTTP.sys üzerine bir HTTP dinleyicisi olarak çalışır.
+HTTP. sys pek çok tür saldırılara karşı koruyan ve tam özellikli bir Web sunucusu için sağlamlık, güvenlik ve ölçeklenebilirlik sağlayan çok sayıda teknolojiden oluşur. IIS, HTTP. sys ' nin üstünde HTTP dinleyicisi olarak çalışır.
 
 ## <a name="http2-support"></a>HTTP/2 desteği
 
-[HTTP/2](https://httpwg.org/specs/rfc7540.html) aşağıdaki gereksinimleri dayandırırsanız ASP.NET Core uygulamaları karşılanması için etkin:
+Aşağıdaki temel gereksinimler karşılanıyorsa ASP.NET Core uygulamalar için [http/2](https://httpwg.org/specs/rfc7540.html) etkinleştirilir:
 
 * Windows Server 2016/Windows 10 veya üzeri
-* [Uygulama katmanı protokol anlaşması (ALPN)](https://tools.ietf.org/html/rfc7301#section-3) bağlantı
+* [Uygulama katmanı protokol anlaşması (ALPN)](https://tools.ietf.org/html/rfc7301#section-3) bağlantısı
 * TLS 1.2 veya sonraki bir bağlantı
 
 ::: moniker range=">= aspnetcore-2.2"
@@ -74,19 +74,19 @@ Bir HTTP/2 bağlantı kurulur, [HttpRequest.Protocol](xref:Microsoft.AspNetCore.
 
 ::: moniker-end
 
-HTTP/2 varsayılan olarak etkindir. Bir HTTP/2 bağlantı değil, bağlantı, HTTP/1.1 geri döner. Gelecekteki bir Windows sürümünde, HTTP/2 yapılandırma bayrakları HTTP/2 HTTP.sys ile devre dışı bırakma olanağı dahil olmak üzere, kullanılabilir.
+HTTP/2 varsayılan olarak etkindir. HTTP/2 bağlantısı kurulmadıysa, bağlantı HTTP/1.1 'ye geri döner. Windows 'un gelecek bir sürümünde http/2 yapılandırma bayrakları http/2 ' yi HTTP. sys ile devre dışı bırakma özelliği de dahil olmak üzere kullanılabilir olacaktır.
 
-## <a name="kernel-mode-authentication-with-kerberos"></a>Çekirdek modu kimlik doğrulamasını Kerberos ile
+## <a name="kernel-mode-authentication-with-kerberos"></a>Kerberos ile çekirdek modu kimlik doğrulaması
 
 Çekirdek modu kimlik doğrulaması Kerberos kimlik doğrulama protokolü HTTP.sys temsil eder. Kullanıcı modu kimlik doğrulaması, Kerberos ve HTTP.sys ile desteklenmez. Makine hesabı Kerberos belirteci/Active Directory'den elde edilen anahtar şifresini çözmek için kullanılan ve kullanıcının kimliğini doğrulamak için istemcinin sunucuya iletilir. Hizmet asıl adı (SPN) konak için değil uygulamanın kullanıcı kaydedin.
 
-## <a name="how-to-use-httpsys"></a>HTTP.sys kullanma
+## <a name="how-to-use-httpsys"></a>HTTP. sys kullanma
 
-### <a name="configure-the-aspnet-core-app-to-use-httpsys"></a>HTTP.sys kullanmak için ASP.NET Core uygulamasını yapılandırma
+### <a name="configure-the-aspnet-core-app-to-use-httpsys"></a>ASP.NET Core uygulamasını HTTP. sys kullanacak şekilde yapılandırma
 
-1. Proje dosyasındaki bir paket başvurusu kullanırken gerekli değildir [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app) ([nuget.org](https://www.nuget.org/packages/Microsoft.AspNetCore.App/)) (ASP.NET Core 2.1 veya üzeri). Değil kullanırken `Microsoft.AspNetCore.App` metapackage, paket başvurusu ekleme [Microsoft.AspNetCore.Server.HttpSys](https://www.nuget.org/packages/Microsoft.AspNetCore.Server.HttpSys/).
+1. [Microsoft. AspNetCore. app metapackage](xref:fundamentals/metapackage-app) ([nuget.org](https://www.nuget.org/packages/Microsoft.AspNetCore.App/)) (ASP.NET Core 2,1 veya üzeri) kullanılırken proje dosyasındaki bir paket başvurusu gerekli değildir. `Microsoft.AspNetCore.App` Metapackage 'i kullanmıyorsanız [Microsoft. aspnetcore. Server. httpsys](https://www.nuget.org/packages/Microsoft.AspNetCore.Server.HttpSys/)öğesine bir paket başvurusu ekleyin.
 
-2. Çağrı <xref:Microsoft.AspNetCore.Hosting.WebHostBuilderHttpSysExtensions.UseHttpSys*> gerekli belirtme konak oluştururken genişletme yöntemi <xref:Microsoft.AspNetCore.Server.HttpSys.HttpSysOptions>. Aşağıdaki örnek, varsayılan değerlerine seçeneklerini ayarlar:
+2. Ana bilgisayarı oluştururken, gerekli <xref:Microsoft.AspNetCore.Server.HttpSys.HttpSysOptions>herhangi bir yöntemi belirterek uzantıyönteminiçağırın.<xref:Microsoft.AspNetCore.Hosting.WebHostBuilderHttpSysExtensions.UseHttpSys*> Aşağıdaki örnek, seçeneklerini varsayılan değerlerine ayarlar:
 
 ::: moniker range=">= aspnetcore-3.0"
 
@@ -113,25 +113,25 @@ HTTP/2 varsayılan olarak etkindir. Bir HTTP/2 bağlantı değil, bağlantı, HT
 
 ::: moniker-end
 
-   Ek HTTP.sys yapılandırma aracılığıyla işlenir [kayıt defteri ayarları](https://support.microsoft.com/help/820129/http-sys-registry-settings-for-windows).
+   Ek HTTP. sys yapılandırması, [kayıt defteri ayarları](https://support.microsoft.com/help/820129/http-sys-registry-settings-for-windows)aracılığıyla işlenir.
 
-   **HTTP.sys seçenekleri**
+   **HTTP. sys seçenekleri**
 
 ::: moniker range=">= aspnetcore-3.0"
 
    | Özellik | Açıklama | Varsayılan |
    | -------- | ----------- | :-----: |
-   | [AllowSynchronousIO](xref:Microsoft.AspNetCore.Server.HttpSys.HttpSysOptions.AllowSynchronousIO) | Zaman uyumlu giriş/çıkış için izin verilip verilmediğini `HttpContext.Request.Body` ve `HttpContext.Response.Body`. | `false` |
-   | [Authentication.AllowAnonymous](xref:Microsoft.AspNetCore.Server.HttpSys.AuthenticationManager.AllowAnonymous) | Anonim isteklere izin verin. | `true` |
-   | [Authentication.Schemes](xref:Microsoft.AspNetCore.Server.HttpSys.AuthenticationManager.Schemes) | İzin verilen kimlik doğrulama şemasını belirtin. Dinleyici disposing önce herhangi bir zamanda değiştirilebilir. Değerleri tarafından sağlanan [AuthenticationSchemes enum](xref:Microsoft.AspNetCore.Server.HttpSys.AuthenticationSchemes): `Basic`, `Kerberos`, `Negotiate`, `None`, ve `NTLM`. | `None` |
-   | [EnableResponseCaching](xref:Microsoft.AspNetCore.Server.HttpSys.HttpSysOptions.EnableResponseCaching) | Girişimi [çekirdek modu](/windows-hardware/drivers/gettingstarted/user-mode-and-kernel-mode) uygun üst bilgilerini içeren yanıtlar için önbelleğe alma. Yanıta dahil `Set-Cookie`, `Vary`, veya `Pragma` üstbilgileri. İçermesi gerekir bir `Cache-Control` üst bilgisi bu `public` ve ya da bir `shared-max-age` veya `max-age` değeri veya bir `Expires` başlığı. | `true` |
-   | <xref:Microsoft.AspNetCore.Server.HttpSys.HttpSysOptions.MaxAccepts> | En fazla eşzamanlı sayısı kabul eder. | 5 &times; [ortam.<br> ProcessorCount](xref:System.Environment.ProcessorCount) |
-   | <xref:Microsoft.AspNetCore.Server.HttpSys.HttpSysOptions.MaxConnections> | Kabul etmek üzere kullanılan eşzamanlı bağlantı sayısı. Kullanım `-1` sonsuz için. Kullanma `null` kayıt defterinin makine genelindeki ayarını kullanmak için. | `null`<br>(sınırsız) |
-   | <xref:Microsoft.AspNetCore.Server.HttpSys.HttpSysOptions.MaxRequestBodySize> | Bkz: <a href="#maxrequestbodysize">MaxRequestBodySize</a> bölümü. | 30000000 bayt<br>(~28.6 MB) |
-   | <xref:Microsoft.AspNetCore.Server.HttpSys.HttpSysOptions.RequestQueueLimit> | Sıraya alınabilecek isteklerinin sayısı. | 1000 |
-   | <xref:Microsoft.AspNetCore.Server.HttpSys.HttpSysOptions.ThrowWriteExceptions> | Yanıt gövdesi yazma, hata nedeniyle istemci bağlantısını keser veya özel durumlar genellikle tamamlamak gösterir. | `false`<br>(normalde Tamamla) |
-   | <xref:Microsoft.AspNetCore.Server.HttpSys.HttpSysOptions.Timeouts> | HTTP.sys kullanıma <xref:Microsoft.AspNetCore.Server.HttpSys.TimeoutManager> yapılandırma, kayıt defterinde da yapılandırılabilir. Varsayılan değerleri dahil olmak üzere, her ayar hakkında daha fazla bilgi için API bağlantıları izleyin:<ul><li>[TimeoutManager.DrainEntityBody](xref:Microsoft.AspNetCore.Server.HttpSys.TimeoutManager.DrainEntityBody) &ndash; HTTP Sunucusu API varlık gövdesini bir canlı bağlantı boşaltma zaman izin verilir.</li><li>[TimeoutManager.EntityBody](xref:Microsoft.AspNetCore.Server.HttpSys.TimeoutManager.EntityBody) &ndash; ulaşması istek Varlık gövdesi için izin verilen süresi.</li><li>[TimeoutManager.HeaderWait](xref:Microsoft.AspNetCore.Server.HttpSys.TimeoutManager.HeaderWait) &ndash; süresi izin verilen HTTP Sunucusu API istek üstbilgisi ayrıştırılamıyor.</li><li>[TimeoutManager.IdleConnection](xref:Microsoft.AspNetCore.Server.HttpSys.TimeoutManager.IdleConnection) &ndash; boştaki bir bağlantının için izin verilen süresi.</li><li>[TimeoutManager.MinSendBytesPerSecond](xref:Microsoft.AspNetCore.Server.HttpSys.TimeoutManager.MinSendBytesPerSecond) &ndash; en düşük yanıt hızı gönderin.</li><li>[TimeoutManager.RequestQueue](xref:Microsoft.AspNetCore.Server.HttpSys.TimeoutManager.RequestQueue) &ndash; zaman izin isteğinin, uygulamayı alır önce isteği kuyruğunda kalır.</li></ul> |  |
-   | <xref:Microsoft.AspNetCore.Server.HttpSys.HttpSysOptions.UrlPrefixes> | Belirtin <xref:Microsoft.AspNetCore.Server.HttpSys.UrlPrefixCollection> HTTP.sys ile kaydetmek için. Kullanışlı [UrlPrefixCollection.Add](xref:Microsoft.AspNetCore.Server.HttpSys.UrlPrefixCollection.Add*), bir önek koleksiyona eklemek için kullanılır. Bu dinleyici disposing önce herhangi bir zamanda değiştirilebilir. |  |
+   | [AllowSynchronousIO](xref:Microsoft.AspNetCore.Server.HttpSys.HttpSysOptions.AllowSynchronousIO) | `HttpContext.Request.Body` Ve`HttpContext.Response.Body`için zaman uyumlu giriş/çıkışa izin verilip verilmeyeceğini denetleyin. | `false` |
+   | [Authentication. AllowAnonymous](xref:Microsoft.AspNetCore.Server.HttpSys.AuthenticationManager.AllowAnonymous) | Anonim isteklere izin verin. | `true` |
+   | [Authentication. düzenleri](xref:Microsoft.AspNetCore.Server.HttpSys.AuthenticationManager.Schemes) | İzin verilen kimlik doğrulama düzenlerini belirtin. Dinleyici elden atılırken önce herhangi bir zamanda değiştirilebilir. Değerler [authenticationdüzenlerinin numaralandırması](xref:Microsoft.AspNetCore.Server.HttpSys.AuthenticationSchemes)tarafından sağlanır: `Basic`, `Negotiate` `Kerberos`, `None`,, ve `NTLM`. | `None` |
+   | [EnableResponseCaching](xref:Microsoft.AspNetCore.Server.HttpSys.HttpSysOptions.EnableResponseCaching) | Uygun üst bilgileri içeren yanıtlar için [çekirdek modu](/windows-hardware/drivers/gettingstarted/user-mode-and-kernel-mode) önbelleğe almayı deneyin. Yanıt, `Set-Cookie` `Vary`veya üstbilgileriiçermeyebilir.`Pragma` `Cache-Control` Bir`shared-max-age`ya dadeğeri`Expires` ya da bir üst bilgi içermelidir. `max-age` `public` | `true` |
+   | <xref:Microsoft.AspNetCore.Server.HttpSys.HttpSysOptions.MaxAccepts> | En fazla eşzamanlı kabul sayısı. | 5 &times; [ortam.<br> ProcessorCount](xref:System.Environment.ProcessorCount) |
+   | <xref:Microsoft.AspNetCore.Server.HttpSys.HttpSysOptions.MaxConnections> | Kabul edilecek eşzamanlı bağlantı sayısı üst sınırı. Sonsuz `-1` için kullanın. Kayıt `null` defterinin makine genelindeki ayarını kullanmak için kullanın. | `null`<br>sayısız |
+   | <xref:Microsoft.AspNetCore.Server.HttpSys.HttpSysOptions.MaxRequestBodySize> | <a href="#maxrequestbodysize">MaxRequestBodySize</a> bölümüne bakın. | 30000000 bayt<br>(~ 28,6 MB) |
+   | <xref:Microsoft.AspNetCore.Server.HttpSys.HttpSysOptions.RequestQueueLimit> | Sıraya alınabilen en fazla istek sayısı. | 1000 |
+   | <xref:Microsoft.AspNetCore.Server.HttpSys.HttpSysOptions.ThrowWriteExceptions> | İstemci bağlantısının kesilmesinden kaynaklanan yanıt gövdesi yazmasının, özel durumlar oluşturması veya normal şekilde tamamlanması gerektiğini belirtin. | `false`<br>(normal olarak) |
+   | <xref:Microsoft.AspNetCore.Server.HttpSys.HttpSysOptions.Timeouts> | Kayıt defterinde da yapılandırılabilen http <xref:Microsoft.AspNetCore.Server.HttpSys.TimeoutManager> . sys yapılandırmasını kullanıma sunun. Varsayılan değerler de dahil olmak üzere her bir ayar hakkında daha fazla bilgi edinmek için API bağlantılarını izleyin:<ul><li>HTTP sunucusu API 'sinin varlık gövdesini etkin tut bağlantısı üzerinde boşaltmasına izin verilen [TimeoutManager. DrainEntityBody](xref:Microsoft.AspNetCore.Server.HttpSys.TimeoutManager.DrainEntityBody) &ndash; süresi.</li><li>[TimeoutManager. entitybody](xref:Microsoft.AspNetCore.Server.HttpSys.TimeoutManager.EntityBody) &ndash; zamanına, istek varlığı gövdesinin gelmesi için izin verildi.</li><li>HTTP sunucusu API 'sinin istek üst bilgisini ayrıştırması için [TimeoutManager. headerwaıt](xref:Microsoft.AspNetCore.Server.HttpSys.TimeoutManager.HeaderWait) &ndash; zamanına izin verilir.</li><li>[TimeoutManager.](xref:Microsoft.AspNetCore.Server.HttpSys.TimeoutManager.IdleConnection) &ndash; boştaki bir bağlantı için ıdletimeout bağlantı zamanına izin verilir.</li><li>[TimeoutManager. MinSendBytesPerSecond](xref:Microsoft.AspNetCore.Server.HttpSys.TimeoutManager.MinSendBytesPerSecond) &ndash; yanıt için en düşük gönderme hızı.</li><li>[TimeoutManager.](xref:Microsoft.AspNetCore.Server.HttpSys.TimeoutManager.RequestQueue) &ndash; isteğin, istek sırasında, uygulamanın onu çekmeden önce kalmasına izin verilen RequestQueue süresi.</li></ul> |  |
+   | <xref:Microsoft.AspNetCore.Server.HttpSys.HttpSysOptions.UrlPrefixes> | HTTP. sys ile kaydolmak içinöğesinibelirtin.<xref:Microsoft.AspNetCore.Server.HttpSys.UrlPrefixCollection> En yararlı olan [UrlPrefixCollection. Add](xref:Microsoft.AspNetCore.Server.HttpSys.UrlPrefixCollection.Add*), koleksiyona bir ön ek eklemek için kullanılır. Bunlar, dinleyici elden atılıyor öncesinde herhangi bir zamanda değiştirilebilir. |  |
 
 ::: moniker-end
 
@@ -139,17 +139,17 @@ HTTP/2 varsayılan olarak etkindir. Bir HTTP/2 bağlantı değil, bağlantı, HT
 
    | Özellik | Açıklama | Varsayılan |
    | -------- | ----------- | :-----: |
-   | [AllowSynchronousIO](xref:Microsoft.AspNetCore.Server.HttpSys.HttpSysOptions.AllowSynchronousIO) | Zaman uyumlu giriş/çıkış için izin verilip verilmediğini `HttpContext.Request.Body` ve `HttpContext.Response.Body`. | `true` |
-   | [Authentication.AllowAnonymous](xref:Microsoft.AspNetCore.Server.HttpSys.AuthenticationManager.AllowAnonymous) | Anonim isteklere izin verin. | `true` |
-   | [Authentication.Schemes](xref:Microsoft.AspNetCore.Server.HttpSys.AuthenticationManager.Schemes) | İzin verilen kimlik doğrulama şemasını belirtin. Dinleyici disposing önce herhangi bir zamanda değiştirilebilir. Değerleri tarafından sağlanan [AuthenticationSchemes enum](xref:Microsoft.AspNetCore.Server.HttpSys.AuthenticationSchemes): `Basic`, `Kerberos`, `Negotiate`, `None`, ve `NTLM`. | `None` |
-   | [EnableResponseCaching](xref:Microsoft.AspNetCore.Server.HttpSys.HttpSysOptions.EnableResponseCaching) | Girişimi [çekirdek modu](/windows-hardware/drivers/gettingstarted/user-mode-and-kernel-mode) uygun üst bilgilerini içeren yanıtlar için önbelleğe alma. Yanıta dahil `Set-Cookie`, `Vary`, veya `Pragma` üstbilgileri. İçermesi gerekir bir `Cache-Control` üst bilgisi bu `public` ve ya da bir `shared-max-age` veya `max-age` değeri veya bir `Expires` başlığı. | `true` |
-   | <xref:Microsoft.AspNetCore.Server.HttpSys.HttpSysOptions.MaxAccepts> | En fazla eşzamanlı sayısı kabul eder. | 5 &times; [ortam.<br> ProcessorCount](xref:System.Environment.ProcessorCount) |
-   | <xref:Microsoft.AspNetCore.Server.HttpSys.HttpSysOptions.MaxConnections> | Kabul etmek üzere kullanılan eşzamanlı bağlantı sayısı. Kullanım `-1` sonsuz için. Kullanma `null` kayıt defterinin makine genelindeki ayarını kullanmak için. | `null`<br>(sınırsız) |
-   | <xref:Microsoft.AspNetCore.Server.HttpSys.HttpSysOptions.MaxRequestBodySize> | Bkz: <a href="#maxrequestbodysize">MaxRequestBodySize</a> bölümü. | 30000000 bayt<br>(~28.6 MB) |
-   | <xref:Microsoft.AspNetCore.Server.HttpSys.HttpSysOptions.RequestQueueLimit> | Sıraya alınabilecek isteklerinin sayısı. | 1000 |
-   | <xref:Microsoft.AspNetCore.Server.HttpSys.HttpSysOptions.ThrowWriteExceptions> | Yanıt gövdesi yazma, hata nedeniyle istemci bağlantısını keser veya özel durumlar genellikle tamamlamak gösterir. | `false`<br>(normalde Tamamla) |
-   | <xref:Microsoft.AspNetCore.Server.HttpSys.HttpSysOptions.Timeouts> | HTTP.sys kullanıma <xref:Microsoft.AspNetCore.Server.HttpSys.TimeoutManager> yapılandırma, kayıt defterinde da yapılandırılabilir. Varsayılan değerleri dahil olmak üzere, her ayar hakkında daha fazla bilgi için API bağlantıları izleyin:<ul><li>[TimeoutManager.DrainEntityBody](xref:Microsoft.AspNetCore.Server.HttpSys.TimeoutManager.DrainEntityBody) &ndash; HTTP Sunucusu API varlık gövdesini bir canlı bağlantı boşaltma zaman izin verilir.</li><li>[TimeoutManager.EntityBody](xref:Microsoft.AspNetCore.Server.HttpSys.TimeoutManager.EntityBody) &ndash; ulaşması istek Varlık gövdesi için izin verilen süresi.</li><li>[TimeoutManager.HeaderWait](xref:Microsoft.AspNetCore.Server.HttpSys.TimeoutManager.HeaderWait) &ndash; süresi izin verilen HTTP Sunucusu API istek üstbilgisi ayrıştırılamıyor.</li><li>[TimeoutManager.IdleConnection](xref:Microsoft.AspNetCore.Server.HttpSys.TimeoutManager.IdleConnection) &ndash; boştaki bir bağlantının için izin verilen süresi.</li><li>[TimeoutManager.MinSendBytesPerSecond](xref:Microsoft.AspNetCore.Server.HttpSys.TimeoutManager.MinSendBytesPerSecond) &ndash; en düşük yanıt hızı gönderin.</li><li>[TimeoutManager.RequestQueue](xref:Microsoft.AspNetCore.Server.HttpSys.TimeoutManager.RequestQueue) &ndash; zaman izin isteğinin, uygulamayı alır önce isteği kuyruğunda kalır.</li></ul> |  |
-   | <xref:Microsoft.AspNetCore.Server.HttpSys.HttpSysOptions.UrlPrefixes> | Belirtin <xref:Microsoft.AspNetCore.Server.HttpSys.UrlPrefixCollection> HTTP.sys ile kaydetmek için. Kullanışlı [UrlPrefixCollection.Add](xref:Microsoft.AspNetCore.Server.HttpSys.UrlPrefixCollection.Add*), bir önek koleksiyona eklemek için kullanılır. Bu dinleyici disposing önce herhangi bir zamanda değiştirilebilir. |  |
+   | [AllowSynchronousIO](xref:Microsoft.AspNetCore.Server.HttpSys.HttpSysOptions.AllowSynchronousIO) | `HttpContext.Request.Body` Ve`HttpContext.Response.Body`için zaman uyumlu giriş/çıkışa izin verilip verilmeyeceğini denetleyin. | `true` |
+   | [Authentication. AllowAnonymous](xref:Microsoft.AspNetCore.Server.HttpSys.AuthenticationManager.AllowAnonymous) | Anonim isteklere izin verin. | `true` |
+   | [Authentication. düzenleri](xref:Microsoft.AspNetCore.Server.HttpSys.AuthenticationManager.Schemes) | İzin verilen kimlik doğrulama düzenlerini belirtin. Dinleyici elden atılırken önce herhangi bir zamanda değiştirilebilir. Değerler [authenticationdüzenlerinin numaralandırması](xref:Microsoft.AspNetCore.Server.HttpSys.AuthenticationSchemes)tarafından sağlanır: `Basic`, `Negotiate` `Kerberos`, `None`,, ve `NTLM`. | `None` |
+   | [EnableResponseCaching](xref:Microsoft.AspNetCore.Server.HttpSys.HttpSysOptions.EnableResponseCaching) | Uygun üst bilgileri içeren yanıtlar için [çekirdek modu](/windows-hardware/drivers/gettingstarted/user-mode-and-kernel-mode) önbelleğe almayı deneyin. Yanıt, `Set-Cookie` `Vary`veya üstbilgileriiçermeyebilir.`Pragma` `Cache-Control` Bir`shared-max-age`ya dadeğeri`Expires` ya da bir üst bilgi içermelidir. `max-age` `public` | `true` |
+   | <xref:Microsoft.AspNetCore.Server.HttpSys.HttpSysOptions.MaxAccepts> | En fazla eşzamanlı kabul sayısı. | 5 &times; [ortam.<br> ProcessorCount](xref:System.Environment.ProcessorCount) |
+   | <xref:Microsoft.AspNetCore.Server.HttpSys.HttpSysOptions.MaxConnections> | Kabul edilecek eşzamanlı bağlantı sayısı üst sınırı. Sonsuz `-1` için kullanın. Kayıt `null` defterinin makine genelindeki ayarını kullanmak için kullanın. | `null`<br>sayısız |
+   | <xref:Microsoft.AspNetCore.Server.HttpSys.HttpSysOptions.MaxRequestBodySize> | <a href="#maxrequestbodysize">MaxRequestBodySize</a> bölümüne bakın. | 30000000 bayt<br>(~ 28,6 MB) |
+   | <xref:Microsoft.AspNetCore.Server.HttpSys.HttpSysOptions.RequestQueueLimit> | Sıraya alınabilen en fazla istek sayısı. | 1000 |
+   | <xref:Microsoft.AspNetCore.Server.HttpSys.HttpSysOptions.ThrowWriteExceptions> | İstemci bağlantısının kesilmesinden kaynaklanan yanıt gövdesi yazmasının, özel durumlar oluşturması veya normal şekilde tamamlanması gerektiğini belirtin. | `false`<br>(normal olarak) |
+   | <xref:Microsoft.AspNetCore.Server.HttpSys.HttpSysOptions.Timeouts> | Kayıt defterinde da yapılandırılabilen http <xref:Microsoft.AspNetCore.Server.HttpSys.TimeoutManager> . sys yapılandırmasını kullanıma sunun. Varsayılan değerler de dahil olmak üzere her bir ayar hakkında daha fazla bilgi edinmek için API bağlantılarını izleyin:<ul><li>HTTP sunucusu API 'sinin varlık gövdesini etkin tut bağlantısı üzerinde boşaltmasına izin verilen [TimeoutManager. DrainEntityBody](xref:Microsoft.AspNetCore.Server.HttpSys.TimeoutManager.DrainEntityBody) &ndash; süresi.</li><li>[TimeoutManager. entitybody](xref:Microsoft.AspNetCore.Server.HttpSys.TimeoutManager.EntityBody) &ndash; zamanına, istek varlığı gövdesinin gelmesi için izin verildi.</li><li>HTTP sunucusu API 'sinin istek üst bilgisini ayrıştırması için [TimeoutManager. headerwaıt](xref:Microsoft.AspNetCore.Server.HttpSys.TimeoutManager.HeaderWait) &ndash; zamanına izin verilir.</li><li>[TimeoutManager.](xref:Microsoft.AspNetCore.Server.HttpSys.TimeoutManager.IdleConnection) &ndash; boştaki bir bağlantı için ıdletimeout bağlantı zamanına izin verilir.</li><li>[TimeoutManager. MinSendBytesPerSecond](xref:Microsoft.AspNetCore.Server.HttpSys.TimeoutManager.MinSendBytesPerSecond) &ndash; yanıt için en düşük gönderme hızı.</li><li>[TimeoutManager.](xref:Microsoft.AspNetCore.Server.HttpSys.TimeoutManager.RequestQueue) &ndash; isteğin, istek sırasında, uygulamanın onu çekmeden önce kalmasına izin verilen RequestQueue süresi.</li></ul> |  |
+   | <xref:Microsoft.AspNetCore.Server.HttpSys.HttpSysOptions.UrlPrefixes> | HTTP. sys ile kaydolmak içinöğesinibelirtin.<xref:Microsoft.AspNetCore.Server.HttpSys.UrlPrefixCollection> En yararlı olan [UrlPrefixCollection. Add](xref:Microsoft.AspNetCore.Server.HttpSys.UrlPrefixCollection.Add*), koleksiyona bir ön ek eklemek için kullanılır. Bunlar, dinleyici elden atılıyor öncesinde herhangi bir zamanda değiştirilebilir. |  |
 
 ::: moniker-end
 
@@ -157,117 +157,117 @@ HTTP/2 varsayılan olarak etkindir. Bir HTTP/2 bağlantı değil, bağlantı, HT
 
    **MaxRequestBodySize**
 
-   Bayt cinsinden izin verilen maksimum herhangi bir istek gövdesi boyutu. Ayarlandığında `null`, en fazla istek gövdesi boyutu sınırsızdır. Bu sınırı her zaman sınırsız yükseltilen bağlantılar üzerinde etkisi yoktur.
+   Herhangi bir istek gövdesinin bayt olarak izin verilen en büyük boyutu. Olarak `null`ayarlandığında, en büyük istek gövdesi boyutu sınırsızdır. Bu sınırın, her zaman sınırsız olan yükseltilmiş bağlantıları üzerinde hiçbir etkisi yoktur.
 
-   Bir ASP.NET Core MVC uygulaması için tek bir sınırı geçersiz kılmak için önerilen yöntem `IActionResult` kullanmaktır <xref:Microsoft.AspNetCore.Mvc.RequestSizeLimitAttribute> özniteliği bir eylem yöntemi:
+   Tek `IActionResult` bir ASP.NET Core MVC uygulamasında sınırı geçersiz kılmak için önerilen yöntem, bir eylem yönteminde <xref:Microsoft.AspNetCore.Mvc.RequestSizeLimitAttribute> özniteliğini kullanmaktır:
 
    ```csharp
    [RequestSizeLimit(100000000)]
    public IActionResult MyActionMethod()
    ```
 
-   İstek okunurken uygulama başlatıldıktan sonra bir istekte sınırını yapılandırmak uygulamanın çalışırsa, bir özel durum oluşturulur. Bir `IsReadOnly` özelliği belirtmek için kullanılabilir `MaxRequestBodySize` özelliği olan bir salt okunur durumda olduğu çok geç sınırını yapılandırmak için anlamına gelir.
+   Uygulama isteği okumayı başlattıktan sonra bir istek üzerindeki sınırı yapılandırmayı denerse bir özel durum oluşur. Özelliğin `IsReadOnly` salt okuma durumunda olup `MaxRequestBodySize` olmadığını göstermek için bir özellik kullanılabilir, yani sınırı yapılandırmak için çok geç.
 
-   Uygulamayı'ı geçersiz kılmalıdır varsa <xref:Microsoft.AspNetCore.Server.HttpSys.HttpSysOptions.MaxRequestBodySize> istek başına, kullanın <xref:Microsoft.AspNetCore.Http.Features.IHttpMaxRequestBodySizeFeature>:
+   Uygulamanın istek başına geçersiz kılması <xref:Microsoft.AspNetCore.Server.HttpSys.HttpSysOptions.MaxRequestBodySize> gerekiyorsa, <xref:Microsoft.AspNetCore.Http.Features.IHttpMaxRequestBodySizeFeature>şunu kullanın:
 
    [!code-csharp[](httpsys/sample/Startup.cs?name=snippet1&highlight=6-7)]
 
-3. Visual Studio kullanıyorsanız, uygulamayı IIS veya IIS Express çalıştırmak için yapılandırılmamış emin olun.
+3. Visual Studio kullanıyorsanız, uygulamanın IIS veya IIS Express çalıştıracak şekilde yapılandırılmadığından emin olun.
 
-   Visual Studio'da varsayılan başlatma için IIS Express profilidir. Proje bir konsol uygulaması çalıştırmak için el ile seçilen profil, aşağıdaki ekran görüntüsünde gösterildiği gibi değiştirin:
+   Visual Studio 'da varsayılan başlatma profili IIS Express içindir. Projeyi konsol uygulaması olarak çalıştırmak için, aşağıdaki ekran görüntüsünde gösterildiği gibi seçili profili el ile değiştirin:
 
-   ![Konsol uygulama profili seçin](httpsys/_static/vs-choose-profile.png)
+   ![Konsol uygulaması profilini seçin](httpsys/_static/vs-choose-profile.png)
 
-### <a name="configure-windows-server"></a>Windows Server'ı yapılandırma
+### <a name="configure-windows-server"></a>Windows Server 'ı yapılandırma
 
-1. Uygulama ve kullanımı için açılacak bağlantı noktaları belirleme [Windows Güvenlik Duvarı](/windows/security/threat-protection/windows-firewall/create-an-inbound-port-rule) veya [New-NetFirewallRule](/powershell/module/netsecurity/new-netfirewallrule) trafiğin HTTP.sys ulaşmasına izin vermek için güvenlik duvarı bağlantı noktalarını açmak için PowerShell cmdlet'i. Aşağıdaki komutları ve uygulama yapılandırması, 443 numaralı bağlantı noktası kullanılır.
+1. Uygulamanın açmak için bağlantı noktalarını belirleme ve [Windows Güvenlik Duvarı](/windows/security/threat-protection/windows-firewall/create-an-inbound-port-rule) 'Nı veya [New-NetFirewallRule](/powershell/module/netsecurity/new-netfirewallrule) PowerShell CMDLET 'ini kullanarak trafiğin http. sys ' ye ulaşmasını sağlamak için güvenlik duvarı bağlantı noktalarını açın. Aşağıdaki komutlarda ve uygulama yapılandırmasında, 443 numaralı bağlantı noktası kullanılır.
 
-1. Bir Azure VM Dağıtım yaparken, bağlantı noktaları açma [ağ güvenlik grubu](/azure/virtual-machines/windows/nsg-quickstart-portal). Aşağıdaki komutları ve uygulama yapılandırması, 443 numaralı bağlantı noktası kullanılır.
+1. Bir Azure sanal makinesine dağıtım yaparken, [ağ güvenlik grubundaki](/azure/virtual-machines/windows/nsg-quickstart-portal)bağlantı noktalarını açın. Aşağıdaki komutlarda ve uygulama yapılandırmasında, 443 numaralı bağlantı noktası kullanılır.
 
-1. Edinin ve gerektiğinde X.509 sertifikaları yükleyin.
+1. Gerekirse, X. 509.440 sertifikalarını edinin ve yükler.
 
-   Otomatik olarak imzalanan sertifikaları kullanarak Windows üzerinde oluşturun [New-SelfSignedCertificate PowerShell cmdlet'i](/powershell/module/pkiclient/new-selfsignedcertificate). Desteklenmeyen bir örnek için bkz [UpdateIISExpressSSLForChrome.ps1](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/includes/make-x509-cert/UpdateIISExpressSSLForChrome.ps1).
+   Windows 'da, [New-SelfSignedCertificate PowerShell cmdlet 'ini](/powershell/module/pkiclient/new-selfsignedcertificate)kullanarak otomatik olarak imzalanan sertifikalar oluşturun. Desteklenmeyen bir örnek için bkz [. UpdateIISExpressSSLForChrome. ps1](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/includes/make-x509-cert/UpdateIISExpressSSLForChrome.ps1).
 
-   Sunucunun otomatik olarak imzalanan veya CA imzalı sertifika yükleme **yerel makine** > **kişisel** depolayın.
+   Sunucunun **yerel makine** > **Kişisel** deposunda otomatik olarak imzalanan veya CA imzalı sertifikalar yükler.
 
-1. Uygulama ise bir [framework bağımlı dağıtım](/dotnet/core/deploying/#framework-dependent-deployments-fdd), .NET Core, .NET Framework veya her ikisi de (uygulama .NET Framework'ü hedefleyen bir .NET Core uygulaması ise) yükleyin.
+1. Uygulama [çerçeveye bağımlı bir dağıtım](/dotnet/core/deploying/#framework-dependent-deployments-fdd)ise, .net core, .NET Framework veya her ikisini de (uygulama .NET Framework hedefleyen bir .NET Core uygulaması ise) yükler.
 
-   * **.NET core** &ndash; uygulama, .NET Core gerektiriyorsa, edinme ve çalıştırma **.NET Core çalışma zamanı** Yükleyicisi'nden [.NET Core indirir](https://dotnet.microsoft.com/download). SDK tamamını sunucuda yüklemeyin.
-   * **.NET framework** &ndash; uygulama .NET Framework gerekiyorsa, bkz. [.NET Framework Yükleme Kılavuzu](/dotnet/framework/install/). Gerekli .NET Framework'ü yükleyin. En son .NET Framework yükleyicisi [.NET Core indirir](https://dotnet.microsoft.com/download) sayfası.
+   * **.NET Core** Uygulama .NET Core gerektiriyorsa .NET Core [indirmelerinde](https://dotnet.microsoft.com/download) **.NET Core çalışma zamanı** yükleyicisini edinin ve çalıştırın. &ndash; Tam SDK 'Yı sunucuya yüklemeyin.
+   * **.NET Framework** Uygulama .NET Framework gerektiriyorsa, [.NET Framework yükleme kılavuzuna](/dotnet/framework/install/)bakın. &ndash; Gerekli .NET Framework yüklemesi. En son .NET Framework yükleyicisi [.NET Core İndirmeleri](https://dotnet.microsoft.com/download) sayfasından edinilebilir.
 
-   Uygulama ise bir [müstakil dağıtım](/dotnet/core/deploying/#self-contained-deployments-scd), uygulama çalışma zamanı, dağıtımda içerir. Sunucuda hiçbir framework yüklemesi gerekir.
+   Uygulama, [kendi içinde bir dağıtım](/dotnet/core/deploying/#self-contained-deployments-scd)ise, uygulama çalışma zamanını dağıtımda içerir. Sunucuda çerçeve yüklemesi gerekmez.
 
-1. Uygulama URL'lerini ve bağlantı noktalarını yapılandırın.
+1. Uygulamada URL 'Leri ve bağlantı noktalarını yapılandırın.
 
-   Varsayılan olarak, ASP.NET Core bağlar `http://localhost:5000`. URL ön ekleri ve bağlantı noktalarını yapılandırmak için Seçenekler şunlardır:
+   Varsayılan olarak, ASP.NET Core öğesine `http://localhost:5000`bağlanır. URL öneklerini ve bağlantı noktalarını yapılandırmak için seçenekler şunları içerir:
 
    * <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseUrls*>
-   * `urls` komut satırı bağımsız değişkeni
-   * `ASPNETCORE_URLS` ortam değişkeni
+   * `urls`komut satırı bağımsız değişkeni
+   * `ASPNETCORE_URLS`ortam değişkeni
    * <xref:Microsoft.AspNetCore.Server.HttpSys.HttpSysOptions.UrlPrefixes>
 
-   Aşağıdaki kod örneği kullanma işlemini gösterir <xref:Microsoft.AspNetCore.Server.HttpSys.HttpSysOptions.UrlPrefixes> sunucunun yerel IP adresi ile `10.0.0.4` 443 numaralı bağlantı noktasında:
+   Aşağıdaki kod örneği, 443 numaralı bağlantı noktasında <xref:Microsoft.AspNetCore.Server.HttpSys.HttpSysOptions.UrlPrefixes> sunucunun yerel IP adresi `10.0.0.4` ile nasıl kullanılacağını göstermektedir:
 
    [!code-csharp[](httpsys/sample_snapshot/Program.cs?name=snippet1&highlight=6)]
 
-   Bir avantajı `UrlPrefixes` bir hata iletisi hemen düzgün biçimlendirilmemiş ön ekleri için oluşturuldu.
+   Avantajı `UrlPrefixes` , hatalı biçimli ön ekler için hemen bir hata iletisi oluşturulmasından oluşur.
 
-   Ayarlarında `UrlPrefixes` geçersiz kılma `UseUrls` / `urls` / `ASPNETCORE_URLS` ayarları. Bu nedenle, bir avantajı `UseUrls`, `urls`ve `ASPNETCORE_URLS` ortam değişkenidir Kestrel ve HTTP.sys arasında geçiş yapmak kolaydır.
+   `UseUrls` Ayarlarıgeçersizkıl`urls` . / `UrlPrefixes` / `ASPNETCORE_URLS` Bu nedenle, ve `UseUrls` `ASPNETCORE_URLS` ortam değişkeninin `urls`avantajı Kestrel ve http. sys arasında geçiş yapmak daha kolay olabilir.
 
-   HTTP.sys kullanan [HTTP Sunucusu API UrlPrefix dize biçimleri](https://msdn.microsoft.com/library/windows/desktop/aa364698.aspx).
+   HTTP. sys, [http sunucusu API UrlPrefix dize biçimlerini](https://msdn.microsoft.com/library/windows/desktop/aa364698.aspx)kullanır.
 
    > [!WARNING]
-   > Üst düzey joker bağlamaları (`http://*:80/` ve `http://+:80`) gereken **değil** kullanılır. Üst düzey joker bağlamaları, güvenlik açıklarını uygulama oluşturun. Bu, güçlü ve zayıf joker karakterler için geçerlidir. Açık bir ana bilgisayar adlarını veya IP adresleri yerine joker karakterler kullanın. Alt etki alanı joker bağlama (örneğin, `*.mysub.com`) tüm üst etki alanını denetleyen bir güvenlik riski değildir (başlangıcı yerine sonundan `*.com`, güvenlik açığı olan). Daha fazla bilgi için [RFC 7230: Bölüm 5.4: Konak](https://tools.ietf.org/html/rfc7230#section-5.4).
+   > Üst düzey joker bağlamaları (`http://*:80/` ve `http://+:80`) gereken **değil** kullanılır. Üst düzey joker karakter bağlamaları uygulama güvenliği güvenlik açıklarını oluşturur. Bu, güçlü ve zayıf joker karakterler için geçerlidir. Joker karakterler yerine açık konak adlarını veya IP adreslerini kullanın. Alt etki alanı joker bağlantısı (örneğin `*.mysub.com`,), tüm üst etki alanını (Bu güvenlik açığı olan `*.com`aksine) kontrol ediyorsanız bir güvenlik riski değildir. Daha fazla bilgi için bkz [. RFC 7230: Bölüm 5,4: Ana](https://tools.ietf.org/html/rfc7230#section-5.4)bilgisayar.
 
-1. URL ön ekleri sunucuda preregister.
+1. Ön ek, sunucudaki URL öneklerini ister.
 
-   HTTP.sys yapılandırmak için yerleşik bir aracı *netsh.exe*. *Netsh.exe* URL ön ekleri ayırabilir ve X.509 sertifikaları atamak için kullanılır. Aracı yöneticisi ayrıcalıkları gerektirir.
+   HTTP. sys ' yi yapılandırmaya yönelik yerleşik araç *netsh. exe*' dir. *netsh. exe* , URL öneklerini ayırmak ve X. 509.440 sertifikaları atamak için kullanılır. Araç, yönetici ayrıcalıkları gerektirir.
 
-   Kullanım *netsh.exe* aracı uygulama için URL'leri kaydetmek için:
+   Uygulamanın URL 'Lerini kaydettirmek için *netsh. exe* aracını kullanın:
 
    ```console
    netsh http add urlacl url=<URL> user=<USER>
    ```
 
-   * `<URL>` &ndash; Tam Tekdüzen Kaynak Konum Belirleyicisi (URL). Joker karakter bağlama kullanmayın. Geçerli ana bilgisayar adı veya yerel IP adresi kullanın. *URL'nin sonunda bir eğik çizgi içermelidir.*
-   * `<USER>` &ndash; Kullanıcı veya kullanıcı grubunun adını belirtir.
+   * `<URL>`&ndash; Tam nitelikli Tekdüzen Kaynak Bulucu (URL). Joker karakter bağlama kullanmayın. Geçerli bir ana bilgisayar adı veya yerel IP adresi kullanın. *URL, sondaki eğik çizgi içermelidir.*
+   * `<USER>`&ndash; Kullanıcı veya Kullanıcı grubu adını belirtir.
 
-   Aşağıdaki örnekte, yerel sunucunun IP adresi olan `10.0.0.4`:
+   Aşağıdaki örnekte sunucusunun `10.0.0.4`yerel IP adresi:
 
    ```console
    netsh http add urlacl url=https://10.0.0.4:443/ user=Users
    ```
 
-   Bir URL kaydedildiğinde, bu aracı ile yanıt veren `URL reservation successfully added`.
+   Bir URL kaydedildiğinde, araç ile `URL reservation successfully added`yanıt verir.
 
-   Kayıtlı bir URL silmek için kullanın `delete urlacl` komutu:
+   Kayıtlı bir URL 'yi silmek için şu `delete urlacl` komutu kullanın:
 
    ```console
    netsh http delete urlacl url=<URL>
    ```
 
-1. X.509 sertifikaları sunucusuna kaydedin.
+1. X. 509.440 sertifikalarını sunucusuna kaydedin.
 
-   Kullanım *netsh.exe* aracı uygulama için sertifikaları kaydetmek için:
+   Uygulamanın sertifikalarını kaydetmek için *netsh. exe* aracını kullanın:
 
    ```console
    netsh http add sslcert ipport=<IP>:<PORT> certhash=<THUMBPRINT> appid="{<GUID>}"
    ```
 
-   * `<IP>` &ndash; Bağlama için yerel IP adresi belirtir. Joker karakter bağlama kullanmayın. Geçerli bir IP adresi kullanın.
-   * `<PORT>` &ndash; Bağlama için bir bağlantı noktasını belirtir.
-   * `<THUMBPRINT>` &ndash; X.509 sertifika parmak izi.
-   * `<GUID>` &ndash; Bilgilendirme amacıyla uygulamayı temsil etmek için bir geliştirici tarafından oluşturulan GUID.
+   * `<IP>`&ndash; Bağlama için yerel IP adresini belirtir. Joker karakter bağlama kullanmayın. Geçerli bir IP adresi kullanın.
+   * `<PORT>`&ndash; Bağlama için bağlantı noktasını belirtir.
+   * `<THUMBPRINT>`&ndash; X. 509.440 sertifikası parmak izi.
+   * `<GUID>`&ndash; Uygulamayı bilgilendirme amacıyla temsil eden geliştirici tarafından oluşturulan GUID.
 
-   Başvuru amacıyla GUID uygulamada bir paket etiket olarak depola:
+   Başvuru amacıyla, GUID 'yi uygulamada bir paket etiketi olarak depolayın:
 
    * Visual Studio'da:
-     * Uygulamada sağ tıklayarak uygulamanın proje özelliklerini açın **Çözüm Gezgini** seçerek **özellikleri**.
-     * Seçin **paket** sekmesi.
-     * Oluşturduğunuz GUID girin **etiketleri** alan.
+     * **Çözüm Gezgini** ' de uygulamaya sağ tıklayıp **Özellikler**' i seçerek uygulamanın proje özelliklerini açın.
+     * **Paket** sekmesini seçin.
+     * **Etiketler** alanında oluşturduğunuz GUID 'yi girin.
    * Visual Studio kullanmadığınız durumlarda:
      * Uygulamanın proje dosyasını açın.
-     * Ekleme bir `<PackageTags>` mevcut veya yeni bir özellik `<PropertyGroup>` oluşturduğunuz GUID'e sahip:
+     * Oluşturduğunuz GUID ile yeni veya var olan `<PropertyGroup>` bir özelliğiekleyin:`<PackageTags>`
 
        ```xml
        <PropertyGroup>
@@ -277,8 +277,8 @@ HTTP/2 varsayılan olarak etkindir. Bir HTTP/2 bağlantı değil, bağlantı, HT
 
    Aşağıdaki örnekte:
 
-   * Yerel sunucunun IP adresidir `10.0.0.4`.
-   * Çevrimiçi rastgele bir GUID Oluşturucu sağlar `appid` değeri.
+   * Sunucunun yerel IP adresi `10.0.0.4`.
+   * Bir çevrimiçi rastgele GUID Oluşturucu `appid` değeri sağlar.
 
    ```console
    netsh http add sslcert 
@@ -287,37 +287,37 @@ HTTP/2 varsayılan olarak etkindir. Bir HTTP/2 bağlantı değil, bağlantı, HT
        appid="{9412ee86-c21b-4eb8-bd89-f650fbf44931}"
    ```
 
-   Bir sertifika kaydedildiğinde, bu aracı ile yanıt veren `SSL Certificate successfully added`.
+   Bir sertifika kaydedildiğinde, araç ile `SSL Certificate successfully added`yanıt verir.
 
-   Sertifika kaydı silmek için kullanın `delete sslcert` komutu:
+   Bir sertifika kaydını silmek için şu `delete sslcert` komutu kullanın:
 
    ```console
    netsh http delete sslcert ipport=<IP>:<PORT>
    ```
 
-   Başvuru belgeleri için *netsh.exe*:
+   *Netsh. exe*için başvuru belgeleri:
 
-   * [Köprü metni için Netsh komutları Aktarım Protokolü (HTTP)](https://technet.microsoft.com/library/cc725882.aspx)
+   * [Köprü Metni Aktarım Protokolü (HTTP) için Netsh komutları](https://technet.microsoft.com/library/cc725882.aspx)
    * [UrlPrefix dizeleri](https://msdn.microsoft.com/library/windows/desktop/aa364698.aspx)
 
 1. Uygulamayı çalıştırın.
 
-   Yönetici ayrıcalıkları ile 1024'ten büyük bir bağlantı noktası numarası için localhost HTTP (HTTPS değil) kullanarak bağlanırken, uygulamayı çalıştırmak için gerekli değildir. Diğer yapılandırmalar için (örneğin, yerel bir IP adresi kullanarak veya bağlama bağlantı noktası 443) uygulamayı yönetici ayrıcalıklarıyla çalıştırın.
+   1024 'den büyük bir bağlantı noktası numarası ile HTTP (HTTPS değil) kullanarak localhost 'a bağlanırken uygulamayı çalıştırmak için yönetici ayrıcalıklarına gerek yoktur. Diğer yapılandırmalarda (örneğin, yerel bir IP adresi veya 443 numaralı bağlantı noktasına bağlama), uygulamayı yönetici ayrıcalıklarıyla çalıştırın.
 
-   Uygulama sunucusunun genel IP adresinde yanıt verir. Bu örnekte, genel IP adresi, Internet'ten sunucuya ulaştı `104.214.79.47`.
+   Uygulama, sunucunun genel IP adresinde yanıt verir. Bu örnekte, sunucusuna, genel IP adresinde `104.214.79.47`Internet 'ten ulaşılırsa.
 
-   Bu örnekte, bir geliştirme sertifikası kullanılır. Tarayıcının güvenilmeyen bir sertifika uyarısı atlayarak sonra sayfa güvenli bir şekilde yükler.
+   Bu örnekte bir geliştirme sertifikası kullanılır. Tarayıcının güvenilmeyen sertifika uyarısı atlandıktan sonra sayfa güvenli bir şekilde yüklenir.
 
-   ![Uygulamanın dizin sayfasını gösteren bir tarayıcı penceresi yüklenmedi](httpsys/_static/browser.png)
+   ![Uygulamanın dizin sayfasını yüklü olarak gösteren tarayıcı penceresi](httpsys/_static/browser.png)
 
 ## <a name="proxy-server-and-load-balancer-scenarios"></a>Ara sunucu ve yük dengeleyici senaryoları
 
-Internet'ten veya kurumsal ağ istekleri etkileşim HTTP.sys tarafından barındırılan uygulamalar için ek yapılandırma Ara sunucuları ve yük dengeleyici barındırırken gerekli olabilir. Daha fazla bilgi için [proxy sunucuları ile çalışma ve yük Dengeleyiciler için ASP.NET Core yapılandırma](xref:host-and-deploy/proxy-load-balancer).
+Internet veya şirket ağından gelen isteklerle etkileşime geçen HTTP. sys tarafından barındırılan uygulamalar için, proxy sunucularının ve yük dengeleyiciler 'nin arkasında barındırılırken ek yapılandırma gerekebilir. Daha fazla bilgi için [proxy sunucuları ile çalışma ve yük Dengeleyiciler için ASP.NET Core yapılandırma](xref:host-and-deploy/proxy-load-balancer).
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-* [HTTP.sys ile Windows kimlik doğrulamasını etkinleştirme](xref:security/authentication/windowsauth#httpsys)
-* [HTTP Sunucusu API](https://msdn.microsoft.com/library/windows/desktop/aa364510.aspx)
-* [ASP.NET/HttpSysServer GitHub deposu (kaynak kodu)](https://github.com/aspnet/HttpSysServer/)
+* [HTTP. sys ile Windows kimlik doğrulamasını etkinleştirme](xref:security/authentication/windowsauth#httpsys)
+* [HTTP Sunucusu API 'SI](https://msdn.microsoft.com/library/windows/desktop/aa364510.aspx)
+* [ASPNET/HttpSysServer GitHub deposu (kaynak kodu)](https://github.com/aspnet/HttpSysServer/)
 * [Ana bilgisayar](xref:fundamentals/index#host)
 * <xref:test/troubleshoot>
