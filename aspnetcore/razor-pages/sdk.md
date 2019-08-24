@@ -5,14 +5,14 @@ description: Nasıl ASP.NET Core Razor sayfalar kodlama sayfa odaklı senaryolar
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc, seodec18
-ms.date: 06/18/2019
+ms.date: 08/23/2019
 uid: razor-pages/sdk
-ms.openlocfilehash: 1dc001c7c5fe320629835e06fe6db7fadabff94d
-ms.sourcegitcommit: 6189b0ced9c115248c6ede02efcd0b29d31f2115
+ms.openlocfilehash: 81025c14ba68971ca5d3cfc9387c2f50dd247654
+ms.sourcegitcommit: 983b31449fe398e6e922eb13e9eb6f4287ec91e8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69985393"
+ms.lasthandoff: 08/24/2019
+ms.locfileid: "70017393"
 ---
 # <a name="aspnet-core-razor-sdk"></a>ASP.NET Core Razor SDK'sı
 
@@ -22,26 +22,21 @@ Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 [!INCLUDE[](~/includes/2.1-SDK.md)] İçerir `Microsoft.NET.Sdk.Razor` MSBuild SDK'sı (Razor SDK). Razor SDK:
 
-::: moniker range=">= aspnetcore-2.1 <= aspnetcore-2.2"
+::: moniker range=">= aspnetcore-3.0"
+
+* ASP.NET Core MVC tabanlı veya [Blazor](xref:blazor/index) projeleri için [Razor](xref:mvc/views/razor) dosyaları içeren projeleri derlemek, paketlemek ve yayımlamak için gereklidir.
+* , Razor ( *. cshtml* veya *. Razor*) dosyalarının derlemesini özelleştirmeye izin veren bir dizi önceden tanımlanmış hedef, özellik ve öğe içerir.
+
+Razor SDK, `Content` `**\*.cshtml` ve `Include` Glob`**\*.razor` desenlerine ayarlanmış öznitelikleri olan öğeleri içerir. Eşleşen dosyalar yayımlandı.
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
+
 * Oluşturma, paketleme ve içeren proje yayımlama deneyimi standartlaştırır [Razor](xref:mvc/views/razor) dosyaları ASP.NET Core MVC tabanlı projeler için.
 * Bir dizi önceden tanımlanmış hedefleri, özellikler ve Razor dosyaları derleme özelleştirme izin veren öğeleri içerir.
-::: moniker-end
 
-::: moniker range=">= aspnetcore-3.0"
-* ASP.NET Core MVC tabanlı projeler veya [Blazor](xref:blazor/index) projeleri için [Razor](xref:mvc/views/razor) dosyaları içeren projeleri derlemek, paketlemek ve yayımlamak için gereklidir
-* , Razor (. cshtml veya. Razor) dosyalarının derlemesini özelleştirmeye izin veren bir dizi önceden tanımlanmış hedef, özellik ve öğe içerir.
-::: moniker-end
-
-
-::: moniker range=">= aspnetcore-2.1 <= aspnetcore-2.2"
-
-Razor SDK, `<Content>` `**\*.cshtml` glob düzenine ayarlanmış bir `Include` özniteliği olan bir öğesi içerir. Eşleşen dosyalar yayımlandı.
-
-::: moniker-end
-
-::: moniker range=">= aspnetcore-3.0"
-
-Razor SDK, `<Content>` `**\*.cshtml` ve `Include` Glob`**\*.razor` desenlerine ayarlanmış öznitelikleri olan öğeleri içerir. Eşleşen dosyalar yayımlandı.
+Razor SDK, `Content` `**\*.cshtml` glob düzenine ayarlanmış bir `Include` özniteliği olan bir öğe içerir. Eşleşen dosyalar yayımlandı.
 
 ::: moniker-end
 
@@ -53,7 +48,14 @@ Razor SDK, `<Content>` `**\*.cshtml` ve `Include` Glob`**\*.razor` desenlerine a
 
 Çoğu web uygulaması açıkça Razor SDK'ya başvurmak için gerekli değildir.
 
-::: moniker range=">= aspnetcore-2.1 <= aspnetcore-2.2"
+::: moniker range=">= aspnetcore-3.0"
+
+Razor görünümlerini veya Razor Pages içeren sınıf kitaplıkları oluşturmak için Razor SDK 'yı kullanmak için Razor sınıf kitaplığı (RCL) proje şablonuyla başlamasını öneririz. Blazor ( *. Razor*) dosyalarını derlemek için kullanılan bir RCL, [Microsoft. Aspnetcore. Components](https://www.nuget.org/packages/Microsoft.AspNetCore.Components) paketine en az bir başvuru gerektirir. Razor görünümlerini veya sayfalarını ( *. cshtml* dosyaları) derlemek için kullanılan bir RCL, hedeflemesi `netcoreapp3.0` veya `FrameworkReference` daha yenisini gerektirir ve proje dosyasında [Microsoft. aspnetcore. app metapackage](xref:fundamentals/metapackage-app) öğesine sahip olmalıdır.
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
+
 Razor görünümleri ya da Razor sayfaları içeren sınıf kitaplıkları oluşturmak için Razor SDK'sını kullanmak için:
 
 * Kullanım `Microsoft.NET.Sdk.Razor` yerine `Microsoft.NET.Sdk`:
@@ -78,11 +80,6 @@ Razor görünümleri ya da Razor sayfaları içeren sınıf kitaplıkları oluş
   
 ::: moniker-end
 
-::: moniker range=">= aspnetcore-3.0"
-Razor görünümlerini içeren sınıf kitaplıkları oluşturmak için Razor SDK 'sını veya Razor Pages Razor sınıf kitaplığı proje şablonuyla başlamasını öneririz. Blazor (. Razor) dosyalarını derlemek için kullanılan bir Razor sınıfı kitaplığı, `Microsoft.AspNetCore.Components` en azından pakete bir başvuru gerektirir. Razor görünümlerini veya sayfalarını (. cshtml dosyaları) derlemek için kullanılan bir Razor sınıfı kitaplığı, hedefleme `netcoreapp3.0` veya daha yeni ve `FrameworkReference` öğesine `Microsoft.AspNetCore.App`sahip olması gerekir.
-
-::: moniker-end
-
 ::: moniker range="= aspnetcore-2.1"
 
 > [!WARNING]
@@ -100,15 +97,16 @@ Aşağıdaki özellikler proje derlemesi bir parçası olarak Razor'ın SDK davr
 Özellikler ve öğeler aşağıdaki tabloda, giriş ve çıkış Razor SDK'sına yapılandırmak için kullanılır.
 
 ::: moniker range=">= aspnetcore-3.0"
-> [!WARNING]
-ASP.NET Core 3,0 ' den başlayarak, MVC görünümleri veya Razor Pages, `RazorCompileOnBuild` veya `RazorCompileOnPublish` devre dışıysa varsayılan olarak sunulmayacak. Uygulamalar, cshtml dosyalarını işlemek üzere çalışma `Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation` zamanı derlemesini kullanıyorsa, çalışma zamanı derlemesi için destek eklemek üzere pakete açık bir başvuru eklememelidir.
-::: moniker-end
 
+> [!WARNING]
+> ASP.NET Core 3,0 ' den başlayarak, MVC görünümleri veya Razor Pages proje dosyasındaki ya `RazorCompileOnBuild` `RazorCompileOnPublish` da MSBuild özellikleri devre dışı bırakılmışsa varsayılan olarak sunulmuyor. Uygulama, *. cshtml* dosyalarını işlemek üzere çalışma zamanı derlemesini kullanıyorsa, uygulamalar [Microsoft. Aspnetcore. Mvc. Razor. runtimecompilation](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation) paketine açık bir başvuru eklememelidir.
+
+::: moniker-end
 
 | Öğeler | Açıklama |
 | ----- | ----------- |
 | `RazorGenerate` | Kod oluşturmaya giriş olan öğe öğeleri ( *. cshtml* dosyaları). |
-| `RazorComponent` | Bileşen kodu oluşturmaya giriş olan öğe öğeleri ( *. Razor* dosyaları).
+| `RazorComponent` | Razor bileşen kodu oluşturmaya giriş olan öğe öğeleri ( *. Razor* dosyaları). |
 | `RazorCompile` | Razor derleme hedeflerine giriş olan öğe öğeleri ( *. cs* dosyaları). Razor derlemesinde `ItemGroup` derlenecek ek dosyaları belirtmek için bunu kullanın. |
 | `RazorTargetAssemblyAttribute` | Kod için kullanılan öğeler için Razor derleme öznitelikleri oluşturur. Örneğin:  <br>`RazorAssemblyAttribute`<br>`Include="System.Reflection.AssemblyMetadataAttribute"`<br>`_Parameter1="BuildSource" _Parameter2="https://docs.microsoft.com/">` |
 | `RazorEmbeddedResource` | Oluşturulan Razor derlemesine katıştırılmış kaynakları olarak eklenen öğeler. |
@@ -135,9 +133,9 @@ ASP.NET Core 3,0 ' den başlayarak, MVC görünümleri veya Razor Pages, `RazorC
 
 Razor SDK'sı iki birincil hedefleri tanımlar:
 
-* `RazorGenerate` &ndash; Kod oluşturur *.cs* dosyalarını `RazorGenerate` öğesi öğeleri. Kullanım `RazorGenerateDependsOn` özelliği ek hedefler belirtmek için önce veya sonra bu hedef çalıştırabilirsiniz.
-* `RazorCompile` &ndash; Oluşturulan derler *.cs* için bir Razor derleme dosyaları. Kullanım `RazorCompileDependsOn` önce veya sonra bu hedef çalıştırabilirsiniz ek hedefleri belirtmek için.
-* `RazorComponentGenerate`Kod, öğe öğeleri için `RazorComponent` *. cs* dosyaları oluşturur. &ndash; Kullanım `RazorComponentGenerateDependsOn` özelliği ek hedefler belirtmek için önce veya sonra bu hedef çalıştırabilirsiniz.
+* `RazorGenerate` &ndash; Kod oluşturur *.cs* dosyalarını `RazorGenerate` öğesi öğeleri. Bu hedeften önce veya sonra çalışabilecek ek hedefleri belirtmek için özelliğinikullanın.`RazorGenerateDependsOn`
+* `RazorCompile` &ndash; Oluşturulan derler *.cs* için bir Razor derleme dosyaları. Bu hedeften önce veya sonra çalışabilecek ek hedefleri belirtmek içinöğesinikullanın.`RazorCompileDependsOn`
+* `RazorComponentGenerate`Kod, öğe öğeleri için `RazorComponent` *. cs* dosyaları oluşturur. &ndash; Bu hedeften önce veya sonra çalışabilecek ek hedefleri belirtmek için özelliğinikullanın.`RazorComponentGenerateDependsOn`
 
 ### <a name="runtime-compilation-of-razor-views"></a>Razor görünüm çalışma zamanı derlemesi
 
@@ -155,7 +153,7 @@ Razor SDK'sı iki birincil hedefleri tanımlar:
 </PropertyGroup>
 ```
 
-Razor 'nin dil sürümü, için oluşturulduğu çalışma zamanının sürümü ile sıkı bir şekilde tümleşiktir. Çalışma zamanı için tasarlanmamış bir dil sürümünü hedeflemek desteklenmez ve muhtemelen derleme hataları oluşturur.
+Razor 'nin dil sürümü, için oluşturulduğu çalışma zamanının sürümü ile sıkı bir şekilde tümleşiktir. Çalışma zamanı için tasarlanmamış bir dil sürümünü hedeflemek desteklenmez ve muhtemelen derleme hataları üretir.
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 

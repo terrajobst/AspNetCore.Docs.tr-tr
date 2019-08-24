@@ -5,14 +5,14 @@ description: Tümleştirme testlerinin, bir uygulamanın bileşenlerinin, verita
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 08/05/2019
+ms.date: 08/23/2019
 uid: test/integration-tests
-ms.openlocfilehash: a86bf2b183a81f0b903a12f9d1660fb32faa6c03
-ms.sourcegitcommit: 2eb605f4f20ac4dd9de6c3b3e3453e108a357a21
+ms.openlocfilehash: 195acd3e03f3de63ebd61767f2c86d1c0f38fca5
+ms.sourcegitcommit: 983b31449fe398e6e922eb13e9eb6f4287ec91e8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68819934"
+ms.lasthandoff: 08/24/2019
+ms.locfileid: "70017441"
 ---
 # <a name="integration-tests-in-aspnet-core"></a>ASP.NET Core tümleştirme testleri
 
@@ -284,6 +284,16 @@ Aşağıdaki içeriğe sahip test projesinin köküne *xUnit. Runner. JSON* dosy
 {
   "shadowCopy": false
 }
+```
+
+Visual Studio kullanıyorsanız, dosyanın **Çıkış Dizinine Kopyala** özelliğini **her zaman Kopyala**olarak ayarlayın. Visual Studio kullanmıyorsanız, test uygulamasının proje dosyasına `Content` bir hedef ekleyin:
+
+```xml
+<ItemGroup>
+  <Content Update="xunit.runner.json">
+    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+  </Content>
+</ItemGroup>
 ```
 
 ## <a name="disposal-of-objects"></a>Nesnelerin elden çıkarılması

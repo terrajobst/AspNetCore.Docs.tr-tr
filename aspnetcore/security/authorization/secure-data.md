@@ -6,12 +6,12 @@ ms.author: riande
 ms.date: 12/18/2018
 ms.custom: mvc, seodec18
 uid: security/authorization/secure-data
-ms.openlocfilehash: 4b94cc53777308deb26521a079d8a1c2742744db
-ms.sourcegitcommit: 4fe3ae892f54dc540859bff78741a28c2daa9a38
+ms.openlocfilehash: 225d0e3aa51745253d03e614b1c8568b3a6ba731
+ms.sourcegitcommit: 983b31449fe398e6e922eb13e9eb6f4287ec91e8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/04/2019
-ms.locfileid: "68776740"
+ms.lasthandoff: 08/24/2019
+ms.locfileid: "70017490"
 ---
 # <a name="create-an-aspnet-core-app-with-user-data-protected-by-authorization"></a>Kullanıcı verilerinin yetkilendirme tarafından korunduğu ile bir ASP.NET Core uygulaması oluşturma
 
@@ -37,7 +37,7 @@ Bu öğretici, kullanıcı verilerinin yetkilendirme tarafından korunduğu ile 
 * **Yöneticileri** onaylayabilecek veya reddedebilecek kişi verilerini. Yalnızca onaylanan kişilere, kullanıcılar tarafından görülebilir.
 * **Yöneticiler** Onayla/Reddet ve herhangi bir veri düzenleme/silme kullanabilirsiniz.
 
-Bu belgedeki görüntüler, en son şablonlarla tam olarak eşleşmez.
+Bu belgedeki görüntüler en son şablonlarla tam olarak eşleşmez.
 
 Aşağıdaki görüntüde, kullanıcı Rick (`rick@example.com`) açmıştır. Rick yalnızca onaylanan kişiler görüntüleyebilir ve **Düzenle**/**Sil**/**Yeni Oluştur** kendi kişiler için bağlantılar. Yalnızca en son kaydını görüntüler Rick tarafından oluşturulan **Düzenle** ve **Sil** bağlantıları. Bir yöneticinin "Onaylandı" durum olana kadar diğer kullanıcılar en son kaydını görmez.
 
