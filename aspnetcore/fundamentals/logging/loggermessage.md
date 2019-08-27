@@ -1,67 +1,69 @@
 ---
-title: ASP.NET core'da LoggerMessage ile yüksek performans günlüğü
+title: ASP.NET Core 'de LoggerMessage ile yüksek performanslı günlüğe kaydetme
 author: guardrex
-description: LoggerMessage yüksek performanslı günlük kaydı senaryoları için daha az nesne ayırma işlemleri gerektiren önbelleğe temsilci oluşturmak için kullanmayı öğrenin.
+description: Yüksek performanslı günlük senaryolarında daha az sayıda nesne ayırması gerektiren önbelleğe alınabilir temsilciler oluşturmak için LoggerMessage kullanmayı öğrenin.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 04/24/2019
+ms.date: 08/26/2019
 uid: fundamentals/logging/loggermessage
-ms.openlocfilehash: a82dfa36330e987f03f576d0f80198e3bad7b429
-ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
+ms.openlocfilehash: 56c60fe405660ff39e2696de591449c25f669de2
+ms.sourcegitcommit: 0774a61a3a6c1412a7da0e7d932dc60c506441fc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65085596"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70059040"
 ---
-# <a name="high-performance-logging-with-loggermessage-in-aspnet-core"></a>ASP.NET core'da LoggerMessage ile yüksek performans günlüğü
+# <a name="high-performance-logging-with-loggermessage-in-aspnet-core"></a>ASP.NET Core 'de LoggerMessage ile yüksek performanslı günlüğe kaydetme
 
 Tarafından [Luke Latham](https://github.com/guardrex)
 
-<xref:Microsoft.Extensions.Logging.LoggerMessage> özellikleri daha az nesne ayırma işlemleri gerektiren önbelleğe temsilcileri oluşturup azaltılmış hesaplama ek yüküne karşılaştırdığınızda [Günlükçü genişletme yöntemleri](xref:Microsoft.Extensions.Logging.LoggerExtensions), gibi <xref:Microsoft.Extensions.Logging.LoggerExtensions.LogInformation*> ve <xref:Microsoft.Extensions.Logging.LoggerExtensions.LogDebug*>. Yüksek performanslı günlük kaydı senaryoları için kullanmak <xref:Microsoft.Extensions.Logging.LoggerMessage> deseni.
+::: moniker range=">= aspnetcore-3.0"
 
-<xref:Microsoft.Extensions.Logging.LoggerMessage> Günlükçü genişletme yöntemleri performans aşağıdaki avantajları sağlar:
+<xref:Microsoft.Extensions.Logging.LoggerMessage>özellikler, <xref:Microsoft.Extensions.Logging.LoggerExtensions.LogInformation*> ve <xref:Microsoft.Extensions.Logging.LoggerExtensions.LogDebug*>gibi [günlükçü uzantısı yöntemlerine](xref:Microsoft.Extensions.Logging.LoggerExtensions)kıyasla daha az nesne ayırma ve daha düşük hesaplama yükü gerektiren önbelleğe alınabilir temsilciler oluşturur. Yüksek performanslı günlük senaryoları için, bu <xref:Microsoft.Extensions.Logging.LoggerMessage> kalıbı kullanın.
 
-* Günlükçü genişletme yöntemleri gerektirir "kutulama (dönüştürme)" değer türleri gibi `int`, içine `object`. <xref:Microsoft.Extensions.Logging.LoggerMessage> Deseni statik kullanarak kutulama önler <xref:System.Action> alanları ve kesin tür belirtilmiş parametrelere sahip genişletme yöntemleri.
-* Günlükçü genişletme yöntemleri, her bir günlük iletisine yazılır ileti şablonunu (adlandırılmış bir biçim dizesi) ayrıştırma gerekir. <xref:Microsoft.Extensions.Logging.LoggerMessage> yalnızca bir şablon ileti tanımlandığında kez ayrıştırma gerektirir.
+<xref:Microsoft.Extensions.Logging.LoggerMessage>Günlükçü uzantı yöntemlerine göre aşağıdaki performans avantajlarını sağlar:
 
-[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/logging/loggermessage/samples/2.x/LoggerMessageSample) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
+* Günlükçü uzantı yöntemleri `int` `object`, gibi "kutulama" (dönüştürme) değer türlerini gerektirir. Bu <xref:Microsoft.Extensions.Logging.LoggerMessage> model, kesin türü belirtilmiş parametrelerle <xref:System.Action> statik alanlar ve genişletme yöntemleri kullanarak kutulamayı önler.
+* Günlükçü uzantısı yöntemlerinin her bir günlük iletisi yazıldığında ileti şablonunu (biçim dizesi olarak adlandırılır) ayrıştırması gerekir. <xref:Microsoft.Extensions.Logging.LoggerMessage>yalnızca ileti tanımlandığında bir şablonu ayrıştırmayı gerektirir.
 
-Örnek uygulamayı gösterir <xref:Microsoft.Extensions.Logging.LoggerMessage> özelliklerle izleme sistemi temel bir teklif. Uygulama ekler ve bir bellek içi veritabanı kullanarak siler. Bu işlemler gerçekleşirken, günlük iletilerini kullanılarak oluşturulmuş <xref:Microsoft.Extensions.Logging.LoggerMessage> deseni.
+[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/logging/loggermessage/samples/) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
 
-## <a name="loggermessagedefine"></a>LoggerMessage.Define
+Örnek uygulama, temel <xref:Microsoft.Extensions.Logging.LoggerMessage> bir Quote izleme sistemine sahip özellikleri gösterir. Uygulama, bellek içi veritabanı kullanarak tırnak ekler ve siler. Bu işlemler gerçekleştiğinde, günlük iletileri <xref:Microsoft.Extensions.Logging.LoggerMessage> model kullanılarak oluşturulur.
 
-[(LogLevel, EventID, String) tanımlamak](xref:Microsoft.Extensions.Logging.LoggerMessage.Define*) oluşturur bir <xref:System.Action> temsilci bir ileti günlüğe kaydetme için. <xref:Microsoft.Extensions.Logging.LoggerMessage.Define*> aşırı yüklemeleri adlandırılmış biçim dizesine (şablon) en fazla altı türü parametreleri geçirme izin verir.
+## <a name="loggermessagedefine"></a>LoggerMessage. define
 
-Sağlanan dize <xref:Microsoft.Extensions.Logging.LoggerMessage.Define*> yöntemi olan bir şablonu ve bir aradeğerlendirme dizesinde. Yer tutucuları türleri belirttiğiniz sırada doldurulur. Yer tutucu adlarını şablonundaki şablonlar arasında açıklayıcı ve tutarlı olmalıdır. Bunlar, özellik adları içinde yapılandırılmış günlük verileri görür. Öneririz [Pascal casing](/dotnet/standard/design-guidelines/capitalization-conventions) yer tutucu adları için. Örneğin, `{Count}`, `{FirstName}`.
+[Define (LogLevel, EventID, String)](xref:Microsoft.Extensions.Logging.LoggerMessage.Define*) bir <xref:System.Action> iletiyi günlüğe kaydetmek için bir temsilci oluşturur. <xref:Microsoft.Extensions.Logging.LoggerMessage.Define*>Aşırı Yüklemeler, adlandırılmış biçim dizesine (şablon) altı tür parametre geçişine izin verir.
 
-Her günlük iletisi bir <xref:System.Action> tarafından oluşturulan bir statik alanda tutulan [LoggerMessage.Define](xref:Microsoft.Extensions.Logging.LoggerMessage.Define*). Örneğin, örnek uygulamayı dizin sayfası için bir GET isteği için bir günlük iletisine açıklamak için bir alan oluşturur (*Internal/LoggerExtensions.cs*):
+<xref:Microsoft.Extensions.Logging.LoggerMessage.Define*> Yöntemine girilen dize, enterpolasyonlu bir dize değil, bir şablondur. Yer tutucular, türlerin belirtilme sırasına göre doldurulur. Şablondaki yer tutucu adları, şablonlar genelinde açıklayıcı ve tutarlı olmalıdır. Bunlar, yapılandırılmış günlük verileri içinde özellik adı olarak görev yapar. Yer tutucu adları için [Pascal büyük harfleri](/dotnet/standard/design-guidelines/capitalization-conventions) öneririz. Örneğin, `{Count}` `{FirstName}`,.
 
-[!code-csharp[](loggermessage/samples/2.x/LoggerMessageSample/Internal/LoggerExtensions.cs?name=snippet1)]
+Her günlük iletisi, <xref:System.Action> [loggermessage. define](xref:Microsoft.Extensions.Logging.LoggerMessage.Define*)tarafından oluşturulan statik bir alanda tutulur. Örneğin, örnek uygulama, Dizin sayfası (*iç/LoggerExtensions. cs*) IÇIN bir GET isteğinin günlük iletisini tanımlayacak bir alan oluşturur:
 
-İçin <xref:System.Action>, belirtin:
+[!code-csharp[](loggermessage/samples/3.x/LoggerMessageSample/Internal/LoggerExtensions.cs?name=snippet1)]
+
+<xref:System.Action>İçin şunu belirtin:
 
 * Günlük düzeyi.
-* Bir olay benzersiz tanımlayıcı (<xref:Microsoft.Extensions.Logging.EventId>) statik bir genişletme yöntemi adı.
-* İleti şablonunu (biçim dizesi olarak adlandırılır). 
+* Statik Uzantı yönteminin adı ile<xref:Microsoft.Extensions.Logging.EventId>benzersiz bir olay tanımlayıcısı ().
+* İleti şablonu (biçim dizesi olarak adlandırılır). 
 
-Örnek uygulama kümelerini dizin sayfası için bir istek:
+Örnek uygulamanın dizin sayfası için bir istek şunları ayarlar:
 
-* Günlük düzeyini `Information`.
-* Olay Kimliği `1` adıyla `IndexPageRequested` yöntemi.
-* İleti şablonu (biçim dizesi olarak adlandırılır) bir dize.
+* Günlük düzeyi `Information`.
+* Yöntemin`IndexPageRequested` adı `1` ile olay kimliği.
+* Bir dizeye ileti şablonu (biçim dizesi olarak adlandırılır).
 
-[!code-csharp[](loggermessage/samples/2.x/LoggerMessageSample/Internal/LoggerExtensions.cs?name=snippet5)]
+[!code-csharp[](loggermessage/samples/3.x/LoggerMessageSample/Internal/LoggerExtensions.cs?name=snippet5)]
 
-Günlüğe kaydetme zenginleştirmek için olay kimliği ile sağlandığında yapılandırılmış günlük kaydı depoları olay adı kullanabilirsiniz. Örneğin, [Serilog](https://github.com/serilog/serilog-extensions-logging) olay adını kullanır.
+Yapılandırılmış günlük depoları, olay kimliği ile birlikte verileri zenginleştirmek için sağlandığında olay adını kullanabilir. Örneğin, [Serilog](https://github.com/serilog/serilog-extensions-logging) olay adını kullanır.
 
-<xref:System.Action> Kesin türü belirtilmiş uzantısı yöntemiyle çağrılır. `IndexPageRequested` Yöntemi örnek uygulamada bir dizin sayfası GET isteği için bir ileti kaydeder:
+, <xref:System.Action> Türü kesin belirlenmiş bir uzantı yöntemiyle çağrılır. Yöntemi `IndexPageRequested` , örnek uygulamada bir dizin sayfası get isteği için bir ileti kaydeder:
 
-[!code-csharp[](loggermessage/samples/2.x/LoggerMessageSample/Internal/LoggerExtensions.cs?name=snippet9)]
+[!code-csharp[](loggermessage/samples/3.x/LoggerMessageSample/Internal/LoggerExtensions.cs?name=snippet9)]
 
-`IndexPageRequested` içinde günlükçü adı verilen `OnGetAsync` yönteminde *Pages/Index.cshtml.cs*:
+`IndexPageRequested`, `OnGetAsync` *sayfa/dizin. cshtml. cs*içindeki yöntemdeki günlükçü üzerinde çağrılır:
 
-[!code-csharp[](loggermessage/samples/2.x/LoggerMessageSample/Pages/Index.cshtml.cs?name=snippet2&highlight=3)]
+[!code-csharp[](loggermessage/samples/3.x/LoggerMessageSample/Pages/Index.cshtml.cs?name=snippet2&highlight=3)]
 
 Uygulamanın konsol çıkışını inceleyin:
 
@@ -71,21 +73,21 @@ info: LoggerMessageSample.Pages.IndexModel[1]
       GET request for Index page
 ```
 
-Günlük ileti parametreleri geçirmek için en fazla altı tür statik alanı oluştururken tanımlayın. Örnek uygulama bir teklif tanımlayarak eklerken bir dize günlükleri bir `string` yazın <xref:System.Action> alan:
+Parametreleri bir günlük iletisine geçirmek için, statik alanı oluştururken en fazla altı tür tanımlayın. Örnek uygulama, `string` <xref:System.Action> alan için bir tür tanımlayarak bir alıntı eklerken bir dizeyi günlüğe kaydeder:
 
-[!code-csharp[](loggermessage/samples/2.x/LoggerMessageSample/Internal/LoggerExtensions.cs?name=snippet2)]
+[!code-csharp[](loggermessage/samples/3.x/LoggerMessageSample/Internal/LoggerExtensions.cs?name=snippet2)]
 
-Temsilcinin günlük iletisi şablonu, sağlanan türlerinden yer tutucu değerlerini alır. Örnek uygulamayı teklif parametrenin bulunduğu bir tırnak işareti eklemek için bir temsilci tanımlar. bir `string`:
+Temsilcinin günlük iletisi şablonu, belirtilen türlerden yer tutucu değerlerini alır. Örnek uygulama, quote parametresinin bir `string`tırnak işareti eklemek için bir temsilci tanımlar:
 
-[!code-csharp[](loggermessage/samples/2.x/LoggerMessageSample/Internal/LoggerExtensions.cs?name=snippet6)]
+[!code-csharp[](loggermessage/samples/3.x/LoggerMessageSample/Internal/LoggerExtensions.cs?name=snippet6)]
 
-Bir teklif ekleme statik genişletme yöntemi `QuoteAdded`, teklif bağımsız değişkenin değerini alır ve buna ileten <xref:System.Action> temsilci:
+Tırnak `QuoteAdded`eklemek için statik genişletme yöntemi, quote bağımsız değişkeni değerini alır ve <xref:System.Action> temsilciye geçirir:
 
-[!code-csharp[](loggermessage/samples/2.x/LoggerMessageSample/Internal/LoggerExtensions.cs?name=snippet10)]
+[!code-csharp[](loggermessage/samples/3.x/LoggerMessageSample/Internal/LoggerExtensions.cs?name=snippet10)]
 
-Dizin sayfa sayfa modelinde (*Pages/Index.cshtml.cs*), `QuoteAdded` ileti günlüğe kaydetmek üzere çağrılır:
+Dizin sayfasının sayfa modelinde (*Sayfalar/Index. cshtml. cs*), `QuoteAdded` iletiyi günlüğe kaydetmek için çağrılır:
 
-[!code-csharp[](loggermessage/samples/2.x/LoggerMessageSample/Pages/Index.cshtml.cs?name=snippet3&highlight=6)]
+[!code-csharp[](loggermessage/samples/3.x/LoggerMessageSample/Pages/Index.cshtml.cs?name=snippet3&highlight=6)]
 
 Uygulamanın konsol çıkışını inceleyin:
 
@@ -96,21 +98,21 @@ info: LoggerMessageSample.Pages.IndexModel[2]
           consequences of avoiding reality. - Ayn Rand')
 ```
 
-Örnek uygulama uygulayan bir [deneyin&ndash;catch](/dotnet/csharp/language-reference/keywords/try-catch) teklif silinmek deseni. Bir bilgi iletisidir başarılı silme işlemi için günlüğe kaydedilir. Bir özel durum oluştuğunda bir hata iletisi bir silme işlemi için günlüğe kaydedilir. Başarısız silme işlemi için özel durum yığın izleme günlüğü iletisi içerir (*Internal/LoggerExtensions.cs*):
+Örnek uygulama, teklif silme için bir [TRY&ndash;catch](/dotnet/csharp/language-reference/keywords/try-catch) kalıbı uygular. Başarılı silme işlemi için bir bilgilendirici ileti günlüğe kaydedilir. Bir özel durum oluştuğunda silme işlemi için bir hata iletisi günlüğe kaydedilir. Başarısız silme işleminin günlük iletisi, özel durum yığın izlemesini içerir (*iç/LoggerExtensions. cs*):
 
-[!code-csharp[](loggermessage/samples/2.x/LoggerMessageSample/Internal/LoggerExtensions.cs?name=snippet3)]
+[!code-csharp[](loggermessage/samples/3.x/LoggerMessageSample/Internal/LoggerExtensions.cs?name=snippet3)]
 
-[!code-csharp[](loggermessage/samples/2.x/LoggerMessageSample/Internal/LoggerExtensions.cs?name=snippet7)]
+[!code-csharp[](loggermessage/samples/3.x/LoggerMessageSample/Internal/LoggerExtensions.cs?name=snippet7)]
 
-Özel durum temsilciye nasıl geçirildiğini unutmayın `QuoteDeleteFailed`:
+Özel durumun içindeki `QuoteDeleteFailed`temsilciye nasıl geçtiğini aklınızda yapın:
 
-[!code-csharp[](loggermessage/samples/2.x/LoggerMessageSample/Internal/LoggerExtensions.cs?name=snippet11)]
+[!code-csharp[](loggermessage/samples/3.x/LoggerMessageSample/Internal/LoggerExtensions.cs?name=snippet11)]
 
-Dizin sayfası için sayfa modelinde başarılı teklif silme işlemini çağırır `QuoteDeleted` Günlükçü yöntemi. Bir teklif silinmek üzere bulunamadığında, bir <xref:System.ArgumentNullException> oluşturulur. Özel durum tarafından yakalanan [deneyin&ndash;catch](/dotnet/csharp/language-reference/keywords/try-catch) deyimi ve çağırarak oturum `QuoteDeleteFailed` içinde Günlükçü metodunda [catch](/dotnet/csharp/language-reference/keywords/try-catch) blok (*Pages/Index.cshtml.cs* ):
+Dizin sayfasının sayfa modelinde, başarılı bir teklif silme işlemi günlükçü üzerindeki `QuoteDeleted` yöntemi çağırır. Silinmek üzere bir teklif bulunamadığında, bir <xref:System.ArgumentNullException> oluşturulur. Özel durum [TRY&ndash;catch](/dotnet/csharp/language-reference/keywords/try-catch) ifadesiyle yakalar ve [catch](/dotnet/csharp/language-reference/keywords/try-catch) bloğunda (*Pages/Index. cshtml. cs*) günlükçü üzerindeki `QuoteDeleteFailed` yöntemi çağırarak günlüğe kaydedilir:
 
-[!code-csharp[](loggermessage/samples/2.x/LoggerMessageSample/Pages/Index.cshtml.cs?name=snippet5&highlight=14,18)]
+[!code-csharp[](loggermessage/samples/3.x/LoggerMessageSample/Pages/Index.cshtml.cs?name=snippet5&highlight=9,13)]
 
-Teklif başarıyla silindiğinde, uygulamanın konsol çıkışını inceleyin:
+Bir teklif başarıyla silindiğinde, uygulamanın konsol çıkışını inceleyin:
 
 ```console
 info: LoggerMessageSample.Pages.IndexModel[4]
@@ -119,53 +121,51 @@ info: LoggerMessageSample.Pages.IndexModel[4]
           consequences of avoiding reality. - Ayn Rand' Id = 1)
 ```
 
-Teklif silme işlemi başarısız olduğunda uygulamanın konsol çıkışını inceleyin. Özel bir günlük iletisinde eklendiğini unutmayın:
+Teklif silme başarısız olduğunda, uygulamanın konsol çıkışını inceleyin. Özel durumun günlük iletisine dahil edildiğini unutmayın:
 
 ```console
-fail: LoggerMessageSample.Pages.IndexModel[5]
-      => RequestId:0HL90M6E7PHK5:00000010 RequestPath:/ => /Index
-      Quote delete failed (Id = 999)
-System.ArgumentNullException: Value cannot be null.
-Parameter name: entity
-   at Microsoft.EntityFrameworkCore.Utilities.Check.NotNull[T]
-       (T value, String parameterName)
-   at Microsoft.EntityFrameworkCore.DbContext.Remove[TEntity](TEntity entity)
-   at Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1.Remove(TEntity entity)
-   at LoggerMessageSample.Pages.IndexModel.<OnPostDeleteQuoteAsync>d__14.MoveNext() 
-      in <PATH>\sample\Pages\Index.cshtml.cs:line 87
+LoggerMessageSample.Pages.IndexModel: Error: Quote delete failed (Id = 999)
+
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at lambda_method(Closure , ValueBuffer )
+   at System.Linq.Enumerable.SelectEnumerableIterator`2.MoveNext()
+   at Microsoft.EntityFrameworkCore.InMemory.Query.Internal.InMemoryShapedQueryCompilingExpressionVisitor.AsyncQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at LoggerMessageSample.Pages.IndexModel.OnPostDeleteQuoteAsync(Int32 id) in c:\Users\guard\Documents\GitHub\Docs\aspnetcore\fundamentals\logging\loggermessage\samples\3.x\LoggerMessageSample\Pages\Index.cshtml.cs:line 77
 ```
 
-## <a name="loggermessagedefinescope"></a>LoggerMessage.DefineScope
+## <a name="loggermessagedefinescope"></a>LoggerMessage. DefineScope
 
-[DefineScope(String)](xref:Microsoft.Extensions.Logging.LoggerMessage.DefineScope*) oluşturur bir <xref:System.Func%601> temsilci tanımlamak için bir [oturum kapsamı](xref:fundamentals/logging/index#log-scopes). <xref:Microsoft.Extensions.Logging.LoggerMessage.DefineScope*> aşırı yüklemeleri adlandırılmış biçim dizesine (şablon) en fazla üç türü parametreleri geçirme izin verir.
+[DefineScope (String)](xref:Microsoft.Extensions.Logging.LoggerMessage.DefineScope*) , <xref:System.Func%601> [günlük kapsamı](xref:fundamentals/logging/index#log-scopes)tanımlamak için bir temsilci oluşturur. <xref:Microsoft.Extensions.Logging.LoggerMessage.DefineScope*>Aşırı Yüklemeler, adlandırılmış biçim dizesine (şablon) üç tür parametrenin geçirilmesine izin verir.
 
-Olduğu gibi <xref:Microsoft.Extensions.Logging.LoggerMessage.Define*> yöntem, sağlanan dize <xref:Microsoft.Extensions.Logging.LoggerMessage.DefineScope*> yöntemi olan bir şablonu ve bir aradeğerlendirme dizesinde. Yer tutucuları türleri belirttiğiniz sırada doldurulur. Yer tutucu adlarını şablonundaki şablonlar arasında açıklayıcı ve tutarlı olmalıdır. Bunlar, özellik adları içinde yapılandırılmış günlük verileri görür. Öneririz [Pascal casing](/dotnet/standard/design-guidelines/capitalization-conventions) yer tutucu adları için. Örneğin, `{Count}`, `{FirstName}`.
+<xref:Microsoft.Extensions.Logging.LoggerMessage.Define*> Yönteminde olduğu gibi, yöntemi <xref:Microsoft.Extensions.Logging.LoggerMessage.DefineScope*> için girilen dize, ilişkili dize değil, bir şablondur. Yer tutucular, türlerin belirtilme sırasına göre doldurulur. Şablondaki yer tutucu adları, şablonlar genelinde açıklayıcı ve tutarlı olmalıdır. Bunlar, yapılandırılmış günlük verileri içinde özellik adı olarak görev yapar. Yer tutucu adları için [Pascal büyük harfleri](/dotnet/standard/design-guidelines/capitalization-conventions) öneririz. Örneğin, `{Count}` `{FirstName}`,.
 
-Tanımlayan bir [oturum kapsamı](xref:fundamentals/logging/index#log-scopes) günlük iletileri kullanarak bir dizi için uygulanacak <xref:Microsoft.Extensions.Logging.LoggerMessage.DefineScope*> yöntemi.
+<xref:Microsoft.Extensions.Logging.LoggerMessage.DefineScope*> Yöntemini kullanarak bir dizi günlük mesajı için uygulanacak [günlük kapsamını](xref:fundamentals/logging/index#log-scopes) tanımlayın.
 
-Örnek uygulamanın bir **Tümünü Temizle** tüm veritabanı tırnak silme düğmesi. Tırnak işaretleri bunları kaldırmayı tarafından silinir birer güncelleştirir. Bir teklif silindiğinden, her zaman `QuoteDeleted` yöntemi Günlükçü üzerinde çağrılır. Bir günlük kapsamı bu günlük iletilerini eklenir.
+Örnek uygulamanın, veritabanındaki tüm teklifleri silmek için **Tümünü Temizle** düğmesi vardır. Tırnak işaretleri tek seferde kaldırılarak silinir. Bir teklifin her silindiği `QuoteDeleted` her seferinde yöntemi günlükçü üzerinde çağrılır. Bu günlük iletilerine bir günlük kapsamı eklenir.
 
-Etkinleştirme `IncludeScopes` konsol Günlükçü bölümünde *appsettings.json*:
+`IncludeScopes` *AppSettings. JSON*konsol günlükçü bölümünde etkinleştirin:
 
-[!code-csharp[](loggermessage/samples/2.x/LoggerMessageSample/appsettings.json?highlight=3-5)]
+[!code-csharp[](loggermessage/samples/3.x/LoggerMessageSample/appsettings.json?highlight=3-5)]
 
-Günlük kapsamı oluşturmak için tutacak bir alan ekleyin. bir <xref:System.Func%601> temsilci kapsamın. Örnek uygulama adında bir alan oluşturur `_allQuotesDeletedScope` (*Internal/LoggerExtensions.cs*):
+Bir günlük kapsamı oluşturmak için, kapsam için bir <xref:System.Func%601> temsilci tutacak bir alan ekleyin. Örnek uygulama ( `_allQuotesDeletedScope` *iç/loggerextensions. cs*) adlı bir alan oluşturur:
 
-[!code-csharp[](loggermessage/samples/2.x/LoggerMessageSample/Internal/LoggerExtensions.cs?name=snippet4)]
+[!code-csharp[](loggermessage/samples/3.x/LoggerMessageSample/Internal/LoggerExtensions.cs?name=snippet4)]
 
-Kullanım <xref:Microsoft.Extensions.Logging.LoggerMessage.DefineScope*> temsilci oluşturmak için. Temsilci çağrıldığında, en fazla üç tür şablon bağımsız değişken olarak kullanım için belirtilebilir. Silinen tekliflerinin sayısını içeren bir ileti şablonu örnek uygulamayı kullanır (bir `int` türü):
+Temsilciyi <xref:Microsoft.Extensions.Logging.LoggerMessage.DefineScope*> oluşturmak için kullanın. Temsilci çağrıldığında Şablon bağımsız değişkenleri olarak kullanmak için en fazla üç tür belirlenebilir. Örnek uygulama, silinen tekliflerin sayısını (bir `int` tür) içeren bir ileti şablonu kullanır:
 
-[!code-csharp[](loggermessage/samples/2.x/LoggerMessageSample/Internal/LoggerExtensions.cs?name=snippet8)]
+[!code-csharp[](loggermessage/samples/3.x/LoggerMessageSample/Internal/LoggerExtensions.cs?name=snippet8)]
 
-Günlük iletisi için bir statik genişletme yöntemi sağlar. İleti şablonunda görünen adlandırılmış özellikleri için herhangi bir tür parametreleri içerir. Örnek uygulamayı alır bir `count` silmek için tırnak işaretleri döndürür ve `_allQuotesDeletedScope`:
+Günlük iletisi için bir statik genişletme yöntemi sağlayın. İleti şablonunda görünen adlandırılmış özellikler için herhangi bir tür parametresi ekleyin. Örnek uygulama, silmek ve geri `count` `_allQuotesDeletedScope`döndürmek için tırnak içine alır:
 
-[!code-csharp[](loggermessage/samples/2.x/LoggerMessageSample/Internal/LoggerExtensions.cs?name=snippet12)]
+[!code-csharp[](loggermessage/samples/3.x/LoggerMessageSample/Internal/LoggerExtensions.cs?name=snippet12)]
 
-Günlüğe kaydetme genişletme çağrıları kapsam sarmalayan bir [kullanarak](/dotnet/csharp/language-reference/keywords/using-statement) engelle:
+Kapsam, oturum açma uzantısı çağrılarını bir [using](/dotnet/csharp/language-reference/keywords/using-statement) bloğunda sarmalar:
 
-[!code-csharp[](loggermessage/samples/2.x/LoggerMessageSample/Pages/Index.cshtml.cs?name=snippet4&highlight=5-6,14)]
+[!code-csharp[](loggermessage/samples/3.x/LoggerMessageSample/Pages/Index.cshtml.cs?name=snippet4&highlight=5-6,14)]
 
-Uygulamanın konsol çıkışında günlük iletilerini inceleyin. Aşağıdaki sonucu üç tırnak işaretleri dahil günlük kapsam iletinin silinmiş gösterir:
+Uygulamanın konsol çıkışında günlük iletilerini inceleyin. Aşağıdaki sonuç, günlük kapsamı iletisi dahil olmak üzere silinen üç tırnak gösterir:
 
 ```console
 info: LoggerMessageSample.Pages.IndexModel[4]
@@ -181,6 +181,176 @@ info: LoggerMessageSample.Pages.IndexModel[4]
           All quotes deleted (Count = 3)
       Quote deleted (Quote = 'Quote 3' Id = 4)
 ```
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
+
+<xref:Microsoft.Extensions.Logging.LoggerMessage>özellikler, <xref:Microsoft.Extensions.Logging.LoggerExtensions.LogInformation*> ve <xref:Microsoft.Extensions.Logging.LoggerExtensions.LogDebug*>gibi [günlükçü uzantısı yöntemlerine](xref:Microsoft.Extensions.Logging.LoggerExtensions)kıyasla daha az nesne ayırma ve daha düşük hesaplama yükü gerektiren önbelleğe alınabilir temsilciler oluşturur. Yüksek performanslı günlük senaryoları için, bu <xref:Microsoft.Extensions.Logging.LoggerMessage> kalıbı kullanın.
+
+<xref:Microsoft.Extensions.Logging.LoggerMessage>Günlükçü uzantı yöntemlerine göre aşağıdaki performans avantajlarını sağlar:
+
+* Günlükçü uzantı yöntemleri `int` `object`, gibi "kutulama" (dönüştürme) değer türlerini gerektirir. Bu <xref:Microsoft.Extensions.Logging.LoggerMessage> model, kesin türü belirtilmiş parametrelerle <xref:System.Action> statik alanlar ve genişletme yöntemleri kullanarak kutulamayı önler.
+* Günlükçü uzantısı yöntemlerinin her bir günlük iletisi yazıldığında ileti şablonunu (biçim dizesi olarak adlandırılır) ayrıştırması gerekir. <xref:Microsoft.Extensions.Logging.LoggerMessage>yalnızca ileti tanımlandığında bir şablonu ayrıştırmayı gerektirir.
+
+[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/logging/loggermessage/samples/) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
+
+Örnek uygulama, temel <xref:Microsoft.Extensions.Logging.LoggerMessage> bir Quote izleme sistemine sahip özellikleri gösterir. Uygulama, bellek içi veritabanı kullanarak tırnak ekler ve siler. Bu işlemler gerçekleştiğinde, günlük iletileri <xref:Microsoft.Extensions.Logging.LoggerMessage> model kullanılarak oluşturulur.
+
+## <a name="loggermessagedefine"></a>LoggerMessage. define
+
+[Define (LogLevel, EventID, String)](xref:Microsoft.Extensions.Logging.LoggerMessage.Define*) bir <xref:System.Action> iletiyi günlüğe kaydetmek için bir temsilci oluşturur. <xref:Microsoft.Extensions.Logging.LoggerMessage.Define*>Aşırı Yüklemeler, adlandırılmış biçim dizesine (şablon) altı tür parametre geçişine izin verir.
+
+<xref:Microsoft.Extensions.Logging.LoggerMessage.Define*> Yöntemine girilen dize, enterpolasyonlu bir dize değil, bir şablondur. Yer tutucular, türlerin belirtilme sırasına göre doldurulur. Şablondaki yer tutucu adları, şablonlar genelinde açıklayıcı ve tutarlı olmalıdır. Bunlar, yapılandırılmış günlük verileri içinde özellik adı olarak görev yapar. Yer tutucu adları için [Pascal büyük harfleri](/dotnet/standard/design-guidelines/capitalization-conventions) öneririz. Örneğin, `{Count}` `{FirstName}`,.
+
+Her günlük iletisi, <xref:System.Action> [loggermessage. define](xref:Microsoft.Extensions.Logging.LoggerMessage.Define*)tarafından oluşturulan statik bir alanda tutulur. Örneğin, örnek uygulama, Dizin sayfası (*iç/LoggerExtensions. cs*) IÇIN bir GET isteğinin günlük iletisini tanımlayacak bir alan oluşturur:
+
+[!code-csharp[](loggermessage/samples/2.x/LoggerMessageSample/Internal/LoggerExtensions.cs?name=snippet1)]
+
+<xref:System.Action>İçin şunu belirtin:
+
+* Günlük düzeyi.
+* Statik Uzantı yönteminin adı ile<xref:Microsoft.Extensions.Logging.EventId>benzersiz bir olay tanımlayıcısı ().
+* İleti şablonu (biçim dizesi olarak adlandırılır). 
+
+Örnek uygulamanın dizin sayfası için bir istek şunları ayarlar:
+
+* Günlük düzeyi `Information`.
+* Yöntemin`IndexPageRequested` adı `1` ile olay kimliği.
+* Bir dizeye ileti şablonu (biçim dizesi olarak adlandırılır).
+
+[!code-csharp[](loggermessage/samples/2.x/LoggerMessageSample/Internal/LoggerExtensions.cs?name=snippet5)]
+
+Yapılandırılmış günlük depoları, olay kimliği ile birlikte verileri zenginleştirmek için sağlandığında olay adını kullanabilir. Örneğin, [Serilog](https://github.com/serilog/serilog-extensions-logging) olay adını kullanır.
+
+, <xref:System.Action> Türü kesin belirlenmiş bir uzantı yöntemiyle çağrılır. Yöntemi `IndexPageRequested` , örnek uygulamada bir dizin sayfası get isteği için bir ileti kaydeder:
+
+[!code-csharp[](loggermessage/samples/2.x/LoggerMessageSample/Internal/LoggerExtensions.cs?name=snippet9)]
+
+`IndexPageRequested`, `OnGetAsync` *sayfa/dizin. cshtml. cs*içindeki yöntemdeki günlükçü üzerinde çağrılır:
+
+[!code-csharp[](loggermessage/samples/2.x/LoggerMessageSample/Pages/Index.cshtml.cs?name=snippet2&highlight=3)]
+
+Uygulamanın konsol çıkışını inceleyin:
+
+```console
+info: LoggerMessageSample.Pages.IndexModel[1]
+      => RequestId:0HL90M6E7PHK4:00000001 RequestPath:/ => /Index
+      GET request for Index page
+```
+
+Parametreleri bir günlük iletisine geçirmek için, statik alanı oluştururken en fazla altı tür tanımlayın. Örnek uygulama, `string` <xref:System.Action> alan için bir tür tanımlayarak bir alıntı eklerken bir dizeyi günlüğe kaydeder:
+
+[!code-csharp[](loggermessage/samples/2.x/LoggerMessageSample/Internal/LoggerExtensions.cs?name=snippet2)]
+
+Temsilcinin günlük iletisi şablonu, belirtilen türlerden yer tutucu değerlerini alır. Örnek uygulama, quote parametresinin bir `string`tırnak işareti eklemek için bir temsilci tanımlar:
+
+[!code-csharp[](loggermessage/samples/2.x/LoggerMessageSample/Internal/LoggerExtensions.cs?name=snippet6)]
+
+Tırnak `QuoteAdded`eklemek için statik genişletme yöntemi, quote bağımsız değişkeni değerini alır ve <xref:System.Action> temsilciye geçirir:
+
+[!code-csharp[](loggermessage/samples/2.x/LoggerMessageSample/Internal/LoggerExtensions.cs?name=snippet10)]
+
+Dizin sayfasının sayfa modelinde (*Sayfalar/Index. cshtml. cs*), `QuoteAdded` iletiyi günlüğe kaydetmek için çağrılır:
+
+[!code-csharp[](loggermessage/samples/2.x/LoggerMessageSample/Pages/Index.cshtml.cs?name=snippet3&highlight=6)]
+
+Uygulamanın konsol çıkışını inceleyin:
+
+```console
+info: LoggerMessageSample.Pages.IndexModel[2]
+      => RequestId:0HL90M6E7PHK5:0000000A RequestPath:/ => /Index
+      Quote added (Quote = 'You can avoid reality, but you cannot avoid the 
+          consequences of avoiding reality. - Ayn Rand')
+```
+
+Örnek uygulama, teklif silme için bir [TRY&ndash;catch](/dotnet/csharp/language-reference/keywords/try-catch) kalıbı uygular. Başarılı silme işlemi için bir bilgilendirici ileti günlüğe kaydedilir. Bir özel durum oluştuğunda silme işlemi için bir hata iletisi günlüğe kaydedilir. Başarısız silme işleminin günlük iletisi, özel durum yığın izlemesini içerir (*iç/LoggerExtensions. cs*):
+
+[!code-csharp[](loggermessage/samples/2.x/LoggerMessageSample/Internal/LoggerExtensions.cs?name=snippet3)]
+
+[!code-csharp[](loggermessage/samples/2.x/LoggerMessageSample/Internal/LoggerExtensions.cs?name=snippet7)]
+
+Özel durumun içindeki `QuoteDeleteFailed`temsilciye nasıl geçtiğini aklınızda yapın:
+
+[!code-csharp[](loggermessage/samples/2.x/LoggerMessageSample/Internal/LoggerExtensions.cs?name=snippet11)]
+
+Dizin sayfasının sayfa modelinde, başarılı bir teklif silme işlemi günlükçü üzerindeki `QuoteDeleted` yöntemi çağırır. Silinmek üzere bir teklif bulunamadığında, bir <xref:System.ArgumentNullException> oluşturulur. Özel durum [TRY&ndash;catch](/dotnet/csharp/language-reference/keywords/try-catch) ifadesiyle yakalar ve [catch](/dotnet/csharp/language-reference/keywords/try-catch) bloğunda (*Pages/Index. cshtml. cs*) günlükçü üzerindeki `QuoteDeleteFailed` yöntemi çağırarak günlüğe kaydedilir:
+
+[!code-csharp[](loggermessage/samples/2.x/LoggerMessageSample/Pages/Index.cshtml.cs?name=snippet5&highlight=14,18)]
+
+Bir teklif başarıyla silindiğinde, uygulamanın konsol çıkışını inceleyin:
+
+```console
+info: LoggerMessageSample.Pages.IndexModel[4]
+      => RequestId:0HL90M6E7PHK5:00000016 RequestPath:/ => /Index
+      Quote deleted (Quote = 'You can avoid reality, but you cannot avoid the 
+          consequences of avoiding reality. - Ayn Rand' Id = 1)
+```
+
+Teklif silme başarısız olduğunda, uygulamanın konsol çıkışını inceleyin. Özel durumun günlük iletisine dahil edildiğini unutmayın:
+
+```console
+fail: LoggerMessageSample.Pages.IndexModel[5]
+      => RequestId:0HL90M6E7PHK5:00000010 RequestPath:/ => /Index
+      Quote delete failed (Id = 999)
+System.ArgumentNullException: Value cannot be null.
+Parameter name: entity
+   at Microsoft.EntityFrameworkCore.Utilities.Check.NotNull[T]
+       (T value, String parameterName)
+   at Microsoft.EntityFrameworkCore.DbContext.Remove[TEntity](TEntity entity)
+   at Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1.Remove(TEntity entity)
+   at LoggerMessageSample.Pages.IndexModel.<OnPostDeleteQuoteAsync>d__14.MoveNext() 
+      in <PATH>\sample\Pages\Index.cshtml.cs:line 87
+```
+
+## <a name="loggermessagedefinescope"></a>LoggerMessage. DefineScope
+
+[DefineScope (String)](xref:Microsoft.Extensions.Logging.LoggerMessage.DefineScope*) , <xref:System.Func%601> [günlük kapsamı](xref:fundamentals/logging/index#log-scopes)tanımlamak için bir temsilci oluşturur. <xref:Microsoft.Extensions.Logging.LoggerMessage.DefineScope*>Aşırı Yüklemeler, adlandırılmış biçim dizesine (şablon) üç tür parametrenin geçirilmesine izin verir.
+
+<xref:Microsoft.Extensions.Logging.LoggerMessage.Define*> Yönteminde olduğu gibi, yöntemi <xref:Microsoft.Extensions.Logging.LoggerMessage.DefineScope*> için girilen dize, ilişkili dize değil, bir şablondur. Yer tutucular, türlerin belirtilme sırasına göre doldurulur. Şablondaki yer tutucu adları, şablonlar genelinde açıklayıcı ve tutarlı olmalıdır. Bunlar, yapılandırılmış günlük verileri içinde özellik adı olarak görev yapar. Yer tutucu adları için [Pascal büyük harfleri](/dotnet/standard/design-guidelines/capitalization-conventions) öneririz. Örneğin, `{Count}` `{FirstName}`,.
+
+<xref:Microsoft.Extensions.Logging.LoggerMessage.DefineScope*> Yöntemini kullanarak bir dizi günlük mesajı için uygulanacak [günlük kapsamını](xref:fundamentals/logging/index#log-scopes) tanımlayın.
+
+Örnek uygulamanın, veritabanındaki tüm teklifleri silmek için **Tümünü Temizle** düğmesi vardır. Tırnak işaretleri tek seferde kaldırılarak silinir. Bir teklifin her silindiği `QuoteDeleted` her seferinde yöntemi günlükçü üzerinde çağrılır. Bu günlük iletilerine bir günlük kapsamı eklenir.
+
+`IncludeScopes` *AppSettings. JSON*konsol günlükçü bölümünde etkinleştirin:
+
+[!code-csharp[](loggermessage/samples/2.x/LoggerMessageSample/appsettings.json?highlight=3-5)]
+
+Bir günlük kapsamı oluşturmak için, kapsam için bir <xref:System.Func%601> temsilci tutacak bir alan ekleyin. Örnek uygulama ( `_allQuotesDeletedScope` *iç/loggerextensions. cs*) adlı bir alan oluşturur:
+
+[!code-csharp[](loggermessage/samples/2.x/LoggerMessageSample/Internal/LoggerExtensions.cs?name=snippet4)]
+
+Temsilciyi <xref:Microsoft.Extensions.Logging.LoggerMessage.DefineScope*> oluşturmak için kullanın. Temsilci çağrıldığında Şablon bağımsız değişkenleri olarak kullanmak için en fazla üç tür belirlenebilir. Örnek uygulama, silinen tekliflerin sayısını (bir `int` tür) içeren bir ileti şablonu kullanır:
+
+[!code-csharp[](loggermessage/samples/2.x/LoggerMessageSample/Internal/LoggerExtensions.cs?name=snippet8)]
+
+Günlük iletisi için bir statik genişletme yöntemi sağlayın. İleti şablonunda görünen adlandırılmış özellikler için herhangi bir tür parametresi ekleyin. Örnek uygulama, silmek ve geri `count` `_allQuotesDeletedScope`döndürmek için tırnak içine alır:
+
+[!code-csharp[](loggermessage/samples/2.x/LoggerMessageSample/Internal/LoggerExtensions.cs?name=snippet12)]
+
+Kapsam, oturum açma uzantısı çağrılarını bir [using](/dotnet/csharp/language-reference/keywords/using-statement) bloğunda sarmalar:
+
+[!code-csharp[](loggermessage/samples/2.x/LoggerMessageSample/Pages/Index.cshtml.cs?name=snippet4&highlight=5-6,14)]
+
+Uygulamanın konsol çıkışında günlük iletilerini inceleyin. Aşağıdaki sonuç, günlük kapsamı iletisi dahil olmak üzere silinen üç tırnak gösterir:
+
+```console
+info: LoggerMessageSample.Pages.IndexModel[4]
+      => RequestId:0HL90M6E7PHK5:0000002E RequestPath:/ => /Index => 
+          All quotes deleted (Count = 3)
+      Quote deleted (Quote = 'Quote 1' Id = 2)
+info: LoggerMessageSample.Pages.IndexModel[4]
+      => RequestId:0HL90M6E7PHK5:0000002E RequestPath:/ => /Index => 
+          All quotes deleted (Count = 3)
+      Quote deleted (Quote = 'Quote 2' Id = 3)
+info: LoggerMessageSample.Pages.IndexModel[4]
+      => RequestId:0HL90M6E7PHK5:0000002E RequestPath:/ => /Index => 
+          All quotes deleted (Count = 3)
+      Quote deleted (Quote = 'Quote 3' Id = 4)
+```
+
+::: moniker-end
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 

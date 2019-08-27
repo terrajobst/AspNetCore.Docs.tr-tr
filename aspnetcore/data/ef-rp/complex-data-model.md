@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 07/22/2019
 uid: data/ef-rp/complex-data-model
-ms.openlocfilehash: 5b810073abc8152773631235b5c21611d1a498b5
-ms.sourcegitcommit: 776598f71da0d1e4c9e923b3b395d3c3b5825796
+ms.openlocfilehash: 34b977f70f3e7e58e4ab6fcf3d8f69800896a65d
+ms.sourcegitcommit: 0774a61a3a6c1412a7da0e7d932dc60c506441fc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70024758"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70059125"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---data-model---5-of-8"></a>ASP.NET Core veri modelinde EF Core ile Razor Pages-5/8
 
@@ -1356,7 +1356,7 @@ Yukarıdaki kod, `DepartmentID` `Course` tabloya null yapılamayan bir FK ekler.
 
 Aşağıdaki vurgulanmış kodu ekleyin. Yeni kod `.CreateTable( name: "Department"` bloğundan sonra geçer:
 
- [!code-csharp[](intro/samples/cu/Migrations/20171027005808_ComplexDataModel.cs?name=snippet_CreateDefaultValue&highlight=22-32)]
+[!code-csharp[](intro/samples/cu/Migrations/20171027005808_ComplexDataModel.cs?name=snippet_CreateDefaultValue&highlight=22-32)]
 
 Önceki değişikliklerle, varolan `Course` satırlar, `Up` Yöntem çalıştıktan `ComplexDataModel` sonra "geçici" departmanıyla ilişkilendirilir.
 
@@ -1371,8 +1371,6 @@ Sonraki öğreticide ilgili veriler ele alınmaktadır.
 
 * [Bu öğreticinin YouTube sürümü (Bölüm 1)](https://www.youtube.com/watch?v=0n2f0ObgCoA)
 * [Bu öğreticinin YouTube sürümü (Bölüm 2)](https://www.youtube.com/watch?v=Je0Z5K1TNmY)
-
-
 
 > [!div class="step-by-step"]
 > [Önceki](xref:data/ef-rp/migrations)İleri
