@@ -5,12 +5,12 @@ description: Alanların ilgili işlevleri bir grup içinde ayrı bir ad alanı (
 ms.author: riande
 ms.date: 08/16/2019
 uid: mvc/controllers/areas
-ms.openlocfilehash: d0af3092776ee09469c879fffd3047c50b1a59b4
-ms.sourcegitcommit: 4cb0c7e74355f2e87c60e2a196f842b937247a99
+ms.openlocfilehash: 9065aa23a537add5a9376472e4f4478e9d4149bd
+ms.sourcegitcommit: 776598f71da0d1e4c9e923b3b395d3c3b5825796
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69545797"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70024737"
 ---
 # <a name="areas-in-aspnet-core"></a>ASP.NET Core bölgeler
 
@@ -72,9 +72,7 @@ Yukarıdaki düzen, alan kullanılırken tipik olsa da, bu klasör yapısını k
 /Areas/<Area-Name>/Views/Shared/<Action-Name>.cshtml
 /Views/Shared/<Action-Name>.cshtml
 /Pages/Shared/<Action-Name>.cshtml
-   ```
-
-*Denetleyiciler* ve *modeller* gibi görünüm olmayan klasörlerin konumu bunun önemi **yoktur** . Örneğin, *denetleyiciler* ve *modeller* klasörü gerekli değildir. *Denetleyicilerin* ve *modellerin* içeriği bir. dll ' ye derlenen koddur. *Görünümlerin* içeriği, bu görünüme bir istek getirilene kadar derlenmez.
+```
 
 <a name="attribute"></a>
 

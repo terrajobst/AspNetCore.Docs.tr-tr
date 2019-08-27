@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 07/22/2019
 uid: data/ef-rp/complex-data-model
-ms.openlocfilehash: 8a1c0759453b02f4ce1c45471a8f93da626f8261
-ms.sourcegitcommit: 257cc3fe8c1d61341aa3b07e5bc0fa3d1c1c1d1c
+ms.openlocfilehash: 5b810073abc8152773631235b5c21611d1a498b5
+ms.sourcegitcommit: 776598f71da0d1e4c9e923b3b395d3c3b5825796
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69583291"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70024758"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---data-model---5-of-8"></a>ASP.NET Core veri modelinde EF Core ile Razor Pages-5/8
 
@@ -134,13 +134,16 @@ Veritabanı oluşturulduğunda, modeldeki Özellik adları sütun adları için 
 
 `Required` Özniteliği, ad özellikleri gerekli alanları yapar. Öznitelik, değer türleri ( `DateTime`örneğin `int`,, ve `double`) gibi null yapılamayan türler için gerekli değildir. `Required` Null olmayan türler otomatik olarak gerekli alanlar olarak değerlendirilir.
 
-Öznitelik, `StringLength` özniteliğinde bir minimum length parametresiyle değiştirilebilir: `Required`
+Özniteliğinin zorlanmak üzere ile birlikte `MinimumLength` `MinimumLength` kullanılması gerekir. `Required`
 
 ```csharp
 [Display(Name = "Last Name")]
-[StringLength(50, MinimumLength=1)]
+[Required]
+[StringLength(50, MinimumLength=2)]
 public string LastName { get; set; }
 ```
+
+`MinimumLength`ve `Required` doğrulamanın doğrulanmasını karşılamamak için boşluk. Dize üzerinde tam denetim için özniteliğinikullanın.`RegularExpression`
 
 ### <a name="the-display-attribute"></a>Display özniteliği
 

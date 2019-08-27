@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 8/22/2019
 uid: performance/caching/memory
-ms.openlocfilehash: 3005adec9ffe41859d05a3f61c7c45b8e7bfeefc
-ms.sourcegitcommit: bdaee0e8c657fe7546fd6b7990db9c03c2af04df
+ms.openlocfilehash: 1519abbca6430063f037372a4927f5818f160457
+ms.sourcegitcommit: 776598f71da0d1e4c9e923b3b395d3c3b5825796
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69908382"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70024793"
 ---
 # <a name="cache-in-memory-in-aspnet-core"></a>ASP.NET Core 'de önbellek belleği
 
@@ -85,15 +85,15 @@ Aşağıdaki kod, mutlak süre sonu ile önbelleğe alınmış bir öğe alır v
 
 [!code-csharp[](memory/3.0sample/WebCacheSample/Controllers/HomeController.cs?name=snippet99)]
 
-Yalnızca Kayan süre sonu olan önbelleğe alınmış bir öğe kümesi, süresi dolduğundan sınırlı olmadığından eski haline gelme risklidir. Önbelleğe alınan öğenin mutlak bitiş süresinden daha eski hale gelmesini güvence altına almak için kayan süre sonu ile mutlak bir süre sonu kullanın. Mutlak süre sonu kayan ile birleştirildiğinde, mutlak süre sonu öğenin ne kadar süreyle önbelleğe alındığına ilişkin bir üst sınır ayarlar. Yalnızca mutlak süre sonu zamanından farklı olarak, öğe Kayan süre sonu aralığı içindeki önbellekten istenmez, öğe önbellekten çıkarıldı. Mutlak ve kayan süre sonu belirtildiğinde, süre sonları mantıksal ORed.
+Yalnızca kayan bir süre sonu olan önbelleğe alınmış bir öğe kümesi, eski olma riski altında. Kayan süre sonu aralığından daha sık erişiliyorsa, öğe hiçbir zaman sona ermez. Mutlak süre sonu zamanı başarılı olduktan sonra öğenin süresinin dolacağını garantilemek için kayan bir süre sonu mutlak bir süre sonu ile birleştirin. Mutlak süre sonu, öğenin, Kayan süre sonu aralığı içinde istenmediğinde daha önce süresinin dolmasına izin verirken öğenin ne kadar süre önbellekte önbelleğe alınacağını belirleyen bir üst sınır ayarlar. Mutlak ve kayan süre sonu belirtildiğinde, süre sonları mantıksal ORed. Kayan süre sonu aralığı *veya* mutlak süre sonu zamanı başarılı olursa, öğe önbellekten çıkarıldı.
 
-Aşağıdaki kod, kayan ve mutlak süre sonu ile önbelleğe alınmış bir öğe alır veya oluşturur:
+Aşağıdaki kod hem kayan hem de mutlak süre sonu ile önbelleğe alınmış bir öğe alır veya oluşturur:
 
 [!code-csharp[](memory/3.0sample/WebCacheSample/Controllers/HomeController.cs?name=snippet9)]
 
 Yukarıdaki kod, verilerin mutlak süreden daha uzun süre önbelleğe alınmamasını garanti eder.
 
-<xref:Microsoft.Extensions.Caching.Memory.CacheExtensions.GetOrCreate*>, <xref:Microsoft.Extensions.Caching.Memory.CacheExtensions.GetOrCreateAsync*>ve <xref:Microsoft.Extensions.Caching.Memory.CacheExtensions> ,özelliğini<xref:Microsoft.Extensions.Caching.Memory.IMemoryCache>genişleten sınıfın bir parçası olan uzantı metodlardır. <xref:Microsoft.Extensions.Caching.Memory.CacheExtensions.Get*> Diğer önbellek yöntemlerinin açıklaması için bkz. [ımemorycache metotları](/dotnet/api/microsoft.extensions.caching.memory.imemorycache) ve [cacheextensions yöntemleri](/dotnet/api/microsoft.extensions.caching.memory.cacheextensions) .
+<xref:Microsoft.Extensions.Caching.Memory.CacheExtensions.GetOrCreate*>, <xref:Microsoft.Extensions.Caching.Memory.CacheExtensions.GetOrCreateAsync*> <xref:Microsoft.Extensions.Caching.Memory.CacheExtensions> ve <xref:Microsoft.Extensions.Caching.Memory.CacheExtensions.Get*> , sınıfında uzantı yöntemleridir. Bu yöntemler kapasitesini <xref:Microsoft.Extensions.Caching.Memory.IMemoryCache>genişletir.
 
 ## <a name="memorycacheentryoptions"></a>Memorycachebir Yoptions
 

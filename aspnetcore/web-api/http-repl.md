@@ -7,12 +7,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 07/25/2019
 uid: web-api/http-repl
-ms.openlocfilehash: 0e80fcd76a4d3efcd35140c52e0f6f0ae0f27932
-ms.sourcegitcommit: 2719c70cd15a430479ab4007ff3e197fbf5dfee0
+ms.openlocfilehash: d2c5f774595e7a2223e84cc76eecdb9baa04adfe
+ms.sourcegitcommit: 776598f71da0d1e4c9e923b3b395d3c3b5825796
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68862961"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70024800"
 ---
 # <a name="test-web-apis-with-the-http-repl"></a>HTTP REPL ile Web API 'Lerini test etme
 
@@ -82,6 +82,12 @@ Options:
 
 Once the REPL starts, these commands are valid:
 
+Setup Commands:
+Use these commands to configure the tool for your API server
+
+connect        Configures the directory structure and base address of the api server
+set header     Sets or clears a header for all requests. e.g. `set header content-type application/json`
+
 HTTP Commands:
 Use these commands to execute requests against your application.
 
@@ -93,13 +99,10 @@ PATCH          patch - Issues a PATCH request
 HEAD           head - Issues a HEAD request
 OPTIONS        options - Issues a OPTIONS request
 
-set header     Sets or clears a header for all requests. e.g. `set header content-type application/json`
-
 Navigation Commands:
 The REPL allows you to navigate your URL space and focus on specific APIs that you are working on.
 
 set base       Set the base URI. e.g. `set base http://locahost:5000`
-set swagger    Sets the swagger document to use for information about the current server
 ls             Show all endpoints for the current path
 cd             Append the given directory to the currently selected path, or move up a path when using `cd ..`
 
@@ -128,10 +131,10 @@ HTTP REPL komut tamamlama sağlar. <kbd>Sekme</kbd> tuşuna basıldığında, ya
 Aşağıdaki komutu çalıştırarak bir Web API 'sine bağlanın:
 
 ```console
-dotnet httprepl <BASE URI>
+dotnet httprepl <ROOT URI>
 ```
 
-`<BASE URI>`, Web API 'sinin temel URI 'sidir. Örneğin:
+`<ROOT URI>`, Web API 'sinin temel URI 'sidir. Örneğin:
 
 ```console
 dotnet httprepl https://localhost:5001
@@ -140,27 +143,27 @@ dotnet httprepl https://localhost:5001
 Alternatif olarak, HTTP REPL çalışırken istediğiniz zaman aşağıdaki komutu çalıştırın:
 
 ```console
-set base <BASE URI>
+connect <ROOT URI>
 ```
 
 Örneğin:
 
 ```console
-(Disconnected)~ set base https://localhost:5001
+(Disconnected)~ connect https://localhost:5001
 ```
 
-## <a name="point-to-the-swagger-document-for-the-web-api"></a>Web API 'SI için Swagger belgesine işaret edin
+## <a name="manually-point-to-the-swagger-document-for-the-web-api"></a>Web API 'SI için Swagger belgesine el ile işaret edin
 
-Web API 'sini düzgün bir şekilde incelemek için göreli URI 'yi Web API 'SI için Swagger belgesine ayarlayın. Şu komutu çalıştırın:
+Yukarıdaki Connect komutu Swagger belgesini otomatik olarak bulmaya çalışacaktır. Bir nedenden dolayı yapamaması durumunda, bu `--swagger` seçeneği kullanarak Web API 'si için Swagger belgesinin URI 'sini belirtebilirsiniz:
 
 ```console
-set swagger <RELATIVE URI>
+connect <ROOT URI> --swagger <SWAGGER URI>
 ```
 
 Örneğin:
 
 ```console
-https://localhost:5001/~ set swagger /swagger/v1/swagger.json
+(Disconnected)~ connect https://localhost:5001 --swagger /swagger/v1/swagger.json
 ```
 
 ## <a name="navigate-the-web-api"></a>Web API 'sinde gezin
@@ -402,6 +405,21 @@ Varsayılan metin düzenleyiciyi belirli CLI bağımsız değişkenleriyle başl
 
 ```console
 pref set editor.command.default.arguments "--disable-extensions --new-window"
+```
+
+### <a name="set-the-swagger-search-paths"></a>Swagger arama yollarını ayarla
+
+Varsayılan olarak, http REPL, `connect` komutu `--swagger` seçeneği olmadan yürütürken Swagger belgesini bulmak için kullandığı bir göreli yollar kümesine sahiptir. Bu göreli yollar, `connect` komutta belirtilen kök ve taban yollarla birleştirilir. Varsayılan göreli yollar şunlardır:
+
+- *Swagger. JSON*
+- *Swagger/v1/Swagger. JSON*
+- */swagger.json*
+- */swagger/v1/swagger.json*
+
+Ortamınızda farklı bir arama yolları kümesi kullanmak için `swagger.searchPaths` tercihi ayarlayın. Değer, göreli yolların kanal ile ayrılmış bir listesi olmalıdır. Örneğin:
+
+```console
+pref set swagger.searchPaths "swagger/v2/swagger.json|swagger/v3/swagger.json
 ```
 
 ## <a name="test-http-get-requests"></a>HTTP GET isteklerini test etme
