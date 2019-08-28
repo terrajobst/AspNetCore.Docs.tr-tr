@@ -4,14 +4,14 @@ author: rick-anderson
 description: ASP.NET Core ile Web API 'SI oluşturmayı öğrenin.
 ms.author: riande
 ms.custom: mvc
-ms.date: 08/14/2019
+ms.date: 08/27/2019
 uid: tutorials/first-web-api
-ms.openlocfilehash: 99985e9fb1134c2ba808434f8d24c4a768773268
-ms.sourcegitcommit: 476ea5ad86a680b7b017c6f32098acd3414c0f6c
+ms.openlocfilehash: 25bfccb136d875b454034bd011828c9f3b6cd3d8
+ms.sourcegitcommit: de17150e5ec7507d7114dde0e5dbc2e45a66ef53
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69022603"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70113293"
 ---
 # <a name="tutorial-create-a-web-api-with-aspnet-core"></a>Öğretici: ASP.NET Core ile Web API 'SI oluşturma
 
@@ -462,9 +462,9 @@ Postman bir yapılacak iş öğesini silmek için kullanın:
 * Silmek, örneğin nesnenin URI ayarlayın `https://localhost:5001/api/TodoItems/1`
 * Seçin **Gönder**
 
-## <a name="call-the-api-from-jquery"></a>JQuery 'ten API çağırma
+## <a name="call-the-web-api-with-javascript"></a>JavaScript ile Web API 'sini çağırma
 
-Öğreticiye bakın [: JQuery](xref:tutorials/web-api-jquery)ile ASP.NET Core Web API 'si çağırma.
+Öğreticiye bakın [: JavaScript](xref:tutorials/web-api-javascript)ile ASP.NET Core Web API 'si çağırın.
 
 ::: moniker-end
 
@@ -480,9 +480,10 @@ Bu öğreticide şunların nasıl yapıladığını öğreneceksiniz:
 > * Yönlendirmeyi Yapılandırma ve URL yolu.
 > * Dönüş değerleri belirtin.
 > * Web API'si Postman ile çağırın.
-> * JQuery ile Web API 'sini çağırın.
+> * JavaScript ile Web API 'sini çağırın.
 
 Sonunda, web API'si "Yapılacaklar" öğelerini ilişkisel bir veritabanında depolanan yönetebileceği sahip.
+
 ## <a name="overview"></a>Genel Bakış
 
 Bu öğretici yandaki API oluşturur:
@@ -737,7 +738,6 @@ Dönüş türünü `GetTodoItems` ve `GetTodoItem` yöntemler [actionresult öğ
 * Öğe istenen kimliği eşleşirse, yöntem bir 404 döndürür [NotFound](/dotnet/api/microsoft.aspnetcore.mvc.controllerbase.notfound) hata kodu.
 * Aksi takdirde yöntem bir JSON yanıt gövdesine 200 döndürür. Döndüren `item` sonuçları bir HTTP 200 yanıtı.
 
-
 ## <a name="test-the-gettodoitems-method"></a>Test GetTodoItems yöntemi
 
 Bu öğreticide Postman web API'si test etmek için kullanılır.
@@ -863,9 +863,9 @@ Postman bir yapılacak iş öğesini silmek için kullanın:
 
 Örnek uygulama, tüm öğeleri silmenizi sağlar. Ancak, son öğe silindiğinde, API 'nin bir sonraki çağrılışında model sınıfı Oluşturucu tarafından yeni bir tane oluşturulur.
 
-## <a name="call-the-api-with-jquery"></a>JQuery ile API çağırma
+## <a name="call-the-web-api-with-javascript"></a>JavaScript ile Web API 'sini çağırma
 
-Bu bölümde, Web'i çağırmaya jQuery kullanan bir HTML sayfasına eklenen API. jQuery isteği başlatır ve API'nin yanıt Ayrıntıları sayfası güncelleştirir.
+Bu bölümde, Web API 'sini çağırmak için JavaScript kullanan bir HTML sayfası eklenir. Fetch API 'SI isteği başlatır. JavaScript, sayfayı Web API 'sinin yanıtından alınan ayrıntılarla güncelleştirir.
 
 Uygulamayı [statik dosyalara sunacak](/dotnet/api/microsoft.aspnetcore.builder.staticfileextensions.usestaticfiles#Microsoft_AspNetCore_Builder_StaticFileExtensions_UseStaticFiles_Microsoft_AspNetCore_Builder_IApplicationBuilder_) şekilde yapılandırın ve aşağıdaki vurgulanmış kodla *Startup.cs* güncelleştirerek [varsayılan dosya eşlemesini etkinleştirin](/dotnet/api/microsoft.aspnetcore.builder.defaultfilesextensions.usedefaultfiles#Microsoft_AspNetCore_Builder_DefaultFilesExtensions_UseDefaultFiles_Microsoft_AspNetCore_Builder_IApplicationBuilder_) :
 
@@ -886,19 +886,17 @@ ASP.NET Core proje başlatma ayarlarında bir değişiklik HTML sayfasını yere
 * Açık *Properties\launchSettings.json*.
 * Kaldırma `launchUrl` , açmak için uygulamayı zorlamak için özellik *index.html*&mdash;projenin varsayılan dosya.
 
-JQuery almak için birkaç yolu vardır. Yukarıdaki kod parçacığında, bir CDN kitaplığı yüklenir.
-
-Bu örnek, tüm API CRUD yöntemleri çağırır. API çağrıları açıklamaları aşağıda verilmiştir.
+Bu örnek, Web API 'sinin tüm CRUD yöntemlerini çağırır. API çağrıları açıklamaları aşağıda verilmiştir.
 
 ### <a name="get-a-list-of-to-do-items"></a>Yapılacaklar öğelerinin bir listesini alın
 
-JQuery [ajax](https://api.jquery.com/jquery.ajax/) işlev gönderen bir `GET` Yapılacaklar öğelerini dizisini temsil eden JSON döndüren API isteği. `success` İstek başarılı olursa geri çağırma işlevi çağrılır. Geri çağırma içinde DOM Yapılacaklar bilgilerle güncelleştirilir.
+Fetch, Web API 'sine bir HTTP GET isteği gönderir ve bu, Yapılacaklar öğeleri dizisini temsil eden JSON döndürür. `success` İstek başarılı olursa geri çağırma işlevi çağrılır. Geri çağırma içinde DOM Yapılacaklar bilgilerle güncelleştirilir.
 
 [!code-javascript[](first-web-api/samples/2.2/TodoApi/wwwroot/site.js?name=snippet_GetData)]
 
 ### <a name="add-a-to-do-item"></a>Yapılacak İş Öğesi Ekle
 
-[Ajax](https://api.jquery.com/jquery.ajax/) işlev gönderen bir `POST` istek ile istek gövdesindeki yapılacak iş öğesi. `accepts` Ve `contentType` seçeneklerini ayarlamak `application/json` gönderilen ve alınan medya türü belirtmek için. Yapılacak iş öğesi kullanarak JSON'a dönüştürülür [JSON.stringify](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify). API'yi bir başarılı durum kodu döndürdüğünde `getData` işlevi HTML tablosu güncelleştirmek için çağrılır.
+Fetch, istek gövdesinde Yapılacaklar öğesiyle bir HTTP POST isteği gönderir. `accepts` Ve `contentType` seçeneklerini ayarlamak `application/json` gönderilen ve alınan medya türü belirtmek için. Yapılacak iş öğesi kullanarak JSON'a dönüştürülür [JSON.stringify](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify). API'yi bir başarılı durum kodu döndürdüğünde `getData` işlevi HTML tablosu güncelleştirmek için çağrılır.
 
 [!code-javascript[](first-web-api/samples/2.2/TodoApi/wwwroot/site.js?name=snippet_AddItem)]
 
