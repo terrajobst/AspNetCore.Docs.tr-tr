@@ -81,9 +81,9 @@
         - name: MongoDB ile Web API
           displayName: tutorial
           uid: tutorials/first-mongo-app
-        - name: jQuery ile Web API
+        - name: JavaScript ile Web API’si
           displayName: tutorial
-          uid: tutorials/web-api-jquery
+          uid: tutorials/web-api-javascript
         - name: Mobil için arka uç
           displayName: tutorial
           uid: mobile/native-mobile-backend
