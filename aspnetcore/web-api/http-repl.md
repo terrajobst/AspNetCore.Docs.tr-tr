@@ -5,14 +5,14 @@ description: HTTP REPL .NET Core küresel aracının bir ASP.NET Core Web API 's
 monikerRange: '>= aspnetcore-2.1'
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 07/25/2019
+ms.date: 08/29/2019
 uid: web-api/http-repl
-ms.openlocfilehash: d2c5f774595e7a2223e84cc76eecdb9baa04adfe
-ms.sourcegitcommit: 776598f71da0d1e4c9e923b3b395d3c3b5825796
+ms.openlocfilehash: e97b127b869b847997f9c48e4031306daecef2f9
+ms.sourcegitcommit: 4b00e77f9984ce76356e829cfe7f75f0f61a7a8f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70024800"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70145787"
 ---
 # <a name="test-web-apis-with-the-http-repl"></a>HTTP REPL ile Web API 'Lerini test etme
 
@@ -278,52 +278,6 @@ Belirli renk anahtarları ayarlanmamışsa, daha genel anahtarlar kabul edilir. 
 * Eğer `colors.json.string` bir değeri yoksa, `colors.json.literal` kullanılır.
 * Eğer `colors.json.literal` bir değeri yoksa, `colors.json` kullanılır. 
 * Bir `colors.json` değere sahip değilse, komut kabuğun varsayılan metin rengi (`AllowedColors.None`) kullanılır.
-
-### <a name="set-indentation-size"></a>Girinti boyutunu ayarla
-
-Yanıt girintileme boyut özelleştirmesi Şu anda yalnızca JSON için destekleniyor. Varsayılan boyut iki boşluklardan oluşamaz. Örneğin:
-
-```json
-[
-  {
-    "id": 1,
-    "name": "Apple"
-  },
-  {
-    "id": 2,
-    "name": "Orange"
-  },
-  {
-    "id": 3,
-    "name": "Strawberry"
-  }
-]
-```
-
-Varsayılan boyutu değiştirmek için `formatting.json.indentSize` anahtarı ayarlayın. Örneğin, her zaman dört boşluk kullanmak için:
-
-```console
-pref set formatting.json.indentSize 4
-```
-
-Sonraki yanıtlar dört boşluk ayarına uyar:
-
-```json
-[
-    {
-        "id": 1,
-        "name": "Apple"
-    },
-    {
-        "id": 2,
-        "name": "Orange"
-    },
-    {
-        "id": 3,
-        "name": "Strawberry"
-    }
-]
-```
 
 ### <a name="set-indentation-size"></a>Girinti boyutunu ayarla
 
