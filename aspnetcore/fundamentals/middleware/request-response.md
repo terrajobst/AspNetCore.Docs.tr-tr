@@ -1,84 +1,84 @@
 ---
-title: ASP.NET Core istek ve yanıt işlemlerinde
+title: ASP.NET Core 'de istek ve yanıt işlemleri
 author: jkotalik
-description: İstek gövdesini okuyup yanıt gövdesi içinde ASP.NET Core hakkında bilgi edinin.
+description: İstek gövdesini okumayı ve yanıt gövdesini ASP.NET Core yazmayı öğrenin.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: jukotali
 ms.custom: mvc
-ms.date: 02/26/2019
+ms.date: 08/29/2019
 uid: fundamentals/middleware/request-response
-ms.openlocfilehash: c9f6509738ef6290666a58268fbb0584913db9d6
-ms.sourcegitcommit: 357a7120632b20465801c093e4e5bd4a315496a8
+ms.openlocfilehash: e992401da2d194b178afbe51a293d103def0f940
+ms.sourcegitcommit: e6bd2bbe5683e9a7dbbc2f2eab644986e6dc8a87
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67649236"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70238147"
 ---
-# <a name="request-and-response-operations-in-aspnet-core"></a>ASP.NET Core istek ve yanıt işlemlerinde
+# <a name="request-and-response-operations-in-aspnet-core"></a>ASP.NET Core 'de istek ve yanıt işlemleri
 
-Tarafından [Justin Kotalik](https://github.com/jkotalik)
+, [Kotin Kotalik](https://github.com/jkotalik) tarafından
 
-Bu makalede, gövdeden okuma ve yazma için yanıt gövdesini açıklanmaktadır. Ara yazılım yazarken bu işlemler için kod yazmanız gerekebilir. Aksi takdirde, genellikle işlemleri, MVC ve Razor sayfaları tarafından işlenir. çünkü bu kodu yazmak gerekmez.
+Bu makalede, istek gövdesinden okuma ve yanıt gövdesine yazma işlemleri açıklanmaktadır. Bu işlemler için kod, ara yazılım yazılırken gerekli olabilir. İşlemler MVC ve Razor Pages tarafından işlendiği için, yazma ara yazılımı dışında, özel kod genellikle gerekli değildir.
 
-ASP.NET Core 3. 0 ', istek ve yanıt gövdeleri için iki soyutlama vardır: <xref:System.IO.Stream> ve <xref:System.IO.Pipelines.Pipe>. İsteği okumak için [HttpRequest.Body](xref:Microsoft.AspNetCore.Http.HttpRequest.Body) olduğu bir <xref:System.IO.Stream>, ve `HttpRequest.BodyPipe` olduğu bir <xref:System.IO.Pipelines.PipeReader>. Yanıt yazmak için [HttpResponse.Body](xref:Microsoft.AspNetCore.Http.HttpResponse.Body) olduğu bir `HttpResponse.BodyPipe` olduğu bir <xref:System.IO.Pipelines.PipeWriter>.
+İstek ve yanıt gövdelerinin iki soyutlamaları vardır: <xref:System.IO.Stream> ve. <xref:System.IO.Pipelines.Pipe> İstek okuma için, [HttpRequest. Body](xref:Microsoft.AspNetCore.Http.HttpRequest.Body) bir <xref:System.IO.Stream>ve `HttpRequest.BodyReader` olur <xref:System.IO.Pipelines.PipeReader>. Yanıt yazma için [HttpResponse. Body](xref:Microsoft.AspNetCore.Http.HttpResponse.Body) `HttpResponse.BodyWriter` bir ' dır <xref:System.IO.Pipelines.PipeWriter>.
 
-İşlem hatları üzerinde akışları öneririz. Akışları kullanmak için bazı basit işlemler daha kolay olabilir, ancak işlem hatları performans avantajı vardır ve çoğu senaryoda kullanmak daha kolaydır. 3\. 0 ', işlem hatları akışları yerine dahili olarak kullanmak üzere ASP.NET Core başlatıyor. Örnekler:
+İşlem hatları akışlar üzerinde önerilir. Akışlar bazı basit işlemler için daha kolay olabilir, ancak işlem hatları performans avantajına sahiptir ve çoğu senaryoda daha kolay kullanılır. ASP.NET Core dahili akışlar yerine işlem hatlarını kullanmaya başlıyor. Örnekler:
 
-- `FormReader`
-- `TextReader`
-- `TextWriter`
-- `HttpResponse.WriteAsync`
+* `FormReader`
+* `TextReader`
+* `TextWriter`
+* `HttpResponse.WriteAsync`
 
-Akışları kullanımdan kaldırılıyor değildir. .NET içinde kullanılacak devam etmek ve birçok akış türleri gibi kanal eşdeğerleri olmayan `FileStreams` ve `ResponseCompression`.
+Akışlar çerçeveden kaldırılmıyor. Akışlar .net genelinde çalışmaya devam eder ve birçok akış türü, `FileStreams` ve `ResponseCompression`gibi kanal eşdeğerlerine sahip değildir.
 
 ## <a name="stream-examples"></a>Stream örnekleri
 
-Yeni satırlara bölme dizelerden oluşan bir liste olarak tüm istek gövdesini okuyan bir ara yazılım oluşturmak istediğinizi varsayalım. Basit bir akış uygulaması aşağıdaki örnekteki gibi görünebilir:
+Hedefin, yeni satırları bölerek tüm istek gövdesini bir dizeler listesi olarak okuyan bir ara yazılım oluşturduğunu varsayalım. Basit bir akış uygulamasının aşağıdaki örnekteki gibi görünebilir:
 
 [!code-csharp[](request-response/samples/3.x/RequestResponseSample/Startup.cs?name=GetListOfStringsFromStream)]
 
-Bu kod çalışır, ancak bazı sorunlar vardır:
+Bu kod işe yarar ancak bazı sorunlar vardır:
 
-- Sonuna ekleme önce `StringBuilder`, başka bir dize örneği oluşturur (`encodedString`), harekete hemen hemen. Sonucu ek bellek ayırma boyutu tüm istek gövdesi, bu nedenle bu işlem, tüm bayt akışı olarak gerçekleşir.
-- Örneğin, yeni satırlara bölme önce dizenin tamamını okur. Bayt dizisinde yeni satırları denetlemek için daha verimli olacaktır.
+* ' A eklemeden önce, örnek hemen oluşturulan başka bir dize`encodedString`() oluşturur. `StringBuilder` Bu işlem akıştaki tüm baytlar için gerçekleşir, bu nedenle sonuç, tüm istek gövdesinin boyutunun fazladan bellek ayırmasından oluşur.
+* Örnek, yeni satırlara bölmeden önce tüm dizeyi okur. Bayt dizisindeki yeni satırları denetlemek daha etkilidir.
 
-Bu sorunlardan bazıları düzelten bir örnek aşağıda verilmiştir:
+Yukarıdaki sorunlardan bazılarını düzelten bir örnek aşağıda verilmiştir:
 
 [!code-csharp[](request-response/samples/3.x/RequestResponseSample/Startup.cs?name=GetListOfStringsFromStreamMoreEfficient)]
 
-Bu örnekte:
+Bu önceki örnek:
 
-- Tüm istek gövdesinde arabelleğe almayan bir `StringBuilder` olmadığı sürece herhangi bir yeni satır karakteri.
-- Değil çağırma `Split` dizesini.
+* Herhangi bir `StringBuilder` yeni satır karakteri olmadıkça tüm istek gövdesini arabelleğe almaz.
+* Dizeye çağrı `Split` yapmaz.
 
-Ancak, yine de bazı sorunlar şunlardır:
+Ancak, yine de bazı sorunlar vardır:
 
-- Yeni satır karakterleri seyrek, istek gövdesi çoğunu dizesini arabelleğe alınıp.
-- Dizeleri hala oluşturur (`remainingString`) ve bunları bir ek ayırmayı sonuçları dize arabelleğine ekler.
+* Yeni satır karakterleri seyrek ise, dize içinde istek gövdesinin büyük bir bölümü arabelleğe alınır.
+* Kod dizeler (`remainingString`) oluşturmaya devam eder ve bunları dize arabelleğine ekler ve bu da ek bir ayırmaya neden olur.
 
-Bu sorun düzeltilebilir, ancak kod ile küçük geliştirme ve daha karmaşık hale. İşlem hatları, çok az kod karmaşıklığı ile ilgili sorunları çözmek için bir yol sağlar.
+Bu sorunlar düzeltilebilir, ancak kod çok daha karmaşık bir geliştirme sayesinde daha karmaşık hale geliyor. İşlem hatları, en az kod karmaşıklığı ile bu sorunları çözmenin bir yolunu sağlar.
 
-## <a name="pipelines"></a>İşlem hatları
+## <a name="pipelines"></a>Düzenler
 
-Aşağıdaki örnek, aynı senaryoyu nasıl olabileceğini gösterir kullanarak işlenen bir `PipeReader`:
+Aşağıdaki örnek, ile `PipeReader`aynı senaryonun nasıl işlenebileceğini göstermektedir:
 
 [!code-csharp[](request-response/samples/3.x/RequestResponseSample/Startup.cs?name=GetListOfStringFromPipe)]
 
-Bu örnekte akışları uygulamaları olan çok sayıda sorunu giderir:
+Bu örnek, akışlar uygulamalarında bulunan birçok sorunu düzeltir:
 
-- Gerek yoktur dize arabellek için çünkü `PipeReader` kullanılmamış bayt işler.
-- Kodlanmış dizeleri doğrudan döndürülen dizelerin listesine eklenir.
-- Dize oluşturulması dizesi tarafından kullanılan bellek yanı sıra ayırma ücretsiz (dışında `ToArray()` arayın).
+* Kullanılmayan baytları `PipeReader` işlediği için bir dize arabelleği gerekmez.
+* Kodlanmış dizeler doğrudan döndürülen dizeler listesine eklenir.
+* Dize oluşturma, dize tarafından kullanılan belleğin yanı sıra ( `ToArray()` çağrı dışında) ayırma ücretsizdir.
 
-## <a name="adapters"></a>Bağdaştırıcıları
+## <a name="adapters"></a>Örünü
 
-Artık hem `Body` ve `BodyPipe` özellikler için kullanılabilir `HttpRequest` ve `HttpResponse`, ayarladığınızda ne `Body` farklı bir akışa? 3\. 0'bağdaştırıcıları yeni bir dizi otomatik olarak diğer her tür uyarlayın. Örneğin, ayarlarsanız `HttpRequest.Body` yeni bir akışa `HttpRequest.BodyPipe` otomatik olarak yeni bir için ayarlanır `PipeReader` sonuna geldik `HttpRequest.Body`. Aynı davranışı ayarı için geçerli `BodyPipe` özelliği. Varsa `HttpResponse.BodyPipe` yeni bir için ayarlanır `PipeWriter`, `HttpResponse.Body` sarmalayan yeni bir akış için otomatik olarak ayarlanır `HttpResponse.BodyPipe`.
+Ve için `Body` heriki`HttpResponse`özellikdekullanılabilir. `BodyReader/BodyWriter` `HttpRequest` Farklı bir akışa `Body` ayarlandığında, yeni bir bağdaştırıcı kümesi, her türü otomatik olarak birbirlerine uyarlar. Yeni bir akışa `HttpRequest.Body` ayarlarsanız, `HttpRequest.BodyReader` otomatik olarak sarmalanmış `HttpRequest.Body`yeni `PipeReader` olarak ayarlanır.
 
 ## <a name="startasync"></a>StartAsync
 
-`HttpResponse.StartAsync` 3. 0'da yenidir. Üstbilgileri değiştirilemeyen olduğunu gösterir ve çalıştırmak için kullanılan `OnStarting` geri çağırmalar. Çağırmak zorunda 3.0-preview3, `StartAsync` kullanmadan önce `HttpRequest.BodyPipe`, gelecek sürümlerde bir öneri olacaktır. Kullanmadan önce StartAsync Kestrel sunucusu olarak kullanırken, çağırma `PipeReader` tarafından döndürülen belleğin garanti `GetMemory` Kestrel için ait iç ait <xref:System.IO.Pipelines.Pipe> yerine bir dış arabellek.
+`HttpResponse.StartAsync`üstbilgilerin değiştirilemeyen ve geri çağırmaların çalıştırıldığı `OnStarting` belirtmek için kullanılır. Sunucu olarak Kestrel kullanırken `StartAsync` , tarafından `GetMemory` döndürülen belleğin, `PipeReader` dış bir arabellek yerine Kestrel 'ın iç <xref:System.IO.Pipelines.Pipe> öğesine ait olduğunu garanti altına almadan önce çağrılıyor.
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-- [System.IO.Pipelines ile tanışın](https://devblogs.microsoft.com/dotnet/system-io-pipelines-high-performance-io-in-net/)
-- <xref:fundamentals/middleware/write>
+* [System. ıO. işlem hatlarını tanıtma](https://devblogs.microsoft.com/dotnet/system-io-pipelines-high-performance-io-in-net/)
+* <xref:fundamentals/middleware/write>

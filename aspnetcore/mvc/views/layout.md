@@ -5,12 +5,12 @@ description: Bir ASP.NET Core uygulamasında görünümler işlemeden önce orta
 ms.author: riande
 ms.date: 07/30/2019
 uid: mvc/views/layout
-ms.openlocfilehash: 6bd9dfc65c026ee524277aaaa21333d299c8981e
-ms.sourcegitcommit: 7001657c00358b082734ba4273693b9b3ed35d2a
+ms.openlocfilehash: 9a7b8003b24329f6e9cbd349ee47f6844b7c5f6d
+ms.sourcegitcommit: e6bd2bbe5683e9a7dbbc2f2eab644986e6dc8a87
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68669989"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70238037"
 ---
 # <a name="layout-in-aspnet-core"></a>ASP.NET Core düzen
 
@@ -62,7 +62,7 @@ Belirtilen Düzen tam yol kullanabilir (örneğin, */Pages/Shared/_Layout.exe* v
 Varsayılan olarak, tüm mizanpajın çağırması `RenderBody`gerekir. Çağrısının `RenderBody` yerleştirildiği her yerde, görünümün içerikleri işlenir.
 
 <a name="layout-sections-label"></a>
-
+<!-- https://stackoverflow.com/questions/23327578 -->
 ### <a name="sections"></a>Bölümler
 
 Bir düzen, çağırarak `RenderSection`, isteğe bağlı olarak bir veya daha fazla *bölüme*başvurabilir. Bölümler, belirli sayfa öğelerinin yerleştirilmesi gereken yerleri düzenlemek için bir yol sağlar. Her çağrısı `RenderSection` , bu bölümün gerekli veya isteğe bağlı olup olmadığını belirtebilir:
@@ -155,4 +155,4 @@ Her görünüm veya sayfadan önce çalıştırılması gereken kodun *_Viewstar
 
 Yukarıdaki dosya tüm görünümlerin *_Layout. cshtml* mizanpajını kullanacağı belirtir.
 
-*_Viewstart. cshtml* ve *_Viewwimports. cshtml* genellikle */Pages/Shared* (veya */views/Shared*) klasörüne yerleştirilmez. Bu dosyaların uygulama düzeyi sürümleri doğrudan */Pages* (veya */views*) klasörüne yerleştirilmelidir.
+*_Viewstart. cshtml* ve *_Viewwimports. cshtml* genellikle */Pages/Shared* (veya */views/Shared*) klasörüne **yerleştirilmez.** Bu dosyaların uygulama düzeyi sürümleri doğrudan */Pages* (veya */views*) klasörüne yerleştirilmelidir.

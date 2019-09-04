@@ -7,12 +7,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 08/29/2019
 uid: web-api/http-repl
-ms.openlocfilehash: e97b127b869b847997f9c48e4031306daecef2f9
-ms.sourcegitcommit: 4b00e77f9984ce76356e829cfe7f75f0f61a7a8f
+ms.openlocfilehash: 7121670856da4b123b1c3e780a7952da0fb696a1
+ms.sourcegitcommit: e6bd2bbe5683e9a7dbbc2f2eab644986e6dc8a87
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70145787"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70238052"
 ---
 # <a name="test-web-apis-with-the-http-repl"></a>HTTP REPL ile Web API 'Lerini test etme
 
@@ -373,7 +373,7 @@ Varsayılan olarak, http REPL, `connect` komutu `--swagger` seçeneği olmadan y
 Ortamınızda farklı bir arama yolları kümesi kullanmak için `swagger.searchPaths` tercihi ayarlayın. Değer, göreli yolların kanal ile ayrılmış bir listesi olmalıdır. Örneğin:
 
 ```console
-pref set swagger.searchPaths "swagger/v2/swagger.json|swagger/v3/swagger.json
+pref set swagger.searchPaths "swagger/v2/swagger.json|swagger/v3/swagger.json"
 ```
 
 ## <a name="test-http-get-requests"></a>HTTP GET isteklerini test etme

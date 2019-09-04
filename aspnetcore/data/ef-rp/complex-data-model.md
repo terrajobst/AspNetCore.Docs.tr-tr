@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 07/22/2019
 uid: data/ef-rp/complex-data-model
-ms.openlocfilehash: 34b977f70f3e7e58e4ab6fcf3d8f69800896a65d
-ms.sourcegitcommit: 0774a61a3a6c1412a7da0e7d932dc60c506441fc
+ms.openlocfilehash: ab29cf687c80551d275cae69f28b7576016bfff6
+ms.sourcegitcommit: e6bd2bbe5683e9a7dbbc2f2eab644986e6dc8a87
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70059125"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70238128"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---data-model---5-of-8"></a>ASP.NET Core veri modelinde EF Core ile Razor Pages-5/8
 
@@ -390,7 +390,7 @@ public ICollection<Course> Courses { get; set; }
 
 Kural gereği EF Core, null yapılamayan ve çok-çok ilişkiler için basamaklı silme imkanı sağlar. Bu varsayılan davranış, dairesel basamaklı silme kurallarına neden olabilir. Bir geçiş eklendiğinde dairesel basamaklı silme kuralları bir özel duruma neden olur.
 
-Örneğin, `Department.InstructorID` özellik null yapılamayan olarak tanımlanmışsa EF Core basamaklı silme kuralı yapılandırır. Bu durumda, yönetici olarak atanan eğitmen silindiğinde departman silinir. Bu senaryoda kısıtlama kuralı daha anlamlı hale getirir. Aşağıdaki Fluent API bir kısıtlama kuralı ayarlar ve art arda silmeyi devre dışı bırakır.
+Örneğin, `Department.InstructorID` özellik null yapılamayan olarak tanımlanmışsa EF Core basamaklı silme kuralı yapılandırır. Bu durumda, yönetici olarak atanan eğitmen silindiğinde departman silinir. Bu senaryoda kısıtlama kuralı daha anlamlı hale getirir. Aşağıdaki [Fluent API](#fluent-api-alternative-to-attributes) bir kısıtlama kuralı ayarlar ve art arda silmeyi devre dışı bırakır.
 
   ```csharp
   modelBuilder.Entity<Department>()
@@ -1091,7 +1091,7 @@ Not: Kural gereği EF Core, null yapılamayan ve çok-çok ilişkiler için basa
 
 * EF Core, eğitmen silindiğinde departmanı silmek için bir basamakla silme kuralı yapılandırır.
 * Eğitmen silindiğinde departmanı silmek amaçlanan davranış değildir.
-* Aşağıdaki Fluent API Cascade yerine bir kısıtlama kuralı ayarlar.
+* Aşağıdaki [Fluent API](#fluent-api-alternative-to-attributes) Cascade yerine bir kısıtlama kuralı ayarlar.
 
    ```csharp
    modelBuilder.Entity<Department>()

@@ -5,14 +5,14 @@ description: Uygulamalardaki istekleri yönlendirme ve gezinti bağlantısı bil
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 08/13/2019
+ms.date: 08/23/2019
 uid: blazor/routing
-ms.openlocfilehash: 197b1a91b3540d21639c3ee775b2c490da7b23fe
-ms.sourcegitcommit: f5f0ff65d4e2a961939762fb00e654491a2c772a
+ms.openlocfilehash: 067dad657c1e89a31fac45fdfa095cce4b10798d
+ms.sourcegitcommit: e6bd2bbe5683e9a7dbbc2f2eab644986e6dc8a87
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69030391"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70238055"
 ---
 # <a name="aspnet-core-blazor-routing"></a>ASP.NET Core Blazor yönlendirme
 
@@ -103,6 +103,21 @@ Aşağıdaki tabloda gösterilen yol kısıtlamaları mevcuttur. Sabit kültür 
 > [!WARNING]
 > URL 'yi doğrulayan ve bir clr türüne ( `int` veya `DateTime`gibi) dönüştürülen yol kısıtlamaları, her zaman sabit kültürü kullanır. Bu kısıtlamalar, URL 'nin yerelleştirilemeyen olduğunu varsayar.
 
+### <a name="routing-with-urls-that-contain-dots"></a>Noktalar içeren URL 'lerle yönlendirme
+
+Blazor sunucu tarafı uygulamalarda, *_Host. cshtml* `/` içindeki varsayılan yol (`@page "/"`). URL bir dosya isteyecek şekilde göründüğünden, nokta`.`() içeren bir istek URL 'si varsayılan yol tarafından eşleşmiyor. Bir Blazor uygulaması mevcut olmayan bir statik dosya için *404-Found* yanıtı döndürür. Bir nokta içeren yolları kullanmak için *_Host. cshtml* 'yi aşağıdaki yol şablonuyla yapılandırın:
+
+```cshtml
+@page "/{**path}"
+```
+
+`"/{**path}"` Şablon şunları içerir:
+
+* Ters eğik çizgi (`/`) kodlaması olmadan birden`**`çok klasör sınırlarındaki yolu yakalamak için çift yıldız *catch-all* söz dizimi ().
+* `path` Rota parametresi adı.
+
+Daha fazla bilgi için bkz. <xref:fundamentals/routing>.
+
 ## <a name="navlink-component"></a>Gezinti bağlantısı bileşeni
 
 Gezinti bağlantıları `NavLink` oluştururken, HTML köprü öğelerinin (`<a>`) yerine bir bileşen kullanın. Bir `NavLink` bileşen `<a>` ,geçerli`href` URL ile eşleşip eşleşmediğini temel alarak bir CSSsınıfınageçişyaptığısürecebiröğesigibidavranır.`active` `active` Sınıfı, bir kullanıcının hangi sayfanın etkin sayfa olduğunu anladığı gezinti bağlantıları arasında yardımcı olur.
@@ -163,3 +178,4 @@ Aşağıdaki bileşen, düğme seçildiğinde uygulamanın `Counter` bileşenine
     }
 }
 ```
+

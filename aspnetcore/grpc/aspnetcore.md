@@ -4,14 +4,14 @@ author: juntaoluo
 description: ASP.NET Core ile gRPC hizmetlerini yazarken temel kavramları öğrenin.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: johluo
-ms.date: 08/28/2019
+ms.date: 09/03/2019
 uid: grpc/aspnetcore
-ms.openlocfilehash: 128f5b36eac9112460c33693db5537134a077476
-ms.sourcegitcommit: 23f79bd71d49c4efddb56377c1f553cc993d781b
+ms.openlocfilehash: 28e6b8589bbe0b6a3723b64736c723c883302571
+ms.sourcegitcommit: e6bd2bbe5683e9a7dbbc2f2eab644986e6dc8a87
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70130700"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70238170"
 ---
 # <a name="grpc-services-with-aspnet-core"></a>ASP.NET Core içeren gRPC Hizmetleri
 
@@ -71,10 +71,9 @@ Kestrel gRPC uç noktaları:
 
 #### <a name="http2"></a>HTTP/2
 
-Kestrel çoğu modern işletim sisteminde [http/2 destekler](xref:fundamentals/servers/kestrel#http2-support) . Kestrel uç noktaları, varsayılan olarak HTTP/1.1 ve HTTP/2 bağlantılarını destekleyecek şekilde yapılandırılmıştır.
+gRPC, HTTP/2 gerektirir. ASP.NET Core için gRPC, [HttpRequest. Protocol](xref:Microsoft.AspNetCore.Http.HttpRequest.Protocol*) olduğunu `HTTP/2`doğrular.
 
-> [!NOTE]
-> macOS, [Aktarım Katmanı Güvenliği (TLS)](https://tools.ietf.org/html/rfc5246)Ile ASP.NET Core GRPC 'yi desteklemez. MacOS 'ta gRPC hizmetlerini başarıyla çalıştırmak için ek yapılandırma gerekir. Daha fazla bilgi için bkz. [macOS üzerinde gRPC uygulaması ASP.NET Core başlatılamıyor](xref:grpc/troubleshoot#unable-to-start-aspnet-core-grpc-app-on-macos).
+Kestrel çoğu modern işletim sisteminde [http/2 destekler](xref:fundamentals/servers/kestrel#http2-support) . Kestrel uç noktaları, varsayılan olarak HTTP/1.1 ve HTTP/2 bağlantılarını destekleyecek şekilde yapılandırılmıştır.
 
 #### <a name="https"></a>HTTPS
 
@@ -101,7 +100,7 @@ GRPC için kullanılan Kestrel uç noktaları HTTPS ile güvenli hale gelmelidir
 }
 ```
 
-Alternatif olarak, Kestrel endspoints *program.cs*içinde yapılandırılabilir:
+Alternatif olarak, Kestrel uç noktaları *program.cs*içinde yapılandırılabilir:
 
 ```csharp
 public static IHostBuilder CreateHostBuilder(string[] args) =>
@@ -122,7 +121,12 @@ public static IHostBuilder CreateHostBuilder(string[] args) =>
         });
 ```
 
+HTTP/2 uç noktası HTTPS olmadan yapılandırıldığında, uç noktanın [Listenoptions. Protocols](xref:fundamentals/servers/kestrel#listenoptionsprotocols) olarak `HttpProtocols.Http2`ayarlanması gerekir. `HttpProtocols.Http1AndHttp2`HTTP/2 üzerinde anlaşmak için HTTPS gerekli olduğundan kullanılamıyor. HTTPS olmadan, uç nokta varsayılan HTTP/1.1 ve gRPC çağrıları için tüm bağlantılar başarısız olur.
+
 HTTP/2 ve HTTPS 'yi Kestrel ile etkinleştirme hakkında daha fazla bilgi için bkz. [Kestrel Endpoint Configuration](xref:fundamentals/servers/kestrel#endpoint-configuration).
+
+> [!NOTE]
+> macOS, [Aktarım Katmanı Güvenliği (TLS)](https://tools.ietf.org/html/rfc5246)Ile ASP.NET Core GRPC 'yi desteklemez. MacOS 'ta gRPC hizmetlerini başarıyla çalıştırmak için ek yapılandırma gerekir. Daha fazla bilgi için bkz. [macOS üzerinde gRPC uygulaması ASP.NET Core başlatılamıyor](xref:grpc/troubleshoot#unable-to-start-aspnet-core-grpc-app-on-macos).
 
 ## <a name="integration-with-aspnet-core-apis"></a>ASP.NET Core API 'Leri ile tümleştirme
 
