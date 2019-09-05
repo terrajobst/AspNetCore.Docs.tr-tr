@@ -301,7 +301,11 @@
         - name: JavaScript ile birlikte çalışma
           uid: blazor/javascript-interop
         - name: Güvenlik ve Kimlik
-          uid: security/blazor/index
+          items:
+            - name: Genel Bakış
+              uid: security/blazor/index
+            - name: Sunucu tarafı
+              uid: security/blazor/server-side
         - name: Durum yönetimi
           uid: blazor/state-management
         - name: Hataları işleme
@@ -540,13 +544,17 @@
       uid: grpc/basics
     - name: ASP.NET Core içeren gRPC Hizmetleri
       uid: grpc/aspnetcore
+    - name: .NET istemcisiyle gRPC hizmetlerini çağırma
+      uid: grpc/client
+    - name: gRPC istemci fabrikası tümleştirmesi
+      uid: grpc/clientfactory
     - name: Yapılandırma
       uid: grpc/configuration
     - name: Kimlik doğrulaması ve yetkilendirme
       uid: grpc/authn-and-authz
     - name: Güvenlik konuları
       uid: grpc/security
-    - name: gRPC hizmetlerini C Core’dan ASP.NET Core’a geçirme
+    - name: C Core’dan gRPC hizmetlerini geçirme
       uid: grpc/migration
     - name: gRPC hizmetlerini HTTP API’leriyle karşılaştırma
       uid: grpc/comparison
@@ -988,7 +996,11 @@
     - name: Uygulama güvenliği - OWASP
       href: 'https://github.com/OWASP/CheatSheetSeries/blob/master/cheatsheets/DotNet_Security_Cheat_Sheet.md'
     - name: Blazor
-      uid: security/blazor/index
+      items:
+        - name: Genel Bakış
+          uid: security/blazor/index
+        - name: Sunucu tarafı
+          uid: security/blazor/server-side
 - name: Performans
   items:
     - name: Genel Bakış
