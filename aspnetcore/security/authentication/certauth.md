@@ -1,33 +1,42 @@
 ---
 title: ASP.NET Core sertifika kimlik doğrulamasını yapılandırma
 author: blowdart
-description: Sertifika kimlik doğrulaması için IIS ve HTTP.sys içinde ASP.NET Core yapılandırmayı öğrenin.
+description: IIS ve HTTP. sys için ASP.NET Core sertifika kimlik doğrulamasını nasıl yapılandıracağınızı öğrenin.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: bdorrans
-ms.date: 06/11/2019
+ms.date: 08/19/2019
 uid: security/authentication/certauth
-ms.openlocfilehash: 8609c58265340da1d618135795915d6c49e750a3
-ms.sourcegitcommit: 0b9e767a09beaaaa4301915cdda9ef69daaf3ff2
+ms.openlocfilehash: ce7bcdbfb8ce0f1febf34b49786e92c917be139c
+ms.sourcegitcommit: 116bfaeab72122fa7d586cdb2e5b8f456a2dc92a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67538715"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70384846"
 ---
 # <a name="overview"></a>Genel Bakış
 
-`Microsoft.AspNetCore.Authentication.Certificate` benzer şekilde bir uygulaması içeren [sertifika kimlik doğrulaması](https://tools.ietf.org/html/rfc5246#section-7.4.4) ASP.NET Core için. Şimdiye kadar bir ASP.NET Core alır önce sertifika kimlik doğrulaması TLS düzeyinde, uzun'olmuyor. Bu sertifikayı doğrular ve ardından, nerede, giderebilir Bu sertifika için bir olay verir. bir kimlik doğrulama işleyicisi daha doğru bir şekilde, bir `ClaimsPrincipal`. 
+`Microsoft.AspNetCore.Authentication.Certificate`ASP.NET Core için [sertifika kimlik doğrulamasına](https://tools.ietf.org/html/rfc5246#section-7.4.4) benzer bir uygulama içerir. Sertifika kimlik doğrulaması TLS düzeyinde gerçekleşir ve bu süre ASP.NET Core. Daha doğru, bu, sertifikayı doğrulayan bir kimlik doğrulama işleyicisidir ve bu sertifikayı bir ' a `ClaimsPrincipal`çözebileceğiniz bir olay verir. 
 
-[Ana yapılandırma](#configure-your-host-to-require-certificates) sertifika kimlik doğrulaması için IIS, Kestrel, Azure Web Apps veya başka bir runbook'tan kullanmakta olduğunuz olması.
+[Ana bilgisayarınızı](#configure-your-host-to-require-certificates) sertifika kimlik doğrulaması için yapılandırın, BT IIS, Kestrel, Azure Web Apps veya kullandığınız başka herhangi bir şeydir.
+
+## <a name="proxy-and-load-balancer-scenarios"></a>Proxy ve yük dengeleyici senaryoları
+
+Sertifika kimlik doğrulaması, genellikle bir ara sunucu veya yük dengeleyicinin istemciler ve sunucular arasındaki trafiği işleyememesi durumunda kullanılan, durum bilgisi olan bir senaryodur Bir ara sunucu veya yük dengeleyici kullanılıyorsa, sertifika kimlik doğrulaması yalnızca proxy veya yük dengeleyici için geçerlidir:
+
+* Kimlik doğrulamasını işler.
+* Kullanıcı kimlik doğrulama bilgilerini uygulamaya geçirir (örneğin, bir istek üstbilgisinde), kimlik doğrulama bilgileri üzerinde davranır.
+
+Proxy 'lerin ve yük dengeleyicilerin kullanıldığı ortamlarda sertifika kimlik doğrulamasına alternatif olarak, OpenID Connect (OıDC) ile Federasyon Hizmetleri (ADFS) Active Directory.
 
 ## <a name="get-started"></a>Kullanmaya başlayın
 
-Bir HTTPS sertifikası alın, bunu, uygulama ve [ana yapılandırma](#configure-your-host-to-require-certificates) sertifikaları gerektirmek için.
+Bir HTTPS sertifikası alın, uygulayın ve [ana bilgisayarınızı](#configure-your-host-to-require-certificates) sertifika gerektirecek şekilde yapılandırın.
 
-Web uygulamanızda bir başvuru ekleyin `Microsoft.AspNetCore.Authentication.Certificate` paket. Ardından `Startup.Configure` yöntemi, çağrı `app.AddAuthentication(CertificateAuthenticationDefaults.AuthenticationScheme).UseCertificateAuthentication(...);` ile seçeneklerinizi için temsilci sağlayarak `OnCertificateValidated` gönderdiği istekleri ile istemci sertifikası herhangi ek doğrulama yapmak için. Bilgileri Aç bir `ClaimsPrincipal` ve açık ayarının `context.Principal` özelliği.
+Web uygulamanızda `Microsoft.AspNetCore.Authentication.Certificate` pakete bir başvuru ekleyin. Daha sonra `app.AddAuthentication(CertificateAuthenticationDefaults.AuthenticationScheme).UseCertificateAuthentication(...);` `OnCertificateValidated` yönteminde, isteklerle birlikte gönderilen istemci sertifikasında herhangi bir destek doğrulaması yapmak için bir temsilci sağlayan seçeneklerinizde çağrı yapın. `Startup.Configure` Bu bilgileri bir `ClaimsPrincipal` öğesine dönüştürün ve `context.Principal` özelliği üzerinde ayarlayın.
 
-Kimlik doğrulama başarısız olursa, bu işleyicisini döndürür bir `403 (Forbidden)` yanıt yerine bir `401 (Unauthorized)`, bekleyebileceğiniz gibi. Mantık, kimlik doğrulaması sırasında ilk TLS bağlantı olacağını ' dir. İşleyici ulaştığında zamanına göre çok geç. Bağlantı bir sertifikayla anonim bir bağlantıdan yükseltmek için hiçbir yolu yoktur.
+Kimlik doğrulaması başarısız olursa, bu işleyici, `403 (Forbidden)` bekleolabileceğiniz gibi `401 (Unauthorized)`bir yanıt döndürür. Bu durum, kimlik doğrulamanın ilk TLS bağlantısı sırasında gerçekleşme nedendir. İşleyiciye ulaştığında, çok geç olur. Anonim bir bağlantıyla bir sertifikayla bir bağlantıyı yükseltmenin bir yolu yoktur.
 
-Ayrıca `app.UseAuthentication();` içinde `Startup.Configure` yöntemi. Aksi takdirde, HttpContext.User ayarlanmaz `ClaimsPrincipal` sertifikadan oluşturulur. Örneğin:
+Yöntemine de `app.UseAuthentication();`ekleyin. `Startup.Configure` Aksi halde, HttpContext. User, sertifikadan oluşturulacak şekilde `ClaimsPrincipal` ayarlanmayacak. Örneğin:
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -46,50 +55,50 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 }
 ```
 
-Yukarıdaki örnekte, sertifika kimlik doğrulaması eklemek için varsayılan yolu gösterir. Ortak sertifika özellikleri kullanarak bir kullanıcı asıl işleyicisi oluşturur.
+Önceki örnekte sertifika kimlik doğrulaması eklemenin varsayılan yolu gösterilmektedir. İşleyici, ortak sertifika özelliklerini kullanarak bir Kullanıcı sorumlusu oluşturur.
 
-## <a name="configure-certificate-validation"></a>Sertifika doğrulaması'nı yapılandırma
+## <a name="configure-certificate-validation"></a>Sertifika doğrulamasını yapılandırma
 
-`CertificateAuthenticationOptions` İşleyicisi sunucusundaki bir sertifikanın gerçekleştirmesi gereken en düşük doğrulamaları olan bazı yerleşik doğrulamaları vardır. Bu ayarların her biri varsayılan olarak etkindir.
+İşleyicide, `CertificateAuthenticationOptions` bir sertifikada gerçekleştirmeniz gereken en düşük doğrulamalar olan yerleşik doğrulamalar vardır. Bu ayarların her biri varsayılan olarak etkindir.
 
-### <a name="allowedcertificatetypes--chained-selfsigned-or-all-chained--selfsigned"></a>AllowedCertificateTypes = zincirleme, SelfSigned ya da tüm (zincirleme | SelfSigned)
+### <a name="allowedcertificatetypes--chained-selfsigned-or-all-chained--selfsigned"></a>AllowedCertificateTypes = zincirleme, SelfSigned veya All (zincirleme | SelfSigned)
 
-Bu denetim yalnızca uygun sertifika türü izin verildiğini doğrular.
+Bu denetim yalnızca uygun sertifika türüne izin verildiğini doğrular.
 
 ### <a name="validatecertificateuse"></a>ValidateCertificateUse
 
-Bu denetim, istemci tarafından sunulan sertifika istemci kimlik doğrulaması genişletilmiş anahtar kullanımı (EKU) veya EKU listelenmez hiç sahip olduğunu doğrular. EKU yok belirtilirse belirtimleri söyleyin gibi tüm EKU'larına geçerli sayılan.
+Bu denetim, istemci tarafından sunulan sertifikanın Istemci kimlik doğrulaması genişletilmiş anahtar kullanımı (EKU) olduğunu veya hiç EKU olmadığını doğrular. Belirtimlerde bir EKU belirtilmemişse, tüm EKU 'lar geçerli kabul edilir.
 
 ### <a name="validatevalidityperiod"></a>ValidateValidityPeriod
 
-Bu onay, sertifikanın geçerlilik süresi olduğunu doğrular. Her bir istek üzerinde geçerli bir oturum sırasında bu iletildiğinde geçerli bir sertifika süresinin dolmadığından emin işleyici sağlar.
+Bu denetim, sertifikanın geçerlilik süresi içinde olduğunu doğrular. Her istekte işleyici, geçerli oturumu sırasında sunulmadığı zaman geçerli olmayan bir sertifikanın süresinin dolmamasını sağlar.
 
-### <a name="revocationflag"></a>RevocationFlag
+### <a name="revocationflag"></a>Revocationbayrağı
 
-Hangi sertifikaların zincirinde belirten bir bayrak iptali için denetlenir.
+Zincirdeki hangi sertifikaların iptal için denetleneceğini belirten bayrak.
 
-İptal denetimlerini yalnızca sertifikasının bir kök sertifikaya zincir gerçekleştirilir.
+İptal denetimleri yalnızca sertifika bir kök sertifikaya zincirleme yapıldığında gerçekleştirilir.
 
-### <a name="revocationmode"></a>revocationMode
+### <a name="revocationmode"></a>Revocationmodu
 
-İptal denetimlerini nasıl gerçekleştirileceğini belirten bir bayrak.
+İptal denetimlerinin nasıl gerçekleştirileceğini belirten bayrak.
 
-Sertifika yetkilisi bağlantı kurulurken bir çevrimiçi denetimi belirtme uzun gecikmelere neden olabilir.
+Bir çevrimiçi denetim belirtildiğinde, sertifika yetkilisi ile bağlantı kurulduğunda uzun bir gecikmeyle sonuçlanabilir.
 
-İptal denetimlerini yalnızca sertifikasının bir kök sertifikaya zincir gerçekleştirilir.
+İptal denetimleri yalnızca sertifika bir kök sertifikaya zincirleme yapıldığında gerçekleştirilir.
 
-### <a name="can-i-configure-my-app-to-require-a-certificate-only-on-certain-paths"></a>Yalnızca belirli yollardaki bir sertifika istemek için uygulamamı yapılandırabilirim?
+### <a name="can-i-configure-my-app-to-require-a-certificate-only-on-certain-paths"></a>Uygulamamı yalnızca belirli yollarda sertifika gerektirecek şekilde yapılandırabilir miyim?
 
-Bu mümkün değildir. Bu nedenle hiçbir istek alanlara göre kapsam mümkün değildir, ilk isteği bu bağlantıda alınmadan önce HTTPS iletişiminin başlangıç, sunucu tarafından işlemin tamamlandığını sertifika exchange yapılır unutmayın.
+Bu mümkün değildir. Sertifika değişimi 'nin HTTPS konuşması başlangıcı olduğunu unutmayın, bu bağlantı üzerinde ilk istek alınmadan önce sunucu tarafından gerçekleştirilir, böylece herhangi bir istek alanı temelinde kapsam yapılamaz.
 
 ## <a name="handler-events"></a>İşleyici olayları
 
-İki olay işleyicisi sahiptir:
+İşleyicinin iki olayı vardır:
 
-* `OnAuthenticationFailed` &ndash; Bir özel durum kimlik doğrulaması sırasında gerçekleşir ve react sağlar çağrılır.
-* `OnCertificateValidated` &ndash; Doğrulama başarılı oldu sertifika doğrulandıysa ve varsayılan sorumlu oluşturulduktan sonra çağrılır. Bu olay, kendi doğrulama işlemini yapabilir ve artırabilir veya asıl değiştirin olanak tanır. İçin örnekleri şunlardır:
-  * Sertifika hizmetlerinize biliniyorsa belirleme.
-  * Kendi asıl oluşturma. Aşağıdaki örnekte göz önünde bulundurun `Startup.ConfigureServices`:
+* `OnAuthenticationFailed`&ndash; Kimlik doğrulaması sırasında bir özel durum oluşursa ve işlem yapmanıza izin veriyorsa çağırılır.
+* `OnCertificateValidated`&ndash; Sertifika doğrulandıktan sonra, doğrulama geçildi ve bir varsayılan asıl oluşturulur. Bu olay kendi doğrulamayı gerçekleştirmenize ve sorumluyu artırabilir veya değiştirmenize olanak sağlar. Örnekler için şunları içerir:
+  * Sertifikanın hizmetlerinize göre bilinip tanınmadığını belirleme.
+  * Kendi sorumlunuzu oluşturma. İçinde `Startup.ConfigureServices`aşağıdaki örneği göz önünde bulundurun:
 
 ```csharp
 services.AddAuthentication(
@@ -123,9 +132,9 @@ services.AddAuthentication(
     });
 ```
 
-Gelen sertifika, ek doğrulama karşılamadığında bulursanız, çağrı `context.Fail("failure reason")` bir başarısızlık nedeniyle.
+Gelen sertifikayı, ek doğrulamadan uymadığını fark ederseniz bir hata nedeniyle çağırın `context.Fail("failure reason")` .
 
-Gerçek işlevleri, büyük olasılıkla bir veritabanı veya başka bir kullanıcı deposu türü bağlayan bir bağımlılık ekleme kayıtlı bir hizmeti çağırmak isteyebilirsiniz. Hizmetiniz, temsilciye iletilen bağlamını kullanarak erişin. Aşağıdaki örnekte göz önünde bulundurun `Startup.ConfigureServices`:
+Gerçek işlevsellik için muhtemelen bir veritabanına veya diğer Kullanıcı Mağazası türüne bağlanan bağımlılık ekleme bölümünde kayıtlı bir hizmeti çağırmak isteyeceksiniz. Temsilciniz 'e geçirilen bağlamı kullanarak hizmetinize erişin. İçinde `Startup.ConfigureServices`aşağıdaki örneği göz önünde bulundurun:
 
 ```csharp
 services.AddAuthentication(
@@ -168,13 +177,13 @@ services.AddAuthentication(
     });
 ```
 
-Kavramsal olarak, doğrulama sertifikasının bir yetkilendirme konusudur. Örneğin bir denetimi, ekleme, bir veren veya parmak izi bir yetkilendirme ilkesi, yerine iç `OnCertificateValidated`, mükemmel bir şekilde kabul edilebilir.
+Kavramsal olarak, sertifikanın doğrulanması bir yetkilendirme konusudur. Örneğin, bir yetkilendirme ilkesindeki `OnCertificateValidated`bir veren veya parmak izi gibi bir denetim eklemek, mükemmel bir kabul edilebilir.
 
-## <a name="configure-your-host-to-require-certificates"></a>Sertifikaları gerektirmek için ana yapılandırma
+## <a name="configure-your-host-to-require-certificates"></a>Ana bilgisayarınızı sertifika gerektirecek şekilde yapılandırma
 
 ### <a name="kestrel"></a>Kestrel
 
-İçinde *Program.cs*, Kestrel aşağıdaki gibi yapılandırın:
+*Program.cs*' de, Kestrel ' yi aşağıdaki şekilde yapılandırın:
 
 ```csharp
 public static IWebHost BuildWebHost(string[] args) =>
@@ -191,14 +200,14 @@ public static IWebHost BuildWebHost(string[] args) =>
 
 ### <a name="iis"></a>IIS
 
-IIS Yöneticisi'nde aşağıdaki adımları tamamlayın:
+IIS Yöneticisi 'Nde aşağıdaki adımları uygulayın:
 
-1. Sitenizi seçin **bağlantıları** sekmesi.
-1. Çift **SSL ayarları** seçeneğini **özellikler görünümü** penceresi.
-1. Denetleyin **SSL iste** onay kutusunu seçip **gerektiren** radyo düğmesinin **istemci sertifikaları** bölümü.
+1. **Bağlantılar** sekmesinden sitenizi seçin.
+1. **Özellikler Görünümü** penceresinde **SSL ayarları** seçeneğine çift tıklayın.
+1. **SSL gerektir** onay kutusunu Işaretleyin ve **istemci sertifikaları** bölümünde radyo **iste** düğmesini seçin.
 
-![IIS istemci sertifika ayarları](README-IISConfig.png)
+![IIS 'de istemci sertifikası ayarları](README-IISConfig.png)
 
-### <a name="azure-and-custom-web-proxies"></a>Azure ve özel web Ara sunucuları
+### <a name="azure-and-custom-web-proxies"></a>Azure ve özel Web proxy 'leri
 
-Bkz: [barındırma ve dağıtma belgeleri](xref:host-and-deploy/proxy-load-balancer#certificate-forwarding) ara yazılım iletme sertifikası yapılandırma için.
+Sertifika iletme ara yazılımını yapılandırma hakkında bilgi için bkz. [konak ve dağıtım belgeleri](xref:host-and-deploy/proxy-load-balancer#certificate-forwarding) .

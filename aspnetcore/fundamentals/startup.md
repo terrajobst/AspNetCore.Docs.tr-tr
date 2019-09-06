@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 8/7/2019
 uid: fundamentals/startup
-ms.openlocfilehash: 8866ee9210a91754d8050d0b91ff52c3d3fe0836
-ms.sourcegitcommit: 8835b6777682da6fb3becf9f9121c03f89dc7614
+ms.openlocfilehash: 9407de4ee91ba43b2c95fa98f0cf479bf8539cab
+ms.sourcegitcommit: 8b36f75b8931ae3f656e2a8e63572080adc78513
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69975434"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70310493"
 ---
 # <a name="app-startup-in-aspnet-core"></a>ASP.NET Core 'de uygulama başlatma
 
@@ -23,7 +23,7 @@ ms.locfileid: "69975434"
 
 ASP.NET Core uygulamalar, kural `Startup` tarafından adlandırılan `Startup` bir sınıfı kullanır. `Startup` Sınıf:
 
-* İsteğe bağlı olarak <xref:Microsoft.AspNetCore.Hosting.StartupBase.ConfigureServices*> , uygulamanın *hizmetlerini*yapılandırmak için bir yöntem içerir. Hizmet, uygulama işlevselliği sağlayan yeniden kullanılabilir bir bileşendir. `ConfigureServices`&mdash; <xref:Microsoft.AspNetCore.Builder.IApplicationBuilder.ApplicationServices*> [](xref:fundamentals/dependency-injection) Hizmetler Ayrıca, bağımlılık ekleme (dı) veya aracılığıyla uygulama genelinde kullanılan ve tüketilen şekilde de açıklanır.&mdash;
+* İsteğe bağlı olarak <xref:Microsoft.AspNetCore.Hosting.StartupBase.ConfigureServices*> , uygulamanın *hizmetlerini*yapılandırmak için bir yöntem içerir. Hizmet, uygulama işlevselliği sağlayan yeniden kullanılabilir bir bileşendir. &mdash; `ConfigureServices` <xref:Microsoft.AspNetCore.Builder.IApplicationBuilder.ApplicationServices*> [](xref:fundamentals/dependency-injection) Hizmetler Ayrıca, bağımlılık ekleme (dı) veya aracılığıyla uygulama genelinde kullanılan ve tüketilen şekilde de açıklanır.&mdash;
 * Uygulamanın istek <xref:Microsoft.AspNetCore.Hosting.StartupBase.Configure*> işleme ardışık düzenini oluşturmak için bir yöntem içerir.
 
 `ConfigureServices`ve `Configure` uygulama başlatıldığında ASP.NET Core çalışma zamanı tarafından çağrılır:
@@ -80,15 +80,11 @@ Ana bilgisayar, `Startup` sınıf oluşturucusunun kullanabildiği hizmetleri sa
 
 [!code-csharp[](startup/sample_snapshot/Startup2.cs?highlight=7-8)]
 
-::: moniker-end
-Ekleme `IWebHostEnvironment` için bir alternatif, kural tabanlı bir yaklaşım kullanmaktır.
-::: moniker range=">= aspnetcore-3.0"
+Çoğu hizmet, `Configure` Yöntem çağrılana kadar kullanılabilir değildir.
 
 ::: moniker-end
 
-::: moniker range="< aspnetcore-3.0"
-Ekleme `IHostingEnvironment` için bir alternatif, kural tabanlı bir yaklaşım kullanmaktır.
-::: moniker-end
+### <a name="multiple-startup"></a>Çoklu başlangıç
 
 Uygulama farklı ortamlar için ayrı `Startup` sınıflar tanımladığında (örneğin, `StartupDevelopment`), çalışma zamanında uygun `Startup` sınıf seçilir. Geçerli ortamla eşleşen ad sonekine sahip olan sınıf önceliklendirilir. Uygulama geliştirme ortamında çalıştırıldıysanız ve hem `Startup` sınıf `StartupDevelopment` hem de sınıf içeriyorsa, `StartupDevelopment` sınıfı kullanılır. Daha fazla bilgi için bkz. [birden çok ortam kullanma](xref:fundamentals/environments#environment-based-startup-class-and-methods).
 
@@ -104,7 +100,7 @@ Konak hakkında daha fazla bilgi için [konağa](xref:fundamentals/index#host) b
 
 Konak, Yöntemler çağrılmadan önce `Startup` bazı hizmetleri yapılandırabilir. Daha fazla bilgi için bkz. [ana bilgisayar](xref:fundamentals/index#host).
 
-Önemli kurulum `Add{Service}` gerektiren özellikler için üzerinde <xref:Microsoft.Extensions.DependencyInjection.IServiceCollection>uzantı yöntemleri vardır. Örneğin, DbContext **ekleyin**, defaultıdentity ekleyin, entityframeworkmağazalarını ekleyin ve RazorPages **ekleyin**:
+Önemli kurulum `Add{Service}` gerektiren özellikler için üzerinde <xref:Microsoft.Extensions.DependencyInjection.IServiceCollection>uzantı yöntemleri vardır. Örneğin, DbContext **ekleyin** **, defaultıdentity ekleyin,** entityframeworkmağazalarını **ekleyin ve**RazorPages **ekleyin**:
 
 ::: moniker range=">= aspnetcore-3.0"
 

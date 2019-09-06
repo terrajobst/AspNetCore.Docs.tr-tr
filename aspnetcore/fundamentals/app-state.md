@@ -1,141 +1,141 @@
 ---
-title: ASP.NET core'da oturum ve uygulama durumu
+title: ASP.NET Core oturum ve uygulama durumu
 author: rick-anderson
-description: İstekleri arasında oturum ve uygulama durumunu korumak için yaklaşımları keşfedin.
+description: İstekler arasında oturum ve uygulama durumunu korumak için yaklaşımları bulur.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
 ms.date: 03/12/2019
 uid: fundamentals/app-state
-ms.openlocfilehash: 4b02a9b5867559da493054bb128aabed4d920ace
-ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
+ms.openlocfilehash: 578be568b58dc630e8aabf8cb355266766741b9e
+ms.sourcegitcommit: 116bfaeab72122fa7d586cdb2e5b8f456a2dc92a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67813616"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70384732"
 ---
-# <a name="session-and-app-state-in-aspnet-core"></a>ASP.NET core'da oturum ve uygulama durumu
+# <a name="session-and-app-state-in-aspnet-core"></a>ASP.NET Core oturum ve uygulama durumu
 
-Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT), [Steve Smith](https://ardalis.com/), [Diana LaRose](https://github.com/DianaLaRose), ve [Luke Latham](https://github.com/guardrex)
+By [Rick Anderson](https://twitter.com/RickAndMSFT), [Steve Smith](https://ardalis.com/), [Diana Lagül](https://github.com/DianaLaRose)ve [Luke Latham](https://github.com/guardrex)
 
-HTTP durum bilgisi olmayan bir protokoldür. Ek adımlar yapmadan kullanıcı değerleri veya uygulama durumunu tutmaz bağımsız mesaj HTTP isteği adı verilir. Bu makalede, istekler arasında kullanıcı verileri ve uygulama durumunu korumak için çeşitli yaklaşımlar açıklanır.
+HTTP durum bilgisiz bir protokoldür. Ek adımlar uygulamadan, HTTP istekleri Kullanıcı değerlerini veya uygulama durumunu içermeyen bağımsız iletilerdir. Bu makalede, istekler arasında kullanıcı verilerini ve uygulama durumunu korumak için çeşitli yaklaşımlar açıklanmaktadır.
 
 [Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/app-state/samples) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
 
-## <a name="state-management"></a>Durum Yönetimi
+## <a name="state-management"></a>Durum yönetimi
 
-Durum, çeşitli yaklaşımlar kullanılarak depolanabilir. Her bir yaklaşım, bu konunun ilerleyen bölümlerinde açıklanmıştır.
+Durum, çeşitli yaklaşımlar kullanılarak depolanabilir. Her yaklaşım, bu konunun ilerleyen kısımlarında açıklanmıştır.
 
 | Depolama yaklaşımı | Depolama mekanizması |
 | ---------------- | ----------------- |
-| [Çerezler](#cookies) | HTTP tanımlama bilgileri (sunucu tarafı uygulama kodu kullanarak depolanan veriler dahil) |
+| [Çerezler](#cookies) | HTTP tanımlama bilgileri (sunucu tarafı uygulama kodu kullanılarak depolanan veriler içerebilir) |
 | [Oturum durumu](#session-state) | HTTP tanımlama bilgileri ve sunucu tarafı uygulama kodu |
 | [TempData](#tempdata) | HTTP tanımlama bilgileri veya oturum durumu |
 | [Sorgu dizeleri](#query-strings) | HTTP sorgu dizeleri |
-| [Gizli alanları](#hidden-fields) | HTTP form alanları |
-| [HttpContext.Items](#httpcontextitems) | Sunucu tarafı uygulama kodu |
+| [Gizli alanlar](#hidden-fields) | HTTP form alanları |
+| [HttpContext. Items](#httpcontextitems) | Sunucu tarafı uygulama kodu |
 | [Önbellek](#cache) | Sunucu tarafı uygulama kodu |
 | [Bağımlılık Ekleme](#dependency-injection) | Sunucu tarafı uygulama kodu |
 
-## <a name="cookies"></a>Tanımlama bilgileri
+## <a name="cookies"></a>Özgü
 
-Tanımlama bilgileri, istekler arasında verileri depolar. Tanımlama bilgileri her bir istekle gönderildiğinden, bunların boyutu için en az tutulmalıdır. İdeal olarak, yalnızca bir tanımlayıcı bir tanımlama bilgisinde, uygulama tarafından depolanan verilerle depolanmalıdır. Tarayıcılarının çoğu tanımlama bilgisi boyutu 4096 bayt ile sınırlandırır. Yalnızca sınırlı sayıda tanımlama bilgileri, her etki alanı için kullanılabilir.
+Tanımlama bilgileri istekler arasında veri depolar. Tanımlama bilgileri her istekle birlikte gönderildiğinden, boyutları minimum olarak tutulmalıdır. İdeal olarak, uygulama tarafından depolanan verileri içeren bir tanımlama bilgisinde yalnızca bir tanımlayıcı depolanmalıdır. Tarayıcıların çoğu, tanımlama bilgisi boyutunu 4096 bayt olarak kısıtlar. Her etki alanı için yalnızca sınırlı sayıda tanımlama bilgisi vardır.
 
-Tanımlama bilgilerini oynama tabi olduğu için uygulama tarafından doğrulanmalıdır. Tanımlama bilgileri, kullanıcılar tarafından silinebilir ve istemcilerde süresi dolar. Ancak, tanımlama bilgileri genellikle en sağlam istemci üzerindeki veri kalıcılığı biçimindedir.
+Tanımlama bilgileri değişikliklere tabi olduğundan, uygulama tarafından doğrulanması gerekir. Tanımlama bilgileri kullanıcılar tarafından silinebilir ve istemciler üzerinde zaman alabilir. Ancak, tanımlama bilgileri genellikle istemcide en dayanıklı veri kalıcılığı biçimidir.
 
-Tanımlama bilgileri, genellikle içeriği bilinen bir kullanıcı için burada özelleştirilmiş kişiselleştirme için kullanılır. Kullanıcı yalnızca tanımlanan ve çoğu zaman kimliği doğrulanmış değil. Tanımlama bilgisi, kullanıcının adı, hesap adı veya benzersiz kullanıcı kimliği (örneğin, bir GUID) depolayabilirsiniz. Tanımlama bilgisi ardından kendi tercih edilen Web sitesi arka plan rengi gibi kullanıcının kişiselleştirilmiş ayarlara erişmek için de kullanabilirsiniz.
+Tanımlama bilgileri genellikle içerik bilinen bir kullanıcı için özelleştirildiğinde kişiselleştirme için kullanılır. Kullanıcı yalnızca tanımlı ve kimlik doğrulaması değil çoğu durumda. Tanımlama bilgisi kullanıcının adını, hesap adını veya benzersiz kullanıcı KIMLIĞINI (GUID gibi) saklayabilir. Daha sonra kullanıcının tercih ettiği Web sitesi arka plan rengi gibi kişiselleştirilmiş ayarlarına erişmek için tanımlama bilgisini kullanabilirsiniz.
 
-Dikkatli olmanızı [Avrupa Birliği genel veri koruma yönetmeliklerine (GDPR)](https://ec.europa.eu/info/law/law-topic/data-protection) tanımlama bilgileri vermek ve gizlilikle ilgili ne zaman ilgilidir. Daha fazla bilgi için [ASP.NET Core genel veri koruma yönetmeliği (GDPR) desteği](xref:security/gdpr).
+Tanımlama bilgilerini verirken ve gizlilik kaygılarıyla ilgilenirken [Avrupa Birliği genel veri koruma düzenlemelerine (GDPR)](https://ec.europa.eu/info/law/law-topic/data-protection) sahip olun. Daha fazla bilgi için [ASP.NET Core genel veri koruma yönetmeliği (GDPR) desteğini](xref:security/gdpr)inceleyin.
 
 ## <a name="session-state"></a>Oturum durumu
 
-Kullanıcının bir web uygulaması gözatar sırada oturum durumu kullanıcı verilerinin depolanması için bir ASP.NET Core senaryo ' dir. Oturum durumu, istemciden gelen isteklere arasında verileri kalıcı hale getirmek için uygulama tarafından korunan bir depolama kullanır. Oturum verilerini bir önbelleği tarafından desteklenen ve kısa ömürlü veri kabul&mdash;site oturum verileri çalışmaya devam etmelidir. Kritik uygulama verileri kullanıcı veritabanında depolanan ve performans iyileştirmesi yalnızca olarak oturumda önbelleğe alınır.
+Oturum durumu, Kullanıcı bir Web uygulamasına göz atarken Kullanıcı verilerinin depolanması için bir ASP.NET Core senaryodur. Oturum durumu, bir istemciden gelen istekler arasında verileri kalıcı hale getirmek için uygulama tarafından tutulan bir depoyu kullanır. Oturum verileri bir önbellek tarafından desteklenir ve kısa ömürlü veriler&mdash;olarak kabul edilir. Bu, sitenin oturum verileri olmadan çalışmaya devam etmesi gerekir. Kritik uygulama verileri Kullanıcı veritabanında depolanmalıdır ve oturum yalnızca bir performans iyileştirmesi olarak önbelleğe alınmalıdır.
 
 > [!NOTE]
-> Oturum desteklenmiyor [SignalR](xref:signalr/index) uygulamaları çünkü bir [SignalR hub'ı](xref:signalr/hubs) bağımsız bir HTTP bağlamını yürütür. Örneğin, bir uzun olduğunda ortaya çıkabilir yoklama isteği açık tarafından tutulan isteğin HTTP bağlamını ömrünü ötesinde bir hub'ı.
+> Bir [SignalR hub 'ı](xref:signalr/hubs) bir http bağlamından bağımsız olarak yürütülemediğinden, [SignalR](xref:signalr/index) uygulamalarında oturum desteklenmez. Örneğin, bir uzun yoklama isteği, isteğin HTTP bağlamının ömrü ötesinde bir hub tarafından açık tutulduğunda bu durum oluşabilir.
 
-ASP.NET Core, uygulamanın her istek ile gönderilen bir oturum kimliği içeren istemciye bir tanımlama bilgisi sağlayarak oturum durumu korur. Uygulama, oturum verilerini almak için oturum kimliği kullanır.
+ASP.NET Core, her istekle birlikte uygulamaya gönderilen oturum KIMLIĞI içeren istemciye bir tanımlama bilgisi sağlayarak oturum durumunu korur. Uygulama, oturum verilerini getirmek için oturum KIMLIĞINI kullanır.
 
-Oturum durumu aşağıdaki davranışları sergileyen:
+Oturum durumu aşağıdaki davranışları sergiler:
 
-* Oturum tanımlama bilgisinin tarayıcıya belirli olduğundan, oturumları tarayıcılar arasında paylaşılmaz.
+* Oturum tanımlama bilgisi tarayıcıya özel olduğundan, oturumlar tarayıcılar arasında paylaşılmaz.
 * Tarayıcı oturumu sona erdiğinde oturum tanımlama bilgileri silinir.
-* Süresi dolmuş bir oturum için bir tanımlama bilgisi alınmazsa, aynı oturum tanımlama bilgisini kullanan yeni bir oturum oluşturulur.
-* Boş oturumlar olmayan korunur&mdash;oturum içine istekler genelinde oturumu kalıcı olarak en az bir değere sahip olmalıdır. Bir oturum korunmaz, yeni oturum kimliği her yeni isteği için oluşturulur.
-* Uygulamayı sınırlı bir süre sonra son istek için bir oturum korur. Uygulama oturum zaman aşımı ayarlar veya 20 dakikalık varsayılan değeri kullanır. Oturum durumu, belirli bir oturum için özeldir ancak burada veri oturumlarda kalıcı depolama alanı gerektirmez kullanıcı verilerini depolamak için idealdir.
-* Oturum verileri silinir ya da [ISession.Clear](/dotnet/api/microsoft.aspnetcore.http.isession.clear) oturum süresinin sona erdiği veya uygulama çağrılır.
-* Uygulama kodu istemci tarayıcısı kapatıldı veya ne zaman oturum tanımlama bilgisi silindi veya istemcide süresi size bildirmek için varsayılan bir mekanizma yoktur.
-* Razor sayfaları şablonları ve ASP.NET Core MVC genel veri koruma yönetmeliği (GDPR) için destek içerir. Oturum durumu tanımlama bilgileri, izleme, site ziyaretçisi tarafından izin verilmediği sürece oturum durumu işlev bu nedenle varsayılan olarak, temel olarak işaretlenmez. Daha fazla bilgi için bkz. <xref:security/gdpr#tempdata-provider-and-session-state-cookies-arent-essential>.
+* Kullanım dışı bir oturum için tanımlama bilgisi alınmışsa, aynı oturum tanımlama bilgisini kullanan yeni bir oturum oluşturulur.
+* Boş oturumlar tutulmadığı&mdash;için oturum, oturum istekleri arasında kalıcı hale getirmek için en az bir değere ayarlanmış olmalıdır. Bir oturum tutulmadığı zaman, her yeni istek için yeni bir oturum KIMLIĞI oluşturulur.
+* Uygulama, son istekten sonra sınırlı bir süre boyunca bir oturum tutar. Uygulama, oturum zaman aşımını ayarlar ya da 20 dakikalık varsayılan değeri kullanır. Oturum durumu, belirli bir oturuma özgü kullanıcı verilerini depolamak için idealdir, ancak verilerin oturumlarda kalıcı depolama gerektirmez.
+* Oturum verileri, [ISession. Clear](/dotnet/api/microsoft.aspnetcore.http.isession.clear) uygulaması çağrıldığında veya oturumun süresi dolarsa silinir.
+* Uygulama kodunu istemci tarayıcısının kapatıldığını veya istemcide oturum tanımlama bilgisinin silindiği veya süresi dolduğunda bilgilendirmeye yönelik varsayılan bir mekanizma yoktur.
+* ASP.NET Core MVC ve Razor sayfaları şablonları, Genel Veri Koruma Yönetmeliği (GDPR) desteğini içerir. Oturum durumu tanımlama bilgileri varsayılan olarak temel olarak işaretlenmez, bu nedenle site ziyaretçisi tarafından izlemeye izin verilmediği takdirde oturum durumu işlevsel değildir. Daha fazla bilgi için bkz. <xref:security/gdpr#tempdata-provider-and-session-state-cookies-arent-essential>.
 
 > [!WARNING]
-> Hassas verileri kavramak depolamayın. Kullanıcı olmayan Tarayıcıyı kapatın ve oturum tanımlama bilgisini temizlemek. Bazı tarayıcılar tarayıcı pencereleri arasında geçerli bir oturum tanımlama bilgileri korur. Bir oturum için tek bir kullanıcı kısıtlı olmayabilir&mdash;sonraki kullanıcı aynı oturum tanımlama bilgisinin uygulamayla göz atmak devam edebilir.
+> Gizli verileri oturum durumunda depolamayin. Kullanıcı tarayıcıyı Kapatmayabilir ve oturum tanımlama bilgisini temizleyebilir. Bazı tarayıcılar tarayıcı pencereleri arasında geçerli oturum tanımlama bilgilerini korur. Bir oturum tek bir kullanıcıyla&mdash;kısıtlanmayabilir ve bir sonraki Kullanıcı aynı oturum tanımlama bilgisiyle uygulamaya gözatmaya devam edebilir.
 
-Bellek içi önbelleği sağlayıcısı uygulama bulunduğu sunucunun bellekte oturum verilerini depolar. Bir sunucu grubu senaryoda:
+Bellek içi önbellek sağlayıcısı, oturum verilerini uygulamanın bulunduğu sunucunun belleğinde depolar. Sunucu grubu senaryosunda:
 
-* Kullanım *Yapışkan oturumlar* tek bir sunucu üzerinde her oturum belirli uygulama örneğine bağlamak için. [Azure App Service](https://azure.microsoft.com/services/app-service/) kullanan [uygulama isteği yönlendirme (ARR)](/iis/extensions/planning-for-arr/using-the-application-request-routing-module) Yapışkan oturumlar varsayılan olarak zorunlu kılmak için. Ancak, Yapışkan oturumlar ölçeklenebilirliği etkileyebilir ve web uygulama güncelleştirmeleri zorlaştırabilir. Bir Redis veya SQL Server kullanmak için daha iyi bir yaklaşım olan dağıtılmış önbellek, Yapışkan oturumlar gerektirmez. Daha fazla bilgi için bkz. <xref:performance/caching/distributed>.
-* Oturum tanımlama bilgisi ile şifrelenmiş [Idataprotector](/dotnet/api/microsoft.aspnetcore.dataprotection.idataprotector). Veri koruma, her bir makinede oturum tanımlama bilgileri okumak için düzgün şekilde yapılandırılmalıdır. Daha fazla bilgi için <xref:security/data-protection/introduction> ve [anahtar depolama sağlayıcıları](xref:security/data-protection/implementation/key-storage-providers).
+* Her oturumu tek bir sunucudaki belirli bir uygulama örneğine bağlamak için *yapışkan oturumları* kullanın. [Azure App Service](https://azure.microsoft.com/services/app-service/) , varsayılan olarak yapışkan oturumları zorlamak Için [uygulama isteği yönlendirme (ARR)](/iis/extensions/planning-for-arr/using-the-application-request-routing-module) kullanır. Ancak, yapışkan oturumlar ölçeklenebilirliği etkileyebilir ve Web uygulaması güncelleştirmelerini karmaşıklaştırır. Daha iyi bir yaklaşım, yapışkan oturum gerektirmeyen bir redya veya SQL Server dağıtılmış önbellek kullanmaktır. Daha fazla bilgi için bkz. <xref:performance/caching/distributed>.
+* Oturum tanımlama bilgisi, [ıdataprotector](/dotnet/api/microsoft.aspnetcore.dataprotection.idataprotector)aracılığıyla şifrelenir. Veri koruma, her makinede oturum tanımlama bilgilerini okumak için düzgün şekilde yapılandırılmalıdır. Daha fazla bilgi için bkz <xref:security/data-protection/introduction> . ve [anahtar depolama sağlayıcıları](xref:security/data-protection/implementation/key-storage-providers).
 
-### <a name="configure-session-state"></a>Oturum durumunu yapılandırın
+### <a name="configure-session-state"></a>Oturum durumunu yapılandırma
 
-[Microsoft.AspNetCore.Session](https://www.nuget.org/packages/Microsoft.AspNetCore.Session/) dahil edilen paket [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app), oturum durumu yönetmek için bir ara yazılım sağlar. Oturum ara yazılım etkinleştirmek için `Startup` içermelidir:
+[Microsoft. AspNetCore. app metapackage](xref:fundamentals/metapackage-app)içinde yer alan [Microsoft. Aspnetcore. Session](https://www.nuget.org/packages/Microsoft.AspNetCore.Session/) paketi, oturum durumunu yönetmek için ara yazılım sağlar. Oturum ara yazılımını `Startup` etkinleştirmek için şunları içermelidir:
 
-* Herhangi bir [IDistributedCache](/dotnet/api/microsoft.extensions.caching.distributed.idistributedcache) bellek önbelleğe alır. `IDistributedCache` Uygulama oturumu için bir yedekleme deposu kullanılır. Daha fazla bilgi için bkz. <xref:performance/caching/distributed>.
-* Bir çağrı [AddSession](/dotnet/api/microsoft.extensions.dependencyinjection.sessionservicecollectionextensions.addsession) içinde `ConfigureServices`.
-* Bir çağrı [UseSession](/dotnet/api/microsoft.aspnetcore.builder.sessionmiddlewareextensions.usesession#Microsoft_AspNetCore_Builder_SessionMiddlewareExtensions_UseSession_Microsoft_AspNetCore_Builder_IApplicationBuilder_) içinde `Configure`.
+* [Idistributedönbellek](/dotnet/api/microsoft.extensions.caching.distributed.idistributedcache) belleği önbellekler. `IDistributedCache` Uygulama, oturum için bir yedekleme deposu olarak kullanılır. Daha fazla bilgi için bkz. <xref:performance/caching/distributed>.
+* Içinde`ConfigureServices` [addsession](/dotnet/api/microsoft.extensions.dependencyinjection.sessionservicecollectionextensions.addsession) çağrısı.
+* Içinde`Configure` [usesession](/dotnet/api/microsoft.aspnetcore.builder.sessionmiddlewareextensions.usesession#Microsoft_AspNetCore_Builder_SessionMiddlewareExtensions_UseSession_Microsoft_AspNetCore_Builder_IApplicationBuilder_) çağrısı.
 
-Aşağıdaki kod, varsayılan bir bellek içi uygulama ile bellek içi oturum sağlayıcısını ayarlama işlemi gösterilmektedir `IDistributedCache`:
+Aşağıdaki kod, bellek içi oturum sağlayıcısını varsayılan bir bellek içi uygulamasıyla `IDistributedCache`ayarlamayı gösterir:
 
 [!code-csharp[](app-state/samples/2.x/SessionSample/Startup.cs?name=snippet1&highlight=5-14,34)]
 
-Ara yazılım sırası önemlidir. Yukarıdaki örnekte, bir `InvalidOperationException` özel durum oluşursa, `UseSession` sonra çağrılan `UseMvc`. Daha fazla bilgi için [ara yazılım sıralama](xref:fundamentals/middleware/index#order).
+Ara yazılım sırası önemlidir. Önceki örnekte, sonrasında `InvalidOperationException` `UseMvc`çağrıldığında bir özel durum `UseSession` oluşur. Daha fazla bilgi için bkz. [Ara yazılım sıralaması](xref:fundamentals/middleware/index#order).
 
-[İçeriğin HttpContext.Session](/dotnet/api/microsoft.aspnetcore.http.httpcontext.session) oturum durumu yapılandırıldıktan sonra kullanılabilir.
+[HttpContext. Session](/dotnet/api/microsoft.aspnetcore.http.httpcontext.session) , oturum durumu yapılandırıldıktan sonra kullanılabilir.
 
-`HttpContext.Session` önce erişilemez `UseSession` çağrıldı.
+`HttpContext.Session`çağrılmadan önce `UseSession` erişilemez.
 
-Uygulama yanıt akışına yazma başladıktan sonra yeni oturum tanımlama bilgisi ile yeni bir oturum oluşturulamıyor. Özel durum web sunucusu günlüğe kaydedilen ve tarayıcıda gösterilmez.
+Uygulama yanıt akışına yazmaya başladıktan sonra yeni bir oturum tanımlama bilgisine sahip yeni bir oturum oluşturulamıyor. Özel durum Web sunucusu günlüğüne kaydedilir ve tarayıcıda gösterilmez.
 
-### <a name="load-session-state-asynchronously"></a>Oturum durumunu zaman uyumsuz olarak yükleme
+### <a name="load-session-state-asynchronously"></a>Oturum durumunu zaman uyumsuz olarak yükle
 
-Temel oturum kayıtları ASP.NET Core varsayılan oturum sağlayıcısında yükler [IDistributedCache](/dotnet/api/microsoft.extensions.caching.distributed.idistributedcache) yedekleme deposu zaman uyumsuz olarak yalnızca şu durumlarda [ISession.LoadAsync](/dotnet/api/microsoft.aspnetcore.http.isession.loadasync) yöntemi açıkça çağrılır önce [TryGetValue](/dotnet/api/microsoft.aspnetcore.http.isession.trygetvalue), [ayarlamak](/dotnet/api/microsoft.aspnetcore.http.isession.set), veya [Kaldır](/dotnet/api/microsoft.aspnetcore.http.isession.remove) yöntemleri. Varsa `LoadAsync` ilk olarak, temel olarak adlandırılmaz oturumu kayıt yüklendiği zaman uyumlu olarak, hangi ölçekte bir performans cezasına sebep.
+ASP.NET Core varsayılan oturum sağlayıcısı, arka plandaki [ıdistributedcache](/dotnet/api/microsoft.extensions.caching.distributed.idistributedcache) 'ten oturum kayıtlarını, yalnızca [ISession. LoadAsync](/dotnet/api/microsoft.aspnetcore.http.isession.loadasync) yöntemi doğrudan [TryGetValue](/dotnet/api/microsoft.aspnetcore.http.isession.trygetvalue)öğesinden önce çağrılırsa zaman [uyumsuz olarak yükler. ](/dotnet/api/microsoft.aspnetcore.http.isession.set)veya yöntemleri [kaldırın](/dotnet/api/microsoft.aspnetcore.http.isession.remove) . İlk `LoadAsync` çağrılmadıysa, temel alınan oturum kaydı zaman uyumlu olarak yüklenir ve bu da ölçekte performans cezası oluşturabilir.
 
-Bu düzen zorunlu uygulamanız için sarmalamanız [DistributedSessionStore](/dotnet/api/microsoft.aspnetcore.session.distributedsessionstore) ve [DistributedSession](/dotnet/api/microsoft.aspnetcore.session.distributedsession) uygulamaları bağlanamazsa özel durum sürümleri ile `LoadAsync` değil yönteminden önce `TryGetValue`, `Set`, veya `Remove`. Sarmalanan sürümleri Hizmetleri kapsayıcısında kaydedin.
+Uygulamaların bu kalıbı zorunlu kılmak için, [distributedsessionstore](/dotnet/api/microsoft.aspnetcore.session.distributedsessionstore) ve [distributedoturum](/dotnet/api/microsoft.aspnetcore.session.distributedsession) uygulamalarını bir `LoadAsync` özel durum `TryGetValue`oluşturan sürümlerle sarın, `Set`, veya `Remove`. Sarmalanan sürümleri hizmetler kapsayıcısına kaydedin.
 
 ### <a name="session-options"></a>Oturum seçenekleri
 
-Oturum Varsayılanları geçersiz kılmak için kullanın [SessionOptions](/dotnet/api/microsoft.aspnetcore.builder.sessionoptions).
+Oturum varsayılanlarını geçersiz kılmak için [SessionOptions](/dotnet/api/microsoft.aspnetcore.builder.sessionoptions)' ı kullanın.
 
 | Seçenek | Açıklama |
 | ------ | ----------- |
-| [Tanımlama bilgisi](/dotnet/api/microsoft.aspnetcore.builder.sessionoptions.cookie) | Tanımlama bilgisi oluşturmak için kullanılan ayarları belirler. [Adı](/dotnet/api/microsoft.aspnetcore.http.cookiebuilder.name) varsayılan olarak [SessionDefaults.CookieName](/dotnet/api/microsoft.aspnetcore.session.sessiondefaults.cookiename) (`.AspNetCore.Session`). [Yol](/dotnet/api/microsoft.aspnetcore.http.cookiebuilder.path) varsayılan olarak [SessionDefaults.CookiePath](/dotnet/api/microsoft.aspnetcore.session.sessiondefaults.cookiepath) (`/`). [SameSite](/dotnet/api/microsoft.aspnetcore.http.cookiebuilder.samesite) varsayılan olarak [SameSiteMode.Lax](/dotnet/api/microsoft.aspnetcore.http.samesitemode) (`1`). [HttpOnly](/dotnet/api/microsoft.aspnetcore.http.cookiebuilder.httponly) varsayılan olarak `true`. [IsEssential](/dotnet/api/microsoft.aspnetcore.http.cookiebuilder.isessential) varsayılan olarak `false`. |
-| [IdleTimeout](/dotnet/api/microsoft.aspnetcore.builder.sessionoptions.idletimeout) | `IdleTimeout` İçeriğini terk önce ne kadar süreyle oturumun boşta kalabileceği gösterir. Her oturum erişimi zaman aşımı sıfırlar. Bu ayar, yalnızca oturum tanımlama içerik için geçerlidir. Varsayılan değer 20 dakikadır. |
-| [IOTimeout](/dotnet/api/microsoft.aspnetcore.builder.sessionoptions.iotimeout) | En uzun süreyi Mağaza'dan oturum yüklemek veya geri depoya kaydetmeye izin. Bu ayar, yalnızca zaman uyumsuz işlemler için geçerli olabilir. Bu zaman aşımı kullanarak devre dışı bırakılabilir [InfiniteTimeSpan](/dotnet/api/system.threading.timeout.infinitetimespan). Varsayılan değer 1 dakikadır. |
+| [Bilgilerinin](/dotnet/api/microsoft.aspnetcore.builder.sessionoptions.cookie) | Tanımlama bilgisini oluşturmak için kullanılan ayarları belirler. [Ad](/dotnet/api/microsoft.aspnetcore.http.cookiebuilder.name) varsayılan olarak [Sessiondefaults. tanımlama](/dotnet/api/microsoft.aspnetcore.session.sessiondefaults.cookiename) adı (`.AspNetCore.Session`) değerini alır. [Yol](/dotnet/api/microsoft.aspnetcore.http.cookiebuilder.path) varsayılan olarak [Sessiondefaults. tarif ıepath](/dotnet/api/microsoft.aspnetcore.session.sessiondefaults.cookiepath) (`/`) olarak belirlenmiştir. [SameSite](/dotnet/api/microsoft.aspnetcore.http.cookiebuilder.samesite) varsayılan olarak [Samesitemode. LAX](/dotnet/api/microsoft.aspnetcore.http.samesitemode) (`1`) olarak belirlenmiştir. [HttpOnly](/dotnet/api/microsoft.aspnetcore.http.cookiebuilder.httponly) varsayılan olarak `true`varsayılandır. [IsEssential](/dotnet/api/microsoft.aspnetcore.http.cookiebuilder.isessential) varsayılan olarak `false`. |
+| [Timeout](/dotnet/api/microsoft.aspnetcore.builder.sessionoptions.idletimeout) | , `IdleTimeout` Oturumun içeriği terk edilmeden önce ne kadar süreyle boşta kalabileceğini gösterir. Her oturum erişimi zaman aşımını sıfırlar. Bu ayar, tanımlama bilgisi değil yalnızca oturumun içeriği için geçerlidir. Varsayılan değer 20 dakikadır. |
+| [IOTimeout](/dotnet/api/microsoft.aspnetcore.builder.sessionoptions.iotimeout) | Mağazadan bir oturumu yüklemesine veya depolama alanına geri kaydetmeye izin verilen en uzun süre. Bu ayar yalnızca zaman uyumsuz işlemlere uygulanabilir. Bu zaman aşımı, [InfiniteTimeSpan](/dotnet/api/system.threading.timeout.infinitetimespan)kullanılarak devre dışı bırakılabilir. Varsayılan değer 1 dakikadır. |
 
-Oturum tanımlama bilgisi istekleri tek bir tarayıcıdan belirlemek ve izlemek için kullanır. Varsayılan olarak, bu tanımlama bilgisi adlı `.AspNetCore.Session`, ve bir yol kullanır `/`. Tanımlama bilgisinin varsayılan bir etki alanını belirtmeyen çünkü, istemci tarafı komut dosyası için sayfada kullanılabilir değil (çünkü [HttpOnly](/dotnet/api/microsoft.aspnetcore.http.cookiebuilder.httponly) varsayılan olarak `true`).
+Oturum, tek bir tarayıcıdan gelen istekleri izlemek ve tanımlamak için bir tanımlama bilgisi kullanır. Bu tanımlama bilgisi varsayılan olarak adlandırılır `.AspNetCore.Session`ve bir `/`yolu kullanır. Tanımlama bilgisi varsayılan olarak bir etki alanı belirtmediği için, sayfada istemci tarafı komut dosyası için kullanılamaz hale getirilmez ( [HttpOnly](/dotnet/api/microsoft.aspnetcore.http.cookiebuilder.httponly) varsayılan olarak `true`' dir.)
 
-Tanımlama bilgisi oturumu Varsayılanları geçersiz kılmak için kullanın `SessionOptions`:
+Tanımlama bilgisi oturum varsayılanlarını geçersiz kılmak için `SessionOptions`şunu kullanın:
 
 [!code-csharp[](app-state/samples_snapshot/2.x/SessionSample/Startup.cs?name=snippet1&highlight=14-19)]
 
-Uygulamanın kullandığı [IdleTimeout](/dotnet/api/microsoft.aspnetcore.builder.sessionoptions.idletimeout) sunucusunun önbelleğine içeriğini terk önce ne kadar bir oturumun boşta kalabileceği belirlemek için özellik. Bu özellik, tanımlama bilgisi süre sonu bağımsızdır. Geçtiği her isteğin [oturumu ara yazılım](/dotnet/api/microsoft.aspnetcore.session.sessionmiddleware) zaman aşımı sıfırlar.
+Uygulama, sunucunun önbelleğindeki içeriği terk edilmeden önce bir oturumun ne kadar süreyle boşta kalabileceğini anlamak için [IdleTimeout](/dotnet/api/microsoft.aspnetcore.builder.sessionoptions.idletimeout) özelliğini kullanır. Bu özellik, tanımlama bilgisi bitiş zamanından bağımsızdır. [Oturum ara yazılımı](/dotnet/api/microsoft.aspnetcore.session.sessionmiddleware) üzerinden geçen her istek zaman aşımını sıfırlar.
 
-Oturum durumu *kilitlenmeyen*. Son istek, iki isteği aynı anda bir oturumu içeriğini değiştirme girişimi, ilk geçersiz kılar. `Session` olarak uygulanan bir *tutarlı oturumu*, yani tüm içeriği birlikte depolanır. Farklı oturuma değerlerini değiştirmek iki istek arama, son istek oturumu değişikliklerinin ilk tarafından geçersiz kılabilir.
+Oturum durumu *kilitli*değil. İki istek aynı anda bir oturumun içeriğini değiştirmeyi denerseniz, son istek ilk geçersiz kılar. `Session`*tutarlı bir oturum*olarak uygulanır, yani tüm içerikler birlikte depolanır. İki istek farklı oturum değerlerini değiştirmek için arama yaparken, son istek ilk tarafından yapılan oturum değişikliklerini geçersiz kılabilir.
 
-### <a name="set-and-get-session-values"></a>Ayarlayın ve oturumu değerlerini alma
+### <a name="set-and-get-session-values"></a>Oturum değerlerini ayarlama ve edinme
 
-Oturum durumu, bir Razor sayfaları erişildiğinde [PageModel](/dotnet/api/microsoft.aspnetcore.mvc.razorpages.pagemodel) sınıfı veya MVC [denetleyicisi](/dotnet/api/microsoft.aspnetcore.mvc.controller) sınıfıyla [içeriğin HttpContext.Session](/dotnet/api/microsoft.aspnetcore.http.httpcontext.session). Bu özellik bir [ISession](/dotnet/api/microsoft.aspnetcore.http.isession) uygulaması.
+Razor Pages [Pagemodel](/dotnet/api/microsoft.aspnetcore.mvc.razorpages.pagemodel) sınıfından ya da [HttpContext. Session](/dotnet/api/microsoft.aspnetcore.http.httpcontext.session)ile MVC [Denetleyici](/dotnet/api/microsoft.aspnetcore.mvc.controller) sınıfından oturum durumuna erişilir. Bu özellik bir [ISession](/dotnet/api/microsoft.aspnetcore.http.isession) uygulamasıdır.
 
-`ISession` Uygulamasını ayarlayın ve tamsayı ve dize değerlerini almak için birkaç genişletme yöntemleri sağlar. Uzantı yöntemleri [Microsoft.AspNetCore.Http](/dotnet/api/microsoft.aspnetcore.http) ad alanı (ekleme bir `using Microsoft.AspNetCore.Http;` genişletme yöntemleri erişim kazanmak için deyimi) olduğunda [Microsoft.AspNetCore.Http.Extensions](https://www.nuget.org/packages/Microsoft.AspNetCore.Http.Extensions/) Paket proje tarafından başvuruluyor. Her iki paketi de dahil edilen [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app).
+Uygulama `ISession` , tamsayı ve dize değerlerini ayarlamak ve almak için birkaç uzantı yöntemi sağlar. Uzantı yöntemleri, proje tarafından [Microsoft. aspnetcore. http. Extensions](https://www.nuget.org/packages/Microsoft.AspNetCore.Http.Extensions/) paketine başvurulduğunda [Microsoft. aspnetcore. http](/dotnet/api/microsoft.aspnetcore.http) ad alanında (uzantı yöntemlerine erişim sağlamak için bir `using Microsoft.AspNetCore.Http;` ifade ekleyin). Her iki paket de [Microsoft. AspNetCore. app metapackage](xref:fundamentals/metapackage-app)'e dahildir.
 
-`ISession` Uzantı yöntemleri:
+`ISession`Uzantı yöntemleri:
 
-* [Get (ISession, String)](/dotnet/api/microsoft.aspnetcore.http.sessionextensions.get)
-* [GetInt32(ISession, String)](/dotnet/api/microsoft.aspnetcore.http.sessionextensions.getint32)
-* [GetString (ISession, String)](/dotnet/api/microsoft.aspnetcore.http.sessionextensions.getstring)
+* [Al (ISession, dize)](/dotnet/api/microsoft.aspnetcore.http.sessionextensions.get)
+* [Getınt32 (ISession, dize)](/dotnet/api/microsoft.aspnetcore.http.sessionextensions.getint32)
+* [GetString (ISession, dize)](/dotnet/api/microsoft.aspnetcore.http.sessionextensions.getstring)
 * [Setınt32 (ISession, dize, Int32)](/dotnet/api/microsoft.aspnetcore.http.sessionextensions.setint32)
-* [SetString (ISession, String, String)](/dotnet/api/microsoft.aspnetcore.http.sessionextensions.setstring)
+* [SetString (ISession, dize, dize)](/dotnet/api/microsoft.aspnetcore.http.sessionextensions.setstring)
 
-Aşağıdaki örnekte oturum değerini alır. `IndexModel.SessionKeyName` anahtarı (`_Name` örnek uygulamada) bir Razor sayfaları sayfasında:
+Aşağıdaki örnek, bir Razor Pages sayfasındaki `IndexModel.SessionKeyName` anahtarın (`_Name` örnek uygulamada) oturum değerini alır:
 
 ```csharp
 @page
@@ -147,69 +147,91 @@ Aşağıdaki örnekte oturum değerini alır. `IndexModel.SessionKeyName` anahta
 Name: @HttpContext.Session.GetString(IndexModel.SessionKeyName)
 ```
 
-Aşağıdaki örnek, tamsayı ve bir dize almak ve ayarlamak gösterilmektedir:
+Aşağıdaki örnek, bir tamsayı ve bir dizenin nasıl ayarlanacağını ve alınacağını gösterir:
 
 [!code-csharp[](app-state/samples/2.x/SessionSample/Pages/Index.cshtml.cs?name=snippet1&highlight=18-19,22-23)]
 
-Bellek içi önbelleği kullanırken bile bir dağıtılmış önbellek senaryoyu etkinleştirmek için tüm oturum verilerini seri hale getirilmelidir. En az dize ve sayı seri hale getiricileri genişletme sağlanır (uzantı yöntemleri ve yöntemler bkz [ISession](/dotnet/api/microsoft.aspnetcore.http.isession)). JSON gibi başka bir mekanizma kullanarak kullanıcı tarafından karmaşık türler seri hale getirilmelidir.
+Tüm oturum verileri, bellek içi önbellek kullanılırken bile dağıtılmış önbellek senaryosunu etkinleştirmek üzere serileştirilmelidir. En az dize ve numara serileştiricileri sağlanır (bkz. [ISession](/dotnet/api/microsoft.aspnetcore.http.isession)'un yöntemlerine ve genişletme yöntemlerine bakın). Karmaşık türler JSON gibi başka bir mekanizma kullanılarak Kullanıcı tarafından serileştirilmelidir.
 
-Serileştirilebilir nesneler almak ve ayarlamak için aşağıdaki uzantı yöntemlerini ekleyin:
+Seri hale getirilebilir nesneleri ayarlamak ve almak için aşağıdaki uzantı yöntemlerini ekleyin:
 
 [!code-csharp[](app-state/samples/2.x/SessionSample/Extensions/SessionExtensions.cs?name=snippet1)]
 
-Aşağıdaki örnek, genişletme yöntemleri ile seri hale getirilebilir bir nesne almak ve ayarlamak gösterilmektedir:
+Aşağıdaki örnek, uzantı yöntemleriyle bir serileştirilebilir nesnenin nasıl ayarlanacağını ve alınacağını gösterir:
 
 [!code-csharp[](app-state/samples/2.x/SessionSample/Pages/Index.cshtml.cs?name=snippet2)]
 
 ## <a name="tempdata"></a>TempData
 
-ASP.NET Core sunan [Razor sayfaları sayfa modeli TempData özelliği](/dotnet/api/microsoft.aspnetcore.mvc.razorpages.pagemodel.tempdata) veya [MVC denetleyicisinin TempData](/dotnet/api/microsoft.aspnetcore.mvc.controller.tempdata). Bu özellik, okunur kadar verileri depolar. [Tutmak](/dotnet/api/microsoft.aspnetcore.mvc.viewfeatures.itempdatadictionary.keep) ve [Özet](/dotnet/api/microsoft.aspnetcore.mvc.viewfeatures.itempdatadictionary.peek) yöntemleri silme olmadan verileri incelemek için kullanılabilir. Veriler birden çok tek bir istek için gerekli olduğunda TempData yeniden yönlendirme için özellikle yararlıdır. TempData tanımlama veya oturum durumu kullanarak TempData sağlayıcıları tarafından uygulanır.
+ASP.NET Core, Razor Pages [TempData](xref:Microsoft.AspNetCore.Mvc.RazorPages.PageModel.TempData) veya Controller <xref:Microsoft.AspNetCore.Mvc.Controller.TempData>'ı kullanıma sunar. Bu özellik, verileri başka bir istekte okunana kadar depolar. [Sakla (dize)](xref:Microsoft.AspNetCore.Mvc.ViewFeatures.ITempDataDictionary.Keep*) ve [Peek (dize)](xref:Microsoft.AspNetCore.Mvc.ViewFeatures.ITempDataDictionary.Peek*) yöntemleri, isteğin sonunda silme yapılmadan verileri incelemek için kullanılabilir. [Keep ()](xref:Microsoft.AspNetCore.Mvc.ViewFeatures.ITempDataDictionary.Keep*) sözlükte tüm öğeleri bekletme için işaretler. `TempData`, tek bir istek için veri gerektiğinde yeniden yönlendirme için özellikle kullanışlıdır. `TempData`, tanımlama bilgileri `TempData` ya da oturum durumu kullanılarak sağlayıcılar tarafından uygulanır.
+
+## <a name="tempdata-samples"></a>TempData örnekleri
+
+Bir müşteri oluşturan aşağıdaki sayfayı göz önünde bulundurun:
+
+[!code-csharp[](app-state/3.0samples/RazorPagesContacts/Pages/Customers/Create.cshtml.cs?name=snippet&highlight=15-16,30)]
+
+Aşağıdaki sayfa görüntülenir `TempData["Message"]`:
+
+[!code-cshtml[](app-state/3.0samples/RazorPagesContacts/Pages/Customers/IndexPeek.cshtml?range=1-14)]
+
+Önceki İşaretlemede, isteğin `TempData["Message"]` sonunda, kullanıldığı için silinmez. `Peek` Sayfayı yenileme sayfası görüntülenir `TempData["Message"]`.
+
+Aşağıdaki biçimlendirme önceki koda benzerdir, ancak isteğin sonundaki verileri korumak için `Keep` kullanır:
+
+[!code-cshtml[](app-state/3.0samples/RazorPagesContacts/Pages/Customers/IndexKeep.cshtml?range=1-14)]
+
+*Indexpeek* ve *ındexkeep* sayfaları arasında gezinmek silinmez `TempData["Message"]`.
+
+Aşağıdaki kod görüntülenir `TempData["Message"]`, ancak `TempData["Message"]` isteğin sonunda silinir:
+
+[!code-cshtml[](app-state/3.0samples/RazorPagesContacts/Pages/Customers/Index.cshtml?range=1-14)]
 
 ### <a name="tempdata-providers"></a>TempData sağlayıcıları
 
-Tanımlama bilgisi tabanlı TempData sağlayıcısı TempData tanımlama bilgilerini depolamak için varsayılan olarak kullanılır.
+Tanımlama bilgisi tabanlı TempData sağlayıcısı, TempData 'ı tanımlama bilgilerinde depolamak için varsayılan olarak kullanılır.
 
-Tanımlama bilgisi verisi kullanılarak şifrelenir [Idataprotector](/dotnet/api/microsoft.aspnetcore.dataprotection.idataprotector), ile kodlanmış [Base64UrlTextEncoder](/dotnet/api/microsoft.aspnetcore.webutilities.base64urltextencoder), sonra parçalı. Tanımlama bilgisi öbekli çünkü tek bir tanımlama bilgisi ASP.NET Core 1.x uygulanmaz bulunan sınırı boyutu. Şifrelenmiş verileri sıkıştırmak için güvenlik sorunları gibi neden olabileceği için tanımlama bilgisi verisi sıkıştırılmaz [SUÇ](https://wikipedia.org/wiki/CRIME_(security_exploit)) ve [ihlal](https://wikipedia.org/wiki/BREACH_(security_exploit)) saldırıları. Tanımlama bilgisi tabanlı TempData sağlayıcısı hakkında daha fazla bilgi için bkz. [CookieTempDataProvider](/dotnet/api/microsoft.aspnetcore.mvc.viewfeatures.cookietempdataprovider).
+Tanımlama bilgisi verileri, [Base64UrlTextEncoder](/dotnet/api/microsoft.aspnetcore.webutilities.base64urltextencoder)ile kodlanan ve sonra öbekli [ıdataprotector](/dotnet/api/microsoft.aspnetcore.dataprotection.idataprotector)kullanılarak şifrelenir. Tanımlama bilgisi öbekli olduğundan, ASP.NET Core 1. x içinde bulunan tek tanımlama bilgisi boyut sınırı uygulanmaz. Şifreli verileri sıkıştırmak, [suç](https://wikipedia.org/wiki/CRIME_(security_exploit)) ve [ihlal](https://wikipedia.org/wiki/BREACH_(security_exploit)) saldırıları gibi güvenlik sorunlarına yol açacağından, tanımlama bilgisi verileri sıkıştırılmaz. Tanımlama bilgisi tabanlı TempData sağlayıcısı hakkında daha fazla bilgi için bkz. tanımlama, [ıetempdataprovider](/dotnet/api/microsoft.aspnetcore.mvc.viewfeatures.cookietempdataprovider).
 
-### <a name="choose-a-tempdata-provider"></a>TempData sağlayıcısını seçin
+### <a name="choose-a-tempdata-provider"></a>Bir TempData sağlayıcısı seçin
 
-TempData sağlayıcısı seçme gibi çeşitli konuları içerir:
+Bir TempData sağlayıcısı seçmek şöyle bazı hususlar içerir:
 
-1. Uygulama zaten oturum durumu kullanıyor mu? Bu durumda, oturum durumu TempData sağlayıcısını kullanarak ek ücret ödemeden (yanı sıra veri boyutu) uygulamasına sahiptir.
-2. Uygulamayı yalnızca gelişigüzel TempData kullanmaz için görece küçük miktarlarda veri (bayt cinsinden en fazla 500)? Bu nedenle, tanımlama bilgisi TempData sağlayıcı her istek için küçük bir maliyet eklerse, TempData taşır. Aksi durumda, oturum durumu TempData sağlayıcısı TempData tüketilen kadar gidiş dönüşü her isteğin verilerde büyük miktarda önlemek yararlı olabilir.
-3. Uygulamayı bir sunucu grubunda birden çok sunucu üzerinde çalışıyor mu? Bu nedenle, varsa tanımlama bilgisi TempData sağlayıcısı veri koruma dışında kullanmak için ek yapılandırma (bkz <xref:security/data-protection/introduction> ve [anahtar depolama sağlayıcıları](xref:security/data-protection/implementation/key-storage-providers)).
+1. Uygulama oturum durumunu zaten kullanıyor mu? Bu durumda, oturum durumu, TempData Provider 'ın kullanılması uygulamaya ek bir ücret vermez (verilerin boyutundan itibaren).
+2. Uygulama yalnızca görece küçük miktarlarda veri (500 bayta kadar) için TempData kullanıyor mu? Bu durumda, bir tanımlama bilgisi TempData Provider, TempData kullanan her isteğe küçük bir maliyet ekler. Aksi takdirde, oturum durumu TempData Provider, Geçicimiz veri tüketilene kadar her istekte büyük miktarda veri dönüşü olmaması yararlı olabilir.
+3. Uygulama, birden çok sunucuda bir sunucu grubunda mi çalışıyor? Bu durumda, veri koruma (bkz <xref:security/data-protection/introduction> . ve [anahtar depolama sağlayıcıları](xref:security/data-protection/implementation/key-storage-providers)) dışındaki tanımlama bilgisi TempData sağlayıcısını kullanmak için ek bir yapılandırma gerekmez.
 
 > [!NOTE]
-> Çoğu web istemcileri (örneğin, web tarayıcıları) her bir tanımlama bilgisi, tanımlama bilgilerinin toplam sayısı veya her ikisi de en büyük boyutu üst sınırı uygular. Tanımlama bilgisi TempData sağlayıcı kullanırken, uygulama bu sınırları aşmanız olmaz doğrulayın. Verilerin toplam boyutuna göz önünde bulundurun. Hesap için şifreleme ve Öbekleme nedeniyle tanımlama bilgisi boyutu artar.
+> Çoğu Web istemcisi (Web tarayıcıları gibi), her tanımlama bilgisinin en büyük boyutu, toplam tanımlama bilgisi sayısı veya her ikisi için sınır uygular. Bu tanımlama bilgisi TempData sağlayıcısını kullanırken, uygulamanın bu sınırları aşmadığını doğrulayın. Verilerin toplam boyutunu göz önünde bulundurun. Şifreleme ve parçalama nedeniyle tanımlama bilgisi boyutundaki artışlar için hesap.
 
 ### <a name="configure-the-tempdata-provider"></a>TempData sağlayıcısını yapılandırma
 
 Tanımlama bilgisi tabanlı TempData sağlayıcısı varsayılan olarak etkindir.
 
-Oturum tabanlı TempData sağlayıcıyı etkinleştirmek için [AddSessionStateTempDataProvider](/dotnet/api/microsoft.extensions.dependencyinjection.mvcviewfeaturesmvcbuilderextensions.addsessionstatetempdataprovider) genişletme yöntemi:
+Oturum tabanlı TempData sağlayıcısını etkinleştirmek için [Addsessionstatetempdataprovider](/dotnet/api/microsoft.extensions.dependencyinjection.mvcviewfeaturesmvcbuilderextensions.addsessionstatetempdataprovider) genişletme yöntemini kullanın:
 
 [!code-csharp[](app-state/samples_snapshot_2/2.x/SessionSample/Startup.cs?name=snippet1&highlight=11,13,32)]
 
-Ara yazılım sırası önemlidir. Yukarıdaki örnekte, bir `InvalidOperationException` özel durum oluşursa, `UseSession` sonra çağrılan `UseMvc`. Daha fazla bilgi için [ara yazılım sıralama](xref:fundamentals/middleware/index#order).
+Ara yazılım sırası önemlidir. Önceki örnekte, sonrasında `InvalidOperationException` `UseMvc`çağrıldığında bir özel durum `UseSession` oluşur. Daha fazla bilgi için bkz. [Ara yazılım sıralaması](xref:fundamentals/middleware/index#order).
 
 > [!IMPORTANT]
-> .NET Framework'ü hedefleyen ve oturum tabanlı TempData sağlayıcısını kullanarak eklerseniz [Microsoft.AspNetCore.Session](https://www.nuget.org/packages/Microsoft.AspNetCore.Session/) projeye paket.
+> .NET Framework hedefleme ve oturum tabanlı TempData sağlayıcısını kullanıyorsanız, [Microsoft. AspNetCore. Session](https://www.nuget.org/packages/Microsoft.AspNetCore.Session/) paketini projeye ekleyin.
 
 ## <a name="query-strings"></a>Sorgu dizeleri
 
-Sınırlı miktarda veri bir istekten başka bir yeni isteğin sorgu dizesi olanağı ekleyerek geçirilebilir. Bu, gömülü durumuyla e-posta veya sosyal ağlar paylaşılan bağlantılara izin verir, kalıcı bir şekilde durumu yakalamak için yararlıdır. Hiçbir zaman URL'si sorgu dizeleri ortak olduğundan, hassas verileri için sorgu dizelerini kullanın.
+Yeni isteğin sorgu dizesine eklenerek sınırlı miktarda veri, bir istekten diğerine geçirilebilir. Bu durum, gömülü durum ile bağlantıların e-posta veya sosyal ağlar aracılığıyla paylaşılmasını sağlamak için durumu kalıcı bir şekilde yakalamak için yararlıdır. URL sorgu dizeleri ortak olduğundan, gizli veriler için hiçbir şekilde Sorgu dizelerini kullanmayın.
 
-İstenmeyen paylaşmaya ek olarak, sorgu dizelerine veriler dahil olmak üzere olanaklarını oluşturabilirsiniz [siteler arası istek sahteciliği (CSRF)](https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)) kullanıcıların kimlik doğrulaması sırasında kötü amaçlı siteleri ziyaret etmeye ikna saldırıları. Saldırganların uygulamadaki kullanıcı verilerini çalabilir veya kullanıcı adına kötü amaçlı eylemler. Herhangi bir korunan bir uygulama veya oturum durumu CSRF saldırılarına karşı korumanız gerekir. Daha fazla bilgi için [önlemek siteler arası istek sahtekarlığı (XSRF/CSRF) saldırılarını](xref:security/anti-request-forgery).
+Sorgu dizelerindeki veriler de dahil olmak üzere, istenmeyen paylaşıma ek olarak, [siteler arası Istek forgery (CSRF)](https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)) saldırıları için fırsat oluşturabilir ve bu da kullanıcıların kimliği doğrulandığında kötü amaçlı siteleri ziyaret etmesini sağlayabilir. Saldırganlar daha sonra Kullanıcı verilerini uygulamadan çalabilir veya Kullanıcı adına kötü amaçlı eylemler gerçekleştirebilir. Korunan uygulamaların veya oturum durumunun CSRF saldırılarına karşı korunması gerekir. Daha fazla bilgi için bkz. [siteler arası Istek forgery (XSRF/CSRF) saldırılarını önleme](xref:security/anti-request-forgery).
 
-## <a name="hidden-fields"></a>Gizli alanları
+## <a name="hidden-fields"></a>Gizli alanlar
 
-Veri gizli form alanları kaydedilebilir ve bir sonraki istekte geri gönderildi. Bu, çok sayfalı formlarında yaygındır. İstemci, olası verilerle değiştirmesine çünkü uygulama gizli alanlar depolanan veriler her zaman düzeltin gerekir.
+Veriler gizli form alanlarına kaydedilebilir ve sonraki istek üzerine geri gönderilebilir. Bu çok sayfalı formlarda yaygındır. İstemci verilerle oynayabilir olabileceğinden, uygulamanın gizli alanlarda depolanan verileri her zaman yeniden doğrulaması gerekir.
 
-## <a name="httpcontextitems"></a>HttpContext.Items
+## <a name="httpcontextitems"></a>HttpContext. Items
 
-[HttpContext.Items](/dotnet/api/microsoft.aspnetcore.http.httpcontext.items) koleksiyonu tek bir isteği işlerken veri depolamak için kullanılır. İstek işlendikten sonra koleksiyonun içeriği atılır. `Items` Bileşenleri veya ara yazılım istek sırada, farklı noktalarda çalışır ve parametreleri geçirmek için doğrudan hiçbir şekilde iletişim kurmasına izin vermek için genellikle koleksiyonu kullanılır.
+[HttpContext. Items](/dotnet/api/microsoft.aspnetcore.http.httpcontext.items) koleksiyonu, tek bir isteği işlerken verileri depolamak için kullanılır. Koleksiyon içeriği bir istek işlendikten sonra atılır. `Items` Koleksiyon genellikle, bir istek sırasında zaman içinde farklı noktalarda çalıştıklarında ve parametreleri geçirmek için doğrudan bir yol olmadığında bileşenlerin veya ara yazılımların iletişim kurmasına izin vermek için kullanılır.
 
-Aşağıdaki örnekte, [ara yazılım](xref:fundamentals/middleware/index) ekler `isVerified` için `Items` koleksiyonu.
+Aşağıdaki örnekte, `Items` [Ara yazılım](xref:fundamentals/middleware/index) koleksiyona eklenir `isVerified` .
 
 ```csharp
 app.Use(async (context, next) =>
@@ -220,7 +242,7 @@ app.Use(async (context, next) =>
 });
 ```
 
-İşlem hattı daha sonra başka bir ara yazılım değerini erişip `isVerified`:
+İşlem hattının ilerleyen kısımlarında, başka bir ara yazılım şu değere `isVerified`erişebilir:
 
 ```csharp
 app.Run(async (context) =>
@@ -229,29 +251,29 @@ app.Run(async (context) =>
 });
 ```
 
-Yalnızca tek bir uygulama tarafından kullanılan ara yazılımı `string` anahtarları kabul edilebilir. Uygulama örnekleri arasında paylaşılan bir ara yazılım, anahtar çarpışmalarını için benzersiz nesne anahtarları kullanmanız gerekir. Aşağıdaki örnek, bir ara yazılım sınıfı içinde tanımlanan bir benzersiz nesne anahtarı kullanma işlemini gösterir:
+Yalnızca tek bir uygulama `string` tarafından kullanılan ara yazılım için anahtarlar kabul edilebilir. Uygulama örnekleri arasında paylaşılan ara yazılım, anahtar çakışmalarını önlemek için benzersiz nesne anahtarları kullanmalıdır. Aşağıdaki örnek, bir ara yazılım sınıfında tanımlanan benzersiz bir nesne anahtarının nasıl kullanılacağını gösterir:
 
 [!code-csharp[](app-state/samples/2.x/SessionSample/Middleware/HttpContextItemsMiddleware.cs?name=snippet1&highlight=4,13)]
 
-Diğer kod içinde depolanan değeri erişip `HttpContext.Items` ara yazılım sınıfı tarafından kullanıma sunulan anahtarını kullanarak:
+Diğer kod, ara yazılım sınıfının açığa çıkarılan `HttpContext.Items` anahtarını kullanarak içinde depolanan değere erişebilir:
 
 [!code-csharp[](app-state/samples/2.x/SessionSample/Pages/Index.cshtml.cs?name=snippet3)]
 
-Bu yaklaşım, aynı zamanda koddaki anahtar dizeleri kullanımı ortadan avantajına sahiptir.
+Bu yaklaşım ayrıca koddaki anahtar dizelerinin kullanımını ortadan kaldırma avantajına sahiptir.
 
 ## <a name="cache"></a>Önbellek
 
-Önbelleğe alma, veri depolayıp almak için etkili bir yoldur. Uygulama, önbelleğe alınmış öğeleri ömrünü kontrol edebilirsiniz.
+Önbelleğe alma, verileri depolamak ve almak için etkili bir yoldur. Uygulama, önbelleğe alınmış öğelerin ömrünü denetleyebilir.
 
-Önbelleğe alınan veriler belirli bir istek, kullanıcı veya oturum ile ilişkili değil. **Dikkatli olun diğer kullanıcıların isteklerinden alınan önbellek kullanıcıya özgü verilere değil.**
+Önbelleğe alınan veriler belirli bir istek, Kullanıcı veya oturumla ilişkili değildir. **Diğer kullanıcıların istekleri tarafından alınabilecek kullanıcıya özgü verileri önbelleğe alma konusunda dikkatli olun.**
 
 Daha fazla bilgi için bkz. <xref:performance/caching/response>.
 
 ## <a name="dependency-injection"></a>Bağımlılık Ekleme
 
-Kullanım [bağımlılık ekleme](xref:fundamentals/dependency-injection) veri tüm kullanıcılar için kullanılabilir hale getirmek için:
+Verilerin tüm kullanıcılar tarafından kullanılabilmesini sağlamak için [bağımlılık ekleme](xref:fundamentals/dependency-injection) 'yi kullanın:
 
-1. Veri içeren bir hizmet tanımlar. Örneğin, adında bir sınıf `MyAppData` tanımlanır:
+1. Verileri içeren bir hizmet tanımlayın. Örneğin, adlı `MyAppData` bir sınıf tanımlanmıştır:
 
     ```csharp
     public class MyAppData
@@ -260,7 +282,7 @@ Kullanım [bağımlılık ekleme](xref:fundamentals/dependency-injection) veri t
     }
     ```
 
-2. Hizmet sınıfa eklemek `Startup.ConfigureServices`:
+2. Hizmet sınıfını şu şekilde `Startup.ConfigureServices`ekleyin:
 
     ```csharp
     public void ConfigureServices(IServiceCollection services)
@@ -269,7 +291,7 @@ Kullanım [bağımlılık ekleme](xref:fundamentals/dependency-injection) veri t
     }
     ```
 
-3. Veri Hizmeti sınıfındaki kullan:
+3. Veri hizmeti sınıfını tüketme:
 
     ```csharp
     public class IndexModel : PageModel
@@ -284,15 +306,15 @@ Kullanım [bağımlılık ekleme](xref:fundamentals/dependency-injection) veri t
 
 ## <a name="common-errors"></a>Sık karşılaşılan hatalar
 
-* "Hizmet türü 'Microsoft.Extensions.Caching.Distributed.IDistributedCache' için 'Microsoft.AspNetCore.Session.DistributedSessionStore' etkinleştirmeye çalışılırken çözmek alınamıyor."
+* "' Microsoft. AspNetCore. Session. DistributedSessionStore ' etkinleştirilmeye çalışılırken ' Microsoft. Extensions. Caching. Distributed. ıdistributedcache ' türü için hizmet çözümlenemiyor."
 
-  Bu en az bir yapılandırma devrederek genellikle kaynaklanır `IDistributedCache` uygulaması. Daha fazla bilgi için bkz. <xref:performance/caching/distributed> ve <xref:performance/caching/memory>.
+  Bunun nedeni genellikle en az bir `IDistributedCache` uygulamanın yapılandırması başarısız olmuştur. Daha fazla bilgi için bkz. <xref:performance/caching/distributed> ve <xref:performance/caching/memory>.
 
-* Ara yazılım başarısız oturum (örneğin, yedekleme deposunun kullanılabilir durumda değilse) bir oturumu kalıcı olayda ara yazılım özel durumu günlüğe kaydeder ve isteğin normal şekilde devam eder. Bu beklenmeyen davranışa yol açar.
+* Oturum ara yazılımı bir oturumu kalıcı hale getiremediğinde (örneğin, yedekleme deposu kullanılamıyorsa), ara yazılım özel durumu günlüğe kaydeder ve istek normal olarak devam eder. Bu, öngörülemeyen davranışa yol açar.
 
-  Örneğin, bir kullanıcı oturumunda bir alışveriş sepeti depolar. Kullanıcı bir öğeyi sepete ekler, ancak yürütme başarısız. Öğesi true değilse, sepetine eklendi kullanıcıya raporların uygulama başarısızlığı hakkında bilmez.
+  Örneğin, bir Kullanıcı bir alışveriş sepetini oturum içinde depolar. Kullanıcı sepete bir öğe ekler, ancak kayıt başarısız olur. Uygulama hata hakkında bilgi sahibi değildir, bu nedenle bu, doğru olmayan, kullanıcıya öğenin sepetine eklendiğini bildirir.
 
-  Hataları denetlemek için önerilen yaklaşım çağırmaktır `await feature.Session.CommitAsync();` uygulama bittiğinde uygulama kodundan oturuma yazma. `CommitAsync` yedekleme deposu kullanılamıyorsa bir özel durum oluşturur. Varsa `CommitAsync` başarısız olursa, uygulama özel durumu işleyebilir. `LoadAsync` veri deposu kullanılamaz olduğu aynı koşullarda oluşturur.
+  Hataları denetlemek için önerilen yaklaşım, uygulama oturuma yazma işlemi `await feature.Session.CommitAsync();` tamamlandığında uygulama kodundan çağırmalıdır. `CommitAsync`yedekleme deposu kullanılamıyorsa bir özel durum oluşturur. `CommitAsync` Başarısız olursa, uygulama özel durumu işleyebilir. `LoadAsync`veri deposunun kullanılamadığı koşulların aynısını oluşturur.
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 

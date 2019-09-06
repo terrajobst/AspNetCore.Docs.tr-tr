@@ -5,14 +5,14 @@ description: Blazor kimlik doğrulaması ve yetkilendirme senaryoları hakkında
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 06/26/2019
+ms.date: 08/29/2019
 uid: security/blazor/index
-ms.openlocfilehash: 87d61a7ccda209243a62bc54467b8f02dad92c24
-ms.sourcegitcommit: 89fcc6cb3e12790dca2b8b62f86609bed6335be9
+ms.openlocfilehash: 8714acbeb6e8a00992a601030811b24f53426b82
+ms.sourcegitcommit: 8b36f75b8931ae3f656e2a8e63572080adc78513
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68994194"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70310521"
 ---
 # <a name="aspnet-core-blazor-authentication-and-authorization"></a>ASP.NET Core Blazor kimlik doğrulaması ve yetkilendirme
 
@@ -219,17 +219,21 @@ Kullanıcı tarafından tetiklenen bir eylem gerçekleştirilirken gibi yordamsa
 
 `user.Identity.IsAuthenticated` İse`true`, talepler, değerlendirilen roller içinde numaralandırılabilir ve üyelenebilir.
 
-Bileşeni kullanarak geçişli `Task<AuthenticationState>`parametreyiayarlayın `CascadingAuthenticationState` :
+Ve bileşenlerini kullanarak geçişli parametreyi ayarlayın: `Task<AuthenticationState>` `AuthorizeRouteView` `CascadingAuthenticationState`
 
 ```cshtml
-<CascadingAuthenticationState>
-    <Router AppAssembly="typeof(Startup).Assembly">
-        <NotFoundContent>
-            <h1>Sorry</h1>
-            <p>Sorry, there's nothing at this address.</p>
-        </NotFoundContent>
-    </Router>
-</CascadingAuthenticationState>
+<Router AppAssembly="@typeof(Program).Assembly">
+    <Found Context="routeData">
+        <AuthorizeRouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)" />
+    </Found>
+    <NotFound>
+        <CascadingAuthenticationState>
+            <LayoutView Layout="@typeof(MainLayout)">
+                <p>Sorry, there's nothing at this address.</p>
+            </LayoutView>
+        </CascadingAuthenticationState>
+    </NotFound>
+</Router>
 ```
 
 ## <a name="authorization"></a>Yetkilendirme
@@ -239,7 +243,7 @@ Bir kullanıcının kimliği doğrulandıktan sonra, kullanıcının neler yapab
 Erişim, genellikle aşağıdakileri yapıp verilmeksizin verilir veya reddedilir:
 
 * Bir kullanıcının kimliği doğrulanır (oturum açıldı).
-* Bir Kullanıcı bir roldür.
+* Bir Kullanıcı bir *roldür*.
 * Bir kullanıcının *talebi*vardır.
 * Bir *ilke* karşılandı.
 
@@ -372,7 +376,7 @@ Ya da `Policy` belirtilmemişse`[Authorize]` varsayılan ilkeyi kullanır, varsa
 
 ## <a name="customize-unauthorized-content-with-the-router-component"></a>Yönlendirici bileşeniyle yetkisiz içeriği özelleştirme
 
-`Router` Bileşeni, uygulamanın şu durumlarda özel içerik belirtmesini sağlar:
+Bileşen `Router` ilebirliktebileşeni,uygulamanınşudurumlarda`AuthorizeRouteView` özel içerik belirtmesini sağlar:
 
 * İçerik bulunamadı.
 * Kullanıcı, bileşene uygulanan `[Authorize]` bir koşulla başarısız olur. Özniteliği [ [Yetkilendir] öznitelik](#authorize-attribute) bölümünde ele alınmıştır. `[Authorize]`
@@ -381,28 +385,34 @@ Ya da `Policy` belirtilmemişse`[Authorize]` varsayılan ilkeyi kullanır, varsa
 Varsayılan Blazor sunucu tarafı proje şablonunda, *app. Razor* dosyası özel içerik ayarlamayı gösterir:
 
 ```cshtml
-<CascadingAuthenticationState>
-    <Router AppAssembly="typeof(Startup).Assembly">
-        <NotFoundContent>
-            <h1>Sorry</h1>
-            <p>Sorry, there's nothing at this address.</p>
-        </NotFoundContent>
-        <NotAuthorizedContent>
-            <h1>Sorry</h1>
-            <p>You're not authorized to reach this page.</p>
-            <p>You may need to log in as a different user.</p>
-        </NotAuthorizedContent>
-        <AuthorizingContent>
-            <h1>Authentication in progress</h1>
-            <p>Only visible while authentication is in progress.</p>
-        </AuthorizingContent>
-    </Router>
-</CascadingAuthenticationState>
+<Router AppAssembly="@typeof(Program).Assembly">
+    <Found Context="routeData">
+        <AuthorizeRouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)">
+            <NotAuthorized>
+                <h1>Sorry</h1>
+                <p>You're not authorized to reach this page.</p>
+                <p>You may need to log in as a different user.</p>
+            </NotAuthorized>
+            <Authorizing>
+                <h1>Authentication in progress</h1>
+                <p>Only visible while authentication is in progress.</p>
+            </Authorizing>
+        </AuthorizeRouteView>
+    </Found>
+    <NotFound>
+        <CascadingAuthenticationState>
+            <LayoutView Layout="@typeof(MainLayout)">
+                <h1>Sorry</h1>
+                <p>Sorry, there's nothing at this address.</p>
+            </LayoutView>
+        </CascadingAuthenticationState>
+    </NotFound>
+</Router>
 ```
 
-`<NotFoundContent>` ,`<NotAuthorizedContent>`Ve içeriği`<AuthorizingContent>` , diğer etkileşimli bileşenler gibi rastgele öğeleri içerebilir.
+`<NotFound>` ,`<NotAuthorized>`Ve içeriği`<Authorizing>` , diğer etkileşimli bileşenler gibi rastgele öğeleri içerebilir.
 
-`<NotAuthorizedContent>` Belirtilmezse, yönlendirici aşağıdaki geri dönüş iletisini kullanır:
+Belirtilmemişse, aşağıdaki geri dönüş iletisini kullanır:`<AuthorizeRouteView>` `<NotAuthorized>`
 
 ```html
 Not authorized.
@@ -478,4 +488,5 @@ Projenin kimlik doğrulaması etkin bir Blazor sunucu tarafı şablonu kullanıl
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * <xref:security/index>
+* <xref:security/blazor/server-side>
 * <xref:security/authentication/windowsauth>
