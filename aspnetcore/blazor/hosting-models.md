@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 07/01/2019
 uid: blazor/hosting-models
-ms.openlocfilehash: 64393e826cb17550085f468f5916fca55973908f
-ms.sourcegitcommit: 89fcc6cb3e12790dca2b8b62f86609bed6335be9
+ms.openlocfilehash: bf2bce4f89e8bfe6e5aeeb4860c85a60c5eb4b7c
+ms.sourcegitcommit: 8b36f75b8931ae3f656e2a8e63572080adc78513
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68993384"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70310412"
 ---
 # <a name="aspnet-core-blazor-hosting-models"></a>Blazor barındırma modellerini ASP.NET Core
 
@@ -99,35 +99,67 @@ Blazor sunucu tarafında bulunan uygulamalar, sunucu bağlantısı yapılmadan �
  
 ```cshtml
 <body>
-    <app>@(await Html.RenderComponentAsync<App>())</app>
+    <app>@(await Html.RenderComponentAsync<App>(RenderMode.ServerPrerendered))</app>
  
     <script src="_framework/blazor.server.js"></script>
 </body>
 ```
+
+`RenderMode`bileşenin şunları yapıp kullanmadığını yapılandırır:
+
+* , Sayfaya ön gönderilir.
+* , Sayfada statik HTML olarak veya Kullanıcı aracısından bir Blazor uygulamasını önyüklemek için gerekli bilgileri içeriyorsa.
+
+| `RenderMode`        | Açıklama |
+| ------------------- | ----------- |
+| `ServerPrerendered` | Bileşeni statik HTML olarak işler ve Blazor sunucu tarafı uygulaması için bir işaret içerir. Kullanıcı Aracısı başladığında, bu işaretleyici bir Blazor uygulamasını önyüklemek için kullanılır. Parametreler desteklenmiyor. |
+| `Server`            | Blazor sunucu tarafı uygulaması için bir işaret oluşturur. Bileşen çıkışı dahil değildir. Kullanıcı Aracısı başladığında, bu işaretleyici bir Blazor uygulamasını önyüklemek için kullanılır. Parametreler desteklenmiyor. |
+| `Static`            | Bileşeni statik HTML olarak işler. Parametreler destekleniyor. |
+
+Statik HTML sayfasından sunucu bileşenleri işleme desteklenmiyor.
  
 İstemci, uygulamayı PreRender 'da kullanılan aynı durum ile sunucuya yeniden bağlanır. Uygulamanın durumu hala bellekte ise, SignalR bağlantısı kurulduktan sonra bileşen durumu tekrar verilmez.
 
 ### <a name="render-stateful-interactive-components-from-razor-pages-and-views"></a>Razor sayfaları ve görünümlerinden durum bilgisi olan etkileşimli bileşenleri işleme
  
-Durum bilgisi olan etkileşimli bileşenler Razor sayfasına veya görünümüne eklenebilir. Sayfa veya görünüm ne zaman işler, bileşen onunla birlikte gelir. Daha sonra uygulama, durum hala bellekte olduğu sürece istemci bağlantısı kurulduktan sonra bileşen durumuna yeniden bağlanır.
+Durum bilgisi olan etkileşimli bileşenler Razor sayfasına veya görünümüne eklenebilir.
+
+Sayfa veya görünüm şunları işler:
+
+* Bileşen sayfa veya görünümle birlikte kullanılır.
+* Prerendering için kullanılan ilk bileşen durumu kayboldu.
+* SignalR bağlantısı oluşturulduğunda yeni bileşen durumu oluşturulur.
  
-Örneğin, aşağıdaki Razor sayfası bir form kullanılarak belirtilen `Counter` başlangıç sayısıyla bir bileşen oluşturur:
+Aşağıdaki Razor sayfası bir `Counter` bileşeni işler:
+
+```cshtml
+<h1>My Razor Page</h1>
+ 
+@(await Html.RenderComponentAsync<Counter>(RenderMode.ServerPrerendered))
+```
+
+### <a name="render-noninteractive-components-from-razor-pages-and-views"></a>Razor sayfaları ve görünümlerinden etkileşimsiz bileşenleri işleme
+
+Aşağıdaki Razor sayfasında, `MyComponent` bileşen bir form kullanılarak belirtilen bir başlangıç değeriyle statik olarak işlenir:
  
 ```cshtml
 <h1>My Razor Page</h1>
 
 <form>
-    <input type="number" asp-for="InitialCount" />
-    <button type="submit">Set initial count</button>
+    <input type="number" asp-for="InitialValue" />
+    <button type="submit">Set initial value</button>
 </form>
  
-@(await Html.RenderComponentAsync<Counter>(new { InitialCount = InitialCount }))
+@(await Html.RenderComponentAsync<MyComponent>(RenderMode.Static, 
+    new { InitialValue = InitialValue }))
  
 @code {
     [BindProperty(SupportsGet=true)]
-    public int InitialCount { get; set; }
+    public int InitialValue { get; set; }
 }
 ```
+
+Statik `MyComponent` olarak işlendiğinden bileşen etkileşimli olamaz.
 
 ### <a name="detect-when-the-app-is-prerendering"></a>Uygulamanın ne zaman prerendering olduğunu Algıla
  

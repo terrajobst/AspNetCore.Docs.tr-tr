@@ -5,14 +5,14 @@ description: Blazor içinde Forms ve alan doğrulama senaryolarını nasıl kull
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 08/13/2019
+ms.date: 09/04/2019
 uid: blazor/forms-validation
-ms.openlocfilehash: 0b2e38cdbd974a28960b917fb6b5ce370f8c4659
-ms.sourcegitcommit: f5f0ff65d4e2a961939762fb00e654491a2c772a
+ms.openlocfilehash: 4531ef44a7df3951f3bebdf88e597165fa75f06e
+ms.sourcegitcommit: 8b36f75b8931ae3f656e2a8e63572080adc78513
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69030335"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70310322"
 ---
 # <a name="aspnet-core-blazor-forms-and-validation"></a>ASP.NET Core Blazor formları ve doğrulaması
 
@@ -175,6 +175,25 @@ Aşağıdaki form, `Starship` modelde tanımlanan doğrulamayı kullanarak Kulla
 
 , `EditForm` Hangi alanların `EditContext` değiştirildiği ve geçerli doğrulama iletileri de dahil olmak üzere düzenleme işlemiyle ilgili meta verileri izleyen [basamaklı bir değer](xref:blazor/components#cascading-values-and-parameters) olarak oluşturur. Ayrıca geçerli ve geçersiz Gönderimlerle (`OnValidSubmit`, `OnInvalidSubmit`) uygun olaylar sağlar. `EditForm` Alternatif olarak, `OnSubmit` doğrulamayı tetiklemek ve alan değerlerini özel doğrulama kodu ile denetlemek için kullanın.
 
+## <a name="inputtext-based-on-the-input-event"></a>Giriş olayına göre InputText
+
+Olayı yerine `input`olayınıkullanan özel bir bileşen oluşturmak için bileşeninikullanın.`InputText` `change`
+
+Aşağıdaki biçimlendirmeye sahip bir bileşen oluşturun ve bileşeni tıpkı kullanıldığı gibi `InputText` kullanın:
+
+```cshtml
+@inherits InputText
+
+<input 
+    @attributes="AdditionalAttributes" 
+    class="@CssClass" 
+    value="@CurrentValue" 
+    @oninput="EventCallback.Factory.CreateBinder<string>(
+        this, __value => CurrentValueAsString = __value, CurrentValueAsString)" />
+```
+
+## <a name="validation-support"></a>Doğrulama desteği
+
 Bileşen, Basamaklandırılan `EditContext`veri açıklamalarını kullanarak doğrulama desteğini iliştirir. `DataAnnotationsValidator` Veri ek açıklamalarını kullanarak doğrulama desteğinin etkinleştirilmesi Şu anda bu açık hareketi gerektirir, ancak bunu daha sonra geçersiz kılabileceğiniz varsayılan davranışı yapmayı düşünüyoruz. Veri ek açıklamalarıyla farklı bir doğrulama sistemi kullanmak için, `DataAnnotationsValidator` öğesini özel bir uygulamayla değiştirin. ASP.NET Core uygulama, başvuru kaynağında İnceleme için kullanılabilir: [Dataannotationsvalidator](https://github.com/aspnet/AspNetCore/blob/master/src/Components/Components/src/Forms/DataAnnotationsValidator.cs)/[adddataannotationsvalidation](https://github.com/aspnet/AspNetCore/blob/master/src/Components/Components/src/Forms/EditContextDataAnnotationsExtensions.cs). *ASP.NET Core uygulama, önizleme sürümü döneminde hızlı güncelleştirmelere tabidir.*
 
 Bileşen, [doğrulama özeti etiketi Yardımcısı](xref:mvc/views/working-with-forms#the-validation-summary-tag-helper)'na benzer olan tüm doğrulama iletilerini özetler. `ValidationSummary`
@@ -186,3 +205,7 @@ Bileşeni, [doğrulama iletisi etiketi Yardımcısı](xref:mvc/views/working-wit
 ```
 
 `ValidationMessage` Ve`ValidationSummary` bileşenleri, rastgele öznitelikleri destekler. Bir bileşen parametresiyle eşleşmeyen herhangi bir öznitelik oluşturulan `<div>` or `<ul>` öğesine eklenir.
+
+### <a name="validation-of-complex-or-collection-type-properties"></a>Karmaşık veya koleksiyon türü özelliklerinin doğrulanması
+
+Bir modelin özelliklerine uygulanan doğrulama öznitelikleri, form gönderildiğinde doğrular. Ancak, koleksiyonların özellikleri veya bir modelin karmaşık veri türleri form gönderimi üzerinde doğrulanmaz. Bu senaryoda iç içe geçmiş doğrulama özniteliklerini kabul etmek için özel bir doğrulama bileşeni kullanın. Bir örnek için, [ASPNET/Samples GitHub deposundaki Blazor doğrulama örneğine](https://github.com/aspnet/samples/tree/master/samples/aspnetcore/blazor/Validation)bakın.

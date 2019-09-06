@@ -7,18 +7,18 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 08/13/2019
 uid: blazor/state-management
-ms.openlocfilehash: af040635302fbf2dae8192dcf37d55bfcfedfcec
-ms.sourcegitcommit: f5f0ff65d4e2a961939762fb00e654491a2c772a
+ms.openlocfilehash: 01f32130e43b7235cb438ad71321256882f53573
+ms.sourcegitcommit: 8b36f75b8931ae3f656e2a8e63572080adc78513
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69030375"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70310297"
 ---
 # <a name="aspnet-core-blazor-state-management"></a>ASP.NET Core Blazor durum yönetimi
 
 [Steve Sanderson](https://github.com/SteveSandersonMS) tarafından
 
-Blazor sunucu tarafı, durum bilgisi olan bir uygulama çerçevesidir. Çoğu zaman, uygulama sunucuya devam eden bir bağlantı sağlar. Kullanıcının durumu, sunucu belleğinde bir devrende tutulur. 
+Blazor sunucu tarafı, durum bilgisi olan bir uygulama çerçevesidir. Çoğu zaman, uygulama sunucuya devam eden bir bağlantı sağlar. Kullanıcının durumu, sunucu belleğinde bir *devrende*tutulur. 
 
 Bir kullanıcının devresi için durum tutulan örnekler şunlardır:
 
@@ -237,10 +237,7 @@ Prerendering sırasında:
 
 Hatayı çözmek için bir yol prerendering devre dışı bırakılır. Bu genellikle uygulama tarayıcı tabanlı depolamanın yoğun bir şekilde kullanımını yapıyorsa en iyi seçenektir. Prerendering karmaşıklık ekler ve uygulama, kullanılabilir olana kadar `localStorage` `sessionStorage` faydalı içeriğe gidemediği için uygulamaya yarar.
 
-Prerendering devre dışı bırakmak için:
-
-1. *Pages/_Host. cshtml* dosyasını açın ve çağrısını `Html.RenderComponentAsync`kaldırın.
-1. Dosyasını açın ve `endpoints.MapBlazorHub()` çağrısını ile `endpoints.MapBlazorHub<App>("app")`değiştirin. `Startup.cs` `App`, kök bileşenin türüdür. `"app"`, kök bileşenin konumunu belirten bir CSS seçicidir.
+Prerendering 'yi devre dışı bırakmak için, *Pages/_Host. cshtml* dosyasını açın ve çağrısını `Html.RenderComponentAsync<App>(RenderMode.Server)`değiştirin.
 
 Prerendering, veya `localStorage` `sessionStorage`kullanmayan diğer sayfalar için yararlı olabilir. Prerendering etkin tutmak için, tarayıcı devreye bağlanana kadar yükleme işlemini erteleyin. Aşağıda, bir sayaç değeri depolamak için bir örnek verilmiştir:
 
