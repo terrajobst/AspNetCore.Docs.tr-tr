@@ -1,42 +1,60 @@
 ---
-title: ASP.NET Core signalr'da hubs'ı kullanma
+title: ASP.NET Core SignalR 'de hub 'ları kullanma
 author: bradygaster
-description: İçinde ASP.NET Core SignalR hub'ı kullanmayı öğrenin.
+description: ASP.NET Core SignalR 'de hub 'ları kullanmayı öğrenin.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: bradyg
 ms.custom: mvc
 ms.date: 11/20/2018
 uid: signalr/hubs
-ms.openlocfilehash: eb87aab2b7f3a58c6cec80f48f7616749f0809e2
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 4922d6d780b18727d3ac181b94dbf75458d74fe6
+ms.sourcegitcommit: 387cf29f5d5addef2cbc70670a11d612806b36b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64902900"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70746520"
 ---
-# <a name="use-hubs-in-signalr-for-aspnet-core"></a>ASP.NET Core signalr'da hubs'ı kullanma
+# <a name="use-hubs-in-signalr-for-aspnet-core"></a>ASP.NET Core için SignalR içindeki hub 'ları kullanma
 
-Tarafından [Rachel Appel](https://twitter.com/rachelappel) ve [Kevin Griffin](https://twitter.com/1kevgriff)
+, [Rachel Appel](https://twitter.com/rachelappel) ve [Kevin Griffin](https://twitter.com/1kevgriff) tarafından
 
-[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/signalr/hubs/sample/ ) [(karşıdan yükleme)](xref:index#how-to-download-a-sample)
+[Örnek kodu görüntüle veya indir](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/signalr/hubs/sample/ ) [(indirme)](xref:index#how-to-download-a-sample)
 
-## <a name="what-is-a-signalr-hub"></a>Bir SignalR hub'ı nedir
+## <a name="what-is-a-signalr-hub"></a>SignalR hub nedir?
 
-SignalR hub'ları API sunucudan bağlı istemciler üzerinde yöntemleri çağırmak sağlar. Sunucu kodunda istemci tarafından çağrılan yöntemlere tanımlayın. İstemci kodda sunucudan çağrılan yöntemlere tanımlayın. SignalR gerçek zamanlı istemci-sunucu ve sunucu istemci iletişimi olanaklı kılan arka planda her şeyin üstlenir.
+SignalR hub 'Ları API 'SI, bağlı istemcilerdeki yöntemleri sunucudan çağırmanızı sağlar. Sunucu kodunda, istemci tarafından çağrılan yöntemleri tanımlarsınız. İstemci kodunda, sunucudan çağrılan yöntemleri tanımlarsınız. SignalR, gerçek zamanlı istemciden sunucuya ve sunucudan istemciye iletişimleri mümkün kılan arka planda her şeyi üstlenir.
 
-## <a name="configure-signalr-hubs"></a>SignalR hub'ları yapılandırma
+## <a name="configure-signalr-hubs"></a>SignalR hub 'larını yapılandırma
 
-SignalR ara yazılım çağırarak yapılandırılan bazı hizmetler gerektirir `services.AddSignalR`.
+SignalR ara yazılımı, çağırarak `services.AddSignalR`yapılandırılan bazı hizmetler gerektirir.
 
 [!code-csharp[Configure service](hubs/sample/startup.cs?range=38)]
 
-ASP.NET Core uygulaması için SignalR işlevselliği ekleme, SignalR yollar çağırarak Kurulum `app.UseSignalR` içinde `Startup.Configure` yöntemi.
+::: moniker range=">= aspnetcore-3.0"
+
+Bir ASP.NET Core uygulamasına SignalR işlevselliği eklerken, `endpoint.MapHub` `Startup.Configure` metodun `app.UseEndpoints` geri çağrısında arayarak SignalR yollarını ayarlayın.
+
+```csharp
+app.UseRouting();
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapHub<ChatHub>("/chathub");
+});
+```
+
+::: moniker-end
+
+::: moniker range="<= aspnetcore-2.2"
+
+Bir ASP.NET Core uygulamasına SignalR işlevselliği eklerken, `app.UseSignalR` `Startup.Configure` yöntemini çağırarak SignalR yollarını ayarlayın.
 
 [!code-csharp[Configure routes to hubs](hubs/sample/startup.cs?range=57-60)]
 
-## <a name="create-and-use-hubs"></a>Oluşturma ve hub'ları kullanma
+::: moniker-end
 
-Öğesinden devralınan bir sınıf bildirerek oluşturma `Hub`ve genel yöntemleri ekleyin. İstemcileri olarak tanımlanmış olan yöntemleri çağırabilir `public`.
+## <a name="create-and-use-hubs"></a>Hub 'lar oluşturma ve kullanma
+
+Öğesinden `Hub`devralan bir sınıf bildirerek bir hub oluşturun ve ona ortak yöntemler ekleyin. İstemcileri, olarak `public`tanımlanan yöntemleri çağırabilir.
 
 ```csharp
 public class ChatHub : Hub
@@ -48,85 +66,85 @@ public class ChatHub : Hub
 }
 ```
 
-Dönüş türü ve parametreleri, tüm C# yönteminde olduğu gibi karmaşık türler ve diziler de dahil olmak üzere belirtebilirsiniz. SignalR serileştirme ve seri durumundan çıkarma karmaşık nesneler ve diziler parametreleri ve dönüş değerleri işler.
+Herhangi C# bir yöntemde yaptığınız gibi, karmaşık türler ve diziler dahil olmak üzere bir dönüş türü ve parametreleri belirtebilirsiniz. SignalR parametrelerinizin ve dönüş değerlerindeki karmaşık nesne ve dizilerin serileştirilmesi ve serisini kaldırma işlemi gerçekleştirir.
 
 > [!NOTE]
-> Hub geçici:
+> Hub 'lar geçicidir:
 >
-> * Durum hub sınıfına bir özellik içinde depolamayın. Her bir hub yöntemi çağrısı, yeni bir hub örneği üzerinde yürütülür.  
-> * Kullanım `await` Canlı kalma hub'da bağımlı zaman uyumsuz yöntemleri çağrılırken. Örneğin, bir yöntem gibi `Clients.All.SendAsync(...)` olmadan çağrılırsa başarısız olabilir `await` ve önce hub yöntemi tamamlayan `SendAsync` tamamlanır.
+> * Durumu hub sınıfının bir özelliğinde depolamayın. Her hub yöntemi çağrısı yeni bir hub örneğinde yürütülür.
+> * Hub `await` 'a bağlı olan zaman uyumsuz yöntemleri çağırırken kullanım etkin kalmakta. Örneğin, gibi bir yöntem `Clients.All.SendAsync(...)` , olmadan `await` çağrılırsa ve hub yöntemi bitmeden önce `SendAsync` tamamlandığında başarısız olabilir.
 
 ## <a name="the-context-object"></a>Bağlam nesnesi
 
-`Hub` Sınıfında bir `Context` bağlantı hakkında bilgi içeren aşağıdaki özellikleri içeren özellik:
+Sınıfı, bağlantıyla ilgili `Context` bilgiler içeren aşağıdaki özellikleri içeren bir özelliğe sahiptir: `Hub`
 
 | Özellik | Açıklama |
 | ------ | ----------- |
-| `ConnectionId` | SignalR tarafından atanan bağlantı için benzersiz kimlik alır. Her bağlantı için bir bağlantı kimliği yok.|
-| `UserIdentifier` | Alır [kullanıcı tanımlayıcısı](xref:signalr/groups). Varsayılan olarak, SignalR kullanır `ClaimTypes.NameIdentifier` gelen `ClaimsPrincipal` kullanıcı tanımlayıcısı olarak bağlantı ile ilişkili. |
-| `User` | Alır `ClaimsPrincipal` geçerli kullanıcı ile ilişkili. |
-| `Items` | Bu bağlantının kapsamı içinde veri paylaşmak için kullanılan bir anahtar/değer koleksiyonunu alır. Bu koleksiyonda veri depolanabilir ve farklı bir hub yöntemi çağrılarını arasında bağlantı için korunur. |
-| `Features` | Bağlantıda özelliklerin koleksiyonunu alır. Ayrıntılı olarak henüz belgelenmemiştir için şu an için çoğu senaryoda, bu koleksiyon gerek yoktur. |
-| `ConnectionAborted` | Alır bir `CancellationToken` bağlantı iptal edildiğinde bildirir. |
+| `ConnectionId` | SignalR tarafından atanan bağlantının benzersiz KIMLIĞINI alır. Her bağlantı için bir bağlantı KIMLIĞI vardır.|
+| `UserIdentifier` | [Kullanıcı tanımlayıcısını](xref:signalr/groups)alır. Varsayılan olarak, SignalR, `ClaimTypes.NameIdentifier` `ClaimsPrincipal` Kullanıcı tanımlayıcısı ile ilişkilendirilen bağlantıyla ilişkili ' ı kullanır. |
+| `User` | Geçerli kullanıcıyla `ClaimsPrincipal` ilişkili öğesini alır. |
+| `Items` | Bu bağlantının kapsamındaki verileri paylaşmak için kullanılabilecek bir anahtar/değer koleksiyonu alır. Veriler bu koleksiyonda depolanabilir ve farklı hub yöntemi etkinleştirmeleri arasında bağlantı için kalıcı hale gelir. |
+| `Features` | Bağlantıda kullanılabilen özelliklerin koleksiyonunu alır. Şimdilik bu koleksiyon Çoğu senaryoda gerekli değildir, bu nedenle henüz ayrıntılı olarak açıklanmamıştır. |
+| `ConnectionAborted` | Bağlantı iptal `CancellationToken` edildiğinde bir bildirim alır. |
 
-`Hub.Context` Ayrıca aşağıdaki yöntemleri içerir:
+`Hub.Context`Aşağıdaki yöntemleri de içerir:
 
 | Yöntem | Açıklama |
 | ------ | ----------- |
-| `GetHttpContext` | Döndürür `HttpContext` bir bağlantı veya `null` bağlantı bir HTTP isteği ile ilişkili değilse. HTTP bağlantıları için HTTP üst bilgileri ve sorgu dizeleri gibi bilgileri almak için bu yöntemi kullanabilirsiniz. |
-| `Abort` | Bağlantıyı durdurur. |
+| `GetHttpContext` | Bağlantı için veya `null` bağlantı bir HTTP isteğiyle ilişkilendirilmediği takdirde. `HttpContext` HTTP bağlantılarında, HTTP üstbilgileri ve sorgu dizeleri gibi bilgileri almak için bu yöntemi kullanabilirsiniz. |
+| `Abort` | Bağlantıyı iptal eder. |
 
-## <a name="the-clients-object"></a>İstemciler nesnesi
+## <a name="the-clients-object"></a>Istemciler nesnesi
 
-`Hub` Sınıfında bir `Clients` sunucu ve istemci arasındaki iletişim için aşağıdaki özellikleri içeren özelliği:
+Sınıfı, sunucu ve `Clients` istemci arasındaki iletişim için aşağıdaki özellikleri içeren bir özelliğe sahiptir: `Hub`
 
 | Özellik | Açıklama |
 | ------ | ----------- |
-| `All` | Bağlanan tüm istemciler üzerinde bir yöntemi çağırır |
-| `Caller` | Bir hub yöntemini çağırmış istemciye bir metod çağırır |
-| `Others` | Yöntemini çağırmış istemciye dışındaki bağlanan tüm istemciler üzerinde bir yöntemi çağırır. |
+| `All` | Tüm bağlı istemcilerde bir yöntemi çağırır |
+| `Caller` | İstemciye, hub yöntemini çağıran bir yöntemi çağırır |
+| `Others` | Yöntemi çağıran istemci hariç tüm bağlı istemcilerde bir yöntemi çağırır |
 
-`Hub.Clients` Ayrıca aşağıdaki yöntemleri içerir:
+`Hub.Clients`Aşağıdaki yöntemleri de içerir:
 
 | Yöntem | Açıklama |
 | ------ | ----------- |
-| `AllExcept` | Bağlanan tüm istemciler belirtilen bağlantılar dışında bir yöntem çağırır. |
-| `Client` | Belirli bir bağlı istemci üzerinde bir yöntemi çağırır |
-| `Clients` | Belirli bir bağlı istemciler üzerinde bir yöntemi çağırır |
-| `Group` | Belirtilen gruptaki tüm bağlantıları üzerinde bir yöntemi çağırır.  |
-| `GroupExcept` | Belirtilen gruptaki belirtilen bağlantılar dışında tüm bağlantıları üzerinde bir yöntemi çağırır. |
-| `Groups` | Birden çok bağlantı grupları üzerinde bir yöntemi çağırır  |
-| `OthersInGroup` | Bir hub yöntemini çağırmış istemciye hariç bağlantıları, grup üzerinde bir yöntemi çağırır  |
-| `User` | Belirli bir kullanıcıyla ilişkili tüm bağlantıları üzerinde bir yöntemi çağırır. |
-| `Users` | Belirtilen kullanıcılar ile ilişkili tüm bağlantıları üzerinde bir yöntemi çağırır. |
+| `AllExcept` | Belirtilen bağlantılar hariç tüm bağlı istemcilerde bir yöntemi çağırır |
+| `Client` | Belirli bir bağlı istemcide bir yöntemi çağırır |
+| `Clients` | Belirli bağlı istemcilerde bir yöntemi çağırır |
+| `Group` | Belirtilen gruptaki tüm bağlantılarda bir yöntemi çağırır  |
+| `GroupExcept` | Belirtilen bağlantılar dışında, belirtilen gruptaki tüm bağlantılarda bir yöntemi çağırır |
+| `Groups` | Birden çok bağlantı grubunda bir yöntemi çağırır  |
+| `OthersInGroup` | Hub yöntemini çağıran istemci hariç bir bağlantı grubu üzerinde bir yöntemi çağırır  |
+| `User` | Belirli bir kullanıcıyla ilişkili tüm bağlantılarda bir yöntemi çağırır |
+| `Users` | Belirtilen kullanıcılarla ilişkili tüm bağlantılarda bir yöntemi çağırır |
 
-Her bir özellik veya yöntemin önceki tablolarda sahip bir nesne döndürür. bir `SendAsync` yöntemi. `SendAsync` Yöntemi çağırmak için istemci yönteminin parametreleri ve adını girmesini sağlar.
+Yukarıdaki tablolardaki her bir özellik veya yöntem bir `SendAsync` yöntemine sahip bir nesne döndürür. `SendAsync` Yöntemi, çağrılacak istemci yönteminin adını ve parametrelerini girmenize olanak sağlar.
 
-## <a name="send-messages-to-clients"></a>İstemciler için iletileri gönder
+## <a name="send-messages-to-clients"></a>İstemcilere ileti gönderme
 
-Özel istemciler çağrı yapmak için özelliklerini kullanmak `Clients` nesne. Aşağıdaki örnekte, üç Hub yöntemleri vardır:
+Belirli istemcilere çağrı yapmak için `Clients` nesnesinin özelliklerini kullanın. Aşağıdaki örnekte, üç hub yöntemi vardır:
 
-* `SendMessage` kullanan tüm bağlı istemciler için bir ileti gönderir `Clients.All`.
-* `SendMessageToCaller` kullanarak çağırana geri, bir ileti gönderir `Clients.Caller`.
-* `SendMessageToGroups` tüm istemciler için bir ileti gönderir `SignalR Users` grubu.
+* `SendMessage`kullanarak `Clients.All`tüm bağlı istemcilere bir ileti gönderir.
+* `SendMessageToCaller`kullanarak `Clients.Caller`, çağırana geri bir ileti gönderir.
+* `SendMessageToGroups``SignalR Users` gruptaki tüm istemcilere bir ileti gönderir.
 
 [!code-csharp[Send messages](hubs/sample/hubs/chathub.cs?name=HubMethods)]
 
-## <a name="strongly-typed-hubs"></a>Kesin türü belirtilmiş hub'ları
+## <a name="strongly-typed-hubs"></a>Türü kesin belirlenmiş hub 'lar
 
-Kullanmanın bir dezavantajı `SendAsync` olan çağrılacak istemci yöntemi belirtmek için Sihirli bir dize kullanır. Bu yöntem adı yanlış yazılmış, çalışma zamanı hataları için kod açık ya da istemciden eksik bırakır.
+Kullanmanın `SendAsync` bir dezavantajı, çağrılacak istemci yöntemini belirtmek için bir sihirli dize kullanır. Bu, yöntem adı yanlış yazıldığında veya istemcide eksikse kodu, çalışma zamanı hatalarına açık bırakır.
 
-Kullanmaya alternatif `SendAsync` kesin yazmaktır `Hub` ile <xref:Microsoft.AspNetCore.SignalR.Hub%601>. Aşağıdaki örnekte, `ChatHub` istemci yöntemleri ayıklandı out adlı bir arabirim `IChatClient`.  
+Kullanmanın `SendAsync` alternatifi, `Hub` ile <xref:Microsoft.AspNetCore.SignalR.Hub%601>kesin bir şekilde yazmak için kullanılır. Aşağıdaki örnekte, `ChatHub` istemci yöntemleri adlı `IChatClient`bir arabirimde çıkarılmıştır.
 
 [!code-csharp[Interface for IChatClient](hubs/sample/hubs/ichatclient.cs?name=snippet_IChatClient)]
 
-Bu arabirim, önceki yeniden kullanılabilir `ChatHub` örnek.
+Bu arabirim, önceki `ChatHub` örneği yeniden düzenleme için kullanılabilir.
 
 [!code-csharp[Strongly typed ChatHub](hubs/sample/hubs/StronglyTypedChatHub.cs?range=8-18,36)]
 
-Kullanarak `Hub<IChatClient>` derleme zamanı istemci yöntemleri denetimini etkinleştirir. Bu Sihirli dize beri kullanımından kaynaklanan sorunları önler `Hub<T>` yalnızca arabirim içinde tanımlanmış yöntemleri erişim sağlayabilir.
+Kullanımı `Hub<IChatClient>` , istemci yöntemlerinin derleme zamanı denetimini sunar. Bu, yalnızca arabirimde tanımlanan yöntemlere erişim `Hub<T>` sağlayabileceğinizden, sihirli dizeler kullanılarak oluşan sorunları önler.
 
-Türü kesin belirlenmiş kullanarak `Hub<T>` kullanma yeteneği devre dışı bırakır `SendAsync`. Arabirimde tanımlanan herhangi bir yöntemin zaman uyumsuz olarak yine de tanımlanabilir. Aslında, bu yöntemlerin her biri döndürmelidir bir `Task`. Bir arabirim olduğundan, kullanmayın `async` anahtar sözcüğü. Örneğin:
+Türü kesin belirlenmiş `Hub<T>` kullanılması, kullanma `SendAsync`yeteneğini devre dışı bırakır. Arabirim üzerinde tanımlanan Yöntemler hala zaman uyumsuz olarak tanımlanabilir. Aslında, bu yöntemlerin her biri bir `Task`döndürmelidir. Bir arabirim olduğundan `async` anahtar sözcüğünü kullanmayın. Örneğin:
 
 ```csharp
 public interface IClient
@@ -136,47 +154,47 @@ public interface IClient
 ```
 
 > [!NOTE]
-> `Async` Soneki olmayan bir yöntem adı kesilmiş. İstemci yönteminizi tanımlı olmadığı sürece `.on('MyMethodAsync')`, kullanmamalısınız `MyMethodAsync` adı.
+> `Async` Sonek, yöntem adından çıkarılır. İstemci yönteminiz ile `.on('MyMethodAsync')`tanımlanmadıysa, ad olarak kullanmamalısınız `MyMethodAsync` .
 
-## <a name="change-the-name-of-a-hub-method"></a>Hub yönteminin adını değiştirin
+## <a name="change-the-name-of-a-hub-method"></a>Bir hub yönteminin adını değiştirme
 
-Varsayılan olarak, bir sunucu hub yönteminin adı, .NET yöntemi adıdır. Ancak, kullanabileceğiniz [HubMethodName](xref:Microsoft.AspNetCore.SignalR.HubMethodNameAttribute) el ile yöntemi için bir ad belirtin ve bu varsayılanı değiştirmek için özniteliği. İstemci yöntemi çağrılırken .NET yöntemi adı yerine bu adı kullanmalıdır.
+Varsayılan olarak, bir sunucu hub 'ı Yöntem adı .NET yönteminin adıdır. Ancak, bu Varsayılanı değiştirmek ve yöntemi için el ile bir ad belirtmek için [Hubmethodname](xref:Microsoft.AspNetCore.SignalR.HubMethodNameAttribute) özniteliğini kullanabilirsiniz. İstemci, yöntemi çağırırken .NET Yöntem adı yerine bu adı kullanmalıdır.
 
 [!code-csharp[HubMethodName attribute](hubs/sample/hubs/chathub.cs?name=HubMethodName&highlight=1)]
 
-## <a name="handle-events-for-a-connection"></a>Bağlantı olayları işleme
+## <a name="handle-events-for-a-connection"></a>Bir bağlantı için olayları işleyin
 
-SignalR hub'ları API sağlar `OnConnectedAsync` ve `OnDisconnectedAsync` yönetmek ve bağlantıları izlemek için sanal yöntemler. Geçersiz kılma `OnConnectedAsync` bir istemci bir gruba ekleme gibi Hub'ına bağlandığında eylemleri gerçekleştirmek için sanal bir yöntem.
+SignalR hub 'ları API 'si, `OnConnectedAsync` bağlantıları `OnDisconnectedAsync` yönetmek ve izlemek için ve sanal yöntemler sağlar. Bir istemci hub 'a bağlanırken bir gruba ekleme gibi işlemleri gerçekleştirmek için sanalyöntemigeçersizkılın.`OnConnectedAsync`
 
 [!code-csharp[Handle connection](hubs/sample/hubs/chathub.cs?name=OnConnectedAsync)]
 
-Geçersiz kılma `OnDisconnectedAsync` istemci kestiğinde eylemleri gerçekleştirmek için sanal bir yöntem. İstemcinin kasıtlı olarak kesilirse (çağırarak `connection.stop()`, örneğin), `exception` parametre olacak `null`. Ancak, istemcinin (örneğin, bir ağ hatası), bir hata nedeniyle kesilmiş `exception` parametresi hatayı açıklayan bir özel durum içerir.
+Bir istemcinin bağlantısı kesildiğinde işlemleri gerçekleştirmek için sanalyöntemigeçersizkılın.`OnDisconnectedAsync` İstemci kasıtlı olarak bağlantı kesildiğinde (örneğin, `connection.stop()`çağırarak) `exception` , parametresi `null`olur. Ancak, istemcinin bağlantısı bir hata nedeniyle kesildiyse (örneğin, bir ağ arızası), `exception` Bu parametre hatayı açıklayan bir özel durum içerir.
 
 [!code-csharp[Handle disconnection](hubs/sample/hubs/chathub.cs?name=OnDisconnectedAsync)]
 
 ## <a name="handle-errors"></a>Hataları işleme
 
-Özel durumlar, hub yöntemlerinde oluşturulan yöntemini çağırmış istemciye gönderilir. JavaScript istemci `invoke` yöntemi döndürür bir [JavaScript Promise](https://developer.mozilla.org/docs/Web/JavaScript/Guide/Using_promises). İstemci bir işleyici ile bir hata aldığında bağlı promise kullanmaya `catch`, çağrılan ve bir JavaScript olarak geçirilen `Error` nesne.
+Hub yöntemleriniz içinde oluşturulan özel durumlar, yöntemi çağıran istemciye gönderilir. JavaScript istemcisinde, `invoke` yöntemi bir [JavaScript Promise](https://developer.mozilla.org/docs/Web/JavaScript/Guide/Using_promises)döndürür. İstemci, promise `catch`öğesine eklenmiş bir işleyiciyle bir hata aldığında, çağrılır ve bir JavaScript `Error` nesnesi olarak geçirilir.
 
 [!code-javascript[Error](hubs/sample/wwwroot/js/chat.js?range=23)]
 
-Hub'ınıza bir özel durum oluşturursa, kapatılan bağlantılar değildir. Varsayılan olarak, SignalR istemci için genel bir hata iletisi döndürür. Örneğin:
+Hub 'ınız bir özel durum oluşturursa, bağlantılar kapanmamıştır. Varsayılan olarak, SignalR istemciye genel bir hata iletisi döndürür. Örneğin:
 
 ```
 Microsoft.AspNetCore.SignalR.HubException: An unexpected error occurred invoking 'MethodName' on the server.
 ```
 
-Beklenmeyen özel durum, genellikle bir veritabanı sunucusu veritabanı bağlantısı başarısız olduğunda tetiklenen bir özel durum adı gibi hassas bilgiler içerebilir. SignalR, bir güvenlik önlemi olarak varsayılan olarak bu ayrıntılı hata iletileri ortaya çıkarmıyor. Bkz: [güvenlik konuları makale](xref:signalr/security#exceptions) neden hakkında daha fazla bilgi için özel durum ayrıntıları görüntülenmez.
+Beklenmeyen özel durumlar genellikle veritabanı bağlantısı başarısız olduğunda tetiklenen bir özel durumda veritabanı sunucusunun adı gibi hassas bilgiler içerir. SignalR, varsayılan olarak güvenlik önlemi olarak bu ayrıntılı hata iletilerini açığa çıkarır. Özel durum ayrıntılarının neden bastırıldığına ilişkin daha fazla bilgi için [güvenlik konuları makalesine](xref:signalr/security#exceptions) bakın.
 
-Varsa olağanüstü bir koşul, *yapmak* istemciye yayılması istiyorsanız, kullanabileceğiniz `HubException` sınıfı. Durum, bir `HubException` SignalR, hub yönteminden **olacak** tüm ileti üzerinde değişiklik yapılmadan, bir istemciye göndermek.
+İstemciye *yaymak istediğiniz olağanüstü* bir koşulunuz varsa, `HubException` sınıfını kullanabilirsiniz. Hub yönteinizden bir `HubException` oluşturursanız, **SignalR tüm** iletiyi istemciye, değiştirilmemiş olarak gönderir.
 
 [!code-csharp[ThrowHubException](hubs/sample/hubs/chathub.cs?name=ThrowHubException&highlight=3)]
 
 > [!NOTE]
-> SignalR yalnızca gönderir `Message` istemciye bir özel durum özelliği. İstemci için yığın izlemesi ve özel durum diğer özellikleri kullanılamaz.
+> SignalR yalnızca özel durumun `Message` özelliğini istemciye gönderir. Özel durumun yığın izlemesi ve diğer özellikleri istemci tarafından kullanılamaz.
 
 ## <a name="related-resources"></a>İlgili kaynaklar
 
-* [ASP.NET Core signalr'a giriş](xref:signalr/introduction)
+* [ASP.NET Core SignalR 'ye giriş](xref:signalr/introduction)
 * [JavaScript istemcisi](xref:signalr/javascript-client)
 * [Azure'a Yayımlama](xref:signalr/publish-to-azure-web-app)
