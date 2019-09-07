@@ -5,14 +5,14 @@ description: Blazor kimlik doğrulaması ve yetkilendirme senaryoları hakkında
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 08/29/2019
+ms.date: 09/05/2019
 uid: security/blazor/index
-ms.openlocfilehash: 8714acbeb6e8a00992a601030811b24f53426b82
-ms.sourcegitcommit: 8b36f75b8931ae3f656e2a8e63572080adc78513
+ms.openlocfilehash: 2ba7b0612c2be50ae0797c50dc3cb0d63c0f0c2d
+ms.sourcegitcommit: 43c6335b5859282f64d66a7696c5935a2bcdf966
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70310521"
+ms.lasthandoff: 09/07/2019
+ms.locfileid: "70800514"
 ---
 # <a name="aspnet-core-blazor-authentication-and-authorization"></a>ASP.NET Core Blazor kimlik doğrulaması ve yetkilendirme
 
@@ -277,7 +277,7 @@ Kullanıcının kimliği doğrulanmadıysa, görüntülenmek üzere farklı içe
 </AuthorizeView>
 ```
 
-`<Authorized>` Ve`<NotAuthorized>` içeriği, diğer etkileşimli bileşenler gibi rastgele öğeleri içerebilir.
+`<Authorized>` Ve`<NotAuthorized>` etiketlerinin içeriği, diğer etkileşimli bileşenler gibi rastgele öğeler içerebilir.
 
 Kullanıcı arabirimi seçeneklerini veya erişimini denetleyen roller veya ilkeler gibi yetkilendirme koşulları, [Yetkilendirme](#authorization) bölümünde ele alınmıştır.
 
@@ -410,9 +410,9 @@ Varsayılan Blazor sunucu tarafı proje şablonunda, *app. Razor* dosyası özel
 </Router>
 ```
 
-`<NotFound>` ,`<NotAuthorized>`Ve içeriği`<Authorizing>` , diğer etkileşimli bileşenler gibi rastgele öğeleri içerebilir.
+`<NotFound>` ,`<NotAuthorized>`Ve etiketlerinin`<Authorizing>` içeriği, diğer etkileşimli bileşenler gibi rastgele öğeler içerebilir.
 
-Belirtilmemişse, aşağıdaki geri dönüş iletisini kullanır:`<AuthorizeRouteView>` `<NotAuthorized>`
+Öğesi belirtilmemişse, aşağıdaki geri dönüş iletisini kullanır:`AuthorizeRouteView` `<NotAuthorized>`
 
 ```html
 Not authorized.

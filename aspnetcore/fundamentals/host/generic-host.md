@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 07/01/2019
 uid: fundamentals/host/generic-host
-ms.openlocfilehash: 9f5ecc7840fc7ffd9432a3bb67d0418efb7e8fd6
-ms.sourcegitcommit: 8835b6777682da6fb3becf9f9121c03f89dc7614
+ms.openlocfilehash: 261abae499a0d5f807a14aebd224949881067bc7
+ms.sourcegitcommit: f65d8765e4b7c894481db9b37aa6969abc625a48
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69975625"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70773809"
 ---
 # <a name="net-generic-host"></a>.NET genel ana bilgisayar
 
@@ -170,6 +170,8 @@ Daha fazla bilgi için [ASP.NET Core yapılandırma](xref:fundamentals/configura
 
 Bu bölüm, hem HTTP hem de HTTP olmayan iş yükleri için uygulanan konak ayarlarını listeler. Varsayılan olarak, bu ayarları yapılandırmak için kullanılan ortam değişkenlerinin bir `DOTNET_` veya `ASPNETCORE_` öneki olabilir.
 
+<!-- In the following sections, two spaces at end of line are used to force line breaks in the rendered page. -->
+
 ### <a name="applicationname"></a>ApplicationName
 
 [Ihostenvironment. ApplicationName](xref:Microsoft.Extensions.Hosting.IHostEnvironment.ApplicationName*) özelliği konak oluşturma sırasında konak yapılandırmasından ayarlanır.
@@ -312,8 +314,9 @@ webBuilder.UseSetting(WebHostDefaults.HostingStartupExcludeAssembliesKey, "assem
 
 HTTPS yeniden yönlendirme bağlantı noktası. [Https zorlama](xref:security/enforcing-ssl)bölümünde kullanılır.
 
-**Anahtar**: https_port **Type**: *dize*
-**varsayılan**: Varsayılan değer ayarlı değildir.
+**Anahtar**: https_port  
+**Tür**: *dize*  
+**Varsayılan**: Varsayılan değer ayarlı değildir.  
 **Ortam değişkeni**:`<PREFIX_>HTTPS_PORT`
 
 Bu değeri ayarlamak için yapılandırma veya çağırma `UseSetting`kullanın:
@@ -356,7 +359,8 @@ webBuilder.UseSetting(WebHostDefaults.PreventHostingStartupKey, "true");
 
 `Startup` Sınıfı aramak için bütünleştirilmiş kod.
 
-**Anahtar**: startupassembly **türü**: *dize*  
+**Anahtar**: startupassembly  
+**Tür**: *dize*  
 **Varsayılan**: Uygulamanın derlemesi  
 **Ortam değişkeni**:`<PREFIX_>STARTUPASSEMBLY`
 
@@ -376,8 +380,8 @@ Sunucu istekleri için dinlemesi gereken bağlantı noktaları ve protokollerle,
 
 **Anahtar**: URL 'ler  
 **Tür**: *dize*  
-**Varsayılan**: `http://localhost:5000` ve `https://localhost:5001`ortam değişkeni: 
-`<PREFIX_>URLS`
+**Varsayılan**: `http://localhost:5000` ve`https://localhost:5001`  
+**Ortam değişkeni**:`<PREFIX_>URLS`
 
 Bu değeri ayarlamak için, ortam değişkenini veya çağrısını `UseUrls`kullanın:
 

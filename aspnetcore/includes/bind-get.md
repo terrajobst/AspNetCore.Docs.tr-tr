@@ -1,4 +1,10 @@
 > [!WARNING]
-> Güvenlik nedenleriyle, bağlama kabul gerekir `GET` sayfa modeli özellikleri veri isteği. Özellikleri için eşleme önce kullanıcı girişi doğrulayın. İçin kabul `GET` bağlama, sorgu dizesi veya rota değerlerini senaryolarda belirtirken yararlıdır.
+> Güvenlik nedenleriyle, istek verilerini sayfa modeli özelliklerine bağlamayı `GET` kabul etmeniz gerekir. Özelliklerle eşleştirmadan önce Kullanıcı girişini doğrulayın. `GET` Bağlama sırasında, sorgu dizesine veya rota değerlerine dayanan senaryolara yönelik adresleme yararlı olur.
 >
-> Bir özelliği bağlamak `GET` istekleri, ayarlar [[BindProperty]](/dotnet/api/microsoft.aspnetcore.mvc.bindpropertyattribute) özniteliğin `SupportsGet` özelliğini `true`: `[BindProperty(SupportsGet = true)]`
+> `GET` İsteklere bir özelliği bağlamak için [[BindProperty]](xref:Microsoft.AspNetCore.Mvc.BindPropertyAttribute) özniteliğinin özelliğini şu `SupportsGet` şekilde `true`ayarlayın:
+>
+> ```csharp
+> [BindProperty(SupportsGet = true)]
+> ```
+>
+> Daha fazla bilgi için bkz [. asp.NET Core topluluk bilgisi: GET tartışmasına bağlayın (YouTube)](https://www.youtube.com/watch?v=p7iHB9V-KVU&feature=youtu.be&t=54m27s).

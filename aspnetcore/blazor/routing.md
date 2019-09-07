@@ -5,14 +5,14 @@ description: Uygulamalardaki istekleri yönlendirme ve gezinti bağlantısı bil
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 08/23/2019
+ms.date: 09/06/2019
 uid: blazor/routing
-ms.openlocfilehash: ae3d7ab01185dd6f2e8e0f59b78c2e693fe464b0
-ms.sourcegitcommit: 8b36f75b8931ae3f656e2a8e63572080adc78513
+ms.openlocfilehash: d348908261c51b477aa698a407266d05c0df5a33
+ms.sourcegitcommit: 43c6335b5859282f64d66a7696c5935a2bcdf966
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70310338"
+ms.lasthandoff: 09/07/2019
+ms.locfileid: "70800336"
 ---
 # <a name="aspnet-core-blazor-routing"></a>ASP.NET Core Blazor yönlendirme
 
@@ -28,9 +28,7 @@ Blazor sunucu tarafı [ASP.NET Core uç nokta yönlendirme](xref:fundamentals/ro
 
 ## <a name="route-templates"></a>Rota şablonları
 
-`Router` Bileşen yönlendirmeyi sağlar ve erişilebilir her bileşene bir yol şablonu sağlanır. Bileşen App. Razor dosyasında görünür: `Router`
-
-Blazor sunucu tarafı veya istemci tarafı bir uygulamada:
+Bileşeni `Router` , belirtilen bir rota ile her bileşene yönlendirmeyi sağlar. Bileşen App. Razor dosyasında görünür: `Router`
 
 ```cshtml
 <Router AppAssembly="typeof(Startup).Assembly">
@@ -43,20 +41,27 @@ Blazor sunucu tarafı veya istemci tarafı bir uygulamada:
 </Router>
 ```
 
-Bir`@page` yönergeyle bir *. Razor* dosyası derlendiğinde, oluşturulan sınıf, yol şablonunu belirten bir <xref:Microsoft.AspNetCore.Mvc.RouteAttribute> olarak sağlanır. Çalışma zamanında, yönlendirici bileşen sınıflarını bir `RouteAttribute` ile arar ve bileşeni istenen URL ile eşleşen bir rota şablonuyla işler.
+Bir`@page` yönergeyle bir *. Razor* dosyası derlendiğinde, oluşturulan sınıf, yol şablonunu belirten bir <xref:Microsoft.AspNetCore.Mvc.RouteAttribute> olarak sağlanır.
+
+Çalışma zamanında, `RouteView` bileşen:
+
+* ' İ istediğiniz parametrelerle birlikte alır. `Router` `RouteData`
+* Belirtilen parametreleri kullanarak belirtilen bileşeni düzeniyle (veya isteğe bağlı bir varsayılan düzende) işler.
+
+İsteğe bağlı olarak, bir `DefaultLayout` düzen belirtmeyen bileşenler için kullanılacak düzen sınıfıyla bir parametre belirtebilirsiniz. Varsayılan Blazor şablonları `MainLayout` bileşeni belirler. *Mainlayout. Razor* , şablon projenin *paylaşılan* klasöründedir. Düzenler hakkında daha fazla bilgi için bkz <xref:blazor/layouts>.
 
 Birden çok yol şablonu, bir bileşene uygulanabilir. Aşağıdaki bileşen ve `/BlazorRoute` `/DifferentBlazorRoute`için isteklere yanıt verir:
 
 [!code-cshtml[](common/samples/3.x/BlazorSample/Pages/BlazorRoute.razor?name=snippet_BlazorRoute)]
 
 > [!IMPORTANT]
-> URL 'lerin doğru bir şekilde çözülmesi için `<base>` , uygulamanın, `href` özniteliğinde belirtilen uygulama temel yolu ile *Wwwroot/index.html* File (Blazor Client-Side) veya *Pages/_host. cshtml* dosyasında (Blazor sunucu-tarafı) bir etiketi içermesi gerekir ( `<base href="/">`). Daha fazla bilgi için bkz. <xref:host-and-deploy/blazor/client-side#app-base-path>.
+> URL 'lerin doğru bir şekilde çözülmesi için `<base>` , uygulamanın, `href` özniteliğinde belirtilen uygulama temel yolu ile *Wwwroot/index.html* File (Blazor Client-Side) veya *Pages/_host. cshtml* dosyasında (Blazor sunucu-tarafı) bir etiketi içermesi gerekir ( `<base href="/">`). Daha fazla bilgi için bkz. <xref:host-and-deploy/blazor/index#app-base-path>.
 
 ## <a name="provide-custom-content-when-content-isnt-found"></a>İçerik bulunamadığında özel içerik sağla
 
 `Router` Bileşen, istenen rota için içerik bulunmazsa uygulamanın özel içerik belirtmesini sağlar.
 
-*App. Razor* dosyasında, `<NotFound>` `Router` bileşenin Şablon parametresinde özel içerik ayarlayın:
+*App. Razor* dosyasında, `NotFound` `Router` bileşenin Şablon parametresinde özel içerik ayarlayın:
 
 ```cshtml
 <Router AppAssembly="typeof(Startup).Assembly">
@@ -70,7 +75,13 @@ Birden çok yol şablonu, bir bileşene uygulanabilir. Aşağıdaki bileşen ve 
 </Router>
 ```
 
-İçeriği `<NotFound>` , diğer etkileşimli bileşenler gibi rastgele öğeler içerebilir.
+`<NotFound>` Etiketlerin içeriği, diğer etkileşimli bileşenler gibi rastgele öğeler içerebilir. `NotFound` İçeriğe varsayılan bir düzen uygulamak için bkz <xref:blazor/layouts>.
+
+## <a name="route-to-components-from-multiple-assemblies"></a>Birden çok derlemeden bileşenlere rota
+
+Bileşen için yönlendirilebilir bileşenleri ararken dikkate alınması gereken ek derlemeleri belirtmek için parametresinikullanın.`AdditionalAssemblies` `Router` Belirtilen derlemeler, `AppAssembly`belirtilen derlemeye ek olarak değerlendirilir. Aşağıdaki örnekte, `Component1` başvurulan bir sınıf kitaplığında tanımlanan yönlendirilebilir bir bileşendir. Aşağıdaki `AdditionalAssemblies` örnek, için `Component1`yönlendirme desteği ile sonuçlanır:
+
+< yönlendirici AppAssembly = "typeof (program). Derleme "AdditionalAssemblies =" New [] {typeof (Component1). Bütünleştirilmiş kod} >...</Router>
 
 ## <a name="route-parameters"></a>Rota parametreleri
 
@@ -181,4 +192,3 @@ Aşağıdaki bileşen, düğme seçildiğinde uygulamanın `Counter` bileşenine
     }
 }
 ```
-

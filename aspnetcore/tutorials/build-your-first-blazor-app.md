@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 08/23/2019
 uid: tutorials/first-blazor-app
-ms.openlocfilehash: 2f0410eb75a6ef3f3d361c75bce7e79ae6d42a61
-ms.sourcegitcommit: 983b31449fe398e6e922eb13e9eb6f4287ec91e8
+ms.openlocfilehash: ea1111f43b6b8b4f47061056e8ad8d505f92dba6
+ms.sourcegitcommit: 43c6335b5859282f64d66a7696c5935a2bcdf966
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/24/2019
-ms.locfileid: "70017497"
+ms.lasthandoff: 09/07/2019
+ms.locfileid: "70800483"
 ---
 # <a name="build-your-first-blazor-app"></a>İlk Blazor uygulamanızı oluşturma
 
@@ -67,11 +67,11 @@ Bir bileşeni, bir HTML söz dizimini kullanarak başka bir bileşene ekleyin.
 
 ## <a name="component-parameters"></a>Bileşen parametreleri
 
-Bileşenler de parametrelere sahip olabilir. Bileşen parametreleri, ile `[Parameter]`donatılmış bileşen sınıfında ortak özellikler kullanılarak tanımlanır. Biçimlendirme içindeki bir bileşenin bağımsız değişkenlerini belirtmek için öznitelikleri kullanın.
+Bileşenler de parametrelere sahip olabilir. Bileşen parametreleri, bileşen sınıfında `[Parameter]` özniteliğiyle birlikte ortak özellikler kullanılarak tanımlanır. Biçimlendirme içindeki bir bileşenin bağımsız değişkenlerini belirtmek için öznitelikleri kullanın.
 
 1. Bileşenin `@code` C# kodunu güncelleştirin:
 
-   * Özniteliği ile donatılmış bir `IncrementAmount` özellik ekleyin. `[Parameter]`
+   * Özniteliği ile ortak `IncrementAmount` bir özellik ekleyin. `[Parameter]`
    * Değerini değerini `IncrementAmount`artırdığınızda kullanmak için `IncrementCount` yöntemini değiştirin `currentCount`.
 
    *Pages/Counter. Razor*:
@@ -126,7 +126,7 @@ Bir foreach döngüsü, her tahmin örneğini Hava durumu verileri tablosunda bi
 
 Uygulamaya basit bir yapılacaklar listesi uygulayan yeni bir bileşen ekleyin.
 
-1. Uygulamalar klasörüne *Todo. Razor* adlı boş bir dosya ekleyin:
+1. Uygulamalar *klasörüne* *Todo. Razor* adlı boş bir dosya ekleyin:
 
 1. Bileşen için ilk biçimlendirmeyi belirtin:
 

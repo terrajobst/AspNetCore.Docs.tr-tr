@@ -1,48 +1,48 @@
 ---
-title: ASP.NET core'da özel Model bağlama
+title: ASP.NET Core özel model bağlama
 author: ardalis
-description: Model bağlama denetleyici eylemleri doğrudan model türleri içinde ASP.NET Core ile çalışmaya nasıl olanak tanıdığını öğrenin.
+description: Model bağlamanın, denetleyici eylemlerinin ASP.NET Core doğrudan model türleriyle nasıl çalışmasına izin verdiğini öğrenin.
 ms.author: riande
 ms.date: 11/13/2018
 uid: mvc/advanced/custom-model-binding
-ms.openlocfilehash: 3623a29976a2e2a7b1bdb22d35716b8a3b448958
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 27e19012b6f878f5e3d08846593a7513bd584a4c
+ms.sourcegitcommit: f65d8765e4b7c894481db9b37aa6969abc625a48
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64903356"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70773494"
 ---
-# <a name="custom-model-binding-in-aspnet-core"></a>ASP.NET core'da özel Model bağlama
+# <a name="custom-model-binding-in-aspnet-core"></a>ASP.NET Core özel model bağlama
 
-Tarafından [Steve Smith](https://ardalis.com/)
+[Steve Smith](https://ardalis.com/) tarafından
 
-Model bağlama (yöntemi bağımsız değişken olarak geçirilen), doğrudan model türleri yerine HTTP isteklerini daha çalışmak denetleyici eylemleri sağlar. Gelen istek veri ve uygulama modelleri arasında eşleme model bağlayıcılar tarafından işlenir. Geliştiriciler, özel model bağlayıcıları (genellikle, kendi sağlayıcınızı yazmanız gerekmez ancak) uygulayarak yerleşik model bağlama işlevselliğini genişletebilirsiniz.
+Model bağlama, denetleyici eylemlerinin HTTP istekleri yerine model türleriyle doğrudan (Yöntem bağımsız değişkenleri olarak geçirilir) çalışmasına izin verir. Gelen istek verileri ve uygulama modelleri arasındaki eşleme, model ciltleri tarafından işlenir. Geliştiriciler, özel model ciltlerinizi uygulayarak yerleşik model bağlama işlevini genişletebilir (genellikle kendi sağlayıcınızı yazmanız gerekmez).
 
-[Github'dan örnek görüntüleme veya indirme](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/advanced/custom-model-binding/)
+[GitHub 'dan örnek görüntüleme veya indirme](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/advanced/custom-model-binding/)
 
-## <a name="default-model-binder-limitations"></a>Varsayılan model Bağlayıcısı sınırlamaları
+## <a name="default-model-binder-limitations"></a>Varsayılan model Ciltçi sınırlamaları
 
-Varsayılan model bağlayıcıları, genel .NET Core veri türlerinin çoğu destekler ve çoğu Geliştirici gereksinimlerini karşılamalıdır. Giriş metin tabanlı, doğrudan model türleri istekten bağlamak beklerler. Bu bağlama önce giriş dönüştürme gerekebilir. Örneğin, model verileri aramak için kullanılan bir anahtara sahip olduğunda. Anahtara göre verileri getirmek için özel bir model bağlayıcısını kullanabilirsiniz.
+Varsayılan model ciltleri ortak .NET Core veri türlerinin çoğunu destekler ve çoğu geliştiricilerin ihtiyaçlarını karşılamaları gerekir. İstek içinden doğrudan model türlerine metin tabanlı giriş bağlamayı bekler. Bağlamayı bağlamadan önce girişi dönüştürmeniz gerekebilir. Örneğin, model verilerini aramak için kullanılabilecek bir anahtarınız olduğunda. Anahtar temelinde veri getirmek için özel bir model Bağlayıcısı kullanabilirsiniz.
 
-## <a name="model-binding-review"></a>Model bağlama gözden geçirme
+## <a name="model-binding-review"></a>Model bağlama incelemesi
 
-Model bağlama, üzerinde çalıştığı türleri için tanımları kullanır. A *basit tür* girişte tek bir dize dönüştürülür. A *karmaşık tür* birden çok giriş değerlerini dönüştürülür. Varlığını temel farkı framework belirleyen bir `TypeConverter`. Oluşturduğunuz bir tür dönüştürücüsü basit varsa önerilen `string`  ->  `SomeType` dış kaynaklara gerektirmeyen eşleme.
+Model bağlama, üzerinde çalıştığı türler için belirli tanımları kullanır. *Basit bir tür* , girişte tek bir dizeden dönüştürülür. *Karmaşık bir tür* birden çok giriş değerinden dönüştürülür. Framework, a `TypeConverter`'nın varlığına göre farkı belirler. Dış kaynak gerektirmeyen basit `string`  ->  `SomeType` bir eşlemeye sahipseniz bir tür dönüştürücüsü oluşturmanız önerilir.
 
-Kendi özel bir model bağlayıcı oluşturmadan önce bu gözden geçirme nasıl var olan model bağlayıcıları uygulanan olur. Göz önünde bulundurun [ByteArrayModelBinder](/dotnet/api/microsoft.aspnetcore.mvc.modelbinding.binders.bytearraymodelbinder) bayt dizileri base64 ile kodlanmış dizeleri dönüştürmek için kullanılabilir. Bayt dizileri genellikle dosyaları ya da veritabanı BLOB alanları depolanır.
+Kendi özel model cilinkini oluşturmadan önce, mevcut model ciltçileri 'nin nasıl uygulandığını gözden geçirdik. Base64 ile kodlanmış dizeleri bayt dizilerine dönüştürmek için kullanılabilecek [Bytearraymodelciltçi](/dotnet/api/microsoft.aspnetcore.mvc.modelbinding.binders.bytearraymodelbinder) 'yi düşünün. Bayt dizileri genellikle dosya veya veritabanı blobu alanları olarak depolanır.
 
-### <a name="working-with-the-bytearraymodelbinder"></a>ByteArrayModelBinder ile çalışma
+### <a name="working-with-the-bytearraymodelbinder"></a>Bytearraymodelciltçi ile çalışma
 
-Dizeleri Base64 ile kodlanmış ikili verileri temsil etmek için kullanılabilir. Örneğin, aşağıdaki görüntüde bir dize olarak kodlanmış.
+İkili verileri temsil etmek için Base64 kodlamalı dizeler kullanılabilir. Örneğin, aşağıdaki resim bir dize olarak kodlanabilir.
 
-![DotNet bot](custom-model-binding/images/bot.png "dotnet Robotu")
+![DotNet bot](custom-model-binding/images/bot.png "DotNet bot")
 
-Kodlanmış dizeyi küçük bir kısmı, aşağıdaki görüntüde gösterilmiştir:
+Kodlanmış dizenin küçük bir kısmı aşağıdaki görüntüde gösterilmiştir:
 
-![dotnet bot kodlanmış](custom-model-binding/images/encoded-bot.png "kodlanmış dotnet Robotu")
+![DotNet bot kodlamalı](custom-model-binding/images/encoded-bot.png "DotNet bot kodlamalı")
 
-Bölümündeki yönergeleri [örnek'ın Benioku](https://github.com/aspnet/AspNetCore.Docs/blob/master/aspnetcore/mvc/advanced/custom-model-binding/sample/CustomModelBindingSample/README.md) base64 ile kodlanmış dize bir dosyasına dönüştürmek için.
+Base64 ile kodlanmış dizeyi bir dosyaya dönüştürmek için [ÖRNEĞIN Benioku](https://github.com/aspnet/AspNetCore.Docs/blob/master/aspnetcore/mvc/advanced/custom-model-binding/sample/CustomModelBindingSample/README.md) dosyasındaki yönergeleri izleyin.
 
-ASP.NET Core MVC base64 ile kodlanmış bir dize alabilir ve kullanmak bir `ByteArrayModelBinder` Bayt dizisine dönüştürmek için. [ByteArrayModelBinderProvider](/dotnet/api/microsoft.aspnetcore.mvc.modelbinding.binders.bytearraymodelbinderprovider) uygulayan [IModelBinderProvider](/dotnet/api/microsoft.aspnetcore.mvc.modelbinding.imodelbinderprovider) eşler `byte[]` bağımsız değişkenleri `ByteArrayModelBinder`:
+ASP.NET Core MVC, Base64 kodlamalı bir dize alabilir ve bunu bir `ByteArrayModelBinder` bayt dizisine dönüştürmek için kullanabilir. [IModelBinderProvider](/dotnet/api/microsoft.aspnetcore.mvc.modelbinding.imodelbinderprovider) `byte[]` [eşleme bağımsız değişkenlerini uygulayan ByteArrayModelBinderProvider:](/dotnet/api/microsoft.aspnetcore.mvc.modelbinding.binders.bytearraymodelbinderprovider) `ByteArrayModelBinder`
 
 ```csharp
 public IModelBinder GetBinder(ModelBinderProviderContext context)
@@ -61,79 +61,85 @@ public IModelBinder GetBinder(ModelBinderProviderContext context)
 }
 ```
 
-Kendi özel bir model bağlayıcı oluşturulurken, kendi uygulayabileceğiniz `IModelBinderProvider` yazın veya [ModelBinderAttribute](/dotnet/api/microsoft.aspnetcore.mvc.modelbinderattribute).
+Kendi özel model cilinkini oluştururken kendi `IModelBinderProvider` türünü uygulayabilir veya [ModelBinderAttribute](/dotnet/api/microsoft.aspnetcore.mvc.modelbinderattribute)kullanabilirsiniz.
 
-Aşağıdaki örnek nasıl kullanılacağını gösterir `ByteArrayModelBinder` base64 ile kodlanmış dizeye dönüştürmek için bir `byte[]` ve sonucu bir dosyaya kaydedin:
+Aşağıdaki örnek, bir base64 kodlu dizeyi `ByteArrayModelBinder` `byte[]` öğesine dönüştürmek ve sonucu bir dosyaya kaydetmek için nasıl kullanılacağını gösterir:
 
 [!code-csharp[](custom-model-binding/sample/CustomModelBindingSample/Controllers/ImageController.cs?name=post1&highlight=3)]
 
-Base64 ile kodlanmış bir dize gibi bir araç kullanarak bu API yöntemine GÖNDEREBİLİR [Postman](https://www.getpostman.com/):
+[Postman](https://www.getpostman.com/)gibi bir araç kullanarak bu API yöntemine Base64 kodlamalı bir dize gönderebilirsiniz:
 
-![postman](custom-model-binding/images/postman.png "postman")
+![Postman](custom-model-binding/images/postman.png "Postman")
 
-Model bağlama, uygun şekilde adlandırılmış özellikleri ya da bağımsız değişkenler için bağlayıcı istek verileri bağlayabilirsiniz sürece başarılı olur. Aşağıdaki örnek nasıl kullanılacağını gösterir `ByteArrayModelBinder` görünüm modeli:
+Bağlayıcı, istek verilerini uygun şekilde adlandırılmış özelliklere veya bağımsız değişkenlere bağlayabildiğinden, model bağlama başarılı olur. Aşağıdaki örnek, bir görünüm modeliyle nasıl `ByteArrayModelBinder` kullanılacağını gösterir:
 
 [!code-csharp[](custom-model-binding/sample/CustomModelBindingSample/Controllers/ImageController.cs?name=post2&highlight=2)]
 
-## <a name="custom-model-binder-sample"></a>Özel model bağlayıcı örneği
+## <a name="custom-model-binder-sample"></a>Özel model Ciltçi örneği
 
-Bu bölümde biz özel bir model bağlayıcısını uygulayacaksınız:
+Bu bölümde, özel bir model cildi uygulayacağız:
 
-- Gelen istek verileri kesin türü belirtilmiş anahtar bağımsız değişkenleriyle dönüştürür.
-- İlişkili varlık getirmek için Entity Framework Core kullanır.
-- İlişkili varlık eylem yöntemi için bağımsız değişken olarak geçirir.
+- Gelen istek verilerini kesin belirlenmiş anahtar bağımsız değişkenlerine dönüştürür.
+- İlişkili varlığı getirmek için Entity Framework Core kullanır.
+- İlişkili varlığı eylem yöntemine bir bağımsız değişken olarak geçirir.
 
-Aşağıdaki örnek kullanımları `ModelBinder` özniteliği `Author` modeli:
+Aşağıdaki örnek `ModelBinder` `Author` modeldeki özniteliğini kullanır:
 
 [!code-csharp[](custom-model-binding/sample/CustomModelBindingSample/Data/Author.cs?highlight=10)]
 
-Önceki kodda, `ModelBinder` öznitelik türünü belirten `IModelBinder` bağlamak için kullanılmalıdır `Author` eylem parametreleri.
+Yukarıdaki kodda `ModelBinder` öznitelik, eylem parametrelerini bağlamak `Author` için kullanılması gereken `IModelBinder` türünü belirtir.
 
-Aşağıdaki `AuthorEntityBinder` sınıfı bağlamalar bir `Author` Entity Framework Core kullanan bir veri kaynağından varlık getirilirken tarafından parametre ve bir `authorId`:
+Aşağıdaki `AuthorEntityBinder` sınıf, Entity Framework Core ve `Author` ' i kullanarak bir veri `authorId`kaynağından varlığı getirerek bir parametreyi bağlar:
 
 [!code-csharp[](custom-model-binding/sample/CustomModelBindingSample/Binders/AuthorEntityBinder.cs?name=demo)]
 
 > [!NOTE]
-> Önceki `AuthorEntityBinder` sınıfı özel bir model bağlayıcısını göstermek için tasarlanmıştır. Sınıfı, arama senaryo için en iyi yöntemleri göstermek için tasarlanmamıştır. Arama için bağlama `authorId` ve bir eylem yöntemi veritabanında sorgu. Bu yaklaşım, model bağlama hatalardan ayıran `NotFound` durumları.
+> Önceki `AuthorEntityBinder` sınıf özel bir model cildi göstermeye yöneliktir. Sınıfı, bir arama senaryosu için en iyi yöntemleri göstermeye yönelik değildir. Arama için, veritabanını bağlayın `authorId` ve bir eylem yöntemine sorgulayın. Bu yaklaşım, model bağlama başarısızlıklarını `NotFound` durumlardan ayırır.
 
-Aşağıdaki kod nasıl kullanılacağını gösterir `AuthorEntityBinder` bir eylem yöntemindeki:
+Aşağıdaki kod, `AuthorEntityBinder` bir eylem yönteminin nasıl kullanılacağını gösterir:
 
 [!code-csharp[](custom-model-binding/sample/CustomModelBindingSample/Controllers/BoundAuthorsController.cs?name=demo2&highlight=2)]
 
-`ModelBinder` Özniteliği uygulamak için kullanılabilir `AuthorEntityBinder` varsayılan kuralları kullanmayan parametreleri için:
+Özniteliği, varsayılan kuralları kullanmayan parametreleri `AuthorEntityBinder` uygulamak için kullanılabilir: `ModelBinder`
 
 [!code-csharp[](custom-model-binding/sample/CustomModelBindingSample/Controllers/BoundAuthorsController.cs?name=demo1&highlight=2)]
 
-Bu örnekte, varsayılan bağımsız değişken adını değil bu yana `authorId`, parametresini kullanarak belirtilen `ModelBinder` özniteliği. Denetleyici ve eylem yöntemi Basitleştirilmiş, eylem yönteminin varlığı bakmak için karşılaştırıldığında unutmayın. Entity Framework Core kullanan Yazar getirilecek mantıksal model bağlayıcıya taşınır. Bağlama için çeşitli yöntemler varsa, bu önemli ölçüde basitleştirme olabilir `Author` modeli.
+Bu örnekte, bağımsız değişkenin adı varsayılan `authorId`olmadığından parametresi `ModelBinder` kullanılarak parametresi belirtilir. Hem denetleyici hem de eylem yöntemi, eylem yöntemindeki varlığı aramaya kıyasla basitleştirilmiştir. Entity Framework Core kullanarak yazarı getirme mantığı model cilde taşınır. Bu, `Author` modele bağlanan çeşitli yöntemlere sahip olduğunuzda büyük ölçüde basitleştirmesi olabilir.
 
-Uygulayabileceğiniz `ModelBinder` özniteliği için ayrı modeli özellikleri (gibi bir viewmodel üzerinde) veya olarak eylem metodu parametreleriyle belirli bir model bağlayıcı veya yalnızca bu tür veya eylem için model adını belirtmek için.
+Özniteliği, `ModelBinder` yalnızca bu tür veya eylem için belirli bir model cildi veya model adı belirtmek üzere tek tek model özelliklerine (ViewModel üzerinde gibi) veya eylem yöntemi parametrelerine uygulayabilirsiniz.
 
-### <a name="implementing-a-modelbinderprovider"></a>Bir ModelBinderProvider uygulama
+### <a name="implementing-a-modelbinderprovider"></a>ModelBinderProvider uygulama
 
-Uygulayabileceğiniz bir öznitelik uygulamak yerine `IModelBinderProvider`. Yerleşik bir çerçeve bağlayıcıları nasıl uygulandığını budur. Türü belirttiğinizde, bağlayıcı üzerinde çalışır, bu üretir, bağımsız değişken türünü belirtin **değil** , bağlayıcı giriş kabul eder. Aşağıdaki bağlayıcıyı çalışır `AuthorEntityBinder`. MVC'nin sağlayıcıları koleksiyonuna eklendiğinde kullanmanız gerekmez `ModelBinder` özniteliği `Author` veya `Author`-yazılan parametreleri.
+Bir özniteliği uygulamak yerine, öğesini uygulayabilirsiniz `IModelBinderProvider`. Yerleşik çerçeve ciltçileri uygulanır. Cildin üzerinde çalıştığı türü belirttiğinizde, cildin kabul ettiği girişi **değil** , oluşturduğu bağımsız değişkenin türünü belirtirsiniz. Aşağıdaki Ciltçi sağlayıcısı ile birlikte `AuthorEntityBinder`kullanılabilir. MVC 'nin sağlayıcılar koleksiyonuna eklendiğinde, `ModelBinder` `Author` veya `Author`türü belirlenmiş parametrelerde özniteliğini kullanmanız gerekmez.
 
 [!code-csharp[](custom-model-binding/sample/CustomModelBindingSample/Binders/AuthorEntityBinderProvider.cs?highlight=17-20)]
 
-> Not: Yukarıdaki kod döndürür bir `BinderTypeModelBinder`. `BinderTypeModelBinder` model bağlayıcıları için bir üreteci davranır ve bağımlılık ekleme (dı) sağlar. `AuthorEntityBinder` EF Core erişmeye DI gerektirir. Kullanım `BinderTypeModelBinder` , model bağlayıcı DI hizmetlerinden gerekiyorsa.
+> Not: Yukarıdaki kod bir `BinderTypeModelBinder`döndürür. `BinderTypeModelBinder`Model ciltleri için bir fabrika işlevi görür ve bağımlılık ekleme (dı) sağlar. İçin dı 'nin EF Core erişimi gerekir.`AuthorEntityBinder` Model `BinderTypeModelBinder` Ciltçi 'nin dı 'den hizmet gerektirmesi durumunda kullanın.
 
-Özel model bağlayıcı sağlayıcısı kullanmak için ekleyebilirsiniz `ConfigureServices`:
+Özel model Ciltçi sağlayıcısını kullanmak için, içine `ConfigureServices`ekleyin:
+
+[!code-csharp[](custom-model-binding/sample/CustomModelBindingSample/Startup.cs?name=callout&highlight=5-9)]
+
+Model ciltleri değerlendirilirken, sağlayıcı koleksiyonu sırayla incelenir. Bir cildi döndüren ilk sağlayıcı kullanılır.
+
+Aşağıdaki görüntüde, hata ayıklayıcıdan varsayılan model ciltçileri gösterilmektedir.
+
+![varsayılan model ciltleri](custom-model-binding/images/default-model-binders.png "varsayılan model ciltleri")
+
+Sağlayıcınızı koleksiyonun sonuna eklemek, özel ciltçinin bir şansı olmadan önce yerleşik bir model cilde yol açabilir. Bu örnekte, özel sağlayıcı, eylem bağımsız değişkenleri için `Author` kullanıldığından emin olmak için koleksiyonun başlangıcına eklenir.
 
 [!code-csharp[](custom-model-binding/sample/CustomModelBindingSample/Startup.cs?name=callout&highlight=5-9)]
 
-Model bağlayıcıları değerlendirirken sağlayıcıları koleksiyonu sırayla incelenir. Bir bağlayıcı döndüren ilk sağlayıcısı kullanılır.
+### <a name="polymorphic-model-binding"></a>Polimorfik model bağlama
 
-Aşağıdaki görüntüde varsayılan hata ayıklayıcı'dan model bağlayıcıları gösterir.
+Türetilmiş türlerin farklı modellerine bağlama polimorfik model bağlama olarak bilinir. İstek değeri, belirli türetilmiş model türüne bağlanmalıdır, özel model bağlama gerekir. Bu yaklaşım gerekli olmadığı takdirde polimorfik model bağlamasını önlemeyi öneririz. Polimorfik model bağlama, ilişkili modeller hakkında neden olmasını zorlaştırır. Ancak, bir uygulama çok biçimli model bağlama gerektiriyorsa, bir uygulama aşağıdaki koda benzeyebilir:
 
-![Varsayılan model bağlayıcıları](custom-model-binding/images/default-model-binders.png "varsayılan model bağlayıcıları")
-
-Sağlayıcınız koleksiyonun sonuna ekleme, özel bağlayıcı şansı olmadan önce çağrılan yerleşik bir model bağlayıcı neden olabilir. Bu örnekte, özel bir sağlayıcı için kullanıldığı emin olmak için koleksiyon başına eklenir `Author` eylem bağımsız değişkenleri.
-
-[!code-csharp[](custom-model-binding/sample/CustomModelBindingSample/Startup.cs?name=callout&highlight=5-9)]
+[!code-csharp[](custom-model-binding/3.0sample/PolymorphicModelBinding/ModelBinders/PolymorphicModelBinder.cs?name=snippet)]
 
 ## <a name="recommendations-and-best-practices"></a>Öneriler ve en iyi uygulamalar
 
-Özel model bağlayıcıları:
+Özel model ciltleri:
 
-- Durum kodları ayarlamak veya sonuçları döndürmek çalışmayın (örneğin, 404 bulunamadı). Model bağlama başarısız olursa bir [eylem filtresi](xref:mvc/controllers/filters) veya eylem yöntemi bir mantık hatası işleme.
-- Yinelenen kod ve geniş kapsamlı kritik konular eylem yöntemlerinden ortadan kaldırmak için ekseriyetle faydalıdır.
-- Genellikle bir dize özel bir türe dönüştürmek için kullanılmaması bir [ `TypeConverter` ](/dotnet/api/system.componentmodel.typeconverter) genellikle daha iyi bir seçenektir.
+- Durum kodları veya dönüş sonuçları ayarlanmamalıdır (örneğin, 404 bulunamadı). Model bağlama başarısız olursa, eylem yönteminin kendisi içindeki bir [eylem filtresinin](xref:mvc/controllers/filters) veya mantığının hata işlemesi gerekir.
+- , Yinelenen kodu ve eylem yöntemlerinden çapraz kesme sorunlarını ortadan kaldırmak için en yararlı seçenektir.
+- Genellikle bir [`TypeConverter`](/dotnet/api/system.componentmodel.typeconverter) dizeyi özel bir türe dönüştürmek için kullanılmamalıdır, genellikle daha iyi bir seçenektir.

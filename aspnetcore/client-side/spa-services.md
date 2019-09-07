@@ -1,35 +1,42 @@
 ---
-title: ASP.NET Core tek sayfalı uygulamalar oluşturmak için JavaScript hizmetlerini kullanma
+title: ASP.NET Core içinde tek sayfalı uygulamalar oluşturmak için JavaScript hizmetlerini kullanın
 author: scottaddie
-description: Bir tek sayfa uygulaması (ASP.NET Core tarafından desteklenen SPA) oluşturmak için JavaScript Hizmetleri kullanmanın avantajları hakkında bilgi edinin.
+description: ASP.NET Core tarafından desteklenen tek sayfalı uygulama (SPA) oluşturmak için JavaScript Hizmetleri kullanmanın avantajları hakkında bilgi edinin.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: scaddie
 ms.custom: H1Hack27Feb2017
-ms.date: 05/28/2019
+ms.date: 09/06/2019
 uid: client-side/spa-services
-ms.openlocfilehash: 19710b58bca606d21feda9069ad00edd1e4f72e9
-ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
+ms.openlocfilehash: 16c9eb1d79bca792062d292795763c54dd02bd37
+ms.sourcegitcommit: f65d8765e4b7c894481db9b37aa6969abc625a48
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67813480"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70773410"
 ---
-# <a name="use-javascript-services-to-create-single-page-applications-in-aspnet-core"></a>ASP.NET Core tek sayfalı uygulamalar oluşturmak için JavaScript hizmetlerini kullanma
+# <a name="use-javascript-services-to-create-single-page-applications-in-aspnet-core"></a>ASP.NET Core içinde tek sayfalı uygulamalar oluşturmak için JavaScript hizmetlerini kullanın
 
 Tarafından [Scott Addie](https://github.com/scottaddie) ve [Fiyaz Hasan](https://fiyazhasan.me/)
 
-Tek sayfa uygulama (SPA) web uygulamasının kendi devralınan zengin kullanıcı deneyimi nedeniyle popüler bir türdür. İstemci tarafı SPA çerçeveleri veya kitaplıkları gibi tümleştirme [Angular](https://angular.io/) veya [React](https://facebook.github.io/react/), ASP.NET Core gibi sunucu tarafı çerçevelerle zor olabilir. JavaScript Hizmetleri Tümleştirme sürecindeki uyuşmazlıkları azaltmak için geliştirilmiştir. Ancak, farklı istemci ve sunucu teknoloji yığınları arasında sorunsuz bir işlemi etkinleştirir.
+Tek sayfa uygulama (SPA) web uygulamasının kendi devralınan zengin kullanıcı deneyimi nedeniyle popüler bir türdür. ASP.NET Core gibi sunucu tarafı çerçeveleri ile, [angular](https://angular.io/) veya yanıt verme gibi ISTEMCI tarafı Spa [çerçevelerini veya kitaplıklarını](https://facebook.github.io/react/)tümleştirme zor olabilir. Tümleştirme sürecinde uçuşmayı azaltmak için JavaScript Hizmetleri geliştirilmiştir. Ancak, farklı istemci ve sunucu teknoloji yığınları arasında sorunsuz bir işlemi etkinleştirir.
 
-## <a name="what-is-javascript-services"></a>JavaScript Hizmetleri nedir
+::: moniker range=">= aspnetcore-3.0"
 
-JavaScript Hizmetleri, ASP.NET Core için istemci tarafı teknolojilerinin koleksiyonudur. ASP.NET Core geliştiricilerinin Spa'lar oluşturmaya yönelik olarak tercih edilen sunucu tarafı platformu olarak yerleştirmek için hedefi sağlamaktır.
+> [!WARNING]
+> Bu makalede açıklanan özellikler ASP.NET Core 3,0 itibariyle kullanımdan kalkmıştır. [Microsoft. AspNetCore. SpaServices. Extensions](https://www.nuget.org/packages/Microsoft.AspNetCore.SpaServices.Extensions) NuGet paketinde daha basıt bir spa çerçeveleri tümleştirme mekanizması mevcuttur. Daha fazla bilgi için bkz. [Microsoft. aspnetcore. spaservices ve Microsoft. AspNetCore. NodeServices üzerinde kullanımdan bulunan [Duyuru]](https://github.com/aspnet/AspNetCore/issues/12890).
 
-JavaScript Hizmetleri iki ayrı NuGet paketlerini oluşur:
+::: moniker-end
+
+## <a name="what-is-javascript-services"></a>JavaScript Hizmetleri nedir?
+
+JavaScript Hizmetleri, ASP.NET Core yönelik istemci tarafı teknolojilerinin bir koleksiyonudur. ASP.NET Core geliştiricilerinin Spa'lar oluşturmaya yönelik olarak tercih edilen sunucu tarafı platformu olarak yerleştirmek için hedefi sağlamaktır.
+
+JavaScript Hizmetleri iki ayrı NuGet paketi içerir:
 
 * [Microsoft.AspNetCore.NodeServices](https://www.nuget.org/packages/Microsoft.AspNetCore.NodeServices/) (NodeServices)
 * [Microsoft.AspNetCore.SpaServices](https://www.nuget.org/packages/Microsoft.AspNetCore.SpaServices/) (SpaServices)
 
-Bu paketler aşağıdaki senaryolarda kullanışlıdır:
+Bu paketler, aşağıdaki senaryolarda faydalıdır:
 
 * Sunucu üzerinde JavaScript çalıştırma
 * SPA altyapı veya kitaplığı kullanın
@@ -39,7 +46,7 @@ Bu makalenin odak çoğunu SpaServices paketini kullanarak yerleştirilir.
 
 ## <a name="what-is-spaservices"></a>SpaServices nedir
 
-ASP.NET Core geliştiricilerinin Spa'lar oluşturmaya yönelik olarak tercih edilen sunucu tarafı platformu olarak yerleştirmek için SpaServices oluşturulur. SpaServices Spa'lar ASP.NET Core ile geliştirmek için gerekli değildir ve belirli istemci altyapısına geliştiriciler kilitlemez.
+ASP.NET Core geliştiricilerinin Spa'lar oluşturmaya yönelik olarak tercih edilen sunucu tarafı platformu olarak yerleştirmek için SpaServices oluşturulur. Istenmeyen hizmetler ASP.NET Core ile maça geliştirmek için gerekli değildir ve geliştiricileri belirli bir istemci çerçevesinde kilitlemez.
 
 SpaServices gibi kullanışlı bir altyapı sağlar:
 
@@ -62,11 +69,11 @@ SpaServices ile çalışmak için aşağıdakileri yükleyin:
     node -v && npm -v
     ```
 
-  * Bir Azure web sitesine dağıtma, Eylem gerekmiyor&mdash;Node.js yüklü olduğundan ve sunucu ortamlarında kullanılabilir.
+  * Bir Azure Web sitesine dağıtım yapıyorsanız hiçbir işlem gerekli&mdash;değildir. js, sunucu ortamlarında yüklenir ve kullanılabilir.
 
 * [!INCLUDE [](~/includes/net-core-sdk-download-link.md)]
 
-  * Visual Studio 2017'yi kullanarak Windows üzerinde seçerek SDK'sı yüklü **.NET Core çoklu platform geliştirme** iş yükü.
+  * Visual Studio 2017 kullanarak Windows 'da SDK, **.NET Core platformlar arası geliştirme** iş yükü seçilerek yüklenir.
 
 * [Microsoft.AspNetCore.SpaServices](https://www.nuget.org/packages/Microsoft.AspNetCore.SpaServices/) NuGet paketi
 
@@ -78,7 +85,7 @@ ASP.NET Core [etiket Yardımcıları](xref:mvc/views/tag-helpers/intro) tarafın
 
 ### <a name="server-side-prerendering-prerequisites"></a>Sunucu tarafı prerendering önkoşulları
 
-Yükleme [aspnet prerendering](https://www.npmjs.com/package/aspnet-prerendering) npm paketi:
+[ASPNET-prerendering](https://www.npmjs.com/package/aspnet-prerendering) NPM paketini yükler:
 
 ```console
 npm i -S aspnet-prerendering
@@ -94,7 +101,7 @@ Bu etiket Yardımcıları hemen bir HTML benzeri sözdizimi Razor görünüm iç
 
 [!code-cshtml[](../client-side/spa-services/sample/SpaServicesSampleApp/Views/Home/Index.cshtml?range=5)]
 
-### <a name="asp-prerender-module-tag-helper"></a>ASP prerender modülü etiketi Yardımcısı
+### <a name="asp-prerender-module-tag-helper"></a>ASP-PreRender-Module etiketi Yardımcısı
 
 `asp-prerender-module` Etiketi Yardımcısı, önceki kod örneğinde kullanılan yürütür *ClientApp/dist/main-server.js* Node.js aracılığıyla sunucuda. Açıklık'ın çok için *ana server.js* dosyasıdır TypeScript JavaScript transpilation görevin bir yapıt [Web](https://webpack.github.io/) derleme işlemi. Web tanımlayan bir giriş noktası diğer `main-server`; ve bu diğer adı için bağımlılık grafiği geçişini başlar *ClientApp/önyükleme-server.ts* dosyası:
 
@@ -104,7 +111,7 @@ Aşağıdaki Angular örnekte *ClientApp/önyükleme-server.ts* dosya kullanır 
 
 [!code-typescript[](../client-side/spa-services/sample/SpaServicesSampleApp/ClientApp/boot-server.ts?range=6,10-34,79-)]
 
-### <a name="asp-prerender-data-tag-helper"></a>ASP prerender veri etiketi Yardımcısı
+### <a name="asp-prerender-data-tag-helper"></a>ASP-PreRender-veri etiketi Yardımcısı
 
 İle birlikte zaman `asp-prerender-module` etiketi Yardımcısı `asp-prerender-data` etiketi Yardımcısı, bağlamsal bilgiler için sunucu tarafı JavaScript Razor görünümden geçirmek için kullanılabilir. Örneğin, kullanıcı verilerini aşağıdaki biçimlendirme geçirir `main-server` Modülü:
 
@@ -114,7 +121,7 @@ Alınan `UserName` bağımsız değişkeni yerleşik JSON serileştirici kullan�
 
 [!code-typescript[](../client-side/spa-services/sample/SpaServicesSampleApp/ClientApp/boot-server.ts?range=6,10-21,38-52,79-)]
 
-Etiket Yardımcıları içinde geçirilen özellik adları ile temsil edilir **PascalCase** gösterimi. Burada aynı özellik adları ile gösterilir, JavaScript, Karşıtlık **camelCase**. Bu fark için varsayılan JSON seri hale getirme yapılandırması sorumludur.
+Etiket yardımcılarının geçirildiği Özellik adları **PascalCase** gösterimi ile temsil edilir. Burada aynı özellik adları ile gösterilir, JavaScript, Karşıtlık **camelCase**. Bu fark için varsayılan JSON seri hale getirme yapılandırması sorumludur.
 
 Yukarıdaki kod örneğinde genişletmek için verileri sunucudan görünüme hydrating tarafından geçirilebilir `globals` özelliği için sağlanan `resolve` işlevi:
 
@@ -132,15 +139,15 @@ Yukarıdaki kod örneğinde genişletmek için verileri sunucudan görünüme hy
 "build": "npm run build:vendor && npm run build:custom",
 ```
 
-### <a name="webpack-dev-middleware-prerequisites"></a>Web geliştirme ara yazılım önkoşulları
+### <a name="webpack-dev-middleware-prerequisites"></a>WebPack dev ara yazılım önkoşulları
 
-Yükleme [ASP.NET Web](https://www.npmjs.com/package/aspnet-webpack) npm paketi:
+[ASPNET-WebPack](https://www.npmjs.com/package/aspnet-webpack) NPM paketini yükler:
 
 ```console
 npm i -D aspnet-webpack
 ```
 
-### <a name="webpack-dev-middleware-configuration"></a>Web geliştirme ara yazılımını yapılandırma
+### <a name="webpack-dev-middleware-configuration"></a>WebPack dev ara yazılım yapılandırması
 
 HTTP istek işlem hattı aşağıdaki kod aracılığıyla içine kayıtlı Web geliştirme ara yazılım *Startup.cs* dosyanın `Configure` yöntemi:
 
@@ -156,15 +163,15 @@ HTTP istek işlem hattı aşağıdaki kod aracılığıyla içine kayıtlı Web 
 
 Web'ın düşünebilirsiniz [sık erişimli modülü değiştirme](https://webpack.js.org/concepts/hot-module-replacement/) (HMR) özelliği'nın Gelişmiş hali olarak [Web geliştirme ara yazılım](#webpack-dev-middleware). HMR aynı avantajları sunar, ancak otomatik olarak değişiklikleri derledikten sonra sayfa içeriği güncelleştirerek daha fazla geliştirme iş akışı kolaylaştırır. Bu, geçerli bellek içi durumu ve hata ayıklama oturumu SPA ile neden tarayıcı yenileme ile karıştırmayın. Web geliştirme ara yazılım hizmeti ve değişiklikleri tarayıcıya gönderilmesini anlamına gelir tarayıcı arasında canlı bir bağlantı yoktur.
 
-### <a name="hot-module-replacement-prerequisites"></a>Sık erişimli modülü değiştirme önkoşulları
+### <a name="hot-module-replacement-prerequisites"></a>Sık kullanılan modül değiştirme önkoşulları
 
-Yükleme [Web hot Ara](https://www.npmjs.com/package/webpack-hot-middleware) npm paketi:
+[WebPack-Hot-ara yazılım](https://www.npmjs.com/package/webpack-hot-middleware) NPM paketini yükler:
 
 ```console
 npm i -D webpack-hot-middleware
 ```
 
-### <a name="hot-module-replacement-configuration"></a>Sık erişimli modülü değiştirme yapılandırma
+### <a name="hot-module-replacement-configuration"></a>Sık kullanılan modül değiştirme yapılandırması
 
 HMR bileşen MVC'nin HTTP istek işlem hattı, kaydedilmesi gerekir `Configure` yöntemi:
 
@@ -186,13 +193,13 @@ Uygulamayı tarayıcıda yüklendikten sonra geliştirici araçları konsol sekm
 
 ## <a name="routing-helpers"></a>Yönlendirme Yardımcıları
 
-Çoğu ASP.NET Core tabanlı Spa'lar içinde istemci tarafı yönlendirmesi genellikle sunucu tarafı yönlendirmenin yanı sıra istenir. SPA ve MVC yönlendirme sistemleri girişim bağımsız olarak çalışabilir. Yoktur, ancak bir kenar büyük/küçük harf taşıyor sorunlarını: HTTP 404 yanıtları tanımlayan.
+Çoğu ASP.NET Core tabanlı maça, istemci tarafı yönlendirme genellikle sunucu tarafı yönlendirmeye ek olarak istenir. SPA ve MVC yönlendirme sistemleri girişim bağımsız olarak çalışabilir. Yoktur, ancak bir kenar büyük/küçük harf taşıyor sorunlarını: HTTP 404 yanıtları tanımlayan.
 
-Senaryoyu göz önünde bulundurun uzantısız bir yolu `/some/page` kullanılır. İstek deseni-sunucu tarafı rota match değil, ancak desenine bir istemci-tarafı rota ile eşleşmekte varsayılır. Şimdi gelen bir istek için göz önünde bulundurun `/images/user-512.png`, hangi genellikle bekliyor sunucudaki bir görüntü dosyası bulunamıyor. Bu istenen kaynak yolu herhangi bir sunucu tarafı rota veya statik dosya eşleşmiyorsa, istemci-tarafı uygulaması, işlemek olası&mdash;istenen genellikle bir 404 HTTP durum kodu döndürerek.
+Senaryoyu göz önünde bulundurun uzantısız bir yolu `/some/page` kullanılır. İstek deseni-sunucu tarafı rota match değil, ancak desenine bir istemci-tarafı rota ile eşleşmekte varsayılır. Şimdi gelen bir istek için göz önünde bulundurun `/images/user-512.png`, hangi genellikle bekliyor sunucudaki bir görüntü dosyası bulunamıyor. İstenen kaynak yolu herhangi bir sunucu tarafı yolu veya statik dosya ile eşleşmiyorsa, istemci tarafı uygulamanın bu&mdash;işlemi genellikle bir 404 HTTP durum kodu döndürerek işlemesi çok düşüktür.
 
 ### <a name="routing-helpers-prerequisites"></a>Yönlendirme Yardımcıları önkoşulları
 
-İstemci tarafı yönlendirme npm paketini yükleyin. Angular örnek olarak kullanıp:
+İstemci tarafı yönlendirme NPM paketini yükler. Angular örnek olarak kullanıp:
 
 ```console
 npm i -S @angular/router
@@ -204,11 +211,11 @@ Adlı bir genişletme yöntemi `MapSpaFallbackRoute` kullanılır `Configure` y�
 
 [!code-csharp[](../client-side/spa-services/sample/SpaServicesSampleApp/Startup.cs?name=snippet_MvcRoutingTable&highlight=7-9)]
 
-Rotalar yapılandırılmış sırada değerlendirilir. Sonuç olarak, `default` rota önceki kod örneğinde kullanılan ilk desen eşleştirmesi için.
+Yollar yapılandırıldıkları sırayla değerlendirilir. Sonuç olarak, `default` rota önceki kod örneğinde kullanılan ilk desen eşleştirmesi için.
 
 ## <a name="create-a-new-project"></a>Yeni bir proje oluşturma
 
-Önceden yapılandırılmış uygulama şablonları JavaScript hizmetleri sağlar. SpaServices bu şablonları farklı çerçeveler ve kitaplıklar gibi Angular, React ve Redux ile birlikte kullanılır.
+JavaScript Hizmetleri önceden yapılandırılmış uygulama şablonları sağlar. Istenmeyen hizmetler, bu şablonlarda, angular, tepki ve Redux gibi farklı çerçeveler ve kitaplıklarla birlikte kullanılır.
 
 Bu şablonlar, aşağıdaki komutu çalıştırarak, .NET Core CLI yüklenebilir:
 
@@ -239,11 +246,11 @@ Birincil çalışma zamanı yapılandırma için iki mod vardır:
   * İstemci tarafı kod performans için en iyi duruma değil.
 * **Üretim**:
   * Kaynak eşlemeleri dışlar.
-  * İstemci tarafı kod paketleme ve küçültme ile en iyi duruma getirir.
+  * Paketleme ve küçültmeye göre istemci tarafı kodunu iyileştirir.
 
-ASP.NET Core kullanan adlı bir ortam değişkeni `ASPNETCORE_ENVIRONMENT` yapılandırma modunu depolamak için. Daha fazla bilgi için [ortamı](xref:fundamentals/environments#set-the-environment).
+ASP.NET Core kullanan adlı bir ortam değişkeni `ASPNETCORE_ENVIRONMENT` yapılandırma modunu depolamak için. Daha fazla bilgi için bkz. [ortamı ayarlama](xref:fundamentals/environments#set-the-environment).
 
-### <a name="run-with-net-core-cli"></a>.NET Core CLI çalıştırma
+### <a name="run-with-net-core-cli"></a>.NET Core CLI ile Çalıştır
 
 Proje kök dizininde aşağıdaki komutu çalıştırarak gerekli NuGet ve npm paketlerini geri yükleyin:
 
@@ -289,10 +296,10 @@ Oluşturulan istemci-tarafı varlıkları ve yayımlanan ASP.NET Core yapıları
 
 MSBuild hedefi aşağıdaki sorumluluklara sahiptir:
 
-1. Npm paketlerini geri yükleyin.
-1. Bir üretim sınıfı build üçüncü taraf, istemci tarafı varlıkların oluşturun.
-1. Özel istemci tarafı varlıkları üretim sınıfı yapısını oluşturun.
-1. Web oluşturulan varlıkları publish klasörüne kopyalayın.
+1. NPM paketlerini geri yükleyin.
+1. Üçüncü taraf, istemci tarafı varlıkların üretim sınıfı derlemesini oluşturun.
+1. Özel istemci tarafı varlıkların üretim sınıfı derlemesini oluşturma.
+1. Web paketi tarafından oluşturulan varlıkları Yayımla klasörüne kopyalayın.
 
 MSBuild hedefi çalıştırılırken çağrılır:
 

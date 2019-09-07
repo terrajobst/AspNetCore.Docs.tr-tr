@@ -5,14 +5,14 @@ description: Blazor uygulamalarının nasıl barındırılacağını ve dağıt�
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 06/14/2019
+ms.date: 09/05/2019
 uid: host-and-deploy/blazor/index
-ms.openlocfilehash: d18abbf33c71dca5130bfc6b503b46c1d5bce537
-ms.sourcegitcommit: 776367717e990bdd600cb3c9148ffb905d56862d
+ms.openlocfilehash: 5a56bbda5bb7727c7dbeaed7f2a91d0dcb6e7e71
+ms.sourcegitcommit: f65d8765e4b7c894481db9b37aa6969abc625a48
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68913933"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70773596"
 ---
 # <a name="host-and-deploy-aspnet-core-blazor"></a>ASP.NET Core Blazor barındırma ve dağıtma
 
@@ -44,15 +44,48 @@ Blazor istemci tarafı uygulaması */BIN/Release/{Target Framework}/publish/{ASS
 
 Klasördeki varlıklar Web sunucusuna dağıtılır. Dağıtım, kullanımdaki geliştirme araçlarına bağlı olarak el ile veya otomatik bir süreç olabilir.
 
+## <a name="app-base-path"></a>Uygulama temel yolu
+
+*Uygulama temel yolu* , UYGULAMANıN kök URL yoludur. Aşağıdaki ana uygulamayı ve Blazor uygulamasını göz önünde bulundurun:
+
+* Ana uygulama şu şekilde adlandırılır `MyApp`:
+  * Uygulama fiziksel olarak *\\d: MyApp*konumunda bulunur.
+  * İstekleri tarihinde `https://www.contoso.com/{MYAPP RESOURCE}`alınır.
+* Çağrılan `CoolApp` bir Blazor uygulaması, öğesinin `MyApp`bir alt uygulamasıdır:
+  * Alt uygulama fiziksel olarak *d:\\MyApp\\CoolApp*konumunda bulunur.
+  * İstekleri tarihinde `https://www.contoso.com/CoolApp/{COOLAPP RESOURCE}`alınır.
+
+İçin `CoolApp`ek yapılandırma belirtmeden, Bu senaryodaki alt uygulama, sunucuda nerede bulunduğu konusunda bilgi sahibi değildir. Örneğin, uygulama ilgili URL yolunda `/CoolApp/`bulunduğunu bilmeden kaynaklarına doğru göreli URL 'ler oluşturamıyoruz.
+
+Blazor uygulamasının `https://www.contoso.com/CoolApp/`temel yolu `<base>` için yapılandırma sağlamak üzere etiketinin `href` özniteliği *Wwwroot/index.html* dosyasındaki göreli kök yoluna ayarlanır:
+
+```html
+<base href="/CoolApp/">
+```
+
+Göreli URL yolunu sağlayarak, kök dizinde olmayan bir bileşen, uygulamanın kök yoluna göre URL 'Ler oluşturabilir. Farklı dizin yapısı düzeylerindeki bileşenler, uygulama genelinde konumlardaki diğer kaynakların bağlantılarını oluşturabilir. Uygulama temel yolu Ayrıca, bağlantının `href` hedefinin uygulama temel yolu URI alanı&mdash;içinde olduğu yerde köprü tıklamalarını, Blazor yönlendiricisinin iç gezintiyi işlemesini sağlamak için de kullanılır.
+
+Birçok barındırma senaryosunda, uygulamanın göreli URL yolu uygulamanın köküdür. Bu durumlarda, uygulamanın göreli URL taban yolu, bir Blazor uygulamasının varsayılan yapılandırması olan bir`<base href="/" />`eğik çizgi () olur. GitHub sayfaları ve IIS alt uygulamaları gibi diğer barındırma senaryolarında, uygulama temel yolu, sunucunun uygulamanın göreli URL 'SI yolu olarak ayarlanmalıdır.
+
+Uygulamanın temel yolunu ayarlamak için `<base>` *Wwwroot/index.html* dosyasının `<head>` etiket öğeleri içindeki etiketi güncelleştirin. Öznitelik değerini olarak `/{RELATIVE URL PATH}/` ayarlayın (sondaki eğik çizgi gereklidir), burada `{RELATIVE URL PATH}` uygulamanın tam göreli URL yoludur. `href`
+
+Kök olmayan göreli URL yoluna (örneğin, `<base href="/CoolApp/">`) sahip bir uygulama için, uygulama *yerel olarak çalıştırıldığında*kaynaklarını bulamaz. Yerel geliştirme ve test sırasında bu sorunu aşmak için, çalışma zamanında `<base>` etiketinin `href` değeriyle eşleşen bir *yol temel* bağımsız değişkeni sağlayabilirsiniz. Uygulamayı yerel olarak çalıştırırken yol temel bağımsız değişkenini geçirmek için, `dotnet run` komutu uygulamanın dizininden `--pathbase` çalıştırın, seçeneği:
+
+```console
+dotnet run --pathbase=/{RELATIVE URL PATH (no trailing slash)}
+```
+
+Göreli URL yolu `/CoolApp/` (`<base href="/CoolApp/">`) olan bir uygulama için, komut şu şekilde olur:
+
+```console
+dotnet run --pathbase=/CoolApp
+```
+
+Uygulama üzerinde `http://localhost:port/CoolApp`yerel olarak yanıt verir.
+
 ## <a name="deployment"></a>Dağıtım
 
 Dağıtım Kılavuzu için aşağıdaki konulara bakın:
 
 * <xref:host-and-deploy/blazor/client-side>
 * <xref:host-and-deploy/blazor/server-side>
-
-## <a name="blazor-serverless-hosting-with-azure-storage"></a>Azure depolama ile Blazor sunucusuz barındırma
-
-Blazor istemci tarafı uygulamalar, doğrudan bir depolama kapsayıcısından statik içerik olarak [Azure depolama](https://azure.microsoft.com/services/storage/) 'dan sunulabilir.
-
-Daha fazla bilgi için bkz [. konak ve dağıtım ASP.NET Core Blazor istemci tarafı (tek başına dağıtım): Azure depolama](xref:host-and-deploy/blazor/client-side#azure-storage).
