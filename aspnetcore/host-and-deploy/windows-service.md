@@ -5,14 +5,14 @@ description: ASP.NET Core uygulamasının bir Windows hizmetinde nasıl barınd�
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 06/03/2019
+ms.date: 09/09/2019
 uid: host-and-deploy/windows-service
-ms.openlocfilehash: 308a8bd10371cc70c431b8858ef7d82c1bb624da
-ms.sourcegitcommit: 8835b6777682da6fb3becf9f9121c03f89dc7614
+ms.openlocfilehash: c2a2941f2a4e27218c90cf47453c69149da8e766
+ms.sourcegitcommit: 2d4c1732c4866ed26b83da35f7bc2ad021a9c701
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69975409"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70815703"
 ---
 # <a name="host-aspnet-core-in-a-windows-service"></a>Windows hizmetinde konak ASP.NET Core
 
@@ -312,15 +312,17 @@ Remove-Service -Name {NAME}
 
 Internet 'ten veya şirket ağından gelen isteklerle etkileşime geçen ve bir ara sunucu veya yük dengeleyicinin arkasındaki Hizmetler ek yapılandırma gerektirebilir. Daha fazla bilgi için bkz. <xref:host-and-deploy/proxy-load-balancer>.
 
-## <a name="configure-https"></a>HTTPS 'yi yapılandırma
+## <a name="configure-endpoints"></a>Uç noktaları yapılandırma
 
-Hizmeti güvenli bir uç noktayla yapılandırmak için:
+Varsayılan olarak, ASP.NET Core öğesine `http://localhost:5000`bağlanır. `ASPNETCORE_URLS` Ortam değişkenini ayarlayarak URL 'yi ve bağlantı noktasını yapılandırın.
 
-1. Platformunuzun sertifika alımı ve dağıtım mekanizmalarını kullanarak barındırma sistemi için bir X. 509.440 sertifikası oluşturun.
+HTTPS uç noktaları için destek de dahil olmak üzere ek URL ve bağlantı noktası yapılandırma yaklaşımları için aşağıdaki konulara bakın:
 
-1. Sertifikayı kullanmak için bir [Kestrel Server HTTPS uç noktası yapılandırması](xref:fundamentals/servers/kestrel#endpoint-configuration) belirtin.
+* <xref:fundamentals/servers/kestrel#endpoint-configuration>Kestrel
+* <xref:fundamentals/servers/httpsys#configure-windows-server>(HTTP. sys)
 
-Hizmet uç noktasının güvenliğini sağlamak için ASP.NET Core HTTPS geliştirme sertifikası kullanılması desteklenmez.
+> [!NOTE]
+> Hizmet uç noktasının güvenliğini sağlamak için ASP.NET Core HTTPS geliştirme sertifikası kullanılması desteklenmez.
 
 ## <a name="current-directory-and-content-root"></a>Geçerli dizin ve içerik kökü
 

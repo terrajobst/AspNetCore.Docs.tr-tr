@@ -1,10 +1,11 @@
-# <a name="aspnet-core-web-api-sample"></a>ASP.NET Core Web API'si örneği
+# <a name="aspnet-core-web-api-samples"></a>ASP.NET Core Web API örnekleri
 
-Aşağıdaki tabloda örnek çözümü yapmadan çeşitli klasörleri bir açıklaması verilmiştir:
+Aşağıdaki tabloda, örnek çözümü kapsayan çeşitli dizinlerin açıklaması verilmiştir:
 
-|              Klasör              |                                        Amaç                                        |
-|----------------------------------|---------------------------------------------------------------------------------------|
-|   *WebApiSample.Api.21*   |                         Bir ASP.NET Core 2.1 Web API projesi.                          |
-| *WebApiSample.Api.Pre21*  |                         Bir ASP.NET Core 2.0 Web API projesi.                          |
-| *WebApiSample.DataAccess* | Her iki Web API projesi tarafından kullanılan .NET Standard 2.0 veri erişim katmanı projesi. |
-
+| Dizin                   | Amaç |
+|-----------------------------|------------------------------------------------------------|
+| *3x/WebApiSample. api. 30*    | ASP.NET Core 3,0 Web API projesi.                       |
+| *3x/WebApiSample. DataAccess*| ASP.NET Core 3. x Web API projesi tarafından kullanılan .NET Standard 2,1 veri erişim katmanı projesi.|
+| *2x/WebApiSample. api. 21*    | ASP.NET Core 2,1 Web API projesi.                         |
+| *2x/WebApiSample. api. Pre21* | ASP.NET Core 2,0 Web API projesi.                         |
+| *2x/WebApiSample. DataAccess*| ASP.NET Core 2. x Web API 'SI projeleri tarafından kullanılan .NET Standard 2,0 veri erişim katmanı projesi.|

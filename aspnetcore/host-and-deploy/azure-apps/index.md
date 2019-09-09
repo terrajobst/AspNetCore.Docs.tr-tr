@@ -5,14 +5,14 @@ description: Bu makale, Azure ana bilgisayarına bağlantılar ve kaynakları da
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 07/28/2019
+ms.date: 09/07/2019
 uid: host-and-deploy/azure-apps/index
-ms.openlocfilehash: 5035a31526e0290964e0fdee05753aeaf6cb3790
-ms.sourcegitcommit: 0efb9e219fef481dee35f7b763165e488aa6cf9c
+ms.openlocfilehash: 5da32b5fd1026263f721db442b2676d45b239b8d
+ms.sourcegitcommit: 2d4c1732c4866ed26b83da35f7bc2ad021a9c701
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68602445"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70815593"
 ---
 # <a name="deploy-aspnet-core-apps-to-azure-app-service"></a>ASP.NET Core uygulamalarını Azure App Service dağıtma
 
@@ -97,17 +97,7 @@ Bir uygulama, [Webhost. createdefaultbuilder](/dotnet/api/microsoft.aspnetcore.w
 
 ## <a name="monitoring-and-logging"></a>İzleme ve günlüğe kaydetme
 
-::: moniker range=">= aspnetcore-3.0"
-
-App Service dağıtılan ASP.NET Core uygulamalar, bir App Service uzantısı **ASP.NET Core günlüğe kaydetme tümleştirmesi**otomatik olarak alır. Uzantı, Azure App Service ASP.NET Core uygulamalar için günlüğe kaydetme tümleştirmesi imkanı sunar.
-
-::: moniker-end
-
-::: moniker range="< aspnetcore-3.0"
-
-App Service dağıtılan ASP.NET Core uygulamalar, bir App Service uzantısı **ASP.NET Core günlüğe kaydetme uzantısı**otomatik olarak alır. Uzantı, Azure App Service ASP.NET Core uygulamalar için günlüğe kaydetme tümleştirmesi imkanı sunar.
-
-::: moniker-end
+Azure App Service, ASP.NET Core uygulamaları için günlük tümleştirmeyi etkinleştiren **ASP.NET Core günlük uzantılarını**sunmaktadır. Uzantıyı bir App Service otomatik olarak eklemek için, Visual Studio 'nun **Yayımlama** işlemini bir **App Service** yayımlama profiliyle kullanın. Bir uygulamayı dağıtmak için Visual Studio 'yu kullanmıyorsanız, uzantıyı App Service **geliştirme araçları** > **uzantıları** iletişim kutusu aracılığıyla Azure portalında el ile yükleyebilirsiniz.
 
 İzleme, günlüğe kaydetme ve sorun giderme bilgileri için aşağıdaki makalelere bakın:
 
@@ -217,7 +207,7 @@ Kendi kendine içerilen bir uygulama dağıtımında:
 64 bitlik bir [çerçeveye bağımlı dağıtım](/dotnet/core/deploying/#framework-dependent-deployments-fdd)için:
 
 * 64 bit uygulama derlemek için 64 bit .NET Core SDK kullanın.
-* App Service **yapılandırma**  genel > ayarlarında platformu **64 bit** olarak ayarlayın. Uygulamanın, platform bit özelliğini tercih etmek için temel veya daha yüksek bir hizmet planı kullanması gerekir.
+* App Service **yapılandırma** genel > ayarlarında platformu **64 bit** olarak ayarlayın. Uygulamanın, platform bit özelliğini tercih etmek için temel veya daha yüksek bir hizmet planı kullanması gerekir.
 
 ::: moniker-end
 

@@ -5,12 +5,12 @@ description: Model bağlamanın, denetleyici eylemlerinin ASP.NET Core doğrudan
 ms.author: riande
 ms.date: 11/13/2018
 uid: mvc/advanced/custom-model-binding
-ms.openlocfilehash: 27e19012b6f878f5e3d08846593a7513bd584a4c
-ms.sourcegitcommit: f65d8765e4b7c894481db9b37aa6969abc625a48
+ms.openlocfilehash: 64429d3d9a64219216f3432924dbd0977dd6e1bb
+ms.sourcegitcommit: 2d4c1732c4866ed26b83da35f7bc2ad021a9c701
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70773494"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70815629"
 ---
 # <a name="custom-model-binding-in-aspnet-core"></a>ASP.NET Core özel model bağlama
 

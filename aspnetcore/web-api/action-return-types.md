@@ -1,133 +1,191 @@
 ---
-title: ASP.NET Core Web API denetleyici eylemi dönüş türleri
+title: ASP.NET Core Web API 'sindeki denetleyici eylemi dönüş türleri
 author: scottaddie
-description: Bir ASP.NET Core Web API'si çeşitli denetleyici eylem yönteminin dönüş türleri kullanma hakkında bilgi edinin.
+description: ASP.NET Core Web API 'sindeki çeşitli denetleyici eylemi yöntemi döndürme türlerini kullanma hakkında bilgi edinin.
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 01/04/2019
+ms.date: 09/09/2019
 uid: web-api/action-return-types
-ms.openlocfilehash: b89ead55cd46ef62a3bc28b1cfc9077d3ce9aba2
-ms.sourcegitcommit: a04eb20e81243930ec829a9db5dd5de49f669450
+ms.openlocfilehash: 79134ab252f309f8b39b8db5f8f3e82035e0eb7f
+ms.sourcegitcommit: 2d4c1732c4866ed26b83da35f7bc2ad021a9c701
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/03/2019
-ms.locfileid: "66470400"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70815755"
 ---
-# <a name="controller-action-return-types-in-aspnet-core-web-api"></a>ASP.NET Core Web API denetleyici eylemi dönüş türleri
+# <a name="controller-action-return-types-in-aspnet-core-web-api"></a>ASP.NET Core Web API 'sindeki denetleyici eylemi dönüş türleri
 
-Tarafından [Scott Addie](https://github.com/scottaddie)
+[Scott Ade](https://github.com/scottaddie) tarafından
 
 [Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/web-api/action-return-types/samples) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
 
-ASP.NET Core Web API denetleyici eylemi için aşağıdaki seçenekleri dönüş türleri sunar:
+ASP.NET Core Web API denetleyicisi eylem dönüş türleri için aşağıdaki seçenekleri sunar:
 
 ::: moniker range=">= aspnetcore-2.1"
 
-* [Belirli bir türü](#specific-type)
-* [IActionResult](#iactionresult-type)
+* [Belirli tür](#specific-type)
+* [Iactionresult](#iactionresult-type)
 * [ActionResult\<T >](#actionresultt-type)
 
 ::: moniker-end
 
 ::: moniker range="<= aspnetcore-2.0"
 
-* [Belirli bir türü](#specific-type)
-* [IActionResult](#iactionresult-type)
+* [Belirli tür](#specific-type)
+* [Iactionresult](#iactionresult-type)
 
 ::: moniker-end
 
-Bu belgede, her bir dönüş türü kullanmak en uygun olduğunda açıklanmaktadır.
+Bu belgede, her dönüş türünü kullanmak için en uygun olan bilgiler açıklanmaktadır.
 
-## <a name="specific-type"></a>Belirli bir türü
+## <a name="specific-type"></a>Belirli tür
 
-Bir basit veya karmaşık veri türü basit bir eylem döndürür (örneğin, `string` veya özel bir nesne). Özel koleksiyonu döndüren eylem göz önünde bulundurun `Product` nesneler:
+En basit eylem, basit veya karmaşık bir veri türü döndürür (örneğin, `string` veya özel nesne türü). Özel `Product` nesneler koleksiyonunu döndüren aşağıdaki eylemi göz önünde bulundurun:
 
-[!code-csharp[](../web-api/action-return-types/samples/WebApiSample.Api.21/Controllers/ProductsController.cs?name=snippet_Get)]
+[!code-csharp[](../web-api/action-return-types/samples/2x/WebApiSample.Api.21/Controllers/ProductsController.cs?name=snippet_Get)]
 
-Eylem yürütme sırasında karşı korumak için bilinen koşul, belirli bir tür döndüren yeterli. Önceki eylemi parametresi kısıtlamaları doğrulama gerekli değilse bu nedenle hiçbir parametre kabul eder.
+Eylem yürütme sırasında korunmak üzere bilinen koşullar olmadan, belirli bir türü döndürmek yeterli olabilir. Önceki eylem hiçbir parametre kabul etmez, bu nedenle parametre kısıtlamaları doğrulaması gerekli değildir.
 
-Olduğunda bir uygulamada birden fazla dönüş yolları sunulan için katılması gereken koşullar bilinir. Böyle bir durumda karıştırmak için ortak bir [ActionResult](/dotnet/api/microsoft.aspnetcore.mvc.actionresult) dönüş türü basit veya karmaşık dönüş türüne sahip. Her iki [IActionResult](#iactionresult-type) veya [actionresult öğesini\<T >](#actionresultt-type) bu tür bir eylemin uyum sağlamak gereklidir.
+Bir eylemde, bilinen koşulların ne zaman hesaba katılması gerektiği olduğunda, birden fazla dönüş yolu tanıtılmıştır. Böyle bir durumda, basit veya karmaşık dönüş türü ile bir <xref:Microsoft.AspNetCore.Mvc.ActionResult> dönüş türü karıştırmak yaygındır. Bu tür eyleme uyum sağlamak için [ıactionresult](#iactionresult-type) veya [\<ActionResult T >](#actionresultt-type) gereklidir.
 
-## <a name="iactionresult-type"></a>IActionResult türü
+### <a name="return-ienumerablet-or-iasyncenumerablet"></a>IEnumerable\<t > veya ıasyncenumerable\<t > döndürün
 
-[IActionResult](/dotnet/api/microsoft.aspnetcore.mvc.iactionresult) dönüş türü, uygun olduğunda birden çok [ActionResult](/dotnet/api/microsoft.aspnetcore.mvc.actionresult) dönüş türleri bir eylemi mümkündür. `ActionResult` Türleri çeşitli HTTP durum kodları temsil eder. Bu kategoriye dönülüyor bazı yaygın dönüş türleri [BadRequestResult](/dotnet/api/microsoft.aspnetcore.mvc.badrequestresult) (400) [NotFoundResult](/dotnet/api/microsoft.aspnetcore.mvc.notfoundresult) (404) ve [OkObjectResult](/dotnet/api/microsoft.aspnetcore.mvc.okobjectresult) (200).
+ASP.NET Core 2,2 ve önceki sürümlerde, bir <xref:System.Collections.Generic.IAsyncEnumerable%601> eylemden geri dönmek seri hale getirici tarafından zaman uyumlu koleksiyon yinelemesi ile sonuçlanır. Sonuç olarak, çağrı engelleme ve iş parçacığı havuzu için olası bir olasılık vardır. Göstermek için, Web API 'sinin veri erişimi ihtiyaçları için Entity Framework (EF) Core kullanıldığını düşünün. Aşağıdaki eylemin dönüş türü serileştirme sırasında zaman uyumlu olarak numaralandırılır:
 
-Birden fazla dönüş türleri ve eylem, serbest yollarında kullanımını olduğundan [[ProducesResponseType]](/dotnet/api/microsoft.aspnetcore.mvc.producesresponsetypeattribute.-ctor) özniteliği gereklidir. Bu öznitelik gibi araçları tarafından oluşturulan API Yardım sayfaları daha açıklayıcı yanıt ayrıntılarını üretir [Swagger](/aspnet/core/tutorials/web-api-help-pages-using-swagger). `[ProducesResponseType]` Eylem tarafından döndürülen HTTP durum kodları ve bilinen türleri gösterir.
+```csharp
+public IEnumerable<Product> GetOnSaleProducts() =>
+    _context.Products.Where(p => p.IsOnSale);
+```
 
-### <a name="synchronous-action"></a>Zaman uyumlu işlem
+Zaman uyumlu numaralandırmayı önlemek ve engellemeyi ASP.NET Core 2,2 ve önceki sürümlerde veritabanı üzerinde bekleyip engellemek için şunu `ToListAsync`çağırın:
 
-Aşağıdaki iki olası dönüş türleri olduğu zaman uyumlu eylemi göz önünde bulundurun:
+```csharp
+public IEnumerable<Product> GetOnSaleProducts() =>
+    _context.Products.Where(p => p.IsOnSale).ToListAsync();
+```
 
-[!code-csharp[](../web-api/action-return-types/samples/WebApiSample.Api.Pre21/Controllers/ProductsController.cs?name=snippet_GetById&highlight=8,11)]
+ASP.NET Core 3,0 ve üzeri sürümlerde, bir `IAsyncEnumerable<T>` eylemden geri dönerek:
 
-Ürün tarafından temsil edilen zaman içinde önceki eylemi, bir 404 durum kodu döndürülür `id` temel alınan veri deposunda mevcut değil. [NotFound](/dotnet/api/microsoft.aspnetcore.mvc.controllerbase.notfound) Yardımcısı metodunu çağırmak için bir kısayol olarak `return new NotFoundResult();`. Ürünün mevcut değilse bir `Product` yükü temsil eden bir 200 durum kodu ile döndürülen nesne. [Tamam](/dotnet/api/microsoft.aspnetcore.mvc.controllerbase.ok) yardımcı yöntem toplu biçiminin çağrıldığında `return new OkObjectResult(product);`.
+* Zaman uyumlu yineleme ile sonuçlanmayacaktır.
+* Dönerek <xref:System.Collections.Generic.IEnumerable%601>etkin hale gelir.
 
-### <a name="asynchronous-action"></a>Zaman uyumsuz eylem
+ASP.NET Core 3,0 ve üzeri, serileştiriciye sağlamadan önce aşağıdaki eylemin sonucunu arabelleğe alır:
 
-İki olası dönüş türleri olduğu aşağıdaki zaman uyumsuz eylem göz önünde bulundurun:
+```csharp
+public IEnumerable<Product> GetOnSaleProducts() =>
+    _context.Products.Where(p => p.IsOnSale);
+```
 
-[!code-csharp[](../web-api/action-return-types/samples/WebApiSample.Api.Pre21/Controllers/ProductsController.cs?name=snippet_CreateAsync&highlight=8,13)]
+Zaman uyumsuz yinelemeyi güvence altına almak `IAsyncEnumerable<T>` için eylem imzasının dönüş türünü bildirmeyi göz önünde bulundurun. Sonuç olarak, yineleme modu döndürülmekte olan temel somut türü temel alır. MVC, uygulayan `IAsyncEnumerable<T>`tüm somut türleri otomatik olarak arabelleğe alır.
 
-Yukarıdaki kodda:
+Şu şekilde `IEnumerable<Product>`satış fiyatlı ürün kayıtları döndüren aşağıdaki eylemi göz önünde bulundurun:
 
-* Bir 400 durum kodu ([BadRequest](xref:Microsoft.AspNetCore.Mvc.ControllerBase.BadRequest*)) ürün açıklaması "XYZ Widget" içerdiğinde ASP.NET Core çalışma zamanı tarafından döndürülür.
-* 201 durum kodu tarafından oluşturulan [CreatedAtAction](xref:Microsoft.AspNetCore.Mvc.ControllerBase.CreatedAtAction*) bir ürün oluşturulduğunda yöntemi. Bu kod yolunda `Product` nesne döndürülür.
+[!code-csharp[](../web-api/action-return-types/samples/3x/WebApiSample.Api.30/Controllers/ProductsController.cs?name=snippet_GetOnSaleProducts)]
 
-Örneğin, şu model istekleri içermelidir gösterir `Name` ve `Description` özellikleri. Bu nedenle, sunulamamasından `Name` ve `Description` istekte model doğrulamasının başarısız olmasına neden olur.
+Önceki `IAsyncEnumerable<Product>` eylemin eşdeğeri şunlardır:
 
-[!code-csharp[](../web-api/action-return-types/samples/WebApiSample.DataAccess/Models/Product.cs?name=snippet_ProductClass&highlight=5-6,8-9)]
+[!code-csharp[](../web-api/action-return-types/samples/3x/WebApiSample.Api.30/Controllers/ProductsController.cs?name=snippet_GetOnSaleProductsAsync)]
+
+Yukarıdaki eylemlerin her ikisi de ASP.NET Core 3,0 itibariyle engellenmeyen bir işlem değildir.
+
+## <a name="iactionresult-type"></a>Iactionresult türü
+
+Bir <xref:Microsoft.AspNetCore.Mvc.IActionResult> eylemde birden çok `ActionResult` dönüş türü mümkünse, dönüş türü uygun olur. `ActionResult` Türler çeşitli http durum kodlarını temsil eder. Herhangi bir soyut olmayan sınıf, geçerli `ActionResult` bir dönüş türü olarak niteleyen ' dan türetiliyor. Bu kategorideki bazı yaygın dönüş türleri şunlardır <xref:Microsoft.AspNetCore.Mvc.BadRequestResult> (400), <xref:Microsoft.AspNetCore.Mvc.NotFoundResult> (404) ve <xref:Microsoft.AspNetCore.Mvc.OkObjectResult> (200). Alternatif olarak, <xref:Microsoft.AspNetCore.Mvc.ControllerBase> sınıftaki kullanışlı yöntemler bir eylemden tür döndürmek `ActionResult` için kullanılabilir. Örneğin, `return BadRequest();` öğesinin `return new BadRequestResult();`bir toplu biçimidir.
+
+Bu tür bir eylemde birden çok dönüş türü ve yolu olduğundan, [[ProducesResponseType]](xref:Microsoft.AspNetCore.Mvc.ProducesResponseTypeAttribute) özniteliğinin serbest bir şekilde kullanılması gerekir. Bu öznitelik, [Swagger](xref:tutorials/web-api-help-pages-using-swagger)gibi araçlar tarafından oluşturulan Web API Yardım sayfaları için daha açıklayıcı yanıt ayrıntıları üretir. `[ProducesResponseType]`eylem tarafından döndürülecek bilinen türleri ve HTTP durum kodlarını gösterir.
+
+### <a name="synchronous-action"></a>Zaman uyumlu eylem
+
+İki olası dönüş türü olan aşağıdaki zaman uyumlu eylemi göz önünde bulundurun:
 
 ::: moniker range=">= aspnetcore-2.1"
 
-Varsa [[ApiController]](xref:Microsoft.AspNetCore.Mvc.ApiControllerAttribute) özniteliği ASP.NET Core 2.1 veya daha sonra uygulandığında, model doğrulama hataları 400 durum koduna neden. Daha fazla bilgi için [otomatik HTTP 400 yanıtları](xref:web-api/index#automatic-http-400-responses).
+[!code-csharp[](../web-api/action-return-types/samples/2x/WebApiSample.Api.21/Controllers/ProductsController.cs?name=snippet_GetById&highlight=8,11)]
 
-## <a name="actionresultt-type"></a>ActionResult\<T > türü
+::: moniker-end
 
-ASP.NET Core 2.1 tanıtır [actionresult öğesini\<T >](/dotnet/api/microsoft.aspnetcore.mvc.actionresult-1) dönüş türü Web API denetleyici eylemleri. Türetilen bir tür dönmek olanak tanır [actionresult öğesini](/dotnet/api/microsoft.aspnetcore.mvc.actionresult) veya döndüren bir [belirli tür](#specific-type). `ActionResult<T>` üzerinde aşağıdaki faydaları sağlar [IActionResult türü](#iactionresult-type):
+::: moniker range="<= aspnetcore-2.0"
 
-* [[ProducesResponseType]](/dotnet/api/microsoft.aspnetcore.mvc.producesresponsetypeattribute) özniteliğin `Type` özelliği hariç tutulamaz. Örneğin, `[ProducesResponseType(200, Type = typeof(Product))]` için Basitleştirilmiş `[ProducesResponseType(200)]`. Eylemin dönüş türü alanından çıkarılan yerine beklenen `T` içinde `ActionResult<T>`.
-* [Örtük dönüştürme işleçleri](/dotnet/csharp/language-reference/keywords/implicit) hem dönüştürülmesini desteklemek `T` ve `ActionResult` için `ActionResult<T>`. `T` dönüştürür [ObjectResult](/dotnet/api/microsoft.aspnetcore.mvc.objectresult), yani `return new ObjectResult(T);` için Basitleştirilmiş `return T;`.
+[!code-csharp[](../web-api/action-return-types/samples/2x/WebApiSample.Api.Pre21/Controllers/ProductsController.cs?name=snippet_GetById&highlight=8,11)]
 
-C# arabirimlerde örtük dönüştürme işleçleri desteklemez. Sonuç olarak, arabirimin somut bir türe dönüştürmeyi kullanmak için gerekli `ActionResult<T>`. Örneğin, kullanım `IEnumerable` aşağıdaki örnekte çalışmıyor:
+::: moniker-end
 
-```csharp
-[HttpGet]
-public ActionResult<IEnumerable<Product>> Get()
-{
-    return _repository.GetProducts();
-}
-```
+Önceki eylemde:
 
-Önceki kodu düzeltmek için bir seçenek, döndürmektir `_repository.GetProducts().ToList();`.
-
-Çoğu Eylemler, belirli bir dönüş türüne sahip. Beklenmeyen koşul içinde çalışması belirli tür döndürülmez eylem yürütme sırasında ortaya çıkabilir. Örneğin, bir eylemin giriş parametresi model doğrulama başarısız olabilir. Böyle bir durumda, uygun döndürmek için ortak `ActionResult` türü yerine belirli bir tür.
-
-### <a name="synchronous-action"></a>Zaman uyumlu işlem
-
-İki olası dönüş türleri olduğu zaman uyumlu bir eylem göz önünde bulundurun:
-
-[!code-csharp[](../web-api/action-return-types/samples/WebApiSample.Api.21/Controllers/ProductsController.cs?name=snippet_GetById&highlight=7,10)]
-
-Önceki kodda, ürün veritabanında mevcut değilse bir 404 durum kodu döndürülür. Ürünün mevcut, ilgili `Product` nesne döndürülür. ASP.NET Core 2.1 önce `return product;` satır olabilirdi `return Ok(product);`.
-
-> [!TIP]
-> Denetleyici sınıfı ile donatılmış ASP.NET Core 2.1 itibarıyla eylem parametresi bağlama kaynağı çıkarımı etkinleştirilir `[ApiController]` özniteliği. Bir rota şablonu adı ile eşleşen bir parametre adı istek rota verilerini kullanarak otomatik olarak bağlanır. Sonuç olarak, önceki eyleme ait `id` parametresine değil açıkça ile Açıklama [[FromRoute]](/dotnet/api/microsoft.aspnetcore.mvc.fromrouteattribute) özniteliği.
+* Temel alınan veri deposunda tarafından `id` temsil edilen ürün olmadığında 404 durum kodu döndürülür. Kolaylık yöntemi için `return new NotFoundResult();`toplu olarak çağrılır. <xref:Microsoft.AspNetCore.Mvc.ControllerBase.NotFound*>
+* Ürün mevcut olduğunda `Product` nesneyle bir 200 durum kodu döndürülür. Kolaylık yöntemi için `return new OkObjectResult(product);`toplu olarak çağrılır. <xref:Microsoft.AspNetCore.Mvc.ControllerBase.Ok*>
 
 ### <a name="asynchronous-action"></a>Zaman uyumsuz eylem
 
-İki olası dönüş türü olan bir zaman uyumsuz eylem göz önünde bulundurun:
+İki olası dönüş türü olan aşağıdaki zaman uyumsuz eylemi göz önünde bulundurun:
 
-[!code-csharp[](../web-api/action-return-types/samples/WebApiSample.Api.21/Controllers/ProductsController.cs?name=snippet_CreateAsync&highlight=8,13)]
+::: moniker range=">= aspnetcore-2.1"
 
-Yukarıdaki kodda:
+[!code-csharp[](../web-api/action-return-types/samples/2x/WebApiSample.Api.21/Controllers/ProductsController.cs?name=snippet_CreateAsync&highlight=8,13)]
 
-* Bir 400 durum kodu ([BadRequest](xref:Microsoft.AspNetCore.Mvc.ControllerBase.BadRequest*)) ASP.NET Core çalışma zamanı tarafından döndürülen zaman:
-  * [[ApiController]](xref:Microsoft.AspNetCore.Mvc.ApiControllerAttribute) özniteliği uygulandı, model doğrulama başarısız olur.
-  * Ürün açıklaması "XYZ Widget" içerir.
-* 201 durum kodu tarafından oluşturulan [CreatedAtAction](xref:Microsoft.AspNetCore.Mvc.ControllerBase.CreatedAtAction*) bir ürün oluşturulduğunda yöntemi. Bu kod yolunda `Product` nesne döndürülür.
+::: moniker-end
 
-> [!TIP]
-> Denetleyici sınıfı ile donatılmış ASP.NET Core 2.1 itibarıyla eylem parametresi bağlama kaynağı çıkarımı etkinleştirilir `[ApiController]` özniteliği. Karmaşık tür parametreleri, istek gövdesi kullanarak otomatik olarak bağlanır. Sonuç olarak, önceki eyleme ait `product` parametresine değil açıkça ile Açıklama [[FromBody]](/dotnet/api/microsoft.aspnetcore.mvc.frombodyattribute) özniteliği.
+::: moniker range="<= aspnetcore-2.0"
+
+[!code-csharp[](../web-api/action-return-types/samples/2x/WebApiSample.Api.Pre21/Controllers/ProductsController.cs?name=snippet_CreateAsync&highlight=8,13)]
+
+::: moniker-end
+
+Önceki eylemde:
+
+* Ürün açıklaması "XYZ pencere öğesi" içerdiğinde 400 durum kodu döndürülür. Kolaylık yöntemi için `return new BadRequestResult();`toplu olarak çağrılır. <xref:Microsoft.AspNetCore.Mvc.ControllerBase.BadRequest*>
+* Bir ürün oluşturulduğunda 201 durum kodu <xref:Microsoft.AspNetCore.Mvc.ControllerBase.CreatedAtAction*> kolaylık yöntemi tarafından oluşturulur. `CreatedAtAction` Çağırmak`return new CreatedAtActionResult(nameof(GetById), "Products", new { id = product.Id }, product);`için bir alternatiftir. Bu kod yolunda, `Product` nesne yanıt gövdesinde sağlanır. Yeni `Location` oluşturulan ürünün URL 'sini içeren bir yanıt üst bilgisi sağlanır.
+
+Örneğin, aşağıdaki model isteklerin `Name` ve `Description` özelliklerini içermesi gerektiğini gösterir. İstek `Description` içinde sağlama `Name` hatası, model doğrulamasının başarısız olmasına neden olur.
+
+[!code-csharp[](../web-api/action-return-types/samples/2x/WebApiSample.DataAccess/Models/Product.cs?name=snippet_ProductClass&highlight=5-6,8-9)]
+
+::: moniker range=">= aspnetcore-2.1"
+
+ASP.NET Core 2,1 veya sonraki bir sürümde [[Apicontroller]](xref:Microsoft.AspNetCore.Mvc.ApiControllerAttribute) özniteliği uygulanmışsa, model doğrulama hataları 400 durum koduna neden olur. Daha fazla bilgi için bkz. [OTOMATIK HTTP 400 yanıtları](xref:web-api/index#automatic-http-400-responses).
+
+## <a name="actionresultt-type"></a>ActionResult\<T > türü
+
+ASP.NET Core 2,1, Web API denetleyicisi eylemleri için [ActionResult\<T >](xref:Microsoft.AspNetCore.Mvc.ActionResult`1) dönüş türünü sunmuştur. <xref:Microsoft.AspNetCore.Mvc.ActionResult> Belirli bir [türden](#specific-type)türetilen veya döndürülen bir tür döndürmenizi sağlar. `ActionResult<T>`[ıactionresult türü](#iactionresult-type)üzerinde aşağıdaki avantajları sunar:
+
+* [[ProducesResponseType]](xref:Microsoft.AspNetCore.Mvc.ProducesResponseTypeAttribute) özniteliğinin `Type` özelliği dışarıda bırakılabilirler. Örneğin, `[ProducesResponseType(200, Type = typeof(Product))]` `[ProducesResponseType(200)]`basitleştirilmiştir. Eylemin beklenen dönüş türü, `T` `ActionResult<T>`yerine öğesinden çıkarsanamıyor.
+* [Örtük atama işleçleri](/dotnet/csharp/language-reference/keywords/implicit) hem hem de `T` `ActionResult` için `ActionResult<T>`dönüştürmeyi destekler. `T`öğesine <xref:Microsoft.AspNetCore.Mvc.ObjectResult>dönüştürür, yani `return new ObjectResult(T);` basitleştirilmiştir `return T;`.
+
+C#arabirimlerde örtük atama işleçlerini desteklemez. Sonuç olarak, kullanmak `ActionResult<T>`için arabirimin somut bir türe dönüştürülmesi gerekir. Örneğin, aşağıdaki örnekte öğesinin `IEnumerable` kullanımı işe yaramaz:
+
+```csharp
+[HttpGet]
+public ActionResult<IEnumerable<Product>> Get() =>
+    _repository.GetProducts();
+```
+
+Önceki kodu gidermeye yönelik bir seçenek, geri dönelim `_repository.GetProducts().ToList();`.
+
+Çoğu eylemin belirli bir dönüş türü vardır. Eylem yürütme sırasında beklenmeyen koşullar gerçekleşebilir, bu durumda belirli tür döndürülmez. Örneğin, bir eylemin giriş parametresi, model doğrulamasının başarısız olmasına neden olabilir. Böyle bir durumda, belirli tür yerine uygun `ActionResult` türü döndürmek yaygın bir durumdur.
+
+### <a name="synchronous-action"></a>Zaman uyumlu eylem
+
+İki olası dönüş türü olan zaman uyumlu bir eylem düşünün:
+
+[!code-csharp[](../web-api/action-return-types/samples/2x/WebApiSample.Api.21/Controllers/ProductsController.cs?name=snippet_GetById&highlight=7,10)]
+
+Önceki eylemde:
+
+* Ürün veritabanında mevcut olmadığında bir 404 durum kodu döndürülür.
+* Ürün mevcut olduğunda ilgili `Product` nesneyle bir 200 durum kodu döndürülür. 2,1 `return product;` ASP.NET Core önce satırın olması `return Ok(product);`gerekiyordu.
+
+### <a name="asynchronous-action"></a>Zaman uyumsuz eylem
+
+İki olası dönüş türü olan zaman uyumsuz bir eylem düşünün:
+
+[!code-csharp[](../web-api/action-return-types/samples/2x/WebApiSample.Api.21/Controllers/ProductsController.cs?name=snippet_CreateAsync&highlight=8,13)]
+
+Önceki eylemde:
+
+* ASP.NET Core çalışma zamanı tarafından bir<xref:Microsoft.AspNetCore.Mvc.ControllerBase.BadRequest*>400 durum kodu () döndürülür:
+  * [[Apicontroller]](xref:Microsoft.AspNetCore.Mvc.ApiControllerAttribute) özniteliği uygulandı ve model doğrulaması başarısız oluyor.
+  * Ürün açıklaması "XYZ pencere öğesi" içerir.
+* Bir ürün oluşturulduğunda <xref:Microsoft.AspNetCore.Mvc.ControllerBase.CreatedAtAction*> yöntemi tarafından bir 201 durum kodu oluşturulur. Bu kod yolunda, `Product` nesne yanıt gövdesinde sağlanır. Yeni `Location` oluşturulan ürünün URL 'sini içeren bir yanıt üst bilgisi sağlanır.
 
 ::: moniker-end
 
