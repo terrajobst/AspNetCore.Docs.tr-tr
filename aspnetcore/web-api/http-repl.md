@@ -7,72 +7,72 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 08/29/2019
 uid: web-api/http-repl
-ms.openlocfilehash: 7121670856da4b123b1c3e780a7952da0fb696a1
-ms.sourcegitcommit: e6bd2bbe5683e9a7dbbc2f2eab644986e6dc8a87
+ms.openlocfilehash: b93641c96ad093b40aaa887f19409d4c2e1490df
+ms.sourcegitcommit: efb9c16321b34f8ede802822b26eb983de16479b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70238052"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70842270"
 ---
-# <a name="test-web-apis-with-the-http-repl"></a><span data-ttu-id="a7254-103">HTTP REPL ile Web API 'Lerini test etme</span><span class="sxs-lookup"><span data-stu-id="a7254-103">Test web APIs with the HTTP REPL</span></span>
+# <a name="test-web-apis-with-the-http-repl"></a><span data-ttu-id="706e5-103">HTTP REPL ile Web API 'Lerini test etme</span><span class="sxs-lookup"><span data-stu-id="706e5-103">Test web APIs with the HTTP REPL</span></span>
 
-<span data-ttu-id="a7254-104">[Scott Ade](https://twitter.com/Scott_Addie) tarafından</span><span class="sxs-lookup"><span data-stu-id="a7254-104">By [Scott Addie](https://twitter.com/Scott_Addie)</span></span>
+<span data-ttu-id="706e5-104">[Scott Ade](https://twitter.com/Scott_Addie) tarafından</span><span class="sxs-lookup"><span data-stu-id="706e5-104">By [Scott Addie](https://twitter.com/Scott_Addie)</span></span>
 
-<span data-ttu-id="a7254-105">HTTP okuma-değerlendirme-yazdırma döngüsü (REPL):</span><span class="sxs-lookup"><span data-stu-id="a7254-105">The HTTP Read-Eval-Print Loop (REPL) is:</span></span>
+<span data-ttu-id="706e5-105">HTTP okuma-değerlendirme-yazdırma döngüsü (REPL):</span><span class="sxs-lookup"><span data-stu-id="706e5-105">The HTTP Read-Eval-Print Loop (REPL) is:</span></span>
 
-* <span data-ttu-id="a7254-106">.NET Core 'un her yerde desteklenen basit, platformlar arası bir komut satırı aracı desteklenir.</span><span class="sxs-lookup"><span data-stu-id="a7254-106">A lightweight, cross-platform command-line tool that's supported everywhere .NET Core is supported.</span></span>
-* <span data-ttu-id="a7254-107">ASP.NET Core Web API 'Lerini (ve non-ASP.NET çekirdek Web API 'Leri) test etmek ve sonuçlarını görüntülemek için kullanılır.</span><span class="sxs-lookup"><span data-stu-id="a7254-107">Used for making HTTP requests to test ASP.NET Core web APIs (and non-ASP.NET Core web APIs) and view their results.</span></span>
-* <span data-ttu-id="a7254-108">Localhost ve Azure App Service dahil olmak üzere herhangi bir ortamda barındırılan Web API 'Lerini test etme özelliğine sahiptir.</span><span class="sxs-lookup"><span data-stu-id="a7254-108">Capable of testing web APIs hosted in any environment, including localhost and Azure App Service.</span></span>
+* <span data-ttu-id="706e5-106">.NET Core 'un her yerde desteklenen basit, platformlar arası bir komut satırı aracı desteklenir.</span><span class="sxs-lookup"><span data-stu-id="706e5-106">A lightweight, cross-platform command-line tool that's supported everywhere .NET Core is supported.</span></span>
+* <span data-ttu-id="706e5-107">ASP.NET Core Web API 'Lerini (ve non-ASP.NET çekirdek Web API 'Leri) test etmek ve sonuçlarını görüntülemek için kullanılır.</span><span class="sxs-lookup"><span data-stu-id="706e5-107">Used for making HTTP requests to test ASP.NET Core web APIs (and non-ASP.NET Core web APIs) and view their results.</span></span>
+* <span data-ttu-id="706e5-108">Localhost ve Azure App Service dahil olmak üzere herhangi bir ortamda barındırılan Web API 'Lerini test etme özelliğine sahiptir.</span><span class="sxs-lookup"><span data-stu-id="706e5-108">Capable of testing web APIs hosted in any environment, including localhost and Azure App Service.</span></span>
 
-<span data-ttu-id="a7254-109">Aşağıdaki [http fiilleri](https://github.com/microsoft/api-guidelines/blob/vNext/Guidelines.md#74-supported-methods) desteklenir:</span><span class="sxs-lookup"><span data-stu-id="a7254-109">The following [HTTP verbs](https://github.com/microsoft/api-guidelines/blob/vNext/Guidelines.md#74-supported-methods) are supported:</span></span>
+<span data-ttu-id="706e5-109">Aşağıdaki [http fiilleri](https://github.com/microsoft/api-guidelines/blob/vNext/Guidelines.md#74-supported-methods) desteklenir:</span><span class="sxs-lookup"><span data-stu-id="706e5-109">The following [HTTP verbs](https://github.com/microsoft/api-guidelines/blob/vNext/Guidelines.md#74-supported-methods) are supported:</span></span>
 
-* [<span data-ttu-id="a7254-110">SILMELI</span><span class="sxs-lookup"><span data-stu-id="a7254-110">DELETE</span></span>](#test-http-delete-requests)
-* [<span data-ttu-id="a7254-111">GET</span><span class="sxs-lookup"><span data-stu-id="a7254-111">GET</span></span>](#test-http-get-requests)
-* [<span data-ttu-id="a7254-112">BAŞLI</span><span class="sxs-lookup"><span data-stu-id="a7254-112">HEAD</span></span>](#test-http-head-requests)
-* [<span data-ttu-id="a7254-113">SEÇENEKLER</span><span class="sxs-lookup"><span data-stu-id="a7254-113">OPTIONS</span></span>](#test-http-options-requests)
-* [<span data-ttu-id="a7254-114">DÜZELTMESI</span><span class="sxs-lookup"><span data-stu-id="a7254-114">PATCH</span></span>](#test-http-patch-requests)
-* [<span data-ttu-id="a7254-115">POST</span><span class="sxs-lookup"><span data-stu-id="a7254-115">POST</span></span>](#test-http-post-requests)
-* [<span data-ttu-id="a7254-116">KONUR</span><span class="sxs-lookup"><span data-stu-id="a7254-116">PUT</span></span>](#test-http-put-requests)
+* [<span data-ttu-id="706e5-110">SILMELI</span><span class="sxs-lookup"><span data-stu-id="706e5-110">DELETE</span></span>](#test-http-delete-requests)
+* [<span data-ttu-id="706e5-111">GET</span><span class="sxs-lookup"><span data-stu-id="706e5-111">GET</span></span>](#test-http-get-requests)
+* [<span data-ttu-id="706e5-112">BAŞLI</span><span class="sxs-lookup"><span data-stu-id="706e5-112">HEAD</span></span>](#test-http-head-requests)
+* [<span data-ttu-id="706e5-113">SEÇENEKLER</span><span class="sxs-lookup"><span data-stu-id="706e5-113">OPTIONS</span></span>](#test-http-options-requests)
+* [<span data-ttu-id="706e5-114">DÜZELTMESI</span><span class="sxs-lookup"><span data-stu-id="706e5-114">PATCH</span></span>](#test-http-patch-requests)
+* [<span data-ttu-id="706e5-115">POST</span><span class="sxs-lookup"><span data-stu-id="706e5-115">POST</span></span>](#test-http-post-requests)
+* [<span data-ttu-id="706e5-116">KONUR</span><span class="sxs-lookup"><span data-stu-id="706e5-116">PUT</span></span>](#test-http-put-requests)
 
-<span data-ttu-id="a7254-117">Takip etmek için, [örnek ASP.NET Core Web API](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/web-api/http-repl/samples) 'sini ([indirme](xref:index#how-to-download-a-sample)) görüntüleyin veya indirin.</span><span class="sxs-lookup"><span data-stu-id="a7254-117">To follow along, [view or download the sample ASP.NET Core web API](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/web-api/http-repl/samples) ([how to download](xref:index#how-to-download-a-sample)).</span></span>
+<span data-ttu-id="706e5-117">Takip etmek için, [örnek ASP.NET Core Web API](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/web-api/http-repl/samples) 'sini ([indirme](xref:index#how-to-download-a-sample)) görüntüleyin veya indirin.</span><span class="sxs-lookup"><span data-stu-id="706e5-117">To follow along, [view or download the sample ASP.NET Core web API](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/web-api/http-repl/samples) ([how to download](xref:index#how-to-download-a-sample)).</span></span>
 
-## <a name="prerequisites"></a><span data-ttu-id="a7254-118">Önkoşullar</span><span class="sxs-lookup"><span data-stu-id="a7254-118">Prerequisites</span></span>
+## <a name="prerequisites"></a><span data-ttu-id="706e5-118">Önkoşullar</span><span class="sxs-lookup"><span data-stu-id="706e5-118">Prerequisites</span></span>
 
 * [!INCLUDE [2.1-SDK](~/includes/2.1-SDK.md)]
 
-## <a name="installation"></a><span data-ttu-id="a7254-119">Yükleme</span><span class="sxs-lookup"><span data-stu-id="a7254-119">Installation</span></span>
+## <a name="installation"></a><span data-ttu-id="706e5-119">Yükleme</span><span class="sxs-lookup"><span data-stu-id="706e5-119">Installation</span></span>
 
-<span data-ttu-id="a7254-120">HTTP REPL 'u yüklemek için aşağıdaki komutu çalıştırın:</span><span class="sxs-lookup"><span data-stu-id="a7254-120">To install the HTTP REPL, run the following command:</span></span>
+<span data-ttu-id="706e5-120">HTTP REPL 'u yüklemek için aşağıdaki komutu çalıştırın:</span><span class="sxs-lookup"><span data-stu-id="706e5-120">To install the HTTP REPL, run the following command:</span></span>
 
 ```console
 dotnet tool install -g Microsoft.dotnet-httprepl --version "3.0.0-*"
 ```
 
-<span data-ttu-id="a7254-121">[.NET Core küresel aracı](/dotnet/core/tools/global-tools#install-a-global-tool) , [Microsoft. DotNet-httprepl](https://www.nuget.org/packages/Microsoft.dotnet-httprepl) NuGet paketinden yüklenir.</span><span class="sxs-lookup"><span data-stu-id="a7254-121">A [.NET Core Global Tool](/dotnet/core/tools/global-tools#install-a-global-tool) is installed from the [Microsoft.dotnet-httprepl](https://www.nuget.org/packages/Microsoft.dotnet-httprepl) NuGet package.</span></span>
+<span data-ttu-id="706e5-121">[.NET Core küresel aracı](/dotnet/core/tools/global-tools#install-a-global-tool) , [Microsoft. DotNet-httprepl](https://www.nuget.org/packages/Microsoft.dotnet-httprepl) NuGet paketinden yüklenir.</span><span class="sxs-lookup"><span data-stu-id="706e5-121">A [.NET Core Global Tool](/dotnet/core/tools/global-tools#install-a-global-tool) is installed from the [Microsoft.dotnet-httprepl](https://www.nuget.org/packages/Microsoft.dotnet-httprepl) NuGet package.</span></span>
 
-## <a name="usage"></a><span data-ttu-id="a7254-122">Kullanım</span><span class="sxs-lookup"><span data-stu-id="a7254-122">Usage</span></span>
+## <a name="usage"></a><span data-ttu-id="706e5-122">Kullanım</span><span class="sxs-lookup"><span data-stu-id="706e5-122">Usage</span></span>
 
-<span data-ttu-id="a7254-123">Aracın başarıyla yüklenmesinden sonra, HTTP REPL 'u başlatmak için aşağıdaki komutu çalıştırın:</span><span class="sxs-lookup"><span data-stu-id="a7254-123">After successful installation of the tool, run the following command to start the HTTP REPL:</span></span>
-
-```console
-dotnet httprepl
-```
-
-<span data-ttu-id="a7254-124">Kullanılabilir HTTP REPL komutlarını görüntülemek için aşağıdaki komutlardan birini çalıştırın:</span><span class="sxs-lookup"><span data-stu-id="a7254-124">To view the available HTTP REPL commands, run one of the following commands:</span></span>
+<span data-ttu-id="706e5-123">Aracın başarıyla yüklenmesinden sonra, HTTP REPL 'u başlatmak için aşağıdaki komutu çalıştırın:</span><span class="sxs-lookup"><span data-stu-id="706e5-123">After successful installation of the tool, run the following command to start the HTTP REPL:</span></span>
 
 ```console
-dotnet httprepl -h
+httprepl
+```
+
+<span data-ttu-id="706e5-124">Kullanılabilir HTTP REPL komutlarını görüntülemek için aşağıdaki komutlardan birini çalıştırın:</span><span class="sxs-lookup"><span data-stu-id="706e5-124">To view the available HTTP REPL commands, run one of the following commands:</span></span>
+
+```console
+httprepl -h
 ```
 
 ```console
-dotnet httprepl --help
+httprepl --help
 ```
 
-<span data-ttu-id="a7254-125">Aşağıdaki çıktı görüntülenir:</span><span class="sxs-lookup"><span data-stu-id="a7254-125">The following output is displayed:</span></span>
+<span data-ttu-id="706e5-125">Aşağıdaki çıktı görüntülenir:</span><span class="sxs-lookup"><span data-stu-id="706e5-125">The following output is displayed:</span></span>
 
 ```console
 Usage:
-  dotnet httprepl [<BASE_ADDRESS>] [options]
+  httprepl [<BASE_ADDRESS>] [options]
 
 Arguments:
   <BASE_ADDRESS> - The initial base address for the REPL.
@@ -124,59 +124,59 @@ Use `help <COMMAND>` for more detail on an individual command. e.g. `help get`.
 For detailed tool info, see https://aka.ms/http-repl-doc.
 ```
 
-<span data-ttu-id="a7254-126">HTTP REPL komut tamamlama sağlar.</span><span class="sxs-lookup"><span data-stu-id="a7254-126">The HTTP REPL offers command completion.</span></span> <span data-ttu-id="a7254-127"><kbd>Sekme</kbd> tuşuna basıldığında, yazdığınız KARAKTERLERI veya API uç noktasını tamamlayacak komutların listesi üzerinden yinelenir.</span><span class="sxs-lookup"><span data-stu-id="a7254-127">Pressing the <kbd>Tab</kbd> key iterates through the list of commands that complete the characters or API endpoint that you typed.</span></span> <span data-ttu-id="a7254-128">Aşağıdaki bölümlerde kullanılabilir CLı komutları ana hatlarıyla verilmiştir.</span><span class="sxs-lookup"><span data-stu-id="a7254-128">The following sections outline the available CLI commands.</span></span>
+<span data-ttu-id="706e5-126">HTTP REPL komut tamamlama sağlar.</span><span class="sxs-lookup"><span data-stu-id="706e5-126">The HTTP REPL offers command completion.</span></span> <span data-ttu-id="706e5-127"><kbd>Sekme</kbd> tuşuna basıldığında, yazdığınız KARAKTERLERI veya API uç noktasını tamamlayacak komutların listesi üzerinden yinelenir.</span><span class="sxs-lookup"><span data-stu-id="706e5-127">Pressing the <kbd>Tab</kbd> key iterates through the list of commands that complete the characters or API endpoint that you typed.</span></span> <span data-ttu-id="706e5-128">Aşağıdaki bölümlerde kullanılabilir CLı komutları ana hatlarıyla verilmiştir.</span><span class="sxs-lookup"><span data-stu-id="706e5-128">The following sections outline the available CLI commands.</span></span>
 
-## <a name="connect-to-the-web-api"></a><span data-ttu-id="a7254-129">Web API 'sine bağlanma</span><span class="sxs-lookup"><span data-stu-id="a7254-129">Connect to the web API</span></span>
+## <a name="connect-to-the-web-api"></a><span data-ttu-id="706e5-129">Web API 'sine bağlanma</span><span class="sxs-lookup"><span data-stu-id="706e5-129">Connect to the web API</span></span>
 
-<span data-ttu-id="a7254-130">Aşağıdaki komutu çalıştırarak bir Web API 'sine bağlanın:</span><span class="sxs-lookup"><span data-stu-id="a7254-130">Connect to a web API by running the following command:</span></span>
-
-```console
-dotnet httprepl <ROOT URI>
-```
-
-<span data-ttu-id="a7254-131">`<ROOT URI>`, Web API 'sinin temel URI 'sidir.</span><span class="sxs-lookup"><span data-stu-id="a7254-131">`<ROOT URI>` is the base URI for the web API.</span></span> <span data-ttu-id="a7254-132">Örneğin:</span><span class="sxs-lookup"><span data-stu-id="a7254-132">For example:</span></span>
+<span data-ttu-id="706e5-130">Aşağıdaki komutu çalıştırarak bir Web API 'sine bağlanın:</span><span class="sxs-lookup"><span data-stu-id="706e5-130">Connect to a web API by running the following command:</span></span>
 
 ```console
-dotnet httprepl https://localhost:5001
+httprepl <ROOT URI>
 ```
 
-<span data-ttu-id="a7254-133">Alternatif olarak, HTTP REPL çalışırken istediğiniz zaman aşağıdaki komutu çalıştırın:</span><span class="sxs-lookup"><span data-stu-id="a7254-133">Alternatively, run the following command at any time while the HTTP REPL is running:</span></span>
+<span data-ttu-id="706e5-131">`<ROOT URI>`, Web API 'sinin temel URI 'sidir.</span><span class="sxs-lookup"><span data-stu-id="706e5-131">`<ROOT URI>` is the base URI for the web API.</span></span> <span data-ttu-id="706e5-132">Örneğin:</span><span class="sxs-lookup"><span data-stu-id="706e5-132">For example:</span></span>
+
+```console
+httprepl https://localhost:5001
+```
+
+<span data-ttu-id="706e5-133">Alternatif olarak, HTTP REPL çalışırken istediğiniz zaman aşağıdaki komutu çalıştırın:</span><span class="sxs-lookup"><span data-stu-id="706e5-133">Alternatively, run the following command at any time while the HTTP REPL is running:</span></span>
 
 ```console
 connect <ROOT URI>
 ```
 
-<span data-ttu-id="a7254-134">Örneğin:</span><span class="sxs-lookup"><span data-stu-id="a7254-134">For example:</span></span>
+<span data-ttu-id="706e5-134">Örneğin:</span><span class="sxs-lookup"><span data-stu-id="706e5-134">For example:</span></span>
 
 ```console
 (Disconnected)~ connect https://localhost:5001
 ```
 
-## <a name="manually-point-to-the-swagger-document-for-the-web-api"></a><span data-ttu-id="a7254-135">Web API 'SI için Swagger belgesine el ile işaret edin</span><span class="sxs-lookup"><span data-stu-id="a7254-135">Manually point to the Swagger document for the web API</span></span>
+## <a name="manually-point-to-the-swagger-document-for-the-web-api"></a><span data-ttu-id="706e5-135">Web API 'SI için Swagger belgesine el ile işaret edin</span><span class="sxs-lookup"><span data-stu-id="706e5-135">Manually point to the Swagger document for the web API</span></span>
 
-<span data-ttu-id="a7254-136">Yukarıdaki Connect komutu Swagger belgesini otomatik olarak bulmaya çalışacaktır.</span><span class="sxs-lookup"><span data-stu-id="a7254-136">The connect command above will attempt to find the Swagger document automatically.</span></span> <span data-ttu-id="a7254-137">Bir nedenden dolayı yapamaması durumunda, bu `--swagger` seçeneği kullanarak Web API 'si için Swagger belgesinin URI 'sini belirtebilirsiniz:</span><span class="sxs-lookup"><span data-stu-id="a7254-137">If for some reason it is unable to do so, you can specify the URI of the Swagger document for the web API by using the `--swagger` option:</span></span>
+<span data-ttu-id="706e5-136">Yukarıdaki Connect komutu Swagger belgesini otomatik olarak bulmaya çalışacaktır.</span><span class="sxs-lookup"><span data-stu-id="706e5-136">The connect command above will attempt to find the Swagger document automatically.</span></span> <span data-ttu-id="706e5-137">Bir nedenden dolayı yapamaması durumunda, bu `--swagger` seçeneği kullanarak Web API 'si için Swagger belgesinin URI 'sini belirtebilirsiniz:</span><span class="sxs-lookup"><span data-stu-id="706e5-137">If for some reason it is unable to do so, you can specify the URI of the Swagger document for the web API by using the `--swagger` option:</span></span>
 
 ```console
 connect <ROOT URI> --swagger <SWAGGER URI>
 ```
 
-<span data-ttu-id="a7254-138">Örneğin:</span><span class="sxs-lookup"><span data-stu-id="a7254-138">For example:</span></span>
+<span data-ttu-id="706e5-138">Örneğin:</span><span class="sxs-lookup"><span data-stu-id="706e5-138">For example:</span></span>
 
 ```console
 (Disconnected)~ connect https://localhost:5001 --swagger /swagger/v1/swagger.json
 ```
 
-## <a name="navigate-the-web-api"></a><span data-ttu-id="a7254-139">Web API 'sinde gezin</span><span class="sxs-lookup"><span data-stu-id="a7254-139">Navigate the web API</span></span>
+## <a name="navigate-the-web-api"></a><span data-ttu-id="706e5-139">Web API 'sinde gezin</span><span class="sxs-lookup"><span data-stu-id="706e5-139">Navigate the web API</span></span>
 
-### <a name="view-available-endpoints"></a><span data-ttu-id="a7254-140">Kullanılabilir uç noktaları görüntüle</span><span class="sxs-lookup"><span data-stu-id="a7254-140">View available endpoints</span></span>
+### <a name="view-available-endpoints"></a><span data-ttu-id="706e5-140">Kullanılabilir uç noktaları görüntüle</span><span class="sxs-lookup"><span data-stu-id="706e5-140">View available endpoints</span></span>
 
-<span data-ttu-id="a7254-141">Web API adresinin geçerli yolundaki farklı uç noktaları (denetleyiciler) listelemek için, `ls` veya `dir` komutunu çalıştırın:</span><span class="sxs-lookup"><span data-stu-id="a7254-141">To list the different endpoints (controllers) at the current path of the web API address, run the `ls` or `dir` command:</span></span>
+<span data-ttu-id="706e5-141">Web API adresinin geçerli yolundaki farklı uç noktaları (denetleyiciler) listelemek için, `ls` veya `dir` komutunu çalıştırın:</span><span class="sxs-lookup"><span data-stu-id="706e5-141">To list the different endpoints (controllers) at the current path of the web API address, run the `ls` or `dir` command:</span></span>
 
 ```console
 https://localhot:5001/~ ls
 ```
 
-<span data-ttu-id="a7254-142">Aşağıdaki çıkış biçimi görüntülenir:</span><span class="sxs-lookup"><span data-stu-id="a7254-142">The following output format is displayed:</span></span>
+<span data-ttu-id="706e5-142">Aşağıdaki çıkış biçimi görüntülenir:</span><span class="sxs-lookup"><span data-stu-id="706e5-142">The following output format is displayed:</span></span>
 
 ```console
 .        []
@@ -186,9 +186,9 @@ People   [get|post]
 https://localhost:5001/~
 ```
 
-<span data-ttu-id="a7254-143">Yukarıdaki çıkış, kullanılabilir iki denetleyici olduğunu gösterir: `Fruits` ve. `People`</span><span class="sxs-lookup"><span data-stu-id="a7254-143">The preceding output indicates that there are two controllers available: `Fruits` and `People`.</span></span> <span data-ttu-id="a7254-144">Her iki denetleyici de parametresiz HTTP GET ve POST işlemlerini destekler.</span><span class="sxs-lookup"><span data-stu-id="a7254-144">Both controllers support parameterless HTTP GET and POST operations.</span></span>
+<span data-ttu-id="706e5-143">Yukarıdaki çıkış, kullanılabilir iki denetleyici olduğunu gösterir: `Fruits` ve. `People`</span><span class="sxs-lookup"><span data-stu-id="706e5-143">The preceding output indicates that there are two controllers available: `Fruits` and `People`.</span></span> <span data-ttu-id="706e5-144">Her iki denetleyici de parametresiz HTTP GET ve POST işlemlerini destekler.</span><span class="sxs-lookup"><span data-stu-id="706e5-144">Both controllers support parameterless HTTP GET and POST operations.</span></span>
 
-<span data-ttu-id="a7254-145">Belirli bir denetleyicide gezinmek daha ayrıntılı bilgi gösterir.</span><span class="sxs-lookup"><span data-stu-id="a7254-145">Navigating into a specific controller reveals more detail.</span></span> <span data-ttu-id="a7254-146">Örneğin, aşağıdaki komut çıktısı, `Fruits` denetleyiciyi de http get, put ve DELETE işlemlerini destekler.</span><span class="sxs-lookup"><span data-stu-id="a7254-146">For example, the following command's output shows the `Fruits` controller also supports HTTP GET, PUT, and DELETE operations.</span></span> <span data-ttu-id="a7254-147">Bu işlemlerin her biri, rotada `id` bir parametre bekler:</span><span class="sxs-lookup"><span data-stu-id="a7254-147">Each of these operations expects an `id` parameter in the route:</span></span>
+<span data-ttu-id="706e5-145">Belirli bir denetleyicide gezinmek daha ayrıntılı bilgi gösterir.</span><span class="sxs-lookup"><span data-stu-id="706e5-145">Navigating into a specific controller reveals more detail.</span></span> <span data-ttu-id="706e5-146">Örneğin, aşağıdaki komut çıktısı, `Fruits` denetleyiciyi de http get, put ve DELETE işlemlerini destekler.</span><span class="sxs-lookup"><span data-stu-id="706e5-146">For example, the following command's output shows the `Fruits` controller also supports HTTP GET, PUT, and DELETE operations.</span></span> <span data-ttu-id="706e5-147">Bu işlemlerin her biri, rotada `id` bir parametre bekler:</span><span class="sxs-lookup"><span data-stu-id="706e5-147">Each of these operations expects an `id` parameter in the route:</span></span>
 
 ```console
 https://localhost:5001/fruits~ ls
@@ -199,21 +199,21 @@ https://localhost:5001/fruits~ ls
 https://localhost:5001/fruits~
 ```
 
-<span data-ttu-id="a7254-148">Alternatif olarak, Web `ui` API 'sinin Swagger Kullanıcı Arabirimi sayfasını bir tarayıcıda açmak için komutunu çalıştırın.</span><span class="sxs-lookup"><span data-stu-id="a7254-148">Alternatively, run the `ui` command to open the web API's Swagger UI page in a browser.</span></span> <span data-ttu-id="a7254-149">Örneğin:</span><span class="sxs-lookup"><span data-stu-id="a7254-149">For example:</span></span>
+<span data-ttu-id="706e5-148">Alternatif olarak, Web `ui` API 'sinin Swagger Kullanıcı Arabirimi sayfasını bir tarayıcıda açmak için komutunu çalıştırın.</span><span class="sxs-lookup"><span data-stu-id="706e5-148">Alternatively, run the `ui` command to open the web API's Swagger UI page in a browser.</span></span> <span data-ttu-id="706e5-149">Örneğin:</span><span class="sxs-lookup"><span data-stu-id="706e5-149">For example:</span></span>
 
 ```console
 https://localhost:5001/~ ui
 ```
 
-### <a name="navigate-to-an-endpoint"></a><span data-ttu-id="a7254-150">Bir uç noktaya gitme</span><span class="sxs-lookup"><span data-stu-id="a7254-150">Navigate to an endpoint</span></span>
+### <a name="navigate-to-an-endpoint"></a><span data-ttu-id="706e5-150">Bir uç noktaya gitme</span><span class="sxs-lookup"><span data-stu-id="706e5-150">Navigate to an endpoint</span></span>
 
-<span data-ttu-id="a7254-151">Web API 'sindeki farklı bir uç noktaya gitmek için `cd` komutunu çalıştırın:</span><span class="sxs-lookup"><span data-stu-id="a7254-151">To navigate to a different endpoint on the web API, run the `cd` command:</span></span>
+<span data-ttu-id="706e5-151">Web API 'sindeki farklı bir uç noktaya gitmek için `cd` komutunu çalıştırın:</span><span class="sxs-lookup"><span data-stu-id="706e5-151">To navigate to a different endpoint on the web API, run the `cd` command:</span></span>
 
 ```console
 https://localhost:5001/~ cd people
 ```
 
-<span data-ttu-id="a7254-152">`cd` Komutu izleyen yol büyük/küçük harfe duyarlıdır.</span><span class="sxs-lookup"><span data-stu-id="a7254-152">The path following the `cd` command is case insensitive.</span></span> <span data-ttu-id="a7254-153">Aşağıdaki çıkış biçimi görüntülenir:</span><span class="sxs-lookup"><span data-stu-id="a7254-153">The following output format is displayed:</span></span>
+<span data-ttu-id="706e5-152">`cd` Komutu izleyen yol büyük/küçük harfe duyarlıdır.</span><span class="sxs-lookup"><span data-stu-id="706e5-152">The path following the `cd` command is case insensitive.</span></span> <span data-ttu-id="706e5-153">Aşağıdaki çıkış biçimi görüntülenir:</span><span class="sxs-lookup"><span data-stu-id="706e5-153">The following output format is displayed:</span></span>
 
 ```console
 /people    [get|post]
@@ -221,35 +221,35 @@ https://localhost:5001/~ cd people
 https://localhost:5001/people~
 ```
 
-## <a name="customize-the-http-repl"></a><span data-ttu-id="a7254-154">HTTP REPL 'ı özelleştirme</span><span class="sxs-lookup"><span data-stu-id="a7254-154">Customize the HTTP REPL</span></span>
+## <a name="customize-the-http-repl"></a><span data-ttu-id="706e5-154">HTTP REPL 'ı özelleştirme</span><span class="sxs-lookup"><span data-stu-id="706e5-154">Customize the HTTP REPL</span></span>
 
-<span data-ttu-id="a7254-155">HTTP REPL 'un varsayılan [renkleri](#set-color-preferences) özelleştirilebilir.</span><span class="sxs-lookup"><span data-stu-id="a7254-155">The HTTP REPL's default [colors](#set-color-preferences) can be customized.</span></span> <span data-ttu-id="a7254-156">Ayrıca, [varsayılan bir metin Düzenleyicisi](#set-the-default-text-editor) tanımlanabilir.</span><span class="sxs-lookup"><span data-stu-id="a7254-156">Additionally, a [default text editor](#set-the-default-text-editor) can be defined.</span></span> <span data-ttu-id="a7254-157">HTTP REPL tercihleri geçerli oturum genelinde kalıcı hale getirilir ve gelecekteki oturumlarda kabul edilir.</span><span class="sxs-lookup"><span data-stu-id="a7254-157">The HTTP REPL preferences are persisted across the current session and are honored in future sessions.</span></span> <span data-ttu-id="a7254-158">Değiştirildikten sonra, Tercihler aşağıdaki dosyada depolanır:</span><span class="sxs-lookup"><span data-stu-id="a7254-158">Once modified, the preferences are stored in the following file:</span></span>
+<span data-ttu-id="706e5-155">HTTP REPL 'un varsayılan [renkleri](#set-color-preferences) özelleştirilebilir.</span><span class="sxs-lookup"><span data-stu-id="706e5-155">The HTTP REPL's default [colors](#set-color-preferences) can be customized.</span></span> <span data-ttu-id="706e5-156">Ayrıca, [varsayılan bir metin Düzenleyicisi](#set-the-default-text-editor) tanımlanabilir.</span><span class="sxs-lookup"><span data-stu-id="706e5-156">Additionally, a [default text editor](#set-the-default-text-editor) can be defined.</span></span> <span data-ttu-id="706e5-157">HTTP REPL tercihleri geçerli oturum genelinde kalıcı hale getirilir ve gelecekteki oturumlarda kabul edilir.</span><span class="sxs-lookup"><span data-stu-id="706e5-157">The HTTP REPL preferences are persisted across the current session and are honored in future sessions.</span></span> <span data-ttu-id="706e5-158">Değiştirildikten sonra, Tercihler aşağıdaki dosyada depolanır:</span><span class="sxs-lookup"><span data-stu-id="706e5-158">Once modified, the preferences are stored in the following file:</span></span>
 
-# <a name="linuxtablinux"></a>[<span data-ttu-id="a7254-159">Linux</span><span class="sxs-lookup"><span data-stu-id="a7254-159">Linux</span></span>](#tab/linux)
+# <a name="linuxtablinux"></a>[<span data-ttu-id="706e5-159">Linux</span><span class="sxs-lookup"><span data-stu-id="706e5-159">Linux</span></span>](#tab/linux)
 
-<span data-ttu-id="a7254-160">*% GIRIŞ%/. httpreplprefs*</span><span class="sxs-lookup"><span data-stu-id="a7254-160">*%HOME%/.httpreplprefs*</span></span>
+<span data-ttu-id="706e5-160">*% GIRIŞ%/. httpreplprefs*</span><span class="sxs-lookup"><span data-stu-id="706e5-160">*%HOME%/.httpreplprefs*</span></span>
 
-# <a name="macostabmacos"></a>[<span data-ttu-id="a7254-161">macOS</span><span class="sxs-lookup"><span data-stu-id="a7254-161">macOS</span></span>](#tab/macos)
+# <a name="macostabmacos"></a>[<span data-ttu-id="706e5-161">macOS</span><span class="sxs-lookup"><span data-stu-id="706e5-161">macOS</span></span>](#tab/macos)
 
-<span data-ttu-id="a7254-162">*% GIRIŞ%/. httpreplprefs*</span><span class="sxs-lookup"><span data-stu-id="a7254-162">*%HOME%/.httpreplprefs*</span></span>
+<span data-ttu-id="706e5-162">*% GIRIŞ%/. httpreplprefs*</span><span class="sxs-lookup"><span data-stu-id="706e5-162">*%HOME%/.httpreplprefs*</span></span>
 
-# <a name="windowstabwindows"></a>[<span data-ttu-id="a7254-163">Windows</span><span class="sxs-lookup"><span data-stu-id="a7254-163">Windows</span></span>](#tab/windows)
+# <a name="windowstabwindows"></a>[<span data-ttu-id="706e5-163">Windows</span><span class="sxs-lookup"><span data-stu-id="706e5-163">Windows</span></span>](#tab/windows)
 
-<span data-ttu-id="a7254-164">*% USERPROFILE%\\. httpreplprefs*</span><span class="sxs-lookup"><span data-stu-id="a7254-164">*%USERPROFILE%\\.httpreplprefs*</span></span>
+<span data-ttu-id="706e5-164">*% USERPROFILE%\\. httpreplprefs*</span><span class="sxs-lookup"><span data-stu-id="706e5-164">*%USERPROFILE%\\.httpreplprefs*</span></span>
 
 ---
 
-<span data-ttu-id="a7254-165">*. Httpreplprefs* dosyası başlangıçta yüklendi ve çalışma zamanında değişiklikler için izlenmiyor.</span><span class="sxs-lookup"><span data-stu-id="a7254-165">The *.httpreplprefs* file is loaded on startup and not monitored for changes at runtime.</span></span> <span data-ttu-id="a7254-166">Dosyada el ile yapılan değişiklikler yalnızca araç yeniden başlatıldıktan sonra devreye girer.</span><span class="sxs-lookup"><span data-stu-id="a7254-166">Manual modifications to the file take effect only after restarting the tool.</span></span>
+<span data-ttu-id="706e5-165">*. Httpreplprefs* dosyası başlangıçta yüklendi ve çalışma zamanında değişiklikler için izlenmiyor.</span><span class="sxs-lookup"><span data-stu-id="706e5-165">The *.httpreplprefs* file is loaded on startup and not monitored for changes at runtime.</span></span> <span data-ttu-id="706e5-166">Dosyada el ile yapılan değişiklikler yalnızca araç yeniden başlatıldıktan sonra devreye girer.</span><span class="sxs-lookup"><span data-stu-id="706e5-166">Manual modifications to the file take effect only after restarting the tool.</span></span>
 
-### <a name="view-the-settings"></a><span data-ttu-id="a7254-167">Ayarları görüntüleyin</span><span class="sxs-lookup"><span data-stu-id="a7254-167">View the settings</span></span>
+### <a name="view-the-settings"></a><span data-ttu-id="706e5-167">Ayarları görüntüleyin</span><span class="sxs-lookup"><span data-stu-id="706e5-167">View the settings</span></span>
 
-<span data-ttu-id="a7254-168">Kullanılabilir ayarları görüntülemek için `pref get` komutunu çalıştırın.</span><span class="sxs-lookup"><span data-stu-id="a7254-168">To view the available settings, run the `pref get` command.</span></span> <span data-ttu-id="a7254-169">Örneğin:</span><span class="sxs-lookup"><span data-stu-id="a7254-169">For example:</span></span>
+<span data-ttu-id="706e5-168">Kullanılabilir ayarları görüntülemek için `pref get` komutunu çalıştırın.</span><span class="sxs-lookup"><span data-stu-id="706e5-168">To view the available settings, run the `pref get` command.</span></span> <span data-ttu-id="706e5-169">Örneğin:</span><span class="sxs-lookup"><span data-stu-id="706e5-169">For example:</span></span>
 
 ```console
 https://localhost:5001/~ pref get
 ```
 
-<span data-ttu-id="a7254-170">Yukarıdaki komut, kullanılabilir anahtar-değer çiftlerini görüntüler:</span><span class="sxs-lookup"><span data-stu-id="a7254-170">The preceding command displays the available key-value pairs:</span></span>
+<span data-ttu-id="706e5-170">Yukarıdaki komut, kullanılabilir anahtar-değer çiftlerini görüntüler:</span><span class="sxs-lookup"><span data-stu-id="706e5-170">The preceding command displays the available key-value pairs:</span></span>
 
 ```console
 colors.json=Green
@@ -262,26 +262,26 @@ colors.protocol=BoldGreen
 colors.status=BoldYellow
 ```
 
-### <a name="set-color-preferences"></a><span data-ttu-id="a7254-171">Renk tercihlerini ayarla</span><span class="sxs-lookup"><span data-stu-id="a7254-171">Set color preferences</span></span>
+### <a name="set-color-preferences"></a><span data-ttu-id="706e5-171">Renk tercihlerini ayarla</span><span class="sxs-lookup"><span data-stu-id="706e5-171">Set color preferences</span></span>
 
-<span data-ttu-id="a7254-172">Yanıt renklendirme Şu anda yalnızca JSON için destekleniyor.</span><span class="sxs-lookup"><span data-stu-id="a7254-172">Response colorization is currently supported for JSON only.</span></span> <span data-ttu-id="a7254-173">Varsayılan HTTP REPL aracı renklendirmesini özelleştirmek için, değiştirilecek renge karşılık gelen anahtarı bulun.</span><span class="sxs-lookup"><span data-stu-id="a7254-173">To customize the default HTTP REPL tool coloring, locate the key corresponding to the color to be changed.</span></span> <span data-ttu-id="a7254-174">Anahtarları bulma hakkında yönergeler için bkz. [ayarları görüntüleme](#view-the-settings) bölümü.</span><span class="sxs-lookup"><span data-stu-id="a7254-174">For instructions on how to find the keys, see the [View the settings](#view-the-settings) section.</span></span> <span data-ttu-id="a7254-175">Örneğin, `colors.json` anahtar `Green` değerini şu şekilde olacak `White` şekilde değiştirin:</span><span class="sxs-lookup"><span data-stu-id="a7254-175">For example, change the `colors.json` key value from `Green` to `White` as follows:</span></span>
+<span data-ttu-id="706e5-172">Yanıt renklendirme Şu anda yalnızca JSON için destekleniyor.</span><span class="sxs-lookup"><span data-stu-id="706e5-172">Response colorization is currently supported for JSON only.</span></span> <span data-ttu-id="706e5-173">Varsayılan HTTP REPL aracı renklendirmesini özelleştirmek için, değiştirilecek renge karşılık gelen anahtarı bulun.</span><span class="sxs-lookup"><span data-stu-id="706e5-173">To customize the default HTTP REPL tool coloring, locate the key corresponding to the color to be changed.</span></span> <span data-ttu-id="706e5-174">Anahtarları bulma hakkında yönergeler için bkz. [ayarları görüntüleme](#view-the-settings) bölümü.</span><span class="sxs-lookup"><span data-stu-id="706e5-174">For instructions on how to find the keys, see the [View the settings](#view-the-settings) section.</span></span> <span data-ttu-id="706e5-175">Örneğin, `colors.json` anahtar `Green` değerini şu şekilde olacak `White` şekilde değiştirin:</span><span class="sxs-lookup"><span data-stu-id="706e5-175">For example, change the `colors.json` key value from `Green` to `White` as follows:</span></span>
 
 ```console
 https://localhost:5001/people~ pref set colors.json White
 ```
 
-<span data-ttu-id="a7254-176">Yalnızca [izin verilen renkler](https://github.com/aspnet/HttpRepl/blob/01d5c3c3373e98fe566ff5ef8a17c571de880293/src/Microsoft.Repl/ConsoleHandling/AllowedColors.cs) kullanılabilir.</span><span class="sxs-lookup"><span data-stu-id="a7254-176">Only the [allowed colors](https://github.com/aspnet/HttpRepl/blob/01d5c3c3373e98fe566ff5ef8a17c571de880293/src/Microsoft.Repl/ConsoleHandling/AllowedColors.cs) may be used.</span></span> <span data-ttu-id="a7254-177">Sonraki HTTP istekleri, yeni renklendirmesi ile çıktıyı görüntüler.</span><span class="sxs-lookup"><span data-stu-id="a7254-177">Subsequent HTTP requests display output with the new coloring.</span></span>
+<span data-ttu-id="706e5-176">Yalnızca [izin verilen renkler](https://github.com/aspnet/HttpRepl/blob/01d5c3c3373e98fe566ff5ef8a17c571de880293/src/Microsoft.Repl/ConsoleHandling/AllowedColors.cs) kullanılabilir.</span><span class="sxs-lookup"><span data-stu-id="706e5-176">Only the [allowed colors](https://github.com/aspnet/HttpRepl/blob/01d5c3c3373e98fe566ff5ef8a17c571de880293/src/Microsoft.Repl/ConsoleHandling/AllowedColors.cs) may be used.</span></span> <span data-ttu-id="706e5-177">Sonraki HTTP istekleri, yeni renklendirmesi ile çıktıyı görüntüler.</span><span class="sxs-lookup"><span data-stu-id="706e5-177">Subsequent HTTP requests display output with the new coloring.</span></span>
 
-<span data-ttu-id="a7254-178">Belirli renk anahtarları ayarlanmamışsa, daha genel anahtarlar kabul edilir.</span><span class="sxs-lookup"><span data-stu-id="a7254-178">When specific color keys aren't set, more generic keys are considered.</span></span> <span data-ttu-id="a7254-179">Bu geri dönüş davranışını göstermek için aşağıdaki örneği göz önünde bulundurun:</span><span class="sxs-lookup"><span data-stu-id="a7254-179">To demonstrate this fallback behavior, consider the following example:</span></span>
+<span data-ttu-id="706e5-178">Belirli renk anahtarları ayarlanmamışsa, daha genel anahtarlar kabul edilir.</span><span class="sxs-lookup"><span data-stu-id="706e5-178">When specific color keys aren't set, more generic keys are considered.</span></span> <span data-ttu-id="706e5-179">Bu geri dönüş davranışını göstermek için aşağıdaki örneği göz önünde bulundurun:</span><span class="sxs-lookup"><span data-stu-id="706e5-179">To demonstrate this fallback behavior, consider the following example:</span></span>
 
-* <span data-ttu-id="a7254-180">Eğer `colors.json.name` bir değeri yoksa, `colors.json.string` kullanılır.</span><span class="sxs-lookup"><span data-stu-id="a7254-180">If `colors.json.name` doesn't have a value, `colors.json.string` is used.</span></span>
-* <span data-ttu-id="a7254-181">Eğer `colors.json.string` bir değeri yoksa, `colors.json.literal` kullanılır.</span><span class="sxs-lookup"><span data-stu-id="a7254-181">If `colors.json.string` doesn't have a value, `colors.json.literal` is used.</span></span>
-* <span data-ttu-id="a7254-182">Eğer `colors.json.literal` bir değeri yoksa, `colors.json` kullanılır.</span><span class="sxs-lookup"><span data-stu-id="a7254-182">If `colors.json.literal` doesn't have a value, `colors.json` is used.</span></span> 
-* <span data-ttu-id="a7254-183">Bir `colors.json` değere sahip değilse, komut kabuğun varsayılan metin rengi (`AllowedColors.None`) kullanılır.</span><span class="sxs-lookup"><span data-stu-id="a7254-183">If `colors.json` doesn't have a value, the command shell's default text color (`AllowedColors.None`) is used.</span></span>
+* <span data-ttu-id="706e5-180">Eğer `colors.json.name` bir değeri yoksa, `colors.json.string` kullanılır.</span><span class="sxs-lookup"><span data-stu-id="706e5-180">If `colors.json.name` doesn't have a value, `colors.json.string` is used.</span></span>
+* <span data-ttu-id="706e5-181">Eğer `colors.json.string` bir değeri yoksa, `colors.json.literal` kullanılır.</span><span class="sxs-lookup"><span data-stu-id="706e5-181">If `colors.json.string` doesn't have a value, `colors.json.literal` is used.</span></span>
+* <span data-ttu-id="706e5-182">Eğer `colors.json.literal` bir değeri yoksa, `colors.json` kullanılır.</span><span class="sxs-lookup"><span data-stu-id="706e5-182">If `colors.json.literal` doesn't have a value, `colors.json` is used.</span></span> 
+* <span data-ttu-id="706e5-183">Bir `colors.json` değere sahip değilse, komut kabuğun varsayılan metin rengi (`AllowedColors.None`) kullanılır.</span><span class="sxs-lookup"><span data-stu-id="706e5-183">If `colors.json` doesn't have a value, the command shell's default text color (`AllowedColors.None`) is used.</span></span>
 
-### <a name="set-indentation-size"></a><span data-ttu-id="a7254-184">Girinti boyutunu ayarla</span><span class="sxs-lookup"><span data-stu-id="a7254-184">Set indentation size</span></span>
+### <a name="set-indentation-size"></a><span data-ttu-id="706e5-184">Girinti boyutunu ayarla</span><span class="sxs-lookup"><span data-stu-id="706e5-184">Set indentation size</span></span>
 
-<span data-ttu-id="a7254-185">Yanıt girintileme boyut özelleştirmesi Şu anda yalnızca JSON için destekleniyor.</span><span class="sxs-lookup"><span data-stu-id="a7254-185">Response indentation size customization is currently supported for JSON only.</span></span> <span data-ttu-id="a7254-186">Varsayılan boyut iki boşluklardan oluşamaz.</span><span class="sxs-lookup"><span data-stu-id="a7254-186">The default size is two spaces.</span></span> <span data-ttu-id="a7254-187">Örneğin:</span><span class="sxs-lookup"><span data-stu-id="a7254-187">For example:</span></span>
+<span data-ttu-id="706e5-185">Yanıt girintileme boyut özelleştirmesi Şu anda yalnızca JSON için destekleniyor.</span><span class="sxs-lookup"><span data-stu-id="706e5-185">Response indentation size customization is currently supported for JSON only.</span></span> <span data-ttu-id="706e5-186">Varsayılan boyut iki boşluklardan oluşamaz.</span><span class="sxs-lookup"><span data-stu-id="706e5-186">The default size is two spaces.</span></span> <span data-ttu-id="706e5-187">Örneğin:</span><span class="sxs-lookup"><span data-stu-id="706e5-187">For example:</span></span>
 
 ```json
 [
@@ -300,13 +300,13 @@ https://localhost:5001/people~ pref set colors.json White
 ]
 ```
 
-<span data-ttu-id="a7254-188">Varsayılan boyutu değiştirmek için `formatting.json.indentSize` anahtarı ayarlayın.</span><span class="sxs-lookup"><span data-stu-id="a7254-188">To change the default size, set the `formatting.json.indentSize` key.</span></span> <span data-ttu-id="a7254-189">Örneğin, her zaman dört boşluk kullanmak için:</span><span class="sxs-lookup"><span data-stu-id="a7254-189">For example, to always use four spaces:</span></span>
+<span data-ttu-id="706e5-188">Varsayılan boyutu değiştirmek için `formatting.json.indentSize` anahtarı ayarlayın.</span><span class="sxs-lookup"><span data-stu-id="706e5-188">To change the default size, set the `formatting.json.indentSize` key.</span></span> <span data-ttu-id="706e5-189">Örneğin, her zaman dört boşluk kullanmak için:</span><span class="sxs-lookup"><span data-stu-id="706e5-189">For example, to always use four spaces:</span></span>
 
 ```console
 pref set formatting.json.indentSize 4
 ```
 
-<span data-ttu-id="a7254-190">Sonraki yanıtlar dört boşluk ayarına uyar:</span><span class="sxs-lookup"><span data-stu-id="a7254-190">Subsequent responses honor the setting of four spaces:</span></span>
+<span data-ttu-id="706e5-190">Sonraki yanıtlar dört boşluk ayarına uyar:</span><span class="sxs-lookup"><span data-stu-id="706e5-190">Subsequent responses honor the setting of four spaces:</span></span>
 
 ```json
 [
@@ -325,29 +325,29 @@ pref set formatting.json.indentSize 4
 ]
 ```
 
-### <a name="set-the-default-text-editor"></a><span data-ttu-id="a7254-191">Varsayılan metin düzenleyiciyi ayarlama</span><span class="sxs-lookup"><span data-stu-id="a7254-191">Set the default text editor</span></span>
+### <a name="set-the-default-text-editor"></a><span data-ttu-id="706e5-191">Varsayılan metin düzenleyiciyi ayarlama</span><span class="sxs-lookup"><span data-stu-id="706e5-191">Set the default text editor</span></span>
 
-<span data-ttu-id="a7254-192">Varsayılan olarak, HTTP REPL 'un kullanılmak üzere yapılandırılmış metin Düzenleyicisi yok.</span><span class="sxs-lookup"><span data-stu-id="a7254-192">By default, the HTTP REPL has no text editor configured for use.</span></span> <span data-ttu-id="a7254-193">HTTP istek gövdesi gerektiren Web API yöntemlerini test etmek için varsayılan metin Düzenleyicisi ayarlanmalıdır.</span><span class="sxs-lookup"><span data-stu-id="a7254-193">To test web API methods requiring an HTTP request body, a default text editor must be set.</span></span> <span data-ttu-id="a7254-194">HTTP REPL Aracı, istek gövdesini oluşturma amacıyla yapılandırılmış metin düzenleyicisini başlatır.</span><span class="sxs-lookup"><span data-stu-id="a7254-194">The HTTP REPL tool launches the configured text editor for the sole purpose of composing the request body.</span></span> <span data-ttu-id="a7254-195">Tercih ettiğiniz metin düzenleyiciyi varsayılan olarak ayarlamak için aşağıdaki komutu çalıştırın:</span><span class="sxs-lookup"><span data-stu-id="a7254-195">Run the following command to set your preferred text editor as the default:</span></span>
+<span data-ttu-id="706e5-192">Varsayılan olarak, HTTP REPL 'un kullanılmak üzere yapılandırılmış metin Düzenleyicisi yok.</span><span class="sxs-lookup"><span data-stu-id="706e5-192">By default, the HTTP REPL has no text editor configured for use.</span></span> <span data-ttu-id="706e5-193">HTTP istek gövdesi gerektiren Web API yöntemlerini test etmek için varsayılan metin Düzenleyicisi ayarlanmalıdır.</span><span class="sxs-lookup"><span data-stu-id="706e5-193">To test web API methods requiring an HTTP request body, a default text editor must be set.</span></span> <span data-ttu-id="706e5-194">HTTP REPL Aracı, istek gövdesini oluşturma amacıyla yapılandırılmış metin düzenleyicisini başlatır.</span><span class="sxs-lookup"><span data-stu-id="706e5-194">The HTTP REPL tool launches the configured text editor for the sole purpose of composing the request body.</span></span> <span data-ttu-id="706e5-195">Tercih ettiğiniz metin düzenleyiciyi varsayılan olarak ayarlamak için aşağıdaki komutu çalıştırın:</span><span class="sxs-lookup"><span data-stu-id="706e5-195">Run the following command to set your preferred text editor as the default:</span></span>
 
 ```console
 pref set editor.command.default "<EXECUTABLE>"
 ```
 
-<span data-ttu-id="a7254-196">Yukarıdaki komutta, `<EXECUTABLE>` metin düzenleyicisinin yürütülebilir dosyasının tam yoludur.</span><span class="sxs-lookup"><span data-stu-id="a7254-196">In the preceding command, `<EXECUTABLE>` is the full path to the text editor's executable file.</span></span> <span data-ttu-id="a7254-197">Örneğin, Visual Studio Code varsayılan metin düzenleyicisi olarak ayarlamak için aşağıdaki komutu çalıştırın:</span><span class="sxs-lookup"><span data-stu-id="a7254-197">For example, run the following command to set Visual Studio Code as the default text editor:</span></span>
+<span data-ttu-id="706e5-196">Yukarıdaki komutta, `<EXECUTABLE>` metin düzenleyicisinin yürütülebilir dosyasının tam yoludur.</span><span class="sxs-lookup"><span data-stu-id="706e5-196">In the preceding command, `<EXECUTABLE>` is the full path to the text editor's executable file.</span></span> <span data-ttu-id="706e5-197">Örneğin, Visual Studio Code varsayılan metin düzenleyicisi olarak ayarlamak için aşağıdaki komutu çalıştırın:</span><span class="sxs-lookup"><span data-stu-id="706e5-197">For example, run the following command to set Visual Studio Code as the default text editor:</span></span>
 
-# <a name="linuxtablinux"></a>[<span data-ttu-id="a7254-198">Linux</span><span class="sxs-lookup"><span data-stu-id="a7254-198">Linux</span></span>](#tab/linux)
+# <a name="linuxtablinux"></a>[<span data-ttu-id="706e5-198">Linux</span><span class="sxs-lookup"><span data-stu-id="706e5-198">Linux</span></span>](#tab/linux)
 
 ```console
 pref set editor.command.default "/usr/bin/code"
 ```
 
-# <a name="macostabmacos"></a>[<span data-ttu-id="a7254-199">macOS</span><span class="sxs-lookup"><span data-stu-id="a7254-199">macOS</span></span>](#tab/macos)
+# <a name="macostabmacos"></a>[<span data-ttu-id="706e5-199">macOS</span><span class="sxs-lookup"><span data-stu-id="706e5-199">macOS</span></span>](#tab/macos)
 
 ```console
 pref set editor.command.default "/Applications/Visual Studio Code.app/Contents/Resources/app/bin/code"
 ```
 
-# <a name="windowstabwindows"></a>[<span data-ttu-id="a7254-200">Windows</span><span class="sxs-lookup"><span data-stu-id="a7254-200">Windows</span></span>](#tab/windows)
+# <a name="windowstabwindows"></a>[<span data-ttu-id="706e5-200">Windows</span><span class="sxs-lookup"><span data-stu-id="706e5-200">Windows</span></span>](#tab/windows)
 
 ```console
 pref set editor.command.default "C:\Program Files\Microsoft VS Code\Code.exe"
@@ -355,58 +355,58 @@ pref set editor.command.default "C:\Program Files\Microsoft VS Code\Code.exe"
 
 ---
 
-<span data-ttu-id="a7254-201">Varsayılan metin düzenleyiciyi belirli CLI bağımsız değişkenleriyle başlatmak için `editor.command.default.arguments` anahtarı ayarlayın.</span><span class="sxs-lookup"><span data-stu-id="a7254-201">To launch the default text editor with specific CLI arguments, set the `editor.command.default.arguments` key.</span></span> <span data-ttu-id="a7254-202">Örneğin, Visual Studio Code varsayılan metin Düzenleyicisi olduğunu ve her zaman HTTP REPL 'un uzantıları devre dışı bırakılmış yeni bir oturumda Visual Studio Code açmasını istediğinizi varsayalım.</span><span class="sxs-lookup"><span data-stu-id="a7254-202">For example, assume Visual Studio Code is the default text editor and that you always want the HTTP REPL to open Visual Studio Code in a new session with extensions disabled.</span></span> <span data-ttu-id="a7254-203">Şu komutu çalıştırın:</span><span class="sxs-lookup"><span data-stu-id="a7254-203">Run the following command:</span></span>
+<span data-ttu-id="706e5-201">Varsayılan metin düzenleyiciyi belirli CLI bağımsız değişkenleriyle başlatmak için `editor.command.default.arguments` anahtarı ayarlayın.</span><span class="sxs-lookup"><span data-stu-id="706e5-201">To launch the default text editor with specific CLI arguments, set the `editor.command.default.arguments` key.</span></span> <span data-ttu-id="706e5-202">Örneğin, Visual Studio Code varsayılan metin Düzenleyicisi olduğunu ve her zaman HTTP REPL 'un uzantıları devre dışı bırakılmış yeni bir oturumda Visual Studio Code açmasını istediğinizi varsayalım.</span><span class="sxs-lookup"><span data-stu-id="706e5-202">For example, assume Visual Studio Code is the default text editor and that you always want the HTTP REPL to open Visual Studio Code in a new session with extensions disabled.</span></span> <span data-ttu-id="706e5-203">Şu komutu çalıştırın:</span><span class="sxs-lookup"><span data-stu-id="706e5-203">Run the following command:</span></span>
 
 ```console
 pref set editor.command.default.arguments "--disable-extensions --new-window"
 ```
 
-### <a name="set-the-swagger-search-paths"></a><span data-ttu-id="a7254-204">Swagger arama yollarını ayarla</span><span class="sxs-lookup"><span data-stu-id="a7254-204">Set the Swagger search paths</span></span>
+### <a name="set-the-swagger-search-paths"></a><span data-ttu-id="706e5-204">Swagger arama yollarını ayarla</span><span class="sxs-lookup"><span data-stu-id="706e5-204">Set the Swagger search paths</span></span>
 
-<span data-ttu-id="a7254-205">Varsayılan olarak, http REPL, `connect` komutu `--swagger` seçeneği olmadan yürütürken Swagger belgesini bulmak için kullandığı bir göreli yollar kümesine sahiptir.</span><span class="sxs-lookup"><span data-stu-id="a7254-205">By default, the HTTP REPL has a set of relative paths that it uses to find the Swagger document when executing the `connect` command without the `--swagger` option.</span></span> <span data-ttu-id="a7254-206">Bu göreli yollar, `connect` komutta belirtilen kök ve taban yollarla birleştirilir.</span><span class="sxs-lookup"><span data-stu-id="a7254-206">These relative paths are combined with the root and base paths specified in the `connect` command.</span></span> <span data-ttu-id="a7254-207">Varsayılan göreli yollar şunlardır:</span><span class="sxs-lookup"><span data-stu-id="a7254-207">The default relative paths are:</span></span>
+<span data-ttu-id="706e5-205">Varsayılan olarak, http REPL, `connect` komutu `--swagger` seçeneği olmadan yürütürken Swagger belgesini bulmak için kullandığı bir göreli yollar kümesine sahiptir.</span><span class="sxs-lookup"><span data-stu-id="706e5-205">By default, the HTTP REPL has a set of relative paths that it uses to find the Swagger document when executing the `connect` command without the `--swagger` option.</span></span> <span data-ttu-id="706e5-206">Bu göreli yollar, `connect` komutta belirtilen kök ve taban yollarla birleştirilir.</span><span class="sxs-lookup"><span data-stu-id="706e5-206">These relative paths are combined with the root and base paths specified in the `connect` command.</span></span> <span data-ttu-id="706e5-207">Varsayılan göreli yollar şunlardır:</span><span class="sxs-lookup"><span data-stu-id="706e5-207">The default relative paths are:</span></span>
 
-- <span data-ttu-id="a7254-208">*Swagger. JSON*</span><span class="sxs-lookup"><span data-stu-id="a7254-208">*swagger.json*</span></span>
-- <span data-ttu-id="a7254-209">*Swagger/v1/Swagger. JSON*</span><span class="sxs-lookup"><span data-stu-id="a7254-209">*swagger/v1/swagger.json*</span></span>
-- <span data-ttu-id="a7254-210">*/swagger.json*</span><span class="sxs-lookup"><span data-stu-id="a7254-210">*/swagger.json*</span></span>
-- <span data-ttu-id="a7254-211">*/swagger/v1/swagger.json*</span><span class="sxs-lookup"><span data-stu-id="a7254-211">*/swagger/v1/swagger.json*</span></span>
+- <span data-ttu-id="706e5-208">*Swagger. JSON*</span><span class="sxs-lookup"><span data-stu-id="706e5-208">*swagger.json*</span></span>
+- <span data-ttu-id="706e5-209">*Swagger/v1/Swagger. JSON*</span><span class="sxs-lookup"><span data-stu-id="706e5-209">*swagger/v1/swagger.json*</span></span>
+- <span data-ttu-id="706e5-210">*/swagger.json*</span><span class="sxs-lookup"><span data-stu-id="706e5-210">*/swagger.json*</span></span>
+- <span data-ttu-id="706e5-211">*/swagger/v1/swagger.json*</span><span class="sxs-lookup"><span data-stu-id="706e5-211">*/swagger/v1/swagger.json*</span></span>
 
-<span data-ttu-id="a7254-212">Ortamınızda farklı bir arama yolları kümesi kullanmak için `swagger.searchPaths` tercihi ayarlayın.</span><span class="sxs-lookup"><span data-stu-id="a7254-212">To use a different set of search paths in your environment, set the `swagger.searchPaths` preference.</span></span> <span data-ttu-id="a7254-213">Değer, göreli yolların kanal ile ayrılmış bir listesi olmalıdır.</span><span class="sxs-lookup"><span data-stu-id="a7254-213">The value must be a pipe-delimited list of relative paths.</span></span> <span data-ttu-id="a7254-214">Örneğin:</span><span class="sxs-lookup"><span data-stu-id="a7254-214">For example:</span></span>
+<span data-ttu-id="706e5-212">Ortamınızda farklı bir arama yolları kümesi kullanmak için `swagger.searchPaths` tercihi ayarlayın.</span><span class="sxs-lookup"><span data-stu-id="706e5-212">To use a different set of search paths in your environment, set the `swagger.searchPaths` preference.</span></span> <span data-ttu-id="706e5-213">Değer, göreli yolların kanal ile ayrılmış bir listesi olmalıdır.</span><span class="sxs-lookup"><span data-stu-id="706e5-213">The value must be a pipe-delimited list of relative paths.</span></span> <span data-ttu-id="706e5-214">Örneğin:</span><span class="sxs-lookup"><span data-stu-id="706e5-214">For example:</span></span>
 
 ```console
 pref set swagger.searchPaths "swagger/v2/swagger.json|swagger/v3/swagger.json"
 ```
 
-## <a name="test-http-get-requests"></a><span data-ttu-id="a7254-215">HTTP GET isteklerini test etme</span><span class="sxs-lookup"><span data-stu-id="a7254-215">Test HTTP GET requests</span></span>
+## <a name="test-http-get-requests"></a><span data-ttu-id="706e5-215">HTTP GET isteklerini test etme</span><span class="sxs-lookup"><span data-stu-id="706e5-215">Test HTTP GET requests</span></span>
 
-### <a name="synopsis"></a><span data-ttu-id="a7254-216">Özeti</span><span class="sxs-lookup"><span data-stu-id="a7254-216">Synopsis</span></span>
+### <a name="synopsis"></a><span data-ttu-id="706e5-216">Özeti</span><span class="sxs-lookup"><span data-stu-id="706e5-216">Synopsis</span></span>
 
 ```console
 get <PARAMETER> [-F|--no-formatting] [-h|--header] [--response] [--response:body] [--response:headers] [-s|--streaming]
 ```
 
-### <a name="arguments"></a><span data-ttu-id="a7254-217">Arguments</span><span class="sxs-lookup"><span data-stu-id="a7254-217">Arguments</span></span>
+### <a name="arguments"></a><span data-ttu-id="706e5-217">Arguments</span><span class="sxs-lookup"><span data-stu-id="706e5-217">Arguments</span></span>
 
 `PARAMETER`
 
-<span data-ttu-id="a7254-218">Varsa, ilişkili denetleyici eylem yöntemi tarafından beklenen rota parametresi.</span><span class="sxs-lookup"><span data-stu-id="a7254-218">The route parameter, if any, expected by the associated controller action method.</span></span>
+<span data-ttu-id="706e5-218">Varsa, ilişkili denetleyici eylem yöntemi tarafından beklenen rota parametresi.</span><span class="sxs-lookup"><span data-stu-id="706e5-218">The route parameter, if any, expected by the associated controller action method.</span></span>
 
-### <a name="options"></a><span data-ttu-id="a7254-219">Seçenekler</span><span class="sxs-lookup"><span data-stu-id="a7254-219">Options</span></span>
+### <a name="options"></a><span data-ttu-id="706e5-219">Seçenekler</span><span class="sxs-lookup"><span data-stu-id="706e5-219">Options</span></span>
 
-<span data-ttu-id="a7254-220">`get` Komutu için aşağıdaki seçenekler kullanılabilir:</span><span class="sxs-lookup"><span data-stu-id="a7254-220">The following options are available for the `get` command:</span></span>
+<span data-ttu-id="706e5-220">`get` Komutu için aşağıdaki seçenekler kullanılabilir:</span><span class="sxs-lookup"><span data-stu-id="706e5-220">The following options are available for the `get` command:</span></span>
 
 [!INCLUDE [standard CLI options](~/includes/http-repl/standard-options.md)]
 
-### <a name="example"></a><span data-ttu-id="a7254-221">Örnek</span><span class="sxs-lookup"><span data-stu-id="a7254-221">Example</span></span>
+### <a name="example"></a><span data-ttu-id="706e5-221">Örnek</span><span class="sxs-lookup"><span data-stu-id="706e5-221">Example</span></span>
 
-<span data-ttu-id="a7254-222">HTTP GET isteği vermek için:</span><span class="sxs-lookup"><span data-stu-id="a7254-222">To issue an HTTP GET request:</span></span>
+<span data-ttu-id="706e5-222">HTTP GET isteği vermek için:</span><span class="sxs-lookup"><span data-stu-id="706e5-222">To issue an HTTP GET request:</span></span>
 
-1. <span data-ttu-id="a7254-223">`get` Komutu onu destekleyen bir uç noktada çalıştırın:</span><span class="sxs-lookup"><span data-stu-id="a7254-223">Run the `get` command on an endpoint that supports it:</span></span>
+1. <span data-ttu-id="706e5-223">`get` Komutu onu destekleyen bir uç noktada çalıştırın:</span><span class="sxs-lookup"><span data-stu-id="706e5-223">Run the `get` command on an endpoint that supports it:</span></span>
 
     ```console
     https://localhost:5001/people~ get
     ```
 
-    <span data-ttu-id="a7254-224">Yukarıdaki komut aşağıdaki çıkış biçimini görüntüler:</span><span class="sxs-lookup"><span data-stu-id="a7254-224">The preceding command displays the following output format:</span></span>
+    <span data-ttu-id="706e5-224">Yukarıdaki komut aşağıdaki çıkış biçimini görüntüler:</span><span class="sxs-lookup"><span data-stu-id="706e5-224">The preceding command displays the following output format:</span></span>
 
     ```console
     HTTP/1.1 200 OK
@@ -434,13 +434,13 @@ get <PARAMETER> [-F|--no-formatting] [-h|--header] [--response] [--response:body
     https://localhost:5001/people~
     ```
 
-1. <span data-ttu-id="a7254-225">`get` Komutuna bir parametre geçirerek belirli bir kaydı alın:</span><span class="sxs-lookup"><span data-stu-id="a7254-225">Retrieve a specific record by passing a parameter to the `get` command:</span></span>
+1. <span data-ttu-id="706e5-225">`get` Komutuna bir parametre geçirerek belirli bir kaydı alın:</span><span class="sxs-lookup"><span data-stu-id="706e5-225">Retrieve a specific record by passing a parameter to the `get` command:</span></span>
 
     ```console
     https://localhost:5001/people~ get 2
     ```
 
-    <span data-ttu-id="a7254-226">Yukarıdaki komut aşağıdaki çıkış biçimini görüntüler:</span><span class="sxs-lookup"><span data-stu-id="a7254-226">The preceding command displays the following output format:</span></span>
+    <span data-ttu-id="706e5-226">Yukarıdaki komut aşağıdaki çıkış biçimini görüntüler:</span><span class="sxs-lookup"><span data-stu-id="706e5-226">The preceding command displays the following output format:</span></span>
 
     ```console
     HTTP/1.1 200 OK
@@ -460,37 +460,37 @@ get <PARAMETER> [-F|--no-formatting] [-h|--header] [--response] [--response:body
     https://localhost:5001/people~
     ```
 
-## <a name="test-http-post-requests"></a><span data-ttu-id="a7254-227">HTTP POST isteklerini test et</span><span class="sxs-lookup"><span data-stu-id="a7254-227">Test HTTP POST requests</span></span>
+## <a name="test-http-post-requests"></a><span data-ttu-id="706e5-227">HTTP POST isteklerini test et</span><span class="sxs-lookup"><span data-stu-id="706e5-227">Test HTTP POST requests</span></span>
 
-### <a name="synopsis"></a><span data-ttu-id="a7254-228">Özeti</span><span class="sxs-lookup"><span data-stu-id="a7254-228">Synopsis</span></span>
+### <a name="synopsis"></a><span data-ttu-id="706e5-228">Özeti</span><span class="sxs-lookup"><span data-stu-id="706e5-228">Synopsis</span></span>
 
 ```console
 post <PARAMETER> [-c|--content] [-f|--file] [-h|--header] [--no-body] [-F|--no-formatting] [--response] [--response:body] [--response:headers] [-s|--streaming]
 ```
 
-### <a name="arguments"></a><span data-ttu-id="a7254-229">Arguments</span><span class="sxs-lookup"><span data-stu-id="a7254-229">Arguments</span></span>
+### <a name="arguments"></a><span data-ttu-id="706e5-229">Arguments</span><span class="sxs-lookup"><span data-stu-id="706e5-229">Arguments</span></span>
 
 `PARAMETER`
 
-<span data-ttu-id="a7254-230">Varsa, ilişkili denetleyici eylem yöntemi tarafından beklenen rota parametresi.</span><span class="sxs-lookup"><span data-stu-id="a7254-230">The route parameter, if any, expected by the associated controller action method.</span></span>
+<span data-ttu-id="706e5-230">Varsa, ilişkili denetleyici eylem yöntemi tarafından beklenen rota parametresi.</span><span class="sxs-lookup"><span data-stu-id="706e5-230">The route parameter, if any, expected by the associated controller action method.</span></span>
 
-### <a name="options"></a><span data-ttu-id="a7254-231">Seçenekler</span><span class="sxs-lookup"><span data-stu-id="a7254-231">Options</span></span>
+### <a name="options"></a><span data-ttu-id="706e5-231">Seçenekler</span><span class="sxs-lookup"><span data-stu-id="706e5-231">Options</span></span>
 
 [!INCLUDE [standard CLI options](~/includes/http-repl/standard-options.md)]
 
 [!INCLUDE [HTTP request body CLI options](~/includes/http-repl/requires-body-options.md)]
 
-### <a name="example"></a><span data-ttu-id="a7254-232">Örnek</span><span class="sxs-lookup"><span data-stu-id="a7254-232">Example</span></span>
+### <a name="example"></a><span data-ttu-id="706e5-232">Örnek</span><span class="sxs-lookup"><span data-stu-id="706e5-232">Example</span></span>
 
-<span data-ttu-id="a7254-233">HTTP POST isteği vermek için:</span><span class="sxs-lookup"><span data-stu-id="a7254-233">To issue an HTTP POST request:</span></span>
+<span data-ttu-id="706e5-233">HTTP POST isteği vermek için:</span><span class="sxs-lookup"><span data-stu-id="706e5-233">To issue an HTTP POST request:</span></span>
 
-1. <span data-ttu-id="a7254-234">`post` Komutu onu destekleyen bir uç noktada çalıştırın:</span><span class="sxs-lookup"><span data-stu-id="a7254-234">Run the `post` command on an endpoint that supports it:</span></span>
+1. <span data-ttu-id="706e5-234">`post` Komutu onu destekleyen bir uç noktada çalıştırın:</span><span class="sxs-lookup"><span data-stu-id="706e5-234">Run the `post` command on an endpoint that supports it:</span></span>
 
     ```console
     https://localhost:5001/people~ post -h Content-Type=application/json
     ```
 
-    <span data-ttu-id="a7254-235">Önceki komutta, `Content-Type` http istek üst bilgisi, JSON türünde bir istek gövdesi medya türünü gösterecek şekilde ayarlanır.</span><span class="sxs-lookup"><span data-stu-id="a7254-235">In the preceding command, the `Content-Type` HTTP request header is set to indicate a request body media type of JSON.</span></span> <span data-ttu-id="a7254-236">Varsayılan metin Düzenleyicisi, HTTP istek gövdesini temsil eden bir JSON şablonuyla bir *. tmp* dosyası açar.</span><span class="sxs-lookup"><span data-stu-id="a7254-236">The default text editor opens a *.tmp* file with a JSON template representing the HTTP request body.</span></span> <span data-ttu-id="a7254-237">Örneğin:</span><span class="sxs-lookup"><span data-stu-id="a7254-237">For example:</span></span>
+    <span data-ttu-id="706e5-235">Önceki komutta, `Content-Type` http istek üst bilgisi, JSON türünde bir istek gövdesi medya türünü gösterecek şekilde ayarlanır.</span><span class="sxs-lookup"><span data-stu-id="706e5-235">In the preceding command, the `Content-Type` HTTP request header is set to indicate a request body media type of JSON.</span></span> <span data-ttu-id="706e5-236">Varsayılan metin Düzenleyicisi, HTTP istek gövdesini temsil eden bir JSON şablonuyla bir *. tmp* dosyası açar.</span><span class="sxs-lookup"><span data-stu-id="706e5-236">The default text editor opens a *.tmp* file with a JSON template representing the HTTP request body.</span></span> <span data-ttu-id="706e5-237">Örneğin:</span><span class="sxs-lookup"><span data-stu-id="706e5-237">For example:</span></span>
 
     ```json
     {
@@ -500,9 +500,9 @@ post <PARAMETER> [-c|--content] [-f|--file] [-h|--header] [--no-body] [-F|--no-f
     ```
 
     > [!TIP]
-    > <span data-ttu-id="a7254-238">Varsayılan metin düzenleyicisini ayarlamak için [varsayılan metin düzenleyiciyi ayarlama](#set-the-default-text-editor) bölümüne bakın.</span><span class="sxs-lookup"><span data-stu-id="a7254-238">To set the default text editor, see the [Set the default text editor](#set-the-default-text-editor) section.</span></span>
+    > <span data-ttu-id="706e5-238">Varsayılan metin düzenleyicisini ayarlamak için [varsayılan metin düzenleyiciyi ayarlama](#set-the-default-text-editor) bölümüne bakın.</span><span class="sxs-lookup"><span data-stu-id="706e5-238">To set the default text editor, see the [Set the default text editor](#set-the-default-text-editor) section.</span></span>
 
-1. <span data-ttu-id="a7254-239">JSON şablonunu model doğrulama gereksinimlerini karşılayacak şekilde değiştirin:</span><span class="sxs-lookup"><span data-stu-id="a7254-239">Modify the JSON template to satisfy model validation requirements:</span></span>
+1. <span data-ttu-id="706e5-239">JSON şablonunu model doğrulama gereksinimlerini karşılayacak şekilde değiştirin:</span><span class="sxs-lookup"><span data-stu-id="706e5-239">Modify the JSON template to satisfy model validation requirements:</span></span>
 
     ```json
     {
@@ -511,7 +511,7 @@ post <PARAMETER> [-c|--content] [-f|--file] [-h|--header] [--no-body] [-F|--no-f
     }
     ```
 
-1. <span data-ttu-id="a7254-240">*. Tmp* dosyasını kaydedin ve metin düzenleyicisini kapatın.</span><span class="sxs-lookup"><span data-stu-id="a7254-240">Save the *.tmp* file, and close the text editor.</span></span> <span data-ttu-id="a7254-241">Aşağıdaki çıktı komut kabuğu 'nda görünür:</span><span class="sxs-lookup"><span data-stu-id="a7254-241">The following output appears in the command shell:</span></span>
+1. <span data-ttu-id="706e5-240">*. Tmp* dosyasını kaydedin ve metin düzenleyicisini kapatın.</span><span class="sxs-lookup"><span data-stu-id="706e5-240">Save the *.tmp* file, and close the text editor.</span></span> <span data-ttu-id="706e5-241">Aşağıdaki çıktı komut kabuğu 'nda görünür:</span><span class="sxs-lookup"><span data-stu-id="706e5-241">The following output appears in the command shell:</span></span>
 
     ```console
     HTTP/1.1 201 Created
@@ -530,31 +530,31 @@ post <PARAMETER> [-c|--content] [-f|--file] [-h|--header] [--no-body] [-F|--no-f
     https://localhost:5001/people~
     ```
 
-## <a name="test-http-put-requests"></a><span data-ttu-id="a7254-242">HTTP PUT isteklerini test etme</span><span class="sxs-lookup"><span data-stu-id="a7254-242">Test HTTP PUT requests</span></span>
+## <a name="test-http-put-requests"></a><span data-ttu-id="706e5-242">HTTP PUT isteklerini test etme</span><span class="sxs-lookup"><span data-stu-id="706e5-242">Test HTTP PUT requests</span></span>
 
-### <a name="synopsis"></a><span data-ttu-id="a7254-243">Özeti</span><span class="sxs-lookup"><span data-stu-id="a7254-243">Synopsis</span></span>
+### <a name="synopsis"></a><span data-ttu-id="706e5-243">Özeti</span><span class="sxs-lookup"><span data-stu-id="706e5-243">Synopsis</span></span>
 
 ```console
 put <PARAMETER> [-c|--content] [-f|--file] [-h|--header] [--no-body] [-F|--no-formatting] [--response] [--response:body] [--response:headers] [-s|--streaming]
 ```
 
-### <a name="arguments"></a><span data-ttu-id="a7254-244">Arguments</span><span class="sxs-lookup"><span data-stu-id="a7254-244">Arguments</span></span>
+### <a name="arguments"></a><span data-ttu-id="706e5-244">Arguments</span><span class="sxs-lookup"><span data-stu-id="706e5-244">Arguments</span></span>
 
 `PARAMETER`
 
-<span data-ttu-id="a7254-245">Varsa, ilişkili denetleyici eylem yöntemi tarafından beklenen rota parametresi.</span><span class="sxs-lookup"><span data-stu-id="a7254-245">The route parameter, if any, expected by the associated controller action method.</span></span>
+<span data-ttu-id="706e5-245">Varsa, ilişkili denetleyici eylem yöntemi tarafından beklenen rota parametresi.</span><span class="sxs-lookup"><span data-stu-id="706e5-245">The route parameter, if any, expected by the associated controller action method.</span></span>
 
-### <a name="options"></a><span data-ttu-id="a7254-246">Seçenekler</span><span class="sxs-lookup"><span data-stu-id="a7254-246">Options</span></span>
+### <a name="options"></a><span data-ttu-id="706e5-246">Seçenekler</span><span class="sxs-lookup"><span data-stu-id="706e5-246">Options</span></span>
 
 [!INCLUDE [standard CLI options](~/includes/http-repl/standard-options.md)]
 
 [!INCLUDE [HTTP request body CLI options](~/includes/http-repl/requires-body-options.md)]
 
-### <a name="example"></a><span data-ttu-id="a7254-247">Örnek</span><span class="sxs-lookup"><span data-stu-id="a7254-247">Example</span></span>
+### <a name="example"></a><span data-ttu-id="706e5-247">Örnek</span><span class="sxs-lookup"><span data-stu-id="706e5-247">Example</span></span>
 
-<span data-ttu-id="a7254-248">HTTP PUT isteği vermek için:</span><span class="sxs-lookup"><span data-stu-id="a7254-248">To issue an HTTP PUT request:</span></span>
+<span data-ttu-id="706e5-248">HTTP PUT isteği vermek için:</span><span class="sxs-lookup"><span data-stu-id="706e5-248">To issue an HTTP PUT request:</span></span>
 
-1. <span data-ttu-id="a7254-249">*Isteğe bağlı*: Verileri değiştirmeden önce görüntülemek için komutunuçalıştırın:`get`</span><span class="sxs-lookup"><span data-stu-id="a7254-249">*Optional*: Run the `get` command to view the data before modifying it:</span></span>
+1. <span data-ttu-id="706e5-249">*Isteğe bağlı*: Verileri değiştirmeden önce görüntülemek için komutunuçalıştırın:`get`</span><span class="sxs-lookup"><span data-stu-id="706e5-249">*Optional*: Run the `get` command to view the data before modifying it:</span></span>
 
     ```console
     https://localhost:5001/fruits~ get
@@ -585,7 +585,7 @@ put <PARAMETER> [-c|--content] [-f|--file] [-h|--header] [--no-body] [-F|--no-fo
     https://localhost:5001/fruits~ put 2 -h Content-Type=application/json
     ```
 
-    <span data-ttu-id="a7254-250">Önceki komutta, `Content-Type` http istek üst bilgisi, JSON türünde bir istek gövdesi medya türünü gösterecek şekilde ayarlanır.</span><span class="sxs-lookup"><span data-stu-id="a7254-250">In the preceding command, the `Content-Type` HTTP request header is set to indicate a request body media type of JSON.</span></span> <span data-ttu-id="a7254-251">Varsayılan metin Düzenleyicisi, HTTP istek gövdesini temsil eden bir JSON şablonuyla bir *. tmp* dosyası açar.</span><span class="sxs-lookup"><span data-stu-id="a7254-251">The default text editor opens a *.tmp* file with a JSON template representing the HTTP request body.</span></span> <span data-ttu-id="a7254-252">Örneğin:</span><span class="sxs-lookup"><span data-stu-id="a7254-252">For example:</span></span>
+    <span data-ttu-id="706e5-250">Önceki komutta, `Content-Type` http istek üst bilgisi, JSON türünde bir istek gövdesi medya türünü gösterecek şekilde ayarlanır.</span><span class="sxs-lookup"><span data-stu-id="706e5-250">In the preceding command, the `Content-Type` HTTP request header is set to indicate a request body media type of JSON.</span></span> <span data-ttu-id="706e5-251">Varsayılan metin Düzenleyicisi, HTTP istek gövdesini temsil eden bir JSON şablonuyla bir *. tmp* dosyası açar.</span><span class="sxs-lookup"><span data-stu-id="706e5-251">The default text editor opens a *.tmp* file with a JSON template representing the HTTP request body.</span></span> <span data-ttu-id="706e5-252">Örneğin:</span><span class="sxs-lookup"><span data-stu-id="706e5-252">For example:</span></span>
 
     ```json
     {
@@ -595,9 +595,9 @@ put <PARAMETER> [-c|--content] [-f|--file] [-h|--header] [--no-body] [-F|--no-fo
     ```
 
     > [!TIP]
-    > <span data-ttu-id="a7254-253">Varsayılan metin düzenleyicisini ayarlamak için [varsayılan metin düzenleyiciyi ayarlama](#set-the-default-text-editor) bölümüne bakın.</span><span class="sxs-lookup"><span data-stu-id="a7254-253">To set the default text editor, see the [Set the default text editor](#set-the-default-text-editor) section.</span></span>
+    > <span data-ttu-id="706e5-253">Varsayılan metin düzenleyicisini ayarlamak için [varsayılan metin düzenleyiciyi ayarlama](#set-the-default-text-editor) bölümüne bakın.</span><span class="sxs-lookup"><span data-stu-id="706e5-253">To set the default text editor, see the [Set the default text editor](#set-the-default-text-editor) section.</span></span>
 
-1. <span data-ttu-id="a7254-254">JSON şablonunu model doğrulama gereksinimlerini karşılayacak şekilde değiştirin:</span><span class="sxs-lookup"><span data-stu-id="a7254-254">Modify the JSON template to satisfy model validation requirements:</span></span>
+1. <span data-ttu-id="706e5-254">JSON şablonunu model doğrulama gereksinimlerini karşılayacak şekilde değiştirin:</span><span class="sxs-lookup"><span data-stu-id="706e5-254">Modify the JSON template to satisfy model validation requirements:</span></span>
 
     ```json
     {
@@ -606,7 +606,7 @@ put <PARAMETER> [-c|--content] [-f|--file] [-h|--header] [--no-body] [-F|--no-fo
     }
     ```
 
-1. <span data-ttu-id="a7254-255">*. Tmp* dosyasını kaydedin ve metin düzenleyicisini kapatın.</span><span class="sxs-lookup"><span data-stu-id="a7254-255">Save the *.tmp* file, and close the text editor.</span></span> <span data-ttu-id="a7254-256">Aşağıdaki çıktı komut kabuğu 'nda görünür:</span><span class="sxs-lookup"><span data-stu-id="a7254-256">The following output appears in the command shell:</span></span>
+1. <span data-ttu-id="706e5-255">*. Tmp* dosyasını kaydedin ve metin düzenleyicisini kapatın.</span><span class="sxs-lookup"><span data-stu-id="706e5-255">Save the *.tmp* file, and close the text editor.</span></span> <span data-ttu-id="706e5-256">Aşağıdaki çıktı komut kabuğu 'nda görünür:</span><span class="sxs-lookup"><span data-stu-id="706e5-256">The following output appears in the command shell:</span></span>
 
     ```console
     [main 2019-06-28T17:27:01.805Z] update#setState idle
@@ -615,7 +615,7 @@ put <PARAMETER> [-c|--content] [-f|--file] [-h|--header] [--no-body] [-F|--no-fo
     Server: Kestrel
     ```
 
-1. <span data-ttu-id="a7254-257">*Isteğe bağlı*: Değişiklikleri görmek `get` için bir komut verin.</span><span class="sxs-lookup"><span data-stu-id="a7254-257">*Optional*: Issue a `get` command to see the modifications.</span></span> <span data-ttu-id="a7254-258">Örneğin, metin düzenleyicisinde "chraz" yazdıysanız, bir `get` , şunu döndürür:</span><span class="sxs-lookup"><span data-stu-id="a7254-258">For example, if you typed "Cherry" in the text editor, a `get` returns the following:</span></span>
+1. <span data-ttu-id="706e5-257">*Isteğe bağlı*: Değişiklikleri görmek `get` için bir komut verin.</span><span class="sxs-lookup"><span data-stu-id="706e5-257">*Optional*: Issue a `get` command to see the modifications.</span></span> <span data-ttu-id="706e5-258">Örneğin, metin düzenleyicisinde "chraz" yazdıysanız, bir `get` , şunu döndürür:</span><span class="sxs-lookup"><span data-stu-id="706e5-258">For example, if you typed "Cherry" in the text editor, a `get` returns the following:</span></span>
 
     ```console
     https://localhost:5001/fruits~ get
@@ -644,29 +644,29 @@ put <PARAMETER> [-c|--content] [-f|--file] [-h|--header] [--no-body] [-F|--no-fo
     https://localhost:5001/fruits~
     ```
 
-## <a name="test-http-delete-requests"></a><span data-ttu-id="a7254-259">HTTP SILME isteklerini test etme</span><span class="sxs-lookup"><span data-stu-id="a7254-259">Test HTTP DELETE requests</span></span>
+## <a name="test-http-delete-requests"></a><span data-ttu-id="706e5-259">HTTP SILME isteklerini test etme</span><span class="sxs-lookup"><span data-stu-id="706e5-259">Test HTTP DELETE requests</span></span>
 
-### <a name="synopsis"></a><span data-ttu-id="a7254-260">Özeti</span><span class="sxs-lookup"><span data-stu-id="a7254-260">Synopsis</span></span>
+### <a name="synopsis"></a><span data-ttu-id="706e5-260">Özeti</span><span class="sxs-lookup"><span data-stu-id="706e5-260">Synopsis</span></span>
 
 ```console
 delete <PARAMETER> [-F|--no-formatting] [-h|--header] [--response] [--response:body] [--response:headers] [-s|--streaming]
 ```
 
-### <a name="arguments"></a><span data-ttu-id="a7254-261">Arguments</span><span class="sxs-lookup"><span data-stu-id="a7254-261">Arguments</span></span>
+### <a name="arguments"></a><span data-ttu-id="706e5-261">Arguments</span><span class="sxs-lookup"><span data-stu-id="706e5-261">Arguments</span></span>
 
 `PARAMETER`
 
-<span data-ttu-id="a7254-262">Varsa, ilişkili denetleyici eylem yöntemi tarafından beklenen rota parametresi.</span><span class="sxs-lookup"><span data-stu-id="a7254-262">The route parameter, if any, expected by the associated controller action method.</span></span>
+<span data-ttu-id="706e5-262">Varsa, ilişkili denetleyici eylem yöntemi tarafından beklenen rota parametresi.</span><span class="sxs-lookup"><span data-stu-id="706e5-262">The route parameter, if any, expected by the associated controller action method.</span></span>
 
-### <a name="options"></a><span data-ttu-id="a7254-263">Seçenekler</span><span class="sxs-lookup"><span data-stu-id="a7254-263">Options</span></span>
+### <a name="options"></a><span data-ttu-id="706e5-263">Seçenekler</span><span class="sxs-lookup"><span data-stu-id="706e5-263">Options</span></span>
 
 [!INCLUDE [standard CLI options](~/includes/http-repl/standard-options.md)]
 
-### <a name="example"></a><span data-ttu-id="a7254-264">Örnek</span><span class="sxs-lookup"><span data-stu-id="a7254-264">Example</span></span>
+### <a name="example"></a><span data-ttu-id="706e5-264">Örnek</span><span class="sxs-lookup"><span data-stu-id="706e5-264">Example</span></span>
 
-<span data-ttu-id="a7254-265">HTTP SILME isteği vermek için:</span><span class="sxs-lookup"><span data-stu-id="a7254-265">To issue an HTTP DELETE request:</span></span>
+<span data-ttu-id="706e5-265">HTTP SILME isteği vermek için:</span><span class="sxs-lookup"><span data-stu-id="706e5-265">To issue an HTTP DELETE request:</span></span>
 
-1. <span data-ttu-id="a7254-266">*Isteğe bağlı*: Verileri değiştirmeden önce görüntülemek için komutunuçalıştırın:`get`</span><span class="sxs-lookup"><span data-stu-id="a7254-266">*Optional*: Run the `get` command to view the data before modifying it:</span></span>
+1. <span data-ttu-id="706e5-266">*Isteğe bağlı*: Verileri değiştirmeden önce görüntülemek için komutunuçalıştırın:`get`</span><span class="sxs-lookup"><span data-stu-id="706e5-266">*Optional*: Run the `get` command to view the data before modifying it:</span></span>
 
     ```console
     https://localhost:5001/fruits~ get
@@ -697,7 +697,7 @@ delete <PARAMETER> [-F|--no-formatting] [-h|--header] [--response] [--response:b
     https://localhost:5001/fruits~ delete 2
     ```
 
-    <span data-ttu-id="a7254-267">Yukarıdaki komut aşağıdaki çıkış biçimini görüntüler:</span><span class="sxs-lookup"><span data-stu-id="a7254-267">The preceding command displays the following output format:</span></span>
+    <span data-ttu-id="706e5-267">Yukarıdaki komut aşağıdaki çıkış biçimini görüntüler:</span><span class="sxs-lookup"><span data-stu-id="706e5-267">The preceding command displays the following output format:</span></span>
 
     ```console
     HTTP/1.1 204 No Content
@@ -705,7 +705,7 @@ delete <PARAMETER> [-F|--no-formatting] [-h|--header] [--response] [--response:b
     Server: Kestrel
     ```
 
-1. <span data-ttu-id="a7254-268">*Isteğe bağlı*: Değişiklikleri görmek `get` için bir komut verin.</span><span class="sxs-lookup"><span data-stu-id="a7254-268">*Optional*: Issue a `get` command to see the modifications.</span></span> <span data-ttu-id="a7254-269">Bu örnekte, bir `get` , şunu döndürür:</span><span class="sxs-lookup"><span data-stu-id="a7254-269">In this example, a `get` returns the following:</span></span>
+1. <span data-ttu-id="706e5-268">*Isteğe bağlı*: Değişiklikleri görmek `get` için bir komut verin.</span><span class="sxs-lookup"><span data-stu-id="706e5-268">*Optional*: Issue a `get` command to see the modifications.</span></span> <span data-ttu-id="706e5-269">Bu örnekte, bir `get` , şunu döndürür:</span><span class="sxs-lookup"><span data-stu-id="706e5-269">In this example, a `get` returns the following:</span></span>
 
     ```console
     https://localhost:5001/fruits~ get
@@ -730,100 +730,100 @@ delete <PARAMETER> [-F|--no-formatting] [-h|--header] [--response] [--response:b
     https://localhost:5001/fruits~
     ```
 
-## <a name="test-http-patch-requests"></a><span data-ttu-id="a7254-270">HTTP PATCH isteklerini test etme</span><span class="sxs-lookup"><span data-stu-id="a7254-270">Test HTTP PATCH requests</span></span>
+## <a name="test-http-patch-requests"></a><span data-ttu-id="706e5-270">HTTP PATCH isteklerini test etme</span><span class="sxs-lookup"><span data-stu-id="706e5-270">Test HTTP PATCH requests</span></span>
 
-### <a name="synopsis"></a><span data-ttu-id="a7254-271">Özeti</span><span class="sxs-lookup"><span data-stu-id="a7254-271">Synopsis</span></span>
+### <a name="synopsis"></a><span data-ttu-id="706e5-271">Özeti</span><span class="sxs-lookup"><span data-stu-id="706e5-271">Synopsis</span></span>
 
 ```console
 patch <PARAMETER> [-c|--content] [-f|--file] [-h|--header] [--no-body] [-F|--no-formatting] [--response] [--response:body] [--response:headers] [-s|--streaming]
 ```
 
-### <a name="arguments"></a><span data-ttu-id="a7254-272">Arguments</span><span class="sxs-lookup"><span data-stu-id="a7254-272">Arguments</span></span>
+### <a name="arguments"></a><span data-ttu-id="706e5-272">Arguments</span><span class="sxs-lookup"><span data-stu-id="706e5-272">Arguments</span></span>
 
 `PARAMETER`
 
-<span data-ttu-id="a7254-273">Varsa, ilişkili denetleyici eylem yöntemi tarafından beklenen rota parametresi.</span><span class="sxs-lookup"><span data-stu-id="a7254-273">The route parameter, if any, expected by the associated controller action method.</span></span>
+<span data-ttu-id="706e5-273">Varsa, ilişkili denetleyici eylem yöntemi tarafından beklenen rota parametresi.</span><span class="sxs-lookup"><span data-stu-id="706e5-273">The route parameter, if any, expected by the associated controller action method.</span></span>
 
-### <a name="options"></a><span data-ttu-id="a7254-274">Seçenekler</span><span class="sxs-lookup"><span data-stu-id="a7254-274">Options</span></span>
+### <a name="options"></a><span data-ttu-id="706e5-274">Seçenekler</span><span class="sxs-lookup"><span data-stu-id="706e5-274">Options</span></span>
 
 [!INCLUDE [standard CLI options](~/includes/http-repl/standard-options.md)]
 
 [!INCLUDE [HTTP request body CLI options](~/includes/http-repl/requires-body-options.md)]
 
-## <a name="test-http-head-requests"></a><span data-ttu-id="a7254-275">HTTP HEAD isteklerini test etme</span><span class="sxs-lookup"><span data-stu-id="a7254-275">Test HTTP HEAD requests</span></span>
+## <a name="test-http-head-requests"></a><span data-ttu-id="706e5-275">HTTP HEAD isteklerini test etme</span><span class="sxs-lookup"><span data-stu-id="706e5-275">Test HTTP HEAD requests</span></span>
 
-### <a name="synopsis"></a><span data-ttu-id="a7254-276">Özeti</span><span class="sxs-lookup"><span data-stu-id="a7254-276">Synopsis</span></span>
+### <a name="synopsis"></a><span data-ttu-id="706e5-276">Özeti</span><span class="sxs-lookup"><span data-stu-id="706e5-276">Synopsis</span></span>
 
 ```console
 head <PARAMETER> [-F|--no-formatting] [-h|--header] [--response] [--response:body] [--response:headers] [-s|--streaming]
 ```
 
-### <a name="arguments"></a><span data-ttu-id="a7254-277">Arguments</span><span class="sxs-lookup"><span data-stu-id="a7254-277">Arguments</span></span>
+### <a name="arguments"></a><span data-ttu-id="706e5-277">Arguments</span><span class="sxs-lookup"><span data-stu-id="706e5-277">Arguments</span></span>
 
 `PARAMETER`
 
-<span data-ttu-id="a7254-278">Varsa, ilişkili denetleyici eylem yöntemi tarafından beklenen rota parametresi.</span><span class="sxs-lookup"><span data-stu-id="a7254-278">The route parameter, if any, expected by the associated controller action method.</span></span>
+<span data-ttu-id="706e5-278">Varsa, ilişkili denetleyici eylem yöntemi tarafından beklenen rota parametresi.</span><span class="sxs-lookup"><span data-stu-id="706e5-278">The route parameter, if any, expected by the associated controller action method.</span></span>
 
-### <a name="options"></a><span data-ttu-id="a7254-279">Seçenekler</span><span class="sxs-lookup"><span data-stu-id="a7254-279">Options</span></span>
+### <a name="options"></a><span data-ttu-id="706e5-279">Seçenekler</span><span class="sxs-lookup"><span data-stu-id="706e5-279">Options</span></span>
 
 [!INCLUDE [standard CLI options](~/includes/http-repl/standard-options.md)]
 
-## <a name="test-http-options-requests"></a><span data-ttu-id="a7254-280">Sınama HTTP SEÇENEKLERI istekleri</span><span class="sxs-lookup"><span data-stu-id="a7254-280">Test HTTP OPTIONS requests</span></span>
+## <a name="test-http-options-requests"></a><span data-ttu-id="706e5-280">Sınama HTTP SEÇENEKLERI istekleri</span><span class="sxs-lookup"><span data-stu-id="706e5-280">Test HTTP OPTIONS requests</span></span>
 
-### <a name="synopsis"></a><span data-ttu-id="a7254-281">Özeti</span><span class="sxs-lookup"><span data-stu-id="a7254-281">Synopsis</span></span>
+### <a name="synopsis"></a><span data-ttu-id="706e5-281">Özeti</span><span class="sxs-lookup"><span data-stu-id="706e5-281">Synopsis</span></span>
 
 ```console
 options <PARAMETER> [-F|--no-formatting] [-h|--header] [--response] [--response:body] [--response:headers] [-s|--streaming]
 ```
 
-### <a name="arguments"></a><span data-ttu-id="a7254-282">Arguments</span><span class="sxs-lookup"><span data-stu-id="a7254-282">Arguments</span></span>
+### <a name="arguments"></a><span data-ttu-id="706e5-282">Arguments</span><span class="sxs-lookup"><span data-stu-id="706e5-282">Arguments</span></span>
 
 `PARAMETER`
 
-<span data-ttu-id="a7254-283">Varsa, ilişkili denetleyici eylem yöntemi tarafından beklenen rota parametresi.</span><span class="sxs-lookup"><span data-stu-id="a7254-283">The route parameter, if any, expected by the associated controller action method.</span></span>
+<span data-ttu-id="706e5-283">Varsa, ilişkili denetleyici eylem yöntemi tarafından beklenen rota parametresi.</span><span class="sxs-lookup"><span data-stu-id="706e5-283">The route parameter, if any, expected by the associated controller action method.</span></span>
 
-### <a name="options"></a><span data-ttu-id="a7254-284">Seçenekler</span><span class="sxs-lookup"><span data-stu-id="a7254-284">Options</span></span>
+### <a name="options"></a><span data-ttu-id="706e5-284">Seçenekler</span><span class="sxs-lookup"><span data-stu-id="706e5-284">Options</span></span>
 
 [!INCLUDE [standard CLI options](~/includes/http-repl/standard-options.md)]
 
-## <a name="set-http-request-headers"></a><span data-ttu-id="a7254-285">HTTP istek üst bilgilerini ayarla</span><span class="sxs-lookup"><span data-stu-id="a7254-285">Set HTTP request headers</span></span>
+## <a name="set-http-request-headers"></a><span data-ttu-id="706e5-285">HTTP istek üst bilgilerini ayarla</span><span class="sxs-lookup"><span data-stu-id="706e5-285">Set HTTP request headers</span></span>
 
-<span data-ttu-id="a7254-286">Bir HTTP istek üst bilgisi ayarlamak için aşağıdaki yaklaşımlardan birini kullanın:</span><span class="sxs-lookup"><span data-stu-id="a7254-286">To set an HTTP request header, use one of the following approaches:</span></span>
+<span data-ttu-id="706e5-286">Bir HTTP istek üst bilgisi ayarlamak için aşağıdaki yaklaşımlardan birini kullanın:</span><span class="sxs-lookup"><span data-stu-id="706e5-286">To set an HTTP request header, use one of the following approaches:</span></span>
 
-1. <span data-ttu-id="a7254-287">HTTP isteğiyle satır içi ayarlayın.</span><span class="sxs-lookup"><span data-stu-id="a7254-287">Set inline with the HTTP request.</span></span> <span data-ttu-id="a7254-288">Örneğin:</span><span class="sxs-lookup"><span data-stu-id="a7254-288">For example:</span></span>
+1. <span data-ttu-id="706e5-287">HTTP isteğiyle satır içi ayarlayın.</span><span class="sxs-lookup"><span data-stu-id="706e5-287">Set inline with the HTTP request.</span></span> <span data-ttu-id="706e5-288">Örneğin:</span><span class="sxs-lookup"><span data-stu-id="706e5-288">For example:</span></span>
 
   ```console
   https://localhost:5001/people~ post -h Content-Type=application/json
   ```
 
-  <span data-ttu-id="a7254-289">Önceki yaklaşımla, her ayrı http istek üst bilgisi kendi `-h` seçeneğini gerektirir.</span><span class="sxs-lookup"><span data-stu-id="a7254-289">With the preceding approach, each distinct HTTP request header requires its own `-h` option.</span></span>
+  <span data-ttu-id="706e5-289">Önceki yaklaşımla, her ayrı http istek üst bilgisi kendi `-h` seçeneğini gerektirir.</span><span class="sxs-lookup"><span data-stu-id="706e5-289">With the preceding approach, each distinct HTTP request header requires its own `-h` option.</span></span>
 
-1. <span data-ttu-id="a7254-290">HTTP isteğini göndermeden önce ayarlayın.</span><span class="sxs-lookup"><span data-stu-id="a7254-290">Set before sending the HTTP request.</span></span> <span data-ttu-id="a7254-291">Örneğin:</span><span class="sxs-lookup"><span data-stu-id="a7254-291">For example:</span></span>
+1. <span data-ttu-id="706e5-290">HTTP isteğini göndermeden önce ayarlayın.</span><span class="sxs-lookup"><span data-stu-id="706e5-290">Set before sending the HTTP request.</span></span> <span data-ttu-id="706e5-291">Örneğin:</span><span class="sxs-lookup"><span data-stu-id="706e5-291">For example:</span></span>
 
   ```console
   https://localhost:5001/people~ set header Content-Type application/json
   ```
 
-  <span data-ttu-id="a7254-292">Bir isteği göndermeden önce üst bilgi ayarlanırken üst bilgi, komut kabuğu oturumunun süresi boyunca ayarlanmış olarak kalır.</span><span class="sxs-lookup"><span data-stu-id="a7254-292">When setting the header before sending a request, the header remains set for the duration of the command shell session.</span></span> <span data-ttu-id="a7254-293">Üstbilgiyi temizlemek için boş bir değer sağlayın.</span><span class="sxs-lookup"><span data-stu-id="a7254-293">To clear the header, provide an empty value.</span></span> <span data-ttu-id="a7254-294">Örneğin:</span><span class="sxs-lookup"><span data-stu-id="a7254-294">For example:</span></span>
+  <span data-ttu-id="706e5-292">Bir isteği göndermeden önce üst bilgi ayarlanırken üst bilgi, komut kabuğu oturumunun süresi boyunca ayarlanmış olarak kalır.</span><span class="sxs-lookup"><span data-stu-id="706e5-292">When setting the header before sending a request, the header remains set for the duration of the command shell session.</span></span> <span data-ttu-id="706e5-293">Üstbilgiyi temizlemek için boş bir değer sağlayın.</span><span class="sxs-lookup"><span data-stu-id="706e5-293">To clear the header, provide an empty value.</span></span> <span data-ttu-id="706e5-294">Örneğin:</span><span class="sxs-lookup"><span data-stu-id="706e5-294">For example:</span></span>
 
   ```console
   https://localhost:5001/people~ set header Content-Type
   ```
 
-## <a name="toggle-http-request-display"></a><span data-ttu-id="a7254-295">HTTP istek görüntüsünü değiştirme</span><span class="sxs-lookup"><span data-stu-id="a7254-295">Toggle HTTP request display</span></span>
+## <a name="toggle-http-request-display"></a><span data-ttu-id="706e5-295">HTTP istek görüntüsünü değiştirme</span><span class="sxs-lookup"><span data-stu-id="706e5-295">Toggle HTTP request display</span></span>
 
-<span data-ttu-id="a7254-296">Varsayılan olarak, gönderilmekte olan HTTP isteğinin görüntüsü bastırılır.</span><span class="sxs-lookup"><span data-stu-id="a7254-296">By default, display of the HTTP request being sent is suppressed.</span></span> <span data-ttu-id="a7254-297">Komut kabuğu oturumunun süresi boyunca ilgili ayarı değiştirmek mümkündür.</span><span class="sxs-lookup"><span data-stu-id="a7254-297">It's possible to change the corresponding setting for the duration of the command shell session.</span></span>
+<span data-ttu-id="706e5-296">Varsayılan olarak, gönderilmekte olan HTTP isteğinin görüntüsü bastırılır.</span><span class="sxs-lookup"><span data-stu-id="706e5-296">By default, display of the HTTP request being sent is suppressed.</span></span> <span data-ttu-id="706e5-297">Komut kabuğu oturumunun süresi boyunca ilgili ayarı değiştirmek mümkündür.</span><span class="sxs-lookup"><span data-stu-id="706e5-297">It's possible to change the corresponding setting for the duration of the command shell session.</span></span>
 
-### <a name="enable-request-display"></a><span data-ttu-id="a7254-298">İstek görüntülemesini etkinleştir</span><span class="sxs-lookup"><span data-stu-id="a7254-298">Enable request display</span></span>
+### <a name="enable-request-display"></a><span data-ttu-id="706e5-298">İstek görüntülemesini etkinleştir</span><span class="sxs-lookup"><span data-stu-id="706e5-298">Enable request display</span></span>
 
-<span data-ttu-id="a7254-299">`echo on` Komutunu çalıştırarak gönderilmekte olan http isteğini görüntüleyin.</span><span class="sxs-lookup"><span data-stu-id="a7254-299">View the HTTP request being sent by running the `echo on` command.</span></span> <span data-ttu-id="a7254-300">Örneğin:</span><span class="sxs-lookup"><span data-stu-id="a7254-300">For example:</span></span>
+<span data-ttu-id="706e5-299">`echo on` Komutunu çalıştırarak gönderilmekte olan http isteğini görüntüleyin.</span><span class="sxs-lookup"><span data-stu-id="706e5-299">View the HTTP request being sent by running the `echo on` command.</span></span> <span data-ttu-id="706e5-300">Örneğin:</span><span class="sxs-lookup"><span data-stu-id="706e5-300">For example:</span></span>
 
 ```console
 https://localhost:5001/people~ echo on
 Request echoing is on
 ```
 
-<span data-ttu-id="a7254-301">Geçerli oturumdaki sonraki HTTP istekleri, istek üst bilgilerini görüntüler.</span><span class="sxs-lookup"><span data-stu-id="a7254-301">Subsequent HTTP requests in the current session display the request headers.</span></span> <span data-ttu-id="a7254-302">Örneğin:</span><span class="sxs-lookup"><span data-stu-id="a7254-302">For example:</span></span>
+<span data-ttu-id="706e5-301">Geçerli oturumdaki sonraki HTTP istekleri, istek üst bilgilerini görüntüler.</span><span class="sxs-lookup"><span data-stu-id="706e5-301">Subsequent HTTP requests in the current session display the request headers.</span></span> <span data-ttu-id="706e5-302">Örneğin:</span><span class="sxs-lookup"><span data-stu-id="706e5-302">For example:</span></span>
 
 ```console
 https://localhost:5001/people~ post
@@ -859,20 +859,20 @@ Transfer-Encoding: chunked
 https://localhost:5001/people~
 ```
 
-### <a name="disable-request-display"></a><span data-ttu-id="a7254-303">İstek görüntüsünü devre dışı bırak</span><span class="sxs-lookup"><span data-stu-id="a7254-303">Disable request display</span></span>
+### <a name="disable-request-display"></a><span data-ttu-id="706e5-303">İstek görüntüsünü devre dışı bırak</span><span class="sxs-lookup"><span data-stu-id="706e5-303">Disable request display</span></span>
 
-<span data-ttu-id="a7254-304">`echo off` Komutunu çalıştırarak gönderilen http isteğinin görüntülenmesini gizleyin.</span><span class="sxs-lookup"><span data-stu-id="a7254-304">Suppress display of the HTTP request being sent by running the `echo off` command.</span></span> <span data-ttu-id="a7254-305">Örneğin:</span><span class="sxs-lookup"><span data-stu-id="a7254-305">For example:</span></span>
+<span data-ttu-id="706e5-304">`echo off` Komutunu çalıştırarak gönderilen http isteğinin görüntülenmesini gizleyin.</span><span class="sxs-lookup"><span data-stu-id="706e5-304">Suppress display of the HTTP request being sent by running the `echo off` command.</span></span> <span data-ttu-id="706e5-305">Örneğin:</span><span class="sxs-lookup"><span data-stu-id="706e5-305">For example:</span></span>
 
 ```console
 https://localhost:5001/people~ echo off
 Request echoing is off
 ```
 
-## <a name="run-a-script"></a><span data-ttu-id="a7254-306">Betik çalıştırma</span><span class="sxs-lookup"><span data-stu-id="a7254-306">Run a script</span></span>
+## <a name="run-a-script"></a><span data-ttu-id="706e5-306">Betik çalıştırma</span><span class="sxs-lookup"><span data-stu-id="706e5-306">Run a script</span></span>
 
-<span data-ttu-id="a7254-307">Aynı HTTP REPL komutları kümesini sıklıkla yürütüyorsanız bunları bir metin dosyasında depolamayı göz önünde bulundurun.</span><span class="sxs-lookup"><span data-stu-id="a7254-307">If you frequently execute the same set of HTTP REPL commands, consider storing them in a text file.</span></span> <span data-ttu-id="a7254-308">Dosyadaki komutlar, komut satırında el ile çalıştıranlarla aynı formu alır.</span><span class="sxs-lookup"><span data-stu-id="a7254-308">Commands in the file take the same form as those executed manually on the command line.</span></span> <span data-ttu-id="a7254-309">Komutlar, `run` komutu kullanılarak toplanmış bir biçimde yürütülebilir.</span><span class="sxs-lookup"><span data-stu-id="a7254-309">The commands can be executed in a batched fashion using the `run` command.</span></span> <span data-ttu-id="a7254-310">Örneğin:</span><span class="sxs-lookup"><span data-stu-id="a7254-310">For example:</span></span>
+<span data-ttu-id="706e5-307">Aynı HTTP REPL komutları kümesini sıklıkla yürütüyorsanız bunları bir metin dosyasında depolamayı göz önünde bulundurun.</span><span class="sxs-lookup"><span data-stu-id="706e5-307">If you frequently execute the same set of HTTP REPL commands, consider storing them in a text file.</span></span> <span data-ttu-id="706e5-308">Dosyadaki komutlar, komut satırında el ile çalıştıranlarla aynı formu alır.</span><span class="sxs-lookup"><span data-stu-id="706e5-308">Commands in the file take the same form as those executed manually on the command line.</span></span> <span data-ttu-id="706e5-309">Komutlar, `run` komutu kullanılarak toplanmış bir biçimde yürütülebilir.</span><span class="sxs-lookup"><span data-stu-id="706e5-309">The commands can be executed in a batched fashion using the `run` command.</span></span> <span data-ttu-id="706e5-310">Örneğin:</span><span class="sxs-lookup"><span data-stu-id="706e5-310">For example:</span></span>
 
-1. <span data-ttu-id="a7254-311">Yeni satır için ayrılmış komutlar kümesini içeren bir metin dosyası oluşturun.</span><span class="sxs-lookup"><span data-stu-id="a7254-311">Create a text file containing a set of newline-delimited commands.</span></span> <span data-ttu-id="a7254-312">Göstermek için aşağıdaki komutları içeren bir *People-Script. txt* dosyası düşünün:</span><span class="sxs-lookup"><span data-stu-id="a7254-312">To illustrate, consider a *people-script.txt* file containing the following commands:</span></span>
+1. <span data-ttu-id="706e5-311">Yeni satır için ayrılmış komutlar kümesini içeren bir metin dosyası oluşturun.</span><span class="sxs-lookup"><span data-stu-id="706e5-311">Create a text file containing a set of newline-delimited commands.</span></span> <span data-ttu-id="706e5-312">Göstermek için aşağıdaki komutları içeren bir *People-Script. txt* dosyası düşünün:</span><span class="sxs-lookup"><span data-stu-id="706e5-312">To illustrate, consider a *people-script.txt* file containing the following commands:</span></span>
 
     ```text
     set base https://localhost:5001
@@ -882,13 +882,13 @@ Request echoing is off
     get 1
     ```
 
-1. <span data-ttu-id="a7254-313">Metin dosyasının yolunu geçirerek komutunuyürütün.`run`</span><span class="sxs-lookup"><span data-stu-id="a7254-313">Execute the `run` command, passing in the text file's path.</span></span> <span data-ttu-id="a7254-314">Örneğin:</span><span class="sxs-lookup"><span data-stu-id="a7254-314">For example:</span></span>
+1. <span data-ttu-id="706e5-313">Metin dosyasının yolunu geçirerek komutunuyürütün.`run`</span><span class="sxs-lookup"><span data-stu-id="706e5-313">Execute the `run` command, passing in the text file's path.</span></span> <span data-ttu-id="706e5-314">Örneğin:</span><span class="sxs-lookup"><span data-stu-id="706e5-314">For example:</span></span>
 
     ```console
     https://localhost:5001/~ run C:\http-repl-scripts\people-script.txt
     ```
 
-    <span data-ttu-id="a7254-315">Aşağıdaki çıktı görüntülenir:</span><span class="sxs-lookup"><span data-stu-id="a7254-315">The following output appears:</span></span>
+    <span data-ttu-id="706e5-315">Aşağıdaki çıktı görüntülenir:</span><span class="sxs-lookup"><span data-stu-id="706e5-315">The following output appears:</span></span>
 
     ```console
     https://localhost:5001/~ set base https://localhost:5001
@@ -923,12 +923,12 @@ Request echoing is off
     https://localhost:5001/People~
     ```
 
-## <a name="clear-the-output"></a><span data-ttu-id="a7254-316">Çıktıyı temizle</span><span class="sxs-lookup"><span data-stu-id="a7254-316">Clear the output</span></span>
+## <a name="clear-the-output"></a><span data-ttu-id="706e5-316">Çıktıyı temizle</span><span class="sxs-lookup"><span data-stu-id="706e5-316">Clear the output</span></span>
 
-<span data-ttu-id="a7254-317">HTTP REPL aracı tarafından komut kabuğu 'na yazılan tüm çıktıyı kaldırmak için `clear` veya `cls` komutunu çalıştırın.</span><span class="sxs-lookup"><span data-stu-id="a7254-317">To remove all output written to the command shell by the HTTP REPL tool, run the `clear` or `cls` command.</span></span> <span data-ttu-id="a7254-318">Göstermek için komut kabuğu 'nun aşağıdaki çıktıyı içerdiğini düşünün:</span><span class="sxs-lookup"><span data-stu-id="a7254-318">To illustrate, imagine the command shell contains the following output:</span></span>
+<span data-ttu-id="706e5-317">HTTP REPL aracı tarafından komut kabuğu 'na yazılan tüm çıktıyı kaldırmak için `clear` veya `cls` komutunu çalıştırın.</span><span class="sxs-lookup"><span data-stu-id="706e5-317">To remove all output written to the command shell by the HTTP REPL tool, run the `clear` or `cls` command.</span></span> <span data-ttu-id="706e5-318">Göstermek için komut kabuğu 'nun aşağıdaki çıktıyı içerdiğini düşünün:</span><span class="sxs-lookup"><span data-stu-id="706e5-318">To illustrate, imagine the command shell contains the following output:</span></span>
 
 ```console
-dotnet httprepl https://localhost:5001
+httprepl https://localhost:5001
 (Disconnected)~ set base "https://localhost:5001"
 Using swagger metadata from https://localhost:5001/swagger/v1/swagger.json
 
@@ -940,19 +940,19 @@ People   [get|post]
 https://localhost:5001/~
 ```
 
-<span data-ttu-id="a7254-319">Çıktıyı temizlemek için aşağıdaki komutu çalıştırın:</span><span class="sxs-lookup"><span data-stu-id="a7254-319">Run the following command to clear the output:</span></span>
+<span data-ttu-id="706e5-319">Çıktıyı temizlemek için aşağıdaki komutu çalıştırın:</span><span class="sxs-lookup"><span data-stu-id="706e5-319">Run the following command to clear the output:</span></span>
 
 ```console
 https://localhost:5001/~ clear
 ```
 
-<span data-ttu-id="a7254-320">Yukarıdaki komutu çalıştırdıktan sonra, komut kabuğu yalnızca şu çıktıyı içerir:</span><span class="sxs-lookup"><span data-stu-id="a7254-320">After running the preceding command, the command shell contains only the following output:</span></span>
+<span data-ttu-id="706e5-320">Yukarıdaki komutu çalıştırdıktan sonra, komut kabuğu yalnızca şu çıktıyı içerir:</span><span class="sxs-lookup"><span data-stu-id="706e5-320">After running the preceding command, the command shell contains only the following output:</span></span>
 
 ```console
 https://localhost:5001/~
 ```
 
-## <a name="additional-resources"></a><span data-ttu-id="a7254-321">Ek kaynaklar</span><span class="sxs-lookup"><span data-stu-id="a7254-321">Additional resources</span></span>
+## <a name="additional-resources"></a><span data-ttu-id="706e5-321">Ek kaynaklar</span><span class="sxs-lookup"><span data-stu-id="706e5-321">Additional resources</span></span>
 
-* [<span data-ttu-id="a7254-322">REST API istekleri</span><span class="sxs-lookup"><span data-stu-id="a7254-322">REST API requests</span></span>](https://github.com/microsoft/api-guidelines/blob/vNext/Guidelines.md#74-supported-methods)
-* [<span data-ttu-id="a7254-323">HTTP REPL GitHub deposu</span><span class="sxs-lookup"><span data-stu-id="a7254-323">HTTP REPL GitHub repository</span></span>](https://github.com/aspnet/HttpRepl)
+* [<span data-ttu-id="706e5-322">REST API istekleri</span><span class="sxs-lookup"><span data-stu-id="706e5-322">REST API requests</span></span>](https://github.com/microsoft/api-guidelines/blob/vNext/Guidelines.md#74-supported-methods)
+* [<span data-ttu-id="706e5-323">HTTP REPL GitHub deposu</span><span class="sxs-lookup"><span data-stu-id="706e5-323">HTTP REPL GitHub repository</span></span>](https://github.com/aspnet/HttpRepl)
