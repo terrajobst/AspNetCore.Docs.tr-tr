@@ -10,6 +10,12 @@ ASP.NET Core aşağıdaki avantajları sağlar:
 * Bulutta kullanıma hazır, ortam tabanlı bir [yapılandırma sistemi](xref:fundamentals/configuration/index).
 * Yerleşik [bağımlılık ekleme](xref:fundamentals/dependency-injection).
 * Basit, [yüksek performanslı](https://github.com/aspnet/benchmarks) ve modüler bir HTTP istek işlem hattı.
-* Kendi sürecinizdeki [Kestrel](xref:fundamentals/servers/kestrel), ([IIS](xref:host-and-deploy/iis/index), [NGINX](xref:host-and-deploy/linux-nginx), [Apache](xref:host-and-deploy/linux-apache), [Docker](xref:host-and-deploy/docker/index)veya self ana bilgisayar üzerinde barındırma özelliği.
+* Aşağıdakiler üzerinde barındırma özelliği:
+  * [Kestrel](xref:fundamentals/servers/kestrel)
+  * [IIS](xref:host-and-deploy/iis/index)
+  * [HTTP.sys](xref:fundamentals/servers/httpsys)
+  * [NGINX](xref:host-and-deploy/linux-nginx)
+  * [Apache](xref:host-and-deploy/linux-apache)
+  * [Docker](xref:host-and-deploy/docker/index)
 * [Yan yana sürüm oluşturma](/dotnet/standard/choosing-core-framework-server#a-need-for-side-by-side-of-net-versions-per-application-level).
 * Modern web geliştirmeyi basitleştiren araçlar.
