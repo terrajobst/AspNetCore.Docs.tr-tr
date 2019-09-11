@@ -5,14 +5,14 @@ description: Sunucu tarafı uygulamaları Blazor için güvenlik tehditlerini na
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 09/05/2019
+ms.date: 09/07/2019
 uid: security/blazor/server-side
-ms.openlocfilehash: 13bb4475b4beac78cf489d83fb59a3e0d6d8f2d9
-ms.sourcegitcommit: 43c6335b5859282f64d66a7696c5935a2bcdf966
+ms.openlocfilehash: d30f19bfbbcdb6c142f03a6e0cc6e1fc154c2091
+ms.sourcegitcommit: e7c56e8da5419bbc20b437c2dd531dedf9b0dc6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2019
-ms.locfileid: "70800502"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70878531"
 ---
 # <a name="secure-aspnet-core-blazor-server-side-apps"></a>Sunucu tarafı uygulamaları Blazor güvenli ASP.NET Core
 
@@ -115,7 +115,7 @@ Hizmet reddi (DoS) saldırıları, istemcinin bir veya daha fazla kaynağın bir
 .NET yöntemlerinden JavaScript 'e yapılan çağrılar için:
 
 * Tüm etkinleştirmeleri, başarısız olduktan sonra, arayana döndüren <xref:System.OperationCanceledException> yapılandırılabilir bir zaman aşımı süresine sahiptir.
-  * Bir dakikalık çağrılar (`CircuitOptions.JSInteropDefaultCallTimeout`) için varsayılan bir zaman aşımı süresi vardır.
+  * Bir dakikalık çağrılar (`CircuitOptions.JSInteropDefaultCallTimeout`) için varsayılan bir zaman aşımı süresi vardır. Bu sınırı yapılandırmak için bkz <xref:blazor/javascript-interop#harden-js-interop-calls>.
   * İptal belirtecini çağrı başına temelinde denetlemek için bir iptal belirteci sağlayabilirsiniz. Bir iptal belirteci sağlandıysa, mümkün olan ve istemciye yapılan tüm çağrıların zaman içinde sağlandığı varsayılan çağrı zaman aşımını kullanır.
 * JavaScript çağrısının sonucu güvenilir olamaz. Tarayıcıda çalışan Blazor App Client, çağrılacak JavaScript işlevini arar. İşlev çağrılır ve sonuç ya da bir hata oluşturulur. Kötü amaçlı bir istemci şunları gerçekleştirmeye çalışabilir:
   * JavaScript işlevinden bir hata döndürerek uygulamada sorun oluşmasına neden olur.
@@ -200,6 +200,72 @@ Bir istemci, çerçeve bu bileşenin yeni bir işlemesini oluşturmadan önce bi
 ```
 
 `if (count < 3) { ... }` Denetimi işleyicinin içine ekleyerek, artırma `count` kararı geçerli uygulama durumuna göre belirlenir. Bu karar, önceki örnekte olduğu gibi Kullanıcı arabiriminin durumunu temel değildir ve bu da geçici olarak eski olabilir.
+
+### <a name="guard-against-multiple-dispatches"></a>Birden çok gönderine karşı koruma
+
+Bir olay geri çağırması, bir dış hizmetten veya veritabanından veri getirme gibi uzun süren bir işlemi çağıralıyorsa, bir koruyucu kullanmayı düşünün. Koruyucu, bir işlem görsel geri bildirimde çalışırken, kullanıcının birden çok işlemi sıraya almasını önleyebilir. Aşağıdaki bileşen kodu, sunucudan `isLoading` verileri `true` alırken `GetForecastAsync` olarak ayarlanır. `isLoading` Olduğunda`true`, düğme Kullanıcı arabiriminde devre dışı bırakılır:
+
+```cshtml
+@page "/fetchdata"
+@using BlazorServerSample.Data
+@inject WeatherForecastService ForecastService
+
+<button disabled="@isLoading" @onclick="UpdateForecasts">Update</button>
+
+@code {
+    private bool isLoading;
+    private WeatherForecast[] forecasts;
+
+    private async Task UpdateForecasts()
+    {
+        if (!isLoading)
+        {
+            isLoading = true;
+            forecasts = await ForecastService.GetForecastAsync(DateTime.Now);
+            isLoading = false;
+        }
+    }
+}
+```
+
+### <a name="cancel-early-and-avoid-use-after-dispose"></a>Erken iptali yapın ve bir-After-Dispose kullanmaktan kaçının
+
+[Birden çok gönderilerde koruma](#guard-against-multiple-dispatches) bölümünde açıklandığı gibi bir koruyucu kullanmanın yanı sıra, bileşen bırakıldığında uzun süre çalışan <xref:System.Threading.CancellationToken> işlemleri iptal etmek için bir kullanın. Bu yaklaşımda, bileşenlerden *sonra kullanım-sonrasında Dispose özelliğinden kaçınmanın* sağladığı avantaj vardır:
+
+```cshtml
+@implements IDisposable
+
+...
+
+@code {
+    private readonly CancellationTokenSource TokenSource = 
+        new CancellationTokenSource();
+
+    private async Task UpdateForecasts()
+    {
+        ...
+
+        forecasts = await ForecastService.GetForecastAsync(DateTime.Now, 
+            TokenSource.Token);
+
+        if (TokenSource.Token.IsCancellationRequested)
+        {
+           return;
+        }
+
+        ...
+    }
+
+    public void Dispose()
+    {
+        CancellationTokenSource.Cancel();
+    }
+}
+```
+
+### <a name="avoid-events-that-produce-large-amounts-of-data"></a>Büyük miktarlarda veri üreten olaylardan kaçının
+
+`oninput` Veya`onscroll`gibi bazı DOM olayları büyük miktarda veri üretebilir. Bu olayları Blazor Server uygulamalarında kullanmaktan kaçının.
 
 ## <a name="additional-security-guidance"></a>Ek güvenlik kılavuzu
 
@@ -330,6 +396,9 @@ Aşağıdaki güvenlik konuları listesi ayrıntılı değildir:
 * İstemcinin ilişkisiz miktarda bellek ayırmasını engelleyin.
   * Bileşen içindeki veriler.
   * `DotNetObject`istemciye döndürülen başvurular.
+* Birden çok gönderine karşı koruma.
+* Bileşen atıldığı zaman uzun süre çalışan işlemleri iptal edin.
+* Büyük miktarlarda veri üreten olaylardan kaçının.
 * Kullanıcı girişini, çağrıların bir parçası olarak kullanmaktan kaçının `NavigationManager.Navigate` ve daha önce kaçınılmaz bir şekilde, URL 'ler için Kullanıcı girişini, izin verilen kaynaklar kümesine göre doğrulayın.
 * Kullanıcı arabiriminin durumuna göre yetkilendirme kararları yapmayın, ancak yalnızca bileşen durumudur.
 * XSS saldırılarına karşı korunmak için [Içerik güvenlik ilkesi 'ni (CSP)](https://developer.mozilla.org/docs/Web/HTTP/CSP) kullanmayı düşünün.

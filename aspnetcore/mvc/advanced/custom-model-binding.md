@@ -5,12 +5,12 @@ description: Model bağlamanın, denetleyici eylemlerinin ASP.NET Core doğrudan
 ms.author: riande
 ms.date: 11/13/2018
 uid: mvc/advanced/custom-model-binding
-ms.openlocfilehash: 64429d3d9a64219216f3432924dbd0977dd6e1bb
-ms.sourcegitcommit: 2d4c1732c4866ed26b83da35f7bc2ad021a9c701
+ms.openlocfilehash: 91f42393ffee3249f9167e10eaea7b279a7cb70b
+ms.sourcegitcommit: e7c56e8da5419bbc20b437c2dd531dedf9b0dc6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70815629"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70878405"
 ---
 # <a name="custom-model-binding-in-aspnet-core"></a>ASP.NET Core özel model bağlama
 
@@ -133,6 +133,13 @@ Sağlayıcınızı koleksiyonun sonuna eklemek, özel ciltçinin bir şansı olm
 ### <a name="polymorphic-model-binding"></a>Polimorfik model bağlama
 
 Türetilmiş türlerin farklı modellerine bağlama polimorfik model bağlama olarak bilinir. İstek değeri, belirli türetilmiş model türüne bağlanmalıdır, özel model bağlama gerekir. Bu yaklaşım gerekli olmadığı takdirde polimorfik model bağlamasını önlemeyi öneririz. Polimorfik model bağlama, ilişkili modeller hakkında neden olmasını zorlaştırır. Ancak, bir uygulama çok biçimli model bağlama gerektiriyorsa, bir uygulama aşağıdaki koda benzeyebilir:
+
+Türetilmiş türlerin farklı modellerine bağlama polimorfik model bağlama olarak bilinir. İstek değeri, belirli türetilmiş model türüne bağlanmalıdır, özel model bağlama gerekir. Polimorfik model bağlama:
+
+* Tüm dillerle birlikte çalışmak üzere tasarlanan bir REST API için tipik değildir.
+* , Bağlantılı modeller hakkında neden olmasını zorlaştırır.
+
+Ancak, bir uygulama çok biçimli model bağlama gerektiriyorsa, bir uygulama aşağıdaki koda benzeyebilir:
 
 [!code-csharp[](custom-model-binding/3.0sample/PolymorphicModelBinding/ModelBinders/PolymorphicModelBinder.cs?name=snippet)]
 

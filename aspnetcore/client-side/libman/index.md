@@ -1,35 +1,35 @@
 ---
-title: ASP.NET Core LibMan ile istemci tarafı kitaplık edinme
+title: LibMan ile ASP.NET Core istemci tarafı kitaplık alma
 author: scottaddie
-description: Kitaplık Yöneticisi'ni (LibMan) kullanarak bir ASP.NET Core projesi içinde istemci tarafı kitaplık varlıkları yüklemeyi öğrenin.
+description: Kitaplık Yöneticisi 'Ni (LibMan) kullanarak bir ASP.NET Core projesindeki istemci tarafı kitaplık varlıklarını yüklemeyi öğrenin.
 ms.author: scaddie
 ms.custom: mvc
 ms.date: 08/14/2018
 uid: client-side/libman/index
-ms.openlocfilehash: a6ff0cc3342cfac74739387aa17046ed5050232f
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 87987446b7f2c625da90951510e697e06569ba36
+ms.sourcegitcommit: e7c56e8da5419bbc20b437c2dd531dedf9b0dc6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64900152"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70878336"
 ---
-# <a name="client-side-library-acquisition-in-aspnet-core-with-libman"></a>ASP.NET Core LibMan ile istemci tarafı kitaplık edinme
+# <a name="client-side-library-acquisition-in-aspnet-core-with-libman"></a>LibMan ile ASP.NET Core istemci tarafı kitaplık alma
 
-Tarafından [Scott Addie](https://twitter.com/Scott_Addie)
+[Scott Ade](https://twitter.com/Scott_Addie) tarafından
 
-Kitaplık Yöneticisi'ni (LibMan), basit ve istemci tarafı kitaplık edinme aracıdır. LibMan, popüler kitaplıklar ve çerçeveler dosya sisteminden veya sitesinden indirir bir [content delivery Network'te (CDN)](https://wikipedia.org/wiki/Content_delivery_network). Desteklenen CDN'ler dahil [CDNJS](https://cdnjs.com/) ve [unpkg](https://unpkg.com/#/). Seçilen kitaplık dosyaları getirildi ve ASP.NET Core projesi içinde uygun konuma yerleştirilir.
+Kitaplık Yöneticisi (LibMan), basit, istemci tarafı bir kitaplık alma aracıdır. LibMan, dosya sisteminden veya bir [içerik teslim ağından (CDN)](https://wikipedia.org/wiki/Content_delivery_network)popüler kitaplıkları ve çerçeveleri indirir. Desteklenen CDNs, [Cdnjs](https://cdnjs.com/), [jsdelivr](https://www.jsdelivr.com/)ve [unpkg](https://unpkg.com/#/)'yi içerir. Seçilen kitaplık dosyaları getirildi ve ASP.NET Core projesi içindeki uygun konuma yerleştirildi.
 
 ## <a name="libman-use-cases"></a>LibMan kullanım örnekleri
 
 LibMan aşağıdaki avantajları sunar:
 
-* Yalnızca gereksinim duyduğunuz kitaplık dosyaları indirilir.
-* Ek, gibi araçları [Node.js](https://nodejs.org), [npm](https://www.npmjs.com), ve [Web](https://webpack.js.org), kitaplıktaki dosyaların bir alt kümesine almak gerekli değildir.
-* Derleme görevleri veya el ile dosya kopyalama başvurmadan dosyaları belirli bir konumda yerleştirilebilir.
+* Yalnızca ihtiyacınız olan kitaplık dosyaları indirilir.
+* [Node. js](https://nodejs.org), [NPM](https://www.npmjs.com)ve [WebPack](https://webpack.js.org)gibi ek araçlar, bir kitaplıktaki dosyaların alt kümesini almak için gerekli değildir.
+* Dosyalar, derleme görevleri veya el ile dosya kopyalama işlemleri yapılmadan belirli bir konuma yerleştirilebilir.
 
-LibMan'ın avantajları hakkında daha fazla bilgi için izleme [Visual Studio 2017'deki Modern ön uç web geliştirme: LibMan segment](https://channel9.msdn.com/Events/Build/2017/B8073#time=43m34s).
+Libman 'ın avantajları hakkında daha fazla bilgi için Visual [Studio 2017 ' de modern ön uç Web geliştirmesini izleyin: LibMan segmenti](https://channel9.msdn.com/Events/Build/2017/B8073#time=43m34s).
 
-LibMan bir paket yönetim sistemi değildir. Npm gibi bir paket Yöneticisi zaten kullanıyorsanız veya [yarn](https://yarnpkg.com), bunu yapmaya devam edin. LibMan araçlarda değiştirilecek gelişmemişti.
+LibMan bir paket yönetim sistemi değildir. Zaten NPM veya [Yarn](https://yarnpkg.com)gibi bir paket Yöneticisi kullanıyorsanız, bunu yapmaya devam edin. LibMan, bu araçların yerini alacak şekilde geliştirilmedi.
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 

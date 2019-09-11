@@ -5,14 +5,14 @@ description: Blazor istemci tarafı ve sunucu tarafı barındırma modellerini a
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 09/05/2019
+ms.date: 09/07/2019
 uid: blazor/hosting-models
-ms.openlocfilehash: f7a16d64e1f874a4f6b3c8db5217810b13c7c6ff
-ms.sourcegitcommit: 43c6335b5859282f64d66a7696c5935a2bcdf966
+ms.openlocfilehash: 7880affa59af1fa4fc47aee3dc98ae9aa53729af
+ms.sourcegitcommit: e7c56e8da5419bbc20b437c2dd531dedf9b0dc6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2019
-ms.locfileid: "70800436"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70878349"
 ---
 # <a name="aspnet-core-blazor-hosting-models"></a>Blazor barındırma modellerini ASP.NET Core
 
@@ -83,24 +83,68 @@ Sunucu tarafı barındırma için aşağı taraf vardır:
 
 &dagger;*Blazor. Server. js* betiği ASP.NET Core paylaşılan çerçevede eklenmiş bir kaynaktan sunulur.
 
+### <a name="comparison-to-server-rendered-ui"></a>Sunucu tarafından işlenmiş Kullanıcı arabirimine karşılaştırma
+
+Blazor Server uygulamalarını anlamanın bir yolu, Razor görünümlerini veya Razor Pages kullanarak ASP.NET Core uygulamalarda Kullanıcı arabirimi oluşturma için geleneksel modellerden nasıl farklılık gösterir. Her iki model de, HTML içeriğini anlatmak için Razor dilini kullanır, ancak biçimlendirmenin nasıl işlendiği konusunda önemli ölçüde farklılık gösterir.
+
+Bir Razor sayfası veya görünüm işlendiğinde, her Razor kodu satırı metin biçiminde HTML yayar. Oluşturulduktan sonra sunucu, üretilen herhangi bir durum da dahil olmak üzere sayfayı veya görünüm örneğini ortadan kaldırır. Sayfa için başka bir istek gerçekleştiğinde, örneğin sunucu doğrulaması başarısız olduğunda ve doğrulama özeti görüntülendiğinde:
+
+* Sayfanın tamamı HTML metnine yeniden eklenir.
+* Sayfa istemciye gönderilir.
+
+Blazor uygulaması, *bileşen*olarak adlandırılan UI 'ın yeniden kullanılabilir öğelerinden oluşur. Bir bileşen kod C# , biçimlendirme ve diğer bileşenleri içerir. Bir bileşen işlendiğinde, Blazor bir HTML veya XML Belge Nesne Modeli (DOM) gibi dahil edilen bileşenlerin bir grafiğini üretir. Bu grafik, özelliklerde ve alanlarında tutulan bileşen durumunu içerir. Blazor, biçimlendirmenin ikili gösterimini üretmek için bileşen grafiğini değerlendirir. İkili biçimi şu şekilde olabilir:
+
+* HTML metnine açıldı (prerendering sırasında).
+* Düzenli işleme sırasında biçimlendirmeyi verimli bir şekilde güncelleştirmek için kullanılır.
+
+Blazor içinde bir kullanıcı arabirimi güncelleştirmesi şu şekilde tetiklenir:
+
+* Düğme seçme gibi kullanıcı etkileşimi.
+* Zamanlayıcı gibi uygulama Tetikleyicileri.
+
+Grafik yeniden tanımlanır ve bir UI *farkı* (fark) hesaplanır. Bu fark, istemcideki Kullanıcı arabirimini güncelleştirmek için gereken en küçük DOM düzenlemelerinin kümesidir. Fark istemciye bir ikili biçimde gönderilir ve tarayıcı tarafından uygulanır.
+
+Kullanıcı, istemci üzerinde bundan uzaklaştığında bir bileşen atılmış olur. Bir Kullanıcı bir bileşenle etkileşim kurarken, bileşenin durumu (hizmetler, kaynaklar) sunucunun belleğinde tutulmalıdır. Birçok bileşenin durumu sunucu tarafından eşzamanlı olarak Korunabileceğinden, bellek tükenmesi sorunu ele alınmalıdır. Sunucu belleğinin en iyi şekilde kullanılmasını sağlamak üzere bir Blazor sunucu uygulamasının nasıl yazılacağı hakkında yönergeler için bkz <xref:security/blazor/server-side>.
+
+### <a name="circuits"></a>Uygulanıp
+
+Bir Blazor sunucu uygulaması [ASP.NET Core SignalR](xref:signalr/introduction)'nin üzerine kurulmuştur. Her istemci, *devre*adlı bir veya daha fazla SignalR bağlantısı üzerinden sunucusuyla iletişim kurar. Bir devre, geçici ağ kesintilerine tolerans sağlayan SignalR bağlantıları üzerinden Blazor. Bir Blazor istemcisi, SignalR bağlantısının kesileceğini gördüğünde, yeni bir SignalR bağlantısı kullanarak sunucuya yeniden bağlanmaya çalışır.
+
+Bir Blazor sunucu uygulamasına bağlı her tarayıcı ekranı (tarayıcı sekmesi veya iframe) bir SignalR bağlantısı kullanır. Bu, tipik sunucu tarafından işlenmiş uygulamalarla karşılaştırıldığında daha önemli bir ayırım ifade etmiştir. Sunucu tarafından işlenen bir uygulamada, aynı uygulamayı birden çok tarayıcı ekranında açmak genellikle sunucuda ek kaynak taleplerine çevirilmez. Bir Blazor sunucu uygulamasında, her tarayıcı ekranı, sunucu tarafından yönetilecek ayrı bir devre ve bileşen durumunun ayrı örneklerini gerektirir.
+
+Blazor bir tarayıcı sekmesini kapatmayı veya bir dış URL 'ye gidilerek *düzgün* bir şekilde sonlandırılmasını kabul eder. Düzgün sonlandırma durumunda, devre ve ilişkili kaynaklar hemen serbest bırakılır. Bir istemci, örneğin bir ağ kesintisi nedeniyle düzgün şekilde kesilmeyen bir şekilde kesilebilir. Blazor sunucusu, istemcinin yeniden bağlanmasına izin vermek üzere yapılandırılabilir bir Aralık için bağlantısı kesilen devreleri depolar. Daha fazla bilgi için [aynı sunucuya yeniden bağlanma](#reconnection-to-the-same-server) bölümüne bakın.
+
+### <a name="ui-latency"></a>UI gecikmesi
+
+UI gecikme süresi, başlatılan bir eylemden Kullanıcı arabiriminin güncelleştirildiği zamana kadar geçen süredir. Bir uygulamanın kullanıcıya yanıt vermesi için kullanıcı ARABIRIMI gecikmesi için daha küçük değerler zorunludur. Bir Blazor sunucu uygulamasında her bir eylem sunucuya gönderilir, işlenir ve bir UI farkı geri gönderilir. Sonuç olarak, UI gecikmesi ağ gecikme süresinin toplamı ve eylemi işlerken sunucu gecikmesi sayısıdır.
+
+Özel bir kurumsal ağla sınırlı bir iş kolu uygulaması için, ağ gecikmesi nedeniyle kullanıcı gecikmesi algılarını üzerindeki etki, genellikle çok sayıda CEPSİZ olur. Internet üzerinden dağıtılan bir uygulama için, özellikle de kullanıcılar coğrafi olarak coğrafi olarak dağıtılmışsa gecikme süresi kullanıcılara karşı farklılık gösterebilir.
+
+Bellek kullanımı ayrıca uygulama gecikme süresine de katkıda bulunabilir. Daha fazla bellek kullanımı, her ikisi de uygulama performansının düşmesine neden olan ve bu nedenle kullanıcı arabirimi gecikmesini arttığı diskte sık görülen çöp toplama veya disk belleği belleği Daha fazla bilgi için bkz. <xref:security/blazor/server-side>.
+
+Blazor sunucu uygulamaları, ağ gecikmesini ve bellek kullanımını azaltarak UI gecikmesini en aza indirmek için iyileştirilmelidir. Ağ gecikmesini ölçmeye yönelik bir yaklaşım için bkz <xref:host-and-deploy/blazor/server-side#measure-network-latency>. SignalR ve Blazor hakkında daha fazla bilgi için bkz.
+
+* <xref:host-and-deploy/blazor/server-side>
+* <xref:security/blazor/server-side>
+
 ### <a name="reconnection-to-the-same-server"></a>Aynı sunucuya yeniden bağlanma
 
 Blazor sunucu tarafı uygulamalar sunucuya etkin bir SignalR bağlantısı gerektirir. Bağlantı kaybolursa, uygulama sunucuya yeniden bağlanmaya çalışır. İstemcinin durumu hala bellekte olduğu sürece, istemci oturumu durum kaybı olmadan devam eder.
- 
+
 İstemci bağlantının kaybolduğunu algıladığında, istemci yeniden bağlanmayı denediğinde kullanıcıya varsayılan bir kullanıcı arabirimi görüntülenir. Yeniden bağlantı başarısız olursa, kullanıcıya yeniden deneme seçeneği sağlanır. Kullanıcı arabirimini özelleştirmek için, `components-reconnect-modal` *_host. cshtml* Razor sayfasında `id` olarak bir öğesi tanımlayın. İstemci bu öğeyi bağlantı durumuna göre aşağıdaki CSS sınıflarından biriyle güncelleştirir:
- 
+
 * `components-reconnect-show`&ndash; Bağlantının kaybolduğunu ve istemcinin yeniden bağlanmaya çalışıyor olduğunu göstermek için Kullanıcı arabirimini görüntüleyin.
 * `components-reconnect-hide`&ndash; İstemcinin etkin bir bağlantısı vardır ve Kullanıcı arabirimini gizleyin.
 * `components-reconnect-failed`&ndash; Yeniden bağlantı kurulamadı. Yeniden bağlanmayı yeniden denemek için çağrısı `window.Blazor.reconnect()`yapın.
 
 ### <a name="stateful-reconnection-after-prerendering"></a>Prerendering sonrasında durum bilgisi olan yeniden bağlanma
- 
+
 Blazor sunucu tarafında bulunan uygulamalar, sunucu bağlantısı yapılmadan önce sunucu üzerindeki kullanıcı arabirimini varsayılan olarak PreRender 'a ayarlar. Bu, *_Host. cshtml* Razor sayfasında ayarlanır:
- 
+
 ```cshtml
 <body>
     <app>@(await Html.RenderComponentAsync<App>(RenderMode.ServerPrerendered))</app>
- 
+
     <script src="_framework/blazor.server.js"></script>
 </body>
 ```
@@ -117,11 +161,11 @@ Blazor sunucu tarafında bulunan uygulamalar, sunucu bağlantısı yapılmadan �
 | `Static`            | Bileşeni statik HTML olarak işler. Parametreler destekleniyor. |
 
 Statik HTML sayfasından sunucu bileşenleri işleme desteklenmiyor.
- 
+
 İstemci, uygulamayı PreRender 'da kullanılan aynı durum ile sunucuya yeniden bağlanır. Uygulamanın durumu hala bellekte ise, SignalR bağlantısı kurulduktan sonra bileşen durumu tekrar verilmez.
 
 ### <a name="render-stateful-interactive-components-from-razor-pages-and-views"></a>Razor sayfaları ve görünümlerinden durum bilgisi olan etkileşimli bileşenleri işleme
- 
+
 Durum bilgisi olan etkileşimli bileşenler Razor sayfasına veya görünümüne eklenebilir.
 
 Sayfa veya görünüm şunları işler:
@@ -129,19 +173,19 @@ Sayfa veya görünüm şunları işler:
 * Bileşen sayfa veya görünümle birlikte kullanılır.
 * Prerendering için kullanılan ilk bileşen durumu kayboldu.
 * SignalR bağlantısı oluşturulduğunda yeni bileşen durumu oluşturulur.
- 
+
 Aşağıdaki Razor sayfası bir `Counter` bileşeni işler:
 
 ```cshtml
 <h1>My Razor Page</h1>
- 
+
 @(await Html.RenderComponentAsync<Counter>(RenderMode.ServerPrerendered))
 ```
 
 ### <a name="render-noninteractive-components-from-razor-pages-and-views"></a>Razor sayfaları ve görünümlerinden etkileşimsiz bileşenleri işleme
 
 Aşağıdaki Razor sayfasında, `MyComponent` bileşen bir form kullanılarak belirtilen bir başlangıç değeriyle statik olarak işlenir:
- 
+
 ```cshtml
 <h1>My Razor Page</h1>
 
@@ -149,10 +193,10 @@ Aşağıdaki Razor sayfasında, `MyComponent` bileşen bir form kullanılarak be
     <input type="number" asp-for="InitialValue" />
     <button type="submit">Set initial value</button>
 </form>
- 
+
 @(await Html.RenderComponentAsync<MyComponent>(RenderMode.Static, 
     new { InitialValue = InitialValue }))
- 
+
 @code {
     [BindProperty(SupportsGet=true)]
     public int InitialValue { get; set; }
@@ -162,18 +206,18 @@ Aşağıdaki Razor sayfasında, `MyComponent` bileşen bir form kullanılarak be
 Statik `MyComponent` olarak işlendiğinden bileşen etkileşimli olamaz.
 
 ### <a name="detect-when-the-app-is-prerendering"></a>Uygulamanın ne zaman prerendering olduğunu Algıla
- 
+
 [!INCLUDE[](~/includes/blazor-prerendering.md)]
 
 ### <a name="configure-the-signalr-client-for-blazor-server-side-apps"></a>Blazor sunucu tarafı uygulamaları için SignalR istemcisini yapılandırma
- 
+
 Bazen, Blazor sunucu tarafı uygulamaları tarafından kullanılan SignalR istemcisini yapılandırmanız gerekir. Örneğin, bir bağlantı sorununu tanılamak için SignalR istemcisinde günlüğe kaydetmeyi yapılandırmak isteyebilirsiniz.
- 
+
 */_Host. cshtml* dosyasında SignalR istemcisini yapılandırmak için:
 
 * `autostart="false"` *Blazor. Server. js* betiği için `<script>` etikete bir öznitelik ekleyin.
 * SignalR oluşturucuyu belirten bir yapılandırma nesnesi çağırın `Blazor.start` ve geçirin.
- 
+
 ```html
 <script src="_framework/blazor.server.js" autostart="false"></script>
 <script>
