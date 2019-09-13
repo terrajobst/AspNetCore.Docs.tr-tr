@@ -1,4 +1,4 @@
-Blazor sunucu tarafı bir uygulama prerendering olduğunda, tarayıcıyla bir bağlantı kurulmadığından, JavaScript 'e çağırma gibi bazı eylemler mümkün değildir. Bileşenler, ön işlenmiş olduğunda farklı şekilde işlenmesi gerekebilir.
+Blazor sunucu uygulaması prerendering olduğunda, tarayıcıyla bir bağlantı kurulmadığından, JavaScript 'e çağırma gibi bazı eylemler mümkün değildir. Bileşenler, ön işlenmiş olduğunda farklı şekilde işlenmesi gerekebilir.
 
 Tarayıcı bağlantısı kurulana kadar JavaScript birlikte çalışma çağrılarını geciktirmek için `OnAfterRenderAsync` bileşen yaşam döngüsü olayını kullanabilirsiniz. Bu olay yalnızca uygulama tam olarak işlendikten ve istemci bağlantısı kurulduktan sonra çağırılır.
 
@@ -62,7 +62,7 @@ Burada `JSRuntime.InvokeAsync` çağrılır, bileşen `ElementRef` işlenene kad
 }
 ```
 
-Uygulamanın Şu anda prerendering içerik olduğunu temel alarak farklı içerikleri koşullu olarak işlemek için, `IsConnected` `IComponentContext` hizmette özelliğini kullanın. Sunucu tarafı `IsConnected` çalışırken yalnızca istemciye etkin bir bağlantı `true` varsa döndürür. İstemci tarafı çalışırken `true` her zaman döndürülür.
+Uygulamanın Şu anda prerendering içerik olduğunu temel alarak farklı içerikleri koşullu olarak işlemek için, `IsConnected` `IComponentContext` hizmette özelliğini kullanın. Blazor Server uygulamaları için, `IsConnected` yalnızca istemciye `true` etkin bir bağlantı olup olmadığını döndürür. Her zaman Blazor `true` webassembly Apps ' i döndürür.
 
 ```cshtml
 @page "/isconnected-example"

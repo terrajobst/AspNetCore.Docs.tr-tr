@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 08/06/2019
 uid: blazor/handle-errors
-ms.openlocfilehash: 52f55af99881b09c84d9cf88f5845efcb1ea76a1
-ms.sourcegitcommit: 776367717e990bdd600cb3c9148ffb905d56862d
+ms.openlocfilehash: d3e261e83f375574339a8ce3428e8bfb73df4307
+ms.sourcegitcommit: 092061c4f6ef46ed2165fa84de6273d3786fb97e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68913861"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70963983"
 ---
 # <a name="handle-errors-in-aspnet-core-blazor-apps"></a>ASP.NET Core Blazor uygulamalarında hataları işleme
 
@@ -22,7 +22,7 @@ Bu makalede, Blazor işlenmemiş özel durumları nasıl yönettiği ve hatalar�
 
 ## <a name="how-the-blazor-framework-reacts-to-unhandled-exceptions"></a>Blazor Framework işlenmemiş özel durumlara nasıl yeniden davranır
 
-Blazor sunucu tarafı durum bilgisi olan bir çerçevedir. Kullanıcılar bir uygulamayla etkileşim kurarken, *devre*olarak bilinen sunucuya bir bağlantı sağlar. Devre, etkin bileşen örneklerini ve diğer birçok durum düzeyini barındırır; örneğin:
+Blazor sunucusu durum bilgisi olan bir çerçevedir. Kullanıcılar bir uygulamayla etkileşim kurarken, *devre*olarak bilinen sunucuya bir bağlantı sağlar. Devre, etkin bileşen örneklerini ve diğer birçok durum düzeyini barındırır; örneğin:
 
 * Bileşenlerin en son işlenmiş çıktısı.
 * İstemci tarafı olayları tarafından tetiklenebilecek geçerli olay işleme temsilcileri kümesi.

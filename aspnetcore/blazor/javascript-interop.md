@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 09/07/2019
 uid: blazor/javascript-interop
-ms.openlocfilehash: fa485420c01e6a6d4181f733d6848de08ffca730
-ms.sourcegitcommit: e7c56e8da5419bbc20b437c2dd531dedf9b0dc6b
+ms.openlocfilehash: 1572b9ee646577d094409cc33dd621f2f73dc863
+ms.sourcegitcommit: 092061c4f6ef46ed2165fa84de6273d3786fb97e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70878359"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70964207"
 ---
 # <a name="aspnet-core-blazor-javascript-interop"></a>ASP.NET Core Blazor JavaScript birlikte çalışması
 
@@ -28,15 +28,15 @@ Bir JavaScript işlevini çağırmak için .NET kodunun gerekli olduğu durumlar
 
 .Net 'ten JavaScript 'e çağrı yapmak için `IJSRuntime` soyutlamayı kullanın. Yöntemi `InvokeAsync<T>` , herhangi bir sayıda JSON seri hale getirilebilir bağımsız değişkenle birlikte çağırmak istediğiniz JavaScript işlevi için bir tanımlayıcı alır. İşlev tanımlayıcısı genel kapsama (`window`) göredir. Çağırmak `window.someScope.someFunction`isterseniz, tanımlayıcı olur `someScope.someFunction`. Çağrılmadan önce işlevi kaydetmeniz gerekmez. Dönüş türünün `T` de JSON seri hale getirilebilir olması gerekir.
 
-Sunucu tarafı uygulamalar için:
+Blazor Server uygulamaları için:
 
-* Sunucu tarafı uygulama tarafından birden çok kullanıcı isteği işlenir. JavaScript işlevlerini `JSRuntime.Current` çağırmak için bir bileşeni çağırmayın.
+* Birden çok kullanıcı isteği, Blazor Server uygulaması tarafından işlenir. JavaScript işlevlerini `JSRuntime.Current` çağırmak için bir bileşeni çağırmayın.
 * `IJSRuntime` Soyutlamayı ekler ve JavaScript birlikte çalışma çağrılarını vermek için eklenen nesneyi kullanın.
 * Blazor uygulaması prerendering olduğunda, tarayıcıyla bir bağlantı kurulmadığı için JavaScript 'e çağrı yapılamaz. Daha fazla bilgi için bkz. [bir Blazor uygulaması ne zaman prerendering](#detect-when-a-blazor-app-is-prerendering) bölümüne bakın.
 
 Aşağıdaki örnek, deneysel bir JavaScript tabanlı kod çözücüsü olan [Textdecoder](https://developer.mozilla.org/docs/Web/API/TextDecoder)tabanlıdır. Örnek, bir C# yöntemden JavaScript işlevinin nasıl çağrılacağını gösterir. JavaScript işlevi bir C# yöntemden bir bayt dizisi kabul eder, dizinin kodunu çözer ve görüntülenecek metni bileşene döndürür.
 
-Wwwroot/index.html (Blazor Client -Side) veya *Pages/_host. cshtml* (Blazor sunucu-tarafı) `TextDecoder` öğesininiçinde,geçirilenbirdizininkodunuçözmekiçinkullananbirişlevsağlayın:`<head>`
+Wwwroot/index.html (Blazor webassembly) veya *Pages/_host. cshtml* (Blazor Server) `TextDecoder` öğesininiçinde,geçirilenbirdizininkodunuçözmekiçinkullananbirişlev`<head>` sağlayın:
 
 [!code-html[](javascript-interop/samples_snapshot/index-script.html)]
 
@@ -70,7 +70,7 @@ Aşağıdaki bileşen:
   IJSRuntime JSRuntime { get; set; }
   ```
 
-Bu konuya eşlik eden istemci tarafı örnek uygulamada, Kullanıcı girişi almak ve bir hoş geldiniz iletisi göstermek üzere DOM ile etkileşime geçen istemci tarafı uygulama için iki JavaScript işlevi mevcuttur:
+Bu konuya eşlik eden istemci tarafı örnek uygulamada, Kullanıcı girişi almak ve bir hoş geldiniz iletisi göstermek üzere DOM ile etkileşime geçen uygulama için iki JavaScript işlevi mevcuttur:
 
 * `showPrompt`&ndash; Kullanıcı girişini kabul etmek için bir istem üretir (kullanıcının adı) ve arayan adına adı döndürür.
 * `displayWelcome`' A `id` sahip bir DOM nesnesine çağırandan bir hoş geldiniz iletisi atar. `welcome` &ndash;
@@ -79,13 +79,13 @@ Bu konuya eşlik eden istemci tarafı örnek uygulamada, Kullanıcı girişi alm
 
 [!code-javascript[](./common/samples/3.x/BlazorSample/wwwroot/exampleJsInterop.js?highlight=2-7)]
 
-JavaScript dosyasına başvuran etiketiWwwroot/index.HTMLFile(BlazorClient-Side)veyaPages/_host.cshtmldosyasında(BlazorServer-Side)`<script>` yerleştirin.
+JavaScript dosyasına başvuran etiketiWwwroot/index.htmldosyasına(Blazorwebassembly)veyaPages/_host.cshtmldosyasına(BlazorServer)`<script>` yerleştirin.
 
-*Wwwroot/index.html* (Blazor istemci tarafı):
+*Wwwroot/index.html* (Blazor WebAssembly):
 
 [!code-html[](./common/samples/3.x/BlazorSample/wwwroot/index.html?highlight=15)]
 
-*Pages/_Host. cshtml* (Blazor sunucu tarafı):
+*Pages/_Host. cshtml* (Blazor sunucusu):
 
 [!code-cshtml[](javascript-interop/samples_snapshot/_Host.cshtml?highlight=29)]
 
@@ -93,7 +93,7 @@ JavaScript dosyasına başvuran etiketiWwwroot/index.HTMLFile(BlazorClient-Side)
 
 .NET yöntemleri, çağırarak `IJSRuntime.InvokeAsync<T>`, *examplejsınterop. js* dosyasındaki JavaScript işlevleriyle birlikte çalışır.
 
-Soyutlama `IJSRuntime` , sunucu tarafı senaryolara izin vermek için zaman uyumsuzdur. Uygulama istemci tarafı çalıştırıyorsa ve bir JavaScript işlevini zaman uyumlu olarak çağırmak istiyorsanız bunun yerine alt türe çevirme `IJSInProcessRuntime` yapın ve çağırın. `Invoke<T>` Çoğu JavaScript birlikte çalışma kitaplıklarının, kitaplıkların tüm senaryolarda, istemci tarafında veya sunucu tarafında kullanılabilir olmasını sağlamak için zaman uyumsuz API 'Leri kullanmasını öneririz.
+Soyutlama `IJSRuntime` , Blazor sunucu senaryolarına izin vermek için zaman uyumsuzdur. Uygulama bir Blazor webassembly uygulaması ise ve bir JavaScript işlevini zaman uyumlu olarak çağırmak istiyorsanız bunun yerine alt türe çevirme `IJSInProcessRuntime` yapın ve `Invoke<T>` çağırın. Çoğu JavaScript birlikte çalışma kitaplıklarının, kitaplıkların tüm senaryolarda kullanılabilir olduğundan emin olmak için zaman uyumsuz API 'Leri kullanmasını öneririz.
 
 Örnek uygulama, JavaScript birlikte çalışabildiğini gösteren bir bileşen içerir. Bileşen:
 
@@ -178,7 +178,7 @@ Yöntemi doğrudan nesnesi üzerinde çağrılır. Aşağıdaki örnek, statik `
 
 ### <a name="static-net-method-call"></a>Statik .NET yöntemi çağrısı
 
-JavaScript 'ten statik bir .NET yöntemi çağırmak için `DotNet.invokeMethod` veya `DotNet.invokeMethodAsync` işlevlerini kullanın. Çağırmak istediğiniz statik metodun tanımlayıcısını, işlevi içeren derlemenin adını ve tüm bağımsız değişkenleri geçirin. Zaman uyumsuz sürüm, sunucu tarafı senaryolarını desteklemek için tercih edilir. JavaScript 'ten bir .NET yöntemi çağırmak için, .net yönteminin public, static ve `[JSInvokable]` özniteliğe sahip olması gerekir. Varsayılan olarak, yöntem tanımlayıcısı yöntem adıdır, ancak `JSInvokableAttribute` oluşturucuyu kullanarak farklı bir tanımlayıcı belirtebilirsiniz. Açık genel yöntemlerin çağrılması Şu anda desteklenmiyor.
+JavaScript 'ten statik bir .NET yöntemi çağırmak için `DotNet.invokeMethod` veya `DotNet.invokeMethodAsync` işlevlerini kullanın. Çağırmak istediğiniz statik metodun tanımlayıcısını, işlevi içeren derlemenin adını ve tüm bağımsız değişkenleri geçirin. Blazor sunucu senaryolarını desteklemek için zaman uyumsuz sürüm tercih edilir. JavaScript 'ten bir .NET yöntemi çağırmak için, .net yönteminin public, static ve `[JSInvokable]` özniteliğe sahip olması gerekir. Varsayılan olarak, yöntem tanımlayıcısı yöntem adıdır, ancak `JSInvokableAttribute` oluşturucuyu kullanarak farklı bir tanımlayıcı belirtebilirsiniz. Açık genel yöntemlerin çağrılması Şu anda desteklenmiyor.
 
 Örnek uygulama, bir dizi C# `int`öğeleri döndürmek için bir yöntem içerir. `JSInvokable` Özniteliği yöntemine uygulanır.
 
@@ -268,4 +268,4 @@ JS birlikte çalışması, ağ hataları nedeniyle başarısız olabilir ve güv
       TimeSpan.FromSeconds({SECONDS}), new[] { "Arg1" });
   ```
 
-Kaynak tükenmesi hakkında daha fazla bilgi için bkz <xref:security/blazor/server-side>.
+Kaynak tükenmesi hakkında daha fazla bilgi için bkz <xref:security/blazor/server>.

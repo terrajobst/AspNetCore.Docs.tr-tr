@@ -1,12 +1,12 @@
-# <a name="blazor-client-side-sample-app"></a>(İstemci-tarafı) Blazor örnek uygulaması
+# <a name="blazor-webassembly-sample-app"></a>Blazor WebAssembly örnek uygulaması
 
-Bu örnek Blazor belgelerinde açıklanan Blazor senaryoları kullanımını gösterir.
+Bu örnek, Blazor belgelerinde açıklanan Blazor senaryolarının kullanımını gösterir.
 
-## <a name="call-web-api-example"></a>Web API'si örneğinde çağırın
+## <a name="call-web-api-example"></a>Web API 'SI çağırma örneği
 
-Web API'si örneğinde çalışan bir web API'si için örnek uygulamayı temel gerektirir <a href="https://docs.microsoft.com/aspnet/core/tutorials/first-web-api">Öğreticisi: ASP.NET Core MVC ile bir web API'si oluşturma</a> konu. Örnek uygulaması web API'si için isteği yapan `https://localhost:10000/api/todo`. Farklı bir web API adresi kullanılırsa, güncelleştirme `ServiceEndpoint` Razor bileşenin sabit değerinde `@functions` blok.</p>
+Web API örneği, <a href="https://docs.microsoft.com/aspnet/core/tutorials/first-web-api">öğretici için örnek uygulamayı temel alan çalışan bir Web API 'si gerektirir: ASP.NET Core MVC</a> konusunda bir Web API 'si oluşturun. Örnek uygulama, ' de `https://localhost:10000/api/todo`Web API 'sine istek yapar. Farklı bir Web API adresi kullanılırsa, Razor `ServiceEndpoint` `@functions` bileşeni bloğundaki sabit değeri güncelleştirin.</p>
 
-Örnek uygulamayı yapar bir <a href="https://docs.microsoft.com/aspnet/core/security/cors">çıkış noktaları arası kaynak paylaşımı (CORS)</a> yapılan istekte `http://localhost:5000` veya `https://localhost:5001` Web API'sine. Kimlik bilgilerini (yetkilendirme tanımlama/üst bilgiler) izin verilir. Web API'SİNİN aşağıdaki CORS ara yazılım yapılandırma ekleme `Startup.Configure` yöntemi çağırmadan önce `UseMvc`:</p>
+Örnek uygulama, veya `https://localhost:5001` Web API 'sinden `http://localhost:5000` bir çıkış noktaları <a href="https://docs.microsoft.com/aspnet/core/security/cors">arası kaynak paylaşımı (CORS)</a> isteği oluşturur. Kimlik bilgilerine (yetkilendirme tanımlama bilgilerine/üstbilgilere) izin verilir. Aşağıdaki CORS ara yazılım yapılandırmasını, çağrı `Startup.Configure` `UseMvc`yapmadan önce Web API 'sinin yöntemine ekleyin:</p>
 
 ```csharp
 app.UseCors(policy => 
@@ -16,6 +16,6 @@ app.UseCors(policy =>
     .AllowCredentials());
 ```
 
-Etki alanları ve bağlantı noktalarını ayarlamak `WithOrigins` Blazor uygulama için gerektiği şekilde.
+Blazor uygulaması için gerektiği `WithOrigins` gibi etki alanlarını ve bağlantı noktalarını ayarlayın.
 
-Web API CORS yetkilendirme tanımlama/headers ve istekleri istemci kodundan izin vermek için yapılandırılmış, ancak bu öğretici tarafından oluşturulan API web isteklerini gerçekten yetkilendirmek değil. Bkz: <a href="https://docs.microsoft.com/aspnet/core/security/">ASP.NET Core güvenlik ve kimlik makaleleri</a> Uygulama Kılavuzu için.
+Web API 'SI, istemci kodundan yetkilendirme tanımlama bilgilerine/üstbilgilere ve isteklere izin vermek üzere CORS için yapılandırılmıştır, ancak öğretici tarafından oluşturulan Web API 'SI istekleri yetkilendirmez. Uygulama Kılavuzu için bkz. <a href="https://docs.microsoft.com/aspnet/core/security/">güvenlik ve kimlik makaleleri ASP.NET Core</a> .

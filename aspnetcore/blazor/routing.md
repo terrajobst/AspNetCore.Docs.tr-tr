@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 09/06/2019
 uid: blazor/routing
-ms.openlocfilehash: d348908261c51b477aa698a407266d05c0df5a33
-ms.sourcegitcommit: 43c6335b5859282f64d66a7696c5935a2bcdf966
+ms.openlocfilehash: 1c61eedf7dbf0bbc8796eaa11360783b9d7aba6c
+ms.sourcegitcommit: 092061c4f6ef46ed2165fa84de6273d3786fb97e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2019
-ms.locfileid: "70800336"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70963868"
 ---
 # <a name="aspnet-core-blazor-routing"></a>ASP.NET Core Blazor yönlendirme
 
@@ -22,7 +22,7 @@ Tarafından [Luke Latham](https://github.com/guardrex)
 
 ## <a name="aspnet-core-endpoint-routing-integration"></a>Uç nokta yönlendirme tümleştirmesi ASP.NET Core
 
-Blazor sunucu tarafı [ASP.NET Core uç nokta yönlendirme](xref:fundamentals/routing)ile tümleşiktir. ASP.NET Core bir uygulama, `MapBlazorHub` içindeki `Startup.Configure`etkileşimli bileşenler için gelen bağlantıları kabul edecek şekilde yapılandırılmıştır:
+Blazor sunucusu [ASP.NET Core uç nokta yönlendirme](xref:fundamentals/routing)ile tümleşiktir. ASP.NET Core bir uygulama, `MapBlazorHub` içindeki `Startup.Configure`etkileşimli bileşenler için gelen bağlantıları kabul edecek şekilde yapılandırılmıştır:
 
 [!code-csharp[](routing/samples_snapshot/3.x/Startup.cs?highlight=5)]
 
@@ -55,7 +55,7 @@ Birden çok yol şablonu, bir bileşene uygulanabilir. Aşağıdaki bileşen ve 
 [!code-cshtml[](common/samples/3.x/BlazorSample/Pages/BlazorRoute.razor?name=snippet_BlazorRoute)]
 
 > [!IMPORTANT]
-> URL 'lerin doğru bir şekilde çözülmesi için `<base>` , uygulamanın, `href` özniteliğinde belirtilen uygulama temel yolu ile *Wwwroot/index.html* File (Blazor Client-Side) veya *Pages/_host. cshtml* dosyasında (Blazor sunucu-tarafı) bir etiketi içermesi gerekir ( `<base href="/">`). Daha fazla bilgi için bkz. <xref:host-and-deploy/blazor/index#app-base-path>.
+> URL 'lerin doğru şekilde çözülmesi için `<base>` , uygulamanın, `href` özniteliğinde belirtilen uygulama temel yolu ile *Wwwroot/index.html* File (Blazor webassembly) veya *Pages/_host. cshtml* dosyasında (Blazor Server) bir etiketi içermesi gerekir (`<base href="/">`). Daha fazla bilgi için bkz. <xref:host-and-deploy/blazor/index#app-base-path>.
 
 ## <a name="provide-custom-content-when-content-isnt-found"></a>İçerik bulunamadığında özel içerik sağla
 
@@ -120,7 +120,7 @@ Aşağıdaki tabloda gösterilen yol kısıtlamaları mevcuttur. Sabit kültür 
 
 ### <a name="routing-with-urls-that-contain-dots"></a>Noktalar içeren URL 'lerle yönlendirme
 
-Blazor sunucu tarafı uygulamalarda, *_Host. cshtml* `/` içindeki varsayılan yol (`@page "/"`). URL bir dosya isteyecek şekilde göründüğünden, nokta`.`() içeren bir istek URL 'si varsayılan yol tarafından eşleşmiyor. Bir Blazor uygulaması mevcut olmayan bir statik dosya için *404-Found* yanıtı döndürür. Bir nokta içeren yolları kullanmak için *_Host. cshtml* 'yi aşağıdaki yol şablonuyla yapılandırın:
+Blazor Server uygulamalarında, *_Host. cshtml* `/` içindeki varsayılan yol (`@page "/"`). URL bir dosya isteyecek şekilde göründüğünden, nokta`.`() içeren bir istek URL 'si varsayılan yol tarafından eşleşmiyor. Bir Blazor uygulaması mevcut olmayan bir statik dosya için *404-Found* yanıtı döndürür. Bir nokta içeren yolları kullanmak için *_Host. cshtml* 'yi aşağıdaki yol şablonuyla yapılandırın:
 
 ```cshtml
 @page "/{**path}"
@@ -167,7 +167,7 @@ Kod `Microsoft.AspNetCore.Components.NavigationManager` içinde C# URI ve gezinm
 | Üye | Açıklama |
 | ------ | ----------- |
 | `Uri` | Geçerli mutlak URI 'yi alır. |
-| `BaseUri` | Mutlak bir URI oluşturmak için göreli URI yollarına eklenebilir olan temel URI 'yi (sondaki eğik çizgiyle birlikte) alır. Genellikle, `BaseUri` *Wwwroot/index.html* (Blazor `href` Client-Side) veya `<base>` *Pages/_host. cshtml* (Blazor sunucu-tarafı) içindeki belgenin öğesinde bulunan özniteliğe karşılık gelir. |
+| `BaseUri` | Mutlak bir URI oluşturmak için göreli URI yollarına eklenebilir olan temel URI 'yi (sondaki eğik çizgiyle birlikte) alır. Genellikle, `BaseUri` *Wwwroot/index.html* (Blazor `href` webassembly) veya `<base>` *Pages/_host. cshtml* (Blazor Server) içindeki belge öğesindeki özniteliğe karşılık gelir. |
 | `NavigateTo` | Belirtilen URI 'ye gider. `forceLoad` Şu`true`ise:<ul><li>İstemci tarafı yönlendirme atlanır.</li><li>Bu tarayıcı, URI 'nin normalde istemci tarafı yönlendirici tarafından işlenip işlenmediğini sunucudan yeni sayfayı yüklemeye zorlanır.</li></ul> |
 | `LocationChanged` | Gezinti konumu değiştiğinde harekete gelen bir olay. |
 | `ToAbsoluteUri` | Göreli bir URI 'yi mutlak bir URI 'ye dönüştürür. |

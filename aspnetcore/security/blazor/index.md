@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 09/05/2019
 uid: security/blazor/index
-ms.openlocfilehash: 2ba7b0612c2be50ae0797c50dc3cb0d63c0f0c2d
-ms.sourcegitcommit: 43c6335b5859282f64d66a7696c5935a2bcdf966
+ms.openlocfilehash: ab8cc547463ef647316b5a4e377c15021debc4b1
+ms.sourcegitcommit: 092061c4f6ef46ed2165fa84de6273d3786fb97e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2019
-ms.locfileid: "70800514"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70963958"
 ---
 # <a name="aspnet-core-blazor-authentication-and-authorization"></a>ASP.NET Core Blazor kimlik doğrulaması ve yetkilendirme
 
@@ -20,26 +20,26 @@ ms.locfileid: "70800514"
 
 ASP.NET Core, Blazor uygulamalarında güvenliğin yapılandırmasını ve yönetimini destekler.
 
-Güvenlik senaryoları Blazor sunucu tarafı ve istemci tarafı uygulamalar arasında farklılık gösterir. Blazor sunucu tarafı uygulamalar sunucuda çalıştığı için, yetkilendirme denetimleri şunları tespit edebilir:
+Güvenlik senaryoları Blazor Server ve Blazor WebAssembly Apps arasında farklılık gösterir. Blazor sunucu uygulamaları sunucuda çalıştığı için, yetkilendirme denetimleri şunları tespit edebilir:
 
 * Kullanıcıya sunulan kullanıcı ARABIRIMI seçenekleri (örneğin, bir kullanıcı için hangi menü girişlerinin kullanılabildiği).
 * Uygulama ve bileşenlerin bölgeleri için erişim kuralları.
 
-Blazor istemci tarafı uygulamalar istemci üzerinde çalışır. Yetkilendirme *yalnızca* hangi kullanıcı arabirimi seçeneklerinin gösterileceğini belirlemede kullanılır. İstemci tarafı denetimleri bir kullanıcı tarafından değiştirililerek veya atlandığından, bir Blazor istemci tarafı uygulaması yetkilendirme erişim kurallarını zorunlu kılamaz.
+Blazor WebAssembly Apps, istemcide çalışır. Yetkilendirme *yalnızca* hangi kullanıcı arabirimi seçeneklerinin gösterileceğini belirlemede kullanılır. İstemci tarafı denetimleri bir kullanıcı tarafından değiştirililerek veya atlandığından, bir Blazor WebAssembly uygulaması yetkilendirme erişim kurallarını zorunlu kılamaz.
 
 ## <a name="authentication"></a>Kimlik doğrulaması
 
-Blazor, kullanıcının kimliğini kurmak için mevcut ASP.NET Core kimlik doğrulama mekanizmalarını kullanır. Tam mekanizma, Blazor uygulamasının barındırılan, sunucu tarafı veya istemci tarafı ile ilgili olarak değişir.
+Blazor, kullanıcının kimliğini kurmak için mevcut ASP.NET Core kimlik doğrulama mekanizmalarını kullanır. Tam mekanizma Blazor uygulamasının nasıl barındırıldığını, Blazor Server veya Blazor WebAssembly öğesine bağlıdır.
 
-### <a name="blazor-server-side-authentication"></a>Blazor sunucu tarafı kimlik doğrulaması
+### <a name="blazor-server-authentication"></a>Blazor sunucusu kimlik doğrulaması
 
-Blazor sunucu tarafı uygulamalar, SignalR kullanılarak oluşturulan gerçek zamanlı bir bağlantı üzerinden çalışır. [SignalR tabanlı uygulamalarda kimlik doğrulaması](xref:signalr/authn-and-authz) , bağlantı kurulduunda işlenir. Kimlik doğrulaması, bir tanımlama bilgisine veya başka bir taşıyıcı belirtecine dayalı olabilir.
+Blazor Server uygulamaları, SignalR kullanılarak oluşturulan gerçek zamanlı bir bağlantı üzerinden çalışır. [SignalR tabanlı uygulamalarda kimlik doğrulaması](xref:signalr/authn-and-authz) , bağlantı kurulduunda işlenir. Kimlik doğrulaması, bir tanımlama bilgisine veya başka bir taşıyıcı belirtecine dayalı olabilir.
 
-Blazor sunucu tarafı proje şablonu, proje oluşturulduğunda kimlik doğrulamasını sizin için ayarlayabilir.
+Blazor sunucusu proje şablonu, proje oluşturulduğunda kimlik doğrulamasını sizin için ayarlayabilir.
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-Kimlik doğrulama mekanizması ile yeni bir Blazor <xref:blazor/get-started> sunucu tarafı projesi oluşturmak için makalesindeki Visual Studio kılavuzunu izleyin.
+Kimlik doğrulama mekanizması ile yeni bir Blazor <xref:blazor/get-started> Server projesi oluşturmak için makalesindeki Visual Studio kılavuzunu izleyin.
 
 **Yeni ASP.NET Core Web uygulaması oluştur** Iletişim kutusunda **Blazor Server uygulama** şablonunu seçtikten sonra, **kimlik doğrulaması**altında **Değiştir** ' i seçin.
 
@@ -54,7 +54,7 @@ Diğer ASP.NET Core projelerine yönelik aynı kimlik doğrulama mekanizması k�
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
-Kimlik doğrulama mekanizması ile yeni bir <xref:blazor/get-started> Blazor sunucu tarafı projesi oluşturmak için makalesindeki Visual Studio Code kılavuzunu izleyin:
+Kimlik doğrulama mekanizması ile yeni bir <xref:blazor/get-started> Blazor Server projesi oluşturmak için makalesindeki Visual Studio Code kılavuzunu izleyin:
 
 ```console
 dotnet new blazorserver -o {APP NAME} -au {AUTHENTICATION}
@@ -88,7 +88,7 @@ Komutu, `{APP NAME}` yer tutucu için belirtilen değere sahip adlı bir klasör
 <!--
 # [.NET Core CLI](#tab/netcore-cli/)
 
-Follow the .NET Core CLI guidance in the <xref:blazor/get-started> article to create a new Blazor server-side project with an authentication mechanism:
+Follow the .NET Core CLI guidance in the <xref:blazor/get-started> article to create a new Blazor Server project with an authentication mechanism:
 
 ```console
 dotnet new blazorserver -o {APP NAME} -au {AUTHENTICATION}
@@ -111,15 +111,15 @@ The command creates a folder named with the value provided for the `{APP NAME}` 
 
 ---
 
-### <a name="blazor-client-side-authentication"></a>Blazor istemci tarafı kimlik doğrulaması
+### <a name="blazor-webassembly-authentication"></a>Blazor WebAssembly kimlik doğrulaması
 
-Blazor istemci tarafı uygulamalarda, tüm istemci tarafı kodlar kullanıcılar tarafından değiştirilemediği için kimlik doğrulama denetimleri atlanabilir. Aynı, JavaScript SPA çerçeveleri veya herhangi bir işletim sistemi için yerel uygulamalar dahil olmak üzere tüm istemci tarafı uygulama teknolojileri için de geçerlidir.
+Blazor WebAssembly uygulamalarında, tüm istemci tarafı kodlar kullanıcılar tarafından değiştirilemediği için kimlik doğrulama denetimleri atlanabilir. Aynı, JavaScript SPA çerçeveleri veya herhangi bir işletim sistemi için yerel uygulamalar dahil olmak üzere tüm istemci tarafı uygulama teknolojileri için de geçerlidir.
 
-Blazor istemci tarafı uygulamaları `AuthenticationStateProvider` için özel bir hizmetin uygulanması aşağıdaki bölümlerde ele alınmıştır.
+Blazor webassembly `AuthenticationStateProvider` uygulamaları için özel bir hizmetin uygulanması aşağıdaki bölümlerde ele alınmıştır.
 
 ## <a name="authenticationstateprovider-service"></a>AuthenticationStateProvider hizmeti
 
-Blazor sunucu tarafı uygulamalar, `AuthenticationStateProvider` `HttpContext.User`ASP.NET Core 'dan kimlik doğrulama durumu verilerini alan yerleşik bir hizmeti içerir. Kimlik doğrulama durumu, mevcut ASP.NET Core sunucu tarafı kimlik doğrulama mekanizmalarıyla tümleştirilir.
+Blazor Server uygulamaları `AuthenticationStateProvider` `HttpContext.User`ASP.NET Core ' den kimlik doğrulama durumu verilerini alan yerleşik bir hizmet içerir. Kimlik doğrulama durumu, mevcut ASP.NET Core sunucu tarafı kimlik doğrulama mekanizmalarıyla tümleştirilir.
 
 `AuthenticationStateProvider`, `AuthorizeView` bileşen ve `CascadingAuthenticationState` bileşen tarafından kimlik doğrulama durumunu almak için kullanılan temel hizmettir.
 
@@ -157,7 +157,7 @@ Bağımlılık ekleme (dı) ve hizmetleri hakkında daha fazla bilgi için bkz <
 
 ## <a name="implement-a-custom-authenticationstateprovider"></a>Özel bir AuthenticationStateProvider uygulama
 
-Bir Blazor istemci tarafı uygulaması oluşturuyorsanız veya uygulamanızın belirtimi kesinlikle özel bir sağlayıcı gerektiriyorsa, sağlayıcı uygulayın ve geçersiz kılın `GetAuthenticationStateAsync`:
+Blazor WebAssembly uygulaması oluşturuyorsanız veya uygulamanızın belirtimi kesinlikle özel bir sağlayıcı gerektiriyorsa, sağlayıcı uygulayın ve geçersiz kılın `GetAuthenticationStateAsync`:
 
 ```csharp
 class CustomAuthStateProvider : AuthenticationStateProvider
@@ -310,13 +310,13 @@ Daha fazla bilgi için bkz. <xref:security/authorization/roles>.
 
 Talep tabanlı yetkilendirme, ilke tabanlı yetkilendirme için özel bir durumdur. Örneğin, kullanıcıların belirli bir talebe sahip olmasını gerektiren bir ilke tanımlayabilirsiniz. Daha fazla bilgi için bkz. <xref:security/authorization/policies>.
 
-Bu API 'Ler, Blazor sunucu tarafı veya Blazor istemci tarafı uygulamalarında kullanılabilir.
+Bu API 'Ler, Blazor Server ya da Blazor WebAssembly uygulamalarında kullanılabilir.
 
 `Roles` Ne de `Policy` belirtilmemişse ,`AuthorizeView` varsayılan ilkeyi kullanır.
 
 ### <a name="content-displayed-during-asynchronous-authentication"></a>Zaman uyumsuz kimlik doğrulaması sırasında görünen içerik
 
-Blazor, kimlik doğrulaması durumunun *zaman uyumsuz*olarak belirlenmesine izin verir. Bu yaklaşım için birincil senaryo, kimlik doğrulaması için bir dış uç noktaya istek yapan Blazor istemci tarafı uygulamaındadır.
+Blazor, kimlik doğrulaması durumunun *zaman uyumsuz*olarak belirlenmesine izin verir. Bu yaklaşım için birincil senaryo, kimlik doğrulaması için bir dış uç noktaya istek yapan Blazor WebAssembly uygulamalarında bulunur.
 
 Kimlik doğrulama devam ederken, `AuthorizeView` varsayılan olarak içerik görüntülemez. Kimlik doğrulaması sırasında içeriği göstermek için `<Authorizing>` öğesini kullanın:
 
@@ -333,7 +333,7 @@ Kimlik doğrulama devam ederken, `AuthorizeView` varsayılan olarak içerik gör
 </AuthorizeView>
 ```
 
-Bu yaklaşım normalde Blazor sunucu tarafı uygulamaları için geçerli değildir. Blazor sunucu tarafı uygulamalar, durum belirlenir oluşturmaz kimlik doğrulama durumunu bilir. `Authorizing`içerik, Blazor sunucu tarafı uygulamasının `AuthorizeView` bileşeni içinde bulunabilir, ancak içerik hiçbir şekilde gösterilmez.
+Bu yaklaşım normalde Blazor Server uygulamaları için geçerli değildir. Blazor sunucu uygulamaları, durum belirlenir oluşturmaz kimlik doğrulama durumunu bilir. `Authorizing`içerik, Blazor sunucu uygulamasının `AuthorizeView` bileşeninde bulunabilir, ancak içerik hiçbir şekilde gösterilmez.
 
 ## <a name="authorize-attribute"></a>[Yetkilendir] özniteliği
 
@@ -382,7 +382,7 @@ Bileşen `Router` ilebirliktebileşeni,uygulamanınşudurumlarda`AuthorizeRouteV
 * Kullanıcı, bileşene uygulanan `[Authorize]` bir koşulla başarısız olur. Özniteliği [ [Yetkilendir] öznitelik](#authorize-attribute) bölümünde ele alınmıştır. `[Authorize]`
 * Zaman uyumsuz kimlik doğrulama devam ediyor.
 
-Varsayılan Blazor sunucu tarafı proje şablonunda, *app. Razor* dosyası özel içerik ayarlamayı gösterir:
+Varsayılan Blazor Server proje şablonunda, *app. Razor* dosyası nasıl özel içerik ayarlanacağını gösterir:
 
 ```cshtml
 <Router AppAssembly="@typeof(Program).Assembly">
@@ -459,9 +459,9 @@ Uygulama, yordamsal mantığın bir parçası olarak yetkilendirme kurallarını
 }
 ```
 
-## <a name="authorization-in-blazor-client-side-apps"></a>Blazor istemci tarafı uygulamalarında yetkilendirme
+## <a name="authorization-in-blazor-webassembly-apps"></a>Blazor WebAssembly uygulamalarında yetkilendirme
 
-Blazor istemci tarafı uygulamalarda, tüm istemci tarafı kodlar kullanıcılar tarafından değiştirilemediği için yetkilendirme denetimleri atlanabilir. Aynı, JavaScript SPA çerçeveleri veya herhangi bir işletim sistemi için yerel uygulamalar dahil olmak üzere tüm istemci tarafı uygulama teknolojileri için de geçerlidir.
+Blazor WebAssembly uygulamalarında, tüm istemci tarafı kodlar kullanıcılar tarafından değiştirilemediği için yetkilendirme denetimleri atlanabilir. Aynı, JavaScript SPA çerçeveleri veya herhangi bir işletim sistemi için yerel uygulamalar dahil olmak üzere tüm istemci tarafı uygulama teknolojileri için de geçerlidir.
 
 **İstemci tarafı uygulamanız tarafından erişilen tüm API uç noktalarında sunucuda her zaman yetkilendirme denetimleri gerçekleştirin.**
 
@@ -473,7 +473,7 @@ Yaygın hatalar:
 
 * **`null`için değer alındı`authenticationStateTask`**
 
-Projenin kimlik doğrulaması etkin bir Blazor sunucu tarafı şablonu kullanılarak oluşturulmamasından kaynaklanıyor olabilir. UI ağacının `<CascadingAuthenticationState>` bir bölümü etrafında sarmalayın, örneğin, *app. Razor* içinde aşağıdaki gibi:
+Projenin kimlik doğrulaması etkin bir Blazor sunucu şablonu kullanılarak oluşturulmamış olması olasıdır. UI ağacının `<CascadingAuthenticationState>` bir bölümü etrafında sarmalayın, örneğin, *app. Razor* içinde aşağıdaki gibi:
 
 ```cshtml
 <CascadingAuthenticationState>
@@ -488,5 +488,5 @@ Projenin kimlik doğrulaması etkin bir Blazor sunucu tarafı şablonu kullanıl
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * <xref:security/index>
-* <xref:security/blazor/server-side>
+* <xref:security/blazor/server>
 * <xref:security/authentication/windowsauth>

@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc, seoapril2019
 ms.date: 09/05/2019
 uid: blazor/index
-ms.openlocfilehash: 6b62eb372d642c1ad9df880a4b71e5d5a8e40b60
-ms.sourcegitcommit: 43c6335b5859282f64d66a7696c5935a2bcdf966
+ms.openlocfilehash: 767ec8f106bebb92cf13a10eb63fab4905715d3d
+ms.sourcegitcommit: 092061c4f6ef46ed2165fa84de6273d3786fb97e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2019
-ms.locfileid: "70800333"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70964135"
 ---
 # <a name="introduction-to-blazor"></a>Blazor 'e giriş
 
@@ -101,37 +101,37 @@ Bu bileşen uygulamada kullanıldığında, [Visual Studio](/visualstudio/ide/us
 
 Bileşenler, Kullanıcı arabirimini esnek ve verimli bir şekilde güncelleştirmek için kullanılan bir *işleme ağacı*adlı, tarayıcı belge nesne MODELI (DOM) ' ın bellek içi gösterimine işlenir.
 
-## <a name="blazor-client-side"></a>Blazor istemci tarafı
+## <a name="blazor-webassembly"></a>Blazor WebAssembly
 
-Blazor istemci tarafı, .NET ile etkileşimli istemci tarafı Web uygulamaları oluşturmaya yönelik tek sayfalı bir uygulama çerçevesidir. Blazor istemci tarafı, eklentiler veya kod transpilation olmadan açık Web standartları kullanır ve mobil tarayıcılar dahil tüm modern web tarayıcılarında çalışmaktadır.
+Blazor WebAssembly, .NET ile etkileşimli istemci tarafı Web uygulamaları oluşturmaya yönelik tek sayfalı bir uygulama çerçevesidir. Blazor WebAssembly, eklentiler veya Code transpilation olmadan açık Web standartları kullanır ve mobil tarayıcılar dahil tüm modern web tarayıcılarında kullanılabilir.
 
 Web tarayıcıları içinde .NET kodu çalıştırmak, [Webassembly](https://webassembly.org) *(kısaltılmış)* tarafından mümkün hale getirilir. WebAssembly hızlı indirme ve en yüksek yürütme hızı için iyileştirilmiş bir sıkıştırma kodu biçimidir. WebAssembly, açık bir web standardıdır ve eklentileri olmayan Web tarayıcılarında desteklenir.
 
 WebAssembly Code, JavaScript ile *birlikte çalışabilirlik* (veya *JavaScript birlikte çalışma*) olarak adlandırılan JavaScript aracılığıyla tarayıcının tüm işlevlerine erişebilir. Tarayıcıda WebAssembly aracılığıyla yürütülen .NET kodu, sanal makinenin istemci makinesindeki kötü amaçlı eylemlere karşı sağladığı korumalar ile tarayıcının JavaScript korumalı alanında çalışır.
 
-![Blazor istemci tarafı, WebAssembly ile tarayıcıda .NET kodu çalıştırır.](index/_static/blazor-client-side.png)
+![Blazor WebAssembly, WebAssembly ile tarayıcıda .NET kodu çalıştırır.](index/_static/blazor-webassembly.png)
 
-Bir Blazor istemci tarafı uygulaması bir tarayıcıda oluşturulup çalıştırıldığında:
+Bir Blazor WebAssembly uygulaması bir tarayıcıda oluşturulup çalıştırıldığında:
 
 * C#kod dosyaları ve Razor dosyaları .NET Derlemeleriyle derlenir.
 * Derlemeler ve .NET çalışma zamanı tarayıcıya indirilir.
-* Blazor Client-Side önyükleme .NET çalışma zamanı ve uygulama için derlemeleri yüklemek üzere çalışma zamanını yapılandırır. Blazor istemci tarafı çalışma zamanı, DOM işleme ve tarayıcı API çağrılarını işlemek için JavaScript birlikte çalışabilirliği kullanır.
+* .NET çalışma zamanı Blazor WebAssembly önyükleme ve çalışma zamanını uygulamanın derlemelerini yükleyecek şekilde yapılandırır. Blazor WebAssembly çalışma zamanı, DOM işleme ve tarayıcı API çağrılarını işlemek için JavaScript birlikte çalışabilirliği kullanır.
 
-Yayınlanan uygulamanın boyutu, *Yük boyutu*, uygulamanın useyeteneğinin önemli bir performans etkendir. Büyük bir uygulamanın tarayıcıya indirmesi oldukça uzun sürer ve bu da Kullanıcı deneyimini azaltabilecek. Blazor istemci tarafı, indirme sürelerini azaltmak için yük boyutunu iyileştirir:
+Yayınlanan uygulamanın boyutu, *Yük boyutu*, uygulamanın useyeteneğinin önemli bir performans etkendir. Büyük bir uygulamanın tarayıcıya indirmesi oldukça uzun sürer ve bu da Kullanıcı deneyimini azaltabilecek. Blazor WebAssembly indirme sürelerini azaltmak için yük boyutunu iyileştirir:
 
 * Kullanılmayan kod, [ara dil (IL) bağlayıcı](xref:host-and-deploy/blazor/configure-linker)tarafından yayımlandığında uygulamadan çıkarılır.
 * HTTP yanıtları sıkıştırılır.
 * .NET çalışma zamanı ve derlemeler tarayıcıda önbelleğe alınır.
 
-## <a name="blazor-server-side"></a>Blazor sunucu tarafı
+## <a name="blazor-server"></a>Blazor sunucusu
 
-Blazor, Kullanıcı arabirimi güncelleştirmelerinin uygulanma, bileşen işleme mantığını ayırır. Blazor sunucu tarafı, Razor bileşenlerini bir ASP.NET Core uygulamasında sunucuda barındırmak için destek sağlar. Kullanıcı Arabirimi güncelleştirmeleri bir [SignalR](xref:signalr/introduction) bağlantısı üzerinden işlenir.
+Blazor, Kullanıcı arabirimi güncelleştirmelerinin uygulanma, bileşen işleme mantığını ayırır. Blazor Server, Razor bileşenlerini bir ASP.NET Core uygulamasındaki sunucuda barındırmak için destek sağlar. Kullanıcı Arabirimi güncelleştirmeleri bir [SignalR](xref:signalr/introduction) bağlantısı üzerinden işlenir.
 
 Çalışma zamanı, tarayıcıdan sunucuya kullanıcı arabirimi olayları göndermeyi ve bileşenleri çalıştırdıktan sonra sunucu tarafından tarayıcıya geri gönderilen Kullanıcı arabirimi güncelleştirmelerini uygular.
 
-Blazor sunucu tarafında, tarayıcıyla iletişim kurmak için kullanılan bağlantı, JavaScript birlikte çalışma çağrılarını işlemek için de kullanılır.
+Blazor sunucusu tarafından tarayıcıyla iletişim kurmak için kullanılan bağlantı, JavaScript birlikte çalışma çağrılarını işlemek için de kullanılır.
 
-![Blazor sunucu tarafı, sunucuda .NET kodu çalıştırır ve bir SignalR bağlantısı üzerinden istemcideki Belge Nesne Modeli etkileşime girer](index/_static/blazor-server-side.png)
+![Blazor Server, sunucuda .NET kodu çalıştırır ve bir SignalR bağlantısı üzerinden istemcideki Belge Nesne Modeli etkileşime girer](index/_static/blazor-server.png)
 
 ## <a name="javascript-interop"></a>JavaScript ile birlikte çalışma
 

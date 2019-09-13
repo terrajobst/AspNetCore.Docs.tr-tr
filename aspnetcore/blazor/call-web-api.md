@@ -7,31 +7,31 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 08/13/2019
 uid: blazor/call-web-api
-ms.openlocfilehash: 60ebd01bc07da22cd1dcd0b16297ee54c97867fc
-ms.sourcegitcommit: f5f0ff65d4e2a961939762fb00e654491a2c772a
+ms.openlocfilehash: 152a2d5ac9a4325592ca414e9ea5e70c947d079f
+ms.sourcegitcommit: 092061c4f6ef46ed2165fa84de6273d3786fb97e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69030381"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70963706"
 ---
 # <a name="call-a-web-api-from-aspnet-core-blazor"></a>ASP.NET Core Blazor 'ten bir Web API 'SI çağırma
 
 , [Luke Latham](https://github.com/guardrex) ve [Daniel Roth](https://github.com/danroth27) tarafından
 
-Blazor istemci tarafı uygulamalar, önceden yapılandırılmış `HttpClient` bir hizmeti kullanarak Web API 'lerini çağırır. Blazor JSON yardımcıları veya ile <xref:System.Net.Http.HttpRequestMessage>kullanarak JavaScript [getirme API 'si](https://developer.mozilla.org/docs/Web/API/Fetch_API) seçeneklerini içerebilen oluşturma istekleri.
+Blazor webassembly Apps önceden yapılandırılmış `HttpClient` bir hizmeti kullanarak Web API 'lerini çağırır. Blazor JSON yardımcıları veya ile <xref:System.Net.Http.HttpRequestMessage>kullanarak JavaScript [getirme API 'si](https://developer.mozilla.org/docs/Web/API/Fetch_API) seçeneklerini içerebilen oluşturma istekleri.
 
-Blazor sunucu tarafı uygulamalar, genellikle kullanılarak <xref:System.Net.Http.HttpClient> <xref:System.Net.Http.IHttpClientFactory>oluşturulan örnekleri kullanarak Web API 'lerini çağırır. Daha fazla bilgi için bkz. <xref:fundamentals/http-requests>.
+Blazor Server Apps, genellikle kullanılarak <xref:System.Net.Http.HttpClient> <xref:System.Net.Http.IHttpClientFactory>oluşturulan örnekleri kullanarak Web API 'lerini çağırır. Daha fazla bilgi için bkz. <xref:fundamentals/http-requests>.
 
 [Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/blazor/common/samples/) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
 
-Blazor istemci tarafı örnekleri için örnek uygulamada aşağıdaki bileşenlere bakın:
+Blazor WebAssembly örnekleri için örnek uygulamada aşağıdaki bileşenlere bakın:
 
 * Web API çağrısı (*Pages/CallWebAPI. Razor*)
 * HTTP Isteği Sınayıcısı (*Bileşenler/HTTPRequestTester. Razor*)
 
 ## <a name="httpclient-and-json-helpers"></a>HttpClient ve JSON yardımcıları
 
-Blazor istemci tarafı uygulamalarda, [HttpClient](xref:fundamentals/http-requests) , istekleri kaynak sunucuya geri getirmek için önceden yapılandırılmış bir hizmet olarak kullanılabilir. JSON yardımcıları `HttpClient` kullanmak için, öğesine `Microsoft.AspNetCore.Blazor.HttpClient`bir paket başvurusu ekleyin. `HttpClient`ve JSON yardımcıları, üçüncü taraf Web API uç noktalarını çağırmak için de kullanılır. `HttpClient`, tarayıcı [getirme API 'si](https://developer.mozilla.org/docs/Web/API/Fetch_API) kullanılarak uygulanır ve aynı kaynak ilkesini zorlama dahil olmak üzere sınırlamalarına tabidir.
+Blazor WebAssembly uygulamalarında [HttpClient](xref:fundamentals/http-requests) , istekleri kaynak sunucuya geri getirmek için önceden yapılandırılmış bir hizmet olarak sunulmaktadır. JSON yardımcıları `HttpClient` kullanmak için, öğesine `Microsoft.AspNetCore.Blazor.HttpClient`bir paket başvurusu ekleyin. `HttpClient`ve JSON yardımcıları, üçüncü taraf Web API uç noktalarını çağırmak için de kullanılır. `HttpClient`, tarayıcı [getirme API 'si](https://developer.mozilla.org/docs/Web/API/Fetch_API) kullanılarak uygulanır ve aynı kaynak ilkesini zorlama dahil olmak üzere sınırlamalarına tabidir.
 
 İstemcinin temel adresi, kaynak sunucunun adresine ayarlanır. Yönergesini kullanarak bir `HttpClient` örnek ekleme: `@inject`
 
@@ -151,7 +151,7 @@ Diğer sitelerin uygulamanıza çıkış noktaları arası kaynak paylaşımı (
 
 ## <a name="httpclient-and-httprequestmessage-with-fetch-api-request-options"></a>API istek seçeneklerini getiren HttpClient ve HttpRequestMessage
 
-Blazor istemci tarafı uygulamasında webassembly üzerinde çalışırken, [HttpClient](xref:fundamentals/http-requests) kullanın ve <xref:System.Net.Http.HttpRequestMessage> istekleri özelleştirin. Örneğin, istek URI 'SI, HTTP yöntemi ve istenen istek üst bilgilerini belirtebilirsiniz.
+Blazor webassembly uygulamasında webassembly üzerinde çalışırken, [HttpClient](xref:fundamentals/http-requests) kullanın ve <xref:System.Net.Http.HttpRequestMessage> istekleri özelleştirin. Örneğin, istek URI 'SI, HTTP yöntemi ve istenen istek üst bilgilerini belirtebilirsiniz.
 
 İstek üzerindeki `WebAssemblyHttpMessageHandler.FetchArgs` özelliği kullanarak temeldeki JavaScript [getirme API](https://developer.mozilla.org/docs/Web/API/Fetch_API) 'sine yönelik istek seçeneklerini sağlayın. Aşağıdaki örnekte gösterildiği gibi, `credentials` özelliği aşağıdaki değerlerden herhangi birine ayarlanır:
 

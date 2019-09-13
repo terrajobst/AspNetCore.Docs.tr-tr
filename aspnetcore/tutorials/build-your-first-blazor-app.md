@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 08/23/2019
 uid: tutorials/first-blazor-app
-ms.openlocfilehash: ea1111f43b6b8b4f47061056e8ad8d505f92dba6
-ms.sourcegitcommit: 43c6335b5859282f64d66a7696c5935a2bcdf966
+ms.openlocfilehash: ffbdf6991830d554fc508d1d2fe8e4b9586210df
+ms.sourcegitcommit: 092061c4f6ef46ed2165fa84de6273d3786fb97e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2019
-ms.locfileid: "70800483"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70964185"
 ---
 # <a name="build-your-first-blazor-app"></a>İlk Blazor uygulamanızı oluşturma
 
@@ -57,7 +57,7 @@ Bir bileşeni, bir HTML söz dizimini kullanarak başka bir bileşene ekleyin.
 
 1. `Index`Bileşenebir öğe`Index`ekleyerek bileşeni uygulamanın bileşenine ekleyin (*Index. Razor*). `Counter` `<Counter />`
 
-   Bu deneyim için Blazor istemci tarafı kullanıyorsanız, bileşen `SurveyPrompt` `Index` tarafından bir bileşen kullanılır. `<SurveyPrompt>` Öğesini bir`<Counter />` öğesiyle değiştirin. Bu deneyim için bir Blazor sunucu tarafı uygulaması kullanıyorsanız, `<Counter />` öğesini `Index` bileşene ekleyin:
+   Bu deneyim için Blazor webassembly kullanıyorsanız bileşen `SurveyPrompt` `Index` tarafından bir bileşen kullanılır. `<SurveyPrompt>` Öğesini bir`<Counter />` öğesiyle değiştirin. Bu deneyim için bir Blazor Server uygulaması kullanıyorsanız, `<Counter />` öğesini `Index` bileşene ekleyin:
 
    *Pages/Index. Razor*:
 
@@ -101,7 +101,7 @@ Uygulamanın hizmet kapsayıcısına kayıtlı hizmetler, [bağımlılık ekleme
 
 `FetchData` Bileşenin yönergelerini inceleyin.
 
-Blazor sunucu tarafı bir uygulamayla çalışıyorsanız, `WeatherForecastService` hizmet [tek](xref:fundamentals/dependency-injection#service-lifetimes)bir olarak kaydedilir, bu yüzden hizmetin bir örneği uygulama genelinde kullanılabilir. Yönergesi, `WeatherForecastService` hizmet örneğini bileşene eklemek için kullanılır. `@inject`
+Bir Blazor sunucu uygulamasıyla çalışıyorsanız, `WeatherForecastService` hizmet [tek](xref:fundamentals/dependency-injection#service-lifetimes)bir olarak kaydedilir, bu yüzden hizmetin bir örneği uygulama genelinde kullanılabilir. Yönergesi, `WeatherForecastService` hizmet örneğini bileşene eklemek için kullanılır. `@inject`
 
 *Pages/FetchData. Razor*:
 
@@ -111,7 +111,7 @@ Bileşen, `WeatherForecast` nesne dizisini almak için olarak `ForecastService`e
 
 [!code-cshtml[](build-your-first-blazor-app/samples_snapshot/3.x/FetchData2.razor?highlight=6)]
 
-Bir Blazor istemci tarafı uygulamasıyla çalışıyorsanız, `HttpClient` *wwwroot/Örnek-veri* klasöründeki *Hava durumu. JSON* dosyasından Hava durumu tahmin verileri elde etmek için eklenen:
+Bir Blazor webassembly uygulamasıyla çalışıyorsanız, `HttpClient` *Wwwroot/Sample-Data* klasöründeki *Hava durumu. JSON* dosyasından Hava durumu tahmin verileri almak için eklenen:
 
 *Pages/FetchData. Razor*:
 

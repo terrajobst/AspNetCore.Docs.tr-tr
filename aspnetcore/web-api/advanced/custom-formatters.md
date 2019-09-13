@@ -5,24 +5,28 @@ description: ASP.NET Core Web API 'Leri için özel biçimleri oluşturma ve kul
 ms.author: riande
 ms.date: 02/08/2017
 uid: web-api/advanced/custom-formatters
-ms.openlocfilehash: 6fb7e192bf3e943eb9018b08fb87a833d3643208
-ms.sourcegitcommit: 8835b6777682da6fb3becf9f9121c03f89dc7614
+ms.openlocfilehash: 122edfd4ccd06ed62e071691f421d2aeef8002b4
+ms.sourcegitcommit: 488cc779fc71377d9371e7a14356113e9c7eff17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69975675"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70913508"
 ---
 # <a name="custom-formatters-in-aspnet-core-web-api"></a>ASP.NET Core Web API 'sindeki özel formatıcılar
 
 [Tom Dykstra](https://github.com/tdykstra) tarafından
 
-ASP.NET Core MVC, JSON veya XML kullanarak Web API 'Lerinde veri değişimi için yerleşik desteğe sahiptir. Bu makalede, özel formatlayıcılar oluşturarak ek biçimler için nasıl destek ekleneceği gösterilmektedir.
+ASP.NET Core MVC, giriş ve çıkış formatlayıcıları kullanılarak Web API 'Lerinde veri değişimini destekler. Giriş formatlayıcıları [model bağlama](xref:mvc/models/model-binding)tarafından kullanılır. Çıkış biçimleri, [yanıtları biçimlendirmek](xref:web-api/advanced/formatting)için kullanılır.
+
+Framework, JSON ve XML için yerleşik giriş ve çıkış biçimleri sağlar. Düz metin için yerleşik bir çıkış biçimlendiricisi sağlar, ancak düz metin için bir giriş biçimlendiricisi sağlamaz.
+
+Bu makalede, özel formatlayıcılar oluşturarak ek biçimler için nasıl destek ekleneceği gösterilmektedir. Düz metin için özel bir giriş biçimlendirici örneği için GitHub 'da [Textplainınputformatter](https://github.com/aspnet/Entropy/blob/master/samples/Mvc.Formatters/TextPlainInputFormatter.cs) bölümüne bakın.
 
 [Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/web-api/advanced/custom-formatters/sample) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
 
 ## <a name="when-to-use-custom-formatters"></a>Özel formatlayıcılar ne zaman kullanılır?
 
-[İçerik anlaşma](xref:web-api/advanced/formatting#content-negotiation) işleminin yerleşik BIÇIMLERI (JSON ve XML) tarafından desteklenmeyen bir içerik türünü desteklemesini istediğinizde özel bir biçimlendirici kullanın.
+[İçerik anlaşma](xref:web-api/advanced/formatting#content-negotiation) işleminin yerleşik biçimleri tarafından desteklenmeyen bir içerik türünü desteklemesini istediğinizde, özel bir biçimlendirici kullanın.
 
 Örneğin, Web API 'niz için bazı istemciler [prototip](https://github.com/google/protobuf) biçimini işleyebildiğinden, daha verimli olduğundan bu istemcilerle prototip kullanmak isteyebilirsiniz. Ya da Web API 'nizin kişi adlarını ve adresleri, kişi verilerini değiş tokuş için sık kullanılan bir biçimde, [vCard](https://wikipedia.org/wiki/VCard) biçiminde göndermesini isteyebilirsiniz. Bu makalede belirtilen örnek uygulama, basit bir vCard biçimlendiricisi uygular.
 
@@ -104,7 +108,6 @@ Biçimlendiriciler, eklediğiniz sırada değerlendirilir. Birincisi bir önceli
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [GitHub 'da düz metin biçimlendirici örnek kodu.](https://github.com/aspnet/Entropy/tree/master/samples/Mvc.Formatters)
 * [Bu belge için](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/web-api/advanced/custom-formatters/sample)basit vCard giriş ve çıkış biçimleri uygulayan örnek uygulama. Uygulamalar aşağıdaki örnekteki gibi görünen vCard 'ları okur ve yazar:
 
 ```

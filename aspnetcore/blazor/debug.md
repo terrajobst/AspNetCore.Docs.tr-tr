@@ -7,18 +7,18 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 08/22/2019
 uid: blazor/debug
-ms.openlocfilehash: c3188a1fe1b699b787f7a95630f3918d295d0f68
-ms.sourcegitcommit: 8835b6777682da6fb3becf9f9121c03f89dc7614
+ms.openlocfilehash: e9477e504d32fd1dd5d6c87392386d1131f46e9f
+ms.sourcegitcommit: 092061c4f6ef46ed2165fa84de6273d3786fb97e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69974905"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70964004"
 ---
 # <a name="debug-aspnet-core-blazor"></a>Hata ayıklama ASP.NET Core Blazor
 
 [Daniel Roth](https://github.com/danroth27)
 
-Chrome 'da WebAssembly üzerinde çalışan Blazor istemci tarafı uygulamalarında hata ayıklama için *erken* destek bulunur.
+Chrome 'da WebAssembly üzerinde çalışan Blazor WebAssembly uygulamalarında hata ayıklama için *erken* destek mevcuttur.
 
 Hata ayıklayıcı özellikleri sınırlıdır. Kullanılabilir senaryolar şunlardır:
 
@@ -47,7 +47,7 @@ Hata ayıklama aşağıdaki tarayıcılardan birini gerektirir:
 
 ## <a name="procedure"></a>Yordam
 
-1. `Debug` Yapılandırmada bir Blazor istemci tarafı uygulaması çalıştırın. Seçeneği DotNet [Run](/dotnet/core/tools/dotnet-run) komutuna geçirin: `dotnet run --configuration Debug`. `--configuration Debug`
+1. `Debug` Yapılandırmada bir Blazor webassembly uygulaması çalıştırın. Seçeneği DotNet [Run](/dotnet/core/tools/dotnet-run) komutuna geçirin: `dotnet run --configuration Debug`. `--configuration Debug`
 1. Uygulamaya tarayıcıda erişin.
 1. Klavye odağını geliştirici araçları paneline değil uygulamaya yerleştirin. Hata ayıklama başlatıldığında geliştirici araçları paneli kapatılabilir.
 1. Aşağıdaki Blazor özgü klavye kısayolunu seçin:
