@@ -1,48 +1,62 @@
 ---
-title: ASP.NET Core SignalR .NET istemcisi
+title: ASP.NET Core SignalR .NET Istemcisi
 author: bradygaster
-description: ASP.NET Core SignalR .NET istemcisi hakkında bilgi
+description: ASP.NET Core SignalR .NET Istemcisiyle ilgili bilgiler
 monikerRange: '>= aspnetcore-2.1'
 ms.author: bradyg
 ms.custom: mvc
-ms.date: 04/17/2019
+ms.date: 09/13/2019
 uid: signalr/dotnet-client
-ms.openlocfilehash: 97c553874cb1e4b678fa0e5cd65074f135193861
-ms.sourcegitcommit: 4ef0362ef8b6e5426fc5af18f22734158fe587e1
+ms.openlocfilehash: d2755f652e734bad6447ddeb9a82345dcde25b28
+ms.sourcegitcommit: 805f625d16d74e77f02f5f37326e5aceafcb78e3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67153123"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70985489"
 ---
-# <a name="aspnet-core-signalr-net-client"></a>ASP.NET Core SignalR .NET istemcisi
+# <a name="aspnet-core-signalr-net-client"></a>ASP.NET Core SignalR .NET Istemcisi
 
-ASP.NET Core SignalR .NET istemci kitaplığı, .NET uygulamalarından SignalR hub'ları ile iletişim kurmanıza olanak sağlar.
+ASP.NET Core SignalR .NET istemci kitaplığı, .NET uygulamalarından SignalR hub 'larla iletişim kurmanızı sağlar.
 
 [Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/signalr/dotnet-client/sample) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
 
-Bu makalede kod örneği ASP.NET Core SignalR .NET istemcinin kullandığı bir WPF uygulamasıdır.
+Bu makaledeki kod örneği, ASP.NET Core SignalR .NET istemcisini kullanan bir WPF uygulamasıdır.
 
-## <a name="install-the-signalr-net-client-package"></a>SignalR .NET istemci paketini yükle
+## <a name="install-the-signalr-net-client-package"></a>SignalR .NET istemci paketini yükler
 
-`Microsoft.AspNetCore.SignalR.Client` Paket, .NET istemcileri için SignalR hub'larını bağlama için gereklidir. İstemci kitaplığını yüklemek için aşağıdaki komutu çalıştırın **Paket Yöneticisi Konsolu** penceresi:
+.NET istemcilerinin SignalR hub 'larına bağlanması için [Microsoft. AspNetCore. SignalR. Client](https://www.nuget.org/packages/Microsoft.AspNetCore.SignalR.Client) paketi gerekir.
+
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+
+İstemci kitaplığını yüklemek için, **Paket Yöneticisi konsolu** penceresinde aşağıdaki komutu çalıştırın:
 
 ```powershell
 Install-Package Microsoft.AspNetCore.SignalR.Client
 ```
 
+# <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
+
+İstemci kitaplığını yüklemek için komut kabuğu 'nda aşağıdaki komutu çalıştırın:
+
+```console
+dotnet add package Microsoft.AspNetCore.SignalR.Client
+```
+
+---
+
 ## <a name="connect-to-a-hub"></a>Bir hub'ına bağlama
 
-Bir bağlantı kurmak için oluşturma bir `HubConnectionBuilder` ve çağrı `Build`. Hub'ı URL'si, protokolü, aktarım türü, günlük düzeyi, üst bilgiler ve diğer seçenekleri bir bağlantı oluşturulurken yapılandırılabilir. Gerekli tüm seçenekler ekleyerek herhangi bir yapılandırma `HubConnectionBuilder` yöntemleri `Build`. Bağlantıyı başlatmak `StartAsync`.
+Bir bağlantı kurmak için bir `HubConnectionBuilder` ve çağrısı `Build`oluşturun. Hub URL 'SI, protokol, aktarım türü, günlük düzeyi, üst bilgiler ve diğer seçenekler bir bağlantı oluşturulurken yapılandırılabilir. Herhangi bir `HubConnectionBuilder` `Build`yöntemden herhangi birini ekleyerek gerekli seçenekleri yapılandırın. Bağlantısını ile `StartAsync`başlatın.
 
 [!code-csharp[Build hub connection](dotnet-client/sample/signalrchatclient/MainWindow.xaml.cs?name=snippet_MainWindowClass&highlight=15-17,39)]
 
-## <a name="handle-lost-connection"></a>Tanıtıcı bağlantısı kesildi
+## <a name="handle-lost-connection"></a>Kayıp bağlantıyı işle
 
 ::: moniker range=">= aspnetcore-3.0"
 
-### <a name="automatically-reconnect"></a>Otomatik olarak yeniden
+### <a name="automatically-reconnect"></a>Otomatik olarak yeniden bağlan
 
-<xref:Microsoft.AspNetCore.SignalR.Client.HubConnection> Kullanarak otomatik olarak yeniden yapılandırılabilir `WithAutomaticReconnect` metodunda <xref:Microsoft.AspNetCore.SignalR.Client.HubConnectionBuilder>. Varsayılan olarak otomatik olarak yeniden olmaz.
+, Üzerinde `WithAutomaticReconnect` yöntemi kullanılarak otomatik olarak yeniden bağlanacak şekilde yapılandırılabilir. <xref:Microsoft.AspNetCore.SignalR.Client.HubConnectionBuilder> <xref:Microsoft.AspNetCore.SignalR.Client.HubConnection> Varsayılan olarak otomatik olarak yeniden bağlanmaz.
 
 ```csharp
 HubConnection connection= new HubConnectionBuilder()
@@ -51,9 +65,9 @@ HubConnection connection= new HubConnectionBuilder()
     .Build();
 ```
 
-Herhangi bir parametre olmadan `WithAutomaticReconnect()` dört girişimi başarısız olduktan sonra durduruluyor, her bir yeniden bağlanma denemesi denemeden önce sırasıyla 0, 2, 10 ve 30 saniye bekleyin üzere istemciyi yapılandırır.
+Herhangi bir parametre olmadan `WithAutomaticReconnect()` , her yeniden bağlanma denemesini denemeden önce, dört başarısız denemeden sonra durdurulan istemciyi 0, 2, 10 ve 30 saniye bekleyecek şekilde yapılandırır.
 
-Yeniden bağlanma girişimleri başlatmadan önce `HubConnection` geçiş olur `HubConnectionState.Reconnecting` belirtin ve yangın `Reconnecting` olay.  Bu, bağlantısı kesilmiş kullanıcıları uyarın ve UI öğelerini devre dışı bırakmak için bir fırsat sağlar. Etkileşimli olmayan uygulamalar, sıraya alma veya iletileri bırakarak başlatabilirsiniz.
+Yeniden bağlanma girişimlerini `HubConnection` başlatmadan önce, `HubConnectionState.Reconnecting` durumuna geçer ve `Reconnecting` olayı harekete geçirebilir.  Bu, kullanıcıların bağlantının kaybedildiği ve Kullanıcı arabirimi öğelerini devre dışı bırakan kullanıcıları uyarma fırsatı sağlar. Etkileşimli olmayan uygulamalar, iletileri sıraya alabilir veya bırakarak başlatabilir.
 
 ```csharp
 connection.Reconnecting += error =>
@@ -67,12 +81,12 @@ connection.Reconnecting += error =>
 };
 ```
 
-İstemci ilk dört girişimlerinin içinde başarıyla bağlanırsa `HubConnection` geri geçeceğiyle `Connected` belirtin ve yangın `Reconnected` olay. Bu bağlantı kuruldu ve sıraya alınan iletileri sıradan kullanıcılara bildirmek için bir fırsat sağlar.
+İstemci ilk dört deneme `HubConnection` süresi içinde başarıyla yeniden `Connected` bağlanırsa, duruma geçer ve `Reconnected` olayı harekete geçirebilir. Bu, kullanıcılara bağlantı yeniden kurulduğunda ve sıraya alınan tüm iletileri sıradan bildiren bir fırsat sağlar.
 
-Bağlantı tamamen yeni sunucuya baktığı yeni `ConnectionId` için sağlanan `Reconnected` olay işleyicileri.
+Bağlantı sunucuya tamamen yeni göründüğünden `ConnectionId` `Reconnected` olay işleyicilerine yeni bir verilecek.
 
 > [!WARNING]
-> `Reconnected` Olay işleyicinin `connectionId` parametresi null olacaktır, `HubConnection` için yapılandırılan [anlaşma atla](xref:signalr/configuration#configure-client-options).
+> Olay işleyicisinin parametresi ,`HubConnection` anlaşmayı atlayacak şekilde yapılandırıldıysa null olur. [](xref:signalr/configuration#configure-client-options) `Reconnected` `connectionId`
 
 ```csharp
 connection.Reconnected += connectionId =>
@@ -86,7 +100,7 @@ connection.Reconnected += connectionId =>
 };
 ```
 
-`WithAutomaticReconnect()` Yapılandırma olmayacaktır `HubConnection` başlangıç hataları elle gerek ilk hataları yeniden denemek için:
+`WithAutomaticReconnect()`, `HubConnection` ilk başlatma başarısızlıklarını yeniden denemek üzere yapılandırmaz, bu nedenle başlatma hatalarının el ile işlenmesi gerekir:
 
 ```csharp
 public static async Task<bool> ConnectWithRetryAsync(HubConnection connection, CancellationToken token)
@@ -114,7 +128,7 @@ public static async Task<bool> ConnectWithRetryAsync(HubConnection connection, C
 }
 ```
 
-İstemci ilk dört girişimlerinin içinde başarıyla yeniden değil `HubConnection` geçiş olur `Disconnected` belirtin ve yangın <xref:Microsoft.AspNetCore.SignalR.Client.HubConnection.Closed> olay. Bu bağlantıyı el ile yeniden başlatmak veya bağlantı kalıcı olarak kesildi kullanıcılara bildirmek deneme fırsatı sağlar.
+İstemci ilk dört denemeden `HubConnection` sonra başarıyla yeniden bağlanmazsa, `Disconnected` durumuna geçer ve <xref:Microsoft.AspNetCore.SignalR.Client.HubConnection.Closed> olayı harekete geçirebilir. Bu, bağlantıyı el ile yeniden başlatmayı denemek veya bağlantıyı kalıcı olarak kaybettiğini bildirmek için bir fırsat sağlar.
 
 ```csharp
 connection.Closed += error =>
@@ -127,7 +141,7 @@ connection.Closed += error =>
 };
 ```
 
-Özel bir bağlantıyı kesmeden önce yeniden bağlanma denemesi sayısını yapılandırma veya yeniden zamanlamayı değiştirmek için `WithAutomaticReconnect` yeniden bağlanma girişimleri başlatmadan önce beklenecek milisaniye cinsinden gecikme değeri temsil eden sayı dizisi kabul eder.
+Bağlantıyı kesmeden veya yeniden bağlanma zamanlamasını değiştirmeden önce özel sayıda yeniden bağlantı girişimi yapılandırmak için, `WithAutomaticReconnect` her bir yeniden bağlanma denemesine başlamadan önce beklenecek gecikme süresi temsil eden bir sayı dizisi kabul eder.
 
 ```csharp
 HubConnection connection= new HubConnectionBuilder()
@@ -138,19 +152,19 @@ HubConnection connection= new HubConnectionBuilder()
     // .WithAutomaticReconnect(new[] { TimeSpan.Zero, TimeSpan.FromSeconds(2), TimeSpan.FromSeconds(10), TimeSpan.FromSeconds(30) }) yields the default behavior.
 ```
 
-Yukarıdaki örnekte yapılandırır `HubConnection` hemen bağlantı kaybedildikten sonra yeniden bağlantılar denemesi başlatılacak. Bu aynı zamanda varsayılan yapılandırması için geçerlidir.
+Yukarıdaki örnek, `HubConnection` bağlantı kaybolduktan hemen sonra yeniden bağlanmaya başlamak için öğesini yapılandırır. Bu, varsayılan yapılandırma için de geçerlidir.
 
-İlk yeniden deneme başarısız olursa, ikinci yeniden bağlanma denemesi de 2 Varsayılan yapılandırmada gibi saniye beklemek yerine başlayacaktır.
+İlk yeniden bağlantı girişimi başarısız olursa, ikinci yeniden bağlanma denemesi de varsayılan yapılandırmada olduğu gibi 2 saniye beklemek yerine hemen başlatılır.
 
-İkinci yeniden bağlanma denemesi başarısız olursa, üçüncü yeniden denemede yeniden gibi varsayılan yapılandırması olan 10 saniye içinde başlar.
+İkinci yeniden bağlantı girişimi başarısız olursa, üçüncü yeniden bağlanma denemesi varsayılan yapılandırma gibi 10 saniye içinde başlar.
 
-Özel davranış daha sonra yeniden varsayılan davranışı hatası üçüncü yeniden bağlanma girişimi yapıldıktan sonra durdurarak kareninkinden. Varsayılan yapılandırmasında yok olması bir daha yeniden denemesi başka bir 30 saniye.
+Özel davranış daha sonra, üçüncü yeniden bağlantı girişimi başarısızlığından sonra durarak varsayılan davranıştan daha sonra yeniden ayrılmış. Varsayılan yapılandırmada, 30 saniye içinde bir veya daha fazla yeniden bağlantı denemesi olur.
 
-Zamanlama ve otomatik sayısı daha fazla denetime yeniden bağlanma girişimleri, isterseniz `WithAutomaticReconnect` kabul eden bir nesneyi uygulama `IRetryPolicy` adlı tek bir yöntem olan arabirimi `NextRetryDelay`.
+Otomatik yeniden bağlanma girişimlerinin zamanlaması ve sayısı üzerinde daha fazla denetime sahip olmak isterseniz, `WithAutomaticReconnect` adlı `NextRetryDelay`tek bir yöntemine sahip olan `IRetryPolicy` arabirimini uygulayan nesneyi kabul eder.
 
-`NextRetryDelay` tek bir bağımsız değişken alan türüyle `RetryContext`. `RetryContext` Üç özelliğe sahiptir: `PreviousRetryCount`, `ElapsedTime` ve `RetryReason` olduğu bir `long`, `TimeSpan` ve `Exception` sırasıyla. Yeniden bağlanma denemesi ilk önce her ikisini de `PreviousRetryCount` ve `ElapsedTime` sıfır olur ve `RetryReason` bağlantı kaybolmasına neden olan özel durum olacaktır. Başarısız tekrar deneme girişimleri sonra `PreviousRetryCount` biri tarafından artırılacaktır `ElapsedTime` şu ana kadar yeniden bağlanmayı harcanan süreyi yansıtacak şekilde güncelleştirilir ve `RetryReason` özel durum nedeniyle son yeniden bağlanma denemesi başarısız olur.
+`NextRetryDelay`türünde `RetryContext`tek bir bağımsız değişken alır. `PreviousRetryCount` ,,`RetryReason` `RetryContext` `ElapsedTime` Ve sırasıyla bir`long`olan üç özelliğe sahiptir:.`TimeSpan` `Exception` İlk yeniden bağlanma denemesinden önce, `PreviousRetryCount` ve `ElapsedTime` sıfır olur ve `RetryReason` bağlantının kaybolmasına neden olan özel durum olacaktır. Her başarısız yeniden deneme denemesinden sonra `PreviousRetryCount` , bu, şimdiye kadar `ElapsedTime` bir süre sonra yeniden bağlanılan süreyi yansıtacak şekilde güncelleştirilir ve `RetryReason` son yeniden bağlanma denemesinin başarısız olmasına neden olan özel durum olacaktır.
 
-`NextRetryDelay` bir sonraki yeniden denemeden önce beklenecek süreyi temsil eden ya da bir TimeSpan döndürmelidir veya `null` varsa `HubConnection` yeniden bağlanmayı durdurmanız gerekir.
+`NextRetryDelay`bir sonraki yeniden bağlanma girişiminden önce beklenecek süreyi temsil eden bir TimeSpan değeri veya bunun `null` `HubConnection` yeniden bağlanması durdurulmalıdır.
 
 ```csharp
 public class RandomRetryPolicy : IRetryPolicy
@@ -181,22 +195,22 @@ HubConnection connection = new HubConnectionBuilder()
     .Build();
 ```
 
-Alternatif olarak, istemci gösterildiği şekilde el ile yeniden bağlanacak kod yazabileceğiniz [el ile yeniden](#manually-reconnect).
+Alternatif olarak, [el ile yeniden bağlanma](#manually-reconnect)bölümünde gösterildiği gibi istemcinizi el ile yeniden bağlayacaksınız.
 
 ::: moniker-end
 
-### <a name="manually-reconnect"></a>El ile yeniden
+### <a name="manually-reconnect"></a>El ile yeniden bağlan
 
 ::: moniker range="< aspnetcore-3.0"
 
 > [!WARNING]
-> Önce 3.0, SignalR için .NET istemci otomatik olarak yeniden değil. İstemcinizi el ile yeniden kod yazmanız gerekir.
+> 3,0 ' den önce, SignalR için .NET istemcisi otomatik olarak yeniden bağlanmaz. İstemcinizi el ile yeniden kod yazmanız gerekir.
 
 ::: moniker-end
 
-Kullanım <xref:Microsoft.AspNetCore.SignalR.Client.HubConnection.Closed> olay yanıt bağlantı kesildi. Örneğin, yeniden bağlanma otomatikleştirmek isteyebilirsiniz.
+Kayıp bir bağlantıya yanıt vermek için olayınıkullanın.<xref:Microsoft.AspNetCore.SignalR.Client.HubConnection.Closed> Örneğin, yeniden bağlanmayı otomatik hale getirmek isteyebilirsiniz.
 
-`Closed` Olay gerektirir döndüren bir temsilci bir `Task`, zaman uyumsuz kod kullanmadan çalıştırılmasına olanak sağlayan `async void`. Temsilci imzasında karşılamak için bir `Closed` çalıştırmaları eş döndüren bir olay işleyicisi `Task.CompletedTask`:
+Olay, zaman uyumsuz kodun kullanılmadan `async void`çalışmasına izin `Task`veren, döndüren bir temsilci gerektirir. `Closed` Zaman uyumlu olarak çalışan bir `Closed` olay işleyicisinde temsilci imzasını karşılamak için şunu döndürün: `Task.CompletedTask`
 
 ```csharp
 connection.Closed += (error) => {
@@ -205,38 +219,38 @@ connection.Closed += (error) => {
 };
 ```
 
-Zaman uyumsuz desteği için temel nedeni olduğundan, bağlantı yeniden başlatabilirsiniz. Bağlantı bir zaman uyumsuz eylem başlangıcıdır.
+Zaman uyumsuz desteğin ana nedeni, bağlantıyı yeniden başlatabilmeniz için kullanılır. Bir bağlantının başlatılması zaman uyumsuz bir işlemdir.
 
-İçinde bir `Closed` bağlantı yeniden işleyicisi aşağıdaki örnekte gösterildiği gibi sunucu aşırı yüklemesini önlemek bazı rastgele gecikme bekleniyor dikkate alın:
+Bağlantıyı yeniden `Closed` Başlatan bir İşleyicide, aşağıdaki örnekte gösterildiği gibi, sunucunun aşırı yüklenmesini engellemek için bazı rastgele gecikme yapmayı düşünün:
 
 [!code-csharp[Use Closed event handler to automate reconnection](dotnet-client/sample/signalrchatclient/MainWindow.xaml.cs?name=snippet_ClosedRestart)]
 
 ## <a name="call-hub-methods-from-client"></a>İstemciden hub yöntemlerini çağırma
 
-`InvokeAsync` hub yöntemleri çağırır. Hub yönteminin adını ve hub yöntemi için tanımlanan herhangi bir bağımsız değişken geçirme `InvokeAsync`. SignalR zaman uyumsuz, bu nedenle kullanın `async` ve `await` çağrıları yapılırken.
+`InvokeAsync`Hub 'daki yöntemleri çağırır. Hub yöntemi adını ve hub metodunda tanımlanan tüm bağımsız değişkenleri öğesine `InvokeAsync`geçirin. SignalR zaman uyumsuzdur, bu nedenle `async` çağrıları `await` yaparken ve kullanın.
 
 [!code-csharp[InvokeAsync method](dotnet-client/sample/signalrchatclient/MainWindow.xaml.cs?name=snippet_InvokeAsync)]
 
-`InvokeAsync` Yöntemi döndürür bir `Task` sunucu yöntem döndürüldüğünde tamamlar. Sonucu olarak dönüş değeri varsa, sağlanan `Task`. Sunucuda yöntemi tarafından oluşturulan özel durumlar bir hatalı üretmek `Task`. Kullanım `await` tamamlamak sunucu yöntemi için beklenecek söz dizimi ve `try...catch` sözdizimi hataları işlemek için.
+Yöntemi, sunucu yöntemi `Task` döndürüldüğünde tamamlanmış bir döndürür. `InvokeAsync` Varsa dönüş değeri, sonucu `Task`olarak sağlanır. Sunucu üzerindeki yöntemi tarafından oluşturulan özel durumlar hatalı `Task`bir şekilde üretir. Sunucu `await` yönteminin tamamlanmasını beklemek için sözdizimi kullanın ve `try...catch` hataları işlemek için söz dizimini kullanın.
 
-`SendAsync` Yöntemi döndürür bir `Task` sunucuya ileti gönderildiğinde tamamlar. Dönüş değeri bu sağlanan `Task` Metoda tamamlanana kadar beklemez. İstemcide ileti gönderilirken karşılaşılan özel durumlar bir hatalı üretmek `Task`. Kullanım `await` ve `try...catch` işlemek için söz dizimi hatalarını gönderme.
+Yöntemi, ileti sunucuya `Task` gönderildiğinde tamamlanmış bir döndürür. `SendAsync` Bu `Task` , sunucu yöntemi tamamlanana kadar beklemediğinden hiçbir dönüş değeri sağlanmaz. İletiyi gönderirken istemcide oluşturulan özel durumlar hatalı `Task`bir şekilde oluşur. Gönderme `await` hatalarını `try...catch` işlemek için ve sözdizimini kullanın.
 
 > [!NOTE]
-> Azure SignalR hizmeti kullanıyorsanız, *sunucusuz modu*, bir istemciden hub yöntemlerini çağıramazsınız. Daha fazla bilgi için [SignalR hizmeti belgeleri](/azure/azure-signalr/signalr-concept-serverless-development-config).
+> Azure SignalR hizmetini *sunucusuz modda*kullanıyorsanız, bir istemciden hub yöntemleri çağrılamaz. Daha fazla bilgi için bkz. [SignalR hizmeti belgeleri](/azure/azure-signalr/signalr-concept-serverless-development-config).
 
 ## <a name="call-client-methods-from-hub"></a>İstemci hub'ından yöntemleri çağırma
 
-Hub'ı kullanarak çağırdığı yöntemleri tanımlamak `connection.On` yapı sonra ancak bağlantı başlatmadan önce.
+Hub 'ı derlemeden sonra, ancak `connection.On` bağlantıyı başlatmadan önce kullanarak çağıran yöntemleri tanımlayın.
 
 [!code-csharp[Define client methods](dotnet-client/sample/signalrchatclient/MainWindow.xaml.cs?name=snippet_ConnectionOn)]
 
-Önceki kodda `connection.On` sunucu tarafı kod kullanarak çağırdığında çalıştıran `SendAsync` yöntemi.
+Yukarıdaki kod `connection.On` , sunucu tarafı kodu `SendAsync` yöntemini kullanarak çağırdığında çalıştırılır.
 
 [!code-csharp[Call client method](dotnet-client/sample/signalrchat/hubs/chathub.cs?name=snippet_SendMessage)]
 
 ## <a name="error-handling-and-logging"></a>Hata işleme ve günlüğe kaydetme
 
-Bir try-catch deyiminin hatalarla işleyin. İnceleme `Exception` nesnesine bir hata gerçekleştikten sonra gerçekleştirilecek uygun eylemi belirleyin.
+Try-catch ifadesiyle hataları işleyin. Bir hata oluştuktan sonra gerçekleştirilecek uygun eylemi öğrenmek için nesneyiinceleyin.`Exception`
 
 [!code-csharp[Logging](dotnet-client/sample/signalrchatclient/MainWindow.xaml.cs?name=snippet_ErrorHandling)]
 
@@ -245,4 +259,4 @@ Bir try-catch deyiminin hatalarla işleyin. İnceleme `Exception` nesnesine bir 
 * [Merkezler](xref:signalr/hubs)
 * [JavaScript istemcisi](xref:signalr/javascript-client)
 * [Azure'a Yayımlama](xref:signalr/publish-to-azure-web-app)
-* [Sunucusuz Azure SignalR hizmeti belgeleri](/azure/azure-signalr/signalr-concept-serverless-development-config)
+* [Azure SignalR hizmeti sunucusuz belgeleri](/azure/azure-signalr/signalr-concept-serverless-development-config)
