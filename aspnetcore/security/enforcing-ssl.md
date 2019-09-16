@@ -4,14 +4,14 @@ author: rick-anderson
 description: ASP.NET Core Web uygulamasında HTTPS/TLS isteme hakkında bilgi edinin.
 ms.author: riande
 ms.custom: mvc
-ms.date: 09/06/2019
+ms.date: 09/14/2019
 uid: security/enforcing-ssl
-ms.openlocfilehash: 654b083a0dade2fc8df5cccf9fa434f30627794b
-ms.sourcegitcommit: f65d8765e4b7c894481db9b37aa6969abc625a48
+ms.openlocfilehash: 8474b8f12d3e08e47a4cc9b20543d2a9e6e91998
+ms.sourcegitcommit: dc5b293e08336dc236de66ed1834f7ef78359531
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70774000"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71011072"
 ---
 # <a name="enforce-https-in-aspnet-core"></a>ASP.NET Core 'de HTTPS 'yi zorla
 
@@ -232,7 +232,7 @@ Ek yeniden yönlendirme kuralları gereksinimi olmadan https 'ye yönlendirilirk
 
 ## <a name="http-strict-transport-security-protocol-hsts"></a>HTTP katı aktarım güvenliği Protokolü (HSTS)
 
-Her [OWASP](https://www.owasp.org/index.php/About_The_Open_Web_Application_Security_Project)için, [http katı aktarım güvenliği (HSTS)](https://www.owasp.org/index.php/HTTP_Strict_Transport_Security_Cheat_Sheet) , yanıt üst bilgisi kullanılarak bir Web uygulaması tarafından belirtilen bir katılım güvenlik geliştirmedir. [HSTS 'yi destekleyen bir tarayıcı](https://www.owasp.org/index.php/HTTP_Strict_Transport_Security_Cheat_Sheet#Browser_Support) bu üstbilgiyi alırsa:
+Her [OWASP](https://www.owasp.org/index.php/About_The_Open_Web_Application_Security_Project)için, [http katı aktarım güvenliği (HSTS)](https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Strict_Transport_Security_Cheat_Sheet.html) , yanıt üst bilgisi kullanılarak bir Web uygulaması tarafından belirtilen bir katılım güvenlik geliştirmedir. [HSTS 'yi destekleyen bir tarayıcı](https://cheatsheetseries.owasp.org/cheatsheets/Transport_Layer_Protection_Cheat_Sheet.html#browser-support) bu üstbilgiyi alırsa:
 
 * Tarayıcı, HTTP üzerinden iletişimin gönderilmesini önleyen etki alanı için yapılandırmayı depolar. Tarayıcı, HTTPS üzerinden tüm iletişimi zorlar.
 * Tarayıcı, kullanıcının güvenilmeyen veya geçersiz sertifikalar kullanmasını engeller. Tarayıcı, kullanıcının bu sertifikaya geçici olarak güvenmesine izin veren istemleri devre dışı bırakır.

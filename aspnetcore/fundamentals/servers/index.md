@@ -1,18 +1,18 @@
 ---
 title: ASP.NET Core Web sunucusu uygulamaları
-author: guardrex
+author: tdykstra
 description: ASP.NET Core için Kestrel ve HTTP. sys Web sunucularını bulun. Sunucu seçme ve ters proxy sunucusu ne zaman kullanılacağı hakkında bilgi edinin.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 06/01/2019
+ms.date: 08/10/2019
 uid: fundamentals/servers/index
-ms.openlocfilehash: 404fec18409a675981fc0c068ee9a99001e06c16
-ms.sourcegitcommit: 8835b6777682da6fb3becf9f9121c03f89dc7614
+ms.openlocfilehash: cfea559725a644f167aa3afdf88c78bace4b5950
+ms.sourcegitcommit: dc5b293e08336dc236de66ed1834f7ef78359531
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69975538"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71011148"
 ---
 # <a name="web-server-implementations-in-aspnet-core"></a>ASP.NET Core Web sunucusu uygulamaları
 
@@ -34,7 +34,7 @@ Kestrel kullanın:
 
   ![Kestrel, IIS, NGINX veya Apache gibi bir ters ara sunucu üzerinden Internet ile dolaylı olarak iletişim kurar](kestrel/_static/kestrel-to-internet.png)
 
-ASP.NET Core 2,1 veya&mdash;üzeri uygulamalar için ters proxy sunucusu ile&mdash;veya bu sunucu olmadan barındırma yapılandırması desteklenir.
+Ters ara sunucu&mdash;sunucusuyla&mdash;ya da olmadan barındırma yapılandırması desteklenir.
 
 Kestrel yapılandırma kılavuzu ve bir ters proxy yapılandırmasında Kestrel 'in ne zaman kullanılacağı hakkında bilgi için, bkz <xref:fundamentals/servers/kestrel>.
 
