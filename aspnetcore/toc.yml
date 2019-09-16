@@ -304,8 +304,8 @@
           items:
             - name: Genel Bakış
               uid: security/blazor/index
-            - name: Sunucu tarafı
-              uid: security/blazor/server-side
+            - name: Blazor Server
+              uid: security/blazor/server
         - name: Durum yönetimi
           uid: blazor/state-management
         - name: Hataları işleme
@@ -318,10 +318,10 @@
           items:
             - name: Genel Bakış
               uid: host-and-deploy/blazor/index
-            - name: İstemci tarafı
-              uid: host-and-deploy/blazor/client-side
-            - name: Sunucu tarafı
-              uid: host-and-deploy/blazor/server-side
+            - name: Blazor WebAssembly
+              uid: host-and-deploy/blazor/webassembly
+            - name: Blazor Server
+              uid: host-and-deploy/blazor/server
             - name: Bağlayıcıyı yapılandırma
               uid: host-and-deploy/blazor/configure-linker
     - name: İstemci tarafı geliştirme
@@ -785,10 +785,10 @@
       items:
         - name: Genel Bakış
           uid: host-and-deploy/blazor/index
-        - name: İstemci tarafı
-          uid: host-and-deploy/blazor/client-side
-        - name: Sunucu tarafı
-          uid: host-and-deploy/blazor/server-side
+        - name: Blazor WebAssembly
+          uid: host-and-deploy/blazor/webassembly
+        - name: Blazor Server
+          uid: host-and-deploy/blazor/server
         - name: Bağlayıcıyı yapılandırma
           uid: host-and-deploy/blazor/configure-linker
 - name: Güvenlik ve Kimlik
@@ -999,8 +999,8 @@
       items:
         - name: Genel Bakış
           uid: security/blazor/index
-        - name: Sunucu tarafı
-          uid: security/blazor/server-side
+        - name: Blazor Server
+          uid: security/blazor/server
 - name: Performans
   items:
     - name: Genel Bakış
