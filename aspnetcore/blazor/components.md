@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 09/06/2019
 uid: blazor/components
-ms.openlocfilehash: bc9fa06e5acccb773717fe87bf4aabb971b8dee5
-ms.sourcegitcommit: 092061c4f6ef46ed2165fa84de6273d3786fb97e
+ms.openlocfilehash: e51f6745f6e0c748e51d7f8a49193f3d81fd2a06
+ms.sourcegitcommit: 07cd66e367d080acb201c7296809541599c947d1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70963774"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71039175"
 ---
 # <a name="create-and-use-aspnet-core-razor-components"></a>ASP.NET Core Razor bileşenleri oluşturma ve kullanma
 
@@ -229,6 +229,34 @@ Bileşen işlendiğinde, `value` giriş öğesi `CurrentValue` özelliğinden ge
 ```
 
 ' `onchange`In aksine, öğe odağı kaybettiğinde harekete geçirilir, `oninput` metin kutusunun değeri değiştiğinde harekete geçirilir.
+
+**Ayrıştırılamayan değerler**
+
+Bir Kullanıcı, bir veri sınırlama öğesine ayrıştırılamayan bir değer sağlıyorsa, bağlama olayı tetiklendiğinde, çözümlenemeyen değer otomatik olarak önceki değerine döndürülür.
+
+Aşağıdaki senaryoyu göz önünde bulundurun:
+
+* Bir `<input>` öğesi, başlangıç değeri `123`olan `int` bir türe bağlanır:
+
+  ```cshtml
+  <input @bind="MyProperty" />
+
+  @code {
+      [Parameter]
+      public int MyProperty { get; set; } = 123;
+  }
+  ```
+* Kullanıcı, öğesinin değerini sayfada olarak `123.45` güncelleştirir ve öğe odağını değiştirir.
+
+Önceki senaryoda, öğenin değeri öğesine `123`geri döndürülür. Değeri `123.45` özgün`123`değeri yararına reddedildiğinde, Kullanıcı değerinin kabul edilmediğini anlamıştır.
+
+Varsayılan olarak, bağlama öğenin `onchange` olayına (`@bind="{PROPERTY OR FIELD}"`) uygulanır. Farklı `@bind-value="{PROPERTY OR FIELD}" @bind-value:event={EVENT}` bir olay ayarlamak için kullanın. `oninput` Event(`@bind-value:event="oninput"`) için yeniden sürüm, ayrıştırılamayan bir değer sunan herhangi bir tuş vuruşu sonrasında oluşur. `oninput` Olayı, ilişkili bir `int`tür ile hedeflerken, bir kullanıcının bir `.` karakter yazmasının engellenmiş olması engellenir. Bir `.` karakter hemen kaldırılır, bu nedenle Kullanıcı yalnızca tam sayılara izin verilen anında geri bildirim alır. `oninput` Olay üzerindeki değerin geri döndürülmesi ideal değil (örneğin, kullanıcının ayrıştırılamayan `<input>` bir değeri temizlemeye izin verilmesi gerektiği durumlarda). Alternatifler şunlardır:
+
+* `oninput` Olayı kullanmayın. Öğe odağı kaybederene kadar`@bind="{PROPERTY OR FIELD}"`geçersiz bir değer geri döndürülmediğinde, varsayılan `onchange` olayı () kullanın.
+* `int?` Veya`string`gibi null yapılabilir bir türe bağlayın ve geçersiz girdileri işlemek için özel mantık sağlayın.
+* `InputNumber` [](xref:blazor/forms-validation) Veya`InputDate`gibi bir form doğrulama bileşeni kullanın. Form doğrulama bileşenlerinde geçersiz girişleri yönetmek için yerleşik destek vardır. Form doğrulama bileşenleri:
+  * Kullanıcının geçersiz giriş sağlamasına ve ilişkili `EditContext`doğrulama hatalarını almasına izin verin.
+  * Kullanıcı ek WebForm verisi girmeye uğramadan doğrulama hatalarını Kullanıcı ARABIRIMINDE görüntüleyin.
 
 **Genelleştirme**
 

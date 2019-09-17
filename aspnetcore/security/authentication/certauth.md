@@ -6,14 +6,14 @@ monikerRange: '>= aspnetcore-3.0'
 ms.author: bdorrans
 ms.date: 08/19/2019
 uid: security/authentication/certauth
-ms.openlocfilehash: ce7bcdbfb8ce0f1febf34b49786e92c917be139c
-ms.sourcegitcommit: 116bfaeab72122fa7d586cdb2e5b8f456a2dc92a
+ms.openlocfilehash: bb375cf380175daf2399f3b56f543819ee5692b8
+ms.sourcegitcommit: 07cd66e367d080acb201c7296809541599c947d1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70384846"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71039251"
 ---
-# <a name="overview"></a>Genel Bakış
+# <a name="configure-certificate-authentication-in-aspnet-core"></a>ASP.NET Core sertifika kimlik doğrulamasını yapılandırma
 
 `Microsoft.AspNetCore.Authentication.Certificate`ASP.NET Core için [sertifika kimlik doğrulamasına](https://tools.ietf.org/html/rfc5246#section-7.4.4) benzer bir uygulama içerir. Sertifika kimlik doğrulaması TLS düzeyinde gerçekleşir ve bu süre ASP.NET Core. Daha doğru, bu, sertifikayı doğrulayan bir kimlik doğrulama işleyicisidir ve bu sertifikayı bir ' a `ClaimsPrincipal`çözebileceğiniz bir olay verir. 
 

@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-3.0'
 ms.author: johluo
 ms.date: 8/26/2019
 uid: tutorials/grpc/grpc-start
-ms.openlocfilehash: 7f80ead06f00037ae51b35d40dff9bc7f99bc5d8
-ms.sourcegitcommit: 8b36f75b8931ae3f656e2a8e63572080adc78513
+ms.openlocfilehash: f643ed786366fa6bdadadbc5d67fa2d40a195861
+ms.sourcegitcommit: 07cd66e367d080acb201c7296809541599c947d1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70310573"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71039256"
 ---
 # <a name="tutorial-create-a-grpc-client-and-server-in-aspnet-core"></a>Öğretici: ASP.NET Core bir gRPC istemcisi ve sunucusu oluşturma
 
@@ -51,7 +51,7 @@ Bu öğreticide şunları yaptınız:
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * Visual Studio 'Yu başlatın ve **Yeni proje oluştur**' u seçin. Alternatif olarak, Visual Studio **Dosya** menüsünden **Yeni** > **Proje**' yi seçin.
-* **Yeni proje oluştur** Iletişim kutusunda **gprc hizmeti** ' ni seçin ve **İleri**' yi seçin:
+* **Yeni proje oluştur** Iletişim kutusunda **GRPC hizmeti** ' ni seçin ve **İleri**' yi seçin:
 
   ![\* * Yeni proje oluştur * * iletişim kutusu](~/tutorials/grpc/grpc-start/static/cnp.png)
 
