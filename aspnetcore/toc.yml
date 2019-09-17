@@ -545,6 +545,10 @@
   items:
     - name: gRPC hizmetlerine giriş
       uid: grpc/index
+    - name: Öğreticiler
+      items:
+        - name: gRPC hizmetini kullanmaya başlama
+          uid: tutorials/grpc/grpc-start
     - name: 'C# içeren gRPC hizmetleri'
       uid: grpc/basics
     - name: ASP.NET Core içeren gRPC Hizmetleri
@@ -563,6 +567,8 @@
       uid: grpc/migration
     - name: gRPC hizmetlerini HTTP API’leriyle karşılaştırma
       uid: grpc/comparison
+    - name: Örnekler
+      href: 'https://github.com/grpc/grpc-dotnet/tree/master/examples'
     - name: Sorun giderme
       uid: grpc/troubleshoot
 - name: 'Test etme, hata ayıklama ve sorun giderme'
@@ -999,7 +1005,7 @@
     - name: IP güvenli listesi
       uid: security/ip-safelist
     - name: Uygulama güvenliği - OWASP
-      href: 'https://github.com/OWASP/CheatSheetSeries/blob/master/cheatsheets/DotNet_Security_Cheat_Sheet.md'
+      href: 'https://cheatsheetseries.owasp.org/cheatsheets/DotNet_Security_Cheat_Sheet.html'
     - name: Blazor
       items:
         - name: Genel Bakış
