@@ -153,6 +153,9 @@
 - name: Öğreticiler (Microsoft Learn)
   displayName: tutorial
   items:
+    - name: Web uygulamaları
+      displayName: 'tutorial, razor, razor pages, ui'
+      href: /learn/modules/create-razor-pages-aspnet-core/
     - name: Web API’si uygulamaları
       href: /learn/modules/build-web-api-net-core/
     - name: Veri erişimi
@@ -435,6 +438,8 @@
           uid: tutorials/get-started-with-nswag
     - name: Eylem dönüş türleri
       uid: web-api/action-return-types
+    - name: JSON Düzeltme eki isteklerini işleme
+      uid: web-api/jsonpatch
     - name: Yanıt verilerini biçimlendirme
       uid: web-api/advanced/formatting
     - name: Özel biçimlendiriciler
