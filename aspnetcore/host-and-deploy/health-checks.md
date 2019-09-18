@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 09/10/2019
 uid: host-and-deploy/health-checks
-ms.openlocfilehash: cc30b3fc67cec42eada20aed494642cf6d88b289
-ms.sourcegitcommit: e7c56e8da5419bbc20b437c2dd531dedf9b0dc6b
+ms.openlocfilehash: 8fdb1332882fd25bd61f5403a3b1f10e8a0bc7f7
+ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70878444"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71081525"
 ---
 # <a name="health-checks-in-aspnet-core"></a>ASP.NET Core durum denetimleri
 
@@ -82,7 +82,7 @@ public class BasicStartup
 
 Örnek uygulamayı kullanarak temel yapılandırma senaryosunu çalıştırmak için, komut kabuğunda projenin klasöründen aşağıdaki komutu yürütün:
 
-```console
+```dotnetcli
 dotnet run --scenario basic
 ```
 
@@ -332,7 +332,7 @@ app.UseEndpoints(endpoints =>
 
 Örnek uygulamayı kullanarak veritabanı araştırma senaryosunu çalıştırmak için, bir komut kabuğunda projenin klasöründen aşağıdaki komutu yürütün:
 
-```console
+```dotnetcli
 dotnet run --scenario db
 ```
 
@@ -370,7 +370,7 @@ app.UseEndpoints(endpoints =>
 
 Komut kabuğunda projenin klasöründen aşağıdaki komutu yürütün:
 
-```console
+```dotnetcli
 dotnet run --scenario dbcontext
 ```
 
@@ -456,7 +456,7 @@ app.UseEndpoints(endpoints =>
 
 Örnek uygulamayı kullanarak hazırlık/lizlilik yapılandırma senaryosunu çalıştırmak için, aşağıdaki komutu projenin klasöründen bir komut kabuğu 'ndan yürütün:
 
-```console
+```dotnetcli
 dotnet run --scenario liveness
 ```
 
@@ -519,7 +519,7 @@ Yöntemi bir JSON nesnesi `CompositeHealthCheckResult` olarak biçimlendirir ve 
 
 Örnek uygulamayı kullanarak özel yanıt yazıcı çıkışıyla ölçüm tabanlı araştırmayı çalıştırmak için, komut kabuğu 'ndaki projenin klasöründen aşağıdaki komutu yürütün:
 
-```console
+```dotnetcli
 dotnet run --scenario writer
 ```
 
@@ -615,7 +615,7 @@ app.UseEndpoints(endpoints =>
 
 Yönetim bağlantı noktası yapılandırma senaryosunu örnek uygulamayı kullanarak çalıştırmak için, aşağıdaki komutu projenin klasöründen bir komut kabuğu 'ndan yürütün:
 
-```console
+```dotnetcli
 dotnet run --scenario port
 ```
 
@@ -821,7 +821,7 @@ public class BasicStartup
 
 Örnek uygulamayı kullanarak temel yapılandırma senaryosunu çalıştırmak için, komut kabuğunda projenin klasöründen aşağıdaki komutu yürütün:
 
-```console
+```dotnetcli
 dotnet run --scenario basic
 ```
 
@@ -1047,7 +1047,7 @@ app.UseHealthChecks("/health");
 
 Örnek uygulamayı kullanarak veritabanı araştırma senaryosunu çalıştırmak için, bir komut kabuğunda projenin klasöründen aşağıdaki komutu yürütün:
 
-```console
+```dotnetcli
 dotnet run --scenario db
 ```
 
@@ -1082,7 +1082,7 @@ app.UseHealthChecks("/health");
 
 Komut kabuğunda projenin klasöründen aşağıdaki komutu yürütün:
 
-```console
+```dotnetcli
 dotnet run --scenario dbcontext
 ```
 
@@ -1157,7 +1157,7 @@ app.UseHealthChecks("/health/live", new HealthCheckOptions()
 
 Örnek uygulamayı kullanarak hazırlık/lizlilik yapılandırma senaryosunu çalıştırmak için, aşağıdaki komutu projenin klasöründen bir komut kabuğu 'ndan yürütün:
 
-```console
+```dotnetcli
 dotnet run --scenario liveness
 ```
 
@@ -1221,7 +1221,7 @@ Yöntemi bir JSON nesnesi `CompositeHealthCheckResult` olarak biçimlendirir ve 
 
 Örnek uygulamayı kullanarak özel yanıt yazıcı çıkışıyla ölçüm tabanlı araştırmayı çalıştırmak için, komut kabuğu 'ndaki projenin klasöründen aşağıdaki komutu yürütün:
 
-```console
+```dotnetcli
 dotnet run --scenario writer
 ```
 
@@ -1290,7 +1290,7 @@ Yönetim bağlantı noktası yapılandırmasını göstermek üzere örnek uygul
 
 Yönetim bağlantı noktası yapılandırma senaryosunu örnek uygulamayı kullanarak çalıştırmak için, aşağıdaki komutu projenin klasöründen bir komut kabuğu 'ndan yürütün:
 
-```console
+```dotnetcli
 dotnet run --scenario port
 ```
 

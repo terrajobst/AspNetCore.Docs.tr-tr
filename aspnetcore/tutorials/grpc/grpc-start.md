@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-3.0'
 ms.author: johluo
 ms.date: 8/26/2019
 uid: tutorials/grpc/grpc-start
-ms.openlocfilehash: f643ed786366fa6bdadadbc5d67fa2d40a195861
-ms.sourcegitcommit: 07cd66e367d080acb201c7296809541599c947d1
+ms.openlocfilehash: 924aa3880fc7f2aa777d4ab2e5ea3bed38e227d4
+ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71039256"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71081178"
 ---
 # <a name="tutorial-create-a-grpc-client-and-server-in-aspnet-core"></a>Öğretici: ASP.NET Core bir gRPC istemcisi ve sunucusu oluşturma
 
@@ -67,7 +67,7 @@ Bu öğreticide şunları yaptınız:
 * Dizinleri (`cd`), projeyi içerecek bir klasöre değiştirin.
 * Aşağıdaki komutları çalıştırın:
 
-  ```console
+  ```dotnetcli
   dotnet new grpc -o GrpcGreeter
   code -r GrpcGreeter
   ```
@@ -82,9 +82,9 @@ Bu öğreticide şunları yaptınız:
 
 Terminalden aşağıdaki komutları çalıştırın:
 
-```console
-  dotnet new grpc -o GrpcGreeter
-  cd GrpcGreeter
+```dotnetcli
+dotnet new grpc -o GrpcGreeter
+cd GrpcGreeter
 ```
 
 Yukarıdaki komutlar, gRPC hizmeti oluşturmak için [.NET Core CLI](/dotnet/core/tools/dotnet) kullanır.
@@ -153,7 +153,7 @@ info: Microsoft.Hosting.Lifetime[0]
 * Dizinleri (`cd`), projeyi içerecek bir klasöre değiştirin.
 * Aşağıdaki komutları çalıştırın:
 
-  ```console
+  ```dotnetcli
   dotnet new console -o GrpcGreeterClient
   code -r GrpcGreeterClient
   ```
@@ -200,7 +200,7 @@ Paket Yöneticisi Konsolu (PMC) veya NuGet Paketlerini Yönet ' i kullanarak pak
 
 **Tümleşik terminalden**aşağıdaki komutları çalıştırın:
 
-```console
+```dotnetcli
 dotnet add GrpcGreeterClient.csproj package Grpc.Net.Client
 dotnet add GrpcGreeterClient.csproj package Google.Protobuf
 dotnet add GrpcGreeterClient.csproj package Grpc.Tools

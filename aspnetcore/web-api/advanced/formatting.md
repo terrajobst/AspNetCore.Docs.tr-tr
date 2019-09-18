@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: H1Hack27Feb2017
 ms.date: 05/29/2019
 uid: web-api/advanced/formatting
-ms.openlocfilehash: e3417c9bfd3824133b86de2fe74f5f71367e1560
-ms.sourcegitcommit: 41f2c1a6b316e6e368a4fd27a8b18d157cef91e1
+ms.openlocfilehash: 8bee4efdae5341ddab5bd3aec278ecfef37f0c08
+ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69886528"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71082358"
 ---
 <!-- DO NOT EDIT BEFORE https://github.com/aspnet/AspNetCore.Docs/pull/12077 MERGES -->
 # <a name="format-response-data-in-aspnet-core-web-api"></a>ASP.NET Core Web API 'sindeki yanıt verilerini biçimlendirme
@@ -106,13 +106,29 @@ Uygulamanızın varsayılan JSON dışında ek biçimleri desteklemesi gerekiyor
 
 ### <a name="configure-systemtextjson-based-formatters"></a>System. Text. JSON tabanlı formatlayıcıları yapılandırma
 
-Tabanlı formatlayıcılar `System.Text.Json`için özellikler kullanılarak `Microsoft.AspNetCore.Mvc.MvcOptions.SerializerOptions`yapılandırılabilir.
+Tabanlı formatlayıcılar `System.Text.Json`için özellikler kullanılarak `Microsoft.AspNetCore.Mvc.JsonOptions.SerializerOptions`yapılandırılabilir.
 
 ```csharp
-services.AddMvc(options =>
+services.AddControllers().AddJsonOptions(options =>
 {
-    options.SerializerOptions.WriterSettings.Indented = true;
+    // Use the default property (Pascal) casing.
+    options.SerializerOptions.PropertyNamingPolicy = null;
+
+    // Configure a custom converter.
+    options.SerializerOptions.Converters.Add(new MyCustomJsonConverter());
 });
+```
+
+İşlem başına temelinde çıkış serileştirme seçenekleri kullanılarak `JsonResult`yapılandırılabilir. Örneğin:
+
+```csharp
+public IActionResult Get()
+{
+    return Json(model, new JsonSerializerOptions
+    {
+        options.WriteIndented = true,
+    });
+}
 ```
 
 ### <a name="add-newtonsoftjson-based-json-format-support"></a>Newtonsoft. JSON tabanlı JSON biçimi desteği ekleyin
@@ -120,7 +136,7 @@ services.AddMvc(options =>
 ASP.NET Core 3,0 ' dan önce, MVC, `Newtonsoft.Json` paket kullanılarak uygulanan JSON formatlarını kullanmaya göre varsayılan. ASP.NET Core 3,0 veya sonraki bir sürümde, varsayılan JSON formatlayıcıları temel `System.Text.Json`alınır. [Microsoft. aspnetcore. Mvc. newtonsoftjson](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc.NewtonsoftJson/) NuGet paketini yükleyerek ve ' de `Startup.ConfigureServices`yapılandırarak, tabanlı biçimlendirme ve özellikler için `Newtonsoft.Json`destek bulabilirsiniz.
 
 ```csharp
-services.AddMvc()
+services.AddControllers()
     .AddNewtonsoftJson();
 ```
 
@@ -129,6 +145,31 @@ Bazı özellikler, tabanlı formatlayıcılar ile `System.Text.Json`düzgün ça
 * Öznitelikleri `Newtonsoft.Json` kullanır (örneğin, `[JsonProperty]` veya `[JsonIgnore]`), `Newtonsoft.Json` serileştirme ayarlarını özelleştirir veya sağlayan özelliklere bağımlıdır.
 * Yapılandırır `Microsoft.AspNetCore.Mvc.JsonResult.SerializerSettings`. ASP.NET Core 3,0 ' dan önce `JsonResult.SerializerSettings` , öğesine `Newtonsoft.Json`özgü bir `JsonSerializerSettings` örneğini kabul eder.
 * [Openapı](<xref:tutorials/web-api-help-pages-using-swagger>) belgeleri oluşturur.
+
+Tabanlı formatlayıcılar `Newtonsoft.Json`için özellikler şu kullanılarak `Microsoft.AspNetCore.Mvc.MvcNewtonsoftJsonOptions.SerializerSettings`yapılandırılabilir:
+
+```csharp
+services.AddControllers().AddNewtonsoftJson(options =>
+{
+    // Use the default property (Pascal) casing
+    options.SerializerSettings.ContractResolver = new DefautlContractResolver();
+
+    // Configure a custom converter
+    options.SerializerOptions.Converters.Add(new MyCustomJsonConverter());
+});
+```
+
+İşlem başına temelinde çıkış serileştirme seçenekleri kullanılarak `JsonResult`yapılandırılabilir. Örneğin:
+
+```csharp
+public IActionResult Get()
+{
+    return Json(model, new JsonSerializerSettings
+    {
+        options.Formatting = Formatting.Indented,
+    });
+}
+```
 
 ::: moniker-end
 

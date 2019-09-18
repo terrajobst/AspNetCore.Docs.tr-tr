@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 09/05/2019
 uid: host-and-deploy/blazor/webassembly
-ms.openlocfilehash: 06316cacb02d9d7619ff7a210bd596696f86021b
-ms.sourcegitcommit: 092061c4f6ef46ed2165fa84de6273d3786fb97e
+ms.openlocfilehash: f6c143cc17d08e0cada67ec831e090661c4fed56
+ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70964256"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71081443"
 ---
 # <a name="host-and-deploy-aspnet-core-blazor-webassembly"></a>Barındırma ve dağıtım ASP.NET Core Blazor WebAssembly
 
@@ -200,7 +200,7 @@ Bir kuruluş sitesi yerine bir proje sitesi kullanırken `<base>` etiketi *index
 
 * Uygulamayı bir komut isteminde yerel olarak çalıştırırken bağımsız değişkenini geçirin. Uygulamanın dizininden şunu yürütün:
 
-  ```console
+  ```dotnetcli
   dotnet run --contentroot=/content-root-path
   ```
 
@@ -225,7 +225,7 @@ Bağımsız `--pathbase` değişkeni, kök olmayan göreli bir URL yoluyla yerel
 
 * Uygulamayı bir komut isteminde yerel olarak çalıştırırken bağımsız değişkenini geçirin. Uygulamanın dizininden şunu yürütün:
 
-  ```console
+  ```dotnetcli
   dotnet run --pathbase=/relative-URL-path
   ```
 
@@ -247,7 +247,7 @@ Bağımsız `--pathbase` değişkeni, kök olmayan göreli bir URL yoluyla yerel
 
 * Uygulamayı bir komut isteminde yerel olarak çalıştırırken bağımsız değişkenini geçirin. Uygulamanın dizininden şunu yürütün:
 
-  ```console
+  ```dotnetcli
   dotnet run --urls=http://127.0.0.1:0
   ```
 

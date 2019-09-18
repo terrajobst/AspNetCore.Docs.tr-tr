@@ -5,14 +5,14 @@ description: Adım adım Blazor uygulaması oluşturun.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 08/23/2019
+ms.date: 09/15/2019
 uid: tutorials/first-blazor-app
-ms.openlocfilehash: ffbdf6991830d554fc508d1d2fe8e4b9586210df
-ms.sourcegitcommit: 092061c4f6ef46ed2165fa84de6273d3786fb97e
+ms.openlocfilehash: b433d793ae615bc4ece7c63bebd72d349adf43ee
+ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70964185"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71081260"
 ---
 # <a name="build-your-first-blazor-app"></a>İlk Blazor uygulamanızı oluşturma
 
@@ -97,11 +97,11 @@ Bileşenler de parametrelere sahip olabilir. Bileşen parametreleri, bileşen s�
 
 ## <a name="dependency-injection"></a>Bağımlılık ekleme
 
-Uygulamanın hizmet kapsayıcısına kayıtlı hizmetler, [bağımlılık ekleme (dı)](xref:fundamentals/dependency-injection)yoluyla bileşenler için kullanılabilir. `@inject` Yönergesi kullanarak bir bileşene hizmet ekleme.
+Bir Blazor sunucu uygulamasıyla çalışıyorsanız, `WeatherForecastService` hizmet [tek](xref:fundamentals/dependency-injection#service-lifetimes) `Startup.ConfigureServices`bir olarak kaydedilir. Uygulamanın tamamında [bağımlılık ekleme (dı)](xref:fundamentals/dependency-injection)yoluyla hizmetin bir örneği mevcuttur:
 
-`FetchData` Bileşenin yönergelerini inceleyin.
+[!code-csharp[](build-your-first-blazor-app/samples_snapshot/3.x/Startup.cs?highlight=5)]
 
-Bir Blazor sunucu uygulamasıyla çalışıyorsanız, `WeatherForecastService` hizmet [tek](xref:fundamentals/dependency-injection#service-lifetimes)bir olarak kaydedilir, bu yüzden hizmetin bir örneği uygulama genelinde kullanılabilir. Yönergesi, `WeatherForecastService` hizmet örneğini bileşene eklemek için kullanılır. `@inject`
+Yönergesi, `WeatherForecastService` hizmet`FetchData` örneğini bileşene eklemek için kullanılır. `@inject`
 
 *Pages/FetchData. Razor*:
 
@@ -111,7 +111,7 @@ Bileşen, `WeatherForecast` nesne dizisini almak için olarak `ForecastService`e
 
 [!code-cshtml[](build-your-first-blazor-app/samples_snapshot/3.x/FetchData2.razor?highlight=6)]
 
-Bir Blazor webassembly uygulamasıyla çalışıyorsanız, `HttpClient` *Wwwroot/Sample-Data* klasöründeki *Hava durumu. JSON* dosyasından Hava durumu tahmin verileri almak için eklenen:
+Bir Blazor webassembly uygulamasıyla çalışıyorsanız, `HttpClient` *Wwwroot/Sample-Data* klasöründeki *Hava durumu. JSON* dosyasından Hava durumu tahmin verileri almak için eklenmiş olur.
 
 *Pages/FetchData. Razor*:
 
@@ -120,7 +120,6 @@ Bir Blazor webassembly uygulamasıyla çalışıyorsanız, `HttpClient` *Wwwroot
 Bir foreach döngüsü, her tahmin örneğini Hava durumu verileri tablosunda bir satır olarak işlemek için kullanılır: [ \@](/dotnet/csharp/language-reference/keywords/foreach-in)
 
 [!code-cshtml[](build-your-first-blazor-app/samples_snapshot/3.x/FetchData3.razor?highlight=11-19)]
-
 
 ## <a name="build-a-todo-list"></a>Yapılacaklar listesi oluşturma
 

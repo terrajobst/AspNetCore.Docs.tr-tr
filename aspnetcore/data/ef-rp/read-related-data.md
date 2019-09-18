@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 07/22/2019
 uid: data/ef-rp/read-related-data
-ms.openlocfilehash: 62224312aa9b7f3e0164b5300e491f59b0832acd
-ms.sourcegitcommit: 776598f71da0d1e4c9e923b3b395d3c3b5825796
+ms.openlocfilehash: f53f8edef7fe8690d0e414bc094d81dc99ad198a
+ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70024729"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71082096"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---read-related-data---6-of-8"></a>ASP.NET Core EF Core ile Razor Pages-Ilgili verileri oku-6/8
 
@@ -46,7 +46,7 @@ EF Core bir varlığın gezinti özelliklerine ilgili verileri yükleyebilmenin 
 
   ![Ayrı sorgular örneği](read-related-data/_static/separate-queries.png)
 
-  Not: EF Core, daha önce bağlam örneğine yüklenmiş olan diğer varlıklara gezinti özelliklerini otomatik olarak düzeltir. Bir gezinti özelliği için veriler açıkça dahil edilmese bile, ilgili varlıkların bazıları veya tümü daha önce yüklenmişse Özellik yine de doldurulabilir.
+  Not: EF Core, daha önce bağlam örneğine yüklenmiş olan diğer varlıklara gezinti özelliklerini otomatik olarak düzeltir. Bir gezinti özelliği için veriler açıkça dahil *edilmese* bile, ilgili varlıkların bazıları veya tümü daha önce yüklenmişse Özellik yine de doldurulabilir.
 
 * [Açık yükleme](/ef/core/querying/related-data#explicit-loading). Varlık ilk kez okunmadıysa ilgili veriler alınmadı. Gerektiğinde ilgili verileri almak için kodun yazılması gerekir. Ayrı sorgularla açık yükleme, veritabanına birden çok sorgu gönderilmesine neden olur. Açık yükleme ile kod, yüklenecek gezinti özelliklerini belirtir. Açık yükleme yapmak için yönteminikullanın.`Load` Örneğin:
 
@@ -85,13 +85,13 @@ Bir kurs için atanan departmanın adını göstermek için:
 
   **Windows üzerinde:**
 
-  ```console
+  ```dotnetcli
   dotnet aspnet-codegenerator razorpage -m Course -dc SchoolContext -udl -outDir Pages\Courses --referenceScriptLibraries
   ```
 
   **Linux veya macOS 'ta:**
 
-  ```console
+  ```dotnetcli
   dotnet aspnet-codegenerator razorpage -m Course -dc SchoolContext -udl -outDir Pages/Courses --referenceScriptLibraries
   ```
 
@@ -182,13 +182,13 @@ Aşağıdaki kodla *SchoolViewModels/ıncpctorındexdata. cs* oluşturun:
 
   **Windows üzerinde:**
 
-  ```console
+  ```dotnetcli
   dotnet aspnet-codegenerator razorpage -m Instructor -dc SchoolContext -udl -outDir Pages\Instructors --referenceScriptLibraries
   ```
 
   **Linux veya macOS 'ta:**
 
-  ```console
+  ```dotnetcli
   dotnet aspnet-codegenerator razorpage -m Instructor -dc SchoolContext -udl -outDir Pages/Instructors --referenceScriptLibraries
   ```
 
@@ -297,7 +297,7 @@ Yöntemi yöntemi ayrı çağırmak yerine `Where` koşulu geçirebilir: `Where`
 
 Bir Where koşulunun kullanımı, kişisel tercihdenbağımsızolarakkullanılır.`Single` `Where` Yöntemi kullanılarak herhangi bir avantaj sağlamaz.
 
-## <a name="explicit-loading"></a>Açık yükleme
+## <a name="explicit-loading"></a>açık yükleme
 
 Geçerli kod ve `Enrollments` `Students`için Eager yüklemeyi belirtir:
 
@@ -357,7 +357,7 @@ EF Core bir varlığın gezinti özelliklerine ilgili verileri yükleyebilmenin 
 
   ![Ayrı sorgular örneği](read-related-data/_static/separate-queries.png)
 
-  Not: EF Core, daha önce bağlam örneğine yüklenmiş olan diğer varlıklara gezinti özelliklerini otomatik olarak düzeltir. Bir gezinti özelliği için veriler açıkça dahil edilmese bile, ilgili varlıkların bazıları veya tümü daha önce yüklenmişse Özellik yine de doldurulabilir.
+  Not: EF Core, daha önce bağlam örneğine yüklenmiş olan diğer varlıklara gezinti özelliklerini otomatik olarak düzeltir. Bir gezinti özelliği için veriler açıkça dahil *edilmese* bile, ilgili varlıkların bazıları veya tümü daha önce yüklenmişse Özellik yine de doldurulabilir.
 
 * [Açık yükleme](/ef/core/querying/related-data#explicit-loading). Varlık ilk kez okunmadıysa ilgili veriler alınmadı. Gerektiğinde ilgili verileri almak için kodun yazılması gerekir. Ayrı sorgularla açık yükleme, VERITABANıNA birden çok sorgu gönderilmesine neden olur. Açık yükleme ile kod, yüklenecek gezinti özelliklerini belirtir. Açık yükleme yapmak için yönteminikullanın.`Load` Örneğin:
 
@@ -390,7 +390,7 @@ Bölümündeki yönergeleri [Öğrenci modeli iskelesini](xref:data/ef-rp/intro#
 
  Şu komutu çalıştırın:
 
-  ```console
+  ```dotnetcli
   dotnet aspnet-codegenerator razorpage -m Course -dc SchoolContext -udl -outDir Pages\Courses --referenceScriptLibraries
   ```
 
@@ -477,7 +477,7 @@ Bölümündeki yönergeleri [Öğrenci modeli iskelesini](xref:data/ef-rp/intro#
 
  Şu komutu çalıştırın:
 
-  ```console
+  ```dotnetcli
   dotnet aspnet-codegenerator razorpage -m Instructor -dc SchoolContext -udl -outDir Pages\Instructors --referenceScriptLibraries
   ```
 
@@ -617,7 +617,7 @@ Yöntemi yöntemi ayrı çağırmak yerine `Where` koşulu geçirebilir: `Where`
 
 Yukarıdaki `Single` yaklaşım, kullanarak `Where`herhangi bir avantaj sağlamaz. Bazı geliştiriciler `Single` yaklaşım stilini tercih eder.
 
-## <a name="explicit-loading"></a>Açık yükleme
+## <a name="explicit-loading"></a>açık yükleme
 
 Geçerli kod ve `Enrollments` `Students`için Eager yüklemeyi belirtir:
 

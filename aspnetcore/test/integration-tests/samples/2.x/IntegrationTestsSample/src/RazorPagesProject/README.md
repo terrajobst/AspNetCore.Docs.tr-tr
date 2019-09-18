@@ -1,9 +1,9 @@
 # <a name="aspnet-core-integration-testing-sample"></a>ASP.NET Core tümleştirme testi örneği
 
-Bu örnek, tümleştirme testi gösterir bir [ASP.NET Core Razor sayfalar](https://docs.microsoft.com/aspnet/core/mvc/razor-pages) uygulama. Bu örnek, açıklanan özellikleri gösterir. [tümleştirme testleri ASP.NET Core](https://docs.microsoft.com/aspnet/core/test/integration-tests) konu.
+Bu örnekte [ASP.NET Core Razor Pages](https://docs.microsoft.com/aspnet/core/mvc/razor-pages) uygulamasının tümleştirme testi gösterilmektedir. Bu örnek, [ASP.NET Core konusunun tümleştirme testlerinde](https://docs.microsoft.com/aspnet/core/test/integration-tests) açıklanan özellikleri gösterir.
 
-Bir IDE ile yerleşik test özellikleri kullanmıyorsanız, bir komut isteminde aşağıdaki komutu yürütün *tests/RazorPagesProject.Tests* klasörü:
+Yerleşik test özellikleriyle IDE kullanmıyorsanız, *testler/RazorPagesProject. Tests* klasöründeki bir komut isteminde aşağıdaki komutu yürütün:
 
-```console
+```dotnetcli
 dotnet test
 ```

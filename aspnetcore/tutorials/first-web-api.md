@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 08/27/2019
 uid: tutorials/first-web-api
-ms.openlocfilehash: 25bfccb136d875b454034bd011828c9f3b6cd3d8
-ms.sourcegitcommit: de17150e5ec7507d7114dde0e5dbc2e45a66ef53
+ms.openlocfilehash: 1cc4fffc50978a3a958a96e1eb250cb85a8d2879
+ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70113293"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71082062"
 ---
 # <a name="tutorial-create-a-web-api-with-aspnet-core"></a>Öğretici: ASP.NET Core ile Web API 'SI oluşturma
 
@@ -71,7 +71,7 @@ Aşağıdaki diyagramda, bu uygulamanın tasarımını gösterir.
 * **Dosya** menüsünden **Yeni** > **Proje**' yi seçin.
 * **ASP.NET Core Web uygulaması** şablonunu seçin ve **İleri**' ye tıklayın.
 * Projeyi *TodoApi* olarak adlandırın ve **Oluştur**' a tıklayın.
-* **Yeni bir ASP.NET Core Web uygulaması oluştur** iletişim kutusunda, **.net Core** ve **ASP.NET Core 3,0** ' un seçili olduğunu doğrulayın. **API** şablonunu seçin ve **Oluştur**' a tıklayın. **Docker desteğini etkinleştir**' i seçmeyin.
+* **Yeni bir ASP.NET Core Web uygulaması oluştur** iletişim kutusunda, **.net Core** ve **ASP.NET Core 3,0** ' un seçili olduğunu doğrulayın. **API** şablonunu seçin ve **Oluştur**' a tıklayın. **Docker desteğini etkinleştir** **' i seçmeyin** .
 
 ![VS yeni proje iletişim kutusu](first-web-api/_static/vs3.png)
 
@@ -81,7 +81,7 @@ Aşağıdaki diyagramda, bu uygulamanın tasarımını gösterir.
 * Dizinleri (`cd`) proje klasörünü içerecek olan klasöre değiştirin.
 * Aşağıdaki komutları çalıştırın:
 
-   ```console
+   ```dotnetcli
    dotnet new webapi -o TodoApi
    cd TodoAPI
    dotnet add package Microsoft.EntityFrameworkCore.SqlServer --version 3.0.0-*
@@ -116,7 +116,7 @@ Aşağıdaki diyagramda, bu uygulamanın tasarımını gösterir.
 
 Proje klasöründe bir komut terminali açın ve aşağıdaki komutları çalıştırın:
 
-   ```console
+   ```dotnetcli
    dotnet add package Microsoft.EntityFrameworkCore.SqlServer --version 3.0.0-*
    dotnet add package Microsoft.EntityFrameworkCore.InMemory --version 3.0.0-*
    ```
@@ -139,7 +139,7 @@ Uygulamayı çalıştırmak için CTRL + F5 tuşlarına basın. Bir tarayıcıda
 
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Mac için Visual Studio](#tab/visual-studio-mac)
 
-Uygulamayı başlatmak için**hata ayıklamayı Başlat** ' ı seçin. >  Mac için Visual Studio bir tarayıcı ile başlatarak `https://localhost:<port>`burada `<port>` bir rastgele seçilen bağlantı noktası numarasıdır. HTTP 404 (bulunamadı) hatası döndürülür. Append `/WeatherForecast` URL'sine (URL'yi `https://localhost:<port>/WeatherForecast`).
+Uygulamayı başlatmak için**hata ayıklamayı Başlat** ' **ı seçin.**  >  Mac için Visual Studio bir tarayıcı ile başlatarak `https://localhost:<port>`burada `<port>` bir rastgele seçilen bağlantı noktası numarasıdır. HTTP 404 (bulunamadı) hatası döndürülür. Append `/WeatherForecast` URL'sine (URL'yi `https://localhost:<port>/WeatherForecast`).
 
 ---
 
@@ -280,7 +280,7 @@ Yukarıdaki kod:
 
 Aşağıdaki komutları çalıştırın:
 
-```console
+```dotnetcli
 dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design --version 3.0.0-*
 dotnet add package Microsoft.EntityFrameworkCore.Design --version 3.0.0-*
 dotnet tool install --global dotnet-aspnet-codegenerator
@@ -523,7 +523,7 @@ Aşağıdaki diyagramda, bu uygulamanın tasarımını gösterir.
 * **Dosya** menüsünden **Yeni** > **Proje**' yi seçin.
 * **ASP.NET Core Web uygulaması** şablonunu seçin ve **İleri**' ye tıklayın.
 * Projeyi *TodoApi* olarak adlandırın ve **Oluştur**' a tıklayın.
-* **Yeni bir ASP.NET Core Web uygulaması oluştur** iletişim kutusunda, **.net Core** ve **ASP.NET Core 2,2** ' un seçili olduğunu doğrulayın. **API** şablonunu seçin ve **Oluştur**' a tıklayın. **Docker desteğini etkinleştir**' i seçmeyin.
+* **Yeni bir ASP.NET Core Web uygulaması oluştur** iletişim kutusunda, **.net Core** ve **ASP.NET Core 2,2** ' un seçili olduğunu doğrulayın. **API** şablonunu seçin ve **Oluştur**' a tıklayın. **Docker desteğini etkinleştir** **' i seçmeyin** .
 
 ![VS yeni proje iletişim kutusu](first-web-api/_static/vs.png)
 
@@ -533,7 +533,7 @@ Aşağıdaki diyagramda, bu uygulamanın tasarımını gösterir.
 * Dizinleri (`cd`) proje klasörünü içerecek olan klasöre değiştirin.
 * Aşağıdaki komutları çalıştırın:
 
-   ```console
+   ```dotnetcli
    dotnet new webapi -o TodoApi
    code -r TodoApi
    ```
@@ -576,7 +576,7 @@ Uygulamayı çalıştırmak için CTRL + F5 tuşlarına basın. Bir tarayıcıda
 
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Mac için Visual Studio](#tab/visual-studio-mac)
 
-Uygulamayı başlatmak için**hata ayıklamayı Başlat** ' ı seçin. >  Mac için Visual Studio bir tarayıcı ile başlatarak `https://localhost:<port>`burada `<port>` bir rastgele seçilen bağlantı noktası numarasıdır. HTTP 404 (bulunamadı) hatası döndürülür. Append `/api/values` URL'sine (URL'yi `https://localhost:<port>/api/values`).
+Uygulamayı başlatmak için**hata ayıklamayı Başlat** ' **ı seçin.**  >  Mac için Visual Studio bir tarayıcı ile başlatarak `https://localhost:<port>`burada `<port>` bir rastgele seçilen bağlantı noktası numarasıdır. HTTP 404 (bulunamadı) hatası döndürülür. Append `/api/values` URL'sine (URL'yi `https://localhost:<port>/api/values`).
 
 ---
 

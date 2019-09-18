@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 09/05/2019
 uid: host-and-deploy/blazor/index
-ms.openlocfilehash: 26c8fcf56ab8ca68aeca93560785fc6c1144ab86
-ms.sourcegitcommit: 092061c4f6ef46ed2165fa84de6273d3786fb97e
+ms.openlocfilehash: 0ded2979b8576f10812e20ae3385c94fd29689c2
+ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70963685"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71081043"
 ---
 # <a name="host-and-deploy-aspnet-core-blazor"></a>ASP.NET Core Blazor barındırma ve dağıtma
 
@@ -32,7 +32,7 @@ Uygulamalar yayın yapılandırmasında dağıtım için yayımlanır.
 
 Uygulamayı bir sürüm yapılandırmasıyla yayımlamak için [DotNet Publish](/dotnet/core/tools/dotnet-publish) komutunu kullanın:
 
-```console
+```dotnetcli
 dotnet publish -c Release
 ```
 
@@ -71,13 +71,13 @@ Uygulamanın temel yolunu ayarlamak için `<base>` *Wwwroot/index.html* dosyası
 
 Kök olmayan göreli URL yoluna (örneğin, `<base href="/CoolApp/">`) sahip bir uygulama için, uygulama *yerel olarak çalıştırıldığında*kaynaklarını bulamaz. Yerel geliştirme ve test sırasında bu sorunu aşmak için, çalışma zamanında `<base>` etiketinin `href` değeriyle eşleşen bir *yol temel* bağımsız değişkeni sağlayabilirsiniz. Uygulamayı yerel olarak çalıştırırken yol temel bağımsız değişkenini geçirmek için, `dotnet run` komutu uygulamanın dizininden `--pathbase` çalıştırın, seçeneği:
 
-```console
+```dotnetcli
 dotnet run --pathbase=/{RELATIVE URL PATH (no trailing slash)}
 ```
 
 Göreli URL yolu `/CoolApp/` (`<base href="/CoolApp/">`) olan bir uygulama için, komut şu şekilde olur:
 
-```console
+```dotnetcli
 dotnet run --pathbase=/CoolApp
 ```
 

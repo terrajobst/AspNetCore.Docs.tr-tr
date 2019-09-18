@@ -1,32 +1,32 @@
 ---
-title: ASP.NET Core Signalr'yi kullanmaya başlayın
+title: ASP.NET Core SignalR ile çalışmaya başlama
 author: bradygaster
-description: Bu öğreticide, ASP.NET Core SignalR kullanan bir sohbet uygulaması oluşturma.
+description: Bu öğreticide, ASP.NET Core SignalR kullanan bir sohbet uygulaması oluşturacaksınız.
 ms.author: bradyg
 ms.custom: mvc
 ms.date: 07/08/2019
 uid: tutorials/signalr
-ms.openlocfilehash: 53d3763a93cc72b6bcf85b64a706500299b3597f
-ms.sourcegitcommit: 040aedca220ed24ee1726e6886daf6906f95a028
+ms.openlocfilehash: 2dfa994b9763a0139cb70cbf9847ac3b02b568e4
+ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67893709"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71081963"
 ---
-# <a name="tutorial-get-started-with-aspnet-core-signalr"></a>Öğretici: ASP.NET Core Signalr'yi kullanmaya başlayın
+# <a name="tutorial-get-started-with-aspnet-core-signalr"></a>Öğretici: ASP.NET Core SignalR ile çalışmaya başlama
 
 ::: moniker range=">= aspnetcore-3.0"
 
-Bu öğreticide SignalR kullanarak gerçek zamanlı bir uygulama oluşturmaya ilişkin temel bilgileri size öğretir. Aşağıdakilerin nasıl yapıldığını öğreneceksiniz:
+Bu öğreticide, SignalR kullanarak gerçek zamanlı bir uygulama oluşturmanın temelleri öğretilir. Aşağıdakilerin nasıl yapıldığını öğreneceksiniz:
 
 > [!div class="checklist"]
 > * Web projesi oluşturun.
-> * SignalR istemci kitaplığı ekleyin.
-> * Bir SignalR hub'ı oluşturun.
+> * SignalR istemci kitaplığını ekleyin.
+> * Bir SignalR hub 'ı oluşturun.
 > * Projeyi SignalR kullanacak şekilde yapılandırın.
-> * Herhangi bir istemciden bağlanan tüm istemciler için iletileri gönderen kodu ekleyin.
+> * Herhangi bir istemciden tüm bağlı istemcilere ileti gönderen kodu ekleyin.
 
-Sonunda, bir çalışma sohbet uygulaması oluşturmuş olacaksınız:
+Sonunda, çalışan bir sohbet uygulamanız olacaktır:
 
 ![SignalR örnek uygulaması](signalr/_static/3.x/signalr-get-started-finished.png)
 
@@ -46,86 +46,86 @@ Sonunda, bir çalışma sohbet uygulaması oluşturmuş olacaksınız:
 
 ---
 
-## <a name="create-a-web-app-project"></a>Bir web uygulaması projesi oluşturma
+## <a name="create-a-web-app-project"></a>Web uygulaması projesi oluşturma
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio/)
 
-* Menüden **Dosya > Yeni proje**.
+* Menüden **dosya > yeni proje**' yi seçin.
 
-* İçinde **yeni bir proje oluşturma** iletişim kutusunda **ASP.NET Core Web uygulaması**ve ardından **sonraki**.
+* **Yeni proje oluştur** iletişim kutusunda **ASP.NET Core Web uygulaması**' nı seçin ve ardından **İleri**' yi seçin.
 
-* İçinde **yeni projenizi yapılandırın** iletişim kutusunda, proje adı *SignalRChat*ve ardından **Oluştur**.
+* **Yeni projenizi yapılandırın** iletişim kutusunda, proje *signalrchat*adını adlandırın ve ardından **Oluştur**' u seçin.
 
-* İçinde **yeni bir ASP.NET Core Web uygulaması oluşturma** iletişim kutusunda **.NET Core** ve **ASP.NET Core 3.0**. 
+* **Yeni bir ASP.NET Core Web uygulaması oluştur** iletişim kutusunda **.net Core** ve **ASP.NET Core 3,0**' i seçin. 
 
-* Seçin **Web uygulaması** Razor sayfaları kullanan bir proje oluşturun ve ardından **Oluştur**.
+* Razor Pages kullanan bir proje oluşturmak için **Web uygulaması** ' nı seçin ve ardından **Oluştur**' u seçin.
 
-  ![Visual Studio'da yeni proje iletişim kutusu](signalr/_static/3.x/signalr-new-project-dialog.png)
+  ![Visual Studio 'da yeni proje iletişim kutusu](signalr/_static/3.x/signalr-new-project-dialog.png)
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code/)
 
-* Açık [tümleşik Terminalini](https://code.visualstudio.com/docs/editor/integrated-terminal) yeni proje klasörü oluşturulacağı klasör.
+* [Tümleşik Terminal](https://code.visualstudio.com/docs/editor/integrated-terminal) ' i yeni proje klasörünün oluşturulacağı klasöre açın.
 
 * Aşağıdaki komutları çalıştırın:
 
-   ```console
+   ```dotnetcli
    dotnet new webapp -o SignalRChat
    code -r SignalRChat
    ```
 
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Mac için Visual Studio](#tab/visual-studio-mac)
 
-* Menüden **Dosya > Yeni Çözüm**.
+* Menüden **dosya > yeni çözüm**' i seçin.
 
-* Seçin **.NET Core > Uygulama > Web uygulaması** (seçmeyin **Web uygulaması (Model-View-Controller)** ) ve ardından **sonraki**.
+* **.NET Core > App > Web uygulaması** ' nı ( **Web uygulaması (Model-View-Controller)** seçmeyin) seçin ve ardından **İleri**' yi seçin.
 
-* Emin **hedef Framework'ü** ayarlanır **.NET Core 3.0**ve ardından **sonraki**.
+* **Hedef çerçevenin** **.NET Core 3,0**olarak ayarlandığından emin olun ve ardından **İleri**' yi seçin.
 
-* Projeyi adlandırın *SignalRChat*ve ardından **Oluştur**.
+* Projeyi *Signalrchat*olarak adlandırın ve **Oluştur**' u seçin.
 
 ---
 
-## <a name="add-the-signalr-client-library"></a>SignalR istemci kitaplığı Ekle
+## <a name="add-the-signalr-client-library"></a>SignalR istemci kitaplığını ekleme
 
-SignalR server kitaplığı ASP.NET Core 3.0 paylaşılan framework dahil edilir. JavaScript istemci kitaplığı, otomatik olarak projeye dahil değil. Bu öğretici için Kitaplık Yöneticisi'ni (LibMan) istemci kitaplığını almak için kullanmak *unpkg*. unpkg bir içerik teslim ağı (CDN) olan), teslim edebilir herhangi bir şey npm, Node.js Paket Yöneticisi bulunamadı.
+SignalR sunucu kitaplığı ASP.NET Core 3,0 paylaşılan çerçevesine dahildir. JavaScript istemci kitaplığı projeye otomatik olarak dahil değildir. Bu öğreticide, istemci kitaplığını *unpkg*'den almak Için kitaplık Yöneticisi 'Ni (Libman) kullanacaksınız. unpkg, Node. js Paket Yöneticisi NPM 'de bulunan her şeyi teslim edebilen bir içerik teslim ağı (CDN)).
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio/)
 
-* İçinde **Çözüm Gezgini**projeye sağ tıklayıp seçin **Ekle** > **istemci tarafı kitaplık**.
+* **Çözüm Gezgini**' de projeye sağ tıklayın ve **istemci tarafı kitaplığı** **Ekle** > ' yi seçin.
 
-* İçinde **istemci tarafı kitaplık Ekle** iletişim için **sağlayıcısı** seçin **unpkg**.
+* **Istemci tarafı kitaplığı Ekle** Iletişim kutusunda **sağlayıcı** için **unpkg**seçeneğini belirleyin.
 
-* İçin **Kitaplığı**, girin `@aspnet/signalr@next`.
+* **Kitaplık**için girin `@aspnet/signalr@next`.
 <!-- when 3.0 is released, change @next to @latest -->
 
-* Seçin **belirli dosyaları seçin**, genişletme *dist/tarayıcı* klasörü ve select *signalr.js* ve *signalr.min.js*.
+* **Belirli dosyaları seç**' i seçin, *dağ/Browser* klasörünü genişletin ve *SignalR. js* ve *SignalR. min. js*' yi seçin.
 
-* Ayarlama **hedef konum** için *wwwroot/lib/signalr/* seçip **yükleme**.
+* **Hedef konumu** *Wwwroot/lib/SignalR/* olarak ayarlayın ve **yüklemeyi**seçin.
 
-  ![İstemci tarafı kitaplık iletişim - select Kütüphane ekleyin](signalr/_static/3.x/libman1.png)
+  ![Istemci tarafı kitaplığı Ekle iletişim kutusu-kitaplık Seç](signalr/_static/3.x/libman1.png)
 
-  LibMan oluşturur bir *wwwroot/lib/signalr* klasörü ve seçili dosyaları kopyalar.
+  LibMan, bir *Wwwroot/LIB/SignalR* klasörü oluşturur ve seçilen dosyaları buna kopyalar.
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code/)
 
-* Tümleşik terminalde LibMan yüklemek için aşağıdaki komutu çalıştırın.
+* Tümleşik terminalde, LibMan 'ı yüklemek için aşağıdaki komutu çalıştırın.
 
-  ```console
+  ```dotnetcli
   dotnet tool install -g Microsoft.Web.LibraryManager.Cli
   ```
 
-* SignalR istemci kitaplığı LibMan almak için aşağıdaki komutu çalıştırın. Çıktıyı görmeye önce birkaç saniye beklemeniz gerekebilir.
+* LibMan kullanarak SignalR istemci kitaplığını almak için aşağıdaki komutu çalıştırın. Çıktıyı görmeden önce birkaç saniye beklemeniz gerekebilir.
 
   ```console
   libman install @aspnet/signalr@next -p unpkg -d wwwroot/lib/signalr --files dist/browser/signalr.js --files dist/browser/signalr.min.js
   ```
 
-  Parametreleri aşağıdaki seçenekleri belirtin:
+  Parametreler aşağıdaki seçenekleri belirtir:
   * Unpkg sağlayıcısını kullanın.
-  * Dosyaları kopyalamak *wwwroot/lib/signalr* hedef.
-  * Yalnızca belirtilen dosyaları kopyalayın.
+  * Dosyaları *Wwwroot/lib/SignalR* hedefine kopyalayın.
+  * Yalnızca belirtilen dosyaları kopyala.
 
-  Çıktı aşağıdaki örnekteki gibi görünür:
+  Çıktı aşağıdaki örneğe benzer şekilde görünür:
 
   ```console
   wwwroot/lib/signalr/dist/browser/signalr.js written to disk
@@ -135,26 +135,26 @@ SignalR server kitaplığı ASP.NET Core 3.0 paylaşılan framework dahil edilir
 
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Mac için Visual Studio](#tab/visual-studio-mac)
 
-* İçinde **Terminal**, LibMan yüklemek için aşağıdaki komutu çalıştırın.
+* **Terminalde**, Libman 'ı yüklemek için aşağıdaki komutu çalıştırın.
 
-  ```console
+  ```dotnetcli
   dotnet tool install -g Microsoft.Web.LibraryManager.Cli
   ```
 
-* Proje klasörüne gidin (içeren *SignalRChat.csproj* dosyası).
+* Proje klasörüne gidin ( *Signalrchat. csproj* dosyasını içeren bir dosya).
 
-* SignalR istemci kitaplığı LibMan almak için aşağıdaki komutu çalıştırın.
+* LibMan kullanarak SignalR istemci kitaplığını almak için aşağıdaki komutu çalıştırın.
 
   ```console
   libman install @aspnet/signalr@next -p unpkg -d wwwroot/lib/signalr --files dist/browser/signalr.js --files dist/browser/signalr.min.js
   ```
 
-  Parametreleri aşağıdaki seçenekleri belirtin:
+  Parametreler aşağıdaki seçenekleri belirtir:
   * Unpkg sağlayıcısını kullanın.
-  * Dosyaları kopyalamak *wwwroot/lib/signalr* hedef.
-  * Yalnızca belirtilen dosyaları kopyalayın.
+  * Dosyaları *Wwwroot/lib/SignalR* hedefine kopyalayın.
+  * Yalnızca belirtilen dosyaları kopyala.
 
-  Çıktı aşağıdaki örnekteki gibi görünür:
+  Çıktı aşağıdaki örneğe benzer şekilde görünür:
 
   ```console
   wwwroot/lib/signalr/dist/browser/signalr.js written to disk
@@ -164,110 +164,111 @@ SignalR server kitaplığı ASP.NET Core 3.0 paylaşılan framework dahil edilir
 
 ---
 
-## <a name="create-a-signalr-hub"></a>Bir SignalR hub'ı oluşturma
+## <a name="create-a-signalr-hub"></a>SignalR hub 'ı oluşturma
 
-A *hub* istemci-sunucu iletişimi işleyen bir üst düzey işlem hattı hizmet veren bir sınıftır.
+*Hub* , istemci-sunucu iletişimini işleyen yüksek düzeyli bir işlem hattı görevi gören bir sınıftır.
 
-* Oluşturma SignalRChat proje klasöründe bir *Hubs* klasör.
+* SignalRChat proje klasöründe bir *hub* klasörü oluşturun.
 
-* İçinde *Hubs* klasör oluşturma bir *ChatHub.cs* dosyasındaki kodu aşağıdaki kodla:
+* *Hub 'lar* klasöründe, aşağıdaki kodla bir *ChatHub.cs* dosyası oluşturun:
 
   [!code-csharp[Startup](signalr/sample-snapshot/3.x/ChatHub.cs)]
 
-  `ChatHub` Sınıfından devralan SignalR öğesinden `Hub` sınıfı. `Hub` Sınıfı, bağlantılar, grupları ve mesajlaşma yönetir.
+  Sınıfı, SignalR `Hub` sınıfından devralır. `ChatHub` `Hub` Sınıfı bağlantıları, grupları ve mesajlaşmayı yönetir.
 
-  `SendMessage` Yöntemi, tüm istemciler için bir ileti göndermek için bir bağlı istemci tarafından çağrılabilir. Bu yöntemi çağıran JavaScript istemci kodu öğreticinin ilerleyen bölümlerinde gösterilmektedir. SignalR kodudur maksimum ölçeklenebilirlik sağlamak için zaman uyumsuz.
+  Yöntemi `SendMessage` , tüm istemcilere ileti göndermek için bağlı bir istemci tarafından çağrılabilir. Yöntemi çağıran JavaScript istemci kodu Öğreticinin ilerleyen kısımlarında gösterilmektedir. SignalR kodu, maksimum ölçeklenebilirlik sağlamak için zaman uyumsuzdur.
 
-## <a name="configure-signalr"></a>SignalR yapılandırın
+## <a name="configure-signalr"></a>SignalR 'yi yapılandırma
 
-SignalR sunucusu, SignalR için SignalR isteklerini iletmek için yapılandırılmalıdır.
+SignalR isteklerini SignalR 'ye iletmek için SignalR sunucusunun yapılandırılması gerekir.
 
-* Aşağıdaki vurgulanmış kodu ekleyin *Startup.cs* dosya.
+* Aşağıdaki Vurgulanan kodu *Startup.cs* dosyasına ekleyin.
 
   [!code-csharp[Startup](signalr/sample-snapshot/3.x/Startup.cs?highlight=6,30,58)]
 
-  Bu değişiklikler, ASP.NET Core bağımlılık ekleme ve sistemleri yönlendirme SignalR ekleyin.
+  Bu değişiklikler ASP.NET Core bağımlılığı ekleme ve yönlendirme sistemlerine SignalR ekler.
 
-## <a name="add-signalr-client-code"></a>SignalR istemci kodu ekleyin
+## <a name="add-signalr-client-code"></a>SignalR istemci kodu ekle
 
-* İçeriği Değiştir *Pages\Index.cshtml* aşağıdaki kod ile:
+* *Pages\ındex.cshtml* içindeki içeriği şu kodla değiştirin:
 
   [!code-cshtml[Index](signalr/sample-snapshot/3.x/Index.cshtml)]
 
   Yukarıdaki kod:
 
-  * Metin kutuları için adı ve ileti metni ve bir Gönder düğmesi oluşturur.
-  * İçeren bir liste oluşturur `id="messagesList"` SignalR hub'ından alınan iletileri görüntülemek için.
-  * SignalR için komut dosyası başvuruları içerir ve *chat.js* sonraki adımda oluşturduğunuz uygulama kodu.
+  * Ad ve ileti metni ve Gönder düğmesi için metin kutuları oluşturur.
+  * SignalR hub 'ından `id="messagesList"` alınan iletileri görüntülemek için içeren bir liste oluşturur.
+  * SignalR için betik başvurularını ve sonraki adımda oluşturduğunuz *chat. js* uygulama kodunu içerir.
 
-* İçinde *wwwroot/js* klasör oluşturma bir *chat.js* dosyasındaki kodu aşağıdaki kodla:
+* *Wwwroot/js* klasöründe, aşağıdaki kodla bir *chat. js* dosyası oluşturun:
 
   [!code-javascript[Index](signalr/sample-snapshot/3.x/chat.js)]
 
   Yukarıdaki kod:
 
-  * Oluşturur ve bir bağlantı başlatır.
-  * Gönder düğmesine hub'a iletiler gönderen bir işleyici ekler.
-  * Bağlantı nesnesi için hub'ından iletiler alan ve bunları listeye ekler bir işleyici ekler.
+  * Bir bağlantı oluşturur ve başlatır.
+  * , Hub 'a ileti gönderen bir işleyiciye Gönder düğmesine ekler.
+  * , Hub 'dan iletileri alan ve bunları listeye ekleyen bir işleyici olan bağlantı nesnesine ekler.
 
 ## <a name="run-the-app"></a>Uygulamayı çalıştırma
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-* Tuşuna **CTRL + F5** uygulamayı hata ayıklama olmadan çalıştırmak için.
+* Uygulamayı hata ayıklamadan çalıştırmak için **CTRL + F5** tuşlarına basın.
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 * Tümleşik terminalde aşağıdaki komutu çalıştırın:
 
-  ```console
+  ```dotnetcli
   dotnet run -p SignalRChat.csproj
   ```
 
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Mac için Visual Studio](#tab/visual-studio-mac)
 
-* Menüden **çalıştırın > hata ayıklama olmadan Başlat**.
+* Menüden, **hata ayıklama olmadan başlat > Çalıştır**' ı seçin.
 
 ---
 
-* Adres çubuğundan URL'yi kopyalayın, başka bir tarayıcı örneğinde veya sekmesi açın ve adres çubuğuna URL'yi yapıştırın.
+* Adres çubuğundan URL 'yi kopyalayın, başka bir tarayıcı örneği veya sekme açın ve adres çubuğuna URL 'YI yapıştırın.
 
-* Ya da tarayıcı seçin, bir ad ve ileti girin ve seçin **iletisi gönder** düğmesi.
+* Tarayıcı ' yı seçin, bir ad ve ileti girin ve **Ileti gönder** düğmesini seçin.
 
-  Her iki sayfalarında, adını ve iletisini anında görüntülenir.
+  Ad ve ileti anında her iki sayfada da görüntülenir.
 
   ![SignalR örnek uygulaması](signalr/_static/3.x/signalr-get-started-finished.png)
 
 > [!TIP]
-> * Uygulama işe yaramazsa, tarayıcı Geliştirici Araçları'nı (F12) açın ve konsoluna gidin. HTML ve JavaScript kodunuza ilgili hatalar görebilirsiniz. Örneğin, eklediğiniz varsayalım *signalr.js* yönlendirilmiş değerinden farklı bir klasöre. Bu durumda bu dosyaya başvuru çalışmaz ve bir 404 hatası konsolunda görürsünüz.
->   ![signalr.js bulunamadı hatası](signalr/_static/3.x/f12-console.png)
-> * Chrome'da ERR_SPDY_INADEQUATE_TRANSPORT_SECURITY veya NS_ERROR_NET_INADEQUATE_SECURITY Firefox'ta hata alırsanız, geliştirme sertifikanızı güncelleştirmek için şu komutları çalıştırın:
->   ```
+> * Uygulama işe yaramazsa, tarayıcı geliştirici araçlarınızı (F12) açın ve konsola gidin. HTML ve JavaScript kodunuzla ilgili hatalarla karşılaşabilirsiniz. Örneğin, *SignalR. js* ' yi yönlendirenden farklı bir klasöre yerleştirdiğinizi varsayalım. Bu durumda, bu dosyaya başvuru çalışmaz ve konsolunda 404 hatası görürsünüz.
+>   ![SignalR. js bulunamadı hatası](signalr/_static/3.x/f12-console.png)
+> * ERR_SPDY_INADEQUATE_TRANSPORT_SECURITY hatasını, Firefox 'ta Chrome veya NS_ERROR_NET_INADEQUATE_SECURITY ' de alırsanız, geliştirme sertifikanızı güncelleştirmek için şu komutları çalıştırın:
+>
+>   ```dotnetcli
 >   dotnet dev-certs https --clean
 >   dotnet dev-certs https --trust
 >   ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-SignalR hakkında daha fazla bilgi için girişine bakın:
+SignalR hakkında daha fazla bilgi edinmek için bkz. giriş:
 
 > [!div class="nextstepaction"]
-> [ASP.NET Core signalr'a giriş](xref:signalr/introduction)
+> [ASP.NET Core SignalR 'ye giriş](xref:signalr/introduction)
 
 ::: moniker-end
 
 ::: moniker range="< aspnetcore-3.0"
 
-Bu öğreticide SignalR kullanarak gerçek zamanlı bir uygulama oluşturmaya ilişkin temel bilgileri size öğretir. Aşağıdakilerin nasıl yapıldığını öğreneceksiniz:
+Bu öğreticide, SignalR kullanarak gerçek zamanlı bir uygulama oluşturmanın temelleri öğretilir. Aşağıdakilerin nasıl yapıldığını öğreneceksiniz:
 
 > [!div class="checklist"]
 > * Web projesi oluşturun.
-> * SignalR istemci kitaplığı ekleyin.
-> * Bir SignalR hub'ı oluşturun.
+> * SignalR istemci kitaplığını ekleyin.
+> * Bir SignalR hub 'ı oluşturun.
 > * Projeyi SignalR kullanacak şekilde yapılandırın.
-> * Herhangi bir istemciden bağlanan tüm istemciler için iletileri gönderen kodu ekleyin.
+> * Herhangi bir istemciden tüm bağlı istemcilere ileti gönderen kodu ekleyin.
 
-Sonunda, bir çalışma sohbet uygulaması oluşturmuş olacaksınız:
+Sonunda, çalışan bir sohbet uygulamanız olacaktır:
 
 ![SignalR örnek uygulaması](signalr/_static/2.x/signalr-get-started-finished.png)
 
@@ -291,83 +292,83 @@ Sonunda, bir çalışma sohbet uygulaması oluşturmuş olacaksınız:
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio/)
 
-* Menüden **Dosya > Yeni proje**.
+* Menüden **dosya > yeni proje**' yi seçin.
 
-* İçinde **yeni proje** iletişim kutusunda **yüklü > Visual C# > Web > ASP.NET Core Web uygulaması**. Projeyi adlandırın *SignalRChat*.
+* **Yeni proje** iletişim kutusunda, **yüklü > Visual C# > Web > ASP.NET Core Web uygulaması**' nı seçin. Projeyi *Signalrchat*olarak adlandırın.
 
-  ![Visual Studio'da yeni proje iletişim kutusu](signalr/_static/2.x/signalr-new-project-dialog.png)
+  ![Visual Studio 'da yeni proje iletişim kutusu](signalr/_static/2.x/signalr-new-project-dialog.png)
 
-* Seçin **Web uygulaması** Razor sayfaları kullanan bir proje oluşturmak için.
+* Razor Pages kullanan bir proje oluşturmak için **Web uygulaması** ' nı seçin.
 
-* Bir hedef Framework'ü seçin **.NET Core**seçin **ASP.NET Core 2.2**, tıklatıp **Tamam**.
+* **.NET Core**'un hedef çerçevesini seçin, **ASP.NET Core 2,2**' i seçin ve **Tamam**' ı tıklatın.
 
-  ![Visual Studio'da yeni proje iletişim kutusu](signalr/_static/2.x/signalr-new-project-choose-type.png)
+  ![Visual Studio 'da yeni proje iletişim kutusu](signalr/_static/2.x/signalr-new-project-choose-type.png)
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code/)
 
-* Açık [tümleşik Terminalini](https://code.visualstudio.com/docs/editor/integrated-terminal) yeni proje klasörü oluşturulacağı klasör.
+* [Tümleşik Terminal](https://code.visualstudio.com/docs/editor/integrated-terminal) ' i yeni proje klasörünün oluşturulacağı klasöre açın.
 
 * Aşağıdaki komutları çalıştırın:
 
-   ```console
+   ```dotnetcli
    dotnet new webapp -o SignalRChat
    code -r SignalRChat
    ```
 
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Mac için Visual Studio](#tab/visual-studio-mac)
 
-* Menüden **Dosya > Yeni Çözüm**.
+* Menüden **dosya > yeni çözüm**' i seçin.
 
-* Seçin **.NET Core > Uygulama > ASP.NET Core Web uygulaması** (seçmeyin **ASP.NET Core Web uygulaması (MVC)** ).
+* **.NET Core > App > ASP.NET Core Web uygulaması** ' nı ( **ASP.NET Core Web uygulaması (MVC)** seçmeyin) seçin.
 
 * **İleri**’yi seçin.
 
-* Projeyi adlandırın *SignalRChat*ve ardından **Oluştur**.
+* Projeyi *Signalrchat*olarak adlandırın ve **Oluştur**' u seçin.
 
 ---
 
-## <a name="add-the-signalr-client-library"></a>SignalR istemci kitaplığı Ekle
+## <a name="add-the-signalr-client-library"></a>SignalR istemci kitaplığını ekleme
 
-SignalR server kitaplığı dahil `Microsoft.AspNetCore.App` metapackage. JavaScript istemci kitaplığı, otomatik olarak projeye dahil değil. Bu öğretici için Kitaplık Yöneticisi'ni (LibMan) istemci kitaplığını almak için kullanmak *unpkg*. unpkg bir içerik teslim ağı (CDN) olan), teslim edebilir herhangi bir şey npm, Node.js Paket Yöneticisi bulunamadı.
+SignalR sunucu kitaplığı, `Microsoft.AspNetCore.App` metapackage 'e dahildir. JavaScript istemci kitaplığı projeye otomatik olarak dahil değildir. Bu öğreticide, istemci kitaplığını *unpkg*'den almak Için kitaplık Yöneticisi 'Ni (Libman) kullanacaksınız. unpkg, Node. js Paket Yöneticisi NPM 'de bulunan her şeyi teslim edebilen bir içerik teslim ağı (CDN)).
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio/)
 
-* İçinde **Çözüm Gezgini**projeye sağ tıklayıp seçin **Ekle** > **istemci tarafı kitaplık**.
+* **Çözüm Gezgini**' de projeye sağ tıklayın ve **istemci tarafı kitaplığı** **Ekle** > ' yi seçin.
 
-* İçinde **istemci tarafı kitaplık Ekle** iletişim için **sağlayıcısı** seçin **unpkg**.
+* **Istemci tarafı kitaplığı Ekle** Iletişim kutusunda **sağlayıcı** için **unpkg**seçeneğini belirleyin.
 
-* İçin **Kitaplığı**, girin `@aspnet/signalr@1`, Önizleme olmayan en son sürümü seçin.
+* **Kitaplık**için, öğesini `@aspnet/signalr@1`girin ve Önizleme olmayan en son sürümü seçin.
 
-  ![İstemci tarafı kitaplık iletişim - select Kütüphane ekleyin](signalr/_static/2.x/libman1.png)
+  ![Istemci tarafı kitaplığı Ekle iletişim kutusu-kitaplık Seç](signalr/_static/2.x/libman1.png)
 
-* Seçin **belirli dosyaları seçin**, genişletme *dist/tarayıcı* klasörü ve select *signalr.js* ve *signalr.min.js*.
+* **Belirli dosyaları seç**' i seçin, *dağ/Browser* klasörünü genişletin ve *SignalR. js* ve *SignalR. min. js*' yi seçin.
 
-* Ayarlama **hedef konum** için *wwwroot/lib/signalr/* seçip **yükleme**.
+* **Hedef konumu** *Wwwroot/lib/SignalR/* olarak ayarlayın ve **yüklemeyi**seçin.
 
-  ![İstemci tarafı kitaplık iletişim - dosyaları seçin ve hedef Ekle](signalr/_static/2.x/libman2.png)
+  ![Istemci tarafı kitaplığı Ekle iletişim kutusu-dosya ve hedef seçme](signalr/_static/2.x/libman2.png)
 
-  LibMan oluşturur bir *wwwroot/lib/signalr* klasörü ve seçili dosyaları kopyalar.
+  LibMan, bir *Wwwroot/LIB/SignalR* klasörü oluşturur ve seçilen dosyaları buna kopyalar.
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code/)
 
-* Tümleşik terminalde LibMan yüklemek için aşağıdaki komutu çalıştırın.
+* Tümleşik terminalde, LibMan 'ı yüklemek için aşağıdaki komutu çalıştırın.
 
-  ```console
+  ```dotnetcli
   dotnet tool install -g Microsoft.Web.LibraryManager.Cli
   ```
 
-* SignalR istemci kitaplığı LibMan almak için aşağıdaki komutu çalıştırın. Çıktıyı görmeye önce birkaç saniye beklemeniz gerekebilir.
+* LibMan kullanarak SignalR istemci kitaplığını almak için aşağıdaki komutu çalıştırın. Çıktıyı görmeden önce birkaç saniye beklemeniz gerekebilir.
 
   ```console
   libman install @aspnet/signalr -p unpkg -d wwwroot/lib/signalr --files dist/browser/signalr.js --files dist/browser/signalr.min.js
   ```
 
-  Parametreleri aşağıdaki seçenekleri belirtin:
+  Parametreler aşağıdaki seçenekleri belirtir:
   * Unpkg sağlayıcısını kullanın.
-  * Dosyaları kopyalamak *wwwroot/lib/signalr* hedef.
-  * Yalnızca belirtilen dosyaları kopyalayın.
+  * Dosyaları *Wwwroot/lib/SignalR* hedefine kopyalayın.
+  * Yalnızca belirtilen dosyaları kopyala.
 
-  Çıktı aşağıdaki örnekteki gibi görünür:
+  Çıktı aşağıdaki örneğe benzer şekilde görünür:
 
   ```console
   wwwroot/lib/signalr/dist/browser/signalr.js written to disk
@@ -377,26 +378,26 @@ SignalR server kitaplığı dahil `Microsoft.AspNetCore.App` metapackage. JavaSc
 
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Mac için Visual Studio](#tab/visual-studio-mac)
 
-* İçinde **Terminal**, LibMan yüklemek için aşağıdaki komutu çalıştırın.
+* **Terminalde**, Libman 'ı yüklemek için aşağıdaki komutu çalıştırın.
 
-  ```console
+  ```dotnetcli
   dotnet tool install -g Microsoft.Web.LibraryManager.Cli
   ```
 
-* Proje klasörüne gidin (içeren *SignalRChat.csproj* dosyası).
+* Proje klasörüne gidin ( *Signalrchat. csproj* dosyasını içeren bir dosya).
 
-* SignalR istemci kitaplığı LibMan almak için aşağıdaki komutu çalıştırın.
+* LibMan kullanarak SignalR istemci kitaplığını almak için aşağıdaki komutu çalıştırın.
 
   ```console
   libman install @aspnet/signalr -p unpkg -d wwwroot/lib/signalr --files dist/browser/signalr.js --files dist/browser/signalr.min.js
   ```
 
-  Parametreleri aşağıdaki seçenekleri belirtin:
+  Parametreler aşağıdaki seçenekleri belirtir:
   * Unpkg sağlayıcısını kullanın.
-  * Dosyaları kopyalamak *wwwroot/lib/signalr* hedef.
-  * Yalnızca belirtilen dosyaları kopyalayın.
+  * Dosyaları *Wwwroot/lib/SignalR* hedefine kopyalayın.
+  * Yalnızca belirtilen dosyaları kopyala.
 
-  Çıktı aşağıdaki örnekteki gibi görünür:
+  Çıktı aşağıdaki örneğe benzer şekilde görünür:
 
   ```console
   wwwroot/lib/signalr/dist/browser/signalr.js written to disk
@@ -406,98 +407,98 @@ SignalR server kitaplığı dahil `Microsoft.AspNetCore.App` metapackage. JavaSc
 
 ---
 
-## <a name="create-a-signalr-hub"></a>Bir SignalR hub'ı oluşturma
+## <a name="create-a-signalr-hub"></a>SignalR hub 'ı oluşturma
 
-A *hub* istemci-sunucu iletişimi işleyen bir üst düzey işlem hattı hizmet veren bir sınıftır.
+*Hub* , istemci-sunucu iletişimini işleyen yüksek düzeyli bir işlem hattı görevi gören bir sınıftır.
 
-* Oluşturma SignalRChat proje klasöründe bir *Hubs* klasör.
+* SignalRChat proje klasöründe bir *hub* klasörü oluşturun.
 
-* İçinde *Hubs* klasör oluşturma bir *ChatHub.cs* dosyasındaki kodu aşağıdaki kodla:
+* *Hub 'lar* klasöründe, aşağıdaki kodla bir *ChatHub.cs* dosyası oluşturun:
 
   [!code-csharp[Startup](signalr/sample-snapshot/2.x/ChatHub.cs)]
 
-  `ChatHub` Sınıfından devralan SignalR öğesinden `Hub` sınıfı. `Hub` Sınıfı, bağlantılar, grupları ve mesajlaşma yönetir.
+  Sınıfı, SignalR `Hub` sınıfından devralır. `ChatHub` `Hub` Sınıfı bağlantıları, grupları ve mesajlaşmayı yönetir.
 
-  `SendMessage` Yöntemi, tüm istemciler için bir ileti göndermek için bir bağlı istemci tarafından çağrılabilir. Bu yöntemi çağıran JavaScript istemci kodu öğreticinin ilerleyen bölümlerinde gösterilmektedir. SignalR kodudur maksimum ölçeklenebilirlik sağlamak için zaman uyumsuz.
+  Yöntemi `SendMessage` , tüm istemcilere ileti göndermek için bağlı bir istemci tarafından çağrılabilir. Yöntemi çağıran JavaScript istemci kodu Öğreticinin ilerleyen kısımlarında gösterilmektedir. SignalR kodu, maksimum ölçeklenebilirlik sağlamak için zaman uyumsuzdur.
 
-## <a name="configure-signalr"></a>SignalR yapılandırın
+## <a name="configure-signalr"></a>SignalR 'yi yapılandırma
 
-SignalR sunucusu, SignalR için SignalR isteklerini iletmek için yapılandırılmalıdır.
+SignalR isteklerini SignalR 'ye iletmek için SignalR sunucusunun yapılandırılması gerekir.
 
-* Aşağıdaki vurgulanmış kodu ekleyin *Startup.cs* dosya.
+* Aşağıdaki Vurgulanan kodu *Startup.cs* dosyasına ekleyin.
 
   [!code-csharp[Startup](signalr/sample-snapshot/2.x/Startup.cs?highlight=7,33,52-55)]
 
-  Bu değişiklikler, ASP.NET Core bağımlılık ekleme sistemi ve ara yazılım ardışık düzenini SignalR ekleyin.
+  Bu değişiklikler ASP.NET Core bağımlılığı ekleme sistemine ve ara yazılım ardışık düzenine SignalR ekler.
 
-## <a name="add-signalr-client-code"></a>SignalR istemci kodu ekleyin
+## <a name="add-signalr-client-code"></a>SignalR istemci kodu ekle
 
-* İçeriği Değiştir *Pages\Index.cshtml* aşağıdaki kod ile:
+* *Pages\ındex.cshtml* içindeki içeriği şu kodla değiştirin:
 
   [!code-cshtml[Index](signalr/sample-snapshot/2.x/Index.cshtml)]
 
   Yukarıdaki kod:
 
-  * Metin kutuları için adı ve ileti metni ve bir Gönder düğmesi oluşturur.
-  * İçeren bir liste oluşturur `id="messagesList"` SignalR hub'ından alınan iletileri görüntülemek için.
-  * SignalR için komut dosyası başvuruları içerir ve *chat.js* sonraki adımda oluşturduğunuz uygulama kodu.
+  * Ad ve ileti metni ve Gönder düğmesi için metin kutuları oluşturur.
+  * SignalR hub 'ından `id="messagesList"` alınan iletileri görüntülemek için içeren bir liste oluşturur.
+  * SignalR için betik başvurularını ve sonraki adımda oluşturduğunuz *chat. js* uygulama kodunu içerir.
 
-* İçinde *wwwroot/js* klasör oluşturma bir *chat.js* dosyasındaki kodu aşağıdaki kodla:
+* *Wwwroot/js* klasöründe, aşağıdaki kodla bir *chat. js* dosyası oluşturun:
 
   [!code-javascript[Index](signalr/sample-snapshot/2.x/chat.js)]
 
   Yukarıdaki kod:
 
-  * Oluşturur ve bir bağlantı başlatır.
-  * Gönder düğmesine hub'a iletiler gönderen bir işleyici ekler.
-  * Bağlantı nesnesi için hub'ından iletiler alan ve bunları listeye ekler bir işleyici ekler.
+  * Bir bağlantı oluşturur ve başlatır.
+  * , Hub 'a ileti gönderen bir işleyiciye Gönder düğmesine ekler.
+  * , Hub 'dan iletileri alan ve bunları listeye ekleyen bir işleyici olan bağlantı nesnesine ekler.
 
 ## <a name="run-the-app"></a>Uygulamayı çalıştırma
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-* Tuşuna **CTRL + F5** uygulamayı hata ayıklama olmadan çalıştırmak için.
+* Uygulamayı hata ayıklamadan çalıştırmak için **CTRL + F5** tuşlarına basın.
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 * Tümleşik terminalde aşağıdaki komutu çalıştırın:
 
-  ```console
+  ```dotnetcli
   dotnet run -p SignalRChat.csproj
   ```
 
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Mac için Visual Studio](#tab/visual-studio-mac)
 
-* Menüden **çalıştırın > hata ayıklama olmadan Başlat**.
+* Menüden, **hata ayıklama olmadan başlat > Çalıştır**' ı seçin.
 
 ---
 
-* Adres çubuğundan URL'yi kopyalayın, başka bir tarayıcı örneğinde veya sekmesi açın ve adres çubuğuna URL'yi yapıştırın.
+* Adres çubuğundan URL 'yi kopyalayın, başka bir tarayıcı örneği veya sekme açın ve adres çubuğuna URL 'YI yapıştırın.
 
-* Ya da tarayıcı seçin, bir ad ve ileti girin ve seçin **iletisi gönder** düğmesi.
+* Tarayıcı ' yı seçin, bir ad ve ileti girin ve **Ileti gönder** düğmesini seçin.
 
-  Her iki sayfalarında, adını ve iletisini anında görüntülenir.
+  Ad ve ileti anında her iki sayfada da görüntülenir.
 
   ![SignalR örnek uygulaması](signalr/_static/2.x/signalr-get-started-finished.png)
 
 > [!TIP]
-> Uygulama işe yaramazsa, tarayıcı Geliştirici Araçları'nı (F12) açın ve konsoluna gidin. HTML ve JavaScript kodunuza ilgili hatalar görebilirsiniz. Örneğin, eklediğiniz varsayalım *signalr.js* yönlendirilmiş değerinden farklı bir klasöre. Bu durumda bu dosyaya başvuru çalışmaz ve bir 404 hatası konsolunda görürsünüz.
-> ![signalr.js bulunamadı hatası](signalr/_static/2.x/f12-console.png)
+> Uygulama işe yaramazsa, tarayıcı geliştirici araçlarınızı (F12) açın ve konsola gidin. HTML ve JavaScript kodunuzla ilgili hatalarla karşılaşabilirsiniz. Örneğin, *SignalR. js* ' yi yönlendirenden farklı bir klasöre yerleştirdiğinizi varsayalım. Bu durumda, bu dosyaya başvuru çalışmaz ve konsolunda 404 hatası görürsünüz.
+> ![SignalR. js bulunamadı hatası](signalr/_static/2.x/f12-console.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
 
 > [!div class="checklist"]
-> * Bir web uygulaması projesi oluşturun.
-> * SignalR istemci kitaplığı ekleyin.
-> * Bir SignalR hub'ı oluşturun.
+> * Bir Web uygulaması projesi oluşturun.
+> * SignalR istemci kitaplığını ekleyin.
+> * Bir SignalR hub 'ı oluşturun.
 > * Projeyi SignalR kullanacak şekilde yapılandırın.
-> * Bağlanan tüm istemciler için herhangi bir istemciden ileti göndermek için hub'ı kullanan kodu ekleyin.
+> * Herhangi bir istemciden tüm bağlı istemcilere ileti göndermek için hub 'ı kullanan kodu ekleyin.
 
-SignalR hakkında daha fazla bilgi için girişine bakın:
+SignalR hakkında daha fazla bilgi edinmek için bkz. giriş:
 
 > [!div class="nextstepaction"]
-> [ASP.NET Core signalr'a giriş](xref:signalr/introduction)
+> [ASP.NET Core SignalR 'ye giriş](xref:signalr/introduction)
 
 ::: moniker-end

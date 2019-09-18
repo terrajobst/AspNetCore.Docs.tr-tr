@@ -1,7 +1,7 @@
 
 Aşağıdaki .NET Core CLI komutları çalıştırın:
 
-```console
+```dotnetcli
 dotnet ef migrations add InitialCreate
 dotnet ef database update
 ```

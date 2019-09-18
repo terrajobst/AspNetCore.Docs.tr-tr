@@ -7,12 +7,12 @@ ms.author: scaddie
 ms.custom: H1Hack27Feb2017
 ms.date: 09/06/2019
 uid: client-side/spa-services
-ms.openlocfilehash: 16c9eb1d79bca792062d292795763c54dd02bd37
-ms.sourcegitcommit: f65d8765e4b7c894481db9b37aa6969abc625a48
+ms.openlocfilehash: 7aff46f739239246191763e0590046b2d9995922
+ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70773410"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71080504"
 ---
 # <a name="use-javascript-services-to-create-single-page-applications-in-aspnet-core"></a>ASP.NET Core içinde tek sayfalı uygulamalar oluşturmak için JavaScript hizmetlerini kullanın
 
@@ -219,7 +219,7 @@ JavaScript Hizmetleri önceden yapılandırılmış uygulama şablonları sağla
 
 Bu şablonlar, aşağıdaki komutu çalıştırarak, .NET Core CLI yüklenebilir:
 
-```console
+```dotnetcli
 dotnet new --install Microsoft.AspNetCore.SpaTemplates::*
 ```
 
@@ -233,7 +233,7 @@ Kullanılabilir SPA şablonlar listesi görüntülenir:
 
 SPA şablonlardan birini kullanarak yeni bir proje oluşturmak için dahil **kısa ad** şablonda, [yeni dotnet](/dotnet/core/tools/dotnet-new) komutu. Aşağıdaki komut, sunucu tarafı için yapılandırılan ASP.NET Core MVC ile Angular bir uygulama oluşturur:
 
-```console
+```dotnetcli
 dotnet new angular
 ```
 
@@ -254,13 +254,13 @@ ASP.NET Core kullanan adlı bir ortam değişkeni `ASPNETCORE_ENVIRONMENT` yapı
 
 Proje kök dizininde aşağıdaki komutu çalıştırarak gerekli NuGet ve npm paketlerini geri yükleyin:
 
-```console
+```dotnetcli
 dotnet restore && npm i
 ```
 
 Derleme ve uygulamayı çalıştırın:
 
-```console
+```dotnetcli
 dotnet run
 ```
 
@@ -303,7 +303,7 @@ MSBuild hedefi aşağıdaki sorumluluklara sahiptir:
 
 MSBuild hedefi çalıştırılırken çağrılır:
 
-```console
+```dotnetcli
 dotnet publish -c Release
 ```
 

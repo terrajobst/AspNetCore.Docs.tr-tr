@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 08/13/2019
 uid: blazor/class-libraries
-ms.openlocfilehash: b5857f2cf22bde801deeeaf227817fdf99862f4a
-ms.sourcegitcommit: 4cb0c7e74355f2e87c60e2a196f842b937247a99
+ms.openlocfilehash: 91c4ffb29649c162fc15e5cb70dc60144b53afea
+ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69545777"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71080657"
 ---
 # <a name="aspnet-core-razor-components-class-libraries"></a>ASP.NET Core Razor bileşenleri sınıf kitaplıkları
 
@@ -48,13 +48,13 @@ Ortamınızı Blazor için yapılandırmak üzere <xref:blazor/get-started> maka
 
 1. Bir komut kabuğunda [DotNet New](/dotnet/core/tools/dotnet-new) komutuyla **Razor sınıf kitaplığı** şablonunu (`razorclasslib`) kullanın. Aşağıdaki örnekte adlı `MyComponentLib1`bir RCL oluşturulur. Komut yürütüldüğünde, tutan `MyComponentLib1` klasör otomatik olarak oluşturulur:
 
-   ```console
+   ```dotnetcli
    dotnet new razorclasslib -o MyComponentLib1
    ```
 
 1. Kitaplığı var olan bir projeye eklemek için, bir komut kabuğunda [DotNet Add Reference](/dotnet/core/tools/dotnet-add-reference) komutunu kullanın. Aşağıdaki örnekte, RCL uygulamaya eklenir. Uygulamanın proje klasöründen, kitaplığın yolunu kullanarak aşağıdaki komutu yürütün:
 
-   ```console
+   ```dotnetcli
    dotnet add reference {PATH TO LIBRARY}
    ```
 
@@ -97,13 +97,13 @@ Kitaplığın bileşenlerini projenin tamamına kullanılabilir hale getirmek i�
 
 Bileşen kitaplıkları standart .NET kitaplıkları olduğundan, paketlemeden ve tüm kitaplıkları NuGet 'e dağıtmadan farklı değildir. Paketleme, bir komut kabuğu 'nda [DotNet Pack](/dotnet/core/tools/dotnet-pack) komutu kullanılarak gerçekleştirilir:
 
-```console
+```dotnetcli
 dotnet pack
 ```
 
 Bir komut kabuğu 'nda [DotNet NuGet Publish](/dotnet/core/tools/dotnet-nuget-push) komutunu kullanarak paketi NuGet 'e yükleyin:
 
-```console
+```dotnetcli
 dotnet nuget publish
 ```
 

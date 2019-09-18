@@ -22,7 +22,7 @@ Aşağıdaki `MvcMovieContext` sınıfı *veri* klasörüne ekleyin:
 
 Aşağıdaki .NET Core CLI komutları çalıştırın:
 
-```console
+```dotnetcli
 dotnet tool install --global dotnet-ef --version 3.0.0-*
 dotnet add package Microsoft.EntityFrameworkCore.SQLite --version 3.0.0-*
 dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design --version 3.0.0-*
@@ -71,7 +71,7 @@ Aşağıdaki `MvcMovieContext` sınıfının *modelleri* klasörü:
 
 SQLite ve CodeGeneration eklemek için aşağıdaki .NET Core CLI komutunu çalıştırın. projeye tasarım:
 
-```console
+```dotnetcli
 dotnet add package Microsoft.EntityFrameworkCore.SQLite
 dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design
 ```

@@ -5,12 +5,12 @@ description: Entity Framework Core (EF Core) kullanarak bir veritabanında filml
 ms.author: riande
 ms.date: 07/22/2019
 uid: tutorials/razor-pages/model
-ms.openlocfilehash: 39e2a38e0b91b7dbecf05c084ca0be5e312dcb0d
-ms.sourcegitcommit: 2719c70cd15a430479ab4007ff3e197fbf5dfee0
+ms.openlocfilehash: 18cf9aea930a7989bb844bc6c40dfa1ce84b7b4d
+ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68862866"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71082631"
 ---
 # <a name="add-a-model-to-a-razor-pages-app-in-aspnet-core"></a>Bir ASP.NET Core Razor sayfaları uygulama için model ekleme
 
@@ -98,19 +98,19 @@ Tamamlamak **ekleme Razor sayfaları (CRUD) Entity Framework kullanarak** ileti�
 * Proje dizininde bir komut penceresi açın (içeren dizine *Program.cs*, *Startup.cs*, ve *.csproj* dosyaları).
 * Yapı iskelesi Aracı'nı yükleyin:
 
-  ```console
+  ```dotnetcli
    dotnet tool install --global dotnet-aspnet-codegenerator --version 3.0.0-*
    ```
 
 * **Windows için**: Şu komutu çalıştırın:
 
-  ```console
+  ```dotnetcli
   dotnet aspnet-codegenerator razorpage -m Movie -dc RazorPagesMovieContext -udl -outDir Pages\Movies --referenceScriptLibraries
   ```
 
 * **MacOS ve Linux için**: Şu komutu çalıştırın:
 
-  ```console
+  ```dotnetcli
   dotnet aspnet-codegenerator razorpage -m Movie -dc RazorPagesMovieContext -udl -outDir Pages/Movies --referenceScriptLibraries
   ```
 
@@ -121,13 +121,13 @@ Tamamlamak **ekleme Razor sayfaları (CRUD) Entity Framework kullanarak** ileti�
 * Proje dizininde bir komut penceresi açın (içeren dizine *Program.cs*, *Startup.cs*, ve *.csproj* dosyaları).
 * Yapı iskelesi Aracı'nı yükleyin:
 
-  ```console
+  ```dotnetcli
    dotnet tool install --global dotnet-aspnet-codegenerator --version 3.0.0-*
    ```
 
 * Şu komutu çalıştırın:
 
-  ```console
+  ```dotnetcli
   dotnet aspnet-codegenerator razorpage -m Movie -dc RazorPagesMovieContext -udl -outDir Pages/Movies --referenceScriptLibraries
   ```
 
@@ -355,19 +355,19 @@ to use Data, it should not use models. That will make the namespace the same for
 * Proje dizininde bir komut penceresi açın (içeren dizine *Program.cs*, *Startup.cs*, ve *.csproj* dosyaları).
 * Yapı iskelesi Aracı'nı yükleyin:
 
-  ```console
+  ```dotnetcli
    dotnet tool install --global dotnet-aspnet-codegenerator
    ```
 
 * **Windows için**: Şu komutu çalıştırın:
 
-  ```console
+  ```dotnetcli
   dotnet aspnet-codegenerator razorpage -m Movie -dc RazorPagesMovieContext -udl -outDir Pages\Movies --referenceScriptLibraries
   ```
 
 * **MacOS ve Linux için**: Şu komutu çalıştırın:
 
-  ```console
+  ```dotnetcli
   dotnet aspnet-codegenerator razorpage -m Movie -dc RazorPagesMovieContext -udl -outDir Pages/Movies --referenceScriptLibraries
   ```
 
@@ -378,13 +378,13 @@ to use Data, it should not use models. That will make the namespace the same for
 * Proje dizininde bir komut penceresi açın (içeren dizine *Program.cs*, *Startup.cs*, ve *.csproj* dosyaları).
 * Yapı iskelesi Aracı'nı yükleyin:
 
-  ```console
+  ```dotnetcli
    dotnet tool install --global dotnet-aspnet-codegenerator
    ```
 
 * Şu komutu çalıştırın:
 
-  ```console
+  ```dotnetcli
   dotnet aspnet-codegenerator razorpage -m Movie -dc RazorPagesMovieContext -udl -outDir Pages/Movies --referenceScriptLibraries
   ```
 

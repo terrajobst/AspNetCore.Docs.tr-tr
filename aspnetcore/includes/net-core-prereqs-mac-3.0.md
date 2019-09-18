@@ -1,2 +1,2 @@
-* [Sürüm 8.0 veya üzerini Mac için Visual Studio](https://visualstudio.microsoft.com/vs/mac/)
-* [.NET Core SDK 3.0](https://dotnet.microsoft.com/download/dotnet-core/3.0)
+* [Mac için Visual Studio Sürüm 8,0 veya üzeri](https://visualstudio.microsoft.com/vs/mac/)
+* [!INCLUDE [](~/includes/3.0-SDK.md)]

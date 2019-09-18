@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 06/18/2019
 uid: host-and-deploy/docker/building-net-docker-images
-ms.openlocfilehash: 38bdad7110a45538be01cf432aab773c4205980e
-ms.sourcegitcommit: 8835b6777682da6fb3becf9f9121c03f89dc7614
+ms.openlocfilehash: 24462b53525a38eb1bac82e8498d2d073b06a10f
+ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69975413"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71081740"
 ---
 # <a name="docker-images-for-aspnet-core"></a>ASP.NET Core için Docker görüntüleri
 
@@ -70,7 +70,7 @@ Bu öğreticide, ASP.NET Core örnek bir uygulama indirir ve Docker kapsayıcıl
 
 * Uygulamayı yerel olarak derlemek ve çalıştırmak için aşağıdaki komutu çalıştırın:
 
-  ```console
+  ```dotnetcli
   dotnet run
   ```
 
@@ -142,7 +142,7 @@ Bazı senaryolarda, çalışma zamanında gerekli olan uygulama dosyalarını ko
 
 * [DotNet Publish](/dotnet/core/tools/dotnet-publish) komutunu çalıştırın:
 
-  ```console
+  ```dotnetcli
   dotnet publish -c Release -o published
   ```
 
@@ -154,13 +154,13 @@ Bazı senaryolarda, çalışma zamanında gerekli olan uygulama dosyalarını ko
 
   * Windows:
 
-    ```console
+    ```dotnetcli
     dotnet published\aspnetapp.dll
     ```
 
   * Linux:
 
-    ```bash
+    ```dotnetcli
     dotnet published/aspnetapp.dll
     ```
 
@@ -177,9 +177,9 @@ ENTRYPOINT ["dotnet", "aspnetapp.dll"]
 
 ### <a name="the-dockerfile"></a>Dockerfile
 
-Daha önce çalıştırdığınız `docker build` komut tarafından kullanılan dockerfile aşağıda verilmiştir.  Bu bölümde `dotnet publish` derlemek ve dağıtmak için kullandığınız şekilde aynı şekilde kullanılır.  
+Daha önce çalıştırdığınız `docker build` komut tarafından kullanılan *dockerfile* aşağıda verilmiştir.  Bu bölümde `dotnet publish` derlemek ve dağıtmak için kullandığınız şekilde aynı şekilde kullanılır.  
 
-```console
+```dockerfile
 FROM mcr.microsoft.com/dotnet/core/sdk:2.2 AS build
 WORKDIR /app
 

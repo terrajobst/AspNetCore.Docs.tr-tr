@@ -1,10 +1,10 @@
-* Aşağıdaki komutu çalıştırarak HTTPS geliştirme sertifikası güven:
+* Aşağıdaki komutu çalıştırarak HTTPS geliştirme sertifikasına güvenin:
 
-    ```console
+    ```dotnetcli
     dotnet dev-certs https --trust
     ```
 
-* Yukarıdaki komut, aşağıdaki çıkışı görüntüler:
+* Yukarıdaki komut aşağıdaki çıktıyı görüntüler:
 
     ```console
     Trusting the HTTPS development certificate was requested. If the certificate 
@@ -16,6 +16,6 @@
     The HTTPS developer certificate was generated successfully.
     ```
 
-* Yönetici kullanıcı adı ve parola istenirse girin.  Sertifika artık güvenilir ve yüklenir.
+* İstenirse yönetici kullanıcı adını ve parolasını girin.  Sertifika şimdi yüklenir ve güvenilir olur.
 
-    Bkz: [ASP.NET Core HTTPS geliştirme sertifikasına güvenmek](xref:security/enforcing-ssl#trust-the-aspnet-core-https-development-certificate-on-windows-and-macos) daha fazla bilgi için.
+    Daha fazla bilgi için bkz. [ASP.NET Core https geliştirme sertifikasına güvenin](xref:security/enforcing-ssl#trust-the-aspnet-core-https-development-certificate-on-windows-and-macos) .

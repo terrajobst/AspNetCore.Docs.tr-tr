@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 08/12/2019
 uid: fundamentals/configuration/index
-ms.openlocfilehash: 5723295c70f8d893f758ca5dc87180c6b707f493
-ms.sourcegitcommit: 89fcc6cb3e12790dca2b8b62f86609bed6335be9
+ms.openlocfilehash: 0de2222e8072523ff0e5d261a9fe5ef8eb9a7606
+ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68994142"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71081815"
 ---
 # <a name="configuration-in-aspnet-core"></a>ASP.NET Core yapılandırma
 
@@ -187,7 +187,7 @@ Yapılandırma değerleri aşağıdaki kuralları benimseyin:
 * Değerler dizelerdir.
 * Null değerler yapılandırmada saklanamaz veya nesnelere bağlanabilir.
 
-## <a name="providers"></a>Sağlayıcılarla
+## <a name="providers"></a>sağlayıcılarla
 
 Aşağıdaki tabloda ASP.NET Core uygulamalar için kullanılabilen yapılandırma sağlayıcıları gösterilmektedir.
 
@@ -354,7 +354,7 @@ Aynı komut içinde, bir boşluk kullanan anahtar-değer çiftleri ile bir eşit
 
 Örnek komutlar:
 
-```console
+```dotnetcli
 dotnet run CommandLineKey1=value1 --CommandLineKey2=value2 /CommandLineKey3=value3
 dotnet run --CommandLineKey1 value1 /CommandLineKey2 value2
 dotnet run CommandLineKey1= CommandLineKey2=value2
@@ -402,7 +402,7 @@ Anahtar eşlemeleri sözlüğü oluşturulduktan sonra, aşağıdaki tabloda gö
 
 Uygulama başlatılırken anahtar eşlenmiş anahtarlar kullanılıyorsa, yapılandırma sözlük tarafından sağlanan anahtardaki yapılandırma değerini alır:
 
-```console
+```dotnetcli
 dotnet run -CLKey1=value1 -CLKey2=value2
 ```
 

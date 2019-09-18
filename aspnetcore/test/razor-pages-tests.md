@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 08/14/2019
 uid: test/razor-pages-tests
-ms.openlocfilehash: 35feb5dd95fa79ceca7ff03523cef30d29ccbdd3
-ms.sourcegitcommit: 476ea5ad86a680b7b017c6f32098acd3414c0f6c
+ms.openlocfilehash: afac97d686ef190ebb92d20a55a15dd774b0d1de
+ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69022569"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71081433"
 ---
 # <a name="razor-pages-unit-tests-in-aspnet-core"></a>ASP.NET Core birim testlerini Razor Pages
 
@@ -44,7 +44,7 @@ Bu konu, Razor Pages uygulamalar ve birim testleri hakkında temel bir anladığ
 
 Testler, [Visual Studio](/visualstudio/test/unit-test-your-code) veya [Mac IÇIN VISUAL STUDIO](/dotnet/core/tutorials/using-on-mac-vs-full-solution)gibi bir IDE 'nin yerleşik test özellikleri kullanılarak çalıştırılabilir. [Visual Studio Code](https://code.visualstudio.com/) veya komut satırı kullanıyorsanız, *testler/RazorPagesTestSample. Tests* klasöründeki bir komut isteminde aşağıdaki komutu yürütün:
 
-```console
+```dotnetcli
 dotnet test
 ```
 
@@ -228,7 +228,7 @@ Bu konu, Razor Pages uygulamalar ve birim testleri hakkında temel bir anladığ
 
 Testler, [Visual Studio](/visualstudio/test/unit-test-your-code) veya [Mac IÇIN VISUAL STUDIO](/dotnet/core/tutorials/using-on-mac-vs-full-solution)gibi bir IDE 'nin yerleşik test özellikleri kullanılarak çalıştırılabilir. [Visual Studio Code](https://code.visualstudio.com/) veya komut satırı kullanıyorsanız, *testler/RazorPagesTestSample. Tests* klasöründeki bir komut isteminde aşağıdaki komutu yürütün:
 
-```console
+```dotnetcli
 dotnet test
 ```
 

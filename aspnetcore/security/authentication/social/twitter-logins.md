@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 05/11/2019
 uid: security/authentication/twitter-logins
-ms.openlocfilehash: 6b6fa3e50f602a92fec9112ac3ba43583de33a70
-ms.sourcegitcommit: 89fcc6cb3e12790dca2b8b62f86609bed6335be9
+ms.openlocfilehash: 5182f1647acb664bf35f086fcddbe909559a62f7
+ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68994276"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71082299"
 ---
 # <a name="twitter-external-sign-in-setup-with-aspnet-core"></a>ASP.NET Core ile Twitter dışarıdan oturum açma kurulumu
 
@@ -28,7 +28,7 @@ Bu örnek, [önceki sayfada](xref:security/authentication/social/index)oluşturu
 * `/signin-twitter` **Geçerli OAuth yeniden yönlendirme URI 'leri** alanına eklenmiş olan geliştirme URI 'nizi girin (örneğin: `https://webapp128.azurewebsites.net/signin-twitter`). Bu örnekte daha sonra yapılandırılan Twitter kimlik doğrulama şeması, OAuth akışını uygulamak için `/signin-twitter` rotadaki istekleri otomatik olarak işler.
 
   > [!NOTE]
-  > URI segmenti `/signin-twitter` Twitter kimlik doğrulama sağlayıcısının varsayılan geri çağırması olarak ayarlanır. Twitter kimlik doğrulama ara yazılımını, ' ın devralınan [Remoteauthenticationoptions. CallbackPath](/dotnet/api/microsoft.aspnetcore.authentication.remoteauthenticationoptions.callbackpath) özelliğini kullanarak yapılandırırken varsayılan GERI çağırma URI 'sini değiştirebilirsiniz. [](/dotnet/api/microsoft.aspnetcore.authentication.twitter.twitteroptions)
+  > URI segmenti `/signin-twitter` Twitter kimlik doğrulama sağlayıcısının varsayılan geri çağırması olarak ayarlanır. Twitter kimlik doğrulama ara [yazılımını, '](/dotnet/api/microsoft.aspnetcore.authentication.twitter.twitteroptions) ın devralınan [remoteauthenticationoptions. callbackpath](/dotnet/api/microsoft.aspnetcore.authentication.remoteauthenticationoptions.callbackpath) özelliğini kullanarak YAPıLANDıRıRKEN varsayılan geri çağırma URI 'sini değiştirebilirsiniz.
 
 * Formun geri kalanını doldurun ve **Twitter uygulamanızı oluştur**' a dokunun. Yeni uygulama ayrıntıları görüntülenir:
 
@@ -36,7 +36,7 @@ Bu örnek, [önceki sayfada](xref:security/authentication/social/index)oluşturu
 
 `ClientId` [Gizli yönetimi](xref:security/app-secrets)güvenli bir şekilde depolamak ve `ClientSecret` kullanmak için aşağıdaki komutları çalıştırın:
 
-```console
+```dotnetcli
 dotnet user-secrets set Authentication:Twitter:ConsumerAPIKey <Key>
 dotnet user-secrets set Authentication:Twitter:ConsumerSecret <Secret>
 ```

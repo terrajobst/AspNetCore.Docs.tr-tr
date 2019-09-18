@@ -22,7 +22,7 @@ Aşağıdaki Vurgulanan kodda gösterildiği gibi *appSettings. JSON* dosyasına
 
 RazorPagesMovie projesi için bir Terminal açın.  Tasarım/yerleşim çubuğunda Proje adına sağ tıklayın ve terminalde **aç > araçlar** ' a gidin. Termial içinde aşağıdaki .NET Core CLI komutlarını çalıştırın:
 
-```console
+```dotnetcli
 dotnet tool install --global dotnet-ef --version 3.0.0-*
 dotnet add package Microsoft.EntityFrameworkCore.SQLite --version 3.0.0-*
 dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design --version 3.0.0-*
@@ -57,11 +57,10 @@ Veritabanı bağlamını içindeki `Startup.ConfigureServices` [bağımlılık e
 
 SQLite ve CodeGeneration eklemek için aşağıdaki .NET Core CLI komutunu çalıştırın. projeye tasarım:
 
-```console
+```dotnetcli
 dotnet add package Microsoft.EntityFrameworkCore.SQLite
 dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design
 dotnet add package Microsoft.EntityFrameworkCore.Design
-
 ```
 
 Paket `Microsoft.VisualStudio.Web.CodeGeneration.Design` , yapı iskelesi için gereklidir.

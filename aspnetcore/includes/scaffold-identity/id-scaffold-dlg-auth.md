@@ -21,32 +21,32 @@ Not: Yeni bir kullanıcı bağlamı oluşturuyorsanız, geçersiz kılmak için 
 
 ASP.NET Core iskele kurucu daha önce yüklemediyseniz şimdi yükleyin:
 
-```console
+```dotnetcli
 dotnet tool install -g dotnet-aspnet-codegenerator
 ```
 
 Proje (\*. csproj) dosyasına [Microsoft. VisualStudio. Web. CodeGeneration. Design](https://www.nuget.org/packages/Microsoft.VisualStudio.Web.CodeGeneration.Design/) öğesine bir paket başvurusu ekleyin. Proje dizininde aşağıdaki komutu çalıştırın:
 
-```console
+```dotnetcli
 dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design
 dotnet restore
 ```
 
 Kimlik destek seçeneklerini listelemek için aşağıdaki komutu çalıştırın:
 
-```console
+```dotnetcli
 dotnet aspnet-codegenerator identity -h
 ```
 
 Proje klasöründe, kimlik desteği ' ı istediğiniz seçeneklerle çalıştırın. Örneğin, kimliği varsayılan UI ve minimum dosya sayısı ile ayarlamak için aşağıdaki komutu çalıştırın. DB içeriğiniz için doğru tam adı kullanın:
 
-```console
+```dotnetcli
 dotnet aspnet-codegenerator identity -dc MyWeb.Data.ApplicationDbContext --files Account.Register
 ```
 
 PowerShell, bir komut ayırıcısı olarak noktalı virgül kullanır. PowerShell kullanırken, dosya listesinde noktalı virgül karakterini kaçış veya dosya listesini çift tırnak içine koyun. Örneğin:
 
-```console
+```dotnetcli
 dotnet aspnet-codegenerator identity -dc MyWeb.Data.ApplicationDbContext --files "Account.Register;Account.Login;Account.Logout"
 ```
 

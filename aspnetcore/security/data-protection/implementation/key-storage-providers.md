@@ -5,12 +5,12 @@ description: Anahtar depolama sağlayıcıları ASP.NET Core ve anahtar depolama
 ms.author: riande
 ms.date: 06/11/2019
 uid: security/data-protection/implementation/key-storage-providers
-ms.openlocfilehash: 19d51399e24d085f7c34f70098ca02cbba7a888f
-ms.sourcegitcommit: 28a2874765cefe9eaa068dceb989a978ba2096aa
+ms.openlocfilehash: d5d15779d89a2d746ca2165abab2840232ae0128
+ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67167038"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71082037"
 ---
 # <a name="key-storage-providers-in-aspnet-core"></a>ASP.NET core'da anahtar depolama sağlayıcıları
 
@@ -35,9 +35,9 @@ public void ConfigureServices(IServiceCollection services)
 
 ## <a name="azure-storage"></a>Azure Depolama
 
-[Microsoft.AspNetCore.DataProtection.AzureStorage](https://www.nuget.org/packages/Microsoft.AspNetCore.DataProtection.AzureStorage/) paket, veri koruma anahtarları Azure Blob Storage'da depolamak sağlar. Anahtarları birden fazla örneği bir web uygulaması arasında paylaşılabilir. Uygulamalar, kimlik doğrulama tanımlama bilgisi veya CSRF koruması birden çok sunucu arasında paylaşabilirsiniz.
+[Microsoft. AspNetCore. DataProtection. AzureStorage](https://www.nuget.org/packages/Microsoft.AspNetCore.DataProtection.AzureStorage/) Package, veri koruma anahtarlarının Azure Blob depolama alanında depolanmasını sağlar. Anahtarları birden fazla örneği bir web uygulaması arasında paylaşılabilir. Uygulamalar, kimlik doğrulama tanımlama bilgisi veya CSRF koruması birden çok sunucu arasında paylaşabilirsiniz.
 
-Azure Blob Depolama sağlayıcısını yapılandırmak için aşağıdakilerden birini çağırın [PersistKeysToAzureBlobStorage](/dotnet/api/microsoft.aspnetcore.dataprotection.azuredataprotectionbuilderextensions.persistkeystoazureblobstorage) aşırı yüklemeleri.
+Azure Blob depolama sağlayıcısını yapılandırmak için [PersistKeysToAzureBlobStorage](/dotnet/api/microsoft.aspnetcore.dataprotection.azuredataprotectionbuilderextensions.persistkeystoazureblobstorage) aşırı yüklemelerinin birini çağırın.
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -47,7 +47,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-Web uygulaması, bir Azure Hizmeti çalışıyorsa, kimlik doğrulama belirteçlerinizi otomatik olarak kullanılarak oluşturulabilir [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication/).
+Web uygulaması bir Azure hizmeti olarak çalışıyorsa, kimlik doğrulama belirteçleri [Microsoft. Azure. Services. AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication/)kullanılarak otomatik olarak oluşturulabilir.
 
 ```csharp
 var tokenProvider = new AzureServiceTokenProvider();
@@ -64,19 +64,19 @@ services.AddDataProtection()
     .PersistKeysToAzureBlobStorage(container, "keys.xml");
 ```
 
-Bkz: [hizmetten hizmete kimlik doğrulaması yapılandırma hakkında daha fazla bilgi.](/azure/key-vault/service-to-service-authentication)
+[Hizmetten hizmete kimlik doğrulaması yapılandırma hakkında daha fazla ayrıntı için bkz..](/azure/key-vault/service-to-service-authentication)
 
 ## <a name="redis"></a>Redis
 
 ::: moniker range=">= aspnetcore-2.2"
 
-[Microsoft.AspNetCore.DataProtection.StackExchangeRedis](https://www.nuget.org/packages/Microsoft.AspNetCore.DataProtection.StackExchangeRedis/) paket bir Redis önbelleğinde veri koruma anahtarları depolama sağlar. Anahtarları birden fazla örneği bir web uygulaması arasında paylaşılabilir. Uygulamalar, kimlik doğrulama tanımlama bilgisi veya CSRF koruması birden çok sunucu arasında paylaşabilirsiniz.
+[Microsoft. AspNetCore. DataProtection. StackExchangeRedis](https://www.nuget.org/packages/Microsoft.AspNetCore.DataProtection.StackExchangeRedis/) paketi, veri koruma anahtarlarının redsıs önbelleğinde depolanmasını sağlar. Anahtarları birden fazla örneği bir web uygulaması arasında paylaşılabilir. Uygulamalar, kimlik doğrulama tanımlama bilgisi veya CSRF koruması birden çok sunucu arasında paylaşabilirsiniz.
 
 ::: moniker-end
 
 ::: moniker range="< aspnetcore-2.2"
 
-[Microsoft.AspNetCore.DataProtection.Redis](https://www.nuget.org/packages/Microsoft.AspNetCore.DataProtection.Redis/) paket bir Redis önbelleğinde veri koruma anahtarları depolama sağlar. Anahtarları birden fazla örneği bir web uygulaması arasında paylaşılabilir. Uygulamalar, kimlik doğrulama tanımlama bilgisi veya CSRF koruması birden çok sunucu arasında paylaşabilirsiniz.
+[Microsoft. AspNetCore. DataProtection. redsıs](https://www.nuget.org/packages/Microsoft.AspNetCore.DataProtection.Redis/) paketi, veri koruma anahtarlarının redsıs önbelleğinde depolanmasını sağlar. Anahtarları birden fazla örneği bir web uygulaması arasında paylaşılabilir. Uygulamalar, kimlik doğrulama tanımlama bilgisi veya CSRF koruması birden çok sunucu arasında paylaşabilirsiniz.
 
 ::: moniker-end
 
@@ -145,15 +145,15 @@ EF Core sağlayıcısını yapılandırmak için çağrı [ `PersistKeysToDbCont
 
 [!code-csharp[Main](key-storage-providers/sample/Startup.cs?name=snippet&highlight=13-15)]
 
-Genel parametre `TContext`, devralmalıdır [DbContext](/dotnet/api/microsoft.entityframeworkcore.dbcontext) ve uygulama [IDataProtectionKeyContext](/dotnet/api/microsoft.aspnetcore.dataprotection.entityframeworkcore.idataprotectionkeycontext):
+Genel parametresi `TContext`, [DbContext](/dotnet/api/microsoft.entityframeworkcore.dbcontext) öğesinden devralması ve [ıdataprotectionkeycontext](/dotnet/api/microsoft.aspnetcore.dataprotection.entityframeworkcore.idataprotectionkeycontext)uygulamalıdır:
 
 [!code-csharp[Main](key-storage-providers/sample/MyKeysContext.cs)]
 
-Oluşturma `DataProtectionKeys` tablo.
+`DataProtectionKeys` Tablo oluşturun.
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-Aşağıdaki komutları yürütün **Paket Yöneticisi Konsolu** (PMC) penceresi:
+**Paket Yöneticisi konsolu** (PMC) penceresinde aşağıdaki komutları yürütün:
 
 ```PowerShell
 Add-Migration AddDataProtectionKeys -Context MyKeysContext
@@ -162,18 +162,18 @@ Update-Database -Context MyKeysContext
 
 # <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
 
-Bir komut kabuğu'nda aşağıdaki komutları yürütün:
+Komut kabuğu 'nda aşağıdaki komutları yürütün:
 
-```console
+```dotnetcli
 dotnet ef migrations add AddDataProtectionKeys --context MyKeysContext
 dotnet ef database update --context MyKeysContext
 ```
 
 ---
 
-`MyKeysContext` olan `DbContext` Yukarıdaki kod örneğinde tanımlanan. Kullanıyorsanız, bir `DbContext` farklı bir adla değiştirin, `DbContext` adı `MyKeysContext`.
+`MyKeysContext`, önceki kod örneğinde tanımlanır.`DbContext` Farklı bir `DbContext` ada sahip kullanıyorsanız, `DbContext` adınızı `MyKeysContext`yerine koyun.
 
-`DataProtectionKeys` Varlık sınıfının başına aşağıdaki tabloda gösterilmektedir yapı devralır.
+`DataProtectionKeys` Sınıf/varlık, aşağıdaki tabloda gösterilen yapıyı benimsemiştir.
 
 | Özellik/alan | CLR türü | SQL türü              |
 | -------------- | -------- | --------------------- |

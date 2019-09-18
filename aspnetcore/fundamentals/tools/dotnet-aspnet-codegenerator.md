@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.date: 07/04/2019
 uid: fundamentals/tools/dotnet-aspnet-codegenerator
-ms.openlocfilehash: c2c815735ad1b4dcec761b26ea3992a4effebe62
-ms.sourcegitcommit: 979dbfc5e9ce09b9470789989cddfcfb57079d94
+ms.openlocfilehash: 1043a578f66d5bb57f4a81e9fe21afa5e3c37cb8
+ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68682697"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71081502"
 ---
 # <a name="dotnet-aspnet-codegenerator"></a>DotNet ASPNET-CodeGenerator
 
@@ -25,13 +25,13 @@ Bu makale [.NET Core 2,1 SDK](https://dotnet.microsoft.com/download/dotnet-core/
 
 `dotnet-aspnet-codegenerator`yüklenmesi gereken [küresel bir araçtır](/dotnet/core/tools/global-tools) . Aşağıdaki komut `dotnet-aspnet-codegenerator` aracın en son kararlı sürümünü yüklüyor:
 
-```console
+```dotnetcli
 dotnet tool install -g dotnet-aspnet-codegenerator
 ```
 
 Aşağıdaki komut, yüklü `dotnet-aspnet-codegenerator` .NET Core SDK 'larında kullanılabilen en son kararlı sürümü güncelleştirir:
 
-```console
+```dotnetcli
 dotnet tool update -g dotnet-aspnet-codegenerator
 ```
 
@@ -58,7 +58,7 @@ dotnet aspnet-codegenerator [-h|--help]
   denetleyici| [Bir denetleyiciyi yapı iskelesi](/aspnet/core/tutorials/first-mvc-app/adding-model) |
   kimlik  | [Yapı iskelesi kimliği](/aspnet/core/security/authentication/scaffold-identity) |
   razorpage | [Yapı iskelesi Razor Pages](/aspnet/core/tutorials/razor-pages/model) |
-  görünümü      | [Bir görünümü dolandırın](/aspnet/core/mvc/views/overview) |
+  Görünümü      | [Bir görünümü dolandırın](/aspnet/core/mvc/views/overview) |
 
 ## <a name="options"></a>Seçenekler
 
@@ -137,7 +137,7 @@ Aşağıdaki tabloda aşağıdakiler için `aspnet-codegenerator controller`benz
 
 Komutuyla ilgili yardım için `-h` `aspnet-codegenerator controller` anahtarı kullanın:
 
-```console
+```dotnetcli
 dotnet aspnet-codegenerator controller -h
 ```
 
@@ -158,7 +158,7 @@ Razor Pages yeni sayfanın adı ve kullanılacak şablon belirtilerek tek tek is
 
 Örneğin, aşağıdaki komut *myedit. cshtml* ve *MyEdit.cshtml.cs*oluşturmak için düzenleme şablonunu kullanır:
 
-```console
+```dotnetcli
 dotnet aspnet-codegenerator razorpage MyEdit Edit -m Movie -dc RazorPagesMovieContext -outDir Pages/Movies
 ```
 
@@ -184,7 +184,7 @@ Aşağıdaki tabloda aşağıdakiler için `aspnet-codegenerator razorpage`benze
 
 Komutuyla ilgili yardım için `-h` `aspnet-codegenerator razorpage` anahtarı kullanın:
 
-```console
+```dotnetcli
 dotnet aspnet-codegenerator razorpage -h
 ```
 

@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc, seodec18
 ms.date: 07/22/2019
 uid: data/ef-rp/intro
-ms.openlocfilehash: 3b3f159382bba82cf1b55ca34f52d3db38c5dc7c
-ms.sourcegitcommit: dc5b293e08336dc236de66ed1834f7ef78359531
+ms.openlocfilehash: 107b348b4484301b86eeb5528833914fe4c1eaf7
+ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71011117"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71080916"
 ---
 # <a name="razor-pages-with-entity-framework-core-in-aspnet-core---tutorial-1-of-8"></a>ASP.NET Core - Öğreticisi 1. 8'de Entity Framework Core ile Razor sayfaları
 
@@ -86,7 +86,7 @@ Tamamlanmış projeyi indirdikten sonra uygulamayı çalıştırmak için:
 * Projeyi oluşturun.
 * Proje klasöründeki bir komut isteminde aşağıdaki komutları çalıştırın:
 
-  ```console
+  ```dotnetcli
   dotnet tool install --global dotnet-ef --version 3.0.0-*
   dotnet ef database update
   ```
@@ -116,7 +116,7 @@ Tamamlanmış projeyi indirdikten sonra uygulamayı çalıştırmak için:
 
 * Bir Razor Pages projesi ve `cd` yeni proje klasörü oluşturmak için aşağıdaki komutları çalıştırın:
 
-  ```console
+  ```dotnetcli
   dotnet new webapp -o ContosoUniversity
   cd ContosoUniversity
   ```
@@ -228,7 +228,7 @@ Aşağıdaki paketler otomatik olarak yüklenir:
 
 * Gerekli NuGet paketlerini yüklemek için aşağıdaki .NET Core CLI komutlarını çalıştırın:
 
-  ```console
+  ```dotnetcli
   dotnet add package Microsoft.EntityFrameworkCore.SQLite --version 3.0.0-*
   dotnet add package Microsoft.EntityFrameworkCore.SqlServer --version 3.0.0-*
   dotnet add package Microsoft.EntityFrameworkCore.Design --version 3.0.0-*
@@ -243,7 +243,7 @@ Aşağıdaki paketler otomatik olarak yüklenir:
 
 * [ASPNET-CodeGenerator scafkatlama aracı](xref:fundamentals/tools/dotnet-aspnet-codegenerator)'nı yüklemek için aşağıdaki komutu çalıştırın.
 
-  ```console
+  ```dotnetcli
   dotnet tool install --global dotnet-aspnet-codegenerator --version 3.0.0-*
   ```
 
@@ -251,13 +251,13 @@ Aşağıdaki paketler otomatik olarak yüklenir:
 
   **Windows 'da**
 
-  ```console
+  ```dotnetcli
   dotnet aspnet-codegenerator razorpage -m Student -dc ContosoUniversity.Data.SchoolContext -udl -outDir Pages\Students --referenceScriptLibraries
   ```
 
   **MacOS veya Linux üzerinde**
 
-  ```console
+  ```dotnetcli
   dotnet aspnet-codegenerator razorpage -m Student -dc ContosoUniversity.Data.SchoolContext -udl -outDir Pages/Students --referenceScriptLibraries
   ```
 
@@ -500,7 +500,7 @@ Uygulamayı çalıştırın.
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
-```CLI
+```dotnetcli
 dotnet new webapp -o ContosoUniversity
 cd ContosoUniversity
 dotnet run
@@ -605,7 +605,7 @@ Bkz: [film modeli iskelesini](xref:tutorials/razor-pages/model#scaffold-the-movi
 
 Öğrenci modeli iskelesini için aşağıdaki komutları çalıştırın.
 
-```console
+```dotnetcli
 dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design --version 2.1.0
 dotnet tool install --global dotnet-aspnet-codegenerator
 dotnet aspnet-codegenerator razorpage -m Student -dc ContosoUniversity.Models.SchoolContext -udl -outDir Pages/Students --referenceScriptLibraries

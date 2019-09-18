@@ -5,12 +5,12 @@ description: Bu öğreticide, ASP.NET Core MVC uygulamasında veri modeli deği�
 ms.author: riande
 ms.date: 07/22/2019
 uid: data/ef-rp/migrations
-ms.openlocfilehash: 110ffa8ecea1fe6e55a2f979a4ce851ed59e1807
-ms.sourcegitcommit: 257cc3fe8c1d61341aa3b07e5bc0fa3d1c1c1d1c
+ms.openlocfilehash: 8a4929a905c6a488231d7d29e1101f6fd887477f
+ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69583515"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71082079"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---migrations---4-of-8"></a>ASP.NET Core geçişleri ile EF Core Razor Pages-4/8
 
@@ -44,7 +44,7 @@ Drop-Database
 
 * EF CLı araçları 'nı yüklemek için komut isteminde aşağıdaki komutu çalıştırın:
 
-  ```console
+  ```dotnetcli
   dotnet tool install --global dotnet-ef --version 3.0.0-*
   ```
 
@@ -52,7 +52,7 @@ Drop-Database
 
 * *Cu. db* dosyasını silin veya şu komutu çalıştırın:
 
-  ```console
+  ```dotnetcli
   dotnet ef database drop --force
   ```
 
@@ -73,7 +73,7 @@ Update-Database
 
 Komut isteminin proje klasöründe olduğundan emin olun ve aşağıdaki komutları çalıştırın:
 
-```console
+```dotnetcli
 dotnet ef migrations add InitialCreate
 dotnet ef database update
 ```
@@ -121,7 +121,7 @@ Uygulamayı çalıştırın ve veritabanının çalıştığını doğrulayın.
 
 ## <a name="applying-migrations-in-production"></a>Üretimde geçişleri uygulama
 
-Uygulama başlangıcında, üretim uygulamalarının [Database. Migrate](/dotnet/api/microsoft.entityframeworkcore.relationaldatabasefacadeextensions.migrate?view=efcore-2.0#Microsoft_EntityFrameworkCore_RelationalDatabaseFacadeExtensions_Migrate_Microsoft_EntityFrameworkCore_Infrastructure_DatabaseFacade_) olarak çağırmalarını öneririz. `Migrate`sunucu grubuna dağıtılan bir uygulamadan çağrılmamalıdır. Uygulama birden çok sunucu örneğine ölçekleniyorsa, veritabanı şeması güncelleştirmelerinin birden çok sunucudan oluşmaması veya okuma/yazma erişimiyle çakışmamasını sağlamak zordur.
+Uygulama başlangıcında, üretim uygulamalarının [Database. Migrate](/dotnet/api/microsoft.entityframeworkcore.relationaldatabasefacadeextensions.migrate?view=efcore-2.0#Microsoft_EntityFrameworkCore_RelationalDatabaseFacadeExtensions_Migrate_Microsoft_EntityFrameworkCore_Infrastructure_DatabaseFacade_) **olarak çağırmalarını** öneririz. `Migrate`sunucu grubuna dağıtılan bir uygulamadan çağrılmamalıdır. Uygulama birden çok sunucu örneğine ölçekleniyorsa, veritabanı şeması güncelleştirmelerinin birden çok sunucudan oluşmaması veya okuma/yazma erişimiyle çakışmamasını sağlamak zordur.
 
 Veritabanı geçişi, dağıtımın bir parçası olarak ve denetimli bir şekilde yapılmalıdır. Üretim veritabanı geçiş yaklaşımları şunları içerir:
 
@@ -192,7 +192,7 @@ Bir komut penceresi açın ve proje klasörüne gidin. Proje klasörü *Startup.
 
 Komut penceresine şunu girin:
 
- ```console
+ ```dotnetcli
  dotnet ef database drop
  ```
 
@@ -211,7 +211,7 @@ Update-Database
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
-```console
+```dotnetcli
 dotnet ef migrations add InitialCreate
 dotnet ef database update
 ```
@@ -249,7 +249,7 @@ Geçişi Kaldır
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
-```console
+```dotnetcli
 dotnet ef migrations remove
 ```
 
@@ -265,7 +265,7 @@ Erken geliştirme `EnsureCreated` için kullanıldı. Bu öğreticide geçişler
 
 * Geçişleri atlar ve DB ve şema oluşturur.
 * Geçişler tablosu oluşturmaz.
-* Geçişlerle kullanılamaz.
+* Geçişlerle *kullanılamaz.*
 * , DB 'nin bıraktığı ve sıklıkla yeniden oluşturulduğu test veya hızlı prototipleme için tasarlanmıştır.
 
 Kaldır `EnsureCreated`:
@@ -284,7 +284,7 @@ Uygulamayı çalıştırın ve her şeyin çalıştığını doğrulayın.
 
 ## <a name="applying-migrations-in-production"></a>Üretimde geçişleri uygulama
 
-Uygulama başlangıcında, üretim uygulamalarının [Database. Migrate](/dotnet/api/microsoft.entityframeworkcore.relationaldatabasefacadeextensions.migrate?view=efcore-2.0#Microsoft_EntityFrameworkCore_RelationalDatabaseFacadeExtensions_Migrate_Microsoft_EntityFrameworkCore_Infrastructure_DatabaseFacade_) çağrısını yapmanızı öneririz. `Migrate`sunucu grubundaki bir uygulamadan çağrılmamalıdır. Örneğin, uygulama bulutu genişleme ile dağıtılmışsa (uygulamanın birden çok örneği çalışır).
+Uygulama başlangıcında, üretim uygulamalarının [Database. Migrate](/dotnet/api/microsoft.entityframeworkcore.relationaldatabasefacadeextensions.migrate?view=efcore-2.0#Microsoft_EntityFrameworkCore_RelationalDatabaseFacadeExtensions_Migrate_Microsoft_EntityFrameworkCore_Infrastructure_DatabaseFacade_) **çağrısını yapmanızı** öneririz. `Migrate`sunucu grubundaki bir uygulamadan çağrılmamalıdır. Örneğin, uygulama bulutu genişleme ile dağıtılmışsa (uygulamanın birden çok örneği çalışır).
 
 Veritabanı geçişi, dağıtımın bir parçası olarak ve denetimli bir şekilde yapılmalıdır. Üretim veritabanı geçiş yaklaşımları şunları içerir:
 

@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 07/22/2019
 uid: data/ef-rp/complex-data-model
-ms.openlocfilehash: ab29cf687c80551d275cae69f28b7576016bfff6
-ms.sourcegitcommit: e6bd2bbe5683e9a7dbbc2f2eab644986e6dc8a87
+ms.openlocfilehash: 78ff36b291b3215460d9ae8e560f49871862d19f
+ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70238128"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71080980"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---data-model---5-of-8"></a>ASP.NET Core veri modelinde EF Core ile Razor Pages-5/8
 
@@ -197,7 +197,7 @@ SqliteException: SQLite Error 1: 'no such column: s.FirstName'.
 
 * Proje klasöründe bir komut penceresi açın. Yeni bir geçiş oluşturmak ve veritabanını güncelleştirmek için aşağıdaki komutları girin:
 
-  ```console
+  ```dotnetcli
   dotnet ef migrations add ColumnFirstName
   dotnet ef database update
   ```
@@ -213,7 +213,7 @@ Bu öğreticide, bu hatayı geçmenin yolu ilk geçişi silmek ve yeniden oluşt
 * *Geçişler* klasörünü silin.
 * Veritabanını bırakmak, yeni bir başlangıç geçişi oluşturmak ve geçişi uygulamak için aşağıdaki komutları çalıştırın:
 
-  ```console
+  ```dotnetcli
   dotnet ef database drop --force
   dotnet ef migrations add InitialCreate
   dotnet ef database update
@@ -612,13 +612,13 @@ Yeni bir veritabanı oluşturmak için EF Core zorlamak için veritabanını bı
 
 * Şu komutu çalıştırın:
 
-  ```console
+  ```dotnetcli
   dotnet ef database drop --force
   ```
 
 * *Geçişler* klasörünü silin, ardından aşağıdaki komutu çalıştırın:
 
-  ```console
+  ```dotnetcli
   dotnet ef migrations add InitialCreate
   dotnet ef database update
   ```
@@ -705,7 +705,7 @@ Burada gösterilen durumu işlemenin yolu, bu öğretici için basitleştirilmi�
 
 * Visual Studio Code ile SQL Server LocalDB kullanıyorsanız şu komutu çalıştırın:
 
-  ```console
+  ```dotnetcli
   dotnet ef database update
   ```
 
@@ -839,7 +839,7 @@ Update-Database
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
-```console
+```dotnetcli
 dotnet ef migrations add ColumnFirstName
 dotnet ef database update
 ```
@@ -1246,13 +1246,13 @@ Projeyi oluşturun.
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-```PMC
+```powershell
 Add-Migration ComplexDataModel
 ```
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
-```console
+```dotnetcli
 dotnet ef migrations add ComplexDataModel
 ```
 
@@ -1303,10 +1303,10 @@ Bir komut penceresi açın ve proje klasörüne gidin. Proje klasörü *Startup.
 
 Komut penceresine şunu girin:
 
- ```console
- dotnet ef database drop
+```dotnetcli
+dotnet ef database drop
 dotnet ef database update
- ```
+```
 
 ---
 

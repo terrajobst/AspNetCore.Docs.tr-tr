@@ -1,94 +1,94 @@
 ---
-title: Facebook, Google ve ASP.NET Core dış sağlayıcı kimlik doğrulaması
+title: ASP.NET Core Facebook, Google ve dış sağlayıcı kimlik doğrulaması
 author: rick-anderson
-description: Bu öğreticide bir ASP.NET Core ile dış kimlik doğrulama sağlayıcıları için OAuth 2.0 kullanarak 2.x uygulamasının nasıl oluşturulacağını gösterir.
+description: Bu öğreticide, dış kimlik doğrulama sağlayıcılarıyla OAuth 2,0 kullanarak bir ASP.NET Core 2. x uygulamasının nasıl oluşturulacağı gösterilmektedir.
 ms.author: riande
 ms.custom: mvc
 ms.date: 05/10/2019
 uid: security/authentication/social/index
-ms.openlocfilehash: 8dac8a8a2276388414b6bb1211e970617b001637
-ms.sourcegitcommit: ccbb84ae307a5bc527441d3d509c20b5c1edde05
+ms.openlocfilehash: edaf9eeaf02879b2f7816bab0eb373a7de640c05
+ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/19/2019
-ms.locfileid: "65874818"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71082512"
 ---
-# <a name="facebook-google-and-external-provider-authentication-in-aspnet-core"></a>Facebook, Google ve ASP.NET Core dış sağlayıcı kimlik doğrulaması
+# <a name="facebook-google-and-external-provider-authentication-in-aspnet-core"></a>ASP.NET Core Facebook, Google ve dış sağlayıcı kimlik doğrulaması
 
 Tarafından [Valeriy Novytskyy](https://github.com/01binary) ve [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-Bu öğretici, OAuth 2.0 kullanarak dış kimlik sağlayıcılarına ait kimlik bilgileriyle oturum açmasını sağlayan bir ASP.NET Core 2.2 uygulamasının nasıl oluşturulacağını gösterir.
+Bu öğreticide, kullanıcıların dış kimlik doğrulama sağlayıcılarından kimlik bilgileriyle OAuth 2,0 kullanarak oturum açmasını sağlayan ASP.NET Core 2,2 uygulamasının nasıl oluşturulacağı gösterilmektedir.
 
-[Facebook](xref:security/authentication/facebook-logins), [Twitter](xref:security/authentication/twitter-logins), [Google](xref:security/authentication/google-logins), ve [Microsoft](xref:security/authentication/microsoft-logins) sağlayıcıları aşağıdaki bölümlerde ele alınmıştır. Diğer sağlayıcılar gibi üçüncü taraf paketleri kullanılabilir [AspNet.Security.OAuth.Providers](https://github.com/aspnet-contrib/AspNet.Security.OAuth.Providers) ve [AspNet.Security.OpenId.Providers](https://github.com/aspnet-contrib/AspNet.Security.OpenId.Providers).
+[Facebook](xref:security/authentication/facebook-logins), [Twitter](xref:security/authentication/twitter-logins), [Google](xref:security/authentication/google-logins)ve [Microsoft](xref:security/authentication/microsoft-logins) sağlayıcıları aşağıdaki bölümlerde ele alınmıştır. Diğer sağlayıcılar, [Aspnet. Security. OAuth. Providers](https://github.com/aspnet-contrib/AspNet.Security.OAuth.Providers) ve [Aspnet. Security. OpenID. Providers](https://github.com/aspnet-contrib/AspNet.Security.OpenId.Providers)gibi üçüncü taraf paketlerinde kullanılabilir.
 
-![Facebook, Twitter, Google artı ve Windows için sosyal medya simgeler](index/_static/social.png)
+![Facebook, Twitter, Google Plus ve Windows için sosyal medya simgeleri](index/_static/social.png)
 
-Kullanıcıların mevcut kimlik bilgileriyle oturum açmasına etkinleştirme:
-* Kullanıcılar için uygundur.
-* Birçok üzerine bir üçüncü taraf oturum açma işlemi yönetmenin karmaşıklığını kaydırır. 
+Kullanıcıların mevcut kimlik bilgileriyle oturum açmasını sağlama:
+* Kullanıcılar için kullanışlıdır.
+* Oturum açma işlemini üçüncü bir tarafa yönetmenin karmaşıklıklarını birçok kaydırır. 
 
-Örnek olay incelemeleri tarafından nasıl sosyal oturum açma bilgileri, örnek trafiği ve müşteri dönüştürmeler yönlendirebilirsiniz için bkz: [Facebook](https://www.facebook.com/unsupportedbrowser) ve [Twitter](https://dev.twitter.com/resources/case-studies).
+Sosyal oturumların trafik ve müşteri dönüştürmelerini nasıl ve ne şekilde, [Facebook](https://www.facebook.com/unsupportedbrowser) ve [Twitter](https://dev.twitter.com/resources/case-studies)tarafından örnek olay incelemeleri hakkında örnekler için bkz.
 
-## <a name="create-a-new-aspnet-core-project"></a>Yeni bir ASP.NET Core projesi oluşturma
+## <a name="create-a-new-aspnet-core-project"></a>Yeni bir ASP.NET Core projesi oluştur
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * Yeni bir proje oluşturun.
-* Seçin **ASP.NET Core Web uygulaması** ve **sonraki**.
-* Sağlayan bir **proje adı** ve onaylamak veya değiştirmek **konumu**. **Oluştur**’u seçin.
-* Seçin **ASP.NET Core 2.2** açılır. Seçin **Web uygulaması** şablon listesinde.
-* Altında **kimlik doğrulaması**seçin **değişiklik** ve kimlik doğrulamasını ayarlamak **bireysel kullanıcı hesapları**. **Tamam**’ı seçin.
-* İçinde **yeni bir ASP.NET Core Web uygulaması oluşturma** penceresinde **Oluştur**.
+* **ASP.NET Core Web uygulaması** ' nı ve **İleri ' yi**seçin.
+* Bir **Proje adı** girin ve **konumu**onaylayın veya değiştirin. **Oluştur**’u seçin.
+* Açılan kutuda **ASP.NET Core 2,2** ' ı seçin. Şablon listesinden **Web uygulaması** ' nı seçin.
+* **Kimlik doğrulaması**altında **Değiştir** ' i seçin ve kimlik doğrulamasını **bireysel kullanıcı hesapları**olarak ayarlayın. **Tamam**’ı seçin.
+* **Yeni ASP.NET Core Web uygulaması oluştur** penceresinde **Oluştur**' u seçin.
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 * Açık [tümleşik Terminalini](https://code.visualstudio.com/docs/editor/integrated-terminal).
 
-* Dizinleri (`cd`) proje içeren bir klasör.
+* Dizinleri (`cd`), projeyi içerecek bir klasöre değiştirin.
 
 * Aşağıdaki komutları çalıştırın:
 
-  ```console
+  ```dotnetcli
   dotnet new webapp -o WebApp1 -au Individual -uld
   code -r WebApp1
   ```
 
-  * `dotnet new` Komut yeni bir Razor sayfaları projesindeki oluşturur *WebApp1* klasör.
-  * `-uld` LocalDB yerine SQLite kullanır. Atlamak `-uld` SQLite kullanılacak.
-  * `-au Individual` Bireysel kimlik doğrulama için kod oluşturur.
-  * `code` Komutu açılır *WebApp1* Visual Studio Code yeni bir örneğini klasöründe.
+  * Komut WebApp1 klasöründe yeni bir Razor Pages projesi oluşturur. `dotnet new`
+  * `-uld`SQLite yerine LocalDB kullanır. SQLite `-uld` kullanmak için atlayın.
+  * `-au Individual`Tek kimlik doğrulaması için kodu oluşturur.
+  * Komutu, Visual Studio Code yeni bir örneğinde WebApp1 klasörünü açar. `code`
 
-* Bir iletişim kutusu görünür **gerekli varlıkları oluşturun ve hata ayıklama 'WebApp1' eksik. Bunları eklensin mi?** Seçin **Evet**.
+* ' WebApp1 ' içinde derleme **ve hata ayıklama için gerekli varlıkların bulunduğu bir iletişim kutusu görünür. Bunları ekleyin mi?** **Evet**' i seçin.
 
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Mac için Visual Studio](#tab/visual-studio-mac)
 
 * Seçin **dosya** > **yeni çözüm**.
-* Seçin **.NET Core** > **uygulama** Kenar çubuğunda. Seçin **Web uygulaması** şablonu. **İleri**’yi seçin.
-* Ayarlama **hedef Framework'ü** açılan menüsünü **.NET Core 2.2**. **İleri**’yi seçin.
-* Sağlayan bir **proje adı**. Onaylamak veya değiştirmek **konumu**. **Oluştur**’u seçin.
+* Kenar çubuğunda **.NET Core** > **uygulaması** ' nı seçin. **Web uygulaması** şablonunu seçin. **İleri**’yi seçin.
+* **Hedef Framework** açılan öğesini **.NET Core 2,2**olarak ayarlayın. **İleri**’yi seçin.
+* Bir **Proje adı**girin. **Konumu**onaylayın veya değiştirin. **Oluştur**’u seçin.
 
 ---
 
 ## <a name="apply-migrations"></a>Geçişleri Uygula
 
-* Uygulamayı çalıştırmak ve seçmek **kaydetme** bağlantı.
-* Yeni hesap için e-posta ve parola girin ve ardından **kaydetme**.
+* Uygulamayı çalıştırın ve **Kaydet** bağlantısını seçin.
+* Yeni hesap için e-posta ve parolayı girip **Kaydet**' i seçin.
 * Geçişleri uygulamak için yönergeleri izleyin.
 
 [!INCLUDE[Forward request information when behind a proxy or load balancer section](includes/forwarded-headers-middleware.md)]
 
-## <a name="use-secretmanager-to-store-tokens-assigned-by-login-providers"></a>Oturum açma sağlayıcıları tarafından atanan belirteçlerini depolamak üzere SecretManager kullanın
+## <a name="use-secretmanager-to-store-tokens-assigned-by-login-providers"></a>Oturum açma sağlayıcıları tarafından atanan belirteçleri depolamak için SecretManager kullanın
 
-Sosyal oturum açma sağlayıcılarıyla atama **uygulama kimliği** ve **uygulama gizli anahtarı** kayıt işlemi sırasında belirteçleri. Tam bir belirteç adları, sağlayıcı tarafından farklılık gösterir. Bu belirteçler, uygulamanızı kendi API'ye erişmek için kullandığı kimlik bilgilerini temsil eder. "Yardım uygulama yapılandırmanıza bağlı gizli dizileri" belirteçleri oluşturan [gizli dizi Yöneticisi](xref:security/app-secrets#secret-manager). Gizli dizi yöneticisidir belirteçleri gibi bir yapılandırma dosyasında saklamak için daha güvenli bir alternatif *appsettings.json*.
+Sosyal oturum açma sağlayıcıları, kayıt işlemi sırasında **uygulama kimliği** ve **uygulama gizli** belirteçleri atar. Tam belirteç adları sağlayıcıya göre farklılık gösterir. Bu belirteçler, uygulamanızın API 'lerine erişmek için kullandığı kimlik bilgilerini temsil eder. Belirteçler, [gizli yöneticinin](xref:security/app-secrets#secret-manager)yardımıyla uygulama yapılandırmanızla bağlantılı olabilecek "gizli dizileri" oluşturur. Gizli dizi, belirteçleri *appSettings. JSON*gibi bir yapılandırma dosyasında depolamanın daha güvenli bir alternatifidir.
 
 > [!IMPORTANT]
-> Gizli dizi Yöneticisi, yalnızca geliştirme amaçlıdır. Depolama ve Azure test ve üretim parolalarını ile korumak [Azure Key Vault yapılandırma sağlayıcısı](xref:security/key-vault-configuration).
+> Gizli yönetici yalnızca geliştirme amaçlıdır. [Azure Key Vault yapılandırma sağlayıcısıyla](xref:security/key-vault-configuration)Azure test ve üretim gizli dizilerini saklayabilir ve koruyabilirsiniz.
 
-Bağlantısındaki [ASP.NET core'da geliştirmede uygulama gizli anahtarlarının güvenli bir şekilde depolanması](xref:security/app-secrets) her oturum açma sağlayıcısı atanan belirteçlerini depolamak üzere konu.
+Aşağıdaki her bir oturum açma sağlayıcısı tarafından atanan belirteçleri depolamak için [ASP.NET Core konusundaki geliştirme sırasında uygulama gizli dizileri Için güvenli depolama](xref:security/app-secrets) bölümündeki adımları izleyin.
 
-## <a name="setup-login-providers-required-by-your-application"></a>Uygulamanız için gereken kurulum oturum açma sağlayıcıları
+## <a name="setup-login-providers-required-by-your-application"></a>Uygulamanız için gereken oturum açma sağlayıcılarını ayarlama
 
-Uygulamanızı ilgili sağlayıcı kullanacak şekilde yapılandırmak için aşağıdaki konulara bakın:
+Uygulamanızı ilgili sağlayıcıları kullanacak şekilde yapılandırmak için aşağıdaki konuları kullanın:
 
 * [Facebook](xref:security/authentication/facebook-logins) yönergeleri
 * [Twitter](xref:security/authentication/twitter-logins) yönergeleri
@@ -98,13 +98,13 @@ Uygulamanızı ilgili sağlayıcı kullanacak şekilde yapılandırmak için aş
 
 [!INCLUDE[](includes/chain-auth-providers.md)]
 
-## <a name="optionally-set-password"></a>İsteğe bağlı olarak parolasını ayarlayın
+## <a name="optionally-set-password"></a>İsteğe bağlı olarak parola ayarla
 
-Bir dış oturum açma sağlayıcısıyla kaydolduğunuzda, bir parola ile uygulamanın kayıtlı sahip değilsiniz. Bu, oluşturma ve site için bir parola hatırlamak azaltır, ancak Ayrıca, dış oturum açma sağlayıcısına bağımlı olur. Dış oturum sağlayıcısının kullanılamıyorsa, web sitesine oturum açmanız mümkün olmayacaktır.
+Bir dış oturum açma sağlayıcısına kaydolduysanız, uygulamaya kayıtlı bir parolanız yok demektir. Bu, site için bir parola oluşturup hatırlamanızı konuma almayı azaltır, ancak aynı zamanda dış oturum açma sağlayıcısına bağımlı hale getirir. Dış oturum açma sağlayıcısı kullanılamıyorsa, Web sitesinde oturum açamazsınız.
 
-Bir parola oluşturmasını ve dış sağlayıcılarıyla oturum açma işlemi sırasında ayarladığınız e-postanızı kullanarak oturum için:
+Bir parola oluşturmak ve dış sağlayıcılar ile oturum açma işlemi sırasında ayarladığınız e-postanızı kullanarak oturum açmak için:
 
-* Seçin **Hello &lt;e-posta diğer&gt;**  bağlantı gitmek için sağ üst köşesinde **Yönet** görünümü.
+* **Yönet** görünümüne gitmek için sağ üst köşedeki **Merhaba &lt;e-&gt; posta diğer adı** bağlantısını seçin.
 
 ![Web uygulaması yönetme görünümü](index/_static/pass1a.png)
 
@@ -112,12 +112,12 @@ Bir parola oluşturmasını ve dış sağlayıcılarıyla oturum açma işlemi s
 
 ![Parola sayfanızı ayarlama](index/_static/pass2a.png)
 
-* Geçerli bir parola ayarlayın ve bu oturum, e-postayı imzalamak için kullanabilirsiniz.
+* Geçerli bir parola ayarlayın ve bunu kullanarak e-postalarınız ile oturum açabilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* Bu makalede, dış kimlik doğrulama sunulan ve ASP.NET Core uygulamanızı harici oturum açmaları eklemek için gereken önkoşulları açıklanmaktadır.
+* Bu makalede dış kimlik doğrulaması tanıtılmıştır ve ASP.NET Core uygulamanıza dış oturum açma bilgileri eklemek için gereken önkoşullar açıklanacaktır.
 
-* Uygulamanızın gerektirdiği sağlayıcıları için oturum açma bilgileri yapılandırmak için sağlayıcıya özel sayfa başvurusu.
+* Uygulamanız için gereken sağlayıcıları için oturum açma işlemlerini yapılandırmak üzere sağlayıcıya özgü sayfalara başvurun.
 
-* Kullanıcı ve bunların erişim ve yenileme belirteçleri ile ilgili ek veriler kalıcı hale getirmek isteyebilirsiniz. Daha fazla bilgi için bkz. <xref:security/authentication/social/additional-claims>.
+* Kullanıcı ve bunların erişim ve yenileme belirteçleriyle ilgili ek verileri kalıcı hale getirmek isteyebilirsiniz. Daha fazla bilgi için bkz. <xref:security/authentication/social/additional-claims>.

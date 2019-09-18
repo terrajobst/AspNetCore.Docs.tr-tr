@@ -1,11 +1,11 @@
-Kimlik iskele kurucu çalıştırın:
+Identity scaffolder öğesini çalıştırın:
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * Gelen **Çözüm Gezgini**, projeye sağ tıklayın > **Ekle** > **yeni iskele kurulmuş öğe**.
 * Sol bölmeden **İskele Ekle** iletişim kutusunda **kimlik** > **ekleme**.
-* İçinde **ADD kimliğini** iletişim kutusunda, istediğiniz seçenekleri seçin.
-  * Varolan bir düzen sayfası seçin veya hatalı biçimlendirme Düzen dosyanızın üzerine yazılacak. Örneğin `~/Pages/Shared/_Layout.cshtml` Razor sayfaları için `~/Views/Shared/_Layout.cshtml` MVC projeleri
+* **Kimlik Ekle** iletişim kutusunda istediğiniz seçenekleri belirleyin.
+  * Var olan düzen sayfanızı seçin veya Düzen dosyanızın üzerine yanlış biçimlendirme uygulanır. Örneğin `~/Pages/Shared/_Layout.cshtml` , MVC projeleri `~/Views/Shared/_Layout.cshtml` için Razor Pages
   * Seçin **+** yeni bir düğme **veri bağlamı sınıfının**.
 * Seçin **ekleme**.
 
@@ -13,26 +13,26 @@ Kimlik iskele kurucu çalıştırın:
 
 ASP.NET Core iskele kurucu daha önce yüklemediyseniz şimdi yükleyin:
 
-```cli
+```dotnetcli
 dotnet tool install -g dotnet-aspnet-codegenerator
 ```
 
-Paket başvurusu ekleme [Microsoft.VisualStudio.Web.CodeGeneration.Design](https://www.nuget.org/packages/Microsoft.VisualStudio.Web.CodeGeneration.Design/) projesine (\*.csproj) dosyası. Proje dizininde aşağıdaki komutu çalıştırın:
+Proje (\*. csproj) dosyasına [Microsoft. VisualStudio. Web. CodeGeneration. Design](https://www.nuget.org/packages/Microsoft.VisualStudio.Web.CodeGeneration.Design/) öğesine bir paket başvurusu ekleyin. Proje dizininde aşağıdaki komutu çalıştırın:
 
-```cli
+```dotnetcli
 dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design
 dotnet restore
 ```
 
 Kimlik destek seçeneklerini listelemek için aşağıdaki komutu çalıştırın:
 
-```cli
+```dotnetcli
 dotnet aspnet-codegenerator identity -h
 ```
 
-Proje klasöründe kimlik iskele kurucu istediğiniz seçeneği ile çalıştırın. Örneğin, varsayılan UI kimliği ve en az sayıda dosya Kurulumu için aşağıdaki komutu çalıştırın:
+Proje klasöründe, kimlik desteği ' ı istediğiniz seçeneklerle çalıştırın. Örneğin, kimliği varsayılan UI ve minimum dosya sayısı ile ayarlamak için aşağıdaki komutu çalıştırın:
 
-```cli
+```dotnetcli
 dotnet aspnet-codegenerator identity --useDefaultUI
 ```
 

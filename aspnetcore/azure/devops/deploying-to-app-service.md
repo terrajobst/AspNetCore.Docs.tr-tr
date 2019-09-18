@@ -6,12 +6,12 @@ ms.author: casoper
 ms.custom: mvc, seodec18
 ms.date: 10/24/2018
 uid: azure/devops/deploy-to-app-service
-ms.openlocfilehash: e09d03f1d30f128b1db1588aa92b28ec3e4ae626
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: df41f296e9c4e1eff6e31d45b29ec30ee1e20cf4
+ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64898940"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71080446"
 ---
 # <a name="deploy-an-app-to-app-service"></a>Bir uygulamayı App Service'e dağıtma
 
@@ -35,7 +35,7 @@ Kodu gözden çekinmeyin, ancak bu uygulama hakkında özel bir şey olduğunu a
 
 Bir komut kabuğundan, kodu indirmek, projeyi oluşturun ve aşağıdaki gibi çalıştırın.
 
-> *Not: Linux/macOS kullanıcılarını yaptığınızda uygun yolları, örn, eğik çizgi kullanarak (`/`) ters eğik çizgi yerine (`\`).*
+> *Not: Linux/MacOS kullanıcıları, ters`/``\`eğik çizgi () yerine eğik çizgi () kullanarak yollar için uygun değişiklikleri yapmalıdır.*
 
 1. Kodu yerel makinenizde bir klasöre kopyalayın.
 
@@ -51,13 +51,13 @@ Bir komut kabuğundan, kodu indirmek, projeyi oluşturun ve aşağıdaki gibi ç
 
 3. Paketleri geri yükle ve Çözümü derleyin.
 
-    ```console
+    ```dotnetcli
     dotnet build
     ```
 
 4. Uygulamayı çalıştırın.
 
-    ```console
+    ```dotnetcli
     dotnet run
     ```
 
@@ -73,7 +73,7 @@ Bir komut kabuğundan, kodu indirmek, projeyi oluşturun ve aşağıdaki gibi ç
 
 Uygulamayı dağıtmak için bir App Service oluşturma gerekecektir [Web uygulaması](/azure/app-service/app-service-web-overview). Web uygulamasının oluşturulduktan sonra ona Git kullanarak yerel makinenizde dağıtacaksınız.
 
-1. Oturum [Azure Cloud Shell'i](https://shell.azure.com/bash). Not: İlk kez oturum açtığınızda, yapılandırma dosyaları için bir depolama hesabı oluşturmak için Cloud Shell ister. Varsayılanları kabul edin veya benzersiz bir ad belirtin.
+1. Oturum [Azure Cloud Shell'i](https://shell.azure.com/bash). Not: İlk kez oturum açtığınızda, Cloud Shell yapılandırma dosyaları için bir depolama hesabı oluşturmak isteyip istemediğinizi sorar. Varsayılanları kabul edin veya benzersiz bir ad belirtin.
 
 2. Cloud Shell için aşağıdaki adımları kullanın.
 
@@ -141,7 +141,7 @@ Uygulamayı dağıtmak için bir App Service oluşturma gerekecektir [Web uygula
 
 ## <a name="deployment-with-visual-studio"></a>Visual Studio ile dağıtım
 
-> *Not: Bu bölüm, yalnızca Windows için geçerlidir. Linux ve Macos'ta kullanıcılar, 2. adım açıklanan değişikliği yapmanız gerekir. Dosyayı kaydedin ve değişikliği ile yerel deponuza işleyin `git commit`. Son olarak, değişiklik ile anında iletme `git push`, ilk bölümde gibi.*
+> *Not: Bu bölüm yalnızca Windows için geçerlidir. Linux ve Macos'ta kullanıcılar, 2. adım açıklanan değişikliği yapmanız gerekir. Dosyayı kaydedin ve değişikliği ile yerel deponuza işleyin `git commit`. Son olarak, değişiklik ile anında iletme `git push`, ilk bölümde gibi.*
 
 Uygulamayı komut kabuğu'ndan zaten dağıtıldı. Bir güncelleştirme uygulamasına dağıtmak için Visual Studio'nun tümleşik araçları kullanalım. Arka planda, Visual Studio Araçları komut satırı, ancak Visual Studio'nun alışık olduğunuz kullanıcı Arabirimi içinde aynı şeyi gerçekleştirir.
 

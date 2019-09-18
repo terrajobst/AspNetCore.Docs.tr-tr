@@ -6,12 +6,12 @@ ms.author: riande
 ms.date: 06/18/2019
 ms.custom: mvc, seodec18
 uid: security/authentication/add-user-data
-ms.openlocfilehash: c219500b7595fd8d200e4e5e742b1e1fda836ba3
-ms.sourcegitcommit: a1283d486ac1dcedfc7ea302e1cc882833e2c515
+ms.openlocfilehash: f5a47ffd2e068414268ed9037d4376bfd21ba1bb
+ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67207734"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71080805"
 ---
 # <a name="add-download-and-delete-custom-user-data-to-identity-in-an-aspnet-core-project"></a>Ekleme, indirmek ve kimlik için bir ASP.NET Core projesi özel kullanıcı verilerini silme
 
@@ -20,7 +20,7 @@ Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
 Bu makale nasıl yapılır:
 
 * ASP.NET Core web uygulaması için özel kullanıcı verilerini ekleyin.
-* Özel kullanıcı veri modeli ile donatmak <xref:Microsoft.AspNetCore.Identity.PersonalDataAttribute> indirme ve silme için otomatik olarak kullanılabilir olacak şekilde özniteliği. Verileri silinir ve indirilen mümkün hale yardımcı karşılamak [GDPR](xref:security/gdpr) gereksinimleri.
+* Özel Kullanıcı veri modelini <xref:Microsoft.AspNetCore.Identity.PersonalDataAttribute> özniteliği ile süsleyin, bu nedenle otomatik olarak indirilebilir ve silinmek üzere kullanılabilir. Verileri silinir ve indirilen mümkün hale yardımcı karşılamak [GDPR](xref:security/gdpr) gereksinimleri.
 
 Bir Razor sayfaları web uygulaması proje örneği oluşturulur, ancak yönergeleri ASP.NET Core MVC web uygulaması için benzerdir.
 
@@ -36,13 +36,13 @@ Bir Razor sayfaları web uygulaması proje örneği oluşturulur, ancak yönerge
 
 * Visual Studio'dan **dosya** menüsünde **yeni** > **proje**. Projeyi adlandırın **WebApp1** için istiyorsanız ad alanı eşleşen [örneği indirin](https://github.com/aspnet/AspNetCore.Docs/tree/live/aspnetcore/security/authentication/add-user-data) kod.
 * Seçin **ASP.NET Core Web uygulaması** > **Tamam**
-* Seçin **ASP.NET Core 2.2** açılır
+* Açılan listede **ASP.NET Core 2,2** ' i seçin
 * Seçin **Web uygulaması**  > **Tamam**
 * Derleme ve projeyi çalıştırın.
 
 # <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
 
-```cli
+```dotnetcli
 dotnet new webapp -o WebApp1
 ```
 
@@ -67,26 +67,26 @@ dotnet new webapp -o WebApp1
 
 ASP.NET Core iskele kurucu daha önce yüklemediyseniz şimdi yükleyin:
 
-```cli
+```dotnetcli
 dotnet tool install -g dotnet-aspnet-codegenerator
 ```
 
 Paket başvurusu ekleme [Microsoft.VisualStudio.Web.CodeGeneration.Design](https://www.nuget.org/packages/Microsoft.VisualStudio.Web.CodeGeneration.Design/) proje (.csproj) dosyasına. Proje dizininde aşağıdaki komutu çalıştırın:
 
-```cli
+```dotnetcli
 dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design
 dotnet restore
 ```
 
 Kimlik destek seçeneklerini listelemek için aşağıdaki komutu çalıştırın:
 
-```cli
+```dotnetcli
 dotnet aspnet-codegenerator identity -h
 ```
 
 Proje klasöründe kimlik iskele kurucu çalıştırın:
 
-```cli
+```dotnetcli
 dotnet aspnet-codegenerator identity -u WebApp1User -fi Account.Register;Account.Manage.Index
 ```
 
@@ -143,14 +143,14 @@ Projeyi oluşturun.
 
 Visual Studio **Paket Yöneticisi Konsolu**:
 
-```PMC
+```powershell
 Add-Migration CustomUserData
 Update-Database
 ```
 
 # <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
 
-```cli
+```dotnetcli
 dotnet ef migrations add CustomUserData
 dotnet ef database update
 ```

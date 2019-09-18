@@ -6,12 +6,12 @@ ms.author: riande
 ms.date: 12/18/2018
 ms.custom: mvc, seodec18
 uid: security/authorization/secure-data
-ms.openlocfilehash: d95f44394d6ecc3c3896b45c5bebc73fa2d92445
-ms.sourcegitcommit: dc5b293e08336dc236de66ed1834f7ef78359531
+ms.openlocfilehash: d827f6f839c9e42e6d3d7b04fe8b24a1c9732aee
+ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71011196"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71082449"
 ---
 # <a name="create-an-aspnet-core-app-with-user-data-protected-by-authorization"></a>Kullanıcı verilerinin yetkilendirme tarafından korunduğu ile bir ASP.NET Core uygulaması oluşturma
 
@@ -103,7 +103,7 @@ ASP.NET kullanmak [kimlik](xref:security/authentication/identity) kullanıcılar
 
 Yeni geçiş oluştur ve veritabanını güncelleştir:
 
-```console
+```dotnetcli
 dotnet ef migrations add userID_Status
 dotnet ef database update
 ```
@@ -130,7 +130,7 @@ Anonim kullanıcıların, kaydolmadan önce site hakkında bilgi alması için d
 
 `SeedData` Sınıfı iki hesap oluşturur: Yönetici ve. Kullanım [gizli dizi Yöneticisi aracını](xref:security/app-secrets) bu hesaplar için bir parola ayarlamak için. Proje dizininden parolayı ayarlayın (dizinini içeren *Program.cs*):
 
-```console
+```dotnetcli
 dotnet user-secrets set SeedUserPW <PW>
 ```
 
@@ -279,7 +279,7 @@ Kapsanan kullanıcı hesapları için bir parola belirlemediyseniz kullanın [gi
 * Güçlü bir parola seçin: Sekiz veya daha fazla karakter ve en az bir büyük harf karakter, sayı ve simge kullanın. Örneğin, `Passw0rd!` güçlü parola gereksinimlerini karşılıyor.
 * Aşağıdaki komutu yürütün proje klasöründen burada `<PW>` parola:
 
-  ```console
+  ```dotnetcli
   dotnet user-secrets set SeedUserPW <PW>
   ```
 
@@ -310,7 +310,7 @@ Bir kişi, yöneticinin tarayıcıda oluşturur. Silme için URL'yi kopyalayın 
   * Örnekte kullanılan ad alanı ad alanı eşleşecek şekilde "ContactManager" adlandırın.
   * `-uld` LocalDB yerine SQLite belirtir
 
-  ```console
+  ```dotnetcli
   dotnet new webapp -o ContactManager -au Individual -uld
   ```
 
@@ -321,14 +321,14 @@ Bir kişi, yöneticinin tarayıcıda oluşturur. Silme için URL'yi kopyalayın 
 * İskele `Contact` modeli.
 * İlk geçiş oluşturun ve veritabanını güncelleştir:
 
-```console
+```dotnetcli
 dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design
 dotnet tool install -g dotnet-aspnet-codegenerator
 dotnet aspnet-codegenerator razorpage -m Contact -udl -dc ApplicationDbContext -outDir Pages\Contacts --referenceScriptLibraries
 dotnet ef database drop -f
 dotnet ef migrations add initial
 dotnet ef database update
-  ```
+```
 
 `dotnet aspnet-codegenerator razorpage` Komutuyla bir hata yaşarsanız, [Bu GitHub sorununa](https://github.com/aspnet/Scaffolding/issues/984)bakın.
 
@@ -426,7 +426,7 @@ ASP.NET kullanmak [kimlik](xref:security/authentication/identity) kullanıcılar
 
 Yeni geçiş oluştur ve veritabanını güncelleştir:
 
-```console
+```dotnetcli
 dotnet ef migrations add userID_Status
 dotnet ef database update
 ```
@@ -453,7 +453,7 @@ Ekleme [AllowAnonymous](/dotnet/api/microsoft.aspnetcore.authorization.allowanon
 
 `SeedData` Sınıfı iki hesap oluşturur: Yönetici ve. Kullanım [gizli dizi Yöneticisi aracını](xref:security/app-secrets) bu hesaplar için bir parola ayarlamak için. Proje dizininden parolayı ayarlayın (dizinini içeren *Program.cs*):
 
-```console
+```dotnetcli
 dotnet user-secrets set SeedUserPW <PW>
 ```
 
@@ -602,16 +602,16 @@ Kapsanan kullanıcı hesapları için bir parola belirlemediyseniz kullanın [gi
 * Güçlü bir parola seçin: Sekiz veya daha fazla karakter ve en az bir büyük harf karakter, sayı ve simge kullanın. Örneğin, `Passw0rd!` güçlü parola gereksinimlerini karşılıyor.
 * Aşağıdaki komutu yürütün proje klasöründen burada `<PW>` parola:
 
-  ```console
+  ```dotnetcli
   dotnet user-secrets set SeedUserPW <PW>
   ```
 
 * Veritabanını bırakma ve güncelleştirme
 
-    ```console
-     dotnet ef database drop -f
-     dotnet ef database update  
-     ```
+  ```dotnetcli
+  dotnet ef database drop -f
+  dotnet ef database update  
+  ```
 
 * Veritabanının çekirdeğini oluşturma için uygulamayı yeniden başlatın.
 
@@ -637,7 +637,7 @@ Bir kişi, yöneticinin tarayıcıda oluşturur. Silme için URL'yi kopyalayın 
   * Örnekte kullanılan ad alanı ad alanı eşleşecek şekilde "ContactManager" adlandırın.
   * `-uld` LocalDB yerine SQLite belirtir
 
-  ```console
+  ```dotnetcli
   dotnet new webapp -o ContactManager -au Individual -uld
   ```
 
@@ -648,7 +648,7 @@ Bir kişi, yöneticinin tarayıcıda oluşturur. Silme için URL'yi kopyalayın 
 * İskele `Contact` modeli.
 * İlk geçiş oluşturun ve veritabanını güncelleştir:
 
-  ```console
+  ```dotnetcli
   dotnet aspnet-codegenerator razorpage -m Contact -udl -dc ApplicationDbContext -outDir Pages\Contacts --referenceScriptLibraries
   dotnet ef database drop -f
   dotnet ef migrations add initial

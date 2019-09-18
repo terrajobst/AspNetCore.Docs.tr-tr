@@ -11,7 +11,7 @@ Aşağıdaki tabloda ASP.NET Core kod Oluşturucu parametrelerinin ayrıntılar�
 
 Komutuyla ilgili yardım almak için anahtarıkullanın:`h` `aspnet-codegenerator controller`
 
-```console
+```dotnetcli
 dotnet aspnet-codegenerator controller -h
 ```
 

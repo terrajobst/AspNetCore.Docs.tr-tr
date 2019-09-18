@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 08/23/2019
 uid: test/integration-tests
-ms.openlocfilehash: 195acd3e03f3de63ebd61767f2c86d1c0f38fca5
-ms.sourcegitcommit: 983b31449fe398e6e922eb13e9eb6f4287ec91e8
+ms.openlocfilehash: 272f0f2140647dd31319f8feada0ec04c7ab4e44
+ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/24/2019
-ms.locfileid: "70017441"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71082496"
 ---
 # <a name="integration-tests-in-aspnet-core"></a>ASP.NET Core tümleştirme testleri
 
@@ -138,7 +138,7 @@ Sut `/SecurePage` sayfasında, sayfada bir [authorizefilter](/dotnet/api/microso
 
 [!code-csharp[](integration-tests/samples/2.x/IntegrationTestsSample/src/RazorPagesProject/Startup.cs?name=snippet1)]
 
-Testte, bir [webapplicationfactoryclientoptions](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactoryclientoptions) , [allowclıredirect](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactoryclientoptions.allowautoredirect) ' i ayarlayarak yeniden `false`yönlendirmeye izin vermez olarak ayarlanır: `Get_SecurePageRequiresAnAuthenticatedUser`
+Testte, bir [webapplicationfactoryclientoptions, allowclıredirect](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactoryclientoptions) ' i ayarlayarak [yeniden](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactoryclientoptions.allowautoredirect) `false`yönlendirmeye izin vermez olarak ayarlanır: `Get_SecurePageRequiresAnAuthenticatedUser`
 
 [!code-csharp[](integration-tests/samples/2.x/IntegrationTestsSample/tests/RazorPagesProject.Tests/IntegrationTests/BasicTests.cs?name=snippet2)]
 
@@ -175,7 +175,7 @@ SUT 'a yönelik herhangi bir POST isteği, uygulamanın [veri koruma antiforgery
 1. Antiforgery tanımlama bilgisini ayrıştırın ve yanıt doğrulama belirtecini istekten isteyin.
 1. POST isteğini, antiforgery tanımlama bilgisiyle ve istek doğrulama belirteciyle birlikte yapın.
 
-[Örnek uygulamadaki](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/test/integration-tests/samples/) `GetDocumentAsync` yardımcı uzantı yöntemleri (*yardımcılar/httpclienconversionsions. cs*) ve yardımcı yöntemi (*yardımcılar/htmlyardımcıları. cs*), antipergery 'yi işlemek için [anglesharp](https://anglesharp.github.io/) ayrıştırıcılarını kullanır `SendAsync` Aşağıdaki yöntemlerle denetleyin:
+[](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/test/integration-tests/samples/) `GetDocumentAsync` [](https://anglesharp.github.io/)Örnek uygulamadaki yardımcıuzantıyöntemleri(yardımcılar/httpclienconversionsions.cs)veyardımcıyöntemi(yardımcılar/htmlyardımcıları.cs),antipergery'yiişlemekiçinanglesharpayrıştırıcılarınıkullanır`SendAsync` Aşağıdaki yöntemlerle denetleyin:
 
 * `GetDocumentAsync`HttpResponseMessage [](/dotnet/api/system.net.http.httpresponsemessage) 'ı alır ve döndürür `IHtmlDocument`. &ndash; `GetDocumentAsync`, orijinalin `HttpResponseMessage`temelinde bir *sanal yanıt* hazırlayan bir fabrika kullanır. Daha fazla bilgi için bkz. [Anglesharp belgeleri](https://github.com/AngleSharp/AngleSharp#documentation).
 * `SendAsync`bir HttpRequestMessage [](/dotnet/api/system.net.http.httprequestmessage) [](/dotnet/api/system.net.http.httpclient.sendasync#System_Net_Http_HttpClient_SendAsync_System_Net_Http_HttpRequestMessage_) oluşturun ve istekleri sut 'a göndermek için sendadsync (HttpRequestMessage) çağrısı yapın. `HttpClient` HTML biçimini `SendAsync` kabul etmek için aşırı yüklemeler`IHtmlFormElement`() ve şunları yapın:
@@ -311,7 +311,7 @@ Visual Studio kullanıyorsanız, dosyanın **Çıkış Dizinine Kopyala** özell
 
 Testler, [Visual Studio](https://visualstudio.microsoft.com)gıbı bir IDE 'nin yerleşik test özellikleri kullanılarak çalıştırılabilir. [Visual Studio Code](https://code.visualstudio.com/) veya komut satırı kullanıyorsanız, *testler/RazorPagesProject. Tests* dizinindeki bir komut isteminde aşağıdaki komutu yürütün:
 
-```console
+```dotnetcli
 dotnet test
 ```
 

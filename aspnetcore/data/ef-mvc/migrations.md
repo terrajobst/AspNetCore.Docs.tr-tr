@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.date: 03/27/2019
 ms.topic: tutorial
 uid: data/ef-mvc/migrations
-ms.openlocfilehash: fcb238c132a774200e9f54f1141f5ba79fa2f802
-ms.sourcegitcommit: 8835b6777682da6fb3becf9f9121c03f89dc7614
+ms.openlocfilehash: 3ee95d9b648a90c90d06e33a30b568626a1eb0aa
+ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69975160"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71080831"
 ---
 # <a name="tutorial-using-the-migrations-feature---aspnet-mvc-with-ef-core"></a>Öğretici: EF Core ile geçiş özelliğini kullanma-ASP.NET MVC
 
@@ -51,7 +51,7 @@ Bu değişiklik projeyi ilk geçişin yeni bir veritabanı oluşturacak şekilde
 > [!NOTE]
 > Veritabanı adını değiştirmeye alternatif olarak, veritabanını silebilirsiniz. **SQL Server Nesne Gezgini** (ssox) veya `database drop` CLI komutunu kullanın:
 >
-> ```console
+> ```dotnetcli
 > dotnet ef database drop
 > ```
 >
@@ -71,7 +71,7 @@ Değişikliklerinizi kaydedin ve projeyi derleyin. Sonra bir komut penceresi aç
 
 Komut penceresine aşağıdaki komutu girin:
 
-```console
+```dotnetcli
 dotnet ef migrations add InitialCreate
 ```
 
@@ -112,7 +112,7 @@ Anlık görüntü dosyasının nasıl kullanıldığı hakkında daha fazla bilg
 
 Komut penceresinde, veritabanı ve tabloları oluşturmak için aşağıdaki komutu girin.
 
-```console
+```dotnetcli
 dotnet ef database update
 ```
 

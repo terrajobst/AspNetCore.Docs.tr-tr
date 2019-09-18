@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 09/06/2019
 uid: blazor/components
-ms.openlocfilehash: e51f6745f6e0c748e51d7f8a49193f3d81fd2a06
-ms.sourcegitcommit: 07cd66e367d080acb201c7296809541599c947d1
+ms.openlocfilehash: 521421ac413218c1f04dd9feade2a49dc1f7b918
+ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71039175"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71080529"
 ---
 # <a name="create-and-use-aspnet-core-razor-components"></a>ASP.NET Core Razor bileşenleri oluşturma ve kullanma
 
@@ -1473,7 +1473,7 @@ Bu, önemsiz bir örnektir. Karmaşık ve derin iç içe yapıları ve özellikl
 
 * Sıra numaraları dinamik olarak oluşturulursa uygulama performansı de vardır.
 * Altyapı, derleme zamanında yakalanmadığı takdirde gerekli bilgiler bulunmadığından, çalışma zamanında kendi sıra numaralarını otomatik olarak oluşturamaz.
-* El ile uygulanan `RenderTreeBuilder` mantık uzun blokları yazmayın. Dosyaları `.razor` tercih edin ve derleyicinin sıra numaralarıyla uğraşmak için izin verin.
+* El ile uygulanan `RenderTreeBuilder` mantık uzun blokları yazmayın. Dosyaları `.razor` tercih edin ve derleyicinin sıra numaralarıyla uğraşmak için izin verin. El ile `RenderTreeBuilder` mantığın olmaması durumunda, uzun kod bloklarını `CloseRegion` çağrılarında `OpenRegion` / kaydırılmış küçük parçalara ayırın. Her bölge kendi ayrı dizi numaralarına sahiptir, bu nedenle her bölge içinde sıfırdan (veya herhangi bir rastgele sayıdan) yeniden başlatabilirsiniz.
 * Dizi numaraları sabit kodluysa, fark algoritması yalnızca değer değerinde sıra numaralarının artırılmasını gerektirir. İlk değer ve boşluklar ilgisiz. Tek bir seçenek, kod satırı numarasını sıra numarası olarak kullanmak veya sıfırdan başlayıp bir ya da yüzlerce (ya da tercih edilen aralığa) artırmak için kullanılır. 
 * Blazor, sıra numaralarını kullanır, diğer ağaç dağıtma Kullanıcı arabirimi çerçeveleri bunları kullanmaz. Dizi numaraları kullanıldığında ve Blazor, geliştiricilerin yazma `.razor` dosyaları için otomatik olarak sıra numaralarıyla ilgilenen bir derleme adımının avantajına sahiptir.
 

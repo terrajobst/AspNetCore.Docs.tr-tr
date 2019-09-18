@@ -7,12 +7,12 @@ ms.author: riande
 ms.date: 08/22/2019
 ms.custom: mvc, seodec18
 uid: razor-pages/ui-class
-ms.openlocfilehash: 5b83cb44302a5900ec7b2ccc049790b4c1ca57e5
-ms.sourcegitcommit: 6189b0ced9c115248c6ede02efcd0b29d31f2115
+ms.openlocfilehash: 92c04c1ac4c70c6245accf272753bc914aaab860
+ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69985379"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71081866"
 ---
 # <a name="create-reusable-ui-using-the-razor-class-library-project-in-aspnet-core"></a>ASP.NET Core 'de Razor Sınıf Kitaplığı projesini kullanarak yeniden kullanılabilir kullanıcı arabirimi oluşturma
 
@@ -42,7 +42,7 @@ RCL aşağıdaki proje dosyasına sahiptir:
 
 Komut satırından çalıştırmak `dotnet new razorclasslib`. Örneğin:
 
-```console
+```dotnetcli
 dotnet new razorclasslib -o RazorUIClassLib
 ```
 
@@ -77,13 +77,13 @@ Açık *.sln* dosyasını Visual Studio'da. Uygulamayı çalıştırın.
 
 Bir komut isteminden *CLI* dizin RCL oluşturun ve web uygulaması.
 
-```console
+```dotnetcli
 dotnet build
 ```
 
 Taşı *WebApp1* dizin ve uygulamayı çalıştırın:
 
-```console
+```dotnetcli
 dotnet run
 ```
 
@@ -110,7 +110,7 @@ RCL projesi oluşturun:
 
 Komut satırından şu komutu çalıştırın:
 
-```console
+```dotnetcli
 dotnet new razorclasslib -o RazorUIClassLib
 dotnet new page -n _Message -np -o RazorUIClassLib/Areas/MyFeature/Pages/Shared
 dotnet new viewstart -o RazorUIClassLib/Areas/MyFeature/Pages
@@ -138,7 +138,7 @@ Yukarıdaki komutlar:
 
 `@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers` Kısmi görünümü kullanmak için gereklidir (`<partial name="_Message" />`). Dahil olmak üzere yerine `@addTagHelper` yönergesi ekleyebileceğiniz bir *_viewımports.cshtml* dosya. Örneğin:
 
-```console
+```dotnetcli
 dotnet new viewimports -o RazorUIClassLib/Areas/MyFeature/Pages
 ```
 
@@ -146,7 +146,7 @@ Daha fazla bilgi için *_viewımports.cshtml*, bkz: [paylaşılan yönergeleri a
 
 * Derleyici hata doğrulamak için sınıf kitaplığı derleme:
 
-```console
+```dotnetcli
 dotnet build RazorUIClassLib
 ```
 
@@ -176,7 +176,7 @@ Uygulamayı çalıştırın.
 
 Razor Pages uygulamasını ve RCL 'yi içeren bir Razor Pages Web uygulaması ve çözüm dosyası oluşturun:
 
-```console
+```dotnetcli
 dotnet new webapp -o WebApp1
 dotnet new sln
 dotnet sln add WebApp1
@@ -186,7 +186,7 @@ dotnet add WebApp1 reference RazorUIClassLib
 
 Web uygulaması derleyebilir ve:
 
-```console
+```dotnetcli
 cd WebApp1
 dotnet run
 ```

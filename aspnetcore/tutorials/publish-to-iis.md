@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 08/08/2019
 uid: tutorials/publish-to-iis
-ms.openlocfilehash: c31beae16f46153daac188ab1638e5530584ac88
-ms.sourcegitcommit: 776367717e990bdd600cb3c9148ffb905d56862d
+ms.openlocfilehash: 4ac7b3a2f738e443263dd888f556e0aff7c8099b
+ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68927216"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71082374"
 ---
 # <a name="publish-an-aspnet-core-app-to-iis"></a>IIS 'de ASP.NET Core uygulaması yayımlama
 
@@ -84,7 +84,7 @@ Razor Pages uygulaması oluşturmak için öğreticiyiizleyin.<xref:getting-star
 
 1. Bir komut kabuğunda, uygulamayı sürüm yapılandırması 'nda [DotNet Publish](/dotnet/core/tools/dotnet-publish) komutuyla yayımlayın:
 
-   ```console
+   ```dotnetcli
    dotnet publish --configuration Release
    ```
 
@@ -92,7 +92,7 @@ Razor Pages uygulaması oluşturmak için öğreticiyiizleyin.<xref:getting-star
 
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Mac için Visual Studio](#tab/visual-studio-mac)
 
-1. **Çözümdeki** projeye sağ tıklayın ve**Yayımla klasörünü**Yayımla ' yı > seçin.
+1. **Çözümdeki** projeye sağ tıklayın ve**Yayımla klasörünü** **Yayımla ' yı seçin.**  > 
 1. **Klasör seçin** yolunu ayarlayın.
    * Geliştirme makinesinde bir ağ paylaşımında bulunan IIS sitesi için bir klasör oluşturduysanız, paylaşımın yolunu belirtin. Geçerli kullanıcının paylaşıma yayımlamak için yazma erişimi olmalıdır.
    * IIS sunucusunda IIS site klasörüne doğrudan dağıtım yapadıysanız, kaldırılabilir medyada bir klasöre yayımlayın ve yayımlanan uygulamayı sunucuda, sitenin **fiziksel yolu** olan sunucudaki IIS site klasörüne fiziksel olarak taşıyın. *Bin/Release/{Target Framework}/Publish* klasörünün IÇERIĞINI sunucusundaki IIS site klasörüne taşıyın, bu site, sitenin IIS Yöneticisi 'ndeki **fiziksel yoludur** .

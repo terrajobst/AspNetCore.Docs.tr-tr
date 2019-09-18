@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 08/01/2019
 uid: security/key-vault-configuration
-ms.openlocfilehash: 0d0b6e20a1901d4a2630ce263b5fd0cd7bcca8fe
-ms.sourcegitcommit: 4fe3ae892f54dc540859bff78741a28c2daa9a38
+ms.openlocfilehash: fe6cdca1f7180f9da26fe2838e529becb26ccd45
+ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/04/2019
-ms.locfileid: "68776648"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71081110"
 ---
 # <a name="azure-key-vault-configuration-provider-in-aspnet-core"></a>ASP.NET Core Azure Key Vault yapılandırma sağlayıcısı
 
@@ -31,7 +31,7 @@ Bu senaryo, ASP.NET Core 2,1 veya sonraki bir sürümü hedefleyen uygulamalar i
 
 Azure Key Vault yapılandırma sağlayıcısını kullanmak için [Microsoft. Extensions. Configuration. AzureKeyVault](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.AzureKeyVault/) paketine bir paket başvurusu ekleyin.
 
-[Azure kaynakları Için Yönetilen kimlikler](/azure/active-directory/managed-identities-azure-resources/overview) senaryosunu benimsemek için [Microsoft. Azure. Services. appauthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication/) paketine bir paket başvurusu ekleyin.
+[Azure kaynakları Için Yönetilen kimlikler senaryosunu benimsemek](/azure/active-directory/managed-identities-azure-resources/overview) için [Microsoft. Azure. Services. appauthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication/) paketine bir paket başvurusu ekleyin.
 
 > [!NOTE]
 > Uygulamasının en son kararlı sürümü olan `Microsoft.Azure.Services.AppAuthentication` `1.0.3`yazma sırasında, [sistem tarafından atanan Yönetilen kimlikler](/azure/active-directory/managed-identities-azure-resources/overview#how-does-the-managed-identities-for-azure-resources-work)için destek sağlar. *Kullanıcı tarafından atanan Yönetilen kimlikler* için destek `1.2.0-preview2` paketinde bulunur. Bu konu, sistem tarafından yönetilen kimliklerin kullanımını ve belirtilen örnek uygulamanın `1.0.3` `Microsoft.Azure.Services.AppAuthentication` paketin sürümünü kullandığını gösterir.
@@ -61,13 +61,13 @@ Gizlilikler ad-değer çiftleri olarak oluşturulur. Hiyerarşik değerler (yap�
 
 Gizli dizi, projenin içerik köküne açılan bir komut kabuğundan kullanılır; burada `{SECRET NAME}` ad ve `{SECRET VALUE}` değerdir:
 
-```console
+```dotnetcli
 dotnet user-secrets set "{SECRET NAME}" "{SECRET VALUE}"
 ```
 
 Örnek uygulamanın gizli dizilerini ayarlamak için, projenin içerik kökünden bir komut kabuğu 'nda aşağıdaki komutları yürütün:
 
-```console
+```dotnetcli
 dotnet user-secrets set "SecretName" "secret_value_1_dev"
 dotnet user-secrets set "Section:SecretName" "secret_value_2_dev"
 ```
@@ -233,7 +233,7 @@ Bu yaklaşım uygulandığında:
 
    [Gizli dizi yöneticisi aracıyla](xref:security/app-secrets)aşağıdaki gizli dizileri yerel olarak kaydedin:
 
-   ```console
+   ```dotnetcli
    dotnet user-secrets set "5000-AppSecret" "5.0.0.0_secret_value_dev"
    dotnet user-secrets set "5100-AppSecret" "5.1.0.0_secret_value_dev"
    ```
@@ -262,7 +262,7 @@ Anahtarların iki nokta (`:`) ayırıcılar içermesine izin veren bir yapıland
 
 Azure Key Vault anahtarlar ayırıcı olarak iki nokta üst üste kullanamaz. Bu konuda açıklanan yaklaşım, hiyerarşik değerler (bölümler)`--`için bir ayırıcı olarak çift tire () kullanır. Dizi anahtarları çift tireler ve sayısal anahtar kesimleri`--0--`(, `--1--`, &hellip; `--{n}--`) ile birlikte Azure Key Vault depolanır.
 
-Bir JSON dosyası tarafından sunulan aşağıdaki [Serilog](https://serilog.net/) günlük sağlayıcısı yapılandırmasını inceleyin. Dizide günlüğe kaydetme hedeflerini açıklayan iki Serilog girişi yansıtan iki nesne değişmezdeğeri vardır: `WriteTo`
+Bir JSON dosyası tarafından sunulan aşağıdaki [Serilog](https://serilog.net/) günlük sağlayıcısı yapılandırmasını inceleyin. Dizide günlüğe kaydetme hedeflerini açıklayan *iki Serilog girişi*yansıtan iki nesne değişmez değeri vardır: `WriteTo`
 
 ```json
 "Serilog": {

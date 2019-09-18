@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc, seodec18
 ms.date: 08/02/2019
 uid: fundamentals/configuration/platform-specific-configuration
-ms.openlocfilehash: 3be036d9b4fc6c9898faf14e8a60a8cc7a8683b7
-ms.sourcegitcommit: b5e63714afc26e94be49a92619586df5189ed93a
+ms.openlocfilehash: f20f8c4e9b1089acca6689d14cdf84bef648d461
+ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68739543"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71081752"
 ---
 # <a name="use-hosting-startup-assemblies-in-aspnet-core"></a>ASP.NET Core barındırma başlangıç derlemeleri kullanma
 
@@ -203,13 +203,13 @@ Barındırma başlangıç uygulaması yerleştirilir [çalışma zamanı deposu]
 
 Barındırma başlangıç oluşturulduktan sonra bir çalışma zamanı deposu bildirim proje dosyası kullanılarak oluşturulur ve [dotnet deposu](/dotnet/core/tools/dotnet-store) komutu.
 
-```console
+```dotnetcli
 dotnet store --manifest {MANIFEST FILE} --runtime {RUNTIME IDENTIFIER} --output {OUTPUT LOCATION} --skip-optimization
 ```
 
 Örnek uygulamada (*RuntimeStore* Proje) şu komut kullanılır:
 
-``` console
+```dotnetcli
 dotnet store --manifest store.manifest.csproj --runtime win7-x64 --output ./deployment/store --skip-optimization
 ```
 
@@ -361,7 +361,7 @@ Bir barındırma başlangıç geliştirmesi tarafından sağlanan bir *bin*-Geli
 
 Değişiklikler yaparsanız *HostingStartupPackage* proje ve yeniden derleyin, emin olmak için yerel NuGet paketi önbellekler temizlenir *HostingStartupApp* güncelleştirilmiş paket bir eski alır Paket yerel önbellekten. Yerel NuGet önbellekleri temizlemek için aşağıdakileri yürütün [dotnet nuget Yereller](/dotnet/core/tools/dotnet-nuget-locals) komutu:
 
-```console
+```dotnetcli
 dotnet nuget locals all --clear
 ```
 

@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.date: 03/27/2019
 ms.topic: tutorial
 uid: data/ef-mvc/complex-data-model
-ms.openlocfilehash: a69f1fdd38fec35dec6bb8125bf29859a437a891
-ms.sourcegitcommit: 8835b6777682da6fb3becf9f9121c03f89dc7614
+ms.openlocfilehash: 85a11ba082fc8f6b364019f6cefcd5b1fe5a9215
+ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69975088"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71080469"
 ---
 # <a name="tutorial-create-a-complex-data-model---aspnet-mvc-with-ef-core"></a>Öğretici: EF Core ile karmaşık veri modeli oluşturma-ASP.NET MVC
 
@@ -98,11 +98,11 @@ Veritabanı modeli, veritabanı şemasında değişiklik yapılmasını gerektir
 
 Değişikliklerinizi kaydedin ve projeyi derleyin. Ardından proje klasöründe komut penceresini açın ve aşağıdaki komutları girin:
 
-```console
+```dotnetcli
 dotnet ef migrations add MaxLengthOnNames
 ```
 
-```console
+```dotnetcli
 dotnet ef database update
 ```
 
@@ -126,15 +126,15 @@ Ayrıca, sınıflarınızın ve özelliklerinin veritabanına nasıl eşlenildi�
 
 Değişikliklerinizi kaydedin ve projeyi derleyin. Ardından proje klasöründe komut penceresini açın ve başka bir geçiş oluşturmak için aşağıdaki komutları girin:
 
-```console
+```dotnetcli
 dotnet ef migrations add ColumnFirstName
 ```
 
-```console
+```dotnetcli
 dotnet ef database update
 ```
 
-**SQL Server Nesne Gezgini**, öğrenci tablosuna çift tıklayarak öğrenci tablosu tasarımcısını açın.
+**SQL Server Nesne Gezgini** **, öğrenci tablosuna** çift tıklayarak öğrenci tablosu tasarımcısını açın.
 
 ![Geçişlerde SSOX 'teki öğrenciler tablosu](complex-data-model/_static/ssox-after-migration.png)
 
@@ -434,7 +434,7 @@ Bire çok ilişki çizgilerinin yanı sıra (1 \*' den fazla), eğitmen ve Offic
 
 Değişikliklerinizi kaydedin ve projeyi derleyin. Ardından proje klasöründe komut penceresini açın ve `migrations add` komutu girin (henüz Update-database komutunu yapmayın):
 
-```console
+```dotnetcli
 dotnet ef migrations add ComplexDataModel
 ```
 
@@ -483,7 +483,7 @@ Değişiklerinizi *appSettings. JSON*' da kaydedin.
 > [!NOTE]
 > Veritabanı adını değiştirmeye alternatif olarak, veritabanını silebilirsiniz. **SQL Server Nesne Gezgini** (ssox) veya `database drop` CLI komutunu kullanın:
 >
-> ```console
+> ```dotnetcli
 > dotnet ef database drop
 > ```
 
@@ -491,7 +491,7 @@ Değişiklerinizi *appSettings. JSON*' da kaydedin.
 
 Veritabanı adını değiştirdikten veya veritabanını sildikten sonra, geçişleri yürütmek için komut penceresinde `database update` komutunu çalıştırın.
 
-```console
+```dotnetcli
 dotnet ef database update
 ```
 

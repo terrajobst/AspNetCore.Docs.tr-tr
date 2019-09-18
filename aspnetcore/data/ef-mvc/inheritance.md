@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.date: 03/27/2019
 ms.topic: tutorial
 uid: data/ef-mvc/inheritance
-ms.openlocfilehash: 60d97137fbc6a08152b7b8a631b7a32940875b38
-ms.sourcegitcommit: 8835b6777682da6fb3becf9f9121c03f89dc7614
+ms.openlocfilehash: 8e092ac47b2fd5fb6f3a0524bf1c559b7c3935c4
+ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69975095"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71080434"
 ---
 # <a name="tutorial-implement-inheritance---aspnet-mvc-with-ef-core"></a>Öğretici: EF Core devralma-ASP.NET MVC uygulama
 
@@ -93,7 +93,7 @@ Bu, Entity Framework hiyerarşinin devralma devralınmasını yapılandırmak i�
 
 Değişikliklerinizi kaydedin ve projeyi derleyin. Ardından proje klasöründe komut penceresini açın ve aşağıdaki komutu girin:
 
-```console
+```dotnetcli
 dotnet ef migrations add Inheritance
 ```
 
@@ -127,7 +127,7 @@ Bu kod aşağıdaki veritabanı güncelleştirme görevlerini gerçekleştirir:
 
 `database update` Şu komutu çalıştırın:
 
-```console
+```dotnetcli
 dotnet ef database update
 ```
 

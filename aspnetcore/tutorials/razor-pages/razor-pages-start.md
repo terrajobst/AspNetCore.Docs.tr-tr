@@ -5,12 +5,12 @@ description: Bu öğretici dizisinde Razor Pages ASP.NET Core nasıl kullanılac
 ms.author: riande
 ms.date: 07/25/2019
 uid: tutorials/razor-pages/razor-pages-start
-ms.openlocfilehash: 67a5fcee0a37861fd39a018443edbc0b9e513213
-ms.sourcegitcommit: 7a46973998623aead757ad386fe33602b1658793
+ms.openlocfilehash: 0cc00cb85b6054752417b82c783cfd4c306aeda5
+ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69487640"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71082571"
 ---
 # <a name="tutorial-get-started-with-razor-pages-in-aspnet-core"></a>Öğretici: ASP.NET Core Razor Pages kullanmaya başlama
 
@@ -78,7 +78,7 @@ Bu öğreticinin sonunda, daha sonraki öğreticilerde oluşturacağınız çal�
 
 * Aşağıdaki komutları çalıştırın:
 
-  ```console
+  ```dotnetcli
   dotnet new webapp -o RazorPagesMovie
   code -r RazorPagesMovie
   ```
@@ -255,7 +255,7 @@ Bu öğreticinin sonunda, daha sonraki öğreticilerde oluşturacağınız çal�
 
 * Aşağıdaki komutları çalıştırın:
 
-  ```console
+  ```dotnetcli
   dotnet new webapp -o RazorPagesMovie
   code -r RazorPagesMovie
   ```
@@ -273,7 +273,7 @@ Terminalden aşağıdaki komutu çalıştırın:
 
 <!-- TODO: update these instruction once mac support 2.2 projects -->
 
-```console
+```dotnetcli
 dotnet new webapp -o RazorPagesMovie
 ```
 

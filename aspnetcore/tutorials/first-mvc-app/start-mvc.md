@@ -5,12 +5,12 @@ description: ASP.NET Core MVC ile çalışmaya başlama hakkında bilgi edinin.
 ms.author: riande
 ms.date: 08/05/2019
 uid: tutorials/first-mvc-app/start-mvc
-ms.openlocfilehash: 36f4811f876a6e35440445103a1f86ae06b31b6a
-ms.sourcegitcommit: 476ea5ad86a680b7b017c6f32098acd3414c0f6c
+ms.openlocfilehash: 52d8fc631075408991d3a2e62cdaccf681c5927f
+ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69022519"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71082150"
 ---
 # <a name="get-started-with-aspnet-core-mvc"></a>ASP.NET Core MVC ile çalışmaya başlama
 
@@ -78,7 +78,7 @@ Visual Studio, az önce oluşturduğunuz MVC projesi için varsayılan şablonu 
 * Dizinleri (`cd`), projeyi içerecek bir klasöre değiştirin.
 * Şu komutu çalıştırın:
 
-   ```console
+   ```dotnetcli
    dotnet new mvc -o MvcMovie
    code -r MvcMovie
    ```
@@ -118,7 +118,7 @@ Uygulamayı hata ayıklamasız modda çalıştırmak için **CTRL-F5** ' i seçi
 
 * Visual Studio [IIS Express](/iis/extensions/introduction-to-iis-express/iis-express-overview) başlar ve uygulamayı çalıştırır. Adres çubuğunda `localhost:port#` , gibi `example.com`bir şey gösterilmediğine dikkat edin. Bunun nedeni `localhost` , Yerel bilgisayarınız için Standart ana bilgisayar adıdır. Visual Studio bir Web projesi oluşturduğunda, Web sunucusu için rastgele bir bağlantı noktası kullanılır.
 * Uygulamayı CTRL + F5 (hata ayıklama modu) ile başlatmak, kod değişiklikleri yapmanıza, dosyayı kaydetmenize, tarayıcıyı yenilemanıza ve kod değişikliklerini görmenize olanak tanır. Birçok geliştirici, uygulamayı hızlı bir şekilde başlatmak ve değişiklikleri görüntülemek için hata ayıklama olmayan modu kullanmayı tercih eder.
-* Hata ayıklama menü öğesinden uygulamayı hata ayıklama veya hata ayıklama olmayan modda başlatabilirsiniz:
+* **Hata ayıklama menü öğesinden** uygulamayı hata ayıklama veya hata ayıklama olmayan modda başlatabilirsiniz:
 
   ![Hata ayıklama menüsü](start-mvc/_static/debug_menu.png)
 
@@ -144,7 +144,7 @@ Hata ayıklayıcı olmadan çalıştırmak için CTRL + F5 tuşlarına basın.
 
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Mac için Visual Studio](#tab/visual-studio-mac)
 
-Uygulamayı başlatmak için**hata ayıklama olmadan Başlat** ' ı seçin. >  Mac için Visual Studio, [Kestrel](xref:fundamentals/servers/index#kestrel) Server 'ı başlatır, bir tarayıcı başlatır ve `http://localhost:port`' a gider ve *bağlantı noktası* rastgele seçilmiş bir bağlantı noktası numarasıdır.
+Uygulamayı başlatmak için**hata ayıklama olmadan Başlat** ' **ı seçin.**  >  Mac için Visual Studio, [Kestrel](xref:fundamentals/servers/index#kestrel) Server 'ı başlatır, bir tarayıcı başlatır ve `http://localhost:port`' a gider ve *bağlantı noktası* rastgele seçilmiş bir bağlantı noktası numarasıdır.
 
 [!INCLUDE[](~/includes/trustCertMac.md)]
 
@@ -228,7 +228,7 @@ Visual Studio, az önce oluşturduğunuz MVC projesi için varsayılan şablonu 
 * Dizinleri (`cd`), projeyi içerecek bir klasöre değiştirin.
 * Şu komutu çalıştırın:
 
-   ```console
+   ```dotnetcli
    dotnet new mvc -o MvcMovie
    code -r MvcMovie
    ```
@@ -266,7 +266,7 @@ Uygulamayı hata ayıklamasız modda çalıştırmak için **CTRL-F5** ' i seçi
 
 * Visual Studio [IIS Express](/iis/extensions/introduction-to-iis-express/iis-express-overview) başlar ve uygulamayı çalıştırır. Adres çubuğunda `localhost:port#` , gibi `example.com`bir şey gösterilmediğine dikkat edin. Bunun nedeni `localhost` , Yerel bilgisayarınız için Standart ana bilgisayar adıdır. Visual Studio bir Web projesi oluşturduğunda, Web sunucusu için rastgele bir bağlantı noktası kullanılır.
 * Uygulamayı CTRL + F5 (hata ayıklama modu) ile başlatmak, kod değişiklikleri yapmanıza, dosyayı kaydetmenize, tarayıcıyı yenilemanıza ve kod değişikliklerini görmenize olanak tanır. Birçok geliştirici, uygulamayı hızlı bir şekilde başlatmak ve değişiklikleri görüntülemek için hata ayıklama olmayan modu kullanmayı tercih eder.
-* Hata ayıklama menü öğesinden uygulamayı hata ayıklama veya hata ayıklama olmayan modda başlatabilirsiniz:
+* **Hata ayıklama menü öğesinden** uygulamayı hata ayıklama veya hata ayıklama olmayan modda başlatabilirsiniz:
 
   ![Hata ayıklama menüsü](start-mvc/_static/debug_menu.png)
 
@@ -302,7 +302,7 @@ Hata ayıklayıcı olmadan çalıştırmak için CTRL + F5 tuşlarına basın.
 
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Mac için Visual Studio](#tab/visual-studio-mac)
 
-Uygulamayı başlatmak için**hata ayıklama olmadan Başlat** ' ı seçin. >  Mac için Visual Studio, [Kestrel](xref:fundamentals/servers/index#kestrel) Server 'ı başlatır, bir tarayıcı başlatır ve `http://localhost:port`' a gider ve *bağlantı noktası* rastgele seçilmiş bir bağlantı noktası numarasıdır.
+Uygulamayı başlatmak için**hata ayıklama olmadan Başlat** ' **ı seçin.**  >  Mac için Visual Studio, [Kestrel](xref:fundamentals/servers/index#kestrel) Server 'ı başlatır, bir tarayıcı başlatır ve `http://localhost:port`' a gider ve *bağlantı noktası* rastgele seçilmiş bir bağlantı noktası numarasıdır.
 
 [!INCLUDE[](~/includes/trustCertMac.md)]
 

@@ -7,18 +7,18 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 08/05/2019
 uid: security/authentication/identity/spa
-ms.openlocfilehash: cb51df0267a5eabd4a2694727e9c896d0554265e
-ms.sourcegitcommit: 257cc3fe8c1d61341aa3b07e5bc0fa3d1c1c1d1c
+ms.openlocfilehash: 4f6e3a4922c0a8a74b0e13edf1f00fe5f7bb76ba
+ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69583602"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71082324"
 ---
 # <a name="authentication-and-authorization-for-spas"></a>Maça kimlik doğrulaması ve yetkilendirme
 
 ASP.NET Core 3,0 veya üzeri, API yetkilendirmesi desteğini kullanarak tek sayfalı uygulamalarda (Spaon) kimlik doğrulaması sunmaktadır. Kimlik doğrulama ve depolama için ASP.NET Core kimliği, açık KIMLIK Connect uygulama için [IdentityServer](https://identityserver.io/) ile birleştirilir.
 
-Web uygulamasındaki kimlik doğrulama parametresine benzer bir kimlik doğrulama parametresi ( **Model-View-Controller)** (MVC) ve **Web uygulaması** (Razor Pages) Proje şablonları. İzin verilen parametre değerleri **none** ve **bireysel**. **Tepki. js ve Redux** proje şablonu şu anda kimlik doğrulama parametresini desteklemiyor.
+Web uygulamasındaki kimlik doğrulama parametresine benzer bir kimlik doğrulama parametresi ( **Model-View-Controller)** (MVC **) ve** **Web uygulaması** (Razor Pages) Proje şablonları. İzin verilen parametre değerleri **none** ve **bireysel**. **Tepki. js ve Redux** proje şablonu şu anda kimlik doğrulama parametresini desteklemiyor.
 
 ## <a name="create-an-app-with-api-authorization-support"></a>API yetkilendirme desteğiyle uygulama oluşturma
 
@@ -26,13 +26,13 @@ Kullanıcı kimlik doğrulaması ve yetkilendirme, hem angular ile hem de maça 
 
 **Angular**:
 
-```console
+```dotnetcli
 dotnet new angular -o <output_directory_name> -au Individual
 ```
 
 **Tepki**verme:
 
-```console
+```dotnetcli
 dotnet new react -o <output_directory_name> -au Individual
 ```
 

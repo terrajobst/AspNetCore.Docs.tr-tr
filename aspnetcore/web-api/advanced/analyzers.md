@@ -7,12 +7,12 @@ ms.author: prkrishn
 ms.custom: mvc
 ms.date: 09/05/2019
 uid: web-api/advanced/analyzers
-ms.openlocfilehash: 1568eb0304a58758caa5f82249dc42872f5c36b9
-ms.sourcegitcommit: 116bfaeab72122fa7d586cdb2e5b8f456a2dc92a
+ms.openlocfilehash: 7b6a7328deb8718a2a1c67c104cec359a4f13497
+ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70384861"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71082519"
 ---
 # <a name="use-web-api-analyzers"></a>Web API Çözümleyicileri kullanma
 
@@ -67,7 +67,7 @@ Aşağıdaki yaklaşımlardan biriyle [Microsoft. AspNetCore. Mvc. api. çözüm
 
 **Tümleşik terminalden**aşağıdaki komutu çalıştırın:
 
-```console
+```dotnetcli
 dotnet add ApiConventions.csproj package Microsoft.AspNetCore.Mvc.Api.Analyzers
 ```
 
@@ -75,7 +75,7 @@ dotnet add ApiConventions.csproj package Microsoft.AspNetCore.Mvc.Api.Analyzers
 
 Şu komutu çalıştırın:
 
-```console
+```dotnetcli
 dotnet add ApiConventions.csproj package Microsoft.AspNetCore.Mvc.Api.Analyzers
 ```
 

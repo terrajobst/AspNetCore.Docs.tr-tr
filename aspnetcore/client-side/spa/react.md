@@ -1,110 +1,110 @@
 ---
-title: ASP.NET Core ile React proje şablonu kullanın
+title: ASP.NET Core ile tepki verme proje şablonunu kullanın
 author: SteveSandersonMS
-description: React ve oluşturma-react-uygulama için ASP.NET Core tek sayfa uygulama (SPA) proje şablonu ile çalışmaya başlama hakkında bilgi edinin.
+description: Tepki verme ve oluşturma-yanıt verme için ASP.NET Core tek sayfalı uygulama (SPA) proje şablonunu kullanmaya nasıl başlacağınızı öğrenin.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: scaddie
 ms.custom: mvc
 ms.date: 03/07/2019
 uid: spa/react
-ms.openlocfilehash: 91a71498574d6d96c2c06e896283fed801e8adb3
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 0e61c5b3e31a0b050d356b8f8e16306dc1e2a7f3
+ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64900008"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71080409"
 ---
-# <a name="use-the-react-project-template-with-aspnet-core"></a>ASP.NET Core ile React proje şablonu kullanın
+# <a name="use-the-react-project-template-with-aspnet-core"></a>ASP.NET Core ile tepki verme proje şablonunu kullanın
 
-Güncelleştirilmiş React proje şablonu uygun bir başlama noktası ASP.NET Core için React kullanan uygulamalar sağlar ve [oluşturma-react-app](https://github.com/facebookincubator/create-react-app) (CRA) kuralları, istemci tarafı zengin kullanıcı arabirimi (UI) uygulamak için.
+Güncelleştirilmiş tepki verme projesi şablonu, zengin, istemci tarafı Kullanıcı arabirimi (UI) uygulamak için tepki verme ve [oluşturma-](https://github.com/facebookincubator/create-react-app) yanıt verme (CRA) kurallarını kullanan ASP.NET Core uygulamalar için uygun bir başlangıç noktası sağlar.
 
-Şablon, hem bir API arka ucu görev yapacak bir ASP.NET Core projesi ve bir kullanıcı Arabirimi, ancak her ikisi de oluşturduğu ve tek bir birim olarak yayımlanan tek uygulama projesinde barındırma birlikte yapması standart bir CRA React proje oluşturmaya eşdeğerdir.
+Şablon, API arka ucu olarak davranacak bir ASP.NET Core projesi ve bir kullanıcı arabirimi olarak görev yapacak standart CRA tepki veren bir proje oluşturmaya eşdeğerdir, ancak her ikisini de tek bir birim olarak oluşturulup yayımlanabilen tek bir uygulama projesinde barındırmanın rahatlığını sağlar.
 
 ## <a name="create-a-new-app"></a>Yeni bir uygulama oluşturma
 
-ASP.NET Core 2.1 yüklü varsa, React proje şablonu yüklemek için gerek yoktur.
+ASP.NET Core 2,1 yüklüyse, tepki verme projesi şablonunu yüklemeniz gerekmez.
 
-Yeni Proje Oluştur komutunu kullanarak bir komut isteminden `dotnet new react` boş bir dizin içinde. Örneğin, aşağıdaki komutları uygulamada oluşturma bir *-yeni-Uygulamam* dizini ve bu dizine geçin:
+Boş bir dizinde komutunu `dotnet new react` kullanarak komut isteminden yeni bir proje oluşturun. Örneğin, aşağıdaki komutlar uygulamayı *Yeni bir uygulama* dizininde oluşturur ve bu dizine geçer:
 
-```console
+```dotnetcli
 dotnet new react -o my-new-app
 cd my-new-app
 ```
 
-Visual Studio veya .NET Core CLI uygulamayı çalıştırın:
+Uygulamayı Visual Studio 'dan veya .NET Core CLI çalıştırın:
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-Oluşturulan açın *.csproj* dosya ve uygulama normal olarak oradan çalıştırın.
+Oluşturulan *. csproj* dosyasını açın ve uygulamayı buradan normal olarak çalıştırın.
 
-Derleme işlemi birkaç dakika sürebilir ilk çalıştırma npm bağımlılıkları yükler. Ardışık derlemeler çok daha hızlıdır.
+Yapı işlemi ilk çalıştırmada NPM bağımlılıklarını geri yükler ve bu işlem birkaç dakika sürebilir. Sonraki derlemeler çok daha hızlıdır.
 
 # <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
 
-Adlı bir ortam değişkeni sahip olduğunuzdan emin olun `ASPNETCORE_Environment` değeriyle `Development`. (PowerShell olmayan istemleri içinde) Windows üzerinde çalıştırma `SET ASPNETCORE_Environment=Development`. Linux veya macOS üzerinde çalıştıran `export ASPNETCORE_Environment=Development`.
+Değeri ile çağrılan `ASPNETCORE_Environment` bir ortam değişkenine sahip olduğunuzdan emin olun. `Development` Windows 'ta (PowerShell olmayan istemler ' de), `SET ASPNETCORE_Environment=Development`öğesini çalıştırın. Linux veya macOS üzerinde öğesini çalıştırın `export ASPNETCORE_Environment=Development`.
 
-Çalıştırma [dotnet derleme](/dotnet/core/tools/dotnet-build) uygulamanızı doğrulamak için yapılar doğru. İlk çalıştırılmasında oluşturma işlemi birkaç dakika sürebilir npm bağımlılıkları, geri yükler. Ardışık derlemeler çok daha hızlıdır.
+Uygulamanızın doğru derlemelerinizi doğrulamak için [DotNet derlemesini](/dotnet/core/tools/dotnet-build) çalıştırın. İlk çalıştırmada, derleme işlemi NPM bağımlılıklarını geri yükler ve bu işlem birkaç dakika sürebilir. Sonraki derlemeler çok daha hızlıdır.
 
-Çalıştırma [çalıştırma dotnet](/dotnet/core/tools/dotnet-run) uygulamasını başlatmak için.
+Uygulamayı başlatmak için [DotNet çalıştırmasını](/dotnet/core/tools/dotnet-run) çalıştırın.
 
 ---
 
-Proje şablonu, ASP.NET Core uygulaması ve bir React uygulaması oluşturur. ASP.NET Core uygulaması, veri erişimi, yetkilendirme ve diğer sunucu tarafı sorunları için kullanılmak üzere tasarlanmıştır. Bulunan React uygulama *ClientApp* alt dizini kullanır, tüm kullanıcı Arabirimi sorunları için kullanılmak üzere tasarlanmıştır.
+Proje şablonu, bir ASP.NET Core uygulaması ve bir tepki verme uygulaması oluşturur. ASP.NET Core uygulaması veri erişimi, yetkilendirme ve diğer sunucu tarafı sorunları için kullanılmak üzere tasarlanmıştır. *Clientapp* alt dizininde bulunan tepki verme uygulaması, tüm Kullanıcı arabirimi endişeleri için kullanılmak üzere tasarlanmıştır.
 
-## <a name="add-pages-images-styles-modules-etc"></a>Sayfaları, görüntüler, stil, modüller, vb. ekleyin.
+## <a name="add-pages-images-styles-modules-etc"></a>Sayfa, resim, stil, modül vb. ekleyin
 
-*ClientApp* dizindir CRA React standart bir uygulaması. Resmi görmek [CRA belgeleri](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md) daha fazla bilgi için.
+*Clientapp* dizini standart bir CRA tepki uygulamadır. Daha fazla bilgi için resmi [CRA belgelerine](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md) bakın.
 
-Bu şablonla oluşturulan React uygulama ve CRA tarafından oluşturulan arasında küçük farklar vardır; Ancak, uygulama özelliklerini değiştirilmez. Şablon tarafından oluşturulan uygulama içeren bir [önyükleme](https://getbootstrap.com/)-temel düzen ve basit bir yönlendirme örneği.
+Bu şablon tarafından oluşturulan ve CRA tarafından oluşturulan tepki verme uygulaması arasında hafif farklar vardır; Ancak, uygulamanın özellikleri değiştirilmez. Şablon tarafından oluşturulan uygulama, [önyükleme](https://getbootstrap.com/)tabanlı bir düzen ve temel bir yönlendirme örneği içerir.
 
-## <a name="install-npm-packages"></a>Npm paketlerini yükle
+## <a name="install-npm-packages"></a>NPM paketlerini yükler
 
-Üçüncü taraf npm paketlerini yüklemek için bir komut isteminde kullanmak *ClientApp* alt. Örneğin:
+Üçüncü taraf NPM paketlerini yüklemek için *clientapp* alt dizininde bir komut istemi kullanın. Örneğin:
 
 ```console
 cd ClientApp
 npm install --save <package_name>
 ```
 
-## <a name="publish-and-deploy"></a>Yayımlama ve dağıtma
+## <a name="publish-and-deploy"></a>Yayımla ve dağıt
 
-Geliştirmede uygulama geliştiriciye kolaylık sağlamak için en iyi duruma getirilmiş bir modda çalışır. Örneğin, (hata ayıklama sırasında özgün kaynak kodunuzu görebilmeniz için) kaynak eşlemeleri JavaScript paketleri içerir. Uygulama JavaScript, HTML ve CSS diskte dosya değişiklikleri izler ve otomatik olarak yeniden derler ve bu dosyaları değiştirmek gördüğünde yeniden yükler.
+Geliştirme aşamasında uygulama, geliştirici kolaylığı için iyileştirilmiş bir modda çalışır. Örneğin, JavaScript demeti kaynak eşlemeleri içerir (hata ayıklarken, özgün kaynak kodunuzu görebilirsiniz). Uygulama JavaScript, HTML ve CSS dosya değişikliklerini diskte izler ve bu dosya değişikliğini gördüğünde otomatik olarak yeniden derlenir ve yeniden yükler.
 
-Üretim ortamında, uygulamanızın performansını en iyi duruma getirilmiş bir sürümünü işlevi görür. Bu, otomatik olarak gerçekleştirilmesi için yapılandırılır. Yayımladığınızda, istemci tarafı kodunuzu küçültülmüş, transpiled yapısı derleme yapılandırmasını gösterir. Geliştirme derleme, üretim yapı sunucusunda yüklü olması Node.js gerektirmez.
+Üretimde, uygulamanızın performans için iyileştirilmiş bir sürümünü sunar. Bu otomatik olarak gerçekleşecek şekilde yapılandırılmıştır. Yayımladığınızda, derleme yapılandırması, istemci tarafı kodunuzun küçültülmüş, transpiled derlemesini yayar. Geliştirme derlemesinin aksine, üretim derlemesi için Node. js ' nin sunucuya yüklenmesi gerekmez.
 
-Standart kullanabileceğiniz [ASP.NET Core barındırma ve dağıtma yöntemleri](xref:host-and-deploy/index).
+Standart [ASP.NET Core barındırma ve dağıtım yöntemleri](xref:host-and-deploy/index)kullanabilirsiniz.
 
-## <a name="run-the-cra-server-independently"></a>CRA sunucunun bağımsız olarak çalıştırın
+## <a name="run-the-cra-server-independently"></a>CRA sunucusunu bağımsız olarak çalıştırma
 
-Proje, ASP.NET Core uygulaması geliştirme modunda başlatıldığında, arka planda CRA geliştirme sunucusunu kendi örneğini başlatmak için yapılandırılır. Bu, ayrı bir sunucuya el ile çalıştırmak zorunda olmadığınız anlamına gelir çünkü uygundur.
+Proje, ASP.NET Core uygulama geliştirme modunda başladığında, CRA geliştirme sunucusunun kendi örneğini arka planda başlatacak şekilde yapılandırılmıştır. Bu kullanışlı bir yöntemdir çünkü bu, ayrı bir sunucuyu el ile çalıştırmak zorunda olmadığınız anlamına gelir.
 
-Bu varsayılan ayarı bir dezavantajı vardır. C# kodunuzu ve ASP.NET Core uygulamasını yeniden başlatmak için gereken her değiştirdiğinizde CRA sunucuyu yeniden başlatır. Birkaç saniyede yedekleme başlatmak için gereklidir. Sık C# kod düzenleme yapıyorsanız ve yeniden başlatmak için CRA sunucusu beklemek istemiyorsanız, harici olarak CRA sunucunun ASP.NET Core işlemden bağımsız olarak çalıştırın. Bunu yapmak için:
+Bu varsayılan Kurulumun bir dezavantajı vardır. C# Kodunuzun her değiştirilişinde ve ASP.NET Core uygulamanızın yeniden başlatılması gerektiğinde CRA sunucusu yeniden başlatılır. Yeniden başlamak için birkaç saniye gerekir. Sık C# kod düzenlemeleri yapıyorsanız ve CRA sunucusunun yeniden başlamasını beklemek istemiyorsanız, cra sunucusunu ASP.NET Core işleminden bağımsız olarak dışarıdan çalıştırın. Bunu yapmak için:
 
-1. Ekleme bir *.env* dosyasını *ClientApp* aşağıdaki ayar alt dizini:
+1. *Clientapp* alt dizinine aşağıdaki ayarla bir *. env* dosyası ekleyin:
 
     ```
     BROWSER=none
     ```
 
-    Harici olarak CRA sunucunun başlatırken bu web tarayıcınız açılmasını engeller.
+    Bu, CRA sunucusunu dışarıdan başlatırken Web tarayıcınızın açılmasını engeller.
 
-2. Komut isteminde, geçiş *ClientApp* alt ve CRA geliştirme sunucusu başlatma:
+2. Bir komut isteminde *clientapp* alt dizinine geçin ve CRA geliştirme sunucusunu başlatın:
 
     ```console
     cd ClientApp
     npm start
     ```
 
-3. ASP.NET Core uygulamanızı biri kendi başlatma yerine dış CRA server örneğini kullanacak şekilde değiştirin. İçinde *başlangıç* sınıfı, yerine `spa.UseReactDevelopmentServer` aşağıdaki çağrı:
+3. ASP.NET Core uygulamanızı, kendi kendine birini başlatmak yerine dış CRA sunucu örneğini kullanacak şekilde değiştirin. *Başlangıç* sınıfınıza, `spa.UseReactDevelopmentServer` çağrıyı aşağıdaki ile değiştirin:
 
     ```csharp
     spa.UseProxyToSpaDevelopmentServer("http://localhost:3000");
     ```
 
-ASP.NET Core uygulamanızı başlattığınızda CRA sunucusu başlatma olmaz. El ile başlatılan örneği yerine kullanılır. Bu başlatma ve hızlı yeniden başlatma için sağlar. Artık her seferinde yeniden oluşturmasıyla React uygulamanız için bekliyor.
+ASP.NET Core uygulamanızı başlattığınızda, bir CRA sunucusu başlatılmaz. Bunun yerine el ile başlattığınız örnek kullanılır. Bu, daha hızlı başlamasını ve yeniden başlatılmasını sağlar. Artık, yanıt verme uygulamanızın her seferinde yeniden derlenmesini beklemiyordu.
 
 > [!IMPORTANT]
-> "Sunucu tarafı işleme" Bu şablonun desteklenen bir özellik değil. Hedefimiz bu şablonla, "oluşturma-react-app" eşlikli karşılamak sağlamaktır. Bu nedenle, senaryolar ve Özellikler (SSR gibi) bir "Oluştur-react-app" projeye dahil değil desteklenmez ve kullanıcı için bir alıştırma olarak kalır.
+> "Sunucu tarafı işleme", bu şablonun desteklenen bir özelliği değildir. Bu şablonla olan amamız "oluşturma-tepki-uygulama" ile eşlik sağlamaktır. Bu nedenle, "oluşturma-yanıt verme uygulaması" projesine (SSR gibi) dahil olmayan senaryolar ve özellikler desteklenmez ve Kullanıcı için bir alıştırma olarak kalır.
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 

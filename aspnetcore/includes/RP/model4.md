@@ -10,7 +10,7 @@
 
 Komutuyla ilgili yardım almak için anahtarıkullanın:`h` `aspnet-codegenerator razorpage`
 
-```console
+```dotnetcli
 dotnet aspnet-codegenerator razorpage -h
 ```
 

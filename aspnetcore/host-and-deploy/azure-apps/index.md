@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 09/07/2019
 uid: host-and-deploy/azure-apps/index
-ms.openlocfilehash: 5da32b5fd1026263f721db442b2676d45b239b8d
-ms.sourcegitcommit: 2d4c1732c4866ed26b83da35f7bc2ad021a9c701
+ms.openlocfilehash: 7736888c43aafd2f64e3d7b079f2099fe548a825
+ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70815593"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71081081"
 ---
 # <a name="deploy-aspnet-core-apps-to-azure-app-service"></a>ASP.NET Core uygulamalarını Azure App Service dağıtma
 
@@ -230,7 +230,7 @@ Kendi kendine içerilen bir uygulama dağıtımında:
 
 1. Bir komut kabuğundan, uygulamayı sürüm yapılandırmasında [DotNet Publish](/dotnet/core/tools/dotnet-publish) komutuyla yayımlayın. Aşağıdaki örnekte, uygulama çerçeveye bağlı bir uygulama olarak yayımlanır:
 
-   ```console
+   ```dotnetcli
    dotnet publish --configuration Release
    ```
 
@@ -268,7 +268,7 @@ Kendi içinde dağıtım için Visual Studio 'Yu veya komut satırı arabirimi (
 
 1. Bir komut kabuğundan, uygulamayı, [DotNet Publish](/dotnet/core/tools/dotnet-publish) komutuyla konağın çalışma zamanının sürüm yapılandırmasında yayımlayın. Aşağıdaki örnekte, uygulama `win-x86` RID için yayımlanır. `--runtime` Seçeneğe sağlanan RID, proje dosyasındaki `<RuntimeIdentifier>` (veya `<RuntimeIdentifiers>`) özelliğinde sağlanmalıdır.
 
-   ```console
+   ```dotnetcli
    dotnet publish --configuration Release --runtime win-x86
    ```
 
