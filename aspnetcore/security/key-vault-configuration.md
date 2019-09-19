@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 08/01/2019
 uid: security/key-vault-configuration
-ms.openlocfilehash: fe6cdca1f7180f9da26fe2838e529becb26ccd45
-ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
+ms.openlocfilehash: f16891182d274333ddc05eea401c06468e0717b1
+ms.sourcegitcommit: b1e480e1736b0fe0e4d8dce4a4cf5c8e47fc2101
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71081110"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71108090"
 ---
 # <a name="azure-key-vault-configuration-provider-in-aspnet-core"></a>ASP.NET Core Azure Key Vault yapılandırma sağlayıcısı
 
@@ -90,13 +90,13 @@ Bu gizlilikler, [Azure Key Vault bölümündeki üretim ortamındaki gizli depol
 
 1. Aşağıdaki komutla bir kaynak grubu oluşturun; burada `{RESOURCE GROUP NAME}` , yeni kaynak grubu için kaynak grubu adı ve `{LOCATION}` Azure bölgesi (Datacenter) olur:
 
-   ```console
+   ```azure-cli
    az group create --name "{RESOURCE GROUP NAME}" --location {LOCATION}
    ```
 
 1. Aşağıdaki komutla kaynak grubunda bir Anahtar Kasası oluşturun; burada `{KEY VAULT NAME}` yeni anahtar kasasının adı ve `{LOCATION}` Azure bölgesi (Datacenter) bulunur:
 
-   ```console
+   ```azure-cli
    az keyvault create --name "{KEY VAULT NAME}" --resource-group "{RESOURCE GROUP NAME}" --location {LOCATION}
    ```
 
@@ -106,7 +106,7 @@ Bu gizlilikler, [Azure Key Vault bölümündeki üretim ortamındaki gizli depol
 
    Aşağıdaki gizlilikler örnek uygulamayla kullanım içindir. Değerler, Kullanıcı parolalarından geliştirme ortamında yüklenen `_prod` `_dev` sonek değerlerinden ayırt etmek için bir sonek içerir. Önceki `{KEY VAULT NAME}` adımda oluşturduğunuz anahtar kasasının adıyla değiştirin:
 
-   ```console
+   ```azure-cli
    az keyvault secret set --vault-name "{KEY VAULT NAME}" --name "SecretName" --value "secret_value_1_prod"
    az keyvault secret set --vault-name "{KEY VAULT NAME}" --name "Section--SecretName" --value "secret_value_2_prod"
    ```
@@ -176,7 +176,7 @@ Azure App Service dağıtılan bir uygulama, hizmet oluşturulduğunda Azure AD 
 
 Azure CLI ve uygulamanın nesne kimliğini kullanarak, uygulama `list` ve `get` anahtar kasasına erişim izinleri sağlayın:
 
-```console
+```azure-cli
 az keyvault set-policy --name '{KEY VAULT NAME}' --object-id {OBJECT ID} --secret-permissions get list
 ```
 
@@ -240,7 +240,7 @@ Bu yaklaşım uygulandığında:
 
 1. Gizlilikler, aşağıdaki Azure CLı komutları kullanılarak Azure Key Vault kaydedilir:
 
-   ```console
+   ```azure-cli
    az keyvault secret set --vault-name "{KEY VAULT NAME}" --name "5000-AppSecret" --value "5.0.0.0_secret_value_prod"
    az keyvault secret set --vault-name "{KEY VAULT NAME}" --name "5100-AppSecret" --value "5.1.0.0_secret_value_prod"
    ```
