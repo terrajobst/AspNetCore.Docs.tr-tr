@@ -4,105 +4,123 @@ author: ardalis
 description: ASP.NET Core Web API 'sindeki yanıt verilerini biçimlendirmeyi öğrenin.
 ms.author: riande
 ms.custom: H1Hack27Feb2017
-ms.date: 05/29/2019
+ms.date: 8/22/2019
 uid: web-api/advanced/formatting
-ms.openlocfilehash: 8bee4efdae5341ddab5bd3aec278ecfef37f0c08
-ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
+ms.openlocfilehash: 7b19bf54ea9f8a87c26ba7567a7348fcbea997c8
+ms.sourcegitcommit: e7dc89620fa02c2ff80bee1e3f77297f97616968
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71082358"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71151187"
 ---
-<!-- DO NOT EDIT BEFORE https://github.com/aspnet/AspNetCore.Docs/pull/12077 MERGES -->
 # <a name="format-response-data-in-aspnet-core-web-api"></a>ASP.NET Core Web API 'sindeki yanıt verilerini biçimlendirme
 
-[Steve Smith](https://ardalis.com/) tarafından
+By [Rick Anderson](https://twitter.com/RickAndMSFT) ve [Steve Smith](https://ardalis.com/)
 
-ASP.NET Core MVC, yanıt verilerini biçimlendirme, sabit biçimleri kullanma veya istemci belirtimlerine yanıt verme için yerleşik desteğe sahiptir.
+ASP.NET Core MVC, yanıt verilerini biçimlendirme desteğine sahiptir. Yanıt verileri, belirli biçimler kullanılarak veya istemci tarafından istenen biçime yanıt olarak biçimlendirilebilir.
 
-[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/web-api/advanced/formatting/sample) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
+[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/web-api/advanced/formatting) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
 
 ## <a name="format-specific-action-results"></a>Formata özgü eylem sonuçları
 
-Bazı eylem sonuç türleri, `JsonResult` ve `ContentResult`gibi belirli bir biçime özgüdür. Eylemler, her zaman belirli bir şekilde biçimlendirilen belirli sonuçları döndürebilir. Örneğin, döndürme `JsonResult` , istemci tercihlerinden bağımsız olarak JSON biçimli verileri döndürür. Benzer şekilde, döndürme `ContentResult` düz metin biçimli dize verileri döndürür (gibi, yalnızca bir dize döndürür).
+Bazı eylem sonuç türleri, <xref:Microsoft.AspNetCore.Mvc.JsonResult> ve <xref:Microsoft.AspNetCore.Mvc.ContentResult>gibi belirli bir biçime özgüdür. Eylemler, istemci tercihlerinden bağımsız olarak belirli bir biçimde biçimlendirilen sonuçları döndürebilir. Örneğin, döndürme `JsonResult` JSON biçimli verileri döndürür. Döndürme `ContentResult` veya dize, düz metin biçimli dize verileri döndürür.
 
-> [!NOTE]
-> Belirli bir türü döndürmek için bir eylem gerekli değildir; MVC tüm nesne dönüş değerlerini destekler. Bir eylem bir `IActionResult` uygulama döndürürse ve denetleyici öğesinden `Controller`devralırsa, geliştiricilerin birçok seçeneğe karşılık gelen birçok yardımcı yöntemi vardır. Tür olmayan `IActionResult` nesneleri döndüren eylemlerin sonuçları, uygun `IOutputFormatter` uygulama kullanılarak serileştirilir.
+Belirli bir tür döndürmek için bir eylem gerekli değildir. ASP.NET Core, tüm nesne dönüş değerlerini destekler.  Tür olmayan <xref:Microsoft.AspNetCore.Mvc.IActionResult> nesneleri döndüren eylemlerin sonuçları, uygun <xref:Microsoft.AspNetCore.Mvc.Formatters.IOutputFormatter> uygulama kullanılarak serileştirilir. Daha fazla bilgi için bkz. <xref:web-api/action-return-types>.
 
-Verileri, `Controller` temel sınıftan devralan bir denetleyiciden belirli bir biçimde döndürmek için, JSON döndürmek ve `Content` düz metin için yerleşik yardımcı yöntemi `Json` kullanın. Eylem yönteminiz, belirli sonuç türünü (örneğin, `JsonResult`) ya `IActionResult`da döndürmelidir.
+Yerleşik yardımcı yöntemi <xref:Microsoft.AspNetCore.Mvc.ControllerBase.Ok*> JSON biçimli verileri döndürür:[!code-csharp[](./formatting/sample/Controllers/AuthorsController.cs?name=snippet_get)]
 
-JSON biçimli veriler döndürülüyor:
+Örnek indirme, yazarların listesini döndürür. Önceki kodla F12 tarayıcı geliştirici araçları veya [Postman](https://www.getpostman.com/tools) kullanma:
 
-[!code-csharp[](./formatting/sample/Controllers/Api/AuthorsController.cs?highlight=3,5&range=21-26)]
+* **Content-Type:** `application/json; charset=utf-8` içeren yanıt üst bilgisi görüntülenir.
+* İstek üst bilgileri görüntülenir. Örneğin, `Accept` üst bilgi. `Accept` Üst bilgi, önceki kod tarafından yok sayılır.
 
-Bu eylemden örnek yanıt:
+Düz metin biçimli verileri döndürmek için <xref:Microsoft.AspNetCore.Mvc.ContentResult.Content> <xref:Microsoft.AspNetCore.Mvc.ContentResult.Content> ve yardımcısını kullanın:
 
-![Microsoft Edge 'de, yanıtın Içerik türünü gösteren Geliştirici Araçları ağ sekmesi (uygulamanın/JSON)](formatting/_static/json-response.png)
+[!code-csharp[](./formatting/sample/Controllers/AuthorsController.cs?name=snippet_about)]
 
-Yanıtın `application/json`içerik türünün hem ağ istekleri listesinde hem de yanıt üstbilgileri bölümünde gösterildiğini unutmayın. Ayrıca, Istek üst bilgilerinde onay üst bilgisinde tarayıcı (Bu durumda, Microsoft Edge) tarafından sunulan seçenekler listesini de göz önünde bulundurun. Geçerli teknik bu üstbilgiyi yok sayıyor; Aşağıda ele alınmıştır.
+Yukarıdaki kodda, `Content-Type` `text/plain`döndürülen. Şu şekilde bir dize `Content-Type` `text/plain`döndürür:
 
-Düz metin biçimli verileri döndürmek için `ContentResult` `Content` ve yardımcısını kullanın:
+[!code-csharp[](./formatting/sample/Controllers/AuthorsController.cs?name=snippet_string)]
 
-[!code-csharp[](./formatting/sample/Controllers/Api/AuthorsController.cs?highlight=3,5&range=47-52)]
-
-Bu eylemden bir yanıt:
-
-![Microsoft Edge 'de Geliştirici Araçları yanıtın Içerik türünü gösteren ağ sekmesi metin/düz](formatting/_static/text-response.png)
-
-Bu örnekte `Content-Type` `text/plain`döndürülen ' i aklınızda edin. Yalnızca bir dize yanıt türü kullanarak aynı davranışa de ulaşabilirsiniz:
-
-[!code-csharp[](./formatting/sample/Controllers/Api/AuthorsController.cs?highlight=3,5&range=54-59)]
-
->[!TIP]
-> Birden çok dönüş türü veya seçeneği olan önemsiz olmayan eylemler için (örneğin, gerçekleştirilen işlemlerin sonucuna göre farklı http durum kodları), dönüş türü olarak tercih `IActionResult` edin.
+Birden çok dönüş türüne sahip eylemler için, `IActionResult`döndürün. Örneğin, gerçekleştirilen işlemlerin sonucuna göre farklı HTTP durum kodları döndürülüyor.
 
 ## <a name="content-negotiation"></a>İçerik anlaşması
 
-İstemci bir [Accept üst bilgisi](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html)belirttiğinde içerik anlaşması (kısaca*conneg* ) oluşur. ASP.NET Core MVC tarafından kullanılan varsayılan biçim JSON 'dir. İçerik anlaşması tarafından `ObjectResult`uygulanır. Ayrıca, yardımcı metotlarından döndürülen durum koduna özgü eylem sonuçlarının (tümü, temel `ObjectResult`alınan) içinde de yerleşiktir. Ayrıca bir model türü (veri aktarım türü olarak tanımladığınız bir sınıf) döndürebilir ve çerçeve sizin için otomatik olarak bir `ObjectResult` ile kaydırılır.
+İstemci bir [Accept üst bilgisi](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html)belirttiğinde içerik anlaşması oluşur. ASP.NET Core tarafından kullanılan varsayılan biçim [JSON](https://json.org/)'dir. İçerik anlaşması:
+
+* <xref:Microsoft.AspNetCore.Mvc.ObjectResult>Uygulayan.
+* Yardımcı metotlarından döndürülen durum koduna özgü eylem sonuçlarına yerleşik olarak. Eylem sonuçları yardımcı yöntemleri temel `ObjectResult`alınır.
+
+Bir model türü döndürüldüğünde, dönüş türü olur `ObjectResult`.
 
 Aşağıdaki eylem yöntemi `Ok` ve `NotFound` yardımcı yöntemlerini kullanır:
 
-[!code-csharp[](./formatting/sample/Controllers/Api/AuthorsController.cs?highlight=8,10&range=28-38)]
+[!code-csharp[](./formatting/sample/Controllers/AuthorsController.cs?name=snippet_search)]
 
-Başka bir biçim istenmediği ve sunucu istenen biçimi döndüremediğinde JSON biçimli bir yanıt döndürülür. Bir Accept üst bilgisi içeren bir istek oluşturmak ve başka bir biçim belirtmek için [Fiddler](https://www.telerik.com/fiddler) gibi bir araç kullanabilirsiniz. Bu durumda, sunucuda istenen biçimde yanıt üretemeyen bir *biçimlendirici* varsa, sonuç istemci tarafından tercih edilen biçimde döndürülür.
+Başka bir biçim istenmediği ve sunucu istenen biçimi döndüremediğinde JSON biçimli bir yanıt döndürülür. [Fiddler](https://www.telerik.com/fiddler) veya [Postman](https://www.getpostman.com/tools) gibi araçlar, `Accept` dönüş biçimini belirtmek için üst bilgiyi ayarlayabilir. , `Accept` Sunucunun desteklediği bir tür içerdiğinde, bu tür döndürülür.
 
-![Uygulama/XML Accept üst bilgisi değeri ile el ile oluşturulmuş bir GET isteği gösteren Fiddler konsolu](formatting/_static/fiddler-composer.png)
+Varsayılan olarak, ASP.NET Core yalnızca JSON 'ı destekler. Varsayılan, JSON biçimli yanıtları değiştirmemiş uygulamalar için, istemci isteğinden bağımsız olarak her zaman döndürülür. Sonraki bölümde, ek Biçimlendiriciler ekleme gösterilmektedir.
 
-Yukarıdaki ekran görüntüsünde, bir istek oluşturmak için Fiddler Oluşturucu kullanılmıştır, belirterek `Accept: application/xml`. Varsayılan olarak, ASP.NET Core MVC yalnızca JSON 'ı destekler, bu nedenle başka bir biçim belirtildiğinde bile döndürülen sonuç hala JSON biçimli olur. Sonraki bölümde nasıl ek biçimlendirme ekleneceğini göreceksiniz.
-
-Denetleyici eylemleri Pocos (düz eski CLR nesneleri) döndürebilir, bu durumda ASP.NET Core MVC nesneyi sarmalayan sizin `ObjectResult` için otomatik olarak oluşturur. İstemci, biçimlendirilen serileştirilmiş nesneyi alır (JSON biçimi varsayılandır; XML veya diğer biçimleri yapılandırabilirsiniz). Döndürülen nesne ise `null`, Framework bir `204 No Content` yanıt döndürür.
+Denetleyici eylemleri POCOs (düz eski CLR nesneleri) döndürebilir. Poco döndürüldüğünde, çalışma zamanı nesneyi sarmalayan bir `ObjectResult` otomatik olarak oluşturur. İstemci, biçimlendirilen serileştirilmiş nesneyi alır. Döndürülen nesne ise `null` `204 No Content` yanıt döndürülür.
 
 Nesne türü döndürülüyor:
 
-[!code-csharp[](./formatting/sample/Controllers/Api/AuthorsController.cs?highlight=3&range=40-45)]
+[!code-csharp[](./formatting/sample/Controllers/AuthorsController.cs?name=snippet_alias)]
 
-Örnekte, geçerli bir yazar diğer adı için bir istek yazarın verileriyle 200 OK yanıtı alır. Geçersiz bir diğer ad isteği bir 204 Içerik yanıtı alacak. XML ve JSON biçimlerinde yanıtı gösteren ekran görüntüleri aşağıda gösterilmiştir.
+Önceki kodda, geçerli bir yazar diğer adı için bir istek yazarın verileriyle bir `200 OK` yanıt döndürür. Geçersiz bir diğer ad isteği bir `204 No Content` yanıt döndürüyor.
 
-### <a name="content-negotiation-process"></a>İçerik anlaşma Işlemi
+### <a name="the-accept-header"></a>Accept üst bilgisi
 
-İçerik *anlaşması* yalnızca, istekte bir `Accept` başlık görünürse gerçekleşir. Bir istek bir Accept üst bilgisi içerdiğinde, çerçeve kabul üst bilgisindeki medya türlerini tercih sırasına göre numaralandırır ve Accept üst bilgisi tarafından belirtilen biçimlerden birinde yanıt üreten bir biçimlendirici bulmaya çalışır. İstemcinin isteğini karşılayabilen bir biçimlendirici bulunmazsa, çerçeve bir yanıt üreten ilk biçimlendirici bulmayı dener (Geliştirici, bunun yerine 406 döndürmek `MvcOptions` için seçeneği yapılandırmamışsa). İstek XML belirtiyorsa, ancak XML biçimlendirici yapılandırılmamışsa, JSON biçimlendiricisi kullanılacaktır. Daha genel olarak, istenen biçimi sağlayabilecek bir biçimlendirici yapılandırılmamışsa, nesneyi biçimlendirebileceğini ilk biçimlendirici kullanılır. Üst bilgi verilmezse, döndürülecek nesneyi işleyebilen ilk biçimlendirici, yanıtı seri hale getirmek için kullanılacaktır. Bu durumda, hiçbir anlaşma gerçekleşmez; sunucu hangi biçimi kullanacağınızı belirliyor.
+İstekte bir `Accept` üst bilgi göründüğünde içerik anlaşması gerçekleşir. Bir istek bir Accept üst bilgisi içerdiğinde ASP.NET Core:
 
-> [!NOTE]
-> Accept üst bilgisi içeriyorsa `*/*`üstbilgi, true `MvcOptions`olarak ayarlanmadığı müddetçe `RespectBrowserAcceptHeader` yok sayılır.
+* Kabul üst bilgisindeki medya türlerini tercih sırasına göre numaralandırır.
+* Belirtilen biçimlerden birinde yanıt üretemeyen bir biçimlendirici bulmaya çalışır.
 
-### <a name="browsers-and-content-negotiation"></a>Tarayıcılar ve Içerik anlaşması
+İstemcinin isteğini karşılayabilen bir biçimlendirici bulunmazsa ASP.NET Core:
 
-Tipik API istemcilerinin aksine, Web tarayıcıları joker karakterler de `Accept` dahil olmak üzere geniş bir biçim dizisi içeren Üstbilgiler sağlamayı eğilimindedir. Varsayılan olarak, çerçeve isteğin bir tarayıcıdan geldiğini algıladığında, `Accept` üstbilgiyi yoksayar ve bunun yerine uygulamanın yapılandırılmış varsayılan biçimindeki içeriği döndürür (aksi yapılandırılmamışsa JSON). Bu, API 'Leri kullanmak için farklı tarayıcılar kullanırken daha tutarlı bir deneyim sağlar.
+* Ayarlanmışsa döndürür `406 Not Acceptable`veya- <xref:Microsoft.AspNetCore.Mvc.MvcOptions>
+* Yanıt üreten ilk biçimlendirici bulmayı dener.
 
-Uygulamanızın tarayıcı için kabul etme üst `RespectBrowserAcceptHeader` bilgilerini benimseme seçeneğini tercih ediyorsanız, bunu *Startup.cs*içindeki `ConfigureServices` yönteminde olarak `true` ayarlayarak MVC 'nin yapılandırmasının bir parçası olarak yapılandırabilirsiniz.
+İstenen biçim için bir biçimlendirici yapılandırılmamışsa, nesneyi biçimlendirebileceğini ilk biçimlendirici kullanılır. İstekte hiçbir `Accept` başlık görünürse:
 
-```csharp
-services.AddMvc(options =>
-{
-    options.RespectBrowserAcceptHeader = true; // false by default
-});
-```
+* Nesneyi işleyebilen ilk biçimlendirici, yanıtı seri hale getirmek için kullanılır.
+* Hiçbir anlaşma gerçekleşmiyor. Sunucu hangi biçimin döneceğine karar verir.
 
-## <a name="configuring-formatters"></a>Biçimleri yapılandırma
+Accept üst bilgisi içeriyorsa `*/*`üstbilgi, true <xref:Microsoft.AspNetCore.Mvc.MvcOptions>olarak ayarlanmadığı müddetçe `RespectBrowserAcceptHeader` yok sayılır.
 
-Uygulamanızın varsayılan JSON dışında ek biçimleri desteklemesi gerekiyorsa, NuGet paketleri ekleyebilir ve MVC 'yi destekleyecek şekilde yapılandırabilirsiniz. Giriş ve çıkış için ayrı biçimlendirme vardır. Giriş formatlayıcıları [model bağlama](xref:mvc/models/model-binding)tarafından kullanılır; çıkış biçimleri, yanıtları biçimlendirmek için kullanılır. Ayrıca, [özel biçimleri](xref:web-api/advanced/custom-formatters)de yapılandırabilirsiniz.
+### <a name="browsers-and-content-negotiation"></a>Tarayıcılar ve içerik anlaşması
+
+Tipik API istemcilerinin aksine, Web tarayıcıları üst `Accept` bilgileri sağlar. Web tarayıcısı, joker karakterler dahil olmak üzere birçok biçim belirtir. Varsayılan olarak, Framework isteğin bir tarayıcıdan geldiğini algıladığında:
+
+* `Accept` Üst bilgi yok sayılır.
+* Aksi yapılandırılmadığı takdirde içerik JSON içinde döndürülür.
+
+Bu, API 'Leri tükettiren tarayıcılarda daha tutarlı bir deneyim sağlar.
+
+Bir uygulamayı tarayıcı onay üstbilgilerini kabul edecek şekilde yapılandırmak için, <xref:Microsoft.AspNetCore.Mvc.MvcOptions.RespectBrowserAcceptHeader> şu `true`şekilde ayarlayın:
 
 ::: moniker range=">= aspnetcore-3.0"
+[!code-csharp[](./formatting/3.0sample/StartupRespectBrowserAcceptHeader.cs?name=snippet)]
+::: moniker-end
+::: moniker range="< aspnetcore-3.0"
+[!code-csharp[](./formatting/sample/StartupRespectBrowserAcceptHeader.cs?name=snippet)]
+::: moniker-end
+
+### <a name="configure-formatters"></a>Biçimleri yapılandırma
+
+Ek biçimleri desteklemesi gereken uygulamalar uygun NuGet paketlerini ekleyebilir ve desteği yapılandırabilir. Giriş ve çıkış için ayrı biçimlendirme vardır. Giriş formatlayıcıları [model bağlama](xref:mvc/models/model-binding)tarafından kullanılır. Çıkış biçimleri, yanıtları biçimlendirmek için kullanılır. Özel bir biçimlendirici oluşturma hakkında daha fazla bilgi için bkz. [özel Formatlayıcılar](xref:web-api/advanced/custom-formatters).
+
+::: moniker range=">= aspnetcore-3.0"
+
+### <a name="add-xml-format-support"></a>XML biçimi desteği ekle
+
+Kullanılarak <xref:System.Xml.Serialization.XmlSerializer> uygulanan XML formatlayıcıları, çağırarak <xref:Microsoft.Extensions.DependencyInjection.MvcXmlMvcBuilderExtensions.AddXmlSerializerFormatters*>yapılandırılır:
+
+[!code-csharp[](./formatting/3.0sample/Startup.cs?name=snippet)]
+
+Yukarıdaki kod, kullanılarak `XmlSerializer`sonuçları seri hale getirir.
+
+Önceki kodu kullanırken, denetleyici yöntemleri isteğin `Accept` üstbilgisine göre uygun biçimi döndürmelidir.
 
 ### <a name="configure-systemtextjson-based-formatters"></a>System. Text. JSON tabanlı formatlayıcıları yapılandırma
 
@@ -133,16 +151,15 @@ public IActionResult Get()
 
 ### <a name="add-newtonsoftjson-based-json-format-support"></a>Newtonsoft. JSON tabanlı JSON biçimi desteği ekleyin
 
-ASP.NET Core 3,0 ' dan önce, MVC, `Newtonsoft.Json` paket kullanılarak uygulanan JSON formatlarını kullanmaya göre varsayılan. ASP.NET Core 3,0 veya sonraki bir sürümde, varsayılan JSON formatlayıcıları temel `System.Text.Json`alınır. [Microsoft. aspnetcore. Mvc. newtonsoftjson](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc.NewtonsoftJson/) NuGet paketini yükleyerek ve ' de `Startup.ConfigureServices`yapılandırarak, tabanlı biçimlendirme ve özellikler için `Newtonsoft.Json`destek bulabilirsiniz.
+ASP.NET Core 3,0 ' dan önce, varsayılan olarak kullanılan JSON formatlayıcıları `Newtonsoft.Json` paket kullanılarak uygulanır. ASP.NET Core 3,0 veya sonraki bir sürümde, varsayılan JSON formatlayıcıları temel `System.Text.Json`alınır. Tabanlı formatlayıcılar ve özellikler için `Newtonsoft.Json` destek, [Microsoft. aspnetcore. Mvc. newtonsoftjson](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc.NewtonsoftJson/) NuGet paketini yükleyerek ve içinde `Startup.ConfigureServices`yapılandırılarak kullanılabilir.
 
-```csharp
-services.AddControllers()
-    .AddNewtonsoftJson();
-```
+[!code-csharp[](./formatting/3.0sample/StartupNewtonsoftJson.cs?name=snippet)]
 
-Bazı özellikler, tabanlı formatlayıcılar ile `System.Text.Json`düzgün çalışmayabilir ve ASP.NET Core 3,0 sürümü için tabanlı formatlayıcılar `Newtonsoft.Json`için bir başvuru gerektirir. ASP.NET Core 3,0 veya `Newtonsoft.Json`sonraki bir sürüm uygulamanız varsa, tabanlı formatlayıcıları kullanmaya devam edin:
+Bazı özellikler, `Newtonsoft.Json`tabanlı formatlayıcılar ile `System.Text.Json`düzgün çalışmayabilir ve tabanlı formatlara bir başvuru gerektirir. Uygulama şu durumlarda `Newtonsoft.Json`tabanlı formatlayıcıları kullanmaya devam edin:
 
-* Öznitelikleri `Newtonsoft.Json` kullanır (örneğin, `[JsonProperty]` veya `[JsonIgnore]`), `Newtonsoft.Json` serileştirme ayarlarını özelleştirir veya sağlayan özelliklere bağımlıdır.
+* Öznitelikleri `Newtonsoft.Json` kullanır. Örneğin, `[JsonProperty]` veya `[JsonIgnore]`.
+* Serileştirme ayarlarını özelleştirir.
+* , Tarafından `Newtonsoft.Json` sağlanan özellikleri kullanır.
 * Yapılandırır `Microsoft.AspNetCore.Mvc.JsonResult.SerializerSettings`. ASP.NET Core 3,0 ' dan önce `JsonResult.SerializerSettings` , öğesine `Newtonsoft.Json`özgü bir `JsonSerializerSettings` örneğini kabul eder.
 * [Openapı](<xref:tutorials/web-api-help-pages-using-swagger>) belgeleri oluşturur.
 
@@ -173,77 +190,65 @@ public IActionResult Get()
 
 ::: moniker-end
 
-### <a name="add-xml-format-support"></a>XML biçimi desteği ekle
-
 ::: moniker range="<= aspnetcore-2.2"
 
-ASP.NET Core 2,2 veya önceki sürümlerde XML biçimlendirme desteği eklemek için [Microsoft. AspNetCore. Mvc. Formatters. xml](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc.Formatters.Xml/) NuGet paketini yüklemek için.
+### <a name="add-xml-format-support"></a>XML biçimi desteği ekle
+
+XML biçimlendirme, [Microsoft. AspNetCore. Mvc. Formatters. xml](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc.Formatters.Xml/) NuGet paketini gerektirir.
+
+Kullanılarak <xref:System.Xml.Serialization.XmlSerializer> uygulanan XML formatlayıcıları, çağırarak <xref:Microsoft.Extensions.DependencyInjection.MvcXmlMvcBuilderExtensions.AddXmlSerializerFormatters*>yapılandırılır:
+
+[!code-csharp[](./formatting/sample/Startup.cs?name=snippet)]
+
+Yukarıdaki kod, kullanılarak `XmlSerializer`sonuçları seri hale getirir.
+
+Önceki kodu kullanırken, denetleyici yöntemleri isteğin `Accept` üstbilgisine göre uygun biçimi döndürmelidir.
 
 ::: moniker-end
 
-Kullanılarak `System.Xml.Serialization.XmlSerializer` uygulanan XML formatlayıcıları, ' de `Startup.ConfigureServices`çağırarak <xref:Microsoft.Extensions.DependencyInjection.MvcXmlMvcBuilderExtensions.AddXmlSerializerFormatters*> yapılandırılabilir:
+### <a name="specify-a-format"></a>Biçim belirtin
 
-[!code-csharp[](./formatting/sample/Startup.cs?name=snippet1&highlight=2)]
+Yanıt biçimlerini kısıtlamak için [`[Produces]`](xref:Microsoft.AspNetCore.Mvc.ProducesAttribute) filtreyi uygulayın. Çoğu [filtre](xref:mvc/controllers/filters) `[Produces]` gibi eylem, denetleyici veya genel kapsamda de uygulanabilir:
 
-Alternatif olarak, kullanılarak `System.Runtime.Serialization.DataContractSerializer` uygulanan XML formatlayıcıları, ' de `Startup.ConfigureServices`çağırarak <xref:Microsoft.Extensions.DependencyInjection.MvcXmlMvcBuilderExtensions.AddXmlDataContractSerializerFormatters*> yapılandırılabilir:
+[!code-csharp[](./formatting/3.0sample/Controllers/WeatherForecastController.cs?name=snippet)]
 
-```csharp
-services.AddMvc()
-    .AddXmlDataContractSerializerFormatters();
-```
+Önceki [`[Produces]`](xref:Microsoft.AspNetCore.Mvc.ProducesAttribute) filtre:
 
-XML biçimlendirme desteğini ekledikten sonra, bu Fiddler örneğinde gösterildiği gibi, denetleyici yöntemlerinizi isteğin `Accept` üstbilgisine göre uygun biçimi döndürmelidir:
+* Denetleyici içindeki tüm eylemleri JSON biçimli yanıtları döndürecek şekilde zorlar.
+* Diğer formatlayıcılar yapılandırıldıysa ve istemci farklı bir biçim belirtiyorsa JSON döndürülür.
 
-![Fiddler konsolu: İsteğin ham sekmesi, Accept üst bilgisini, application/xml değerini gösterir. Yanıtın ham sekmesi, uygulamanın/xml Içerik türü üstbilgi değerini gösterir.](formatting/_static/xml-response.png)
-
-, Ham GET isteğinin bir `Accept: application/xml` başlık kümesiyle yapıldığını Inspectors sekmesinde görebilirsiniz. Yanıt bölmesi `Content-Type: application/xml` üstbilgiyi gösterir `Author` ve nesne XML olarak serileştirilir.
-
-`Accept` Üst bilgide belirtmek `application/json` üzere isteği değiştirmek için besteci sekmesini kullanın. İsteği yürütün ve yanıt JSON olarak biçimlendirilir:
-
-![Fiddler konsolu: İsteğin ham sekmesi, Accept üst bilgisi değerini bir Application/JSON olarak gösterir. Yanıtın ham sekmesi, uygulamanın/JSON öğesinin Içerik türü üstbilgi değerini gösterir.](formatting/_static/json-response-fiddler.png)
-
-Bu ekran görüntüsünde, istek bir başlık `Accept: application/json` olduğunu ve yanıtın onunla `Content-Type`aynı olduğunu belirtir. `Author` Nesne, yanıtın gövdesinde, JSON biçiminde gösterilir.
-
-### <a name="forcing-a-particular-format"></a>Belirli bir biçimi zorlama
-
-Belirli bir eylem için yanıt biçimlerini kısıtlamak isterseniz, `[Produces]` filtre uygulayabilirsiniz. `[Produces]` Filtre, belirli bir eyleme (veya denetleyiciye) ait yanıt biçimlerini belirtir. Çoğu [filtre](xref:mvc/controllers/filters)gibi, bu işlem eylem, denetleyici veya genel kapsamda uygulanabilir.
-
-```csharp
-[Produces("application/json")]
-public class AuthorsController
-```
-
-Filtre, uygulama için başka formatlayıcılar yapılandırılmış `AuthorsController` olsa bile `Accept` ve istemci farklı bir başlık sağladıysa, içindeki tüm eylemleri JSON biçimli yanıtları döndürecek şekilde zorlayacaktır. `[Produces]` formatını. Genel olarak filtrelerin nasıl uygulanacağı dahil olmak üzere daha fazla bilgi için [filtrelere](xref:mvc/controllers/filters) bakın.
+Daha fazla bilgi için bkz. [Filtreler](xref:mvc/controllers/filters).
 
 ### <a name="special-case-formatters"></a>Özel durum formatları
 
-Bazı özel durumlar, yerleşik formatlayıcılar kullanılarak uygulanır. Varsayılan olarak, `string` dönüş türleri *metin/düz* olarak biçimlendirilir (üst bilgi ile `Accept` isteniyorsa*metin/html* ). Bu davranış, `TextOutputFormatter`' ı kaldırılarak kaldırılabilir. *Startup.cs* (aşağıda gösterildiği gibi) `Configure` yöntemindeki formatlayıcıları kaldırırsınız. Model nesnesi dönüş türüne sahip eylemler, döndürme `null`sırasında bir 204 içerik yanıtı döndürmez. Bu davranış, `HttpNoContentOutputFormatter`' ı kaldırılarak kaldırılabilir. Aşağıdaki kod `TextOutputFormatter` ve `HttpNoContentOutputFormatter`öğesini kaldırır.
+Bazı özel durumlar, yerleşik formatlayıcılar kullanılarak uygulanır. Varsayılan olarak, `string` dönüş türleri *metin/düz* olarak biçimlendirilir ( `Accept` üst bilgi ile isteniyorsa*metin/html* ). Bu davranış, <xref:Microsoft.AspNetCore.Mvc.Formatters.TextOutputFormatter>' ı kaldırılarak silinebilir. Biçimlendiriciler `Configure` yönteminde kaldırılır. Bir model nesne dönüş türü döndürme `204 No Content` `null`sırasında döndürülen eylemler. Bu davranış, <xref:Microsoft.AspNetCore.Mvc.Formatters.HttpNoContentOutputFormatter>' ı kaldırılarak silinebilir. Aşağıdaki kod `TextOutputFormatter` ve `HttpNoContentOutputFormatter`öğesini kaldırır.
 
-```csharp
-services.AddMvc(options =>
-{
-    options.OutputFormatters.RemoveType<TextOutputFormatter>();
-    options.OutputFormatters.RemoveType<HttpNoContentOutputFormatter>();
-});
-```
+::: moniker range=">= aspnetcore-3.0"
+[!code-csharp[](./formatting/3.0sample/StartupTextOutputFormatter.cs?name=snippet)]
+::: moniker-end
+::: moniker range="< aspnetcore-3.0"
+[!code-csharp[](./formatting/sample/StartupTextOutputFormatter.cs?name=snippet)]
+::: moniker-end
 
-`TextOutputFormatter` Olmadan,dönüştürleri406dönüş`string` kabul edilemez, örneğin. Bir XML biçimlendiricisi varsa, kaldırılırsa dönüş türlerini `string` `TextOutputFormatter` biçimlendirir.
+`TextOutputFormatter`Olmadan, `string` dönüş türleri döndürülür `406 Not Acceptable`. Bir XML biçimlendiricisi varsa, bu, kaldırılırsa `string` dönüş türlerini `TextOutputFormatter` biçimlendirir.
 
-`HttpNoContentOutputFormatter`Olmadan, null nesneler yapılandırılmış biçimlendirici kullanılarak biçimlendirilir. Örneğin, JSON biçimlendiricisi yalnızca gövdesi `null`olan bir yanıt döndürür, XML biçimlendirici öznitelik `xsi:nil="true"` kümesi ile boş bir XML öğesi döndürür.
+`HttpNoContentOutputFormatter`Olmadan, null nesneler yapılandırılmış biçimlendirici kullanılarak biçimlendirilir. Örneğin:
+
+* JSON biçimlendiricisi, gövdesi `null`olan bir yanıt döndürür.
+* XML biçimlendiricisi özniteliği `xsi:nil="true"` ayarlanmış bir boş XML öğesi döndürüyor.
 
 ## <a name="response-format-url-mappings"></a>Yanıt biçimi URL eşlemeleri
 
-İstemciler, URL 'nin bir parçası olarak, sorgu dizesinde veya yolun bir bölümünde veya. xml veya. JSON gibi formata özgü bir dosya uzantısı kullanarak belirli bir biçim talep edebilir. İstek yolundan eşleme, API 'nin kullandığı rotada belirtilmelidir. Örneğin:
+İstemciler URL 'nin bir parçası olarak belirli bir biçim talep edebilir, örneğin:
 
-```csharp
-[FormatFilter]
-public class ProductsController
-{
-    [Route("[controller]/[action]/{id}.{format?}")]
-    public Product GetById(int id)
-```
+* Sorgu dizesinde veya yolun bir bölümünde.
+* . Xml veya. JSON gibi formata özgü bir dosya uzantısı kullanarak.
 
-Bu yol, istenen biçimin isteğe bağlı bir dosya uzantısı olarak belirtilmesine izin verir. `[FormatFilter]` Özniteliği ,`RouteData` içindeki biçim değerinin varlığını denetler ve yanıt oluşturulduğu zaman yanıt biçimini uygun biçimlendirici ile eşler.
+İstek yolundan eşleme, API 'nin kullandığı rotada belirtilmelidir. Örneğin:
+
+[!code-csharp[](./formatting/sample/Controllers/ProductsController.cs?name=snippet)]
+
+Önceki yol, istenen biçimin isteğe bağlı bir dosya uzantısı olarak belirtilmesini sağlar. [`[FormatFilter]`](xref:Microsoft.AspNetCore.Mvc.FormatFilterAttribute) Özniteliği ,`RouteData` içindeki biçim değerinin varlığını denetler ve yanıt oluşturulduğunda yanıt biçimini uygun biçimlendirici ile eşler.
 
 |           Yolu            |             Biçimlendirici              |
 |----------------------------|------------------------------------|
