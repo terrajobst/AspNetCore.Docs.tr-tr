@@ -7,12 +7,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 09/12/2019
 uid: web-api/index
-ms.openlocfilehash: 6e1868690a2c384307a23c89467505d3ed8916db
-ms.sourcegitcommit: 805f625d16d74e77f02f5f37326e5aceafcb78e3
+ms.openlocfilehash: aab9b848eb6e69055b019c9253c716898e9847e2
+ms.sourcegitcommit: a11f09c10ef3d4eeab7ae9ce993e7f30427741c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70985469"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71149348"
 ---
 # <a name="create-web-apis-with-aspnet-core"></a>ASP.NET Core ile Web API 'Leri oluşturma
 
@@ -159,7 +159,7 @@ Eylemlere, <xref:Microsoft.AspNetCore.Builder.MvcApplicationBuilderExtensions.Us
 
 ::: moniker-end
 
-## <a name="automatic-http-400-responses"></a>Otomatik HTTP 400 yanıtları
+### <a name="automatic-http-400-responses"></a>Otomatik HTTP 400 yanıtları
 
 Öznitelik `[ApiController]` , model doğrulama hatalarının otomatik olarak bir HTTP 400 yanıtı tetiklenmesine neden olur. Sonuç olarak, aşağıdaki kod bir eylem yönteminde gereksizdir:
 
@@ -172,7 +172,7 @@ if (!ModelState.IsValid)
 
 ASP.NET Core MVC, önceki <xref:Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter> denetimi yapmak için eylem filtresini kullanır.
 
-### <a name="default-badrequest-response"></a>Varsayılan BadRequest yanıtı 
+### <a name="default-badrequest-response"></a>Varsayılan BadRequest yanıtı
 
 Uyumluluk sürümü 2,1 ile, bir HTTP 400 yanıtı için varsayılan yanıt türü ' dir <xref:Microsoft.AspNetCore.Mvc.SerializableError>. Aşağıdaki istek gövdesi, serileştirilmiş türün bir örneğidir:
 
@@ -206,36 +206,6 @@ Uyumluluk sürümü 2,1 ile, bir HTTP 400 yanıtı için varsayılan yanıt tür
 
 * Web API yanıtlarında hata belirtmek için makine tarafından okunabilen bir biçim sağlar.
 * [RFC 7807 belirtimine](https://tools.ietf.org/html/rfc7807)uyar.
-
-Varsayılan yanıt türünü olarak `SerializableError`değiştirmek için, vurgulanan değişiklikleri içine `Startup.ConfigureServices`uygulayın:
-
-::: moniker-end
-
-::: moniker range=">= aspnetcore-3.0"
-
-[!code-csharp[](index/samples/3.x/Startup.cs?name=snippet_DisableProblemDetailsInvalidModelStateResponseFactory&highlight=4-13)]
-
-::: moniker-end
-
-::: moniker range="= aspnetcore-2.2"
-
-[!code-csharp[](index/samples/2.x/Startup.cs?name=snippet_DisableProblemDetailsInvalidModelStateResponseFactory&highlight=5-14)]
-
-::: moniker-end
-
-### <a name="customize-badrequest-response"></a>BadRequest yanıtını özelleştirme
-
-Doğrulama hatasından kaynaklanan yanıtı özelleştirmek için kullanın <xref:Microsoft.AspNetCore.Mvc.ApiBehaviorOptions.InvalidModelStateResponseFactory>. Örneğin:
-
-::: moniker range=">= aspnetcore-3.0"
-
-[!code-csharp[](index/samples/3.x/Startup.cs?name=snippet_ConfigureBadRequestResponse&highlight=4-20)]
-
-::: moniker-end
-
-::: moniker range="<= aspnetcore-2.2"
-
-[!code-csharp[](index/samples/2.x/Startup.cs?name=snippet_ConfigureBadRequestResponse&highlight=5-21)]
 
 ::: moniker-end
 
@@ -283,7 +253,7 @@ Aşağıdaki örnekte `[FromQuery]` öznitelik, istek URL 'sinin sorgu dizesinde
 
 `[ApiController]` Öznitelik, eylem parametrelerinin varsayılan veri kaynakları için çıkarım kurallarını uygular. Bu kurallar, eylem parametrelerine öznitelikleri uygulayarak bağlama kaynaklarını el ile tanımlamak zorunda kalmadan sizi kaydeder. Bağlama kaynak çıkarımı kuralları aşağıdaki gibi davranır:
 
-* `[FromBody]`karmaşık tür parametreleri için algılanır. `[FromBody]` Çıkarım kuralı için bir özel durum, <xref:Microsoft.AspNetCore.Http.IFormCollection> ve <xref:System.Threading.CancellationToken>gibi özel bir anlamı olan karmaşık, yerleşik bir türdür. Bağlama kaynak çıkarımı kodu bu özel türleri yoksayar. 
+* `[FromBody]`karmaşık tür parametreleri için algılanır. `[FromBody]` Çıkarım kuralı için bir özel durum, <xref:Microsoft.AspNetCore.Http.IFormCollection> ve <xref:System.Threading.CancellationToken>gibi özel bir anlamı olan karmaşık, yerleşik bir türdür. Bağlama kaynak çıkarımı kodu bu özel türleri yoksayar.
 * `[FromForm]`, ve <xref:Microsoft.AspNetCore.Http.IFormFile> <xref:Microsoft.AspNetCore.Http.IFormFileCollection>türündeki eylem parametreleri için algılanır. Bu, herhangi bir basit veya Kullanıcı tanımlı tür için çıkarsanamıyor.
 * `[FromRoute]`yol şablonundaki bir parametreyle eşleşen herhangi bir eylem parametresi adı için algılanır. Birden fazla yol bir eylem parametresiyle eşleştiğinde, herhangi bir rota değeri kabul `[FromRoute]`edilir.
 * `[FromQuery]`diğer eylem parametreleri için algılanır.
@@ -375,22 +345,6 @@ Yöntemi `NotFound` , `ProblemDetails` gövdesi olan bir HTTP 404 durum kodu ür
 }
 ```
 
-### <a name="customize-problemdetails-response"></a>ProblemDetails yanıtını özelleştirme
-
-Yanıtıniçeriğini`ProblemDetails` yapılandırmak için <xref:Microsoft.AspNetCore.Mvc.ApiBehaviorOptions.ClientErrorMapping*> özelliğini kullanın. Örneğin, aşağıdaki kod 404 yanıtlarının `type` özelliğini güncelleştirir:
-
-::: moniker range=">= aspnetcore-3.0"
-
-[!code-csharp[](index/samples/3.x/Startup.cs?name=snippet_ConfigureApiBehaviorOptions&highlight=8-9)]
-
-::: moniker-end
-
-::: moniker range="<= aspnetcore-2.2"
-
-[!code-csharp[](index/samples/2.x/Startup.cs?name=snippet_ConfigureApiBehaviorOptions&highlight=9-10)]
-
-::: moniker-end
-
 ### <a name="disable-problemdetails-response"></a>ProblemDetails yanıtını devre dışı bırak
 
 <xref:Microsoft.AspNetCore.Mvc.ApiBehaviorOptions.SuppressMapClientErrors*> Özelliği `ProblemDetails` olarak`true`ayarlandığında, bir örneğin otomatik olarak oluşturulması devre dışıdır. Aşağıdaki kodu içine `Startup.ConfigureServices`ekleyin:
@@ -407,9 +361,10 @@ Yanıtıniçeriğini`ProblemDetails` yapılandırmak için <xref:Microsoft.AspNe
 
 ::: moniker-end
 
-## <a name="additional-resources"></a>Ek kaynaklar 
+## <a name="additional-resources"></a>Ek kaynaklar
 
 * <xref:web-api/action-return-types>
+* <xref:web-api/handle-errors>
 * <xref:web-api/advanced/custom-formatters>
 * <xref:web-api/advanced/formatting>
 * <xref:tutorials/web-api-help-pages-using-swagger>
