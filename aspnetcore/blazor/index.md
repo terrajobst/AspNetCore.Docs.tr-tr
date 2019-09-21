@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc, seoapril2019
 ms.date: 09/05/2019
 uid: blazor/index
-ms.openlocfilehash: 767ec8f106bebb92cf13a10eb63fab4905715d3d
-ms.sourcegitcommit: 092061c4f6ef46ed2165fa84de6273d3786fb97e
+ms.openlocfilehash: 378892efafa6b979d7f92a5e559b2dc8bb12295d
+ms.sourcegitcommit: e5a74f882c14eaa0e5639ff082355e130559ba83
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70964135"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71168262"
 ---
 # <a name="introduction-to-blazor"></a>Blazor 'e giriş
 
@@ -103,6 +103,8 @@ Bileşenler, Kullanıcı arabirimini esnek ve verimli bir şekilde güncelleşti
 
 ## <a name="blazor-webassembly"></a>Blazor WebAssembly
 
+[!INCLUDE[](~/includes/blazorwasm-preview-notice.md)]
+
 Blazor WebAssembly, .NET ile etkileşimli istemci tarafı Web uygulamaları oluşturmaya yönelik tek sayfalı bir uygulama çerçevesidir. Blazor WebAssembly, eklentiler veya Code transpilation olmadan açık Web standartları kullanır ve mobil tarayıcılar dahil tüm modern web tarayıcılarında kullanılabilir.
 
 Web tarayıcıları içinde .NET kodu çalıştırmak, [Webassembly](https://webassembly.org) *(kısaltılmış)* tarafından mümkün hale getirilir. WebAssembly hızlı indirme ve en yüksek yürütme hızı için iyileştirilmiş bir sıkıştırma kodu biçimidir. WebAssembly, açık bir web standardıdır ve eklentileri olmayan Web tarayıcılarında desteklenir.
@@ -123,7 +125,7 @@ Yayınlanan uygulamanın boyutu, *Yük boyutu*, uygulamanın useyeteneğinin ön
 * HTTP yanıtları sıkıştırılır.
 * .NET çalışma zamanı ve derlemeler tarayıcıda önbelleğe alınır.
 
-## <a name="blazor-server"></a>Blazor sunucusu
+## <a name="blazor-server"></a>Blazor Server
 
 Blazor, Kullanıcı arabirimi güncelleştirmelerinin uygulanma, bileşen işleme mantığını ayırır. Blazor Server, Razor bileşenlerini bir ASP.NET Core uygulamasındaki sunucuda barındırmak için destek sağlar. Kullanıcı Arabirimi güncelleştirmeleri bir [SignalR](xref:signalr/introduction) bağlantısı üzerinden işlenir.
 

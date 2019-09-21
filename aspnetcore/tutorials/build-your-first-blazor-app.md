@@ -7,16 +7,18 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 09/15/2019
 uid: tutorials/first-blazor-app
-ms.openlocfilehash: b433d793ae615bc4ece7c63bebd72d349adf43ee
-ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
+ms.openlocfilehash: 10feb5467a6a6b5a43e0df739fa72902af9854da
+ms.sourcegitcommit: e5a74f882c14eaa0e5639ff082355e130559ba83
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71081260"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71168362"
 ---
 # <a name="build-your-first-blazor-app"></a>İlk Blazor uygulamanızı oluşturma
 
 [Daniel Roth](https://github.com/danroth27) ve [Luke Latham](https://github.com/guardrex) tarafından
+
+[!INCLUDE[](~/includes/blazorwasm-preview-notice.md)]
 
 Bu öğreticide bir Blazor uygulamasının nasıl oluşturulacağı ve değiştirileceği gösterilmektedir.
 

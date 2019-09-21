@@ -3,14 +3,14 @@ title: ASP.NET Core Razor söz dizimi başvurusu
 author: rick-anderson
 description: Kodu sunucu tabanlı Web sayfalarını eklemek için Razor söz dizimi biçimlendirme hakkında bilgi edinin.
 ms.author: riande
-ms.date: 08/05/2019
+ms.date: 09/19/2019
 uid: mvc/views/razor
-ms.openlocfilehash: 75bf0e792ff7975f03e0f7c2fa6a71ed74d813e1
-ms.sourcegitcommit: 2eb605f4f20ac4dd9de6c3b3e3453e108a357a21
+ms.openlocfilehash: 9a319f7efb6d879559afd9faca6955aba719fa2f
+ms.sourcegitcommit: e5a74f882c14eaa0e5639ff082355e130559ba83
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68819801"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71168298"
 ---
 # <a name="razor-syntax-reference-for-aspnet-core"></a>ASP.NET Core Razor söz dizimi başvurusu
 
@@ -640,7 +640,7 @@ Yönerge, `Model` özelliğin türünü belirtir. `@model` Yönergesi belirtir `
 `@namespace` Yönergesi:
 
 * Oluşturulan Razor sayfası, MVC görünümü veya Razor bileşeni sınıfının ad alanını ayarlar.
-* Bir sayfa, görünüm veya bileşen sınıfının kök türetilmiş ad alanlarını dizin ağacındaki en yakın içeri aktarmalar dosyasından (görünümler veya sayfalar) veya *_ımports. Razor* (Razor bileşenleri) ayarlar.
+* Bir sayfa, görünüm veya bileşen sınıfının kök türetilmiş ad alanlarını dizin ağacındaki en yakın içeri aktarmalar *dosyasından (görünümler* veya sayfalar) veya *_ımports. Razor* (Razor bileşenleri) ayarlar.
 
 ```cshtml
 @namespace Your.Namespace.Here
@@ -738,6 +738,12 @@ Razor, bileşenler için olay işleme özellikleri sağlar. Daha fazla bilgi iç
 *Bu senaryo yalnızca Razor bileşenleri (. Razor) için geçerlidir.*
 
 Bileşen başvuruları (`@ref`) bir bileşen örneğine başvurmak için bir yol sağlar, böylece bu örneğe komut verebilirsiniz. Daha fazla bilgi için bkz. <xref:blazor/components#capture-references-to-components>.
+
+### <a name="typeparam"></a>\@typeparam
+
+*Bu senaryo yalnızca Razor bileşenleri (. Razor) için geçerlidir.*
+
+`@typeparam` Yönergesi, oluşturulan bileşen sınıfı için genel bir tür parametresi bildirir. Daha fazla bilgi için bkz. <xref:blazor/components#generic-typed-components>.
 
 ::: moniker-end
 
