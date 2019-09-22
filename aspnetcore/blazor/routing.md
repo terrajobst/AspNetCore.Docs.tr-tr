@@ -5,14 +5,14 @@ description: Uygulamalardaki istekleri yönlendirme ve gezinti bağlantısı bil
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 09/06/2019
+ms.date: 09/21/2019
 uid: blazor/routing
-ms.openlocfilehash: 6d9d1614b6e0cc9f4711de0db4513ada4841809f
-ms.sourcegitcommit: e5a74f882c14eaa0e5639ff082355e130559ba83
+ms.openlocfilehash: d6fb3f03be94ff99ac3ed434265e6cd6b752c625
+ms.sourcegitcommit: 04ce94b3c1b01d167f30eed60c1c95446dfe759d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71168182"
+ms.lasthandoff: 09/21/2019
+ms.locfileid: "71176393"
 ---
 # <a name="aspnet-core-blazor-routing"></a>ASP.NET Core Blazor yönlendirme
 
@@ -27,6 +27,8 @@ Tarafından [Luke Latham](https://github.com/guardrex)
 Blazor sunucusu [ASP.NET Core uç nokta yönlendirme](xref:fundamentals/routing)ile tümleşiktir. ASP.NET Core bir uygulama, `MapBlazorHub` içindeki `Startup.Configure`etkileşimli bileşenler için gelen bağlantıları kabul edecek şekilde yapılandırılmıştır:
 
 [!code-csharp[](routing/samples_snapshot/3.x/Startup.cs?highlight=5)]
+
+En yaygın yapılandırma, tüm istekleri Razor sayfasına yönlendirmesidir ve bu, Blazor Server uygulamasının sunucu tarafı bölümü için ana bilgisayar görevi görür. Kural gereği, *ana bilgisayar* sayfası genellikle *_host. cshtml*olarak adlandırılır. Ana bilgisayar dosyasında belirtilen yol, yol eşleştirilirken düşük bir öncelik ile çalıştığından bir *geri dönüş yolu* olarak adlandırılır. Geri dönüş yolu, diğer yollar eşleşmediği zaman kabul edilir. Bu, uygulamanın Blazor sunucu uygulamasıyla kesintiye uğramadan diğer denetleyicileri ve sayfaları kullanmasına izin verir.
 
 ## <a name="route-templates"></a>Rota şablonları
 

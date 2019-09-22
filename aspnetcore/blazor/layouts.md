@@ -5,14 +5,14 @@ description: Blazor uygulamaları için yeniden kullanılabilir düzen bileşenl
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 09/06/2019
+ms.date: 09/21/2019
 uid: blazor/layouts
-ms.openlocfilehash: 05a38c10e18407d50422192ab1ddf3ff4b0f3a5b
-ms.sourcegitcommit: 43c6335b5859282f64d66a7696c5935a2bcdf966
+ms.openlocfilehash: 6ae795f720cd2cc1010ebec46bcee877b31d20c6
+ms.sourcegitcommit: 04ce94b3c1b01d167f30eed60c1c95446dfe759d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2019
-ms.locfileid: "70800367"
+ms.lasthandoff: 09/21/2019
+ms.locfileid: "71176428"
 ---
 # <a name="aspnet-core-blazor-layouts"></a>ASP.NET Core Blazor düzenleri
 
@@ -45,6 +45,8 @@ Uygulamanın App `Router` *. Razor* dosyasındaki bileşende varsayılan uygulam
 
 `Router` Bileşen hakkında daha fazla bilgi için bkz <xref:blazor/routing>.
 
+Düzen bir varsayılan düzen olarak belirtildiğinde, bileşen başına veya klasör temelinde geçersiz kılınabileceğinden, yararlı bir uygulamadır. En genel teknik olduğundan, uygulamanın varsayılan yerleşimini ayarlamak için yönlendiriciyi kullanmayı tercih edin.
+
 ## <a name="specify-a-layout-in-a-component"></a>Bir bileşende düzen belirtme
 
 Bir bileşene düzen uygulamak `@layout` için Razor yönergesini kullanın. Derleyici, bileşen `@layout` sınıfına uygulanan `LayoutAttribute`öğesine dönüştürür.
@@ -52,6 +54,8 @@ Bir bileşene düzen uygulamak `@layout` için Razor yönergesini kullanın. Der
 Aşağıdaki `MasterList` bileşenin içeriği `MasterLayout` konumuna`@Body`öğesine eklenir:
 
 [!code-cshtml[](layouts/sample_snapshot/3.x/MasterList.razor?highlight=1)]
+
+Düzen doğrudan bir bileşen içinde belirtildiğinde, yönlendiricide ayarlanan *varsayılan bir düzen* veya `@layout` *_ımports. Razor*öğesinden içeri aktarılan bir yönerge geçersiz kılınır.
 
 ## <a name="centralized-layout-selection"></a>Merkezi düzen seçimi
 
@@ -66,6 +70,8 @@ Aşağıdaki *_ımports. Razor* dosyası içeri aktarmaları:
 [!code-cshtml[](layouts/sample_snapshot/3.x/_Imports.razor)]
 
 *_Imports. Razor* dosyası, [Razor görünümleri ve sayfaları Için _Viewwimports. cshtml dosyasına](xref:mvc/views/layout#importing-shared-directives) benzer ancak özellikle Razor bileşen dosyalarına uygulanır.
+
+*_Imports. Razor* içinde bir düzen belirtme, yönlendiricinin *varsayılan düzeni*olarak belirtilen bir düzeni geçersiz kılar.
 
 ## <a name="nested-layouts"></a>İç içe düzenleri
 

@@ -32,7 +32,6 @@ Burada `JSRuntime.InvokeAsync` çağrılır, bileşen `ElementRef` işlenene kad
 @page "/prerendered-interop"
 @using Microsoft.AspNetCore.Components
 @using Microsoft.JSInterop
-@inject IComponentContext ComponentContext
 @inject IJSRuntime JSRuntime
 
 <p>
@@ -59,32 +58,5 @@ Burada `JSRuntime.InvokeAsync` çağrılır, bileşen `ElementRef` işlenene kad
             StateHasChanged();
         }
     }
-}
-```
-
-Uygulamanın Şu anda prerendering içerik olduğunu temel alarak farklı içerikleri koşullu olarak işlemek için, `IsConnected` `IComponentContext` hizmette özelliğini kullanın. Blazor Server uygulamaları için, `IsConnected` yalnızca istemciye `true` etkin bir bağlantı olup olmadığını döndürür. Her zaman Blazor `true` webassembly Apps ' i döndürür.
-
-```cshtml
-@page "/isconnected-example"
-@using Microsoft.AspNetCore.Components.Services
-@inject IComponentContext ComponentContext
-
-<h1>IsConnected Example</h1>
-
-<p>
-    Current state:
-    <strong id="connected-state">
-        @(ComponentContext.IsConnected ? "connected" : "not connected")
-    </strong>
-</p>
-
-<p>
-    Clicks:
-    <strong id="count">@count</strong>
-    <button id="increment-count" @onclick="@(() => count++)">Click me</button>
-</p>
-
-@code {
-    private int count;
 }
 ```

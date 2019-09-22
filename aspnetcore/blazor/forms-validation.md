@@ -7,21 +7,18 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 09/15/2019
 uid: blazor/forms-validation
-ms.openlocfilehash: 2fd76db90a53e328cd2ac8f452fba58365db0384
-ms.sourcegitcommit: dc5b293e08336dc236de66ed1834f7ef78359531
+ms.openlocfilehash: c68ebf7f7bf07b6c243ab16307716cea13870446
+ms.sourcegitcommit: 04ce94b3c1b01d167f30eed60c1c95446dfe759d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71011066"
+ms.lasthandoff: 09/21/2019
+ms.locfileid: "71176350"
 ---
 # <a name="aspnet-core-blazor-forms-and-validation"></a>ASP.NET Core Blazor formları ve doğrulaması
 
 [Daniel Roth](https://github.com/danroth27) ve [Luke Latham](https://github.com/guardrex) tarafından
 
 Forms ve doğrulama, Blazor içinde [veri ek açıklamaları](xref:mvc/models/validation)kullanılarak desteklenir.
-
-> [!NOTE]
-> Formlar ve doğrulama senaryoları, her önizleme sürümü ile değiştirilebilir.
 
 Aşağıdaki `ExampleModel` tür, veri ek açıklamalarını kullanarak doğrulama mantığını tanımlar:
 
