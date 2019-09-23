@@ -5,12 +5,12 @@ description: Basit bir ASP.NET Core uygulamasına model ekleyin.
 ms.author: riande
 ms.date: 8/15/2019
 uid: tutorials/first-mvc-app/adding-model
-ms.openlocfilehash: b0efaf76cb2172f5b7568e42065b99b1259949de
-ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
+ms.openlocfilehash: b2ef7a582dfedcd670af7bb18a6927cec31f6414
+ms.sourcegitcommit: d34b2627a69bc8940b76a949de830335db9701d3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71081997"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71187283"
 ---
 # <a name="add-a-model-to-an-aspnet-core-mvc-app"></a>ASP.NET Core MVC uygulamasına model ekleme
 
@@ -69,21 +69,7 @@ Yukarıdaki komut, EF Core SQL Server sağlayıcısını ekler. Sağlayıcı pak
 
 # <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Visual Studio Code/Mac için Visual Studio](#tab/visual-studio-code+visual-studio-mac)
 
-Aşağıdaki .NET Core CLI komutları çalıştırın:
-
-```dotnetcli
-dotnet tool install --global dotnet-ef --version 3.0.0-*
-dotnet add package Microsoft.EntityFrameworkCore.SQLite --version 3.0.0-*
-dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design --version 3.0.0-*
-dotnet add package Microsoft.EntityFrameworkCore.Design --version 3.0.0-*
-dotnet add package Microsoft.EntityFrameworkCore.SqlServer --version 3.0.0-*
-```
-
-Yukarıdaki komutlar şunları ekler:
-
-* .NET CLı için Entity Framework Core araçları.
-* EF Core paketini bir bağımlılık olarak yükleyecek EF Core SQLite sağlayıcı.
-* Yapı iskelesi için gereken paketler: `Microsoft.VisualStudio.Web.CodeGeneration.Design` ve `Microsoft.EntityFrameworkCore.SqlServer`.
+[!INCLUDE[](~/includes/add-EF-NuGet-SQLite-CLI.md)]
 
 ---
 

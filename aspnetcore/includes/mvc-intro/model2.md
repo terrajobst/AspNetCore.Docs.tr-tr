@@ -20,17 +20,7 @@ Aşağıdaki `MvcMovieContext` sınıfı *veri* klasörüne ekleyin:
 
 ### <a name="add-nuget-packages-and-ef-tools"></a>NuGet paketleri ve EF araçları ekleme
 
-Aşağıdaki .NET Core CLI komutları çalıştırın:
-
-```dotnetcli
-dotnet tool install --global dotnet-ef --version 3.0.0-*
-dotnet add package Microsoft.EntityFrameworkCore.SQLite --version 3.0.0-*
-dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design --version 3.0.0-*
-dotnet add package Microsoft.EntityFrameworkCore.Design --version 3.0.0-*
-dotnet add package Microsoft.EntityFrameworkCore.SqlServer --version 3.0.0-*
-```
-
-Yukarıdaki komutlar, .NET CLı için Entity Framework Core araçları ve projeye birkaç paket ekler. Paket `Microsoft.VisualStudio.Web.CodeGeneration.Design` , yapı iskelesi için gereklidir.
+[!INCLUDE[](~/includes/add-EF-NuGet-SQLite-CLI.md)]
 
 <a name="reg"></a>
 

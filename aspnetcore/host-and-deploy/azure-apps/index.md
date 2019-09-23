@@ -5,14 +5,14 @@ description: Bu makale, Azure ana bilgisayarına bağlantılar ve kaynakları da
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 09/07/2019
+ms.date: 07/28/2019
 uid: host-and-deploy/azure-apps/index
-ms.openlocfilehash: 7736888c43aafd2f64e3d7b079f2099fe548a825
-ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
+ms.openlocfilehash: 4dc150ff4534e42e1995a185f650cea9df70ccc4
+ms.sourcegitcommit: d34b2627a69bc8940b76a949de830335db9701d3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71081081"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71187052"
 ---
 # <a name="deploy-aspnet-core-apps-to-azure-app-service"></a>ASP.NET Core uygulamalarını Azure App Service dağıtma
 
@@ -97,7 +97,17 @@ Bir uygulama, [Webhost. createdefaultbuilder](/dotnet/api/microsoft.aspnetcore.w
 
 ## <a name="monitoring-and-logging"></a>İzleme ve günlüğe kaydetme
 
-Azure App Service, ASP.NET Core uygulamaları için günlük tümleştirmeyi etkinleştiren **ASP.NET Core günlük uzantılarını**sunmaktadır. Uzantıyı bir App Service otomatik olarak eklemek için, Visual Studio 'nun **Yayımlama** işlemini bir **App Service** yayımlama profiliyle kullanın. Bir uygulamayı dağıtmak için Visual Studio 'yu kullanmıyorsanız, uzantıyı App Service **geliştirme araçları** > **uzantıları** iletişim kutusu aracılığıyla Azure portalında el ile yükleyebilirsiniz.
+::: moniker range=">= aspnetcore-3.0"
+
+App Service dağıtılan ASP.NET Core uygulamalar, bir App Service uzantısı **ASP.NET Core günlüğe kaydetme tümleştirmesi**otomatik olarak alır. Uzantı, Azure App Service ASP.NET Core uygulamalar için günlüğe kaydetme tümleştirmesi imkanı sunar.
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
+
+App Service dağıtılan ASP.NET Core uygulamalar, bir App Service uzantısı **ASP.NET Core günlüğe kaydetme uzantısı**otomatik olarak alır. Uzantı, Azure App Service ASP.NET Core uygulamalar için günlüğe kaydetme tümleştirmesi imkanı sunar.
+
+::: moniker-end
 
 İzleme, günlüğe kaydetme ve sorun giderme bilgileri için aşağıdaki makalelere bakın:
 
@@ -128,10 +138,21 @@ Dağıtım yuvaları arasında takas edildiğinde, veri koruma kullanan tüm sis
 * Redsıs önbelleği
 
 Daha fazla bilgi için bkz. <xref:security/data-protection/implementation/key-storage-providers>.
+<a name="deploy-aspnet-core-preview-release-to-azure-app-service"></a>
+<!-- revert this after 3.0 supported
+## Deploy ASP.NET Core preview release to Azure App Service
 
-## <a name="deploy-aspnet-core-preview-release-to-azure-app-service"></a>Azure App Service için ASP.NET Core Preview sürümünü dağıtın
+Use one of the following approaches if the app relies on a preview release of .NET Core:
 
-Uygulama .NET Core 'un önizleme sürümünü kullanıyorsa aşağıdaki yaklaşımlardan birini kullanın:
+* [Install the preview site extension](#install-the-preview-site-extension).
+* [Deploy a self-contained preview app](#deploy-a-self-contained-preview-app).
+* [Use Docker with Web Apps for containers](#use-docker-with-web-apps-for-containers).
+-->
+## <a name="deploy-aspnet-core-30-to-azure-app-service"></a>Azure App Service ASP.NET Core 3,0 dağıtma
+
+Yakında Azure App Service ASP.NET Core 3,0 kullanılabilir olmasını umuyoruz.
+
+Uygulama .NET Core 3,0 ' i temel alıyorsa aşağıdaki yaklaşımlardan birini kullanın:
 
 * [Önizleme sitesi uzantısını yükler](#install-the-preview-site-extension).
 * [Kendi kendine içerilen bir önizleme uygulaması dağıtın](#deploy-a-self-contained-preview-app).
@@ -230,7 +251,7 @@ Kendi kendine içerilen bir uygulama dağıtımında:
 
 1. Bir komut kabuğundan, uygulamayı sürüm yapılandırmasında [DotNet Publish](/dotnet/core/tools/dotnet-publish) komutuyla yayımlayın. Aşağıdaki örnekte, uygulama çerçeveye bağlı bir uygulama olarak yayımlanır:
 
-   ```dotnetcli
+   ```console
    dotnet publish --configuration Release
    ```
 
@@ -268,7 +289,7 @@ Kendi içinde dağıtım için Visual Studio 'Yu veya komut satırı arabirimi (
 
 1. Bir komut kabuğundan, uygulamayı, [DotNet Publish](/dotnet/core/tools/dotnet-publish) komutuyla konağın çalışma zamanının sürüm yapılandırmasında yayımlayın. Aşağıdaki örnekte, uygulama `win-x86` RID için yayımlanır. `--runtime` Seçeneğe sağlanan RID, proje dosyasındaki `<RuntimeIdentifier>` (veya `<RuntimeIdentifiers>`) özelliğinde sağlanmalıdır.
 
-   ```dotnetcli
+   ```console
    dotnet publish --configuration Release --runtime win-x86
    ```
 

@@ -5,12 +5,12 @@ description: Bu öğreticide, ASP.NET Core MVC uygulamasında veri modeli deği�
 ms.author: riande
 ms.date: 07/22/2019
 uid: data/ef-rp/migrations
-ms.openlocfilehash: 8a4929a905c6a488231d7d29e1101f6fd887477f
-ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
+ms.openlocfilehash: efcf62d56a7b4cee4780d5f0475b4ef363fe1897
+ms.sourcegitcommit: d34b2627a69bc8940b76a949de830335db9701d3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71082079"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71187078"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---migrations---4-of-8"></a>ASP.NET Core geçişleri ile EF Core Razor Pages-4/8
 
@@ -45,7 +45,7 @@ Drop-Database
 * EF CLı araçları 'nı yüklemek için komut isteminde aşağıdaki komutu çalıştırın:
 
   ```dotnetcli
-  dotnet tool install --global dotnet-ef --version 3.0.0-*
+  dotnet tool install --global dotnet-ef
   ```
 
 * Komut isteminde proje klasörüne gidin. Proje klasörü *Contosouniversity. csproj* dosyasını içerir.
@@ -306,8 +306,7 @@ The login failed.
 Login failed for user 'user name'.
 ```
 
-Çözümden 
-          `dotnet ef database update`'i çalıştırın.
+Çözümden `dotnet ef database update` öğesini çalıştırın
 
 ### <a name="additional-resources"></a>Ek kaynaklar
 
@@ -318,8 +317,8 @@ Login failed for user 'user name'.
 
 
 > [!div class="step-by-step"]
-> [Önceki](xref:data/ef-rp/sort-filter-page)İleri
-> [](xref:data/ef-rp/complex-data-model)
+> [Önceki](xref:data/ef-rp/sort-filter-page)
+> [İleri](xref:data/ef-rp/complex-data-model)
 
 ::: moniker-end
 

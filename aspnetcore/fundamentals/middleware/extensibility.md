@@ -1,53 +1,55 @@
 ---
-title: ASP.NET core'da Fabrika tabanlı ara yazılım etkinleştirme
+title: ASP.NET Core 'de fabrika tabanlı ara yazılım etkinleştirmesi
 author: guardrex
-description: ASP.NET core'da etkinleştirme Fabrika tabanlı bir uygulama türü kesin belirlenmiş bir ara yazılım kullanmayı öğrenin.
+description: ASP.NET Core ' de fabrika tabanlı etkinleştirme uygulamasıyla, türü kesin belirlenmiş bir ara yazılımı nasıl kullanacağınızı öğrenin.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 03/31/2019
+ms.date: 09/22/2019
 uid: fundamentals/middleware/extensibility
-ms.openlocfilehash: b4d71c2c7f09acb58b73e84080e8574d77f8b326
-ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
+ms.openlocfilehash: 17018d2dd20ed7b26bd0aa1095fa720a73f77261
+ms.sourcegitcommit: d34b2627a69bc8940b76a949de830335db9701d3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65087008"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71186949"
 ---
-# <a name="factory-based-middleware-activation-in-aspnet-core"></a>ASP.NET core'da Fabrika tabanlı ara yazılım etkinleştirme
+# <a name="factory-based-middleware-activation-in-aspnet-core"></a>ASP.NET Core 'de fabrika tabanlı ara yazılım etkinleştirmesi
 
 Tarafından [Luke Latham](https://github.com/guardrex)
 
-<xref:Microsoft.AspNetCore.Http.IMiddlewareFactory>/<xref:Microsoft.AspNetCore.Http.IMiddleware> bir genişletilebilirlik noktası [ara yazılım](xref:fundamentals/middleware/index) etkinleştirme.
+::: moniker range=">= aspnetcore-3.0"
 
-<xref:Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.UseMiddleware*> genişletme yöntemleri denetleyin bir ara kayıtlı tür uygulayan olup <xref:Microsoft.AspNetCore.Http.IMiddleware>. Aksi halde <xref:Microsoft.AspNetCore.Http.IMiddlewareFactory> çözümlemek için kullanılan kapsayıcıda kayıtlı örnek <xref:Microsoft.AspNetCore.Http.IMiddleware> kural tabanlı ara yazılım etkinleştirme mantığı kullanmak yerine uygulama. Ara yazılım olarak kaydedilmiş bir [kapsamlı veya geçici hizmet](xref:fundamentals/dependency-injection#service-lifetimes) uygulamanın service kapsayıcısında.
+<xref:Microsoft.AspNetCore.Http.IMiddlewareFactory>/<xref:Microsoft.AspNetCore.Http.IMiddleware>, [Ara yazılım](xref:fundamentals/middleware/index) etkinleştirme için bir genişletilebilirlik noktasıdır.
 
-Avantajlar:
+<xref:Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.UseMiddleware*>Uzantı yöntemleri bir ara yazılımın kayıtlı türünün uygulayıp uygulamadığını <xref:Microsoft.AspNetCore.Http.IMiddleware>denetler. Bu durumda, <xref:Microsoft.AspNetCore.Http.IMiddlewareFactory> kapsayıcıya kaydedilen örnek, kural tabanlı ara yazılım etkinleştirme mantığını kullanmak yerine <xref:Microsoft.AspNetCore.Http.IMiddleware> , uygulamayı çözmek için kullanılır. Ara yazılım, uygulamanın hizmet kapsayıcısında [kapsamlı veya geçici bir hizmet](xref:fundamentals/dependency-injection#service-lifetimes) olarak kaydedilir.
 
-* İstemci istek (kapsamlı Hizmetleri ekleme) başına etkinleştirme
-* Güçlü ara yazılım yazma
+Larından
 
-<xref:Microsoft.AspNetCore.Http.IMiddleware> kapsamı belirlenmiş hizmetler eklenen bu nedenle Ara oluşturucuya (bağlantı), istemci istek etkinleştirilir.
+* İstemci isteği başına etkinleştirme (kapsamlı hizmetler ekleme)
+* Ara yazılım sıkı yazma
+
+<xref:Microsoft.AspNetCore.Http.IMiddleware>istemci isteği başına etkinleştirilir (bağlantı), bu nedenle kapsamlı hizmetler ara yazılım oluşturucusuna eklenebilir.
 
 [Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/middleware/extensibility/samples) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
 
-## <a name="imiddleware"></a>IMiddleware
+## <a name="imiddleware"></a>Imıddliware
 
-<xref:Microsoft.AspNetCore.Http.IMiddleware> uygulamanın isteği ardışık düzeni için ara yazılımı tanımlar. [InvokeAsync (HttpContext, RequestDelegate)](xref:Microsoft.AspNetCore.Http.IMiddleware.InvokeAsync*) yöntemi isteği işler ve döndürür bir <xref:System.Threading.Tasks.Task> temsil eden bir ara yazılım yürütülmesi.
+<xref:Microsoft.AspNetCore.Http.IMiddleware>uygulamanın istek ardışık düzeni için ara yazılımı tanımlar. [InvokeAsync (HttpContext, requestdelegate)](xref:Microsoft.AspNetCore.Http.IMiddleware.InvokeAsync*) yöntemi istekleri işler ve ara yazılım yürütmesini <xref:System.Threading.Tasks.Task> temsil eden bir döndürür.
 
-Ara yazılım tarafından kuralı etkinleştirildi:
+Kurala göre etkinleştirilen ara yazılım:
 
-[!code-csharp[](extensibility/samples/2.x/MiddlewareExtensibilitySample/Middleware/ConventionalMiddleware.cs?name=snippet1)]
+[!code-csharp[](extensibility/samples/3.x/MiddlewareExtensibilitySample/Middleware/ConventionalMiddleware.cs?name=snippet1)]
 
-Etkin bir ara yazılım tarafından <xref:Microsoft.AspNetCore.Http.MiddlewareFactory>:
+Etkinleştirilen ara yazılım <xref:Microsoft.AspNetCore.Http.MiddlewareFactory>:
 
-[!code-csharp[](extensibility/samples/2.x/MiddlewareExtensibilitySample/Middleware/FactoryActivatedMiddleware.cs?name=snippet1)]
+[!code-csharp[](extensibility/samples/3.x/MiddlewareExtensibilitySample/Middleware/FactoryActivatedMiddleware.cs?name=snippet1)]
 
-Uzantılar için middlewares oluşturulur:
+Middlewares için Uzantılar oluşturulur:
 
-[!code-csharp[](extensibility/samples/2.x/MiddlewareExtensibilitySample/Middleware/MiddlewareExtensions.cs?name=snippet1)]
+[!code-csharp[](extensibility/samples/3.x/MiddlewareExtensibilitySample/Middleware/MiddlewareExtensions.cs?name=snippet1)]
 
-Fabrika etkinleştirildi Ara yazılımla nesneleri geçirmek mümkün değildir <xref:Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.UseMiddleware*>:
+Nesneleri fabrikada etkinleştirilen bir ara yazılıma <xref:Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.UseMiddleware*>geçirmek mümkün değildir:
 
 ```csharp
 public static IApplicationBuilder UseFactoryActivatedMiddleware(
@@ -58,19 +60,79 @@ public static IApplicationBuilder UseFactoryActivatedMiddleware(
 }
 ```
 
-Fabrika etkinleştirildi ara yazılım yerleşik bir kapsayıcıda eklenir `Startup.ConfigureServices`:
+Fabrikada etkinleştirilen ara yazılım, içindeki `Startup.ConfigureServices`yerleşik kapsayıcıya eklenir:
+
+[!code-csharp[](extensibility/samples/3.x/MiddlewareExtensibilitySample/Startup.cs?name=snippet1&highlight=6)]
+
+Her iki middlewares de `Startup.Configure`istek işleme ardışık düzeninde kaydedilir:
+
+[!code-csharp[](extensibility/samples/3.x/MiddlewareExtensibilitySample/Startup.cs?name=snippet2&highlight=12-13)]
+
+## <a name="imiddlewarefactory"></a>IMiddlewareFactory
+
+<xref:Microsoft.AspNetCore.Http.IMiddlewareFactory>ara yazılım oluşturmak için yöntemler sağlar. Ara yazılım Fabrikası Uygulama, kapsayıcıda kapsamlı bir hizmet olarak kaydedilir.
+
+<xref:Microsoft.AspNetCore.Http.IMiddlewareFactory> Varsayılan<xref:Microsoft.AspNetCore.Http.MiddlewareFactory>uygulama, [Microsoft. aspnetcore. http](https://www.nuget.org/packages/Microsoft.AspNetCore.Http/) paketinde bulunur.
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
+
+<xref:Microsoft.AspNetCore.Http.IMiddlewareFactory>/<xref:Microsoft.AspNetCore.Http.IMiddleware>, [Ara yazılım](xref:fundamentals/middleware/index) etkinleştirme için bir genişletilebilirlik noktasıdır.
+
+<xref:Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.UseMiddleware*>Uzantı yöntemleri bir ara yazılımın kayıtlı türünün uygulayıp uygulamadığını <xref:Microsoft.AspNetCore.Http.IMiddleware>denetler. Bu durumda, <xref:Microsoft.AspNetCore.Http.IMiddlewareFactory> kapsayıcıya kaydedilen örnek, kural tabanlı ara yazılım etkinleştirme mantığını kullanmak yerine <xref:Microsoft.AspNetCore.Http.IMiddleware> , uygulamayı çözmek için kullanılır. Ara yazılım, uygulamanın hizmet kapsayıcısında [kapsamlı veya geçici bir hizmet](xref:fundamentals/dependency-injection#service-lifetimes) olarak kaydedilir.
+
+Larından
+
+* İstemci isteği başına etkinleştirme (kapsamlı hizmetler ekleme)
+* Ara yazılım sıkı yazma
+
+<xref:Microsoft.AspNetCore.Http.IMiddleware>istemci isteği başına etkinleştirilir (bağlantı), bu nedenle kapsamlı hizmetler ara yazılım oluşturucusuna eklenebilir.
+
+[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/middleware/extensibility/samples) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
+
+## <a name="imiddleware"></a>Imıddliware
+
+<xref:Microsoft.AspNetCore.Http.IMiddleware>uygulamanın istek ardışık düzeni için ara yazılımı tanımlar. [InvokeAsync (HttpContext, requestdelegate)](xref:Microsoft.AspNetCore.Http.IMiddleware.InvokeAsync*) yöntemi istekleri işler ve ara yazılım yürütmesini <xref:System.Threading.Tasks.Task> temsil eden bir döndürür.
+
+Kurala göre etkinleştirilen ara yazılım:
+
+[!code-csharp[](extensibility/samples/2.x/MiddlewareExtensibilitySample/Middleware/ConventionalMiddleware.cs?name=snippet1)]
+
+Etkinleştirilen ara yazılım <xref:Microsoft.AspNetCore.Http.MiddlewareFactory>:
+
+[!code-csharp[](extensibility/samples/2.x/MiddlewareExtensibilitySample/Middleware/FactoryActivatedMiddleware.cs?name=snippet1)]
+
+Middlewares için Uzantılar oluşturulur:
+
+[!code-csharp[](extensibility/samples/2.x/MiddlewareExtensibilitySample/Middleware/MiddlewareExtensions.cs?name=snippet1)]
+
+Nesneleri fabrikada etkinleştirilen bir ara yazılıma <xref:Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.UseMiddleware*>geçirmek mümkün değildir:
+
+```csharp
+public static IApplicationBuilder UseFactoryActivatedMiddleware(
+    this IApplicationBuilder builder, bool option)
+{
+    // Passing 'option' as an argument throws a NotSupportedException at runtime.
+    return builder.UseMiddleware<FactoryActivatedMiddleware>(option);
+}
+```
+
+Fabrikada etkinleştirilen ara yazılım, içindeki `Startup.ConfigureServices`yerleşik kapsayıcıya eklenir:
 
 [!code-csharp[](extensibility/samples/2.x/MiddlewareExtensibilitySample/Startup.cs?name=snippet1&highlight=6)]
 
-İstek işleme ardışık düzeninde her iki middlewares kayıtlı `Startup.Configure`:
+Her iki middlewares de `Startup.Configure`istek işleme ardışık düzeninde kaydedilir:
 
 [!code-csharp[](extensibility/samples/2.x/MiddlewareExtensibilitySample/Startup.cs?name=snippet2&highlight=13-14)]
 
 ## <a name="imiddlewarefactory"></a>IMiddlewareFactory
 
-<xref:Microsoft.AspNetCore.Http.IMiddlewareFactory> Ara yazılım oluşturmak için yöntemleri sağlar. Ara yazılım Üreteç uygulaması kapsayıcıda kapsamlı bir hizmet olarak kaydedilir.
+<xref:Microsoft.AspNetCore.Http.IMiddlewareFactory>ara yazılım oluşturmak için yöntemler sağlar. Ara yazılım Fabrikası Uygulama, kapsayıcıda kapsamlı bir hizmet olarak kaydedilir.
 
-Varsayılan <xref:Microsoft.AspNetCore.Http.IMiddlewareFactory> uygulaması <xref:Microsoft.AspNetCore.Http.MiddlewareFactory>, bulunur [Microsoft.AspNetCore.Http](https://www.nuget.org/packages/Microsoft.AspNetCore.Http/) paket.
+<xref:Microsoft.AspNetCore.Http.IMiddlewareFactory> Varsayılan<xref:Microsoft.AspNetCore.Http.MiddlewareFactory>uygulama, [Microsoft. aspnetcore. http](https://www.nuget.org/packages/Microsoft.AspNetCore.Http/) paketinde bulunur.
+
+::: moniker-end
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 

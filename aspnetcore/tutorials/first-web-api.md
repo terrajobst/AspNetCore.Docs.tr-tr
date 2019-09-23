@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 08/27/2019
 uid: tutorials/first-web-api
-ms.openlocfilehash: 1cc4fffc50978a3a958a96e1eb250cb85a8d2879
-ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
+ms.openlocfilehash: 2d0eb24641c3d1f795b9e85ce10d42ee96d30846
+ms.sourcegitcommit: d34b2627a69bc8940b76a949de830335db9701d3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71082062"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71187313"
 ---
 # <a name="tutorial-create-a-web-api-with-aspnet-core"></a>Öğretici: ASP.NET Core ile Web API 'SI oluşturma
 
@@ -84,8 +84,8 @@ Aşağıdaki diyagramda, bu uygulamanın tasarımını gösterir.
    ```dotnetcli
    dotnet new webapi -o TodoApi
    cd TodoAPI
-   dotnet add package Microsoft.EntityFrameworkCore.SqlServer --version 3.0.0-*
-   dotnet add package Microsoft.EntityFrameworkCore.InMemory --version 3.0.0-*
+   dotnet add package Microsoft.EntityFrameworkCore.SqlServer
+   dotnet add package Microsoft.EntityFrameworkCore.InMemory
    code -r ../TodoApi
    ```
 
@@ -117,8 +117,8 @@ Aşağıdaki diyagramda, bu uygulamanın tasarımını gösterir.
 Proje klasöründe bir komut terminali açın ve aşağıdaki komutları çalıştırın:
 
    ```dotnetcli
-   dotnet add package Microsoft.EntityFrameworkCore.SqlServer --version 3.0.0-*
-   dotnet add package Microsoft.EntityFrameworkCore.InMemory --version 3.0.0-*
+   dotnet add package Microsoft.EntityFrameworkCore.SqlServer
+   dotnet add package Microsoft.EntityFrameworkCore.InMemory
    ```
 
 ---
@@ -281,8 +281,8 @@ Yukarıdaki kod:
 Aşağıdaki komutları çalıştırın:
 
 ```dotnetcli
-dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design --version 3.0.0-*
-dotnet add package Microsoft.EntityFrameworkCore.Design --version 3.0.0-*
+dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design
+dotnet add package Microsoft.EntityFrameworkCore.Design
 dotnet tool install --global dotnet-aspnet-codegenerator
 dotnet aspnet-codegenerator controller -name TodoItemsController -async -api -m TodoItem -dc TodoContext  -outDir Controllers
 ```

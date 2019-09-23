@@ -7,12 +7,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 08/29/2019
 uid: web-api/http-repl
-ms.openlocfilehash: 8ef49797fed3379e33810f311bfc474e524122e0
-ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
+ms.openlocfilehash: 086ac141a04ab4a560f2c26fb049ef8a5493dc97
+ms.sourcegitcommit: d34b2627a69bc8940b76a949de830335db9701d3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71082581"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71187247"
 ---
 # <a name="test-web-apis-with-the-http-repl"></a>HTTP REPL ile Web API 'Lerini test etme
 
@@ -45,7 +45,7 @@ Takip etmek için, [örnek ASP.NET Core Web API](https://github.com/aspnet/AspNe
 HTTP REPL 'u yüklemek için aşağıdaki komutu çalıştırın:
 
 ```dotnetcli
-dotnet tool install -g Microsoft.dotnet-httprepl --version "3.0.0-*"
+dotnet tool install -g Microsoft.dotnet-httprepl
 ```
 
 [.NET Core küresel aracı](/dotnet/core/tools/global-tools#install-a-global-tool) , [Microsoft. DotNet-httprepl](https://www.nuget.org/packages/Microsoft.dotnet-httprepl) NuGet paketinden yüklenir.

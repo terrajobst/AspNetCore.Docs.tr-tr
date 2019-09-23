@@ -3,14 +3,14 @@ title: Bir ASP.NET Core Razor sayfaları uygulama için model ekleme
 author: rick-anderson
 description: Entity Framework Core (EF Core) kullanarak bir veritabanında filmler yönetmek için sınıflar ekleme keşfedin.
 ms.author: riande
-ms.date: 07/22/2019
+ms.date: 9/22/2019
 uid: tutorials/razor-pages/model
-ms.openlocfilehash: 18cf9aea930a7989bb844bc6c40dfa1ce84b7b4d
-ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
+ms.openlocfilehash: dcbcf37dfd95d784ebe249ec6e9e4184a8853d3d
+ms.sourcegitcommit: d34b2627a69bc8940b76a949de830335db9701d3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71082631"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71187191"
 ---
 # <a name="add-a-model-to-a-razor-pages-app-in-aspnet-core"></a>Bir ASP.NET Core Razor sayfaları uygulama için model ekleme
 
@@ -99,7 +99,7 @@ Tamamlamak **ekleme Razor sayfaları (CRUD) Entity Framework kullanarak** ileti�
 * Yapı iskelesi Aracı'nı yükleyin:
 
   ```dotnetcli
-   dotnet tool install --global dotnet-aspnet-codegenerator --version 3.0.0-*
+   dotnet tool install --global dotnet-aspnet-codegenerator
    ```
 
 * **Windows için**: Şu komutu çalıştırın:
@@ -122,7 +122,7 @@ Tamamlamak **ekleme Razor sayfaları (CRUD) Entity Framework kullanarak** ileti�
 * Yapı iskelesi Aracı'nı yükleyin:
 
   ```dotnetcli
-   dotnet tool install --global dotnet-aspnet-codegenerator --version 3.0.0-*
+   dotnet tool install --global dotnet-aspnet-codegenerator
    ```
 
 * Şu komutu çalıştırın:

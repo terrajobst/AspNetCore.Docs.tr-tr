@@ -1,111 +1,108 @@
 ---
 title: ASP.NET Core içindeki uygulama bölümleri
-author: ardalis
-description: Bir derlemeden Özellik yüklemeyi veya bir derlemeden bir derlemeyi önlemek için bir uygulamanın kaynakları üzerinde soyutlamalar olan uygulama parçalarını nasıl kullanacağınızı öğrenin.
+author: rick-anderson
+description: ASP.NET Core içindeki uygulama bölümleriyle denetleyicileri, görünümü, Razor Pages ve daha fazlasını paylaşma
 ms.author: riande
-ms.date: 01/04/2017
+ms.date: 05/14/2019
 uid: mvc/extensibility/app-parts
-ms.openlocfilehash: 4900ccf5589500db076f8cecd9da198c6a7ceea4
-ms.sourcegitcommit: 41f2c1a6b316e6e368a4fd27a8b18d157cef91e1
+ms.openlocfilehash: ad0372f25377115e6fc7c8ea42db75de56b3e6d2
+ms.sourcegitcommit: d34b2627a69bc8940b76a949de830335db9701d3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69886459"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71187006"
 ---
+# <a name="share-controllers-views-razor-pages-and-more-with-application-parts-in-aspnet-core"></a>ASP.NET Core içindeki uygulama bölümleriyle denetleyicileri, görünümleri, Razor Pages ve daha fazlasını paylaşma
+=======
+
 <!-- DO NOT MAKE CHANGES BEFORE https://github.com/aspnet/AspNetCore.Docs/pull/12376 Merges -->
 
-# <a name="application-parts-in-aspnet-core"></a>ASP.NET Core içindeki uygulama bölümleri
+Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/advanced/app-parts/sample) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
+[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/advanced/app-parts) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
 
-*Uygulama bölümü* , bir uygulamanın kaynakları üzerinde, denetleyiciler, görüntüleme bileşenleri veya etiket YARDıMCıLARı gibi mvc özelliklerinin keşfedildiği bir soyutlamadır. Bir uygulama parçasının bir örneği, derleme başvurusunu kapsülleyen ve türleri ve derleme başvurularını sunan bir AssemblyPart değildir. *Özellik sağlayıcıları* ASP.NET Core MVC uygulamasının özelliklerini doldurmak için uygulama bölümleriyle birlikte çalışır. Uygulama bölümleri için ana kullanım örneği, uygulamanızı bir derlemeden MVC özelliklerini bulacak (veya yüklemeden kaçınmak üzere) yapılandırmanıza izin vermaktır.
+*Uygulama bölümü* , bir uygulamanın kaynakları üzerinde soyutlamadır. Uygulama bölümleri ASP.NET Core denetleyicileri bulmasına, bileşenleri, etiket yardımcılarını, Razor Pages, Razor derleme kaynaklarını ve daha fazlasını bulmasına olanak tanır. [AssemblyPart](/dotnet/api/microsoft.aspnetcore.mvc.applicationparts.assemblypart#Microsoft_AspNetCore_Mvc_ApplicationParts_AssemblyPart) bir uygulama bölümüdür. `AssemblyPart`derleme başvurusunu kapsüller ve türleri ve derleme başvurularını ortaya koyar.
 
-## <a name="introducing-application-parts"></a>Uygulama bölümlerine giriş
+*Özellik sağlayıcıları* , uygulama bölümleriyle birlikte çalışarak bir ASP.NET Core uygulamasının özelliklerini doldurur. Uygulama bölümleri için ana kullanım örneği, bir derlemeyi, bir derlemeden ASP.NET Core özellikleri bulacak (ya da yüklemeden kaçınacak) şekilde yapılandırmaktır. Örneğin, birden çok uygulama arasında ortak işlevselliği paylaşmak isteyebilirsiniz. Uygulama parçalarını kullanarak, birden çok uygulamayla denetleyiciler, görünümler, Razor Pages, Razor derleme kaynakları, etiket yardımcıları ve daha fazlasını içeren bir derlemeyi (DLL) paylaşabilirsiniz. Birden çok projedeki kodu çoğaltmak için bir derlemeyi paylaşma tercih edilir.
 
-MVC uygulamaları, [uygulama parçalarından](/dotnet/api/microsoft.aspnetcore.mvc.applicationparts.applicationpart)özelliklerini yükler. Özellikle, [AssemblyPart](/dotnet/api/microsoft.aspnetcore.mvc.applicationparts.assemblypart) sınıfı, bir derleme tarafından desteklenen bir uygulama bölümünü temsil eder. Denetleyiciler, görünüm bileşenleri, etiket yardımcıları ve Razor derleme kaynakları gibi MVC özelliklerini bulup yüklemek için bu sınıfları kullanabilirsiniz. [Applicationpartmanager](/dotnet/api/microsoft.aspnetcore.mvc.applicationparts.applicationpartmanager) , MVC uygulamasının kullanabileceği uygulama bölümlerinin ve özellik sağlayıcılarının izlenmesinden sorumludur. MVC 'yi yapılandırırken `ApplicationPartManager` ' de `Startup` ile etkileşim kurabilirsiniz:
+ASP.NET Core uygulamalar, içindeki <xref:System.Web.WebPages.ApplicationPart>özellikleri yükler. Sınıfı <xref:Microsoft.AspNetCore.Mvc.ApplicationParts.AssemblyPart> , bir derleme tarafından desteklenen bir uygulama parçasını temsil eder.
 
-```csharp
-// create an assembly part from a class's assembly
-var assembly = typeof(Startup).GetTypeInfo().Assembly;
-services.AddMvc()
-    .AddApplicationPart(assembly);
+## <a name="load-aspnet-core-features"></a>ASP.NET Core özellikleri yükle
 
-// OR
-var assembly = typeof(Startup).GetTypeInfo().Assembly;
-var part = new AssemblyPart(assembly);
-services.AddMvc()
-    .ConfigureApplicationPartManager(apm => apm.ApplicationParts.Add(part));
-```
+ASP.NET Core özelliklerini ( `AssemblyPart` denetleyiciler, görünüm bileşenleri vs.) bulup yüklemek için vesınıflarınıkullanın.`ApplicationPart` Uygulama parçalarını ve özellik sağlayıcılarını izler.<xref:Microsoft.AspNetCore.Mvc.ApplicationParts.ApplicationPartManager> `ApplicationPartManager`Şu şekilde yapılandırılır `Startup.ConfigureServices`:
 
-Varsayılan olarak, MVC bağımlılık ağacını arar ve denetleyicileri bulur (diğer derlemelerde bile). Rastgele bir derlemeyi yüklemek için (örneğin, derleme zamanında başvurulmayan bir eklentiden), bir uygulama bölümü kullanabilirsiniz.
+[!code-csharp[](./app-parts/sample1/WebAppParts/Startup.cs?name=snippet)]
 
-Belirli bir derlemede veya konumda bulunan denetleyiciler için arama *yapmaktan kaçınmak* için uygulama parçalarını kullanabilirsiniz. Uygulamasının `ApplicationParts` koleksiyonunu`ApplicationPartManager`değiştirerek hangi parçaların (veya derlemelerin) kullanılabilir olduğunu kontrol edebilirsiniz. `ApplicationParts` Koleksiyondaki girişlerin sırası önemli değildir. Kapsayıcısını, `ApplicationPartManager` kapsayıcıda hizmetleri yapılandırmak için kullanmadan önce tam olarak yapılandırmak önemlidir. Örneğin, öğesini çağırmadan `ApplicationPartManager` `AddControllersAsServices`önce tam olarak yapılandırmanız gerekir. Bunu yapmazsanız, uygulama bölümlerdeki denetleyicilerin bu yöntem çağrısından sonra eklenmeyeceği anlamına gelir (hizmet olarak kaydedilmez) ve bu, uygulamanızın hatalı davranışına neden olabilir.
+Aşağıdaki kod, kullanarak `ApplicationPartManager` `AssemblyPart`yapılandırma için alternatif bir yaklaşım sağlar:
 
-Kullanılmasını istemediğiniz denetleyicileri içeren bir derlemeniz varsa, ' den `ApplicationPartManager`kaldırın:
+[!code-csharp[](./app-parts/sample1/WebAppParts/Startup2.cs?name=snippet)]
 
-```csharp
-services.AddMvc()
-    .ConfigureApplicationPartManager(apm =>
-    {
-        var dependentLibrary = apm.ApplicationParts
-            .FirstOrDefault(part => part.Name == "DependentLibrary");
+Önceki iki kod örneği bir derlemeden yüklenir `SharedController` . , `SharedController` Uygulamalar projesinde değildir. Bkz. [Webappparts çözüm](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/advanced/app-parts/sample1/WebAppParts) örneği indirmesi.
 
-        if (dependentLibrary != null)
-        {
-           apm.ApplicationParts.Remove(dependentLibrary);
-        }
-    })
-```
+### <a name="include-views"></a>Görünümleri dahil et
 
-Projenizin derleme ve bağımlı derlemelerinin `ApplicationPartManager` yanı sıra, varsayılan olarak `Microsoft.AspNetCore.Mvc.TagHelpers` ve `Microsoft.AspNetCore.Mvc.Razor` parçalarını içerir.
+Derleme içindeki görünümleri dahil etmek için:
+
+* Aşağıdaki biçimlendirmeyi paylaşılan proje dosyasına ekleyin:
+
+  ```csproj
+    <ItemGroup>
+      <EmbeddedResource Include = "Views\**\*.cshtml" />
+    </ ItemGroup >
+  ```
+
+* <xref:Microsoft.Extensions.FileProviders.EmbeddedFileProvider> Şunu öğesine ekleyin: <xref:Microsoft.AspNetCore.Mvc.Razor.RazorViewEngine>
+
+[!code-csharp[](./app-parts/sample1/WebAppParts/StartupViews.cs?name=snippet&highlight=3-7)]
+
+### <a name="prevent-loading-resources"></a>Kaynakları yüklemeyi engelle
+
+Uygulama bölümleri, belirli bir derleme veya konumdaki kaynakları yüklemeyi *önlemek* için kullanılabilir. Kullanılabilir kaynakları gizlemek veya saklamak için <xref:Microsoft.AspNetCore.Mvc.ApplicationParts> koleksiyonun üyelerini ekleyin veya kaldırın. `ApplicationParts` Koleksiyondaki girişlerin sırası önemli değildir. Kapsayıcısını, `ApplicationPartManager` kapsayıcıdaki hizmetleri yapılandırmak için kullanmadan önce yapılandırın. Örneğin, öğesini çağırmadan `ApplicationPartManager` `AddControllersAsServices`önce öğesini yapılandırın. Kaynağı kaldırmak `Remove` için koleksiyondaçağrıyapın.`ApplicationParts`
+
+Aşağıdaki kod uygulamadan kaldırmak <xref:Microsoft.AspNetCore.Mvc.ApplicationParts> `MyDependentLibrary` için kullanır:[!code-csharp[](./app-parts/sample1/WebAppParts/StartupRm.cs?name=snippet)]
+
+, `ApplicationPartManager` Şunlar için parçalar içerir:
+
+* Uygulamalar derlemesi ve bağımlı derlemeler.
+* `Microsoft.AspNetCore.Mvc.TagHelpers`
+* `Microsoft.AspNetCore.Mvc.Razor`.
 
 ## <a name="application-feature-providers"></a>Uygulama özelliği sağlayıcıları
 
-Uygulama özelliği sağlayıcıları uygulama parçalarını inceler ve bu parçalar için özellikler sağlar. Aşağıdaki MVC özellikleri için yerleşik özellik sağlayıcıları vardır:
+Uygulama özelliği sağlayıcıları uygulama parçalarını inceler ve bu parçalar için özellikler sağlar. Aşağıdaki ASP.NET Core özellikleri için yerleşik özellik sağlayıcıları vardır:
 
 * [Denetleyiciler](/dotnet/api/microsoft.aspnetcore.mvc.controllers.controllerfeatureprovider)
-* [Meta veri başvurusu](/dotnet/api/microsoft.aspnetcore.mvc.razor.compilation.metadatareferencefeatureprovider)
 * [Etiket Yardımcıları](/dotnet/api/microsoft.aspnetcore.mvc.razor.taghelpers.taghelperfeatureprovider)
 * [Bileşenleri görüntüle](/dotnet/api/microsoft.aspnetcore.mvc.viewcomponents.viewcomponentfeatureprovider)
 
-Özellik sağlayıcıları öğesinden `IApplicationFeatureProvider<T>`devralınır, burada `T` özelliğin türüdür. Yukarıda listelenen herhangi bir MVC Özellik türü için kendi özellik sağlayıcılarını uygulayabilirsiniz. Daha sonraki sağlayıcılar önceki sağlayıcılar tarafından alınan `ApplicationPartManager.FeatureProviders` eylemlere yanıt verebilmesi için koleksiyondaki özellik sağlayıcılarının sırası önemli olabilir.
+Özellik sağlayıcıları öğesinden <xref:Microsoft.AspNetCore.Mvc.ApplicationParts.IApplicationFeatureProvider`1>devralınır, burada `T` özelliğin türüdür. Özellik sağlayıcıları, daha önce listelenen özellik türlerinden herhangi biri için uygulanabilir. İçindeki `ApplicationPartManager.FeatureProviders` özellik sağlayıcılarının sırası çalışma süresi davranışından etkileyebilir. Daha sonra eklenen sağlayıcılar, daha önce eklenen sağlayıcıların yaptığı eylemlere yanıt verebilir.
 
-### <a name="sample-generic-controller-feature"></a>Örnekli Genel denetleyici özelliği
+### <a name="generic-controller-feature"></a>Genel denetleyici özelliği
 
-Varsayılan olarak, ASP.NET Core MVC genel denetleyicileri yoksayar (örneğin, `SomeController<T>`). Bu örnek, varsayılan sağlayıcıdan sonra çalışan bir denetleyici özellik sağlayıcısı kullanır ve belirtilen tür listesi için genel denetleyici örnekleri ekler (içinde `EntityTypes.Types`tanımlanmıştır):
+ASP.NET Core [genel denetleyicileri](/dotnet/csharp/programming-guide/generics/generic-classes)yoksayar. Genel denetleyicinin bir tür parametresi vardır (örneğin, `MyController<T>`). Aşağıdaki örnek, belirli bir tür listesi için genel denetleyici örnekleri ekler.
 
-[!code-csharp[](./app-parts/sample/AppPartsSample/GenericControllerFeatureProvider.cs?highlight=13&range=18-36)]
+[!code-csharp[](./app-parts/sample2/AppPartsSample/GenericControllerFeatureProvider.cs?name=snippet)]
 
-Varlık türleri:
+Türler içinde `EntityTypes.Types`tanımlanmıştır:
 
-[!code-csharp[](./app-parts/sample/AppPartsSample/Model/EntityTypes.cs?range=6-16)]
+[!code-csharp[](./app-parts/sample2/AppPartsSample/Models/EntityTypes.cs?name=snippet)]
 
 Özellik sağlayıcısı içine `Startup`eklenir:
 
-```csharp
-services.AddMvc()
-    .ConfigureApplicationPartManager(apm => 
-        apm.FeatureProviders.Add(new GenericControllerFeatureProvider()));
-```
+[!code-csharp[](./app-parts/sample2/AppPartsSample/Startup.cs?name=snippet)]
 
-Varsayılan olarak, yönlendirme için kullanılan genel denetleyici adları, *pencere öğesi*yerine *genericcontroller ' 1 [pencere öğesi]* biçiminde olacaktır. Aşağıdaki öznitelik, denetleyici tarafından kullanılan genel türe karşılık gelen adı değiştirmek için kullanılır:
+Yönlendirme için kullanılan genel denetleyici adları, *pencere öğesi*yerine *' 1 [pencere öğesi] biçiminde olan genericcontroller* . Aşağıdaki öznitelik, denetleyici tarafından kullanılan genel türe karşılık gelen adı değiştirir:
 
-[!code-csharp[](./app-parts/sample/AppPartsSample/GenericControllerNameConvention.cs)]
+[!code-csharp[](./app-parts/sample2/AppPartsSample/GenericControllerNameConvention.cs)]
 
 `GenericController` Sınıf:
 
-[!code-csharp[](./app-parts/sample/AppPartsSample/GenericController.cs?highlight=5-6)]
+[!code-csharp[](./app-parts/sample2/AppPartsSample/GenericController.cs)]
 
-Sonuç, eşleşen bir yol istendiğinde:
+### <a name="display-available-features"></a>Kullanılabilir özellikleri görüntüle
 
-![Örnek uygulama okumalarından örnek çıktı, ' bir genel Sprocket denetleyicisinden Merhaba. '](app-parts/_static/generic-controller.png)
+Bir uygulama için kullanılabilen özellikler, bir `ApplicationPartManager` [bağımlılık ekleme](../../fundamentals/dependency-injection.md)isteği isteyerek tarafından numaralandırılabilir:
 
-### <a name="sample-display-available-features"></a>Örnekli Kullanılabilir özellikleri görüntüle
+[!code-csharp[](./app-parts/sample2/AppPartsSample/Controllers/FeaturesController.cs?highlight=16,25-27)]
 
-`ApplicationPartManager` [Bağımlılık ekleme](../../fundamentals/dependency-injection.md) ve ilgili özelliklerin örneklerini doldurmak için kullanarak uygulamanız için kullanılabilen doldurulmuş özellikler arasında yineleme yapabilirsiniz:
-
-[!code-csharp[](./app-parts/sample/AppPartsSample/Controllers/FeaturesController.cs?highlight=16,25-27)]
-
-Örnek çıktı:
-
-![Örnek uygulamadaki örnek çıkış](app-parts/_static/available-features.png)
+[Yükleme örneği](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/advanced/app-parts/sample2) , uygulama özelliklerini göstermek için yukarıdaki kodu kullanır.
