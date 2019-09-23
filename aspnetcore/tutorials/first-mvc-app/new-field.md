@@ -134,5 +134,5 @@ dotnet ef database update
 Uygulamayı çalıştırın ve bir `Rating` alan ile film oluşturabileceğiniz/düzenleyebileceğiniz/görüntüleydiğinizi doğrulayın. `Rating` Alanı `Edit`, ,ve`Delete` şablonları görüntülemek için eklemeniz gerekir. `Details`
 
 > [!div class="step-by-step"]
-> [Önceki](search.md)İleri
-> [](validation.md)
+> [Önceki](search.md)
+> [İleri](validation.md)
