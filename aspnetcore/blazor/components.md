@@ -5,14 +5,14 @@ description: Veri bağlama, olayları işleme ve bileşen yaşam döngülerini y
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 09/21/2019
+ms.date: 09/23/2019
 uid: blazor/components
-ms.openlocfilehash: cf12be950043095b7e3e5eab897dd626021cb982
-ms.sourcegitcommit: 04ce94b3c1b01d167f30eed60c1c95446dfe759d
+ms.openlocfilehash: 28e908968bd77c61da72d1bcc6032e580d15541b
+ms.sourcegitcommit: 79eeb17604b536e8f34641d1e6b697fb9a2ee21f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/21/2019
-ms.locfileid: "71176383"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71207275"
 ---
 # <a name="create-and-use-aspnet-core-razor-components"></a>ASP.NET Core Razor bileşenleri oluşturma ve kullanma
 

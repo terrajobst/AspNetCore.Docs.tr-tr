@@ -5,14 +5,14 @@ description: ASP.NET Core uygulamasında .NET ile etkileşimli istemci tarafı W
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc, seoapril2019
-ms.date: 09/05/2019
+ms.date: 09/23/2019
 uid: blazor/index
-ms.openlocfilehash: 378892efafa6b979d7f92a5e559b2dc8bb12295d
-ms.sourcegitcommit: e5a74f882c14eaa0e5639ff082355e130559ba83
+ms.openlocfilehash: b02d721907ce7bd66ccd588f5c18d05add606fad
+ms.sourcegitcommit: 79eeb17604b536e8f34641d1e6b697fb9a2ee21f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71168262"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71211683"
 ---
 # <a name="introduction-to-blazor"></a>Blazor 'e giriş
 
