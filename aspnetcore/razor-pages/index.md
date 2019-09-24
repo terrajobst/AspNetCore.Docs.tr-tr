@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.date: 09/19/2019
 uid: razor-pages/index
-ms.openlocfilehash: 284fb0fa64b26cf51f822b9ef42fe9bb7247e421
-ms.sourcegitcommit: e7dc89620fa02c2ff80bee1e3f77297f97616968
+ms.openlocfilehash: 7e27bbc84816bd282b2b8de936772eb5c597d74f
+ms.sourcegitcommit: 79eeb17604b536e8f34641d1e6b697fb9a2ee21f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71151160"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71207380"
 ---
 # <a name="introduction-to-razor-pages-in-aspnet-core"></a>ASP.NET Core Razor Pages giriş
 
@@ -414,7 +414,7 @@ Kısmi görünümler hakkında daha fazla bilgi için bkz <xref:mvc/views/partia
 
 Daha önce gösterilen `RedirectToPage` `Create` sayfa şunları kullanır:
 
-[!code-cs[](index/3.0sample/RazorPagesContacts/Pages/Customers/Create.cshtml.cs?name=snippet_PageModel&highlight=15-16)]
+[!code-cs[](index/3.0sample/RazorPagesContacts/Pages/Customers/Create.cshtml.cs?name=snippet_PageModel&highlight=28)]
 
 Uygulama aşağıdaki dosya/klasör yapısına sahiptir:
 
@@ -428,13 +428,13 @@ Uygulama aşağıdaki dosya/klasör yapısına sahiptir:
     * *Edit.cshtml*
     * *Index.cshtml*
 
-*Pages/Customers/Create. cshtml* ve *Pages/Customers/Edit. cshtml* sayfaları, başarılı olduktan sonra *sayfaları/müşterileri/Index. cshtml* 'ye yeniden yönlendirir. Dize `./Index` , önceki sayfaya erişmek için URI 'nin bir parçasıdır. Dize `./Index` , *Sayfalar/Customers/Index. cshtml* sayfasına URI 'ler oluşturmak için kullanılabilir. Örneğin:
+*Pages/Customers/Create. cshtml* ve *Pages/Customers/Edit. cshtml* sayfaları, başarılı olduktan sonra *sayfaları/müşterileri/Index. cshtml* 'ye yeniden yönlendirir. Dize `./Index` , önceki sayfaya erişmek için kullanılan göreli bir sayfa adıdır. *Pages/Customers/Index. cshtml* sayfasının URL 'leri oluşturmak için kullanılır. Örneğin:
 
 * `Url.Page("./Index", ...)`
-* `<a asp-page="/Customers/Index">Customers Index Page</a>`
+* `<a asp-page="./Index">Customers Index Page</a>`
 * `RedirectToPage("./Index")`
 
-Dize `/Index` , *Sayfalar/Index. cshtml* sayfasına URI 'ler oluşturmak için kullanılabilir. Örneğin:
+Mutlak sayfa adı `/Index` , *Sayfalar/Index. cshtml* sayfasına URL 'ler oluşturmak için kullanılır. Örneğin:
 
 * `Url.Page("/Index", ...)`
 * `<a asp-page="/Index">Home Index Page</a>`

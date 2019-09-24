@@ -5,17 +5,14 @@ description: ASP.NET Core içindeki uygulama bölümleriyle denetleyicileri, gö
 ms.author: riande
 ms.date: 05/14/2019
 uid: mvc/extensibility/app-parts
-ms.openlocfilehash: ad0372f25377115e6fc7c8ea42db75de56b3e6d2
-ms.sourcegitcommit: d34b2627a69bc8940b76a949de830335db9701d3
+ms.openlocfilehash: 4b4c8c554a7045a180b56cf9998ab1a8496cde1b
+ms.sourcegitcommit: 79eeb17604b536e8f34641d1e6b697fb9a2ee21f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71187006"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71207354"
 ---
 # <a name="share-controllers-views-razor-pages-and-more-with-application-parts-in-aspnet-core"></a>ASP.NET Core içindeki uygulama bölümleriyle denetleyicileri, görünümleri, Razor Pages ve daha fazlasını paylaşma
-=======
-
-<!-- DO NOT MAKE CHANGES BEFORE https://github.com/aspnet/AspNetCore.Docs/pull/12376 Merges -->
 
 Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -37,7 +34,7 @@ Aşağıdaki kod, kullanarak `ApplicationPartManager` `AssemblyPart`yapılandır
 
 [!code-csharp[](./app-parts/sample1/WebAppParts/Startup2.cs?name=snippet)]
 
-Önceki iki kod örneği bir derlemeden yüklenir `SharedController` . , `SharedController` Uygulamalar projesinde değildir. Bkz. [Webappparts çözüm](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/advanced/app-parts/sample1/WebAppParts) örneği indirmesi.
+Önceki iki kod örneği bir derlemeden yüklenir `SharedController` . `SharedController` Uygulamanın projesinde değil. Bkz. [Webappparts çözüm](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/advanced/app-parts/sample1/WebAppParts) örneği indirmesi.
 
 ### <a name="include-views"></a>Görünümleri dahil et
 
@@ -46,14 +43,14 @@ Derleme içindeki görünümleri dahil etmek için:
 * Aşağıdaki biçimlendirmeyi paylaşılan proje dosyasına ekleyin:
 
   ```csproj
-    <ItemGroup>
-      <EmbeddedResource Include = "Views\**\*.cshtml" />
-    </ ItemGroup >
+  <ItemGroup>
+      <EmbeddedResource Include="Views\**\*.cshtml" />
+  </ItemGroup>
   ```
 
 * <xref:Microsoft.Extensions.FileProviders.EmbeddedFileProvider> Şunu öğesine ekleyin: <xref:Microsoft.AspNetCore.Mvc.Razor.RazorViewEngine>
 
-[!code-csharp[](./app-parts/sample1/WebAppParts/StartupViews.cs?name=snippet&highlight=3-7)]
+  [!code-csharp[](./app-parts/sample1/WebAppParts/StartupViews.cs?name=snippet&highlight=3-7)]
 
 ### <a name="prevent-loading-resources"></a>Kaynakları yüklemeyi engelle
 
@@ -63,8 +60,8 @@ Aşağıdaki kod uygulamadan kaldırmak <xref:Microsoft.AspNetCore.Mvc.Applicati
 
 , `ApplicationPartManager` Şunlar için parçalar içerir:
 
-* Uygulamalar derlemesi ve bağımlı derlemeler.
-* `Microsoft.AspNetCore.Mvc.TagHelpers`
+* Uygulamanın derlemesi ve bağımlı derlemeleri.
+* `Microsoft.AspNetCore.Mvc.TagHelpers`.
 * `Microsoft.AspNetCore.Mvc.Razor`.
 
 ## <a name="application-feature-providers"></a>Uygulama özelliği sağlayıcıları
@@ -79,7 +76,7 @@ Uygulama özelliği sağlayıcıları uygulama parçalarını inceler ve bu par�
 
 ### <a name="generic-controller-feature"></a>Genel denetleyici özelliği
 
-ASP.NET Core [genel denetleyicileri](/dotnet/csharp/programming-guide/generics/generic-classes)yoksayar. Genel denetleyicinin bir tür parametresi vardır (örneğin, `MyController<T>`). Aşağıdaki örnek, belirli bir tür listesi için genel denetleyici örnekleri ekler.
+ASP.NET Core [genel denetleyicileri](/dotnet/csharp/programming-guide/generics/generic-classes)yoksayar. Genel denetleyicinin bir tür parametresi vardır (örneğin, `MyController<T>`). Aşağıdaki örnek, belirli bir tür listesi için genel denetleyici örnekleri ekler:
 
 [!code-csharp[](./app-parts/sample2/AppPartsSample/GenericControllerFeatureProvider.cs?name=snippet)]
 
@@ -99,10 +96,34 @@ Yönlendirme için kullanılan genel denetleyici adları, *pencere öğesi*yerin
 
 [!code-csharp[](./app-parts/sample2/AppPartsSample/GenericController.cs)]
 
+Örneğin, aşağıdaki yanıtta `https://localhost:5001/Sprocket` sonuç URL 'si isteniyor:
+
+```text
+Hello from a generic Sprocket controller.
+```
+
 ### <a name="display-available-features"></a>Kullanılabilir özellikleri görüntüle
 
-Bir uygulama için kullanılabilen özellikler, bir `ApplicationPartManager` [bağımlılık ekleme](../../fundamentals/dependency-injection.md)isteği isteyerek tarafından numaralandırılabilir:
+Bir uygulama için kullanılabilen özellikler, bir `ApplicationPartManager` [bağımlılık ekleme](../../fundamentals/dependency-injection.md)isteği isteyerek numaralandırılabilir:
 
 [!code-csharp[](./app-parts/sample2/AppPartsSample/Controllers/FeaturesController.cs?highlight=16,25-27)]
 
-[Yükleme örneği](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/advanced/app-parts/sample2) , uygulama özelliklerini göstermek için yukarıdaki kodu kullanır.
+[Yükleme örneği](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/advanced/app-parts/sample2) , uygulama özelliklerini göstermek için yukarıdaki kodu kullanır:
+
+```text
+Controllers:
+    - FeaturesController
+    - HomeController
+    - HelloController
+    - GenericController`1
+    - GenericController`1
+Tag Helpers:
+    - PrerenderTagHelper
+    - AnchorTagHelper
+    - CacheTagHelper
+    - DistributedCacheTagHelper
+    - EnvironmentTagHelper
+    - Additional Tag Helpers omitted for brevity.
+View Components:
+    - SampleViewComponent
+```
