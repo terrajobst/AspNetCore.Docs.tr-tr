@@ -12,6 +12,8 @@
   uid: getting-started
 - name: Yenilikler
   items:
+    - name: 3.0 sürümündeki yenilikler
+      uid: aspnetcore-3.0
     - name: 2.2 sürümündeki yenilikler
       uid: aspnetcore-2.2
     - name: 2.1 sürümündeki yenilikler
@@ -327,6 +329,8 @@
               uid: host-and-deploy/blazor/server
             - name: Bağlayıcıyı yapılandırma
               uid: host-and-deploy/blazor/configure-linker
+        - name: Örnekler
+          href: 'https://github.com/aspnet/samples/tree/master/samples/aspnetcore/blazor'
     - name: İstemci tarafı geliştirme
       items:
         - name: Tek Sayfalı Uygulamalar
@@ -436,6 +440,8 @@
           uid: tutorials/get-started-with-swashbuckle
         - name: NSwag kullanmaya başlama
           uid: tutorials/get-started-with-nswag
+        - name: OpenAPI araçları
+          uid: web-api/Microsoft.dotnet-openapi
     - name: Eylem dönüş türleri
       uid: web-api/action-return-types
     - name: JSON Düzeltme eki isteklerini işleme
@@ -487,6 +493,9 @@
     - name: İstemciler
       displayName: signalr
       items:
+        - name: SignalR istemci özellikleri
+          uid: signalr/client-features
+          displayName: signalr
         - name: .NET istemcisi
           uid: signalr/dotnet-client
           displayName: signalr
@@ -563,6 +572,8 @@
       uid: grpc/configuration
     - name: Kimlik doğrulaması ve yetkilendirme
       uid: grpc/authn-and-authz
+    - name: Günlüğe kaydetme ve tanılama
+      uid: grpc/diagnostics
     - name: Güvenlik konuları
       uid: grpc/security
     - name: C Core’dan gRPC hizmetlerini geçirme
