@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 07/11/2019
 uid: fundamentals/logging/index
-ms.openlocfilehash: 03734addcc0e063c2c216b26b59762d27d35d47c
-ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
+ms.openlocfilehash: 90b439603dd51ff02e40045b9420876d7200bef1
+ms.sourcegitcommit: 8a36be1bfee02eba3b07b7a86085ec25c38bae6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71081152"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71219168"
 ---
 # <a name="logging-in-net-core-and-aspnet-core"></a>.NET Core ve ASP.NET Core oturum açma
 
@@ -216,7 +216,7 @@ Günlük sağlayıcılarını belirt `Logging` altındaki diğer özellikler. Ö
 
 ::: moniker-end
 
-Yapılandırma sağlayıcılarını uygulama hakkında daha fazla bilgi için <xref:fundamentals/configuration/index>bkz.
+Yapılandırma sağlayıcılarını uygulama hakkında daha fazla bilgi için <xref:fundamentals/configuration/index>bkz..
 
 ## <a name="sample-logging-output"></a>Örnek günlüğe kaydetme çıkışı
 
@@ -529,7 +529,7 @@ Adlarının, değerlerinin sağlanması için hangi parametrelerin kullanılaca�
 ```csharp
 string p1 = "parm1";
 string p2 = "parm2";
-_logger.LogInformation("Parameter values: {p2}, {p1}", p1, p2);
+_logger.LogInformation("Parameter values: {p1}, {p2}", p1, p2);
 ```
 
 Bu kod, sırasıyla parametre değerleriyle bir günlük iletisi oluşturur:
@@ -541,7 +541,7 @@ Parameter values: parm1, parm2
 Günlüğe kaydetme altyapısı bu şekilde çalışarak, günlük sağlayıcılarının [yapılandırılmış günlüğe yazma olarak da bilinen anlamsal günlüğü](https://softwareengineering.stackexchange.com/questions/312197/benefits-of-structured-logging-vs-basic-logging)uygulayabilmesini sağlayabilir. Bağımsız değişkenler yalnızca biçimli ileti şablonuna değil, günlük sistemine geçirilir. Bu bilgiler, günlük sağlayıcılarının parametre değerlerini alan olarak depolamasına olanak sağlar. Örneğin, günlükçü yönteminin şuna benzer şekilde göründüğünü varsayın:
 
 ```csharp
-_logger.LogInformation("Getting item {ID} at {RequestTime}", id, DateTime.Now);
+_logger.LogInformation("Getting item {Id} at {RequestTime}", id, DateTime.Now);
 ```
 
 Günlükleri Azure Tablo depolama alanına gönderiyorsanız, her bir Azure Tablo varlığı, günlük verilerinde sorguları basitleştiren `ID` ve `RequestTime` özelliklere sahip olabilir. Bir sorgu, belirli `RequestTime` bir aralıktaki tüm günlükleri, kısa mesajdan zaman aşımını ayrıştırmadan bulabilir.
@@ -621,7 +621,7 @@ Yapılandırma verileri ve `AddFilter` önceki örneklerde gösterilen kod, aşa
 
 | Sayı | Sağlayıcı      | Şununla başlayan Kategoriler...          | En düşük günlük düzeyi |
 | :----: | ------------- | --------------------------------------- | ----------------- |
-| 1\.      | Hata ayıklama         | Tüm Kategoriler                          | Bilgiler       |
+| 1.      | Hata ayıklama         | Tüm Kategoriler                          | Bilgiler       |
 | 2      | Konsol       | Microsoft.AspNetCore.Mvc.Razor.Internal | Uyarı           |
 | 3      | Konsol       | Microsoft.AspNetCore.Mvc.Razor.Razor    | Hata ayıklama             |
 | 4      | Konsol       | Microsoft.AspNetCore.Mvc.Razor          | Hata             |
