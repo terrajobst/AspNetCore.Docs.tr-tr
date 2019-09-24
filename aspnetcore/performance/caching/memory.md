@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 8/22/2019
 uid: performance/caching/memory
-ms.openlocfilehash: 1519abbca6430063f037372a4927f5818f160457
-ms.sourcegitcommit: 776598f71da0d1e4c9e923b3b395d3c3b5825796
+ms.openlocfilehash: 0479df14dd5d757710e361fce43782a8137588cb
+ms.sourcegitcommit: 0365af91518004c4a44a30dc3a8ac324558a399b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70024793"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71198898"
 ---
 # <a name="cache-in-memory-in-aspnet-core"></a>ASP.NET Core 'de önbellek belleği
 
@@ -47,9 +47,9 @@ Kodu `System.Runtime.Caching` ASP.NET 4. x konumundan ASP.NET Core taşıma sır
 
 * Kodun, verileri getirmek için her zaman bir geri dönüş seçeneği olmalıdır ve kullanılabilir önbelleğe alınmış bir değere bağlı **değildir** .
 * Önbellek bir nadir kaynağı, bellek kullanır. Önbellek büyümesini sınırla:
-  * Dış girişi önbellek anahtarları olarak kullanmayın.
+  * Dış girişi önbellek anahtarları **olarak kullanmayın.**
   * Önbellek büyümesini sınırlamak için süre sonlarını kullanın.
-  * [Önbellek boyutunu sınırlamak Için SetSize, size ve SizeLimit kullanın](#use-setsize-size-and-sizelimit-to-limit-cache-size). ASP.NET Core çalışma zamanı, bellek baskısı temelinde önbellek boyutunu sınırlamaz. En fazla geliştirici, önbellek boyutunu sınırlayacak.
+  * [Önbellek boyutunu sınırlamak Için SetSize, size ve SizeLimit kullanın](#use-setsize-size-and-sizelimit-to-limit-cache-size). ASP.NET Core çalışma zamanı, bellek baskısı temelinde önbellek **boyutunu sınırlamaz.** En fazla geliştirici, önbellek boyutunu sınırlayacak.
 
 ## <a name="use-imemorycache"></a>Imemorycache kullan
 
@@ -63,7 +63,7 @@ Bellek içi önbelleğe alma, [bağımlılık ekleme](xref:fundamentals/dependen
 
 Aşağıdaki kod, bir saatin önbellekte olup olmadığını denetlemek için [TryGetValue](/dotnet/api/microsoft.extensions.caching.memory.imemorycache.trygetvalue?view=aspnetcore-2.0#Microsoft_Extensions_Caching_Memory_IMemoryCache_TryGetValue_System_Object_System_Object__) kullanır. Bir zaman önbelleğe alınmadıysa, yeni bir giriş oluşturulur ve [Ayarla](/dotnet/api/microsoft.extensions.caching.memory.cacheextensions.set?view=aspnetcore-2.0#Microsoft_Extensions_Caching_Memory_CacheExtensions_Set__1_Microsoft_Extensions_Caching_Memory_IMemoryCache_System_Object___0_Microsoft_Extensions_Caching_Memory_MemoryCacheEntryOptions_)birlikte önbelleğe eklenir. `CacheKeys` Sınıf, indirme örneğinin bir parçasıdır.
 
-[! Code-CSharp [] (bellek/3.0 örnek/WebCacheSample/CacheKeys. cs) [](memory/3.0sample/WebCacheSample/CacheKeys.cs)]
+[!code-csharp[](memory/3.0sample/WebCacheSample/CacheKeys.cs)]
 
 [!code-csharp[](memory/3.0sample/WebCacheSample/Controllers/HomeController.cs?name=snippet1)]
 
@@ -87,7 +87,7 @@ Aşağıdaki kod, mutlak süre sonu ile önbelleğe alınmış bir öğe alır v
 
 Yalnızca kayan bir süre sonu olan önbelleğe alınmış bir öğe kümesi, eski olma riski altında. Kayan süre sonu aralığından daha sık erişiliyorsa, öğe hiçbir zaman sona ermez. Mutlak süre sonu zamanı başarılı olduktan sonra öğenin süresinin dolacağını garantilemek için kayan bir süre sonu mutlak bir süre sonu ile birleştirin. Mutlak süre sonu, öğenin, Kayan süre sonu aralığı içinde istenmediğinde daha önce süresinin dolmasına izin verirken öğenin ne kadar süre önbellekte önbelleğe alınacağını belirleyen bir üst sınır ayarlar. Mutlak ve kayan süre sonu belirtildiğinde, süre sonları mantıksal ORed. Kayan süre sonu aralığı *veya* mutlak süre sonu zamanı başarılı olursa, öğe önbellekten çıkarıldı.
 
-Aşağıdaki kod hem kayan hem de mutlak süre sonu ile önbelleğe alınmış bir öğe alır veya oluşturur:
+Aşağıdaki kod *hem kayan hem de mutlak* süre sonu ile önbelleğe alınmış bir öğe alır veya oluşturur:
 
 [!code-csharp[](memory/3.0sample/WebCacheSample/Controllers/HomeController.cs?name=snippet9)]
 
@@ -220,7 +220,7 @@ Kodu `System.Runtime.Caching` ASP.NET 4. x konumundan ASP.NET Core taşıma sır
 
 * Kodun, verileri getirmek için her zaman bir geri dönüş seçeneği olmalıdır ve kullanılabilir önbelleğe alınmış bir değere bağlı **değildir** .
 * Önbellek bir nadir kaynağı, bellek kullanır. Önbellek büyümesini sınırla:
-  * Dış girişi önbellek anahtarları olarak kullanmayın.
+  * Dış girişi önbellek anahtarları **olarak kullanmayın.**
   * Önbellek büyümesini sınırlamak için süre sonlarını kullanın.
   * [Önbellek boyutunu sınırlamak Için SetSize, size ve SizeLimit kullanın](#use-setsize-size-and-sizelimit-to-limit-cache-size). ASP.NET Core çalışma zamanı, bellek baskısı temelinde önbellek boyutunu sınırlamaz. En fazla geliştirici, önbellek boyutunu sınırlayacak.
 

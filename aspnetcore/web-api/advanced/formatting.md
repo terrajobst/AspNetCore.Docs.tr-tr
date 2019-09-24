@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: H1Hack27Feb2017
 ms.date: 8/22/2019
 uid: web-api/advanced/formatting
-ms.openlocfilehash: 7b19bf54ea9f8a87c26ba7567a7348fcbea997c8
-ms.sourcegitcommit: e7dc89620fa02c2ff80bee1e3f77297f97616968
+ms.openlocfilehash: 5861a8e353b8fac95ca51aca7b44a768d3c2ffb7
+ms.sourcegitcommit: 0365af91518004c4a44a30dc3a8ac324558a399b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71151187"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71199054"
 ---
 # <a name="format-response-data-in-aspnet-core-web-api"></a>ASP.NET Core Web API 'sindeki yanıt verilerini biçimlendirme
 
@@ -250,8 +250,8 @@ Bazı özel durumlar, yerleşik formatlayıcılar kullanılarak uygulanır. Vars
 
 Önceki yol, istenen biçimin isteğe bağlı bir dosya uzantısı olarak belirtilmesini sağlar. [`[FormatFilter]`](xref:Microsoft.AspNetCore.Mvc.FormatFilterAttribute) Özniteliği ,`RouteData` içindeki biçim değerinin varlığını denetler ve yanıt oluşturulduğunda yanıt biçimini uygun biçimlendirici ile eşler.
 
-|           Yolu            |             Biçimlendirici              |
-|----------------------------|------------------------------------|
-|   `/products/GetById/5`    |    Varsayılan çıkış biçimlendiricisi    |
-| `/products/GetById/5.json` | JSON biçimlendiricisi (yapılandırıldıysa) |
-| `/products/GetById/5.xml`  | XML biçimlendiricisi (yapılandırıldıysa)  |
+|           Yolu        |             Biçimlendirici              |
+|------------------------|------------------------------------|
+|   `/api/products/5`    |    Varsayılan çıkış biçimlendiricisi    |
+| `/api/products/5.json` | JSON biçimlendiricisi (yapılandırıldıysa) |
+| `/api/products/5.xml`  | XML biçimlendiricisi (yapılandırıldıysa)  |
