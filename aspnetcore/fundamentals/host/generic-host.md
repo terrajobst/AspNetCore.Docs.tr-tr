@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 07/01/2019
 uid: fundamentals/host/generic-host
-ms.openlocfilehash: 261abae499a0d5f807a14aebd224949881067bc7
-ms.sourcegitcommit: f65d8765e4b7c894481db9b37aa6969abc625a48
+ms.openlocfilehash: 75af6dc58d31aaad888b14640268bf05c193272d
+ms.sourcegitcommit: e54672f5c493258dc449fac5b98faf47eb123b28
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70773809"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71248276"
 ---
 # <a name="net-generic-host"></a>.NET genel ana bilgisayar
 
@@ -113,7 +113,7 @@ Kayıtlı hizmetler otomatik olarak şunları içerir:
 * [Ihostlifetime](#ihostlifetime)
 * [Ihostenvironment/ıwebhostenvironment](#ihostenvironment)
 
-Framework tarafından sunulan tüm hizmetlerin bir listesi için bkz <xref:fundamentals/dependency-injection#framework-provided-services>.
+Framework tarafından sunulan hizmetler hakkında daha fazla bilgi için bkz <xref:fundamentals/dependency-injection#framework-provided-services>.
 
 ## <a name="ihostapplicationlifetime"></a>Ihostapplicationlifetime
 
@@ -376,7 +376,7 @@ webBuilder.UseStartup<Startup>();
 
 ### <a name="urls"></a>URL'ler
 
-Sunucu istekleri için dinlemesi gereken bağlantı noktaları ve protokollerle, noktalı virgülle ayrılmış IP adresleri listesi veya ana bilgisayar adresleri. Örneğin: `http://localhost:123`. Sunucunun belirtilen\*bağlantı noktasını ve Protokolü (örneğin, `http://*:5000`) kullanarak herhangi bir IP adresi veya ana bilgisayar için istekleri dinlemesi gerektiğini belirtmek için "" kullanın. Protokol (`http://` veya `https://`) her URL 'ye dahil edilmiş olmalıdır. Desteklenen biçimler sunucular arasında farklılık gösterir.
+Sunucu istekleri için dinlemesi gereken bağlantı noktaları ve protokollerle, noktalı virgülle ayrılmış IP adresleri listesi veya ana bilgisayar adresleri. Örneğin, uygulamasında yönetilen Hyper-V konakları olarak eklemek için aşağıdaki yordamı kullanabilirsiniz. Sunucunun belirtilen\*bağlantı noktasını ve Protokolü (örneğin, `http://*:5000`) kullanarak herhangi bir IP adresi veya ana bilgisayar için istekleri dinlemesi gerektiğini belirtmek için "" kullanın. Protokol (`http://` veya `https://`) her URL 'ye dahil edilmiş olmalıdır. Desteklenen biçimler sunucular arasında farklılık gösterir.
 
 **Anahtar**: URL 'ler  
 **Tür**: *dize*  

@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 07/11/2019
 uid: fundamentals/logging/index
-ms.openlocfilehash: 90b439603dd51ff02e40045b9420876d7200bef1
-ms.sourcegitcommit: 8a36be1bfee02eba3b07b7a86085ec25c38bae6b
+ms.openlocfilehash: 2d517a89c6002b5c85e98128605f95585354f8db
+ms.sourcegitcommit: e54672f5c493258dc449fac5b98faf47eb123b28
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 09/24/2019
-ms.locfileid: "71219168"
+ms.locfileid: "71248255"
 ---
 # <a name="logging-in-net-core-and-aspnet-core"></a>.NET Core ve ASP.NET Core oturum açma
 
@@ -216,7 +216,7 @@ Günlük sağlayıcılarını belirt `Logging` altındaki diğer özellikler. Ö
 
 ::: moniker-end
 
-Yapılandırma sağlayıcılarını uygulama hakkında daha fazla bilgi için <xref:fundamentals/configuration/index>bkz..
+Yapılandırma sağlayıcılarını uygulama hakkında daha fazla bilgi için <xref:fundamentals/configuration/index>bkz.
 
 ## <a name="sample-logging-output"></a>Örnek günlüğe kaydetme çıkışı
 
@@ -621,7 +621,7 @@ Yapılandırma verileri ve `AddFilter` önceki örneklerde gösterilen kod, aşa
 
 | Sayı | Sağlayıcı      | Şununla başlayan Kategoriler...          | En düşük günlük düzeyi |
 | :----: | ------------- | --------------------------------------- | ----------------- |
-| 1.      | Hata ayıklama         | Tüm Kategoriler                          | Bilgiler       |
+| 1\.      | Hata ayıklama         | Tüm Kategoriler                          | Bilgiler       |
 | 2      | Konsol       | Microsoft.AspNetCore.Mvc.Razor.Internal | Uyarı           |
 | 3      | Konsol       | Microsoft.AspNetCore.Mvc.Razor.Razor    | Hata ayıklama             |
 | 4      | Konsol       | Microsoft.AspNetCore.Mvc.Razor          | Hata             |
@@ -936,7 +936,7 @@ Bazı üçüncü taraf çerçeveler [, yapılandırılmış günlük olarak da b
 Bir üçüncü taraf çerçevesinin kullanılması, yerleşik sağlayıcılardan birini kullanmaya benzer:
 
 1. Projenize bir NuGet paketi ekleyin.
-1. Bir `ILoggerFactory`çağırın.
+1. Günlüğe kaydetme `ILoggerFactory` çerçevesi tarafından sağlanmış bir genişletme yöntemi çağırın.
 
 Daha fazla bilgi için bkz. her sağlayıcının belgeleri. Üçüncü taraf günlüğü sağlayıcıları Microsoft tarafından desteklenmez.
 

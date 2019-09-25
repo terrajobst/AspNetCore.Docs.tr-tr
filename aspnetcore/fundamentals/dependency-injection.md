@@ -5,14 +5,14 @@ description: ASP.NET Core bağımlılık ekleme ve nasıl kullanılacağı hakk�
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 08/14/2019
+ms.date: 09/24/2019
 uid: fundamentals/dependency-injection
-ms.openlocfilehash: a984bb766e6876db4f8ed4c850a1984ba87d627d
-ms.sourcegitcommit: 476ea5ad86a680b7b017c6f32098acd3414c0f6c
+ms.openlocfilehash: fefd0b9df71d5b0e7c30a31620292fd37eeecfa4
+ms.sourcegitcommit: e54672f5c493258dc449fac5b98faf47eb123b28
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69022283"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71248271"
 ---
 # <a name="dependency-injection-in-aspnet-core"></a>ASP.NET Core bağımlılık ekleme
 
@@ -74,11 +74,31 @@ Bağımlılık ekleme bu sorunları şu şekilde giderir:
 
 [Örnek uygulamada](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/dependency-injection/samples), `IMyDependency` arabirim, hizmetin uygulamaya sağladığı bir yöntemi tanımlar:
 
+::: moniker range=">= aspnetcore-3.0"
+
+[!code-csharp[](dependency-injection/samples/3.x/DependencyInjectionSample/Interfaces/IMyDependency.cs?name=snippet1)]
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
+
 [!code-csharp[](dependency-injection/samples/2.x/DependencyInjectionSample/Interfaces/IMyDependency.cs?name=snippet1)]
+
+::: moniker-end
 
 Bu arabirim somut bir tür tarafından uygulanır, `MyDependency`:
 
+::: moniker range=">= aspnetcore-3.0"
+
+[!code-csharp[](dependency-injection/samples/3.x/DependencyInjectionSample/Services/MyDependency.cs?name=snippet1)]
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
+
 [!code-csharp[](dependency-injection/samples/2.x/DependencyInjectionSample/Services/MyDependency.cs?name=snippet1)]
+
+::: moniker-end
 
 `MyDependency`kendi oluşturucusunda <xref:Microsoft.Extensions.Logging.ILogger`1> bir ister. Bağımlılık ekleme işlemini zincirleme bir biçimde kullanmak olağan dışı değildir. Her istenen bağımlılık, kendi bağımlılıklarını ister. Kapsayıcı grafikteki bağımlılıkları çözer ve tamamen çözümlenen hizmeti döndürür. Çözümlenmesi gereken, genellikle *bağımlılık ağacı*, *bağımlılık grafiği*veya *nesne grafiği*olarak adlandırılan toplu bağımlılıklar kümesi.
 
@@ -92,7 +112,17 @@ services.AddSingleton(typeof(ILogger<T>), typeof(Logger<T>));
 
 Örnek uygulamada, `IMyDependency` hizmet somut tür `MyDependency`ile kaydedilir. Kayıt, hizmet ömrünü tek bir isteğin kullanım ömrüne göre kapsamlar. [Hizmet yaşam süreleri](#service-lifetimes) bu konunun ilerleyen kısımlarında açıklanmıştır.
 
+::: moniker range=">= aspnetcore-3.0"
+
+[!code-csharp[](dependency-injection/samples/3.x/DependencyInjectionSample/Startup.cs?name=snippet1&highlight=5)]
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
+
 [!code-csharp[](dependency-injection/samples/2.x/DependencyInjectionSample/Startup.cs?name=snippet1&highlight=5)]
+
+::: moniker-end
 
 > [!NOTE]
 > Her `services.Add{SERVICE_NAME}` uzantı yöntemi Hizmetleri ekler (ve potansiyel olarak yapılandırır). Örneğin, `services.AddMvc()` Razor Pages ve MVC 'nin gerektirdiği Hizmetleri ekler. Uygulamaların bu kuralı izlemesini öneririz. Hizmet kaydı gruplarını kapsüllemek için uzantı yöntemlerini [Microsoft. Extensions. Dependencyınjection](/dotnet/api/microsoft.extensions.dependencyinjection) ad alanına yerleştirin.
@@ -117,11 +147,63 @@ Hizmetin bir örneği, hizmetin kullanıldığı ve özel bir alana atandığı 
 
 Örnek uygulamada, `IMyDependency` örnek istenir ve `WriteMessage` hizmetin yöntemini çağırmak için kullanılır:
 
+::: moniker range=">= aspnetcore-3.0"
+
+[!code-csharp[](dependency-injection/samples/3.x/DependencyInjectionSample/Pages/Index.cshtml.cs?name=snippet1&highlight=3,6,13,29-30)]
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
+
 [!code-csharp[](dependency-injection/samples/2.x/DependencyInjectionSample/Pages/Index.cshtml.cs?name=snippet1&highlight=3,6,13,29-30)]
+
+::: moniker-end
+
+## <a name="services-injected-into-startup"></a>Başlangıca eklenen hizmetler
+
+Genel ana bilgisayar ( `Startup` <xref:Microsoft.Extensions.Hosting.IHostBuilder>) kullanılırken oluşturucuya yalnızca aşağıdaki hizmet türleri eklenebilir:
+
+* `IWebHostEnvironment`
+* <xref:Microsoft.Extensions.Hosting.IHostEnvironment>
+* <xref:Microsoft.Extensions.Configuration.IConfiguration>
+
+Hizmetler şu şekilde eklenebilir `Startup.Configure`:
+
+```csharp
+public void Configure(IApplicationBuilder app, IOptions<MyOptions> options)
+{
+    ...
+}
+```
+
+Daha fazla bilgi için bkz. <xref:fundamentals/startup>.
 
 ## <a name="framework-provided-services"></a>Framework tarafından sunulan hizmetler
 
-`Startup.ConfigureServices` Yöntemi, Entity Framework Core ve ASP.NET Core MVC gibi platform özellikleri de dahil olmak üzere, uygulamanın kullandığı hizmetleri tanımlamaktan sorumludur. Başlangıçta, `IServiceCollection` için `ConfigureServices` belirtilen hizmetler tanımlı ( [konağın nasıl yapılandırıldığına](xref:fundamentals/index#host)bağlı olarak):
+`Startup.ConfigureServices` Yöntemi, Entity Framework Core ve ASP.NET Core MVC gibi platform özellikleri de dahil olmak üzere, uygulamanın kullandığı hizmetleri tanımlamaktan sorumludur. Başlangıçta, için `IServiceCollection` `ConfigureServices` belirtilen, [konağın nasıl yapılandırıldığına](xref:fundamentals/index#host)bağlı olarak Framework tarafından tanımlanan hizmetlere sahiptir. Çerçeve tarafından kaydedilmiş yüzlerce hizmete sahip olmak ASP.NET Core şablona dayalı bir uygulama için sık görülen bir durumdur. Aşağıdaki tabloda çerçeve kayıtlı hizmetlerden oluşan küçük bir örnek listelenmiştir.
+
+::: moniker range=">= aspnetcore-3.0"
+
+| Hizmet Türü | Ömür |
+| ------------ | -------- |
+| <xref:Microsoft.AspNetCore.Hosting.Builder.IApplicationBuilderFactory?displayProperty=fullName> | Geçici |
+| `IHostApplicationLifetime` | Adet |
+| `IWebHostEnvironment` | Adet |
+| <xref:Microsoft.AspNetCore.Hosting.IStartup?displayProperty=fullName> | Adet |
+| <xref:Microsoft.AspNetCore.Hosting.IStartupFilter?displayProperty=fullName> | Geçici |
+| <xref:Microsoft.AspNetCore.Hosting.Server.IServer?displayProperty=fullName> | Adet |
+| <xref:Microsoft.AspNetCore.Http.IHttpContextFactory?displayProperty=fullName> | Geçici |
+| <xref:Microsoft.Extensions.Logging.ILogger`1?displayProperty=fullName> | Adet |
+| <xref:Microsoft.Extensions.Logging.ILoggerFactory?displayProperty=fullName> | Adet |
+| <xref:Microsoft.Extensions.ObjectPool.ObjectPoolProvider?displayProperty=fullName> | Adet |
+| <xref:Microsoft.Extensions.Options.IConfigureOptions`1?displayProperty=fullName> | Geçici |
+| <xref:Microsoft.Extensions.Options.IOptions`1?displayProperty=fullName> | Adet |
+| <xref:System.Diagnostics.DiagnosticSource?displayProperty=fullName> | Adet |
+| <xref:System.Diagnostics.DiagnosticListener?displayProperty=fullName> | Adet |
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
 
 | Hizmet Türü | Ömür |
 | ------------ | -------- |
@@ -140,11 +222,17 @@ Hizmetin bir örneği, hizmetin kullanıldığı ve özel bir alana atandığı 
 | <xref:System.Diagnostics.DiagnosticSource?displayProperty=fullName> | Adet |
 | <xref:System.Diagnostics.DiagnosticListener?displayProperty=fullName> | Adet |
 
-Bir hizmet koleksiyonu genişletme yöntemi (ve gerekirse bağımlı hizmetleri) kaydetmek için kullanılabilir olduğunda, bu hizmet için gereken tüm hizmetleri kaydetmek üzere kural tek `Add{SERVICE_NAME}` bir genişletme yöntemi kullanmaktır. Aşağıdaki kod, [adddbcontext\<tcontext >](/dotnet/api/microsoft.extensions.dependencyinjection.entityframeworkservicecollectionextensions.adddbcontext), <xref:Microsoft.Extensions.DependencyInjection.IdentityServiceCollectionExtensions.AddIdentityCore*>ve <xref:Microsoft.Extensions.DependencyInjection.MvcServiceCollectionExtensions.AddMvc*>uzantı yöntemlerini kullanarak kapsayıcıya ek hizmetler ekleme örneğidir.
+::: moniker-end
+
+## <a name="register-additional-services-with-extension-methods"></a>Uzantı yöntemleriyle ek hizmetleri kaydetme
+
+Bir hizmet koleksiyonu genişletme yöntemi (ve gerekirse bağımlı hizmetleri) kaydetmek için kullanılabilir olduğunda, bu hizmet için gereken tüm hizmetleri kaydetmek üzere kural tek `Add{SERVICE_NAME}` bir genişletme yöntemi kullanmaktır. Aşağıdaki kod, <xref:Microsoft.Extensions.DependencyInjection.IdentityServiceCollectionExtensions.AddIdentityCore*> [adddbcontext\<tcontext >](/dotnet/api/microsoft.extensions.dependencyinjection.entityframeworkservicecollectionextensions.adddbcontext) uzantı yöntemlerini kullanarak kapsayıcıya ek hizmetler eklemenin bir örneğidir:
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
 {
+    ...
+
     services.AddDbContext<ApplicationDbContext>(options =>
         options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
@@ -152,7 +240,7 @@ public void ConfigureServices(IServiceCollection services)
         .AddEntityFrameworkStores<ApplicationDbContext>()
         .AddDefaultTokenProviders();
 
-    services.AddMvc();
+    ...
 }
 ```
 
@@ -248,11 +336,31 @@ Entity Framework bağlamlar genellikle, Web uygulaması veritabanı işlemleri n
 
 Ömür ve kayıt seçenekleri arasındaki farkı göstermek için, görevleri benzersiz bir tanımlayıcıya `OperationId`sahip bir işlem olarak temsil eden aşağıdaki arayüzleri göz önünde bulundurun. Bir işlem hizmetinin yaşam süresinin aşağıdaki arabirimler için nasıl yapılandırıldığına bağlı olarak kapsayıcı, bir sınıf tarafından istendiğinde aynı ya da farklı bir hizmet örneği sağlar:
 
+::: moniker range=">= aspnetcore-3.0"
+
+[!code-csharp[](dependency-injection/samples/3.x/DependencyInjectionSample/Interfaces/IOperation.cs?name=snippet1)]
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
+
 [!code-csharp[](dependency-injection/samples/2.x/DependencyInjectionSample/Interfaces/IOperation.cs?name=snippet1)]
+
+::: moniker-end
 
 Arabirimler `Operation` sınıfında uygulanır. Bir tane sağlanmazsa Oluşturucu bir GUID oluşturur: `Operation`
 
+::: moniker range=">= aspnetcore-3.0"
+
+[!code-csharp[](dependency-injection/samples/3.x/DependencyInjectionSample/Models/Operation.cs?name=snippet1)]
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
+
 [!code-csharp[](dependency-injection/samples/2.x/DependencyInjectionSample/Models/Operation.cs?name=snippet1)]
+
+::: moniker-end
 
 `OperationService` , Diğer`Operation` türlerin her birine bağlı olarak kaydedilir. `OperationService` Bağımlılık ekleme yoluyla istendiğinde, her bir hizmetin yeni bir örneğini ya da bağımlı hizmetin kullanım ömrü temelinde mevcut bir örneği alır.
 
@@ -260,17 +368,47 @@ Arabirimler `Operation` sınıfında uygulanır. Bir tane sağlanmazsa Oluşturu
 * İstemci isteği başına kapsamlı hizmetler oluşturulduğunda, `OperationId` `IOperationScoped` hizmetin istemci isteği `OperationService` içindeki ile aynı olması gerekir. İstemci istekleri arasında her iki hizmet de farklı `OperationId` bir değer paylaşır.
 * Tek ve tek örnekli hizmetler bir kez oluşturulduğunda ve tüm istemci isteklerinde ve tüm hizmetlerde `OperationId` kullanıldığında, tüm hizmet istekleri genelinde sabittir.
 
+::: moniker range=">= aspnetcore-3.0"
+
+[!code-csharp[](dependency-injection/samples/3.x/DependencyInjectionSample/Services/OperationService.cs?name=snippet1)]
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
+
 [!code-csharp[](dependency-injection/samples/2.x/DependencyInjectionSample/Services/OperationService.cs?name=snippet1)]
+
+::: moniker-end
 
 ' `Startup.ConfigureServices`De, her tür kapsayıcısına, adlandırılmış ömrüne göre eklenir:
 
+::: moniker range=">= aspnetcore-3.0"
+
+[!code-csharp[](dependency-injection/samples/3.x/DependencyInjectionSample/Startup.cs?name=snippet1&highlight=6-9,12)]
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
+
 [!code-csharp[](dependency-injection/samples/2.x/DependencyInjectionSample/Startup.cs?name=snippet1&highlight=6-9,12)]
+
+::: moniker-end
 
 Hizmet, bilinen `Guid.Empty`kimliği olan belirli bir örnek kullanıyor. `IOperationSingletonInstance` Bu tür kullanımda olduğunda (GUID 'sinin tümü sıfırlardan tamamen) Bu bir şey vardır.
 
 Örnek uygulama, bireysel istekler içindeki ve içindeki nesne yaşam sürelerini gösterir. Örnek uygulama `IndexModel` , her `IOperation` tür ve ' i `OperationService`ister. Daha sonra sayfa, tüm sayfa modeli sınıfının ve hizmetin `OperationId` değerlerini özellik atamaları aracılığıyla görüntüler:
 
+::: moniker range=">= aspnetcore-3.0"
+
+[!code-csharp[](dependency-injection/samples/3.x/DependencyInjectionSample/Pages/Index.cshtml.cs?name=snippet1&highlight=7-11,14-18,21-25)]
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
+
 [!code-csharp[](dependency-injection/samples/2.x/DependencyInjectionSample/Pages/Index.cshtml.cs?name=snippet1&highlight=7-11,14-18,21-25)]
+
+::: moniker-end
 
 Aşağıdaki iki çıktıda iki isteğin sonuçları gösterilmektedir:
 
@@ -316,30 +454,93 @@ Instance 00000000-0000-0000-0000-000000000000
 
 Uygulamanın kapsamındaki <xref:Microsoft.Extensions.DependencyInjection.IServiceScope> bir kapsamlı hizmeti çözümlemek için [ıvicescopefactory. CreateScope](xref:Microsoft.Extensions.DependencyInjection.IServiceScopeFactory.CreateScope*) ile bir oluşturun. Bu yaklaşım, başlatma görevlerini çalıştırmak üzere başlangıçta kapsamlı bir hizmete erişmek için yararlıdır. Aşağıdaki örnek, `MyScopedService` içinde `Program.Main`için nasıl bağlam alınacağını gösterir:
 
+::: moniker range=">= aspnetcore-3.0"
+
 ```csharp
-public static void Main(string[] args)
+using System;
+using System.Threading.Tasks;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Hosting;
+
+public class Program
 {
-    var host = CreateWebHostBuilder(args).Build();
-
-    using (var serviceScope = host.Services.CreateScope())
+    public static async Task Main(string[] args)
     {
-        var services = serviceScope.ServiceProvider;
+        var host = CreateHostBuilder(args).Build();
 
-        try
+        using (var serviceScope = host.Services.CreateScope())
         {
-            var serviceContext = services.GetRequiredService<MyScopedService>();
-            // Use the context here
+            var services = serviceScope.ServiceProvider;
+
+            try
+            {
+                var serviceContext = services.GetRequiredService<MyScopedService>();
+                // Use the context here
+            }
+            catch (Exception ex)
+            {
+                var logger = services.GetRequiredService<ILogger<Program>>();
+                logger.LogError(ex, "An error occurred.");
+            }
         }
-        catch (Exception ex)
-        {
-            var logger = services.GetRequiredService<ILogger<Program>>();
-            logger.LogError(ex, "An error occurred.");
-        }
+    
+        await host.RunAsync();
     }
 
-    host.Run();
+    public static IHostBuilder CreateHostBuilder(string[] args) =>
+        Host.CreateDefaultBuilder(args)
+            .ConfigureWebHostDefaults(webBuilder =>
+            {
+                webBuilder.UseStartup<Startup>();
+            });
 }
 ```
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
+
+```csharp
+using System;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
+
+public class Program
+{
+    public static async Task Main(string[] args)
+    {
+        var host = CreateWebHostBuilder(args).Build();
+
+        using (var serviceScope = host.Services.CreateScope())
+        {
+            var services = serviceScope.ServiceProvider;
+
+            try
+            {
+                var serviceContext = services.GetRequiredService<MyScopedService>();
+                // Use the context here
+            }
+            catch (Exception ex)
+            {
+                var logger = services.GetRequiredService<ILogger<Program>>();
+                logger.LogError(ex, "An error occurred.");
+            }
+        }
+    
+        await host.RunAsync();
+    }
+
+    public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+        WebHost.CreateDefaultBuilder(args)
+            .UseStartup<Startup>();
+}
+```
+
+::: moniker-end
 
 ## <a name="scope-validation"></a>Kapsam doğrulaması
 
@@ -405,7 +606,7 @@ public void ConfigureServices(IServiceCollection services)
 
 ## <a name="default-service-container-replacement"></a>Varsayılan hizmet kapsayıcısı değiştirme
 
-Yerleşik hizmet kapsayıcısı, çerçeve ihtiyaçlarını ve çoğu tüketici uygulamayı sunmaktır. Desteklemediği belirli bir özelliğe ihtiyaç duymadığınız takdirde, yerleşik kapsayıcının kullanılması önerilir. 3\. taraf kapsayıcılarında desteklenen özelliklerden bazıları yerleşik kapsayıcıda bulunamadı:
+Yerleşik hizmet kapsayıcısı, çerçeve ihtiyaçlarına ve çoğu tüketici uygulamasına hizmet vermek için tasarlanmıştır. Yerleşik kapsayıcının desteklemediği belirli bir özelliğe ihtiyacınız yoksa, yerleşik kapsayıcının kullanılması önerilir, örneğin:
 
 * Özellik ekleme
 * Ada göre ekleme
@@ -413,53 +614,21 @@ Yerleşik hizmet kapsayıcısı, çerçeve ihtiyaçlarını ve çoğu tüketici 
 * Özel ömür yönetimi
 * `Func<T>`yavaş başlatma desteği
 
-Bağdaştırıcıları destekleyen bazı kapsayıcıların bir listesi için [bağımlılık ekleme Readme.MD dosyasına](https://github.com/aspnet/Extensions/tree/master/src/DependencyInjection) bakın.
+Aşağıdaki 3. taraf kapsayıcıları ASP.NET Core uygulamalarla kullanılabilir:
 
-Aşağıdaki örnek, [Autofac](https://autofac.org/)ile yerleşik kapsayıcının yerini alır:
-
-* Uygun kapsayıcı paketlerini yükler:
-
-  * [Autofac](https://www.nuget.org/packages/Autofac/)
-  * [Autofac. Extensions. Dependencyınjection](https://www.nuget.org/packages/Autofac.Extensions.DependencyInjection/)
-
-* ' De `Startup.ConfigureServices` kapsayıcıyı yapılandırın ve şunu `IServiceProvider`döndürün:
-
-    ```csharp
-    public IServiceProvider ConfigureServices(IServiceCollection services)
-    {
-        services.AddMvc();
-        // Add other framework services
-
-        // Add Autofac
-        var containerBuilder = new ContainerBuilder();
-        containerBuilder.RegisterModule<DefaultModule>();
-        containerBuilder.Populate(services);
-        var container = containerBuilder.Build();
-        return new AutofacServiceProvider(container);
-    }
-    ```
-
-    3\. taraf kapsayıcısını `Startup.ConfigureServices` kullanmak için döndürmelidir. `IServiceProvider`
-
-* Autofac 'i `DefaultModule`yapılandırma:
-
-    ```csharp
-    public class DefaultModule : Module
-    {
-        protected override void Load(ContainerBuilder builder)
-        {
-            builder.RegisterType<CharacterRepository>().As<ICharacterRepository>();
-        }
-    }
-    ```
-
-Çalışma zamanında, Autofac türleri ve ekleme bağımlılıklarını çözümlemek için kullanılır. ASP.NET Core ile Autofac kullanma hakkında daha fazla bilgi edinmek için [Autofac belgelerine](https://docs.autofac.org/en/latest/integration/aspnetcore.html)bakın.
+* [Autofac](https://autofac.readthedocs.io/en/latest/integration/aspnetcore.html)
+* [Drıioc](https://www.nuget.org/packages/DryIoc.Microsoft.DependencyInjection)
+* [Yetkisiz kullanım](https://www.nuget.org/packages/Grace.DependencyInjection.Extensions)
+* [Açık Inject](https://github.com/seesharper/LightInject.Microsoft.DependencyInjection)
+* [E](https://jasperfx.github.io/lamar/)
+* [Stakıbox](https://github.com/z4kn4fein/stashbox-extensions-dependencyinjection)
+* [Unity](https://www.nuget.org/packages/Unity.Microsoft.DependencyInjection)
 
 ### <a name="thread-safety"></a>İş parçacığı güvenliği
 
 İş parçacığı güvenli Singleton Hizmetleri oluşturun. Tek bir hizmetin geçici bir hizmete bağımlılığı varsa, geçici hizmet aynı zamanda tek tek tarafından nasıl kullanıldığına bağlı olarak iş parçacığı güvenliği de gerektirebilir.
 
-Tek bir hizmetin fabrika yöntemi (örneğin, [\<AddSingleton TService > için ikinci bağımsız değişken) (ıseviecollection,\<Func IServiceProvider, TService >)](xref:Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton*), iş parçacığı açısından güvenli olması gerekmez. Bir Type (`static`) Oluşturucusu gibi, tek bir iş parçacığı tarafından bir kez çağrılması garanti edilir.
+Tek bir hizmetin fabrika yöntemi (örneğin, [AddSingleton\<TService > için ikinci bağımsız değişken) (ıseviecollection,\<Func IServiceProvider, TService >)](xref:Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton*), iş parçacığı açısından güvenli olması gerekmez. Bir Type (`static`) Oluşturucusu gibi, tek bir iş parçacığı tarafından bir kez çağrılması garanti edilir.
 
 ## <a name="recommendations"></a>Öneriler
 

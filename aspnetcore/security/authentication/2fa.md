@@ -7,12 +7,12 @@ ms.author: riande
 ms.date: 09/22/2018
 ms.custom: mvc, seodec18
 uid: security/authentication/2fa
-ms.openlocfilehash: 96b4cc98f191d7c24637b8f352acbed3f46806f8
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 68219579be9b7a7b25da6e348054e1ff2015cf5f
+ms.sourcegitcommit: e54672f5c493258dc449fac5b98faf47eb123b28
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64899687"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71248383"
 ---
 # <a name="two-factor-authentication-with-sms-in-aspnet-core"></a>ASP.NET Core SMS ile iki öğeli kimlik doğrulama
 
@@ -27,29 +27,29 @@ Bu öğreticide, SMS kullanarak iki öğeli kimlik doğrulamasını (2FA) ayarla
 
 ## <a name="create-a-new-aspnet-core-project"></a>Yeni bir ASP.NET Core projesi oluşturma
 
-Adlı yeni bir ASP.NET Core web uygulaması oluşturma `Web2FA` bireysel kullanıcı hesapları ile. Bölümündeki yönergeleri <xref:security/enforcing-ssl> ayarlama ve HTTPS gerektirir.
+Adlı yeni bir ASP.NET Core web uygulaması oluşturma `Web2FA` bireysel kullanıcı hesapları ile. HTTPS 'yi ayarlamak ve <xref:security/enforcing-ssl> istemek için içindeki yönergeleri izleyin.
 
 ### <a name="create-an-sms-account"></a>SMS hesap oluşturma
 
-Örneğin, bir SMS hesap oluşturma [twilio](https://www.twilio.com/) veya [ASPSMS](https://www.aspsms.com/asp.net/identity/core/testcredits/). Kimlik doğrulama bilgileri kaydetmek (twilio'dan: accountSid ve authToken, ASPSMS için: Userkey ve parola).
+Örneğin, bir SMS hesap oluşturma [twilio](https://www.twilio.com/) veya [ASPSMS](https://www.aspsms.com/asp.net/identity/core/testcredits/). Kimlik doğrulama bilgilerini kaydedin (Twilio: Accountsıd ve authToken için, ASPSMS için: UserKey ve Password).
 
 #### <a name="figuring-out-sms-provider-credentials"></a>SMS Sağlayıcısı kimlik bilgilerini başarınızda
 
-**Twilio:**
+**Twilio**
 
-Twilio hesabınızın Pano sekmesinden kopyalama **hesap SID'si** ve **kimlik doğrulama belirteci**.
+Twilio hesabınızın Pano sekmesinden **Hesap SID** 'Sini ve **kimlik doğrulama belirtecini**kopyalayın.
 
 **ASPSMS:**
 
-Hesap ayarlarınıza gidin **Userkey** ve birlikte kopyalayın, **parola**.
+Hesap ayarlarınızda **userKey** ' e gidin ve **parolanızla**birlikte kopyalayın.
 
 Daha sonra bu değerleri gizli dizi Yöneticisi Aracı anahtarları içinde oturum depolarız `SMSAccountIdentification` ve `SMSAccountPassword`.
 
 #### <a name="specifying-senderid--originator"></a>Senderıd belirtme / Düzenleyicisi
 
-**Twilio:** Sayı sekmesinden, Twilio kopyalama **telefon numarası**.
+**Twilio** Sayılar sekmesinden Twilio **telefon numaranızı**kopyalayın.
 
-**ASPSMS:** Kilidini düzenleyicileri menüsünde içinde bir veya daha fazla düzenleyicileri kilidini veya bir alfasayısal gönderen (tüm ağlar tarafından desteklenmez) seçin.
+**ASPSMS:** Kilit açma/kaldırma menüsünde, bir veya daha fazla kaynaktan yararlanın veya alfasayısal bir kaynağı (tüm ağlar tarafından desteklenmez) seçin.
 
 Gizli dizi Yöneticisi Aracı anahtarı içinde bu değer daha sonra depolarız `SMSAccountFrom`.
 
@@ -70,7 +70,7 @@ info: Successfully saved SMSAccountIdentification = 12345 to the secret store.
 
 * SMS Sağlayıcısı için NuGet paketini ekleyin. Paket Yöneticisi Konsolu (çalıştırma PMC'yi gelen):
 
-**Twilio:**
+**Twilio**
 
 `Install-Package Twilio`
 
@@ -80,9 +80,11 @@ info: Successfully saved SMSAccountIdentification = 12345 to the secret store.
 
 * Kodda *Services/MessageServices.cs* SMS etkinleştirmek için dosya. Twilio veya ASPSMS bölüm kullanın:
 
-**Twilio:** [!code-csharp[](2fa/sample/Web2FA/Services/MessageServices_twilio.cs)]
+**Twilio**  
+[!code-csharp[](2fa/sample/Web2FA/Services/MessageServices_twilio.cs)]
 
-**ASPSMS:** [!code-csharp[](2fa/sample/Web2FA/Services/MessageServices_ASPSMS.cs)]
+**ASPSMS:**  
+[!code-csharp[](2fa/sample/Web2FA/Services/MessageServices_ASPSMS.cs)]
 
 ### <a name="configure-startup-to-use-smsoptions"></a>Başlangıç kullanmak için yapılandırma `SMSoptions`
 
@@ -92,7 +94,7 @@ Ekleme `SMSoptions` hizmet kapsayıcısını `ConfigureServices` yönteminde *St
 
 ### <a name="enable-two-factor-authentication"></a>İki öğeli kimlik doğrulamayı etkinleştirme
 
-Açık *Views/Manage/Index.cshtml* Razor görünüm dosyası ve yorum karakterleri (hiçbir işaretleme devre dışı bırakılmışsa şekilde) kaldırın.
+*Views/Manage/Index. cshtml* Razor görünüm dosyasını açın ve açıklama karakterlerini kaldırın (Bu nedenle biçimlendirme yok).
 
 ## <a name="log-in-with-two-factor-authentication"></a>İki öğeli kimlik bilgilerinizle oturum açın
 
@@ -140,7 +142,7 @@ Kısa mesaj alamazsanız, twilio günlüğü sayfasında bakın.
 
 ## <a name="account-lockout-for-protecting-against-brute-force-attacks"></a>Deneme yanılma saldırılarına karşı korumak için hesap kilitleme
 
-Hesap kilitleme 2FA ile önerilir. Bir kullanıcı bir yerel hesap veya sosyal hesap ile oturum açtıktan sonra başarısız girişimleri 2FA'konumunda depolanır. En çok başarısız erişim denemesi ulaşıldığında, kullanıcının kilitli (varsayılan: 5 erişim denemesi başarısız olduktan sonra 5 dakika kilitleme). Başarılı bir kimlik doğrulaması başarısız erişim denemesi sayısını sıfırlar ve saatini sıfırlar. En fazla erişim denemesi başarısız oldu ve kilitleme süresi ile ayarlanabilir [MaxFailedAccessAttempts](/dotnet/api/microsoft.aspnetcore.identity.lockoutoptions.maxfailedaccessattempts) ve [DefaultLockoutTimeSpan](/dotnet/api/microsoft.aspnetcore.identity.lockoutoptions.defaultlockouttimespan). Aşağıdaki hesap kilitleme 10 erişim denemesi başarısız olduktan sonra 10 dakika için yapılandırır:
+Hesap kilitleme 2FA ile önerilir. Bir kullanıcı bir yerel hesap veya sosyal hesap ile oturum açtıktan sonra başarısız girişimleri 2FA'konumunda depolanır. En fazla başarısız erişim denemesine ulaşıldığında, Kullanıcı kilitlenir (varsayılan: 5 başarısız erişim denemesinden sonra 5 dakikalık kilitleme). Başarılı bir kimlik doğrulaması başarısız erişim denemesi sayısını sıfırlar ve saatini sıfırlar. En fazla erişim denemesi başarısız oldu ve kilitleme süresi ile ayarlanabilir [MaxFailedAccessAttempts](/dotnet/api/microsoft.aspnetcore.identity.lockoutoptions.maxfailedaccessattempts) ve [DefaultLockoutTimeSpan](/dotnet/api/microsoft.aspnetcore.identity.lockoutoptions.defaultlockouttimespan). Aşağıdaki hesap kilitleme 10 erişim denemesi başarısız olduktan sonra 10 dakika için yapılandırır:
 
 [!code-csharp[](2fa/sample/Web2FA/Startup.cs?name=snippet2&highlight=13-17)]
 

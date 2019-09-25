@@ -4,14 +4,14 @@ author: bradygaster
 description: Bu öğreticide, ASP.NET Core SignalR kullanan bir sohbet uygulaması oluşturacaksınız.
 ms.author: bradyg
 ms.custom: mvc
-ms.date: 07/08/2019
+ms.date: 09/24/2019
 uid: tutorials/signalr
-ms.openlocfilehash: 2dfa994b9763a0139cb70cbf9847ac3b02b568e4
-ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
+ms.openlocfilehash: 7a6574bd3c463f0890f5dc076944f1ab0f0c919a
+ms.sourcegitcommit: e54672f5c493258dc449fac5b98faf47eb123b28
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71081963"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71248392"
 ---
 # <a name="tutorial-get-started-with-aspnet-core-signalr"></a>Öğretici: ASP.NET Core SignalR ile çalışmaya başlama
 
@@ -484,6 +484,10 @@ SignalR isteklerini SignalR 'ye iletmek için SignalR sunucusunun yapılandırı
 > [!TIP]
 > Uygulama işe yaramazsa, tarayıcı geliştirici araçlarınızı (F12) açın ve konsola gidin. HTML ve JavaScript kodunuzla ilgili hatalarla karşılaşabilirsiniz. Örneğin, *SignalR. js* ' yi yönlendirenden farklı bir klasöre yerleştirdiğinizi varsayalım. Bu durumda, bu dosyaya başvuru çalışmaz ve konsolunda 404 hatası görürsünüz.
 > ![SignalR. js bulunamadı hatası](signalr/_static/2.x/f12-console.png)
+
+## <a name="additional-resources"></a>Ek kaynaklar
+
+* [Bu öğreticinin YouTube sürümü](https://www.youtube.com/watch?v=iKlVmu-r0JQ)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
