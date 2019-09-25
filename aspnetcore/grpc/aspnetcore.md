@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-3.0'
 ms.author: johluo
 ms.date: 09/03/2019
 uid: grpc/aspnetcore
-ms.openlocfilehash: 28e6b8589bbe0b6a3723b64736c723c883302571
-ms.sourcegitcommit: e6bd2bbe5683e9a7dbbc2f2eab644986e6dc8a87
+ms.openlocfilehash: 18a6dd2ddd4f3c3c4466e3b96dd1748fd0972e39
+ms.sourcegitcommit: fae6f0e253f9d62d8f39de5884d2ba2b4b2a6050
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70238170"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71250797"
 ---
 # <a name="grpc-services-with-aspnet-core"></a>ASP.NET Core içeren gRPC Hizmetleri
 
@@ -67,7 +67,7 @@ ASP.NET Core middlewares ve Özellikler yönlendirme işlem hattını paylaşır
 Kestrel gRPC uç noktaları:
 
 * HTTP/2 gerektir.
-* HTTPS ile güvenli hale getirilmesi gerekir.
+* [Aktarım Katmanı Güvenliği (TLS)](https://tools.ietf.org/html/rfc5246)ile güvenli hale getirilmesi gerekir.
 
 #### <a name="http2"></a>HTTP/2
 
@@ -75,58 +75,28 @@ gRPC, HTTP/2 gerektirir. ASP.NET Core için gRPC, [HttpRequest. Protocol](xref:M
 
 Kestrel çoğu modern işletim sisteminde [http/2 destekler](xref:fundamentals/servers/kestrel#http2-support) . Kestrel uç noktaları, varsayılan olarak HTTP/1.1 ve HTTP/2 bağlantılarını destekleyecek şekilde yapılandırılmıştır.
 
-#### <a name="https"></a>HTTPS
+#### <a name="tls"></a>TLS
 
-GRPC için kullanılan Kestrel uç noktaları HTTPS ile güvenli hale gelmelidir. Geliştirme aşamasında, ASP.NET Core geliştirme sertifikası mevcut `https://localhost:5001` olduğunda otomatik olarak bir HTTPS uç noktası oluşturulur. Yapılandırma gerekmiyor.
+GRPC için kullanılan Kestrel uç noktaları TLS ile güvenli hale gelmelidir. Geliştirme aşamasında, ASP.NET Core geliştirme sertifikası mevcut `https://localhost:5001` olduğunda, TLS ile güvenli bir uç nokta otomatik olarak oluşturulur. Yapılandırma gerekmiyor. `https` Ön ek, Kestrel uç noktasının TLS kullandığını doğrular.
 
-Üretimde HTTPS 'nin açıkça yapılandırılması gerekir. Aşağıdaki *appSettings. JSON* ÖRNEĞINDE, https ile GÜVENLI bir http/2 uç noktası sağlanır:
+Üretimde, TLS açıkça yapılandırılmalıdır. Aşağıdaki *appSettings. JSON* ÖRNEĞINDE, TLS ile güvenliği SAĞLANMıŞ bir http/2 uç noktası verilmiştir:
 
-```json
-{
-  "Kestrel": {
-    "Endpoints": {
-      "HttpsDefaultCert": {
-        "Url": "https://localhost:5001",
-        "Protocols": "Http2"
-      }
-    },
-    "Certificates": {
-      "Default": {
-        "Path": "<path to .pfx file>",
-        "Password": "<certificate password>"
-      }
-    }
-  }
-}
-```
+[!code-json[](~/grpc/aspnetcore/sample/appsettings.json?highlight=4)]
 
 Alternatif olarak, Kestrel uç noktaları *program.cs*içinde yapılandırılabilir:
 
-```csharp
-public static IHostBuilder CreateHostBuilder(string[] args) =>
-    Host.CreateDefaultBuilder(args)
-        .ConfigureWebHostDefaults(webBuilder =>
-        {
-            webBuilder.ConfigureKestrel(options =>
-            {
-                // This endpoint will use HTTP/2 and HTTPS on port 5001.
-                options.Listen(IPAddress.Any, 5001, listenOptions =>
-                {
-                    listenOptions.Protocols = HttpProtocols.Http2;
-                    listenOptions.UseHttps("<path to .pfx file>", 
-                        "<certificate password>");
-                });
-            });
-            webBuilder.UseStartup<Startup>();
-        });
-```
+[!code-csharp[](~/grpc/aspnetcore/sample/Program.cs?highlight=7&name=snippet)]
 
-HTTP/2 uç noktası HTTPS olmadan yapılandırıldığında, uç noktanın [Listenoptions. Protocols](xref:fundamentals/servers/kestrel#listenoptionsprotocols) olarak `HttpProtocols.Http2`ayarlanması gerekir. `HttpProtocols.Http1AndHttp2`HTTP/2 üzerinde anlaşmak için HTTPS gerekli olduğundan kullanılamıyor. HTTPS olmadan, uç nokta varsayılan HTTP/1.1 ve gRPC çağrıları için tüm bağlantılar başarısız olur.
+#### <a name="protocol-negotiation"></a>Protokol anlaşması
 
-HTTP/2 ve HTTPS 'yi Kestrel ile etkinleştirme hakkında daha fazla bilgi için bkz. [Kestrel Endpoint Configuration](xref:fundamentals/servers/kestrel#endpoint-configuration).
+TLS, iletişimin güvenliğinin daha fazlası için kullanılır. TLS [uygulama katmanı protokol anlaşması (ALPN)](https://tools.ietf.org/html/rfc7301#section-3) el sıkışması, bir uç nokta birden çok protokolü desteklediğinde istemci ile sunucu arasındaki bağlantı protokolünü anlaşmak için kullanılır. Bu anlaşma, bağlantının HTTP/1.1 veya HTTP/2 kullanıp kullanmadığını belirler.
+
+Bir HTTP/2 uç noktası TLS olmadan yapılandırılırsa, uç noktanın [Listenoptions. Protocols](xref:fundamentals/servers/kestrel#listenoptionsprotocols) olarak `HttpProtocols.Http2`ayarlanmalıdır. Bir anlaşma olmadığından, birden fazla protokolle ( `HttpProtocols.Http1AndHttp2`Örneğin,) bir uç nokta TLS olmadan kullanılamaz. Güvenli olmayan uç nokta varsayılan HTTP/1.1 ve gRPC çağrıları için tüm bağlantılar başarısız olur.
+
+HTTP/2 ve TLS 'yi Kestrel ile etkinleştirme hakkında daha fazla bilgi için bkz. [Kestrel Endpoint Configuration](xref:fundamentals/servers/kestrel#endpoint-configuration).
 
 > [!NOTE]
-> macOS, [Aktarım Katmanı Güvenliği (TLS)](https://tools.ietf.org/html/rfc5246)Ile ASP.NET Core GRPC 'yi desteklemez. MacOS 'ta gRPC hizmetlerini başarıyla çalıştırmak için ek yapılandırma gerekir. Daha fazla bilgi için bkz. [macOS üzerinde gRPC uygulaması ASP.NET Core başlatılamıyor](xref:grpc/troubleshoot#unable-to-start-aspnet-core-grpc-app-on-macos).
+> macOS, TLS ile ASP.NET Core gRPC 'yi desteklemez. MacOS 'ta gRPC hizmetlerini başarıyla çalıştırmak için ek yapılandırma gerekir. Daha fazla bilgi için bkz. [macOS üzerinde gRPC uygulaması ASP.NET Core başlatılamıyor](xref:grpc/troubleshoot#unable-to-start-aspnet-core-grpc-app-on-macos).
 
 ## <a name="integration-with-aspnet-core-apis"></a>ASP.NET Core API 'Leri ile tümleştirme
 

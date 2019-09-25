@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-3.0'
 ms.author: jamesnk
 ms.date: 09/23/2019
 uid: grpc/diagnostics
-ms.openlocfilehash: ce6ad96d9e26c9cd3844093536745f8f9bea4a76
-ms.sourcegitcommit: 0365af91518004c4a44a30dc3a8ac324558a399b
+ms.openlocfilehash: 7194e91b40a08c4a7ee619b8f207900af2683aa1
+ms.sourcegitcommit: fae6f0e253f9d62d8f39de5884d2ba2b4b2a6050
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71204347"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71250732"
 ---
 # <a name="logging-and-diagnostics-in-grpc-on-net"></a>.NET üzerinde gRPC 'de günlüğe kaydetme ve tanılama
 
@@ -28,11 +28,11 @@ GRPC Hizmetleri ASP.NET Core üzerinde barındırıldığından, bu, ASP.NET Cor
 
 GRPC, `Grpc` kategori altına Günlükler ekler. GRPC 'den ayrıntılı günlükleri etkinleştirmek için, aşağıdaki öğeleri `Grpc` `LogLevel` içindeki `Logging`alt bölümüne `Debug` ekleyerek, ön ekleri *appSettings. JSON* dosyanızdaki düzeye yapılandırın:
 
-[!code-json[](diagnostics/logging-config.json?highlight=7)]
+[!code-json[](diagnostics/sample/logging-config.json?highlight=7)]
 
 Bunu, *Startup.cs* `ConfigureLogging`içinde şu şekilde de yapılandırabilirsiniz:
 
-[!code-csharp[](diagnostics/logging-config-code.cs?highlight=5)]
+[!code-csharp[](diagnostics/sample/logging-config-code.cs?highlight=5)]
 
 JSON tabanlı yapılandırma kullanmıyorsanız, yapılandırma sisteminizde aşağıdaki yapılandırma değerini ayarlayın:
 
@@ -46,7 +46,7 @@ Uygulamanız için daha ayrıntılı `Debug` tanılama toplanırken düzeyin kul
 
 Aşağıda, bir GRPC hizmeti `Debug` düzeyinde konsol çıkışının bir örneği verilmiştir:
 
-```
+```console
 info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
       Request starting HTTP/2 POST https://localhost:5001/Greet.Greeter/SayHello application/grpc
 info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
@@ -82,19 +82,19 @@ Uygulama başka bir ortama (örneğin, Docker, Kubernetes veya Windows hizmeti) 
 
 .Net istemcisinden günlükleri almak için, `GrpcChannelOptions.LoggerFactory` özelliği istemci kanalının oluşturulduğu zaman ayarlayabilirsiniz. Bir ASP.NET Core uygulamasından gRPC hizmetini arıyorsanız, günlükçü fabrikası bağımlılık ekleme (DI) ' dan çözülebilir:
 
-[!code-csharp[](diagnostics/net-client-dependency-injection.cs?highlight=7,16)]
+[!code-csharp[](diagnostics/sample/net-client-dependency-injection.cs?highlight=7,16)]
 
 İstemci günlüğünü etkinleştirmenin alternatif bir yolu, istemci oluşturmak için [GRPC istemci fabrikası](xref:grpc/clientfactory) kullanmaktır. İstemci fabrikasına kayıtlı ve dı 'den çözümlenen bir gRPC istemcisi, otomatik olarak uygulamanın yapılandırılmış günlüğünü kullanacaktır.
 
 Uygulamanız dı kullanıyorsa, `ILoggerFactory` [loggerfactory. Create](xref:Microsoft.Extensions.Logging.LoggerFactory.Create*)ile yeni bir örnek oluşturabilirsiniz. Bu yönteme erişmek için [Microsoft. Extensions. Logging](https://www.nuget.org/packages/microsoft.extensions.logging/) paketini uygulamanıza ekleyin.
 
-[!code-csharp[](diagnostics/net-client-loggerfactory-create.cs?highlight=1,8)]
+[!code-csharp[](diagnostics/sample/net-client-loggerfactory-create.cs?highlight=1,8)]
 
 ### <a name="sample-logging-output"></a>Örnek günlüğe kaydetme çıkışı
 
 Aşağıda, bir GRPC istemcisinin `Debug` düzeyindeki konsol çıkışının bir örneği verilmiştir:
 
-```
+```console
 dbug: Grpc.Net.Client.Internal.GrpcCall[1]
       Starting gRPC call. Method type: 'Unary', URI: 'https://localhost:5001/Greet.Greeter/SayHello'.
 dbug: Grpc.Net.Client.Internal.GrpcCall[6]

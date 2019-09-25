@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.date: 09/19/2019
 uid: razor-pages/index
-ms.openlocfilehash: 7e27bbc84816bd282b2b8de936772eb5c597d74f
-ms.sourcegitcommit: 79eeb17604b536e8f34641d1e6b697fb9a2ee21f
+ms.openlocfilehash: bccdd7e5c1c90dd76ca1b788dbf09000c5cbe14b
+ms.sourcegitcommit: fae6f0e253f9d62d8f39de5884d2ba2b4b2a6050
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71207380"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71256183"
 ---
 # <a name="introduction-to-razor-pages-in-aspnet-core"></a>ASP.NET Core Razor Pages giriş
 
@@ -281,7 +281,9 @@ Yukarıdaki kod:
   * İstemci tarafı doğrulama.
   * Doğrulama hatası işleme.
 
-* Aşağıdaki HTML 'yi oluşturur:[!code-cshtml[](index/3.0sample/RazorPagesContacts/Pages/Customers/Create5.html)]
+* Aşağıdaki HTML 'yi oluşturur:
+
+  [!code-cshtml[](index/3.0sample/RazorPagesContacts/Pages/Customers/Create5.html)]
 
 Create formunu ad değeri olmadan göndermek "ad alanı gereklidir" hata iletisini görüntüler. formunda. İstemcide JavaScript etkinse tarayıcı, sunucuya göndermeden hatayı görüntüler.
 
@@ -396,7 +398,9 @@ Yönerge _viewwimports *. cshtml*içinde yer aldığında, belirtilen ad alanı,
 
 `@namespace`*Ayrıca geleneksel Razor görünümleriyle birlikte da geçerlidir.*
 
-*Pages/Create. cshtml* görünüm dosyasını göz önünde bulundurun:[!code-cshtml[](index/3.0sample/RazorPagesContacts/Pages/Customers/Create3.cshtml?highlight=2-3)]
+*Pages/Create. cshtml* görünüm dosyasını göz önünde bulundurun:
+
+[!code-cshtml[](index/3.0sample/RazorPagesContacts/Pages/Customers/Create3.cshtml?highlight=2-3)]
 
 Güncelleştirilmiş *Sayfalar/Create. cshtml* görünüm dosyası *_Viewwimports. cshtml* ve önceki düzen dosyası:
 
