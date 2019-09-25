@@ -1,36 +1,38 @@
 ---
-title: gRPC hizmetlerini HTTP API’leriyle karşılaştırma
+title: GRPC hizmetlerini HTTP API 'Leri ile karşılaştırın
 author: jamesnk
 description: GRPC 'nin HTTP API 'Leri ile nasıl Karşılaştırıldığı ve bu senaryonun önerdiğimiz ne olduğunu öğrenin.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: jamesnk
-ms.date: 03/31/2019
+ms.date: 09/25/2019
 uid: grpc/comparison
-ms.openlocfilehash: c34c7ecb668e478e2be3271928a2439979a746d9
-ms.sourcegitcommit: 8b36f75b8931ae3f656e2a8e63572080adc78513
+ms.openlocfilehash: 935078d890998fe6af366e3f6a7bf21f53c20cf7
+ms.sourcegitcommit: a7813a776809a5029c94aa503ee71994f156231f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70310465"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71267722"
 ---
-# <a name="comparing-grpc-services-with-http-apis"></a>gRPC hizmetlerini HTTP API’leriyle karşılaştırma
+# <a name="compare-grpc-services-with-http-apis"></a>GRPC hizmetlerini HTTP API 'Leri ile karşılaştırın
 
 , [James bAyKiNg](https://twitter.com/jamesnk)
 
 Bu makalede, [GRPC HIZMETLERININ](https://grpc.io/docs/guides/) HTTP API 'leri (ASP.NET Core [Web API 'leri](xref:web-api/index)dahil) ile nasıl karşılaştırılacağı açıklanmaktadır. Uygulamanız için bir API sağlamak için kullanılan teknoloji önemli bir seçimdir ve gRPC, HTTP API 'Lerine kıyasla benzersiz avantajlar sunmaktadır. Bu makalede, gRPC 'nin güçlü ve zayıf yönleri ele alınmaktadır ve gRPC 'nin diğer teknolojiler üzerinden kullanılması için senaryolar önerilmektedir.
 
-#### <a name="overview"></a>Genel Bakış
+## <a name="high-level-comparison"></a>Üst düzey karşılaştırma
+
+Aşağıdaki tabloda, gRPC ve HTTP API 'Leri arasında JSON ile yüksek düzeyde bir karşılaştırma sunulmaktadır.
 
 | Özellik          | gRPC                                               | JSON ile HTTP API 'Leri           |
 | ---------------- | -------------------------------------------------- | ----------------------------- |
 | Sözleşme         | Gerekli ( *. proto*)                                | İsteğe bağlı (Openapı)            |
 | Aktarım        | HTTP/2                                             | HTTP                          |
 | Te          | [Prototip (küçük, ikili)](#performance)           | JSON (büyük, insan tarafından okunabilir)  |
-| Dikkatli olun | [Katı belirtim](#strict-specification)      | Miş. Herhangi bir HTTP geçerli      |
+| Dikkatli olun | [Katı belirtim](#strict-specification)      | Miş. Herhangi bir HTTP geçerlidir.      |
 | Akış        | [İstemci, sunucu, iki yönlü](#streaming)       | İstemci, sunucu                |
 | Tarayıcı desteği  | [Hayır (GRPC-Web gerektirir)](#limited-browser-support) | Evet                           |
 | Güvenlik         | Taşıma (HTTPS)                                  | Taşıma (HTTPS)             |
-| İstemci kodu-genel  | [Evet](#code-generation)                            | Openapı + üçüncü taraf araçları |
+| İstemci kod oluşturma | [Evet](#code-generation)                      | Openapı + üçüncü taraf araçları |
 
 ## <a name="grpc-strengths"></a>gRPC güçleri
 
@@ -47,7 +49,7 @@ gRPC, http 1. x üzerinden önemli performans avantajları sağlayan büyük bir
 
 Tüm gRPC çerçeveleri, kod oluşturma için birinci sınıf destek sağlar. GRPC geliştirmeye yönelik bir çekirdek dosya, gRPC Hizmetleri ve iletilerinin sözleşmesini tanımlayan [ *. proto* dosyasıdır](https://developers.google.com/protocol-buffers/docs/proto3). Bu dosya gRPC çerçevelerinden kod, bir hizmet temel sınıfı, iletiler ve tüm istemci oluşturur.
 
-Sunucu ile istemci `*.proto` arasında dosya paylaşarak iletiler ve istemci kodu uçtan uca oluşturulabilir. İstemcinin kod üretimi, istemci ve sunucudaki iletilerin çoğaltılmasını ortadan kaldırır ve sizin için kesin olarak belirlenmiş bir istemci oluşturur. İstemci yazmak gerekmez, birçok hizmet içeren uygulamalarda önemli geliştirme süresini kaydeder.
+Sunucu ile istemci arasında *. proto* dosyasını paylaşarak iletiler ve istemci kodu uçtan uca oluşturulabilir. İstemcinin kod üretimi, istemci ve sunucudaki iletilerin çoğaltılmasını ortadan kaldırır ve sizin için kesin olarak belirlenmiş bir istemci oluşturur. İstemci yazmak gerekmez, birçok hizmet içeren uygulamalarda önemli geliştirme süresini kaydeder.
 
 ### <a name="strict-specification"></a>Katı belirtim
 
@@ -95,7 +97,7 @@ GRPC 'nin özelliklerinin hepsi gRPC-Web tarafından desteklenmez. İstemci ve i
 
 HTTP API istekleri metin olarak gönderilir ve insanların okuyabilmesi ve oluşturulabilmesi olabilir.
 
-gRPC iletileri varsayılan olarak Protodeğer ile kodlanır. Protoarabellek gönderme ve alma açısından verimli olsa da, ikili biçimi insanlar tarafından okunabilir değildir. Protoarabelleğe doğru şekilde seri durumdan çıkarmak için `*.proto` dosyada belirtilen iletinin arabirim açıklaması gereklidir. Ek araçlar, hat üzerindeki prototiplerin yüklerini analiz etmek ve istekleri el ile oluşturmak için gereklidir.
+gRPC iletileri varsayılan olarak Protodeğer ile kodlanır. Protoarabellek gönderme ve alma açısından verimli olsa da, ikili biçimi insanlar tarafından okunabilir değildir. Protoarabelleğe doğru bir şekilde seri durumdan çıkarmak için *. proto* dosyasında belirtilen iletinin arabirim açıklaması gereklidir. Ek araçlar, hat üzerindeki prototiplerin yüklerini analiz etmek ve istekleri el ile oluşturmak için gereklidir.
 
 [Sunucu yansıtma](https://github.com/grpc/grpc/blob/master/doc/server-reflection.md) ve [GRPC komut satırı aracı](https://github.com/grpc/grpc/blob/master/doc/command_line_tool.md) gibi özellikler, ikili prototipsiz iletilerle yardım etmek için mevcuttur. Ayrıca, prototipli mesajlar [JSON öğesine ve öğesinden dönüştürmeyi](https://developers.google.com/protocol-buffers/docs/proto3#json)destekler. Yerleşik JSON dönüştürmesi, hata ayıklarken prototip iletileri okunabilir ve okunabilir biçime dönüştürmek için etkili bir yol sağlar.
 
