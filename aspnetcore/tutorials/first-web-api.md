@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 08/27/2019
 uid: tutorials/first-web-api
-ms.openlocfilehash: 2d0eb24641c3d1f795b9e85ce10d42ee96d30846
-ms.sourcegitcommit: d34b2627a69bc8940b76a949de830335db9701d3
-ms.translationtype: MT
+ms.openlocfilehash: 6f6240084f6dee1fa4b9ae7efb7748a129d5ed37
+ms.sourcegitcommit: 14b25156e34c82ed0495b4aff5776ac5b1950b5e
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71187313"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71301214"
 ---
 # <a name="tutorial-create-a-web-api-with-aspnet-core"></a>Öğretici: ASP.NET Core ile Web API 'SI oluşturma
 
@@ -913,6 +913,12 @@ Yapılacak iş öğesi silme gerçekleştirilir ayarlayarak `type` AJAX çağrı
 [!code-javascript[](first-web-api/samples/2.2/TodoApi/wwwroot/site.js?name=snippet_AjaxDelete)]
 
 ::: moniker-end
+
+<a name="auth"></a>
+
+## <a name="add-authentication-support-to-a-web-api"></a>Web API 'sine kimlik doğrulama desteği ekleme
+
+Bkz. [ıdentityserver4](https://identityserver4.readthedocs.io/en/latest/quickstarts/0_overview.html) öğreticisi.
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
