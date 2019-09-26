@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 03/12/2019
 uid: fundamentals/app-state
-ms.openlocfilehash: 578be568b58dc630e8aabf8cb355266766741b9e
-ms.sourcegitcommit: 116bfaeab72122fa7d586cdb2e5b8f456a2dc92a
+ms.openlocfilehash: ccb37a422d972ab9113bb4115473d054282dac87
+ms.sourcegitcommit: 994da92edb0abf856b1655c18880028b15a28897
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70384732"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71278686"
 ---
 # <a name="session-and-app-state-in-aspnet-core"></a>ASP.NET Core oturum ve uygulama durumu
 
@@ -315,6 +315,10 @@ Verilerin tüm kullanıcılar tarafından kullanılabilmesini sağlamak için [b
   Örneğin, bir Kullanıcı bir alışveriş sepetini oturum içinde depolar. Kullanıcı sepete bir öğe ekler, ancak kayıt başarısız olur. Uygulama hata hakkında bilgi sahibi değildir, bu nedenle bu, doğru olmayan, kullanıcıya öğenin sepetine eklendiğini bildirir.
 
   Hataları denetlemek için önerilen yaklaşım, uygulama oturuma yazma işlemi `await feature.Session.CommitAsync();` tamamlandığında uygulama kodundan çağırmalıdır. `CommitAsync`yedekleme deposu kullanılamıyorsa bir özel durum oluşturur. `CommitAsync` Başarısız olursa, uygulama özel durumu işleyebilir. `LoadAsync`veri deposunun kullanılamadığı koşulların aynısını oluşturur.
+  
+## <a name="signalr-and-session-state"></a>SignalR ve oturum durumu
+
+SignalR uygulamalarının, bilgileri depolamak için oturum durumunu kullanmamalıdır. SignalR uygulamaları, hub `Context.Items` 'da bağlantı durumu başına depolama yapabilir. <!-- https://github.com/aspnet/SignalR/issues/2139 -->
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 

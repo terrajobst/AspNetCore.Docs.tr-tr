@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 09/14/2019
 uid: security/enforcing-ssl
-ms.openlocfilehash: eafb06d181ca3f085cccb314749c8d4deba074fa
-ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
+ms.openlocfilehash: aa42b1c7199e951714be809de9c9c5f857473485
+ms.sourcegitcommit: 994da92edb0abf856b1655c18880028b15a28897
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71082554"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71278753"
 ---
 # <a name="enforce-https-in-aspnet-core"></a>ASP.NET Core 'de HTTPS 'yi zorla
 
@@ -362,6 +362,58 @@ Linux için Windows alt sistemi (WSL), HTTPS otomatik olarak imzalanan bir serti
 * Bir WSL penceresinde, aşağıdaki komutu çalıştırın:`ASPNETCORE_Kestrel__Certificates__Default__Password="<cryptic-password>" ASPNETCORE_Kestrel__Certificates__Default__Path=/mnt/c/Users/user-name/.aspnet/https/aspnetapp.pfx dotnet watch run`
 
   Yukarıdaki komut, ortam değişkenlerini, Linux 'un Windows güvenilen sertifikasını kullanmasını sağlayacak şekilde ayarlar.
+
+## <a name="troubleshoot-certificate-problems"></a>Sertifika sorunlarını giderme
+
+Bu bölümde, ASP.NET Core HTTPS geliştirme sertifikası [yüklendiğinde ve güveniliyorsa](#trust), ancak hala sertifikaya güvenilmediğini belirten tarayıcı uyarıları varsa yardım sağlanmaktadır.
+
+### <a name="all-platforms---certificate-not-trusted"></a>Tüm platformlar-Sertifikaya güvenilmiyor
+
+Aşağıdaki komutları çalıştırın:
+
+```dotnetcli
+dotnet devcerts https --clean
+dotnet devcerts https --trust
+```
+
+Açık olan tüm tarayıcı örneklerini kapatın. Uygulamaya yeni bir tarayıcı penceresi açın. Sertifika güveni tarayıcılar tarafından önbelleğe alınır.
+
+Yukarıdaki komutlar çoğu tarayıcı güveni sorununu çözüyor. Tarayıcı yine de sertifikaya güvenmiyor ise, aşağıdaki platforma özgü önerileri izleyin.
+
+### <a name="docker---certificate-not-trusted"></a>Docker-Sertifikaya güvenilmiyor
+
+* *C:\Users\{Kullanıcı} \AppData\Roaming\ASP.NET\Https* klasörünü silin.
+* Çözümü temizleyin. Silme *bin* ve *obj* klasörleri.
+* Geliştirme aracını yeniden başlatın. Örneğin, Visual Studio, Visual Studio Code veya Mac için Visual Studio.
+
+### <a name="windows---certificate-not-trusted"></a>Windows-Sertifikaya güvenilmiyor
+
+* Sertifika deposundaki sertifikaları kontrol edin. Hem hem de `localhost` `ASP.NET Core HTTPS development certificate` içinde`Current User > Personal > Certificates` kolay ada sahip bir sertifika olmalıdır`Current User > Trusted root certification authorities > Certificates`
+* Yalnızca kişisel ve güvenilen kök sertifika yetkililerinden bulunan tüm sertifikaları kaldırın. IIS Express localhost **sertifikasını kaldırmayın.**
+* Aşağıdaki komutları çalıştırın:
+
+```dotnetcli
+dotnet devcerts https --clean
+dotnet devcerts https --trust
+```
+
+Açık olan tüm tarayıcı örneklerini kapatın. Uygulamaya yeni bir tarayıcı penceresi açın.
+
+### <a name="os-x---certificate-not-trusted"></a>OS X-Sertifikaya güvenilmiyor
+
+* Anahtarlık erişimini açın.
+* Sistem anahtarlığı ' nı seçin.
+* Localhost sertifikası olup olmadığını denetleyin.
+* Tüm kullanıcılar için güvenilir olduğunu `+` göstermek için simgenin üzerinde bir simge içerip içermediğinden emin olun.
+* Sertifikayı sistem anahtarlığınızdan kaldırın.
+* Aşağıdaki komutları çalıştırın:
+
+```dotnetcli
+dotnet devcerts https --clean
+dotnet devcerts https --trust
+```
+
+Açık olan tüm tarayıcı örneklerini kapatın. Uygulamaya yeni bir tarayıcı penceresi açın.
 
 ## <a name="additional-information"></a>Ek bilgiler
 

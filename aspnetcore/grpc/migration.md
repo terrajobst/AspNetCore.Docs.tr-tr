@@ -4,14 +4,14 @@ author: juntaoluo
 description: Mevcut bir C çekirdekli tabanlı gRPC uygulamasını ASP.NET Core yığının üstünde çalışacak şekilde taşımayı öğrenin.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: johluo
-ms.date: 03/31/2019
+ms.date: 09/25/2019
 uid: grpc/migration
-ms.openlocfilehash: 39aa711a1a47cf11ec5b08903b4130c7caa1501c
-ms.sourcegitcommit: 476ea5ad86a680b7b017c6f32098acd3414c0f6c
+ms.openlocfilehash: 8f0d9dd980fa3281f30dc29d329d10ccd352ae72
+ms.sourcegitcommit: 994da92edb0abf856b1655c18880028b15a28897
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69022295"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71278708"
 ---
 # <a name="migrating-grpc-services-from-c-core-to-aspnet-core"></a>GRPC hizmetlerini C Core 'dan ASP.NET Core geçirme
 
@@ -49,14 +49,14 @@ Ancak, tek bir yaşam süresine sahip bir hizmet uygulamasının kapsamı, kapsa
 
 C Core tabanlı uygulamalarda `grpc.max_receive_message_length` , ve `grpc.max_send_message_length` gibi ayarlar [sunucu örneği oluşturulurken](https://grpc.io/grpc/csharp/api/Grpc.Core.Server.html#Grpc_Core_Server__ctor_System_Collections_Generic_IEnumerable_Grpc_Core_ChannelOption__)ile `ChannelOption` yapılandırılır.
 
-ASP.NET Core, GRPC, `GrpcServiceOptions` tür aracılığıyla yapılandırma sağlar. Örneğin, bir gRPC hizmetinin en büyük gelen ileti boyutu şu kullanılarak `AddGrpc`yapılandırılabilir:
+ASP.NET Core, GRPC, `GrpcServiceOptions` tür aracılığıyla yapılandırma sağlar. Örneğin, gRPC hizmetinin en büyük gelen ileti boyutu ile `AddGrpc`yapılandırılabilir. Aşağıdaki örnek 4 MB ile 16 `ReceiveMaxMessageSize` MB arasında varsayılan değer değiştirir:
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
 {
     services.AddGrpc(options =>
     {
-        options.ReceiveMaxMessageSize = 16384; // 16 MB
+        options.ReceiveMaxMessageSize = 16 * 1024 * 1024; // 16 MB
     });
 }
 ```
