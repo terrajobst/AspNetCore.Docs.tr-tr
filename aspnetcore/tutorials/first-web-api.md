@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 08/27/2019
 uid: tutorials/first-web-api
-ms.openlocfilehash: 6f6240084f6dee1fa4b9ae7efb7748a129d5ed37
-ms.sourcegitcommit: 14b25156e34c82ed0495b4aff5776ac5b1950b5e
-ms.translationtype: HT
+ms.openlocfilehash: 5e5215f246c6c7a805a4c99f485d51a2fb3c712d
+ms.sourcegitcommit: cf9ffcce4fe0b69fe795aae9ae06e99fdb18bdfc
+ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 09/26/2019
-ms.locfileid: "71301214"
+ms.locfileid: "71306671"
 ---
 # <a name="tutorial-create-a-web-api-with-aspnet-core"></a>Öğretici: ASP.NET Core ile Web API 'SI oluşturma
 
@@ -71,7 +71,7 @@ Aşağıdaki diyagramda, bu uygulamanın tasarımını gösterir.
 * **Dosya** menüsünden **Yeni** > **Proje**' yi seçin.
 * **ASP.NET Core Web uygulaması** şablonunu seçin ve **İleri**' ye tıklayın.
 * Projeyi *TodoApi* olarak adlandırın ve **Oluştur**' a tıklayın.
-* **Yeni bir ASP.NET Core Web uygulaması oluştur** iletişim kutusunda, **.net Core** ve **ASP.NET Core 3,0** ' un seçili olduğunu doğrulayın. **API** şablonunu seçin ve **Oluştur**' a tıklayın. **Docker desteğini etkinleştir** **' i seçmeyin** .
+* **Yeni bir ASP.NET Core Web uygulaması oluştur** iletişim kutusunda, **.net Core** ve **ASP.NET Core 3,0** ' un seçili olduğunu doğrulayın. **API** şablonunu seçin ve **Oluştur**' a tıklayın.
 
 ![VS yeni proje iletişim kutusu](first-web-api/_static/vs3.png)
 
@@ -227,9 +227,8 @@ Model sınıfları herhangi bir projede gidip ancak *modelleri* klasörü, kural
 ### <a name="add-microsoftentityframeworkcoresqlserver"></a>Microsoft. EntityFrameworkCore. SqlServer ekleyin
 
 * **Araçlar** menüsünde **nuget Paket Yöneticisi > çözüm Için NuGet Paketlerini Yönet**' i seçin.
-* **Ön sürümü dahil et** onay kutusunu seçin.
 * **Araştır** sekmesini seçin ve arama kutusuna **Microsoft. Entityframeworkcore. SqlServer** yazın.
-* Sol bölmedeki **Microsoft. EntityFrameworkCore. SqlServer v 3.0.0-Preview** ' ı seçin.
+* Sol bölmedeki **Microsoft. EntityFrameworkCore. SqlServer** öğesini seçin.
 * Sağ bölmedeki **Proje** onay kutusunu seçin ve ardından **Install**' ı seçin.
 * Önceki yönergeleri kullanarak `Microsoft.EntityFrameworkCore.InMemory` NuGet paketini ekleyin.
 
