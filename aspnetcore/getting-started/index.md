@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 09/22/2019
 uid: getting-started
-ms.openlocfilehash: 0f05ab120d64832a4bc2fd70921efc7238ee9eac
-ms.sourcegitcommit: d34b2627a69bc8940b76a949de830335db9701d3
+ms.openlocfilehash: c9cd5e05f52c8bdefa931adc654087dac91e2f05
+ms.sourcegitcommit: e644258c95dd50a82284f107b9bf3becbc43b2b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71187064"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71317758"
 ---
 # <a name="tutorial-get-started-with-aspnet-core"></a>Öğretici: ASP.NET Core kullanmaya başlayın
 
@@ -90,18 +90,18 @@ Aşağıdaki komutları çalıştırın:
 
 ```dotnetcli
 cd aspnetcoreapp
-dotnet run
+dotnet watch run
 ```
 
 Komut kabuğu, uygulamanın başlatıldığını gösteriyorsa, öğesine [https://localhost:5001](https://localhost:5001)gidin. Gizlilik ve tanımlama bilgisi ilkesini kabul etmek için **kabul et** ' e tıklayın. Bu uygulama, kişisel bilgileri tutmak değil.
 
 ## <a name="edit-a-razor-page"></a>Razor sayfasını düzenleme
 
-*Pages/Index. cshtml* dosyasını açın ve sayfayı aşağıdaki vurgulanmış işaretlerle değiştirin:
+*Pages/Index. cshtml* dosyasını açın ve sayfayı aşağıdaki vurgulanmış işaretlerle değiştirin ve kaydedin:
 
 [!code-cshtml[](sample/index.cshtml?highlight=9)]
 
-[https://localhost:5001](https://localhost:5001)' A gidin ve değişikliklerin görüntülendiğini doğrulayın.
+Sayfasına gidin [https://localhost:5001](https://localhost:5001), sayfayı yenileyin ve değişikliklerin görüntülendiğini doğrulayın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

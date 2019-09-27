@@ -4,14 +4,14 @@ author: tdykstra
 description: Entity Framework Core kullanan bir Razor sayfaları uygulamasının nasıl oluşturulacağını gösterir
 ms.author: riande
 ms.custom: mvc, seodec18
-ms.date: 07/22/2019
+ms.date: 09/26/2019
 uid: data/ef-rp/intro
-ms.openlocfilehash: 6b7d2ca1cea23efd195f1ae0e0a749c6d2d9b622
-ms.sourcegitcommit: d34b2627a69bc8940b76a949de830335db9701d3
+ms.openlocfilehash: e261ccd30dc9ef0929e74fa44a5ed752d515b707
+ms.sourcegitcommit: e644258c95dd50a82284f107b9bf3becbc43b2b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71186961"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71317679"
 ---
 # <a name="razor-pages-with-entity-framework-core-in-aspnet-core---tutorial-1-of-8"></a>ASP.NET Core - Öğreticisi 1. 8'de Entity Framework Core ile Razor sayfaları
 
@@ -19,7 +19,7 @@ Tarafından [Tom Dykstra](https://github.com/tdykstra) ve [Rick Anderson](https:
 
 ::: moniker range=">= aspnetcore-3.0"
 
-Bu, bir ASP.NET Core Razor Pages uygulamasında Entity Framework (EF) çekirdeğini nasıl kullanacağınızı gösteren bir öğretici serisinin ilkisidir. Öğreticiler, kurgusal bir Contoso Üniversitesi için bir Web sitesi oluşturur. Site, öğrenci giriş, kurs oluşturma ve eğitmen atamaları gibi işlevleri içerir.
+Bu, bir [ASP.NET Core Razor Pages](xref:razor-pages/index) uygulamasında ENTITY Framework (EF) çekirdeğini nasıl kullanacağınızı gösteren bir öğretici serisinin ilkisidir. Öğreticiler, kurgusal bir Contoso Üniversitesi için bir Web sitesi oluşturur. Site, öğrenci giriş, kurs oluşturma ve eğitmen atamaları gibi işlevleri içerir.
 
 [İndirme veya tamamlanmış uygulamayı görüntüleyin.](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-rp/intro/samples) [Yükleme yönergeleri](xref:index#how-to-download-a-sample).
 

@@ -5,14 +5,14 @@ description: ASP.NET Core barındırılan hizmetler ile arka plan görevleri uyg
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 09/18/2019
+ms.date: 09/26/2019
 uid: fundamentals/host/hosted-services
-ms.openlocfilehash: 8df86b10d7ba853edb3265df0e02eabbf8a2c058
-ms.sourcegitcommit: fa61d882be9d0c48bd681f2efcb97e05522051d0
+ms.openlocfilehash: 5a29952c4e50edb953fa03c6ea1a1ae27b728bb0
+ms.sourcegitcommit: e644258c95dd50a82284f107b9bf3becbc43b2b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71205705"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71317715"
 ---
 # <a name="background-tasks-with-hosted-services-in-aspnet-core"></a>ASP.NET Core içinde barındırılan hizmetlerle arka plan görevleri
 
@@ -123,10 +123,12 @@ Barındırılan hizmet, uygulama başlangıcında bir kez etkinleştirilir ve uy
 
 ## <a name="backgroundservice"></a>BackgroundService
 
-`BackgroundService`, uzun süre çalışan <xref:Microsoft.Extensions.Hosting.IHostedService>uygulamaya yönelik bir temel sınıftır. `BackgroundService`arka plan işlemleri için iki yöntem tanımlar:
+`BackgroundService`, uzun süre çalışan <xref:Microsoft.Extensions.Hosting.IHostedService>uygulamaya yönelik bir temel sınıftır. `BackgroundService`hizmetin mantığını içeren soyut yöntemi sağlar. `ExecuteAsync(CancellationToken stoppingToken)` , `stoppingToken` [Ihostedservice. StopAsync](xref:Microsoft.Extensions.Hosting.IHostedService.StopAsync*) çağrıldığında tetiklenir. Bu yöntemin uygulanması, arka plan hizmetinin `Task` tüm ömrünü temsil eden bir döndürür.
 
-* `ExecuteAsync(CancellationToken stoppingToken)`Başladığındaçağırılır&ndash;. `ExecuteAsync` <xref:Microsoft.Extensions.Hosting.IHostedService> Uygulama, gerçekleştirilen uzun süren `Task` işlemlerin ömrünü temsil eden bir döndürmelidir. [Ihostedservice. StopAsync](xref:Microsoft.Extensions.Hosting.IHostedService.StopAsync*) çağrıldığında tetiklenen.`stoppingToken`
-* `StopAsync(CancellationToken stoppingToken)`&ndash; UygulamaKonağı`StopAsync` düzgün kapanma yaparken tetiklenir. , `stoppingToken` Kapanma işleminin artık düzgün şekilde olmaması gerektiğini gösterir.
+Ayrıca, *isteğe bağlı* olarak, hizmetiniz için başlatma `IHostedService` ve kapatılma kodunu çalıştırmak için tanımlanan yöntemleri geçersiz kılın:
+
+* `StopAsync(CancellationToken cancellationToken)`&ndash; UygulamaKonağı`StopAsync` düzgün kapanma gerçekleştirirken çağrılır. Ana `cancellationToken` bilgisayar, hizmeti zorla sonlandırmaya karar verdiğinde, bu, işaret edilir. Bu yöntem geçersiz kılınırsa, hizmetin düzgün şekilde kapatılmasını sağlamak `await`için temel sınıf yöntemini çağırmanız gerekir.
+* `StartAsync(CancellationToken cancellationToken)`&ndash; arkaplan`StartAsync` hizmetini başlatmak için çağırılır. Başlatma `cancellationToken` işlemi kesintiye uğrarsa, bu öğesine işaret edilir. Uygulama, hizmet için `Task` başlatma sürecini temsil eden bir döndürür. Bu `Task` tamamlanana kadar başka hizmet başlatılamaz. Bu yöntem geçersiz kılınırsa, hizmetin düzgün şekilde başlamasını sağlamak `await`için temel sınıf yöntemini çağırmanız gerekir.
 
 ## <a name="timed-background-tasks"></a>Zamanlanmış arka plan görevleri
 

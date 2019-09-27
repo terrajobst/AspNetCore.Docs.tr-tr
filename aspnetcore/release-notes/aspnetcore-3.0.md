@@ -4,14 +4,14 @@ author: rick-anderson
 description: ASP.NET Core 3,0 ' deki yeni özellikler hakkında bilgi edinin.
 ms.author: riande
 ms.custom: mvc
-ms.date: 09/23/2019
+ms.date: 09/26/2019
 uid: aspnetcore-3.0
-ms.openlocfilehash: 490d00da7282e2efe28fcc52e593dd71d7324d3f
-ms.sourcegitcommit: 0365af91518004c4a44a30dc3a8ac324558a399b
+ms.openlocfilehash: c1b61fee7264b972c70dbfa8f1461e33e3645746
+ms.sourcegitcommit: e644258c95dd50a82284f107b9bf3becbc43b2b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71198987"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71317652"
 ---
 # <a name="whats-new-in-aspnet-core-30"></a>ASP.NET Core 3,0 ' deki yenilikler
 
@@ -64,7 +64,7 @@ Blazor içindeki bileşenler genellikle HTML ve C#doğal bir Blend Razor söz di
   * İkili serileştirme biçimi.
 * Şöyle özellikler sağlar:
 
-  * Kimlik doğrulaması
+  * Authentication
   * Çift yönlü akış ve akış denetimi.
   * İptal ve zaman aşımları.
 
@@ -316,8 +316,19 @@ ASP.NET Core 3,0 ' ye Json.NET eklemek için bkz. [Newtonsoft. JSON tabanlı JSO
 
 Aşağıdaki listede yeni Razor yönergeleri yer almaktadır:
 
-* [@attribute](xref:mvc/views/razor#attribute)&ndash; Yönergesiverilenözniteliğioluşturulansayfanın`@attribute` veya görünümün sınıfına uygular. Örneğin, uygulamasında yönetilen Hyper-V konakları olarak eklemek için aşağıdaki yordamı kullanabilirsiniz.
-* [@implements](xref:mvc/views/razor#implements)&ndash; Yönergesi,oluşturulansınıf`@implements` için bir arabirim uygular. Örneğin, uygulamasında yönetilen Hyper-V konakları olarak eklemek için aşağıdaki yordamı kullanabilirsiniz.
+* [@attribute](xref:mvc/views/razor#attribute)&ndash; Yönergesiverilenözniteliğioluşturulansayfanın`@attribute` veya görünümün sınıfına uygular. Örneğin, `@attribute [Authorize]`.
+* [@implements](xref:mvc/views/razor#implements)&ndash; Yönergesi,oluşturulansınıf`@implements` için bir arabirim uygular. Örneğin, `@implements IDisposable`.
+
+## <a name="identityserver4-supports-authentication-and-authorization-for-web-apis-and-spas"></a>Identityserver4, Web API 'Leri ve maça 'Ları için kimlik doğrulama ve yetkilendirmeyi destekler
+
+[Identityserver4](https://identityserver.io) , ASP.NET Core 3,0 Için bir OpenID Connect ve OAuth 2,0 çerçevesidir. Identityserver4 aşağıdaki güvenlik özelliklerini sunar:
+
+* Hizmet olarak kimlik doğrulaması (AaaS)
+* Birden çok uygulama türü üzerinde çoklu oturum açma/kapatma (SSO)
+* API 'Ler için erişim denetimi
+* Federasyon ağ geçidi
+
+Daha fazla bilgi için bkz. [ıdentityserver4 to Welcome](http://docs.identityserver.io/en/latest/index.html).
 
 ## <a name="certificate-and-kerberos-authentication"></a>Sertifika ve Kerberos kimlik doğrulaması
 
@@ -420,9 +431,9 @@ Daha fazla bilgi için bkz. <xref:migration/22-to-30#kestrel>.
 
 HTTP/2, HTTPS uç noktaları için Kestrel içinde varsayılan olarak etkindir. IIS veya HTTP. sys için HTTP/2 desteği, işletim sistemi tarafından desteklendikleri zaman etkindir.
 
-## <a name="request-counters"></a>İstek sayaçları
+## <a name="eventcounters-on-request"></a>İstek üzerine EventCounters
 
-Barındırmada EventSource (Microsoft. AspNetCore. Hosting), gelen isteklerle ilgili aşağıdaki EventCounters ' i yayar:
+EventSource `Microsoft.AspNetCore.Hosting`barındırma, gelen isteklerle ilgili aşağıdaki yeni <xref:System.Diagnostics.Tracing.EventCounter> türleri yayar:
 
 * `requests-per-second`
 * `total-requests`
@@ -476,7 +487,7 @@ IIS 'de ASP.NET Core uygulamalar barındırırken başlatma hataları artık dah
 
 .NET Core 3,0 yeni çalışan hizmeti uygulama şablonunu tanıtır. Bu şablon, .NET Core 'da uzun süre çalışan hizmetler yazmak için bir başlangıç noktası sağlar.
 
-Daha fazla bilgi için bkz.:
+Daha fazla bilgi için bkz.
 
 * [Windows Hizmetleri olarak .NET Core çalışanları](https://devblogs.microsoft.com/aspnet/net-core-workers-as-windows-services/)
 * <xref:fundamentals/host/hosted-services>
