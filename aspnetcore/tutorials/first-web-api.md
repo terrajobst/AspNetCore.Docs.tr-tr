@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 08/27/2019
 uid: tutorials/first-web-api
-ms.openlocfilehash: 5e5215f246c6c7a805a4c99f485d51a2fb3c712d
-ms.sourcegitcommit: cf9ffcce4fe0b69fe795aae9ae06e99fdb18bdfc
+ms.openlocfilehash: 366323416061bf729c092419f2f6a5912884252b
+ms.sourcegitcommit: 5d25a7f22c50ca6fdd0f8ecd8e525822e1b35b7a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71306671"
+ms.lasthandoff: 09/28/2019
+ms.locfileid: "71551727"
 ---
 # <a name="tutorial-create-a-web-api-with-aspnet-core"></a>Öğretici: ASP.NET Core ile Web API 'SI oluşturma
 
@@ -21,7 +21,7 @@ Bu öğretici, bir web API ASP.NET Core ile oluşturmaya ilişkin temel bilgiler
 
 ::: moniker range=">= aspnetcore-3.0"
 
-Bu öğreticide şunların nasıl yapıladığını öğreneceksiniz:
+Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 > [!div class="checklist"]
 > * Bir Web API projesi oluşturun.
@@ -83,7 +83,7 @@ Aşağıdaki diyagramda, bu uygulamanın tasarımını gösterir.
 
    ```dotnetcli
    dotnet new webapi -o TodoApi
-   cd TodoAPI
+   cd TodoApi
    dotnet add package Microsoft.EntityFrameworkCore.SqlServer
    dotnet add package Microsoft.EntityFrameworkCore.InMemory
    code -r ../TodoApi
@@ -271,8 +271,8 @@ Yukarıdaki kod:
 * **Entity Framework kullanarak ve eylemler Içeren API denetleyicisi**' ni seçin ve ardından **Ekle**' yi seçin.
 * **API denetleyiciyi eylemler Ile Ekle ' de Entity Framework** iletişim kutusunu kullanarak:
 
-  * **Model sınıfında** **TodoItem (TodoAPI. modeller)** öğesini seçin.
-  * **Veri bağlamı sınıfında** **TodoContext (TodoAPI. modeller)** öğesini seçin.
+  * **Model sınıfında** **TodoItem (TodoApi. modeller)** öğesini seçin.
+  * **Veri bağlamı sınıfında** **TodoContext (TodoApi. modeller)** öğesini seçin.
   * **Ekle** 'yi seçin
 
 # <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Visual Studio Code/Mac için Visual Studio](#tab/visual-studio-code+visual-studio-mac)
@@ -469,7 +469,7 @@ Postman bir yapılacak iş öğesini silmek için kullanın:
 
 ::: moniker range="< aspnetcore-3.0"
 
-Bu öğreticide şunların nasıl yapıladığını öğreneceksiniz:
+Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 > [!div class="checklist"]
 > * Bir Web API projesi oluşturun.
