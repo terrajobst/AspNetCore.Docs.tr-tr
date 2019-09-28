@@ -4,14 +4,14 @@ author: tdykstra
 description: Bu öğreticide ilgili verileri okuyabilir ve görüntüleriz, yani Entity Framework gezinti özelliklerine yüklediği veriler.
 ms.author: riande
 ms.custom: mvc
-ms.date: 07/22/2019
+ms.date: 09/28/2019
 uid: data/ef-rp/read-related-data
-ms.openlocfilehash: f53f8edef7fe8690d0e414bc094d81dc99ad198a
-ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
+ms.openlocfilehash: 02b52dee0b661ad26cd6fa9fea08fcea3d7dd9bd
+ms.sourcegitcommit: f62014bb558ff6f8fdaef2e96cb05986e216aacd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71082096"
+ms.lasthandoff: 09/28/2019
+ms.locfileid: "71592294"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---read-related-data---6-of-8"></a>ASP.NET Core EF Core ile Razor Pages-Ilgili verileri oku-6/8
 
@@ -258,7 +258,7 @@ Yukarıdaki kod aşağıdaki değişiklikleri yapar:
   }
   ```
 
-* Her bir eğitmen tarafından taders kurslarını görüntüleyen bir **Kurslar** sütunu ekler. Bu Razor sözdizimi hakkında daha fazla bilgi için bkz. [açık hat geçişi `@:` ](xref:mvc/views/razor#explicit-line-transition-with-) .
+* Her bir eğitmen tarafından taders kurslarını görüntüleyen bir **Kurslar** sütunu ekler. Bu Razor sözdizimi hakkında daha fazla bilgi için bkz. [açık hat geçişi](xref:mvc/views/razor#explicit-line-transition) .
 
 * Seçilen eğitmenin ve kursun `class="success"` `tr` öğesine dinamik olarak ekleyen kodu ekler. Bu, bir önyükleme sınıfı kullanarak seçili satır için bir arka plan rengi ayarlar.
 
@@ -527,7 +527,7 @@ Sorgunun iki içerme vardır:
   }
   ```
 
-* Her bir eğitmen tarafından taders kurslarını görüntüleyen bir **Kurslar** sütunu eklendi. Bu Razor sözdizimi hakkında daha fazla bilgi için bkz. [açık hat geçişi `@:` ](xref:mvc/views/razor#explicit-line-transition-with-) .
+* Her bir eğitmen tarafından taders kurslarını görüntüleyen bir **Kurslar** sütunu eklendi. Bu Razor sözdizimi hakkında daha fazla bilgi için bkz. [açık hat geçişi](xref:mvc/views/razor#explicit-line-transition) .
 
 * Seçilen eğitmenin `tr` öğesine dinamik olarak `class="success"` ekleyen kod eklendi. Bu, bir önyükleme sınıfı kullanarak seçili satır için bir arka plan rengi ayarlar.
 
@@ -646,7 +646,7 @@ Sonraki öğreticide ilgili verileri güncelleştirme gösterilmektedir.
 * [Bu öğreticinin YouTube sürümü (part2)](https://www.youtube.com/watch?v=xvDDrIHv5ko)
 
 >[!div class="step-by-step"]
->[Önceki](xref:data/ef-rp/complex-data-model)İleri
->[](xref:data/ef-rp/update-related-data)
+>[Önceki](xref:data/ef-rp/complex-data-model)
+>[İleri](xref:data/ef-rp/update-related-data)
 
 ::: moniker-end

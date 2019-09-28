@@ -3,14 +3,14 @@ title: ASP.NET Core Razor söz dizimi başvurusu
 author: rick-anderson
 description: Kodu sunucu tabanlı Web sayfalarını eklemek için Razor söz dizimi biçimlendirme hakkında bilgi edinin.
 ms.author: riande
-ms.date: 09/19/2019
+ms.date: 09/28/2019
 uid: mvc/views/razor
-ms.openlocfilehash: 9a319f7efb6d879559afd9faca6955aba719fa2f
-ms.sourcegitcommit: e5a74f882c14eaa0e5639ff082355e130559ba83
+ms.openlocfilehash: 6f8835419dbf4c271617f57484c3408e0af30617
+ms.sourcegitcommit: f62014bb558ff6f8fdaef2e96cb05986e216aacd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71168298"
+ms.lasthandoff: 09/28/2019
+ms.locfileid: "71592324"
 ---
 # <a name="razor-syntax-reference-for-aspnet-core"></a>ASP.NET Core Razor söz dizimi başvurusu
 
@@ -227,9 +227,9 @@ Etiket `<text>` , içerik işlerken boşluğu denetlemek için yararlıdır:
 * Yalnızca `<text>` etiketi arasındaki içerik işlenir.
 * HTML çıktısında `<text>` etiket görüntülenmeden önce veya sonra boşluk yok.
 
-### <a name="explicit-line-transition-with-colon"></a>İle açık satır geçişi\@&colon;
+### <a name="explicit-line-transition"></a>Açık satır geçişi
 
-Tüm bir satırı geri kalanı bir kod bloğunun içine HTML olarak işlemek için kullanmak `@:` söz dizimi:
+Tüm satırın geri kalanını bir kod bloğu içinde HTML olarak işlemek için `@:` sözdizimi kullanın:
 
 ```cshtml
 @for (var i = 0; i < people.Length; i++)
@@ -649,7 +649,7 @@ Yönerge, `Model` özelliğin türünü belirtir. `@model` Yönergesi belirtir `
 Aşağıdaki tabloda gösterilen Razor Pages örneği için:
 
 * Her sayfa sayfa */_Viewwimports. cshtml*içeri aktarır.
-* *Pages/_Viewwimports. cshtml* Contains `@namespace Hello.World`.
+* *Pages/_Viewwimports. cshtml* `@namespace Hello.World` içerir.
 * Her sayfa, `Hello.World` ad alanının kökü olarak bulunur.
 
 | Sayfasında                                        | Ad Alanı                             |
