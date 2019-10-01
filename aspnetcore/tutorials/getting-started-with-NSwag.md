@@ -6,12 +6,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 06/21/2019
 uid: tutorials/get-started-with-nswag
-ms.openlocfilehash: cdaa5aff3007030c70bc959bbf07903bdf39e736
-ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
+ms.openlocfilehash: 5e62a8cc50947969d42981350b65a24781929d62
+ms.sourcegitcommit: fe88748b762525cb490f7e39089a4760f6a73a24
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71082429"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71691191"
 ---
 # <a name="get-started-with-nswag-and-aspnet-core"></a>NSwag ve ASP.NET Core kullanmaya başlayın
 
@@ -104,7 +104,7 @@ Aşağıdaki seçeneklerden birini seçerek NSwag 'nin kod oluşturma özelliği
 * [NSwagStudio](https://github.com/RicoSuter/NSwag/wiki/NSwagStudio) veya TypeScript içinde C# API istemci kodu oluşturmaya yönelik bir Windows masaüstü uygulaması. &ndash;
 * Projenizin içindeki kod üretimi için [Nswag. CodeGeneration. CSharp](https://www.nuget.org/packages/NSwag.CodeGeneration.CSharp/) veya [Nswag. CodeGeneration. TypeScript](https://www.nuget.org/packages/NSwag.CodeGeneration.TypeScript/) NuGet paketleri.
 * [Komut satırından](https://github.com/RicoSuter/NSwag/wiki/CommandLine)NSwag.
-* [Nswag. MSBuild](https://github.com/RicoSuter/NSwag/wiki/MSBuild) NuGet paketi.
+* [Nswag. MSBuild](https://github.com/RicoSuter/NSwag/wiki/NSwag.MSBuild) NuGet paketi.
 * [Unchase openapı (Swagger) bağlı hizmeti](https://marketplace.visualstudio.com/items?itemName=Unchase.unchaseopenapiconnectedservice) &ndash; , veya TypeScript içinde C# API istemci kodu oluşturmak için bir Visual Studio bağlı hizmeti. Ayrıca, C# NSwag Ile openapı Hizmetleri için denetleyiciler oluşturur.
 
 ### <a name="generate-code-with-nswagstudio"></a>NSwagStudio ile kod oluşturma

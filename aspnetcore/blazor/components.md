@@ -5,14 +5,14 @@ description: Veri bağlama, olayları işleme ve bileşen yaşam döngülerini y
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 09/23/2019
+ms.date: 09/30/2019
 uid: blazor/components
-ms.openlocfilehash: 28e908968bd77c61da72d1bcc6032e580d15541b
-ms.sourcegitcommit: 79eeb17604b536e8f34641d1e6b697fb9a2ee21f
+ms.openlocfilehash: ea216e405e5be52b578e99a529d8c6a726ea9cdd
+ms.sourcegitcommit: fe88748b762525cb490f7e39089a4760f6a73a24
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71207275"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71688026"
 ---
 # <a name="create-and-use-aspnet-core-razor-components"></a>ASP.NET Core Razor bileşenleri oluşturma ve kullanma
 
@@ -440,9 +440,9 @@ Aşağıdaki örnekte, `UpdateHeading` düğme seçildiğinde zaman uyumsuz olar
 
 Bazı olaylar için olay bağımsız değişkeni türlerine izin verilir. Bu olay türlerinden birine erişim gerekmiyorsa, yöntem çağrısında gerekli değildir.
 
-Desteklenen [EventArgs](https://github.com/aspnet/AspNetCore/tree/release/3.0-preview9/src/Components/Web/src/Web) aşağıdaki tabloda gösterilmiştir.
+Desteklenen `EventArgs` aşağıdaki tabloda gösterilmiştir.
 
-| Olay | örneği |
+| Olay | Sınıf |
 | ----- | ----- |
 | Pano        | `ClipboardEventArgs` |
 | Sürükle             | `DragEventArgs`&ndash; veöğe`DataTransferItem` verilerini sürüklemiş tutun. `DataTransfer` |
@@ -456,7 +456,7 @@ Desteklenen [EventArgs](https://github.com/aspnet/AspNetCore/tree/release/3.0-pr
 | İlerleme durumu         | `ProgressEventArgs` |
 | Dokunma            | `TouchEventArgs`&ndash; dokunarakduyarlıbircihazdakitekbir`TouchPoint` iletişim noktasını temsil eder. |
 
-Önceki tablodaki olayların özellikleri ve olay işleme davranışı hakkında bilgi için bkz. [başvuru kaynağında EventArgs sınıfları (ASPNET/AspNetCore Release/3.0-preview9 Branch)](https://github.com/aspnet/AspNetCore/tree/release/3.0-preview9/src/Components/Web/src/Web).
+Önceki tablodaki olayların özellikleri ve olay işleme davranışı hakkında bilgi için bkz. [başvuru kaynağında EventArgs sınıfları (ASPNET/AspNetCore Release/3.0 dalı)](https://github.com/aspnet/AspNetCore/tree/release/3.0/src/Components/Web/src/Web).
 
 ### <a name="lambda-expressions"></a>Lambda ifadeleri
 
@@ -1382,7 +1382,7 @@ Aşağıdaki örnekte, `CreateComponent` yöntemindeki döngü üç `PetDetails`
 }
 ```
 
-> ! WARNING İçindeki `Microsoft.AspNetCore.Components.RenderTree` türler, işleme işlemlerinin *sonuçlarının* işlenmesine izin verir. Bunlar, Blazor Framework uygulamasının iç ayrıntılardır. Bu türlerin *dengesizleşilmesi* ve gelecekteki sürümlerde değişikliğe tabi olması gerekir.
+> ! WARNING @No__t-0 ' daki türler, işleme işlemlerinin *sonuçlarının* işlenmesine izin verir. Bunlar, Blazor Framework uygulamasının iç ayrıntılardır. Bu türlerin *dengesizleşilmesi* ve gelecekteki sürümlerde değişikliğe tabi olması gerekir.
 
 ### <a name="sequence-numbers-relate-to-code-line-numbers-and-not-execution-order"></a>Sıra numaraları, kod satırı numaralarıyla ilgilidir ve yürütme sırası değildir
 
@@ -1414,14 +1414,14 @@ builder.AddContent(1, "Second");
 
 Kod ilk kez `someFlag` `true`çalıştırıldığında, Oluşturucu şunları alır:
 
-| Sequence | Tür      | Veri   |
+| Dizisi | Type      | Data   |
 | :------: | --------- | :----: |
 | 0        | Metin düğümü | adı  |
 | 1\.        | Metin düğümü | Saniye |
 
 `someFlag` Olduğunu`false`düşünün ve biçimlendirme yeniden işlenir. Bu kez, Oluşturucu şunları alır:
 
-| Sequence | Tür       | Veri   |
+| Dizisi | Type       | Data   |
 | :------: | ---------- | :----: |
 | 1\.        | Metin düğümü  | Saniye |
 
@@ -1446,14 +1446,14 @@ builder.AddContent(seq++, "Second");
 
 Şimdi ilk çıktı:
 
-| Sequence | Tür      | Veri   |
+| Dizisi | Type      | Data   |
 | :------: | --------- | :----: |
 | 0        | Metin düğümü | adı  |
 | 1\.        | Metin düğümü | Saniye |
 
 Bu sonuç önceki bir durum ile aynıdır, bu nedenle olumsuz bir sorun yoktur. `someFlag``false` ikinci işleme ve çıktı:
 
-| Sequence | Tür      | Veri   |
+| Dizisi | Type      | Data   |
 | :------: | --------- | ------ |
 | 0        | Metin düğümü | Saniye |
 
@@ -1514,7 +1514,7 @@ Yerelleştirme uygulamada işlenir:
 
 1. Tarayıcı, uygulamaya bir ilk HTTP isteği gönderir.
 1. Kültür, yerelleştirme ara yazılımı tarafından atanır.
-1. *_Host. cshtml. cs* dosyasındaki yöntemi,yanıtınbirparçasıolarakbirtanımlamabilgisindekültürüdevamettirir.`OnGet`
+1. *_Host. cshtml. cs* içindeki `OnGet` yöntemi, yanıtın bir parçası olarak bir tanımlama bilgisinde kültürü devam ettirir.
 1. Tarayıcı, etkileşimli bir Blazor Server oturumu oluşturmak için bir WebSocket bağlantısı açar.
 1. Yerelleştirme ara yazılımı tanımlama bilgisini okur ve kültürü atar.
 1. Blazor sunucusu oturumu doğru kültür ile başlar.

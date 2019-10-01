@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 09/26/2019
 uid: aspnetcore-3.0
-ms.openlocfilehash: c1b61fee7264b972c70dbfa8f1461e33e3645746
-ms.sourcegitcommit: e644258c95dd50a82284f107b9bf3becbc43b2b2
+ms.openlocfilehash: a32307f6de01e03e548cbde2c38c9469db74b506
+ms.sourcegitcommit: fe88748b762525cb490f7e39089a4760f6a73a24
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71317652"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71688037"
 ---
 # <a name="whats-new-in-aspnet-core-30"></a>ASP.NET Core 3,0 ' deki yenilikler
 
@@ -423,7 +423,7 @@ Tüm hizmetler yine de `Startup.Configure` yönteme bağımsız değişken olara
 * Bağlantı bağdaştırıcıları, Kestrel adresinden kaldırılmıştır ve bağlantı ara yazılımı ile değiştirilmiştir ve bu, ASP.NET Core işlem hattındaki HTTP ara hattına benzer ancak alt düzey bağlantılar için kullanılır.
 * Kestrel aktarım katmanı, içinde `Connections.Abstractions`ortak bir arabirim olarak kullanıma sunuldu.
 * Sondaki üstbilgiler yeni bir koleksiyona taşınarak üstbilgiler ve tanıtımları arasındaki belirsizlik çözüldü.
-* Gibi zaman uyumlu GÇ API 'leri `HttpReqeuest.Body.Read`, uygulama kilitlenmelerine neden olan yaygın bir iş parçacığı kaynağıdır. 3,0 ' `AllowSynchronousIO` de varsayılan olarak devre dışıdır.
+* Gibi zaman uyumlu GÇ API 'leri `HttpRequest.Body.Read`, uygulama kilitlenmelerine neden olan yaygın bir iş parçacığı kaynağıdır. 3,0 ' `AllowSynchronousIO` de varsayılan olarak devre dışıdır.
 
 Daha fazla bilgi için bkz. <xref:migration/22-to-30#kestrel>.
 

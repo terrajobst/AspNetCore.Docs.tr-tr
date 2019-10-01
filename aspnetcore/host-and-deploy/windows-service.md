@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 09/09/2019
 uid: host-and-deploy/windows-service
-ms.openlocfilehash: 995fdd2bbba30ff983bc2055fcb97c14541e2ac6
-ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
+ms.openlocfilehash: 544037a2a1f836e51b4f10551316312ef55c68da
+ms.sourcegitcommit: fe88748b762525cb490f7e39089a4760f6a73a24
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71081477"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71688082"
 ---
 # <a name="host-aspnet-core-in-a-windows-service"></a>Windows hizmetinde konak ASP.NET Core
 
@@ -36,21 +36,7 @@ ASP.NET Core Worker hizmeti şablonu, uzun süre çalışan hizmet uygulamaları
 1. .NET Core şablonundan bir çalışan hizmeti uygulaması oluşturun.
 1. Çalışan hizmeti uygulamasını bir Windows hizmeti olarak çalışacak şekilde güncelleştirmek için [uygulama yapılandırma](#app-configuration) bölümündeki yönergeleri izleyin.
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
-
-1. Yeni bir proje oluşturun.
-1. Seçin **ASP.NET Core Web uygulaması**. **İleri**’yi seçin.
-1. **Proje adı** alanında bir proje adı girin veya varsayılan proje adını kabul edin. **Oluştur**’u seçin.
-1. **Yeni bir ASP.NET Core Web uygulaması oluştur** iletişim kutusunda, **.net Core** ve **ASP.NET Core 3,0** ' un seçili olduğunu doğrulayın.
-1. **Çalışan hizmeti** şablonunu seçin. **Oluştur**’u seçin.
-
-# <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
-
-Çalışan hizmeti (`worker`) şablonunu bir komut kabuğundan [DotNet New](/dotnet/core/tools/dotnet-new) komutuyla birlikte kullanın. Aşağıdaki örnekte, adlı `ContosoWorkerService`bir çalışan hizmeti uygulaması oluşturulur. Komut yürütüldüğünde, `ContosoWorkerService` uygulamanın bir klasörü otomatik olarak oluşturulur.
-
-```dotnetcli
-dotnet new worker -o ContosoWorkerService
-```
+[!INCLUDE[](~/includes/worker-template-instructions.md)]
 
 ---
 

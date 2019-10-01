@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 09/26/2019
 uid: fundamentals/host/hosted-services
-ms.openlocfilehash: 5a29952c4e50edb953fa03c6ea1a1ae27b728bb0
-ms.sourcegitcommit: e644258c95dd50a82284f107b9bf3becbc43b2b2
+ms.openlocfilehash: 0eaa3a62370c1e413840bb65f597dc664adafc38
+ms.sourcegitcommit: fe88748b762525cb490f7e39089a4760f6a73a24
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71317715"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71688088"
 ---
 # <a name="background-tasks-with-hosted-services-in-aspnet-core"></a>ASP.NET Core içinde barındırılan hizmetlerle arka plan görevleri
 
@@ -37,29 +37,7 @@ ASP.NET Core, arka plan görevleri *barındırılan hizmetler*olarak uygulanabil
 
 ASP.NET Core Worker hizmeti şablonu, uzun süre çalışan hizmet uygulamalarını yazmak için bir başlangıç noktası sağlar. Şablonu bir barındırılan hizmetler uygulamasının temeli olarak kullanmak için:
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
-
-1. Yeni bir proje oluşturun.
-1. Seçin **ASP.NET Core Web uygulaması**. **İleri**’yi seçin.
-1. **Proje adı** alanında bir proje adı girin veya varsayılan proje adını kabul edin. **Oluştur**’u seçin.
-1. **Yeni bir ASP.NET Core Web uygulaması oluştur** iletişim kutusunda, **.net Core** ve **ASP.NET Core 3,0** ' un seçili olduğunu doğrulayın.
-1. **Çalışan hizmeti** şablonunu seçin. **Oluştur**’u seçin.
-
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Mac için Visual Studio](#tab/visual-studio-mac)
-
-1. Yeni bir proje oluşturun.
-1. Kenar çubuğunda **.NET Core** altında **uygulama** ' yı seçin.
-1. **ASP.NET Core**altında **çalışan** ' ı seçin. **İleri**’yi seçin.
-1. **Hedef çerçeve**Için **.NET Core 3,0** ' ı seçin. **İleri**’yi seçin.
-1. **Proje adı** alanına bir ad girin. **Oluştur**’u seçin.
-
-# <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
-
-Çalışan hizmeti (`worker`) şablonunu bir komut kabuğundan [DotNet New](/dotnet/core/tools/dotnet-new) komutuyla birlikte kullanın. Aşağıdaki örnekte, adlı `ContosoWorker`bir çalışan hizmeti uygulaması oluşturulur. Komut yürütüldüğünde, `ContosoWorker` uygulamanın bir klasörü otomatik olarak oluşturulur.
-
-```dotnetcli
-dotnet new worker -o ContosoWorker
-```
+[!INCLUDE[](~/includes/worker-template-instructions.md)]
 
 ---
 

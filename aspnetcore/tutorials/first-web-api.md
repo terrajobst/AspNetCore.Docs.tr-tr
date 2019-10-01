@@ -4,14 +4,14 @@ author: rick-anderson
 description: ASP.NET Core ile Web API 'SI oluşturmayı öğrenin.
 ms.author: riande
 ms.custom: mvc
-ms.date: 08/27/2019
+ms.date: 09/29/2019
 uid: tutorials/first-web-api
-ms.openlocfilehash: 366323416061bf729c092419f2f6a5912884252b
-ms.sourcegitcommit: 5d25a7f22c50ca6fdd0f8ecd8e525822e1b35b7a
+ms.openlocfilehash: 7bb98fe5befa8eea80885d246da31ad87d5cfc2d
+ms.sourcegitcommit: fe88748b762525cb490f7e39089a4760f6a73a24
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/28/2019
-ms.locfileid: "71551727"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71691211"
 ---
 # <a name="tutorial-create-a-web-api-with-aspnet-core"></a>Öğretici: ASP.NET Core ile Web API 'SI oluşturma
 
@@ -273,7 +273,7 @@ Yukarıdaki kod:
 
   * **Model sınıfında** **TodoItem (TodoApi. modeller)** öğesini seçin.
   * **Veri bağlamı sınıfında** **TodoContext (TodoApi. modeller)** öğesini seçin.
-  * **Ekle** 'yi seçin
+  * **Add (Ekle)** seçeneğini belirleyin.
 
 # <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Visual Studio Code/Mac için Visual Studio](#tab/visual-studio-code+visual-studio-mac)
 
@@ -283,7 +283,7 @@ Aşağıdaki komutları çalıştırın:
 dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design
 dotnet add package Microsoft.EntityFrameworkCore.Design
 dotnet tool install --global dotnet-aspnet-codegenerator
-dotnet aspnet-codegenerator controller -name TodoItemsController -async -api -m TodoItem -dc TodoContext  -outDir Controllers
+dotnet aspnet-codegenerator controller -name TodoItemsController -async -api -m TodoItem -dc TodoContext -outDir Controllers
 ```
 
 Yukarıdaki komutlar:
@@ -322,7 +322,7 @@ Bu öğreticide Postman web API'si test etmek için kullanılır.
 * Web uygulaması başlatın.
 * Postman'i başlatın.
 * Devre dışı **SSL sertifika doğrulama**
-* Gelen **Dosya > Ayarlar** (**genel* sekmesinde), devre dışı **SSL sertifika doğrulama**.
+* **Dosya** ayarlarından (Genel sekmesinden) SSL sertifikası doğrulamasını devre dışı bırakın. >
     > [!WARNING]
     > Test denetleyicisi sonra SSL sertifika doğrulamasını yeniden etkinleştirin.
 
@@ -356,7 +356,7 @@ Bu öğreticide Postman web API'si test etmek için kullanılır.
   ![Postman konsolunun üst bilgiler sekmesi](first-web-api/_static/3/create.png)
 
 * Yöntemini GET öğesine Ayarla.
-* URİ'sini yapıştırın (örneğin, `https://localhost:5001/api/TodoItems/1`)
+* URI 'yi yapıştırın (örneğin, `https://localhost:5001/api/TodoItems/1`).
 * **Gönder**’i seçin.
 
 ## <a name="examine-the-get-methods"></a>GET yöntemlerini inceleyin
@@ -404,7 +404,7 @@ Bu uygulama, bellek içi bir veritabanını kullanır. Uygulama durdurulup başl
 * Değiştirin `[controller]` denetleyicinin adı ile kural tarafından olduğu "Controller" soneki eksi denetleyici sınıfı adı. Bu örnek için denetleyici sınıfı adı **todoıtems**denetleyicisidir, bu nedenle denetleyicinin adı "todoıtems" olur. ASP.NET Core [yönlendirme](xref:mvc/controllers/routing) büyük/küçük harfe duyarlıdır.
 * Özniteliğin bir yol şablonu varsa (örneğin, `[HttpGet("products")]`), yola ekleyin. `[HttpGet]` Bu örnek, bir şablon kullanmaz. Daha fazla bilgi için [özniteliği Http [eylem] özniteliği ile yönlendirme](xref:mvc/controllers/routing#attribute-routing-with-httpverb-attributes).
 
-Aşağıdaki `GetTodoItem` yöntemi `"{id}"` yapılacak iş öğesi benzersiz tanımlayıcısı için bir yer tutucu değişkendir. Zaman `GetTodoItem` çağrılır, değerini `"{id}"` yöntemine URL'de sağlanan kendi`id` parametresi.
+Aşağıdaki `GetTodoItem` yöntemi `"{id}"` yapılacak iş öğesi benzersiz tanımlayıcısı için bir yer tutucu değişkendir. @No__t-0 çağrıldığında, URL 'deki `"{id}"` değeri, `id` parametresindeki yöntemine sağlanır.
 
 [!code-csharp[](first-web-api/samples/3.0/TodoApi/Controllers/TodoItemsController.cs?name=snippet_GetByID&highlight=1-2)]
 
@@ -458,8 +458,8 @@ Aşağıdaki görüntüde, Postman güncelleştirme gösterilmektedir:
 Postman bir yapılacak iş öğesini silmek için kullanın:
 
 * Yöntem kümesine `DELETE`.
-* Silmek, örneğin nesnenin URI ayarlayın `https://localhost:5001/api/TodoItems/1`
-* Seçin **Gönder**
+* Silinecek nesnenin URI 'sini ayarlayın (örneğin `https://localhost:5001/api/TodoItems/1`).
+* **Gönder**’i seçin.
 
 ## <a name="call-the-web-api-with-javascript"></a>JavaScript ile Web API 'sini çağırma
 
@@ -741,10 +741,10 @@ Dönüş türünü `GetTodoItems` ve `GetTodoItem` yöntemler [actionresult öğ
 
 Bu öğreticide Postman web API'si test etmek için kullanılır.
 
-* Yükleme [Postman](https://www.getpostman.com/downloads/)
+* [Postman](https://www.getpostman.com/downloads/)'yi yükleme.
 * Web uygulaması başlatın.
 * Postman'i başlatın.
-* Devre dışı **SSL sertifika doğrulama**
+* **SSL sertifikası doğrulamasını**devre dışı bırakın.
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
@@ -813,7 +813,7 @@ Yukarıdaki kod tarafından belirtildiği gibi bir HTTP POST yöntemi olup [[Htt
   ![Postman konsolunun üst bilgiler sekmesi](first-web-api/_static/pmc2.png)
 
 * Yöntemini GET öğesine Ayarla.
-* URİ'sini yapıştırın (örneğin, `https://localhost:5001/api/Todo/2`)
+* URI 'yi yapıştırın (örneğin, `https://localhost:5001/api/Todo/2`).
 * **Gönder**’i seçin.
 
 ## <a name="add-a-puttodoitem-method"></a>PutTodoItem yöntemi ekleme
@@ -857,8 +857,8 @@ Aşağıdaki `DeleteTodoItem` yöntemi:
 Postman bir yapılacak iş öğesini silmek için kullanın:
 
 * Yöntem kümesine `DELETE`.
-* Silmek, örneğin nesnenin URI ayarlayın `https://localhost:5001/api/todo/1`
-* Seçin **Gönder**
+* Silinecek nesnenin URI 'sini ayarlayın (örneğin `https://localhost:5001/api/todo/1`).
+* **Gönder**’i seçin.
 
 Örnek uygulama, tüm öğeleri silmenizi sağlar. Ancak, son öğe silindiğinde, API 'nin bir sonraki çağrılışında model sınıfı Oluşturucu tarafından yeni bir tane oluşturulur.
 
