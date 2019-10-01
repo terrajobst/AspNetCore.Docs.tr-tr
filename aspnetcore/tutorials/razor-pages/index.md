@@ -5,12 +5,12 @@ description: Visual Studio, ASP.NET Core ve EF Core ile Windows üzerinde Razor 
 ms.author: riande
 ms.date: 08/09/2019
 uid: tutorials/razor-pages/index
-ms.openlocfilehash: 11a5f651aa3da0a01490d28d411a614cb2f355c2
-ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
+ms.openlocfilehash: 03acfc381cf5dca2f8b834da75191cd8053e0da4
+ms.sourcegitcommit: dc96d76f6b231de59586fcbb989a7fb5106d26a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71082391"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71703775"
 ---
 # <a name="tutorial-create-a-razor-pages-web-app-with-aspnet-core"></a>Öğretici: ASP.NET Core ile Razor Pages Web uygulaması oluşturma
 
@@ -32,8 +32,3 @@ Bu seri aşağıdaki öğreticileri içerir:
 Son olarak, bir film veritabanını görüntüleyebilen ve yönetebileceğini bir uygulamanıza sahip olacaksınız.
 
 ![Örnek uygulamanın örnek sayfası](index/_static/sample-page.png)
-
-## <a name="additional-resources"></a>Ek kaynaklar
-
-* [Bu öğreticinin YouTube sürümü](https://www.youtube.com/watch?v=F0SP7Ry4flQ&feature=youtu.be)
-* [Bu öğreticinin YouTube sürümü (Türkçe)](https://www.youtube.com/watch?v=wqW8ayrA5-E)
