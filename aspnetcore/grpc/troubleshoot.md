@@ -7,12 +7,12 @@ ms.author: jamesnk
 ms.custom: mvc
 ms.date: 09/21/2019
 uid: grpc/troubleshoot
-ms.openlocfilehash: 15377ba4b31ce9319df300b23e5a95c67bca7db4
-ms.sourcegitcommit: 04ce94b3c1b01d167f30eed60c1c95446dfe759d
+ms.openlocfilehash: c31f499b008cdec9d759e804b18965156ca99f30
+ms.sourcegitcommit: d8b12cc1716ee329d7bd2300e201b61e15d506ac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/21/2019
-ms.locfileid: "71176497"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71942899"
 ---
 # <a name="troubleshoot-grpc-on-net-core"></a>.NET Core 'da gRPC sorunlarını giderme
 
@@ -151,3 +151,21 @@ GRPC çağrısı yapan bir gRPC istemci uygulaması yalnızca somut istemcinin o
   <Protobuf Include="Protos\greet.proto" GrpcServices="Client" />
 </ItemGroup>
 ```
+
+## <a name="wpf-projects-unable-to-generated-grpc-c-assets-from-proto-files"></a>WPF projeleri *@no__t -2. proto* dosyalarından C# GRPC varlıkları üretilip oluşturulamıyor
+
+WPF projelerinde, gRPC kod oluşturmanın düzgün çalışmasını engelleyen [bilinen bir sorun](https://github.com/dotnet/wpf/issues/810) vardır. WPF projesinde oluşturulan ve `Grpc.Tools` ve *. proto* dosyalarına başvuruda bulunan GRPC türleri, kullanıldığında derleme hataları oluşturur:
+
+> hata CS0246: ' MyGrpcServices ' tür veya ad alanı adı bulunamadı (bir using yönergeniz veya derleme başvurunuz mu eksik?)
+
+Bu soruna geçici çözüm olarak şunları yapabilirsiniz:
+
+1. Yeni bir .NET Core sınıf kitaplığı projesi oluşturun.
+2. Yeni projede, [ C# *@no__t -3. proto* dosyalarından kod oluşturmayıetkinleştirmek için başvurular ekleyin:
+    * [GRPC. Tools](https://www.nuget.org/packages/Grpc.Tools/) paketine bir paket başvurusu ekleyin.
+    * *\*. Proto* dosyalarını `<Protobuf>` öğe grubuna ekleyin.
+3. WPF uygulamasında yeni projeye bir başvuru ekleyin.
+
+WPF uygulaması, yeni sınıf kitaplığı projesinden gRPC tarafından oluşturulan türleri kullanabilir.
+
+[!INCLUDE[](~/includes/gRPCazure.md)]

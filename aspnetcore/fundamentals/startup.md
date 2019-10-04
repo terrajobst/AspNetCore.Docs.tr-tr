@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 8/7/2019
 uid: fundamentals/startup
-ms.openlocfilehash: 47194f786b2d32fb343e8f1078a4400d6db37293
-ms.sourcegitcommit: e54672f5c493258dc449fac5b98faf47eb123b28
+ms.openlocfilehash: 0ea3965f73f4b0334810bc9ec2910b0c9364a7ba
+ms.sourcegitcommit: d8b12cc1716ee329d7bd2300e201b61e15d506ac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71248329"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71942866"
 ---
 # <a name="app-startup-in-aspnet-core"></a>ASP.NET Core 'de uygulama başlatma
 
@@ -192,7 +192,10 @@ Hizmetleri ve istek işleme işlem hattını, ana bilgisayar Oluşturucu üzerin
 
 ## <a name="extend-startup-with-startup-filters"></a>Başlangıç filtreleriyle başlatmayı Genişlet
 
-Bir <xref:Microsoft.AspNetCore.Hosting.IStartupFilter> uygulamanın, ara yazılım [yapılandırma](#the-configure-method) işlem hattının başlangıcında veya sonunda ara yazılımı yapılandırmak için kullanın. `IStartupFilter``Configure` Yöntem işlem hattı oluşturmak için kullanılır. [Itartupfilter. configure](xref:Microsoft.AspNetCore.Hosting.IStartupFilter.Configure*) , bir ara yazılımı kitaplıklar tarafından eklenen bir veya daha sonra çalışacak şekilde ayarlayabilir.
+@No__t kullan-0:
+
+* Bir uygulamanın başlangıcında veya sonunda, `Use{Middleware}` ' e yönelik açık bir çağrı yapmadan ara yazılım [yapılandırma](#the-configure-method) ardışık düzenini yapılandırmak için. `IStartupFilter`, uygulama yazarının varsayılan ara yazılımı açıkça kaydetmesini sağlamak zorunda kalmadan, varsayılan olarak işlem hattının başlangıcına varsayılanlar eklemek için ASP.NET Core tarafından kullanılır. `IStartupFilter`, uygulama yazarı adına farklı bir bileşen çağrısı `Use{Middleware}` olarak izin verir.
+* @No__t-0 metotlarının bir işlem hattı oluşturmak için. [Itartupfilter. configure](xref:Microsoft.AspNetCore.Hosting.IStartupFilter.Configure*) , bir ara yazılımı kitaplıklar tarafından eklenen bir veya daha sonra çalışacak şekilde ayarlayabilir.
 
 `IStartupFilter`öğesini alır ve `Action<IApplicationBuilder>`döndürür. <xref:Microsoft.AspNetCore.Hosting.StartupBase.Configure*> Bir uygulamanın istek ardışık düzenini yapılandırmak için bir sınıf tanımlar.<xref:Microsoft.AspNetCore.Builder.IApplicationBuilder> Daha fazla bilgi için bkz. [IApplicationBuilder ile bir ara yazılım işlem hattı oluşturma](xref:fundamentals/middleware/index#create-a-middleware-pipeline-with-iapplicationbuilder).
 

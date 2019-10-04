@@ -5,14 +5,14 @@ description: Blazor WebAssembly ve Blazor Server barındırma modellerini anlay�
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 09/23/2019
+ms.date: 10/03/2019
 uid: blazor/hosting-models
-ms.openlocfilehash: 766b52df82f75ea1223e20d8471faa5732311f91
-ms.sourcegitcommit: 79eeb17604b536e8f34641d1e6b697fb9a2ee21f
+ms.openlocfilehash: bc3ad9c7c4731b685fc161844d9f55e51722c0ea
+ms.sourcegitcommit: 73e255e846e414821b8cc20ffa3aec946735cd4e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71207236"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71924671"
 ---
 # <a name="aspnet-core-blazor-hosting-models"></a>Blazor barındırma modellerini ASP.NET Core
 
@@ -133,11 +133,14 @@ Blazor sunucu uygulamaları, ağ gecikmesini ve bellek kullanımını azaltarak 
 
 Blazor Server uygulamaları, sunucusuna etkin bir SignalR bağlantısı gerektirir. Bağlantı kaybolursa, uygulama sunucuya yeniden bağlanmaya çalışır. İstemcinin durumu hala bellekte olduğu sürece, istemci oturumu durum kaybı olmadan devam eder.
 
-İstemci bağlantının kaybolduğunu algıladığında, istemci yeniden bağlanmayı denediğinde kullanıcıya varsayılan bir kullanıcı arabirimi görüntülenir. Yeniden bağlantı başarısız olursa, kullanıcıya yeniden deneme seçeneği sağlanır. Kullanıcı arabirimini özelleştirmek için, `components-reconnect-modal` *_host. cshtml* Razor sayfasında `id` olarak bir öğesi tanımlayın. İstemci bu öğeyi bağlantı durumuna göre aşağıdaki CSS sınıflarından biriyle güncelleştirir:
+İstemci bağlantının kaybolduğunu algıladığında, istemci yeniden bağlanmayı denediğinde kullanıcıya varsayılan bir kullanıcı arabirimi görüntülenir. Yeniden bağlantı başarısız olursa, kullanıcıya yeniden deneme seçeneği sağlanır. Kullanıcı arabirimini özelleştirmek için, *_Host. cshtml* Razor sayfasında `id` olarak `components-reconnect-modal` olan bir öğe tanımlayın. İstemci bu öğeyi bağlantı durumuna göre aşağıdaki CSS sınıflarından biriyle güncelleştirir:
 
-* `components-reconnect-show`&ndash; Bağlantının kaybolduğunu ve istemcinin yeniden bağlanmaya çalışıyor olduğunu göstermek için Kullanıcı arabirimini görüntüleyin.
+* `components-reconnect-show` &ndash; Kullanıcı arabirimini kayıp bağlantıyı belirtecek şekilde gösterir ve istemci yeniden bağlanmaya çalışıyor demektir.
 * `components-reconnect-hide`&ndash; İstemcinin etkin bir bağlantısı vardır ve Kullanıcı arabirimini gizleyin.
-* `components-reconnect-failed`&ndash; Yeniden bağlantı kurulamadı. Yeniden bağlanmayı yeniden denemek için çağrısı `window.Blazor.reconnect()`yapın.
+* `components-reconnect-failed` @no__t-büyük olasılıkla ağ hatasından dolayı 1 yeniden bağlantı başarısız oldu. Yeniden bağlanmayı denemek için `window.Blazor.reconnect()` ' ı çağırın.
+* `components-reconnect-rejected` &ndash; yeniden bağlantı reddedildi. Sunucuya ulaşıldı ancak bağlantı reddedildi ve kullanıcının sunucudaki durumu geçti. Uygulamayı yeniden yüklemek için `location.reload()` ' ı çağırın. Bu bağlantı durumu şu durumlarda oluşabilir:
+  * Devrendeki bir kilitlenme (sunucu tarafı kodu) oluşur.
+  * Sunucunun kullanıcının durumunu bırakması için istemcinin bağlantısı yeterince uzun değil. Kullanıcının etkileşimde bulunduğu bileşenlerin örnekleri atıldı.
 
 ### <a name="stateful-reconnection-after-prerendering"></a>Prerendering sonrasında durum bilgisi olan yeniden bağlanma
 

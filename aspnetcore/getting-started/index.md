@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 09/22/2019
 uid: getting-started
-ms.openlocfilehash: c9cd5e05f52c8bdefa931adc654087dac91e2f05
-ms.sourcegitcommit: e644258c95dd50a82284f107b9bf3becbc43b2b2
+ms.openlocfilehash: 798f1ee87c05d886d8991e3f0230c8ebc6341ba8
+ms.sourcegitcommit: 73e255e846e414821b8cc20ffa3aec946735cd4e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71317758"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71925097"
 ---
 # <a name="tutorial-get-started-with-aspnet-core"></a>Öğretici: ASP.NET Core kullanmaya başlayın
 
@@ -44,7 +44,7 @@ dotnet new webapp -o aspnetcoreapp
 Önceki komut:
 
 * Yeni bir Web uygulaması oluşturur.  
-* Parametresi, uygulama için kaynak dosyalarla *aspnetcoreapp* adlı bir dizin oluşturur. `-o`
+* Parametresi, uygulama için kaynak dosyalarla *aspnetcoreapp* adlı bir dizin oluşturur. `-o aspnetcoreapp`
 
 ### <a name="trust-the-development-certificate"></a>Geliştirme sertifikasına güven
 
@@ -93,7 +93,7 @@ cd aspnetcoreapp
 dotnet watch run
 ```
 
-Komut kabuğu, uygulamanın başlatıldığını gösteriyorsa, öğesine [https://localhost:5001](https://localhost:5001)gidin. Gizlilik ve tanımlama bilgisi ilkesini kabul etmek için **kabul et** ' e tıklayın. Bu uygulama, kişisel bilgileri tutmak değil.
+Komut kabuğu, uygulamanın başlatıldığını gösteriyorsa, öğesine [https://localhost:5001](https://localhost:5001)gidin.
 
 ## <a name="edit-a-razor-page"></a>Razor sayfasını düzenleme
 

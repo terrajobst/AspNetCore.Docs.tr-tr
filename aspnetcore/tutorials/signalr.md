@@ -6,18 +6,18 @@ ms.author: bradyg
 ms.custom: mvc
 ms.date: 09/24/2019
 uid: tutorials/signalr
-ms.openlocfilehash: 7a6574bd3c463f0890f5dc076944f1ab0f0c919a
-ms.sourcegitcommit: e54672f5c493258dc449fac5b98faf47eb123b28
+ms.openlocfilehash: bec01adc2682f83b0225df66e221bd2e4ea9feb4
+ms.sourcegitcommit: 73e255e846e414821b8cc20ffa3aec946735cd4e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71248392"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71925329"
 ---
 # <a name="tutorial-get-started-with-aspnet-core-signalr"></a>Öğretici: ASP.NET Core SignalR ile çalışmaya başlama
 
 ::: moniker range=">= aspnetcore-3.0"
 
-Bu öğreticide, SignalR kullanarak gerçek zamanlı bir uygulama oluşturmanın temelleri öğretilir. Aşağıdakilerin nasıl yapıldığını öğreneceksiniz:
+Bu öğreticide, SignalR kullanarak gerçek zamanlı bir uygulama oluşturmanın temelleri öğretilir. Aşağıdakileri nasıl yapacağınızı öğrenirsiniz:
 
 > [!div class="checklist"]
 > * Web projesi oluşturun.
@@ -95,16 +95,15 @@ SignalR sunucu kitaplığı ASP.NET Core 3,0 paylaşılan çerçevesine dahildir
 
 * **Istemci tarafı kitaplığı Ekle** Iletişim kutusunda **sağlayıcı** için **unpkg**seçeneğini belirleyin.
 
-* **Kitaplık**için girin `@aspnet/signalr@next`.
-<!-- when 3.0 is released, change @next to @latest -->
+* **Kitaplık**için girin `@microsoft/signalr@latest`.
 
 * **Belirli dosyaları seç**' i seçin, *dağ/Browser* klasörünü genişletin ve *SignalR. js* ve *SignalR. min. js*' yi seçin.
 
-* **Hedef konumu** *Wwwroot/lib/SignalR/* olarak ayarlayın ve **yüklemeyi**seçin.
+* **Hedef konumu** *Wwwroot/js/SignalR/* olarak ayarlayın ve **yüklemeyi**seçin.
 
-  ![Istemci tarafı kitaplığı Ekle iletişim kutusu-kitaplık Seç](signalr/_static/3.x/libman1.png)
+  ![Istemci tarafı kitaplığı Ekle iletişim kutusu-kitaplık Seç](signalr/_static/3.x/find-signalr-client-libs-select-files.png)
 
-  LibMan, bir *Wwwroot/LIB/SignalR* klasörü oluşturur ve seçilen dosyaları buna kopyalar.
+  LibMan, bir *Wwwroot/js/SignalR* klasörü oluşturur ve seçilen dosyaları buna kopyalar.
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code/)
 
@@ -117,20 +116,20 @@ SignalR sunucu kitaplığı ASP.NET Core 3,0 paylaşılan çerçevesine dahildir
 * LibMan kullanarak SignalR istemci kitaplığını almak için aşağıdaki komutu çalıştırın. Çıktıyı görmeden önce birkaç saniye beklemeniz gerekebilir.
 
   ```console
-  libman install @aspnet/signalr@next -p unpkg -d wwwroot/lib/signalr --files dist/browser/signalr.js --files dist/browser/signalr.min.js
+  libman install @microsoft/signalr@latest -p unpkg -d wwwroot/lib/signalr --files dist/browser/signalr.js --files dist/browser/signalr.min.js
   ```
 
   Parametreler aşağıdaki seçenekleri belirtir:
   * Unpkg sağlayıcısını kullanın.
-  * Dosyaları *Wwwroot/lib/SignalR* hedefine kopyalayın.
+  * Dosyaları *Wwwroot/js/SignalR* hedefine kopyalayın.
   * Yalnızca belirtilen dosyaları kopyala.
 
   Çıktı aşağıdaki örneğe benzer şekilde görünür:
 
   ```console
-  wwwroot/lib/signalr/dist/browser/signalr.js written to disk
-  wwwroot/lib/signalr/dist/browser/signalr.min.js written to disk
-  Installed library "@aspnet/signalr@next" to "wwwroot/lib/signalr"
+  wwwroot/js/signalr/dist/browser/signalr.js written to disk
+  wwwroot/js/signalr/dist/browser/signalr.min.js written to disk
+  Installed library "@microsoft/signalr@latest" to "wwwroot/js/signalr"
   ```
 
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Mac için Visual Studio](#tab/visual-studio-mac)
@@ -146,20 +145,20 @@ SignalR sunucu kitaplığı ASP.NET Core 3,0 paylaşılan çerçevesine dahildir
 * LibMan kullanarak SignalR istemci kitaplığını almak için aşağıdaki komutu çalıştırın.
 
   ```console
-  libman install @aspnet/signalr@next -p unpkg -d wwwroot/lib/signalr --files dist/browser/signalr.js --files dist/browser/signalr.min.js
+  libman install @microsoft/signalr@latest -p unpkg -d wwwroot/js/signalr --files dist/browser/signalr.js --files dist/browser/signalr.min.js
   ```
 
   Parametreler aşağıdaki seçenekleri belirtir:
   * Unpkg sağlayıcısını kullanın.
-  * Dosyaları *Wwwroot/lib/SignalR* hedefine kopyalayın.
+  * Dosyaları *Wwwroot/js/SignalR* hedefine kopyalayın.
   * Yalnızca belirtilen dosyaları kopyala.
 
   Çıktı aşağıdaki örneğe benzer şekilde görünür:
 
   ```console
-  wwwroot/lib/signalr/dist/browser/signalr.js written to disk
-  wwwroot/lib/signalr/dist/browser/signalr.min.js written to disk
-  Installed library "@aspnet/signalr@next" to "wwwroot/lib/signalr"
+  wwwroot/js/signalr/dist/browser/signalr.js written to disk
+  wwwroot/js/signalr/dist/browser/signalr.min.js written to disk
+  Installed library "@microsoft/signalr@latest" to "wwwroot/js/signalr"
   ```
 
 ---
@@ -241,7 +240,7 @@ SignalR isteklerini SignalR 'ye iletmek için SignalR sunucusunun yapılandırı
 > [!TIP]
 > * Uygulama işe yaramazsa, tarayıcı geliştirici araçlarınızı (F12) açın ve konsola gidin. HTML ve JavaScript kodunuzla ilgili hatalarla karşılaşabilirsiniz. Örneğin, *SignalR. js* ' yi yönlendirenden farklı bir klasöre yerleştirdiğinizi varsayalım. Bu durumda, bu dosyaya başvuru çalışmaz ve konsolunda 404 hatası görürsünüz.
 >   ![SignalR. js bulunamadı hatası](signalr/_static/3.x/f12-console.png)
-> * ERR_SPDY_INADEQUATE_TRANSPORT_SECURITY hatasını, Firefox 'ta Chrome veya NS_ERROR_NET_INADEQUATE_SECURITY ' de alırsanız, geliştirme sertifikanızı güncelleştirmek için şu komutları çalıştırın:
+> * Chrome 'da ERR_SPDY_INADEQUATE_TRANSPORT_SECURITY hatasını alırsanız, geliştirme sertifikanızı güncelleştirmek için şu komutları çalıştırın:
 >
 >   ```dotnetcli
 >   dotnet dev-certs https --clean
@@ -259,7 +258,7 @@ SignalR hakkında daha fazla bilgi edinmek için bkz. giriş:
 
 ::: moniker range="< aspnetcore-3.0"
 
-Bu öğreticide, SignalR kullanarak gerçek zamanlı bir uygulama oluşturmanın temelleri öğretilir. Aşağıdakilerin nasıl yapıldığını öğreneceksiniz:
+Bu öğreticide, SignalR kullanarak gerçek zamanlı bir uygulama oluşturmanın temelleri öğretilir. Aşağıdakileri nasıl yapacağınızı öğrenirsiniz:
 
 > [!div class="checklist"]
 > * Web projesi oluşturun.

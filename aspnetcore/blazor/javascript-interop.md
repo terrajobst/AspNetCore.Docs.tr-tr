@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 09/23/2019
 uid: blazor/javascript-interop
-ms.openlocfilehash: 2b5d1433fce6e09adf3caa58e55e678b00ad98ee
-ms.sourcegitcommit: 79eeb17604b536e8f34641d1e6b697fb9a2ee21f
+ms.openlocfilehash: b30bce6ef3ebf1cd2f4f3fe8d046e1db9b6929d5
+ms.sourcegitcommit: 73e255e846e414821b8cc20ffa3aec946735cd4e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71211649"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71924641"
 ---
 # <a name="aspnet-core-blazor-javascript-interop"></a>ASP.NET Core Blazor JavaScript birlikte çalışması
 
@@ -38,7 +38,7 @@ Blazor Server uygulamaları için:
 
 Aşağıdaki örnek, deneysel bir JavaScript tabanlı kod çözücüsü olan [Textdecoder](https://developer.mozilla.org/docs/Web/API/TextDecoder)tabanlıdır. Örnek, bir C# yöntemden JavaScript işlevinin nasıl çağrılacağını gösterir. JavaScript işlevi bir C# yöntemden bir bayt dizisi kabul eder, dizinin kodunu çözer ve görüntülenecek metni bileşene döndürür.
 
-Wwwroot/index.html (Blazor webassembly) veya *Pages/_host. cshtml* (Blazor Server) `TextDecoder` öğesininiçinde,geçirilenbirdizininkodunuçözmekiçinkullananbirişlev`<head>` sağlayın:
+*Wwwroot/index.html* (Blazor WebAssembly) veya *Pages/_host. cshtml* (Blazor Server) `<head>` öğesi içinde, geçirilen bir dizinin kodunu çözmek için `TextDecoder` kullanan bir işlev sağlayın:
 
 [!code-html[](javascript-interop/samples_snapshot/index-script.html)]
 
@@ -81,13 +81,13 @@ Bu konuya eşlik eden istemci tarafı örnek uygulamada, Kullanıcı girişi alm
 
 [!code-javascript[](./common/samples/3.x/BlazorSample/wwwroot/exampleJsInterop.js?highlight=2-7)]
 
-JavaScript dosyasına başvuran etiketiWwwroot/index.htmldosyasına(Blazorwebassembly)veyaPages/_host.cshtmldosyasına(BlazorServer)`<script>` yerleştirin.
+*Wwwroot/index.html* dosyasındaki (Blazor WebAssembly) veya *Pages/_host. cshtml* dosyasındaki (Blazor Server) JavaScript dosyasına başvuran `<script>` etiketini yerleştirin.
 
 *Wwwroot/index.html* (Blazor WebAssembly):
 
 [!code-html[](./common/samples/3.x/BlazorSample/wwwroot/index.html?highlight=15)]
 
-*Pages/_Host. cshtml* (Blazor sunucusu):
+*Pages/_Host. cshtml* (Blazor Server):
 
 [!code-cshtml[](javascript-interop/samples_snapshot/_Host.cshtml?highlight=29)]
 
@@ -139,7 +139,7 @@ Aşağıdaki örnek, `username` `<input>` öğesine bir başvuru yakalama göste
 ```
 
 > [!NOTE]
-> Blazor başvurulan öğelerle etkileşime geçtiğinde DOM 'ı doldurma veya işleme gibi yakalanan öğe **başvurularını kullanmayın.** Bunun yapılması, bildirim temelli işleme modeliyle karışabilir.
+> Yakalanan öğe başvurularını DOM doldurma yöntemi **olarak kullanmayın.** Bunun yapılması, bildirim temelli işleme modeliyle karışabilir.
 
 .NET kodu açısından düşünüldüğünde, donuk bir `ElementReference` tanıtıcıdır. İle`ElementReference` yapabileceğiniz *tek* şey, JavaScript birlikte çalışması aracılığıyla JavaScript koduna geçer. Bunu yaptığınızda, JavaScript tarafı kodu normal Dom API 'leri ile kullanılabilecek `HTMLElement` bir örnek alır.
 

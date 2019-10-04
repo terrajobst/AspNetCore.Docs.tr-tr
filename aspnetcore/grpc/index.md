@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-3.0'
 ms.author: johluo
 ms.date: 09/20/2019
 uid: grpc/index
-ms.openlocfilehash: 88ceeba329ff2c7d764b7a5eabd5413da6ace765
-ms.sourcegitcommit: 8a36be1bfee02eba3b07b7a86085ec25c38bae6b
+ms.openlocfilehash: 2f32bf6e8df2c5b3574c337682cdc2845991630c
+ms.sourcegitcommit: 73e255e846e414821b8cc20ffa3aec946735cd4e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71219128"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71925170"
 ---
 # <a name="introduction-to-grpc-on-net-core"></a>.NET Core 'da gRPC 'ye giriş
 
@@ -20,7 +20,7 @@ ms.locfileid: "71219128"
 [GRPC](https://grpc.io/docs/guides/) , dilden bağımsız, yüksek performanslı bir uzak yordam ÇAĞRıSı (RPC) çerçevesidir.
 
 GRPC 'nin başlıca avantajları şunlardır:
-* Modern yüksek performanslı hafif RPC çerçevesi.
+* Modern, yüksek performanslı, hafif RPC çerçevesi.
 * Sözleşme-ilk API geliştirmesi, varsayılan olarak protokol arabellekleri kullanarak, dilden bağımsız uygulamalar için izin verir.
 * Birçok dilde araç, kesin türü belirtilmiş sunucu ve istemciler oluşturmak için kullanılabilir.
 * İstemci, sunucu ve iki yönlü akış çağrılarını destekler.
@@ -120,6 +120,8 @@ Console.WriteLine(response.Message);
 GRPC istemcisi, bir gRPC hizmeti ile uzun süreli bağlantıyı temsil eden bir kanal kullanılarak oluşturulur. Kullanılarak `GrpcChannel.ForAddress`bir kanal oluşturulabilir.
 
 İstemci oluşturma ve farklı hizmet yöntemlerini çağırma hakkında daha fazla bilgi için bkz <xref:grpc/client>.
+
+[!INCLUDE[](~/includes/gRPCazure.md)]
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 

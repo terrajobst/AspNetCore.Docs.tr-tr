@@ -7,12 +7,12 @@ ms.author: jamesnk
 ms.custom: mvc
 ms.date: 09/05/2019
 uid: grpc/configuration
-ms.openlocfilehash: 42574b43b4751efc37ff3a827716df4cb8130842
-ms.sourcegitcommit: 0365af91518004c4a44a30dc3a8ac324558a399b
+ms.openlocfilehash: 3ef92f10d914ef9fa3e13a7bdd5c863bab297f57
+ms.sourcegitcommit: 73e255e846e414821b8cc20ffa3aec946735cd4e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71199087"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71925215"
 ---
 # <a name="grpc-for-net-configuration"></a>.NET için gRPC yapılandırması
 
@@ -20,7 +20,7 @@ ms.locfileid: "71199087"
 
 GRPC Hizmetleri, *Startup.cs*içinde `AddGrpc` ile yapılandırılır. Aşağıdaki tabloda, gRPC hizmetlerini yapılandırma seçenekleri açıklanmaktadır:
 
-| Seçenek | Varsayılan Değer | Açıklama |
+| Seçenek | Default Value | Açıklama |
 | ------ | ------------- | ----------- |
 | `MaxSendMessageSize` | `null` | Sunucudan gönderilebilecek en büyük ileti boyutu (bayt). Yapılandırılan en büyük ileti boyutunu aşan bir ileti gönderilmeye çalışılıyor, bir özel durumla sonuçlanır. |
 | `MaxReceiveMessageSize` | 4 MB | Sunucu tarafından alınabilecek, bayt olarak en büyük ileti boyutu. Sunucu bu sınırı aşan bir ileti alırsa bir özel durum oluşturur. Bu değeri artırmak, sunucunun daha büyük iletiler almasına izin verir, ancak bellek tüketimini olumsuz etkileyebilir. |
@@ -41,7 +41,7 @@ Tek bir hizmetin seçenekleri ' de `AddGrpc` belirtilen genel seçenekleri geçe
 
 gRPC istemci yapılandırması üzerinde `GrpcChannelOptions`ayarlanır. Aşağıdaki tabloda, gRPC kanallarını yapılandırma seçenekleri açıklanmaktadır:
 
-| Seçenek | Varsayılan Değer | Açıklama |
+| Seçenek | Default Value | Açıklama |
 | ------ | ------------- | ----------- |
 | `HttpClient` | Yeni örnek | GRPC çağrısı yapmak için kullanılır.`HttpClient` İstemci, özel `HttpClientHandler`yapılandırmak üzere ayarlanabilir veya GRPC çağrılarına yönelik http işlem hattına ek işleyiciler ekleyebilir. Hayır `HttpClient` belirtilmişse kanal için yeni `HttpClient` bir örnek oluşturulur. Otomatik olarak elden kaldırılacaktır. |
 | `DisposeHttpClient` | `false` | , Ve bir `HttpClient` belirtilmişse, `HttpClient` ,, bırakıldığında `GrpcChannel` örnek de silinir. `true` |
@@ -57,6 +57,8 @@ Aşağıdaki kod:
 * İstemci oluşturur.
 
 [!code-csharp[](~/grpc/configuration/sample/Program.cs?name=snippet&highlight=3-8)]
+
+[!INCLUDE[](~/includes/gRPCazure.md)]
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 

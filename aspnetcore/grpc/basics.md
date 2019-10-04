@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-3.0'
 ms.author: johluo
 ms.date: 07/03/2019
 uid: grpc/basics
-ms.openlocfilehash: e17a4561f2d4f8ceccb293a8a8c237de58e4ee3c
-ms.sourcegitcommit: 8b36f75b8931ae3f656e2a8e63572080adc78513
+ms.openlocfilehash: 8d99d036fd4b00fc4568e67ea5225dc006dea4b1
+ms.sourcegitcommit: 73e255e846e414821b8cc20ffa3aec946735cd4e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70310417"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71925181"
 ---
 # <a name="grpc-services-with-c"></a>C ile gRPC Hizmetleri\#
 
@@ -19,7 +19,7 @@ Bu belgede, ' de C# [GRPC](https://grpc.io/docs/guides/) uygulamaları yazmak i�
 
 ## <a name="proto-file"></a>Proto dosyası
 
-gRPC, API geliştirmesi için bir sözleşmenin ilk yaklaşımını kullanır. Protokol arabellekleri (protobellek) varsayılan olarak arabirim tasarım dili (IDL) olarak kullanılır. . Proto dosyası şunları içerir:  *\**
+gRPC, API geliştirmesi için bir sözleşmenin ilk yaklaşımını kullanır. Protokol arabellekleri (protobellek) varsayılan olarak arabirim tasarım dili (IDL) olarak kullanılır. *@No__t -1. proto* dosyası şunları içerir:
 
 * GRPC hizmetinin tanımı.
 * İstemciler ve sunucular arasında gönderilen iletiler.
@@ -36,13 +36,13 @@ Prototipsiz dosyaların sözdizimi hakkında daha fazla bilgi için, [resmi belg
 
 ## <a name="add-a-proto-file-to-a-c-app"></a>C\# uygulamasına bir. proto dosyası ekleyin
 
-. Proto dosyası bir projeye `<Protobuf>` öğe grubuna eklenerek dahil edilir:  *\**
+*@No__t -1. proto* dosyası, `<Protobuf>` öğe grubuna eklenerek bir projeye dahil edilmiştir:
 
 [!code-xml[](~/tutorials/grpc/grpc-start/sample/GrpcGreeter/GrpcGreeter.csproj?highlight=2&range=7-9)]
 
 ## <a name="c-tooling-support-for-proto-files"></a>C#. Proto dosyaları için araç desteği
 
-. Proto dosyalarından C# varlıkları [](https://www.nuget.org/packages/Grpc.Tools/) *oluşturmak için araç paketi GRPC \** . Tools gereklidir. Oluşturulan varlıklar (dosyalar):
+Araç Paketi [GRPC. Tools](https://www.nuget.org/packages/Grpc.Tools/) , C# *@no__t -3. proto* dosyalarından varlıkları oluşturmak için gereklidir. Oluşturulan varlıklar (dosyalar):
 
 * , Projenin oluşturulduğu her seferinde gerekli olarak oluşturulur.
 * Projeye eklenmez veya kaynak denetimine iade edilmedi.
@@ -52,13 +52,13 @@ Bu paket hem sunucu hem de istemci projeleri için gereklidir. Metapackage öğe
 
 [!code-xml[](~/tutorials/grpc/grpc-start/sample/GrpcGreeter/GrpcGreeter.csproj?highlight=1&range=12)]
 
-İstemci projeleri, GRPC `Grpc.Tools` istemcisini kullanmak için gereken diğer paketlerle birlikte doğrudan başvurmalıdır. Çalışma zamanında araç paketi gerekli değildir, bu nedenle bağımlılık şu şekilde işaretlenir `PrivateAssets="All"`:
+İstemci projeleri, gRPC istemcisini kullanmak için gereken diğer paketlerle birlikte `Grpc.Tools` ' a doğrudan başvurmalıdır. Çalışma zamanında araç paketi gerekli değildir, bu nedenle bağımlılık şu şekilde işaretlenir `PrivateAssets="All"`:
 
 [!code-xml[](~/tutorials/grpc/grpc-start/sample/GrpcGreeterClient/GrpcGreeterClient.csproj?highlight=3&range=9-11)]
 
 ## <a name="generated-c-assets"></a>Oluşturulan C# varlıklar
 
-Araç paketi, eklenen C#  *\*. proto* dosyalarında tanımlanan iletileri temsil eden türleri oluşturur.
+Araç paketi, eklenen C# *@no__t -2. proto* dosyalarında tanımlanan iletileri temsil eden türleri oluşturur.
 
 Sunucu tarafı varlıklar için, soyut bir hizmet temel türü oluşturulur. Temel tür, *. proto* dosyasında bulunan tüm GRPC çağrılarının tanımlarını içerir. Bu temel türden türetilen somut bir hizmet uygulamasını oluşturun ve gRPC çağrılarının mantığını uygular. Daha önce açıklanan örnek için, sanal `SayHello` bir yöntemi içeren `GreeterBase` bir soyut tür oluşturulur. `greet.proto` Somut bir uygulama `GreeterService` , yöntemini geçersiz kılar ve GRPC çağrısını işleme mantığını uygular.
 
@@ -68,11 +68,13 @@ Sunucu tarafı varlıklar için, soyut bir hizmet temel türü oluşturulur. Tem
 
 [!code-csharp[](~/tutorials/grpc/grpc-start/sample/GrpcGreeterClient/Program.cs?name=snippet)]
 
-Varsayılan olarak, sunucu ve istemci varlıkları `<Protobuf>` öğe grubuna dahil edilen her  *\*. proto* dosyası için oluşturulur. Sunucu projesinde `GrpcServices` yalnızca sunucu varlıklarının oluşturulmasını sağlamak için özniteliği olarak `Server`ayarlanır.
+Varsayılan olarak, `<Protobuf>` öğe grubuna eklenen her bir *@no__t -1. proto* dosyası için sunucu ve istemci varlıkları oluşturulur. Sunucu projesinde `GrpcServices` yalnızca sunucu varlıklarının oluşturulmasını sağlamak için özniteliği olarak `Server`ayarlanır.
 
 [!code-xml[](~/tutorials/grpc/grpc-start/sample/GrpcGreeter/GrpcGreeter.csproj?highlight=2&range=7-9)]
 
 Benzer şekilde, özniteliği istemci projelerinde olarak `Client` ayarlanır.
+
+[!INCLUDE[](~/includes/gRPCazure.md)]
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 

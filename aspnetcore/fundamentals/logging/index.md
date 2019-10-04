@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 07/11/2019
 uid: fundamentals/logging/index
-ms.openlocfilehash: 2d517a89c6002b5c85e98128605f95585354f8db
-ms.sourcegitcommit: e54672f5c493258dc449fac5b98faf47eb123b28
+ms.openlocfilehash: bb38ebca3c7b9bb4c28a52c0dad80be9669e1b40
+ms.sourcegitcommit: 73e255e846e414821b8cc20ffa3aec946735cd4e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71248255"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71924884"
 ---
 # <a name="logging-in-net-core-and-aspnet-core"></a>.NET Core ve ASP.NET Core oturum açma
 
@@ -529,7 +529,7 @@ Adlarının, değerlerinin sağlanması için hangi parametrelerin kullanılaca�
 ```csharp
 string p1 = "parm1";
 string p2 = "parm2";
-_logger.LogInformation("Parameter values: {p1}, {p2}", p1, p2);
+_logger.LogInformation("Parameter values: {p2}, {p1}", p1, p2);
 ```
 
 Bu kod, sırasıyla parametre değerleriyle bir günlük iletisi oluşturur:
@@ -619,13 +619,13 @@ Aşağıdaki örnek, koddaki filtre kurallarının nasıl kaydedileceği göster
 
 Yapılandırma verileri ve `AddFilter` önceki örneklerde gösterilen kod, aşağıdaki tabloda gösterilen kuralları oluşturur. İlk altı yapılandırma örneğinde ve son iki ise kod örneğinde gelir.
 
-| Sayı | Sağlayıcı      | Şununla başlayan Kategoriler...          | En düşük günlük düzeyi |
+| Number | Sağlayıcı      | Şununla başlayan Kategoriler...          | En düşük günlük düzeyi |
 | :----: | ------------- | --------------------------------------- | ----------------- |
-| 1\.      | Hata ayıklama         | Tüm Kategoriler                          | Bilgiler       |
+| 1\.      | Hata ayıklama         | Tüm Kategoriler                          | Information       |
 | 2      | Konsol       | Microsoft.AspNetCore.Mvc.Razor.Internal | Uyarı           |
 | 3      | Konsol       | Microsoft.AspNetCore.Mvc.Razor.Razor    | Hata ayıklama             |
 | 4      | Konsol       | Microsoft.AspNetCore.Mvc.Razor          | Hata             |
-| 5      | Konsol       | Tüm Kategoriler                          | Bilgiler       |
+| 5      | Konsol       | Tüm Kategoriler                          | Information       |
 | 6      | Tüm sağlayıcılar | Tüm Kategoriler                          | Hata ayıklama             |
 | 7      | Tüm sağlayıcılar | Sistem                                  | Hata ayıklama             |
 | 8      | Hata ayıklama         | Microsoft                               | İzlemesinin             |
@@ -697,16 +697,16 @@ Configuration veya Code tarafından kendisine atanmış kuralları olmayan tüm 
 
 ASP.NET Core ve Entity Framework Core tarafından kullanılan bazı kategoriler şunlardır ve bunlardan beklenen Günlükler hakkında notlar bulunur:
 
-| Kategori                            | Notlar |
+| Category                            | Notlar |
 | ----------------------------------- | ----- |
-| Microsoft. AspNetCore                | Genel ASP.NET Core tanılama. |
-| Microsoft. AspNetCore. DataProtection | Hangi anahtarların kabul edildiği, bulunduğu ve kullanıldığı. |
-| Microsoft. AspNetCore. HostFiltering  | İzin verilen konaklar. |
-| Microsoft. AspNetCore. Hosting        | HTTP isteklerinin tamamlanması için geçen süre ve ne zaman başladıkları. Hangi barındırma başlangıç derlemeleri yüklendi. |
-| Microsoft. AspNetCore. Mvc            | MVC ve Razor tanılama. Model bağlama, filtre yürütme, derlemeyi görüntüleme, eylem seçimi. |
-| Microsoft. AspNetCore. Routing        | Eşleşen bilgileri yönlendirin. |
+| Microsoft.AspNetCore                | Genel ASP.NET Core tanılama. |
+| Microsoft.AspNetCore.DataProtection | Hangi anahtarların kabul edildiği, bulunduğu ve kullanıldığı. |
+| Microsoft.AspNetCore.HostFiltering  | İzin verilen konaklar. |
+| Microsoft.AspNetCore.Hosting        | HTTP isteklerinin tamamlanması için geçen süre ve ne zaman başladıkları. Hangi barındırma başlangıç derlemeleri yüklendi. |
+| Microsoft.AspNetCore.Mvc            | MVC ve Razor tanılama. Model bağlama, filtre yürütme, derlemeyi görüntüleme, eylem seçimi. |
+| Microsoft.AspNetCore.Routing        | Eşleşen bilgileri yönlendirin. |
 | Microsoft. AspNetCore. Server         | Bağlantı başlatın, durdurun ve canlı yanıtları koruyun. HTTPS sertifika bilgileri. |
-| Microsoft. AspNetCore. StaticFiles    | Sunulan dosyalar. |
+| Microsoft.AspNetCore.StaticFiles    | Sunulan dosyalar. |
 | Microsoft. EntityFrameworkCore       | Genel Entity Framework Core tanılama. Veritabanı etkinliği ve yapılandırması, değişiklik algılama, geçişler. |
 
 ## <a name="log-scopes"></a>Günlük kapsamları
