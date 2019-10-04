@@ -5,12 +5,12 @@ description: ASP.NET Core MVC uygulamasında SQL Server LocalDB veya SQLite kull
 ms.author: riande
 ms.date: 8/16/2019
 uid: tutorials/first-mvc-app/working-with-sql
-ms.openlocfilehash: d2784d9edc32b79e67dbcd193be55b44bc8d2c49
-ms.sourcegitcommit: 7a46973998623aead757ad386fe33602b1658793
+ms.openlocfilehash: cb356bca50540d7c471cf625a26bfe2dd155b627
+ms.sourcegitcommit: 3ffcd8cbff8b49128733842f72270bc58279de70
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69487636"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71955913"
 ---
 # <a name="work-with-sql-in-aspnet-core"></a>ASP.NET Core 'de SQL ile çalışma
 
@@ -18,13 +18,13 @@ ms.locfileid: "69487636"
 
 Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-Nesnesi veritabanına bağlanma ve nesneleri veritabanı kayıtlarına eşleme `Movie` görevini işler. `MvcMovieContext` Veritabanı bağlamı, `ConfigureServices` *Startup.cs* dosyasındaki yönteminde [bağımlılık ekleme](xref:fundamentals/dependency-injection) kapsayıcısına kaydedilir:
+@No__t-0 nesnesi veritabanına bağlanma ve `Movie` nesnelerini veritabanı kayıtlarına eşleme görevini işler. Veritabanı bağlamı, *Startup.cs* dosyasındaki `ConfigureServices` yönteminde [bağımlılık ekleme](xref:fundamentals/dependency-injection) kapsayıcısına kaydedilir:
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie3/Startup.cs?name=snippet_ConfigureServices&highlight=6-7)]
 
-ASP.NET Core [yapılandırma](xref:fundamentals/configuration/index) sistemi okur `ConnectionString`. Yerel geliştirme için, *appSettings. JSON* dosyasından bağlantı dizesini alır:
+ASP.NET Core [yapılandırma](xref:fundamentals/configuration/index) sistemi, `ConnectionString` ' i okur. Yerel geliştirme için, *appSettings. JSON* dosyasından bağlantı dizesini alır:
 
 [!code-json[](start-mvc/sample/MvcMovie/appsettings.json?highlight=2&range=8-10)]
 
@@ -32,7 +32,7 @@ ASP.NET Core [yapılandırma](xref:fundamentals/configuration/index) sistemi oku
 
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie3/Startup.cs?name=snippet_UseSqlite&highlight=6-7)]
 
-ASP.NET Core [yapılandırma](xref:fundamentals/configuration/index) sistemi okur `ConnectionString`. Yerel geliştirme için, *appSettings. JSON* dosyasından bağlantı dizesini alır:
+ASP.NET Core [yapılandırma](xref:fundamentals/configuration/index) sistemi, `ConnectionString` ' i okur. Yerel geliştirme için, *appSettings. JSON* dosyasından bağlantı dizesini alır:
 
 [!code-json[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie22/appsettingsSQLite.json?highlight=2&range=8-10)]
 
@@ -50,15 +50,15 @@ LocalDB, program geliştirmeye yönelik SQL Server Express veritabanı altyapıs
 
   ![Görünüm menüsü](working-with-sql/_static/ssox.png)
 
-* `Movie` Tablo **> Görünüm tasarımcısına** sağ tıklayın
+* @No__t-0 tablosuna sağ tıklayıp **Görünüm tasarımcısı >**
 
   ![Film tablosunda bağlam menüsü açık](working-with-sql/_static/design.png)
 
   ![Tasarımcıda film tablosu aç](working-with-sql/_static/dv.png)
 
-Seçeneğinin yanında `ID`bulunan anahtar simgesine göz önünde edin. Varsayılan olarak, EF birincil anahtar adlı `ID` bir özellik oluşturacak.
+@No__t-0 ' ın yanındaki anahtar simgesine göz önünde edin. Varsayılan olarak, EF, birincil anahtar `ID` adlı bir özellik oluşturacak.
 
-* `Movie` **Verileri görüntülemek >** tabloya sağ tıklayın
+* @No__t-0 tablosuna sağ tıklayın **> verileri görüntüleyin**
 
   ![Film tablosunda bağlam menüsü açık](working-with-sql/_static/ssox2.png)
 
@@ -74,7 +74,7 @@ Seçeneğinin yanında `ID`bulunan anahtar simgesine göz önünde edin. Varsay�
 
 ## <a name="seed-the-database"></a>Veritabanının çekirdeğini oluşturma
 
-`SeedData` *Modeller* klasöründe adlı yeni bir sınıf oluşturun. Oluşturulan kodu aşağıdaki kodla değiştirin:
+*Modeller* klasöründe `SeedData` adlı yeni bir sınıf oluşturun. Oluşturulan kodu aşağıdaki kodla değiştirin:
 
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie22/Models/SeedData.cs?name=snippet_1)]
 
@@ -93,14 +93,14 @@ if (context.Movie.Any())
 
 *Program.cs* içeriğini aşağıdaki kodla değiştirin:
 
-[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie22/Program.cs)]
+[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie3/Program.cs)]
 
 Uygulamayı test etme
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * VERITABANıNDAKI tüm kayıtları silin. Bunu, tarayıcıda veya SSOX 'ten silme bağlantılarıyla yapabilirsiniz.
-* Çekirdek yöntemin çalışması için uygulamayı başlamaya zorlayın ( `Startup` sınıftaki yöntemleri çağırın). Başlatmayı zorlamak için IIS Express durdurulup yeniden başlatılması gerekir. Bunu aşağıdaki yaklaşımlardan biriyle yapabilirsiniz:
+* Çekirdek yöntemin çalışması için uygulamayı başlamaya zorlayın (`Startup` sınıfındaki Yöntemleri çağırın). Başlatmayı zorlamak için IIS Express durdurulup yeniden başlatılması gerekir. Bunu aşağıdaki yaklaşımlardan biriyle yapabilirsiniz:
 
   * Bildirim alanında IIS Express sistem tepsisi simgesine sağ tıklayın ve **Çıkış** veya **siteyi durdur** ' a dokunun
 
@@ -122,21 +122,21 @@ Uygulama, sağlanan verileri gösterir.
 ![Microsoft Edge 'de film verilerini gösteren MVC film uygulaması açık](working-with-sql/_static/m55.png)
 
 > [!div class="step-by-step"]
-> [Önceki](adding-model.md)İleri
-> [](controller-methods-views.md)
+> [Önceki](adding-model.md)
+> [İleri](controller-methods-views.md)
 ::: moniker-end
 
 ::: moniker range="< aspnetcore-3.0"
 
 Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-Nesnesi veritabanına bağlanma ve nesneleri veritabanı kayıtlarına eşleme `Movie` görevini işler. `MvcMovieContext` Veritabanı bağlamı, `ConfigureServices` *Startup.cs* dosyasındaki yönteminde [bağımlılık ekleme](xref:fundamentals/dependency-injection) kapsayıcısına kaydedilir:
+@No__t-0 nesnesi veritabanına bağlanma ve `Movie` nesnelerini veritabanı kayıtlarına eşleme görevini işler. Veritabanı bağlamı, *Startup.cs* dosyasındaki `ConfigureServices` yönteminde [bağımlılık ekleme](xref:fundamentals/dependency-injection) kapsayıcısına kaydedilir:
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie22/Startup.cs?name=snippet_ConfigureServices&highlight=13-99)]
 
-ASP.NET Core [yapılandırma](xref:fundamentals/configuration/index) sistemi okur `ConnectionString`. Yerel geliştirme için, *appSettings. JSON* dosyasından bağlantı dizesini alır:
+ASP.NET Core [yapılandırma](xref:fundamentals/configuration/index) sistemi, `ConnectionString` ' i okur. Yerel geliştirme için, *appSettings. JSON* dosyasından bağlantı dizesini alır:
 
 [!code-json[](start-mvc/sample/MvcMovie/appsettings.json?highlight=2&range=8-10)]
 
@@ -144,7 +144,7 @@ ASP.NET Core [yapılandırma](xref:fundamentals/configuration/index) sistemi oku
 
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie22/Startup.cs?name=snippet_UseSqlite&highlight=11-12)]
 
-ASP.NET Core [yapılandırma](xref:fundamentals/configuration/index) sistemi okur `ConnectionString`. Yerel geliştirme için, *appSettings. JSON* dosyasından bağlantı dizesini alır:
+ASP.NET Core [yapılandırma](xref:fundamentals/configuration/index) sistemi, `ConnectionString` ' i okur. Yerel geliştirme için, *appSettings. JSON* dosyasından bağlantı dizesini alır:
 
 [!code-json[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie22/appsettingsSQLite.json?highlight=2&range=8-10)]
 
@@ -162,15 +162,15 @@ LocalDB, program geliştirmeye yönelik SQL Server Express veritabanı altyapıs
 
   ![Görünüm menüsü](working-with-sql/_static/ssox.png)
 
-* `Movie` Tablo **> Görünüm tasarımcısına** sağ tıklayın
+* @No__t-0 tablosuna sağ tıklayıp **Görünüm tasarımcısı >**
 
   ![Film tablosunda bağlam menüsü açık](working-with-sql/_static/design.png)
 
   ![Tasarımcıda film tablosu aç](working-with-sql/_static/dv.png)
 
-Seçeneğinin yanında `ID`bulunan anahtar simgesine göz önünde edin. Varsayılan olarak, EF birincil anahtar adlı `ID` bir özellik oluşturacak.
+@No__t-0 ' ın yanındaki anahtar simgesine göz önünde edin. Varsayılan olarak, EF, birincil anahtar `ID` adlı bir özellik oluşturacak.
 
-* `Movie` **Verileri görüntülemek >** tabloya sağ tıklayın
+* @No__t-0 tablosuna sağ tıklayın **> verileri görüntüleyin**
 
   ![Film tablosunda bağlam menüsü açık](working-with-sql/_static/ssox2.png)
 
@@ -186,7 +186,7 @@ Seçeneğinin yanında `ID`bulunan anahtar simgesine göz önünde edin. Varsay�
 
 ## <a name="seed-the-database"></a>Veritabanının çekirdeğini oluşturma
 
-`SeedData` *Modeller* klasöründe adlı yeni bir sınıf oluşturun. Oluşturulan kodu aşağıdaki kodla değiştirin:
+*Modeller* klasöründe `SeedData` adlı yeni bir sınıf oluşturun. Oluşturulan kodu aşağıdaki kodla değiştirin:
 
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie22/Models/SeedData.cs?name=snippet_1)]
 
@@ -212,7 +212,7 @@ Uygulamayı test etme
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * VERITABANıNDAKI tüm kayıtları silin. Bunu, tarayıcıda veya SSOX 'ten silme bağlantılarıyla yapabilirsiniz.
-* Çekirdek yöntemin çalışması için uygulamayı başlamaya zorlayın ( `Startup` sınıftaki yöntemleri çağırın). Başlatmayı zorlamak için IIS Express durdurulup yeniden başlatılması gerekir. Bunu aşağıdaki yaklaşımlardan biriyle yapabilirsiniz:
+* Çekirdek yöntemin çalışması için uygulamayı başlamaya zorlayın (`Startup` sınıfındaki Yöntemleri çağırın). Başlatmayı zorlamak için IIS Express durdurulup yeniden başlatılması gerekir. Bunu aşağıdaki yaklaşımlardan biriyle yapabilirsiniz:
 
   * Bildirim alanında IIS Express sistem tepsisi simgesine sağ tıklayın ve **Çıkış** veya **siteyi durdur** ' a dokunun
 
@@ -234,7 +234,7 @@ Uygulama, sağlanan verileri gösterir.
 ![Microsoft Edge 'de film verilerini gösteren MVC film uygulaması açık](working-with-sql/_static/m55.png)
 
 > [!div class="step-by-step"]
-> [Önceki](adding-model.md)İleri
-> [](controller-methods-views.md)
+> [Önceki](adding-model.md)
+> [İleri](controller-methods-views.md)
 
 ::: moniker-end
