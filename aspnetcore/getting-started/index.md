@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 09/22/2019
 uid: getting-started
-ms.openlocfilehash: 798f1ee87c05d886d8991e3f0230c8ebc6341ba8
-ms.sourcegitcommit: 73e255e846e414821b8cc20ffa3aec946735cd4e
+ms.openlocfilehash: 116a22bce80257948bfcc02c03a74a4b5568b8b5
+ms.sourcegitcommit: 4649814d1ae32248419da4e8f8242850fd8679a5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71925097"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71975686"
 ---
 # <a name="tutorial-get-started-with-aspnet-core"></a>Öğretici: ASP.NET Core kullanmaya başlayın
 
@@ -44,7 +44,7 @@ dotnet new webapp -o aspnetcoreapp
 Önceki komut:
 
 * Yeni bir Web uygulaması oluşturur.  
-* Parametresi, uygulama için kaynak dosyalarla *aspnetcoreapp* adlı bir dizin oluşturur. `-o aspnetcoreapp`
+* @No__t-0 parametresi, uygulama için kaynak dosyalarla *aspnetcoreapp* adlı bir dizin oluşturur.
 
 ### <a name="trust-the-development-certificate"></a>Geliştirme sertifikasına güven
 
@@ -70,13 +70,11 @@ dotnet dev-certs https --trust
 
 Yukarıdaki komut aşağıdaki iletiyi görüntüler:
 
-*HTTPS geliştirme sertifikasına güvenmek istendi. Sertifika zaten güvenilmiyorsa, şu komutu çalıştıracağız:* `'sudo security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keychain <<certificate>>'`
+@no__t-HTTPS geliştirme sertifikası istendi. Sertifika zaten güvenilmiyorsa, şu komutu çalıştıracağız: * `'sudo security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keychain <<certificate>>'`
 
 Bu komut, sertifikayı sistem anahtarlığınıza yüklemek için parolanızı isteyebilir. Geliştirme sertifikasına güvenmeyi kabul ediyorsanız parolanızı girin.
 
 # <a name="linuxtablinux"></a>[Linux](#tab/linux)
-
-Linux için Windows alt sistemi için bkz. [Linux Için Windows alt sistemi 'NDEN https sertifikasına güvenin](xref:security/enforcing-ssl#wsl).
 
 HTTPS geliştirme sertifikasına güvenmek için Linux dağılııza yönelik belgelere bakın.
 
@@ -93,7 +91,7 @@ cd aspnetcoreapp
 dotnet watch run
 ```
 
-Komut kabuğu, uygulamanın başlatıldığını gösteriyorsa, öğesine [https://localhost:5001](https://localhost:5001)gidin.
+Komut kabuğu, uygulamanın başlatıldığını gösteriyorsa [https://localhost:5001](https://localhost:5001)' e gidin.
 
 ## <a name="edit-a-razor-page"></a>Razor sayfasını düzenleme
 
@@ -101,7 +99,7 @@ Komut kabuğu, uygulamanın başlatıldığını gösteriyorsa, öğesine [https
 
 [!code-cshtml[](sample/index.cshtml?highlight=9)]
 
-Sayfasına gidin [https://localhost:5001](https://localhost:5001), sayfayı yenileyin ve değişikliklerin görüntülendiğini doğrulayın.
+[@No__t-1](https://localhost:5001)' e gidin, sayfayı yenileyin ve değişikliklerin görüntülendiğini doğrulayın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
