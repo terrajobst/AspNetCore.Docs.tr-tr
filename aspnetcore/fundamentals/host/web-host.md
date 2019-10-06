@@ -1,21 +1,19 @@
 ---
 title: ASP.NET Core Web ana bilgisayarı
-author: guardrex
+author: rick-anderson
 description: Uygulama başlatma ve ömür yönetiminden sorumlu olan ASP.NET Core Web ana bilgisayarı hakkında bilgi edinin.
 ms.author: riande
 ms.custom: mvc
 ms.date: 06/14/2019
 uid: fundamentals/host/web-host
-ms.openlocfilehash: d387098662cc832cc0e49b6a1636f0ebcc7308de
-ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
+ms.openlocfilehash: 977c1df67c2775870d630f3a1085d5e19cef58f5
+ms.sourcegitcommit: 4115bf0e850c13d4e655beb5ab5e8ff431173cb6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71081685"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71981906"
 ---
 # <a name="aspnet-core-web-host"></a>ASP.NET Core Web ana bilgisayarı
-
-Tarafından [Luke Latham](https://github.com/guardrex)
 
 ASP.NET Core uygulamalar bir *Konağı*yapılandırıp başlatır. Uygulama başlatma ve ömür yönetimi için konak sorumludur. Ana bilgisayar, en azından bir sunucu ve bir istek işleme işlem hattı yapılandırır. Konak, günlüğe kaydetme, bağımlılık ekleme ve yapılandırma de ayarlayabilir.
 
@@ -33,9 +31,9 @@ Bu makale, Web uygulamalarını barındırmak için olan Web konağını ele al�
 
 ## <a name="set-up-a-host"></a>Konak ayarlama
 
-[Iwebhostbuilder](/dotnet/api/microsoft.aspnetcore.hosting.iwebhostbuilder)'ın bir örneğini kullanarak bir konak oluşturun. Bu, genellikle uygulamanın giriş noktasında ve `Main` yöntemi olarak gerçekleştirilir.
+[Iwebhostbuilder](/dotnet/api/microsoft.aspnetcore.hosting.iwebhostbuilder)'ın bir örneğini kullanarak bir konak oluşturun. Bu, genellikle uygulamanın giriş noktasında, `Main` yönteminde gerçekleştirilir.
 
-Proje şablonlarında, `Main` *program.cs*konumunda bulunur. Tipik bir uygulama, bir konak ayarlamaya başlamak için [Createdefaultbuilder](/dotnet/api/microsoft.aspnetcore.webhost.createdefaultbuilder) çağırır:
+Proje şablonlarında, `Main` *program.cs*içinde bulunur. Tipik bir uygulama, bir konak ayarlamaya başlamak için [Createdefaultbuilder](/dotnet/api/microsoft.aspnetcore.webhost.createdefaultbuilder) çağırır:
 
 ```csharp
 public class Program
@@ -51,28 +49,28 @@ public class Program
 }
 ```
 
-Çağıran `CreateDefaultBuilder` kod, Oluşturucu nesnesindeki çağrılarındaki `Main` `Run` koddan ayıran `CreateWebHostBuilder`adlı bir yöntemde bulunur. [Entity Framework Core araçlarını](/ef/core/miscellaneous/cli/)kullanıyorsanız bu ayrım gereklidir. Araçlar, uygulamayı çalıştırmadan Konağı yapılandırmak `CreateWebHostBuilder` için tasarım zamanında çağırabilecekleri bir yöntemi bulmayı bekler. Diğer bir seçenek de uygulanır `IDesignTimeDbContextFactory`. Daha fazla bilgi için bkz. [Tasarım zamanı DbContext oluşturma](/ef/core/miscellaneous/cli/dbcontext-creation).
+@No__t-0 ' ı çağıran kod, Oluşturucu nesnesinde `Run` ' ü çağıran `Main` ' deki koddan ayıran `CreateWebHostBuilder` adlı bir yöntemde bulunur. [Entity Framework Core araçlarını](/ef/core/miscellaneous/cli/)kullanıyorsanız bu ayrım gereklidir. Araçlar, uygulamayı çalıştırmadan ana bilgisayarı yapılandırmak için tasarım zamanında çağrlayabilecekleri bir `CreateWebHostBuilder` yöntemi bulmayı bekler. Diğer bir seçenek de `IDesignTimeDbContextFactory` ' a uygulanır. Daha fazla bilgi için bkz. [Tasarım zamanı DbContext oluşturma](/ef/core/miscellaneous/cli/dbcontext-creation).
 
-`CreateDefaultBuilder`Aşağıdaki görevleri gerçekleştirir:
+`CreateDefaultBuilder` aşağıdaki görevleri gerçekleştirir:
 
-* [Kestrel](xref:fundamentals/servers/kestrel) sunucusunu, uygulamanın barındırma yapılandırma sağlayıcılarını kullanarak Web sunucusu olarak yapılandırır. Kestrel sunucusunun varsayılan seçenekleri için bkz <xref:fundamentals/servers/kestrel#kestrel-options>.
+* [Kestrel](xref:fundamentals/servers/kestrel) sunucusunu, uygulamanın barındırma yapılandırma sağlayıcılarını kullanarak Web sunucusu olarak yapılandırır. Kestrel sunucusunun varsayılan seçenekleri için bkz. <xref:fundamentals/servers/kestrel#kestrel-options>.
 * İçerik kökünü [Directory. GetCurrentDirectory](/dotnet/api/system.io.directory.getcurrentdirectory)tarafından döndürülen yola ayarlar.
 * [Ana bilgisayar yapılandırmasını](#host-configuration-values) şuradan yükler:
-  * Ön eki olan `ASPNETCORE_` ortam değişkenleri (örneğin, `ASPNETCORE_ENVIRONMENT`).
+  * @No__t-0 (örneğin, `ASPNETCORE_ENVIRONMENT`) önekli ortam değişkenleri.
   * Komut satırı bağımsız değişkenleri.
 * Aşağıdaki sırayla uygulama yapılandırmasını yükler:
   * *appSettings. JSON*.
   * *appSettings. {Environment}. JSON*.
-  * Uygulama, giriş derlemesini kullanarak `Development` ortamda çalıştırıldığında [gizli Yöneticisi](xref:security/app-secrets) .
+  * Uygulama, giriş derlemesini kullanarak `Development` ortamında çalıştırıldığında [gizli Yöneticisi](xref:security/app-secrets) .
   * Ortam değişkenleri.
   * Komut satırı bağımsız değişkenleri.
 * Konsol ve hata ayıklama çıkışı için [günlüğe kaydetmeyi](xref:fundamentals/logging/index) yapılandırır. Günlüğe kaydetme, bir *appSettings. JSON* veya appSettings 'in günlük yapılandırma bölümünde belirtilen [günlük filtreleme](xref:fundamentals/logging/index#log-filtering) kurallarını içerir *. { Environment}. JSON* dosyası.
-* [ASP.NET Core modülle](xref:host-and-deploy/aspnet-core-module)IIS 'nin arkasında çalışırken, `CreateDefaultBuilder` uygulamanın temel adresini ve bağlantı noktasını yapılandıran [IIS tümleştirmesini](xref:host-and-deploy/iis/index)da sunar. IIS tümleştirmesi, uygulamayı [başlatma hatalarını yakalamaya](#capture-startup-errors)de yapılandırır. IIS varsayılan seçenekleri için bkz <xref:host-and-deploy/iis/index#iis-options>.
-* Uygulamanın ortamı geliştirme ortamındaysanız, [serviceprovideroptions. validatescopes](/dotnet/api/microsoft.extensions.dependencyinjection.serviceprovideroptions.validatescopes) öğesini olarak `true` ayarlar. Daha fazla bilgi için bkz. [kapsam doğrulaması](#scope-validation).
+* [ASP.NET Core modülle](xref:host-and-deploy/aspnet-core-module)IIS 'nin arkasında çalışırken, `CreateDefaultBuilder`, uygulamanın temel adresini ve bağlantı noktasını yapılandıran [IIS tümleştirmesine](xref:host-and-deploy/iis/index)izin vermez. IIS tümleştirmesi, uygulamayı [başlatma hatalarını yakalamaya](#capture-startup-errors)de yapılandırır. IIS varsayılan seçenekleri için bkz. <xref:host-and-deploy/iis/index#iis-options>.
+* Uygulamanın ortamı geliştirmelerde, [Serviceprovideroptions. ValidateScopes](/dotnet/api/microsoft.extensions.dependencyinjection.serviceprovideroptions.validatescopes) `true` olarak ayarlar. Daha fazla bilgi için bkz. [kapsam doğrulaması](#scope-validation).
 
-Tarafından `CreateDefaultBuilder` tanımlanan yapılandırma, [configureappconfiguration](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderextensions.configureappconfiguration), [configurelogging](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderextensions.configurelogging)ve [ıwebhostbuilder](/dotnet/api/microsoft.aspnetcore.hosting.iwebhostbuilder)'ın diğer yöntemleri ve genişletme yöntemleri tarafından geçersiz kılınabilir ve genişletilebilir. Birkaç örnek aşağıda verilmiştir:
+@No__t-0 tarafından tanımlanan yapılandırma, [Configureappconfiguration](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderextensions.configureappconfiguration), [configurelogging](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderextensions.configurelogging)ve [ıwebhostbuilder](/dotnet/api/microsoft.aspnetcore.hosting.iwebhostbuilder)'ın diğer yöntemleri ve genişletme yöntemleri tarafından geçersiz kılınabilir ve genişletilebilir. Birkaç örnek aşağıda verilmiştir:
 
-* [Configureappconfiguration](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderextensions.configureappconfiguration) , uygulama için ek `IConfiguration` belirtmek için kullanılır. Aşağıdaki `ConfigureAppConfiguration` çağrı, *appSettings. xml* dosyasına uygulama yapılandırmasını dahil etmek için bir temsilci ekler. `ConfigureAppConfiguration`birden çok kez çağrılabilir. Bu yapılandırmanın ana bilgisayar için (örneğin, sunucu URL 'Leri veya ortam) uygulanmadığını unutmayın. [Konak yapılandırma değerleri](#host-configuration-values) bölümüne bakın.
+* [Configureappconfiguration](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderextensions.configureappconfiguration) , uygulama için ek `IConfiguration` belirtmek için kullanılır. Aşağıdaki `ConfigureAppConfiguration` çağrısı, *appSettings. xml* dosyasına uygulama yapılandırmasını dahil etmek için bir temsilci ekler. `ConfigureAppConfiguration` birden çok kez çağrılabilir. Bu yapılandırmanın ana bilgisayar için (örneğin, sunucu URL 'Leri veya ortam) uygulanmadığını unutmayın. [Konak yapılandırma değerleri](#host-configuration-values) bölümüne bakın.
 
     ```csharp
     WebHost.CreateDefaultBuilder(args)
@@ -83,7 +81,7 @@ Tarafından `CreateDefaultBuilder` tanımlanan yapılandırma, [configureappconf
         ...
     ```
 
-* Aşağıdaki `ConfigureLogging` çağrı, en düşük günlük düzeyi ([setminimumlevel](/dotnet/api/microsoft.extensions.logging.loggingbuilderextensions.setminimumlevel)) değerini [LogLevel. Warning](/dotnet/api/microsoft.extensions.logging.loglevel)olarak yapılandırmak için bir temsilci ekler. Bu ayar appSettings 'teki ayarları geçersiz kılar *. Development. JSON* (`LogLevel.Debug`) ve *appSettings. Production. JSON* (`LogLevel.Error`) tarafından `CreateDefaultBuilder`yapılandırıldı. `ConfigureLogging`birden çok kez çağrılabilir.
+* Aşağıdaki `ConfigureLogging` çağrısı, minimum günlük düzeyi ([Setminimumlevel](/dotnet/api/microsoft.extensions.logging.loggingbuilderextensions.setminimumlevel)) değerini [LogLevel. Warning](/dotnet/api/microsoft.extensions.logging.loglevel)olarak yapılandırmak için bir temsilci ekler. Bu ayar appSettings 'teki ayarları geçersiz kılar *. Development. JSON* (`LogLevel.Debug`) ve *appSettings. Production. JSON* (`LogLevel.Error`) `CreateDefaultBuilder` tarafından yapılandırıldı. `ConfigureLogging` birden çok kez çağrılabilir.
 
     ```csharp
     WebHost.CreateDefaultBuilder(args)
@@ -96,7 +94,7 @@ Tarafından `CreateDefaultBuilder` tanımlanan yapılandırma, [configureappconf
 
 ::: moniker range=">= aspnetcore-2.2"
 
-* Aşağıdaki çağrı `ConfigureKestrel` varsayılan limitleri geçersiz kılar [. MaxRequestBodySize](/dotnet/api/microsoft.aspnetcore.server.kestrel.core.kestrelserverlimits.maxrequestbodysize) , `CreateDefaultBuilder`Kestrel yapılandırıldığında oluşturulan 30.000.000 bayt:
+* @No__t-0 ' a yönelik aşağıdaki çağrı varsayılan limitleri geçersiz kılar [. MaxRequestBodySize](/dotnet/api/microsoft.aspnetcore.server.kestrel.core.kestrelserverlimits.maxrequestbodysize) of 30.000.000 Byte, Kestrel `CreateDefaultBuilder` tarafından yapılandırıldığında belirlenir:
 
     ```csharp
     WebHost.CreateDefaultBuilder(args)
@@ -110,7 +108,7 @@ Tarafından `CreateDefaultBuilder` tanımlanan yapılandırma, [configureappconf
 
 ::: moniker range="< aspnetcore-2.2"
 
-* Aşağıdaki [UseKestrel](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderkestrelextensions.usekestrel) çağrısı, varsayılan limitleri geçersiz kılar [. MaxRequestBodySize](/dotnet/api/microsoft.aspnetcore.server.kestrel.core.kestrelserverlimits.maxrequestbodysize) , Kestrel tarafından `CreateDefaultBuilder`yapılandırıldığında oluşturulan 30.000.000 bayttan oluşur:
+* Aşağıdaki [UseKestrel](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderkestrelextensions.usekestrel) çağrısı, varsayılan limitleri geçersiz kılar [. MaxRequestBodySize](/dotnet/api/microsoft.aspnetcore.server.kestrel.core.kestrelserverlimits.maxrequestbodysize) , Kestrel `CreateDefaultBuilder` tarafından yapılandırıldığında oluşturulan 30.000.000 bayttan oluşur:
 
     ```csharp
     WebHost.CreateDefaultBuilder(args)
@@ -124,20 +122,20 @@ Tarafından `CreateDefaultBuilder` tanımlanan yapılandırma, [configureappconf
 
 *İçerik kökü* , konağın MVC görünüm dosyaları gibi içerik dosyalarını arayacağı yeri belirler. Uygulama, projenin kök klasöründen başlatıldığında, projenin kök klasörü içerik kökü olarak kullanılır. Bu, [Visual Studio](https://visualstudio.microsoft.com) 'da ve [DotNet yeni şablonlarda](/dotnet/core/tools/dotnet-new)kullanılan varsayılandır.
 
-Uygulama yapılandırması hakkında daha fazla bilgi için bkz <xref:fundamentals/configuration/index>.
+Uygulama yapılandırması hakkında daha fazla bilgi için bkz. <xref:fundamentals/configuration/index>.
 
 > [!NOTE]
-> Statik `CreateDefaultBuilder` yöntemin kullanılmasına alternatif olarak, [webhostbuilder](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilder) 'dan bir konak oluşturmak, ASP.NET Core 2. x ile desteklenen bir yaklaşımdır.
+> Statik `CreateDefaultBuilder` yönteminin kullanılmasına alternatif olarak, [Webhostbuilder](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilder) 'dan bir konak oluşturmak, ASP.NET Core 2. x ile desteklenen bir yaklaşımdır.
 
-Bir ana bilgisayar ayarlanırken, [yapılandırma](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderextensions.configure) ve [ConfigureServices](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilder.configureservices) yöntemleri bulunabilir. Bir `Startup` sınıf belirtilmişse, bir `Configure` yöntemi tanımlamalıdır. Daha fazla bilgi için bkz. <xref:fundamentals/startup>. Birbirine eklenecek birden `ConfigureServices` çok çağrı. Önceki ayarları `WebHostBuilder` Değiştir `Configure` üzerinde `UseStartup` veya üzerine birden çok çağrı.
+Bir ana bilgisayar ayarlanırken, [yapılandırma](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderextensions.configure) ve [ConfigureServices](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilder.configureservices) yöntemleri bulunabilir. @No__t-0 sınıfı belirtilmişse, bir `Configure` yöntemi tanımlamalıdır. Daha fazla bilgi için bkz. <xref:fundamentals/startup>. @No__t-0 ' a birden çok çağrı bir diğerine eklenir. @No__t-2 ' de `Configure` veya `UseStartup` ' e birden çok çağrı önceki ayarları değiştirir.
 
 ## <a name="host-configuration-values"></a>Ana bilgisayar yapılandırma değerleri
 
 [Webhostbuilder](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilder) , ana bilgisayar yapılandırma değerlerini ayarlamak için aşağıdaki yaklaşımları kullanır:
 
-* Bu biçimdeki `ASPNETCORE_{configurationKey}`ortam değişkenlerini içeren konak Oluşturucu yapılandırması. Örneğin: `ASPNETCORE_ENVIRONMENT`.
+* @No__t-0 biçimindeki ortam değişkenlerini içeren konak Oluşturucu yapılandırması. Örneğin, `ASPNETCORE_ENVIRONMENT`.
 * [Usecontentroot](/dotnet/api/microsoft.aspnetcore.hosting.hostingabstractionswebhostbuilderextensions.usecontentroot) ve [useconfiguration](/dotnet/api/microsoft.aspnetcore.hosting.hostingabstractionswebhostbuilderextensions.useconfiguration) gibi uzantılar ( [geçersiz kılma yapılandırması](#override-configuration) bölümüne bakın).
-* [Usesetting](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilder.usesetting) ve ilişkili anahtar. İle `UseSetting`bir değer ayarlarken, değer türünden bağımsız olarak bir dize olarak ayarlanır.
+* [Usesetting](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilder.usesetting) ve ilişkili anahtar. @No__t-0 ile bir değer ayarlarken, değer türünden bağımsız olarak bir dize olarak ayarlanır.
 
 Konak, bir değeri en son ayarlayan seçeneği kullanır. Daha fazla bilgi için, sonraki bölümde [yapılandırmayı geçersiz kılma](#override-configuration) bölümüne bakın.
 
@@ -148,8 +146,8 @@ Konak oluşturma sırasında [Usestartup](/dotnet/api/microsoft.aspnetcore.hosti
 **Anahtar**: ApplicationName  
 **Tür**: *dize*  
 **Varsayılan**: Uygulamanın giriş noktasını içeren derlemenin adı.  
-Şunu **kullanarak ayarla**:`UseSetting`  
-**Ortam değişkeni**:`ASPNETCORE_APPLICATIONNAME`
+Şunu **kullanarak ayarla**: `UseSetting`  
+**Ortam değişkeni**: `ASPNETCORE_APPLICATIONNAME`
 
 ```csharp
 WebHost.CreateDefaultBuilder(args)
@@ -162,11 +160,11 @@ Bu ayar, başlatma hatalarının yakalanmasını denetler.
 
 **Anahtar**: capturestartuperrors  
 **Tür**: *bool* (`true` veya `1`)  
-**Varsayılan**: Uygulamanın IIS 'nin arkasında Kestrel, varsayılan olarak olduğu `true` durumlardışındaçalışır.`false`  
-Şunu **kullanarak ayarla**:`CaptureStartupErrors`  
-**Ortam değişkeni**:`ASPNETCORE_CAPTURESTARTUPERRORS`
+**Varsayılan**: Uygulama IIS arkasındaki Kestrel ile çalıştırılmadığı müddetçe `false` ' dır ve varsayılan olarak `true` ' dir.  
+Şunu **kullanarak ayarla**: `CaptureStartupErrors`  
+**Ortam değişkeni**: `ASPNETCORE_CAPTURESTARTUPERRORS`
 
-Ne `false`zaman, başlatma sırasında oluşan hata, ana bilgisayardan çıkılıyor. Ne `true`zaman, ana bilgisayar başlangıç sırasında özel durumları yakalar ve sunucuyu başlatmaya çalışır.
+@No__t-0 olduğunda, başlangıçtaki ana bilgisayardaki hatalar çıkıyor. @No__t-0 olduğunda, ana bilgisayar başlangıç sırasında özel durumları yakalar ve sunucuyu başlatmaya çalışır.
 
 ```csharp
 WebHost.CreateDefaultBuilder(args)
@@ -180,8 +178,8 @@ Bu ayar, ASP.NET Core MVC görünümleri gibi içerik dosyalarını aramaya baş
 **Anahtar**: contentroot  
 **Tür**: *dize*  
 **Varsayılan**: Uygulama derlemesinin bulunduğu klasörü varsayılan olarak belirler.  
-Şunu **kullanarak ayarla**:`UseContentRoot`  
-**Ortam değişkeni**:`ASPNETCORE_CONTENTROOT`
+Şunu **kullanarak ayarla**: `UseContentRoot`  
+**Ortam değişkeni**: `ASPNETCORE_CONTENTROOT`
 
 İçerik kökü, [Web kök ayarı](#web-root)için temel yol olarak da kullanılır. Yol yoksa, ana bilgisayar başlatılamaz.
 
@@ -197,10 +195,10 @@ Ayrıntılı hataların yakalanıp yakalanmayacağını belirler.
 **Anahtar**: detailederrors  
 **Tür**: *bool* (`true` veya `1`)  
 **Varsayılan**: false  
-Şunu **kullanarak ayarla**:`UseSetting`  
-**Ortam değişkeni**:`ASPNETCORE_DETAILEDERRORS`
+Şunu **kullanarak ayarla**: `UseSetting`  
+**Ortam değişkeni**: `ASPNETCORE_DETAILEDERRORS`
 
-Etkinleştirildiğinde (veya <a href="#environment">ortam</a> olarak `Development`ayarlandığında), uygulama ayrıntılı özel durumları yakalar.
+Etkinleştirildiğinde (veya <a href="#environment">ortam</a> `Development` olarak ayarlandığında), uygulama ayrıntılı özel durumları yakalar.
 
 ```csharp
 WebHost.CreateDefaultBuilder(args)
@@ -214,10 +212,10 @@ Uygulamanın ortamını ayarlar.
 **Anahtar**: ortam  
 **Tür**: *dize*  
 **Varsayılan**: Üretiminden  
-Şunu **kullanarak ayarla**:`UseEnvironment`  
-**Ortam değişkeni**:`ASPNETCORE_ENVIRONMENT`
+Şunu **kullanarak ayarla**: `UseEnvironment`  
+**Ortam değişkeni**: `ASPNETCORE_ENVIRONMENT`
 
-Ortam herhangi bir değere ayarlanabilir. Çerçeve tanımlı değerler, `Development` `Staging`, ve `Production`içerir. Değerler büyük/küçük harfe duyarlı değildir. Varsayılan olarak *ortam* , `ASPNETCORE_ENVIRONMENT` ortam değişkeninden okunurdur. [Visual Studio](https://visualstudio.microsoft.com)kullanılırken, *launchsettings. JSON* dosyasında ortam değişkenleri ayarlanabilir. Daha fazla bilgi için bkz. <xref:fundamentals/environments>.
+Ortam herhangi bir değere ayarlanabilir. Çerçeve tanımlı değerler `Development`, `Staging` ve `Production` içerir. Değerler büyük/küçük harfe duyarlı değildir. Varsayılan olarak, *ortam* `ASPNETCORE_ENVIRONMENT` ortam değişkeninden okunurdur. [Visual Studio](https://visualstudio.microsoft.com)kullanılırken, *launchsettings. JSON* dosyasında ortam değişkenleri ayarlanabilir. Daha fazla bilgi için bkz. <xref:fundamentals/environments>.
 
 ```csharp
 WebHost.CreateDefaultBuilder(args)
@@ -231,8 +229,8 @@ Uygulamanın barındırma başlangıç derlemelerini ayarlar.
 **Anahtar**: hostingStartupAssemblies  
 **Tür**: *dize*  
 **Varsayılan**: Boş dize  
-Şunu **kullanarak ayarla**:`UseSetting`  
-**Ortam değişkeni**:`ASPNETCORE_HOSTINGSTARTUPASSEMBLIES`
+Şunu **kullanarak ayarla**: `UseSetting`  
+**Ortam değişkeni**: `ASPNETCORE_HOSTINGSTARTUPASSEMBLIES`
 
 Başlangıçta yüklenecek başlangıç derlemelerinin barındırılması için noktalı virgülle ayrılmış bir dize.
 
@@ -249,8 +247,7 @@ HTTPS yeniden yönlendirme bağlantı noktasını ayarlayın. [Https zorlama](xr
 
 **Anahtar**: https_port **Type**: *dize*
 **varsayılan**: Varsayılan değer ayarlı değildir.
-Şunu **kullanarak ayarla**: `UseSetting`
-**Ortam değişkeni**:`ASPNETCORE_HTTPS_PORT`
+Şunu **kullanarak ayarla**: `UseSetting` @ no__t-1**ortam değişkeni**: `ASPNETCORE_HTTPS_PORT`
 
 ```csharp
 WebHost.CreateDefaultBuilder(args)
@@ -264,8 +261,8 @@ Başlangıçta dışlamak üzere başlangıç derlemelerinin barındırılması 
 **Anahtar**: hostingstartupexcludeassemblies  
 **Tür**: *dize*  
 **Varsayılan**: Boş dize  
-Şunu **kullanarak ayarla**:`UseSetting`  
-**Ortam değişkeni**:`ASPNETCORE_HOSTINGSTARTUPEXCLUDEASSEMBLIES`
+Şunu **kullanarak ayarla**: `UseSetting`  
+**Ortam değişkeni**: `ASPNETCORE_HOSTINGSTARTUPEXCLUDEASSEMBLIES`
 
 ```csharp
 WebHost.CreateDefaultBuilder(args)
@@ -274,13 +271,13 @@ WebHost.CreateDefaultBuilder(args)
 
 ### <a name="prefer-hosting-urls"></a>Barındırma URL 'Lerini tercih et
 
-Konağın `WebHostBuilder` `IServer` uygulamayla yapılandırılanlar yerine ile yapılandırılan URL 'lerde dinleme yapıp kullanmayacağını belirtir.
+Konağın `IServer` uygulamasıyla yapılandırılanlar yerine `WebHostBuilder` ile yapılandırılan URL 'Leri dinlemesi gerekip gerekmediğini gösterir.
 
 **Anahtar**: preferhostingurl 'leri  
 **Tür**: *bool* (`true` veya `1`)  
 **Varsayılan**: true  
-Şunu **kullanarak ayarla**:`PreferHostingUrls`  
-**Ortam değişkeni**:`ASPNETCORE_PREFERHOSTINGURLS`
+Şunu **kullanarak ayarla**: `PreferHostingUrls`  
+**Ortam değişkeni**: `ASPNETCORE_PREFERHOSTINGURLS`
 
 ```csharp
 WebHost.CreateDefaultBuilder(args)
@@ -294,8 +291,8 @@ Uygulamanın derlemesi tarafından yapılandırılan başlatma derlemelerinin ba
 **Anahtar**: koruyucu thostingstartup  
 **Tür**: *bool* (`true` veya `1`)  
 **Varsayılan**: false  
-Şunu **kullanarak ayarla**:`UseSetting`  
-**Ortam değişkeni**:`ASPNETCORE_PREVENTHOSTINGSTARTUP`
+Şunu **kullanarak ayarla**: `UseSetting`  
+**Ortam değişkeni**: `ASPNETCORE_PREVENTHOSTINGSTARTUP`
 
 ```csharp
 WebHost.CreateDefaultBuilder(args)
@@ -309,10 +306,10 @@ Sunucunun istekler için dinlemesi gereken bağlantı noktaları ve protokoller 
 **Anahtar**: URL 'ler  
 **Tür**: *dize*  
 **Varsayılan**: http://localhost:5000  
-Şunu **kullanarak ayarla**:`UseUrls`  
-**Ortam değişkeni**:`ASPNETCORE_URLS`
+Şunu **kullanarak ayarla**: `UseUrls`  
+**Ortam değişkeni**: `ASPNETCORE_URLS`
 
-Noktalı virgülle ayrılmış olarak ayarlayın (;) sunucunun yanıtlaması gereken URL ön eklerinin listesi. Örneğin: `http://localhost:123`. Sunucunun belirtilen\*bağlantı noktasını ve Protokolü (örneğin, `http://*:5000`) kullanarak herhangi bir IP adresi veya ana bilgisayar için istekleri dinlemesi gerektiğini belirtmek için "" kullanın. Protokol (`http://` veya `https://`) her URL 'ye dahil edilmiş olmalıdır. Desteklenen biçimler sunucular arasında farklılık gösterir.
+Noktalı virgülle ayrılmış olarak ayarlayın (;) sunucunun yanıtlaması gereken URL ön eklerinin listesi. Örneğin, `http://localhost:123`. Sunucunun belirtilen bağlantı noktasını ve protokolü kullanarak herhangi bir IP adresi veya ana bilgisayar için istekleri dinlemesi gerektiğini belirtmek için "\*" kullanın (örneğin, `http://*:5000`). Protokol (`http://` veya `https://`) her URL 'ye dahil olmalıdır. Desteklenen biçimler sunucular arasında farklılık gösterir.
 
 ```csharp
 WebHost.CreateDefaultBuilder(args)
@@ -328,10 +325,10 @@ Web konağının kapanması için beklenecek süreyi belirtir.
 **Anahtar**: shutdowntimeoutseconds  
 **Tür**: *int*  
 **Varsayılan**: 5  
-Şunu **kullanarak ayarla**:`UseShutdownTimeout`  
-**Ortam değişkeni**:`ASPNETCORE_SHUTDOWNTIMEOUTSECONDS`
+Şunu **kullanarak ayarla**: `UseShutdownTimeout`  
+**Ortam değişkeni**: `ASPNETCORE_SHUTDOWNTIMEOUTSECONDS`
 
-Anahtar, ile `UseSetting` bir *int* kabul etse de (örneğin, `.UseSetting(WebHostDefaults.ShutdownTimeoutKey, "10")`), [useshutdowntimeout](/dotnet/api/microsoft.aspnetcore.hosting.hostingabstractionswebhostbuilderextensions.useshutdowntimeout) genişletme yöntemi bir [TimeSpan](/dotnet/api/system.timespan)alır.
+Anahtar, `UseSetting` ile bir *int* kabul etse de (örneğin, `.UseSetting(WebHostDefaults.ShutdownTimeoutKey, "10")`), [useshutdowntimeout](/dotnet/api/microsoft.aspnetcore.hosting.hostingabstractionswebhostbuilderextensions.useshutdowntimeout) genişletme yöntemi bir [TimeSpan](/dotnet/api/system.timespan)alır.
 
 Zaman aşımı süresi boyunca barındırma:
 
@@ -347,15 +344,15 @@ WebHost.CreateDefaultBuilder(args)
 
 ### <a name="startup-assembly"></a>Başlangıç derlemesi
 
-`Startup` Sınıfın aranacağı derlemeyi belirler.
+@No__t-0 sınıfı için arama yapılacak derlemeyi belirler.
 
 **Anahtar**: startupassembly  
 **Tür**: *dize*  
 **Varsayılan**: Uygulamanın derlemesi  
-Şunu **kullanarak ayarla**:`UseStartup`  
-**Ortam değişkeni**:`ASPNETCORE_STARTUPASSEMBLY`
+Şunu **kullanarak ayarla**: `UseStartup`  
+**Ortam değişkeni**: `ASPNETCORE_STARTUPASSEMBLY`
 
-Ada (`string`) veya türe (`TStartup`) göre derlemeye başvurulabilir. Birden çok `UseStartup` yöntem çağrılırsa, son bir öncelik alır.
+Ada (`string`) veya türe (`TStartup`) göre derlemeye başvurulabilir. Birden çok `UseStartup` yöntemi çağrılırsa, son bir öncelik alır.
 
 ```csharp
 WebHost.CreateDefaultBuilder(args)
@@ -374,8 +371,8 @@ Uygulamanın statik varlıklarının göreli yolunu ayarlar.
 **Anahtar**: Webroot  
 **Tür**: *dize*  
 **Varsayılan**: Belirtilmemişse, varsayılan olarak "(Içerik kökü)/Wwwroot" olur. Yol yoksa, Hayır-op dosya sağlayıcısı kullanılır.  
-Şunu **kullanarak ayarla**:`UseWebRoot`  
-**Ortam değişkeni**:`ASPNETCORE_WEBROOT`
+Şunu **kullanarak ayarla**: `UseWebRoot`  
+**Ortam değişkeni**: `ASPNETCORE_WEBROOT`
 
 ```csharp
 WebHost.CreateDefaultBuilder(args)
@@ -384,9 +381,9 @@ WebHost.CreateDefaultBuilder(args)
 
 ## <a name="override-configuration"></a>Geçersiz kılma yapılandırması
 
-Web konağını yapılandırmak için [yapılandırma](xref:fundamentals/configuration/index) kullanın. Aşağıdaki örnekte, konak yapılandırması isteğe bağlı olarak bir *HostSettings. JSON* dosyasında belirtilir. *HostSettings. JSON* dosyasından yüklenen herhangi bir yapılandırma komut satırı bağımsız değişkenleri tarafından geçersiz kılınabilir. Oluşturulan yapılandırma (içinde `config`), Konağı [useconfiguration](/dotnet/api/microsoft.aspnetcore.hosting.hostingabstractionswebhostbuilderextensions.useconfiguration)ile yapılandırmak için kullanılır. `IWebHostBuilder`yapılandırma uygulamanın yapılandırmasına eklenir, ancak dönüştürme doğru&mdash; `ConfigureAppConfiguration` değildir, `IWebHostBuilder` yapılandırmayı etkilemez.
+Web konağını yapılandırmak için [yapılandırma](xref:fundamentals/configuration/index) kullanın. Aşağıdaki örnekte, konak yapılandırması isteğe bağlı olarak bir *HostSettings. JSON* dosyasında belirtilir. *HostSettings. JSON* dosyasından yüklenen herhangi bir yapılandırma komut satırı bağımsız değişkenleri tarafından geçersiz kılınabilir. Oluşturulan yapılandırma (`config`), Konağı [Useconfiguration](/dotnet/api/microsoft.aspnetcore.hosting.hostingabstractionswebhostbuilderextensions.useconfiguration)ile yapılandırmak için kullanılır. `IWebHostBuilder` yapılandırması uygulamanın yapılandırmasına eklenir, ancak bu değer doğru değil @ no__t-1 @ no__t-2 `IWebHostBuilder` yapılandırmasını etkilemez.
 
-*HostSettings. JSON* config `UseUrls` ile tarafından belirtilen yapılandırmayı geçersiz kılma, komut satırı bağımsız değişkeni yapılandırma saniyesi:
+@No__t-0 tarafından belirtilen yapılandırmayı *HostSettings* ile geçersiz kılma. önce JSON config, komut satırı bağımsız değişkeni yapılandırma saniyesi:
 
 ```csharp
 public class Program
@@ -425,11 +422,11 @@ public class Program
 ```
 
 > [!NOTE]
-> [Useconfiguration](/dotnet/api/microsoft.aspnetcore.hosting.hostingabstractionswebhostbuilderextensions.useconfiguration) genişletme yöntemi şu anda tarafından `GetSection` döndürülen bir yapılandırma bölümünü ayrıştırma özelliğine sahip değil (örneğin,. `.UseConfiguration(Configuration.GetSection("section"))` Yöntemi, yapılandırma anahtarlarını istenen bölüm ile filtreleyerek, ancak anahtarlar üzerinde bölüm adını bırakır (örneğin `section:environment`, `section:urls`,). `GetSection` Yöntemi anahtarların `WebHostBuilder`anahtarlarlaeşleşmesini bekler (örneğin, `environment` ,).`urls` `UseConfiguration` Anahtarlarda bölüm adının varlığı, bölümün değerlerinin konak yapılandırmasını engeller. Bu soruna önümüzdeki sürümlerden birinde çözüm getirilecektir. Daha fazla bilgi ve geçici çözüm için bkz [. yapılandırma bölümünü WebHostBuilder 'A geçirme. UseConfiguration tam anahtarları kullanır](https://github.com/aspnet/Hosting/issues/839).
+> [Useconfiguration](/dotnet/api/microsoft.aspnetcore.hosting.hostingabstractionswebhostbuilderextensions.useconfiguration) uzantı yöntemi şu anda `GetSection` tarafından döndürülen bir yapılandırma bölümünü ayrıştırma özelliğine sahip değil (örneğin, `.UseConfiguration(Configuration.GetSection("section"))`. @No__t-0 yöntemi, yapılandırma anahtarlarını istenen bölüme süzer ancak bölüm adını anahtarlar üzerinde bırakır (örneğin, `section:urls`, `section:environment`). @No__t-0 yöntemi, anahtarların `WebHostBuilder` anahtarlarıyla eşleşmesini bekler (örneğin, `urls`, `environment`). Anahtarlarda bölüm adının varlığı, bölümün değerlerinin konak yapılandırmasını engeller. Bu soruna önümüzdeki sürümlerden birinde çözüm getirilecektir. Daha fazla bilgi ve geçici çözüm için bkz [. yapılandırma bölümünü WebHostBuilder 'A geçirme. UseConfiguration tam anahtarları kullanır](https://github.com/aspnet/Hosting/issues/839).
 >
-> `UseConfiguration`yalnızca belirtilen `IConfiguration` içindeki anahtarları ana bilgisayar Oluşturucu yapılandırmasına kopyalar. Bu nedenle, `reloadOnChange: true` JSON, ını ve xml ayarları dosyalarının ayarlanması etkisizdir.
+> `UseConfiguration` yalnızca belirtilen `IConfiguration` ' den konak Oluşturucu yapılandırmasına anahtar kopyalar. Bu nedenle, JSON, INI ve XML ayarları dosyaları için `reloadOnChange: true` ayarlarının hiçbir etkisi yoktur.
 
-Belirli bir URL 'de çalıştırılacak Konağı belirtmek için, [DotNet çalıştırması](/dotnet/core/tools/dotnet-run)yürütürken istenen değer bir komut isteminden geçirilebilir. Komut satırı bağımsız değişkeni `urls` *HostSettings. JSON* dosyasından değeri geçersiz kılar ve sunucu 8080 numaralı bağlantı noktasını dinler:
+Belirli bir URL 'de çalıştırılacak Konağı belirtmek için, [DotNet çalıştırması](/dotnet/core/tools/dotnet-run)yürütürken istenen değer bir komut isteminden geçirilebilir. Komut satırı bağımsız değişkeni *HostSettings. JSON* dosyasından `urls` değerini geçersiz kılar ve sunucu 8080 numaralı bağlantı noktasını dinler:
 
 ```dotnetcli
 dotnet run --urls "http://*:8080"
@@ -437,9 +434,9 @@ dotnet run --urls "http://*:8080"
 
 ## <a name="manage-the-host"></a>Konağı yönetme
 
-**Çalıştır**
+**Çalıştırma**
 
-`Run` Yöntemi, Web uygulamasını başlatır ve konak kapanana kadar çağıran iş parçacığını engeller:
+@No__t-0 yöntemi, Web uygulamasını başlatır ve konak kapanana kadar çağıran iş parçacığını engeller:
 
 ```csharp
 host.Run();
@@ -447,7 +444,7 @@ host.Run();
 
 **Start**
 
-`Start` Yöntemini çağırarak, Konağı engellenmeyen bir şekilde çalıştırın:
+@No__t-0 yöntemini çağırarak Konağı engellenmeyen bir şekilde çalıştırın:
 
 ```csharp
 using (host)
@@ -457,7 +454,7 @@ using (host)
 }
 ```
 
-`Start` Yöntemine bir URL listesi geçirilirse, belirtilen URL 'leri dinler:
+@No__t-0 yöntemine bir URL listesi geçirilirse, belirtilen URL 'lerde dinler:
 
 ```csharp
 var urls = new List<string>()
@@ -477,11 +474,11 @@ using (host)
 }
 ```
 
-Uygulama, statik bir kolaylık yöntemi `CreateDefaultBuilder` kullanarak önceden yapılandırılmış varsayılan ayarları kullanarak yeni bir ana bilgisayar başlatabilir ve başlatabilir. Bu yöntemler, konsol çıktısı olmadan sunucuyu başlatır ve [Waitforkapatmadan](/dotnet/api/microsoft.aspnetcore.hosting.webhostextensions.waitforshutdown) bir kesme (CTRL-C/sigint veya sigterim) bekler:
+Uygulama, statik bir kolaylık yöntemi kullanarak `CreateDefaultBuilder` ' ın önceden yapılandırılmış varsayılanlarını kullanarak yeni bir ana bilgisayar başlatabilir ve başlatabilir. Bu yöntemler, konsol çıktısı olmadan sunucuyu başlatır ve [Waitforkapatmadan](/dotnet/api/microsoft.aspnetcore.hosting.webhostextensions.waitforshutdown) bir kesme (CTRL-C/sigint veya sigterim) bekler:
 
 **Başlat (RequestDelegate uygulaması)**
 
-Kullanmaya `RequestDelegate`başlayın:
+@No__t ile başlayın-0:
 
 ```csharp
 using (var host = WebHost.Start(app => app.Response.WriteAsync("Hello, World!")))
@@ -491,7 +488,7 @@ using (var host = WebHost.Start(app => app.Response.WriteAsync("Hello, World!"))
 }
 ```
 
-"Merhaba Dünya!" yanıtını almak `http://localhost:5000` için tarayıcıda bir istek yapın `WaitForShutdown`kesme (CTRL-C/SIGINT veya SIGTERM) verilene kadar engeller. Uygulama `Console.WriteLine` iletiyi görüntüler ve bir tuş basışını, çıkış için bekler.
+"Merhaba Dünya!" yanıtını almak için tarayıcıda `http://localhost:5000` ' a bir istek yapın bir kesme (CTRL-C/SIGINT veya SIGTERM) verilene kadar `WaitForShutdown` blok. Uygulama `Console.WriteLine` iletisini görüntüler ve bir KeyPress 'den çıkmak için bekler.
 
 **Başlangıç (dize URL 'si, RequestDelegate uygulaması)**
 
@@ -505,11 +502,11 @@ using (var host = WebHost.Start("http://localhost:8080", app => app.Response.Wri
 }
 ```
 
-Uygulamanın yanıt `http://localhost:8080`vermesi dışında, **Başlangıç (requestdelegate uygulaması)** ile aynı sonucu üretir.
+Uygulamanın `http://localhost:8080` ' de yanıt vermesi dışında, **Başlangıç (RequestDelegate uygulaması)** ile aynı sonucu üretir.
 
-**Başlat (eylem&lt;ıroutebuilder&gt; routebuilder)**
+**Başlat (eylem @ no__t-1IRouteBuilder @ no__t-2 routeBuilder)**
 
-Yönlendirme ara yazılımını kullanmak `IRouteBuilder` için ([Microsoft. aspnetcore. Routing](https://www.nuget.org/packages/Microsoft.AspNetCore.Routing/)) örneğini kullanın:
+Yönlendirme ara yazılımını kullanmak için `IRouteBuilder` ([Microsoft. AspNetCore. Routing](https://www.nuget.org/packages/Microsoft.AspNetCore.Routing/)) örneğini kullanın:
 
 ```csharp
 using (var host = WebHost.Start(router => router
@@ -539,11 +536,11 @@ Aşağıdaki tarayıcı isteklerini örnekle birlikte kullanın:
 | `http://localhost:5000/Sante/Kevin`        | Sante, Kevin!                            |
 | `http://localhost:5000`                    | Merhaba Dünya!                             |
 
-`WaitForShutdown`kesme (CTRL-C/SIGINT veya SIGTERM) verilene kadar engeller. Uygulama `Console.WriteLine` iletiyi görüntüler ve bir tuş basışını, çıkış için bekler.
+bir kesme (CTRL-C/SIGINT veya SIGTERM) verilene kadar `WaitForShutdown` blok. Uygulama `Console.WriteLine` iletisini görüntüler ve bir KeyPress 'den çıkmak için bekler.
 
-**Başlat (dize URL 'si,&lt;eylem ıroutebuilder&gt; routebuilder)**
+**Başlat (dize URL 'si, eylem @ no__t-1ıroutebuilder @ no__t-2 routeBuilder)**
 
-Bir URL ve örneği `IRouteBuilder`kullanın:
+Bir URL ve @no__t örneği kullanın-0:
 
 ```csharp
 using (var host = WebHost.Start("http://localhost:8080", router => router
@@ -562,11 +559,11 @@ using (var host = WebHost.Start("http://localhost:8080", router => router
 }
 ```
 
-Uygulamanın Yanıt`http://localhost:8080`vermesi dışında, **Başlangıç (eylem&lt;ıroutebuilder&gt; routebuilder)** ile aynı sonucu üretir.
+Uygulamanın `http://localhost:8080` ' te yanıt vermesi dışında, **Başlangıç (Action @ no__t-1IRouteBuilder @ no__t-2 routebuilder)** ile aynı sonucu üretir.
 
-**StartWith (eylem&lt;IApplicationBuilder&gt; uygulaması)**
+**StartWith (Action @ no__t-1IApplicationBuilder @ no__t-2 App)**
 
-Yapılandırmak için bir temsilci sağlayın `IApplicationBuilder`:
+@No__t yapılandırmak için bir temsilci sağlayın-0:
 
 ```csharp
 using (var host = WebHost.StartWith(app => 
@@ -583,11 +580,11 @@ using (var host = WebHost.StartWith(app =>
 }
 ```
 
-"Merhaba Dünya!" yanıtını almak `http://localhost:5000` için tarayıcıda bir istek yapın `WaitForShutdown`kesme (CTRL-C/SIGINT veya SIGTERM) verilene kadar engeller. Uygulama `Console.WriteLine` iletiyi görüntüler ve bir tuş basışını, çıkış için bekler.
+"Merhaba Dünya!" yanıtını almak için tarayıcıda `http://localhost:5000` ' a bir istek yapın bir kesme (CTRL-C/SIGINT veya SIGTERM) verilene kadar `WaitForShutdown` blok. Uygulama `Console.WriteLine` iletisini görüntüler ve bir KeyPress 'den çıkmak için bekler.
 
-**StartWith (dize URL 'si,&lt;eylem IApplicationBuilder&gt; uygulaması)**
+**StartWith (dize URL 'si, Action @ no__t-1IApplicationBuilder @ no__t-2 App)**
 
-Yapılandırmak için bir URL ve temsilci sağlayın `IApplicationBuilder`:
+@No__t yapılandırmak için bir URL ve temsilci sağlayın-0:
 
 ```csharp
 using (var host = WebHost.StartWith("http://localhost:8080", app => 
@@ -604,11 +601,11 @@ using (var host = WebHost.StartWith("http://localhost:8080", app =>
 }
 ```
 
-Uygulamanın Yanıt`http://localhost:8080`vermesi dışında, **StartWith (Action&lt;iapplicationbuilder&gt; uygulaması) ile**aynı sonucu üretir.
+Uygulamanın `http://localhost:8080` ' te yanıt vermesi dışında, **StartWith ile aynı sonucu üretir (Action @ no__t-1IApplicationBuilder @ no__t-2 App)** .
 
 ## <a name="ihostingenvironment-interface"></a>Ihostingenvironment arabirimi
 
-[Ihostingenvironment arabirimi](/dotnet/api/microsoft.aspnetcore.hosting.ihostingenvironment) , uygulamanın Web barındırma ortamı hakkında bilgi sağlar. Özelliklerini ve uzantı yöntemlerini kullanmak üzere `IHostingEnvironment` sağlamak için [Oluşturucu Ekleme](xref:fundamentals/dependency-injection) özelliğini kullanın:
+[Ihostingenvironment arabirimi](/dotnet/api/microsoft.aspnetcore.hosting.ihostingenvironment) , uygulamanın Web barındırma ortamı hakkında bilgi sağlar. Özelliklerini ve uzantı yöntemlerini kullanmak için `IHostingEnvironment` ' i almak için [Oluşturucu Ekleme](xref:fundamentals/dependency-injection) kullanın:
 
 ```csharp
 public class CustomFileReader
@@ -628,7 +625,7 @@ public class CustomFileReader
 }
 ```
 
-Uygulamayı ortama göre başlangıçta yapılandırmak için [kural tabanlı bir yaklaşım](xref:fundamentals/environments#environment-based-startup-class-and-methods) kullanılabilir. Alternatif olarak, `IHostingEnvironment` ' de `ConfigureServices`kullanım `Startup` için oluşturucuya ekleyin:
+Uygulamayı ortama göre başlangıçta yapılandırmak için [kural tabanlı bir yaklaşım](xref:fundamentals/environments#environment-based-startup-class-and-methods) kullanılabilir. Alternatif olarak, `IHostingEnvironment` ' ı `ConfigureServices` ' de kullanılmak üzere `Startup` oluşturucusuna ekleyin:
 
 ```csharp
 public class Startup
@@ -657,9 +654,9 @@ public class Startup
 ```
 
 > [!NOTE]
-> `IsDevelopment` Uzantı yöntemine`IsProduction` ekolarak`IsEnvironment(string environmentName)` ,, ve yöntemleri. `IHostingEnvironment` `IsStaging` Daha fazla bilgi için bkz. <xref:fundamentals/environments>.
+> @No__t-0 uzantısı yöntemine ek olarak, `IHostingEnvironment` `IsStaging`, `IsProduction` ve `IsEnvironment(string environmentName)` yöntemleri sunar. Daha fazla bilgi için bkz. <xref:fundamentals/environments>.
 
-Hizmet ayrıca işlem ardışık düzenini ayarlama `Configure` yöntemine doğrudan eklenebilir: `IHostingEnvironment`
+@No__t-0 hizmeti ayrıca işlem ardışık düzenini ayarlamak için doğrudan `Configure` yöntemine eklenebilir:
 
 ```csharp
 public void Configure(IApplicationBuilder app, IHostingEnvironment env)
@@ -679,7 +676,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 }
 ```
 
-`IHostingEnvironment`özel [Ara yazılım](xref:fundamentals/middleware/write)oluşturulurken yöntemineeklenebilir:`Invoke`
+`IHostingEnvironment`, özel [Ara yazılım](xref:fundamentals/middleware/write)oluştururken `Invoke` yöntemine eklenebilir:
 
 ```csharp
 public async Task Invoke(HttpContext context, IHostingEnvironment env)
@@ -699,7 +696,7 @@ public async Task Invoke(HttpContext context, IHostingEnvironment env)
 
 ## <a name="iapplicationlifetime-interface"></a>Iapplicationlifetime arabirimi
 
-[Iapplicationlifetime](/dotnet/api/microsoft.aspnetcore.hosting.iapplicationlifetime) , başlatma sonrası ve kapalı etkinlikler için izin verir. Arabirimdeki üç özellik, başlangıç ve kapalı olayları tanımlayan yöntemleri kaydetmek `Action` için kullanılan iptal belirteçleridir.
+[Iapplicationlifetime](/dotnet/api/microsoft.aspnetcore.hosting.iapplicationlifetime) , başlatma sonrası ve kapalı etkinlikler için izin verir. Arabirimdeki üç özellik, başlangıç ve kapalı olayları tanımlayan `Action` yöntemlerini kaydetmek için kullanılan iptal belirteçleridir.
 
 | İptal belirteci    | Tetiklendiği zaman&#8230; |
 | --------------------- | --------------------- |
@@ -741,7 +738,7 @@ public class Startup
 }
 ```
 
-[StopApplication](/dotnet/api/microsoft.aspnetcore.hosting.iapplicationlifetime.stopapplication) , uygulamanın sonlandırılmasını ister. Aşağıdaki sınıf, `Shutdown` sınıfın `StopApplication` yöntemi çağrıldığında bir uygulamayı düzgün bir şekilde kapatmak için kullanır:
+[StopApplication](/dotnet/api/microsoft.aspnetcore.hosting.iapplicationlifetime.stopapplication) , uygulamanın sonlandırılmasını ister. Aşağıdaki sınıf, sınıfın `Shutdown` yöntemi çağrıldığında bir uygulamayı düzgün bir şekilde kapatmak için `StopApplication` kullanır:
 
 ```csharp
 public class MyClass
@@ -762,16 +759,16 @@ public class MyClass
 
 ## <a name="scope-validation"></a>Kapsam doğrulaması
 
-[Createdefaultbuilder](/dotnet/api/microsoft.aspnetcore.webhost.createdefaultbuilder) , uygulamanın ortamı geliştirmede `true` [serviceprovideroptions. validatescopes](/dotnet/api/microsoft.extensions.dependencyinjection.serviceprovideroptions.validatescopes) ' i ayarlar.
+Uygulamanın ortamı geliştirmede [Createdefaultbuilder](/dotnet/api/microsoft.aspnetcore.webhost.createdefaultbuilder) , [Serviceprovideroptions. validatescopes](/dotnet/api/microsoft.extensions.dependencyinjection.serviceprovideroptions.validatescopes) öğesini `true` olarak ayarlar.
 
-`ValidateScopes` , Olarak`true`ayarlandığında, varsayılan hizmet sağlayıcısı şunları doğrulamak için denetimler gerçekleştirir:
+@No__t-0 `true` olarak ayarlandığında, varsayılan hizmet sağlayıcısı şunları doğrulamak için denetimler gerçekleştirir:
 
 * Kapsamlı hizmetler doğrudan veya dolaylı olarak kök hizmet sağlayıcısından çözümlenmez.
 * Kapsamlı hizmetler doğrudan veya dolaylı olarak Singleton 'a eklenmiş değildir.
 
 [Buildserviceprovider](/dotnet/api/microsoft.extensions.dependencyinjection.servicecollectioncontainerbuilderextensions.buildserviceprovider) çağrıldığında kök hizmet sağlayıcısı oluşturulur. Kök hizmet sağlayıcısının ömrü, sağlayıcının uygulamayla başladığı ve uygulama kapandığında bırakıldığı uygulama/sunucunun yaşam süresine karşılık gelir.
 
-Kapsamlı hizmetler kendilerini oluşturan kapsayıcı tarafından atılmış. Kök kapsayıcıda kapsamlı bir hizmet oluşturulduysa, hizmetin ömrü etkin şekilde tek başına yükseltilir çünkü yalnızca uygulama/sunucu kapatıldığında kök kapsayıcı tarafından atılmış olur. Hizmet kapsamlarını doğrulamak `BuildServiceProvider` , çağrıldığında bu durumları yakalar.
+Kapsamlı hizmetler kendilerini oluşturan kapsayıcı tarafından atılmış. Kök kapsayıcıda kapsamlı bir hizmet oluşturulduysa, hizmetin ömrü etkin şekilde tek başına yükseltilir çünkü yalnızca uygulama/sunucu kapatıldığında kök kapsayıcı tarafından atılmış olur. @No__t-0 çağrıldığında, hizmet kapsamlarını doğrulamak bu durumları yakalar.
 
 Üretim ortamında da dahil olmak üzere kapsamları her zaman doğrulamak için, ana bilgisayar Oluşturucu 'da [Serviceprovideroptions](/dotnet/api/microsoft.extensions.dependencyinjection.serviceprovideroptions) 'ı [usedefaultserviceprovider](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderextensions.usedefaultserviceprovider) ile yapılandırın:
 

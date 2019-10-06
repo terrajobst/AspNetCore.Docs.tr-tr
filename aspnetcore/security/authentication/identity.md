@@ -5,12 +5,12 @@ description: ASP.NET Core bir uygulamayla kimlik kullanın. Parola gereksinimler
 ms.author: riande
 ms.date: 03/26/2019
 uid: security/authentication/identity
-ms.openlocfilehash: 979681cfc196aca9fb5097583d99a086e1c597ba
-ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
+ms.openlocfilehash: 6701eb0ac1b1abb8699a5a529bcc29f295e5c7c9
+ms.sourcegitcommit: 4115bf0e850c13d4e655beb5ab5e8ff431173cb6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71082459"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71981918"
 ---
 # <a name="introduction-to-identity-on-aspnet-core"></a>ASP.NET Core kimliğe giriş
 
@@ -20,7 +20,7 @@ ASP.NET Core kimlik, ASP.NET Core uygulamalara oturum açma işlevselliği ekley
 
 Kimlik, Kullanıcı adlarını, parolaları ve profil verilerini depolamak için bir SQL Server veritabanı kullanılarak yapılandırılabilir. Alternatif olarak, başka bir kalıcı mağaza da kullanılabilir, örneğin Azure Tablo depolaması.
 
-[Örnek kodu görüntüleyin veya indirin](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/authentication/identity/sample/src/ASPNETCore-IdentityDemoComplete/) ([indirme)](xref:index#how-to-download-a-sample)).
+Örnek kodu ([indirme)](xref:index#how-to-download-a-sample) [görüntüleyin veya indirin](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/authentication/identity/sample/src/ASPNETCore-IdentityDemoComplete/) .
 
 Bu konu başlığında, bir kullanıcıyı kaydetmek, oturum açmak ve oturumu kapatmak için kimlik kullanmayı öğrenirsiniz. Kimlik kullanan uygulamalar oluşturma hakkında daha ayrıntılı yönergeler için, bu makalenin sonundaki sonraki adımlar bölümüne bakın.
 
@@ -30,13 +30,13 @@ Bu konu başlığında, bir kullanıcıyı kaydetmek, oturum açmak ve oturumu k
 
 ## <a name="adddefaultidentity-and-addidentity"></a>Adddefaultıdentity ve AddEntity
 
-[Adddefaultıdentity](/dotnet/api/microsoft.extensions.dependencyinjection.identityservicecollectionuiextensions.adddefaultidentity?view=aspnetcore-2.1#Microsoft_Extensions_DependencyInjection_IdentityServiceCollectionUIExtensions_AddDefaultIdentity__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Action_Microsoft_AspNetCore_Identity_IdentityOptions__) ASP.NET Core 2,1 ' de tanıtılmıştı. Çağırma `AddDefaultIdentity` , aşağıdakileri çağırmaya benzer:
+[Adddefaultıdentity](/dotnet/api/microsoft.extensions.dependencyinjection.identityservicecollectionuiextensions.adddefaultidentity?view=aspnetcore-2.1#Microsoft_Extensions_DependencyInjection_IdentityServiceCollectionUIExtensions_AddDefaultIdentity__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Action_Microsoft_AspNetCore_Identity_IdentityOptions__) ASP.NET Core 2,1 ' de tanıtılmıştı. @No__t-0 çağırmak, aşağıdakileri çağırmaya benzer:
 
 * [AddEntity](/dotnet/api/microsoft.extensions.dependencyinjection.identityservicecollectionextensions.addidentity?view=aspnetcore-2.1#Microsoft_Extensions_DependencyInjection_IdentityServiceCollectionExtensions_AddIdentity__2_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Action_Microsoft_AspNetCore_Identity_IdentityOptions__)
 * [Adddefaultuı](/dotnet/api/microsoft.aspnetcore.identity.identitybuilderuiextensions.adddefaultui?view=aspnetcore-2.1#Microsoft_AspNetCore_Identity_IdentityBuilderUIExtensions_AddDefaultUI_Microsoft_AspNetCore_Identity_IdentityBuilder_)
 * [AddDefaultTokenProviders](/dotnet/api/microsoft.aspnetcore.identity.identitybuilderextensions.adddefaulttokenproviders?view=aspnetcore-2.1#Microsoft_AspNetCore_Identity_IdentityBuilderExtensions_AddDefaultTokenProviders_Microsoft_AspNetCore_Identity_IdentityBuilder_)
 
-Daha fazla bilgi için bkz. [Adddefaultıdentity kaynağı](https://github.com/aspnet/AspNetCore/blob/release/2.2/src/Identity/UI/src/IdentityServiceCollectionUIExtensions.cs#L47-L63) .
+Daha fazla bilgi için bkz. [Adddefaultıdentity kaynağı](https://github.com/aspnet/AspNetCore/blob/release/3.0/src/Identity/UI/src/IdentityServiceCollectionUIExtensions.cs#L47-L63) .
 
 ::: moniker-end
 
@@ -93,7 +93,7 @@ Uygulamayı çalıştırın ve bir Kullanıcı kaydedin. Ekran boyutunuza bağl�
 
 ### <a name="configure-identity-services"></a>Kimlik hizmetlerini yapılandırma
 
-Hizmetler ' de `ConfigureServices`eklenir. Tipik model, tüm `Add{Service}` yöntemleri çağırmalıdır ve sonra `services.Configure{Service}` tüm yöntemleri çağırır.
+Hizmetler `ConfigureServices` ' a eklenir. Tipik model, tüm `Add{Service}` yöntemlerini çağırmak ve sonra tüm `services.Configure{Service}` yöntemlerini çağırmalıdır.
 
 ::: moniker range=">= aspnetcore-2.1"
 
@@ -101,7 +101,7 @@ Hizmetler ' de `ConfigureServices`eklenir. Tipik model, tüm `Add{Service}` yön
 
 Yukarıdaki kod, varsayılan seçenek değerleriyle kimliği yapılandırır. Hizmetler, [bağımlılık ekleme](xref:fundamentals/dependency-injection)yoluyla uygulama için kullanılabilir hale getirilir.
 
-   Kimlik, [UseAuthentication](/dotnet/api/microsoft.aspnetcore.builder.authappbuilderextensions.useauthentication#Microsoft_AspNetCore_Builder_AuthAppBuilderExtensions_UseAuthentication_Microsoft_AspNetCore_Builder_IApplicationBuilder_)çağırarak etkinleştirilir. `UseAuthentication`istek ardışık düzenine kimlik doğrulama [ara yazılımı](xref:fundamentals/middleware/index) ekler.
+   Kimlik, [UseAuthentication](/dotnet/api/microsoft.aspnetcore.builder.authappbuilderextensions.useauthentication#Microsoft_AspNetCore_Builder_AuthAppBuilderExtensions_UseAuthentication_Microsoft_AspNetCore_Builder_IApplicationBuilder_)çağırarak etkinleştirilir. `UseAuthentication`, istek ardışık düzenine kimlik doğrulama [ara yazılımı](xref:fundamentals/middleware/index) ekler.
 
    [!code-csharp[](identity/sample/WebApp1/Startup.cs?name=snippet_configure&highlight=18)]
 
@@ -113,7 +113,7 @@ Yukarıdaki kod, varsayılan seçenek değerleriyle kimliği yapılandırır. Hi
 
    Hizmetler, [bağımlılık ekleme](xref:fundamentals/dependency-injection)yoluyla uygulama için kullanılabilir hale getirilir.
 
-   Yöntemi`Configure` çağırarak `UseAuthentication` , uygulama için kimlik etkinleştirilir. `UseAuthentication`istek ardışık düzenine kimlik doğrulama [ara yazılımı](xref:fundamentals/middleware/index) ekler.
+   @No__t-1 yönteminde `UseAuthentication` çağırarak uygulama için kimlik etkinleştirilir. `UseAuthentication`, istek ardışık düzenine kimlik doğrulama [ara yazılımı](xref:fundamentals/middleware/index) ekler.
 
    [!code-csharp[](identity/sample/src/ASPNETv2-IdentityDemo/Startup.cs?name=snippet_configure&highlight=17)]
 
@@ -125,7 +125,7 @@ Yukarıdaki kod, varsayılan seçenek değerleriyle kimliği yapılandırır. Hi
 
    Bu hizmetler, [bağımlılık ekleme](xref:fundamentals/dependency-injection)yoluyla uygulama için kullanılabilir hale getirilir.
 
-   Yöntemi`Configure` çağırarak `UseIdentity` , uygulama için kimlik etkinleştirilir. `UseIdentity`istek ardışık düzenine tanımlama bilgisi tabanlı kimlik doğrulama [ara yazılımı](xref:fundamentals/middleware/index) ekler.
+   @No__t-1 yönteminde `UseIdentity` çağırarak uygulama için kimlik etkinleştirilir. `UseIdentity`, istek ardışık düzenine tanımlama bilgisi tabanlı kimlik doğrulama [ara yazılımı](xref:fundamentals/middleware/index) ekler.
 
    [!code-csharp[](identity/sample/src/ASPNET-IdentityDemo/Startup.cs?name=snippet_configure&highlight=21)]
 
@@ -143,7 +143,7 @@ Kayıt, oturum açma ve oturum kapatma dosyalarını ekleyin.
 
 # <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
 
-Projeyi **WebApp1**adıyla oluşturduysanız aşağıdaki komutları çalıştırın. Aksi takdirde, için `ApplicationDbContext`doğru ad alanını kullanın:
+Projeyi **WebApp1**adıyla oluşturduysanız aşağıdaki komutları çalıştırın. Aksi takdirde, @no__t için doğru ad alanını kullanın-0:
 
 ```dotnetcli
 dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design
@@ -158,7 +158,7 @@ PowerShell, bir komut ayırıcısı olarak noktalı virgül kullanır. PowerShel
 
 ::: moniker range=">= aspnetcore-2.1"
 
-   Kullanıcı **Kaydet** bağlantısına `RegisterModel.OnPostAsync` tıkladığında eylem çağrılır. Kullanıcı, `_userManager` nesnesi üzerinde [createasync](/dotnet/api/microsoft.aspnetcore.identity.usermanager-1.createasync#Microsoft_AspNetCore_Identity_UserManager_1_CreateAsync__0_System_String_) tarafından oluşturulur. `_userManager`bağımlılık ekleme tarafından sağlanır):
+   Kullanıcı **Kaydet** bağlantısına tıkladığında `RegisterModel.OnPostAsync` eylemi çağrılır. Kullanıcı `_userManager` nesnesi üzerinde [Createasync](/dotnet/api/microsoft.aspnetcore.identity.usermanager-1.createasync#Microsoft_AspNetCore_Identity_UserManager_1_CreateAsync__0_System_String_) tarafından oluşturulur. `_userManager` bağımlılık ekleme tarafından sağlanır):
 
    [!code-csharp[](identity/sample/WebApp1/Areas/Identity/Pages/Account/Register.cshtml.cs?name=snippet&highlight=7,22)]
 
@@ -166,13 +166,13 @@ PowerShell, bir komut ayırıcısı olarak noktalı virgül kullanır. PowerShel
 
 ::: moniker range="= aspnetcore-2.0"
 
-   Kullanıcı **Kaydet** bağlantısına `Register` tıkladığında eylem üzerinde `AccountController`çağrılır. Eylem, nesneyi`_userManager` çağırarak `CreateAsync` kullanıcıyı oluşturur (bağımlılık eklenmesine `AccountController` göre tarafından verilir): `Register`
+   Kullanıcı **Kaydet** bağlantısına tıkladığında `Register` eylemi `AccountController` ' de çağrılır. @No__t-0 eylemi, `_userManager` nesnesi üzerinde `CreateAsync` çağırarak kullanıcıyı oluşturur (bağımlılık eklenmesine göre `AccountController` ' e sunulur):
 
    [!code-csharp[](identity/sample/src/ASPNET-IdentityDemo/Controllers/AccountController.cs?name=snippet_register&highlight=11)]
 
 ::: moniker-end
 
-   Kullanıcı başarıyla oluşturulduysa, Kullanıcı çağrısıyla `_signInManager.SignInAsync`oturum açar.
+   Kullanıcı başarıyla oluşturulduysa, Kullanıcı `_signInManager.SignInAsync` ' a çağırarak oturum açar.
 
    **Not:** Kayıt sırasında anında oturum açmayı önlemeye yönelik adımlar için bkz. [Hesap onayı](xref:security/authentication/accconfirm#prevent-login-at-registration) .
 
@@ -185,23 +185,23 @@ Oturum açma formu şu durumlarda görüntülenir:
 * **Oturum aç** bağlantısı seçilidir.
 * Kullanıcı, erişim yetkisi olmayan **veya** sistem tarafından kimliği doğrulanmamış olan sınırlı bir sayfaya erişmeyi dener.
 
-Oturum açma sayfasındaki form gönderildiğinde, `OnPostAsync` eylem çağrılır. `PasswordSignInAsync``_signInManager` nesnesi üzerinde çağrılır (bağımlılık ekleme tarafından sağlanır).
+Oturum açma sayfasındaki form gönderildiğinde `OnPostAsync` eylemi çağrılır. `PasswordSignInAsync` `_signInManager` nesnesinde çağrılır (bağımlılık ekleme tarafından sağlanır).
 
    [!code-csharp[](identity/sample/WebApp1/Areas/Identity/Pages/Account/Login.cshtml.cs?name=snippet&highlight=10-11)]
 
-   Temel `Controller` sınıf, denetleyici yöntemlerinden `User` erişebileceğiniz bir özellik sunar. Örneğin, yetkilendirme kararlarını numaralandırabilirsiniz `User.Claims` ve yapabilirsiniz. Daha fazla bilgi için bkz. <xref:security/authorization/introduction>.
+   Taban `Controller` sınıfı, denetleyici yöntemlerinden erişebileceğiniz bir `User` özelliği gösterir. Örneğin, `User.Claims` ' ı numaralandırabilirsiniz ve yetkilendirme kararları alabilirsiniz. Daha fazla bilgi için bkz. <xref:security/authorization/introduction>.
 
 ::: moniker-end
 
 ::: moniker range="= aspnetcore-2.0"
 
-Oturum açma formu, kullanıcılar bağlantı **oturumunu** seçerken veya kimlik doğrulaması gerektiren bir sayfaya erişirken yeniden yönlendirildiğinde görüntülenir. Kullanıcı oturum açma sayfasında formu gönderdiğinde, `AccountController` `Login` eylem çağrılır.
+Oturum açma formu, kullanıcılar bağlantı **oturumunu** seçerken veya kimlik doğrulaması gerektiren bir sayfaya erişirken yeniden yönlendirildiğinde görüntülenir. Kullanıcı oturum açma sayfasında formu gönderdiğinde, `AccountController` `Login` eylemi çağrılır.
 
-Eylem, `PasswordSignInAsync` nesne üzerinde çağrılar (bağımlılık eklenmesine göre `AccountController` ' ye verilir). `_signInManager` `Login`
+@No__t-0 eylemi `_signInManager` nesnesinde `PasswordSignInAsync` ' i çağırır (bağımlılık eklenmesine göre `AccountController` ' e sunulur).
 
 [!code-csharp[](identity/sample/src/ASPNET-IdentityDemo/Controllers/AccountController.cs?name=snippet_login&highlight=13-14)]
 
-Taban (`Controller` veya `PageModel`) sınıfı bir `User` özelliği kullanıma sunar. Örneğin, `User.Claims` yetkilendirme kararları almak için Numaralandırılabilir.
+Taban (`Controller` veya `PageModel`) sınıfı, `User` özelliğini kullanıma sunar. Örneğin, `User.Claims`, yetkilendirme kararları vermek için Numaralandırılabilir.
 
 ::: moniker-end
 
@@ -209,7 +209,7 @@ Taban (`Controller` veya `PageModel`) sınıfı bir `User` özelliği kullanıma
 
 ::: moniker range=">= aspnetcore-2.1"
 
-**Oturumu kapatma** bağlantısı `LogoutModel.OnPost` eylemi çağırır. 
+**Oturum kapatma** bağlantısı `LogoutModel.OnPost` eylemini çağırır. 
 
 [!code-csharp[](identity/sample/WebApp1/Areas/Identity/Pages/Account/Logout.cshtml.cs)]
 
@@ -223,17 +223,17 @@ Postala */paylaşılan/_LoginPartial. cshtml*dosyasında gönderi belirtilir:
 
 ::: moniker range="= aspnetcore-2.0"
 
-   **Oturum çıkış** bağlantısını tıklatmak `LogOut` eylemi çağırır.
+   **Günlüğe kaydet** bağlantısına tıkladığınızda `LogOut` eylemi çağrı yapılır.
 
    [!code-csharp[](identity/sample/src/ASPNET-IdentityDemo/Controllers/AccountController.cs?name=snippet_logout&highlight=7)]
 
-   Önceki kod `_signInManager.SignOutAsync` yöntemini çağırır. `SignOutAsync` Yöntemi, kullanıcının tanımlama bilgisinde depolanan taleplerini temizler.
+   Yukarıdaki kod `_signInManager.SignOutAsync` yöntemini çağırır. @No__t-0 yöntemi kullanıcının tanımlama bilgisinde depolanan taleplerini temizler.
 
 ::: moniker-end
 
 ## <a name="test-identity"></a>Test kimliği
 
-Varsayılan Web projesi şablonları, giriş sayfalarına anonim erişime izin verir. Kimliği test etmek için Gizlilik [`[Authorize]`](/dotnet/api/microsoft.aspnetcore.authorization.authorizeattribute) sayfasına ekleyin.
+Varsayılan Web projesi şablonları, giriş sayfalarına anonim erişime izin verir. Kimliği test etmek için Gizlilik sayfasına [`[Authorize]`](/dotnet/api/microsoft.aspnetcore.authorization.authorizeattribute) ekleyin.
 
 [!code-csharp[](identity/sample/WebApp1/Pages/Privacy.cshtml.cs?highlight=6)]
 
@@ -258,7 +258,7 @@ Tüm kimlik bağımlı NuGet paketleri [Microsoft. AspNetCore. app metapackage](
 
 ::: moniker-end
 
-Kimliğin birincil paketi [Microsoft. AspNetCore. Identity](https://www.nuget.org/packages/Microsoft.AspNetCore.Identity/)' dır. Bu paket, ASP.NET Core kimliği için çekirdek arabirim kümesini içerir ve tarafından `Microsoft.AspNetCore.Identity.EntityFrameworkCore`dahildir.
+Kimliğin birincil paketi [Microsoft. AspNetCore. Identity](https://www.nuget.org/packages/Microsoft.AspNetCore.Identity/)' dır. Bu paket, ASP.NET Core kimliği için çekirdek arabirim kümesini içerir ve `Microsoft.AspNetCore.Identity.EntityFrameworkCore` tarafından dahildir.
 
 ## <a name="migrating-to-aspnet-core-identity"></a>ASP.NET Core kimliğe geçiriliyor
 
