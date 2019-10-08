@@ -5,14 +5,14 @@ description: Uygulama başlatma ve ömür yönetiminden sorumlu .NET Core genel 
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/05/2019
+ms.date: 10/07/2019
 uid: fundamentals/host/generic-host
-ms.openlocfilehash: bd6e01697900b93d5b98122c726e1f8c8b89c0fc
-ms.sourcegitcommit: 4115bf0e850c13d4e655beb5ab5e8ff431173cb6
+ms.openlocfilehash: 1582955cd18e6739111af05c9a892cd5cb4e270d
+ms.sourcegitcommit: 3d082bd46e9e00a3297ea0314582b1ed2abfa830
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71981926"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72007232"
 ---
 # <a name="net-generic-host"></a>.NET genel ana bilgisayar
 
@@ -78,7 +78,7 @@ Uygulama Entity Framework Core kullanıyorsa `CreateHostBuilder` yönteminin ad�
 
 <xref:Microsoft.Extensions.Hosting.Host.CreateDefaultBuilder*> Yöntemi:
 
-* İçerik kökünü <xref:System.IO.Directory.GetCurrentDirectory*> tarafından döndürülen yola ayarlar.
+* [İçerik kökünü](xref:fundamentals/index#content-root) <xref:System.IO.Directory.GetCurrentDirectory*> tarafından döndürülen yola ayarlar.
 * Ana bilgisayar yapılandırmasını şuradan yükler:
   * "DOTNET_" önekli ortam değişkenleri.
   * Komut satırı bağımsız değişkenleri.
@@ -199,6 +199,11 @@ Host.CreateDefaultBuilder(args)
     .UseContentRoot("c:\\content-root")
     //...
 ```
+
+Daha fazla bilgi için bkz.
+
+* [Temelleri: İçerik kökü @ no__t-0
+* [WebRoot](#webroot)
 
 ### <a name="environmentname"></a>EnvironmentName
 
@@ -397,7 +402,7 @@ Uygulamanın statik varlıklarının göreli yolu.
 
 **Anahtar**: Webroot  
 **Tür**: *dize*  
-**Varsayılan**: *(Içerik kökü)/Wwwroot*, yol varsa. Yol yoksa, Hayır-op dosya sağlayıcısı kullanılır.  
+**Varsayılan**: Varsayılan, `wwwroot` değeridir. *{Content root}/Wwwroot* yolu var olmalıdır. Yol yoksa, Hayır-op dosya sağlayıcısı kullanılır.  
 **Ortam değişkeni**: `<PREFIX_>WEBROOT`
 
 Bu değeri ayarlamak için, ortam değişkenini kullanın veya `UseWebRoot` ' ı çağırın:
@@ -405,6 +410,11 @@ Bu değeri ayarlamak için, ortam değişkenini kullanın veya `UseWebRoot` ' ı
 ```csharp
 webBuilder.UseWebRoot("public");
 ```
+
+Daha fazla bilgi için bkz.
+
+* [Temelleri: Web kök @ no__t-0
+* [Contentrootyolu](#contentrootpath)
 
 ## <a name="manage-the-host-lifetime"></a>Konak ömrünü yönetme
 
@@ -574,6 +584,8 @@ Bu ayar, konağın içerik dosyalarını aramaya başladığı yeri belirler.
 Yol yoksa, ana bilgisayar başlatılamaz.
 
 [!code-csharp[](generic-host/samples-snapshot/2.x/GenericHostSample/Program.cs?name=snippet_UseContentRoot)]
+
+Daha fazla bilgi için bkz. [Temelleri: İçerik kökü @ no__t-0.
 
 ### <a name="environment"></a>Ortam
 

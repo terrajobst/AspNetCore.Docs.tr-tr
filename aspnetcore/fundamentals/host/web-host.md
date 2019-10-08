@@ -2,16 +2,17 @@
 title: ASP.NET Core Web ana bilgisayarı
 author: rick-anderson
 description: Uygulama başlatma ve ömür yönetiminden sorumlu olan ASP.NET Core Web ana bilgisayarı hakkında bilgi edinin.
+monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 06/14/2019
+ms.date: 10/07/2019
 uid: fundamentals/host/web-host
-ms.openlocfilehash: 977c1df67c2775870d630f3a1085d5e19cef58f5
-ms.sourcegitcommit: 4115bf0e850c13d4e655beb5ab5e8ff431173cb6
+ms.openlocfilehash: bc18b5490d232758b796d33a62cd8d1a7dd7289f
+ms.sourcegitcommit: 3d082bd46e9e00a3297ea0314582b1ed2abfa830
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71981906"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72007101"
 ---
 # <a name="aspnet-core-web-host"></a>ASP.NET Core Web ana bilgisayarı
 
@@ -23,7 +24,7 @@ Bu makalede, yalnızca geriye dönük uyumluluk için kullanılabilen Web ana bi
 
 ::: moniker-end
 
-::: moniker range="<= aspnetcore-2.2"
+::: moniker range="< aspnetcore-3.0"
 
 Bu makale, Web uygulamalarını barındırmak için olan Web konağını ele alır. Diğer uygulama türleri için [genel Konağı](xref:fundamentals/host/generic-host)kullanın.
 
@@ -54,7 +55,7 @@ public class Program
 `CreateDefaultBuilder` aşağıdaki görevleri gerçekleştirir:
 
 * [Kestrel](xref:fundamentals/servers/kestrel) sunucusunu, uygulamanın barındırma yapılandırma sağlayıcılarını kullanarak Web sunucusu olarak yapılandırır. Kestrel sunucusunun varsayılan seçenekleri için bkz. <xref:fundamentals/servers/kestrel#kestrel-options>.
-* İçerik kökünü [Directory. GetCurrentDirectory](/dotnet/api/system.io.directory.getcurrentdirectory)tarafından döndürülen yola ayarlar.
+* [İçerik kökünü](xref:fundamentals/index#content-root) [Directory. GetCurrentDirectory](/dotnet/api/system.io.directory.getcurrentdirectory)tarafından döndürülen yola ayarlar.
 * [Ana bilgisayar yapılandırmasını](#host-configuration-values) şuradan yükler:
   * @No__t-0 (örneğin, `ASPNETCORE_ENVIRONMENT`) önekli ortam değişkenleri.
   * Komut satırı bağımsız değişkenleri.
@@ -120,7 +121,7 @@ public class Program
 
 ::: moniker-end
 
-*İçerik kökü* , konağın MVC görünüm dosyaları gibi içerik dosyalarını arayacağı yeri belirler. Uygulama, projenin kök klasöründen başlatıldığında, projenin kök klasörü içerik kökü olarak kullanılır. Bu, [Visual Studio](https://visualstudio.microsoft.com) 'da ve [DotNet yeni şablonlarda](/dotnet/core/tools/dotnet-new)kullanılan varsayılandır.
+[İçerik kökü](xref:fundamentals/index#content-root) , konağın MVC görünüm dosyaları gibi içerik dosyalarını arayacağı yeri belirler. Uygulama, projenin kök klasöründen başlatıldığında, projenin kök klasörü içerik kökü olarak kullanılır. Bu, [Visual Studio](https://visualstudio.microsoft.com) 'da ve [DotNet yeni şablonlarda](/dotnet/core/tools/dotnet-new)kullanılan varsayılandır.
 
 Uygulama yapılandırması hakkında daha fazla bilgi için bkz. <xref:fundamentals/configuration/index>.
 
@@ -141,7 +142,17 @@ Konak, bir değeri en son ayarlayan seçeneği kullanır. Daha fazla bilgi için
 
 ### <a name="application-key-name"></a>Uygulama anahtarı (ad)
 
+::: moniker range=">= aspnetcore-3.0"
+
+@No__t-0 özelliği, konak oluşturma sırasında [Usestartup](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderextensions.usestartup) veya [Configure](/dotnet/api/microsoft.aspnetcore.hosting.istartup.configure) çağrıldığında otomatik olarak ayarlanır. Değer, uygulamanın giriş noktasını içeren derlemenin adına ayarlanır. Değeri açıkça ayarlamak için [Webhostdefaults. ApplicationKey](/dotnet/api/microsoft.aspnetcore.hosting.webhostdefaults.applicationkey)kullanın:
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
+
 Konak oluşturma sırasında [Usestartup](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderextensions.usestartup) veya [Configure](/dotnet/api/microsoft.aspnetcore.hosting.istartup.configure) çağrıldığında, [ıhostingenvironment. ApplicationName](/dotnet/api/microsoft.extensions.hosting.ihostingenvironment.applicationname) özelliği otomatik olarak ayarlanır. Değer, uygulamanın giriş noktasını içeren derlemenin adına ayarlanır. Değeri açıkça ayarlamak için [Webhostdefaults. ApplicationKey](/dotnet/api/microsoft.aspnetcore.hosting.webhostdefaults.applicationkey)kullanın:
+
+::: moniker-end
 
 **Anahtar**: ApplicationName  
 **Tür**: *dize*  
@@ -173,7 +184,7 @@ WebHost.CreateDefaultBuilder(args)
 
 ### <a name="content-root"></a>İçerik kökü
 
-Bu ayar, ASP.NET Core MVC görünümleri gibi içerik dosyalarını aramaya başladığı yeri belirler. 
+Bu ayar ASP.NET Core içerik dosyalarını aramaya başladığı yeri belirler.
 
 **Anahtar**: contentroot  
 **Tür**: *dize*  
@@ -181,12 +192,17 @@ Bu ayar, ASP.NET Core MVC görünümleri gibi içerik dosyalarını aramaya baş
 Şunu **kullanarak ayarla**: `UseContentRoot`  
 **Ortam değişkeni**: `ASPNETCORE_CONTENTROOT`
 
-İçerik kökü, [Web kök ayarı](#web-root)için temel yol olarak da kullanılır. Yol yoksa, ana bilgisayar başlatılamaz.
+İçerik kökü, [Web kökünün](xref:fundamentals/index#web-root)temel yolu olarak da kullanılır. İçerik kök yolu yoksa, ana bilgisayar başlatılamaz.
 
 ```csharp
 WebHost.CreateDefaultBuilder(args)
     .UseContentRoot("c:\\<content-root>")
 ```
+
+Daha fazla bilgi için bkz.
+
+* [Temelleri: İçerik kökü @ no__t-0
+* [Web kökü](#web-root)
 
 ### <a name="detailed-errors"></a>Ayrıntılı hatalar
 
@@ -370,7 +386,7 @@ Uygulamanın statik varlıklarının göreli yolunu ayarlar.
 
 **Anahtar**: Webroot  
 **Tür**: *dize*  
-**Varsayılan**: Belirtilmemişse, varsayılan olarak "(Içerik kökü)/Wwwroot" olur. Yol yoksa, Hayır-op dosya sağlayıcısı kullanılır.  
+**Varsayılan**: Varsayılan, `wwwroot` değeridir. *{Content root}/Wwwroot* yolu var olmalıdır. Yol yoksa, Hayır-op dosya sağlayıcısı kullanılır.  
 Şunu **kullanarak ayarla**: `UseWebRoot`  
 **Ortam değişkeni**: `ASPNETCORE_WEBROOT`
 
@@ -378,6 +394,11 @@ Uygulamanın statik varlıklarının göreli yolunu ayarlar.
 WebHost.CreateDefaultBuilder(args)
     .UseWebRoot("public")
 ```
+
+Daha fazla bilgi için bkz.
+
+* [Temelleri: Web kök @ no__t-0
+* [İçerik kökü](#content-root)
 
 ## <a name="override-configuration"></a>Geçersiz kılma yapılandırması
 
@@ -504,7 +525,7 @@ using (var host = WebHost.Start("http://localhost:8080", app => app.Response.Wri
 
 Uygulamanın `http://localhost:8080` ' de yanıt vermesi dışında, **Başlangıç (RequestDelegate uygulaması)** ile aynı sonucu üretir.
 
-**Başlat (eylem @ no__t-1IRouteBuilder @ no__t-2 routeBuilder)**
+**Başlat (eylem @ no__t-1IRouteBuilder > routeBuilder)**
 
 Yönlendirme ara yazılımını kullanmak için `IRouteBuilder` ([Microsoft. AspNetCore. Routing](https://www.nuget.org/packages/Microsoft.AspNetCore.Routing/)) örneğini kullanın:
 
@@ -538,7 +559,7 @@ Aşağıdaki tarayıcı isteklerini örnekle birlikte kullanın:
 
 bir kesme (CTRL-C/SIGINT veya SIGTERM) verilene kadar `WaitForShutdown` blok. Uygulama `Console.WriteLine` iletisini görüntüler ve bir KeyPress 'den çıkmak için bekler.
 
-**Başlat (dize URL 'si, eylem @ no__t-1ıroutebuilder @ no__t-2 routeBuilder)**
+**Başlat (dize URL 'si, eylem @ no__t-1ıroutebuilder > routeBuilder)**
 
 Bir URL ve @no__t örneği kullanın-0:
 
@@ -559,9 +580,9 @@ using (var host = WebHost.Start("http://localhost:8080", router => router
 }
 ```
 
-Uygulamanın `http://localhost:8080` ' te yanıt vermesi dışında, **Başlangıç (Action @ no__t-1IRouteBuilder @ no__t-2 routebuilder)** ile aynı sonucu üretir.
+Uygulamanın `http://localhost:8080` ' de yanıt vermesi dışında, **Başlangıç (eylem @ no__t-1IRouteBuilder > routebuilder)** ile aynı sonucu üretir.
 
-**StartWith (Action @ no__t-1IApplicationBuilder @ no__t-2 App)**
+**StartWith (Action @ no__t-1IApplicationBuilder > App)**
 
 @No__t yapılandırmak için bir temsilci sağlayın-0:
 
@@ -582,7 +603,7 @@ using (var host = WebHost.StartWith(app =>
 
 "Merhaba Dünya!" yanıtını almak için tarayıcıda `http://localhost:5000` ' a bir istek yapın bir kesme (CTRL-C/SIGINT veya SIGTERM) verilene kadar `WaitForShutdown` blok. Uygulama `Console.WriteLine` iletisini görüntüler ve bir KeyPress 'den çıkmak için bekler.
 
-**StartWith (dize URL 'si, Action @ no__t-1IApplicationBuilder @ no__t-2 App)**
+**StartWith (dize URL 'si, Action @ no__t-1IApplicationBuilder > App)**
 
 @No__t yapılandırmak için bir URL ve temsilci sağlayın-0:
 
@@ -601,7 +622,104 @@ using (var host = WebHost.StartWith("http://localhost:8080", app =>
 }
 ```
 
-Uygulamanın `http://localhost:8080` ' te yanıt vermesi dışında, **StartWith ile aynı sonucu üretir (Action @ no__t-1IApplicationBuilder @ no__t-2 App)** .
+Uygulamanın `http://localhost:8080` ' de yanıt vermesi dışında, **StartWith ile aynı sonucu üretir (Action @ no__t-1IApplicationBuilder > App)** .
+
+::: moniker range=">= aspnetcore-3.0"
+
+## <a name="iwebhostenvironment-interface"></a>Iwebhostenvironment arabirimi
+
+@No__t-0 arabirimi, uygulamanın Web barındırma ortamı hakkında bilgi sağlar. Özelliklerini ve uzantı yöntemlerini kullanmak için `IWebHostEnvironment` ' i almak için [Oluşturucu Ekleme](xref:fundamentals/dependency-injection) kullanın:
+
+```csharp
+public class CustomFileReader
+{
+    private readonly IWebHostEnvironment _env;
+
+    public CustomFileReader(IWebHostEnvironment env)
+    {
+        _env = env;
+    }
+
+    public string ReadFile(string filePath)
+    {
+        var fileProvider = _env.WebRootFileProvider;
+        // Process the file here
+    }
+}
+```
+
+Uygulamayı ortama göre başlangıçta yapılandırmak için [kural tabanlı bir yaklaşım](xref:fundamentals/environments#environment-based-startup-class-and-methods) kullanılabilir. Alternatif olarak, `IWebHostEnvironment` ' ı `ConfigureServices` ' de kullanılmak üzere `Startup` oluşturucusuna ekleyin:
+
+```csharp
+public class Startup
+{
+    public Startup(IWebHostEnvironment env)
+    {
+        HostingEnvironment = env;
+    }
+
+    public IWebHostEnvironment HostingEnvironment { get; }
+
+    public void ConfigureServices(IServiceCollection services)
+    {
+        if (HostingEnvironment.IsDevelopment())
+        {
+            // Development configuration
+        }
+        else
+        {
+            // Staging/Production configuration
+        }
+
+        var contentRootPath = HostingEnvironment.ContentRootPath;
+    }
+}
+```
+
+> [!NOTE]
+> @No__t-0 uzantısı yöntemine ek olarak, `IWebHostEnvironment` `IsStaging`, `IsProduction` ve `IsEnvironment(string environmentName)` yöntemleri sunar. Daha fazla bilgi için bkz. <xref:fundamentals/environments>.
+
+@No__t-0 hizmeti ayrıca işlem ardışık düzenini ayarlamak için doğrudan `Configure` yöntemine eklenebilir:
+
+```csharp
+public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+{
+    if (env.IsDevelopment())
+    {
+        // In Development, use the Developer Exception Page
+        app.UseDeveloperExceptionPage();
+    }
+    else
+    {
+        // In Staging/Production, route exceptions to /error
+        app.UseExceptionHandler("/error");
+    }
+
+    var contentRootPath = env.ContentRootPath;
+}
+```
+
+`IWebHostEnvironment`, özel [Ara yazılım](xref:fundamentals/middleware/write)oluştururken `Invoke` yöntemine eklenebilir:
+
+```csharp
+public async Task Invoke(HttpContext context, IWebHostEnvironment env)
+{
+    if (env.IsDevelopment())
+    {
+        // Configure middleware for Development
+    }
+    else
+    {
+        // Configure middleware for Staging/Production
+    }
+
+    var contentRootPath = env.ContentRootPath;
+}
+```
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
 
 ## <a name="ihostingenvironment-interface"></a>Ihostingenvironment arabirimi
 
@@ -694,6 +812,77 @@ public async Task Invoke(HttpContext context, IHostingEnvironment env)
 }
 ```
 
+::: moniker-end
+
+::: moniker range=">= aspnetcore-3.0"
+
+## <a name="ihostapplicationlifetime-interface"></a>Ihostapplicationlifetime arabirimi
+
+`IHostApplicationLifetime`, başlatma sonrası ve kapalı etkinliklere izin verir. Arabirimdeki üç özellik, başlangıç ve kapalı olayları tanımlayan `Action` yöntemlerini kaydetmek için kullanılan iptal belirteçleridir.
+
+| İptal belirteci    | Tetiklendiği zaman&#8230; |
+| --------------------- | --------------------- |
+| `ApplicationStarted`  | Konak tam olarak başlatıldı. |
+| `ApplicationStopped`  | Ana bilgisayar düzgün kapanma işlemini tamamlıyor. Tüm isteklerin işlenmesi gerekir. Bu olay tamamlanana kadar kapalı bloklar. |
+| `ApplicationStopping` | Ana bilgisayar düzgün bir şekilde kapanma gerçekleştiriyor. İstekler hala işliyor olabilir. Bu olay tamamlanana kadar kapalı bloklar. |
+
+```csharp
+public class Startup
+{
+    public void Configure(IApplicationBuilder app, IHostApplicationLifetime appLifetime)
+    {
+        appLifetime.ApplicationStarted.Register(OnStarted);
+        appLifetime.ApplicationStopping.Register(OnStopping);
+        appLifetime.ApplicationStopped.Register(OnStopped);
+
+        Console.CancelKeyPress += (sender, eventArgs) =>
+        {
+            appLifetime.StopApplication();
+            // Don't terminate the process immediately, wait for the Main thread to exit gracefully.
+            eventArgs.Cancel = true;
+        };
+    }
+
+    private void OnStarted()
+    {
+        // Perform post-startup activities here
+    }
+
+    private void OnStopping()
+    {
+        // Perform on-stopping activities here
+    }
+
+    private void OnStopped()
+    {
+        // Perform post-stopped activities here
+    }
+}
+```
+
+`StopApplication`, uygulamanın sonlandırılmasını ister. Aşağıdaki sınıf, sınıfın `Shutdown` yöntemi çağrıldığında bir uygulamayı düzgün bir şekilde kapatmak için `StopApplication` kullanır:
+
+```csharp
+public class MyClass
+{
+    private readonly IHostApplicationLifetime _appLifetime;
+
+    public MyClass(IHostApplicationLifetime appLifetime)
+    {
+        _appLifetime = appLifetime;
+    }
+
+    public void Shutdown()
+    {
+        _appLifetime.StopApplication();
+    }
+}
+```
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
+
 ## <a name="iapplicationlifetime-interface"></a>Iapplicationlifetime arabirimi
 
 [Iapplicationlifetime](/dotnet/api/microsoft.aspnetcore.hosting.iapplicationlifetime) , başlatma sonrası ve kapalı etkinlikler için izin verir. Arabirimdeki üç özellik, başlangıç ve kapalı olayları tanımlayan `Action` yöntemlerini kaydetmek için kullanılan iptal belirteçleridir.
@@ -756,6 +945,8 @@ public class MyClass
     }
 }
 ```
+
+::: moniker-end
 
 ## <a name="scope-validation"></a>Kapsam doğrulaması
 
