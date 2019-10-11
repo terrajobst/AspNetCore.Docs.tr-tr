@@ -4,15 +4,15 @@ author: Rick-Anderson
 description: Yeniden kullanılabilir Razor kısmi görünümler, ASP.NET Core sınıf kitaplığında kullanarak kullanıcı Arabirimi oluşturma açıklanır.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
-ms.date: 09/21/2019
+ms.date: 10/08/2019
 ms.custom: mvc, seodec18
 uid: razor-pages/ui-class
-ms.openlocfilehash: 1b544e208be049f02d01e35daa6eb3bfba94265a
-ms.sourcegitcommit: 04ce94b3c1b01d167f30eed60c1c95446dfe759d
-ms.translationtype: MT
+ms.openlocfilehash: d656e924033f1b217cdd8c86f7d00411c5d71beb
+ms.sourcegitcommit: 73a451e9a58ac7102f90b608d661d8c23dd9bbaf
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/21/2019
-ms.locfileid: "71176471"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72037580"
 ---
 # <a name="create-reusable-ui-using-the-razor-class-library-project-in-aspnet-core"></a>ASP.NET Core 'de Razor Sınıf Kitaplığı projesini kullanarak yeniden kullanılabilir kullanıcı arabirimi oluşturma
 
@@ -44,7 +44,7 @@ Komut satırından çalıştırmak `dotnet new razorclasslib`. Örneğin:
 dotnet new razorclasslib -o RazorUIClassLib
 ```
 
-Razor sınıf kitaplığı (RCL) şablonu varsayılan olarak Razor bileşen geliştirmeyi varsayılan olarak belirler. Sayfalar ve görünümler için`dotnet new razorclasslib -support-pages-and-views`destek sağlamak üzere seçeneğini()geçirin.`-support-pages-and-views`
+Razor sınıf kitaplığı (RCL) şablonu varsayılan olarak Razor bileşen geliştirmeyi varsayılan olarak belirler. Sayfalar ve görünümler için destek sağlamak üzere `--support-pages-and-views` seçeneğini (`dotnet new razorclasslib --support-pages-and-views`) geçirin.
 
 Daha fazla bilgi için [yeni dotnet](/dotnet/core/tools/dotnet-new). Oluşturulan görünüm kitaplığı ile bir dosya adı çakışması önlemek için kitaplık adını bitmiyor olun `.Views`.
 
@@ -52,7 +52,7 @@ Daha fazla bilgi için [yeni dotnet](/dotnet/core/tools/dotnet-new). Oluşturula
 
 Razor dosyaları için RCL ekleyin.
 
-ASP.NET Core şablonları RCL içeriği olduğu varsayılır *alanları* klasör. ' De `~/Pages` içeriğinikullanımasunanbirRCLoluşturmakiçinRCLPagesdüzeninebakın.`~/Areas/Pages` [](#rcl-pages-layout)
+ASP.NET Core şablonları RCL içeriği olduğu varsayılır *alanları* klasör. @No__t-2 yerine `~/Pages` ' de içerik açığa çıkaran bir RCL oluşturmak için [RCL Pages düzenine](#rcl-pages-layout) bakın.
 
 ## <a name="reference-rcl-content"></a>RCL içeriğine başvur
 
@@ -96,7 +96,7 @@ RCL 'yi paketleyerek, *Wwwroot* klasöründeki tüm yardımcı varlıklar pakete
 
 ### <a name="exclude-static-assets"></a>Statik varlıkları hariç tut
 
-Statik varlıkları dışlamak için, istenen dışlama yolunu `$(DefaultItemExcludes)` proje dosyasındaki özellik grubuna ekleyin. Girişleri noktalı virgül (`;`) ile ayırın.
+Statik varlıkları dışlamak için, istenen dışlama yolunu proje dosyasındaki `$(DefaultItemExcludes)` özellik grubuna ekleyin. Girişleri noktalı virgülle ayırın (`;`).
 
 Aşağıdaki örnekte, *Wwwroot* klasöründeki *lib. css* stil sayfası statik bir varlık olarak değerlendirilmez ve yayımlanan RCL 'ye dahil değildir:
 
@@ -112,13 +112,13 @@ TypeScript dosyalarını RCL 'ye eklemek için:
 
 1. TypeScript dosyalarını ( *. TS*) *Wwwroot* klasörünün dışına yerleştirin. Örneğin, dosyaları bir *istemci* klasörüne yerleştirin.
 
-1. *Wwwroot* klasörü için TypeScript derleme çıkışını yapılandırın. Proje dosyasındaki`PropertyGroup` öğesinin içindeki özelliğini ayarlayın: `TypescriptOutDir`
+1. *Wwwroot* klasörü için TypeScript derleme çıkışını yapılandırın. Proje dosyasında bir `PropertyGroup` içinde `TypescriptOutDir` özelliğini ayarlayın:
 
    ```xml
    <TypescriptOutDir>wwwroot</TypescriptOutDir>
    ```
 
-1. Proje dosyasında bir `PropertyGroup` öğesinin içine aşağıdaki hedefi ekleyerek TypeScript `ResolveCurrentProjectStaticWebAssets` hedefini hedefin bağımlılığı olarak ekleyin:
+1. Proje dosyasında bir `PropertyGroup` içine aşağıdaki hedefi ekleyerek TypeScript hedefini `ResolveCurrentProjectStaticWebAssets` hedefinin bir bağımlılığı olarak ekleyin:
 
    ```xml
    <ResolveCurrentProjectStaticWebAssetsInputsDependsOn>
@@ -129,9 +129,9 @@ TypeScript dosyalarını RCL 'ye eklemek için:
 
 ### <a name="consume-content-from-a-referenced-rcl"></a>Başvurulan bir RCL 'den içerik tüketme
 
-RCL 'nin *Wwwroot* klasörüne dahil edilen dosyalar, ön ek `_content/{LIBRARY NAME}/`altında tüketen uygulamaya sunulur. Örneğin, *Razor. Class. lib* adlı bir kitaplık, konumundaki `_content/Razor.Class.Lib/`statik içeriğe bir yol ile sonuçlanır.
+RCL 'nin *Wwwroot* klasörüne eklenen dosyalar, `_content/{LIBRARY NAME}/` öneki altında tüketen uygulamaya sunulur. Örneğin, *Razor. Class. lib* adlı bir kitaplık `_content/Razor.Class.Lib/` ' de statik içerik yolu ile sonuçlanır.
 
-Tüketen uygulama `<script>` `<style>`, ,,vediğerHTMLetiketleriylekitaplıktarafındansunulanstatikvarlıklarabaşvurur.`<img>` Kullanan uygulamada [statik dosya desteğinin](xref:fundamentals/static-files) etkinleştirilmesi `Startup.Configure`gerekir:
+Kullanan uygulama, kitaplık tarafından `<script>`, `<style>`, `<img>` ve diğer HTML etiketleriyle sunulan statik varlıklara başvurur. Tüketim uygulaması `Startup.Configure` ' de [statik dosya desteğinin](xref:fundamentals/static-files) etkin olması gerekir:
 
 ```csharp
 public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -144,7 +144,7 @@ public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
 }
 ```
 
-Yapı çıktısından (`dotnet run`) kullanan uygulamayı çalıştırırken, varsayılan olarak, statik Web varlıkları geliştirme ortamında etkinleştirilmiştir. Derleme çıktılarından çalışırken diğer ortamlardaki varlıkları desteklemek için, *program.cs*içindeki konak `UseStaticWebAssets` Oluşturucu 'da çağırın:
+Yapı çıktısından tüketen uygulamayı çalıştırırken (`dotnet run`), statik Web varlıkları geliştirme ortamında varsayılan olarak etkindir. Derleme çıktılarından çalışırken diğer ortamlardaki varlıkları desteklemek için, *program.cs*' deki konak oluşturucusu 'nda `UseStaticWebAssets` ' ı çağırın:
 
 ```csharp
 using Microsoft.AspNetCore.Hosting;
@@ -167,7 +167,7 @@ public class Program
 }
 ```
 
-Yayımlanan `UseStaticWebAssets` çıktısından (`dotnet publish`) bir uygulama çalıştırılırken çağırma gerekmez.
+(@No__t-1) yayımlanmış çıkışdan bir uygulama çalıştırılırken, @no__t çağrısı yapılması gerekmez.
 
 ### <a name="multi-project-development-flow"></a>Çoklu projeli geliştirme akışı
 
@@ -180,7 +180,7 @@ RCL yapılandırıldığında, statik Web varlık konumlarını açıklayan bir 
 
 ### <a name="publish"></a>Yayımlama
 
-Uygulama yayımlandığında, tüm başvurulan projeler ve paketlerin yardımcı varlıkları altında `_content/{LIBRARY NAME}/`yayımlanan uygulamanın *Wwwroot* klasörüne kopyalanır.
+Uygulama yayımlandığında, tüm başvurulan projeler ve paketlerin yardımcı varlıkları `_content/{LIBRARY NAME}/` altında yayımlanan uygulamanın *Wwwroot* klasörüne kopyalanır.
 
 ::: moniker-end
 
@@ -218,7 +218,7 @@ Daha fazla bilgi için [yeni dotnet](/dotnet/core/tools/dotnet-new). Oluşturula
 
 Razor dosyaları için RCL ekleyin.
 
-ASP.NET Core şablonları RCL içeriği olduğu varsayılır *alanları* klasör. ' De `~/Pages` içeriğinikullanımasunanbirRCLoluşturmakiçinRCLPagesdüzeninebakın.`~/Areas/Pages` [](#rcl-pages-layout)
+ASP.NET Core şablonları RCL içeriği olduğu varsayılır *alanları* klasör. @No__t-2 yerine `~/Pages` ' de içerik açığa çıkaran bir RCL oluşturmak için [RCL Pages düzenine](#rcl-pages-layout) bakın.
 
 ## <a name="reference-rcl-content"></a>RCL içeriğine başvur
 
@@ -267,7 +267,7 @@ RCL projesi oluşturun:
 
 * Visual Studio'dan **dosya** menüsünde **yeni** > **proje**.
 * Seçin **ASP.NET Core Web uygulaması**.
-* Uygulamayı **RazorUIClassLib** > **Tamam**olarak adlandırın.
+* @No__t **-1 '** i uygulama **RazorUIClassLib** olarak adlandırın.
 * Doğrulama **ASP.NET Core 2.1** veya daha sonra seçilir.
 * **Razor sınıfı kitaplığı** > **Tamam ' ı**seçin.
 * Razor kısmi Görünüm adlı bir dosya ekleyin *RazorUIClassLib/Areas/MyFeature/Pages/Shared/_Message.cshtml*.
@@ -284,7 +284,7 @@ dotnet new viewstart -o RazorUIClassLib/Areas/MyFeature/Pages
 
 Yukarıdaki komutlar:
 
-* `RazorUIClassLib` RCL 'yi oluşturur.
+* @No__t-0 RCL oluşturur.
 * Bir Razor il_eti sayfası oluşturur ve için RCL ekler. `-np` Parametresi olmadan sayfa oluşturur bir `PageModel`.
 * Oluşturur bir [_ViewStart.cshtml](xref:mvc/views/layout#running-code-before-each-view) dosya ve için RCL ekler.
 
@@ -324,17 +324,17 @@ Derleme çıktısını içeren *RazorUIClassLib.dll* ve *RazorUIClassLib.Views.d
 
 Razor sayfaları web uygulaması oluşturun:
 
-* **Çözüm Gezgini**, **Yeni proje** **Ekle** >> çözüme sağ tıklayın.
+* **Çözüm Gezgini**>**yeni proje** **eklemek** > çözüme sağ tıklayın.
 * Seçin **ASP.NET Core Web uygulaması**.
 * Uygulamayı adlandırma **WebApp1**.
 * Doğrulama **ASP.NET Core 2.1** veya daha sonra seçilir.
-* **Web uygulaması** > **Tamam ' ı**seçin.
+* **Web uygulaması** @no__t seçin-1 **Tamam**.
 
 * Gelen **Çözüm Gezgini**, sağ **WebApp1** seçip **başlangıç projesi olarak ayarla**.
-* **Çözüm Gezgini**, **WebApp1** ' ye sağ tıklayın ve **yapı bağımlılıkları** > **Proje bağımlılıkları**' nı seçin.
+* **Çözüm Gezgini**, **WebApp1** ' ye sağ tıklayın ve **derleme bağımlılıkları** > **Proje bağımlılıkları**' nı seçin.
 * Denetleme **RazorUIClassLib** bağımlılık olarak **WebApp1**.
-* **Çözüm Gezgini**, **WebApp1** ' a sağ tıklayın ve **başvuru** **Ekle** > ' yi seçin.
-* **Başvuru Yöneticisi** iletişim kutusunda **RazorUIClassLib** > **Tamam**' ı işaretleyin.
+* **Çözüm Gezgini**, **WebApp1** ' a sağ tıklayıp > **başvurusu** **Ekle** ' yi seçin.
+* **Başvuru Yöneticisi** Iletişim kutusunda **RazorUIClassLib** > **Tamam**' ı işaretleyin.
 
 Uygulamayı çalıştırın.
 
@@ -361,7 +361,7 @@ dotnet run
 
 ### <a name="test-webapp1"></a>Test WebApp1
 
-Razor UI `/MyFeature/Page1` sınıf kitaplığının kullanımda olduğunu doğrulamak için öğesine gidin.
+Razor UI sınıfı kitaplığının kullanımda olduğunu doğrulamak için `/MyFeature/Page1` ' a gidin.
 
 ## <a name="override-views-partial-views-and-pages"></a>Görünümleri, kısmi görünümleri ve sayfa geçersiz kıl
 

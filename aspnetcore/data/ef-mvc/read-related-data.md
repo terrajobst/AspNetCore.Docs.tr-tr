@@ -1,17 +1,17 @@
 ---
 title: 'Öğretici: EF Core ile ilgili verileri okuma-ASP.NET MVC'
 description: Bu öğreticide ilgili verileri okuyabilir ve görüntüleyebilirsiniz. Bu, Entity Framework, gezinti özelliklerine yüklediği verileri okur.
-author: tdykstra
+author: rick-anderson
 ms.author: riande
 ms.date: 09/28/2019
 ms.topic: tutorial
 uid: data/ef-mvc/read-related-data
-ms.openlocfilehash: cb691dce757a72a01bfd29717710d1be590c4150
-ms.sourcegitcommit: f62014bb558ff6f8fdaef2e96cb05986e216aacd
+ms.openlocfilehash: 1a16f905669d0192d713cbba9bfc6e3e75008b5d
+ms.sourcegitcommit: 7d3c6565dda6241eb13f9a8e1e1fd89b1cfe4d18
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/28/2019
-ms.locfileid: "71592282"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72259429"
 ---
 # <a name="tutorial-read-related-data---aspnet-mvc-with-ef-core"></a>Öğretici: EF Core ile ilgili verileri okuma-ASP.NET MVC
 
@@ -47,7 +47,7 @@ Entity Framework gibi nesne Ilişkisel eşleme (ORM) yazılımının bir varlı�
 
   ![Ayrı sorgular örneği](read-related-data/_static/separate-queries.png)
 
-* Açık yükleme. Varlık ilk kez okunmadıysa ilgili veriler alınmadı. Gerekirse ilgili verileri alan kodu yazarsınız. Ayrı sorgularla yükleme durumunda olduğu gibi, açıkça yükleme, veritabanına gönderilen birden çok sorgu ile sonuçlanır. Fark, açık yükleme ile kod, yüklenecek gezinti özelliklerini belirtir. Entity Framework Core 1,1 ' de, açık yükleme yapmak için `Load` yöntemini kullanabilirsiniz. Örneğin:
+* Açık yükleme. Varlık ilk kez okunmadıysa ilgili veriler alınmadı. Gerekirse ilgili verileri alan kodu yazarsınız. Ayrı sorgularla yükleme durumunda olduğu gibi, açıkça yükleme, veritabanına gönderilen birden çok sorgu ile sonuçlanır. Fark, açık yükleme ile kod, yüklenecek gezinti özelliklerini belirtir. Entity Framework Core 1,1 ' de, açık yükleme yapmak için `Load` yöntemini kullanabilirsiniz. Örnek:
 
   ![Açık yükleme örneği](read-related-data/_static/explicit-loading.png)
 
@@ -81,7 +81,7 @@ Yapı iskelesi kodunda aşağıdaki değişiklikleri yaptınız:
 
 * Başlık dizinden kurslar olarak değiştirildi.
 
-* `CourseID` Özellik değerini gösteren bir **sayı** sütunu eklendi. Birincil anahtarlar, genellikle son kullanıcılara anlamlı olduklarından, varsayılan olarak yapı iskelesi göstermemektedir. Ancak, bu durumda birincil anahtar anlamlı olur ve göstermek istersiniz.
+* @No__t-1 özellik değerini gösteren bir **sayı** sütunu eklendi. Birincil anahtarlar, genellikle son kullanıcılara anlamlı olduklarından, varsayılan olarak yapı iskelesi göstermemektedir. Ancak, bu durumda birincil anahtar anlamlı olur ve göstermek istersiniz.
 
 * Departman adını göstermek için **Departman** sütunu değiştirildi. Kod, `Department` gezinti özelliğine yüklenen departman varlığının `Name` özelliğini görüntüler:
 
@@ -151,7 +151,7 @@ Aşağıdaki kod, bir eğitmen seçildiğinde yürütülür. Seçilen eğitmen, 
 
 @No__t-0 yöntemi bir koleksiyon döndürür, ancak bu yönteme geçirilen kriterler yalnızca tek bir eğitmen varlığının döndürüldüğünden sonuçlanır. @No__t-0 yöntemi, koleksiyonu tek bir eğitmen varlığına dönüştürür, bu da o varlığın `CourseAssignments` özelliğine erişmenizi sağlar. @No__t-0 özelliği, yalnızca ilgili `Course` varlıklarını istediğiniz `CourseAssignment` varlıkları içerir.
 
-Koleksiyonun yalnızca bir öğesi olacağını bildiğiniz durumlarda, bir koleksiyonda `Single` yöntemini kullanırsınız. Tek yöntem, koleksiyon boş veya birden fazla öğe varsa bir özel durum oluşturur. Koleksiyon boşsa varsayılan `SingleOrDefault`bir değer (Bu durumda null) döndüren alternatif bir alternatiftir. Bununla birlikte, bu durumda yine de bir özel durum oluşmasına neden olur (null başvuru üzerinde `Courses` özelliği bulmaya çalışırken) ve özel durum iletisi sorunun nedenini daha az göstermez. @No__t-0 yöntemini çağırdığınızda, `Where` yöntemini ayrı olarak çağırmak yerine WHERE koşulunu da geçirebilirsiniz:
+Koleksiyonun yalnızca bir öğesi olacağını bildiğiniz durumlarda, bir koleksiyonda `Single` yöntemini kullanırsınız. Tek yöntem, koleksiyon boş veya birden fazla öğe varsa bir özel durum oluşturur. Bir alternatif, koleksiyon boşsa varsayılan bir değer (Bu durumda null) döndüren `SingleOrDefault` ' dır. Bununla birlikte, bu durumda yine de bir özel durum oluşmasına neden olur (null başvuru üzerinde `Courses` özelliği bulmaya çalışırken) ve özel durum iletisi sorunun nedenini daha az göstermez. @No__t-0 yöntemini çağırdığınızda, `Where` yöntemini ayrı olarak çağırmak yerine WHERE koşulunu da geçirebilirsiniz:
 
 ```csharp
 .Single(i => i.ID == id.Value)
@@ -179,7 +179,7 @@ Varolan koda aşağıdaki değişiklikleri yaptınız:
 
 * Sayfa başlığı **dizinden** **eğitmenler**olarak değiştirildi.
 
-* Yalnızca null olmaması halinde `item.OfficeAssignment` görüntülenen bir **Office** sütunu eklendi. `item.OfficeAssignment.Location` (Bu bire sıfır veya-bir ilişki olduğundan ilgili bir OfficeAssignment varlığı bulunmayabilir.)
+* Yalnızca `item.OfficeAssignment` null değilse `item.OfficeAssignment.Location` görüntüleyen bir **Office** sütunu eklendi. (Bu bire sıfır veya-bir ilişki olduğundan ilgili bir OfficeAssignment varlığı bulunmayabilir.)
 
   ```html
   @if (item.OfficeAssignment != null)
@@ -243,7 +243,7 @@ Yeni kod, eğitmen varlıklarını alan koddan kayıt verileri için *Thenınclu
 
 Uygulamayı çalıştırın, şimdi eğitmenler dizin sayfasına gidin ve sayfada görüntülendikleriyle ilgili hiçbir fark görmezsiniz; ancak verilerin nasıl alındığını değiştirmiş olursunuz.
 
-## <a name="get-the-code"></a>Kodu alın
+## <a name="get-the-code"></a>Kodu edinin
 
 [Tamamlanmış uygulamayı indirin veya görüntüleyin.](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final)
 
@@ -260,4 +260,4 @@ Bu öğreticide şunları yaptınız:
 İlgili verileri güncelleştirme hakkında bilgi edinmek için sonraki öğreticiye ilerleyin.
 
 > [!div class="nextstepaction"]
-> [İlgili verileri güncelleştirme](update-related-data.md)
+> [İlgili verileri güncelleştir](update-related-data.md)

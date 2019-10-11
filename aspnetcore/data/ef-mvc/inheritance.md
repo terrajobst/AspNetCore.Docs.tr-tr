@@ -1,24 +1,24 @@
 ---
 title: 'Öğretici: EF Core devralma-ASP.NET MVC uygulama'
 description: Bu öğretici, bir ASP.NET Core uygulamasındaki Entity Framework Core kullanarak veri modelinde devralmayı nasıl uygulayacağınızı gösterir.
-author: tdykstra
+author: rick-anderson
 ms.author: riande
 ms.custom: mvc
 ms.date: 03/27/2019
 ms.topic: tutorial
 uid: data/ef-mvc/inheritance
-ms.openlocfilehash: 8e092ac47b2fd5fb6f3a0524bf1c559b7c3935c4
-ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
+ms.openlocfilehash: c10df60a43f5d59f3ce13afd38aad42b88c80516
+ms.sourcegitcommit: 7d3c6565dda6241eb13f9a8e1e1fd89b1cfe4d18
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71080434"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72259392"
 ---
 # <a name="tutorial-implement-inheritance---aspnet-mvc-with-ef-core"></a>Öğretici: EF Core devralma-ASP.NET MVC uygulama
 
 Önceki öğreticide eşzamanlılık özel durumlarını ele alırsınız. Bu öğretici, veri modelinde devralmayı nasıl uygulayacağınızı gösterir.
 
-Nesne odaklı programlamada, kod yeniden kullanımını kolaylaştırmak için devralmayı kullanabilirsiniz. Bu öğreticide, ve `Instructor` `Student` sınıflarını, hem Eğitmenler hem de öğrenciler için ortak olan gibi `Person` özellikleri `LastName` içeren bir temel sınıftan türetireceğiz şekilde değiştireceksiniz. Herhangi bir Web sayfası eklemez veya değiştirmezsiniz, ancak koddan bazılarını değiştireceksiniz ve bu değişiklikler otomatik olarak veritabanına yansıtılacaktır.
+Nesne odaklı programlamada, kod yeniden kullanımını kolaylaştırmak için devralmayı kullanabilirsiniz. Bu öğreticide, `Instructor` ve `Student` sınıflarını, hem Eğitmenler hem de öğrenciler için ortak olan `LastName` gibi özellikleri içeren `Person` taban sınıfından türetireceğiz olacak şekilde değiştireceksiniz. Herhangi bir Web sayfası eklemez veya değiştirmezsiniz, ancak koddan bazılarını değiştireceksiniz ve bu değişiklikler otomatik olarak veritabanına yansıtılacaktır.
 
 Bu öğreticide şunları yaptınız:
 
@@ -36,11 +36,11 @@ Bu öğreticide şunları yaptınız:
 
 ## <a name="map-inheritance-to-database"></a>Devralmayı veritabanına eşle
 
-Okul veri `Student` modelindeki vesınıflarınınözdeşbirçoközelliğivardır:`Instructor`
+Okul veri modelindeki `Instructor` ve `Student` sınıflarının özdeş birkaç özelliği vardır:
 
 ![Öğrenci ve eğitmen sınıfları](inheritance/_static/no-inheritance.png)
 
-`Instructor` Ve`Student` varlıkları tarafından paylaşılan özellikler için gereksiz kodu ortadan kaldırmak istediğinizi varsayalım. Ya da adın bir eğitmenden veya bir öğrenciye ait olup olmadığına bakılmaksızın adları biçimlendirmeden bir hizmet yazmak isteyebilirsiniz. Yalnızca bu paylaşılan özellikleri `Person` içeren bir temel sınıf oluşturabilir `Instructor` ve sonra aşağıdaki çizimde gösterildiği gibi, ve `Student` sınıflarının bu temel sınıftan devralmasını sağlayabilirsiniz:
+@No__t-0 ve `Student` varlıkları tarafından paylaşılan özellikler için gereksiz kodu ortadan kaldırmak istediğinizi varsayalım. Ya da adın bir eğitmenden veya bir öğrenciye ait olup olmadığına bakılmaksızın adları biçimlendirmeden bir hizmet yazmak isteyebilirsiniz. Yalnızca bu paylaşılan özellikleri içeren bir `Person` taban sınıfı oluşturabilirsiniz, ardından aşağıdaki çizimde gösterildiği gibi, `Instructor` ve `Student` sınıflarının bu temel sınıftan devralmasını sağlayabilirsiniz:
 
 ![Kişi sınıfından türetilen öğrenci ve eğitmen sınıfları](inheritance/_static/inheritance.png)
 
@@ -60,7 +60,7 @@ Başka bir seçenek de Özet olmayan tüm türleri tek tek tablolarla eşlemeniz
 
 TPC ve TPH devralma desenleri genellikle TPT devralma desenlerinden daha iyi performans sağlar, çünkü TPT desenleri karmaşık JOIN sorgularına yol açabilir.
 
-Bu öğreticide, TPH devralmanın nasıl uygulanacağı gösterilmektedir. TPH Entity Framework Core desteklediği tek devralma modelidir.  Ne yapacaklarınız bir `Person` sınıf oluşturur, `DbContext`' den `Person`türetmek `Instructor` için `Student` ve sınıflarını değiştirin, yeni sınıfını öğesine ekleyin ve bir geçiş oluşturun.
+Bu öğreticide, TPH devralmanın nasıl uygulanacağı gösterilmektedir. TPH Entity Framework Core desteklediği tek devralma modelidir.  @No__t-0 sınıfı oluşturmak, `Person` ' ten türetmek için `Instructor` ve `Student` sınıflarını değiştirin, yeni sınıfı `DbContext` ' e ekleyin ve bir geçiş oluşturun.
 
 > [!TIP]
 > Aşağıdaki değişiklikleri yapmadan önce projenin bir kopyasını kaydetmeyi göz önünde bulundurun.  Daha sonra sorunlarla karşılaşırsanız ve baştan başlamak gerekirse, bu öğretici için yapılan adımları tersine çevirme veya tüm serinin başlangıcına geri dönme yerine kaydedilen projeden başlamak daha kolay olacaktır.
@@ -97,9 +97,9 @@ Değişikliklerinizi kaydedin ve projeyi derleyin. Ardından proje klasöründe 
 dotnet ef migrations add Inheritance
 ```
 
-`database update` Komutu henüz çalıştırmayın. Bu komut, eğitmen tablosunu bırakacak ve öğrenci tablosunu kişi olarak yeniden adlandırdığı için kayıp veri oluşmasına neden olur. Varolan verileri korumak için özel kod sağlamanız gerekir.
+@No__t-0 komutunu henüz çalıştırmayın. Bu komut, eğitmen tablosunu bırakacak ve öğrenci tablosunu kişi olarak yeniden adlandırdığı için kayıp veri oluşmasına neden olur. Varolan verileri korumak için özel kod sağlamanız gerekir.
 
-*\<Geçişleri/zaman damgasını _devralma. CS >* açın ve `Up` yöntemi aşağıdaki kodla değiştirin:
+*Geçişleri/\<timestamp > _Devralma. cs* ' i açın ve `Up` yöntemini aşağıdaki kodla değiştirin:
 
 [!code-csharp[](intro/samples/cu/Migrations/20170216215525_Inheritance.cs?name=snippet_Up)]
 
@@ -125,16 +125,16 @@ Bu kod aşağıdaki veritabanı güncelleştirme görevlerini gerçekleştirir:
 
 (Birincil anahtar türü olarak tamsayı yerine GUID kullandıysanız, öğrenci birincil anahtar değerlerinin değiştirilmesi gerekmez ve bu adımların bazıları atlanamaz.)
 
-`database update` Şu komutu çalıştırın:
+@No__t-0 komutunu çalıştırın:
 
 ```dotnetcli
 dotnet ef database update
 ```
 
-(Bir üretim sisteminde, önceki veritabanı sürümüne geri dönmek için bunu `Down` kullanmanız durumunda bu yöntemde ilgili değişiklikleri yapmanız gerekir. Bu öğreticide, `Down` yöntemini kullanmayacağız.)
+(Bir üretim sisteminde, önceki veritabanı sürümüne geri dönmek için bunu kullanmanız durumunda `Down` yönteminde ilgili değişiklikleri yaparsınız. Bu öğreticide `Down` yöntemini kullanmayacağız.)
 
 > [!NOTE]
-> Varolan verileri içeren bir veritabanında şema değişiklikleri yaparken başka hatalar almak mümkündür. Çözemiyoruz geçiş hataları alırsanız, bağlantı dizesindeki veritabanı adını değiştirebilir veya veritabanını silebilirsiniz. Yeni bir veritabanı ile geçirilecek veri yoktur ve Update-Database komutunun hatasız tamamlanabilmesi daha olasıdır. Veritabanını silmek için, ssox kullanın veya `database drop` CLI komutunu çalıştırın.
+> Varolan verileri içeren bir veritabanında şema değişiklikleri yaparken başka hatalar almak mümkündür. Çözemiyoruz geçiş hataları alırsanız, bağlantı dizesindeki veritabanı adını değiştirebilir veya veritabanını silebilirsiniz. Yeni bir veritabanı ile geçirilecek veri yoktur ve Update-Database komutunun hatasız tamamlanabilmesi daha olasıdır. Veritabanını silmek için, SSOX kullanın veya `database drop` CLı komutunu çalıştırın.
 
 ## <a name="test-the-implementation"></a>Uygulamayı test etme
 
@@ -148,7 +148,7 @@ Kişi tablosuna sağ tıklayın ve ardından **tablo verilerini göster** ' e t�
 
 ![SSOX tablo verilerinde kişi tablosu](inheritance/_static/ssox-person-data.png)
 
-## <a name="get-the-code"></a>Kodu alın
+## <a name="get-the-code"></a>Kodu edinin
 
 [Tamamlanmış uygulamayı indirin veya görüntüleyin.](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final)
 
@@ -171,4 +171,4 @@ Bu öğreticide şunları yaptınız:
 Çeşitli görece gelişmiş Entity Framework senaryolarını nasıl işleyeceğinizi öğrenmek için sonraki öğreticiye ilerleyin.
 
 > [!div class="nextstepaction"]
-> [İleri Gelişmiş Konular](advanced.md)
+> [İleri: gelişmiş konular](advanced.md)

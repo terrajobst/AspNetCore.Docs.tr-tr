@@ -1,18 +1,18 @@
 ---
 title: .NET genel ana bilgisayar
-author: tdykstra
+author: rick-anderson
 description: Uygulama başlatma ve ömür yönetiminden sorumlu .NET Core genel ana bilgisayarı hakkında bilgi edinin.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
 ms.date: 10/07/2019
 uid: fundamentals/host/generic-host
-ms.openlocfilehash: 1582955cd18e6739111af05c9a892cd5cb4e270d
-ms.sourcegitcommit: 3d082bd46e9e00a3297ea0314582b1ed2abfa830
+ms.openlocfilehash: 8e29c3a300cc1cdc37458427d3be7ceed84385ef
+ms.sourcegitcommit: 7d3c6565dda6241eb13f9a8e1e1fd89b1cfe4d18
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72007232"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72259632"
 ---
 # <a name="net-generic-host"></a>.NET genel ana bilgisayar
 
@@ -25,7 +25,7 @@ Bu makalede, .NET Core genel ana bilgisayarı (<xref:Microsoft.Extensions.Hostin
 *Ana bilgisayar* , bir uygulamanın kaynaklarını kapsülleyen bir nesnedir, örneğin:
 
 * Bağımlılık ekleme (dı)
-* Günlüğe Kaydetme
+* Günlüğe kaydetme
 * Yapılandırma
 * `IHostedService` uygulamaları
 
@@ -37,7 +37,7 @@ Uygulamanın tüm birbirine bağlı kaynaklarını tek bir nesnede dahil etmek i
 
 ## <a name="set-up-a-host"></a>Konak ayarlama
 
-Konak genellikle `Program` sınıfındaki kodla yapılandırılır, oluşturulur ve çalıştırılır. `Main` Yöntemi:
+Konak genellikle `Program` sınıfındaki kodla yapılandırılır, oluşturulur ve çalıştırılır. @No__t-0 yöntemi:
 
 * Bir Oluşturucu nesnesi oluşturmak ve yapılandırmak için `CreateHostBuilder` yöntemini çağırır.
 * Oluşturucu nesnesinde `Build` ve `Run` yöntemlerini çağırır.
@@ -76,7 +76,7 @@ Uygulama Entity Framework Core kullanıyorsa `CreateHostBuilder` yönteminin ad�
 
 ## <a name="default-builder-settings"></a>Varsayılan Oluşturucu ayarları 
 
-<xref:Microsoft.Extensions.Hosting.Host.CreateDefaultBuilder*> Yöntemi:
+@No__t-0 yöntemi:
 
 * [İçerik kökünü](xref:fundamentals/index#content-root) <xref:System.IO.Directory.GetCurrentDirectory*> tarafından döndürülen yola ayarlar.
 * Ana bilgisayar yapılandırmasını şuradan yükler:
@@ -89,13 +89,13 @@ Uygulama Entity Framework Core kullanıyorsa `CreateHostBuilder` yönteminin ad�
   * Ortam değişkenleri.
   * Komut satırı bağımsız değişkenleri.
 * Aşağıdaki [günlük](xref:fundamentals/logging/index) sağlayıcılarını ekler:
-  * Konsol
+  * Console
   * Hata ayıklama
   * EventSource
   * Olay günlüğü (yalnızca Windows üzerinde çalışırken)
 * Ortam geliştirme sırasında [kapsam doğrulaması](xref:fundamentals/dependency-injection#scope-validation) ve [bağımlılık doğrulaması](xref:Microsoft.Extensions.DependencyInjection.ServiceProviderOptions.ValidateOnBuild) etkinleştirilir.
 
-`ConfigureWebHostDefaults` Yöntemi:
+@No__t-0 yöntemi:
 
 * "ASPNETCORE_" önekli ortam değişkenlerinden ana bilgisayar yapılandırmasını yükler.
 * [Kestrel](xref:fundamentals/servers/kestrel) sunucusunu Web sunucusu olarak ayarlar ve uygulamanın barındırma yapılandırma sağlayıcılarını kullanarak yapılandırır. Kestrel sunucusunun varsayılan seçenekleri için bkz. <xref:fundamentals/servers/kestrel#kestrel-options>.
@@ -178,18 +178,18 @@ Bu bölüm, hem HTTP hem de HTTP olmayan iş yükleri için uygulanan konak ayar
 
 **Anahtar**: ApplicationName  
 **Tür**: *dize*  
-**Varsayılan**: Uygulamanın giriş noktasını içeren derlemenin adı.
+**Varsayılan**: uygulamanın giriş noktasını içeren derlemenin adı.
 **Ortam değişkeni**: `<PREFIX_>APPLICATIONNAME`
 
 Bu değeri ayarlamak için ortam değişkenini kullanın. 
 
-### <a name="contentrootpath"></a>ContentRootPath
+### <a name="contentrootpath"></a>Contentrootyolu
 
 [Ihostenvironment. ContentRootPath](xref:Microsoft.Extensions.Hosting.IHostEnvironment.ContentRootPath*) özelliği, konağın içerik dosyalarını aramaya başladığı yeri belirler. Yol yoksa, ana bilgisayar başlatılamaz.
 
 **Anahtar**: contentroot  
 **Tür**: *dize*  
-**Varsayılan**: Uygulama derlemesinin bulunduğu klasör.  
+**Varsayılan**: uygulama derlemesinin bulunduğu klasör.  
 **Ortam değişkeni**: `<PREFIX_>CONTENTROOT`
 
 Bu değeri ayarlamak için, ortam değişkenini kullanın veya `IHostBuilder` üzerinde `UseContentRoot` ' ı çağırın:
@@ -202,7 +202,7 @@ Host.CreateDefaultBuilder(args)
 
 Daha fazla bilgi için bkz.
 
-* [Temelleri: İçerik kökü @ no__t-0
+* [Temel bilgiler: Içerik kökü](xref:fundamentals/index#content-root)
 * [WebRoot](#webroot)
 
 ### <a name="environmentname"></a>EnvironmentName
@@ -211,7 +211,7 @@ Daha fazla bilgi için bkz.
 
 **Anahtar**: ortam  
 **Tür**: *dize*  
-**Varsayılan**: Üretiminden  
+**Varsayılan**: üretim  
 **Ortam değişkeni**: `<PREFIX_>ENVIRONMENT`
 
 Bu değeri ayarlamak için, ortam değişkenini kullanın veya `IHostBuilder` üzerinde `UseEnvironment` ' ı çağırın:
@@ -261,7 +261,7 @@ public static IHostBuilder CreateHostBuilder(string[] args) =>
 
 **Anahtar**: capturestartuperrors  
 **Tür**: *bool* (`true` veya `1`)  
-**Varsayılan**: Uygulama IIS arkasındaki Kestrel ile çalıştırılmadığı müddetçe `false` ' dır ve varsayılan olarak `true` ' dir.  
+**Varsayılan**: uygulama IIS arkasındaki Kestrel ile çalıştırılmadığı müddetçe `false` ' dir. varsayılan olarak, `true` ' dir.  
 **Ortam değişkeni**: `<PREFIX_>CAPTURESTARTUPERRORS`
 
 Bu değeri ayarlamak için yapılandırma veya çağrı @no__t kullanın-0:
@@ -291,7 +291,7 @@ Başlangıçta yüklenecek başlangıç derlemelerinin barındırılması için 
 
 **Anahtar**: hostingStartupAssemblies  
 **Tür**: *dize*  
-**Varsayılan**: Boş dize  
+**Varsayılan**: boş dize  
 **Ortam değişkeni**: `<PREFIX_>_HOSTINGSTARTUPASSEMBLIES`
 
 Bu değeri ayarlamak için yapılandırma veya çağrı @no__t kullanın-0:
@@ -306,7 +306,7 @@ Başlangıçta dışlamak üzere başlangıç derlemelerinin barındırılması 
 
 **Anahtar**: hostingstartupexcludeassemblies  
 **Tür**: *dize*  
-**Varsayılan**: Boş dize  
+**Varsayılan**: boş dize  
 **Ortam değişkeni**: `<PREFIX_>_HOSTINGSTARTUPEXCLUDEASSEMBLIES`
 
 Bu değeri ayarlamak için yapılandırma veya çağrı @no__t kullanın-0:
@@ -321,7 +321,7 @@ HTTPS yeniden yönlendirme bağlantı noktası. [Https zorlama](xref:security/en
 
 **Anahtar**: https_port  
 **Tür**: *dize*  
-**Varsayılan**: Varsayılan değer ayarlı değildir.  
+**Varsayılan**: varsayılan değer ayarlı değildir.  
 **Ortam değişkeni**: `<PREFIX_>HTTPS_PORT`
 
 Bu değeri ayarlamak için yapılandırma veya çağrı @no__t kullanın-0:
@@ -366,7 +366,7 @@ webBuilder.UseSetting(WebHostDefaults.PreventHostingStartupKey, "true");
 
 **Anahtar**: startupassembly  
 **Tür**: *dize*  
-**Varsayılan**: Uygulamanın derlemesi  
+**Varsayılan**: uygulamanın derlemesi  
 **Ortam değişkeni**: `<PREFIX_>STARTUPASSEMBLY`
 
 Bu değeri ayarlamak için, ortam değişkenini kullanın veya `UseStartup` ' ı çağırın. `UseStartup`, bir derleme adı (`string`) veya bir tür (`TStartup`) alabilir. Birden çok `UseStartup` yöntemi çağrılırsa, son bir öncelik alır.
@@ -379,7 +379,7 @@ webBuilder.UseStartup("StartupAssemblyName");
 webBuilder.UseStartup<Startup>();
 ```
 
-### <a name="urls"></a>URL'ler
+### <a name="urls"></a>Adresleri
 
 Sunucu istekleri için dinlemesi gereken bağlantı noktaları ve protokollerle, noktalı virgülle ayrılmış IP adresleri listesi veya ana bilgisayar adresleri. Örneğin, `http://localhost:123`. Sunucunun belirtilen bağlantı noktasını ve protokolü kullanarak herhangi bir IP adresi veya ana bilgisayar için istekleri dinlemesi gerektiğini belirtmek için "\*" kullanın (örneğin, `http://*:5000`). Protokol (`http://` veya `https://`) her URL 'ye dahil olmalıdır. Desteklenen biçimler sunucular arasında farklılık gösterir.
 
@@ -402,7 +402,7 @@ Uygulamanın statik varlıklarının göreli yolu.
 
 **Anahtar**: Webroot  
 **Tür**: *dize*  
-**Varsayılan**: Varsayılan, `wwwroot` değeridir. *{Content root}/Wwwroot* yolu var olmalıdır. Yol yoksa, Hayır-op dosya sağlayıcısı kullanılır.  
+**Varsayılan**: varsayılan değer `wwwroot` ' dir. *{Content root}/Wwwroot* yolu var olmalıdır. Yol yoksa, Hayır-op dosya sağlayıcısı kullanılır.  
 **Ortam değişkeni**: `<PREFIX_>WEBROOT`
 
 Bu değeri ayarlamak için, ortam değişkenini kullanın veya `UseWebRoot` ' ı çağırın:
@@ -413,7 +413,7 @@ webBuilder.UseWebRoot("public");
 
 Daha fazla bilgi için bkz.
 
-* [Temelleri: Web kök @ no__t-0
+* [Temel bilgiler: Web kökü](xref:fundamentals/index#web-root)
 * [Contentrootyolu](#contentrootpath)
 
 ## <a name="manage-the-host-lifetime"></a>Konak ömrünü yönetme
@@ -432,7 +432,7 @@ Uygulamayı başlatmak ve durdurmak için oluşturulan <xref:Microsoft.Extension
 
 <xref:Microsoft.Extensions.Hosting.HostingHostBuilderExtensions.RunConsoleAsync*>, konsol desteği sağlar, Konağı oluşturur ve başlatır ve CTRL + C/SIGINT veya SIGDÖNEM için bekler.
 
-### <a name="start"></a>Start
+### <a name="start"></a>Başlayın
 
 <xref:Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions.Start*> Konağı zaman uyumlu olarak başlatır.
 
@@ -488,7 +488,7 @@ public class Program
 
 ::: moniker range="< aspnetcore-3.0"
 
-ASP.NET Core uygulamalar bir konağı yapılandırıp başlatır. Uygulama başlatma ve ömür yönetimi için konak sorumludur.
+ASP.NET Core uygulamalar bir konağı yapılandırıp başlatır. Ana bilgisayar, uygulama başlatma ve ömür yönetiminden sorumludur.
 
 Bu makalede, HTTP isteklerini işlemeyin uygulamalar için kullanılan ASP.NET Core genel ana bilgisayar (<xref:Microsoft.Extensions.Hosting.HostBuilder>) ele alınmaktadır.
 
@@ -496,7 +496,7 @@ Genel konağın amacı, daha geniş bir konak senaryolarını etkinleştirmek ü
 
 Genel ana bilgisayar ASP.NET Core 2,1 ' de yenidir ve Web barındırma senaryolarında uygun değildir. Web barındırma senaryolarında [Web konağını](xref:fundamentals/host/web-host)kullanın. Genel ana bilgisayar gelecek bir sürümdeki Web konağını değiştirecek ve hem HTTP hem de HTTP olmayan senaryolarda birincil ana bilgisayar API 'SI olarak görev yapacak.
 
-[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/host/generic-host/samples/) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
+[Örnek kodu görüntüleme veya indirme](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/host/generic-host/samples/) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
 
 Örnek uygulamayı [Visual Studio Code](https://code.visualstudio.com/)' de çalıştırırken, *dış veya tümleşik bir Terminal*kullanın. Örneği bir @no__t çalıştırılmadı-0.
 
@@ -505,7 +505,7 @@ Konsolu Visual Studio Code ayarlamak için:
 1. *. Vscode/Launch. JSON* dosyasını açın.
 1. **.NET Core başlatma (konsol)** yapılandırmasında **konsol** girişini bulun. Değeri `externalTerminal` ya da `integratedTerminal` olarak ayarlayın.
 
-## <a name="introduction"></a>Giriş
+## <a name="introduction"></a>Tanıtım
 
 Genel ana bilgisayar kitaplığı <xref:Microsoft.Extensions.Hosting> ad alanında kullanılabilir ve [Microsoft. Extensions. Hosting](https://www.nuget.org/packages/Microsoft.Extensions.Hosting/) paketi tarafından sağlanır. @No__t-0 paketi [Microsoft. AspNetCore. app metapackage](xref:fundamentals/metapackage-app) 'e dahildir (ASP.NET Core 2,1 veya üzeri).
 
@@ -567,7 +567,7 @@ Ana bilgisayar yapılandırması şu şekilde oluşturulur:
 
 **Anahtar**: ApplicationName  
 **Tür**: *dize*  
-**Varsayılan**: Uygulamanın giriş noktasını içeren derlemenin adı.  
+**Varsayılan**: uygulamanın giriş noktasını içeren derlemenin adı.  
 Şunu **kullanarak ayarla**: `HostBuilderContext.HostingEnvironment.ApplicationName`  
 **Ortam değişkeni**: `<PREFIX_>APPLICATIONNAME` (`<PREFIX_>` [isteğe bağlıdır ve Kullanıcı tanımlı](#configurehostconfiguration))
 
@@ -577,7 +577,7 @@ Bu ayar, konağın içerik dosyalarını aramaya başladığı yeri belirler.
 
 **Anahtar**: contentroot  
 **Tür**: *dize*  
-**Varsayılan**: Uygulama derlemesinin bulunduğu klasörü varsayılan olarak belirler.  
+**Varsayılan**: uygulama derlemesinin bulunduğu klasörü varsayılan olarak belirler.  
 Şunu **kullanarak ayarla**: `UseContentRoot`  
 **Ortam değişkeni**: `<PREFIX_>CONTENTROOT` (`<PREFIX_>` [isteğe bağlıdır ve Kullanıcı tanımlı](#configurehostconfiguration))
 
@@ -585,7 +585,7 @@ Yol yoksa, ana bilgisayar başlatılamaz.
 
 [!code-csharp[](generic-host/samples-snapshot/2.x/GenericHostSample/Program.cs?name=snippet_UseContentRoot)]
 
-Daha fazla bilgi için bkz. [Temelleri: İçerik kökü @ no__t-0.
+Daha fazla bilgi için bkz. [temel bilgiler: içerik kökü](xref:fundamentals/index#content-root).
 
 ### <a name="environment"></a>Ortam
 
@@ -593,7 +593,7 @@ Uygulamanın [ortamını](xref:fundamentals/environments)ayarlar.
 
 **Anahtar**: ortam  
 **Tür**: *dize*  
-**Varsayılan**: Üretiminden  
+**Varsayılan**: üretim  
 Şunu **kullanarak ayarla**: `UseEnvironment`  
 **Ortam değişkeni**: `<PREFIX_>ENVIRONMENT` (`<PREFIX_>` [isteğe bağlıdır ve Kullanıcı tanımlı](#configurehostconfiguration))
 

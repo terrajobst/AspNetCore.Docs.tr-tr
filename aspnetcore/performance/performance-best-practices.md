@@ -1,156 +1,348 @@
 ---
-title: ASP.NET Core performansı en iyi uygulamalar
+title: ASP.NET Core performans En Iyi yöntemleri
 author: mjrousos
-description: Genel performans sorunlarını önleme ve ASP.NET Core uygulamaları performansını artırmak için ipuçları.
+description: ASP.NET Core uygulamalarında performansı artırma ve sık karşılaşılan performans sorunlarından kaçınmaya yönelik ipuçları.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
-ms.date: 05/10/2019
+ms.date: 09/26/2019
 uid: performance/performance-best-practices
-ms.openlocfilehash: 7651dff18f98c60057660c8946c3daa66d272f6a
-ms.sourcegitcommit: ffe3ed7921ec6c7c70abaac1d10703ec9a43374c
+ms.openlocfilehash: a2952f5234cdef7f749a1af8dd4adcb887290629
+ms.sourcegitcommit: 7d3c6565dda6241eb13f9a8e1e1fd89b1cfe4d18
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65536079"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72259779"
 ---
-# <a name="aspnet-core-performance-best-practices"></a>ASP.NET Core performansı en iyi uygulamalar
+# <a name="aspnet-core-performance-best-practices"></a>ASP.NET Core performans En Iyi yöntemleri
 
-Tarafından [Mike Rousos](https://github.com/mjrousos)
+, [Mike Rousos](https://github.com/mjrousos) tarafından
 
-Bu konu, ASP.NET Core ile en iyi performans için yönergeler sağlar.
+Bu makalede, ASP.NET Core ile performans en iyi uygulamalarına yönelik yönergeler sunulmaktadır.
 
-<a name="hot"></a>
+## <a name="cache-aggressively"></a>Önbellek kararlılığı
 
-Bu belgede bir *etkin kod yolu* sıkça çağrılan ve yürütme süresi çoğunu oluştuğu bir kod yolu olarak tanımlanır. Sık erişimli kod yollarını genellikle uygulama ölçeklendirme ve performans sınırlayın.
+Önbelleğe alma, bu belgenin çeşitli bölümlerinde ele alınmıştır. Daha fazla bilgi için bkz. <xref:performance/caching/response>.
 
-## <a name="cache-aggressively"></a>Agresif bir biçimde önbelleğe alma
+## <a name="understand-hot-code-paths"></a>Etkin kod yollarını anlayın
 
-Önbelleğe alma, bu belgenin birden fazla bölümde ele alınmıştır. Daha fazla bilgi için bkz. <xref:performance/caching/response>.
+Bu belgede, sık kullanılan bir *kod yolu* , genellikle çağrılan ve yürütme süresinin çoğunun gerçekleştiği bir kod yolu olarak tanımlanır. Sık kullanılan kod yolları genellikle uygulama ölçeğini ve performansını sınırlar ve bu belgenin çeşitli bölümlerinde ele alınmıştır.
 
-## <a name="avoid-blocking-calls"></a>Çağrıları engellemekten kaçınacak
+## <a name="avoid-blocking-calls"></a>Çağrı engellemeyi önleyin
 
-ASP.NET Core uygulamaları aynı anda birçok istekleri işlemek için tasarlanmış olmalıdır. Zaman uyumsuz API'leri çağrıları engellemeyi beklenmiyor tarafından binlerce eş zamanlı istekleri işlemek için iş parçacığı oluşan küçük bir havuz sağlar. Tamamlanması uzun süre çalışan zaman uyumlu görevde beklemek yerine, iş parçacığı başka bir istek üzerinde çalışabilir.
+ASP.NET Core uygulamalar aynı anda birçok isteği işleyecek şekilde tasarlanmalıdır. Zaman uyumsuz API 'Ler, blok çağrılarını beklemeden binlerce eşzamanlı isteği işlemek için küçük bir iş parçacığı havuzuna izin verir. Uzun süre çalışan bir zaman uyumlu görevin tamamlanmasını beklemek yerine, iş parçacığı başka bir istek üzerinde çalışabilir.
 
-ASP.NET Core uygulamalarında ortak bir performans sorunu, zaman uyumsuz çağrılar engelliyor. Çoğu zaman uyumlu engelleme çağrıları neden [iş parçacığı havuzu starvation](https://blogs.msdn.microsoft.com/vancem/2018/10/16/diagnosing-net-core-threadpool-starvation-with-perfview-why-my-service-is-not-saturating-all-cores-or-seems-to-stall/) ve yanıt sürelerini düşürülmüş.
+ASP.NET Core uygulamalarda yaygın bir performans sorunu, zaman uyumsuz olabilecek çağrıları engelliyor. Birçok zaman uyumlu engelleme çağrısı, [Iş parçacığı havuzu](https://blogs.msdn.microsoft.com/vancem/2018/10/16/diagnosing-net-core-threadpool-starvation-with-perfview-why-my-service-is-not-saturating-all-cores-or-seems-to-stall/) ve azaltılmış yanıt sürelerinin oluşmasına yol açabilir.
 
-**Sağlamadığı**:
+**Şunları yapın**:
 
-* Zaman uyumsuz yürütme engelleme çağırarak [Task.Wait](/dotnet/api/system.threading.tasks.task.wait) veya [Task.Result](/dotnet/api/system.threading.tasks.task-1.result).
-* Ortak kod yollarını kilitler edinin. ASP.NET Core, çoğu kod paralel olarak çalıştırmak için tasarlanmış, yüksek performanslı uygulamalardır.
+* [Task. Wait](/dotnet/api/system.threading.tasks.task.wait) veya [Task. Result](/dotnet/api/system.threading.tasks.task-1.result)çağırarak zaman uyumsuz yürütmeyi engelleyin.
+* Ortak kod yollarındaki kilitleri alın. ASP.NET Core uygulamalar, kodu paralel olarak çalıştırmak için tasarlanmış olduğunda en iyi performansı sağlar.
 
-**Yapmak**:
+**Şunları yapın**:
 
-* Olun [sık erişimliye kod yollarını](#hot) zaman uyumsuz.
-* Veri erişimi ve uzun süre çalışan işlemleri API zaman uyumsuz olarak çağırın.
-* Denetleyici/Razor sayfa eylemleri zaman uyumsuz olarak yapın. Bütün çağrı yığını sayesinde bir avantaj elde için zaman uyumsuz [async/await](/dotnet/csharp/programming-guide/concepts/async/) desenleri.
+* [Etkin kod yollarını](#understand-hot-code-paths) zaman uyumsuz yapın.
+* Veri erişimi ve uzun süreli işlem API 'Lerini zaman uyumsuz olarak çağırın.
+* Denetleyiciyi/Razor sayfası eylemlerini zaman uyumsuz yapın. [Zaman uyumsuz/await](/dotnet/csharp/programming-guide/concepts/async/) desenlerinden faydalanmak için tüm çağrı yığını zaman uyumsuzdur.
 
-Profil Oluşturucu, bir gibi [PerfView](https://github.com/Microsoft/perfview), sık eklenen iş parçacıklarını bulmak için kullanılan [iş parçacığı havuzu](/windows/desktop/procthread/thread-pools). `Microsoft-Windows-DotNETRuntime/ThreadPoolWorkerThread/Start` Olay iş parçacığı havuzuna eklenmiş bir iş parçacığı gösterir. <!--  For more information, see [async guidance docs](TBD-Link_To_Davifowl_Doc  -->
+[Iş parçacığı havuzuna](/windows/desktop/procthread/thread-pools)sık sık eklenen iş parçacıklarını bulmak Için [PerfView](https://github.com/Microsoft/perfview)gibi bir profil oluşturucu kullanılabilir. @No__t-0 olayı, iş parçacığı havuzuna eklenen bir iş parçacığını gösterir. <!--  For more information, see [async guidance docs](TBD-Link_To_Davifowl_Doc)  -->
 
-## <a name="minimize-large-object-allocations"></a>Büyük nesne ayırma simge durumuna küçült
+## <a name="minimize-large-object-allocations"></a>Büyük nesne ayırmalarını en aza indir
 
-<!-- TODO review Bill - replaced original .NET language below with .NET Core since this targets .NET Core -->
-[.NET Core çöp toplayıcı](/dotnet/standard/garbage-collection/) ayırma ve serbest bırakma bellek ASP.NET Core uygulamaları otomatik olarak yönetir. Otomatik çöp toplama genellikle geliştiriciler nasıl veya ne zaman bellek serbest bırakılır hakkında endişelenmeniz gerekmez anlamına gelir. Böylece geliştiriciler ayırma nesneler en aza indirmeniz gerekir ancak başvurulmayan nesnelerin temizlenmesi CPU süresi alan [sık erişimliye kod yollarını](#hot). Çöp toplama, özellikle büyük nesneler (> 85 K bayt) pahalıdır. Büyük nesneler üzerinde depolanan [büyük nesne yığını](/dotnet/standard/garbage-collection/large-object-heap) ve (2. nesil) tam çöp toplama temizlemek için. Nesil 0 ve 1. nesil koleksiyonlar farklı olarak, 2. nesil koleksiyonu geçici bir uygulamanın yürütülmesini askıya alınması gerekir. Sık ayırmayı ve ayırmayı kaldırma büyük nesnelerin yetersiz performansa neden olabilir.
+[.NET Core atık toplayıcısı](/dotnet/standard/garbage-collection/) , ASP.NET Core uygulamalarda otomatik olarak bellek ayırmayı ve serbest bırakma işlemini yönetir. Otomatik atık toplama işlemi, geliştiricilerin belleğin nasıl veya ne zaman boşaltılana ilişkin endişelenmek zorunda olmadığı anlamına gelir. Ancak, başvurulmayan nesnelerin temizlenmesi CPU süresi alırsa, geliştiricilerin [etkin kod yollarındaki](#understand-hot-code-paths)nesneleri ayırmayı en aza indirmeleri gerekir. Çöp toplama özellikle büyük nesneler üzerinde pahalıdır (> 85 K bayt). Büyük nesneler [büyük nesne yığınında](/dotnet/standard/garbage-collection/large-object-heap) depolanır ve temizlemek için tam (2. nesil) çöp toplama gerektirir. Nesil 0 ve 1. nesil koleksiyonlarının aksine, 2. nesil bir koleksiyon, uygulama yürütmenin geçici olarak askıya alınmasını gerektirir. Büyük nesnelerin sık aralıklarla ayrılması ve ayrılması, tutarsız performansa neden olabilir.
 
-Öneriler:
+Öneri
 
-* **Yapmak** sık kullanılan büyük nesneleri önbelleğe almayı düşünün. Büyük nesnelerin önbelleğe alma, pahalı ayırmaları engeller.
-* **Yapmak** kullanarak arabellek havuzu bir [ `ArrayPool<T>` ](/dotnet/api/system.buffers.arraypool-1) büyük dizileri depolamak için.
-* **Sağlamadığı** birçok, kısa süreli büyük nesneler şirket ayrılamadı [sık erişimliye kod yollarını](#hot).
+* Sık kullanılan büyük nesneleri önbelleğe **almayı düşünün.** Büyük nesnelerin önbelleğe alınması pahalı ayırmaları önler.
+* Büyük dizileri depolamak için bir [`ArrayPool<T>`](/dotnet/api/system.buffers.arraypool-1) kullanarak havuz arabellekleri **yapın** .
+* [Sık erişimli kod yollarında](#understand-hot-code-paths)çok sayıda, kısa süreli büyük **nesneler ayırmayın** .
 
-Bellek sorunları, önceki örneğin atık toplama (GC) istatistikleri de gözden geçirerek tanı koydu [PerfView](https://github.com/Microsoft/perfview) inceleyerek:
+Yukarıdaki gibi bellek sorunları, [PerfView](https://github.com/Microsoft/perfview) ve İnceleme içindeki çöp toplama (GC) istatistiklerini inceleyerek tanılanabilir:
 
 * Çöp toplama duraklatma süresi.
-* Yüzde işlemci zamanı, çöp toplama harcanır.
-* Kaç çöp koleksiyonları kuşak 0, 1 ve 2 ' dir.
+* Çöp toplama işlemi için işlemci zamanının yüzde kaçına harcanması.
+* Kaç çöp toplama 0, 1 ve 2. nesil.
 
-Daha fazla bilgi için [atık toplama ve performans](/dotnet/standard/garbage-collection/performance).
+Daha fazla bilgi için bkz. [çöp toplama ve performans](/dotnet/standard/garbage-collection/performance).
 
-## <a name="optimize-data-access"></a>Veri erişimini iyileştirmek
+## <a name="optimize-data-access"></a>Veri erişimini iyileştirme
 
-Bir veri deposu ve diğer uzak Hizmetleri ile etkileşim genellikle en yavaş bir ASP.NET Core uygulaması bölümlerdir. Verimli veri yazma ve okuma için iyi bir performans önemlidir.
+Veri deposuna ve diğer uzak hizmetlere sahip etkileşimler genellikle ASP.NET Core uygulamasının en yavaş parçalarından oluşur. Verileri etkili bir şekilde okumak ve yazmak iyi bir performans için önemlidir.
 
-Öneriler:
+Öneri
 
-* **Yapmak** tüm veri erişimi API'leri zaman uyumsuz olarak çağırın.
-* **Sağlamadığı** gerekli olandan daha fazla veri alın. Geçerli HTTP isteği için gerekli olan verileri döndürmek için sorgular yazarsınız.
-* **Yapmak** biraz güncelliğini yitirmiş verileri kabul edilebilir olup olmadığını bir veritabanı veya uzak hizmetinden alınan verileri erişilen sık önbelleğe almayı düşünün. Senaryoya bağlı olarak kullanan bir [MemoryCache](xref:performance/caching/memory) veya [DistributedCache](xref:performance/caching/distributed). Daha fazla bilgi için bkz. <xref:performance/caching/response>.
-* **Yapmak** en aza gidiş dönüş ağ. Çeşitli çağrılar yerine tek bir çağrı gerekli verileri almak üzere hedeftir.
-* **Yapmak** kullanın [Hayır izleme sorguları](/ef/core/querying/tracking#no-tracking-queries) salt okunur amacıyla verilere erişirken Entity Framework Core içinde. EF Core Hayır izleme sorguların sonuçlarını daha verimli bir şekilde döndürebilirsiniz.
-* **Yapmak** filtre ve toplama LINQ sorguları (ile `.Where`, `.Select`, veya `.Sum` deyimleri, örneğin) ve böylece filtreleme işlemi veritabanı tarafından gerçekleştirilir.
-* **Yapmak** EF Core bazı sorgu işleçleri verimsiz sorgu yürütülmesine neden olabilir istemcide çözümler göz önünde bulundurun. Daha fazla bilgi için [istemci değerlendirme performans sorunlarını](/ef/core/querying/client-eval#client-evaluation-performance-issues).
-* **Sağlamadığı** "N + 1" yürütülmesi sonucunda koleksiyonlarda yansıtma sorguları kullanmak SQL sorguları. Daha fazla bilgi için [bağıntılı alt sorgularda en iyi duruma getirilmesi](/ef/core/what-is-new/ef-core-2.1#optimization-of-correlated-subqueries).
+* Tüm veri erişim API 'Lerini zaman uyumsuz **olarak çağırın.**
+* Gerekenden daha fazla **veri alınamaz.** Yalnızca geçerli HTTP isteği için gerekli olan verileri döndürmek için sorgular yazın.
+* Güncel olmayan veriler kabul edilebilir ise, bir veritabanından veya uzak hizmetten alınan sık erişilen verileri önbelleğe **almayı düşünün.** Senaryoya bağlı olarak, bir [MemoryCache](xref:performance/caching/memory) veya [DistributedCache](xref:performance/caching/distributed)kullanın. Daha fazla bilgi için bkz. <xref:performance/caching/response>.
+* Ağ gidiş dönüşlerini **en aza** indirir. Amaç, birkaç çağrı yerine, gerekli verileri tek bir çağrıda almak olur.
+* Salt okuma amacıyla verilere erişirken Entity Framework Core [izleme sorguları](/ef/core/querying/tracking#no-tracking-queries) **kullanmayın.** EF Core, hiçbir izleme sorgusunun sonuçlarını daha verimli bir şekilde döndürebilir.
+* Filtrelemenin veritabanı tarafından gerçekleştirilmesi için, LINQ **sorgularını filtreleyin ve** toplayın (örneğin, `.Where`, `.Select` veya `.Sum` deyimleriyle).
+* EF Core, istemci üzerindeki bazı sorgu işleçlerini çözdüğünü, bu da verimsiz sorgu yürütmeye neden **olabileceğini göz önünde** bulundurun. Daha fazla bilgi için bkz. [istemci değerlendirmesi performans sorunları](/ef/core/querying/client-eval#client-evaluation-performance-issues).
+* Koleksiyonlar üzerinde İzdüşüm sorguları kullanmayın ve bu, "N + 1" SQL sorgularının **yürütülmeleriyle** sonuçlanabilir. Daha fazla bilgi için bkz. [bağıntılı alt sorguları iyileştirme](/ef/core/what-is-new/ef-core-2.1#optimization-of-correlated-subqueries).
 
-Bkz: [EF yüksek performanslı](/ef/core/what-is-new/ef-core-2.0#explicitly-compiled-queries) büyük ölçekli uygulamalarda performansı iyileştirebilir yaklaşımlar için:
+Yüksek ölçekli uygulamalarda performansı iyileştirebilecek yaklaşımlar için bkz. [EF High Performance](/ef/core/what-is-new/ef-core-2.0#explicitly-compiled-queries) :
 
 * [DbContext havuzu](/ef/core/what-is-new/ef-core-2.0#dbcontext-pooling)
 * [Açıkça derlenmiş sorgular](/ef/core/what-is-new/ef-core-2.0#explicitly-compiled-queries)
 
-Kod tabanının gerçekleştirmeden önce önceki yüksek performanslı yaklaşımları etkisini ölçülmesine öneririz. Derlenmiş sorgular ek karmaşıklığını performans artışını Yasla değil.
+Kod tabanını çalıştırmadan önce, önceki yüksek performanslı yaklaşımların etkisini ölçmenizi öneririz. Derlenmiş sorguların ek karmaşıklığı performans iyileştirmesini engelleyebilir.
 
-Sorgu zaman inceleyerek sorunları algılanamıyor harcanan erişen verilerle [Application Insights](/azure/application-insights/app-insights-overview) veya profil oluşturma araçları ile. Çoğu veritabanı istatistikleri de kullanılabilir sık yürütülen sorgular ilgili olun.
+Sorgu sorunları, [Application Insights](/azure/application-insights/app-insights-overview) veya profil oluşturma araçlarıyla verilere erişirken harcanan süreyi inceleyerek algılanabilir. Çoğu veritabanı Ayrıca, sık çalıştırılan sorgularla ilgili istatistikleri de kullanılabilir hale getirir.
 
-## <a name="pool-http-connections-with-httpclientfactory"></a>Havuz HTTP bağlantılarıyla HttpClientFactory
+## <a name="pool-http-connections-with-httpclientfactory"></a>HttpClientFactory ile HTTP bağlantılarını havuz
 
-Ancak [HttpClient](/dotnet/api/system.net.http.httpclient) uygulayan `IDisposable` arabirimi, yeniden kullanılmak üzere tasarlanmıştır. Kapalı `HttpClient` örnekleri yuva açık bırakın `TIME_WAIT` kısa bir süre için durum. Oluşturan ve siler, bir kod yolu varsa `HttpClient` nesneler sık kullanılan, uygulamanın kullanılabilir yuva tüketebilir. [HttpClientFactory](/dotnet/standard/microservices-architecture/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests) ASP.NET Core 2.1 içinde bu soruna bir çözüm olarak sunulmuştur. Bu, performansı ve güvenilirliği iyileştirmek için havuzu HTTP bağlantılarını işler.
+[HttpClient](/dotnet/api/system.net.http.httpclient) `IDisposable` arabirimini uyguluyor olsa da, yeniden kullanım için tasarlanmıştır. Kapalı `HttpClient` örnek, yuvaları kısa bir süre için `TIME_WAIT` durumunda açık bırakır. @No__t-0 nesneleri oluşturan ve içermeyen bir kod yolu sıklıkla kullanılırsa, uygulama kullanılabilir yuvaları tüketebilir. [Httpclientfactory](/dotnet/standard/microservices-architecture/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests) , bu soruna çözüm olarak ASP.NET Core 2,1 ' de tanıtılmıştı. Performansı ve güvenilirliği iyileştirmek için havuz HTTP bağlantılarını işler.
 
-Öneriler:
+Öneri
 
-* **Sağlamadığı** oluşturun ve elden `HttpClient` doğrudan örnekler.
-* **Yapmak** kullanın [HttpClientFactory](/dotnet/standard/microservices-architecture/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests) alınacak `HttpClient` örnekleri. Daha fazla bilgi için [dayanıklı HTTP isteklerini uygulamak için kullanım HttpClientFactory](/dotnet/standard/microservices-architecture/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests).
+* @No__t-1 örneklerini **doğrudan oluşturma ve** atma.
+* @No__t-2 örnekleri almak için [Httpclientfactory](/dotnet/standard/microservices-architecture/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests) **kullanın.** Daha fazla bilgi için bkz. [Esnek http isteklerini uygulamak Için HttpClientFactory kullanma](/dotnet/standard/microservices-architecture/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests).
 
 ## <a name="keep-common-code-paths-fast"></a>Ortak kod yollarını hızlı tutun
 
-En iyi duruma getirmek için en önemli olan tüm kod yolları hızlı, sık çağrılması için kodunuzu istediğiniz:
+Tüm kodunuzun hızlı olmasını istiyorsunuz, en çok kullanılan kod yolları en kritik öneme sahiptir:
 
-* Ara yazılım bileşenleri uygulamanın istek işleme ardışık düzeninde özellikle ara yazılımı erken işlem hattında çalıştırın. Bu bileşenlerin performans üzerinde büyük etkiye sahip.
-* Her istek için veya birden çok kez istek başına yürütülen kod. Örneğin, özel günlük kaydı, yetkilendirme işleyicileri veya geçici Hizmetleri başlatma.
+* Uygulamanın istek işleme ardışık düzeninde bulunan ara yazılım bileşenleri, özellikle de ara yazılım ardışık düzende çalışır. Bu bileşenlerin performansı üzerinde büyük bir etkisi vardır.
+* Her istek için veya istek başına birden çok kez yürütülen kod. Örneğin, özel günlük kaydı, yetkilendirme işleyicileri veya geçici Hizmetleri başlatma.
 
-Öneriler:
+Öneri
 
-* **Sağlamadığı** özel bir ara yazılım bileşenleri ile uzun süre çalışan görevleri kullanın.
-* **Yapmak** performans profil oluşturma araçları, aşağıdaki gibi kullanın [Visual Studio tanılama araçları](/visualstudio/profiling/profiling-feature-tour) veya [PerfView](https://github.com/Microsoft/perfview)) tanımlamak için [sık erişimliye kod yollarını](#hot).
+* Uzun süre çalışan görevlerle özel ara yazılım **bileşenleri kullanmayın.**
+* [Etkin kod yollarını](#understand-hot-code-paths)belirlemek Için, [Visual Studio tanılama araçları](/visualstudio/profiling/profiling-feature-tour) veya [PerfView](https://github.com/Microsoft/perfview)gibi performans profil oluşturma **araçlarını kullanın.**
 
-## <a name="complete-long-running-tasks-outside-of-http-requests"></a>HTTP istekleri dışında görevler uzun süreli tamamlayın
+## <a name="complete-long-running-tasks-outside-of-http-requests"></a>Uzun süre çalışan görevleri http isteklerinin dışında Tamam
 
-ASP.NET Core uygulaması için en çok istekte bir denetleyici veya gerekli hizmetleri çağırmak ve bir HTTP yanıtı döndüren sayfa modeli tarafından işlenebilir. Uzun süre çalışan görevleri içeren bazı istekler için tüm istek-yanıt işlemini zaman uyumsuz kolaylaştırmak iyidir.
+ASP.NET Core uygulamasına yönelik çoğu istek, gerekli Hizmetleri çağıran ve HTTP yanıtı döndüren bir denetleyici veya sayfa modeli tarafından işlenebilir. Uzun süre çalışan görevleri içeren bazı istekler için, tüm istek-yanıt sürecini zaman uyumsuz hale getirmek daha iyidir.
 
-Öneriler:
+Öneri
 
-* **Sağlamadığı** sıradan HTTP istek işlemenin bir parçası olarak tamamlanması uzun süre çalışan görevler için bekleyin.
-* **Yapmak** uzun süren istekleri işleme göz önünde bulundurun [arka plan Hizmetleri](xref:fundamentals/host/hosted-services) veya işlem dışında bir [Azure işlevi](/azure/azure-functions/). İş dışı işlem Tamamlanıyor, CPU yoğunluklu görevler için özellikle yararlıdır.
-* **Yapmak** gibi gerçek zamanlı iletişim seçenekleri kullanın [SignalR](xref:signalr/introduction), zaman uyumsuz olarak istemcilerle iletişim kurmak için.
+* Olağan HTTP istek işlemenin bir parçası olarak uzun süre çalışan görevlerin **tamamlanmasını beklememe** .
+* [Arka plan hizmetleri](xref:fundamentals/host/hosted-services) ile uzun süreli istekleri işlemeyi veya bir [Azure işlevi](/azure/azure-functions/)ile işlem dışı **bırakmayı düşünün.** İşlem dışı iş tamamlama, özellikle CPU yoğun görevler için faydalıdır.
+* İstemcilerle zaman uyumsuz olarak iletişim kurmak için [SignalR](xref:signalr/introduction)gibi gerçek zamanlı iletişim **seçenekleri kullanın.**
 
-## <a name="minify-client-assets"></a>İstemci varlıklar küçültün
+## <a name="minify-client-assets"></a>İstemci varlıklarını küçültmeye yönelik
 
-ASP.NET Core uygulamaları karmaşık ön uç ile sık birçok JavaScript, CSS veya görüntü dosyaları işlevi görür. İlk yükleme istekleri performansını tarafından geliştirilebilir:
+Karmaşık ön uçları olan ASP.NET Core uygulamalar sıklıkla birçok JavaScript, CSS veya görüntü dosyası sunar. İlk yük isteklerinin performansı şu şekilde geliştirilebilir:
 
-* Paketleme, birden çok dosyayı tek bir araya getiren.
-* Küçültme, boşluk ve açıklamalar kaldırarak dosyaların boyutunu azaltır.
+* Birden çok dosyayı bir içinde birleştiren paketleme.
+* Boşluk ve açıklamaları kaldırarak dosyaların boyutunu azaltan minifying.
 
-Öneriler:
+Öneri
 
-* **Yapmak** kullanan ASP.NET Core'nın [yerleşik destek](xref:client-side/bundling-and-minification) paketleme ve küçültme istemci varlıklar için.
-* **Yapmak** diğer üçüncü taraf araçları gibi düşünün [Web](https://webpack.js.org/), karmaşık istemci varlık yönetimi.
+* ASP.NET Core, istemci varlıklarını paketleme ve küçültmeye yönelik [yerleşik desteğini](xref:client-side/bundling-and-minification) **kullanın.**
+* Karmaşık istemci varlık yönetimi için [WebPack](https://webpack.js.org/)gibi diğer üçüncü taraf **araçları göz önünde** bulundurun.
 
-## <a name="compress-responses"></a>Yanıtları sıkıştırma
+## <a name="compress-responses"></a>Yanıtları sıkıştır
 
- Yanıt boyutu genellikle azaltma, uygulama yanıt verme hızını genellikle önemli ölçüde artırır. Yük boyutları azaltmak için bir uygulamanın yanıtları sıkıştırma yoludur. Daha fazla bilgi için [yanıt sıkıştırma](xref:performance/response-compression).
+ Yanıt boyutunu azaltmak genellikle önemli ölçüde önemli ölçüde bir uygulamanın yanıt hızını artırır. Yük boyutlarını azaltmanın bir yolu, uygulamanın yanıtlarını sıkıştırmaktır. Daha fazla bilgi için bkz. [Yanıt sıkıştırması](xref:performance/response-compression).
 
-## <a name="use-the-latest-aspnet-core-release"></a>ASP.NET Core en son sürümü kullan
+## <a name="use-the-latest-aspnet-core-release"></a>En son ASP.NET Core sürümü kullan
 
-ASP.NET Core her yeni sürümü, performans iyileştirmeleri içerir. .NET Core ve ASP.NET Core iyileştirmeler, daha yeni sürümleri genellikle eski sürümleri daha iyi performans gösterir, anlamına gelir. Örneğin, .NET Core 2.1 gelen benefitted ve derlenmiş normal ifadeler için destek eklendi [ `Span<T>` ](https://msdn.microsoft.com/magazine/mt814808.aspx). HTTP/2 desteği ASP.NET Core 2.2 eklendi. Bir öncelik performans ise ASP.NET Core geçerli sürümüne yükseltmeyi göz önünde bulundurun.
+ASP.NET Core her yeni sürümü performans iyileştirmeleri içerir. .NET Core ve ASP.NET Core iyileştirmeler, daha yeni sürümlerin genellikle eski sürümlerin genel olarak gerçekleştirdiği anlamına gelir. Örneğin, .NET Core 2,1 [`Span<T>`](https://msdn.microsoft.com/magazine/mt814808.aspx)' den derlenmiş normal ifadeler ve benefitted için destek eklendi. ASP.NET Core 2,2 HTTP/2 desteği eklendi. ASP.NET Core 3,0, bellek kullanımını azaltan ve üretilen işi geliştiren [birçok geliştirme ekler](xref:aspnetcore-3.0) . Performans bir önceliktir, ASP.NET Core güncel sürümüne yükseltmeyi göz önünde bulundurun.
 
-<!-- TODO review link and taking advantage of new [performance features](#TBD)
-Maybe skip this TBD link as each version will have perf improvements -->
+## <a name="minimize-exceptions"></a>Özel durumları Küçült
 
-## <a name="minimize-exceptions"></a>Özel durumları en aza indirin
+Özel durumlar nadir olmalıdır. Özel durumları oluşturma ve yakalama, diğer kod akışı desenlerine göre yavaş olur. Bu nedenle, normal program akışını denetlemek için özel durumlar kullanılmamalıdır.
 
-Özel durumlar seyrek olmalıdır. Oluşturmak ve özel durumları yakalamak, diğer kod akış desenlerini göre yavaştır. Bu nedenle, özel durumlar programın normal akışını denetlemek için kullanılmamalıdır.
+Öneri
 
-Öneriler:
+* Özel durumları, özellikle de [sık erişimli kod yollarında](#understand-hot-code-paths)normal program akışının bir yolu olarak oluşturma veya **yakalama kullanmayın.**
+* Özel duruma neden olacak koşulları tespit etmek ve işlemek için uygulamaya **mantığı dahil edin** .
+* Olağan dışı veya beklenmedik koşullarda özel **durumlar oluşturun veya** yakalayın.
 
-* **Sağlamadığı** oluşturma ve yakalama özel durumlar normal program akışının bir araç özellikle kullanımı [sık erişimliye kod yollarını](#hot).
-* **Yapmak** algılar ve bir özel durum neden olan koşulları işlemek için uygulamada mantığı içerir.
-* **Yapmak** throw veya catch özel durumları için olağan dışı ya da beklenmeyen koşulları.
+Application Insights gibi uygulama tanılama araçları, bir uygulamadaki performansı etkileyebilecek ortak özel durumları belirlemesine yardımcı olabilir.
 
-Uygulama tanılama araçları, Application Insights gibi performansını etkileyebilecek bir uygulamada sık karşılaşılan özel durumlar belirlemeye yardımcı olabilir.
+## <a name="performance-and-reliability"></a>Performans ve güvenilirlik
+
+Aşağıdaki bölümlerde performans ipuçları ve bilinen güvenilirlik sorunları ve çözümleri sağlanmaktadır.
+
+## <a name="avoid-synchronous-read-or-write-on-httprequesthttpresponse-body"></a>HttpRequest/HttpResponse gövdesinde zaman uyumlu okuma veya yazma yapmaktan kaçının
+
+ASP.NET Core içindeki tüm GÇ zaman uyumsuzdur. Sunucular, hem zaman uyumlu hem de zaman uyumsuz aşırı yüklemeleri olan `Stream` arabirimini uygular. İş parçacığı havuzu iş parçacıklarını engellemeyi önlemek için zaman uyumsuz olanlar tercih edilmelidir. İş parçacıklarını engelleme, iş parçacığı havuzunda ortaya çıkmasına neden olabilir.
+
+Bunu **yapın:** Aşağıdaki örnek <xref:System.IO.StreamReader.ReadToEnd*> ' i kullanır. Sonuç için beklemek üzere geçerli iş parçacığını engeller. Bu, [zaman uyumsuz olarak eşitleme](https://github.com/davidfowl/AspNetCoreDiagnosticScenarios/blob/master/AsyncGuidance.md#warning-sync-over-async
+)örneğidir.
+
+[!code-csharp[](performance-best-practices/samples/3.0/Controllers/MyFirstController.cs?name=snippet1)]
+
+Yukarıdaki kodda, `Get`, tüm HTTP istek gövdesini belleğe eşzamanlı olarak okur. İstemci yavaş karşıya yüklendikten sonra, uygulama zaman uyumsuz olarak eşitlenir. Kestrel zaman uyumlu **okumaları desteklemediğinden,** uygulama zaman uyumsuz olarak eşitlenir.
+
+**Bunu yapın:** Aşağıdaki örnek <xref:System.IO.StreamReader.ReadToEndAsync*> kullanır ve okurken iş parçacığını engellemez.
+
+[!code-csharp[](performance-best-practices/samples/3.0/Controllers/MyFirstController.cs?name=snippet2)]
+
+Yukarıdaki kod, HTTP istek gövdesinin tamamını belleğe zaman uyumsuz olarak okur.
+
+> [!WARNING]
+> İstek büyükse HTTP istek gövdesinin tamamını belleğe okumak bellek yetersiz (OOM) koşuluna yol açabilir. OOM, hizmet reddine neden olabilir.  Daha fazla bilgi için, bu belgedeki [büyük istek gövdelerini veya Yanıt gövdelerinin belleğe okunmasını önleyin](#arlb) .
+
+**Bunu yapın:** Aşağıdaki örnek, arabelleğe alınmamış bir istek gövdesi kullanılarak tamamen zaman uyumsuzdur:
+
+[!code-csharp[](performance-best-practices/samples/3.0/Controllers/MyFirstController.cs?name=snippet3)]
+
+Yukarıdaki kod, HTTP istek gövdesinin tamamını belleğe zaman uyumsuz olarak okur.
+
+> [!WARNING]
+> İstek büyükse HTTP istek gövdesinin tamamını belleğe okumak bellek yetersiz (OOM) koşuluna yol açabilir. OOM, hizmet reddine neden olabilir.  Daha fazla bilgi için, bu belgedeki [büyük istek gövdelerini veya Yanıt gövdelerinin belleğe okunmasını önleyin](#arlb) .
+
+## <a name="prefer-readformasync-over-requestform"></a>Istek üzerinde ReadFormAsync tercih et. form
+
+@No__t-1 yerine `HttpContext.Request.ReadFormAsync` kullanın.
+`HttpContext.Request.Form`, yalnızca aşağıdaki koşullara göre güvenle okunabilir:
+
+* Form, `ReadFormAsync` ' a bir çağrı tarafından okundu ve
+* Önbelleğe alınmış form değeri @no__t kullanılarak okunmakta-0
+
+Bunu **yapın:** Aşağıdaki örnek `HttpContext.Request.Form` ' i kullanır.  `HttpContext.Request.Form`, [zaman uyumsuz olarak eşitleme](https://github.com/davidfowl/AspNetCoreDiagnosticScenarios/blob/master/AsyncGuidance.md#warning-sync-over-async
+) kullanır ve iş parçacığı havuzunda ortaya çıkmasına neden olabilir.
+
+[!code-csharp[](performance-best-practices/samples/3.0/Controllers/MySecondController.cs?name=snippet1)]
+
+**Bunu yapın:** Aşağıdaki örnek, form gövdesini zaman uyumsuz olarak okumak için `HttpContext.Request.ReadFormAsync` kullanır.
+
+[!code-csharp[](performance-best-practices/samples/3.0/Controllers/MySecondController.cs?name=snippet2)]
+
+<a name="arlb"></a>
+
+## <a name="avoid-reading-large-request-bodies-or-response-bodies-into-memory"></a>Büyük istek gövdelerini veya yanıt gövdelerini belleğe okumaktan kaçının
+
+.NET ' te, 85 KB 'den büyük olan her nesne ayırması büyük nesne yığınında ([Loh](https://blogs.msdn.microsoft.com/maoni/2006/04/19/large-object-heap/)) sona erer. Büyük nesneler iki şekilde pahalıdır:
+
+* Yeni ayrılan büyük bir nesne için belleğin temizlenmesi gerektiğinden, ayırma maliyeti yüksektir. CLR, tüm yeni ayrılmış nesneler için belleğin temizlenmiş olmasını garanti eder.
+* LOH, yığının geri kalanı ile toplanır. LOH, tam [atık toplama](/dotnet/standard/garbage-collection/fundamentals) veya [Gen2 koleksiyonu](/dotnet/standard/garbage-collection/fundamentals#generations)gerektirir.
+
+Bu [blog gönderisi](https://adamsitnik.com/Array-Pool/#the-problem) succinctly sorununu açıklar:
+
+> Büyük bir nesne ayrıldığında, Gen 2 nesnesi olarak işaretlenir. Küçük nesneler için Gen 0 değildir. Sonuçlar LOH 'de bellek tükeniyorsa, GC yalnızca LOH değil, yönetilen yığının tamamını temizler. Bu nedenle, LOH dahil olmak üzere Gen 0, Gen 1 ve Gen 2 ' yi temizler. Bu, tam atık toplama olarak adlandırılır ve en çok kullanılan çöp toplamadır. Birçok uygulama için kabul edilebilir. Ancak, ortalama bir web isteğini işlemek için çok büyük bellek arabelleklerinin (bir yuvadan okunan, sıkıştırmayı açık olan JSON & daha fazla kod çözme) gerekli olduğu yüksek performanslı Web sunucuları için kesinlikle değildir.
+
+Büyük bir istek ya da yanıt gövdesini tek bir `byte[]` veya `string` olarak depoladığını.
+
+* LOH 'de hızlı bir şekilde boş alan tükenmenize neden olabilir.
+* Çalıştıran tam GC 'Ler nedeniyle uygulama için performans sorunlarına neden olabilir.
+
+## <a name="working-with-a-synchronous-data-processing-api"></a>Zaman uyumlu veri işleme API 'SI ile çalışma
+
+Yalnızca zaman uyumlu okuma ve yazma işlemlerini destekleyen bir serileştirici/devre dışı bırakma kullanılırken (örneğin, [JSON.net](https://www.newtonsoft.com/json/help/html/Introduction.htm)):
+
+* Verileri seri hale getirici/devre dışı serileştiriciye geçirmeden önce zaman uyumsuz olarak belleğe arabelleğe ın.
+
+> [!WARNING]
+> İstek büyükse, bellek yetersiz (OOM) koşuluna yol açabilir. OOM, hizmet reddine neden olabilir.  Daha fazla bilgi için, bu belgedeki [büyük istek gövdelerini veya Yanıt gövdelerinin belleğe okunmasını önleyin](#arlb) .
+
+ASP.NET Core 3,0, JSON serileştirme için varsayılan olarak <xref:System.Text.Json> kullanır. <xref:System.Text.Json>:
+
+* JSON 'yi zaman uyumsuz olarak okur ve yazar.
+* UTF-8 metni için iyileştirilmiştir.
+* Genellikle `Newtonsoft.Json` ' dan daha yüksek performans.
+
+## <a name="do-not-store-ihttpcontextaccessorhttpcontext-in-a-field"></a>Bir alanda ıhttpcontextaccessor. HttpContext depolamayın
+
+[Ihttpcontextaccessor. HttpContext](xref:Microsoft.AspNetCore.Http.IHttpContextAccessor.HttpContext) , istek iş parçacığından erişildiğinde etkin isteğin `HttpContext` ' i döndürür. @No__t-0 bir alan veya değişkende **depolanmamalıdır.**
+
+Bunu **yapın:** Aşağıdaki örnek, `HttpContext` ' i bir alanda depolar ve daha sonra kullanmaya çalışır.
+
+[!code-csharp[](performance-best-practices/samples/3.0/MyType.cs?name=snippet1)]
+
+Yukarıdaki kod, oluşturucuda genellikle null veya yanlış `HttpContext` yakalar.
+
+**Bunu yapın:** Aşağıdaki örnek:
+
+* @No__t-0 ' i bir alana depolar.
+* Doğru zamanda `HttpContext` alanını kullanır ve `null` olup olmadığını denetler.
+
+[!code-csharp[](performance-best-practices/samples/3.0/MyType.cs?name=snippet2)]
+
+## <a name="do-not-access-httpcontext-from-multiple-threads"></a>Birden çok iş parçacığından HttpContext 'e erişme
+
+`HttpContext`, iş parçacığı açısından güvenli *değildir* . Paralel olarak birden çok iş parçacığından `HttpContext` ' a erişmek, askıda kalma, kilitlenme ve veri bozulması gibi tanımsız davranışlara neden olabilir.
+
+Bunu **yapın:** Aşağıdaki örnek üç paralel istek yapar ve giden HTTP isteğinden önce ve sonra gelen istek yolunu günlüğe kaydeder. İstek yoluna, potansiyel olarak paralel olarak birden çok iş parçacığından erişilir.
+
+[!code-csharp[](performance-best-practices/samples/3.0/Controllers/AsyncFirstController.cs?name=snippet1&highlight=25,28)]
+
+**Bunu yapın:** Aşağıdaki örnek, üç paralel isteği yapmadan önce gelen istekten tüm verileri kopyalar.
+
+[!code-csharp[](performance-best-practices/samples/3.0/Controllers/AsyncFirstController.cs?name=snippet2&highlight=6,8,22,28)]
+
+## <a name="do-not-use-the-httpcontext-after-the-request-is-complete"></a>İstek tamamlandıktan sonra HttpContext 'i kullanma
+
+`HttpContext` yalnızca, ASP.NET Core ardışık düzeninde etkin bir HTTP isteği olduğu sürece geçerlidir. Tüm ASP.NET Core işlem hattı, her isteği yürüten zaman uyumsuz temsilciler zinciridir. Bu zincirden döndürülen `Task` tamamlandığında, `HttpContext` geri dönüştürülür.
+
+Bunu **yapın:** Aşağıdaki örnek `async void` kullanır:
+
+* ASP.NET Core uygulamalarda bu **her zaman** hatalı bir uygulamadır.
+* HTTP isteği tamamlandıktan sonra `HttpResponse` ' a erişir.
+* İşlemi çöker.
+
+[!code-csharp[](performance-best-practices/samples/3.0/Controllers/AsyncBadVoidController.cs?name=snippet1)]
+
+**Bunu yapın:** Aşağıdaki örnek, işlem tamamlanana kadar HTTP isteğinin tamamlanmaması için çerçeveye bir `Task` döndürür.
+
+[!code-csharp[](performance-best-practices/samples/3.0/Controllers/AsyncSecondController.cs?name=snippet1)]
+
+## <a name="do-not-capture-the-httpcontext-in-background-threads"></a>Arka plan iş parçacıklarında HttpContext 'i yakalama
+
+Bunu **yapın:** Aşağıdaki örnek, `Controller` özelliğinden `HttpContext` ' i yakaladığı bir kapanış gösterir. Bu kötü bir uygulamadır çünkü iş öğesi şu şekilde olabilir:
+
+* İstek kapsamının dışında çalıştırın.
+* Yanlış @no__t okuma girişimi-0.
+
+[!code-csharp[](performance-best-practices/samples/3.0/Controllers/FireAndForgetFirstController.cs?name=snippet1)]
+
+**Bunu yapın:** Aşağıdaki örnek:
+
+* İstek sırasında arka plan görevinde gereken verileri kopyalar.
+* Denetleyiciden hiçbir şeye başvurmuyor.
+
+[!code-csharp[](performance-best-practices/samples/3.0/Controllers/FireAndForgetFirstController.cs?name=snippet2)]
+
+## <a name="do-not-capture-services-injected-into-the-controllers-on-background-threads"></a>Arka plan iş parçacıklarında denetleyicilere eklenen Hizmetleri yakalama
+
+Bunu **yapın:** Aşağıdaki örnek, `Controller` eylem parametresinden `DbContext` ' i yakaladığı bir kapanışı gösterir. Bu kötü bir uygulamadır.  İş öğesi, istek kapsamı dışında çalıştırılabilir. @No__t-0, isteğin kapsamına alınır ve bir `ObjectDisposedException` olur.
+
+[!code-csharp[](performance-best-practices/samples/3.0/Controllers/FireAndForgetSecondController.cs?name=snippet1)]
+
+**Bunu yapın:** Aşağıdaki örnek:
+
+* Arka plan iş öğesinde kapsam oluşturmak için <xref:Microsoft.Extensions.DependencyInjection.IServiceScopeFactory> ' y i çıkartır. `IServiceScopeFactory` tek bir.
+* Arka plan iş parçacığında yeni bir bağımlılık ekleme kapsamı oluşturur.
+* Denetleyiciden hiçbir şeye başvurmuyor.
+* Gelen istekten `ContosoDbContext` yakalamaz.
+
+[!code-csharp[](performance-best-practices/samples/3.0/Controllers/FireAndForgetSecondController.cs?name=snippet2)]
+
+Aşağıdaki vurgulanan kod:
+
+* Arka plan işleminin yaşam süresi boyunca bir kapsam oluşturur ve Hizmetleri bundan çözer.
+* Doğru kapsamdan `ContosoDbContext` kullanır.
+
+[!code-csharp[](performance-best-practices/samples/3.0/Controllers/FireAndForgetSecondController.cs?name=snippet2&highlight=9-16)]
+
+## <a name="do-not-modify-the-status-code-or-headers-after-the-response-body-has-started"></a>Yanıt gövdesi başlatıldıktan sonra durum kodunu veya başlıkları değiştirmeyin
+
+ASP.NET Core HTTP yanıt gövdesini arabelleğe almaz. Yanıtın ilk yazıldığı zaman:
+
+* Üst bilgiler, bu gövdenin öbek ile birlikte gönderilir.
+* Artık yanıt üst bilgilerini değiştirmek mümkün değildir.
+
+Bunu **yapın:** Aşağıdaki kod, yanıt önceden başlatıldıktan sonra yanıt üst bilgileri eklemeye çalışır:
+
+[!code-csharp[](performance-best-practices/samples/3.0/Startup22.cs?name=snippet1)]
+
+Önceki kodda, `context.Response.Headers["test"] = "test value";`, yanıta `next()` yazıldığında bir özel durum oluşturur.
+
+**Bunu yapın:** Aşağıdaki örnek, üst bilgileri değiştirmeden önce HTTP yanıtının başlatılıp başlatılmadığını denetler.
+
+[!code-csharp[](performance-best-practices/samples/3.0/Startup22.cs?name=snippet2)]
+
+**Bunu yapın:** Aşağıdaki örnek, yanıt üst bilgileri istemciye temizlenmeden önce üst bilgileri ayarlamak için `HttpResponse.OnStarting` kullanır.
+
+Yanıtın başlatılmamış olup olmadığı denetleniyor yanıt üst bilgileri yazılmadan önce çağrılacak geri aramanın kaydedilmesini sağlar. Yanıtın başlatılmamış olup olmadığı denetleniyor:
+
+* Başlıkları tam zamanında ekleme veya geçersiz kılma olanağı sağlar.
+* İşlem hattındaki bir sonraki ara yazılım hakkında bilgi gerektirmez.
+
+[!code-csharp[](performance-best-practices/samples/3.0/Startup22.cs?name=snippet3)]
+
+## <a name="do-not-call-next-if-you-have-already-started-writing-to-the-response-body"></a>Yanıt gövdesine yazmaya başladıysanız ileri () çağrısı yapın
+
+Bileşenler yalnızca yanıtı işlemek ve işlemek için mümkünse çağrılabilir.

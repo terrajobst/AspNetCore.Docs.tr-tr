@@ -1,18 +1,18 @@
 ---
 title: 'Öğretici: Gelişmiş senaryolar hakkında bilgi edinin-EF Core ASP.NET MVC'
 description: Bu öğreticide, Entity Framework Core kullanan ASP.NET Core Web uygulamaları geliştirmeye yönelik temel bilgilerin ötesinde yararlı konular sunulmaktadır.
-author: tdykstra
+author: rick-anderson
 ms.author: riande
 ms.custom: mvc
 ms.date: 03/27/2019
 ms.topic: tutorial
 uid: data/ef-mvc/advanced
-ms.openlocfilehash: 7a67efad187f29773c1cac7a5a2457d02080114b
-ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
+ms.openlocfilehash: d4a2aad6d93cc9a53c730323620de59fead6d5ab
+ms.sourcegitcommit: 7d3c6565dda6241eb13f9a8e1e1fd89b1cfe4d18
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71080545"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72259596"
 ---
 # <a name="tutorial-learn-about-advanced-scenarios---aspnet-mvc-with-ef-core"></a>Öğretici: Gelişmiş senaryolar hakkında bilgi edinin-EF Core ASP.NET MVC
 
@@ -39,9 +39,9 @@ Bu öğreticide şunları yaptınız:
 
 Entity Framework kullanmanın avantajlarından biri, kodunuzun veri depolarken belirli bir yönteme çok benzemesidir. Bunu sizin için SQL sorguları ve komutları oluşturarak yapar, bu da sizi kendiniz yazmak zorunda kalmaktan kurtarır. Ancak el ile oluşturduğunuz belirli SQL sorgularını çalıştırmanız gerektiğinde olağanüstü senaryolar vardır. Bu senaryolar için Entity Framework Code First API 'SI, SQL komutlarını doğrudan veritabanına geçirmenize olanak sağlayan yöntemleri içerir. EF Core 1,0 ' de aşağıdaki seçenekleriniz vardır:
 
-* Varlık türleri döndüren sorgular için yönteminikullanın.`DbSet.FromSql` Döndürülen nesneler `DbSet` nesne tarafından beklenen türde olmalıdır ve [izlemeyi kapatmadığınız](crud.md#no-tracking-queries)takdirde veritabanı bağlamı tarafından otomatik olarak izlenir.
+* Varlık türleri döndüren sorgular için `DbSet.FromSql` yöntemini kullanın. Döndürülen nesneler `DbSet` nesnesi tarafından beklenen türde olmalıdır ve [izlemeyi](crud.md#no-tracking-queries)kapatmadığınız takdirde veritabanı bağlamı tarafından otomatik olarak izlenir.
 
-* Sorgu olmayan komutları için kullanın. `Database.ExecuteSqlCommand`
+* Sorgu olmayan komutlar için `Database.ExecuteSqlCommand` kullanın.
 
 Varlık olmayan türleri döndüren bir sorgu çalıştırmanız gerekiyorsa, EF tarafından sunulan veritabanı bağlantısıyla ADO.NET kullanabilirsiniz. Döndürülen veriler, varlık türlerini almak için bu yöntemi kullanıyor olsanız bile veritabanı bağlamı tarafından izlenmez.
 
@@ -49,9 +49,9 @@ Her zaman doğru olduğu gibi, bir Web uygulamasında SQL komutları yürüttü�
 
 ## <a name="call-a-query-to-return-entities"></a>Varlıkları döndürmek için bir sorgu çağırın
 
-Sınıfı `DbSet<TEntity>` , türünde `TEntity`bir varlık döndüren bir sorguyu yürütmek için kullanabileceğiniz bir yöntem sağlar. Bunun nasıl çalıştığını görmek için, Bölüm denetleyicisinin `Details` yöntemindeki kodu değiştirirsiniz.
+@No__t-0 sınıfı, `TEntity` türünde bir varlık döndüren bir sorgu yürütmek için kullanabileceğiniz bir yöntem sağlar. Bunun nasıl çalıştığını görmek için, Bölüm denetleyicisinin `Details` yönteminde kodu değiştirirsiniz.
 
-`FromSql` *DepartmentsController.cs* `Details` ' de, yönteminde, aşağıdaki vurgulanmış kodda gösterildiği gibi, bir departmanı alan kodu bir yöntem çağrısıyla değiştirin:
+*DepartmentsController.cs*' de, `Details` yönteminde, aşağıdaki vurgulanmış kodda gösterildiği gibi bir departmanı alan kodu `FromSql` yöntem çağrısıyla değiştirin:
 
 [!code-csharp[](intro/samples/cu/Controllers/DepartmentsController.cs?name=snippet_RawSQL&highlight=8,9,10)]
 
@@ -61,13 +61,13 @@ Yeni kodun doğru şekilde çalıştığını doğrulamak için **Departmanlar**
 
 ## <a name="call-a-query-to-return-other-types"></a>Başka türler döndürmek için bir sorgu çağırın
 
-Daha önce, yaklaşık bir kayıt tarihi için öğrenci sayısını gösteren hakkında sayfasında bir öğrenci istatistikleri Kılavuzu oluşturdunuz. Öğrenciler varlık kümesindeki (`_context.Students`) verileri aldınız ve sonuçları `EnrollmentDateGroup` görüntüleme modeli nesneleri listesine eklemek için LINQ 'ı kullandınız. LINQ kullanmak yerine SQL 'in kendisini yazmak istediğinizi varsayalım. Bunu yapmak için, varlık nesnelerinden başka bir şey döndüren bir SQL sorgusu çalıştırmanız gerekir. EF Core 1,0 ' de, bunu yapmanın bir yolu ADO.NET kodunu yazıp EF 'ten veritabanı bağlantısı almanızı sağlar.
+Daha önce, yaklaşık bir kayıt tarihi için öğrenci sayısını gösteren hakkında sayfasında bir öğrenci istatistikleri Kılavuzu oluşturdunuz. Öğrenciler varlık kümesindeki (`_context.Students`) verileri aldınız ve LINQ 'ı, sonuçları bir `EnrollmentDateGroup` görünüm modeli nesneleri listesine eklemek için kullandınız. LINQ kullanmak yerine SQL 'in kendisini yazmak istediğinizi varsayalım. Bunu yapmak için, varlık nesnelerinden başka bir şey döndüren bir SQL sorgusu çalıştırmanız gerekir. EF Core 1,0 ' de, bunu yapmanın bir yolu ADO.NET kodunu yazıp EF 'ten veritabanı bağlantısı almanızı sağlar.
 
-*HomeController.cs*içinde, `About` yöntemini aşağıdaki kodla değiştirin:
+*HomeController.cs*' de `About` yöntemini aşağıdaki kodla değiştirin:
 
 [!code-csharp[](intro/samples/cu/Controllers/HomeController.cs?name=snippet_UseRawSQL&highlight=3-32)]
 
-Kullanarak bir ekleme deyimi:
+Using deyimleri ekleme:
 
 [!code-csharp[](intro/samples/cu/Controllers/HomeController.cs?name=snippet_Usings2)]
 
@@ -87,9 +87,9 @@ Contoso Üniversitesi yöneticilerinin veritabanında, her kurs için kredi say�
 
 [!code-csharp[](intro/samples/cu/Controllers/CoursesController.cs?name=snippet_UpdatePost)]
 
-Denetleyici bir HttpGet isteğini işlediğinde, içinde `ViewData["RowsAffected"]`hiçbir şey döndürülmez ve görünüm, önceki çizimde gösterildiği gibi boş bir metin kutusu ve bir Gönder düğmesi görüntüler.
+Denetleyici bir HttpGet isteğini işlediğinde, `ViewData["RowsAffected"]` ' a hiçbir şey döndürülmez ve görünüm, önceki çizimde gösterildiği gibi boş bir metin kutusu ve bir Gönder düğmesi görüntüler.
 
-**Update** düğmesine tıklandığında, HttpPost yöntemi çağırılır ve Multiplier metin kutusuna girilen değer vardır. Kod daha sonra, kursu güncelleştiren SQL 'i yürütür ve etkilenen satır sayısını içinde `ViewData`görünüme döndürür. Görünüm bir `RowsAffected` değer aldığında, güncelleştirilmiş satır sayısını görüntüler.
+**Update** düğmesine tıklandığında, HttpPost yöntemi çağırılır ve Multiplier metin kutusuna girilen değer vardır. Kod daha sonra, bu güncelleştirmeleri güncelleştiren SQL 'i yürütür ve etkilenen satırların sayısını `ViewData` ' da görünümüne döndürür. Görünüm bir `RowsAffected` değeri aldığında, güncelleştirilmiş satır sayısını görüntüler.
 
 **Çözüm Gezgini**, *Görünümler/kurslar* klasörüne sağ tıklayın ve ardından **> yeni öğe Ekle**' ye tıklayın.
 
@@ -99,17 +99,17 @@ Denetleyici bir HttpGet isteğini işlediğinde, içinde `ViewData["RowsAffected
 
 [!code-html[](intro/samples/cu/Views/Courses/UpdateCourseCredits.cshtml)]
 
-**Kurs sekmesini** seçerek `http://localhost:5813/Courses/UpdateCourseCredits`yöntemi çalıştırın, sonra tarayıcının adres çubuğundaki URL 'nin sonuna "/UpdateCourseCredits" ekleyin (örneğin:). `UpdateCourseCredits` Metin kutusuna bir sayı girin:
+@No__t-0 yöntemini, **Kurslar** sekmesini seçerek çalıştırın, sonra tarayıcının adres çubuğundaki URL 'nin sonuna "/UpdateCourseCredits" ekleyin (örneğin: `http://localhost:5813/Courses/UpdateCourseCredits`). Metin kutusuna bir sayı girin:
 
 ![Kurs kredileri sayfasını Güncelleştir](advanced/_static/update-credits.png)
 
-Tıklayın **güncelleştirme**. Etkilenen satır sayısını görürsünüz:
+**Güncelleştir**’e tıklayın. Etkilenen satır sayısını görürsünüz:
 
 ![Güncelleştirme kursu kredileri sayfa satırları etkilendi](advanced/_static/update-credits-rows-affected.png)
 
 Düzeltilen kredi sayısına sahip kurslar listesini görmek için **listeye geri** ' ye tıklayın.
 
-Üretim kodunun güncelleştirmelerin her zaman geçerli verilerle sonuçlandığına emin olun. Burada gösterilen basitleştirilmiş kod, 5 ' ten fazla sayı ile sonuçlanacak kredilerin sayısını çarpamaz. (Özelliğin bir `[Range(0, 5)]` özniteliği vardır.) `Credits` Güncelleştirme sorgusu çalışır, ancak geçersiz veriler sistemin diğer bölümlerinde, kredi sayısının 5 veya daha az olduğunu varsayacak beklenmedik sonuçlara neden olabilir.
+Üretim kodunun güncelleştirmelerin her zaman geçerli verilerle sonuçlandığına emin olun. Burada gösterilen basitleştirilmiş kod, 5 ' ten fazla sayı ile sonuçlanacak kredilerin sayısını çarpamaz. (@No__t-0 özelliği bir `[Range(0, 5)]` özniteliğine sahiptir.) Güncelleştirme sorgusu çalışır, ancak geçersiz veriler sistemin diğer bölümlerinde, kredi sayısının 5 veya daha az olduğunu varsayacak beklenmedik sonuçlara neden olabilir.
 
 Ham SQL sorguları hakkında daha fazla bilgi için bkz. [Ham SQL sorguları](/ef/core/querying/raw-sql).
 
@@ -117,7 +117,7 @@ Ham SQL sorguları hakkında daha fazla bilgi için bkz. [Ham SQL sorguları](/e
 
 Bazen veritabanına gönderilen gerçek SQL sorgularını görmeniz yararlı olabilir. ASP.NET Core için yerleşik günlük işlevselliği, sorgular ve güncelleştirmeler için SQL içeren günlükleri yazmak üzere EF Core tarafından otomatik olarak kullanılır. Bu bölümde, SQL günlüğe kaydetme işleminin bazı örneklerini görürsünüz.
 
-*StudentsController.cs* ' i açın ve `Details` yöntemi içinde, `if (student == null)` bildiriminde bir kesme noktası ayarlayın.
+*StudentsController.cs* ' i açın `Details` yöntemi `if (student == null)` ifadesinde bir kesme noktası ayarlayın.
 
 Uygulamayı hata ayıklama modunda çalıştırın ve bir öğrenci için ayrıntılar sayfasına gidin.
 
@@ -142,7 +142,7 @@ INNER JOIN (
 ORDER BY [t].[ID]
 ```
 
-Size beklenmedik bir şekilde bir sorun olduğunu fark edeceksiniz: SQL, kişi tablosundan 2 ' ye kadar`TOP(2)`satır () seçer. `SingleOrDefaultAsync` Yöntem, sunucuda 1 satıra çözümlenmiyor. İşte şunları yapın:
+Size beklenmedik bir şekilde bir sorun olduğunu fark edeceksiniz: SQL, kişi tablosundan 2 ' ye kadar satır (`TOP(2)`) seçer. @No__t-0 yöntemi sunucuda 1 satıra çözümlenmiyor. İşte şunları yapın:
 
 * Sorgu birden çok satır döndürürse, yöntemi null döndürür.
 * Sorgunun birden çok satır döndürüp döndürmeyeceğini anlamak için EF 'in en az 2 değerini döndürüp döndürmediğini denetlemesi gerekir.
@@ -173,7 +173,7 @@ Entity Framework bir varlığın geçerli değerlerini özgün değerlerle karş
 
 * ChangeTracker. Entries
 
-Çok sayıda varlığı izliyorsanız ve bu yöntemlerden birini bir döngüde birçok kez çağırırsanız, `ChangeTracker.AutoDetectChangesEnabled` özelliği kullanarak otomatik değişiklik algılamayı geçici olarak kapatarak önemli performans iyileştirmeleri alabilirsiniz. Örneğin:
+Çok sayıda varlığı izliyorsanız ve bu yöntemlerden birini bir döngüde birçok kez çağırırsanız, `ChangeTracker.AutoDetectChangesEnabled` özelliğini kullanarak otomatik değişikliği algılamayı geçici olarak kapatarak önemli performans iyileştirmeleri alabilirsiniz. Örnek:
 
 ```csharp
 _context.ChangeTracker.AutoDetectChangesEnabled = false;
@@ -181,7 +181,7 @@ _context.ChangeTracker.AutoDetectChangesEnabled = false;
 
 ## <a name="ef-core-source-code-and-development-plans"></a>EF Core kaynak kodu ve geliştirme planları
 
-Entity Framework Core kaynağı [https://github.com/aspnet/EntityFrameworkCore](https://github.com/aspnet/EntityFrameworkCore). EF Core deposu gecelik derlemeler, sorun izleme, özellik özellikleri, tasarım toplantısı notları ve [ileride geliştirmeye yönelik yol haritasını](https://github.com/aspnet/EntityFrameworkCore/wiki/Roadmap)içerir. Hataları dosyalayabilirsiniz veya bulabilir ve katkıda bulunabilirsiniz.
+Entity Framework Core kaynağı [https://github.com/aspnet/EntityFrameworkCore](https://github.com/aspnet/EntityFrameworkCore)' dir. EF Core deposu gecelik derlemeler, sorun izleme, özellik özellikleri, tasarım toplantısı notları ve [ileride geliştirmeye yönelik yol haritasını](https://github.com/aspnet/EntityFrameworkCore/wiki/Roadmap)içerir. Hataları dosyalayabilirsiniz veya bulabilir ve katkıda bulunabilirsiniz.
 
 Kaynak kodu açık olsa da Entity Framework Core, Microsoft ürünü olarak tam olarak desteklenmektedir. Microsoft Entity Framework ekibi, her bir yayının kalitesini sağlamak için, hangi katkıların kabul edildiğini denetler ve tüm kod değişikliklerini sınar.
 
@@ -193,7 +193,7 @@ Mevcut bir veritabanından varlık sınıfları dahil bir veri modeline ters mü
 
 ## <a name="use-dynamic-linq-to-simplify-code"></a>Kodu basitleştirmek için dinamik LINQ kullanma
 
-[Bu serideki üçüncü öğretici](sort-filter-page.md) , bir `switch` bildirimde sabit kodlayarak sütun adları aracılığıyla LINQ kodunun nasıl yazılacağını gösterir. Arasından seçim yapabileceğiniz iki sütun varsa, bu sorunsuz bir şekilde yapılır, ancak çok sayıda sütununuzla karşılaşırsanız, kod ayrıntılı alabilir. Bu sorunu çözmek için `EF.Property` yöntemini kullanarak özelliğin adını bir dize olarak belirtebilirsiniz. Bu yaklaşımı denemek için, `Index` `StudentsController` içindeki yöntemini aşağıdaki kodla değiştirin.
+[Bu serideki üçüncü öğreticide](sort-filter-page.md) , `switch` ifadesinde sabit kodlama sütun adları aracılığıyla LINQ kodunun nasıl yazılacağı gösterilmektedir. Arasından seçim yapabileceğiniz iki sütun varsa, bu sorunsuz bir şekilde yapılır, ancak çok sayıda sütununuzla karşılaşırsanız, kod ayrıntılı alabilir. Bu sorunu çözmek için, özelliğin adını dize olarak belirtmek üzere `EF.Property` yöntemini kullanabilirsiniz. Bu yaklaşımı denemek için, `StudentsController` ' deki `Index` yöntemini aşağıdaki kodla değiştirin.
 
 [!code-csharp[](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_DynamicLinq)]
 
@@ -209,7 +209,7 @@ Tom Dykstra ve Rick Anderson (Twitter @RickAndMSFT) bu öğreticiyi yazdı. ROWA
 
 Hata iletisi:
 
-> Açılamıyor '... Bin\debug\netcoreapp1.0\contosoüniversıty.dll ' yazma için--' başka bir işlem tarafından kullanıldığından, işlem '. .\Bin\debug\netcoreapp1.0\contosoüniversı.dll ' dosyasına erişemiyor.
+> Açılamıyor '... Bin\debug\netcoreapp1.0\contosoüniversıty.dll ' yazma için--' başka bir işlem tarafından kullanıldığından, işlem '. ..\Bin\debug\netcoreapp1.0\contosoüniversı.dll ' dosyasına erişemiyor.
 
 Çözümden
 
@@ -219,21 +219,21 @@ IIS Express sitesini durdurun. Windows sistemi tepsisine IIS Express bulun ve si
 
 Olası neden:
 
-EF CLı komutları, kod dosyalarını otomatik olarak kapatmaz ve kaydetmez. `migrations add` Komutu çalıştırdığınızda kaydetmediğiniz değişiklikler varsa, EF değişikliklerinizi bulamaz.
+EF CLı komutları, kod dosyalarını otomatik olarak kapatmaz ve kaydetmez. @No__t-0 komutunu çalıştırdığınızda hiçbir değişiklik yaptıysanız, EF değişiklikleri bulamaz.
 
 Çözümden
 
-Komutunu çalıştırın, kod değişikliklerinizi kaydedin ve `migrations add` komutu yeniden çalıştırın. `migrations remove`
+@No__t-0 komutunu çalıştırın, kod değişikliklerinizi kaydedin ve `migrations add` komutunu yeniden çalıştırın.
 
 ### <a name="errors-while-running-database-update"></a>Veritabanı güncelleştirmesi çalıştırılırken hatalar oluştu
 
 Varolan verileri içeren bir veritabanında şema değişiklikleri yaparken başka hatalar almak mümkündür. Çözümleyemez geçiş hataları alırsanız, bağlantı dizesindeki veritabanı adını değiştirebilir veya veritabanını silebilirsiniz. Yeni bir veritabanı ile geçirilecek veri yoktur ve Update-Database komutunun hatasız tamamlanabilmesi çok daha yüksektir.
 
-En basit yaklaşım, *appSettings. JSON*içindeki veritabanını yeniden adlandırmanın bir veritabanıdır. Bir sonraki sefer çalıştırdığınızda `database update`yeni bir veritabanı oluşturulur.
+En basit yaklaşım, *appSettings. JSON*içindeki veritabanını yeniden adlandırmanın bir veritabanıdır. @No__t-0 ' ı bir sonraki sefer çalıştırdığınızda yeni bir veritabanı oluşturulur.
 
 SSOX 'te bir veritabanını silmek için veritabanına sağ tıklayın, **Sil**' e tıklayın ve ardından **veritabanını sil** Iletişim kutusunda **varolan bağlantıları kapat** ' ı seçin ve **Tamam**' a tıklayın.
 
-CLI kullanarak bir veritabanını silmek için `database drop` CLI komutunu çalıştırın:
+CLı kullanarak bir veritabanını silmek için `database drop` CLı komutunu çalıştırın:
 
 ```dotnetcli
 dotnet ef database drop
@@ -243,13 +243,13 @@ dotnet ef database drop
 
 Hata Iletisi:
 
-> SQL Server bağlantı kurulurken ağla ilgili veya örneğe özgü bir hata oluştu. Sunucu bulunamadı veya erişilebilir durumda değil. Örnek adının doğru olduğundan ve SQL Server uzak bağlantılara izin verecek şekilde yapılandırıldığından emin olun. sağlayıcısını SQL ağ arabirimleri, hata: 26-belirtilen sunucu/örnek bulunurken hata oluştu)
+> SQL Server ile bağlantı kurulmaya çalışılırken ağ ile ilişkili veya örneğe özgü bir hata oluştu. Sunucu bulunamadı veya erişilebilir değildi. Örnek adının doğru olduğundan ve SQL Server uzak bağlantılara izin verecek şekilde yapılandırıldığından emin olun. (sağlayıcı: SQL ağ arabirimleri, hata: 26-belirtilen sunucu/örnek bulunurken hata oluştu)
 
 Çözümden
 
 Bağlantı dizesini denetleyin. Veritabanı dosyasını el ile sildiyseniz, oluşturma dizesindeki veritabanının adını yeni bir veritabanı ile başlatılacak şekilde değiştirin.
 
-## <a name="get-the-code"></a>Kodu alın
+## <a name="get-the-code"></a>Kodu edinin
 
 [Tamamlanmış uygulamayı indirin veya görüntüleyin.](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final)
 
@@ -257,9 +257,9 @@ Bağlantı dizesini denetleyin. Veritabanı dosyasını el ile sildiyseniz, olu�
 
 EF Core hakkında daha fazla bilgi için [Entity Framework Core belgelerine](/ef/core)bakın. Bir kitap da kullanılabilir: [Entity Framework Core eylem](https://www.manning.com/books/entity-framework-core-in-action).
 
-Bir Web uygulamasının nasıl dağıtılacağı hakkında bilgi için bkz <xref:host-and-deploy/index>.
+Bir Web uygulamasını dağıtma hakkında daha fazla bilgi için bkz. <xref:host-and-deploy/index>.
 
-Kimlik doğrulama ve yetkilendirme gibi ASP.NET Core MVC ile ilgili diğer konular hakkında daha fazla bilgi için bkz <xref:index>.
+Kimlik doğrulama ve yetkilendirme gibi ASP.NET Core MVC ile ilgili diğer konular hakkında daha fazla bilgi için bkz. <xref:index>.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
@@ -279,4 +279,4 @@ Bu öğreticide şunları yaptınız:
 Bu, ASP.NET Core MVC uygulamasında Entity Framework Core kullanımı hakkında bu öğretici serisini tamamlar. Bu seri yeni bir veritabanıyla çalıştı; bir alternatif, mevcut bir veritabanından bir modele tersine mühendislik kullanmaktır.
 
 > [!div class="nextstepaction"]
-> [Öğretici: MVC ile EF Core var olan veritabanı](/ef/core/get-started/aspnetcore/existing-db?toc=/aspnet/core/toc.json&bc=/aspnet/core/breadcrumb/toc.json)
+> [Öğretici: MVC ile EF Core, var olan veritabanı](/ef/core/get-started/aspnetcore/existing-db?toc=/aspnet/core/toc.json&bc=/aspnet/core/breadcrumb/toc.json)

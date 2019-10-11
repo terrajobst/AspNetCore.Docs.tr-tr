@@ -1,18 +1,18 @@
 ---
 title: .NET Core ve ASP.NET Core oturum açma
-author: tdykstra
+author: rick-anderson
 description: Microsoft. Extensions. Logging NuGet paketi tarafından sunulan günlüğe kaydetme çerçevesini nasıl kullanacağınızı öğrenin.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/07/2019
+ms.date: 10/08/2019
 uid: fundamentals/logging/index
-ms.openlocfilehash: 9f7b39cc1c557356b75608817db4e8d6f61af794
-ms.sourcegitcommit: 3d082bd46e9e00a3297ea0314582b1ed2abfa830
+ms.openlocfilehash: 697e6cf0cd1b51ad6c2942e21bc084d1fe6bfa4e
+ms.sourcegitcommit: 7d3c6565dda6241eb13f9a8e1e1fd89b1cfe4d18
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72007031"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72259738"
 ---
 # <a name="logging-in-net-core-and-aspnet-core"></a>.NET Core ve ASP.NET Core oturum açma
 
@@ -28,7 +28,7 @@ Genel ana bilgisayarı olmayan uygulamalar için günlük kodu, [sağlayıcılar
 
 ::: moniker-end
 
-[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/logging/index/samples) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
+[Örnek kodu görüntüleme veya indirme](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/logging/index/samples) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
 
 ## <a name="add-providers"></a>Sağlayıcı Ekle
 
@@ -48,7 +48,7 @@ Konak olmayan bir konsol uygulamasında, `LoggerFactory` oluştururken sağlayı
 
 Varsayılan ASP.NET Core proje şablonları, aşağıdaki günlük sağlayıcılarını ekleyen <xref:Microsoft.Extensions.Hosting.Host.CreateDefaultBuilder%2A> ' ı çağırır:
 
-* Konsol
+* Console
 * Hata ayıklama
 * EventSource
 * Olay günlüğü (yalnızca Windows üzerinde çalışırken)
@@ -69,7 +69,7 @@ Yukarıdaki kod `Microsoft.Extensions.Logging` ve `Microsoft.Extensions.Configur
 
 Varsayılan proje şablonu, aşağıdaki günlük sağlayıcılarını ekleyen <xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder%2A> ' ı çağırır:
 
-* Konsol
+* Console
 * Hata ayıklama
 * EventSource (ASP.NET Core 2,2 ' den başlayarak)
 
@@ -362,7 +362,7 @@ Aşağıdaki kod `Information` ve `Warning` günlükleri oluşturur:
 
 ::: moniker-end
 
-Önceki kodda, ilk parametredir [oturum öğesini belirten Olay No.](#log-event-id) İkinci parametre, kalan Yöntem parametreleri tarafından belirtilen bağımsız değişken değerleri için yer tutucuları olan bir ileti şablonudur. Yöntem parametreleri bu makalenin ilerleyen kısımlarında bulunan [ileti şablonu bölümünde](#log-message-template) açıklanmaktadır.
+Yukarıdaki kodda, ilk parametre [günlük olay kimliğidir](#log-event-id). İkinci parametre, kalan Yöntem parametreleri tarafından belirtilen bağımsız değişken değerleri için yer tutucuları olan bir ileti şablonudur. Yöntem parametreleri bu makalenin ilerleyen kısımlarında bulunan [ileti şablonu bölümünde](#log-message-template) açıklanmaktadır.
 
 Yöntem adındaki düzeyi (örneğin, `LogInformation` ve `LogWarning`) içeren günlük yöntemleri, [ILogger için uzantı yöntemleridir](xref:Microsoft.Extensions.Logging.LoggerExtensions). Bu yöntemler, bir `LogLevel` parametresi alan `Log` yöntemini çağırır. Bu uzantı yöntemlerinden biri yerine doğrudan `Log` yöntemini çağırabilirsiniz, ancak söz dizimi görece karmaşıktır. Daha fazla bilgi için bkz. <xref:Microsoft.Extensions.Logging.ILogger> ve [günlükçü uzantıları kaynak kodu](https://github.com/aspnet/Extensions/blob/release/2.2/src/Logging/Logging.Abstractions/src/LoggerExtensions.cs).
 
@@ -374,7 +374,7 @@ ASP.NET Core, en küçükten en yüksek öneme doğru sıralanan aşağıdaki g�
 
 * Hata Ayıkla = 1
 
-  Geliştirme ve hata ayıklama konusunda yararlı olabilecek bilgiler için. Örnek: `Entering method Configure with flag set to true.`, yalnızca sorun giderirken, yüksek günlük hacimden kaynaklanan `Debug` düzeyindeki günlükleri etkinleştirin.
+  Geliştirme ve hata ayıklama konusunda yararlı olabilecek bilgiler için. Örnek: `Entering method Configure with flag set to true.`, yalnızca sorun giderirken, en yüksek günlük hacimden kaynaklanan `Debug` düzeyindeki günlükleri etkinleştirir.
 
 * Bilgi = 2
 
@@ -392,10 +392,14 @@ ASP.NET Core, en küçükten en yüksek öneme doğru sıralanan aşağıdaki g�
 
   Anında ilgilenilmesi gereken hatalarda. Örnekler: veri kaybı senaryoları, disk alanı yetersiz.
 
-Belirli bir depolama ortamında veya görüntüleme penceresinde ne kadar günlük çıkışının yazıldığını denetlemek için günlük düzeyini kullanın. Örneğin:
+Belirli bir depolama ortamında veya görüntüleme penceresinde ne kadar günlük çıkışının yazıldığını denetlemek için günlük düzeyini kullanın. Örnek:
 
-* Üretimde `Trace` ' ı `Information` düzeyini bir birim veri deposuna gönderin. @No__t-0 ile `Critical` arasında bir değer veri deposuna gönderin.
-* Geliştirme sırasında konsola `Warning` ' ı `Critical` ' e gönderin ve sorun giderirken `Trace` ' ye `Information` ' e ekleyin.
+* Üretimde:
+  * @No__t-0 ile `Information` düzeylerinde günlüğe kaydetme, yüksek hacimli ayrıntılı günlük iletileri oluşturur. Maliyetleri denetlemek ve veri depolama sınırlarını aşmamak için `Trace` ' ı `Information` düzeyindeki iletileri yüksek hacimli, düşük maliyetli bir veri deposuna günlüğe kaydedin.
+  * @No__t-0 ' da `Critical` düzeylerinde günlüğe kaydetme işlemi genellikle daha az, daha küçük günlük iletileri üretir. Bu nedenle, maliyetler ve depolama sınırları genellikle bir sorun değildir ve bu da veri deposu seçiminden daha fazla esneklik elde etmez.
+* Geliştirme sırasında:
+  * @No__t-0 ' dan konsola `Critical` iletileri ile günlüğe kaydedin.
+  * Sorun giderirken `Information` iletileri aracılığıyla `Trace` ekleyin.
 
 Bu makalede daha sonra bulunan [günlük filtreleme](#log-filtering) bölümünde, bir sağlayıcının hangi günlük düzeylerinin işlediğini nasıl denetleneceği açıklanmaktadır.
 
@@ -479,7 +483,7 @@ info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
 
 ## <a name="log-event-id"></a>Günlüğe olay KIMLIĞI
 
-Her günlük belirtebilirsiniz bir *öğesini belirten Olay No*. Örnek uygulama bunu yerel olarak tanımlanmış bir `LoggingEvents` sınıfı kullanarak yapar:
+Her günlük bir *olay kimliği*belirtebilir. Örnek uygulama bunu yerel olarak tanımlanmış bir `LoggingEvents` sınıfı kullanarak yapar:
 
 ::: moniker range=">= aspnetcore-3.0"
 
@@ -619,16 +623,16 @@ Aşağıdaki örnek, koddaki filtre kurallarının nasıl kaydedileceği göster
 
 Yukarıdaki örneklerde gösterilen yapılandırma verileri ve `AddFilter` kodu, aşağıdaki tabloda gösterilen kuralları oluşturur. İlk altı yapılandırma örneğinde ve son iki ise kod örneğinde gelir.
 
-| Number | Sağlayıcı      | Şununla başlayan Kategoriler...          | En düşük günlük düzeyi |
+| Sayı | Sağlayıcı      | Şununla başlayan Kategoriler...          | En düşük günlük düzeyi |
 | :----: | ------------- | --------------------------------------- | ----------------- |
-| 1\.      | Hata ayıklama         | Tüm Kategoriler                          | Information       |
-| 2      | Konsol       | Microsoft.AspNetCore.Mvc.Razor.Internal | Uyarı           |
-| 3      | Konsol       | Microsoft.AspNetCore.Mvc.Razor.Razor    | Hata ayıklama             |
-| 4      | Konsol       | Microsoft.AspNetCore.Mvc.Razor          | Hata             |
-| 5      | Konsol       | Tüm Kategoriler                          | Information       |
-| 6      | Tüm sağlayıcılar | Tüm Kategoriler                          | Hata ayıklama             |
+| 1      | Hata ayıklama         | Tüm kategoriler                          | Bilgi       |
+| 2      | Console       | Microsoft. AspNetCore. Mvc. Razor. Internal | Uyarı           |
+| 3      | Console       | Microsoft. AspNetCore. Mvc. Razor. Razor    | Hata ayıklama             |
+| 4      | Console       | Microsoft. AspNetCore. Mvc. Razor          | Hata             |
+| 5      | Console       | Tüm kategoriler                          | Bilgi       |
+| 6      | Tüm sağlayıcılar | Tüm kategoriler                          | Hata ayıklama             |
 | 7      | Tüm sağlayıcılar | Sistem                                  | Hata ayıklama             |
-| 8      | Hata ayıklama         | Microsoft                               | İzlemesinin             |
+| 8      | Hata ayıklama         | Microsoft                               | İzleme             |
 
 @No__t-0 nesnesi oluşturulduğunda `ILoggerFactory` nesnesi, bu günlükçü için uygulanacak her sağlayıcı için tek bir kural seçer. Bir @no__t 0 örneği tarafından yazılan tüm iletiler, seçilen kurallara göre filtrelenmiştir. Her sağlayıcı ve kategori çifti için mümkün olan en özel kural kullanılabilir kurallardan seçilir.
 
@@ -650,7 +654,7 @@ Elde edilen `ILogger` örneği, hata ayıklama sağlayıcısına `Trace` düzeyi
 
 Her sağlayıcı, tam nitelikli tür adı yerine yapılandırmada kullanılabilecek bir *diğer ad* tanımlar.  Yerleşik sağlayıcılar için aşağıdaki diğer adları kullanın:
 
-* Konsol
+* Console
 * Hata ayıklama
 * EventSource
 * EventLog
@@ -679,7 +683,7 @@ En düşük düzeyi açıkça ayarlamazsanız, varsayılan değer `Information` 
 
 ### <a name="filter-functions"></a>Filtre işlevleri
 
-Configuration veya Code tarafından kendisine atanmış kuralları olmayan tüm sağlayıcılar ve kategoriler için bir filtre işlevi çağırılır. İşlevindeki kodun sağlayıcı türü, kategorisi ve günlük düzeyine erişimi vardır. Örneğin:
+Configuration veya Code tarafından kendisine atanmış kuralları olmayan tüm sağlayıcılar ve kategoriler için bir filtre işlevi çağırılır. İşlevindeki kodun sağlayıcı türü, kategorisi ve günlük düzeyine erişimi vardır. Örnek:
 
 ::: moniker range=">= aspnetcore-3.0"
 
@@ -697,16 +701,16 @@ Configuration veya Code tarafından kendisine atanmış kuralları olmayan tüm 
 
 ASP.NET Core ve Entity Framework Core tarafından kullanılan bazı kategoriler şunlardır ve bunlardan beklenen Günlükler hakkında notlar bulunur:
 
-| Category                            | Notlar |
+| Kategori                            | Notlar |
 | ----------------------------------- | ----- |
-| Microsoft.AspNetCore                | Genel ASP.NET Core tanılama. |
-| Microsoft.AspNetCore.DataProtection | Hangi anahtarların kabul edildiği, bulunduğu ve kullanıldığı. |
-| Microsoft.AspNetCore.HostFiltering  | İzin verilen konaklar. |
-| Microsoft.AspNetCore.Hosting        | HTTP isteklerinin tamamlanması için geçen süre ve ne zaman başladıkları. Hangi barındırma başlangıç derlemeleri yüklendi. |
-| Microsoft.AspNetCore.Mvc            | MVC ve Razor tanılama. Model bağlama, filtre yürütme, derlemeyi görüntüleme, eylem seçimi. |
-| Microsoft.AspNetCore.Routing        | Eşleşen bilgileri yönlendirin. |
+| Microsoft. AspNetCore                | Genel ASP.NET Core tanılama. |
+| Microsoft. AspNetCore. DataProtection | Hangi anahtarların kabul edildiği, bulunduğu ve kullanıldığı. |
+| Microsoft. AspNetCore. HostFiltering  | İzin verilen konaklar. |
+| Microsoft. AspNetCore. Hosting        | HTTP isteklerinin tamamlanması için geçen süre ve ne zaman başladıkları. Hangi barındırma başlangıç derlemeleri yüklendi. |
+| Microsoft. AspNetCore. Mvc            | MVC ve Razor tanılama. Model bağlama, filtre yürütme, derlemeyi görüntüleme, eylem seçimi. |
+| Microsoft. AspNetCore. Routing        | Eşleşen bilgileri yönlendirin. |
 | Microsoft. AspNetCore. Server         | Bağlantı başlatın, durdurun ve canlı yanıtları koruyun. HTTPS sertifika bilgileri. |
-| Microsoft.AspNetCore.StaticFiles    | Sunulan dosyalar. |
+| Microsoft. AspNetCore. StaticFiles    | Sunulan dosyalar. |
 | Microsoft. EntityFrameworkCore       | Genel Entity Framework Core tanılama. Veritabanı etkinliği ve yapılandırması, değişiklik algılama, geçişler. |
 
 ## <a name="log-scopes"></a>Günlük kapsamları
