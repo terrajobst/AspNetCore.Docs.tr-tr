@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/08/2019
 uid: fundamentals/middleware/index
-ms.openlocfilehash: 5d02e1eb37693881d5b1855e1ed163590d8a44d3
-ms.sourcegitcommit: fcdf9aaa6c45c1a926bd870ed8f893bdb4935152
-ms.translationtype: HT
+ms.openlocfilehash: 8f5c3aabf17e78ae9675048602317c54f08e82a7
+ms.sourcegitcommit: 7d3c6565dda6241eb13f9a8e1e1fd89b1cfe4d18
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72165303"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72259820"
 ---
 # <a name="aspnet-core-middleware"></a>ASP.NET Core ara yazılımı
 
@@ -57,7 +57,7 @@ Bir temsilci bir sonraki temsilciye bir istek iletmezse, *istek ardışık düze
 >
 > <xref:Microsoft.AspNetCore.Http.HttpResponse.HasStarted*>, üstbilgilerin gönderilip gönderilmediğini veya gövdenin yazıldığını göstermek için faydalı bir ipucu.
 
-## <a name="order"></a>Sipariş verme
+## <a name="order"></a>Sipariş
 
 Ara yazılım bileşenlerinin `Startup.Configure` yönteminde eklendiği sıra, ara yazılım bileşenlerinin isteklerde çağrıldığı sırayı ve yanıtın ters sırasını tanımlar. Sıra, güvenlik, performans ve işlevsellik açısından önemlidir.
 
@@ -154,7 +154,7 @@ public void Configure(IApplicationBuilder app)
 1. Özel durum/hata işleme
    * Uygulama geliştirme ortamında çalıştığında:
      * Geliştirici özel durum sayfası ara yazılımı (<xref:Microsoft.AspNetCore.Builder.DeveloperExceptionPageExtensions.UseDeveloperExceptionPage*>), uygulama çalışma zamanı hatalarını raporlar.
-     * Veritabanı hata sayfası ara yazılımı (<xref:Microsoft.AspNetCore.Builder.DatabaseErrorPageExtensions.UseDatabaseErrorPage*>) veritabanı çalışma zamanı hatalarını raporlar.
+     * Veritabanı hata sayfası ara yazılımı (`Microsoft.AspNetCore.Builder.DatabaseErrorPageExtensions.UseDatabaseErrorPage`) veritabanı çalışma zamanı hatalarını raporlar.
    * Uygulama, üretim ortamında çalıştığında:
      * Özel durum Işleyici ara yazılımı (<xref:Microsoft.AspNetCore.Builder.ExceptionHandlerExtensions.UseExceptionHandler*>) aşağıdaki middlewares oluşturulan özel durumları yakalar.
      * HTTP katı aktarım güvenliği Protokolü (HSTS) ara yazılımı (<xref:Microsoft.AspNetCore.Builder.HstsBuilderExtensions.UseHsts*>) `Strict-Transport-Security` üstbilgisini ekler.
@@ -222,7 +222,7 @@ public void Configure(IApplicationBuilder app)
 
 Aşağıdaki tablo, önceki kodu kullanarak `http://localhost:1234` ' dan gelen istekleri ve yanıtları gösterir.
 
-| İstek             | Yanıt                     |
+| İste             | Yanıt                     |
 | ------------------- | ---------------------------- |
 | localhost: 1234      | Eşleme olmayan temsilciden Merhaba. |
 | localhost: 1234/Map1 | Eşleme testi 1                   |
@@ -237,7 +237,7 @@ Aşağıdaki tablo, önceki kodu kullanarak `http://localhost:1234` ' dan gelen 
 
 Aşağıdaki tablo, önceki kodu kullanarak `http://localhost:1234` ' dan gelen istekleri ve yanıtları gösterir.
 
-| İstek                       | Yanıt                     |
+| İste                       | Yanıt                     |
 | ----------------------------- | ---------------------------- |
 | localhost: 1234                | Eşleme olmayan temsilciden Merhaba. |
 | localhost: 1234/? dalı = ana | Kullanılan dal = ana         |
@@ -263,24 +263,24 @@ app.Map("/level1", level1App => {
 
 ASP.NET Core aşağıdaki ara yazılım bileşenleriyle birlikte gönderilir. *Order* sütunu, istek işleme ardışık düzeninde ara yazılım yerleştirme ve ara yazılımın istek işlemeyi sonlandırabilecekleri koşullar bölümünde notlar sağlar. Bir ara yazılım, istek işlem hattının ne kadar kısa süreli olduğunu ve daha fazla aşağı akış ara yazılımı bir isteği işlemesini engelliyorsa, bu, *Terminal ara yazılımı*olarak adlandırılır. Kısa devre oluşturma hakkında daha fazla bilgi için, [IApplicationBuilder ile bir ara yazılım işlem hattı oluşturma](#create-a-middleware-pipeline-with-iapplicationbuilder) bölümüne bakın.
 
-| Ara yazılım | Açıklama | Sipariş verme |
+| Yazılımlar | Açıklama | Sipariş |
 | ---------- | ----------- | ----- |
-| [Kimlik Doğrulaması](xref:security/authentication/identity) | Kimlik doğrulama desteği sağlar. | @No__t-0 gerekir. OAuth geri çağırmaları için Terminal. |
-| [Tanımlama bilgisi Ilkesi](xref:security/gdpr) | Kişisel bilgileri depolamak için kullanıcılardan onay izler ve `secure` ve `SameSite` gibi tanımlama bilgisi alanları için en düşük standartları uygular. | Tanımlama bilgilerini veren ara yazılım öncesi. Örnekler: Kimlik doğrulama, oturum, MVC (TempData). |
+| [Kimlik doğrulaması](xref:security/authentication/identity) | Kimlik doğrulama desteği sağlar. | @No__t-0 gerekir. OAuth geri çağırmaları için Terminal. |
+| [Tanımlama bilgisi Ilkesi](xref:security/gdpr) | Kişisel bilgileri depolamak için kullanıcılardan onay izler ve `secure` ve `SameSite` gibi tanımlama bilgisi alanları için en düşük standartları uygular. | Tanımlama bilgilerini veren ara yazılım öncesi. Örnekler: Authentication, Session, MVC (TempData). |
 | [CORS](xref:security/cors) | Çıkış noktaları arası kaynak paylaşımını yapılandırır. | CORS kullanan bileşenlerden önce. |
 | [Tanılama](xref:fundamentals/error-handling) | Geliştirici özel durum sayfası, özel durum işleme, durum kodu sayfaları ve yeni uygulamalar için varsayılan Web sayfası sağlayan çeşitli ayrı middlewares. | Hata oluşturan bileşenlerden önce. Özel durumlar için Terminal veya yeni uygulamalar için varsayılan Web sayfasına hizmet sunma. |
 | [İletilen üstbilgiler](xref:host-and-deploy/proxy-load-balancer) | Proxy üst bilgilerini geçerli istek üzerine iletir. | Güncelleştirilmiş alanları kullanan bileşenlerden önce. Örnekler: Scheme, Host, istemci IP, yöntem. |
 | [Sistem durumu denetimi](xref:host-and-deploy/health-checks) | ASP.NET Core uygulamasının sistem durumunu ve bağımlılıklarını denetler (örneğin, veritabanı kullanılabilirliğini denetleme). | Bir istek bir sistem durumu denetimi uç noktasıyla eşleşiyorsa Terminal. |
 | [HTTP yöntemini geçersiz kılma](xref:Microsoft.AspNetCore.Builder.HttpMethodOverrideExtensions) | Gelen POST isteğinin yöntemi geçersiz kılmasına izin verir. | Güncelleştirilmiş yöntemini kullanan bileşenlerden önce. |
 | [HTTPS yönlendirmesi](xref:security/enforcing-ssl#require-https) | Tüm HTTP isteklerini HTTPS 'ye yeniden yönlendirin. | URL 'YI kullanan bileşenlerden önce. |
-| [HTTP katı taşıma güvenliği (HSTS)](xref:security/enforcing-ssl#http-strict-transport-security-protocol-hsts) | Özel bir yanıt üst bilgisi ekleyen güvenlik geliştirme ara yazılımı. | Yanıtlar gönderilmeden önce ve istekleri değiştiren bileşenler. Örnekler: İletilen üstbilgiler, URL yeniden yazma. |
+| [HTTP katı taşıma güvenliği (HSTS)](xref:security/enforcing-ssl#http-strict-transport-security-protocol-hsts) | Özel bir yanıt üst bilgisi ekleyen güvenlik geliştirme ara yazılımı. | Yanıtlar gönderilmeden önce ve istekleri değiştiren bileşenler. Örnekler: Iletilen üstbilgiler, URL yeniden yazma. |
 | [MVC](xref:mvc/overview) | MVC/Razor Pages ile istekleri işler. | Bir istek bir rota ile eşleşiyorsa Terminal. |
-| [OWIN](xref:fundamentals/owin) | OWIN tabanlı uygulamalar, sunucular ve ara yazılım ile birlikte çalışma. | OWıN ara yazılımı isteği tam olarak işliyorsa Terminal. |
-| [Yanıtları Önbelleğe Alma](xref:performance/caching/middleware) | Yanıtları önbelleğe almak için destek sağlar. | Önbelleğe alma gerektiren bileşenlerden önce. |
+| [OWıN](xref:fundamentals/owin) | OWIN tabanlı uygulamalar, sunucular ve ara yazılım ile birlikte çalışma. | OWıN ara yazılımı isteği tam olarak işliyorsa Terminal. |
+| [Yanıt önbelleğe alma](xref:performance/caching/middleware) | Yanıtları önbelleğe almak için destek sağlar. | Önbelleğe alma gerektiren bileşenlerden önce. |
 | [Yanıt sıkıştırması](xref:performance/response-compression) | Yanıtları sıkıştırmak için destek sağlar. | Sıkıştırma gerektiren bileşenlerden önce. |
 | [Yerelleştirme iste](xref:fundamentals/localization) | Yerelleştirme desteği sağlar. | Yerelleştirmenin önemli bileşenlerinden önce. |
 | [Uç nokta yönlendirme](xref:fundamentals/routing) | İstek yollarını tanımlar ve kısıtlar. | Eşleşen yolların terminali. |
-| [Oturumu](xref:fundamentals/app-state) | Kullanıcı oturumlarını yönetmek için destek sağlar. | Oturum gerektiren bileşenlerden önce. |
+| [Oturumuna](xref:fundamentals/app-state) | Kullanıcı oturumlarını yönetmek için destek sağlar. | Oturum gerektiren bileşenlerden önce. |
 | [Statik dosyalar](xref:fundamentals/static-files) | Statik dosyaları ve dizin taramayı sunma desteği sağlar. | Bir istek bir dosyayla eşleşiyorsa Terminal. |
 | [URL yeniden yazma](xref:fundamentals/url-rewriting) | URL 'Leri yeniden yazma ve istekleri yeniden yönlendirme desteği sağlar. | URL 'YI kullanan bileşenlerden önce. |
 | [WebSockets](xref:fundamentals/websockets) | WebSockets protokolünü etkinleştirilir. | WebSocket isteklerini kabul etmek için gereken bileşenlerden önce. |

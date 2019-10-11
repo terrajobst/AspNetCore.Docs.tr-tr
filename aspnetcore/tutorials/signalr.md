@@ -7,19 +7,19 @@ ms.author: bradyg
 ms.custom: mvc
 ms.date: 10/03/2019
 uid: tutorials/signalr
-ms.openlocfilehash: 843416cf00c9241f8c05b1aba041ebbe7a05cf80
-ms.sourcegitcommit: 73a451e9a58ac7102f90b608d661d8c23dd9bbaf
-ms.translationtype: HT
+ms.openlocfilehash: 312bde7a5fee5d3af7abc38727024605f916c0d4
+ms.sourcegitcommit: 7d3c6565dda6241eb13f9a8e1e1fd89b1cfe4d18
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72037636"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72259648"
 ---
 # <a name="tutorial-get-started-with-aspnet-core-signalr"></a>Öğretici: ASP.NET Core SignalR ile çalışmaya başlama
 
 Bu öğreticide, SignalR kullanarak gerçek zamanlı bir uygulama oluşturmanın temelleri öğretilir. Aşağıdakileri nasıl yapacağınızı öğrenirsiniz:
 
 > [!div class="checklist"]
-> * Web projesi oluşturun.
+> * Bir Web projesi oluşturun.
 > * SignalR istemci kitaplığını ekleyin.
 > * Bir SignalR hub 'ı oluşturun.
 > * Projeyi SignalR kullanacak şekilde yapılandırın.
@@ -115,7 +115,7 @@ SignalR sunucu kitaplığı ASP.NET Core 3,0 paylaşılan çerçevesine dahildir
 * LibMan kullanarak SignalR istemci kitaplığını almak için aşağıdaki komutu çalıştırın. Çıktıyı görmeden önce birkaç saniye beklemeniz gerekebilir.
 
   ```console
-  libman install @microsoft/signalr@latest -p unpkg -d wwwroot/lib/signalr --files dist/browser/signalr.js --files dist/browser/signalr.min.js
+  libman install @microsoft/signalr@latest -p unpkg -d wwwroot/js/signalr --files dist/browser/signalr.js --files dist/browser/signalr.min.js
   ```
 
   Parametreler aşağıdaki seçenekleri belirtir:
@@ -192,7 +192,7 @@ SignalR isteklerini SignalR 'ye iletmek için SignalR sunucusunun yapılandırı
 
   [!code-cshtml[Index](signalr/sample-snapshot/3.x/Index.cshtml)]
 
-  Yukarıdaki kod:
+  Önceki kod:
 
   * Ad ve ileti metni ve Gönder düğmesi için metin kutuları oluşturur.
   * SignalR hub 'ından alınan iletileri görüntülemek için `id="messagesList"` içeren bir liste oluşturur.
@@ -202,7 +202,7 @@ SignalR isteklerini SignalR 'ye iletmek için SignalR sunucusunun yapılandırı
 
   [!code-javascript[chat](signalr/sample-snapshot/3.x/chat.js)]
 
-  Yukarıdaki kod:
+  Önceki kod:
 
   * Bir bağlantı oluşturur ve başlatır.
   * , Hub 'a ileti gönderen bir işleyiciye Gönder düğmesine ekler.

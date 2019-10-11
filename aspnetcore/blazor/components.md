@@ -7,18 +7,18 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/05/2019
 uid: blazor/components
-ms.openlocfilehash: 438b3802087e2ac3df4cbe69a700b878c1cbbf63
-ms.sourcegitcommit: 73a451e9a58ac7102f90b608d661d8c23dd9bbaf
-ms.translationtype: HT
+ms.openlocfilehash: 3e0966bf978c99fc00db7682bea3292306cbb03c
+ms.sourcegitcommit: d81912782a8b0bd164f30a516ad80f8defb5d020
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72037426"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72179032"
 ---
 # <a name="create-and-use-aspnet-core-razor-components"></a>ASP.NET Core Razor bileşenleri oluşturma ve kullanma
 
 , [Luke Latham](https://github.com/guardrex) ve [Daniel Roth](https://github.com/danroth27) tarafından
 
-[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/blazor/common/samples/) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
+[Örnek kodu görüntüleme veya indirme](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/blazor/common/samples/) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
 
 Blazor uygulamaları, *bileşenleri*kullanılarak oluşturulmuştur. Bir bileşen, bir sayfa, iletişim veya form gibi bir kullanıcı arabirimi (UI) öbekidir. Bir bileşen, veri eklemek veya UI olaylarına yanıt vermek için gereken HTML işaretlemesini ve işleme mantığını içerir. Bileşenler esnek ve hafif. Bunlar, iç içe geçmiş, yeniden kullanılabilir ve projeler arasında paylaşılabilir.
 
@@ -194,30 +194,42 @@ Rastgele öznitelikleri kabul etmek için, `CaptureUnmatchedValues` özelliği `
 
 ## <a name="data-binding"></a>Veri bağlama
 
-Hem bileşenlere hem de DOM öğelerine veri bağlama [@bind](xref:mvc/views/razor#bind) özniteliğiyle gerçekleştirilir. Aşağıdaki örnekte `_italicsCheck` alanı onay kutusunun işaretli durumuna bağlanır:
+Hem bileşenlere hem de DOM öğelerine veri bağlama [@bind](xref:mvc/views/razor#bind) özniteliğiyle gerçekleştirilir. Aşağıdaki örnek bir `CurrentValue` özelliğini metin kutusu değerine bağlar:
 
 ```cshtml
-<input type="checkbox" class="form-check-input" id="italicsCheck" 
-    @bind="_italicsCheck" />
+<input @bind="CurrentValue" />
+
+@code {
+    private string CurrentValue { get; set; }
+}
 ```
 
-Onay kutusu seçildiğinde ve kaldırıldığında, özelliğin değeri sırasıyla `true` ve `false` olarak güncelleştirilir.
+Metin kutusu odağı kaybettiğinde, özelliğin değeri güncellenir.
 
-Onay kutusu kullanıcı arabiriminde, özelliğin değerini değiştirme yanıt olarak değil, yalnızca bileşen işlendiğinde güncelleştirilir. Bileşenler olay işleyicisi kodu yürütüldükten sonra kendilerini oluşturduğundan, özellik güncelleştirmeleri genellikle kullanıcı arabirimine hemen yansıtılır.
+Metin kutusu kullanıcı arabiriminde, özelliğin değerini değiştirme yanıt olarak değil, yalnızca bileşen işlendiğinde güncelleştirilir. Bileşenler olay işleyicisi kodu yürütüldükten sonra kendilerini oluşturduğundan, özellik güncelleştirmeleri *genellikle* olay işleyicisi tetiklendikten hemen sonra Kullanıcı arabirimine yansıtılır.
 
-@No__t-1 özelliği (`<input @bind="CurrentValue" />`) ile `@bind` kullanmak, temelde aşağıdakilere eşdeğerdir:
+@No__t-0 ' i `CurrentValue` özelliği (`<input @bind="CurrentValue" />`) ile kullanmak, temelde aşağıdakilere eşdeğerdir:
 
 ```cshtml
 <input value="@CurrentValue"
-    @onchange="@((ChangeEventArgs __e) => CurrentValue = __e.Value)" />
+    @onchange="@((ChangeEventArgs __e) => CurrentValue = 
+        __e.Value.ToString())" />
+        
+@code {
+    private string CurrentValue { get; set; }
+}
 ```
 
-Bileşen işlendiğinde, giriş öğesinin `value` ' ı `CurrentValue` özelliğinden gelir. Kullanıcı metin kutusunda yazdığında, `onchange` olayı tetiklenir ve `CurrentValue` özelliği değiştirilen değere ayarlanır. @No__t-0, tür dönüştürmelerin gerçekleştirildiği birkaç durumu işlediği için, gerçekte kod oluşturma biraz daha karmaşıktır. İlke ' de, `@bind` bir ifadenin geçerli değerini bir `value` özniteliğiyle ilişkilendirir ve kayıtlı işleyiciyi kullanarak değişiklikleri işler.
+Bileşen işlendiğinde, giriş öğesinin `value` ' ı `CurrentValue` özelliğinden gelir. Kullanıcı metin kutusuna yazdığında ve öğe odağını değiştirdiğinde, `onchange` olayı tetiklenir ve `CurrentValue` özelliği değiştirilen değere ayarlanır. @No__t-0 tür dönüştürmelerin gerçekleştirildiği durumları işlediği için, gerçekte kod oluşturma daha karmaşıktır. İlke ' de, `@bind` bir ifadenin geçerli değerini bir `value` özniteliğiyle ilişkilendirir ve kayıtlı işleyiciyi kullanarak değişiklikleri işler.
 
 @No__t-1 sözdizimiyle `onchange` olaylarını işlemenin yanı sıra, bir özellik veya alan, `event` parametresiyle bir [@bind-value](xref:mvc/views/razor#bind) özniteliği belirterek diğer olaylar kullanılarak da bağlanabilir ([@bind-value:event](xref:mvc/views/razor#bind)). Aşağıdaki örnek, `CurrentValue` özelliğini `oninput` olayı için bağlar:
 
 ```cshtml
 <input @bind-value="CurrentValue" @bind-value:event="oninput" />
+
+@code {
+    private string CurrentValue { get; set; }
+}
 ```
 
 @No__t-0 ' dan farklı olarak, öğe odağı kaybettiğinde harekete geçirilir `oninput`, metin kutusunun değeri değiştiğinde harekete geçirilir.
@@ -250,7 +262,7 @@ Varsayılan olarak, bağlama öğenin `onchange` olayına uygulanır (`@bind="{P
   * Kullanıcının, ilişkili `EditContext` ' da geçersiz giriş sağlamasına ve doğrulama hataları almasına izin verin.
   * Kullanıcı ek WebForm verisi girmeye uğramadan doğrulama hatalarını Kullanıcı ARABIRIMINDE görüntüleyin.
 
-**Genelleştirme**
+**Sel**
 
 `@bind` değerleri, geçerli kültürün kuralları kullanılarak görüntülenmek üzere biçimlendirilir ve ayrıştırılır.
 
@@ -444,17 +456,17 @@ Desteklenen `EventArgs` aşağıdaki tabloda gösterilmiştir.
 
 | Olay | Sınıf |
 | ----- | ----- |
-| Pano        | `ClipboardEventArgs` |
-| Sürükle             | `DragEventArgs` &ndash; `DataTransfer` ve @no__t 3 saklama öğe verilerini sürüklemiş. |
+| Yapıştırır        | `ClipboardEventArgs` |
+| Sürükleyin             | `DragEventArgs` &ndash; `DataTransfer` ve @no__t 3 saklama öğe verilerini sürüklemiş. |
 | Hata            | `ErrorEventArgs` |
-| Çı            | `FocusEventArgs` &ndash; `relatedTarget` desteğini içermez. |
+| Odaklanma            | `FocusEventArgs` &ndash; `relatedTarget` desteğini içermez. |
 | `<input>` değişiklik | `ChangeEventArgs` |
-| Klavye         | `KeyboardEventArgs` |
+| Klavyenizdeki         | `KeyboardEventArgs` |
 | Tığında            | `MouseEventArgs` |
 | Fare işaretçisi    | `PointerEventArgs` |
 | Fare tekerleği      | `WheelEventArgs` |
-| İlerleme durumu         | `ProgressEventArgs` |
-| Dokunma            | `TouchEventArgs` &ndash; `TouchPoint`, dokunmaya duyarlı bir cihazdaki tek bir iletişim noktasını temsil eder. |
+| Lemesine         | `ProgressEventArgs` |
+| Gerekiyorsa            | `TouchEventArgs` &ndash; `TouchPoint`, dokunmaya duyarlı bir cihazdaki tek bir iletişim noktasını temsil eder. |
 
 Önceki tablodaki olayların özellikleri ve olay işleme davranışı hakkında bilgi için bkz. [başvuru kaynağında EventArgs sınıfları (ASPNET/AspNetCore Release/3.0 dalı)](https://github.com/aspnet/AspNetCore/tree/release/3.0/src/Components/Web/src/Web).
 
@@ -748,7 +760,7 @@ Yukarıdaki örnekte, `NotifierService` bileşenin `OnNotify` yöntemini Blazor 
 
 Bir öğe veya bileşen listesi işlenirken ve öğeler ya da bileşenler daha sonra değiştiğinde, Blazor 'in yayılma algoritması, önceki öğelerin veya bileşenlerin ne zaman tutulacağına ve model nesnelerinin bunlara nasıl eşleneceğine karar vermelidir. Normalde, bu işlem otomatiktir ve yoksayılabilir, ancak işlemi denetlemek isteyebileceğiniz durumlar vardır.
 
-Aşağıdaki örnek göz önünde bulundurun:
+Aşağıdaki örneği göz önünde bulundurun:
 
 ```csharp
 @foreach (var person in People)
@@ -1282,7 +1294,7 @@ Basamaklı parametreler, bileşenlerin bileşen hiyerarşisinde işbirliği yapm
 
 [!code-cshtml[](common/samples/3.x/BlazorSample/Pages/CascadingValuesParametersTabSet.razor?name=snippet_TabSet)]
 
-Alt `Tab` bileşenleri, `TabSet` ' e açıkça parametre olarak geçirilmemektedir. Bunun yerine, alt `Tab` bileşenleri, `TabSet` ' in alt içeriğinin bir parçasıdır. Ancak, `TabSet` ' ın, üst bilgileri ve etkin sekmeyi işleyebilmesi için her bir `Tab` bileşeni hakkında hala bilmeleri gerekir. Ek kod gerektirmeden bu koordinasyonu etkinleştirmek için `TabSet` bileşeni, kendisini daha sonra alt `Tab` bileşenleri tarafından çekilen *basamaklı bir değer olarak sağlayabilir* .
+Alt `Tab` bileşenleri, `TabSet` ' e açıkça parametre olarak geçirilmemektedir. Bunun yerine, alt `Tab` bileşenleri, `TabSet` ' in alt içeriğinin bir parçasıdır. Ancak, `TabSet` ' ın, üst bilgileri ve etkin sekmeyi işleyebilmesi için her bir `Tab` bileşeni hakkında hala bilmeleri gerekir. Ek kod gerektirmeden bu koordinasyonu etkinleştirmek için, `TabSet` bileşeni, kendisini alt `Tab` bileşenleri tarafından çekilen *basamaklı bir değer olarak sağlayabilir* .
 
 `TabSet` bileşeni:
 
@@ -1417,16 +1429,16 @@ builder.AddContent(1, "Second");
 
 Kod ilk kez yürütüldüğünde, `someFlag` `true` ise, Oluşturucu şunları alır:
 
-| Dizisi | Type      | Data   |
+| Sırasına | Tür      | Veriler   |
 | :------: | --------- | :----: |
-| 0        | Metin düğümü | Adı  |
-| 1\.        | Metin düğümü | Saniye |
+| 0        | Metin düğümü | İlk  |
+| 1        | Metin düğümü | Saniye |
 
 @No__t-0 `false` ' in olduğunu düşünün ve biçimlendirme yeniden işlenir. Bu kez, Oluşturucu şunları alır:
 
-| Dizisi | Type       | Data   |
+| Sırasına | Tür       | Veriler   |
 | :------: | ---------- | :----: |
-| 1\.        | Metin düğümü  | Saniye |
+| 1        | Metin düğümü  | Saniye |
 
 Çalışma zamanı bir fark gerçekleştirdiğinde, sırasıyla `0` olan öğenin kaldırıldığını görür, bu nedenle aşağıdaki önemsiz *düzenleme betiğini*oluşturur:
 
@@ -1449,14 +1461,14 @@ builder.AddContent(seq++, "Second");
 
 Şimdi ilk çıktı:
 
-| Dizisi | Type      | Data   |
+| Sırasına | Tür      | Veriler   |
 | :------: | --------- | :----: |
-| 0        | Metin düğümü | Adı  |
-| 1\.        | Metin düğümü | Saniye |
+| 0        | Metin düğümü | İlk  |
+| 1        | Metin düğümü | Saniye |
 
 Bu sonuç önceki bir durum ile aynıdır, bu nedenle olumsuz bir sorun yoktur. `someFlag`, ikinci işlemede `false` ' dir ve çıktı:
 
-| Dizisi | Type      | Data   |
+| Sırasına | Tür      | Veriler   |
 | :------: | --------- | ------ |
 | 0        | Metin düğümü | Saniye |
 
@@ -1483,7 +1495,7 @@ Blazor Server uygulamaları, [Yerelleştirme ara yazılımı](xref:fundamentals/
 
 Kültür aşağıdaki yaklaşımlardan biri kullanılarak ayarlanabilir:
 
-* [Çerezler](#cookies)
+* [Özgü](#cookies)
 * [Kültürü seçmek için Kullanıcı arabirimi sağlama](#provide-ui-to-choose-the-culture)
 
 Daha fazla bilgi ve örnek için bkz. <xref:fundamentals/localization>.
