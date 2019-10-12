@@ -6,12 +6,12 @@ ms.author: riserrad
 ms.custom: mvc
 ms.date: 07/10/2019
 uid: tutorials/publish-to-azure-webapp-using-vscode
-ms.openlocfilehash: a5d92775d6245494c34bfe691d7ade663b2078d5
-ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
+ms.openlocfilehash: 90ba130f13903cd45eca062c0eca8945eff2e0fa
+ms.sourcegitcommit: 7a2c820692f04bfba04398641b70f27fa15391f5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71082401"
+ms.lasthandoff: 10/12/2019
+ms.locfileid: "72290649"
 ---
 # <a name="publish-an-aspnet-core-app-to-azure-with-visual-studio-code"></a>Visual Studio Code ile Azure 'da ASP.NET Core uygulaması yayımlama
 
@@ -19,19 +19,19 @@ ms.locfileid: "71082401"
 
 [!INCLUDE [Azure App Service Preview Notice](../includes/azure-apps-preview-notice.md)]
 
-App Service dağıtım sorun gidermek için bkz: <xref:test/troubleshoot-azure-iis>.
+App Service dağıtım sorununu gidermek için, bkz. <xref:test/troubleshoot-azure-iis>.
 
 ## <a name="intro"></a>Tanıtım
 
 Bu öğreticide, ASP.Net Core MVC uygulaması oluşturmayı ve Visual Studio Code içinde dağıtmayı öğreneceksiniz.
 
-## <a name="set-up"></a>Ayarlama
+## <a name="set-up"></a>Ayarla
 
-- Açık bir [ücretsiz Azure hesabı](https://azure.microsoft.com/free/dotnet/) tane yoksa.
+- Hesabınız yoksa [ücretsiz bir Azure hesabı](https://azure.microsoft.com/free/dotnet/) açın.
 - [.NET Core SDK](https://dotnet.microsoft.com/download) yüklensin
 - [Visual Studio Code](https://code.visualstudio.com/Download) yüklensin
   - Uzantıyı Visual Studio Code yüklemek için [ C# ](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)
-  - [Azure App Service uzantısını](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice) Visual Studio Code için yükleme ve devam etmeden önce yapılandırma
+  - Devam etmeden önce Visual Studio Code [Azure App Service uzantısını](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice) yükleyip yapılandırmak için
 
 ## <a name="create-an-aspnet-core-mvc-project"></a>ASP.Net Core MVC projesi oluşturma
 
@@ -74,14 +74,14 @@ Aşağıdaki komut çalışmazsa, [Bu bağlantıya](https://code.visualstudio.co
 ### <a name="through-visual-studio-code-interface"></a>Visual Studio Code arabirimi aracılığıyla
 
 - Visual Studio Code açın
-- Menüsünde, şunu seçin`File > Open Folder`
+- Menüde `File > Open Folder` ' ı seçin.
 - MVC projesini oluşturduğunuz klasörün kökünü seçin
 
 Proje klasörünü açtığınızda, gerekli varlıkların derleme ve hata ayıklama için eksik olduğunu söyleyen bir ileti alırsınız. Bunları eklemek için yardımı kabul edin.
 
 ![Project yüklü Visual Studio Code arabirimi](publish-to-azure-webapp-using-vscode/_static/folder-structure-restore-netcore.jpg)
 
-Proje `.vscode` yapısı altında bir klasör oluşturulur. Bu, aşağıdaki dosyaları içerir:
+Proje yapısı altında `.vscode` klasörü oluşturulacaktır. Bu, aşağıdaki dosyaları içerir:
 
 ```cmd
 launch.json
@@ -100,14 +100,14 @@ Web uygulamanız, varsayılan tarayıcınızın yeni bir sekmesinde çalışmaya
 
 ![Uygulamanın yerel olarak hata ayıklaması sırasında Gizlilik Uyarısı](publish-to-azure-webapp-using-vscode/_static/run-webapp-https-warning.jpg)
 
-Hata ayıklama oturumunu tutmak için ve ardından `Advanced` ' a `Continue to localhost (unsafe)`tıklayın.
+Hata ayıklama oturumunu tutmak için `Advanced` ' a ve sonra da `Continue to localhost (unsafe)` ' e tıklayın.
 
 ## <a name="generate-the-deployment-package-locally"></a>Dağıtım paketini yerel olarak oluşturma
 
 - Visual Studio Code terminali aç
-- `Release` Adlı`publish`bir alt klasöre paket oluşturmak için aşağıdaki komutu kullanın:
+- @No__t-1 adlı bir alt klasöre `Release` paketi oluşturmak için aşağıdaki komutu kullanın:
   - `dotnet publish -c Release -o ./publish`
-- Proje yapısı `publish` altında yeni bir klasör oluşturulacak
+- Proje yapısı altında yeni bir `publish` klasörü oluşturulacak
 
 ![Klasör yapısını Yayımla](publish-to-azure-webapp-using-vscode/_static/publish-folder.jpg)
 
@@ -117,27 +117,27 @@ Visual Studio Code Azure App Service uzantısı 'ndan yararlanarak, Web sitesini
 
 ### <a name="if-youre-creating-a-new-web-app"></a>Yeni bir Web uygulaması oluşturuyorsanız
 
-- `publish` Klasöre sağ tıklayın ve şunları seçin`Deploy to Web App...`
+- @No__t-0 klasörüne sağ tıklayın ve `Deploy to Web App...` ' i seçin
 - Web uygulaması oluşturmak istediğiniz aboneliği seçin
-- Seçin`Create New Web App`
+- @No__t seçin-0
 - Web uygulaması için bir ad girin
 
-Uzantı yeni Web uygulamasını oluşturur ve paketin otomatik olarak dağıtıma başlamasını sağlar. Dağıtım tamamlandıktan sonra, dağıtımı doğrulamak için `Browse Website` öğesine tıklayın.
+Uzantı yeni Web uygulamasını oluşturur ve paketin otomatik olarak dağıtıma başlamasını sağlar. Dağıtım tamamlandıktan sonra, dağıtımı doğrulamak için `Browse Website` ' a tıklayın.
 
 ![Dağıtım başarılı iletisi](publish-to-azure-webapp-using-vscode/_static/deployment-succeeded-message.jpg)
 
-' A tıkladığınızda `Browse Website`, varsayılan tarayıcınızı kullanarak bu sayfaya gidebilirsiniz:
+@No__t-0 ' a tıkladığınızda varsayılan tarayıcınızı kullanarak bu sayfaya gidebilirsiniz:
 
 ![Yeni Web uygulaması başarıyla dağıtıldı](publish-to-azure-webapp-using-vscode/_static/new-webapp-deployed.jpg)
 
 ### <a name="if-youre-deploying-to-an-existing-web-app"></a>Var olan bir Web uygulamasına dağıtım yapıyorsanız
 
-- `publish` Klasöre sağ tıklayın ve şunları seçin`Deploy to Web App...`
+- @No__t-0 klasörüne sağ tıklayın ve `Deploy to Web App...` ' i seçin
 - Mevcut Web uygulamasının bulunduğu aboneliği seçin
 - Listeden Web uygulamasını seçin
-- Visual Studio Code, var olan içeriğin üzerine yazmak isteyip istemediğinizi sorar. Onaylamak `Deploy` için tıklayın
+- Visual Studio Code, var olan içeriğin üzerine yazmak isteyip istemediğinizi sorar. Onaylamak için `Deploy` ' a tıklayın
 
-Uzantı, güncelleştirilmiş içeriği Web uygulamasına dağıtacaktır. Tamamlandıktan sonra, dağıtımı doğrulamak için `Browse Website` öğesine tıklayın.
+Uzantı, güncelleştirilmiş içeriği Web uygulamasına dağıtacaktır. Tamamlandıktan sonra, dağıtımı doğrulamak için `Browse Website` ' a tıklayın.
 
 ![Mevcut Web uygulaması başarıyla dağıtıldı](publish-to-azure-webapp-using-vscode/_static/existing-webapp-deployed.jpg)
 
@@ -147,5 +147,5 @@ Uzantı, güncelleştirilmiş içeriği Web uygulamasına dağıtacaktır. Tamam
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-- [Azure uygulama hizmeti](/azure/app-service/app-service-web-overview)
-- [Azure kaynak grupları](/azure/azure-resource-manager/resource-group-overview#resource-groups)
+- [Azure App Service](/azure/app-service/app-service-web-overview)
+- [Azure Kaynak grupları](/azure/azure-resource-manager/resource-group-overview#resource-groups)
