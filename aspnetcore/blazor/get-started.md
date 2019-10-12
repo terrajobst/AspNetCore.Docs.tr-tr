@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 09/25/2019
 uid: blazor/get-started
-ms.openlocfilehash: 5aec91eff7de0732a47fec1aafa5e094c89c37a4
-ms.sourcegitcommit: 14b25156e34c82ed0495b4aff5776ac5b1950b5e
+ms.openlocfilehash: ef9113dbfdbbd5920c4358cdac0c77c60f40b7c8
+ms.sourcegitcommit: 020c3760492efed71b19e476f25392dda5dd7388
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71295443"
+ms.lasthandoff: 10/12/2019
+ms.locfileid: "72288804"
 ---
 # <a name="get-started-with-aspnet-core-blazor"></a>ASP.NET Core Blazor kullanmaya başlama
 
@@ -36,13 +36,13 @@ Blazor kullanmaya başlama:
 
    1 \. **ASP.net ve Web geliştirme** iş yüküyle en son [Visual Studio 'yu](https://visualstudio.com/vs/) yükler.
 
-   2 \. Yeni bir proje oluşturun.
+   2 \. Yeni bir proje oluşturma.
 
    3 \. **Blazor uygulamasını**seçin. **İleri**’yi seçin.
 
-   4 \. **Proje adı** alanında bir proje adı girin veya varsayılan proje adını kabul edin. **Konum** girişinin doğru olduğunu onaylayın veya proje için bir konum belirtin. **Oluştur**’u seçin.
+   4 \. **Proje adı** alanında bir proje adı girin veya varsayılan proje adını kabul edin. **Konum** girişinin doğru olduğunu onaylayın veya proje için bir konum belirtin. **Oluştur**'u seçin.
 
-   5 \. Blazor WebAssembly deneyimi için **Blazor Webassembly uygulama** şablonunu seçin. Blazor sunucu deneyimi için **Blazor Server uygulama** şablonunu seçin. **Oluştur**’u seçin. İki Blazor barındırma modeli, *Blazor Server* ve *Blazor webassembly*hakkında bilgi için bkz <xref:blazor/hosting-models>.
+   5 \. Blazor WebAssembly deneyimi için **Blazor Webassembly uygulama** şablonunu seçin. Blazor sunucu deneyimi için **Blazor Server uygulama** şablonunu seçin. **Oluştur**'u seçin. İki Blazor barındırma modeli, *Blazor Server* ve *Blazor webassembly*hakkında daha fazla bilgi için bkz. <xref:blazor/hosting-models>.
 
    6 \. Uygulamayı çalıştırmak için **F5** tuşuna basın.
 
@@ -67,15 +67,15 @@ Blazor kullanmaya başlama:
       dotnet new blazorserver -o WebApplication1
       ```
 
-      İki Blazor barındırma modeli, *Blazor Server* ve *Blazor webassembly*hakkında bilgi için bkz <xref:blazor/hosting-models>.
+      İki Blazor barındırma modeli, *Blazor Server* ve *Blazor webassembly*hakkında daha fazla bilgi için bkz. <xref:blazor/hosting-models>.
 
    4 \. Visual Studio Code 'de *WebApplication1* klasörünü açın.
 
    5 \. Bir Blazor Server projesi için IDE, projeyi derlemek ve hatalarını ayıklamak için varlık eklemenizi ister. **Evet**' i seçin.
 
-   6 \. Bir Blazor Server uygulaması kullanıyorsanız, Visual Studio Code hata ayıklayıcıyı kullanarak uygulamayı çalıştırın. Blazor webassembly uygulaması kullanılıyorsa, uygulamanın proje klasöründen `dotnet run` yürütün.
+   6 \. Bir Blazor Server uygulaması kullanıyorsanız, Visual Studio Code hata ayıklayıcıyı kullanarak uygulamayı çalıştırın. Blazor WebAssembly uygulaması kullanılıyorsa, uygulamanın proje klasöründen `dotnet run` yürütün.
 
-   7 \. Bir tarayıcıda öğesine `https://localhost:5001`gidin.
+   7 \. Bir tarayıcıda `https://localhost:5001` ' a gidin.
 
    <!--
 
@@ -115,59 +115,59 @@ Blazor kullanmaya başlama:
    dotnet run
    ```
 
-   İki Blazor barındırma modeli, *Blazor Server* ve *Blazor webassembly*hakkında bilgi için bkz <xref:blazor/hosting-models>.
+   İki Blazor barındırma modeli, *Blazor Server* ve *Blazor webassembly*hakkında daha fazla bilgi için bkz. <xref:blazor/hosting-models>.
 
-   Bir tarayıcıda öğesine `https://localhost:5001`gidin.
+   Bir tarayıcıda `https://localhost:5001` ' a gidin.
 
    ---
 
 Kenar çubuğu 'ndaki sekmelerde birden çok sayfa mevcuttur:
 
-* Ana Sayfası
+* Ana Sayfa
 * Sayaç
 * Verileri getir
 
-Sayaç sayfasında, bir sayfa yenilemesi olmadan sayacı artırmak için **bana tıklama** düğmesini seçin. Bir Web sayfasında normal olarak bir sayacı artırma, JavaScript yazmayı gerektirir, ancak Razor bileşenleri kullanarak C#daha iyi bir yaklaşım sağlar.
+Sayaç sayfasında, bir sayfa yenilemesi olmadan sayacı artırmak için **bana tıklama** düğmesini seçin. Bir Web sayfasındaki sayacı normal şekilde artırma, JavaScript yazma gerektirir, ancak Blazor ile kullanabilirsiniz C#.
 
 *Pages/Counter. Razor*:
 
 [!code-cshtml[](get-started/samples_snapshot/3.x/Counter1.razor?highlight=7,12-15)]
 
-En üstteki `/counter` `@page` yönergeyle belirtilen şekilde tarayıcıda için bir istek, `Counter` bileşenin içeriğini işlemesine neden olur. Bileşenler, daha sonra, Kullanıcı arabirimini esnek ve verimli bir şekilde güncelleştirmek için kullanılabilen işleme ağacının bellek içi gösterimine işlenir.
+En üstteki `@page` yönergesinde belirtilen şekilde tarayıcıda `/counter` için bir istek, `Counter` bileşeninin içeriğini işlemesine neden olur. Bileşenler, daha sonra, Kullanıcı arabirimini esnek ve verimli bir şekilde güncelleştirmek için kullanılabilen işleme ağacının bellek içi gösterimine işlenir.
 
 **Bana tıklama** düğmesi her seçildiğinde:
 
-* `onclick` Olay tetiklenir.
-* `IncrementCount` Yöntemi çağrılır.
-* `currentCount` Artırılır.
+* @No__t-0 olayı tetiklenir.
+* @No__t-0 yöntemi çağrılır.
+* @No__t-0 artırılır.
 * Bileşen yeniden işlenir.
 
 Çalışma zamanı, yeni içeriği önceki içerikle karşılaştırır ve yalnızca değiştirilen içeriği Belge Nesne Modeli (DOM) öğesine uygular.
 
-HTML sözdizimini kullanarak başka bir bileşene bileşen ekleyin. Örneğin, bileşene bir `Counter` `<Counter />` öğe `Index` ekleyerek bileşeni uygulamanın giriş sayfasına ekleyin.
+HTML sözdizimini kullanarak başka bir bileşene bileşen ekleyin. Örneğin, `Index` bileşenine bir `<Counter />` öğesi ekleyerek uygulamanın giriş sayfasına `Counter` bileşenini ekleyin.
 
 *Pages/Index. Razor*:
 
 [!code-cshtml[](get-started/samples_snapshot/3.x/Index1.razor?highlight=7)]
 
-Uygulamayı çalıştırın. Giriş sayfası, `Counter` bileşen tarafından sağlanmış kendi sayacıdır.
+Uygulamayı çalıştırın. Giriş sayfasının `Counter` bileşeni tarafından sağlanmış kendi sayacı vardır.
 
-Bileşen parametreleri, alt bileşende özellikler ayarlamanıza olanak tanıyan öznitelikler veya [alt içerik](xref:blazor/components#child-content)kullanılarak belirtilir. `Counter` Bileşene bir parametre eklemek için `@code` bileşenin bloğunu güncelleştirin:
+Bileşen parametreleri, alt bileşende özellikler ayarlamanıza olanak tanıyan öznitelikler veya [alt içerik](xref:blazor/components#child-content)kullanılarak belirtilir. @No__t-0 bileşenine bir parametre eklemek için, bileşenin `@code` bloğunu güncelleştirin:
 
-* Özniteliği ile için `IncrementAmount` bir public özelliği ekleyin. `[Parameter]`
-* Değerini değerini `IncrementAmount`artırdığınızda kullanmak için `IncrementCount` yöntemini değiştirin `currentCount`.
+* @No__t-1 özniteliğiyle `IncrementAmount` için ortak özellik ekleyin.
+* @No__t-0 yöntemini `currentCount` değerini artırdığınızda `IncrementAmount` ' i kullanacak şekilde değiştirin.
 
 *Pages/Counter. Razor*:
 
 [!code-cshtml[](get-started/samples_snapshot/3.x/Counter2.razor?highlight=12-13,17)]
 
-Özniteliği kullanarak bileşenin`<Counter>`öğesindeöğesinibelirtin. `Index` `IncrementAmount`
+Bir özniteliği kullanarak `Index` bileşeninin `<Counter>` öğesinde `IncrementAmount` belirtin.
 
 *Pages/Index. Razor*:
 
 [!code-cshtml[](get-started/samples_snapshot/3.x/Index2.razor?highlight=7)]
 
-Uygulamayı çalıştırın. Bileşenin, bana tıklama düğmesi seçildiğinde her seferinde on ile artan kendi sayacı vardır. `Index` ' `Counter` De`/counter` bileşen (*Counter. Razor*), bir tane tarafından arttırmaya devam eder.
+Uygulamayı çalıştırın. @No__t-0 bileşeni, **bana tıklama** düğmesi seçildiğinde her seferinde on ile artan kendi sayacıdır. @No__t-2 ' deki `Counter` bileşeni (*Counter. Razor*) bir artış ile devam eder.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

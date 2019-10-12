@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.date: 09/26/2019
 uid: performance/performance-best-practices
-ms.openlocfilehash: a2952f5234cdef7f749a1af8dd4adcb887290629
-ms.sourcegitcommit: 7d3c6565dda6241eb13f9a8e1e1fd89b1cfe4d18
+ms.openlocfilehash: 3484a0233a0d56811235192c4b64aa9296e72b58
+ms.sourcegitcommit: 020c3760492efed71b19e476f25392dda5dd7388
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72259779"
+ms.lasthandoff: 10/12/2019
+ms.locfileid: "72289075"
 ---
 # <a name="aspnet-core-performance-best-practices"></a>ASP.NET Core performans En Iyi yöntemleri
 
@@ -179,10 +179,7 @@ Yukarıdaki kod, HTTP istek gövdesinin tamamını belleğe zaman uyumsuz olarak
 
 [!code-csharp[](performance-best-practices/samples/3.0/Controllers/MyFirstController.cs?name=snippet3)]
 
-Yukarıdaki kod, HTTP istek gövdesinin tamamını belleğe zaman uyumsuz olarak okur.
-
-> [!WARNING]
-> İstek büyükse HTTP istek gövdesinin tamamını belleğe okumak bellek yetersiz (OOM) koşuluna yol açabilir. OOM, hizmet reddine neden olabilir.  Daha fazla bilgi için, bu belgedeki [büyük istek gövdelerini veya Yanıt gövdelerinin belleğe okunmasını önleyin](#arlb) .
+Yukarıdaki kod, istek gövdesini bir C# nesneye zaman uyumsuz olarak serileştirir.
 
 ## <a name="prefer-readformasync-over-requestform"></a>Istek üzerinde ReadFormAsync tercih et. form
 
@@ -267,7 +264,7 @@ Bunu **yapın:** Aşağıdaki örnek üç paralel istek yapar ve giden HTTP iste
 
 `HttpContext` yalnızca, ASP.NET Core ardışık düzeninde etkin bir HTTP isteği olduğu sürece geçerlidir. Tüm ASP.NET Core işlem hattı, her isteği yürüten zaman uyumsuz temsilciler zinciridir. Bu zincirden döndürülen `Task` tamamlandığında, `HttpContext` geri dönüştürülür.
 
-Bunu **yapın:** Aşağıdaki örnek `async void` kullanır:
+Bunu **yapın:** Aşağıdaki örnekte, ilk @no__t 2 ' ye ulaşıldığında HTTP isteğinin tamamlanmasını sağlayan `async void` kullanılmaktadır:
 
 * ASP.NET Core uygulamalarda bu **her zaman** hatalı bir uygulamadır.
 * HTTP isteği tamamlandıktan sonra `HttpResponse` ' a erişir.

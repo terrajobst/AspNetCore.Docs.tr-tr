@@ -1,27 +1,27 @@
 ---
-title: ASP.NET core'da erişim HttpContext
+title: ASP.NET Core 'de HttpContext 'e erişme
 author: coderandhiker
-description: ASP.NET core'da HttpContext erişmeyi öğrenin.
+description: ASP.NET Core ' de HttpContext 'e erişme hakkında bilgi edinin.
 ms.author: riande
 ms.custom: mvc
-ms.date: 07/27/2018
+ms.date: 10/11/2018
 uid: fundamentals/httpcontext
-ms.openlocfilehash: 373c036e0839ce51259e23f8503fbe4691b48751
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 888adf6d61e6968127385952e65f942e86b7eb63
+ms.sourcegitcommit: 020c3760492efed71b19e476f25392dda5dd7388
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64900455"
+ms.lasthandoff: 10/12/2019
+ms.locfileid: "72288972"
 ---
-# <a name="access-httpcontext-in-aspnet-core"></a>ASP.NET core'da erişim HttpContext
+# <a name="access-httpcontext-in-aspnet-core"></a>ASP.NET Core 'de HttpContext 'e erişme
 
-ASP.NET Core uygulamaları erişim `HttpContext` aracılığıyla [IHttpContextAccessor](/dotnet/api/microsoft.aspnetcore.http.ihttpcontextaccessor) arabirimi ile varsayılan uygulaması [HttpContextAccessor](/dotnet/api/microsoft.aspnetcore.http.httpcontextaccessor). Yalnızca kullanmak gerekli olan `IHttpContextAccessor` erişim gerektiğinde `HttpContext` bir hizmeti içinde.
+ASP.NET Core uygulamalar [ıhttpcontextaccessor](/dotnet/api/microsoft.aspnetcore.http.ihttpcontextaccessor) arabirimi ve varsayılan uygulama [httpcontextaccessor](/dotnet/api/microsoft.aspnetcore.http.httpcontextaccessor)aracılığıyla `HttpContext` ' a erişir. Yalnızca bir hizmet içindeki `HttpContext` ' e erişmeniz gerektiğinde `IHttpContextAccessor` kullanılması gerekir.
 
 ::: moniker range=">= aspnetcore-2.0"
 
-## <a name="use-httpcontext-from-razor-pages"></a>Razor sayfaları'ndan HttpContext kullanın
+## <a name="use-httpcontext-from-razor-pages"></a>Razor Pages HttpContext kullanın
 
-Razor sayfaları [PageModel](/dotnet/api/microsoft.aspnetcore.mvc.razorpages.pagemodel) sunan [HttpContext](/dotnet/api/microsoft.aspnetcore.mvc.razorpages.pagemodel.httpcontext) özelliği:
+Razor Pages [Pagemodel](/dotnet/api/microsoft.aspnetcore.mvc.razorpages.pagemodel) [HttpContext](/dotnet/api/microsoft.aspnetcore.mvc.razorpages.pagemodel.httpcontext) özelliğini kullanıma sunar:
 
 ```csharp
 public class AboutModel : PageModel
@@ -37,9 +37,9 @@ public class AboutModel : PageModel
 
 ::: moniker-end
 
-## <a name="use-httpcontext-from-a-razor-view"></a>HttpContext Razor görünümünü kullanın
+## <a name="use-httpcontext-from-a-razor-view"></a>Razor görünümünden HttpContext kullanma
 
-Razor görünümleri ile açığa `HttpContext` aracılığıyla doğrudan bir [RazorPage.Context](/dotnet/api/microsoft.aspnetcore.mvc.razor.razorpage.context#Microsoft_AspNetCore_Mvc_Razor_RazorPage_Context) görünümü özelliği. Aşağıdaki örnek, Windows kimlik doğrulaması kullanarak bir Intranet uygulaması geçerli kullanıcı adını alır:
+Razor görünümleri, `HttpContext` ' yı doğrudan görünümdeki bir [RazorPage. Context](/dotnet/api/microsoft.aspnetcore.mvc.razor.razorpage.context#Microsoft_AspNetCore_Mvc_Razor_RazorPage_Context) özelliği aracılığıyla kullanıma sunar. Aşağıdaki örnek, Windows kimlik doğrulamasını kullanarak bir Intranet uygulamasındaki geçerli kullanıcı adını alır:
 
 ```cshtml
 @{
@@ -47,9 +47,9 @@ Razor görünümleri ile açığa `HttpContext` aracılığıyla doğrudan bir [
 }
 ```
 
-## <a name="use-httpcontext-from-a-controller"></a>Bir denetleyiciden HttpContext kullanın
+## <a name="use-httpcontext-from-a-controller"></a>Bir denetleyiciden HttpContext kullanma
 
-Denetleyicileri sunmaya [ControllerBase.HttpContext](/dotnet/api/microsoft.aspnetcore.mvc.controllerbase.httpcontext) özelliği:
+Denetleyiciler [ControllerBase. HttpContext](/dotnet/api/microsoft.aspnetcore.mvc.controllerbase.httpcontext) özelliğini kullanıma sunar:
 
 ```csharp
 public class HomeController : Controller
@@ -64,9 +64,9 @@ public class HomeController : Controller
 }
 ```
 
-## <a name="use-httpcontext-from-middleware"></a>Ara yazılımı HttpContext kullanın
+## <a name="use-httpcontext-from-middleware"></a>Ara yazılım içinden HttpContext kullanın
 
-Özel bir ara yazılım bileşenleri ile çalışırken `HttpContext` yöntemlere geçirilen `Invoke` veya `InvokeAsync` yöntemi ve ara yazılım yapılandırıldığında erişilebilir:
+Özel ara yazılım bileşenleriyle çalışırken, `HttpContext` `Invoke` veya `InvokeAsync` yöntemine geçirilir ve ara yazılım yapılandırıldığında erişilebilir:
 
 ```csharp
 public class MyCustomMiddleware
@@ -78,9 +78,9 @@ public class MyCustomMiddleware
 }
 ```
 
-## <a name="use-httpcontext-from-custom-components"></a>HttpContext özel bileşenlerini kullanma
+## <a name="use-httpcontext-from-custom-components"></a>Özel bileşenlerden HttpContext kullanın
 
-Diğer framework ve erişim gerektiren özel bileşenler için `HttpContext`, yerleşik kullanarak System.Data.sqlclient'ı bağımlılık kaydetmek için önerilen yaklaşımdır [bağımlılık ekleme](xref:fundamentals/dependency-injection) kapsayıcı. Bağımlılık ekleme kapsayıcısını kaynakları `IHttpContextAccessor` bağımlılık olarak oluşturucuları bildirme herhangi sınıflar.
+@No__t-0 ' a erişimi gerektiren diğer Framework ve özel bileşenler için önerilen yaklaşım, yerleşik [bağımlılık ekleme](xref:fundamentals/dependency-injection) kapsayıcısını kullanarak bir bağımlılığı kaydetmesidir. Bağımlılık ekleme kapsayıcısı, @no__t oluşturucularını bir bağımlılık olarak bildiren tüm sınıflara sağlar.
 
 ::: moniker range=">= aspnetcore-2.1"
 
@@ -111,8 +111,8 @@ public void ConfigureServices(IServiceCollection services)
 
 Aşağıdaki örnekte:
 
-* `UserRepository` üzerinde bağımlılık bildirir `IHttpContextAccessor`.
-* Bağımlılık ekleme bağımlılık zincirinden çözümler ve bir örneğini oluşturur, bağımlılık sağlanan `UserRepository`.
+* `UserRepository` `IHttpContextAccessor` ' deki bağımlılığını bildirir.
+* Bağımlılık ekleme, bağımlılık zincirini çözümlediğinde ve bir @no__t örneği oluşturduğunda bağımlılık sağlanır.
 
 ```csharp
 public class UserRepository : IUserRepository
@@ -132,19 +132,19 @@ public class UserRepository : IUserRepository
 }
 ```
 
-## <a name="httpcontext-access-from-a-background-thread"></a>Arka plan iş parçacığından HttpContext erişim
+## <a name="httpcontext-access-from-a-background-thread"></a>Arka plan iş parçacığından HttpContext erişimi
 
-`HttpContext` iş parçacığı açısından güvenli değildir. Okuma veya yazma özelliklerinin `HttpContext` bir isteği işlerken dışında neden olabilir bir `NullReferenceException`.
+`HttpContext`, iş parçacığı açısından güvenli değildir. @No__t bir isteği işlemenin dışında @no__t okuma veya yazma özellikleri, 1 ile sonuçlanabilir.
 
 > [!NOTE]
-> Kullanarak `HttpContext` genellikle bir isteğin işlenmesinin dışında sonuçlanır bir `NullReferenceException`. Uygulamanız kullanımın oluşturuyorsa `NullReferenceException`s, kodun arka plan işlemesi başlatın veya bir istek tamamlandıktan sonra işleme devam gözden geçirme bölümleri. Bir denetleyici yöntemi olarak tanımlama gibi bir hataları arayın `async void`.
+> Bir isteği işlemenin dışında `HttpContext` kullanmak genellikle `NullReferenceException` ile sonuçlanır. Uygulamanız tek biçimli `NullReferenceException`s oluşturursa, arka plan işlemesini Başlatan kodun bölümlerini gözden geçirin veya istek tamamlandıktan sonra işlemeye devam edin. @No__t-0 olarak bir denetleyici yöntemi tanımlama gibi hataları arayın.
 
-Arka plan işleri ile güvenli bir şekilde gerçekleştirmek için `HttpContext` veri:
+@No__t-0 verileriyle arka plan çalışmasını güvenle gerçekleştirmek için:
 
-* İstek işlenirken gerekli verileri kopyalayın.
-* Kopyalanan veriler için bir arka plan görevi geçirin.
+* İstek işleme sırasında gerekli verileri kopyalayın.
+* Kopyalanmış verileri bir arka plan görevine geçirin.
 
-Güvenli olmayan kod önlemek için hiçbir zaman geçmesi `HttpContext` çalışma - arka planda bir yönteme ihtiyacınız bunun yerine verileri geçirin.
+Güvenli olmayan koddan kaçınmak için, `HttpContext` ' ı hiçbir şekilde arka plan iş yapan bir yönteme iletmeyin, bunun yerine ihtiyacınız olan verileri geçirin.
 
 ```csharp
 public class EmailController

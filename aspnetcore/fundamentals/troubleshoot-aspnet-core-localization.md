@@ -1,29 +1,29 @@
 ---
 title: ASP.NET Core yerelleştirme sorunlarını giderme
 author: hishamco
-description: ASP.NET Core uygulamalarında Yerelleştirme sorunları tanılamayı öğrenin.
+description: ASP.NET Core uygulamalarında Yerelleştirmede sorunları tanılamayı öğrenin.
 ms.author: riande
 ms.date: 01/24/2019
 uid: fundamentals/troubleshoot-aspnet-core-localization
-ms.openlocfilehash: c76732c1a0389818f8f9efae8fe384ca0f9ca308
-ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
+ms.openlocfilehash: 98e06a92af0b6c045095ac803196bf4b1f25e5c5
+ms.sourcegitcommit: 020c3760492efed71b19e476f25392dda5dd7388
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65087361"
+ms.lasthandoff: 10/12/2019
+ms.locfileid: "72289016"
 ---
 # <a name="troubleshoot-aspnet-core-localization"></a>ASP.NET Core yerelleştirme sorunlarını giderme
 
-Tarafından [Hisham Bin Ateya](https://github.com/hishamco)
+, [Hisham bin Ateya](https://github.com/hishamco) tarafından
 
-Bu makalede, ASP.NET Core uygulamasını yerelleştirme sorunları tanılama hakkında yönergeler sağlar.
+Bu makalede ASP.NET Core uygulaması yerelleştirme sorunlarını tanılamaya yönelik yönergeler sağlanmaktadır.
 
 ## <a name="localization-configuration-issues"></a>Yerelleştirme yapılandırma sorunları
 
 **Yerelleştirme ara yazılım sırası**  
-Yerelleştirme ara yazılım, beklendiği gibi sıralı değildir çünkü uygulamayı yerelleştirmek değil.
+Yerelleştirme ara yazılımı beklenen şekilde sıralandığı için uygulama yerelleştirilemeyebilir.
 
-Bu sorunu çözmek için önce MVC ara yazılım, yerelleştirme ara yazılım kayıtlı emin olun. Aksi takdirde, yerelleştirme ara yazılım uygulanmaz.
+Bu sorunu çözmek için, yerelleştirme ara yazılımı 'nın MVC ara yazılım öncesinde kayıtlı olduğundan emin olun. Aksi takdirde, yerelleştirme ara yazılımı uygulanmaz.
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -34,47 +34,48 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-**Yerelleştirme kaynakları yol bulunamadı**
+**Yerelleştirme kaynakları yolu bulunamadı**
 
-**Desteklenen kültürler RequestCultureProvider içinde ile bir kez kayıtlı eşleşmiyor**  
+**RequestCultureProvider içindeki desteklenen kültürler, kayıtlı bir kez ile eşleşmiyor**  
 
-## <a name="resource-file-naming-issues"></a>Kaynak dosya adlandırma sorunları
+## <a name="resource-file-naming-issues"></a>Kaynak dosyası adlandırma sorunları
 
-ASP.NET Core'nın önceden tanımlı kuralları ve ayrıntılı olarak açıklanan yerelleştirme kaynaklarını dosya adlandırma, yönergeleri [burada](xref:fundamentals/localization?view=aspnetcore-2.2#resource-file-naming).
+ASP.NET Core, [burada](xref:fundamentals/localization?view=aspnetcore-2.2#resource-file-naming)ayrıntılı olarak açıklanan yerelleştirme kaynakları dosya adlandırmasına yönelik önceden tanımlanmış kurallara ve yönergelere sahiptir.
 
-## <a name="missing-resources"></a>Eksik kaynakları
+## <a name="missing-resources"></a>Eksik kaynaklar
 
-Kaynak bulunamadığından yaygın nedenler şunlardır:
+Kaynakların Bulunamamasının yaygın nedenleri şunlardır:
 
-- Kaynak adları ya da yanlış `resx` dosya ya da yerelleştiriciye isteği.
-- Kaynak eksik `resx` bazı dillerde, ancak diğer bulunmaktadır.
-- Hala sorun yaşıyorsanız, yerelleştirme günlük iletilerini denetleyin (olduğu anda `Debug` günlük düzeyi) eksik kaynakları hakkında daha fazla ayrıntı için.
+- Kaynak adları `resx` dosyasında ya da yorumdur isteğiyle yanlış yazılmıştır.
+- Kaynak, bazı diller için `resx` ' da yok, ancak başkaları içinde var.
+- Sorun yaşamaya devam ediyorsanız, eksik kaynaklar hakkında daha fazla ayrıntı için yerelleştirme günlüğü iletilerini (`Debug` günlük düzeyi) kontrol edin.
 
-_**İpucu:** Kullanırken `CookieRequestCultureProvider`, ile kültürlere yerelleştirme tanımlama bilgisi değeri içinde tek tırnak kullanılmaz doğrulayın. Örneğin, `c='en-UK'|uic='en-US'` bir geçersiz tanımlama bilgisi değeri sırada `c=en-UK|uic=en-US` geçerli bir addır._
+_**İpucu:** @No__t-2 kullanılırken, tek tekliflerin yerelleştirme tanımlama bilgisi değerindeki kültürler ile kullanılmadığını doğrulayın. Örneğin, `c='en-UK'|uic='en-US'` geçersiz bir tanımlama bilgisi değeridir, ancak `c=en-UK|uic=en-US` geçerli olur._
 
-## <a name="resources--class-libraries-issues"></a>Kaynaklar ve sınıf kitaplıkları sorunları
+## <a name="resources--class-libraries-issues"></a>Sınıf kitaplığı sorunlarını & kaynaklar
 
-Varsayılan olarak ASP.NET Core sınıf kitaplıkları aracılığıyla kaynak dosyalarını bulmak izin vermek için bir yol sağlar [ResourceLocationAttribute](/dotnet/api/microsoft.extensions.localization.resourcelocationattribute?view=aspnetcore-2.1).
+Varsayılan olarak ASP.NET Core, sınıf kitaplıklarının kaynak dosyalarını [Resourcelocationattribute](/dotnet/api/microsoft.extensions.localization.resourcelocationattribute?view=aspnetcore-2.1)aracılığıyla bulmasını sağlamak için bir yol sağlar.
 
-Sınıf kitaplıkları ile ilgili yaygın sorunları şunlardır:
-- Eksik `ResourceLocationAttribute` bir sınıf kitaplığı engelleyecek `ResourceManagerStringLocalizerFactory` kaynakları bulmasını.
-- Kaynak dosya adlandırma. Daha fazla bilgi için [kaynak dosyası adlandırma sorunları](#resource-file-naming-issues) bölümü.
-- Kök ad alanı sınıf kitaplığı değiştiriliyor. Daha fazla bilgi için [kök Namespace sorunları](#root-namespace-issues) bölümü.
+Sınıf kitaplıklarıyla ilgili yaygın sorunlar şunlardır:
+- Bir sınıf kitaplığındaki `ResourceLocationAttribute` ' ın eksik olması `ResourceManagerStringLocalizerFactory` ' in kaynakları bulmasını engelleyecek.
+- Kaynak dosyası adlandırma. Daha fazla bilgi için bkz. [kaynak dosyası adlandırma sorunları](#resource-file-naming-issues) bölümü.
+- Sınıf kitaplığının kök ad alanı değiştiriliyor. Daha fazla bilgi için bkz. [kök ad alanı sorunları](#root-namespace-issues) bölümü.
 
 ## <a name="customrequestcultureprovider-doesnt-work-as-expected"></a>CustomRequestCultureProvider beklendiği gibi çalışmıyor
 
-`RequestLocalizationOptions` Sınıfında üç varsayılan sağlayıcı:
+@No__t-0 sınıfı üç varsayılan sağlayıcıya sahiptir:
 
 1. `QueryStringRequestCultureProvider`
 2. `CookieRequestCultureProvider`
 3. `AcceptLanguageHeaderRequestCultureProvider`
 
-[CustomRequestCultureProvider](/dotnet/api/microsoft.aspnetcore.localization.customrequestcultureprovider?view=aspnetcore-2.1) yerelleştirme kültürü uygulamanızda nasıl sağlandığını özelleştirmenizi sağlar. `CustomRequestCultureProvider` Varsayılan sağlayıcıları gereksinimlerinizi karşılayıp kullanılır.
+[CustomRequestCultureProvider](/dotnet/api/microsoft.aspnetcore.localization.customrequestcultureprovider?view=aspnetcore-2.1) , yerelleştirme kültürünün uygulamanızda nasıl sağlandığını özelleştirmenize olanak sağlar. @No__t-0, varsayılan sağlayıcılar gereksinimlerinizi karşılamadığında kullanılır.
 
-- İlk sağlayıcısında değil özel sağlayıcı düzgün çalışmıyor yaygın bir nedeni olduğundan `RequestCultureProviders` listesi. Bu sorunu çözmek için:
+- Yaygın bir nedenden dolayı özel sağlayıcının düzgün çalışmadığı, `RequestCultureProviders` listesindeki ilk sağlayıcıdır. Bu sorunu çözmek için:
 
-- Özel sağlayıcı konumu 0 eklemek `RequestCultureProviders` listesi aşağıdaki gibi:
+- Özel sağlayıcıyı, `RequestCultureProviders` listesindeki 0 konumuna aşağıdaki gibi ekleyin:
 
+::: moniker range="< aspnetcore-3.0"
 ```csharp
 options.RequestCultureProviders.Insert(0, new CustomRequestCultureProvider(async context =>
     {
@@ -82,13 +83,24 @@ options.RequestCultureProviders.Insert(0, new CustomRequestCultureProvider(async
         return new ProviderCultureResult("en");
     }));
 ```
+::: moniker-end
 
-- Kullanım `AddInitialRequestCultureProvider` özel sağlayıcı ilk sağlayıcısı olarak ayarlamak için genişletme yöntemi.
+::: moniker range=">= aspnetcore-3.0"
+```csharp
+options.AddInitialRequestCultureProvider(new CustomRequestCultureProvider(async context =>
+    {
+        // My custom request culture logic
+        return new ProviderCultureResult("en");
+    }));
+```
+::: moniker-end
 
-## <a name="root-namespace-issues"></a>Kök Namespace sorunları
+- Özel sağlayıcıyı ilk sağlayıcı olarak ayarlamak için `AddInitialRequestCultureProvider` genişletme yöntemi kullanın.
 
-Kök ad alanı bir derlemenin derleme adından farklı olduğunda, yerelleştirme, varsayılan olarak çalışmaz. Bu sorunu kullanımı önlemek için [RootNamespace](/dotnet/api/microsoft.extensions.localization.rootnamespaceattribute?view=aspnetcore-2.1), ayrıntılı olarak açıklanan [burada](xref:fundamentals/localization?view=aspnetcore-2.2#resource-file-naming)
+## <a name="root-namespace-issues"></a>Kök ad alanı sorunları
 
-## <a name="resources--build-action"></a>Kaynaklar ve derleme eylemi
+Bir derlemenin kök ad alanı derleme adından farklıysa, yerelleştirme varsayılan olarak çalışmaz. Bu sorundan kaçınmak için, [burada](xref:fundamentals/localization?view=aspnetcore-2.2#resource-file-naming) ayrıntılı olarak açıklanan [RootNamespace](/dotnet/api/microsoft.extensions.localization.rootnamespaceattribute?view=aspnetcore-2.1)kullanın
 
-Yerelleştirme için kaynak dosyaları kullanıyorsanız, bunlar uygun yapı eylemi olması önemlidir. Olmaları gerektiği **gömülü kaynak**, aksi halde `ResourceStringLocalizer` bu kaynakları bulmak mümkün değildir.
+## <a name="resources--build-action"></a>Kaynak & oluşturma eylemi
+
+Yerelleştirme için kaynak dosyaları kullanıyorsanız, uygun bir yapı eylemi olması önemlidir. Bunlar **gömülü kaynak**olmalıdır, aksi takdirde `ResourceStringLocalizer` bu kaynakları bulamaz.

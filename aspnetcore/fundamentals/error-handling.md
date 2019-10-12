@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/08/2019
 uid: fundamentals/error-handling
-ms.openlocfilehash: a5bdbc3ce75f5897c9cd67fe18897281bf2fb57b
-ms.sourcegitcommit: 73a451e9a58ac7102f90b608d661d8c23dd9bbaf
+ms.openlocfilehash: a610c42d75864259b609e11b8bf0776c5ab8e507
+ms.sourcegitcommit: 020c3760492efed71b19e476f25392dda5dd7388
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72037574"
+ms.lasthandoff: 10/12/2019
+ms.locfileid: "72288855"
 ---
 # <a name="handle-errors-in-aspnet-core"></a>ASP.NET Core hataları işleme
 
@@ -20,7 +20,7 @@ ms.locfileid: "72037574"
 
 Bu makalede ASP.NET Core uygulamalardaki hataları işlemeye yönelik yaygın yaklaşımlar ele alınmaktadır.
 
-[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/error-handling/samples). ([Nasıl indirilir](xref:index#how-to-download-a-sample).) Makale, farklı senaryoları etkinleştirmek için örnek uygulamada Önişlemci yönergelerinin (`#if`, `#endif`, `#define`) nasıl ayarlanacağı hakkında yönergeler içerir.
+[Örnek kodu görüntüleyin veya indirin](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/error-handling/samples). ([Nasıl indirilir](xref:index#how-to-download-a-sample).) Makale, farklı senaryoları etkinleştirmek için örnek uygulamada Önişlemci yönergelerinin (`#if`, `#endif`, `#define`) nasıl ayarlanacağı hakkında yönergeler içerir.
 
 ## <a name="developer-exception-page"></a>Geliştirici özel durum sayfası
 
@@ -38,7 +38,7 @@ Sayfa, özel durum ve istek hakkında şu bilgileri içerir:
 * Yığın izleme
 * Sorgu dizesi parametreleri (varsa)
 * Tanımlama bilgileri (varsa)
-* Bilgisinde
+* Üst bilgiler
 
 [Örnek uygulamada](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/error-handling/samples)geliştirici özel durum sayfasını görmek için `DevEnvironment` ön işlemci yönergesini kullanın ve giriş sayfasında **özel durum Tetikle** ' yi seçin.
 
@@ -122,7 +122,7 @@ Yanıt içerik türünü ve metnini özelleştirmek için, içerik türü ve bi�
 
 [!code-csharp[](error-handling/samples/2.x/ErrorHandlingSample/Startup.cs?name=snippet_StatusCodePagesLambda)]
 
-## <a name="usestatuscodepageswithredirect"></a>UseStatusCodePagesWithRedirect
+## <a name="usestatuscodepageswithredirects"></a>Usestatuscodepageswithyönlendirmeler
 
 @No__t-0 genişletme yöntemi:
 

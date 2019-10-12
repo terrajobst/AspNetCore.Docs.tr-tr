@@ -5,12 +5,12 @@ description: ASP.NET Core farklı diller ve kültürlere içerik yerelleştirilm
 ms.author: riande
 ms.date: 01/14/2017
 uid: fundamentals/localization
-ms.openlocfilehash: 6dfbeae201a3586dfea6620917083130c4985b22
-ms.sourcegitcommit: dc96d76f6b231de59586fcbb989a7fb5106d26a8
+ms.openlocfilehash: 8398e99af42da48718eea370cffa6ce4be0086ae
+ms.sourcegitcommit: 020c3760492efed71b19e476f25392dda5dd7388
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71703805"
+ms.lasthandoff: 10/12/2019
+ms.locfileid: "72288899"
 ---
 # <a name="globalization-and-localization-in-aspnet-core"></a>ASP.NET Core Genelleştirme ve yerelleştirme
 
@@ -32,7 +32,7 @@ Uygulama yerelleştirmesi şunları içerir:
 
 3. Her istek için dil/kültür seçmek üzere bir strateji uygulayın
 
-[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/localization/sample/Localization) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
+[Örnek kodu görüntüleme veya indirme](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/localization/sample/Localization) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
 
 ## <a name="make-the-apps-content-localizable"></a>Uygulamanın içeriğini yerelleştirilebilir yapın
 
@@ -46,7 +46,7 @@ HTML içeren kaynaklar için `IHtmlLocalizer<T>` uygulamasını kullanın. `IHtm
 
 [!code-csharp[](../fundamentals/localization/sample/Localization/Controllers/BookController.cs?highlight=3,5,20&start=1&end=24)]
 
-**Not:** Genellikle HTML değil yalnızca metni yerelleştirmek istersiniz.
+**Note:** Genellikle HTML değil yalnızca metni yerelleştirmek istersiniz.
 
 En düşük düzeyde, [bağımlılık ekleme](dependency-injection.md)`IStringLocalizerFactory` ' ı alabilir:
 
@@ -76,13 +76,13 @@ Bazı geliştiriciler, genel veya paylaşılan dizeler içermesi için `Startup`
 
 Bir Fransızca kaynak dosyası şunları içerebilir:
 
-| Anahtar | Value |
+| Anahtar | Değer |
 | ----- | ------ |
 | `<i>Hello</i> <b>{0}!</b>` | `<i>Bonjour</i> <b>{0} !</b>` |
 
 İşlenmiş görünüm, kaynak dosyasındaki HTML işaretlemesini içerir.
 
-**Not:** Genellikle HTML değil yalnızca metni yerelleştirmek istersiniz.
+**Note:** Genellikle HTML değil yalnızca metni yerelleştirmek istersiniz.
 
 Paylaşılan bir kaynak dosyasını bir görünümde kullanmak için @no__t Ekle-0:
 
@@ -124,13 +124,13 @@ Yukarıdaki kodda, `SharedResource`, doğrulama iletilerinizin depolandığı re
 
 ASP.NET Core iki kültür değeri belirtmenize izin verir, `SupportedCultures` ve `SupportedUICultures`. @No__t-1 için [CultureInfo](/dotnet/api/system.globalization.cultureinfo) nesnesi, tarih, saat, sayı ve para birimi biçimlendirme gibi kültüre bağımlı işlevlerin sonuçlarını belirler. `SupportedCultures` Ayrıca metnin, büyük/küçük harf kurallarının ve dize karşılaştırmalarının sıralama sırasını da belirler. Sunucunun kültürü nasıl aldığı hakkında daha fazla bilgi için bkz [. CultureInfo. CurrentCulture](/dotnet/api/system.stringcomparer.currentculture#System_StringComparer_CurrentCulture) . @No__t-0, hangi dizelerin ( *. resx* dosyalarından) [ResourceManager](/dotnet/api/system.resources.resourcemanager)tarafından arandığını belirler. @No__t-0, yalnızca `CurrentUICulture` tarafından belirlenen kültüre özgü dizeleri arar. .NET 'teki her iş parçacığında `CurrentCulture` ve `CurrentUICulture` nesneleri vardır. ASP.NET Core kültüre bağımlı işlevleri işlerken bu değerleri inceler. Örneğin, geçerli iş parçacığının kültürü "en-US" (Ingilizce, Birleşik Devletler) olarak ayarlandıysa, `DateTime.Now.ToLongDateString()` "Perşembe, 18 Şubat 2016" değerini görüntüler, ancak `CurrentCulture` ' i "ES-ES" (Ispanyolca, Ispanya) olarak ayarlandıysa çıkış "Jueves, 18 de febrero de 2016" olacaktır.
 
-## <a name="resource-files"></a>Kaynak dosyalar
+## <a name="resource-files"></a>Kaynak dosyaları
 
 Kaynak dosyası, koddan yerelleştirilebilir dizeleri ayırmak için kullanışlı bir mekanizmadır. Varsayılan olmayan dil için çevrilmiş dizeler yalıtılmış *. resx* kaynak dosyalarıdır. Örneğin, çevrilmiş dizeleri içeren *Welcome. es. resx* adlı İspanyolca kaynak dosyası oluşturmak isteyebilirsiniz. "es", Ispanyolca için dil kodudur. Bu kaynak dosyasını Visual Studio 'da oluşturmak için:
 
 1. **Çözüm Gezgini**, kaynak dosyasını içerecek klasöre sağ tıklayın >  > **Yeni öğe** **ekleyin**.
 
-    ![İç içe bağlam menüsü: Çözüm Gezgini, kaynaklar için bir bağlamsal menü açıktır. İkinci bağlamsal menü, yeni öğe komutunun vurgulandığı ekleme için açıktır.](localization/_static/newi.png)
+    ![İç içe bağlamsal bağlam menüsü: Çözüm Gezgini, kaynaklar için bir bağlamsal menü açıktır. İkinci bağlamsal menü, yeni öğe komutunun vurgulandığı ekleme için açıktır.](localization/_static/newi.png)
 
 2. **Yüklü şablonları ara** kutusuna "kaynak" yazın ve dosyayı adlandırın.
 
@@ -153,7 +153,7 @@ Kaynaklar, sınıfının tam tür adı için derleme adı eksi olarak adlandır�
 | Kaynak adı | Nokta veya yol adlandırma |
 | ------------   | ------------- |
 | Kaynaklar/denetleyiciler. HomeController. fr. resx | Nokta  |
-| Kaynaklar/denetleyiciler/HomeController. fr. resx  | `Path` |
+| Kaynaklar/denetleyiciler/HomeController. fr. resx  | Yol |
 |    |     |
 
 Razor görünümlerinde `@inject IViewLocalizer` kullanan kaynak dosyaları benzer bir düzene uyar. Bir görünüm için kaynak dosyası, nokta adlandırması veya yol adlandırması kullanılarak adlandırılabilir. Razor görünümü kaynak dosyaları, ilişkili görünüm dosyalarının yolunu taklit. @No__t-0 ' ı "resources" olarak belirlediğimiz varsayılarak, *Görünümler/Home/about. cshtml* görünümüyle ilişkili Fransızca kaynak dosyası aşağıdakilerden biri olabilir:
@@ -279,6 +279,7 @@ Kültür bilgisi ve UI kültürünün yalnızca birini belirtirseniz, belirtilen
 
 Müşterilerinizin kendi dil ve kültürünü veritabanlarınızı veritabanlarına depolamasına izin vermek istediğinizi varsayalım. Kullanıcı için bu değerleri aramak üzere bir sağlayıcı yazabilirsiniz. Aşağıdaki kod, özel bir sağlayıcının nasıl ekleneceğini göstermektedir:
 
+::: moniker range="< aspnetcore-3.0"
 ```csharp
 private const string enUSCulture = "en-US";
 
@@ -301,6 +302,32 @@ services.Configure<RequestLocalizationOptions>(options =>
     }));
 });
 ```
+::: moniker-end
+
+::: moniker range=">= aspnetcore-3.0"
+```csharp
+private const string enUSCulture = "en-US";
+
+services.Configure<RequestLocalizationOptions>(options =>
+{
+    var supportedCultures = new[]
+    {
+        new CultureInfo(enUSCulture),
+        new CultureInfo("fr")
+    };
+
+    options.DefaultRequestCulture = new RequestCulture(culture: enUSCulture, uiCulture: enUSCulture);
+    options.SupportedCultures = supportedCultures;
+    options.SupportedUICultures = supportedCultures;
+
+    options.AddInitialRequestCultureProvider(new CustomRequestCultureProvider(async context =>
+    {
+        // My custom request culture logic
+        return new ProviderCultureResult("en");
+    }));
+});
+```
+::: moniker-end
 
 Yerelleştirme sağlayıcıları eklemek veya kaldırmak için `RequestLocalizationOptions` kullanın.
 
@@ -332,14 +359,14 @@ Uluslararası duruma getirme genellikle "I18N" olarak kısaltılır. Kısaltma i
 
 Larındaki
 
-* Genelleştirme (G11N): Uygulama yapma işlemi farklı dilleri ve bölgeleri destekler.
-* Yerelleştirme (L10N): Bir uygulamayı belirli bir dil ve bölge için özelleştirme işlemi.
-* Uluslararası duruma getirme (I18N): Genelleştirme ve yerelleştirme konularını açıklar.
-* Ayarı Bu bir dildir ve isteğe bağlı olarak bir bölgedir.
-* Nötr kültür: Belirtilen dile sahip, ancak bölge olmayan bir kültür. (örneğin, "en", "es")
-* Belirli kültür: Belirtilen dile ve bölgeye sahip bir kültür. (örneğin, "en-US", "en-GB", "es-CL")
-* Üst kültür: Belirli bir kültürü içeren nötr kültür. (örneğin, "tr", "en-US" ve "en-GB" öğesinin üst kültürüdür)
-* Ayarlar Yerel ayar kültür ile aynıdır.
+* Genelleştirme (G11N): bir uygulamanın farklı dil ve bölgeleri desteklemesini sağlama işlemi.
+* Yerelleştirme (L10N): belirli bir dil ve bölge için bir uygulamayı özelleştirme işlemi.
+* Uluslararası duruma getirme (I18N): hem Genelleştirme hem de yerelleştirmeyi açıklar.
+* Kültür: bir dildir ve isteğe bağlı olarak bir bölgedir.
+* Nötr kültür: belirtilen dile sahip, ancak bölge olmayan bir kültür. (örneğin, "en", "es")
+* Belirli kültür: belirtilen dile ve bölgeye sahip bir kültür. (örneğin, "en-US", "en-GB", "es-CL")
+* Üst kültür: belirli bir kültürü içeren nötr kültür. (örneğin, "tr", "en-US" ve "en-GB" öğesinin üst kültürüdür)
+* Yerel ayar: bir yerel ayar kültür ile aynıdır.
 
 [!INCLUDE[](~/includes/currency.md)]
 
