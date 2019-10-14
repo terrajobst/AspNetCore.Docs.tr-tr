@@ -310,7 +310,7 @@
           uid: blazor/debug
         - name: Web API çağrısı
           uid: blazor/call-web-api
-        - name: Barındırma ve dağıtım
+        - name: Barındırma ve dağıtma
           items:
             - name: Genel Bakış
               uid: host-and-deploy/blazor/index
@@ -507,7 +507,7 @@
         - name: JavaScript API'si başvurusu
           href: /javascript/api/?view=signalr-js-latest
           displayName: signalr
-    - name: Barındırma ve ölçeklendirme
+    - name: Konak ve ölçek
       displayName: signalr
       items:
         - name: Genel Bakış
@@ -661,13 +661,13 @@
           href: /azure/visual-studio/vs-storage-aspnet5-getting-started-queues?toc=/aspnet/core/toc.json&bc=/aspnet/core/breadcrumb/toc.json
         - name: Tablo depolama
           href: /azure/visual-studio/vs-storage-aspnet5-getting-started-tables?toc=/aspnet/core/toc.json&bc=/aspnet/core/breadcrumb/toc.json
-- name: Barındırma ve dağıtım
+- name: Barındırma ve dağıtma
   displayName: publish
   items:
     - name: Genel Bakış
       displayName: 'azure, deploy, publish'
       uid: host-and-deploy/index
-    - name: Azure App Service’te barındırma
+    - name: Azure App Service
       displayName: 'deploy, publish'
       items:
         - name: Genel Bakış
@@ -717,7 +717,7 @@
         - name: Sonraki adımlar
           displayName: 'azure, deploy, publish'
           uid: azure/devops/next-steps
-    - name: IIS ile Windows’da barındırma
+    - name: IIS
       displayName: 'deploy, publish'
       items:
         - name: Genel Bakış
@@ -749,16 +749,16 @@
     - name: HTTP.sys
       displayName: 'deploy, publish, server'
       uid: fundamentals/servers/httpsys
-    - name: Windows hizmetinde barındırma
+    - name: Windows hizmeti
       displayName: 'deploy, publish'
       uid: host-and-deploy/windows-service
-    - name: Nginx ile Linux’ta barındırma
+    - name: Nginx ile Linux
       displayName: 'deploy, publish'
       uid: host-and-deploy/linux-nginx
-    - name: Apache ile Linux’ta barındırma
+    - name: Apache ile Linux
       displayName: 'deploy, publish'
       uid: host-and-deploy/linux-apache
-    - name: Docker’da barındırma
+    - name: Docker
       displayName: 'deploy, publish'
       items:
         - name: Genel Bakış
@@ -779,7 +779,7 @@
     - name: Ara sunucu ve yük dengeleyiciyi yapılandırma
       displayName: 'deploy, publish'
       uid: host-and-deploy/proxy-load-balancer
-    - name: Web grubunda barındırma
+    - name: Web grubu
       displayName: 'deploy, publish'
       uid: host-and-deploy/web-farm
     - name: Visual Studio yayımlama profilleri
