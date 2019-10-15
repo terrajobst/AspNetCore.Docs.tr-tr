@@ -5,12 +5,12 @@ description: Bir veritabanı ve ASP.NET Core çalışmayı açıklar.
 ms.author: riande
 ms.date: 7/22/2019
 uid: tutorials/razor-pages/sql
-ms.openlocfilehash: 87d27b60940826e21b060f2e07d344b30ff75b27
-ms.sourcegitcommit: 7d3c6565dda6241eb13f9a8e1e1fd89b1cfe4d18
+ms.openlocfilehash: b5acb573f8fa39e5300ecdb359113d8697d78934
+ms.sourcegitcommit: 07d98ada57f2a5f6d809d44bdad7a15013109549
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72259789"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72334224"
 ---
 # <a name="work-with-a-database-and-aspnet-core"></a>Veritabanı ve ASP.NET Core çalışma
 
@@ -38,7 +38,7 @@ ASP.NET Core [yapılandırma](xref:fundamentals/configuration/index) sistemi, `C
 
 Veritabanı (`Database={Database name}`) için ad değeri, oluşturulan kodunuz için farklı olacaktır. Ad değeri rastgele.
 
-[!code-json[](razor-pages-start/sample/RazorPagesMovie30/appsettings.json)]
+[!code-json[](razor-pages-start/sample/RazorPagesMovie30/appsettings.json?highlight=10-12)]
 
 # <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Visual Studio Code/Mac için Visual Studio](#tab/visual-studio-code+visual-studio-mac)
 
@@ -52,7 +52,7 @@ Uygulama bir test veya üretim sunucusuna dağıtıldığında, bağlantı dizes
 
 ## <a name="sql-server-express-localdb"></a>SQL Server Express LocalDB
 
-LocalDB, program geliştirmeye yönelik SQL Server Express veritabanı altyapısının hafif bir sürümüdür. LocalDB, istek üzerine başlar ve kullanıcı modunda çalışır, bu nedenle karmaşık bir yapılandırma yoktur. Varsayılan olarak, LocalDB veritabanı `C:/Users/<user/>` dizininde `*.mdf` dosyaları oluşturur.
+LocalDB, program geliştirmeye yönelik SQL Server Express veritabanı altyapısının hafif bir sürümüdür. LocalDB, istek üzerine başlar ve kullanıcı modunda çalışır, bu nedenle karmaşık bir yapılandırma yoktur. Varsayılan olarak, LocalDB veritabanı `C:\Users\<user>\` dizininde `*.mdf` dosyaları oluşturur.
 
 <a name="ssox"></a>
 * **Görünüm** menüsünden **SQL Server Nesne Gezgini** (ssox) öğesini açın.
@@ -109,8 +109,8 @@ Aşağıdaki kod güncelleştirilmiş *program.cs* dosyasını gösterir.
 
 @No__t-0 çalıştırılmayan aşağıdaki özel durum oluşur:
 
-`SqlException: Cannot open database "RazorPagesMovieContext-" requested by the login. The login failed.`
-`Login failed for user 'user name'.`
+> `SqlException: Cannot open database "RazorPagesMovieContext-" requested by the login. The login failed.`
+> `Login failed for user 'user name'.`
 
 ### <a name="test-the-app"></a>Uygulamayı test etme
 

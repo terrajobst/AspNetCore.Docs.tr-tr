@@ -5,14 +5,14 @@ description: Çalışma zamanında yüklenen ad-değer çiftlerini kullanarak bi
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/07/2019
+ms.date: 10/14/2019
 uid: security/key-vault-configuration
-ms.openlocfilehash: cc3894df4df169d941f54ef3dfad5d3e6f798aad
-ms.sourcegitcommit: 3d082bd46e9e00a3297ea0314582b1ed2abfa830
+ms.openlocfilehash: c8e76068dbcf2a59a15fa75a1fc5aa0032e6acc5
+ms.sourcegitcommit: 07d98ada57f2a5f6d809d44bdad7a15013109549
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72007409"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72334209"
 ---
 # <a name="azure-key-vault-configuration-provider-in-aspnet-core"></a>ASP.NET Core Azure Key Vault yapılandırma sağlayıcısı
 
@@ -25,7 +25,7 @@ Bu belgede, Azure Key Vault gizliliklerden uygulama yapılandırma değerlerini 
 
 Bu senaryo, ASP.NET Core 2,1 veya sonraki bir sürümü hedefleyen uygulamalar için kullanılabilir.
 
-[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/key-vault-configuration/sample) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
+[Örnek kodu görüntüleme veya indirme](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/key-vault-configuration/sample) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
 
 ## <a name="packages"></a>Paketler
 
@@ -76,7 +76,7 @@ Bu gizlilikler, [Azure Key Vault bölümü Ile üretim ortamındaki gizli depola
 
 ## <a name="secret-storage-in-the-production-environment-with-azure-key-vault"></a>Azure Key Vault ile üretim ortamında gizli dizi
 
-@No__t-0Hızlı başlangıcı tarafından sunulan yönergeler: Azure CLı 'yı kullanarak Azure Key Vault bir gizli dizi ayarlama ve alma, örnek uygulama tarafından kullanılan gizli dizileri depolamak ve Azure Key Vault oluşturmak için burada özetlenmiştir. Daha ayrıntılı bilgi için konusuna bakın.
+Hızlı başlangıç tarafından sunulan yönergeler [: Azure CLI kullanarak Azure Key Vault bir gizli dizi ayarlama ve alma](/azure/key-vault/quick-create-cli) , bir Azure Key Vault oluşturmak ve örnek uygulama tarafından kullanılan gizli dizileri depolamak için burada özetlenmiştir. Daha ayrıntılı bilgi için konusuna bakın.
 
 1. [Azure Portal](https://portal.azure.com/)aşağıdaki yöntemlerden birini kullanarak Azure Cloud Shell 'i açın:
 
@@ -135,14 +135,14 @@ Bu gizlilikler, [Azure Key Vault bölümü Ile üretim ortamındaki gizli depola
 1. **Yeni Ekle**' yi seçin.
 1. **Sorumlu Seç** ' i seçin ve kayıtlı uygulamayı ada göre seçin. **Seç** düğmesini seçin.
 1. **Gizli izinleri** açın ve uygulamaya **Get** ve **list** izinleri sağlayın.
-1. **Tamam**’ı seçin.
-1. **Kaydet**’i seçin.
+1. **Tamam ' ı**seçin.
+1. **Kaydet**' i seçin.
 1. Uygulamayı dağıtın.
 
 @No__t-0 örnek uygulaması, `IConfigurationRoot` ' den gelen yapılandırma değerlerini gizli adıyla aynı adla alır:
 
-* Hiyerarşik olmayan değerler: @No__t-0 değeri `config["SecretName"]` ile elde edilir.
-* Hiyerarşik değerler (bölümler): @No__t-0 (iki nokta üst üste) gösterimini veya `GetSection` uzantı yöntemini kullanın. Yapılandırma değerini elde etmek için şu yaklaşımlardan birini kullanın:
+* Hiyerarşik olmayan değerler: `SecretName` değeri `config["SecretName"]` ile elde edilir.
+* Hiyerarşik değerler (bölümler): `:` (iki nokta üst üste) gösterimini veya `GetSection` uzantı yöntemini kullanın. Yapılandırma değerini elde etmek için şu yaklaşımlardan birini kullanın:
   * `config["Section:SecretName"]`
   * `config.GetSection("Section")["SecretName"]`
 
@@ -189,6 +189,16 @@ Azure CLı, PowerShell veya Azure portal kullanarak **uygulamayı yeniden başla
 * @No__t-0 örneği, tüm gizli değerleri yükleyen ve çift tireleri (`--`) anahtar adlarında iki nokta (`:`) ile değiştirir `IKeyVaultSecretManager` varsayılan uygulamasıyla kullanılır.
 
 [!code-csharp[](key-vault-configuration/sample/Program.cs?name=snippet2&highlight=13-21)]
+
+Anahtar Kasası adı örnek değeri: `contosovault`
+    
+*appSettings. JSON*:
+
+```json
+{
+  "KeyVaultName": "Key Vault Name"
+}
+```
 
 Uygulamayı çalıştırdığınızda, bir Web sayfası yüklenen gizli değerleri gösterir. Geliştirme ortamında, gizli değerler `_dev` sonekine sahiptir çünkü Kullanıcı gizli dizileri tarafından sağlanırlar. Üretim ortamında, Azure Key Vault tarafından sağlandıklarından, değerler `_prod` sonekiyle yüklenir.
 
@@ -258,7 +268,7 @@ Bu yaklaşım uygulandığında:
 
 Sağlayıcı, bir POCO dizisine bağlamak için yapılandırma değerlerini bir diziye okuyabilme özelliğine sahiptir.
 
-Anahtarların iki nokta (`:`) ayırıcılar içermesine izin veren bir yapılandırma kaynağından okurken, bir diziyi oluşturan anahtarları ayırt etmek için bir sayısal anahtar kesimi kullanılır (`:0:`, `:1:`,... `:{n}:`). Daha fazla bilgi için bkz. [Configuration: Bir diziyi @ no__t-0 sınıfına bağlayın.
+Anahtarların iki nokta (`:`) ayırıcılar içermesine izin veren bir yapılandırma kaynağından okurken, bir diziyi oluşturan anahtarları ayırt etmek için bir sayısal anahtar kesimi kullanılır (`:0:`, `:1:`,... `:{n}:`). Daha fazla bilgi için bkz. [yapılandırma: diziyi bir sınıfa bağlama](xref:fundamentals/configuration/index#bind-an-array-to-a-class).
 
 Azure Key Vault anahtarlar ayırıcı olarak iki nokta üst üste kullanamaz. Bu konuda açıklanan yaklaşım, hiyerarşik değerler (bölümler) için bir ayırıcı olarak çift tire (`--`) kullanır. Dizi anahtarları Çift tire ve sayısal anahtar kesimlerle Azure Key Vault depolanır (`--0--`, `--1--`, &hellip; `--{n}--`).
 
@@ -287,7 +297,7 @@ Bir JSON dosyası tarafından sunulan aşağıdaki [Serilog](https://serilog.net
 
 Önceki JSON dosyasında gösterilen yapılandırma Çift tire (`--`) gösterimi ve sayısal kesimleri kullanılarak Azure Key Vault depolanır:
 
-| Anahtar | Value |
+| Anahtar | Değer |
 | --- | ----- |
 | `Serilog--WriteTo--0--Name` | `AzureTableStorage` |
 | `Serilog--WriteTo--0--Args--storageTableName` | `logs` |
@@ -323,9 +333,9 @@ Uygulama, sağlayıcıyı kullanarak yapılandırmayı yükleyemediğinde, [ASP.
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * <xref:fundamentals/configuration/index>
-* [Microsoft Azure: Key Vault @ no__t-0
-* [Microsoft Azure: Key Vault belgeleri @ no__t-0
+* [Microsoft Azure: Key Vault](https://azure.microsoft.com/services/key-vault/)
+* [Microsoft Azure: Key Vault belgeler](/azure/key-vault/)
 * [Azure Key Vault için HSM korumalı anahtarlar oluşturma ve aktarma](/azure/key-vault/key-vault-hsm-protected-keys)
 * [KeyVaultClient sınıfı](/dotnet/api/microsoft.azure.keyvault.keyvaultclient)
-* [Hızlı Başlangıç: .NET Web uygulaması kullanarak Azure Key Vault bir gizli dizi ayarlama ve alma @ no__t-0
-* [Öğretici: ' De Azure Windows sanal makinesi ile Azure Key Vault kullanma. NET @ no__t-0
+* [Hızlı başlangıç: .NET Web uygulaması kullanarak Azure Key Vault bir gizli dizi ayarlama ve alma](/azure/key-vault/quick-create-net)
+* [Öğretici: .NET 'te Azure Windows sanal makinesi ile Azure Key Vault kullanma](/azure/key-vault/tutorial-net-windows-virtual-machine)
