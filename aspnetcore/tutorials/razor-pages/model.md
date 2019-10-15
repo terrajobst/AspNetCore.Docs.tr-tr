@@ -1,57 +1,57 @@
 ---
-title: Bir ASP.NET Core Razor sayfaları uygulama için model ekleme
+title: ASP.NET Core bir Razor Pages uygulamasına model ekleme
 author: rick-anderson
-description: Entity Framework Core (EF Core) kullanarak bir veritabanında filmler yönetmek için sınıflar ekleme keşfedin.
+description: Entity Framework Core (EF Core) kullanarak bir veritabanında film yönetmeye yönelik sınıfların nasıl ekleneceğini öğrenin.
 ms.author: riande
 ms.date: 9/22/2019
 uid: tutorials/razor-pages/model
-ms.openlocfilehash: dcbcf37dfd95d784ebe249ec6e9e4184a8853d3d
-ms.sourcegitcommit: d34b2627a69bc8940b76a949de830335db9701d3
+ms.openlocfilehash: c101fe4aee9a1fbf28d66a8527e3c199194d73fe
+ms.sourcegitcommit: 07d98ada57f2a5f6d809d44bdad7a15013109549
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71187191"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72334172"
 ---
-# <a name="add-a-model-to-a-razor-pages-app-in-aspnet-core"></a><span data-ttu-id="aef9c-103">Bir ASP.NET Core Razor sayfaları uygulama için model ekleme</span><span class="sxs-lookup"><span data-stu-id="aef9c-103">Add a model to a Razor Pages app in ASP.NET Core</span></span>
+# <a name="add-a-model-to-a-razor-pages-app-in-aspnet-core"></a><span data-ttu-id="352ea-103">ASP.NET Core bir Razor Pages uygulamasına model ekleme</span><span class="sxs-lookup"><span data-stu-id="352ea-103">Add a model to a Razor Pages app in ASP.NET Core</span></span>
 
-<span data-ttu-id="aef9c-104">Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)</span><span class="sxs-lookup"><span data-stu-id="aef9c-104">By [Rick Anderson](https://twitter.com/RickAndMSFT)</span></span>
+<span data-ttu-id="352ea-104">[Rick Anderson](https://twitter.com/RickAndMSFT) tarafından</span><span class="sxs-lookup"><span data-stu-id="352ea-104">By [Rick Anderson](https://twitter.com/RickAndMSFT)</span></span>
 
 ::: moniker range=">= aspnetcore-3.0"
 
-<span data-ttu-id="aef9c-105">Bu bölümde, bir veritabanında filmler yönetmek için sınıflar eklenir.</span><span class="sxs-lookup"><span data-stu-id="aef9c-105">In this section, classes are added for managing movies in a database.</span></span> <span data-ttu-id="aef9c-106">İle kullanılan bu sınıflar [Entity Framework Core](/ef/core) bir veritabanıyla çalışmak için (EF Core).</span><span class="sxs-lookup"><span data-stu-id="aef9c-106">These classes are used with [Entity Framework Core](/ef/core) (EF Core) to work with a database.</span></span> <span data-ttu-id="aef9c-107">EF Core, veri erişimini kolaylaştıran bir nesne ilişkisel eşleme (ORM) çerçevesidir.</span><span class="sxs-lookup"><span data-stu-id="aef9c-107">EF Core is an object-relational mapping (ORM) framework that simplifies data access.</span></span>
+<span data-ttu-id="352ea-105">Bu bölümde, bir veritabanında film yönetimi için sınıflar eklenir.</span><span class="sxs-lookup"><span data-stu-id="352ea-105">In this section, classes are added for managing movies in a database.</span></span> <span data-ttu-id="352ea-106">Bu sınıflar bir veritabanıyla çalışmak için [Entity Framework Core](/ef/core) (EF Core) ile kullanılır.</span><span class="sxs-lookup"><span data-stu-id="352ea-106">These classes are used with [Entity Framework Core](/ef/core) (EF Core) to work with a database.</span></span> <span data-ttu-id="352ea-107">EF Core, veri erişimini kolaylaştıran bir nesne ilişkisel eşleme (ORM) çerçevesidir.</span><span class="sxs-lookup"><span data-stu-id="352ea-107">EF Core is an object-relational mapping (ORM) framework that simplifies data access.</span></span>
 
-<span data-ttu-id="aef9c-108">EF Core üzerinde herhangi bir bağımlılığı olmadığından model sınıfları ("düz eski CLR nesnelerden") POCO sınıfları olarak bilinir.</span><span class="sxs-lookup"><span data-stu-id="aef9c-108">The model classes are known as POCO classes (from "plain-old CLR objects") because they don't have any dependency on EF Core.</span></span> <span data-ttu-id="aef9c-109">Bunlar, veritabanında depolanan verilerin özelliklerini tanımlayın.</span><span class="sxs-lookup"><span data-stu-id="aef9c-109">They define the properties of the data that are stored in the database.</span></span>
+<span data-ttu-id="352ea-108">Model sınıfları, EF Core hiçbir bağımlılığı olmadığından, POCO sınıfları ("düz eski CLR nesnelerinden") olarak bilinir.</span><span class="sxs-lookup"><span data-stu-id="352ea-108">The model classes are known as POCO classes (from "plain-old CLR objects") because they don't have any dependency on EF Core.</span></span> <span data-ttu-id="352ea-109">Veritabanında depolanan verilerin özelliklerini tanımlar.</span><span class="sxs-lookup"><span data-stu-id="352ea-109">They define the properties of the data that are stored in the database.</span></span>
 
 [!INCLUDE[View or download sample code](~/includes/rp/download.md)]
 
-## <a name="add-a-data-model"></a><span data-ttu-id="aef9c-110">Bir veri modeli ekleme</span><span class="sxs-lookup"><span data-stu-id="aef9c-110">Add a data model</span></span>
+## <a name="add-a-data-model"></a><span data-ttu-id="352ea-110">Veri modeli ekleme</span><span class="sxs-lookup"><span data-stu-id="352ea-110">Add a data model</span></span>
 
-# <a name="visual-studiotabvisual-studio"></a>[<span data-ttu-id="aef9c-111">Visual Studio</span><span class="sxs-lookup"><span data-stu-id="aef9c-111">Visual Studio</span></span>](#tab/visual-studio)
+# <a name="visual-studiotabvisual-studio"></a>[<span data-ttu-id="352ea-111">Visual Studio</span><span class="sxs-lookup"><span data-stu-id="352ea-111">Visual Studio</span></span>](#tab/visual-studio)
 
-<span data-ttu-id="aef9c-112">Sağ **RazorPagesMovie** Proje > **Ekle** > **yeni klasör**.</span><span class="sxs-lookup"><span data-stu-id="aef9c-112">Right-click the **RazorPagesMovie** project > **Add** > **New Folder**.</span></span> <span data-ttu-id="aef9c-113">Klasör adı *modelleri*.</span><span class="sxs-lookup"><span data-stu-id="aef9c-113">Name the folder *Models*.</span></span>
+<span data-ttu-id="352ea-112">@No__t-2**Yeni klasör** **eklemek**> **RazorPagesMovie** projesine sağ tıklayın.</span><span class="sxs-lookup"><span data-stu-id="352ea-112">Right-click the **RazorPagesMovie** project > **Add** > **New Folder**.</span></span> <span data-ttu-id="352ea-113">Klasör *modellerini*adlandırın.</span><span class="sxs-lookup"><span data-stu-id="352ea-113">Name the folder *Models*.</span></span>
 
-<span data-ttu-id="aef9c-114">Sağ tıklayın *modelleri* klasör.</span><span class="sxs-lookup"><span data-stu-id="aef9c-114">Right click the *Models* folder.</span></span> <span data-ttu-id="aef9c-115">Seçin **ekleme** > **sınıfı**.</span><span class="sxs-lookup"><span data-stu-id="aef9c-115">Select **Add** > **Class**.</span></span> <span data-ttu-id="aef9c-116">Sınıf adı **film**.</span><span class="sxs-lookup"><span data-stu-id="aef9c-116">Name the class **Movie**.</span></span>
+<span data-ttu-id="352ea-114">*Modeller* klasörüne sağ tıklayın.</span><span class="sxs-lookup"><span data-stu-id="352ea-114">Right click the *Models* folder.</span></span> <span data-ttu-id="352ea-115">@No__t-1**sınıfı** **Ekle**' yi seçin.</span><span class="sxs-lookup"><span data-stu-id="352ea-115">Select **Add** > **Class**.</span></span> <span data-ttu-id="352ea-116">Sınıf **filmi**olarak adlandırın.</span><span class="sxs-lookup"><span data-stu-id="352ea-116">Name the class **Movie**.</span></span>
 
 [!INCLUDE [model 1b](~/includes/RP/model1b.md)]
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[<span data-ttu-id="aef9c-117">Visual Studio Code</span><span class="sxs-lookup"><span data-stu-id="aef9c-117">Visual Studio Code</span></span>](#tab/visual-studio-code)
+# <a name="visual-studio-codetabvisual-studio-code"></a>[<span data-ttu-id="352ea-117">Visual Studio Code</span><span class="sxs-lookup"><span data-stu-id="352ea-117">Visual Studio Code</span></span>](#tab/visual-studio-code)
 
-* <span data-ttu-id="aef9c-118">Adlı bir klasör ekleme *modelleri*.</span><span class="sxs-lookup"><span data-stu-id="aef9c-118">Add a folder named *Models*.</span></span>
-* <span data-ttu-id="aef9c-119">Bir sınıfa eklemek *modelleri* adlı klasöre *Movie.cs*.</span><span class="sxs-lookup"><span data-stu-id="aef9c-119">Add a class to the *Models* folder named *Movie.cs*.</span></span>
+* <span data-ttu-id="352ea-118">*Modeller*adlı bir klasör ekleyin.</span><span class="sxs-lookup"><span data-stu-id="352ea-118">Add a folder named *Models*.</span></span>
+* <span data-ttu-id="352ea-119">*Movie.cs*adlı *modeller* klasörüne bir sınıf ekleyin.</span><span class="sxs-lookup"><span data-stu-id="352ea-119">Add a class to the *Models* folder named *Movie.cs*.</span></span>
 
 [!INCLUDE [model 1b](~/includes/RP/model1b.md)]
 
 [!INCLUDE [model 2](~/includes/RP/model2.md)]
 
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[<span data-ttu-id="aef9c-120">Mac için Visual Studio</span><span class="sxs-lookup"><span data-stu-id="aef9c-120">Visual Studio for Mac</span></span>](#tab/visual-studio-mac)
+# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[<span data-ttu-id="352ea-120">Mac için Visual Studio</span><span class="sxs-lookup"><span data-stu-id="352ea-120">Visual Studio for Mac</span></span>](#tab/visual-studio-mac)
 
-* <span data-ttu-id="aef9c-121">Çözüm Gezgini'nde sağ **RazorPagesMovie** proje ve ardından **Ekle** > **yeni klasör**.</span><span class="sxs-lookup"><span data-stu-id="aef9c-121">In Solution Explorer, right-click the **RazorPagesMovie** project, and then select **Add** > **New Folder**.</span></span> <span data-ttu-id="aef9c-122">Klasör adı *modelleri*.</span><span class="sxs-lookup"><span data-stu-id="aef9c-122">Name the folder *Models*.</span></span>
-* <span data-ttu-id="aef9c-123">*Modeller* klasörüne sağ tıklayın ve ardından **yeni dosya** **Ekle** > ' yi seçin.</span><span class="sxs-lookup"><span data-stu-id="aef9c-123">Right-click the *Models* folder, and then select **Add** > **New File**.</span></span>
-* <span data-ttu-id="aef9c-124">İçinde **yeni dosya** iletişim:</span><span class="sxs-lookup"><span data-stu-id="aef9c-124">In the **New File** dialog:</span></span>
+* <span data-ttu-id="352ea-121">Çözüm Gezgini, **RazorPagesMovie** projesine sağ tıklayın ve ardından  > **Yeni klasör** **Ekle**' yi seçin.</span><span class="sxs-lookup"><span data-stu-id="352ea-121">In Solution Explorer, right-click the **RazorPagesMovie** project, and then select **Add** > **New Folder**.</span></span> <span data-ttu-id="352ea-122">Klasör *modellerini*adlandırın.</span><span class="sxs-lookup"><span data-stu-id="352ea-122">Name the folder *Models*.</span></span>
+* <span data-ttu-id="352ea-123">*Modeller* klasörüne sağ tıklayın ve ardından > **yeni dosya** **Ekle** ' yi seçin.</span><span class="sxs-lookup"><span data-stu-id="352ea-123">Right-click the *Models* folder, and then select **Add** > **New File**.</span></span>
+* <span data-ttu-id="352ea-124">**Yeni dosya** iletişim kutusunda:</span><span class="sxs-lookup"><span data-stu-id="352ea-124">In the **New File** dialog:</span></span>
 
-  * <span data-ttu-id="aef9c-125">Seçin **genel** sol bölmesinde.</span><span class="sxs-lookup"><span data-stu-id="aef9c-125">Select **General** in the left pane.</span></span>
-  * <span data-ttu-id="aef9c-126">Orta bölmede **boş sınıf** ' ı seçin.</span><span class="sxs-lookup"><span data-stu-id="aef9c-126">Select **Empty Class** in the center pane.</span></span>
-  * <span data-ttu-id="aef9c-127">Sınıf adı **film** seçip **yeni**.</span><span class="sxs-lookup"><span data-stu-id="aef9c-127">Name the class **Movie** and select **New**.</span></span>
+  * <span data-ttu-id="352ea-125">Sol bölmedeki **genel** ' i seçin.</span><span class="sxs-lookup"><span data-stu-id="352ea-125">Select **General** in the left pane.</span></span>
+  * <span data-ttu-id="352ea-126">Orta bölmede **boş sınıf** ' ı seçin.</span><span class="sxs-lookup"><span data-stu-id="352ea-126">Select **Empty Class** in the center pane.</span></span>
+  * <span data-ttu-id="352ea-127">Sınıfı **filmi** adlandırın ve **Yeni**' yi seçin.</span><span class="sxs-lookup"><span data-stu-id="352ea-127">Name the class **Movie** and select **New**.</span></span>
 
 [!INCLUDE [model 1b](~/includes/RP/model1b.md)]
 
@@ -59,56 +59,56 @@ ms.locfileid: "71187191"
 
 ---
 
-<span data-ttu-id="aef9c-128">Derleme hata doğrulamak için projeyi derleyin.</span><span class="sxs-lookup"><span data-stu-id="aef9c-128">Build the project to verify there are no compilation errors.</span></span>
+<span data-ttu-id="352ea-128">Derleme hatası olmadığını doğrulamak için projeyi derleyin.</span><span class="sxs-lookup"><span data-stu-id="352ea-128">Build the project to verify there are no compilation errors.</span></span>
 
-## <a name="scaffold-the-movie-model"></a><span data-ttu-id="aef9c-129">Film modeli iskelesini</span><span class="sxs-lookup"><span data-stu-id="aef9c-129">Scaffold the movie model</span></span>
+## <a name="scaffold-the-movie-model"></a><span data-ttu-id="352ea-129">Film modelini dolandırın</span><span class="sxs-lookup"><span data-stu-id="352ea-129">Scaffold the movie model</span></span>
 
-<span data-ttu-id="aef9c-130">Bu bölümde, film modeli iskele kurulmuş.</span><span class="sxs-lookup"><span data-stu-id="aef9c-130">In this section, the movie model is scaffolded.</span></span> <span data-ttu-id="aef9c-131">Diğer bir deyişle, yapı iskelesi aracı sayfaları için oluşturma, okuma, güncelleştirme ve silme (CRUD) işlemlerine yönelik film modeli oluşturur.</span><span class="sxs-lookup"><span data-stu-id="aef9c-131">That is, the scaffolding tool produces pages for Create, Read, Update, and Delete (CRUD) operations for the movie model.</span></span>
+<span data-ttu-id="352ea-130">Bu bölümde, film modeli scafkatdır.</span><span class="sxs-lookup"><span data-stu-id="352ea-130">In this section, the movie model is scaffolded.</span></span> <span data-ttu-id="352ea-131">Diğer bir deyişle, scafkatlama aracı film modeli için oluşturma, okuma, güncelleştirme ve silme (CRUD) işlemleri için sayfalar üretir.</span><span class="sxs-lookup"><span data-stu-id="352ea-131">That is, the scaffolding tool produces pages for Create, Read, Update, and Delete (CRUD) operations for the movie model.</span></span>
 
-# <a name="visual-studiotabvisual-studio"></a>[<span data-ttu-id="aef9c-132">Visual Studio</span><span class="sxs-lookup"><span data-stu-id="aef9c-132">Visual Studio</span></span>](#tab/visual-studio)
+# <a name="visual-studiotabvisual-studio"></a>[<span data-ttu-id="352ea-132">Visual Studio</span><span class="sxs-lookup"><span data-stu-id="352ea-132">Visual Studio</span></span>](#tab/visual-studio)
 
-<span data-ttu-id="aef9c-133">Oluşturma bir *sayfaları/filmler* klasörü:</span><span class="sxs-lookup"><span data-stu-id="aef9c-133">Create a *Pages/Movies* folder:</span></span>
+<span data-ttu-id="352ea-133">*Sayfalar/filmler* klasörü oluştur:</span><span class="sxs-lookup"><span data-stu-id="352ea-133">Create a *Pages/Movies* folder:</span></span>
 
-* <span data-ttu-id="aef9c-134">**Yeni klasör** **eklemek** > > *Sayfalar* klasörüne sağ tıklayın.</span><span class="sxs-lookup"><span data-stu-id="aef9c-134">Right click on the *Pages* folder > **Add** > **New Folder**.</span></span>
-* <span data-ttu-id="aef9c-135">Klasör adı *filmler*</span><span class="sxs-lookup"><span data-stu-id="aef9c-135">Name the folder *Movies*</span></span>
+* <span data-ttu-id="352ea-134">@No__t-2 **Yeni klasör** **eklemek** > *Sayfalar* klasörüne sağ tıklayın.</span><span class="sxs-lookup"><span data-stu-id="352ea-134">Right click on the *Pages* folder > **Add** > **New Folder**.</span></span>
+* <span data-ttu-id="352ea-135">Klasör *filmlerini* adlandırın</span><span class="sxs-lookup"><span data-stu-id="352ea-135">Name the folder *Movies*</span></span>
 
-<span data-ttu-id="aef9c-136">**Yeni yapı iskelesi öğesi** **eklemek** > > *Sayfalar/filmler* klasörüne sağ tıklayın.</span><span class="sxs-lookup"><span data-stu-id="aef9c-136">Right click on the *Pages/Movies* folder > **Add** > **New Scaffolded Item**.</span></span>
+<span data-ttu-id="352ea-136">*Sayfalar/filmler* klasörüne sağ tıklayarak > @no__t 2 **yeni yapı Iskelesi öğesi** **ekleyin** .</span><span class="sxs-lookup"><span data-stu-id="352ea-136">Right click on the *Pages/Movies* folder > **Add** > **New Scaffolded Item**.</span></span>
 
-![Önceki yönergeleri görüntüden.](model/_static/sca.png)
+![Önceki yönergelerden görüntü.](model/_static/sca.png)
 
-<span data-ttu-id="aef9c-138">**Yapı iskelesi Ekle** iletişim kutusunda **Entity Framework (CRUD)** > **Ekle**Razor Pages seçin.</span><span class="sxs-lookup"><span data-stu-id="aef9c-138">In the **Add Scaffold** dialog, select **Razor Pages using Entity Framework (CRUD)** > **Add**.</span></span>
+<span data-ttu-id="352ea-138">**Yapı Iskelesi Ekle** iletişim kutusunda, **Entity Framework (crud)** > **Ekle**' yi kullanarak Razor Pages seçin.</span><span class="sxs-lookup"><span data-stu-id="352ea-138">In the **Add Scaffold** dialog, select **Razor Pages using Entity Framework (CRUD)** > **Add**.</span></span>
 
-![Önceki yönergeleri görüntüden.](model/_static/add_scaffold.png)
+![Önceki yönergelerden görüntü.](model/_static/add_scaffold.png)
 
-<span data-ttu-id="aef9c-140">Tamamlamak **ekleme Razor sayfaları (CRUD) Entity Framework kullanarak** iletişim:</span><span class="sxs-lookup"><span data-stu-id="aef9c-140">Complete the **Add Razor Pages using Entity Framework (CRUD)** dialog:</span></span>
+<span data-ttu-id="352ea-140">**Entity Framework kullanarak Razor Pages Ekle (CRUD)** iletişim kutusunu doldurun:</span><span class="sxs-lookup"><span data-stu-id="352ea-140">Complete the **Add Razor Pages using Entity Framework (CRUD)** dialog:</span></span>
 
-* <span data-ttu-id="aef9c-141">İçinde **Model sınıfı** seçin, açılan menü **film (RazorPagesMovie.Models)** .</span><span class="sxs-lookup"><span data-stu-id="aef9c-141">In the **Model class** drop down, select **Movie (RazorPagesMovie.Models)**.</span></span>
-* <span data-ttu-id="aef9c-142">**Veri bağlamı sınıfı** satırında, **+** (artı) işaretini seçin ve oluşturulan adı RazorPagesMovie ' dan değiştirin. **Modeller**. RazorPagesMovieContext to RazorPagesMovie. **Veri**. RazorPagesMovieContext.</span><span class="sxs-lookup"><span data-stu-id="aef9c-142">In the **Data context class** row, select the **+** (plus) sign and change the generated name from RazorPagesMovie.**Models**.RazorPagesMovieContext to RazorPagesMovie.**Data**.RazorPagesMovieContext.</span></span> <span data-ttu-id="aef9c-143">[Bu değişiklik](https://developercommunity.visualstudio.com/content/problem/652166/aspnet-core-ef-scaffolder-uses-incorrect-namespace.html) gerekli değildir.</span><span class="sxs-lookup"><span data-stu-id="aef9c-143">[This change](https://developercommunity.visualstudio.com/content/problem/652166/aspnet-core-ef-scaffolder-uses-incorrect-namespace.html) is not required.</span></span> <span data-ttu-id="aef9c-144">Doğru ad alanıyla veritabanı bağlamı sınıfını oluşturur.</span><span class="sxs-lookup"><span data-stu-id="aef9c-144">It creates the database context class with the correct namespace.</span></span>
-* <span data-ttu-id="aef9c-145">**Add (Ekle)** seçeneğini belirleyin.</span><span class="sxs-lookup"><span data-stu-id="aef9c-145">Select **Add**.</span></span>
+* <span data-ttu-id="352ea-141">**Model sınıfı** açılan kutusunda **Film (RazorPagesMovie. modeller)** öğesini seçin.</span><span class="sxs-lookup"><span data-stu-id="352ea-141">In the **Model class** drop down, select **Movie (RazorPagesMovie.Models)**.</span></span>
+* <span data-ttu-id="352ea-142">**Veri bağlamı sınıfı** satırında **+** (artı) işaretini seçin ve oluşturulan adı RazorPagesMovie ' dan değiştirin. **Modeller**. RazorPagesMovieContext to RazorPagesMovie. **Veri**. RazorPagesMovieContext.</span><span class="sxs-lookup"><span data-stu-id="352ea-142">In the **Data context class** row, select the **+** (plus) sign and change the generated name from RazorPagesMovie.**Models**.RazorPagesMovieContext to RazorPagesMovie.**Data**.RazorPagesMovieContext.</span></span> <span data-ttu-id="352ea-143">[Bu değişiklik](https://developercommunity.visualstudio.com/content/problem/652166/aspnet-core-ef-scaffolder-uses-incorrect-namespace.html) gerekli değildir.</span><span class="sxs-lookup"><span data-stu-id="352ea-143">[This change](https://developercommunity.visualstudio.com/content/problem/652166/aspnet-core-ef-scaffolder-uses-incorrect-namespace.html) is not required.</span></span> <span data-ttu-id="352ea-144">Doğru ad alanıyla veritabanı bağlamı sınıfını oluşturur.</span><span class="sxs-lookup"><span data-stu-id="352ea-144">It creates the database context class with the correct namespace.</span></span>
+* <span data-ttu-id="352ea-145">**Ekle**' yi seçin.</span><span class="sxs-lookup"><span data-stu-id="352ea-145">Select **Add**.</span></span>
 
-![Önceki yönergeleri görüntüden.](model/_static/3/arp.png)
+![Önceki yönergelerden görüntü.](model/_static/3/arp.png)
 
-<span data-ttu-id="aef9c-147">*Appsettings.json* dosya yerel bir veritabanına bağlanmak için kullanılan bağlantı dizesi ile güncelleştirilir.</span><span class="sxs-lookup"><span data-stu-id="aef9c-147">The *appsettings.json* file is updated with the connection string used to connect to a local database.</span></span>
+<span data-ttu-id="352ea-147">*AppSettings. JSON* dosyası, yerel bir veritabanına bağlanmak için kullanılan bağlantı dizesiyle güncelleştirilir.</span><span class="sxs-lookup"><span data-stu-id="352ea-147">The *appsettings.json* file is updated with the connection string used to connect to a local database.</span></span>
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[<span data-ttu-id="aef9c-148">Visual Studio Code</span><span class="sxs-lookup"><span data-stu-id="aef9c-148">Visual Studio Code</span></span>](#tab/visual-studio-code)
+# <a name="visual-studio-codetabvisual-studio-code"></a>[<span data-ttu-id="352ea-148">Visual Studio Code</span><span class="sxs-lookup"><span data-stu-id="352ea-148">Visual Studio Code</span></span>](#tab/visual-studio-code)
 
 <!--  Until https://github.com/aspnet/Scaffolding/issues/582 is fixed windows needs backslash or the namespace is namespace RazorPagesMovie.Pages_Movies rather than namespace RazorPagesMovie.Pages.Movies
 -->
 
-* <span data-ttu-id="aef9c-149">Proje dizininde bir komut penceresi açın (içeren dizine *Program.cs*, *Startup.cs*, ve *.csproj* dosyaları).</span><span class="sxs-lookup"><span data-stu-id="aef9c-149">Open a command window in the project directory (The directory that contains the *Program.cs*, *Startup.cs*, and *.csproj* files).</span></span>
-* <span data-ttu-id="aef9c-150">Yapı iskelesi Aracı'nı yükleyin:</span><span class="sxs-lookup"><span data-stu-id="aef9c-150">Install the scaffolding tool:</span></span>
+* <span data-ttu-id="352ea-149">Proje dizininde bir komut penceresi açın ( *program.cs*, *Startup.cs*ve *. csproj* dosyalarını içeren dizin).</span><span class="sxs-lookup"><span data-stu-id="352ea-149">Open a command window in the project directory (The directory that contains the *Program.cs*, *Startup.cs*, and *.csproj* files).</span></span>
+* <span data-ttu-id="352ea-150">Scafkatlama aracını yükler:</span><span class="sxs-lookup"><span data-stu-id="352ea-150">Install the scaffolding tool:</span></span>
 
   ```dotnetcli
    dotnet tool install --global dotnet-aspnet-codegenerator
    ```
 
-* <span data-ttu-id="aef9c-151">**Windows için**: Şu komutu çalıştırın:</span><span class="sxs-lookup"><span data-stu-id="aef9c-151">**For Windows**: Run the following command:</span></span>
+* <span data-ttu-id="352ea-151">**Windows için**: aşağıdaki komutu çalıştırın:</span><span class="sxs-lookup"><span data-stu-id="352ea-151">**For Windows**: Run the following command:</span></span>
 
   ```dotnetcli
   dotnet aspnet-codegenerator razorpage -m Movie -dc RazorPagesMovieContext -udl -outDir Pages\Movies --referenceScriptLibraries
   ```
 
-* <span data-ttu-id="aef9c-152">**MacOS ve Linux için**: Şu komutu çalıştırın:</span><span class="sxs-lookup"><span data-stu-id="aef9c-152">**For macOS and Linux**: Run the following command:</span></span>
+* <span data-ttu-id="352ea-152">**MacOS ve Linux için**: aşağıdaki komutu çalıştırın:</span><span class="sxs-lookup"><span data-stu-id="352ea-152">**For macOS and Linux**: Run the following command:</span></span>
 
   ```dotnetcli
   dotnet aspnet-codegenerator razorpage -m Movie -dc RazorPagesMovieContext -udl -outDir Pages/Movies --referenceScriptLibraries
@@ -116,16 +116,16 @@ ms.locfileid: "71187191"
 
 [!INCLUDE [explains scaffold gen params](~/includes/RP/model4.md)]
 
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[<span data-ttu-id="aef9c-153">Mac için Visual Studio</span><span class="sxs-lookup"><span data-stu-id="aef9c-153">Visual Studio for Mac</span></span>](#tab/visual-studio-mac)
+# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[<span data-ttu-id="352ea-153">Mac için Visual Studio</span><span class="sxs-lookup"><span data-stu-id="352ea-153">Visual Studio for Mac</span></span>](#tab/visual-studio-mac)
 
-* <span data-ttu-id="aef9c-154">Proje dizininde bir komut penceresi açın (içeren dizine *Program.cs*, *Startup.cs*, ve *.csproj* dosyaları).</span><span class="sxs-lookup"><span data-stu-id="aef9c-154">Open a command window in the project directory (The directory that contains the *Program.cs*, *Startup.cs*, and *.csproj* files).</span></span>
-* <span data-ttu-id="aef9c-155">Yapı iskelesi Aracı'nı yükleyin:</span><span class="sxs-lookup"><span data-stu-id="aef9c-155">Install the scaffolding tool:</span></span>
+* <span data-ttu-id="352ea-154">Proje dizininde bir komut penceresi açın ( *program.cs*, *Startup.cs*ve *. csproj* dosyalarını içeren dizin).</span><span class="sxs-lookup"><span data-stu-id="352ea-154">Open a command window in the project directory (The directory that contains the *Program.cs*, *Startup.cs*, and *.csproj* files).</span></span>
+* <span data-ttu-id="352ea-155">Scafkatlama aracını yükler:</span><span class="sxs-lookup"><span data-stu-id="352ea-155">Install the scaffolding tool:</span></span>
 
   ```dotnetcli
    dotnet tool install --global dotnet-aspnet-codegenerator
    ```
 
-* <span data-ttu-id="aef9c-156">Şu komutu çalıştırın:</span><span class="sxs-lookup"><span data-stu-id="aef9c-156">Run the following command:</span></span>
+* <span data-ttu-id="352ea-156">Şu komutu çalıştırın:</span><span class="sxs-lookup"><span data-stu-id="352ea-156">Run the following command:</span></span>
 
   ```dotnetcli
   dotnet aspnet-codegenerator razorpage -m Movie -dc RazorPagesMovieContext -udl -outDir Pages/Movies --referenceScriptLibraries
@@ -135,136 +135,136 @@ ms.locfileid: "71187191"
 
 ---
 
-### <a name="files-created"></a><span data-ttu-id="aef9c-157">Oluşturulan dosyalar</span><span class="sxs-lookup"><span data-stu-id="aef9c-157">Files created</span></span>
+### <a name="files-created"></a><span data-ttu-id="352ea-157">Oluşturulan dosyalar</span><span class="sxs-lookup"><span data-stu-id="352ea-157">Files created</span></span>
 
-# <a name="visual-studiotabvisual-studio"></a>[<span data-ttu-id="aef9c-158">Visual Studio</span><span class="sxs-lookup"><span data-stu-id="aef9c-158">Visual Studio</span></span>](#tab/visual-studio)
+# <a name="visual-studiotabvisual-studio"></a>[<span data-ttu-id="352ea-158">Visual Studio</span><span class="sxs-lookup"><span data-stu-id="352ea-158">Visual Studio</span></span>](#tab/visual-studio)
 
-<span data-ttu-id="aef9c-159">İskele işlem oluşturur ve aşağıdaki dosyaları güncelleştirir:</span><span class="sxs-lookup"><span data-stu-id="aef9c-159">The scaffold process creates and updates the following files:</span></span>
+<span data-ttu-id="352ea-159">Yapı iskelesi işlemi aşağıdaki dosyaları oluşturur ve güncelleştirir:</span><span class="sxs-lookup"><span data-stu-id="352ea-159">The scaffold process creates and updates the following files:</span></span>
 
-* <span data-ttu-id="aef9c-160">*Sayfalar/filmler*: Oluşturma, silme, ayrıntılar, düzenleme ve dizin oluşturma.</span><span class="sxs-lookup"><span data-stu-id="aef9c-160">*Pages/Movies*: Create, Delete, Details, Edit, and Index.</span></span>
-* <span data-ttu-id="aef9c-161">*Data/RazorPagesMovieContext.cs*</span><span class="sxs-lookup"><span data-stu-id="aef9c-161">*Data/RazorPagesMovieContext.cs*</span></span>
+* <span data-ttu-id="352ea-160">*Sayfalar/filmler*: oluşturma, silme, ayrıntılar, düzenleme ve dizin.</span><span class="sxs-lookup"><span data-stu-id="352ea-160">*Pages/Movies*: Create, Delete, Details, Edit, and Index.</span></span>
+* <span data-ttu-id="352ea-161">*Data/RazorPagesMovieContext. cs*</span><span class="sxs-lookup"><span data-stu-id="352ea-161">*Data/RazorPagesMovieContext.cs*</span></span>
 
-### <a name="updated"></a><span data-ttu-id="aef9c-162">Güncellendi</span><span class="sxs-lookup"><span data-stu-id="aef9c-162">Updated</span></span>
+### <a name="updated"></a><span data-ttu-id="352ea-162">Güncellendi</span><span class="sxs-lookup"><span data-stu-id="352ea-162">Updated</span></span>
 
-* <span data-ttu-id="aef9c-163">*Startup.cs*</span><span class="sxs-lookup"><span data-stu-id="aef9c-163">*Startup.cs*</span></span>
+* <span data-ttu-id="352ea-163">*Startup.cs*</span><span class="sxs-lookup"><span data-stu-id="352ea-163">*Startup.cs*</span></span>
 
-<span data-ttu-id="aef9c-164">Oluşturulan ve güncelleştirilen dosyalar, sonraki bölümde açıklanmıştır.</span><span class="sxs-lookup"><span data-stu-id="aef9c-164">The created and updated files are explained in the next section.</span></span>
+<span data-ttu-id="352ea-164">Oluşturulan ve güncelleştirilmiş dosyalar sonraki bölümde açıklanmaktadır.</span><span class="sxs-lookup"><span data-stu-id="352ea-164">The created and updated files are explained in the next section.</span></span>
 
-# <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[<span data-ttu-id="aef9c-165">Visual Studio Code/Mac için Visual Studio</span><span class="sxs-lookup"><span data-stu-id="aef9c-165">Visual Studio Code / Visual Studio for Mac</span></span>](#tab/visual-studio-code+visual-studio-mac)
+# <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[<span data-ttu-id="352ea-165">Visual Studio Code/Mac için Visual Studio</span><span class="sxs-lookup"><span data-stu-id="352ea-165">Visual Studio Code / Visual Studio for Mac</span></span>](#tab/visual-studio-code+visual-studio-mac)
 
-<span data-ttu-id="aef9c-166">Yapı iskelesi işlemi aşağıdaki dosyaları oluşturur:</span><span class="sxs-lookup"><span data-stu-id="aef9c-166">The scaffold process creates the following files:</span></span>
+<span data-ttu-id="352ea-166">Yapı iskelesi işlemi aşağıdaki dosyaları oluşturur:</span><span class="sxs-lookup"><span data-stu-id="352ea-166">The scaffold process creates the following files:</span></span>
 
-* <span data-ttu-id="aef9c-167">*Sayfalar/filmler*: Oluşturma, silme, ayrıntılar, düzenleme ve dizin oluşturma.</span><span class="sxs-lookup"><span data-stu-id="aef9c-167">*Pages/Movies*: Create, Delete, Details, Edit, and Index.</span></span>
+* <span data-ttu-id="352ea-167">*Sayfalar/filmler*: oluşturma, silme, ayrıntılar, düzenleme ve dizin.</span><span class="sxs-lookup"><span data-stu-id="352ea-167">*Pages/Movies*: Create, Delete, Details, Edit, and Index.</span></span>
 
-<span data-ttu-id="aef9c-168">Oluşturulan dosyalar sonraki bölümde açıklanmaktadır.</span><span class="sxs-lookup"><span data-stu-id="aef9c-168">The created files are explained in the next section.</span></span>
+<span data-ttu-id="352ea-168">Oluşturulan dosyalar sonraki bölümde açıklanmaktadır.</span><span class="sxs-lookup"><span data-stu-id="352ea-168">The created files are explained in the next section.</span></span>
 
 ---
 
 <a name="pmc"></a>
 
-## <a name="initial-migration"></a><span data-ttu-id="aef9c-169">İlk geçiş</span><span class="sxs-lookup"><span data-stu-id="aef9c-169">Initial migration</span></span>
+## <a name="initial-migration"></a><span data-ttu-id="352ea-169">İlk geçiş</span><span class="sxs-lookup"><span data-stu-id="352ea-169">Initial migration</span></span>
 
-# <a name="visual-studiotabvisual-studio"></a>[<span data-ttu-id="aef9c-170">Visual Studio</span><span class="sxs-lookup"><span data-stu-id="aef9c-170">Visual Studio</span></span>](#tab/visual-studio)
+# <a name="visual-studiotabvisual-studio"></a>[<span data-ttu-id="352ea-170">Visual Studio</span><span class="sxs-lookup"><span data-stu-id="352ea-170">Visual Studio</span></span>](#tab/visual-studio)
 
-<span data-ttu-id="aef9c-171">Bu bölümde, Paket Yöneticisi Konsolu (PMC'yi) için kullanılır:</span><span class="sxs-lookup"><span data-stu-id="aef9c-171">In this section, the Package Manager Console (PMC) is used to:</span></span>
+<span data-ttu-id="352ea-171">Bu bölümde, Paket Yöneticisi Konsolu (PMC) şu şekilde kullanılır:</span><span class="sxs-lookup"><span data-stu-id="352ea-171">In this section, the Package Manager Console (PMC) is used to:</span></span>
 
-* <span data-ttu-id="aef9c-172">Bir başlangıç geçiş ekleyin.</span><span class="sxs-lookup"><span data-stu-id="aef9c-172">Add an initial migration.</span></span>
-* <span data-ttu-id="aef9c-173">Veritabanı, ilk geçiş ile güncelleştirin.</span><span class="sxs-lookup"><span data-stu-id="aef9c-173">Update the database with the initial migration.</span></span>
+* <span data-ttu-id="352ea-172">İlk geçiş ekleyin.</span><span class="sxs-lookup"><span data-stu-id="352ea-172">Add an initial migration.</span></span>
+* <span data-ttu-id="352ea-173">Veritabanını ilk geçişle güncelleştirin.</span><span class="sxs-lookup"><span data-stu-id="352ea-173">Update the database with the initial migration.</span></span>
 
-<span data-ttu-id="aef9c-174">**Araçlar** menüsünde **NuGet Paket Yöneticisi** > **Paket Yöneticisi konsolu**' nu seçin.</span><span class="sxs-lookup"><span data-stu-id="aef9c-174">From the **Tools** menu, select **NuGet Package Manager** > **Package Manager Console**.</span></span>
+<span data-ttu-id="352ea-174">**Araçlar** menüsünde **NuGet Paket Yöneticisi** > **Paket Yöneticisi konsolu**' nu seçin.</span><span class="sxs-lookup"><span data-stu-id="352ea-174">From the **Tools** menu, select **NuGet Package Manager** > **Package Manager Console**.</span></span>
 
   ![PMC menüsü](../first-mvc-app/adding-model/_static/pmc.png)
 
-<span data-ttu-id="aef9c-176">PMC'de aşağıdaki komutları girin:</span><span class="sxs-lookup"><span data-stu-id="aef9c-176">In the PMC, enter the following commands:</span></span>
+<span data-ttu-id="352ea-176">PMC 'de aşağıdaki komutları girin:</span><span class="sxs-lookup"><span data-stu-id="352ea-176">In the PMC, enter the following commands:</span></span>
 
 ```PMC
 Add-Migration InitialCreate
 Update-Database
 ```
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[<span data-ttu-id="aef9c-177">Visual Studio Code</span><span class="sxs-lookup"><span data-stu-id="aef9c-177">Visual Studio Code</span></span>](#tab/visual-studio-code)
+# <a name="visual-studio-codetabvisual-studio-code"></a>[<span data-ttu-id="352ea-177">Visual Studio Code</span><span class="sxs-lookup"><span data-stu-id="352ea-177">Visual Studio Code</span></span>](#tab/visual-studio-code)
 
 [!INCLUDE [initial migration](~/includes/RP/model3.md)]
 
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[<span data-ttu-id="aef9c-178">Mac için Visual Studio</span><span class="sxs-lookup"><span data-stu-id="aef9c-178">Visual Studio for Mac</span></span>](#tab/visual-studio-mac)
+# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[<span data-ttu-id="352ea-178">Mac için Visual Studio</span><span class="sxs-lookup"><span data-stu-id="352ea-178">Visual Studio for Mac</span></span>](#tab/visual-studio-mac)
 
 [!INCLUDE [initial migration](~/includes/RP/model3.md)]
 
 ---
 
-<span data-ttu-id="aef9c-179">Yukarıdaki komutlar aşağıdaki uyarıyı oluşturur: "' Movie ' varlık türündeki ' Price ' ondalık sütunu için tür belirtilmedi.</span><span class="sxs-lookup"><span data-stu-id="aef9c-179">The preceding commands generate the following warning: "No type was specified for the decimal column 'Price' on entity type 'Movie'.</span></span> <span data-ttu-id="aef9c-180">Bu, varsayılan duyarlık ve ölçeğe uygun olmadıkları takdirde değerlerin sessizce kesilmesine neden olur.</span><span class="sxs-lookup"><span data-stu-id="aef9c-180">This will cause values to be silently truncated if they do not fit in the default precision and scale.</span></span> <span data-ttu-id="aef9c-181">' Hasccolumntype () ' kullanarak tüm değerleri barındırabilecek SQL Server sütun türünü açık olarak belirtin. "</span><span class="sxs-lookup"><span data-stu-id="aef9c-181">Explicitly specify the SQL server column type that can accommodate all the values using 'HasColumnType()'."</span></span>
+<span data-ttu-id="352ea-179">Yukarıdaki komutlar şu uyarıyı oluşturur: "' Movie ' varlık türündeki ' Price ' ondalık sütunu için tür belirtilmedi.</span><span class="sxs-lookup"><span data-stu-id="352ea-179">The preceding commands generate the following warning: "No type was specified for the decimal column 'Price' on entity type 'Movie'.</span></span> <span data-ttu-id="352ea-180">Bu, varsayılan duyarlık ve ölçeğe uygun olmadıkları takdirde değerlerin sessizce kesilmesine neden olur.</span><span class="sxs-lookup"><span data-stu-id="352ea-180">This will cause values to be silently truncated if they do not fit in the default precision and scale.</span></span> <span data-ttu-id="352ea-181">' Hasccolumntype () ' kullanarak tüm değerleri barındırabilecek SQL Server sütun türünü açık olarak belirtin. "</span><span class="sxs-lookup"><span data-stu-id="352ea-181">Explicitly specify the SQL server column type that can accommodate all the values using 'HasColumnType()'."</span></span>
 
-<span data-ttu-id="aef9c-182">Bu uyarıyı yoksayabilirsiniz, daha sonraki bir öğreticide düzeltilecektir.</span><span class="sxs-lookup"><span data-stu-id="aef9c-182">You can ignore that warning, it will be fixed in a later tutorial.</span></span>
+<span data-ttu-id="352ea-182">Bu uyarıyı yoksayabilirsiniz, daha sonraki bir öğreticide düzeltilecektir.</span><span class="sxs-lookup"><span data-stu-id="352ea-182">You can ignore that warning, it will be fixed in a later tutorial.</span></span>
 
-<span data-ttu-id="aef9c-183">`ef migrations add InitialCreate` Komut, ilk veritabanı şeması oluşturmak için kod oluşturur.</span><span class="sxs-lookup"><span data-stu-id="aef9c-183">The `ef migrations add InitialCreate` command generates code to create the initial database schema.</span></span> <span data-ttu-id="aef9c-184">Şema, `DbContext` öğesinde belirtilen modeli temel alır ( *RazorPagesMovieContext.cs* dosyasında).</span><span class="sxs-lookup"><span data-stu-id="aef9c-184">The schema is based on the model specified in the `DbContext` (In the *RazorPagesMovieContext.cs* file).</span></span> <span data-ttu-id="aef9c-185">`InitialCreate` Bağımsız değişkeni, geçişlerin adlandırmak için kullanılır.</span><span class="sxs-lookup"><span data-stu-id="aef9c-185">The `InitialCreate` argument is used to name the migrations.</span></span> <span data-ttu-id="aef9c-186">Herhangi bir ad kullanılabilir, ancak bir adı seçili kural gereği, geçiş açıklar.</span><span class="sxs-lookup"><span data-stu-id="aef9c-186">Any name can be used, but by convention a name is selected that describes the migration.</span></span>
+<span data-ttu-id="352ea-183">@No__t-0 komutu, ilk veritabanı şemasını oluşturmak için kod üretir.</span><span class="sxs-lookup"><span data-stu-id="352ea-183">The `ef migrations add InitialCreate` command generates code to create the initial database schema.</span></span> <span data-ttu-id="352ea-184">Şema, `DbContext` ( *RazorPagesMovieContext.cs* dosyasında) içinde belirtilen modeli temel alır.</span><span class="sxs-lookup"><span data-stu-id="352ea-184">The schema is based on the model specified in the `DbContext` (In the *RazorPagesMovieContext.cs* file).</span></span> <span data-ttu-id="352ea-185">@No__t-0 bağımsız değişkeni geçişleri adlandırmak için kullanılır.</span><span class="sxs-lookup"><span data-stu-id="352ea-185">The `InitialCreate` argument is used to name the migrations.</span></span> <span data-ttu-id="352ea-186">Herhangi bir ad kullanılabilir, ancak geçiş işlemini açıklayan bir ad seçilir.</span><span class="sxs-lookup"><span data-stu-id="352ea-186">Any name can be used, but by convention a name is selected that describes the migration.</span></span>
 
-<span data-ttu-id="aef9c-187">`ef database update` Komutu çalıştırmaları `Up` yönteminde *geçişleri /\<zaman damgası > _InitialCreate.cs* dosya.</span><span class="sxs-lookup"><span data-stu-id="aef9c-187">The `ef database update` command runs the `Up` method in the *Migrations/\<time-stamp>_InitialCreate.cs* file.</span></span> <span data-ttu-id="aef9c-188">`Up` Yöntemi veritabanı oluşturur.</span><span class="sxs-lookup"><span data-stu-id="aef9c-188">The `Up` method creates the database.</span></span>
+<span data-ttu-id="352ea-187">@No__t-0 komutu, *geçişleri/\<Zaman damgası > _ınitialcreate. cs* dosyasında `Up` yöntemini çalıştırır.</span><span class="sxs-lookup"><span data-stu-id="352ea-187">The `ef database update` command runs the `Up` method in the *Migrations/\<time-stamp>_InitialCreate.cs* file.</span></span> <span data-ttu-id="352ea-188">@No__t-0 yöntemi veritabanını oluşturur.</span><span class="sxs-lookup"><span data-stu-id="352ea-188">The `Up` method creates the database.</span></span>
 
-# <a name="visual-studiotabvisual-studio"></a>[<span data-ttu-id="aef9c-189">Visual Studio</span><span class="sxs-lookup"><span data-stu-id="aef9c-189">Visual Studio</span></span>](#tab/visual-studio)
+# <a name="visual-studiotabvisual-studio"></a>[<span data-ttu-id="352ea-189">Visual Studio</span><span class="sxs-lookup"><span data-stu-id="352ea-189">Visual Studio</span></span>](#tab/visual-studio)
 
-### <a name="examine-the-context-registered-with-dependency-injection"></a><span data-ttu-id="aef9c-190">Bağımlılık ekleme ile kayıtlı bağlamını İnceleme</span><span class="sxs-lookup"><span data-stu-id="aef9c-190">Examine the context registered with dependency injection</span></span>
+### <a name="examine-the-context-registered-with-dependency-injection"></a><span data-ttu-id="352ea-190">Bağımlılık ekleme ile kaydedilen bağlamı inceleyin</span><span class="sxs-lookup"><span data-stu-id="352ea-190">Examine the context registered with dependency injection</span></span>
 
-<span data-ttu-id="aef9c-191">ASP.NET Core ile oluşturulmuş [bağımlılık ekleme](xref:fundamentals/dependency-injection).</span><span class="sxs-lookup"><span data-stu-id="aef9c-191">ASP.NET Core is built with [dependency injection](xref:fundamentals/dependency-injection).</span></span> <span data-ttu-id="aef9c-192">Hizmetler (örneğin, EF Core DB bağlamı), uygulama başlatma sırasında bağımlılık ekleme ile kaydedilir.</span><span class="sxs-lookup"><span data-stu-id="aef9c-192">Services (such as the EF Core DB context) are registered with dependency injection during application startup.</span></span> <span data-ttu-id="aef9c-193">Bu hizmetler (örneğin, Razor sayfaları) gerektiren bileşenler bu hizmetler Oluşturucu parametresi üzerinden sağlanır.</span><span class="sxs-lookup"><span data-stu-id="aef9c-193">Components that require these services (such as Razor Pages) are provided these services via constructor parameters.</span></span> <span data-ttu-id="aef9c-194">Bir DB bağlamı örneği alır Oluşturucu kodu öğreticinin ilerleyen bölümlerinde gösterilmektedir.</span><span class="sxs-lookup"><span data-stu-id="aef9c-194">The constructor code that gets a DB context instance is shown later in the tutorial.</span></span>
+<span data-ttu-id="352ea-191">ASP.NET Core [bağımlılık ekleme](xref:fundamentals/dependency-injection)ile oluşturulmuştur.</span><span class="sxs-lookup"><span data-stu-id="352ea-191">ASP.NET Core is built with [dependency injection](xref:fundamentals/dependency-injection).</span></span> <span data-ttu-id="352ea-192">Hizmetler (EF Core DB bağlamı gibi) uygulama başlatma sırasında bağımlılık ekleme ile kaydedilir.</span><span class="sxs-lookup"><span data-stu-id="352ea-192">Services (such as the EF Core DB context) are registered with dependency injection during application startup.</span></span> <span data-ttu-id="352ea-193">Bu hizmetleri gerektiren bileşenler (örneğin Razor Pages), bu hizmetleri Oluşturucu parametreleri aracılığıyla sağlamaktadır.</span><span class="sxs-lookup"><span data-stu-id="352ea-193">Components that require these services (such as Razor Pages) are provided these services via constructor parameters.</span></span> <span data-ttu-id="352ea-194">Bir DB bağlam örneğini alan Oluşturucu kodu öğreticide daha sonra gösterilmiştir.</span><span class="sxs-lookup"><span data-stu-id="352ea-194">The constructor code that gets a DB context instance is shown later in the tutorial.</span></span>
 
-<span data-ttu-id="aef9c-195">Yapı iskelesi aracı otomatik olarak oluşturulmuş bir veritabanı bağlamını ve bağımlılık ekleme kapsayıcısını ile kayıtlı.</span><span class="sxs-lookup"><span data-stu-id="aef9c-195">The scaffolding tool automatically created a DB context and registered it with the dependency injection container.</span></span>
+<span data-ttu-id="352ea-195">Scafkatlama aracı otomatik olarak bir DB bağlamı oluşturup bağımlılık ekleme kapsayıcısına kaydettirdi.</span><span class="sxs-lookup"><span data-stu-id="352ea-195">The scaffolding tool automatically created a DB context and registered it with the dependency injection container.</span></span>
 
-<span data-ttu-id="aef9c-196">İnceleme `Startup.ConfigureServices` yöntemi.</span><span class="sxs-lookup"><span data-stu-id="aef9c-196">Examine the `Startup.ConfigureServices` method.</span></span> <span data-ttu-id="aef9c-197">Vurgulanan satırı iskele kurucu tarafından eklendi:</span><span class="sxs-lookup"><span data-stu-id="aef9c-197">The highlighted line was added by the scaffolder:</span></span>
+<span data-ttu-id="352ea-196">@No__t-0 yöntemini inceleyin.</span><span class="sxs-lookup"><span data-stu-id="352ea-196">Examine the `Startup.ConfigureServices` method.</span></span> <span data-ttu-id="352ea-197">Vurgulanan satır, scaffolder tarafından eklendi:</span><span class="sxs-lookup"><span data-stu-id="352ea-197">The highlighted line was added by the scaffolder:</span></span>
 
 [!code-csharp[](razor-pages-start/sample/RazorPagesMovie30/Startup.cs?name=snippet_ConfigureServices&highlight=5-6)]
 
-<span data-ttu-id="aef9c-198">`RazorPagesMovieContext` EF Core işlevleri (oluşturma, okuma, güncelleştirme, silme, vb.) için koordinatları `Movie` modeli.</span><span class="sxs-lookup"><span data-stu-id="aef9c-198">The `RazorPagesMovieContext` coordinates EF Core functionality (Create, Read, Update, Delete, etc.) for the `Movie` model.</span></span> <span data-ttu-id="aef9c-199">Veri bağlamı (`RazorPagesMovieContext`) türetilir [Microsoft.EntityFrameworkCore.DbContext](/dotnet/api/microsoft.entityframeworkcore.dbcontext).</span><span class="sxs-lookup"><span data-stu-id="aef9c-199">The data context (`RazorPagesMovieContext`) is derived from [Microsoft.EntityFrameworkCore.DbContext](/dotnet/api/microsoft.entityframeworkcore.dbcontext).</span></span> <span data-ttu-id="aef9c-200">Veri bağlamı, hangi varlıkları veri modelinde yer alan belirtir.</span><span class="sxs-lookup"><span data-stu-id="aef9c-200">The data context specifies which entities are included in the data model.</span></span>
+<span data-ttu-id="352ea-198">@No__t-0, `Movie` modeli için işlevselliği (oluşturma, okuma, güncelleştirme, silme, vb.) EF Core.</span><span class="sxs-lookup"><span data-stu-id="352ea-198">The `RazorPagesMovieContext` coordinates EF Core functionality (Create, Read, Update, Delete, etc.) for the `Movie` model.</span></span> <span data-ttu-id="352ea-199">Veri bağlamı (`RazorPagesMovieContext`) [Microsoft. EntityFrameworkCore. DbContext](/dotnet/api/microsoft.entityframeworkcore.dbcontext)öğesinden türetilir.</span><span class="sxs-lookup"><span data-stu-id="352ea-199">The data context (`RazorPagesMovieContext`) is derived from [Microsoft.EntityFrameworkCore.DbContext](/dotnet/api/microsoft.entityframeworkcore.dbcontext).</span></span> <span data-ttu-id="352ea-200">Veri bağlamı, veri modeline hangi varlıkların ekleneceğini belirtir.</span><span class="sxs-lookup"><span data-stu-id="352ea-200">The data context specifies which entities are included in the data model.</span></span>
 
 [!code-csharp[](~/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie22/Data/RazorPagesMovieContext.cs)]
 
-<span data-ttu-id="aef9c-201">Önceki kod, varlık kümesi [`DbSet<Movie>`](/dotnet/api/microsoft.entityframeworkcore.dbset-1) için bir özellik oluşturur.</span><span class="sxs-lookup"><span data-stu-id="aef9c-201">The preceding code creates a [`DbSet<Movie>`](/dotnet/api/microsoft.entityframeworkcore.dbset-1) property for the entity set.</span></span> <span data-ttu-id="aef9c-202">Entity Framework terminolojisinde, bir varlık kümesini genellikle bir veritabanı tablosuna karşılık gelir.</span><span class="sxs-lookup"><span data-stu-id="aef9c-202">In Entity Framework terminology, an entity set typically corresponds to a database table.</span></span> <span data-ttu-id="aef9c-203">Bir varlık tablosunda bir satıra karşılık gelir.</span><span class="sxs-lookup"><span data-stu-id="aef9c-203">An entity corresponds to a row in the table.</span></span>
+<span data-ttu-id="352ea-201">Önceki kod, varlık kümesi için bir [`DbSet<Movie>`](/dotnet/api/microsoft.entityframeworkcore.dbset-1) özelliği oluşturur.</span><span class="sxs-lookup"><span data-stu-id="352ea-201">The preceding code creates a [`DbSet<Movie>`](/dotnet/api/microsoft.entityframeworkcore.dbset-1) property for the entity set.</span></span> <span data-ttu-id="352ea-202">Entity Framework terminolojisinde, genellikle bir varlık kümesi bir veritabanı tablosuna karşılık gelir.</span><span class="sxs-lookup"><span data-stu-id="352ea-202">In Entity Framework terminology, an entity set typically corresponds to a database table.</span></span> <span data-ttu-id="352ea-203">Bir varlık, tablodaki bir satıra karşılık gelir.</span><span class="sxs-lookup"><span data-stu-id="352ea-203">An entity corresponds to a row in the table.</span></span>
 
-<span data-ttu-id="aef9c-204">Bağlantı dizesi adı için bağlam üzerinde bir yöntemi çağırarak geçirilen bir [DbContextOptions](/dotnet/api/microsoft.entityframeworkcore.dbcontextoptions) nesne.</span><span class="sxs-lookup"><span data-stu-id="aef9c-204">The name of the connection string is passed in to the context by calling a method on a [DbContextOptions](/dotnet/api/microsoft.entityframeworkcore.dbcontextoptions) object.</span></span> <span data-ttu-id="aef9c-205">Yerel geliştirme için [ASP.NET Core yapılandırma sistemi](xref:fundamentals/configuration/index) bağlantı dizesinden okur *appsettings.json* dosya.</span><span class="sxs-lookup"><span data-stu-id="aef9c-205">For local development, the [ASP.NET Core configuration system](xref:fundamentals/configuration/index) reads the connection string from the *appsettings.json* file.</span></span>
+<span data-ttu-id="352ea-204">Bağlantı dizesinin adı, [Dbcontextoptions](/dotnet/api/microsoft.entityframeworkcore.dbcontextoptions) nesnesinde bir yöntem çağırarak bağlama geçirilir.</span><span class="sxs-lookup"><span data-stu-id="352ea-204">The name of the connection string is passed in to the context by calling a method on a [DbContextOptions](/dotnet/api/microsoft.entityframeworkcore.dbcontextoptions) object.</span></span> <span data-ttu-id="352ea-205">Yerel geliştirme için [ASP.NET Core yapılandırma sistemi](xref:fundamentals/configuration/index) , *appSettings. JSON* dosyasından bağlantı dizesini okur.</span><span class="sxs-lookup"><span data-stu-id="352ea-205">For local development, the [ASP.NET Core configuration system](xref:fundamentals/configuration/index) reads the connection string from the *appsettings.json* file.</span></span>
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[<span data-ttu-id="aef9c-206">Visual Studio Code</span><span class="sxs-lookup"><span data-stu-id="aef9c-206">Visual Studio Code</span></span>](#tab/visual-studio-code)
+# <a name="visual-studio-codetabvisual-studio-code"></a>[<span data-ttu-id="352ea-206">Visual Studio Code</span><span class="sxs-lookup"><span data-stu-id="352ea-206">Visual Studio Code</span></span>](#tab/visual-studio-code)
 
-<span data-ttu-id="aef9c-207">İnceleme `Up` yöntemi.</span><span class="sxs-lookup"><span data-stu-id="aef9c-207">Examine the `Up` method.</span></span>
+<span data-ttu-id="352ea-207">@No__t-0 yöntemini inceleyin.</span><span class="sxs-lookup"><span data-stu-id="352ea-207">Examine the `Up` method.</span></span>
 
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[<span data-ttu-id="aef9c-208">Mac için Visual Studio</span><span class="sxs-lookup"><span data-stu-id="aef9c-208">Visual Studio for Mac</span></span>](#tab/visual-studio-mac)
+# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[<span data-ttu-id="352ea-208">Mac için Visual Studio</span><span class="sxs-lookup"><span data-stu-id="352ea-208">Visual Studio for Mac</span></span>](#tab/visual-studio-mac)
 
-<span data-ttu-id="aef9c-209">İnceleme `Up` yöntemi.</span><span class="sxs-lookup"><span data-stu-id="aef9c-209">Examine the `Up` method.</span></span>
+<span data-ttu-id="352ea-209">@No__t-0 yöntemini inceleyin.</span><span class="sxs-lookup"><span data-stu-id="352ea-209">Examine the `Up` method.</span></span>
 
 ---
 
-<span data-ttu-id="aef9c-210">`Add-Migration` Komut, ilk veritabanı şeması oluşturmak için kod oluşturur.</span><span class="sxs-lookup"><span data-stu-id="aef9c-210">The `Add-Migration` command generates code to create the initial database schema.</span></span> <span data-ttu-id="aef9c-211">Belirtilen model şeması dayanır `RazorPagesMovieContext` (içinde *Data/RazorPagesMovieContext.cs* dosyası).</span><span class="sxs-lookup"><span data-stu-id="aef9c-211">The schema is based on the model specified in the `RazorPagesMovieContext` (In the *Data/RazorPagesMovieContext.cs* file).</span></span> <span data-ttu-id="aef9c-212">`Initial` Bağımsız değişkeni, geçişlerin adlandırmak için kullanılır.</span><span class="sxs-lookup"><span data-stu-id="aef9c-212">The `Initial` argument is used to name the migrations.</span></span> <span data-ttu-id="aef9c-213">Herhangi bir ad kullanılabilir, ancak kurala göre geçiş tanımlayan bir ad kullanılır.</span><span class="sxs-lookup"><span data-stu-id="aef9c-213">Any name can be used, but by convention a name that describes the migration is used.</span></span> <span data-ttu-id="aef9c-214">Daha fazla bilgi için bkz. <xref:data/ef-mvc/migrations>.</span><span class="sxs-lookup"><span data-stu-id="aef9c-214">For more information, see <xref:data/ef-mvc/migrations>.</span></span>
+<span data-ttu-id="352ea-210">@No__t-0 komutu, ilk veritabanı şemasını oluşturmak için kod üretir.</span><span class="sxs-lookup"><span data-stu-id="352ea-210">The `Add-Migration` command generates code to create the initial database schema.</span></span> <span data-ttu-id="352ea-211">Şema, `RazorPagesMovieContext` ( *Data/RazorPagesMovieContext. cs* dosyasında) içinde belirtilen modeli temel alır.</span><span class="sxs-lookup"><span data-stu-id="352ea-211">The schema is based on the model specified in the `RazorPagesMovieContext` (In the *Data/RazorPagesMovieContext.cs* file).</span></span> <span data-ttu-id="352ea-212">@No__t-0 bağımsız değişkeni geçişleri adlandırmak için kullanılır.</span><span class="sxs-lookup"><span data-stu-id="352ea-212">The `Initial` argument is used to name the migrations.</span></span> <span data-ttu-id="352ea-213">Herhangi bir ad kullanılabilir, ancak kurala göre geçiş işlemini açıklayan bir ad kullanılır.</span><span class="sxs-lookup"><span data-stu-id="352ea-213">Any name can be used, but by convention a name that describes the migration is used.</span></span> <span data-ttu-id="352ea-214">Daha fazla bilgi için bkz. <xref:data/ef-mvc/migrations>.</span><span class="sxs-lookup"><span data-stu-id="352ea-214">For more information, see <xref:data/ef-mvc/migrations>.</span></span>
 
-<span data-ttu-id="aef9c-215">`Update-Database` Komutu çalıştırmaları `Up` yöntemi *geçişleri / {zaman damgası} _InitialCreate.cs* dosyasını veritabanı oluşturur.</span><span class="sxs-lookup"><span data-stu-id="aef9c-215">The `Update-Database` command runs the `Up` method in the *Migrations/{time-stamp}_InitialCreate.cs* file, which creates the database.</span></span>
+<span data-ttu-id="352ea-215">@No__t-0 komutu, veritabanını oluşturan *geçişler/{Time-damga} _ınitialcreate. cs* dosyasında `Up` yöntemini çalıştırır.</span><span class="sxs-lookup"><span data-stu-id="352ea-215">The `Update-Database` command runs the `Up` method in the *Migrations/{time-stamp}_InitialCreate.cs* file, which creates the database.</span></span>
 
 <a name="test"></a>
 
-### <a name="test-the-app"></a><span data-ttu-id="aef9c-216">Uygulamayı test etme</span><span class="sxs-lookup"><span data-stu-id="aef9c-216">Test the app</span></span>
+### <a name="test-the-app"></a><span data-ttu-id="352ea-216">Uygulamayı test etme</span><span class="sxs-lookup"><span data-stu-id="352ea-216">Test the app</span></span>
 
-* <span data-ttu-id="aef9c-217">Uygulamayı çalıştırın ve ekleme `/Movies` tarayıcıda URL'sine (`http://localhost:port/movies`).</span><span class="sxs-lookup"><span data-stu-id="aef9c-217">Run the app and append `/Movies` to the URL in the browser (`http://localhost:port/movies`).</span></span>
+* <span data-ttu-id="352ea-217">Uygulamayı çalıştırın ve tarayıcıdaki URL 'ye `/Movies` ekleyin (`http://localhost:port/movies`).</span><span class="sxs-lookup"><span data-stu-id="352ea-217">Run the app and append `/Movies` to the URL in the browser (`http://localhost:port/movies`).</span></span>
 
-<span data-ttu-id="aef9c-218">Hatası alırsanız:</span><span class="sxs-lookup"><span data-stu-id="aef9c-218">If you get the error:</span></span>
+<span data-ttu-id="352ea-218">Şu hatayı alırsanız:</span><span class="sxs-lookup"><span data-stu-id="352ea-218">If you get the error:</span></span>
 
 ```console
 SqlException: Cannot open database "RazorPagesMovieContext-GUID" requested by the login. The login failed.
 Login failed for user 'User-name'.
 ```
 
-<span data-ttu-id="aef9c-219">Eksik [geçişler adım](#pmc).</span><span class="sxs-lookup"><span data-stu-id="aef9c-219">You missed the [migrations step](#pmc).</span></span>
+<span data-ttu-id="352ea-219">[Geçişler adımını](#pmc)kaçırdınız.</span><span class="sxs-lookup"><span data-stu-id="352ea-219">You missed the [migrations step](#pmc).</span></span>
 
-* <span data-ttu-id="aef9c-220">Test **Oluştur** bağlantı.</span><span class="sxs-lookup"><span data-stu-id="aef9c-220">Test the **Create** link.</span></span>
+* <span data-ttu-id="352ea-220">**Oluştur** bağlantısını test edin.</span><span class="sxs-lookup"><span data-stu-id="352ea-220">Test the **Create** link.</span></span>
 
-  ![sayfası oluşturma](model/_static/conan.png)
+  ![Sayfa oluştur](model/_static/conan.png)
 
   > [!NOTE]
-  > <span data-ttu-id="aef9c-222">Ondalık virgül kullanımı girmeniz mümkün olmayabilir `Price` alan.</span><span class="sxs-lookup"><span data-stu-id="aef9c-222">You may not be able to enter decimal commas in the `Price` field.</span></span> <span data-ttu-id="aef9c-223">Desteklemek için [jQuery doğrulama](https://jqueryvalidation.org/) virgül İngilizce olmayan yerel (",") bir ondalık noktasının ve ABD İngilizce olmayan tarih biçimleri, uygulamayı Eğer gerekir.</span><span class="sxs-lookup"><span data-stu-id="aef9c-223">To support [jQuery validation](https://jqueryvalidation.org/) for non-English locales that use a comma (",") for a decimal point and for non US-English date formats, the app must be globalized.</span></span> <span data-ttu-id="aef9c-224">Genelleştirme hakkında yönergeler için bkz. [bu GitHub sorunu](https://github.com/aspnet/AspNetCore.Docs/issues/4076#issuecomment-326590420).</span><span class="sxs-lookup"><span data-stu-id="aef9c-224">For globalization instructions, see [this GitHub issue](https://github.com/aspnet/AspNetCore.Docs/issues/4076#issuecomment-326590420).</span></span>
+  > <span data-ttu-id="352ea-222">@No__t-0 alanına ondalık virgüller giremeyebilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="352ea-222">You may not be able to enter decimal commas in the `Price` field.</span></span> <span data-ttu-id="352ea-223">Ondalık bir nokta ve ABD Ingilizcesi olmayan tarih biçimleri için virgül (",") kullanan Ingilizce olmayan yerel ayarlarda [jQuery doğrulamasını](https://jqueryvalidation.org/) desteklemek için, uygulamanın Genelleştirilmiş olması gerekir.</span><span class="sxs-lookup"><span data-stu-id="352ea-223">To support [jQuery validation](https://jqueryvalidation.org/) for non-English locales that use a comma (",") for a decimal point and for non US-English date formats, the app must be globalized.</span></span> <span data-ttu-id="352ea-224">Genelleştirme yönergeleri için [Bu GitHub sorununa](https://github.com/aspnet/AspNetCore.Docs/issues/4076#issuecomment-326590420)bakın.</span><span class="sxs-lookup"><span data-stu-id="352ea-224">For globalization instructions, see [this GitHub issue](https://github.com/aspnet/AspNetCore.Docs/issues/4076#issuecomment-326590420).</span></span>
 
-* <span data-ttu-id="aef9c-225">Test **Düzenle**, **ayrıntıları**, ve **Sil** bağlantıları.</span><span class="sxs-lookup"><span data-stu-id="aef9c-225">Test the **Edit**, **Details**, and **Delete** links.</span></span>
+* <span data-ttu-id="352ea-225">**Düzenleme**, **Ayrıntılar**ve **silme** bağlantılarını test edin.</span><span class="sxs-lookup"><span data-stu-id="352ea-225">Test the **Edit**, **Details**, and **Delete** links.</span></span>
 
-<span data-ttu-id="aef9c-226">Sonraki öğreticiye yapı iskelesi tarafından oluşturulan dosyaları açıklar.</span><span class="sxs-lookup"><span data-stu-id="aef9c-226">The next tutorial explains the files created by scaffolding.</span></span>
+<span data-ttu-id="352ea-226">Sonraki öğreticide, yapı iskelesi tarafından oluşturulan dosyalar açıklanmaktadır.</span><span class="sxs-lookup"><span data-stu-id="352ea-226">The next tutorial explains the files created by scaffolding.</span></span>
 
-## <a name="additional-resources"></a><span data-ttu-id="aef9c-227">Ek kaynaklar</span><span class="sxs-lookup"><span data-stu-id="aef9c-227">Additional resources</span></span>
+## <a name="additional-resources"></a><span data-ttu-id="352ea-227">Ek kaynaklar</span><span class="sxs-lookup"><span data-stu-id="352ea-227">Additional resources</span></span>
 
 > [!div class="step-by-step"]
-> <span data-ttu-id="aef9c-228">[Öncekini Sonraki başlangıç](xref:tutorials/razor-pages/razor-pages-start):
-> [ Yapı iskelesi Razor Pages](xref:tutorials/razor-pages/page)</span><span class="sxs-lookup"><span data-stu-id="aef9c-228">[Previous: Get Started](xref:tutorials/razor-pages/razor-pages-start)
+> <span data-ttu-id="352ea-228">[Önceki: başlangıç](xref:tutorials/razor-pages/razor-pages-start)
+> [Sonraki: Scafkatal Razor Pages](xref:tutorials/razor-pages/page)</span><span class="sxs-lookup"><span data-stu-id="352ea-228">[Previous: Get Started](xref:tutorials/razor-pages/razor-pages-start)
 [Next: Scaffolded Razor Pages](xref:tutorials/razor-pages/page)</span></span>
 
 ::: moniker-end
@@ -272,40 +272,40 @@ Login failed for user 'User-name'.
 <!--  ::: moniker previous version   -->
 ::: moniker range="< aspnetcore-3.0"
 
-<span data-ttu-id="aef9c-229">Bu bölümde, bir veritabanında filmler yönetmek için sınıflar eklenir.</span><span class="sxs-lookup"><span data-stu-id="aef9c-229">In this section, classes are added for managing movies in a database.</span></span> <span data-ttu-id="aef9c-230">İle kullanılan bu sınıflar [Entity Framework Core](/ef/core) bir veritabanıyla çalışmak için (EF Core).</span><span class="sxs-lookup"><span data-stu-id="aef9c-230">These classes are used with [Entity Framework Core](/ef/core) (EF Core) to work with a database.</span></span> <span data-ttu-id="aef9c-231">EF Core, veri erişim kodu kolaylaştıran bir nesne ilişkisel eşleme (ORM) çerçevedir.</span><span class="sxs-lookup"><span data-stu-id="aef9c-231">EF Core is an object-relational mapping (ORM) framework that simplifies data access code.</span></span>
+<span data-ttu-id="352ea-229">Bu bölümde, bir veritabanında film yönetimi için sınıflar eklenir.</span><span class="sxs-lookup"><span data-stu-id="352ea-229">In this section, classes are added for managing movies in a database.</span></span> <span data-ttu-id="352ea-230">Bu sınıflar bir veritabanıyla çalışmak için [Entity Framework Core](/ef/core) (EF Core) ile kullanılır.</span><span class="sxs-lookup"><span data-stu-id="352ea-230">These classes are used with [Entity Framework Core](/ef/core) (EF Core) to work with a database.</span></span> <span data-ttu-id="352ea-231">EF Core, veri erişim kodunu kolaylaştıran bir nesne ilişkisel eşleme (ORM) çerçevesidir.</span><span class="sxs-lookup"><span data-stu-id="352ea-231">EF Core is an object-relational mapping (ORM) framework that simplifies data access code.</span></span>
 
-<span data-ttu-id="aef9c-232">EF Core üzerinde herhangi bir bağımlılığı olmadığından model sınıfları ("düz eski CLR nesnelerden") POCO sınıfları olarak bilinir.</span><span class="sxs-lookup"><span data-stu-id="aef9c-232">The model classes are known as POCO classes (from "plain-old CLR objects") because they don't have any dependency on EF Core.</span></span> <span data-ttu-id="aef9c-233">Bunlar, veritabanında depolanan verilerin özelliklerini tanımlayın.</span><span class="sxs-lookup"><span data-stu-id="aef9c-233">They define the properties of the data that are stored in the database.</span></span>
+<span data-ttu-id="352ea-232">Model sınıfları, EF Core hiçbir bağımlılığı olmadığından, POCO sınıfları ("düz eski CLR nesnelerinden") olarak bilinir.</span><span class="sxs-lookup"><span data-stu-id="352ea-232">The model classes are known as POCO classes (from "plain-old CLR objects") because they don't have any dependency on EF Core.</span></span> <span data-ttu-id="352ea-233">Veritabanında depolanan verilerin özelliklerini tanımlar.</span><span class="sxs-lookup"><span data-stu-id="352ea-233">They define the properties of the data that are stored in the database.</span></span>
 
 [!INCLUDE[](~/includes/rp/download.md)]
 
-## <a name="add-a-data-model"></a><span data-ttu-id="aef9c-234">Bir veri modeli ekleme</span><span class="sxs-lookup"><span data-stu-id="aef9c-234">Add a data model</span></span>
+## <a name="add-a-data-model"></a><span data-ttu-id="352ea-234">Veri modeli ekleme</span><span class="sxs-lookup"><span data-stu-id="352ea-234">Add a data model</span></span>
 
-# <a name="visual-studiotabvisual-studio"></a>[<span data-ttu-id="aef9c-235">Visual Studio</span><span class="sxs-lookup"><span data-stu-id="aef9c-235">Visual Studio</span></span>](#tab/visual-studio)
+# <a name="visual-studiotabvisual-studio"></a>[<span data-ttu-id="352ea-235">Visual Studio</span><span class="sxs-lookup"><span data-stu-id="352ea-235">Visual Studio</span></span>](#tab/visual-studio)
 
-<span data-ttu-id="aef9c-236">Sağ **RazorPagesMovie** Proje > **Ekle** > **yeni klasör**.</span><span class="sxs-lookup"><span data-stu-id="aef9c-236">Right-click the **RazorPagesMovie** project > **Add** > **New Folder**.</span></span> <span data-ttu-id="aef9c-237">Klasör adı *modelleri*.</span><span class="sxs-lookup"><span data-stu-id="aef9c-237">Name the folder *Models*.</span></span>
+<span data-ttu-id="352ea-236">@No__t-2**Yeni klasör** **eklemek**> **RazorPagesMovie** projesine sağ tıklayın.</span><span class="sxs-lookup"><span data-stu-id="352ea-236">Right-click the **RazorPagesMovie** project > **Add** > **New Folder**.</span></span> <span data-ttu-id="352ea-237">Klasör *modellerini*adlandırın.</span><span class="sxs-lookup"><span data-stu-id="352ea-237">Name the folder *Models*.</span></span>
 
-<span data-ttu-id="aef9c-238">Sağ tıklayın *modelleri* klasör.</span><span class="sxs-lookup"><span data-stu-id="aef9c-238">Right click the *Models* folder.</span></span> <span data-ttu-id="aef9c-239">Seçin **ekleme** > **sınıfı**.</span><span class="sxs-lookup"><span data-stu-id="aef9c-239">Select **Add** > **Class**.</span></span> <span data-ttu-id="aef9c-240">Sınıf adı **film**.</span><span class="sxs-lookup"><span data-stu-id="aef9c-240">Name the class **Movie**.</span></span>
+<span data-ttu-id="352ea-238">*Modeller* klasörüne sağ tıklayın.</span><span class="sxs-lookup"><span data-stu-id="352ea-238">Right click the *Models* folder.</span></span> <span data-ttu-id="352ea-239">@No__t-1**sınıfı** **Ekle**' yi seçin.</span><span class="sxs-lookup"><span data-stu-id="352ea-239">Select **Add** > **Class**.</span></span> <span data-ttu-id="352ea-240">Sınıf **filmi**olarak adlandırın.</span><span class="sxs-lookup"><span data-stu-id="352ea-240">Name the class **Movie**.</span></span>
 
 [!INCLUDE [model 1b](~/includes/RP/model1b.md)]
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[<span data-ttu-id="aef9c-241">Visual Studio Code</span><span class="sxs-lookup"><span data-stu-id="aef9c-241">Visual Studio Code</span></span>](#tab/visual-studio-code)
+# <a name="visual-studio-codetabvisual-studio-code"></a>[<span data-ttu-id="352ea-241">Visual Studio Code</span><span class="sxs-lookup"><span data-stu-id="352ea-241">Visual Studio Code</span></span>](#tab/visual-studio-code)
 
-* <span data-ttu-id="aef9c-242">Adlı bir klasör ekleme *modelleri*.</span><span class="sxs-lookup"><span data-stu-id="aef9c-242">Add a folder named *Models*.</span></span>
-* <span data-ttu-id="aef9c-243">Bir sınıfa eklemek *modelleri* adlı klasöre *Movie.cs*.</span><span class="sxs-lookup"><span data-stu-id="aef9c-243">Add a class to the *Models* folder named *Movie.cs*.</span></span>
+* <span data-ttu-id="352ea-242">*Modeller*adlı bir klasör ekleyin.</span><span class="sxs-lookup"><span data-stu-id="352ea-242">Add a folder named *Models*.</span></span>
+* <span data-ttu-id="352ea-243">*Movie.cs*adlı *modeller* klasörüne bir sınıf ekleyin.</span><span class="sxs-lookup"><span data-stu-id="352ea-243">Add a class to the *Models* folder named *Movie.cs*.</span></span>
 
 [!INCLUDE [model 1b](~/includes/RP/model1b.md)]
 
 [!INCLUDE [model 2](~/includes/RP/model2.md)]
 
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[<span data-ttu-id="aef9c-244">Mac için Visual Studio</span><span class="sxs-lookup"><span data-stu-id="aef9c-244">Visual Studio for Mac</span></span>](#tab/visual-studio-mac)
+# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[<span data-ttu-id="352ea-244">Mac için Visual Studio</span><span class="sxs-lookup"><span data-stu-id="352ea-244">Visual Studio for Mac</span></span>](#tab/visual-studio-mac)
 
-* <span data-ttu-id="aef9c-245">Çözüm Gezgini'nde sağ **RazorPagesMovie** proje ve ardından **Ekle** > **yeni klasör**.</span><span class="sxs-lookup"><span data-stu-id="aef9c-245">In Solution Explorer, right-click the **RazorPagesMovie** project, and then select **Add** > **New Folder**.</span></span> <span data-ttu-id="aef9c-246">Klasör adı *modelleri*.</span><span class="sxs-lookup"><span data-stu-id="aef9c-246">Name the folder *Models*.</span></span>
-* <span data-ttu-id="aef9c-247">*Modeller* klasörüne sağ tıklayın ve ardından **yeni dosya** **Ekle** > ' yi seçin.</span><span class="sxs-lookup"><span data-stu-id="aef9c-247">Right-click the *Models* folder, and then select **Add** > **New File**.</span></span>
-* <span data-ttu-id="aef9c-248">İçinde **yeni dosya** iletişim:</span><span class="sxs-lookup"><span data-stu-id="aef9c-248">In the **New File** dialog:</span></span>
+* <span data-ttu-id="352ea-245">Çözüm Gezgini, **RazorPagesMovie** projesine sağ tıklayın ve ardından  > **Yeni klasör** **Ekle**' yi seçin.</span><span class="sxs-lookup"><span data-stu-id="352ea-245">In Solution Explorer, right-click the **RazorPagesMovie** project, and then select **Add** > **New Folder**.</span></span> <span data-ttu-id="352ea-246">Klasör *modellerini*adlandırın.</span><span class="sxs-lookup"><span data-stu-id="352ea-246">Name the folder *Models*.</span></span>
+* <span data-ttu-id="352ea-247">*Modeller* klasörüne sağ tıklayın ve ardından > **yeni dosya** **Ekle** ' yi seçin.</span><span class="sxs-lookup"><span data-stu-id="352ea-247">Right-click the *Models* folder, and then select **Add** > **New File**.</span></span>
+* <span data-ttu-id="352ea-248">**Yeni dosya** iletişim kutusunda:</span><span class="sxs-lookup"><span data-stu-id="352ea-248">In the **New File** dialog:</span></span>
 
-  * <span data-ttu-id="aef9c-249">Seçin **genel** sol bölmesinde.</span><span class="sxs-lookup"><span data-stu-id="aef9c-249">Select **General** in the left pane.</span></span>
-  * <span data-ttu-id="aef9c-250">Orta bölmede **boş sınıf** ' ı seçin.</span><span class="sxs-lookup"><span data-stu-id="aef9c-250">Select **Empty Class** in the center pane.</span></span>
-  * <span data-ttu-id="aef9c-251">Sınıf adı **film** seçip **yeni**.</span><span class="sxs-lookup"><span data-stu-id="aef9c-251">Name the class **Movie** and select **New**.</span></span>
+  * <span data-ttu-id="352ea-249">Sol bölmedeki **genel** ' i seçin.</span><span class="sxs-lookup"><span data-stu-id="352ea-249">Select **General** in the left pane.</span></span>
+  * <span data-ttu-id="352ea-250">Orta bölmede **boş sınıf** ' ı seçin.</span><span class="sxs-lookup"><span data-stu-id="352ea-250">Select **Empty Class** in the center pane.</span></span>
+  * <span data-ttu-id="352ea-251">Sınıfı **filmi** adlandırın ve **Yeni**' yi seçin.</span><span class="sxs-lookup"><span data-stu-id="352ea-251">Name the class **Movie** and select **New**.</span></span>
 
 [!INCLUDE [model 1b](~/includes/RP/model1b.md)]
 
@@ -313,60 +313,60 @@ Login failed for user 'User-name'.
 
 ---
 
-<span data-ttu-id="aef9c-252">Derleme hata doğrulamak için projeyi derleyin.</span><span class="sxs-lookup"><span data-stu-id="aef9c-252">Build the project to verify there are no compilation errors.</span></span>
+<span data-ttu-id="352ea-252">Derleme hatası olmadığını doğrulamak için projeyi derleyin.</span><span class="sxs-lookup"><span data-stu-id="352ea-252">Build the project to verify there are no compilation errors.</span></span>
 
-## <a name="scaffold-the-movie-model"></a><span data-ttu-id="aef9c-253">Film modeli iskelesini</span><span class="sxs-lookup"><span data-stu-id="aef9c-253">Scaffold the movie model</span></span>
+## <a name="scaffold-the-movie-model"></a><span data-ttu-id="352ea-253">Film modelini dolandırın</span><span class="sxs-lookup"><span data-stu-id="352ea-253">Scaffold the movie model</span></span>
 
-<span data-ttu-id="aef9c-254">Bu bölümde, film modeli iskele kurulmuş.</span><span class="sxs-lookup"><span data-stu-id="aef9c-254">In this section, the movie model is scaffolded.</span></span> <span data-ttu-id="aef9c-255">Diğer bir deyişle, yapı iskelesi aracı sayfaları için oluşturma, okuma, güncelleştirme ve silme (CRUD) işlemlerine yönelik film modeli oluşturur.</span><span class="sxs-lookup"><span data-stu-id="aef9c-255">That is, the scaffolding tool produces pages for Create, Read, Update, and Delete (CRUD) operations for the movie model.</span></span>
+<span data-ttu-id="352ea-254">Bu bölümde, film modeli scafkatdır.</span><span class="sxs-lookup"><span data-stu-id="352ea-254">In this section, the movie model is scaffolded.</span></span> <span data-ttu-id="352ea-255">Diğer bir deyişle, scafkatlama aracı film modeli için oluşturma, okuma, güncelleştirme ve silme (CRUD) işlemleri için sayfalar üretir.</span><span class="sxs-lookup"><span data-stu-id="352ea-255">That is, the scaffolding tool produces pages for Create, Read, Update, and Delete (CRUD) operations for the movie model.</span></span>
 
-# <a name="visual-studiotabvisual-studio"></a>[<span data-ttu-id="aef9c-256">Visual Studio</span><span class="sxs-lookup"><span data-stu-id="aef9c-256">Visual Studio</span></span>](#tab/visual-studio)
+# <a name="visual-studiotabvisual-studio"></a>[<span data-ttu-id="352ea-256">Visual Studio</span><span class="sxs-lookup"><span data-stu-id="352ea-256">Visual Studio</span></span>](#tab/visual-studio)
 
-<span data-ttu-id="aef9c-257">Oluşturma bir *sayfaları/filmler* klasörü:</span><span class="sxs-lookup"><span data-stu-id="aef9c-257">Create a *Pages/Movies* folder:</span></span>
+<span data-ttu-id="352ea-257">*Sayfalar/filmler* klasörü oluştur:</span><span class="sxs-lookup"><span data-stu-id="352ea-257">Create a *Pages/Movies* folder:</span></span>
 
-* <span data-ttu-id="aef9c-258">**Yeni klasör** **eklemek** > > *Sayfalar* klasörüne sağ tıklayın.</span><span class="sxs-lookup"><span data-stu-id="aef9c-258">Right click on the *Pages* folder > **Add** > **New Folder**.</span></span>
-* <span data-ttu-id="aef9c-259">Klasör adı *filmler*</span><span class="sxs-lookup"><span data-stu-id="aef9c-259">Name the folder *Movies*</span></span>
+* <span data-ttu-id="352ea-258">@No__t-2 **Yeni klasör** **eklemek** > *Sayfalar* klasörüne sağ tıklayın.</span><span class="sxs-lookup"><span data-stu-id="352ea-258">Right click on the *Pages* folder > **Add** > **New Folder**.</span></span>
+* <span data-ttu-id="352ea-259">Klasör *filmlerini* adlandırın</span><span class="sxs-lookup"><span data-stu-id="352ea-259">Name the folder *Movies*</span></span>
 
-<span data-ttu-id="aef9c-260">**Yeni yapı iskelesi öğesi** **eklemek** > > *Sayfalar/filmler* klasörüne sağ tıklayın.</span><span class="sxs-lookup"><span data-stu-id="aef9c-260">Right click on the *Pages/Movies* folder > **Add** > **New Scaffolded Item**.</span></span>
+<span data-ttu-id="352ea-260">*Sayfalar/filmler* klasörüne sağ tıklayarak > @no__t 2 **yeni yapı Iskelesi öğesi** **ekleyin** .</span><span class="sxs-lookup"><span data-stu-id="352ea-260">Right click on the *Pages/Movies* folder > **Add** > **New Scaffolded Item**.</span></span>
 
-![Önceki yönergeleri görüntüden.](model/_static/sca.png)
+![Önceki yönergelerden görüntü.](model/_static/sca.png)
 
-<span data-ttu-id="aef9c-262">**Yapı iskelesi Ekle** iletişim kutusunda **Entity Framework (CRUD)** > **Ekle**Razor Pages seçin.</span><span class="sxs-lookup"><span data-stu-id="aef9c-262">In the **Add Scaffold** dialog, select **Razor Pages using Entity Framework (CRUD)** > **Add**.</span></span>
+<span data-ttu-id="352ea-262">**Yapı Iskelesi Ekle** iletişim kutusunda, **Entity Framework (crud)** > **Ekle**' yi kullanarak Razor Pages seçin.</span><span class="sxs-lookup"><span data-stu-id="352ea-262">In the **Add Scaffold** dialog, select **Razor Pages using Entity Framework (CRUD)** > **Add**.</span></span>
 
-![Önceki yönergeleri görüntüden.](model/_static/add_scaffold.png)
+![Önceki yönergelerden görüntü.](model/_static/add_scaffold.png)
 
-<span data-ttu-id="aef9c-264">Tamamlamak **ekleme Razor sayfaları (CRUD) Entity Framework kullanarak** iletişim:</span><span class="sxs-lookup"><span data-stu-id="aef9c-264">Complete the **Add Razor Pages using Entity Framework (CRUD)** dialog:</span></span>
+<span data-ttu-id="352ea-264">**Entity Framework kullanarak Razor Pages Ekle (CRUD)** iletişim kutusunu doldurun:</span><span class="sxs-lookup"><span data-stu-id="352ea-264">Complete the **Add Razor Pages using Entity Framework (CRUD)** dialog:</span></span>
 <!-- In the next section, change 
 (plus) sign and accept the generated name 
 to use Data, it should not use models. That will make the namespace the same for the VS version and the CLI version
 -->
 
-* <span data-ttu-id="aef9c-265">İçinde **Model sınıfı** seçin, açılan menü **film (RazorPagesMovie.Models)** .</span><span class="sxs-lookup"><span data-stu-id="aef9c-265">In the **Model class** drop down, select **Movie (RazorPagesMovie.Models)**.</span></span>
-* <span data-ttu-id="aef9c-266">İçinde **veri bağlamı sınıfının** satır, select **+** (artı) oturum açın ve oluşturulan adı kabul **RazorPagesMovie.Models.RazorPagesMovieContext**.</span><span class="sxs-lookup"><span data-stu-id="aef9c-266">In the **Data context class** row, select the **+** (plus) sign and accept the generated name **RazorPagesMovie.Models.RazorPagesMovieContext**.</span></span>
-* <span data-ttu-id="aef9c-267">**Add (Ekle)** seçeneğini belirleyin.</span><span class="sxs-lookup"><span data-stu-id="aef9c-267">Select **Add**.</span></span>
+* <span data-ttu-id="352ea-265">**Model sınıfı** açılan kutusunda **Film (RazorPagesMovie. modeller)** öğesini seçin.</span><span class="sxs-lookup"><span data-stu-id="352ea-265">In the **Model class** drop down, select **Movie (RazorPagesMovie.Models)**.</span></span>
+* <span data-ttu-id="352ea-266">**Veri bağlamı sınıfı** satırında **+** (artı) Işaretini seçin ve oluşturulan **RazorPagesMovie. modeller. RazorPagesMovieContext**adını kabul edin.</span><span class="sxs-lookup"><span data-stu-id="352ea-266">In the **Data context class** row, select the **+** (plus) sign and accept the generated name **RazorPagesMovie.Models.RazorPagesMovieContext**.</span></span>
+* <span data-ttu-id="352ea-267">**Ekle**' yi seçin.</span><span class="sxs-lookup"><span data-stu-id="352ea-267">Select **Add**.</span></span>
 
-![Önceki yönergeleri görüntüden.](model/_static/arp.png)
+![Önceki yönergelerden görüntü.](model/_static/arp.png)
 
-<span data-ttu-id="aef9c-269">*Appsettings.json* dosya yerel bir veritabanına bağlanmak için kullanılan bağlantı dizesi ile güncelleştirilir.</span><span class="sxs-lookup"><span data-stu-id="aef9c-269">The *appsettings.json* file is updated with the connection string used to connect to a local database.</span></span>
+<span data-ttu-id="352ea-269">*AppSettings. JSON* dosyası, yerel bir veritabanına bağlanmak için kullanılan bağlantı dizesiyle güncelleştirilir.</span><span class="sxs-lookup"><span data-stu-id="352ea-269">The *appsettings.json* file is updated with the connection string used to connect to a local database.</span></span>
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[<span data-ttu-id="aef9c-270">Visual Studio Code</span><span class="sxs-lookup"><span data-stu-id="aef9c-270">Visual Studio Code</span></span>](#tab/visual-studio-code)
+# <a name="visual-studio-codetabvisual-studio-code"></a>[<span data-ttu-id="352ea-270">Visual Studio Code</span><span class="sxs-lookup"><span data-stu-id="352ea-270">Visual Studio Code</span></span>](#tab/visual-studio-code)
 
 <!--  Until https://github.com/aspnet/Scaffolding/issues/582 is fixed windows needs backslash or the namespace is namespace RazorPagesMovie.Pages_Movies rather than namespace RazorPagesMovie.Pages.Movies
 -->
 
-* <span data-ttu-id="aef9c-271">Proje dizininde bir komut penceresi açın (içeren dizine *Program.cs*, *Startup.cs*, ve *.csproj* dosyaları).</span><span class="sxs-lookup"><span data-stu-id="aef9c-271">Open a command window in the project directory (The directory that contains the *Program.cs*, *Startup.cs*, and *.csproj* files).</span></span>
-* <span data-ttu-id="aef9c-272">Yapı iskelesi Aracı'nı yükleyin:</span><span class="sxs-lookup"><span data-stu-id="aef9c-272">Install the scaffolding tool:</span></span>
+* <span data-ttu-id="352ea-271">Proje dizininde bir komut penceresi açın ( *program.cs*, *Startup.cs*ve *. csproj* dosyalarını içeren dizin).</span><span class="sxs-lookup"><span data-stu-id="352ea-271">Open a command window in the project directory (The directory that contains the *Program.cs*, *Startup.cs*, and *.csproj* files).</span></span>
+* <span data-ttu-id="352ea-272">Scafkatlama aracını yükler:</span><span class="sxs-lookup"><span data-stu-id="352ea-272">Install the scaffolding tool:</span></span>
 
   ```dotnetcli
    dotnet tool install --global dotnet-aspnet-codegenerator
    ```
 
-* <span data-ttu-id="aef9c-273">**Windows için**: Şu komutu çalıştırın:</span><span class="sxs-lookup"><span data-stu-id="aef9c-273">**For Windows**: Run the following command:</span></span>
+* <span data-ttu-id="352ea-273">**Windows için**: aşağıdaki komutu çalıştırın:</span><span class="sxs-lookup"><span data-stu-id="352ea-273">**For Windows**: Run the following command:</span></span>
 
   ```dotnetcli
   dotnet aspnet-codegenerator razorpage -m Movie -dc RazorPagesMovieContext -udl -outDir Pages\Movies --referenceScriptLibraries
   ```
 
-* <span data-ttu-id="aef9c-274">**MacOS ve Linux için**: Şu komutu çalıştırın:</span><span class="sxs-lookup"><span data-stu-id="aef9c-274">**For macOS and Linux**: Run the following command:</span></span>
+* <span data-ttu-id="352ea-274">**MacOS ve Linux için**: aşağıdaki komutu çalıştırın:</span><span class="sxs-lookup"><span data-stu-id="352ea-274">**For macOS and Linux**: Run the following command:</span></span>
 
   ```dotnetcli
   dotnet aspnet-codegenerator razorpage -m Movie -dc RazorPagesMovieContext -udl -outDir Pages/Movies --referenceScriptLibraries
@@ -374,16 +374,16 @@ to use Data, it should not use models. That will make the namespace the same for
 
 [!INCLUDE [explains scaffold gen params](~/includes/RP/model4.md)]
 
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[<span data-ttu-id="aef9c-275">Mac için Visual Studio</span><span class="sxs-lookup"><span data-stu-id="aef9c-275">Visual Studio for Mac</span></span>](#tab/visual-studio-mac)
+# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[<span data-ttu-id="352ea-275">Mac için Visual Studio</span><span class="sxs-lookup"><span data-stu-id="352ea-275">Visual Studio for Mac</span></span>](#tab/visual-studio-mac)
 
-* <span data-ttu-id="aef9c-276">Proje dizininde bir komut penceresi açın (içeren dizine *Program.cs*, *Startup.cs*, ve *.csproj* dosyaları).</span><span class="sxs-lookup"><span data-stu-id="aef9c-276">Open a command window in the project directory (The directory that contains the *Program.cs*, *Startup.cs*, and *.csproj* files).</span></span>
-* <span data-ttu-id="aef9c-277">Yapı iskelesi Aracı'nı yükleyin:</span><span class="sxs-lookup"><span data-stu-id="aef9c-277">Install the scaffolding tool:</span></span>
+* <span data-ttu-id="352ea-276">Proje dizininde bir komut penceresi açın ( *program.cs*, *Startup.cs*ve *. csproj* dosyalarını içeren dizin).</span><span class="sxs-lookup"><span data-stu-id="352ea-276">Open a command window in the project directory (The directory that contains the *Program.cs*, *Startup.cs*, and *.csproj* files).</span></span>
+* <span data-ttu-id="352ea-277">Scafkatlama aracını yükler:</span><span class="sxs-lookup"><span data-stu-id="352ea-277">Install the scaffolding tool:</span></span>
 
   ```dotnetcli
    dotnet tool install --global dotnet-aspnet-codegenerator
    ```
 
-* <span data-ttu-id="aef9c-278">Şu komutu çalıştırın:</span><span class="sxs-lookup"><span data-stu-id="aef9c-278">Run the following command:</span></span>
+* <span data-ttu-id="352ea-278">Şu komutu çalıştırın:</span><span class="sxs-lookup"><span data-stu-id="352ea-278">Run the following command:</span></span>
 
   ```dotnetcli
   dotnet aspnet-codegenerator razorpage -m Movie -dc RazorPagesMovieContext -udl -outDir Pages/Movies --referenceScriptLibraries
@@ -393,124 +393,124 @@ to use Data, it should not use models. That will make the namespace the same for
 
 ---
 
-<span data-ttu-id="aef9c-279">İskele işlem oluşturur ve aşağıdaki dosyaları güncelleştirir:</span><span class="sxs-lookup"><span data-stu-id="aef9c-279">The scaffold process creates and updates the following files:</span></span>
+<span data-ttu-id="352ea-279">Yapı iskelesi işlemi aşağıdaki dosyaları oluşturur ve güncelleştirir:</span><span class="sxs-lookup"><span data-stu-id="352ea-279">The scaffold process creates and updates the following files:</span></span>
 
-### <a name="files-created"></a><span data-ttu-id="aef9c-280">Oluşturulan dosyalar</span><span class="sxs-lookup"><span data-stu-id="aef9c-280">Files created</span></span>
+### <a name="files-created"></a><span data-ttu-id="352ea-280">Oluşturulan dosyalar</span><span class="sxs-lookup"><span data-stu-id="352ea-280">Files created</span></span>
 
-* <span data-ttu-id="aef9c-281">*Sayfalar/filmler*: Oluşturma, silme, ayrıntılar, düzenleme ve dizin oluşturma.</span><span class="sxs-lookup"><span data-stu-id="aef9c-281">*Pages/Movies*: Create, Delete, Details, Edit, and Index.</span></span>
-* <span data-ttu-id="aef9c-282">*Data/RazorPagesMovieContext.cs*</span><span class="sxs-lookup"><span data-stu-id="aef9c-282">*Data/RazorPagesMovieContext.cs*</span></span>
+* <span data-ttu-id="352ea-281">*Sayfalar/filmler*: oluşturma, silme, ayrıntılar, düzenleme ve dizin.</span><span class="sxs-lookup"><span data-stu-id="352ea-281">*Pages/Movies*: Create, Delete, Details, Edit, and Index.</span></span>
+* <span data-ttu-id="352ea-282">*Data/RazorPagesMovieContext. cs*</span><span class="sxs-lookup"><span data-stu-id="352ea-282">*Data/RazorPagesMovieContext.cs*</span></span>
 
-### <a name="file-updated"></a><span data-ttu-id="aef9c-283">Dosya güncelleştirildi</span><span class="sxs-lookup"><span data-stu-id="aef9c-283">File updated</span></span>
+### <a name="file-updated"></a><span data-ttu-id="352ea-283">Dosya güncelleştirildi</span><span class="sxs-lookup"><span data-stu-id="352ea-283">File updated</span></span>
 
-* <span data-ttu-id="aef9c-284">*Startup.cs*</span><span class="sxs-lookup"><span data-stu-id="aef9c-284">*Startup.cs*</span></span>
+* <span data-ttu-id="352ea-284">*Startup.cs*</span><span class="sxs-lookup"><span data-stu-id="352ea-284">*Startup.cs*</span></span>
 
-<span data-ttu-id="aef9c-285">Oluşturulan ve güncelleştirilen dosyalar, sonraki bölümde açıklanmıştır.</span><span class="sxs-lookup"><span data-stu-id="aef9c-285">The created and updated files are explained in the next section.</span></span>
+<span data-ttu-id="352ea-285">Oluşturulan ve güncelleştirilmiş dosyalar sonraki bölümde açıklanmaktadır.</span><span class="sxs-lookup"><span data-stu-id="352ea-285">The created and updated files are explained in the next section.</span></span>
 
 <a name="pmc"></a>
 
-## <a name="initial-migration"></a><span data-ttu-id="aef9c-286">İlk geçiş</span><span class="sxs-lookup"><span data-stu-id="aef9c-286">Initial migration</span></span>
+## <a name="initial-migration"></a><span data-ttu-id="352ea-286">İlk geçiş</span><span class="sxs-lookup"><span data-stu-id="352ea-286">Initial migration</span></span>
 
-# <a name="visual-studiotabvisual-studio"></a>[<span data-ttu-id="aef9c-287">Visual Studio</span><span class="sxs-lookup"><span data-stu-id="aef9c-287">Visual Studio</span></span>](#tab/visual-studio)
+# <a name="visual-studiotabvisual-studio"></a>[<span data-ttu-id="352ea-287">Visual Studio</span><span class="sxs-lookup"><span data-stu-id="352ea-287">Visual Studio</span></span>](#tab/visual-studio)
 
-<span data-ttu-id="aef9c-288">Bu bölümde, Paket Yöneticisi Konsolu (PMC'yi) için kullanılır:</span><span class="sxs-lookup"><span data-stu-id="aef9c-288">In this section, the Package Manager Console (PMC) is used to:</span></span>
+<span data-ttu-id="352ea-288">Bu bölümde, Paket Yöneticisi Konsolu (PMC) şu şekilde kullanılır:</span><span class="sxs-lookup"><span data-stu-id="352ea-288">In this section, the Package Manager Console (PMC) is used to:</span></span>
 
-* <span data-ttu-id="aef9c-289">Bir başlangıç geçiş ekleyin.</span><span class="sxs-lookup"><span data-stu-id="aef9c-289">Add an initial migration.</span></span>
-* <span data-ttu-id="aef9c-290">Veritabanı, ilk geçiş ile güncelleştirin.</span><span class="sxs-lookup"><span data-stu-id="aef9c-290">Update the database with the initial migration.</span></span>
+* <span data-ttu-id="352ea-289">İlk geçiş ekleyin.</span><span class="sxs-lookup"><span data-stu-id="352ea-289">Add an initial migration.</span></span>
+* <span data-ttu-id="352ea-290">Veritabanını ilk geçişle güncelleştirin.</span><span class="sxs-lookup"><span data-stu-id="352ea-290">Update the database with the initial migration.</span></span>
 
-<span data-ttu-id="aef9c-291">**Araçlar** menüsünde **NuGet Paket Yöneticisi** > **Paket Yöneticisi konsolu**' nu seçin.</span><span class="sxs-lookup"><span data-stu-id="aef9c-291">From the **Tools** menu, select **NuGet Package Manager** > **Package Manager Console**.</span></span>
+<span data-ttu-id="352ea-291">**Araçlar** menüsünde **NuGet Paket Yöneticisi** > **Paket Yöneticisi konsolu**' nu seçin.</span><span class="sxs-lookup"><span data-stu-id="352ea-291">From the **Tools** menu, select **NuGet Package Manager** > **Package Manager Console**.</span></span>
 
   ![PMC menüsü](../first-mvc-app/adding-model/_static/pmc.png)
 
-<span data-ttu-id="aef9c-293">PMC'de aşağıdaki komutları girin:</span><span class="sxs-lookup"><span data-stu-id="aef9c-293">In the PMC, enter the following commands:</span></span>
+<span data-ttu-id="352ea-293">PMC 'de aşağıdaki komutları girin:</span><span class="sxs-lookup"><span data-stu-id="352ea-293">In the PMC, enter the following commands:</span></span>
 
-```PMC
+```Powershell
 Add-Migration Initial
 Update-Database
 ```
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[<span data-ttu-id="aef9c-294">Visual Studio Code</span><span class="sxs-lookup"><span data-stu-id="aef9c-294">Visual Studio Code</span></span>](#tab/visual-studio-code)
+# <a name="visual-studio-codetabvisual-studio-code"></a>[<span data-ttu-id="352ea-294">Visual Studio Code</span><span class="sxs-lookup"><span data-stu-id="352ea-294">Visual Studio Code</span></span>](#tab/visual-studio-code)
 
 [!INCLUDE [initial migration](~/includes/RP/model3.md)]
 
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[<span data-ttu-id="aef9c-295">Mac için Visual Studio</span><span class="sxs-lookup"><span data-stu-id="aef9c-295">Visual Studio for Mac</span></span>](#tab/visual-studio-mac)
+# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[<span data-ttu-id="352ea-295">Mac için Visual Studio</span><span class="sxs-lookup"><span data-stu-id="352ea-295">Visual Studio for Mac</span></span>](#tab/visual-studio-mac)
 
 [!INCLUDE [initial migration](~/includes/RP/model3.md)]
 
 ---
 
-<span data-ttu-id="aef9c-296">Yukarıdaki komutlar aşağıdaki uyarıyı oluşturur: "' Movie ' varlık türündeki ' Price ' ondalık sütunu için tür belirtilmedi.</span><span class="sxs-lookup"><span data-stu-id="aef9c-296">The preceding commands generate the following warning: "No type was specified for the decimal column 'Price' on entity type 'Movie'.</span></span> <span data-ttu-id="aef9c-297">Bu, varsayılan duyarlık ve ölçeğe uygun olmadıkları takdirde değerlerin sessizce kesilmesine neden olur.</span><span class="sxs-lookup"><span data-stu-id="aef9c-297">This will cause values to be silently truncated if they do not fit in the default precision and scale.</span></span> <span data-ttu-id="aef9c-298">' Hasccolumntype () ' kullanarak tüm değerleri barındırabilecek SQL Server sütun türünü açık olarak belirtin. "</span><span class="sxs-lookup"><span data-stu-id="aef9c-298">Explicitly specify the SQL server column type that can accommodate all the values using 'HasColumnType()'."</span></span>
+<span data-ttu-id="352ea-296">Yukarıdaki komutlar şu uyarıyı oluşturur: "' Movie ' varlık türündeki ' Price ' ondalık sütunu için tür belirtilmedi.</span><span class="sxs-lookup"><span data-stu-id="352ea-296">The preceding commands generate the following warning: "No type was specified for the decimal column 'Price' on entity type 'Movie'.</span></span> <span data-ttu-id="352ea-297">Bu, varsayılan duyarlık ve ölçeğe uygun olmadıkları takdirde değerlerin sessizce kesilmesine neden olur.</span><span class="sxs-lookup"><span data-stu-id="352ea-297">This will cause values to be silently truncated if they do not fit in the default precision and scale.</span></span> <span data-ttu-id="352ea-298">' Hasccolumntype () ' kullanarak tüm değerleri barındırabilecek SQL Server sütun türünü açık olarak belirtin. "</span><span class="sxs-lookup"><span data-stu-id="352ea-298">Explicitly specify the SQL server column type that can accommodate all the values using 'HasColumnType()'."</span></span>
 
-<span data-ttu-id="aef9c-299">Bu uyarıyı yoksayabilirsiniz, daha sonraki bir öğreticide düzeltilecektir.</span><span class="sxs-lookup"><span data-stu-id="aef9c-299">You can ignore that warning, it will be fixed in a later tutorial.</span></span>
+<span data-ttu-id="352ea-299">Bu uyarıyı yoksayabilirsiniz, daha sonraki bir öğreticide düzeltilecektir.</span><span class="sxs-lookup"><span data-stu-id="352ea-299">You can ignore that warning, it will be fixed in a later tutorial.</span></span>
 
-<span data-ttu-id="aef9c-300">`ef migrations add InitialCreate` Komut, ilk veritabanı şeması oluşturmak için kod oluşturur.</span><span class="sxs-lookup"><span data-stu-id="aef9c-300">The `ef migrations add InitialCreate` command generates code to create the initial database schema.</span></span> <span data-ttu-id="aef9c-301">Şema, `DbContext` öğesinde belirtilen modeli temel alır ( *RazorPagesMovieContext.cs* dosyasında).</span><span class="sxs-lookup"><span data-stu-id="aef9c-301">The schema is based on the model specified in the `DbContext` (In the *RazorPagesMovieContext.cs* file).</span></span> <span data-ttu-id="aef9c-302">`InitialCreate` Bağımsız değişkeni, geçişlerin adlandırmak için kullanılır.</span><span class="sxs-lookup"><span data-stu-id="aef9c-302">The `InitialCreate` argument is used to name the migrations.</span></span> <span data-ttu-id="aef9c-303">Herhangi bir ad kullanılabilir, ancak bir adı seçili kural gereği, geçiş açıklar.</span><span class="sxs-lookup"><span data-stu-id="aef9c-303">Any name can be used, but by convention a name is selected that describes the migration.</span></span>
+<span data-ttu-id="352ea-300">@No__t-0 komutu, ilk veritabanı şemasını oluşturmak için kod üretir.</span><span class="sxs-lookup"><span data-stu-id="352ea-300">The `ef migrations add InitialCreate` command generates code to create the initial database schema.</span></span> <span data-ttu-id="352ea-301">Şema, `DbContext` ( *RazorPagesMovieContext.cs* dosyasında) içinde belirtilen modeli temel alır.</span><span class="sxs-lookup"><span data-stu-id="352ea-301">The schema is based on the model specified in the `DbContext` (In the *RazorPagesMovieContext.cs* file).</span></span> <span data-ttu-id="352ea-302">@No__t-0 bağımsız değişkeni geçişleri adlandırmak için kullanılır.</span><span class="sxs-lookup"><span data-stu-id="352ea-302">The `InitialCreate` argument is used to name the migrations.</span></span> <span data-ttu-id="352ea-303">Herhangi bir ad kullanılabilir, ancak geçiş işlemini açıklayan bir ad seçilir.</span><span class="sxs-lookup"><span data-stu-id="352ea-303">Any name can be used, but by convention a name is selected that describes the migration.</span></span>
 
-<span data-ttu-id="aef9c-304">`ef database update` Komutu çalıştırmaları `Up` yönteminde *geçişleri /\<zaman damgası > _InitialCreate.cs* dosya.</span><span class="sxs-lookup"><span data-stu-id="aef9c-304">The `ef database update` command runs the `Up` method in the *Migrations/\<time-stamp>_InitialCreate.cs* file.</span></span> <span data-ttu-id="aef9c-305">`Up` Yöntemi veritabanı oluşturur.</span><span class="sxs-lookup"><span data-stu-id="aef9c-305">The `Up` method creates the database.</span></span>
+<span data-ttu-id="352ea-304">@No__t-0 komutu, *geçişleri/\<Zaman damgası > _ınitialcreate. cs* dosyasında `Up` yöntemini çalıştırır.</span><span class="sxs-lookup"><span data-stu-id="352ea-304">The `ef database update` command runs the `Up` method in the *Migrations/\<time-stamp>_InitialCreate.cs* file.</span></span> <span data-ttu-id="352ea-305">@No__t-0 yöntemi veritabanını oluşturur.</span><span class="sxs-lookup"><span data-stu-id="352ea-305">The `Up` method creates the database.</span></span>
 
-# <a name="visual-studiotabvisual-studio"></a>[<span data-ttu-id="aef9c-306">Visual Studio</span><span class="sxs-lookup"><span data-stu-id="aef9c-306">Visual Studio</span></span>](#tab/visual-studio)
+# <a name="visual-studiotabvisual-studio"></a>[<span data-ttu-id="352ea-306">Visual Studio</span><span class="sxs-lookup"><span data-stu-id="352ea-306">Visual Studio</span></span>](#tab/visual-studio)
 
-### <a name="examine-the-context-registered-with-dependency-injection"></a><span data-ttu-id="aef9c-307">Bağımlılık ekleme ile kayıtlı bağlamını İnceleme</span><span class="sxs-lookup"><span data-stu-id="aef9c-307">Examine the context registered with dependency injection</span></span>
+### <a name="examine-the-context-registered-with-dependency-injection"></a><span data-ttu-id="352ea-307">Bağımlılık ekleme ile kaydedilen bağlamı inceleyin</span><span class="sxs-lookup"><span data-stu-id="352ea-307">Examine the context registered with dependency injection</span></span>
 
-<span data-ttu-id="aef9c-308">ASP.NET Core ile oluşturulmuş [bağımlılık ekleme](xref:fundamentals/dependency-injection).</span><span class="sxs-lookup"><span data-stu-id="aef9c-308">ASP.NET Core is built with [dependency injection](xref:fundamentals/dependency-injection).</span></span> <span data-ttu-id="aef9c-309">Hizmetler (örneğin, EF Core DB bağlamı), uygulama başlatma sırasında bağımlılık ekleme ile kaydedilir.</span><span class="sxs-lookup"><span data-stu-id="aef9c-309">Services (such as the EF Core DB context) are registered with dependency injection during application startup.</span></span> <span data-ttu-id="aef9c-310">Bu hizmetler (örneğin, Razor sayfaları) gerektiren bileşenler bu hizmetler Oluşturucu parametresi üzerinden sağlanır.</span><span class="sxs-lookup"><span data-stu-id="aef9c-310">Components that require these services (such as Razor Pages) are provided these services via constructor parameters.</span></span> <span data-ttu-id="aef9c-311">Bir DB bağlamı örneği alır Oluşturucu kodu öğreticinin ilerleyen bölümlerinde gösterilmektedir.</span><span class="sxs-lookup"><span data-stu-id="aef9c-311">The constructor code that gets a DB context instance is shown later in the tutorial.</span></span>
+<span data-ttu-id="352ea-308">ASP.NET Core [bağımlılık ekleme](xref:fundamentals/dependency-injection)ile oluşturulmuştur.</span><span class="sxs-lookup"><span data-stu-id="352ea-308">ASP.NET Core is built with [dependency injection](xref:fundamentals/dependency-injection).</span></span> <span data-ttu-id="352ea-309">Hizmetler (EF Core DB bağlamı gibi) uygulama başlatma sırasında bağımlılık ekleme ile kaydedilir.</span><span class="sxs-lookup"><span data-stu-id="352ea-309">Services (such as the EF Core DB context) are registered with dependency injection during application startup.</span></span> <span data-ttu-id="352ea-310">Bu hizmetleri gerektiren bileşenler (örneğin Razor Pages), bu hizmetleri Oluşturucu parametreleri aracılığıyla sağlamaktadır.</span><span class="sxs-lookup"><span data-stu-id="352ea-310">Components that require these services (such as Razor Pages) are provided these services via constructor parameters.</span></span> <span data-ttu-id="352ea-311">Bir DB bağlam örneğini alan Oluşturucu kodu öğreticide daha sonra gösterilmiştir.</span><span class="sxs-lookup"><span data-stu-id="352ea-311">The constructor code that gets a DB context instance is shown later in the tutorial.</span></span>
 
-<span data-ttu-id="aef9c-312">Yapı iskelesi aracı otomatik olarak oluşturulmuş bir veritabanı bağlamını ve bağımlılık ekleme kapsayıcısını ile kayıtlı.</span><span class="sxs-lookup"><span data-stu-id="aef9c-312">The scaffolding tool automatically created a DB context and registered it with the dependency injection container.</span></span>
+<span data-ttu-id="352ea-312">Scafkatlama aracı otomatik olarak bir DB bağlamı oluşturup bağımlılık ekleme kapsayıcısına kaydettirdi.</span><span class="sxs-lookup"><span data-stu-id="352ea-312">The scaffolding tool automatically created a DB context and registered it with the dependency injection container.</span></span>
 
-<span data-ttu-id="aef9c-313">İnceleme `Startup.ConfigureServices` yöntemi.</span><span class="sxs-lookup"><span data-stu-id="aef9c-313">Examine the `Startup.ConfigureServices` method.</span></span> <span data-ttu-id="aef9c-314">Vurgulanan satırı iskele kurucu tarafından eklendi:</span><span class="sxs-lookup"><span data-stu-id="aef9c-314">The highlighted line was added by the scaffolder:</span></span>
+<span data-ttu-id="352ea-313">@No__t-0 yöntemini inceleyin.</span><span class="sxs-lookup"><span data-stu-id="352ea-313">Examine the `Startup.ConfigureServices` method.</span></span> <span data-ttu-id="352ea-314">Vurgulanan satır, scaffolder tarafından eklendi:</span><span class="sxs-lookup"><span data-stu-id="352ea-314">The highlighted line was added by the scaffolder:</span></span>
 
 [!code-csharp[](razor-pages-start/sample/RazorPagesMovie22/Startup.cs?name=snippet_ConfigureServices&highlight=15-18)]
 
-<span data-ttu-id="aef9c-315">`RazorPagesMovieContext` EF Core işlevleri (oluşturma, okuma, güncelleştirme, silme, vb.) için koordinatları `Movie` modeli.</span><span class="sxs-lookup"><span data-stu-id="aef9c-315">The `RazorPagesMovieContext` coordinates EF Core functionality (Create, Read, Update, Delete, etc.) for the `Movie` model.</span></span> <span data-ttu-id="aef9c-316">Veri bağlamı (`RazorPagesMovieContext`) türetilir [Microsoft.EntityFrameworkCore.DbContext](/dotnet/api/microsoft.entityframeworkcore.dbcontext).</span><span class="sxs-lookup"><span data-stu-id="aef9c-316">The data context (`RazorPagesMovieContext`) is derived from [Microsoft.EntityFrameworkCore.DbContext](/dotnet/api/microsoft.entityframeworkcore.dbcontext).</span></span> <span data-ttu-id="aef9c-317">Veri bağlamı, hangi varlıkları veri modelinde yer alan belirtir.</span><span class="sxs-lookup"><span data-stu-id="aef9c-317">The data context specifies which entities are included in the data model.</span></span>
+<span data-ttu-id="352ea-315">@No__t-0, `Movie` modeli için işlevselliği (oluşturma, okuma, güncelleştirme, silme, vb.) EF Core.</span><span class="sxs-lookup"><span data-stu-id="352ea-315">The `RazorPagesMovieContext` coordinates EF Core functionality (Create, Read, Update, Delete, etc.) for the `Movie` model.</span></span> <span data-ttu-id="352ea-316">Veri bağlamı (`RazorPagesMovieContext`) [Microsoft. EntityFrameworkCore. DbContext](/dotnet/api/microsoft.entityframeworkcore.dbcontext)öğesinden türetilir.</span><span class="sxs-lookup"><span data-stu-id="352ea-316">The data context (`RazorPagesMovieContext`) is derived from [Microsoft.EntityFrameworkCore.DbContext](/dotnet/api/microsoft.entityframeworkcore.dbcontext).</span></span> <span data-ttu-id="352ea-317">Veri bağlamı, veri modeline hangi varlıkların ekleneceğini belirtir.</span><span class="sxs-lookup"><span data-stu-id="352ea-317">The data context specifies which entities are included in the data model.</span></span>
 
 [!code-csharp[](~/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie22/Data/RazorPagesMovieContext.cs)]
 
-<span data-ttu-id="aef9c-318">Önceki kod, varlık kümesi [`DbSet<Movie>`](/dotnet/api/microsoft.entityframeworkcore.dbset-1) için bir özellik oluşturur.</span><span class="sxs-lookup"><span data-stu-id="aef9c-318">The preceding code creates a [`DbSet<Movie>`](/dotnet/api/microsoft.entityframeworkcore.dbset-1) property for the entity set.</span></span> <span data-ttu-id="aef9c-319">Entity Framework terminolojisinde, bir varlık kümesini genellikle bir veritabanı tablosuna karşılık gelir.</span><span class="sxs-lookup"><span data-stu-id="aef9c-319">In Entity Framework terminology, an entity set typically corresponds to a database table.</span></span> <span data-ttu-id="aef9c-320">Bir varlık tablosunda bir satıra karşılık gelir.</span><span class="sxs-lookup"><span data-stu-id="aef9c-320">An entity corresponds to a row in the table.</span></span>
+<span data-ttu-id="352ea-318">Önceki kod, varlık kümesi için bir [`DbSet<Movie>`](/dotnet/api/microsoft.entityframeworkcore.dbset-1) özelliği oluşturur.</span><span class="sxs-lookup"><span data-stu-id="352ea-318">The preceding code creates a [`DbSet<Movie>`](/dotnet/api/microsoft.entityframeworkcore.dbset-1) property for the entity set.</span></span> <span data-ttu-id="352ea-319">Entity Framework terminolojisinde, genellikle bir varlık kümesi bir veritabanı tablosuna karşılık gelir.</span><span class="sxs-lookup"><span data-stu-id="352ea-319">In Entity Framework terminology, an entity set typically corresponds to a database table.</span></span> <span data-ttu-id="352ea-320">Bir varlık, tablodaki bir satıra karşılık gelir.</span><span class="sxs-lookup"><span data-stu-id="352ea-320">An entity corresponds to a row in the table.</span></span>
 
-<span data-ttu-id="aef9c-321">Bağlantı dizesi adı için bağlam üzerinde bir yöntemi çağırarak geçirilen bir [DbContextOptions](/dotnet/api/microsoft.entityframeworkcore.dbcontextoptions) nesne.</span><span class="sxs-lookup"><span data-stu-id="aef9c-321">The name of the connection string is passed in to the context by calling a method on a [DbContextOptions](/dotnet/api/microsoft.entityframeworkcore.dbcontextoptions) object.</span></span> <span data-ttu-id="aef9c-322">Yerel geliştirme için [ASP.NET Core yapılandırma sistemi](xref:fundamentals/configuration/index) bağlantı dizesinden okur *appsettings.json* dosya.</span><span class="sxs-lookup"><span data-stu-id="aef9c-322">For local development, the [ASP.NET Core configuration system](xref:fundamentals/configuration/index) reads the connection string from the *appsettings.json* file.</span></span>
+<span data-ttu-id="352ea-321">Bağlantı dizesinin adı, [Dbcontextoptions](/dotnet/api/microsoft.entityframeworkcore.dbcontextoptions) nesnesinde bir yöntem çağırarak bağlama geçirilir.</span><span class="sxs-lookup"><span data-stu-id="352ea-321">The name of the connection string is passed in to the context by calling a method on a [DbContextOptions](/dotnet/api/microsoft.entityframeworkcore.dbcontextoptions) object.</span></span> <span data-ttu-id="352ea-322">Yerel geliştirme için [ASP.NET Core yapılandırma sistemi](xref:fundamentals/configuration/index) , *appSettings. JSON* dosyasından bağlantı dizesini okur.</span><span class="sxs-lookup"><span data-stu-id="352ea-322">For local development, the [ASP.NET Core configuration system](xref:fundamentals/configuration/index) reads the connection string from the *appsettings.json* file.</span></span>
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[<span data-ttu-id="aef9c-323">Visual Studio Code</span><span class="sxs-lookup"><span data-stu-id="aef9c-323">Visual Studio Code</span></span>](#tab/visual-studio-code)
+# <a name="visual-studio-codetabvisual-studio-code"></a>[<span data-ttu-id="352ea-323">Visual Studio Code</span><span class="sxs-lookup"><span data-stu-id="352ea-323">Visual Studio Code</span></span>](#tab/visual-studio-code)
 
-<span data-ttu-id="aef9c-324">İnceleme `Up` yöntemi.</span><span class="sxs-lookup"><span data-stu-id="aef9c-324">Examine the `Up` method.</span></span>
+<span data-ttu-id="352ea-324">@No__t-0 yöntemini inceleyin.</span><span class="sxs-lookup"><span data-stu-id="352ea-324">Examine the `Up` method.</span></span>
 
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[<span data-ttu-id="aef9c-325">Mac için Visual Studio</span><span class="sxs-lookup"><span data-stu-id="aef9c-325">Visual Studio for Mac</span></span>](#tab/visual-studio-mac)
+# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[<span data-ttu-id="352ea-325">Mac için Visual Studio</span><span class="sxs-lookup"><span data-stu-id="352ea-325">Visual Studio for Mac</span></span>](#tab/visual-studio-mac)
 
-<span data-ttu-id="aef9c-326">İnceleme `Up` yöntemi.</span><span class="sxs-lookup"><span data-stu-id="aef9c-326">Examine the `Up` method.</span></span>
+<span data-ttu-id="352ea-326">@No__t-0 yöntemini inceleyin.</span><span class="sxs-lookup"><span data-stu-id="352ea-326">Examine the `Up` method.</span></span>
 
 ---
 
-<span data-ttu-id="aef9c-327">`Add-Migration` Komut, ilk veritabanı şeması oluşturmak için kod oluşturur.</span><span class="sxs-lookup"><span data-stu-id="aef9c-327">The `Add-Migration` command generates code to create the initial database schema.</span></span> <span data-ttu-id="aef9c-328">Belirtilen model şeması dayanır `RazorPagesMovieContext` (içinde *Data/RazorPagesMovieContext.cs* dosyası).</span><span class="sxs-lookup"><span data-stu-id="aef9c-328">The schema is based on the model specified in the `RazorPagesMovieContext` (In the *Data/RazorPagesMovieContext.cs* file).</span></span> <span data-ttu-id="aef9c-329">`Initial` Bağımsız değişkeni, geçişlerin adlandırmak için kullanılır.</span><span class="sxs-lookup"><span data-stu-id="aef9c-329">The `Initial` argument is used to name the migrations.</span></span> <span data-ttu-id="aef9c-330">Herhangi bir ad kullanılabilir, ancak kurala göre geçiş tanımlayan bir ad kullanılır.</span><span class="sxs-lookup"><span data-stu-id="aef9c-330">Any name can be used, but by convention a name that describes the migration is used.</span></span> <span data-ttu-id="aef9c-331">Daha fazla bilgi için bkz. <xref:data/ef-mvc/migrations>.</span><span class="sxs-lookup"><span data-stu-id="aef9c-331">For more information, see <xref:data/ef-mvc/migrations>.</span></span>
+<span data-ttu-id="352ea-327">@No__t-0 komutu, ilk veritabanı şemasını oluşturmak için kod üretir.</span><span class="sxs-lookup"><span data-stu-id="352ea-327">The `Add-Migration` command generates code to create the initial database schema.</span></span> <span data-ttu-id="352ea-328">Şema, `RazorPagesMovieContext` ( *Data/RazorPagesMovieContext. cs* dosyasında) içinde belirtilen modeli temel alır.</span><span class="sxs-lookup"><span data-stu-id="352ea-328">The schema is based on the model specified in the `RazorPagesMovieContext` (In the *Data/RazorPagesMovieContext.cs* file).</span></span> <span data-ttu-id="352ea-329">@No__t-0 bağımsız değişkeni geçişleri adlandırmak için kullanılır.</span><span class="sxs-lookup"><span data-stu-id="352ea-329">The `Initial` argument is used to name the migrations.</span></span> <span data-ttu-id="352ea-330">Herhangi bir ad kullanılabilir, ancak kurala göre geçiş işlemini açıklayan bir ad kullanılır.</span><span class="sxs-lookup"><span data-stu-id="352ea-330">Any name can be used, but by convention a name that describes the migration is used.</span></span> <span data-ttu-id="352ea-331">Daha fazla bilgi için bkz. <xref:data/ef-mvc/migrations>.</span><span class="sxs-lookup"><span data-stu-id="352ea-331">For more information, see <xref:data/ef-mvc/migrations>.</span></span>
 
-<span data-ttu-id="aef9c-332">`Update-Database` Komutu çalıştırmaları `Up` yöntemi *geçişleri / {zaman damgası} _InitialCreate.cs* dosyasını veritabanı oluşturur.</span><span class="sxs-lookup"><span data-stu-id="aef9c-332">The `Update-Database` command runs the `Up` method in the *Migrations/{time-stamp}_InitialCreate.cs* file, which creates the database.</span></span>
+<span data-ttu-id="352ea-332">@No__t-0 komutu, veritabanını oluşturan *geçişler/{Time-damga} _ınitialcreate. cs* dosyasında `Up` yöntemini çalıştırır.</span><span class="sxs-lookup"><span data-stu-id="352ea-332">The `Update-Database` command runs the `Up` method in the *Migrations/{time-stamp}_InitialCreate.cs* file, which creates the database.</span></span>
 
 <a name="test"></a>
 
-### <a name="test-the-app"></a><span data-ttu-id="aef9c-333">Uygulamayı test etme</span><span class="sxs-lookup"><span data-stu-id="aef9c-333">Test the app</span></span>
+### <a name="test-the-app"></a><span data-ttu-id="352ea-333">Uygulamayı test etme</span><span class="sxs-lookup"><span data-stu-id="352ea-333">Test the app</span></span>
 
-* <span data-ttu-id="aef9c-334">Uygulamayı çalıştırın ve ekleme `/Movies` tarayıcıda URL'sine (`http://localhost:port/movies`).</span><span class="sxs-lookup"><span data-stu-id="aef9c-334">Run the app and append `/Movies` to the URL in the browser (`http://localhost:port/movies`).</span></span>
+* <span data-ttu-id="352ea-334">Uygulamayı çalıştırın ve tarayıcıdaki URL 'ye `/Movies` ekleyin (`http://localhost:port/movies`).</span><span class="sxs-lookup"><span data-stu-id="352ea-334">Run the app and append `/Movies` to the URL in the browser (`http://localhost:port/movies`).</span></span>
 
-<span data-ttu-id="aef9c-335">Hatası alırsanız:</span><span class="sxs-lookup"><span data-stu-id="aef9c-335">If you get the error:</span></span>
+<span data-ttu-id="352ea-335">Şu hatayı alırsanız:</span><span class="sxs-lookup"><span data-stu-id="352ea-335">If you get the error:</span></span>
 
 ```console
 SqlException: Cannot open database "RazorPagesMovieContext-GUID" requested by the login. The login failed.
 Login failed for user 'User-name'.
 ```
 
-<span data-ttu-id="aef9c-336">Eksik [geçişler adım](#pmc).</span><span class="sxs-lookup"><span data-stu-id="aef9c-336">You missed the [migrations step](#pmc).</span></span>
+<span data-ttu-id="352ea-336">[Geçişler adımını](#pmc)kaçırdınız.</span><span class="sxs-lookup"><span data-stu-id="352ea-336">You missed the [migrations step](#pmc).</span></span>
 
-* <span data-ttu-id="aef9c-337">Test **Oluştur** bağlantı.</span><span class="sxs-lookup"><span data-stu-id="aef9c-337">Test the **Create** link.</span></span>
+* <span data-ttu-id="352ea-337">**Oluştur** bağlantısını test edin.</span><span class="sxs-lookup"><span data-stu-id="352ea-337">Test the **Create** link.</span></span>
 
-  ![sayfası oluşturma](model/_static/conan.png)
+  ![Sayfa oluştur](model/_static/conan.png)
 
   > [!NOTE]
-  > <span data-ttu-id="aef9c-339">Ondalık virgül kullanımı girmeniz mümkün olmayabilir `Price` alan.</span><span class="sxs-lookup"><span data-stu-id="aef9c-339">You may not be able to enter decimal commas in the `Price` field.</span></span> <span data-ttu-id="aef9c-340">Desteklemek için [jQuery doğrulama](https://jqueryvalidation.org/) virgül İngilizce olmayan yerel (",") bir ondalık noktasının ve ABD İngilizce olmayan tarih biçimleri, uygulamayı Eğer gerekir.</span><span class="sxs-lookup"><span data-stu-id="aef9c-340">To support [jQuery validation](https://jqueryvalidation.org/) for non-English locales that use a comma (",") for a decimal point and for non US-English date formats, the app must be globalized.</span></span> <span data-ttu-id="aef9c-341">Genelleştirme hakkında yönergeler için bkz. [bu GitHub sorunu](https://github.com/aspnet/AspNetCore.Docs/issues/4076#issuecomment-326590420).</span><span class="sxs-lookup"><span data-stu-id="aef9c-341">For globalization instructions, see [this GitHub issue](https://github.com/aspnet/AspNetCore.Docs/issues/4076#issuecomment-326590420).</span></span>
+  > <span data-ttu-id="352ea-339">@No__t-0 alanına ondalık virgüller giremeyebilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="352ea-339">You may not be able to enter decimal commas in the `Price` field.</span></span> <span data-ttu-id="352ea-340">Ondalık bir nokta ve ABD Ingilizcesi olmayan tarih biçimleri için virgül (",") kullanan Ingilizce olmayan yerel ayarlarda [jQuery doğrulamasını](https://jqueryvalidation.org/) desteklemek için, uygulamanın Genelleştirilmiş olması gerekir.</span><span class="sxs-lookup"><span data-stu-id="352ea-340">To support [jQuery validation](https://jqueryvalidation.org/) for non-English locales that use a comma (",") for a decimal point and for non US-English date formats, the app must be globalized.</span></span> <span data-ttu-id="352ea-341">Genelleştirme yönergeleri için [Bu GitHub sorununa](https://github.com/aspnet/AspNetCore.Docs/issues/4076#issuecomment-326590420)bakın.</span><span class="sxs-lookup"><span data-stu-id="352ea-341">For globalization instructions, see [this GitHub issue](https://github.com/aspnet/AspNetCore.Docs/issues/4076#issuecomment-326590420).</span></span>
 
-* <span data-ttu-id="aef9c-342">Test **Düzenle**, **ayrıntıları**, ve **Sil** bağlantıları.</span><span class="sxs-lookup"><span data-stu-id="aef9c-342">Test the **Edit**, **Details**, and **Delete** links.</span></span>
+* <span data-ttu-id="352ea-342">**Düzenleme**, **Ayrıntılar**ve **silme** bağlantılarını test edin.</span><span class="sxs-lookup"><span data-stu-id="352ea-342">Test the **Edit**, **Details**, and **Delete** links.</span></span>
 
-<span data-ttu-id="aef9c-343">Sonraki öğreticiye yapı iskelesi tarafından oluşturulan dosyaları açıklar.</span><span class="sxs-lookup"><span data-stu-id="aef9c-343">The next tutorial explains the files created by scaffolding.</span></span>
+<span data-ttu-id="352ea-343">Sonraki öğreticide, yapı iskelesi tarafından oluşturulan dosyalar açıklanmaktadır.</span><span class="sxs-lookup"><span data-stu-id="352ea-343">The next tutorial explains the files created by scaffolding.</span></span>
 
-## <a name="additional-resources"></a><span data-ttu-id="aef9c-344">Ek kaynaklar</span><span class="sxs-lookup"><span data-stu-id="aef9c-344">Additional resources</span></span>
+## <a name="additional-resources"></a><span data-ttu-id="352ea-344">Ek kaynaklar</span><span class="sxs-lookup"><span data-stu-id="352ea-344">Additional resources</span></span>
 
 > [!div class="step-by-step"]
-> <span data-ttu-id="aef9c-345">[Öncekini Sonraki başlangıç](xref:tutorials/razor-pages/razor-pages-start):
-> [ Yapı iskelesi Razor Pages](xref:tutorials/razor-pages/page)</span><span class="sxs-lookup"><span data-stu-id="aef9c-345">[Previous: Get Started](xref:tutorials/razor-pages/razor-pages-start)
+> <span data-ttu-id="352ea-345">[Önceki: başlangıç](xref:tutorials/razor-pages/razor-pages-start)
+> [Sonraki: Scafkatal Razor Pages](xref:tutorials/razor-pages/page)</span><span class="sxs-lookup"><span data-stu-id="352ea-345">[Previous: Get Started](xref:tutorials/razor-pages/razor-pages-start)
 [Next: Scaffolded Razor Pages](xref:tutorials/razor-pages/page)</span></span>
 
 ::: moniker-end
