@@ -5,18 +5,16 @@ description: ASP.NET Core farklı diller ve kültürlere içerik yerelleştirilm
 ms.author: riande
 ms.date: 01/14/2017
 uid: fundamentals/localization
-ms.openlocfilehash: 8398e99af42da48718eea370cffa6ce4be0086ae
-ms.sourcegitcommit: 020c3760492efed71b19e476f25392dda5dd7388
+ms.openlocfilehash: 9ed133c93a9ec95c63869b710d120eca9fda1b6e
+ms.sourcegitcommit: 07d98ada57f2a5f6d809d44bdad7a15013109549
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/12/2019
-ms.locfileid: "72288899"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72333726"
 ---
 # <a name="globalization-and-localization-in-aspnet-core"></a>ASP.NET Core Genelleştirme ve yerelleştirme
 
 By [Rick Anderson](https://twitter.com/RickAndMSFT), [Hemien Bowden](https://twitter.com/damien_bod), [Bart calixto](https://twitter.com/bartmax), [Nadeem Afana](https://afana.me/), ve [fiham bin ateya](https://twitter.com/hishambinateya)
-
-Bu belge ASP.NET Core 3,0 için güncelleştirilene kadar, [ASP.NET Core 3,0 ' de bkz. yeni yerelleştirme](http://hishambinateya.com/what-is-new-in-localization-in-asp.net-core-3.0)için bkz.
 
 ASP.NET Core bir çoklu dil web sitesi oluşturmak, sitenizin daha geniş bir hedef kitleye ulaşmasını sağlar. ASP.NET Core, farklı diller ve kültürlere yerelleştirme için hizmet ve ara yazılım sağlar.
 
@@ -124,7 +122,7 @@ Yukarıdaki kodda, `SharedResource`, doğrulama iletilerinizin depolandığı re
 
 ASP.NET Core iki kültür değeri belirtmenize izin verir, `SupportedCultures` ve `SupportedUICultures`. @No__t-1 için [CultureInfo](/dotnet/api/system.globalization.cultureinfo) nesnesi, tarih, saat, sayı ve para birimi biçimlendirme gibi kültüre bağımlı işlevlerin sonuçlarını belirler. `SupportedCultures` Ayrıca metnin, büyük/küçük harf kurallarının ve dize karşılaştırmalarının sıralama sırasını da belirler. Sunucunun kültürü nasıl aldığı hakkında daha fazla bilgi için bkz [. CultureInfo. CurrentCulture](/dotnet/api/system.stringcomparer.currentculture#System_StringComparer_CurrentCulture) . @No__t-0, hangi dizelerin ( *. resx* dosyalarından) [ResourceManager](/dotnet/api/system.resources.resourcemanager)tarafından arandığını belirler. @No__t-0, yalnızca `CurrentUICulture` tarafından belirlenen kültüre özgü dizeleri arar. .NET 'teki her iş parçacığında `CurrentCulture` ve `CurrentUICulture` nesneleri vardır. ASP.NET Core kültüre bağımlı işlevleri işlerken bu değerleri inceler. Örneğin, geçerli iş parçacığının kültürü "en-US" (Ingilizce, Birleşik Devletler) olarak ayarlandıysa, `DateTime.Now.ToLongDateString()` "Perşembe, 18 Şubat 2016" değerini görüntüler, ancak `CurrentCulture` ' i "ES-ES" (Ispanyolca, Ispanya) olarak ayarlandıysa çıkış "Jueves, 18 de febrero de 2016" olacaktır.
 
-## <a name="resource-files"></a>Kaynak dosyaları
+## <a name="resource-files"></a>Kaynak dosyalar
 
 Kaynak dosyası, koddan yerelleştirilebilir dizeleri ayırmak için kullanışlı bir mekanizmadır. Varsayılan olmayan dil için çevrilmiş dizeler yalıtılmış *. resx* kaynak dosyalarıdır. Örneğin, çevrilmiş dizeleri içeren *Welcome. es. resx* adlı İspanyolca kaynak dosyası oluşturmak isteyebilirsiniz. "es", Ispanyolca için dil kodudur. Bu kaynak dosyasını Visual Studio 'da oluşturmak için:
 
@@ -275,6 +273,31 @@ Kültür bilgisi ve UI kültürünün yalnızca birini belirtirseniz, belirtilen
 
 6. Dile dokunun ve ardından **Yukarı taşı**' ya dokunun.
 
+::: moniker range=">= aspnetcore-3.0"
+### <a name="the-content-language-http-header"></a>Content-Language HTTP üst bilgisi
+
+[Content-Language](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Language) varlık üst bilgisi:
+
+ - , Hedef kitleleri için tasarlanan dilleri tanımlamakta kullanılır.
+ - Kullanıcının kendi tercih ettiği dile göre ayırt etmesine izin verir.
+
+Varlık üstbilgileri hem HTTP isteklerinde hem de yanıtlarda kullanılır.
+
+ASP.NET Core 3,0 ' de `Content-Language` üstbilgisi `ApplyCurrentCultureToResponseHeaders` özelliği ayarlanarak eklenebilir.
+
+@No__t-0 üstbilgisi ekleniyor:
+
+ - Requestlocalizationara yazılım `Content-Language` üst bilgisini `CurrentUICulture` ile ayarlamasına izin verir.
+ - Yanıt üst bilgisini açıkça `Content-Language` olarak ayarlama gereksinimini ortadan kaldırır.
+
+```csharp
+app.UseRequestLocalization(new RequestLocalizationOptions
+{
+    ApplyCurrentCultureToResponseHeaders = true
+});
+```
+::: moniker-end
+
 ### <a name="use-a-custom-provider"></a>Özel bir sağlayıcı kullan
 
 Müşterilerinizin kendi dil ve kültürünü veritabanlarınızı veritabanlarına depolamasına izin vermek istediğinizi varsayalım. Kullanıcı için bu değerleri aramak üzere bir sağlayıcı yazabilirsiniz. Aşağıdaki kod, özel bir sağlayıcının nasıl ekleneceğini göstermektedir:
@@ -368,7 +391,11 @@ Larındaki
 * Üst kültür: belirli bir kültürü içeren nötr kültür. (örneğin, "tr", "en-US" ve "en-GB" öğesinin üst kültürüdür)
 * Yerel ayar: bir yerel ayar kültür ile aynıdır.
 
-[!INCLUDE[](~/includes/currency.md)]
+[!INCLUDE[](~/includes/localization/currency.md)]
+
+::: moniker range=">= aspnetcore-3.0"
+[!INCLUDE[](~/includes/localization/unsupported-culture-log-level.md)]
+::: moniker-end
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
@@ -378,3 +405,4 @@ Larındaki
 * [. Resx dosyalarındaki kaynaklar](/dotnet/framework/resources/working-with-resx-files-programmatically)
 * [Microsoft çok dilli uygulama araç seti](https://marketplace.visualstudio.com/items?itemName=MultilingualAppToolkit.MultilingualAppToolkit-18308)
 * [Yerelleştirme & genel türler](https://github.com/hishamco/hishambinateya.com/blob/master/Posts/localization-and-generics.md)
+* [ASP.NET Core 3,0 ' de Yerelleştirmede yenilikler](http://hishambinateya.com/what-is-new-in-localization-in-asp.net-core-3.0)

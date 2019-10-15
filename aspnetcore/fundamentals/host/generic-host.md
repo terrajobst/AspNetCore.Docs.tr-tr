@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/07/2019
 uid: fundamentals/host/generic-host
-ms.openlocfilehash: 8e29c3a300cc1cdc37458427d3be7ceed84385ef
-ms.sourcegitcommit: 7d3c6565dda6241eb13f9a8e1e1fd89b1cfe4d18
+ms.openlocfilehash: 57c09d52e058f0355849793b16d430bda0deb3a6
+ms.sourcegitcommit: 07d98ada57f2a5f6d809d44bdad7a15013109549
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72259632"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72333608"
 ---
 # <a name="net-generic-host"></a>.NET genel ana bilgisayar
 
@@ -25,7 +25,7 @@ Bu makalede, .NET Core genel ana bilgisayarı (<xref:Microsoft.Extensions.Hostin
 *Ana bilgisayar* , bir uygulamanın kaynaklarını kapsülleyen bir nesnedir, örneğin:
 
 * Bağımlılık ekleme (dı)
-* Günlüğe kaydetme
+* Günlüğe Kaydetme
 * Yapılandırma
 * `IHostedService` uygulamaları
 
@@ -74,7 +74,7 @@ public static IHostBuilder CreateHostBuilder(string[] args) =>
 
 Uygulama Entity Framework Core kullanıyorsa `CreateHostBuilder` yönteminin adını veya imzasını değiştirmeyin. [Entity Framework Core araçları](/ef/core/miscellaneous/cli/) , uygulamayı çalıştırmadan Konağı yapılandıran bir `CreateHostBuilder` yöntemi bulmayı bekler. Daha fazla bilgi için bkz. [Tasarım zamanı DbContext oluşturma](/ef/core/miscellaneous/cli/dbcontext-creation).
 
-## <a name="default-builder-settings"></a>Varsayılan Oluşturucu ayarları 
+## <a name="default-builder-settings"></a>Varsayılan Oluşturucu ayarları
 
 @No__t-0 yöntemi:
 
@@ -89,7 +89,7 @@ Uygulama Entity Framework Core kullanıyorsa `CreateHostBuilder` yönteminin ad�
   * Ortam değişkenleri.
   * Komut satırı bağımsız değişkenleri.
 * Aşağıdaki [günlük](xref:fundamentals/logging/index) sağlayıcılarını ekler:
-  * Console
+  * Konsolu
   * Hata ayıklama
   * EventSource
   * Olay günlüğü (yalnızca Windows üzerinde çalışırken)
@@ -200,7 +200,7 @@ Host.CreateDefaultBuilder(args)
     //...
 ```
 
-Daha fazla bilgi için bkz.
+Daha fazla bilgi için bkz.:
 
 * [Temel bilgiler: Içerik kökü](xref:fundamentals/index#content-root)
 * [WebRoot](#webroot)
@@ -379,7 +379,7 @@ webBuilder.UseStartup("StartupAssemblyName");
 webBuilder.UseStartup<Startup>();
 ```
 
-### <a name="urls"></a>Adresleri
+### <a name="urls"></a>URL'ler
 
 Sunucu istekleri için dinlemesi gereken bağlantı noktaları ve protokollerle, noktalı virgülle ayrılmış IP adresleri listesi veya ana bilgisayar adresleri. Örneğin, `http://localhost:123`. Sunucunun belirtilen bağlantı noktasını ve protokolü kullanarak herhangi bir IP adresi veya ana bilgisayar için istekleri dinlemesi gerektiğini belirtmek için "\*" kullanın (örneğin, `http://*:5000`). Protokol (`http://` veya `https://`) her URL 'ye dahil olmalıdır. Desteklenen biçimler sunucular arasında farklılık gösterir.
 
@@ -411,7 +411,7 @@ Bu değeri ayarlamak için, ortam değişkenini kullanın veya `UseWebRoot` ' ı
 webBuilder.UseWebRoot("public");
 ```
 
-Daha fazla bilgi için bkz.
+Daha fazla bilgi için bkz.:
 
 * [Temel bilgiler: Web kökü](xref:fundamentals/index#web-root)
 * [Contentrootyolu](#contentrootpath)
@@ -420,7 +420,7 @@ Daha fazla bilgi için bkz.
 
 Uygulamayı başlatmak ve durdurmak için oluşturulan <xref:Microsoft.Extensions.Hosting.IHost> uygulamasında Yöntemleri çağırın. Bu yöntemler, hizmet kapsayıcısında kayıtlı olan tüm <xref:Microsoft.Extensions.Hosting.IHostedService> uygulamalarını etkiler.
 
-### <a name="run"></a>Çalıştırın
+### <a name="run"></a>Çalıştır
 
 <xref:Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions.Run*>, uygulamayı çalıştırır ve ana bilgisayarı kapatıncaya kadar çağıran iş parçacığını engeller.
 
@@ -432,7 +432,7 @@ Uygulamayı başlatmak ve durdurmak için oluşturulan <xref:Microsoft.Extension
 
 <xref:Microsoft.Extensions.Hosting.HostingHostBuilderExtensions.RunConsoleAsync*>, konsol desteği sağlar, Konağı oluşturur ve başlatır ve CTRL + C/SIGINT veya SIGDÖNEM için bekler.
 
-### <a name="start"></a>Başlayın
+### <a name="start"></a>Başlat
 
 <xref:Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions.Start*> Konağı zaman uyumlu olarak başlatır.
 
@@ -505,7 +505,7 @@ Konsolu Visual Studio Code ayarlamak için:
 1. *. Vscode/Launch. JSON* dosyasını açın.
 1. **.NET Core başlatma (konsol)** yapılandırmasında **konsol** girişini bulun. Değeri `externalTerminal` ya da `integratedTerminal` olarak ayarlayın.
 
-## <a name="introduction"></a>Tanıtım
+## <a name="introduction"></a>Giriş
 
 Genel ana bilgisayar kitaplığı <xref:Microsoft.Extensions.Hosting> ad alanında kullanılabilir ve [Microsoft. Extensions. Hosting](https://www.nuget.org/packages/Microsoft.Extensions.Hosting/) paketi tarafından sağlanır. @No__t-0 paketi [Microsoft. AspNetCore. app metapackage](xref:fundamentals/metapackage-app) 'e dahildir (ASP.NET Core 2,1 veya üzeri).
 
@@ -740,7 +740,7 @@ public static class Extensions
 
 @No__t-0 uygulaması, hizmet kapsayıcısında kayıtlı <xref:Microsoft.Extensions.Hosting.IHostedService> uygulamalarının başlatılmasının ve durdurulmasından sorumludur.
 
-### <a name="run"></a>Çalıştırın
+### <a name="run"></a>Çalıştır
 
 <xref:Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions.Run*>, uygulamayı çalıştırır ve konak kapanana kadar çağıran iş parçacığını engeller:
 

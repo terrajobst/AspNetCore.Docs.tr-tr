@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 09/28/2019
 uid: mvc/controllers/filters
-ms.openlocfilehash: ed48c2074360768b8d8c5af7057b353b00592394
-ms.sourcegitcommit: 73a451e9a58ac7102f90b608d661d8c23dd9bbaf
+ms.openlocfilehash: 0c3597f24e02af40517e12a86127b140ed4fb550
+ms.sourcegitcommit: 07d98ada57f2a5f6d809d44bdad7a15013109549
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72037706"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72333927"
 ---
 # <a name="filters-in-aspnet-core"></a>ASP.NET Core filtreler
 
@@ -130,14 +130,14 @@ Filtre iç içe geçme sonucu *olarak, filtrenin kodu,* *önceki* kodun ters sı
   
 Zaman uyumlu eylem filtreleri için filtre yöntemlerinin çağrıldığı sırayı gösteren aşağıdaki örnek.
 
-| Dizisi | Filtre kapsamı | Filter yöntemi |
+| Sequence | Filtre kapsamı | Filter yöntemi |
 |:--------:|:------------:|:-------------:|
-| 1\. | Genel | `OnActionExecuting` |
+| 1\. | Global | `OnActionExecuting` |
 | 2 | Kumandasını | `OnActionExecuting` |
 | 3 | Yöntem | `OnActionExecuting` |
 | 4 | Yöntem | `OnActionExecuted` |
 | 5 | Kumandasını | `OnActionExecuted` |
-| 6 | Genel | `OnActionExecuted` |
+| 6 | Global | `OnActionExecuted` |
 
 Bu sıra şunları gösterir:
 
@@ -158,7 +158,7 @@ Bu sıra şunları gösterir:
 
 @No__t-0:
 
-* @No__t-0 (`[SampleActionFilter]`) `FilterTest2` eylemine uygular:
+* @No__t-0 (`[SampleActionFilter]`) `FilterTest2` eylemine uygular.
 * @No__t-0 ve `OnActionExecuted` geçersiz kılar.
 
 [!code-csharp[](./filters/sample/FiltersSample/Controllers/TestController.cs?name=snippet)]
@@ -190,12 +190,12 @@ Varsayılan yürütme sırası <xref:Microsoft.AspNetCore.Mvc.Filters.IOrderedFi
 
 Yukarıdaki örnekte gösterilen 3 eylem filtresini göz önünde bulundurun. Denetleyicinin ve genel filtrelerin `Order` özelliği sırasıyla 1 ve 2 ' ye ayarlandıysa, yürütme sırası tersine çevrilir.
 
-| Dizisi | Filtre kapsamı | `Order` özelliği | Filter yöntemi |
+| Sequence | Filtre kapsamı | `Order` özelliği | Filter yöntemi |
 |:--------:|:------------:|:-----------------:|:-------------:|
 | 1\. | Yöntem | 0 | `OnActionExecuting` |
 | 2 | Kumandasını | 1\.  | `OnActionExecuting` |
-| 3 | Genel | 2  | `OnActionExecuting` |
-| 4 | Genel | 2  | `OnActionExecuted` |
+| 3 | Global | 2  | `OnActionExecuting` |
+| 4 | Global | 2  | `OnActionExecuted` |
 | 5 | Kumandasını | 1\.  | `OnActionExecuted` |
 | 6 | Yöntem | 0  | `OnActionExecuted` |
 
@@ -449,18 +449,7 @@ Sonuç filtreleri yalnızca bir eylem veya eylem filtresi bir eylem sonucu üret
 * Eylem sonucunun ve sonraki filtrelerin yürütülmesini önleyin.
 * Başarılı bir sonuç yerine hata olarak kabul edilir.
 
-@No__t-0 yöntemi çalıştığında:
-
-* Yanıt istemciye büyük olasılıkla gönderildi ve değiştirilemez.
-* Bir özel durum oluşturulursa yanıt gövdesi gönderilmez.
-
-<!-- Review preceding "If an exception was thrown: Original 
-When the OnResultExecuted method runs, the response has likely been sent to the client and cannot be changed further (unless an exception was thrown).
-
-SHould that be , 
-If an exception was thrown **IN THE RESULT FILTER**, the response body is not sent.
-
- -->
+@No__t-0 yöntemi çalıştırıldığında, yanıt istemciye zaten gönderilir. Yanıt istemciye zaten gönderildiyse, daha fazla değiştirilemez.
 
 `ResultExecutedContext.Canceled`, eylem sonucu yürütmesi başka bir filtre tarafından kabul edilen kısa devre olduysa, `true` olarak ayarlanır.
 
@@ -494,7 +483,7 @@ Framework, alt sınıflı olabilecek bir soyut @no__t (0) sağlar. Daha önce g�
 Önceki kod, [indirme örneği](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/controllers/filters/sample)çalıştırılarak test edilebilir:
 
 * F12 geliştirici araçlarını çağırın.
-* Gidin `https://localhost:5001/Sample/HeaderWithFactory`
+* @No__t-0 ' a gidin.
 
 F12 geliştirici araçları, örnek kod tarafından eklenen aşağıdaki yanıt üstbilgilerini görüntüler:
 
@@ -532,7 +521,7 @@ Kaynak filtreleri, işlem hattında daha sonra gelen her şeyin yürütülmesini
 
 Ara yazılımı bir filtre olarak kullanmak için, filtre ardışık düzenine eklenecek olan ara yazılımı belirten `Configure` yöntemiyle bir tür oluşturun. Aşağıdaki örnek, bir istek için geçerli kültürü oluşturmak üzere yerelleştirme ara yazılımını kullanır:
 
-[!code-csharp[](./filters/sample/FiltersSample/Filters/LocalizationPipeline.cs?name=snippet_MiddlewareFilter&highlight=3,21)]
+[!code-csharp[](./filters/sample/FiltersSample/Filters/LocalizationPipeline.cs?name=snippet_MiddlewareFilter&highlight=3,22)]
 
 Ara yazılımı çalıştırmak için <xref:Microsoft.AspNetCore.Mvc.MiddlewareFilterAttribute> kullanın:
 
@@ -542,5 +531,5 @@ Ara yazılım filtreleri, filtre işlem hattının aynı aşamasında, model ba�
 
 ## <a name="next-actions"></a>Sonraki eylemler
 
-* [Razor Pages Için filtre yöntemlerine](xref:razor-pages/filter) bakın
+* [Razor Pages Için filtre yöntemlerine](xref:razor-pages/filter)bakın.
 * Filtrelerle denemek için [GitHub örneğini indirin, test edin ve değiştirin](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/controllers/filters/sample).

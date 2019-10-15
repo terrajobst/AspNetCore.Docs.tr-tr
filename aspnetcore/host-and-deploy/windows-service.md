@@ -5,14 +5,14 @@ description: ASP.NET Core uygulamasının bir Windows hizmetinde nasıl barınd�
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/07/2019
+ms.date: 10/10/2019
 uid: host-and-deploy/windows-service
-ms.openlocfilehash: 32226c06ba005b4a61c473d6584b2b762733dcbd
-ms.sourcegitcommit: 3d082bd46e9e00a3297ea0314582b1ed2abfa830
+ms.openlocfilehash: b02e627af875f15a81d68b0d625a2eccf25c0657
+ms.sourcegitcommit: 07d98ada57f2a5f6d809d44bdad7a15013109549
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72007305"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72333797"
 ---
 # <a name="host-aspnet-core-in-a-windows-service"></a>Windows hizmetinde konak ASP.NET Core
 
@@ -20,9 +20,9 @@ ms.locfileid: "72007305"
 
 Bir ASP.NET Core uygulaması, IIS kullanmadan Windows [hizmeti](/dotnet/framework/windows-services/introduction-to-windows-service-applications) olarak Windows üzerinde barındırılabilir. Windows hizmeti olarak barındırıldığı zaman, uygulama otomatik olarak sunucu yeniden başlatıldıktan sonra başlatılır.
 
-[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/host-and-deploy/windows-service/) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
+[Örnek kodu görüntüleme veya indirme](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/host-and-deploy/windows-service/) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
 
-## <a name="prerequisites"></a>Önkoşullar
+## <a name="prerequisites"></a>Prerequisites
 
 * [ASP.NET Core SDK 2,1 veya üzeri](https://dotnet.microsoft.com/download)
 * [PowerShell 6,2 veya üzeri](https://github.com/PowerShell/PowerShell)
@@ -203,12 +203,12 @@ Hizmet Kullanıcı hesabı için *hizmet hakları olarak oturum* açma oluşturm
 1. **Kullanıcı veya Grup Ekle**' yi seçin.
 1. Aşağıdaki yaklaşımlardan birini kullanarak nesne adını (Kullanıcı hesabı) sağlayın:
    1. Kullanıcı hesabını (`{DOMAIN OR COMPUTER NAME\USER}`) nesne adı alanına yazın ve kullanıcıyı ilkeye eklemek için **Tamam** ' ı seçin.
-   1. **Gelişmiş**'i seçin. **Şimdi bul**' u seçin. Listeden Kullanıcı hesabını seçin. **Tamam**’ı seçin. Kullanıcıyı ilkeye eklemek için yeniden **Tamam ' ı** seçin.
+   1. **Gelişmiş**' i seçin. **Şimdi bul**' u seçin. Listeden Kullanıcı hesabını seçin. **Tamam ' ı**seçin. Kullanıcıyı ilkeye eklemek için yeniden **Tamam ' ı** seçin.
 1. Değişiklikleri kabul etmek için **Tamam ' ı** veya **Uygula** ' yı seçin.
 
 ## <a name="create-and-manage-the-windows-service"></a>Windows hizmetini oluşturma ve yönetme
 
-### <a name="create-a-service"></a>Bir hizmet oluşturma
+### <a name="create-a-service"></a>Hizmet oluşturma
 
 Bir hizmeti kaydetmek için PowerShell komutlarını kullanın. Bir yönetim PowerShell 6 komut kabuğundan aşağıdaki komutları yürütün:
 
@@ -294,7 +294,7 @@ Remove-Service -Name {NAME}
 
 ::: moniker-end
 
-## <a name="proxy-server-and-load-balancer-scenarios"></a>Ara sunucu ve yük dengeleyici senaryoları
+## <a name="proxy-server-and-load-balancer-scenarios"></a>Proxy sunucusu ve yük dengeleyici senaryoları
 
 Internet 'ten veya şirket ağından gelen isteklerle etkileşime geçen ve bir ara sunucu veya yük dengeleyicinin arkasındaki Hizmetler ek yapılandırma gerektirebilir. Daha fazla bilgi için bkz. <xref:host-and-deploy/proxy-load-balancer>.
 
@@ -302,10 +302,12 @@ Internet 'ten veya şirket ağından gelen isteklerle etkileşime geçen ve bir 
 
 Varsayılan olarak, ASP.NET Core `http://localhost:5000` ' a bağlanır. @No__t-0 ortam değişkenini ayarlayarak URL 'YI ve bağlantı noktasını yapılandırın.
 
-HTTPS uç noktaları için destek de dahil olmak üzere ek URL ve bağlantı noktası yapılandırma yaklaşımları için aşağıdaki konulara bakın:
+Ek URL ve bağlantı noktası yapılandırma yaklaşımları için ilgili sunucu makalesine bakın:
 
-* <xref:fundamentals/servers/kestrel#endpoint-configuration> (Kestrel)
-* <xref:fundamentals/servers/httpsys#configure-windows-server> (HTTP. sys)
+* <xref:fundamentals/servers/kestrel#endpoint-configuration>
+* <xref:fundamentals/servers/httpsys#configure-windows-server>
+
+Yukarıdaki kılavuz, HTTPS uç noktaları için desteği içerir. Örneğin, bir Windows hizmeti ile kimlik doğrulaması kullanıldığında HTTPS için uygulamayı yapılandırın.
 
 > [!NOTE]
 > Hizmet uç noktasının güvenliğini sağlamak için ASP.NET Core HTTPS geliştirme sertifikası kullanılması desteklenmez.
