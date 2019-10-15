@@ -331,7 +331,7 @@ Belirtilen <xref:Microsoft.Extensions.DependencyInjection.PageConventionCollecti
 
 Kendi normal rotasında `/Contact`, veya özel `/TheContactPage`rotada kişi sayfasını ziyaret edin. Ek `text` bir rota kesimi sağlarsanız, sayfada sağladığınız HTML kodlu segment görüntülenir:
 
-![Edge tarayıcı, URL 'de ' TextValue ' öğesinin isteğe bağlı ' text ' yol segmentini sağlamaya yönelik örnek. İşlenmiş sayfa ' metin ' segmenti değerini gösterir.](razor-pages-conventions/_static/route-segment-with-custom-route.png)
+![Microsoft Edge tarayıcı, URL 'de ' TextValue ' öğesinin isteğe bağlı ' text ' yol segmentini sağlamaya yönelik örnek. İşlenmiş sayfa ' metin ' segmenti değerini gösterir.](razor-pages-conventions/_static/route-segment-with-custom-route.png)
 
 ## <a name="page-model-action-conventions"></a>Sayfa modeli eylem kuralları
 
