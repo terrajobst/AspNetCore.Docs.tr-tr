@@ -5,18 +5,18 @@ description: ASP.NET Core Blazor için desteklenen platformlar hakkında bilgi e
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 09/23/2019
+ms.date: 10/15/2019
 uid: blazor/supported-platforms
-ms.openlocfilehash: b769ee175cde7c9a613d7fb70949de129ca428d3
-ms.sourcegitcommit: 79eeb17604b536e8f34641d1e6b697fb9a2ee21f
+ms.openlocfilehash: 4e86bd6967a747a59c99a515c1c838cc2c21770f
+ms.sourcegitcommit: 35a86ce48041caaf6396b1e88b0472578ba24483
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71211573"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72391225"
 ---
 # <a name="aspnet-core-blazor-supported-platforms"></a>ASP.NET Core Blazor desteklenen platformlar
 
-Tarafından [Luke Latham](https://github.com/guardrex)
+[Luke Latham](https://github.com/guardrex) tarafından
 
 [!INCLUDE[](~/includes/blazorwasm-preview-notice.md)]
 
@@ -24,25 +24,25 @@ Tarafından [Luke Latham](https://github.com/guardrex)
 
 ### <a name="blazor-webassembly"></a>Blazor WebAssembly
 
-| Tarayıcı                          | Sürüm               |
+| Tarayıcı                          | Version               |
 | -------------------------------- | :-------------------: |
 | Microsoft Edge                   | Geçerli               |
 | Mozilla Firefox                  | Geçerli               |
 | Android dahil Google Chrome | Geçerli               |
 | İOS dahil Safari            | Geçerli               |
-| Microsoft Internet Explorer      | Desteklenmiyor&dagger; |
+| Microsoft Internet Explorer      | Desteklenmiyor @ no__t-0 |
 
 &dagger;Microsoft Internet Explorer [Webassembly](https://webassembly.org)'yi desteklemez.
 
 ### <a name="blazor-server"></a>Blazor Server
 
-| Tarayıcı                          | Sürüm    |
+| Tarayıcı                          | Version    |
 | -------------------------------- | :--------: |
 | Microsoft Edge                   | Geçerli    |
 | Mozilla Firefox                  | Geçerli    |
 | Android dahil Google Chrome | Geçerli    |
 | İOS dahil Safari            | Geçerli    |
-| Microsoft Internet Explorer      | üst&dagger; |
+| Microsoft Internet Explorer      | 11 @ no__t-0 |
 
 &dagger;Ek polydolgular gereklidir (örneğin, [Polyfill.io](https://polyfill.io/v3/) bir paket aracılığıyla taahhüt eklenebilir).
 

@@ -5,14 +5,14 @@ description: "\"Çıkış noktaları arası kaynak paylaşımı (CORS) istekleri
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/05/2019
+ms.date: 10/15/2019
 uid: blazor/call-web-api
-ms.openlocfilehash: 3d70af2226eb29870458a5fd3c2bbbc3ee5c14ce
-ms.sourcegitcommit: 73a451e9a58ac7102f90b608d661d8c23dd9bbaf
+ms.openlocfilehash: b08fdf5c2f9a523314b1744a33087eb64fa4c14a
+ms.sourcegitcommit: 35a86ce48041caaf6396b1e88b0472578ba24483
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72037442"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72390849"
 ---
 # <a name="call-a-web-api-from-aspnet-core-blazor"></a>ASP.NET Core Blazor 'ten bir Web API 'SI çağırma
 
@@ -24,7 +24,7 @@ Blazor WebAssembly Apps önceden yapılandırılmış bir `HttpClient` hizmeti k
 
 Blazor Server Apps, genellikle <xref:System.Net.Http.IHttpClientFactory> kullanılarak oluşturulan <xref:System.Net.Http.HttpClient> örnek kullanarak Web API 'Lerini çağırır. Daha fazla bilgi için bkz. <xref:fundamentals/http-requests>.
 
-[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/blazor/common/samples/) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
+[Örnek kodu görüntüleme veya indirme](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/blazor/common/samples/) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
 
 Blazor WebAssembly örnekleri için örnek uygulamada aşağıdaki bileşenlere bakın:
 
@@ -200,7 +200,7 @@ Blazor WebAssembly uygulamasında WebAssembly üzerinde çalışırken, istekler
 }
 ```
 
-API seçeneklerini getirme hakkında daha fazla bilgi için bkz. [MDN Web belgeleri: WindowOrWorkerGlobalScope. Fetch ():P arameters @ no__t-0.
+API seçenekleri getirme hakkında daha fazla bilgi için bkz. [MDN Web belgeleri: WindowOrWorkerGlobalScope. Fetch ():P arameters](https://developer.mozilla.org/docs/Web/API/WindowOrWorkerGlobalScope/fetch#Parameters).
 
 CORS isteklerindeki kimlik bilgileri (yetkilendirme tanımlama bilgileri/üstbilgileri) gönderilirken, CORS ilkesi tarafından `Authorization` üst bilgisine izin verilmelidir.
 

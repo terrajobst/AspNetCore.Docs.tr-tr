@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/05/2019
 uid: blazor/components
-ms.openlocfilehash: 3e0966bf978c99fc00db7682bea3292306cbb03c
-ms.sourcegitcommit: d81912782a8b0bd164f30a516ad80f8defb5d020
+ms.openlocfilehash: a71bbf3921417cbd23aeb14d0d78ad8354d6e93a
+ms.sourcegitcommit: dd026eceee79e943bd6b4a37b144803b50617583
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72179032"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72378684"
 ---
 # <a name="create-and-use-aspnet-core-razor-components"></a>ASP.NET Core Razor bileşenleri oluşturma ve kullanma
 
@@ -262,7 +262,7 @@ Varsayılan olarak, bağlama öğenin `onchange` olayına uygulanır (`@bind="{P
   * Kullanıcının, ilişkili `EditContext` ' da geçersiz giriş sağlamasına ve doğrulama hataları almasına izin verin.
   * Kullanıcı ek WebForm verisi girmeye uğramadan doğrulama hatalarını Kullanıcı ARABIRIMINDE görüntüleyin.
 
-**Sel**
+**Genelleştirme**
 
 `@bind` değerleri, geçerli kültürün kuralları kullanılarak görüntülenmek üzere biçimlendirilir ve ayrıştırılır.
 
@@ -454,19 +454,19 @@ Bazı olaylar için olay bağımsız değişkeni türlerine izin verilir. Bu ola
 
 Desteklenen `EventArgs` aşağıdaki tabloda gösterilmiştir.
 
-| Olay | Sınıf |
+| Olay | örneği |
 | ----- | ----- |
-| Yapıştırır        | `ClipboardEventArgs` |
+| Pano        | `ClipboardEventArgs` |
 | Sürükleyin             | `DragEventArgs` &ndash; `DataTransfer` ve @no__t 3 saklama öğe verilerini sürüklemiş. |
 | Hata            | `ErrorEventArgs` |
-| Odaklanma            | `FocusEventArgs` &ndash; `relatedTarget` desteğini içermez. |
+| Çı            | `FocusEventArgs` &ndash; `relatedTarget` desteğini içermez. |
 | `<input>` değişiklik | `ChangeEventArgs` |
-| Klavyenizdeki         | `KeyboardEventArgs` |
+| Klavye         | `KeyboardEventArgs` |
 | Tığında            | `MouseEventArgs` |
 | Fare işaretçisi    | `PointerEventArgs` |
 | Fare tekerleği      | `WheelEventArgs` |
-| Lemesine         | `ProgressEventArgs` |
-| Gerekiyorsa            | `TouchEventArgs` &ndash; `TouchPoint`, dokunmaya duyarlı bir cihazdaki tek bir iletişim noktasını temsil eder. |
+| İlerleme durumu         | `ProgressEventArgs` |
+| Dokunma            | `TouchEventArgs` &ndash; `TouchPoint`, dokunmaya duyarlı bir cihazdaki tek bir iletişim noktasını temsil eder. |
 
 Önceki tablodaki olayların özellikleri ve olay işleme davranışı hakkında bilgi için bkz. [başvuru kaynağında EventArgs sınıfları (ASPNET/AspNetCore Release/3.0 dalı)](https://github.com/aspnet/AspNetCore/tree/release/3.0/src/Components/Web/src/Web).
 
@@ -692,7 +692,7 @@ Bileşen başvuruları bir bileşen örneğine başvurmak için bir yol sağlar,
 Bileşen işlendiğinde `loginDialog` alanı `MyLoginDialog` alt bileşen örneğiyle doldurulur. Daha sonra bileşen örneğinde .NET yöntemlerini çağırabilirsiniz.
 
 > [!IMPORTANT]
-> @No__t-0 değişkeni yalnızca bileşen işlendikten sonra ve çıktısı `MyLoginDialog` öğesini içerdiğinde doldurulur. Bu noktaya kadar başvurulmasına hiçbir şey yok. Bileşen işlemesini tamamladıktan sonra bileşen başvurularını işlemek için `OnAfterRenderAsync` veya `OnAfterRender` yöntemlerini kullanın.
+> @No__t-0 değişkeni yalnızca bileşen işlendikten sonra ve çıktısı `MyLoginDialog` öğesini içerdiğinde doldurulur. Bu noktaya kadar başvurulmasına hiçbir şey yok. Bileşen işlemesini tamamladıktan sonra bileşen başvurularını işlemek için [Onafterrenderasync veya OnAfterRender yöntemlerini](#lifecycle-methods)kullanın.
 
 Bileşen başvurularını yakalama, [öğe başvurularını yakalamak](xref:blazor/javascript-interop#capture-references-to-elements)için benzer bir sözdizimi kullanın, bir [JavaScript birlikte çalışma](xref:blazor/javascript-interop) özelliği değildir. Bileşen başvuruları, yalnızca .NET kodunda kullanılan @ no__t-0thei JavaScript koduna aktarılmaz.
 
@@ -841,6 +841,9 @@ protected override async Task OnInitializedAsync()
 }
 ```
 
+> [!NOTE]
+> Bileşen başlatma sırasında zaman uyumsuz çalışma `OnInitializedAsync` yaşam döngüsü olayı sırasında gerçekleşmelidir.
+
 Zaman uyumlu bir işlem için `OnInitialized` kullanın:
 
 ```csharp
@@ -859,6 +862,9 @@ protected override async Task OnParametersSetAsync()
 }
 ```
 
+> [!NOTE]
+> Parametre ve özellik değerleri uygulanırken zaman uyumsuz iş `OnParametersSetAsync` yaşam döngüsü olayı sırasında gerçekleşmelidir.
+
 ```csharp
 protected override void OnParametersSet()
 {
@@ -868,7 +874,7 @@ protected override void OnParametersSet()
 
 `OnAfterRenderAsync` ve `OnAfterRender` bir bileşen işlemeyi tamamladıktan sonra çağrılır. Öğe ve bileşen başvuruları bu noktada doldurulur. İşlenmiş DOM öğelerinde çalışan üçüncü taraf JavaScript kitaplıklarını etkinleştirme gibi, işlenmiş içeriği kullanarak ek başlatma adımları gerçekleştirmek için bu aşamayı kullanın.
 
-`OnAfterRender`, *sunucuda prerendering çağrıldığında çağrılmaz.*
+`OnAfterRender` *sunucuda prerendering çağrıldığında çağrılmaz.*
 
 @No__t-1 ve `OnAfterRender` için `firstRender` parametresi:
 
@@ -884,6 +890,9 @@ protected override async Task OnAfterRenderAsync(bool firstRender)
     }
 }
 ```
+
+> [!NOTE]
+> @No__t-0 yaşam döngüsü olayı sırasında, işleme hemen sonra zaman uyumsuz çalışma gerçekleşmelidir.
 
 ```csharp
 protected override void OnAfterRender(bool firstRender)
@@ -1429,16 +1438,16 @@ builder.AddContent(1, "Second");
 
 Kod ilk kez yürütüldüğünde, `someFlag` `true` ise, Oluşturucu şunları alır:
 
-| Sırasına | Tür      | Veriler   |
+| Sequence | Tür      | Veri   |
 | :------: | --------- | :----: |
-| 0        | Metin düğümü | İlk  |
-| 1        | Metin düğümü | Saniye |
+| 0        | Metin düğümü | Adı  |
+| 1\.        | Metin düğümü | Saniye |
 
 @No__t-0 `false` ' in olduğunu düşünün ve biçimlendirme yeniden işlenir. Bu kez, Oluşturucu şunları alır:
 
-| Sırasına | Tür       | Veriler   |
+| Sequence | Tür       | Veri   |
 | :------: | ---------- | :----: |
-| 1        | Metin düğümü  | Saniye |
+| 1\.        | Metin düğümü  | Saniye |
 
 Çalışma zamanı bir fark gerçekleştirdiğinde, sırasıyla `0` olan öğenin kaldırıldığını görür, bu nedenle aşağıdaki önemsiz *düzenleme betiğini*oluşturur:
 
@@ -1461,14 +1470,14 @@ builder.AddContent(seq++, "Second");
 
 Şimdi ilk çıktı:
 
-| Sırasına | Tür      | Veriler   |
+| Sequence | Tür      | Veri   |
 | :------: | --------- | :----: |
-| 0        | Metin düğümü | İlk  |
-| 1        | Metin düğümü | Saniye |
+| 0        | Metin düğümü | Adı  |
+| 1\.        | Metin düğümü | Saniye |
 
 Bu sonuç önceki bir durum ile aynıdır, bu nedenle olumsuz bir sorun yoktur. `someFlag`, ikinci işlemede `false` ' dir ve çıktı:
 
-| Sırasına | Tür      | Veriler   |
+| Sequence | Tür      | Veri   |
 | :------: | --------- | ------ |
 | 0        | Metin düğümü | Saniye |
 
@@ -1495,7 +1504,7 @@ Blazor Server uygulamaları, [Yerelleştirme ara yazılımı](xref:fundamentals/
 
 Kültür aşağıdaki yaklaşımlardan biri kullanılarak ayarlanabilir:
 
-* [Özgü](#cookies)
+* [Çerezler](#cookies)
 * [Kültürü seçmek için Kullanıcı arabirimi sağlama](#provide-ui-to-choose-the-culture)
 
 Daha fazla bilgi ve örnek için bkz. <xref:fundamentals/localization>.

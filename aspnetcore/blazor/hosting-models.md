@@ -5,14 +5,14 @@ description: Blazor WebAssembly ve Blazor Server barındırma modellerini anlay�
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/03/2019
+ms.date: 10/15/2019
 uid: blazor/hosting-models
-ms.openlocfilehash: bc3ad9c7c4731b685fc161844d9f55e51722c0ea
-ms.sourcegitcommit: 73e255e846e414821b8cc20ffa3aec946735cd4e
+ms.openlocfilehash: 072f9bbdcf7171ede63383b085f9f0f030bf1076
+ms.sourcegitcommit: 35a86ce48041caaf6396b1e88b0472578ba24483
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71924671"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72391165"
 ---
 # <a name="aspnet-core-blazor-hosting-models"></a>Blazor barındırma modellerini ASP.NET Core
 
@@ -22,13 +22,13 @@ ms.locfileid: "71924671"
 
 Blazor, bir [Webassembly](https://webassembly.org/)tabanlı .NET Runtime (*Blazor webassembly*) veya ASP.NET Core (*Blazor Server*) içindeki sunucu tarafında tarayıcıda istemci tarafı çalıştırmak için tasarlanan bir Web çerçevesidir. Barındırma modelinden bağımsız olarak, uygulama ve bileşen modelleri *aynıdır*.
 
-Bu makalede açıklanan barındırma modelleriyle ilgili bir proje oluşturmak için, bkz <xref:blazor/get-started>.
+Bu makalede açıklanan barındırma modelleriyle ilgili bir proje oluşturmak için, <xref:blazor/get-started> ' a bakın.
 
 ## <a name="blazor-webassembly"></a>Blazor WebAssembly
 
 Blazor için sorumlu barındırma modeli, WebAssembly üzerinde tarayıcıda istemci tarafında çalışmaktadır. Blazor uygulaması, bağımlılıkları ve .NET çalışma zamanı tarayıcıya indirilir. Uygulama doğrudan tarayıcı kullanıcı arabirimi iş parçacığında yürütülür. UI güncelleştirmeleri ve olay işleme aynı işlem içinde oluşur. Uygulamanın varlıkları, istemcilere statik içerik sunan bir Web sunucusuna veya hizmete statik dosyalar olarak dağıtılır.
 
-![Blazor WebAssembly: Blazor uygulaması, tarayıcı içindeki bir kullanıcı arabirimi iş parçacığında çalışır.](hosting-models/_static/blazor-webassembly.png)
+![Blazor WebAssembly: Blazor uygulaması tarayıcının içindeki bir kullanıcı arabirimi iş parçacığında çalışır.](hosting-models/_static/blazor-webassembly.png)
 
 İstemci tarafı barındırma modelini kullanarak bir Blazor uygulaması oluşturmak için, **Blazor WebAssembly uygulama** şablonunu ([DotNet New blazorwasm](/dotnet/core/tools/dotnet-new)) kullanın.
 
@@ -61,12 +61,12 @@ Blazor sunucusu barındırma modeliyle, uygulama sunucuda ASP.NET Core bir uygul
 
 Blazor Server barındırma modelini kullanarak bir Blazor uygulaması oluşturmak için, ASP.NET Core **Blazor Server uygulama** şablonunu kullanın ([DotNet yeni blazorserver](/dotnet/core/tools/dotnet-new)). ASP.NET Core uygulaması, Blazor sunucu uygulamasını barındırır ve istemcilerin bağlanacağı SignalR uç noktasını oluşturur.
 
-ASP.NET Core uygulama, eklenecek uygulamanın `Startup` sınıfına başvurur:
+ASP.NET Core uygulaması, uygulamanın `Startup` sınıfına şu ekleme için başvurur:
 
 * Sunucu tarafı hizmetler.
 * İstek işleme işlem hattının uygulaması.
 
-*Blazor. Server. js* betiği&dagger; , istemci bağlantısını oluşturur. Uygulamanın, uygulama durumunu (örneğin, kayıp ağ bağlantısı durumunda) kalıcı hale getirmek ve geri yüklemek, uygulamanın sorumluluğundadır.
+*Blazor. Server. js* betiği @ no__t-1, istemci bağlantısını oluşturur. Uygulamanın, uygulama durumunu (örneğin, kayıp ağ bağlantısı durumunda) kalıcı hale getirmek ve geri yüklemek, uygulamanın sorumluluğundadır.
 
 Blazor sunucusu barındırma modeli çeşitli avantajlar sunar:
 
@@ -83,7 +83,7 @@ Blazor sunucusu barındırma için aşağı taraf vardır:
 * Ölçeklenebilirlik, çok sayıda kullanıcısı olan uygulamalar için zorlayıcı bir uygulamalardır. Sunucunun birden çok istemci bağlantısını yönetmesi ve istemci durumunu işlemesi gerekir.
 * Uygulamayı çalıştırmak için bir ASP.NET Core sunucusu gerekir. Sunucusuz dağıtım senaryoları mümkün değildir (örneğin, bir CDN 'den uygulama sunma).
 
-&dagger;*Blazor. Server. js* betiği ASP.NET Core paylaşılan çerçevede eklenmiş bir kaynaktan sunulur.
+@no__t- *0blazor. Server. js* betiği, ASP.NET Core paylaşılan çerçevede eklenmiş bir kaynaktan sunulur.
 
 ### <a name="comparison-to-server-rendered-ui"></a>Sunucu tarafından işlenmiş Kullanıcı arabirimine karşılaştırma
 
@@ -106,7 +106,7 @@ Blazor içinde bir kullanıcı arabirimi güncelleştirmesi şu şekilde tetikle
 
 Grafik yeniden tanımlanır ve bir UI *farkı* (fark) hesaplanır. Bu fark, istemcideki Kullanıcı arabirimini güncelleştirmek için gereken en küçük DOM düzenlemelerinin kümesidir. Fark istemciye bir ikili biçimde gönderilir ve tarayıcı tarafından uygulanır.
 
-Kullanıcı, istemci üzerinde bundan uzaklaştığında bir bileşen atılmış olur. Bir Kullanıcı bir bileşenle etkileşim kurarken, bileşenin durumu (hizmetler, kaynaklar) sunucunun belleğinde tutulmalıdır. Birçok bileşenin durumu sunucu tarafından eşzamanlı olarak Korunabileceğinden, bellek tükenmesi sorunu ele alınmalıdır. Sunucu belleğinin en iyi şekilde kullanılmasını sağlamak üzere bir Blazor sunucu uygulamasının nasıl yazılacağı hakkında yönergeler için bkz <xref:security/blazor/server>.
+Kullanıcı, istemci üzerinde bundan uzaklaştığında bir bileşen atılmış olur. Bir Kullanıcı bir bileşenle etkileşim kurarken, bileşenin durumu (hizmetler, kaynaklar) sunucunun belleğinde tutulmalıdır. Birçok bileşenin durumu sunucu tarafından eşzamanlı olarak Korunabileceğinden, bellek tükenmesi sorunu ele alınmalıdır. Sunucu belleğinin en iyi şekilde kullanılmasını sağlamak üzere bir Blazor sunucu uygulamasını yazma konusunda yönergeler için bkz. <xref:security/blazor/server>.
 
 ### <a name="circuits"></a>Uygulanıp
 
@@ -124,7 +124,7 @@ UI gecikme süresi, başlatılan bir eylemden Kullanıcı arabiriminin güncelle
 
 Bellek kullanımı ayrıca uygulama gecikme süresine de katkıda bulunabilir. Daha fazla bellek kullanımı, her ikisi de uygulama performansının düşmesine neden olan ve bu nedenle kullanıcı arabirimi gecikmesini arttığı diskte sık görülen çöp toplama veya disk belleği belleği Daha fazla bilgi için bkz. <xref:security/blazor/server>.
 
-Blazor sunucu uygulamaları, ağ gecikmesini ve bellek kullanımını azaltarak UI gecikmesini en aza indirmek için iyileştirilmelidir. Ağ gecikmesini ölçmeye yönelik bir yaklaşım için bkz <xref:host-and-deploy/blazor/server#measure-network-latency>. SignalR ve Blazor hakkında daha fazla bilgi için bkz.
+Blazor sunucu uygulamaları, ağ gecikmesini ve bellek kullanımını azaltarak UI gecikmesini en aza indirmek için iyileştirilmelidir. Ağ gecikmesini ölçmeye yönelik bir yaklaşım için bkz. <xref:host-and-deploy/blazor/server#measure-network-latency>. SignalR ve Blazor hakkında daha fazla bilgi için bkz.
 
 * <xref:host-and-deploy/blazor/server>
 * <xref:security/blazor/server>
@@ -136,7 +136,7 @@ Blazor Server uygulamaları, sunucusuna etkin bir SignalR bağlantısı gerektir
 İstemci bağlantının kaybolduğunu algıladığında, istemci yeniden bağlanmayı denediğinde kullanıcıya varsayılan bir kullanıcı arabirimi görüntülenir. Yeniden bağlantı başarısız olursa, kullanıcıya yeniden deneme seçeneği sağlanır. Kullanıcı arabirimini özelleştirmek için, *_Host. cshtml* Razor sayfasında `id` olarak `components-reconnect-modal` olan bir öğe tanımlayın. İstemci bu öğeyi bağlantı durumuna göre aşağıdaki CSS sınıflarından biriyle güncelleştirir:
 
 * `components-reconnect-show` &ndash; Kullanıcı arabirimini kayıp bağlantıyı belirtecek şekilde gösterir ve istemci yeniden bağlanmaya çalışıyor demektir.
-* `components-reconnect-hide`&ndash; İstemcinin etkin bir bağlantısı vardır ve Kullanıcı arabirimini gizleyin.
+* `components-reconnect-hide` &ndash; istemcide etkin bir bağlantı varsa Kullanıcı arabirimini gizleyin.
 * `components-reconnect-failed` @no__t-büyük olasılıkla ağ hatasından dolayı 1 yeniden bağlantı başarısız oldu. Yeniden bağlanmayı denemek için `window.Blazor.reconnect()` ' ı çağırın.
 * `components-reconnect-rejected` &ndash; yeniden bağlantı reddedildi. Sunucuya ulaşıldı ancak bağlantı reddedildi ve kullanıcının sunucudaki durumu geçti. Uygulamayı yeniden yüklemek için `location.reload()` ' ı çağırın. Bu bağlantı durumu şu durumlarda oluşabilir:
   * Devrendeki bir kilitlenme (sunucu tarafı kodu) oluşur.
@@ -154,7 +154,7 @@ Blazor sunucu uygulamaları, sunucu bağlantısı oluşturulmadan önce sunucuda
 </body>
 ```
 
-`RenderMode`bileşenin şunları yapıp kullanmadığını yapılandırır:
+`RenderMode` bileşenin şunları yapıp kullanmadığını yapılandırır:
 
 * , Sayfaya ön gönderilir.
 * , Sayfada statik HTML olarak veya Kullanıcı aracısından bir Blazor uygulamasını önyüklemek için gerekli bilgileri içeriyorsa.
@@ -179,7 +179,7 @@ Sayfa veya görünüm şunları işler:
 * Prerendering için kullanılan ilk bileşen durumu kayboldu.
 * SignalR bağlantısı oluşturulduğunda yeni bileşen durumu oluşturulur.
 
-Aşağıdaki Razor sayfası bir `Counter` bileşeni işler:
+Aşağıdaki Razor sayfası `Counter` bileşeni işler:
 
 ```cshtml
 <h1>My Razor Page</h1>
@@ -189,7 +189,7 @@ Aşağıdaki Razor sayfası bir `Counter` bileşeni işler:
 
 ### <a name="render-noninteractive-components-from-razor-pages-and-views"></a>Razor sayfaları ve görünümlerinden etkileşimsiz bileşenleri işleme
 
-Aşağıdaki Razor sayfasında, `MyComponent` bileşen bir form kullanılarak belirtilen bir başlangıç değeriyle statik olarak işlenir:
+Aşağıdaki Razor sayfasında, `MyComponent` bileşeni, bir form kullanılarak belirtilen bir başlangıç değeri ile statik olarak işlenir:
 
 ```cshtml
 <h1>My Razor Page</h1>
@@ -208,7 +208,7 @@ Aşağıdaki Razor sayfasında, `MyComponent` bileşen bir form kullanılarak be
 }
 ```
 
-Statik `MyComponent` olarak işlendiğinden bileşen etkileşimli olamaz.
+@No__t-0 statik olarak işlendiğinden, bileşen etkileşimli olamaz.
 
 ### <a name="detect-when-the-app-is-prerendering"></a>Uygulamanın ne zaman prerendering olduğunu Algıla
 
@@ -220,8 +220,8 @@ Bazen, Blazor Server uygulamaları tarafından kullanılan SignalR istemcisini y
 
 */_Host. cshtml* dosyasında SignalR istemcisini yapılandırmak için:
 
-* `autostart="false"` *Blazor. Server. js* betiği için `<script>` etikete bir öznitelik ekleyin.
-* SignalR oluşturucuyu belirten bir yapılandırma nesnesi çağırın `Blazor.start` ve geçirin.
+* *Blazor. Server. js* betiği için `<script>` etiketine `autostart="false"` özniteliği ekleyin.
+* @No__t-0 ' yı çağırın ve SignalR oluşturucuyu belirten bir yapılandırma nesnesi geçirin.
 
 ```html
 <script src="_framework/blazor.server.js" autostart="false"></script>

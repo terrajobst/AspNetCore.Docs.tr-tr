@@ -5,14 +5,14 @@ description: ASP.NET Core, Içerik teslim ağları (CDN), dosya sunucuları ve G
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/07/2019
+ms.date: 10/15/2019
 uid: host-and-deploy/blazor/webassembly
-ms.openlocfilehash: a0a11f3aed9035000e79844fbec7cdd17b73fdaa
-ms.sourcegitcommit: 3d082bd46e9e00a3297ea0314582b1ed2abfa830
+ms.openlocfilehash: 8ff3f7b089b7aec6b1a6be2c85f24cfb9674b684
+ms.sourcegitcommit: 35a86ce48041caaf6396b1e88b0472578ba24483
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72007343"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72391327"
 ---
 # <a name="host-and-deploy-aspnet-core-blazor-webassembly"></a>Barındırma ve dağıtım ASP.NET Core Blazor WebAssembly
 
@@ -44,7 +44,7 @@ Uygulamanın varsayılan belgesi, tarayıcının adres çubuğu kullanılarak is
 1. uygulamanın *index. html* önyükleme.
 1. Blazor 'in yönlendirici yükleri ve Razor `Main` bileşeni işlenir.
 
-Ana sayfada, Blazor yönlendiricisi tarayıcının Internet üzerinde @no__t-@no__t 2 için `www.contoso.com` ' e yönelik bir istek yapmasını durdurduğundan `About` bileşeninin bağlantısını seçtiğinizde istemci üzerinde çalışır. *Blazor WebAssembly uygulaması içindeki* iç uç noktalara yönelik tüm istekler aynı şekilde çalışır: İstekler tarayıcı tabanlı istekleri Internet 'teki sunucu tarafından barındırılan kaynaklara tetiklemez. Yönlendirici istekleri dahili olarak işler.
+Ana sayfada, Blazor yönlendiricisi tarayıcının Internet üzerinde @no__t-@no__t 2 için `www.contoso.com` ' e yönelik bir istek yapmasını durdurduğundan `About` bileşeninin bağlantısını seçtiğinizde istemci üzerinde çalışır. *Blazor WebAssembly uygulamasındaki* iç uç noktalara yönelik tüm istekler aynı şekilde çalışır: istekler tarayıcı tabanlı istekleri Internet 'teki sunucu tarafından barındırılan kaynaklara tetiklemez. Yönlendirici istekleri dahili olarak işler.
 
 @No__t-0 için tarayıcının adres çubuğu kullanılarak bir istek yapılırsa, istek başarısız olur. Uygulamanın Internet ana bilgisayarında böyle bir kaynak yok, bu nedenle *404-bulunamayan* bir yanıt döndürülür.
 
@@ -143,7 +143,7 @@ Tek başına bir uygulama bir IIS alt uygulaması olarak barındırılıyorsa, a
 
 IIS ile dağıtım sorunlarını giderme hakkında daha fazla bilgi için bkz. <xref:test/troubleshoot-azure-iis>.
 
-### <a name="azure-storage"></a>Azure Storage
+### <a name="azure-storage"></a>Azure Depolama
 
 [Azure depolama](/azure/storage/) statik dosya barındırma, sunucusuz Blazor uygulamasının barındırılmasına olanak sağlar. Özel etki alanı adları, Azure Content Delivery Network (CDN) ve HTTPS desteklenir.
 
@@ -265,6 +265,6 @@ Bir kuruluş sitesi yerine bir proje sitesi kullanırken, *index. html*dosyasın
   --urls=http://127.0.0.1:0
   ```
 
-## <a name="configure-the-linker"></a>Bağlayıcı yapılandırma
+## <a name="configure-the-linker"></a>Bağlayıcıyı yapılandırma
 
 Blazor, çıkış derlemelerinden gereksiz Il 'yi kaldırmak için her bir derlemede ara dil (IL) bağlamayı gerçekleştirir. Derleme bağlama, derleme üzerinde denetlenebilir. Daha fazla bilgi için bkz. <xref:host-and-deploy/blazor/configure-linker>.

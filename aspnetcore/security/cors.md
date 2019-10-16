@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/13/2019
 uid: security/cors
-ms.openlocfilehash: 13f22b59a8d066981133508cceccd941e2ec4505
-ms.sourcegitcommit: 07d98ada57f2a5f6d809d44bdad7a15013109549
+ms.openlocfilehash: 3a51d365626c858ad48298a1108e37eba9050fe7
+ms.sourcegitcommit: 35a86ce48041caaf6396b1e88b0472578ba24483
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72334189"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72391301"
 ---
 # <a name="enable-cross-origin-requests-cors-in-aspnet-core"></a>ASP.NET Core 'de çıkış noktaları arası Istekleri (CORS) etkinleştirme
 
@@ -73,6 +73,10 @@ Daha fazla bilgi için bu belgedeki [CORS ilke seçenekleri](#cpo) bölümüne b
 Not: URL sonunda eğik çizgi (`/` **) bulunmamalıdır.** URL `/` ile sonlandığında karşılaştırma, `false` döndürür ve hiçbir üst bilgi döndürülmez.
 
 ::: moniker range=">= aspnetcore-3.0"
+
+<a name="acpall"></a>
+
+### <a name="apply-cors-policies-to-all-endpoints"></a>CORS ilkelerini tüm uç noktalara Uygula
 
 Aşağıdaki kod, CORS ara yazılımı aracılığıyla CORS ilkelerini tüm uygulama uç noktalarına uygular:
 ```csharp

@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: H1Hack27Feb2017
 ms.date: 8/22/2019
 uid: web-api/advanced/formatting
-ms.openlocfilehash: 0dd8b3b5ec58a199db086c4c0b0f057d26afd589
-ms.sourcegitcommit: 7a2c820692f04bfba04398641b70f27fa15391f5
+ms.openlocfilehash: 78fe620ea8fdd681a276253f77939bcb2a56ebb9
+ms.sourcegitcommit: 35a86ce48041caaf6396b1e88b0472578ba24483
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/12/2019
-ms.locfileid: "72290638"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72391287"
 ---
 # <a name="format-response-data-in-aspnet-core-web-api"></a>ASP.NET Core Web API 'sindeki yanıt verilerini biçimlendirme
 
@@ -219,16 +219,16 @@ Daha fazla bilgi için bkz. [Filtreler](xref:mvc/controllers/filters).
 
 ### <a name="special-case-formatters"></a>Özel durum formatları
 
-Bazı özel durumlar, yerleşik formatlayıcılar kullanılarak uygulanır. Varsayılan olarak, `string` dönüş türleri *metin/düz* (`Accept` üst bilgisi ile isteniyorsa*metin/html* ) olarak biçimlendirilir. Bu davranış, <xref:Microsoft.AspNetCore.Mvc.Formatters.TextOutputFormatter> kaldırılarak silinebilir. Biçimlendiriciler `Configure` yönteminde kaldırılır. Model nesne dönüş türü olan eylemler, `null` ' i döndürürken `204 No Content` döndürür. Bu davranış, <xref:Microsoft.AspNetCore.Mvc.Formatters.HttpNoContentOutputFormatter> kaldırılarak silinebilir. Aşağıdaki kod `TextOutputFormatter` ve `HttpNoContentOutputFormatter` ' i kaldırır.
+Bazı özel durumlar, yerleşik formatlayıcılar kullanılarak uygulanır. Varsayılan olarak, `string` dönüş türleri *metin/düz* (`Accept` üst bilgisi ile isteniyorsa*metin/html* ) olarak biçimlendirilir. Bu davranış, <xref:Microsoft.AspNetCore.Mvc.Formatters.StringOutputFormatter> kaldırılarak silinebilir. Biçimlendiriciler `ConfigureServices` yönteminde kaldırılır. Model nesne dönüş türü olan eylemler, `null` ' i döndürürken `204 No Content` döndürür. Bu davranış, <xref:Microsoft.AspNetCore.Mvc.Formatters.HttpNoContentOutputFormatter> kaldırılarak silinebilir. Aşağıdaki kod `StringOutputFormatter` ve `HttpNoContentOutputFormatter` ' i kaldırır.
 
 ::: moniker range=">= aspnetcore-3.0"
-[!code-csharp[](./formatting/3.0sample/StartupTextOutputFormatter.cs?name=snippet)]
+[!code-csharp[](./formatting/3.0sample/StartupStringOutputFormatter.cs?name=snippet)]
 ::: moniker-end
 ::: moniker range="< aspnetcore-3.0"
-[!code-csharp[](./formatting/sample/StartupTextOutputFormatter.cs?name=snippet)]
+[!code-csharp[](./formatting/sample/StartupStringOutputFormatter.cs?name=snippet)]
 ::: moniker-end
 
-@No__t-0 olmadan `string` dönüş türleri `406 Not Acceptable` ' i döndürür. Bir XML biçimlendiricisi varsa, `TextOutputFormatter` kaldırılırsa `string` dönüş türlerini biçimlendirir.
+@No__t-0 olmadan, yerleşik JSON biçimlendiricisi `string` dönüş türlerini biçimlendirir. Yerleşik JSON biçimlendiricisi kaldırılırsa ve bir XML biçimlendirici varsa, XML biçimlendirici `string` dönüş türlerini biçimlendirir. Aksi takdirde, @no__t 0 dönüş türleri `406 Not Acceptable` döndürür.
 
 @No__t-0 olmadan null nesneler yapılandırılmış biçimlendirici kullanılarak biçimlendirilir. Örneğin:
 

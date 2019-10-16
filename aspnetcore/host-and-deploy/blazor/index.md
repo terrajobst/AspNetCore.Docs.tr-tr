@@ -5,14 +5,14 @@ description: Blazor uygulamalarının nasıl barındırılacağını ve dağıt�
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 09/23/2019
+ms.date: 10/15/2019
 uid: host-and-deploy/blazor/index
-ms.openlocfilehash: 1cfe87c7194b34c2461429225c560f9e689168ae
-ms.sourcegitcommit: 79eeb17604b536e8f34641d1e6b697fb9a2ee21f
+ms.openlocfilehash: 271135a0ebe67d31fd8e2bcf672e723814727147
+ms.sourcegitcommit: 35a86ce48041caaf6396b1e88b0472578ba24483
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71211706"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72391335"
 ---
 # <a name="host-and-deploy-aspnet-core-blazor"></a>ASP.NET Core Blazor barındırma ve dağıtma
 
@@ -26,7 +26,7 @@ Uygulamalar yayın yapılandırmasında dağıtım için yayımlanır.
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-1. Gezinti çubuğundan **Build** > **Publish {APPLICATION}** öğesini seçin.
+1. Gezinti çubuğundan **derleme** >  **{uygulama} Yayımla** ' yı seçin.
 1. *Yayımla hedefini*seçin. Yerel olarak yayımlamak için **klasör**' ü seçin.
 1. **Klasör seçin** alanında varsayılan konumu kabul edin veya farklı bir konum belirtin. **Yayımla** düğmesini seçin.
 
@@ -50,40 +50,40 @@ Klasördeki varlıklar Web sunucusuna dağıtılır. Dağıtım, kullanımdaki g
 
 *Uygulama temel yolu* , UYGULAMANıN kök URL yoludur. Aşağıdaki ana uygulamayı ve Blazor uygulamasını göz önünde bulundurun:
 
-* Ana uygulama şu şekilde adlandırılır `MyApp`:
-  * Uygulama fiziksel olarak *\\d: MyApp*konumunda bulunur.
-  * İstekleri tarihinde `https://www.contoso.com/{MYAPP RESOURCE}`alınır.
-* Çağrılan `CoolApp` bir Blazor uygulaması, öğesinin `MyApp`bir alt uygulamasıdır:
-  * Alt uygulama fiziksel olarak *d:\\MyApp\\CoolApp*konumunda bulunur.
-  * İstekleri tarihinde `https://www.contoso.com/CoolApp/{COOLAPP RESOURCE}`alınır.
+* Ana uygulama @no__t çağrıldı-0:
+  * Uygulama fiziksel olarak *d: \\MyApp*konumunda bulunur.
+  * İstekler `https://www.contoso.com/{MYAPP RESOURCE}` ' a alınır.
+* @No__t-0 adlı bir Blazor uygulaması, `MyApp` ' in bir alt uygulamasıdır:
+  * Alt uygulama fiziksel olarak *d: \\MyApp @ no__t-2CoolApp*konumunda bulunur.
+  * İstekler `https://www.contoso.com/CoolApp/{COOLAPP RESOURCE}` ' a alınır.
 
-İçin `CoolApp`ek yapılandırma belirtmeden, Bu senaryodaki alt uygulama, sunucuda nerede bulunduğu konusunda bilgi sahibi değildir. Örneğin, uygulama ilgili URL yolunda `/CoolApp/`bulunduğunu bilmeden kaynaklarına doğru göreli URL 'ler oluşturamıyoruz.
+@No__t-0 için ek yapılandırma belirtmeden, Bu senaryodaki alt uygulama, sunucuda nerede bulunduğu konusunda hiçbir bilgiye sahip değildir. Örneğin, uygulama ilgili URL yolunda `/CoolApp/` ' da olduğunu bilmeden, kaynaklarına doğru göreli URL 'Ler oluşturamıyoruz.
 
-Blazor uygulamasının `https://www.contoso.com/CoolApp/`temel yolu `<base>` için yapılandırma sağlamak üzere etiketinin `href` özniteliği *Wwwroot/index.html* dosyasındaki göreli kök yoluna ayarlanır:
+Blazor uygulamasının temel yolu olan `https://www.contoso.com/CoolApp/` için yapılandırma sağlamak üzere, `<base>` etiketinin `href` özniteliği *Wwwroot/index.html* dosyasındaki göreli kök yoluna ayarlanır:
 
 ```html
 <base href="/CoolApp/">
 ```
 
-Göreli URL yolunu sağlayarak, kök dizinde olmayan bir bileşen, uygulamanın kök yoluna göre URL 'Ler oluşturabilir. Farklı dizin yapısı düzeylerindeki bileşenler, uygulama genelinde konumlardaki diğer kaynakların bağlantılarını oluşturabilir. Uygulama temel yolu Ayrıca, bağlantının `href` hedefinin uygulama temel yolu URI alanı&mdash;içinde olduğu yerde köprü tıklamalarını, Blazor yönlendiricisinin iç gezintiyi işlemesini sağlamak için de kullanılır.
+Göreli URL yolunu sağlayarak, kök dizinde olmayan bir bileşen, uygulamanın kök yoluna göre URL 'Ler oluşturabilir. Farklı dizin yapısı düzeylerindeki bileşenler, uygulama genelinde konumlardaki diğer kaynakların bağlantılarını oluşturabilir. Uygulama temel yolu Ayrıca, bağlantının `href` hedefinin uygulama temel yolu URI alanı içinde olduğu yerlerde köprü tıklamalarını (@ no__t-1Blazor yönlendiricisi iç gezintiyi işler.
 
-Birçok barındırma senaryosunda, uygulamanın göreli URL yolu uygulamanın köküdür. Bu durumlarda, uygulamanın göreli URL taban yolu, bir Blazor uygulamasının varsayılan yapılandırması olan bir`<base href="/" />`eğik çizgi () olur. GitHub sayfaları ve IIS alt uygulamaları gibi diğer barındırma senaryolarında, uygulama temel yolu, sunucunun uygulamanın göreli URL 'SI yolu olarak ayarlanmalıdır.
+Birçok barındırma senaryosunda, uygulamanın göreli URL yolu uygulamanın köküdür. Bu durumlarda, uygulamanın göreli URL taban yolu, bir Blazor uygulamasının varsayılan yapılandırması olan bir eğik çizgi (`<base href="/" />`) olur. GitHub sayfaları ve IIS alt uygulamaları gibi diğer barındırma senaryolarında, uygulama temel yolu, sunucunun uygulamanın göreli URL 'SI yolu olarak ayarlanmalıdır.
 
-Uygulamanın temel yolunu ayarlamak için `<base>` *Wwwroot/index.html* dosyasının `<head>` etiket öğeleri içindeki etiketi güncelleştirin. Öznitelik değerini olarak `/{RELATIVE URL PATH}/` ayarlayın (sondaki eğik çizgi gereklidir), burada `{RELATIVE URL PATH}` uygulamanın tam göreli URL yoludur. `href`
+Uygulamanın temel yolunu ayarlamak için, *Wwwroot/index.html* dosyasının `<head>` etiket öğeleri içindeki `<base>` etiketini güncelleştirin. @No__t-0 öznitelik değerini `/{RELATIVE URL PATH}/` olarak ayarlayın (sondaki eğik çizgi gereklidir); burada `{RELATIVE URL PATH}`, uygulamanın tam göreli URL yoludur.
 
-Kök olmayan göreli URL yoluna (örneğin, `<base href="/CoolApp/">`) sahip bir uygulama için, uygulama *yerel olarak çalıştırıldığında*kaynaklarını bulamaz. Yerel geliştirme ve test sırasında bu sorunu aşmak için, çalışma zamanında `<base>` etiketinin `href` değeriyle eşleşen bir *yol temel* bağımsız değişkeni sağlayabilirsiniz. Uygulamayı yerel olarak çalıştırırken yol temel bağımsız değişkenini geçirmek için, `dotnet run` komutu uygulamanın dizininden `--pathbase` çalıştırın, seçeneği:
+Kök olmayan göreli URL yoluna (örneğin, `<base href="/CoolApp/">`) sahip bir uygulama için, uygulama *yerel olarak çalıştırıldığında*kaynaklarını bulamaz. Yerel geliştirme ve test sırasında bu sorunu aşmak için, çalışma zamanında `<base>` etiketinin `href` değeriyle eşleşen bir *yol temel* bağımsız değişkeni sağlayabilirsiniz. Uygulamayı yerel olarak çalıştırırken yol temel bağımsız değişkenini geçirmek için, `--pathbase` seçeneğiyle uygulamanın dizininden `dotnet run` komutunu yürütün:
 
 ```dotnetcli
 dotnet run --pathbase=/{RELATIVE URL PATH (no trailing slash)}
 ```
 
-Göreli URL yolu `/CoolApp/` (`<base href="/CoolApp/">`) olan bir uygulama için, komut şu şekilde olur:
+@No__t-0 (`<base href="/CoolApp/">`) göreli URL yoluna sahip bir uygulama için, komut şu olur:
 
 ```dotnetcli
 dotnet run --pathbase=/CoolApp
 ```
 
-Uygulama üzerinde `http://localhost:port/CoolApp`yerel olarak yanıt verir.
+Uygulama, `http://localhost:port/CoolApp` ' da yerel olarak yanıt verir.
 
 ## <a name="deployment"></a>Dağıtım
 

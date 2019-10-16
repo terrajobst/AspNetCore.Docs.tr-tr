@@ -5,14 +5,14 @@ description: ASP.NET Core uygulamasında .NET ile etkileşimli istemci tarafı W
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc, seoapril2019
-ms.date: 10/03/2019
+ms.date: 10/15/2019
 uid: blazor/index
-ms.openlocfilehash: d7dae028fd9a0505c9a2fa49a284f64fce59287f
-ms.sourcegitcommit: 73e255e846e414821b8cc20ffa3aec946735cd4e
+ms.openlocfilehash: abf631b5e1cf762eaef4bd85a6b85802c9899291
+ms.sourcegitcommit: 35a86ce48041caaf6396b1e88b0472578ba24483
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71924652"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72391152"
 ---
 # <a name="introduction-to-aspnet-core-blazor"></a>ASP.NET Core Blazor 'e giriş
 
@@ -73,11 +73,11 @@ Aşağıdaki Razor biçimlendirmesi, başka bir bileşen içinde iç içe kullan
 }
 ```
 
-İletişim kutusunun gövde içeriği (`ChildContent`) ve başlığı (`Title`), bu bileşeni Kullanıcı arabiriminde kullanan bileşen tarafından sağlanır. `OnYes`düğmenin`onclick` olayı C# tarafından tetiklenen bir yöntemdir.
+İletişim kutusunun gövde içeriği (`ChildContent`) ve başlığı (`Title`), Kullanıcı arabiriminde bu bileşeni kullanan bileşen tarafından sağlanır. `OnYes`, düğmenin C# `onclick` olayı tarafından tetiklenen bir yöntemdir.
 
 Blazor, UI bileşimi için doğal HTML etiketleri kullanır. HTML öğeleri, bileşenleri belirtir ve bir etiketin öznitelikleri değerleri bir bileşenin özelliklerine iletir.
 
-Aşağıdaki örnekte `Index` bileşen `Dialog` bileşeni kullanır. `ChildContent`ve `Title` `<Dialog>` öğesi öznitelikleri ve içeriği tarafından ayarlanır.
+Aşağıdaki örnekte `Index` bileşeni `Dialog` bileşenini kullanır. `ChildContent` ve `Title` `<Dialog>` öğesinin öznitelikleri ve içeriği tarafından ayarlanır.
 
 *Index. Razor*:
 
@@ -143,7 +143,7 @@ Blazor sunucusu tarafından tarayıcıyla iletişim kurmak için kullanılan ba�
 
 Blazor [2,0 uygular .NET Standard](/dotnet/standard/net-standard). .NET Standard, .NET uygulamaları genelinde ortak olan .NET API 'lerinin resmi bir belirtimidir. .NET Standard sınıf kitaplıkları, Blazor, .NET Framework, .NET Core, Xamarin, mono ve Unity gibi farklı .NET platformları arasında paylaşılabilir.
 
-Bir Web tarayıcısı içinde geçerli olmayan API 'Ler (örneğin, dosya sistemine erişmek, bir yuva açmak ve iş parçacığı açmak) bir <xref:System.PlatformNotSupportedException>oluşturur.
+Bir Web tarayıcısı içinde geçerli olmayan API 'Ler (örneğin, dosya sistemine erişmek, bir yuva açmak ve iş parçacığı açmak) <xref:System.PlatformNotSupportedException> oluşturur.
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
@@ -151,4 +151,4 @@ Bir Web tarayıcısı içinde geçerli olmayan API 'Ler (örneğin, dosya sistem
 * <xref:blazor/hosting-models>
 * [C# Kılavuzu](/dotnet/csharp/)
 * <xref:mvc/views/razor>
-* [HTML](https://www.w3.org/html/)
+* ['SI](https://www.w3.org/html/)

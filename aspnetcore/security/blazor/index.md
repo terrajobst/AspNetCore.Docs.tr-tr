@@ -5,14 +5,14 @@ description: Blazor kimlik doğrulaması ve yetkilendirme senaryoları hakkında
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/05/2019
+ms.date: 10/15/2019
 uid: security/blazor/index
-ms.openlocfilehash: 1fcd54e954d09e66b8bb1c9a51ef56193f3acf93
-ms.sourcegitcommit: 3d082bd46e9e00a3297ea0314582b1ed2abfa830
+ms.openlocfilehash: 85a6a32ea068e6cd00ebb71bdf7fe0bd06b77618
+ms.sourcegitcommit: 35a86ce48041caaf6396b1e88b0472578ba24483
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72007430"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72391308"
 ---
 # <a name="aspnet-core-blazor-authentication-and-authorization"></a>ASP.NET Core Blazor kimlik doğrulaması ve yetkilendirme
 
@@ -29,7 +29,7 @@ Güvenlik senaryoları Blazor Server ve Blazor WebAssembly Apps arasında farkl�
 
 Blazor WebAssembly Apps, istemcide çalışır. Yetkilendirme *yalnızca* hangi kullanıcı arabirimi seçeneklerinin gösterileceğini belirlemede kullanılır. İstemci tarafı denetimleri bir kullanıcı tarafından değiştirililerek veya atlandığından, bir Blazor WebAssembly uygulaması yetkilendirme erişim kurallarını zorunlu kılamaz.
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Kimlik doğrulaması
 
 Blazor, kullanıcının kimliğini kurmak için mevcut ASP.NET Core kimlik doğrulama mekanizmalarını kullanır. Tam mekanizma Blazor uygulamasının nasıl barındırıldığını, Blazor Server veya Blazor WebAssembly öğesine bağlıdır.
 
@@ -251,7 +251,7 @@ Kullanıcı tarafından tetiklenen bir eylem gerçekleştirirken olduğu gibi, y
 </Router>
 ```
 
-## <a name="authorization"></a>Authorization
+## <a name="authorization"></a>Yetkilendirme
 
 Bir kullanıcının kimliği doğrulandıktan sonra, kullanıcının neler yapabileceğini denetlemek için *Yetkilendirme* kuralları uygulanır.
 
@@ -493,7 +493,7 @@ Blazor WebAssembly uygulamalarında, tüm istemci tarafı kodlar kullanıcılar 
 
 Yaygın hatalar:
 
-* **Authorization, Task @ no__t-1AuthenticationState > türünde bir geçişli parametre gerektirir. Bunu sağlamak için basamaklı Dingauthenticationstate kullanmayı düşünün.**
+* **Yetkilendirme, görev @ no__t-1AuthenticationState > türünde bir geçişli parametre gerektirir. Bunu sağlamak için basamaklı Dingauthenticationstate kullanmayı göz önünde bulundurun.**
 
 * **`null` değeri `authenticationStateTask` için alındı**
 

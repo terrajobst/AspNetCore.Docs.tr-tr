@@ -5,14 +5,14 @@ description: Tümleştirme testlerinin, bir uygulamanın bileşenlerinin, verita
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/07/2019
+ms.date: 10/14/2019
 uid: test/integration-tests
-ms.openlocfilehash: 2825073962d135608c52e7bde42106e7786de521
-ms.sourcegitcommit: 3d082bd46e9e00a3297ea0314582b1ed2abfa830
+ms.openlocfilehash: 863b95230d376d050c34a9ed585b7696e649cb05
+ms.sourcegitcommit: dd026eceee79e943bd6b4a37b144803b50617583
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72007461"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72378714"
 ---
 # <a name="integration-tests-in-aspnet-core"></a>ASP.NET Core tümleştirme testleri
 
@@ -24,7 +24,7 @@ Tümleştirme sınamaları, uygulamanın bileşenlerinin veritabanı, dosya sist
 
 Bu konuda, birim testlerinin temel bir şekilde anlaşıldığı varsayılır. Test kavramları hakkında bilgi sahibi değilseniz, [.NET Core 'Da birim testine ve .NET Standard](/dotnet/core/testing/) konusuna ve bağlı içeriğine bakın.
 
-[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/test/integration-tests/samples) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
+[Örnek kodu görüntüleme veya indirme](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/test/integration-tests/samples) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
 
 Örnek uygulama bir Razor Pages uygulamasıdır ve Razor Pages temel bir anlama sahip olduğunu varsayar. Razor Pages hakkında bilginiz yoksa, aşağıdaki konulara bakın:
 
@@ -41,7 +41,7 @@ Tümleştirme testleri, bir uygulamanın bileşenlerini [birim testlerinden](/do
 
 Bu geniş testler, uygulamanın altyapısını ve tüm çatısını test etmek için kullanılır, genellikle aşağıdaki bileşenler dahil:
 
-* Database
+* Veritabanı
 * Dosya sistemi
 * Ağ gereçleri
 * İstek-yanıt işlem hattı
@@ -76,8 +76,8 @@ Tümleştirme testleri, olağan *düzenleme*, *hareket*ve *onaylama* testi adım
 
 1. SUT 'un web ana bilgisayarı yapılandırıldı.
 1. İstekleri uygulamaya göndermek için bir test sunucusu istemcisi oluşturulur.
-1. *Düzenleme* testi adımı yürütülür: Test uygulaması bir istek hazırlar.
-1. *Davran* test adımı yürütülür: İstemci isteği gönderir ve yanıtını alır.
+1. Testi *Düzenle* adımı yürütülür: test uygulaması bir istek hazırlar.
+1. *Davran* test adımı yürütülür: istemci, isteği gönderir ve yanıtını alır.
 1. *Onaylama* testi adımı yürütülür: *Gerçek* yanıt, *beklenen* bir yanıta bağlı olarak *başarılı* veya *başarısız* olarak onaylanır.
 1. İşlem, tüm testler yürütülene kadar devam eder.
 1. Test sonuçları raporlanır.
@@ -167,7 +167,24 @@ Web ana bilgisayar yapılandırması, bir veya daha fazla özel fabrika oluştur
 
    [!code-csharp[](integration-tests/samples/3.x/IntegrationTestsSample/tests/RazorPagesProject.Tests/CustomWebApplicationFactory.cs?name=snippet1)]
 
-   [Örnek uygulamadaki](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/test/integration-tests/samples) veritabanı dengeli dağıtımı `InitializeDbForTests` yöntemi tarafından gerçekleştirilir. Yöntemi [ıntegration Tests örneğinde açıklanmıştır: Test uygulaması kuruluş @ no__t-0 bölümü.
+   [Örnek uygulamadaki](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/test/integration-tests/samples) veritabanı dengeli dağıtımı `InitializeDbForTests` yöntemi tarafından gerçekleştirilir. Yöntemi, [tümleştirme testleri örneği: test uygulaması kuruluşu](#test-app-organization) bölümünde açıklanmaktadır.
+
+   SUT 'un veritabanı bağlamı `Startup.ConfigureServices` yönteminde kayıtlı. Uygulamanın `Startup.ConfigureServices` kodu yürütüldükten *sonra* , test uygulamasının `builder.ConfigureServices` geri çağırması yürütülür. Uygulamanın veritabanından farklı testler için farklı bir veritabanı kullanmak istiyorsanız, uygulamanın veritabanı bağlamı `builder.ConfigureServices` ' da değiştirilmelidir.
+
+   Örnek uygulama, veritabanı bağlamı için hizmet tanımlayıcısını bulur ve hizmet kaydını kaldırmak için tanımlayıcıyı kullanır. Ardından, fabrika, testler için bellek içi veritabanı kullanan yeni bir @no__t ekler.
+
+   Bellek içi veritabanından farklı bir veritabanına bağlanmak için, bağlamı farklı bir veritabanına bağlamak üzere `UseInMemoryDatabase` çağrısını değiştirin. SQL Server test veritabanı kullanmak için:
+
+   * Proje dosyasındaki [Microsoft. EntityFrameworkCore. SqlServer] https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.SqlServer/) NuGet paketine başvurun.
+   * Veritabanına bir bağlantı dizesiyle `UseSqlServer` çağrısı yapın.
+
+   ```csharp
+   services.AddDbContext<ApplicationDbContext>((options, context) => 
+   {
+       context.UseSqlServer(
+           Configuration.GetConnectionString("TestingDbConnectionString"));
+   });
+   ```
 
 2. Test sınıflarında özel `CustomWebApplicationFactory` kullanın. Aşağıdaki örnek `IndexPageTests` sınıfında fabrikası kullanır:
 
@@ -304,7 +321,7 @@ Aşağıdaki içeriğe sahip test projesinin köküne *xUnit. Runner. JSON* dosy
 
 [Örnek uygulama](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/test/integration-tests/samples) iki uygulamalardan oluşur:
 
-| Uygulama | Proje dizini | Açıklama |
+| Uygulamanızda | Proje dizini | Açıklama |
 | --- | ----------------- | ----------- |
 | İleti uygulaması (SUT) | *src/RazorPagesProject* | Bir kullanıcının, iletileri eklemesini, silmesini, silmesini ve analiz etmesini sağlar. |
 | Test uygulaması | *testler/RazorPagesProject. testler* | SUT test tümleştirmesi için kullanılır. |
@@ -350,6 +367,8 @@ Tümleştirme testleri genellikle veritabanında test yürütmeden önce küçü
 
 [!code-csharp[](integration-tests/samples/3.x/IntegrationTestsSample/tests/RazorPagesProject.Tests/Helpers/Utilities.cs?name=snippet1)]
 
+SUT 'un veritabanı bağlamı `Startup.ConfigureServices` yönteminde kayıtlı. Uygulamanın `Startup.ConfigureServices` kodu yürütüldükten *sonra* , test uygulamasının `builder.ConfigureServices` geri çağırması yürütülür. Testler için farklı bir veritabanı kullanmak istiyorsanız, uygulamanın veritabanı bağlamı `builder.ConfigureServices` ' da değiştirilmelidir. Daha fazla bilgi için, [WebApplicationFactory 'Yi özelleştirme](#customize-webapplicationfactory) bölümüne bakın.
+
 ::: moniker-end
 
 ::: moniker range="< aspnetcore-3.0"
@@ -358,7 +377,7 @@ Tümleştirme sınamaları, uygulamanın bileşenlerinin veritabanı, dosya sist
 
 Bu konuda, birim testlerinin temel bir şekilde anlaşıldığı varsayılır. Test kavramları hakkında bilgi sahibi değilseniz, [.NET Core 'Da birim testine ve .NET Standard](/dotnet/core/testing/) konusuna ve bağlı içeriğine bakın.
 
-[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/test/integration-tests/samples) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
+[Örnek kodu görüntüleme veya indirme](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/test/integration-tests/samples) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
 
 Örnek uygulama bir Razor Pages uygulamasıdır ve Razor Pages temel bir anlama sahip olduğunu varsayar. Razor Pages hakkında bilginiz yoksa, aşağıdaki konulara bakın:
 
@@ -375,7 +394,7 @@ Tümleştirme testleri, bir uygulamanın bileşenlerini [birim testlerinden](/do
 
 Bu geniş testler, uygulamanın altyapısını ve tüm çatısını test etmek için kullanılır, genellikle aşağıdaki bileşenler dahil:
 
-* Database
+* Veritabanı
 * Dosya sistemi
 * Ağ gereçleri
 * İstek-yanıt işlem hattı
@@ -410,8 +429,8 @@ Tümleştirme testleri, olağan *düzenleme*, *hareket*ve *onaylama* testi adım
 
 1. SUT 'un web ana bilgisayarı yapılandırıldı.
 1. İstekleri uygulamaya göndermek için bir test sunucusu istemcisi oluşturulur.
-1. *Düzenleme* testi adımı yürütülür: Test uygulaması bir istek hazırlar.
-1. *Davran* test adımı yürütülür: İstemci isteği gönderir ve yanıtını alır.
+1. Testi *Düzenle* adımı yürütülür: test uygulaması bir istek hazırlar.
+1. *Davran* test adımı yürütülür: istemci, isteği gönderir ve yanıtını alır.
 1. *Onaylama* testi adımı yürütülür: *Gerçek* yanıt, *beklenen* bir yanıta bağlı olarak *başarılı* veya *başarısız* olarak onaylanır.
 1. İşlem, tüm testler yürütülene kadar devam eder.
 1. Test sonuçları raporlanır.
@@ -495,7 +514,7 @@ Web ana bilgisayar yapılandırması, bir veya daha fazla özel fabrika oluştur
 
    [!code-csharp[](integration-tests/samples/2.x/IntegrationTestsSample/tests/RazorPagesProject.Tests/CustomWebApplicationFactory.cs?name=snippet1)]
 
-   [Örnek uygulamadaki](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/test/integration-tests/samples) veritabanı dengeli dağıtımı `InitializeDbForTests` yöntemi tarafından gerçekleştirilir. Yöntemi [ıntegration Tests örneğinde açıklanmıştır: Test uygulaması kuruluş @ no__t-0 bölümü.
+   [Örnek uygulamadaki](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/test/integration-tests/samples) veritabanı dengeli dağıtımı `InitializeDbForTests` yöntemi tarafından gerçekleştirilir. Yöntemi, [tümleştirme testleri örneği: test uygulaması kuruluşu](#test-app-organization) bölümünde açıklanmaktadır.
 
 2. Test sınıflarında özel `CustomWebApplicationFactory` kullanın. Aşağıdaki örnek `IndexPageTests` sınıfında fabrikası kullanır:
 
@@ -642,7 +661,7 @@ Visual Studio kullanıyorsanız, dosyanın **Çıkış Dizinine Kopyala** özell
 
 [Örnek uygulama](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/test/integration-tests/samples) iki uygulamalardan oluşur:
 
-| Uygulama | Proje dizini | Açıklama |
+| Uygulamanızda | Proje dizini | Açıklama |
 | --- | ----------------- | ----------- |
 | İleti uygulaması (SUT) | *src/RazorPagesProject* | Bir kullanıcının, iletileri eklemesini, silmesini, silmesini ve analiz etmesini sağlar. |
 | Test uygulaması | *testler/RazorPagesProject. testler* | SUT test tümleştirmesi için kullanılır. |
