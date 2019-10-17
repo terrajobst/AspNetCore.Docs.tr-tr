@@ -1,23 +1,23 @@
 ---
-title: DotNet-GRPC ile Prototipsiz başvuruları yönetme
+title: dotnet-grpc ile Protobuf başvurularını yönetme
 author: juntaoluo
 description: DotNet-GRPC küresel aracıyla prototip başvuruları ekleme, güncelleştirme, kaldırma ve listeleme hakkında bilgi edinin.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: johluo
-ms.date: 09/24/2019
+ms.date: 10/17/2019
 uid: grpc/dotnet-grpc
-ms.openlocfilehash: ebd57419be24f7f4ed9765e36cf14189be8438b1
-ms.sourcegitcommit: 020c3760492efed71b19e476f25392dda5dd7388
+ms.openlocfilehash: 994597c854a95bb33de1686ab025cb3744cf6845
+ms.sourcegitcommit: e71b6a85b0e94a600af607107e298f932924c849
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/12/2019
-ms.locfileid: "72290063"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72519041"
 ---
-# <a name="manage-protobuf-references-with-dotnet-grpc"></a>DotNet-GRPC ile Prototipsiz başvuruları yönetme
+# <a name="manage-protobuf-references-with-dotnet-grpc"></a>dotnet-grpc ile Protobuf başvurularını yönetme
 
 [John Luo](https://github.com/juntaoluo) tarafından
 
-`dotnet-grpc`, bir .NET gRPC projesi içindeki Prototipsiz başvuruların yönetilmesi için .NET Core küresel bir araçtır. Araç, prototipleme başvurularını eklemek, yenilemek, kaldırmak ve listelemek için kullanılabilir.
+`dotnet-grpc`, bir .NET gRPC projesindeki [protodeğer ( *. proto*)](xref:grpc/basics#proto-file) başvurularını yönetmek için .NET Core küresel bir araçtır. Araç, prototipleme başvurularını eklemek, yenilemek, kaldırmak ve listelemek için kullanılabilir.
 
 ## <a name="installation"></a>Yükleme
 
@@ -32,10 +32,10 @@ dotnet tool install -g dotnet-grpc
 `dotnet-grpc`, *. csproj* dosyasına `<Protobuf />` öğe olarak prototip başvuruları eklemek için kullanılabilir:
 
 ```xml
-<Protobuf Include="..\Proto\count.proto" GrpcServices="Server" Link="Protos\count.proto" />
+<Protobuf Include="Protos\greet.proto" GrpcServices="Server" />
 ```
 
-Prototip başvuruları, C# istemci ve/veya sunucu varlıklarını oluşturmak için kullanılır. @No__t-0aracı şunları yapabilir:
+Prototip başvuruları, C# istemci ve/veya sunucu varlıklarını oluşturmak için kullanılır. @No__t-0 aracı şunları yapabilir:
 
 * Diskteki yerel dosyalardan Prototipsiz başvuru oluştur.
 * Bir URL ile belirtilen uzak dosyadan Protobir başvuru oluştur.
@@ -58,11 +58,11 @@ Herhangi bir dosya proje dizininin dışındaysa, dosyayı Visual Studio 'da `Pr
 dotnet grpc add-file [options] <files>...
 ```
 
-#### <a name="arguments"></a>Bağımsız Değişkenler
+#### <a name="arguments"></a>Arguments
 
 | Bağımsız Değişken | Açıklama |
 |-|-|
-| dosyalarý | Prototip dosyası başvuruları. Bunlar yerel prototipli dosyalar için glob 'nin bir yolu olabilir. |
+| dosyaları | Prototip dosyası başvuruları. Bunlar yerel prototipli dosyalar için glob 'nin bir yolu olabilir. |
 
 #### <a name="options"></a>Seçenekler
 
@@ -70,8 +70,8 @@ dotnet grpc add-file [options] <files>...
 |-|-|-|
 | -p | --Proje | Üzerinde çalışılacak proje dosyasının yolu. Bir dosya belirtilmemişse, komut geçerli dizinde bir arama yapar.
 | -s | --Hizmetler | Oluşturulması gereken gRPC Hizmetleri türü. @No__t-0 belirtilirse, Web projeleri için `Both` kullanılır ve Web dışı projeler için `Client` kullanılır. Kabul edilen değerler `Both`, `Client`, `Default`, `None`, `Server` ' tir.
-| -ı | --ek-içeri aktarma-Dizin | Prototip dosyaları için içeri aktarmalar çözümlenirken kullanılacak ek dizinler. Bu, yolların noktalı virgülle ayrılmış listesidir.
-| | --erişim | Oluşturulan C# sınıflar için kullanılacak erişim değiştiricisi. Varsayılan değer `Public` ' dır. Kabul edilen değerler `Internal` ve `Public` ' dir.
+| -i | --ek-içeri aktarma-Dizin | Prototip dosyaları için içeri aktarmalar çözümlenirken kullanılacak ek dizinler. Bu, yolların noktalı virgülle ayrılmış listesidir.
+| | --erişim | Oluşturulan C# sınıflar için kullanılacak erişim değiştiricisi. Varsayılan değer `Public` şeklindedir. Kabul edilen değerler `Internal` ve `Public` ' dir.
 
 ### <a name="add-url"></a>URL Ekle
 
@@ -83,20 +83,20 @@ dotnet grpc add-file [options] <files>...
 dotnet-grpc add-url [options] <url>
 ```
 
-#### <a name="arguments"></a>Bağımsız Değişkenler
+#### <a name="arguments"></a>Arguments
 
 | Bağımsız Değişken | Açıklama |
 |-|-|
-| url | Uzak protoarabellek dosyasının URL 'SI. |
+| 'deki | Uzak protoarabellek dosyasının URL 'SI. |
 
 #### <a name="options"></a>Seçenekler
 
 | Short seçeneği | Long seçeneği | Açıklama |
 |-|-|-|
-| -o | --output | Uzak protoarabellek dosyası için indirme yolunu belirtir. Bu gerekli bir seçenektir.
+| -o | --çıkış | Uzak protoarabellek dosyası için indirme yolunu belirtir. Bu gerekli bir seçenektir.
 | -p | --Proje | Üzerinde çalışılacak proje dosyasının yolu. Bir dosya belirtilmemişse, komut geçerli dizinde bir arama yapar.
 | -s | --Hizmetler | Oluşturulması gereken gRPC Hizmetleri türü. @No__t-0 belirtilirse, Web projeleri için `Both` kullanılır ve Web dışı projeler için `Client` kullanılır. Kabul edilen değerler `Both`, `Client`, `Default`, `None`, `Server` ' tir.
-| -ı | --ek-içeri aktarma-Dizin | Prototip dosyaları için içeri aktarmalar çözümlenirken kullanılacak ek dizinler. Bu, yolların noktalı virgülle ayrılmış listesidir.
+| -i | --ek-içeri aktarma-Dizin | Prototip dosyaları için içeri aktarmalar çözümlenirken kullanılacak ek dizinler. Bu, yolların noktalı virgülle ayrılmış listesidir.
 | | --erişim | Oluşturulan C# sınıflar için kullanılacak erişim değiştiricisi. Varsayılan değer `Public` ' dır. Kabul edilen değerler `Internal` ve `Public` ' dir.
 
 ## <a name="remove"></a>Kaldır
@@ -112,11 +112,11 @@ dotnet-grpc add-url [options] <url>
 dotnet-grpc remove [options] <references>...
 ```
 
-### <a name="arguments"></a>Bağımsız Değişkenler
+### <a name="arguments"></a>Arguments
 
 | Bağımsız Değişken | Açıklama |
 |-|-|
-| Başvur | Kaldırılacak prototip başvurularının URL 'Leri veya dosya yolları. |
+| başvurular | Kaldırılacak prototip başvurularının URL 'Leri veya dosya yolları. |
 
 ### <a name="options"></a>Seçenekler
 
@@ -139,11 +139,11 @@ Bir güncelleştirme gerekiyorsa araç her zaman yerel dosyayı uzak dosya ile d
 dotnet-grpc refresh [options] [<references>...]
 ```
 
-### <a name="arguments"></a>Bağımsız Değişkenler
+### <a name="arguments"></a>Arguments
 
 | Bağımsız Değişken | Açıklama |
 |-|-|
-| Başvur | Güncellenmesi gereken uzak prototip başvurularına yönelik URL veya dosya yolları. Tüm Uzak başvuruları yenilemek için bu bağımsız değişkeni boş bırakın. |
+| başvurular | Güncellenmesi gereken uzak prototip başvurularına yönelik URL veya dosya yolları. Tüm Uzak başvuruları yenilemek için bu bağımsız değişkeni boş bırakın. |
 
 ### <a name="options"></a>Seçenekler
 
@@ -152,7 +152,7 @@ dotnet-grpc refresh [options] [<references>...]
 | -p | --Proje | Üzerinde çalışılacak proje dosyasının yolu. Bir dosya belirtilmemişse, komut geçerli dizinde bir arama yapar.
 | | --Kuru-Çalıştır | Herhangi bir yeni içerik indirilmeden güncelleştirilenecek dosyaların listesini verir.
 
-## <a name="list"></a>Listeleme
+## <a name="list"></a>List
 
 @No__t-0 komutu, proje dosyasındaki tüm Prototipsiz başvuruları göstermek için kullanılır. Bir sütunun tüm değerleri varsayılan değerler ise, sütun atlanabilir.
 

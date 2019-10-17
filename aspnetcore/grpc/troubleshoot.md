@@ -5,14 +5,14 @@ description: .NET Core 'da gRPC kullanırken hata giderme.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: jamesnk
 ms.custom: mvc
-ms.date: 09/21/2019
+ms.date: 10/16/2019
 uid: grpc/troubleshoot
-ms.openlocfilehash: c31f499b008cdec9d759e804b18965156ca99f30
-ms.sourcegitcommit: d8b12cc1716ee329d7bd2300e201b61e15d506ac
+ms.openlocfilehash: c501cda14f3bac9297695ece59cbc4634e4b7895
+ms.sourcegitcommit: e71b6a85b0e94a600af607107e298f932924c849
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71942899"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72519045"
 ---
 # <a name="troubleshoot-grpc-on-net-core"></a>.NET Core 'da gRPC sorunlarını giderme
 
@@ -35,7 +35,7 @@ info: Microsoft.Hosting.Lifetime[0]
       Hosting environment: Development
 ```
 
-.NET Core istemcisinin, güvenli bir `https` bağlantıyla çağrı yapmak için sunucu adresinde kullanması gerekir:
+.NET Core istemcisinin, güvenli bir bağlantıyla çağrı yapmak için sunucu adresinde `https` kullanması gerekir:
 
 ```csharp
 static async Task Main(string[] args)
@@ -46,14 +46,14 @@ static async Task Main(string[] args)
 }
 ```
 
-Tüm gRPC istemci uygulamaları TLS 'yi destekler. diğer dillerden gRPC istemcileri, genellikle kanalı ile `SslCredentials`yapılandırılmış olmasını gerektirir. `SslCredentials`İstemcinin kullanacağı sertifikayı belirtir ve güvenli olmayan kimlik bilgileri yerine kullanılması gerekir. Farklı gRPC istemci uygulamalarını TLS kullanmak üzere yapılandırma örnekleri için bkz. [GRPC kimlik doğrulaması](https://www.grpc.io/docs/guides/auth/).
+Tüm gRPC istemci uygulamaları TLS 'yi destekler. diğer dillerden gRPC istemcileri genellikle `SslCredentials` ile yapılandırılmış kanalı gerektirir. `SslCredentials` istemcinin kullanacağı sertifikayı belirtir ve güvenli olmayan kimlik bilgileri yerine kullanılması gerekir. Farklı gRPC istemci uygulamalarını TLS kullanmak üzere yapılandırma örnekleri için bkz. [GRPC kimlik doğrulaması](https://www.grpc.io/docs/guides/auth/).
 
 ## <a name="call-a-grpc-service-with-an-untrustedinvalid-certificate"></a>Güvenilir olmayan/geçersiz sertifikayla gRPC hizmetini çağırma
 
 .NET gRPC istemcisi hizmetin güvenilen sertifikaya sahip olmasını gerektirir. Bir gRPC hizmeti güvenilir bir sertifika olmadan çağrılırken aşağıdaki hata iletisi döndürülür:
 
 > İşlenmeyen özel durum. System .net. http. HttpRequestException: SSL bağlantısı kurulamadı, iç özel duruma bakın.
-> System. Security. Authentication. AuthenticationException--->: Uzak sertifika, doğrulama yordamına göre geçersiz.
+> ---> System. Security. Authentication. AuthenticationException: uzak sertifika, doğrulama yordamına göre geçersiz.
 
 Uygulamanızı yerel olarak test ediyorsanız ve ASP.NET Core HTTPS geliştirme sertifikası güvenilir değilse bu hatayı görebilirsiniz. Bu sorunu gidermeye yönelik yönergeler için bkz. [Windows ve macOS 'ta ASP.NET Core https geliştirme sertifikasına güvenin](xref:security/enforcing-ssl#trust-the-aspnet-core-https-development-certificate-on-windows-and-macos).
 
@@ -76,7 +76,7 @@ var client = new Greet.GreeterClient(channel);
 
 ## <a name="call-insecure-grpc-services-with-net-core-client"></a>.NET Core istemcisiyle güvenli olmayan gRPC hizmetlerini çağırma
 
-.NET Core istemcisiyle güvenli olmayan gRPC hizmetlerini çağırmak için ek yapılandırma gerekir. GRPC istemcisinin, sunucu adresinde `System.Net.Http.SocketsHttpHandler.Http2UnencryptedSupport` anahtarı olarak `true` ayarlanması ve kullanması `http` gerekir:
+.NET Core istemcisiyle güvenli olmayan gRPC hizmetlerini çağırmak için ek yapılandırma gerekir. GRPC istemcisinin `System.Net.Http.SocketsHttpHandler.Http2UnencryptedSupport` anahtarını `true` olarak ayarlaması ve sunucu adresinde `http` ' nı kullanması gerekir:
 
 ```csharp
 // This switch must be set before creating the GrpcChannel/HttpClient.
@@ -92,7 +92,7 @@ var client = new Greet.GreeterClient(channel);
 
 Kestrel, macOS ve Windows 7 gibi eski Windows sürümlerindeki TLS ile HTTP/2 ' yi desteklemez. ASP.NET Core gRPC şablonu ve örnekleri varsayılan olarak TLS kullanır. GRPC sunucusunu başlatmayı denediğinizde aşağıdaki hata iletisini görürsünüz:
 
-> https://localhost:5001 IPv4 geri döngü arabirimine bağlanılamıyor: Eksik ALPN desteği nedeniyle, macOS 'ta TLS üzerinden HTTP/2 desteklenmez. '.
+> IPv4 geri döngü arabirimindeki https://localhost:5001 ' a bağlanamıyor: eksik ALPN desteği nedeniyle, macOS 'ta ' HTTP/2 TLS üzerinden desteklenmez. '.
 
 Bu sorunu geçici olarak çözmek için Kestrel ve gRPC istemcisini TLS *olmadan* http/2 kullanacak şekilde yapılandırın. Bunu yalnızca geliştirme sırasında yapmanız gerekir. TLS 'nin kullanılması, gRPC iletilerinin şifrelenmeden gönderilmesine neden olur.
 
@@ -113,25 +113,25 @@ public static IHostBuilder CreateHostBuilder(string[] args) =>
         });
 ```
 
-Bir HTTP/2 uç noktası TLS olmadan yapılandırıldığında, uç noktanın [Listenoptions. Protocols](xref:fundamentals/servers/kestrel#listenoptionsprotocols) olarak `HttpProtocols.Http2`ayarlanması gerekir. `HttpProtocols.Http1AndHttp2`, HTTP/2 üzerinde anlaşmak için TLS gerektiğinden kullanılamıyor. TLS olmadan, uç nokta varsayılan HTTP/1.1 ve gRPC çağrıları için tüm bağlantılar başarısız olur.
+Bir HTTP/2 uç noktası TLS olmadan yapılandırıldığında, uç noktanın [Listenoptions. Protocols](xref:fundamentals/servers/kestrel#listenoptionsprotocols) `HttpProtocols.Http2` olarak ayarlanmalıdır. HTTP/2 üzerinde anlaşmak için TLS gerektiğinden `HttpProtocols.Http1AndHttp2` kullanılamaz. TLS olmadan, uç nokta varsayılan HTTP/1.1 ve gRPC çağrıları için tüm bağlantılar başarısız olur.
 
 GRPC istemcisinin, TLS kullanmak için de yapılandırılması gerekir. Daha fazla bilgi için bkz. [.NET Core istemcisiyle güvenli olmayan gRPC hizmetlerini çağırma](#call-insecure-grpc-services-with-net-core-client).
 
 > [!WARNING]
 > HTTP/2, TLS olmadan yalnızca uygulama geliştirme sırasında kullanılmalıdır. Üretim uygulamaları her zaman aktarım güvenliği kullanmalıdır. Daha fazla bilgi için bkz. [gRPC 'Deki güvenlik konuları ASP.NET Core](xref:grpc/security#transport-security).
 
-## <a name="grpc-c-assets-are-not-code-generated-from-proto-files"></a>GRPC C# varlıkları  *\*. proto* dosyalarından oluşturulan kod değildir
+## <a name="grpc-c-assets-are-not-code-generated-from-proto-files"></a>gRPC C# varlıkları. proto dosyalarından oluşturulan kod değildir
 
 aynı somut istemci ve hizmet temel sınıflarının gRPC kod üretimi, bir projeden başvurulmak için prototip dosyaları ve araçları gerektirir. Şunları dahil etmeniz gerekir:
 
 * `<Protobuf>` öğe grubunda kullanmak istediğiniz *. proto* dosyaları. [Içeri aktarılan *. proto* dosyalarına](https://developers.google.com/protocol-buffers/docs/proto3#importing-definitions) proje tarafından başvurulmalıdır.
 * GRPC araç paketi [GRPC. Tools](https://www.nuget.org/packages/Grpc.Tools/)'a paket başvurusu.
 
-GRPC C# varlıkları oluşturma hakkında daha fazla bilgi için bkz <xref:grpc/basics>.
+GRPC C# varlıkları oluşturma hakkında daha fazla bilgi için bkz. <xref:grpc/basics>.
 
-Varsayılan olarak, `<Protobuf>` başvuru somut bir istemci ve hizmet temel sınıfı oluşturur. Başvuru öğesinin `GrpcServices` özniteliği varlık oluşturmayı sınırlamak C# için kullanılabilir. Geçerli `GrpcServices` seçenekler şunlardır:
+Varsayılan olarak, `<Protobuf>` başvurusu somut bir istemci ve hizmet temel sınıfı oluşturur. Başvuru öğesinin `GrpcServices` özniteliği varlık oluşturmayı sınırlamak C# için kullanılabilir. Geçerli `GrpcServices` seçenekleri şunlardır:
 
-* `Both`(mevcut olmadığında varsayılan)
+* `Both` (mevcut olmadığında varsayılan)
 * `Server`
 * `Client`
 * `None`
@@ -152,18 +152,18 @@ GRPC çağrısı yapan bir gRPC istemci uygulaması yalnızca somut istemcinin o
 </ItemGroup>
 ```
 
-## <a name="wpf-projects-unable-to-generated-grpc-c-assets-from-proto-files"></a>WPF projeleri *@no__t -2. proto* dosyalarından C# GRPC varlıkları üretilip oluşturulamıyor
+## <a name="wpf-projects-unable-to-generate-grpc-c-assets-from-proto-files"></a>WPF projeleri. proto dosyalarından gRPC C# varlıkları oluşturamıyor
 
 WPF projelerinde, gRPC kod oluşturmanın düzgün çalışmasını engelleyen [bilinen bir sorun](https://github.com/dotnet/wpf/issues/810) vardır. WPF projesinde oluşturulan ve `Grpc.Tools` ve *. proto* dosyalarına başvuruda bulunan GRPC türleri, kullanıldığında derleme hataları oluşturur:
 
-> hata CS0246: ' MyGrpcServices ' tür veya ad alanı adı bulunamadı (bir using yönergeniz veya derleme başvurunuz mu eksik?)
+> hata CS0246: ' MyGrpcServices ' türü veya ad alanı adı bulunamadı (bir using yönergeniz veya derleme başvurunuz mu eksik?)
 
 Bu soruna geçici çözüm olarak şunları yapabilirsiniz:
 
 1. Yeni bir .NET Core sınıf kitaplığı projesi oluşturun.
-2. Yeni projede, [ C# *@no__t -3. proto* dosyalarından kod oluşturmayıetkinleştirmek için başvurular ekleyin:
+2. Yeni projede, [ C# *@no__t -3. proto* dosyalarından kod oluşturmayı](xref:grpc/basics#generated-c-assets)etkinleştirmek için başvurular ekleyin:
     * [GRPC. Tools](https://www.nuget.org/packages/Grpc.Tools/) paketine bir paket başvurusu ekleyin.
-    * *\*. Proto* dosyalarını `<Protobuf>` öğe grubuna ekleyin.
+    * @No__t-2 öğe grubuna *@no__t -1. proto* dosyaları ekleyin.
 3. WPF uygulamasında yeni projeye bir başvuru ekleyin.
 
 WPF uygulaması, yeni sınıf kitaplığı projesinden gRPC tarafından oluşturulan türleri kullanabilir.

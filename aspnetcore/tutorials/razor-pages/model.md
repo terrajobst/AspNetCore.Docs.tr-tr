@@ -5,12 +5,12 @@ description: Entity Framework Core (EF Core) kullanarak bir veritabanında film 
 ms.author: riande
 ms.date: 9/22/2019
 uid: tutorials/razor-pages/model
-ms.openlocfilehash: c101fe4aee9a1fbf28d66a8527e3c199194d73fe
-ms.sourcegitcommit: 07d98ada57f2a5f6d809d44bdad7a15013109549
+ms.openlocfilehash: 4f8b80cb51bd10eb3b136a780dc123c41d61c0a5
+ms.sourcegitcommit: e71b6a85b0e94a600af607107e298f932924c849
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72334172"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72519082"
 ---
 # <a name="add-a-model-to-a-razor-pages-app-in-aspnet-core"></a>ASP.NET Core bir Razor Pages uygulamasına model ekleme
 
@@ -196,9 +196,9 @@ Yukarıdaki komutlar şu uyarıyı oluşturur: "' Movie ' varlık türündeki ' 
 
 Bu uyarıyı yoksayabilirsiniz, daha sonraki bir öğreticide düzeltilecektir.
 
-@No__t-0 komutu, ilk veritabanı şemasını oluşturmak için kod üretir. Şema, `DbContext` ( *RazorPagesMovieContext.cs* dosyasında) içinde belirtilen modeli temel alır. @No__t-0 bağımsız değişkeni geçişleri adlandırmak için kullanılır. Herhangi bir ad kullanılabilir, ancak geçiş işlemini açıklayan bir ad seçilir.
+Geçişler komutu, ilk veritabanı şemasını oluşturmak için kod üretir. Şema `DbContext` ' da belirtilen modeli temel alır. @No__t-0 bağımsız değişkeni geçişleri adlandırmak için kullanılır. Herhangi bir ad kullanılabilir, ancak geçiş işlemini açıklayan bir ad seçilir.
 
-@No__t-0 komutu, *geçişleri/\<Zaman damgası > _ınitialcreate. cs* dosyasında `Up` yöntemini çalıştırır. @No__t-0 yöntemi veritabanını oluşturur.
+@No__t-0 komutu uygulanmamış geçişlerde `Up` yöntemini çalıştırır. Bu durumda, `update`, veritabanını oluşturan *geçişler/\<time-damga > _ınitialcreate. cs* dosyasında `Up` yöntemini çalıştırır.
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
@@ -229,10 +229,6 @@ Bağlantı dizesinin adı, [Dbcontextoptions](/dotnet/api/microsoft.entityframew
 @No__t-0 yöntemini inceleyin.
 
 ---
-
-@No__t-0 komutu, ilk veritabanı şemasını oluşturmak için kod üretir. Şema, `RazorPagesMovieContext` ( *Data/RazorPagesMovieContext. cs* dosyasında) içinde belirtilen modeli temel alır. @No__t-0 bağımsız değişkeni geçişleri adlandırmak için kullanılır. Herhangi bir ad kullanılabilir, ancak kurala göre geçiş işlemini açıklayan bir ad kullanılır. Daha fazla bilgi için bkz. <xref:data/ef-mvc/migrations>.
-
-@No__t-0 komutu, veritabanını oluşturan *geçişler/{Time-damga} _ınitialcreate. cs* dosyasında `Up` yöntemini çalıştırır.
 
 <a name="test"></a>
 
@@ -427,6 +423,10 @@ Add-Migration Initial
 Update-Database
 ```
 
+@No__t-0 komutu, ilk veritabanı şemasını oluşturmak için kod üretir. Şema, `DbContext` ( *RazorPagesMovieContext.cs* dosyasında) içinde belirtilen modeli temel alır. @No__t-0 bağımsız değişkeni, geçişi adlandırmak için kullanılır. Herhangi bir ad kullanılabilir, ancak kurala göre geçiş işlemini açıklayan bir ad kullanılır. Daha fazla bilgi için bkz. <xref:data/ef-mvc/migrations>.
+
+@No__t-0 komutu, *geçişleri/\<Zaman damgası > _ınitialcreate. cs* dosyasında `Up` yöntemini çalıştırır. @No__t-0 yöntemi veritabanını oluşturur.
+
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 [!INCLUDE [initial migration](~/includes/RP/model3.md)]
@@ -436,14 +436,8 @@ Update-Database
 [!INCLUDE [initial migration](~/includes/RP/model3.md)]
 
 ---
-
-Yukarıdaki komutlar şu uyarıyı oluşturur: "' Movie ' varlık türündeki ' Price ' ondalık sütunu için tür belirtilmedi. Bu, varsayılan duyarlık ve ölçeğe uygun olmadıkları takdirde değerlerin sessizce kesilmesine neden olur. ' Hasccolumntype () ' kullanarak tüm değerleri barındırabilecek SQL Server sütun türünü açık olarak belirtin. "
-
-Bu uyarıyı yoksayabilirsiniz, daha sonraki bir öğreticide düzeltilecektir.
-
-@No__t-0 komutu, ilk veritabanı şemasını oluşturmak için kod üretir. Şema, `DbContext` ( *RazorPagesMovieContext.cs* dosyasında) içinde belirtilen modeli temel alır. @No__t-0 bağımsız değişkeni geçişleri adlandırmak için kullanılır. Herhangi bir ad kullanılabilir, ancak geçiş işlemini açıklayan bir ad seçilir.
-
-@No__t-0 komutu, *geçişleri/\<Zaman damgası > _ınitialcreate. cs* dosyasında `Up` yöntemini çalıştırır. @No__t-0 yöntemi veritabanını oluşturur.
+> [!NOTE]
+> Yukarıdaki komutlar şu uyarıyı oluşturur: " *' Movie ' varlık türündeki ' Price ' ondalık sütunu için tür belirtilmedi. Bu, varsayılan duyarlık ve ölçeğe uygun olmadıkları takdirde değerlerin sessizce kesilmesine neden olur. ' Hasccolumntype () ' kullanarak tüm değerleri barındırabilecek SQL Server sütun türünü açık olarak belirtin.* " Bu uyarıyı yoksayabilirsiniz, daha sonraki bir öğreticide düzeltilecektir.
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
@@ -474,10 +468,6 @@ Bağlantı dizesinin adı, [Dbcontextoptions](/dotnet/api/microsoft.entityframew
 @No__t-0 yöntemini inceleyin.
 
 ---
-
-@No__t-0 komutu, ilk veritabanı şemasını oluşturmak için kod üretir. Şema, `RazorPagesMovieContext` ( *Data/RazorPagesMovieContext. cs* dosyasında) içinde belirtilen modeli temel alır. @No__t-0 bağımsız değişkeni geçişleri adlandırmak için kullanılır. Herhangi bir ad kullanılabilir, ancak kurala göre geçiş işlemini açıklayan bir ad kullanılır. Daha fazla bilgi için bkz. <xref:data/ef-mvc/migrations>.
-
-@No__t-0 komutu, veritabanını oluşturan *geçişler/{Time-damga} _ınitialcreate. cs* dosyasında `Up` yöntemini çalıştırır.
 
 <a name="test"></a>
 
