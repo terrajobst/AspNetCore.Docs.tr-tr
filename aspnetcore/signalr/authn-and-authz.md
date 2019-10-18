@@ -5,26 +5,26 @@ description: ASP.NET Core SignalR 'de kimlik doğrulama ve yetkilendirmeyi nası
 monikerRange: '>= aspnetcore-2.1'
 ms.author: bradyg
 ms.custom: mvc
-ms.date: 07/15/2019
+ms.date: 10/17/2019
 uid: signalr/authn-and-authz
-ms.openlocfilehash: da226f4e192be8e34a0b2cec1493a1353c995279
-ms.sourcegitcommit: 387cf29f5d5addef2cbc70670a11d612806b36b2
+ms.openlocfilehash: 258b6d92896d38b79116278abb7c70b6063e8131
+ms.sourcegitcommit: ce2bfb01f2cc7dd83f8a97da0689d232c71bcdc4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70746524"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72531172"
 ---
 # <a name="authentication-and-authorization-in-aspnet-core-signalr"></a>ASP.NET Core SignalR 'de kimlik doğrulaması ve yetkilendirme
 
 , [Andrew Stanton-nurte](https://twitter.com/anurse)
 
-[Örnek kodu görüntüle veya indir](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/signalr/authn-and-authz/sample/) [(indirme)](xref:index#how-to-download-a-sample)
+[Örnek kodu görüntüleme veya indirme](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/signalr/authn-and-authz/sample/) [(nasıl indirileceği)](xref:index#how-to-download-a-sample)
 
 ## <a name="authenticate-users-connecting-to-a-signalr-hub"></a>Bir SignalR hub 'ına bağlanan kullanıcıların kimliğini doğrulama
 
-SignalR, bir kullanıcıyı her bağlantıyla ilişkilendirmek için [ASP.NET Core kimlik doğrulamasıyla](xref:security/authentication/identity) birlikte kullanılabilir. Bir hub 'da, kimlik doğrulama verilerine [`HubConnectionContext.User`](/dotnet/api/microsoft.aspnetcore.signalr.hubconnectioncontext.user) özelliğinden erişilebilir. Kimlik doğrulaması, hub 'ın kullanıcıyla ilişkili tüm bağlantılar üzerinde Yöntemler çağırmasını sağlar (daha fazla bilgi için bkz. [SignalR 'de kullanıcıları ve grupları yönetme](xref:signalr/groups) ). Birden çok bağlantı tek bir kullanıcıyla ilişkilendirilebilir.
+SignalR, bir kullanıcıyı her bağlantıyla ilişkilendirmek için [ASP.NET Core kimlik doğrulamasıyla](xref:security/authentication/identity) birlikte kullanılabilir. Bir hub 'da, kimlik doğrulama verilerine [`HubConnectionContext.User`](/dotnet/api/microsoft.aspnetcore.signalr.hubconnectioncontext.user) özelliğinden erişilebilir. Kimlik doğrulaması, hub 'ın bir kullanıcıyla ilişkili tüm bağlantılar üzerinde Yöntemler çağırmasını sağlar. Daha fazla bilgi için bkz. [SignalR 'de kullanıcıları ve grupları yönetme](xref:signalr/groups). Birden çok bağlantı tek bir kullanıcıyla ilişkilendirilebilir.
 
-Aşağıda, SignalR ve ASP.NET Core `Startup.Configure` kimlik doğrulaması kullanan bir örnek verilmiştir:
+Aşağıda, SignalR ve ASP.NET Core kimlik doğrulaması kullanan `Startup.Configure` bir örneği verilmiştir:
 
 ::: moniker range=">= aspnetcore-3.0"
 
@@ -74,7 +74,7 @@ public void Configure(IApplicationBuilder app)
 ```
 
 > [!NOTE]
-> SignalR ve ASP.NET Core kimlik doğrulama ara yazılımını kaydetme sırası önemli. SignalR `UseAuthentication` 'nin `UseSignalR` üzerinde bir kullanıcısı olması için `HttpContext`önce her zaman ' i çağırın.
+> SignalR ve ASP.NET Core kimlik doğrulama ara yazılımını kaydetme sırası önemli. SignalR 'nin `HttpContext` bir kullanıcısı olması için `UseSignalR` önce her zaman `UseAuthentication` çağırın.
 
 ::: moniker-end
 
@@ -82,7 +82,7 @@ public void Configure(IApplicationBuilder app)
 
 Tarayıcı tabanlı bir uygulamada, tanımlama bilgisi kimlik doğrulaması, mevcut kullanıcı kimlik bilgilerinizin SignalR bağlantılarına otomatik olarak akmasını sağlar. Tarayıcı istemcisi kullanılırken ek yapılandırma gerekmez. Kullanıcı uygulamanızda oturum açtıysa, SignalR bağlantısı bu kimlik doğrulamasını otomatik olarak devralır.
 
-Tanımlama bilgileri, erişim belirteçleri göndermek için tarayıcıya özgü bir yoldur, ancak tarayıcı olmayan istemciler bunları gönderebilir. [.NET istemcisi](xref:signalr/dotnet-client)kullanılırken, `Cookies` özelliği bir tanımlama bilgisi sağlamak için `.WithUrl` çağrıda yapılandırılabilir. Ancak, .NET Istemcisinden tanımlama bilgisi kimlik doğrulamasını kullanmak, uygulamanın bir tanımlama bilgisi için kimlik doğrulama verilerini Exchange için bir API sağlamasını gerektirir.
+Tanımlama bilgileri, erişim belirteçleri göndermek için tarayıcıya özgü bir yoldur, ancak tarayıcı olmayan istemciler bunları gönderebilir. [.NET istemcisi](xref:signalr/dotnet-client)kullanılırken, tanımlama bilgisi sağlamak için `.WithUrl` çağrısında `Cookies` özelliği yapılandırılabilir. Ancak, .NET istemcisinden tanımlama bilgisi kimlik doğrulamasını kullanmak, uygulamanın bir tanımlama bilgisi için kimlik doğrulama verilerini Exchange için bir API sağlamasını gerektirir.
 
 ### <a name="bearer-token-authentication"></a>Taşıyıcı belirteç kimlik doğrulaması
 
@@ -92,9 +92,9 @@ Sunucusunda, taşıyıcı belirteç kimlik doğrulaması [JWT taşıyıcı ara y
 
 JavaScript istemcisinde, belirteç [Accesstokenfactory](xref:signalr/configuration#configure-bearer-authentication) seçeneği kullanılarak sağlanabilirler.
 
-[!code-typescript[Configure Access Token](authn-and-authz/sample/wwwroot/js/chat.ts?range=63-65)]
+[!code-typescript[Configure Access Token](authn-and-authz/sample/wwwroot/js/chat.ts?range=52-55)]
 
-.NET istemcisinde, belirteci yapılandırmak için kullanılabilecek benzer bir [Accesstokenprovider](xref:signalr/configuration#configure-bearer-authentication) özelliği vardır:
+.NET istemcisinde, belirteci yapılandırmak için kullanılabilecek, benzer bir [Accesstokenprovider](xref:signalr/configuration#configure-bearer-authentication) özelliği vardır:
 
 ```csharp
 var connection = new HubConnectionBuilder()
@@ -112,24 +112,27 @@ Standart Web API 'Lerinde, taşıyıcı belirteçleri bir HTTP üst bilgisinde g
 
 [!code-csharp[Configure Server to accept access token from Query String](authn-and-authz/sample/Startup.cs?name=snippet)]
 
+> [!NOTE]
+> Sorgu dizesi tarayıcı API 'SI sınırlamaları nedeniyle WebSockets ve sunucu tarafından gönderilen olaylarla bağlantı kurulurken tarayıcılarda kullanılır. HTTPS kullanılırken sorgu dizesi değerleri TLS bağlantısıyla korunmuş hale getirilir. Ancak, birçok sunucu günlük sorgu dizesi değerlerini günlüğe kaydeder. Daha fazla bilgi için bkz. [ASP.NET Core SignalR Içindeki güvenlik konuları](xref:signalr/security). SignalR, bunları destekleyen ortamlarda (.NET ve Java istemcileri gibi) belirteçleri iletmek için üst bilgileri kullanır.
+
 ### <a name="cookies-vs-bearer-tokens"></a>Tanımlama bilgileri ve taşıyıcı belirteçleri karşılaştırması 
 
-Tanımlama bilgileri tarayıcılara özgü olduğundan, bunları diğer istemci türlerinden göndermek, taşıyıcı belirteçleri göndermeye kıyasla karmaşıklık ekler. Bu nedenle, uygulamanın yalnızca tarayıcı istemcisinden kullanıcıların kimliğini doğrulaması gerekmediği takdirde tanımlama bilgisi kimlik doğrulaması önerilmez. Taşıyıcı belirteç kimlik doğrulaması, tarayıcı istemcisi dışındaki istemcileri kullanırken önerilen yaklaşımdır.
+Tanımlama bilgileri tarayıcılara özeldir. Diğer istemci türlerinden gönderilmesi, taşıyıcı belirteçlerinin gönderilmesine kıyasla karmaşıklık ekler. Sonuç olarak, uygulamanın yalnızca tarayıcı istemcisinden kullanıcıların kimliğini doğrulaması gerekmediği takdirde tanımlama bilgisi kimlik doğrulaması önerilmez. Taşıyıcı belirteç kimlik doğrulaması, tarayıcı istemcisi dışındaki istemcileri kullanırken önerilen yaklaşımdır.
 
 ### <a name="windows-authentication"></a>Windows kimlik doğrulaması
 
-Uygulamanızda [Windows kimlik doğrulaması](xref:security/authentication/windowsauth) yapılandırıldıysa, SignalR hub 'ları güvenli hale getirmek için bu kimliği kullanabilir. Ancak, bireysel kullanıcılara ileti göndermek için özel bir kullanıcı KIMLIĞI sağlayıcısı eklemeniz gerekir. Bunun nedeni, Windows kimlik doğrulama sisteminin kullanıcı adını belirlemede kullandığı "ad tanımlayıcı" talebini sağlamasıdır.
+Uygulamanızda [Windows kimlik doğrulaması](xref:security/authentication/windowsauth) yapılandırıldıysa, SignalR hub 'ları güvenli hale getirmek için bu kimliği kullanabilir. Ancak, bireysel kullanıcılara ileti göndermek için özel bir kullanıcı KIMLIĞI sağlayıcısı eklemeniz gerekir. Windows kimlik doğrulama sistemi, "ad tanımlayıcı" talebi sağlamaz. SignalR Kullanıcı adını öğrenmek için talebi kullanır.
 
-Kullanıcı tarafından tanımlayıcı olarak kullanılacak taleplerden birini uygulayan `IUserIdProvider` ve alan yeni bir sınıf ekleyin. Örneğin, "ad" talebini (formdaki `[Domain]\[Username]`Windows Kullanıcı adı) kullanmak için aşağıdaki sınıfı oluşturun:
+@No__t_0 uygulayan yeni bir sınıf ekleyin ve Kullanıcı tarafından tanımlayıcı olarak kullanılacak taleplerden birini alın. Örneğin, "ad" talebini (`[Domain]\[Username]` biçimde Windows Kullanıcı adı) kullanmak için aşağıdaki sınıfı oluşturun:
 
 [!code-csharp[Name based provider](authn-and-authz/sample/nameuseridprovider.cs?name=NameUserIdProvider)]
 
-Yerine, `User` ' den herhangi bir değer kullanabilirsiniz (örneğin, Windows SID tanımlayıcısı, vb.). `ClaimTypes.Name`
+@No__t_0 yerine, `User` herhangi bir değeri (Windows SID tanımlayıcısı gibi) kullanabilirsiniz.
 
 > [!NOTE]
 > Seçtiğiniz değer, sisteminizdeki tüm kullanıcılar arasında benzersiz olmalıdır. Aksi takdirde, bir kullanıcı için tasarlanan bir ileti farklı bir kullanıcıya gidiyor olabilir.
 
-Bu bileşeni `Startup.ConfigureServices` yönteminizin içine kaydedin.
+Bu bileşeni `Startup.ConfigureServices` yöntemine kaydedin.
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -156,7 +159,7 @@ Windows kimlik doğrulaması yalnızca Microsoft Internet Explorer veya Microsof
 
 ### <a name="use-claims-to-customize-identity-handling"></a>Kimlik işlemeyi özelleştirmek için talepler kullanma
 
-Kullanıcıların kimliğini doğrulayan bir uygulama, Kullanıcı taleplerinden bir SignalR Kullanıcı kimliği türetilebilir. SignalR 'nin Kullanıcı kimlikleri nasıl oluşturduğunu belirtmek için, `IUserIdProvider` uygulamayı uygulayın ve kaydedin.
+Kullanıcıların kimliğini doğrulayan bir uygulama, Kullanıcı taleplerinden bir SignalR Kullanıcı kimliği türetilebilir. SignalR 'nin Kullanıcı kimlikleri nasıl oluşturduğunu belirtmek için `IUserIdProvider` uygulayın ve uygulamayı kaydedin.
 
 Örnek kod, tanımlama özelliği olarak kullanıcının e-posta adresini seçmek için talepleri nasıl kullanacağınızı gösterir. 
 
@@ -165,11 +168,11 @@ Kullanıcıların kimliğini doğrulayan bir uygulama, Kullanıcı taleplerinden
 
 [!code-csharp[Email provider](authn-and-authz/sample/EmailBasedUserIdProvider.cs?name=EmailBasedUserIdProvider)]
 
-Hesap kaydı, ASP.NET Identity veritabanına türünde `ClaimsTypes.Email` bir talep ekler.
+Hesap kaydı, ASP.NET Identity veritabanına `ClaimsTypes.Email` türünde bir talep ekler.
 
 [!code-csharp[Adding the email to the ASP.NET identity claims](authn-and-authz/sample/pages/account/Register.cshtml.cs?name=AddEmailClaim)]
 
-Bu bileşeni ' `Startup.ConfigureServices`ye kaydedin.
+Bu bileşeni `Startup.ConfigureServices` kaydedin.
 
 ```csharp
 services.AddSingleton<IUserIdProvider, EmailBasedUserIdProvider>();
@@ -181,7 +184,7 @@ Varsayılan olarak, bir hub 'daki tüm yöntemler kimliği doğrulanmamış bir 
 
 [!code-csharp[Restrict a hub to only authorized users](authn-and-authz/sample/Hubs/ChatHub.cs?range=8-10,32)]
 
-Yalnızca belirli `[Authorize]` [Yetkilendirme ilkeleriyle](xref:security/authorization/policies)eşleşen kullanıcılara erişimi kısıtlamak için özniteliğinin Oluşturucu bağımsız değişkenlerini ve özelliklerini kullanabilirsiniz. Örneğin, adlı `MyAuthorizationPolicy` bir özel yetkilendirme ilkeniz varsa, aşağıdaki kodu kullanarak yalnızca bu ilkeyle eşleşen kullanıcıların hub 'a erişmesini sağlayabilirsiniz:
+Yalnızca belirli [Yetkilendirme ilkeleriyle](xref:security/authorization/policies)eşleşen kullanıcılara erişimi kısıtlamak için `[Authorize]` özniteliğinin Oluşturucu bağımsız değişkenlerini ve özelliklerini kullanabilirsiniz. Örneğin, `MyAuthorizationPolicy` adlı bir özel yetkilendirme ilkeniz varsa, aşağıdaki kodu kullanarak yalnızca bu ilkeyle eşleşen kullanıcıların hub 'a erişmesini sağlayabilirsiniz:
 
 ```csharp
 [Authorize("MyAuthorizationPolicy")]
@@ -190,7 +193,7 @@ public class ChatHub : Hub
 }
 ```
 
-Tek bir hub yöntemi `[Authorize]` özniteliğe de uygulanmış olabilir. Geçerli Kullanıcı, yönteme uygulanan ilkeyle eşleşmezse, çağırana bir hata döndürülür:
+Tek tek hub yöntemlerinde `[Authorize]` özniteliği de uygulanabilir. Geçerli Kullanıcı, yönteme uygulanan ilkeyle eşleşmezse, çağırana bir hata döndürülür:
 
 ```csharp
 [Authorize]
@@ -213,9 +216,9 @@ public class ChatHub : Hub
 
 ### <a name="use-authorization-handlers-to-customize-hub-method-authorization"></a>Hub yöntemi yetkilendirmesini özelleştirmek için yetkilendirme işleyicilerini kullanma
 
-SignalR, bir hub yöntemi yetkilendirme gerektirdiğinde, yetkilendirme işleyicilerine özel bir kaynak sağlar. Kaynak bir örneğidir `HubInvocationContext`. , Çağrılan hub `HubCallerContext`yönteminin adını ve hub yönteminin bağımsız değişkenlerini içerir.`HubInvocationContext`
+SignalR, bir hub yöntemi yetkilendirme gerektirdiğinde, yetkilendirme işleyicilerine özel bir kaynak sağlar. Kaynak bir `HubInvocationContext` örneğidir. @No__t_0, `HubCallerContext`, çağrılan hub yönteminin adını ve hub yönteminin bağımsız değişkenlerini içerir.
 
-Azure Active Directory aracılığıyla birden çok kuruluşun oturum açmasına izin veren bir sohbet odası örneğini göz önünde bulundurun. Microsoft hesabı olan herkes sohbet için oturum açabilir, ancak yalnızca sahip olunan kuruluşun üyeleri kullanıcıları yasaklatabilecek veya kullanıcıların sohbet geçmişlerini görüntüleyebilmelidir. Ayrıca, belirli kullanıcılardan belirli işlevleri kısıtlamak isteyebilirsiniz. ASP.NET Core 3,0 ' deki güncelleştirilmiş özellikleri kullanarak bu tamamen mümkündür. Nasıl `DomainRestrictedRequirement` özel`IAuthorizationRequirement`olarak işlev gördüğüne göz önünde kalın. `HubInvocationContext` Kaynak parametresi geçirilmeye hazır olduğuna göre, iç mantık hub 'ın çağrıldığı bağlamı inceleyebilir ve kullanıcının bireysel hub yöntemlerini yürütmesine izin verirken kararlar verebilir.
+Azure Active Directory aracılığıyla birden çok kuruluşun oturum açmasına izin veren bir sohbet odası örneğini göz önünde bulundurun. Microsoft hesabı olan herkes sohbet için oturum açabilir, ancak yalnızca sahip olunan kuruluşun üyeleri kullanıcıları yasaklatabilecek veya kullanıcıların sohbet geçmişlerini görüntüleyebilmelidir. Ayrıca, belirli kullanıcılardan belirli işlevleri kısıtlamak isteyebilirsiniz. ASP.NET Core 3,0 ' deki güncelleştirilmiş özellikleri kullanarak bu tamamen mümkündür. @No__t_0 nasıl özel bir `IAuthorizationRequirement` görevi gördüğüne göz önünde edin. Artık `HubInvocationContext` kaynak parametresi geçirildiğinden, iç mantık hub 'ın çağrıldığı bağlamı inceleyebilir ve kullanıcının bireysel hub yöntemlerini yürütmesine izin verirken kararlar verebilir.
 
 ```csharp
 [Authorize]
@@ -261,7 +264,7 @@ public class DomainRestrictedRequirement :
 }
 ```
 
-İçinde `Startup.ConfigureServices`, `DomainRestricted` ilkeyi oluşturmak için özel `DomainRestrictedRequirement` gereksinimi bir parametre olarak sağlayarak yeni ilkeyi ekleyin.
+@No__t_0, yeni ilkeyi ekleyerek `DomainRestricted` ilkesini oluşturmak için parametre olarak özel `DomainRestrictedRequirement` gereksinimini sağlar.
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -279,7 +282,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-Yukarıdaki örnekte, `DomainRestrictedRequirement` sınıfı, bu gereksinim için hem bir `IAuthorizationRequirement` ve kendisi `AuthorizationHandler` olur. Bu iki bileşeni birbirinden ayrı ayrı sınıflara bölmek kabul edilebilir. Örneğin yaklaşımın bir avantajı, gereksinim ve işleyicinin aynı şey olduğu için başlangıç `AuthorizationHandler` sırasında ekleme zorunluluktur.
+Yukarıdaki örnekte `DomainRestrictedRequirement` sınıfı, bu gereksinim için hem `IAuthorizationRequirement` hem de kendi `AuthorizationHandler`. Bu iki bileşeni birbirinden ayrı ayrı sınıflara bölmek kabul edilebilir. Örneğin yaklaşımın bir avantajı, gereksinim ve işleyicinin aynı şey olduğu için başlangıç sırasında `AuthorizationHandler` eklemeye gerek yoktur.
 
 ::: moniker-end
 
