@@ -15,18 +15,18 @@ Tarayıcı bağlantısı kurulana kadar JavaScript birlikte çalışma çağrıl
     {
         if (firstRender)
         {
-            JSRuntime.InvokeAsync<object>(
+            JSRuntime.InvokeVoidAsync(
                 "setElementValue", myInput, "Value set after render");
         }
     }
 }
 ```
 
-Aşağıdaki bileşen, prerendering ile uyumlu bir şekilde bileşenin başlatma mantığının bir parçası olarak JavaScript birlikte çalışabilirinin nasıl kullanılacağını göstermektedir. Bileşen içinden bir işleme güncelleştirmesi tetiklemenin `OnAfterRenderAsync`mümkün olduğunu gösterir. Geliştirici Bu senaryoda sonsuz bir döngü oluşturmaktan kaçınmalıdır.
+Aşağıdaki bileşen, prerendering ile uyumlu bir şekilde bileşenin başlatma mantığının bir parçası olarak JavaScript birlikte çalışabilirinin nasıl kullanılacağını göstermektedir. Bileşeni, `OnAfterRenderAsync` içinden bir işleme güncelleştirmesi tetiklemenin mümkün olduğunu gösterir. Geliştirici Bu senaryoda sonsuz bir döngü oluşturmaktan kaçınmalıdır.
 
-Burada `JSRuntime.InvokeAsync` çağrılır, bileşen `ElementRef` işlenene kadar JavaScript `OnAfterRenderAsync` öğesi olmadığından, yalnızca ' de ' de kullanılır.
+@No__t_0 çağrıldığında, bileşen işlenene kadar hiçbir JavaScript öğesi olmadığından, `ElementRef` yalnızca `OnAfterRenderAsync` için kullanılır ve daha önceki bir yaşam döngüsü yönteminde değil.
 
-`StateHasChanged`bileşeni JavaScript birlikte çalışma çağrısından alınan yeni durumla yeniden eklemek için çağırılır. Kod sonsuz döngü oluşturmaz çünkü `StateHasChanged` yalnızca olduğu `null`zaman `infoFromJs` çağrılır.
+`StateHasChanged`, bileşeni JavaScript birlikte çalışma çağrısından alınan yeni durumla yeniden eklemek için çağrılır. @No__t_0 yalnızca `infoFromJs` `null` olduğunda çağrıldığı için, kod sonsuz bir döngü oluşturmaz.
 
 ```cshtml
 @page "/prerendered-interop"
