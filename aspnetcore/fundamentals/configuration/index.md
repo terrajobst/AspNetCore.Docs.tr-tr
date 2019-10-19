@@ -5,18 +5,18 @@ description: ASP.NET Core uygulamasını yapılandırmak için yapılandırma AP
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 08/12/2019
+ms.date: 10/18/2019
 uid: fundamentals/configuration/index
-ms.openlocfilehash: 357a3d89648086f0329cd16bc9d72863df9bdcd6
-ms.sourcegitcommit: 8a36be1bfee02eba3b07b7a86085ec25c38bae6b
+ms.openlocfilehash: 0a9b1a1a08617ef4ca8a36295cec8910ec111acd
+ms.sourcegitcommit: a166291c6708f5949c417874108332856b53b6a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71217792"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72589915"
 ---
 # <a name="configuration-in-aspnet-core"></a>ASP.NET Core yapılandırma
 
-Tarafından [Luke Latham](https://github.com/guardrex)
+[Luke Latham](https://github.com/guardrex) tarafından
 
 ASP.NET Core içindeki uygulama yapılandırması, *yapılandırma sağlayıcıları*tarafından belirlenen anahtar-değer çiftlerini temel alır. Yapılandırma sağlayıcıları yapılandırma verilerini çeşitli yapılandırma kaynaklarından anahtar-değer çiftlerine okur:
 
@@ -49,27 +49,27 @@ using Microsoft.Extensions.Configuration;
 
 *Seçenekler stili* , bu konuda açıklanan yapılandırma kavramlarının bir uzantısıdır. Seçenekler, ilgili ayarların gruplarını temsil etmek için sınıfları kullanır. Daha fazla bilgi için bkz. <xref:fundamentals/configuration/options>.
 
-[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/configuration/index/samples) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
+[Örnek kodu görüntüleme veya indirme](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/configuration/index/samples) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
 
 ## <a name="host-versus-app-configuration"></a>Uygulama yapılandırmasına karşı konak
 
-Uygulama yapılandırıldıktan ve başlatılmadan önce, bir *konak* yapılandırılır ve başlatılır. Uygulama başlatma ve ömür yönetimi için konak sorumludur. Hem uygulama hem de ana bilgisayar, bu konuda açıklanan yapılandırma sağlayıcıları kullanılarak yapılandırılır. Ana bilgisayar yapılandırma anahtar-değer çiftleri, uygulamanın yapılandırmasına de dahildir. Konak oluşturulduğunda yapılandırma sağlayıcılarının nasıl kullanıldığı ve yapılandırma kaynaklarının konak yapılandırmasını nasıl etkilediği hakkında daha fazla bilgi için bkz <xref:fundamentals/index#host>.
+Uygulama yapılandırıldıktan ve başlatılmadan önce, bir *konak* yapılandırılır ve başlatılır. Ana bilgisayar, uygulama başlatma ve ömür yönetiminden sorumludur. Hem uygulama hem de ana bilgisayar, bu konuda açıklanan yapılandırma sağlayıcıları kullanılarak yapılandırılır. Ana bilgisayar yapılandırma anahtar-değer çiftleri, uygulamanın yapılandırmasına de dahildir. Konak oluşturulduğunda yapılandırma sağlayıcılarının nasıl kullanıldığı ve yapılandırma kaynaklarının konak yapılandırmasını nasıl etkilediği hakkında daha fazla bilgi için bkz. <xref:fundamentals/index#host>.
 
 ## <a name="default-configuration"></a>Varsayılan yapılandırma
 
 ::: moniker range=">= aspnetcore-3.0"
 
-Ana bilgisayar oluştururken ASP.NET Core [DotNet yeni](/dotnet/core/tools/dotnet-new) şablonlar çağrısı <xref:Microsoft.Extensions.Hosting.Host.CreateDefaultBuilder*> tabanlı Web Apps. `CreateDefaultBuilder`uygulama için varsayılan yapılandırmayı aşağıdaki sırayla sağlar:
+ASP.NET Core [DotNet yeni](/dotnet/core/tools/dotnet-new) şablonlara dayalı Web Apps, bir konak oluştururken <xref:Microsoft.Extensions.Hosting.Host.CreateDefaultBuilder*> çağırır. `CreateDefaultBuilder`, uygulama için aşağıdaki sırayla varsayılan yapılandırmayı sağlar:
 
 [Genel ana bilgisayar](xref:fundamentals/host/generic-host)kullanan uygulamalar için aşağıdakiler geçerlidir. [Web konağını](xref:fundamentals/host/web-host)kullanırken varsayılan yapılandırmayla ilgili ayrıntılar için, [bu konunun ASP.NET Core 2,2 sürümüne](/aspnet/core/fundamentals/configuration/?view=aspnetcore-2.2)bakın.
 
 * Ana bilgisayar yapılandırması şuradan sağlanır:
-  * Ortam değişkenleri `DOTNET_` [yapılandırma sağlayıcısı](#environment-variables-configuration-provider)kullanılarak (örneğin, `DOTNET_ENVIRONMENT`) ön eki olan ortam değişkenleri. Yapılandırma anahtar-`DOTNET_`değer çiftleri yüklendiğinde önek () çıkarılır.
+  * Ortam değişkenleri, [ortam değişkenleri yapılandırma sağlayıcısı](#environment-variables-configuration-provider)kullanılarak `DOTNET_` (örneğin, `DOTNET_ENVIRONMENT`) ön ekine sahiptir. Yapılandırma anahtar-değer çiftleri yüklendiğinde önek (`DOTNET_`) çıkarılır.
   * Komut satırı [yapılandırma sağlayıcısını](#command-line-configuration-provider)kullanan komut satırı bağımsız değişkenleri.
 * Web ana bilgisayar varsayılan yapılandırması oluşturuldu (`ConfigureWebHostDefaults`):
   * Kestrel, Web sunucusu olarak kullanılır ve uygulamanın yapılandırma sağlayıcıları kullanılarak yapılandırılır.
   * Konak filtreleme ara yazılımı ekleyin.
-  * `ASPNETCORE_FORWARDEDHEADERS_ENABLED` Ortam değişkeni olarak `true`ayarlanmışsa iletilen üstbilgiler ara yazılımı ekleyin.
+  * @No__t_0 ortam değişkeni `true` olarak ayarlandıysa, Iletilen üstbilgiler ara yazılımı ekleyin.
   * IIS tümleştirmesini etkinleştirin.
 * Uygulama yapılandırması şuradan sağlanır:
   * [dosya yapılandırma sağlayıcısını](#file-configuration-provider)kullanarak *appSettings. JSON* .
@@ -82,12 +82,12 @@ Ana bilgisayar oluştururken ASP.NET Core [DotNet yeni](/dotnet/core/tools/dotne
 
 ::: moniker range="< aspnetcore-3.0"
 
-Ana bilgisayar oluştururken ASP.NET Core [DotNet yeni](/dotnet/core/tools/dotnet-new) şablonlar çağrısı <xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder*> tabanlı Web Apps. `CreateDefaultBuilder`uygulama için varsayılan yapılandırmayı aşağıdaki sırayla sağlar:
+ASP.NET Core [DotNet yeni](/dotnet/core/tools/dotnet-new) şablonlara dayalı Web Apps, bir konak oluştururken <xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder*> çağırır. `CreateDefaultBuilder`, uygulama için aşağıdaki sırayla varsayılan yapılandırmayı sağlar:
 
 [Web ana bilgisayarı](xref:fundamentals/host/web-host)kullanan uygulamalar için aşağıdakiler geçerlidir. [Genel ana bilgisayarı](xref:fundamentals/host/generic-host)kullanırken varsayılan yapılandırmayla ilgili ayrıntılar için, [Bu konunun en son sürümüne](xref:fundamentals/configuration/index)bakın.
 
 * Ana bilgisayar yapılandırması şuradan sağlanır:
-  * Ortam değişkenleri `ASPNETCORE_` [yapılandırma sağlayıcısı](#environment-variables-configuration-provider)kullanılarak (örneğin, `ASPNETCORE_ENVIRONMENT`) ön eki olan ortam değişkenleri. Yapılandırma anahtar-`ASPNETCORE_`değer çiftleri yüklendiğinde önek () çıkarılır.
+  * Ortam değişkenleri, [ortam değişkenleri yapılandırma sağlayıcısı](#environment-variables-configuration-provider)kullanılarak `ASPNETCORE_` (örneğin, `ASPNETCORE_ENVIRONMENT`) ön ekine sahiptir. Yapılandırma anahtar-değer çiftleri yüklendiğinde önek (`ASPNETCORE_`) çıkarılır.
   * Komut satırı [yapılandırma sağlayıcısını](#command-line-configuration-provider)kullanan komut satırı bağımsız değişkenleri.
 * Uygulama yapılandırması şuradan sağlanır:
   * [dosya yapılandırma sağlayıcısını](#file-configuration-provider)kullanarak *appSettings. JSON* .
@@ -109,7 +109,7 @@ Hassas yapılandırma verilerini güvenli hale getirmek için aşağıdaki uygul
 Daha fazla bilgi için aşağıdaki konulara bakın:
 
 * <xref:fundamentals/environments>
-* <xref:security/app-secrets>&ndash; Hassas verileri depolamak için ortam değişkenlerini kullanma hakkında öneriler içerir. Gizli dizi Yöneticisi, Kullanıcı gizli dizilerini yerel sistemdeki bir JSON dosyasında depolamak için dosya yapılandırma sağlayıcısını kullanır. Dosya yapılandırma sağlayıcısı, bu konunun ilerleyen kısımlarında açıklanmıştır.
+* <xref:security/app-secrets> &ndash;, hassas verileri depolamak için ortam değişkenlerini kullanma hakkında öneriler Içerir. Gizli dizi Yöneticisi, Kullanıcı gizli dizilerini yerel sistemdeki bir JSON dosyasında depolamak için dosya yapılandırma sağlayıcısını kullanır. Dosya yapılandırma sağlayıcısı, bu konunun ilerleyen kısımlarında açıklanmıştır.
 
 [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) ASP.NET Core uygulamalar için uygulama gizli dizilerini güvenli bir şekilde depolar. Daha fazla bilgi için bkz. <xref:security/key-vault-configuration>.
 
@@ -132,14 +132,14 @@ Aşağıdaki JSON dosyasında, iki bölümün yapılandırılmış hiyerarşisin
 }
 ```
 
-Dosya yapılandırmaya okunduğu zaman, yapılandırma kaynağının özgün hiyerarşik veri yapısını sürdürmek için benzersiz anahtarlar oluşturulur. Özgün yapıyı sürdürmek için bölümler ve anahtarlar iki nokta (`:`) kullanımıyla düzleştirilir:
+Dosya yapılandırmaya okunduğu zaman, yapılandırma kaynağının özgün hiyerarşik veri yapısını sürdürmek için benzersiz anahtarlar oluşturulur. Bölüm ve anahtarlar, özgün yapıyı sürdürmek için iki nokta üst üste (`:`) kullanımıyla düzleştirilir:
 
 * section0:key0
 * section0: KEY1
 * section1:key0
 * Section1: KEY1
 
-<xref:Microsoft.Extensions.Configuration.ConfigurationSection.GetSection*>ve <xref:Microsoft.Extensions.Configuration.IConfiguration.GetChildren*> yapılandırma verileri bölümünün bölümlerini ve alt öğelerini yalıtmak için kullanılabilir. Bu yöntemler daha sonra [GetSection, GetChildren ve Exists](#getsection-getchildren-and-exists)içinde açıklanmıştır.
+<xref:Microsoft.Extensions.Configuration.ConfigurationSection.GetSection*> ve <xref:Microsoft.Extensions.Configuration.IConfiguration.GetChildren*> yöntemleri, yapılandırma verilerinde bir bölümün bölümlerini ve alt öğelerini yalıtmak için kullanılabilir. Bu yöntemler daha sonra [GetSection, GetChildren ve Exists](#getsection-getchildren-and-exists)içinde açıklanmıştır.
 
 ## <a name="conventions"></a>Kurallar
 
@@ -149,7 +149,7 @@ Uygulama başlangıcında yapılandırma kaynakları, yapılandırma sağlayıc�
 
 Değişiklik algılamayı uygulayan yapılandırma sağlayıcılarının, temel alınan bir ayar değiştirildiğinde yapılandırmayı yeniden yükleme yeteneği vardır. Örneğin, dosya yapılandırma sağlayıcısı (Bu konunun ilerleyen kısımlarında açıklanmıştır) ve [Azure Key Vault yapılandırma sağlayıcısı](xref:security/key-vault-configuration) değişiklik algılamayı uygular.
 
-<xref:Microsoft.Extensions.Configuration.IConfiguration>uygulamanın [bağımlılık ekleme (dı)](xref:fundamentals/dependency-injection) kapsayıcısında kullanılabilir. <xref:Microsoft.Extensions.Configuration.IConfiguration>, sınıfının yapılandırmasını elde etmek için <xref:Microsoft.AspNetCore.Mvc.RazorPages.PageModel> bir Razor Pages eklenebilir:
+<xref:Microsoft.Extensions.Configuration.IConfiguration>, uygulamanın [bağımlılık ekleme (dı)](xref:fundamentals/dependency-injection) kapsayıcısında kullanılabilir. <xref:Microsoft.Extensions.Configuration.IConfiguration>, sınıfın yapılandırmasını elde etmek için bir Razor Pages <xref:Microsoft.AspNetCore.Mvc.RazorPages.PageModel> eklenebilir:
 
 ```csharp
 public class IndexModel : PageModel
@@ -172,13 +172,13 @@ Yapılandırma sağlayıcıları, ana bilgisayar tarafından ayarlandıklarında
 
 Yapılandırma anahtarları aşağıdaki kuralları benimseyin:
 
-* Anahtarlar büyük/küçük harfe duyarlıdır. Örneğin, `ConnectionString` ve `connectionstring` eşdeğer anahtarlar olarak değerlendirilir.
+* Anahtarlar büyük/küçük harfe duyarlıdır. Örneğin, `ConnectionString` ve `connectionstring` denk anahtarlar olarak değerlendirilir.
 * Aynı anahtar için bir değer aynı veya farklı yapılandırma sağlayıcıları tarafından ayarlandıysa, anahtardaki en son değer kullanılan değerdir.
 * Hiyerarşik anahtarlar
-  * Yapılandırma API 'si içinde, iki nokta üst üste`:`ayırıcı () tüm platformlarda çalışmaktadır.
+  * Yapılandırma API 'SI içinde, tüm platformlarda bir iki nokta ayırıcı (`:`) kullanılır.
   * Ortam değişkenlerinde, tüm platformlarda bir iki nokta ayırıcı çalışmayabilir. Çift alt çizgi (`__`) tüm platformlar tarafından desteklenir ve otomatik olarak iki nokta olarak dönüştürülür.
-  * Azure Key Vault, hiyerarşik anahtarlar ayırıcı olarak `--` (iki tire) kullanır. Gizli dizileri uygulamanın yapılandırmasına yüklendiğinde tirelerin yerini iki nokta ile değiştirmek için kod sağlamanız gerekir.
-* , <xref:Microsoft.Extensions.Configuration.ConfigurationBinder> Yapılandırma anahtarlarındaki dizi dizinlerini kullanarak nesnelere dizileri bağlamayı destekler. Dizi bağlama, [diziyi bir sınıfa bağlama](#bind-an-array-to-a-class) bölümünde açıklanmıştır.
+  * Azure Key Vault hiyerarşik anahtarlar ayırıcı olarak `--` (iki tire) kullanır. Gizli dizileri uygulamanın yapılandırmasına yüklendiğinde tirelerin yerini iki nokta ile değiştirmek için kod sağlamanız gerekir.
+* @No__t_0, yapılandırma anahtarlarındaki dizi dizinlerini kullanan nesnelere dizileri bağlamayı destekler. Dizi bağlama, [diziyi bir sınıfa bağlama](#bind-an-array-to-a-class) bölümünde açıklanmıştır.
 
 ### <a name="values"></a>Değerler
 
@@ -191,9 +191,9 @@ Yapılandırma değerleri aşağıdaki kuralları benimseyin:
 
 Aşağıdaki tabloda ASP.NET Core uygulamalar için kullanılabilen yapılandırma sağlayıcıları gösterilmektedir.
 
-| Sağlayıcı | Şuradan yapılandırma sağlar&hellip; |
+| Sağlayıcı | @No__t_0 yapılandırma sağlar |
 | -------- | ----------------------------------- |
-| [Azure Key Vault yapılandırma sağlayıcısı](xref:security/key-vault-configuration) (*Güvenlik* konuları) | Azure Key Vault |
+| [Azure Key Vault yapılandırma sağlayıcısı](xref:security/key-vault-configuration) (*güvenlik* konuları) | Azure Key Vault |
 | [Azure uygulama yapılandırma sağlayıcısı](/azure/azure-app-configuration/quickstart-aspnet-core-app) (Azure belgeleri) | Azure Uygulama yapılandırması |
 | [Komut satırı yapılandırma sağlayıcısı](#command-line-configuration-provider) | Komut satırı parametreleri |
 | [Özel yapılandırma sağlayıcısı](#custom-configuration-provider) | Özel kaynak |
@@ -201,27 +201,27 @@ Aşağıdaki tabloda ASP.NET Core uygulamalar için kullanılabilen yapılandır
 | [Dosya yapılandırma sağlayıcısı](#file-configuration-provider) | Dosyalar (ıNı, JSON, XML) |
 | [Dosya başına anahtar yapılandırma sağlayıcısı](#key-per-file-configuration-provider) | Dizin dosyaları |
 | [Bellek yapılandırma sağlayıcısı](#memory-configuration-provider) | Bellek içi Koleksiyonlar |
-| [Kullanıcı gizli dizileri (gizli yönetici)](xref:security/app-secrets) (*Güvenlik* konuları) | Kullanıcı profili dizinindeki dosya |
+| [Kullanıcı gizli dizileri (gizli yönetici)](xref:security/app-secrets) (*güvenlik* konuları) | Kullanıcı profili dizinindeki dosya |
 
 Yapılandırma kaynakları, başlangıçta yapılandırma sağlayıcılarının belirtilme sırasına göre okundu. Bu konuda açıklanan yapılandırma sağlayıcıları, kodunuzun onları düzenleyebilir sırada değil alfabetik sırayla açıklanmıştır. Kodunuzda yapılandırma sağlayıcılarını, temeldeki yapılandırma kaynakları için önceliklerinize uyacak şekilde sıralayın.
 
 Yapılandırma sağlayıcılarının tipik bir sırası şunlardır:
 
-1. Dosyalar (*appSettings. JSON*, *appSettings. { Environment}. JSON*, `{Environment}` uygulamanın geçerli barındırma ortamıdır
-1. [Azure Anahtar Kasası.](xref:security/key-vault-configuration)
-1. [Kullanıcı gizli dizileri (gizli yönetici)](xref:security/app-secrets) (Yalnızca geliştirme ortamı)
+1. Dosyalar (*appSettings. JSON*, *appSettings. { Environment}. JSON*, `{Environment}` uygulamanın geçerli barındırma ortamıdır.
+1. [Azure Key Vault](xref:security/key-vault-configuration)
+1. [Kullanıcı gizli dizileri (gizli yönetici)](xref:security/app-secrets) (yalnızca geliştirme ortamı)
 1. Ortam değişkenleri
 1. Komut satırı bağımsız değişkenleri
 
 Ortak bir uygulama, komut satırı bağımsız değişkenlerinin diğer sağlayıcılar tarafından ayarlanan yapılandırmayı geçersiz kılmasını sağlamak üzere komut satırı yapılandırma sağlayıcısını bir sağlayıcı serisinde en son konumlandırmaktır.
 
-Önceki sağlayıcı dizisi, ile `CreateDefaultBuilder`yeni bir konak Oluşturucu başlattığınızda kullanılır. Daha fazla bilgi için [varsayılan yapılandırma](#default-configuration) bölümüne bakın.
+Önceki sağlayıcı dizisi, `CreateDefaultBuilder` ile yeni bir konak Oluşturucu başlattığınızda kullanılır. Daha fazla bilgi için [varsayılan yapılandırma](#default-configuration) bölümüne bakın.
 
 ::: moniker range=">= aspnetcore-3.0"
 
 ## <a name="configure-the-host-builder-with-configurehostconfiguration"></a>Konak oluşturucuyu ConfigureHostConfiguration ile yapılandırma
 
-Konak oluşturucuyu yapılandırmak için, yapılandırmayı çağırın <xref:Microsoft.Extensions.Hosting.HostBuilder.ConfigureHostConfiguration*> ve sağlayın. `ConfigureHostConfiguration`, <xref:Microsoft.Extensions.Hosting.IHostEnvironment> derleme sürecinde daha sonra kullanılmak üzere başlatmak için kullanılır. `ConfigureHostConfiguration`, eklenebilir sonuçlarla birden çok kez çağrılabilir.
+Konak oluşturucuyu yapılandırmak için <xref:Microsoft.Extensions.Hosting.HostBuilder.ConfigureHostConfiguration*> çağırın ve yapılandırmayı sağlayın. `ConfigureHostConfiguration`, derleme sürecinde daha sonra kullanmak üzere <xref:Microsoft.Extensions.Hosting.IHostEnvironment> başlatmak için kullanılır. `ConfigureHostConfiguration`, eklenebilir sonuçlarla birden çok kez çağrılabilir.
 
 ```csharp
 public static IHostBuilder CreateHostBuilder(string[] args) =>
@@ -248,7 +248,7 @@ public static IHostBuilder CreateHostBuilder(string[] args) =>
 
 ## <a name="configure-the-host-builder-with-useconfiguration"></a>Konak oluşturucuyu UseConfiguration ile yapılandırma
 
-Konak oluşturucuyu yapılandırmak için, yapılandırma ile <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> konak Oluşturucu üzerinde çağırın.
+Konak oluşturucuyu yapılandırmak için, yapılandırma ile konak Oluşturucu üzerinde <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> çağırın.
 
 ```csharp
 public static IWebHostBuilder CreateWebHostBuilder(string[] args)
@@ -273,7 +273,7 @@ public static IWebHostBuilder CreateWebHostBuilder(string[] args)
 
 ## <a name="configureappconfiguration"></a>ConfigureAppConfiguration
 
-Ana `ConfigureAppConfiguration` bilgisayarı oluşturma sırasında `CreateDefaultBuilder`otomatik olarak eklenenlere ek olarak, uygulamanın yapılandırma sağlayıcılarını belirtmek için çağırın:
+@No__t_1 tarafından otomatik olarak eklenenlere ek olarak, uygulamanın yapılandırma sağlayıcılarını belirlemek için konak oluştururken `ConfigureAppConfiguration` çağırın:
 
 ::: moniker range=">= aspnetcore-3.0"
 
@@ -289,7 +289,7 @@ Ana `ConfigureAppConfiguration` bilgisayarı oluşturma sırasında `CreateDefau
 
 ### <a name="override-previous-configuration-with-command-line-arguments"></a>Önceki yapılandırmayı komut satırı bağımsız değişkenleriyle geçersiz kıl
 
-Komut satırı bağımsız değişkenleriyle geçersiz kılınabilen uygulama yapılandırması sağlamak için, en son ' `AddCommandLine` u çağırın:
+Komut satırı bağımsız değişkenleriyle geçersiz kılınabilen uygulama yapılandırması sağlamak için `AddCommandLine` son ' u çağırın:
 
 ```csharp
 .ConfigureAppConfiguration((hostingContext, config) =>
@@ -301,27 +301,27 @@ Komut satırı bağımsız değişkenleriyle geçersiz kılınabilen uygulama ya
 
 ### <a name="consume-configuration-during-app-startup"></a>Uygulama başlatma sırasında yapılandırmayı kullan
 
-Uygulamasında `ConfigureAppConfiguration` uygulamaya sağlanan yapılandırma, uygulamanın başlangıcında, dahil olmak üzere `Startup.ConfigureServices`kullanılabilir. Daha fazla bilgi için [başlatma sırasında erişim yapılandırması](#access-configuration-during-startup) bölümüne bakın.
+@No__t_0 içinde uygulamaya sağlanan yapılandırma, uygulamanın başlangıcında `Startup.ConfigureServices` dahil olmak üzere kullanılabilir. Daha fazla bilgi için [başlatma sırasında erişim yapılandırması](#access-configuration-during-startup) bölümüne bakın.
 
 ## <a name="command-line-configuration-provider"></a>Komut satırı yapılandırma sağlayıcısı
 
-, <xref:Microsoft.Extensions.Configuration.CommandLine.CommandLineConfigurationProvider> Çalışma zamanında anahtar-değer çiftinden yapılandırma yükler.
+@No__t_0, çalışma zamanında komut satırı bağımsız değişkeni anahtar-değer çiftinden yapılandırma yükler.
 
-Komut satırı yapılandırmasını etkinleştirmek için, <xref:Microsoft.Extensions.Configuration.CommandLineConfigurationExtensions.AddCommandLine*> bir <xref:Microsoft.Extensions.Configuration.ConfigurationBuilder>örneğinde genişletme yöntemi çağırılır.
+Komut satırı yapılandırmasını etkinleştirmek için, <xref:Microsoft.Extensions.Configuration.CommandLineConfigurationExtensions.AddCommandLine*> uzantısı yöntemi bir <xref:Microsoft.Extensions.Configuration.ConfigurationBuilder> örneğinde çağrılır.
 
-`AddCommandLine`çağrıldığında otomatik olarak çağrılır `CreateDefaultBuilder(string [])` . Daha fazla bilgi için [varsayılan yapılandırma](#default-configuration) bölümüne bakın.
+`AddCommandLine`, `CreateDefaultBuilder(string [])` çağrıldığında otomatik olarak çağrılır. Daha fazla bilgi için [varsayılan yapılandırma](#default-configuration) bölümüne bakın.
 
-`CreateDefaultBuilder`Ayrıca yüklenir:
+`CreateDefaultBuilder` de yüklenir:
 
 * *AppSettings. JSON* ve appSettings 'ten isteğe bağlı yapılandırma *. { Environment}. JSON* dosyaları.
 * Geliştirme ortamında [Kullanıcı gizli dizileri (gizli yönetici)](xref:security/app-secrets) .
 * Ortam değişkenleri.
 
-`CreateDefaultBuilder`Komut satırı yapılandırma sağlayıcısını son ekler. Diğer sağlayıcılar tarafından ayarlanan çalışma zamanında geçersiz kılma yapılandırmasında komut satırı bağımsız değişkenleri geçirildi.
+`CreateDefaultBuilder`, komut satırı yapılandırma sağlayıcısını en son ekler. Diğer sağlayıcılar tarafından ayarlanan çalışma zamanında geçersiz kılma yapılandırmasında komut satırı bağımsız değişkenleri geçirildi.
 
-`CreateDefaultBuilder`Ana bilgisayar oluşturulduğunda davranır. Bu nedenle, tarafından `CreateDefaultBuilder` etkinleştirilen komut satırı yapılandırması konağın nasıl yapılandırıldığını etkileyebilir.
+`CreateDefaultBuilder` ana bilgisayar oluşturulduğunda davranır. Bu nedenle, `CreateDefaultBuilder` tarafından etkinleştirilen komut satırı yapılandırması konağın nasıl yapılandırıldığını etkileyebilir.
 
-ASP.NET Core şablonlarına dayalı uygulamalar için, `AddCommandLine` tarafından `CreateDefaultBuilder`zaten çağırılır. Ek yapılandırma sağlayıcıları eklemek ve bu sağlayıcılardan yapılandırmayı komut satırı bağımsız değişkenleriyle geçersiz kılmak için uygulamanın ek sağlayıcılarını `ConfigureAppConfiguration` çağırın ve en son çağrısı `AddCommandLine` yapın.
+ASP.NET Core şablonlarına dayalı uygulamalar için, `AddCommandLine` `CreateDefaultBuilder` tarafından zaten çağırılır. Ek yapılandırma sağlayıcıları eklemek ve bu sağlayıcılardan yapılandırmayı komut satırı bağımsız değişkenleriyle geçersiz kılmak için, `ConfigureAppConfiguration` 'de uygulamanın ek sağlayıcılarını çağırın ve `AddCommandLine` son ' u çağırın.
 
 ```csharp
 .ConfigureAppConfiguration((hostingContext, config) =>
@@ -333,21 +333,21 @@ ASP.NET Core şablonlarına dayalı uygulamalar için, `AddCommandLine` tarafın
 
 **Örnek**
 
-Örnek uygulama, ' a `CreateDefaultBuilder` <xref:Microsoft.Extensions.Configuration.CommandLineConfigurationExtensions.AddCommandLine*>çağrı içeren konağı oluşturmak için statik kolaylık yönteminden yararlanır.
+Örnek uygulama, <xref:Microsoft.Extensions.Configuration.CommandLineConfigurationExtensions.AddCommandLine*> bir çağrı içeren konağı oluşturmak için `CreateDefaultBuilder` statik kolaylık yönteminden yararlanır.
 
 1. Projenin dizininde bir komut istemi açın.
-1. `dotnet run` Komutuna bir komut satırı bağımsız değişkeni sağlayın, `dotnet run CommandLineKey=CommandLineValue`.
-1. Uygulama çalıştırıldıktan sonra, konumundaki `http://localhost:5000`uygulamaya bir tarayıcı açın.
-1. Çıktının ' de belirtilen `dotnet run`yapılandırma komut satırı bağımsız değişkeni için anahtar-değer çiftini içerdiğini gözlemleyin.
+1. @No__t_0 komutuna bir komut satırı bağımsız değişkeni sağlayın, `dotnet run CommandLineKey=CommandLineValue`.
+1. Uygulama çalıştıktan sonra, `http://localhost:5000` konumundaki uygulamaya bir tarayıcı açın.
+1. Çıktının `dotnet run` için belirtilen yapılandırma komut satırı bağımsız değişkeni için anahtar-değer çiftini içerdiğini gözlemleyin.
 
 ### <a name="arguments"></a>Arguments
 
-Değer bir eşittir işaretini (`=`) izlemelidir veya değer bir boşluk izleyen anahtar bir ön eke (`--` ya da `/`) sahip olmalıdır. Eşittir işareti kullanılırsa değer gerekli değildir (örneğin, `CommandLineKey=`).
+Değer bir eşittir işareti (`=`) izlemelidir veya değer bir boşluk izleyen anahtarın bir ön eki (`--` veya `/`) olmalıdır. Eşittir işareti kullanılırsa değer gerekli değildir (örneğin, `CommandLineKey=`).
 
 | Anahtar ön eki               | Örnek                                                |
 | ------------------------ | ------------------------------------------------------ |
 | Ön ek yok                | `CommandLineKey1=value1`                               |
-| İki kısa çizgi`--`()        | `--CommandLineKey2=value2`, `--CommandLineKey2 value2` |
+| İki kısa çizgi (`--`)        | `--CommandLineKey2=value2`, `--CommandLineKey2 value2` |
 | Eğik çizgi (`/`)      | `/CommandLineKey3=value3`, `/CommandLineKey3 value3`   |
 
 Aynı komut içinde, bir boşluk kullanan anahtar-değer çiftleri ile bir eşittir işareti kullanan komut satırı bağımsız değişkeni anahtar-değer çiftlerini karıştırmayın.
@@ -362,13 +362,13 @@ dotnet run CommandLineKey1= CommandLineKey2=value2
 
 ### <a name="switch-mappings"></a>Eşleme Değiştir
 
-Anahtar eşlemeleri anahtar adı değiştirme mantığına izin verir. İle <xref:Microsoft.Extensions.Configuration.ConfigurationBuilder>yapılandırmayı el ile oluşturduğunuzda, <xref:Microsoft.Extensions.Configuration.CommandLineConfigurationExtensions.AddCommandLine*> yöntemine anahtar değiştirmeler sözlüğü sağlayabilirsiniz.
+Anahtar eşlemeleri anahtar adı değiştirme mantığına izin verir. Yapılandırmayı bir <xref:Microsoft.Extensions.Configuration.ConfigurationBuilder> ile el ile oluşturduğunuzda, <xref:Microsoft.Extensions.Configuration.CommandLineConfigurationExtensions.AddCommandLine*> yöntemine anahtar değiştirme sözlüğü sağlayabilirsiniz.
 
-Anahtar eşlemeleri sözlüğü kullanıldığında, sözlük bir komut satırı bağımsız değişkeni tarafından sunulan anahtarla eşleşen bir anahtar için denetlenir. Komut satırı anahtarı sözlükte bulunursa, sözlük değeri (anahtar değiştirme), anahtar-değer çiftini uygulamanın yapılandırmasına ayarlamak için geri geçirilir. Tek tireyle (`-`) ön eki eklenmiş herhangi bir komut satırı anahtarı için bir anahtar eşlemesi gereklidir.
+Anahtar eşlemeleri sözlüğü kullanıldığında, sözlük bir komut satırı bağımsız değişkeni tarafından sunulan anahtarla eşleşen bir anahtar için denetlenir. Komut satırı anahtarı sözlükte bulunursa, sözlük değeri (anahtar değiştirme), anahtar-değer çiftini uygulamanın yapılandırmasına ayarlamak için geri geçirilir. Tek tire (`-`) ön eki olan herhangi bir komut satırı anahtarı için bir anahtar eşlemesi gereklidir.
 
 Anahtar eşlemeleri sözlük anahtarı kuralları:
 
-* Anahtarlar bir tire (`-`) veya çift tireyle (`--`) başlamalıdır.
+* Anahtarlar tireyle (`-`) veya çift tireyle başlamalıdır (`--`).
 * Anahtar eşlemeleri sözlüğü yinelenen anahtarlar içermemelidir.
 
 Anahtar eşlemeleri sözlüğü oluşturun. Aşağıdaki örnekte, iki anahtar eşlemesi oluşturulur:
@@ -382,7 +382,7 @@ public static readonly Dictionary<string, string> _switchMappings =
     };
 ```
 
-Konak oluşturulduğunda, anahtar eşlemeleri sözlüğüne çağırın `AddCommandLine` :
+Konak oluşturulduğunda, anahtar eşlemeleri sözlüğüne `AddCommandLine` çağırın:
 
 ```csharp
 .ConfigureAppConfiguration((hostingContext, config) =>
@@ -391,7 +391,7 @@ Konak oluşturulduğunda, anahtar eşlemeleri sözlüğüne çağırın `AddComm
 })
 ```
 
-Anahtar eşlemeleri kullanan uygulamalar için, ' ye `CreateDefaultBuilder` yapılan çağrı bağımsız değişkenleri geçirmez. Yöntemin çağrısı eşlenmiş anahtarlar içermez ve anahtar eşleme sözlüğünü öğesine `CreateDefaultBuilder`geçirmenin bir yolu yoktur. `AddCommandLine` `CreateDefaultBuilder` Çözüm, bağımsız değişkenleri öğesine `CreateDefaultBuilder` geçirmektir, bunun yerine `ConfigurationBuilder` metodun `AddCommandLine` yönteminin hem bağımsız değişkenleri hem de anahtar eşleme sözlüğünü işlemesini sağlar.
+Anahtar eşlemeleri kullanan uygulamalar için `CreateDefaultBuilder` çağrısı bağımsız değişkenleri iletmemelidir. @No__t_0 yönteminin `AddCommandLine` çağrısı, eşlenmiş anahtarlar içermez ve anahtar eşleme sözlüğünü `CreateDefaultBuilder` 'e iletmenin bir yolu yoktur. Çözüm `CreateDefaultBuilder` bağımsız değişkenleri geçirmektir, ancak `ConfigurationBuilder` yönteminin `AddCommandLine` yönteminin hem bağımsız değişkenleri hem de anahtar eşleme sözlüğünü işlemesini sağlamak için.
 
 Anahtar eşlemeleri sözlüğü oluşturulduktan sonra, aşağıdaki tabloda gösterilen verileri içerir.
 
@@ -415,36 +415,36 @@ dotnet run -CLKey1=value1 -CLKey2=value2
 
 ## <a name="environment-variables-configuration-provider"></a>Ortam değişkenleri yapılandırma sağlayıcısı
 
-, <xref:Microsoft.Extensions.Configuration.EnvironmentVariables.EnvironmentVariablesConfigurationProvider> Çalışma zamanında anahtar-değer çiftlerinde bulunan yapılandırmayı yükler.
+@No__t_0, çalışma zamanında anahtar-değer çiftlerinde bulunan yapılandırmayı yükler.
 
-Ortam değişkenleri yapılandırmasını etkinleştirmek için, bir <xref:Microsoft.Extensions.Configuration.EnvironmentVariablesExtensions.AddEnvironmentVariables*> <xref:Microsoft.Extensions.Configuration.ConfigurationBuilder>örneğinde genişletme yöntemini çağırın.
+Ortam değişkenleri yapılandırmasını etkinleştirmek için, <xref:Microsoft.Extensions.Configuration.ConfigurationBuilder> bir örneği üzerinde <xref:Microsoft.Extensions.Configuration.EnvironmentVariablesExtensions.AddEnvironmentVariables*> uzantısı metodunu çağırın.
 
 [!INCLUDE[](~/includes/environmentVarableColon.md)]
 
-[Azure App Service](https://azure.microsoft.com/services/app-service/) , Azure portalında ortam değişkenleri yapılandırma sağlayıcısını kullanarak uygulama yapılandırmasını geçersiz kılabileceğiniz ortam değişkenlerini ayarlamanıza izin verir. Daha fazla bilgi için bkz [. Azure uygulamaları: Azure portalını](xref:host-and-deploy/azure-apps/index#override-app-configuration-using-the-azure-portal)kullanarak uygulama yapılandırmasını geçersiz kılın.
+[Azure App Service](https://azure.microsoft.com/services/app-service/) , Azure portalında ortam değişkenleri yapılandırma sağlayıcısını kullanarak uygulama yapılandırmasını geçersiz kılabileceğiniz ortam değişkenlerini ayarlamanıza izin verir. Daha fazla bilgi için bkz. [Azure uygulamaları: Azure portalını kullanarak uygulama yapılandırmasını geçersiz kılma](xref:host-and-deploy/azure-apps/index#override-app-configuration-using-the-azure-portal).
 
 ::: moniker range=">= aspnetcore-3.0"
 
-`AddEnvironmentVariables`, [genel konakla](xref:fundamentals/host/generic-host) yeni bir ana bilgisayar Oluşturucu `DOTNET_` başlatıldığında ve `CreateDefaultBuilder` çağrıldığında, [ana bilgisayar yapılandırması](#host-versus-app-configuration) için önekli ortam değişkenlerini yüklemek için kullanılır. Daha fazla bilgi için [varsayılan yapılandırma](#default-configuration) bölümüne bakın.
+`AddEnvironmentVariables`, [genel ana bilgisayarla](xref:fundamentals/host/generic-host) yeni bir konak Oluşturucu başlatıldığında ve `CreateDefaultBuilder` çağrıldığında, [ana bilgisayar yapılandırması](#host-versus-app-configuration) için `DOTNET_` ön eki eklenmiş ortam değişkenlerini yüklemek için kullanılır. Daha fazla bilgi için [varsayılan yapılandırma](#default-configuration) bölümüne bakın.
 
 ::: moniker-end
 
 ::: moniker range="< aspnetcore-3.0"
 
-`AddEnvironmentVariables`, [Web ana](xref:fundamentals/host/web-host) bilgisayarıyla yeni bir konak Oluşturucu `ASPNETCORE_` başlatıldığında ve `CreateDefaultBuilder` çağrıldığında, [ana bilgisayar yapılandırması](#host-versus-app-configuration) için önekli ortam değişkenlerini yüklemek için kullanılır. Daha fazla bilgi için [varsayılan yapılandırma](#default-configuration) bölümüne bakın.
+`AddEnvironmentVariables`, [Web ana](xref:fundamentals/host/web-host) bilgisayarıyla yeni bir ana bilgisayar Oluşturucu başlatıldığında ve `CreateDefaultBuilder` çağrıldığında, [ana bilgisayar yapılandırması](#host-versus-app-configuration) için `ASPNETCORE_` ön eki eklenmiş ortam değişkenlerini yüklemek için kullanılır. Daha fazla bilgi için [varsayılan yapılandırma](#default-configuration) bölümüne bakın.
 
 ::: moniker-end
 
-`CreateDefaultBuilder`Ayrıca yüklenir:
+`CreateDefaultBuilder` de yüklenir:
 
-* Önek olmadan çağırarak `AddEnvironmentVariables` ön eki edilmemiş ortam değişkenlerinden uygulama yapılandırması.
+* Önek olmadan `AddEnvironmentVariables` çağırarak, ön eki edilmemiş ortam değişkenlerinden uygulama yapılandırması.
 * *AppSettings. JSON* ve appSettings 'ten isteğe bağlı yapılandırma *. { Environment}. JSON* dosyaları.
 * Geliştirme ortamında [Kullanıcı gizli dizileri (gizli yönetici)](xref:security/app-secrets) .
 * Komut satırı bağımsız değişkenleri.
 
 Ortam değişkenleri yapılandırma sağlayıcısı, Kullanıcı gizli dizileri ve *appSettings* dosyalarından yapılandırma kurulduktan sonra çağrılır. Bu konumda sağlayıcıyı çağırmak, çalışma zamanında ortam değişkenlerinin Kullanıcı parolaları ve *appSettings* dosyaları tarafından ayarlanan yapılandırmayı geçersiz kılmak için okumasına izin verir.
 
-Ek ortam değişkenlerinden uygulama yapılandırması sağlamanız gerekiyorsa, uygulamasının uygulamasındaki `ConfigureAppConfiguration` ek sağlayıcılarını çağırın ve önekiyle çağırın. `AddEnvironmentVariables`
+Ek ortam değişkenlerinden uygulama yapılandırması sağlamanız gerekiyorsa, uygulamanın `ConfigureAppConfiguration` ek sağlayıcılarını çağırın ve önekiyle birlikte `AddEnvironmentVariables` çağırın.
 
 ```csharp
 .ConfigureAppConfiguration((hostingContext, config) =>
@@ -460,14 +460,14 @@ Ek ortam değişkenlerinden uygulama yapılandırması sağlamanız gerekiyorsa,
 
 **Örnek**
 
-Örnek uygulama, ' a `CreateDefaultBuilder` `AddEnvironmentVariables`çağrı içeren konağı oluşturmak için statik kolaylık yönteminden yararlanır.
+Örnek uygulama, `AddEnvironmentVariables` bir çağrı içeren konağı oluşturmak için `CreateDefaultBuilder` statik kolaylık yönteminden yararlanır.
 
-1. Örnek uygulamayı çalıştırın. Üzerinde `http://localhost:5000`uygulama için bir tarayıcı açın.
-1. Çıktının ortam değişkeni `ENVIRONMENT`için anahtar-değer çiftini içerdiğini gözlemleyin. Değer, genellikle `Development` yerel olarak çalışırken uygulamanın çalıştığı ortamı yansıtır.
+1. Örnek uygulamayı çalıştırın. @No__t_0 konumundaki uygulamaya bir tarayıcı açın.
+1. Çıktının `ENVIRONMENT` ortam değişkeni için anahtar-değer çiftini içerdiğini gözlemleyin. Değer, uygulamanın çalıştığı ortamı yansıtır, genellikle yerel olarak çalışırken `Development`.
 
 Uygulama kısaltması tarafından oluşturulan ortam değişkenlerinin listesini tutmak için, uygulama ortam değişkenlerini filtreler. Örnek uygulamanın *Pages/Index. cshtml. cs* dosyasına bakın.
 
-Uygulama için kullanılabilir tüm ortam değişkenlerini göstermek istiyorsanız, `FilteredConfiguration` *Pages/Index. cshtml. cs* ' deki ' ı şu şekilde değiştirin:
+Uygulama için kullanılabilir tüm ortam değişkenlerini göstermek istiyorsanız, *Pages/Index. cshtml. cs* ' deki `FilteredConfiguration` aşağıdaki gibi değiştirin:
 
 ```csharp
 FilteredConfiguration = _config.AsEnumerable();
@@ -475,7 +475,7 @@ FilteredConfiguration = _config.AsEnumerable();
 
 ### <a name="prefixes"></a>Ön Ekler
 
-Uygulamanın yapılandırmasına yüklenen ortam değişkenleri, `AddEnvironmentVariables` yöntemine bir ön ek sağladığınız zaman filtrelenir. Örneğin, önekte `CUSTOM_`ortam değişkenlerini filtrelemek için, yapılandırma sağlayıcısına öneki sağlayın:
+Uygulama yapılandırmasına yüklenen ortam değişkenleri, `AddEnvironmentVariables` yöntemine bir ön ek sağladığınız zaman filtrelenir. Örneğin, önek `CUSTOM_` ortam değişkenlerini filtrelemek için, yapılandırma sağlayıcısına öneki sağlayın:
 
 ```csharp
 var config = new ConfigurationBuilder()
@@ -489,26 +489,26 @@ Konak Oluşturucu oluşturulduğunda, ana bilgisayar yapılandırması ortam de�
 
 **Bağlantı dizesi önekleri**
 
-Yapılandırma API 'SI, uygulama ortamı için Azure bağlantı dizelerini yapılandırma ile ilgili dört bağlantı dizesi ortam değişkeni için özel işlem kuralları içerir. Üzerinde bir önek sağlanmazsa `AddEnvironmentVariables`, tabloda gösterilen öneklere sahip ortam değişkenleri uygulamaya yüklenir.
+Yapılandırma API 'SI, uygulama ortamı için Azure bağlantı dizelerini yapılandırma ile ilgili dört bağlantı dizesi ortam değişkeni için özel işlem kuralları içerir. @No__t_0 için bir önek sağlanmazsa, tabloda gösterilen öneklere sahip ortam değişkenleri uygulamaya yüklenir.
 
 | Bağlantı dizesi öneki | Sağlayıcı |
 | ------------------------ | -------- |
 | `CUSTOMCONNSTR_` | Özel sağlayıcı |
 | `MYSQLCONNSTR_` | [MySQL](https://www.mysql.com/) |
-| `SQLAZURECONNSTR_` | [Azure SQL Veritabanı](https://azure.microsoft.com/services/sql-database/) |
+| `SQLAZURECONNSTR_` | [Azure SQL veritabanı](https://azure.microsoft.com/services/sql-database/) |
 | `SQLCONNSTR_` | [SQL Server](https://www.microsoft.com/sql-server/) |
 
 Bir ortam değişkeni keşfedildiğinde ve tabloda gösterilen dört önekle yapılandırmaya yüklendiğinde:
 
 * Yapılandırma anahtarı, ortam değişkeni öneki kaldırılarak ve bir yapılandırma anahtarı bölümü (`ConnectionStrings`) eklenerek oluşturulur.
-* Veritabanı bağlantı sağlayıcısını temsil eden yeni bir yapılandırma anahtar-değer çifti oluşturulur (için `CUSTOMCONNSTR_`, belirtilen sağlayıcı olmayan).
+* Veritabanı bağlantı sağlayıcısını temsil eden yeni bir yapılandırma anahtar-değer çifti oluşturulur (`CUSTOMCONNSTR_` hariç, belirtilen sağlayıcı olmayan).
 
 | Ortam değişkeni anahtarı | Dönüştürülen yapılandırma anahtarı | Sağlayıcı yapılandırma girişi                                                    |
 | ------------------------ | --------------------------- | ------------------------------------------------------------------------------- |
 | `CUSTOMCONNSTR_<KEY>`    | `ConnectionStrings:<KEY>`   | Yapılandırma girişi oluşturulmamış.                                                |
-| `MYSQLCONNSTR_<KEY>`     | `ConnectionStrings:<KEY>`   | Anahtar: `ConnectionStrings:<KEY>_ProviderName`:<br>Değer:`MySql.Data.MySqlClient` |
-| `SQLAZURECONNSTR_<KEY>`  | `ConnectionStrings:<KEY>`   | Anahtar: `ConnectionStrings:<KEY>_ProviderName`:<br>Değer:`System.Data.SqlClient`  |
-| `SQLCONNSTR_<KEY>`       | `ConnectionStrings:<KEY>`   | Anahtar: `ConnectionStrings:<KEY>_ProviderName`:<br>Değer:`System.Data.SqlClient`  |
+| `MYSQLCONNSTR_<KEY>`     | `ConnectionStrings:<KEY>`   | Anahtar: `ConnectionStrings:<KEY>_ProviderName`:<br>Değer: `MySql.Data.MySqlClient` |
+| `SQLAZURECONNSTR_<KEY>`  | `ConnectionStrings:<KEY>`   | Anahtar: `ConnectionStrings:<KEY>_ProviderName`:<br>Değer: `System.Data.SqlClient`  |
+| `SQLCONNSTR_<KEY>`       | `ConnectionStrings:<KEY>`   | Anahtar: `ConnectionStrings:<KEY>_ProviderName`:<br>Değer: `System.Data.SqlClient`  |
 
 ## <a name="file-configuration-provider"></a>Dosya yapılandırma sağlayıcısı
 
@@ -520,9 +520,9 @@ Bir ortam değişkeni keşfedildiğinde ve tabloda gösterilen dört önekle yap
 
 ### <a name="ini-configuration-provider"></a>INı yapılandırma sağlayıcısı
 
-, <xref:Microsoft.Extensions.Configuration.Ini.IniConfigurationProvider> Çalışma zamanında INI dosyası anahtar-değer çiftlerinden yapılandırmayı yükler.
+@No__t_0, çalışma zamanında ıNı dosyası anahtar-değer çiftlerinden yapılandırmayı yükler.
 
-INI dosya yapılandırmasını etkinleştirmek için, bir <xref:Microsoft.Extensions.Configuration.IniConfigurationExtensions.AddIniFile*> <xref:Microsoft.Extensions.Configuration.ConfigurationBuilder>örneğinde genişletme yöntemini çağırın.
+INI dosya yapılandırmasını etkinleştirmek için bir <xref:Microsoft.Extensions.Configuration.ConfigurationBuilder> örneğinde <xref:Microsoft.Extensions.Configuration.IniConfigurationExtensions.AddIniFile*> uzantısı metodunu çağırın.
 
 İki nokta üst üste, ıNı dosya yapılandırmasındaki bir bölüm sınırlayıcısı olarak kullanılabilir.
 
@@ -530,9 +530,9 @@ Aşırı yüklemeler belirtmeye izin ver:
 
 * Dosyanın isteğe bağlı olup olmadığı.
 * Dosya değişirse yapılandırmanın yeniden yüklenip yüklenmediğini belirtir.
-* Dosyaya erişmek için kullanılır. <xref:Microsoft.Extensions.FileProviders.IFileProvider>
+* Dosyaya erişmek için kullanılan <xref:Microsoft.Extensions.FileProviders.IFileProvider>.
 
-Uygulamanın `ConfigureAppConfiguration` yapılandırmasını belirtmek için Konağı oluştururken çağırın:
+Uygulamanın yapılandırmasını belirtmek için konak oluştururken `ConfigureAppConfiguration` çağırın:
 
 ```csharp
 .ConfigureAppConfiguration((hostingContext, config) =>
@@ -543,7 +543,7 @@ Uygulamanın `ConfigureAppConfiguration` yapılandırmasını belirtmek için Ko
 })
 ```
 
-Taban yolu ile <xref:Microsoft.Extensions.Configuration.FileConfigurationExtensions.SetBasePath*>ayarlanır.
+Temel yol <xref:Microsoft.Extensions.Configuration.FileConfigurationExtensions.SetBasePath*> olarak ayarlanır.
 
 Bir ıNı yapılandırma dosyasına genel bir örnek:
 
@@ -562,7 +562,7 @@ key=value
 key=value
 ```
 
-Önceki yapılandırma dosyası aşağıdaki anahtarları ile `value`yükler:
+Önceki yapılandırma dosyası `value` aşağıdaki anahtarları yükler:
 
 * section0:key0
 * section0: KEY1
@@ -572,24 +572,24 @@ key=value
 
 ### <a name="json-configuration-provider"></a>JSON yapılandırma sağlayıcısı
 
-, <xref:Microsoft.Extensions.Configuration.Json.JsonConfigurationProvider> Çalışma zamanı sırasında JSON dosya anahtar-değer çiftlerinden yapılandırmayı yükler.
+@No__t_0, çalışma zamanı sırasında JSON dosya anahtar-değer çiftlerinden yapılandırmayı yükler.
 
-JSON dosya yapılandırmasını etkinleştirmek için bir <xref:Microsoft.Extensions.Configuration.JsonConfigurationExtensions.AddJsonFile*> <xref:Microsoft.Extensions.Configuration.ConfigurationBuilder>örneğinde genişletme yöntemini çağırın.
+JSON dosya yapılandırmasını etkinleştirmek için, <xref:Microsoft.Extensions.Configuration.ConfigurationBuilder> bir örneği üzerinde <xref:Microsoft.Extensions.Configuration.JsonConfigurationExtensions.AddJsonFile*> uzantısı metodunu çağırın.
 
 Aşırı yüklemeler belirtmeye izin ver:
 
 * Dosyanın isteğe bağlı olup olmadığı.
 * Dosya değişirse yapılandırmanın yeniden yüklenip yüklenmediğini belirtir.
-* Dosyaya erişmek için kullanılır. <xref:Microsoft.Extensions.FileProviders.IFileProvider>
+* Dosyaya erişmek için kullanılan <xref:Microsoft.Extensions.FileProviders.IFileProvider>.
 
-`AddJsonFile`, ile `CreateDefaultBuilder`yeni bir konak Oluşturucu başlattığınızda otomatik olarak iki kez çağrılır. Yöntemi, yapılandırmayı şuradan yüklemek için çağrılır:
+`CreateDefaultBuilder` ile yeni bir ana bilgisayar Oluşturucu başlattığınızda `AddJsonFile` otomatik olarak iki kez çağrılır. Yöntemi, yapılandırmayı şuradan yüklemek için çağrılır:
 
-* *appSettings. JSON* &ndash; bu dosya ilk kez okundu. Dosyanın ortam sürümü, *appSettings. JSON* dosyası tarafından belirtilen değerleri geçersiz kılabilir.
-* *appSettings. {Environment}. JSON* &ndash; dosyanın ortam sürümü [ıhostingenvironment. environmentname](xref:Microsoft.Extensions.Hosting.IHostingEnvironment.EnvironmentName*)temel alınarak yüklenir.
+* *appSettings. json* &ndash; bu dosya ilk kez okundu. Dosyanın ortam sürümü, *appSettings. JSON* dosyası tarafından belirtilen değerleri geçersiz kılabilir.
+* *appSettings. {Environment}. JSON* &ndash; dosyanın ortam sürümü [ıhostingenvironment. EnvironmentName](xref:Microsoft.Extensions.Hosting.IHostingEnvironment.EnvironmentName*)temel alınarak yüklenir.
 
 Daha fazla bilgi için [varsayılan yapılandırma](#default-configuration) bölümüne bakın.
 
-`CreateDefaultBuilder`Ayrıca yüklenir:
+`CreateDefaultBuilder` de yüklenir:
 
 * Ortam değişkenleri.
 * Geliştirme ortamında [Kullanıcı gizli dizileri (gizli yönetici)](xref:security/app-secrets) .
@@ -597,7 +597,7 @@ Daha fazla bilgi için [varsayılan yapılandırma](#default-configuration) böl
 
 JSON yapılandırma sağlayıcısı önce oluşturulur. Bu nedenle, Kullanıcı gizli dizileri, ortam değişkenleri ve komut satırı bağımsız değişkenleri, *appSettings* dosyaları tarafından ayarlanan yapılandırmayı geçersiz kılar.
 
-Ana `ConfigureAppConfiguration` bilgisayarı, *appSettings. JSON* ve appSettings dışındaki dosyalar için uygulamanın yapılandırmasını belirtmek üzere oluştururken çağırın *. { Environment}. JSON*:
+Ana bilgisayarı derlerken, *appSettings. JSON* ve appSettings dışındaki dosyalar için uygulamanın yapılandırmasını belirtecek `ConfigureAppConfiguration` çağrısı yapın *. { Environment}. JSON*:
 
 ```csharp
 .ConfigureAppConfiguration((hostingContext, config) =>
@@ -608,14 +608,14 @@ Ana `ConfigureAppConfiguration` bilgisayarı, *appSettings. JSON* ve appSettings
 })
 ```
 
-Taban yolu ile <xref:Microsoft.Extensions.Configuration.FileConfigurationExtensions.SetBasePath*>ayarlanır.
+Temel yol <xref:Microsoft.Extensions.Configuration.FileConfigurationExtensions.SetBasePath*> olarak ayarlanır.
 
 **Örnek**
 
-Örnek uygulama, ' ye `CreateDefaultBuilder` `AddJsonFile`iki çağrı içeren konağı oluşturmak için statik kolaylık yönteminden yararlanır. Yapılandırma *appSettings. JSON* ve appSettings 'ten yüklendi *. { Environment}. JSON*.
+Örnek uygulama, `AddJsonFile` iki çağrı içeren konağı oluşturmak için `CreateDefaultBuilder` statik kolaylık yönteminden yararlanır. Yapılandırma *appSettings. JSON* ve appSettings 'ten yüklendi *. { Environment}. JSON*.
 
-1. Örnek uygulamayı çalıştırın. Üzerinde `http://localhost:5000`uygulama için bir tarayıcı açın.
-1. Çıktının, ortama bağlı olarak tabloda gösterilen yapılandırma için anahtar-değer çiftleri içerdiğini gözlemleyin. Günlüğe kaydetme yapılandırması anahtarları hiyerarşik ayırıcı olarak`:`iki nokta () kullanır.
+1. Örnek uygulamayı çalıştırın. @No__t_0 konumundaki uygulamaya bir tarayıcı açın.
+1. Çıktının, ortama bağlı olarak tabloda gösterilen yapılandırma için anahtar-değer çiftleri içerdiğini gözlemleyin. Günlüğe kaydetme yapılandırma anahtarları hiyerarşik ayırıcı olarak iki nokta (`:`) kullanır.
 
 | Anahtar                        | Geliştirme değeri | Üretim değeri |
 | -------------------------- | :---------------: | :--------------: |
@@ -626,19 +626,19 @@ Taban yolu ile <xref:Microsoft.Extensions.Configuration.FileConfigurationExtensi
 
 ### <a name="xml-configuration-provider"></a>XML yapılandırma sağlayıcısı
 
-, <xref:Microsoft.Extensions.Configuration.Xml.XmlConfigurationProvider> Çalışma zamanında XML dosya anahtar-değer çiftlerinden yapılandırmayı yükler.
+@No__t_0, çalışma zamanında XML dosya anahtar-değer çiftinden yapılandırma yükler.
 
-XML dosya yapılandırmasını etkinleştirmek için, bir <xref:Microsoft.Extensions.Configuration.XmlConfigurationExtensions.AddXmlFile*> <xref:Microsoft.Extensions.Configuration.ConfigurationBuilder>örneğinde genişletme yöntemini çağırın.
+XML dosya yapılandırmasını etkinleştirmek için, <xref:Microsoft.Extensions.Configuration.ConfigurationBuilder> bir örneği üzerinde <xref:Microsoft.Extensions.Configuration.XmlConfigurationExtensions.AddXmlFile*> uzantısı metodunu çağırın.
 
 Aşırı yüklemeler belirtmeye izin ver:
 
 * Dosyanın isteğe bağlı olup olmadığı.
 * Dosya değişirse yapılandırmanın yeniden yüklenip yüklenmediğini belirtir.
-* Dosyaya erişmek için kullanılır. <xref:Microsoft.Extensions.FileProviders.IFileProvider>
+* Dosyaya erişmek için kullanılan <xref:Microsoft.Extensions.FileProviders.IFileProvider>.
 
 Yapılandırma anahtar-değer çiftleri oluşturulduğunda yapılandırma dosyasının kök düğümü yok sayılır. Dosyada bir belge türü tanımı (DTD) veya ad alanı belirtmeyin.
 
-Uygulamanın `ConfigureAppConfiguration` yapılandırmasını belirtmek için Konağı oluştururken çağırın:
+Uygulamanın yapılandırmasını belirtmek için konak oluştururken `ConfigureAppConfiguration` çağırın:
 
 ```csharp
 .ConfigureAppConfiguration((hostingContext, config) =>
@@ -649,7 +649,7 @@ Uygulamanın `ConfigureAppConfiguration` yapılandırmasını belirtmek için Ko
 })
 ```
 
-Taban yolu ile <xref:Microsoft.Extensions.Configuration.FileConfigurationExtensions.SetBasePath*>ayarlanır.
+Temel yol <xref:Microsoft.Extensions.Configuration.FileConfigurationExtensions.SetBasePath*> olarak ayarlanır.
 
 XML yapılandırma dosyaları, yinelenen bölümler için farklı öğe adları kullanabilir:
 
@@ -667,14 +667,14 @@ XML yapılandırma dosyaları, yinelenen bölümler için farklı öğe adları 
 </configuration>
 ```
 
-Önceki yapılandırma dosyası aşağıdaki anahtarları ile `value`yükler:
+Önceki yapılandırma dosyası `value` aşağıdaki anahtarları yükler:
 
 * section0:key0
 * section0: KEY1
 * section1:key0
 * Section1: KEY1
 
-Aynı öğe adını kullanan yinelenen öğeler, `name` özniteliği öğeleri ayırt etmek için kullanılacaksa çalışır:
+Aynı öğe adını kullanan tekrarlanan öğeler, `name` özniteliği öğeleri ayırt etmek için kullanılırsa çalışır:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -690,7 +690,7 @@ Aynı öğe adını kullanan yinelenen öğeler, `name` özniteliği öğeleri a
 </configuration>
 ```
 
-Önceki yapılandırma dosyası aşağıdaki anahtarları ile `value`yükler:
+Önceki yapılandırma dosyası `value` aşağıdaki anahtarları yükler:
 
 * Bölüm: section0: Key: Key0
 * Bölüm: section0: Key: KEY1
@@ -709,25 +709,25 @@ Aynı öğe adını kullanan yinelenen öğeler, `name` özniteliği öğeleri a
 </configuration>
 ```
 
-Önceki yapılandırma dosyası aşağıdaki anahtarları ile `value`yükler:
+Önceki yapılandırma dosyası `value` aşağıdaki anahtarları yükler:
 
 * anahtar: öznitelik
 * Section: Key: özniteliği
 
 ## <a name="key-per-file-configuration-provider"></a>Dosya başına anahtar yapılandırma sağlayıcısı
 
-, <xref:Microsoft.Extensions.Configuration.KeyPerFile.KeyPerFileConfigurationProvider> Dizin dosyalarını yapılandırma anahtar-değer çiftleri olarak kullanır. Anahtar, dosya adıdır. Değer, dosyanın içeriğini içerir. Dosya başına anahtar yapılandırma sağlayıcısı Docker barındırma senaryolarında kullanılır.
+@No__t_0, dizin dosyalarını yapılandırma anahtar-değer çiftleri olarak kullanır. Anahtar, dosya adıdır. Değer, dosyanın içeriğini içerir. Dosya başına anahtar yapılandırma sağlayıcısı Docker barındırma senaryolarında kullanılır.
 
-Dosya başına anahtar yapılandırmasını etkinleştirmek için, bir <xref:Microsoft.Extensions.Configuration.KeyPerFileConfigurationBuilderExtensions.AddKeyPerFile*> <xref:Microsoft.Extensions.Configuration.ConfigurationBuilder>örneğinde genişletme yöntemini çağırın. `directoryPath` Dosyaların mutlak bir yol olması gerekir.
+Dosya başına anahtar yapılandırması 'nı etkinleştirmek için, <xref:Microsoft.Extensions.Configuration.ConfigurationBuilder> bir örneği üzerinde <xref:Microsoft.Extensions.Configuration.KeyPerFileConfigurationBuilderExtensions.AddKeyPerFile*> uzantısı metodunu çağırın. Dosyaların `directoryPath` mutlak bir yol olmalıdır.
 
 Aşırı yüklemeler belirtmeye izin ver:
 
-* Kaynağı `Action<KeyPerFileConfigurationSource>` yapılandıran bir temsilci.
+* Kaynağı yapılandıran bir `Action<KeyPerFileConfigurationSource>` temsilcisi.
 * Dizinin isteğe bağlı olup olmadığını ve dizinin yolunu belirtir.
 
-Çift alt çizgi (`__`), dosya adlarında yapılandırma anahtarı sınırlayıcısı olarak kullanılır. Örneğin, dosya adı `Logging__LogLevel__System` yapılandırma anahtarını `Logging:LogLevel:System`üretir.
+Çift alt çizgi (`__`), dosya adlarında bir yapılandırma anahtarı sınırlayıcısı olarak kullanılır. Örneğin, `Logging__LogLevel__System` dosya adı `Logging:LogLevel:System` yapılandırma anahtarını üretir.
 
-Uygulamanın `ConfigureAppConfiguration` yapılandırmasını belirtmek için Konağı oluştururken çağırın:
+Uygulamanın yapılandırmasını belirtmek için konak oluştururken `ConfigureAppConfiguration` çağırın:
 
 ```csharp
 .ConfigureAppConfiguration((hostingContext, config) =>
@@ -739,17 +739,17 @@ Uygulamanın `ConfigureAppConfiguration` yapılandırmasını belirtmek için Ko
 })
 ```
 
-Taban yolu ile <xref:Microsoft.Extensions.Configuration.FileConfigurationExtensions.SetBasePath*>ayarlanır.
+Temel yol <xref:Microsoft.Extensions.Configuration.FileConfigurationExtensions.SetBasePath*> olarak ayarlanır.
 
 ## <a name="memory-configuration-provider"></a>Bellek yapılandırma sağlayıcısı
 
-, <xref:Microsoft.Extensions.Configuration.Memory.MemoryConfigurationProvider> Yapılandırma anahtar-değer çiftleri olarak bellek içi koleksiyon kullanır.
+@No__t_0, yapılandırma anahtar-değer çiftleri olarak bellek içi koleksiyon kullanır.
 
-Bellek içi koleksiyon yapılandırmasını etkinleştirmek için, bir <xref:Microsoft.Extensions.Configuration.MemoryConfigurationBuilderExtensions.AddInMemoryCollection*> <xref:Microsoft.Extensions.Configuration.ConfigurationBuilder>örneğinde genişletme yöntemini çağırın.
+Bellek içi koleksiyon yapılandırmasını etkinleştirmek için, <xref:Microsoft.Extensions.Configuration.ConfigurationBuilder> bir örneği üzerinde <xref:Microsoft.Extensions.Configuration.MemoryConfigurationBuilderExtensions.AddInMemoryCollection*> uzantısı metodunu çağırın.
 
-Yapılandırma sağlayıcısı bir `IEnumerable<KeyValuePair<String,String>>`ile başlatılabilir.
+Yapılandırma sağlayıcısı bir `IEnumerable<KeyValuePair<String,String>>` başlatılabilir.
 
-Uygulamanın `ConfigureAppConfiguration` yapılandırmasını belirtmek için Konağı oluştururken çağırın.
+Uygulamanın yapılandırmasını belirtmek için Konağı derlerken `ConfigureAppConfiguration` çağrısı yapın.
 
 Aşağıdaki örnekte bir yapılandırma sözlüğü oluşturulur:
 
@@ -762,7 +762,7 @@ public static readonly Dictionary<string, string> _dict =
     };
 ```
 
-Sözlük, yapılandırmayı sağlamak `AddInMemoryCollection` için çağrısı ile kullanılır:
+Sözlük, yapılandırmayı sağlamak için bir `AddInMemoryCollection` çağrısıyla kullanılır:
 
 ```csharp
 .ConfigureAppConfiguration((hostingContext, config) =>
@@ -773,12 +773,12 @@ Sözlük, yapılandırmayı sağlamak `AddInMemoryCollection` için çağrısı 
 
 ## <a name="getvalue"></a>GetValue
 
-[Configurationciltçi. GetValue\<T >](xref:Microsoft.Extensions.Configuration.ConfigurationBinder.GetValue*) , yapılandırmadan belirtilen anahtarla bir değer ayıklar ve belirtilen türe dönüştürür. Bir aşırı yükleme, anahtar bulunamazsa varsayılan bir değer sağlamanıza izin verir.
+[Configurationciltçi. GetValue \<T >](xref:Microsoft.Extensions.Configuration.ConfigurationBinder.GetValue*) , belirli bir anahtarla yapılandırmadan tek bir değer ayıklar ve belirtilen koleksiyon olmayan türe dönüştürür. Aşırı yükleme varsayılan bir değeri kabul eder.
 
 Aşağıdaki örnek:
 
-* Yapılandırmadaki dize değerini anahtarla `NumberKey`ayıklar. Yapılandırma anahtarlarında bulunmazsa, varsayılan `99` değeri kullanılır. `NumberKey`
-* Değeri olarak bir `int`.
+* Anahtar `NumberKey`, yapılandırmadan dize değerini ayıklar. Yapılandırma anahtarlarında `NumberKey` bulunmazsa, varsayılan `99` değeri kullanılır.
+* Değeri bir `int` olarak türler.
 * Değeri, sayfanın kullanımı için `NumberConfig` özelliği içinde depolar.
 
 ```csharp
@@ -840,27 +840,27 @@ Dosya yapılandırmaya okunduğu zaman yapılandırma değerlerini tutmak için 
 
 [Iconation. GetSection](xref:Microsoft.Extensions.Configuration.IConfiguration.GetSection*) , belirtilen alt bölüm anahtarıyla bir yapılandırma alt bölümü ayıklar.
 
-Yalnızca içindeki <xref:Microsoft.Extensions.Configuration.IConfigurationSection> `section1`anahtar-değer çiftlerini içeren bir öğesini döndürmek için, bölüm `GetSection` adını çağırın ve sağlayın:
+@No__t_1 yalnızca anahtar-değer çiftlerini içeren bir <xref:Microsoft.Extensions.Configuration.IConfigurationSection> döndürmek için `GetSection` çağırın ve bölüm adını sağlayın:
 
 ```csharp
 var configSection = _config.GetSection("section1");
 ```
 
-Bir değere sahip değil, yalnızca bir anahtar ve yol yoktur. `configSection`
+@No__t_0 bir değer, yalnızca bir anahtar ve yol yoktur.
 
-Benzer şekilde, içindeki `section2:subsection0`anahtarların değerlerini almak için, Bölüm yolunu çağırın `GetSection` ve sağlayın:
+Benzer şekilde, `section2:subsection0` anahtarlar için değerleri almak için, `GetSection` çağırın ve Bölüm yolunu sağlayın:
 
 ```csharp
 var configSection = _config.GetSection("section2:subsection0");
 ```
 
-`GetSection`hiçbir süre `null`geri döndürmez. Eşleşen bir bölüm bulunamazsa boş `IConfigurationSection` değer döndürülür.
+`GetSection` hiçbir şekilde `null` döndürmez. Eşleşen bir bölüm bulunamazsa boş bir `IConfigurationSection` döndürülür.
 
-Eşleşen bir bölüm <xref:Microsoft.Extensions.Configuration.IConfigurationSection.Value>döndürdüğünde,doldurulmuyor `GetSection` . Bir <xref:Microsoft.Extensions.Configuration.IConfigurationSection.Key> ve<xref:Microsoft.Extensions.Configuration.IConfigurationSection.Path> , bölüm varsa döndürülür.
+@No__t_0 eşleşen bir bölüm döndürdüğünde <xref:Microsoft.Extensions.Configuration.IConfigurationSection.Value> doldurulmuyor. Bölüm mevcut olduğunda bir <xref:Microsoft.Extensions.Configuration.IConfigurationSection.Key> ve <xref:Microsoft.Extensions.Configuration.IConfigurationSection.Path> döndürülür.
 
 ### <a name="getchildren"></a>GetChildren
 
-Üzerinde`section2` [bir iconation. GetChildren](xref:Microsoft.Extensions.Configuration.IConfiguration.GetChildren*) çağrısı ,şunlarıiçerir:`IEnumerable<IConfigurationSection>`
+@No__t_1 üzerinde [Iconation. GetChildren](xref:Microsoft.Extensions.Configuration.IConfiguration.GetChildren*) çağrısı, şunları içeren bir `IEnumerable<IConfigurationSection>` edinir:
 
 * `subsection0`
 * `subsection1`
@@ -871,7 +871,7 @@ var configSection = _config.GetSection("section2");
 var children = configSection.GetChildren();
 ```
 
-### <a name="exists"></a>Var
+### <a name="exists"></a>Bulunur
 
 Bir yapılandırma bölümünün mevcut olup olmadığını anlamak için [Configurationextensions. Exists](xref:Microsoft.Extensions.Configuration.ConfigurationExtensions.Exists*) kullanın:
 
@@ -879,15 +879,15 @@ Bir yapılandırma bölümünün mevcut olup olmadığını anlamak için [Confi
 var sectionExists = _config.GetSection("section2:subsection2").Exists();
 ```
 
-Örnek veriler `sectionExists` `false` verildiğinde, yapılandırma verilerinde bir `section2:subsection2` bölüm olmadığı için.
+Örnek veriler verildiğinde, yapılandırma verilerinde bir `section2:subsection2` bölümü olmadığından `sectionExists` `false`.
 
 ## <a name="bind-to-a-class"></a>Bir sınıfa bağlama
 
 Yapılandırma, *Seçenekler modelini*kullanarak ilgili ayarların gruplarını temsil eden sınıflara bağlanabilir. Daha fazla bilgi için bkz. <xref:fundamentals/configuration/options>.
 
-Yapılandırma değerleri dizeler olarak döndürülür, ancak çağırma <xref:Microsoft.Extensions.Configuration.ConfigurationBinder.Bind*> [poco](https://wikipedia.org/wiki/Plain_Old_CLR_Object) nesnelerinin oluşturulmasını mümkün yapar.
+Yapılandırma değerleri dizeler olarak döndürülür, ancak <xref:Microsoft.Extensions.Configuration.ConfigurationBinder.Bind*> çağrısı [poco](https://wikipedia.org/wiki/Plain_Old_CLR_Object) nesnelerinin oluşturulmasını mümkün yapar.
 
-Örnek uygulama bir `Starship` model içerir (*modeller/starsevk. cs*):
+Örnek uygulama bir `Starship` modeli içerir (*modeller/Başlangıçgönder. cs*):
 
 ::: moniker range=">= aspnetcore-3.0"
 
@@ -901,7 +901,7 @@ Yapılandırma değerleri dizeler olarak döndürülür, ancak çağırma <xref:
 
 ::: moniker-end
 
-*Starsevk. JSON* dosyasının bölümü,örnekuygulamayapılandırmayıyüklemekiçinJSONyapılandırmasağlayıcısınıkullandığındayapılandırmayıoluşturur:`starship`
+*Starsevk. JSON* dosyasının `starship` bölümü, örnek uygulama yapılandırmayı yüklemek Için JSON yapılandırma sağlayıcısını kullandığında yapılandırmayı oluşturur:
 
 ::: moniker range=">= aspnetcore-3.0"
 
@@ -924,9 +924,9 @@ Aşağıdaki yapılandırma anahtar-değer çiftleri oluşturulur:
 | starsevk: sınıfı        | Anaytion                                      |
 | başlangıçgönder: Uzunluk       | 304,8                                             |
 | starsevkiyat: Commissioned | False                                             |
-| dır             | Paramount resimleri Corp. https://www.paramount.com |
+| dır             | Paramount resimleri Corp.  https://www.paramount.com |
 
-Örnek uygulama, `starship` anahtarla `GetSection` çağırır. `starship` Anahtar-değer çiftleri yalıtılmıştır. Yöntemi, `Starship` sınıfının bir örneğinde geçen alt bölümde çağrılır. `Bind` Örnek değerlerini bağladıktan sonra örnek, işleme için bir özelliğe atanır:
+Örnek uygulama, `starship` anahtarıyla `GetSection` çağırır. @No__t_0 anahtar-değer çiftleri yalıtılmıştır. @No__t_0 yöntemi, `Starship` sınıfının bir örneğinde geçen alt bölümde çağrılır. Örnek değerlerini bağladıktan sonra örnek, işleme için bir özelliğe atanır:
 
 ::: moniker range=">= aspnetcore-3.0"
 
@@ -942,9 +942,9 @@ Aşağıdaki yapılandırma anahtar-değer çiftleri oluşturulur:
 
 ## <a name="bind-to-an-object-graph"></a>Bir nesne grafiğine bağlama
 
-<xref:Microsoft.Extensions.Configuration.ConfigurationBinder.Bind*>, bir POCO nesne grafiğinin tamamına bağlama yeteneğine sahiptir.
+<xref:Microsoft.Extensions.Configuration.ConfigurationBinder.Bind*>, tüm POCO nesne grafiğini bağlama yeteneğine sahiptir.
 
-Örnek, nesne grafı `TvShow` içeren `Metadata` ve `Actors` sınıfları olan bir model içerir (*modeller/tvshow. cs*):
+Örnek, nesne grafı `Metadata` ve `Actors` sınıfları (*modeller/TvShow. cs*) içeren bir `TvShow` modeli içerir:
 
 ::: moniker range=">= aspnetcore-3.0"
 
@@ -972,7 +972,7 @@ Aşağıdaki yapılandırma anahtar-değer çiftleri oluşturulur:
 
 ::: moniker-end
 
-Yapılandırma, `TvShow` `Bind` yöntemiyle nesne grafiğinin tamamına bağlanır. Bağlantılı örnek, işleme için bir özelliğe atandı:
+Yapılandırma, `Bind` yöntemi ile `TvShow` nesne grafiğinin tamamına bağlanır. Bağlantılı örnek, işleme için bir özelliğe atandı:
 
 ```csharp
 var tvShow = new TvShow();
@@ -980,7 +980,7 @@ _config.GetSection("tvshow").Bind(tvShow);
 TvShow = tvShow;
 ```
 
-[Configurationciltçi. Get\<T >](xref:Microsoft.Extensions.Configuration.ConfigurationBinder.Get*) bağlar ve belirtilen türü döndürür. `Get<T>`, kullanmaktan `Bind`daha uygundur. Aşağıdaki kod, ilişkili örneğin işleme için `Get<T>` kullanılan özelliğe doğrudan atanmasını sağlayan önceki örnekle birlikte nasıl kullanılacağını gösterir:
+[Configurationciltçi. Get \<T >](xref:Microsoft.Extensions.Configuration.ConfigurationBinder.Get*) bağlar ve belirtilen türü döndürür. `Get<T>`, `Bind` kullanmaktan daha uygundur. Aşağıdaki kod, ilişkili örneğin işleme için kullanılan özelliğe doğrudan atanmasını sağlayan önceki örnekle `Get<T>` nasıl kullanacağınızı gösterir:
 
 ::: moniker range=">= aspnetcore-3.0"
 
@@ -998,7 +998,7 @@ TvShow = tvShow;
 
 *Örnek uygulama, bu bölümde açıklanan kavramları gösterir.*
 
-, <xref:Microsoft.Extensions.Configuration.ConfigurationBinder.Bind*> Yapılandırma anahtarlarındaki dizi dizinlerini kullanarak nesnelere dizileri bağlamayı destekler. Bir sayısal anahtar segmenti`:0:`(, `:1:`, &hellip; `:{n}:`) sunan herhangi bir dizi biçimi, bir poco sınıfı dizisine dizi bağlama özelliğine sahiptir.
+@No__t_0, yapılandırma anahtarlarındaki dizi dizinlerini kullanan nesnelere dizileri bağlamayı destekler. Sayısal anahtar segmentini (`:0:`, `:1:`, &hellip; `:{n}:`) sunan herhangi bir dizi biçimi, bir POCO sınıf dizisine dizi bağlama özelliğine sahiptir.
 
 > [!NOTE]
 > Bağlama, kural tarafından sağlanır. Dizi bağlamayı uygulamak için özel yapılandırma sağlayıcıları gerekli değildir.
@@ -1029,7 +1029,7 @@ Bu anahtarlar ve değerler, bellek yapılandırma sağlayıcısı kullanılarak 
 
 ::: moniker-end
 
-Dizi, Dizin &num;3 için bir değeri atlar. Yapılandırma Bağlayıcısı, null değerleri bağlama veya bağlantılı nesnelerde null girişler oluşturma yeteneğine sahip değildir. Bu, bu diziyi bir nesneye bağlamanın sonucu gösterildiği sırada bir süre açık hale gelir.
+Dizi, Dizin &num;3 için bir değer atlar. Yapılandırma Bağlayıcısı, null değerleri bağlama veya bağlantılı nesnelerde null girişler oluşturma yeteneğine sahip değildir. Bu, bu diziyi bir nesneye bağlamanın sonucu gösterildiği sırada bir süre açık hale gelir.
 
 Örnek uygulamada, bir POCO sınıfı, bağlantılı yapılandırma verilerini tutmak için kullanılabilir:
 
@@ -1052,7 +1052,7 @@ var arrayExample = new ArrayExample();
 _config.GetSection("array").Bind(arrayExample);
 ```
 
-[Configurationciltçi. Get\<T >](xref:Microsoft.Extensions.Configuration.ConfigurationBinder.Get*) sözdizimi de kullanılabilir ve bu da daha küçük kod elde edilebilir:
+[Configurationciltçi. Get \<T >](xref:Microsoft.Extensions.Configuration.ConfigurationBinder.Get*) sözdizimi de kullanılabilir ve bu da daha küçük kod elde edilebilir:
 
 ::: moniker range=">= aspnetcore-3.0"
 
@@ -1066,9 +1066,9 @@ _config.GetSection("array").Bind(arrayExample);
 
 ::: moniker-end
 
-Bir örneği olan `ArrayExample`bağlantılı nesne, yapılandırmadan dizi verilerini alır.
+@No__t_0 bir örneği olan bağlantılı nesne, yapılandırmadan dizi verilerini alır.
 
-| `ArrayExample.Entries`İndeks | `ArrayExample.Entries`Deeri |
+| `ArrayExample.Entries` dizini | `ArrayExample.Entries` değeri |
 | :--------------------------: | :--------------------------: |
 | 0                            | value0                       |
 | 1\.                            | value1                       |
@@ -1076,9 +1076,9 @@ Bir örneği olan `ArrayExample`bağlantılı nesne, yapılandırmadan dizi veri
 | 3                            | value4                       |
 | 4                            | value5                       |
 
-İlişkili &num;nesnede Dizin 3 `array:4` yapılandırma `value4`anahtarı ve değeri için yapılandırma verilerini barındırır. Bir diziyi içeren yapılandırma verileri bağlandığında, yapılandırma anahtarlarındaki dizi dizinleri yalnızca nesne oluşturulurken yapılandırma verilerini yinelemek için kullanılır. Yapılandırma verilerinde null değer korunmaz ve bir yapılandırma anahtarlarındaki bir dizi bir veya daha fazla dizini atlamazsanız, bağlantılı nesnede NULL değerli bir giriş oluşturulmaz.
+İlişkili nesnedeki Dizin &num;3, `array:4` yapılandırma anahtarı ve `value4` değeri için yapılandırma verilerini tutar. Bir diziyi içeren yapılandırma verileri bağlandığında, yapılandırma anahtarlarındaki dizi dizinleri yalnızca nesne oluşturulurken yapılandırma verilerini yinelemek için kullanılır. Yapılandırma verilerinde null değer korunmaz ve bir yapılandırma anahtarlarındaki bir dizi bir veya daha fazla dizini atlamazsanız, bağlantılı nesnede NULL değerli bir giriş oluşturulmaz.
 
-Yapılandırmada doğru anahtar-değer çiftini &num;üreten herhangi bir yapılandırma sağlayıcısı tarafından `ArrayExample` örneğe bağlamadan önce dizin 3 için eksik yapılandırma öğesi sağlanabilir. Örnek, eksik anahtar-değer çiftine `ArrayExample.Entries` sahip ek bir JSON yapılandırma sağlayıcısı içeriyorsa, tam yapılandırma dizisiyle eşleşir:
+Yapılandırmada doğru anahtar-değer çiftini üreten herhangi bir yapılandırma sağlayıcısı tarafından `ArrayExample` örneğine bağlamadan önce dizin &num;3 için eksik yapılandırma öğesi sağlanabilir. Örnek, eksik anahtar-değer çiftine sahip ek bir JSON yapılandırma sağlayıcısı içeriyorsa, `ArrayExample.Entries` tam yapılandırma dizisiyle eşleşir:
 
 *missing_value. JSON*:
 
@@ -1088,7 +1088,7 @@ Yapılandırmada doğru anahtar-değer çiftini &num;üreten herhangi bir yapıl
 }
 ```
 
-İçinde `ConfigureAppConfiguration`:
+@No__t_0:
 
 ```csharp
 config.AddJsonFile(
@@ -1101,9 +1101,9 @@ Tabloda gösterilen anahtar-değer çifti, yapılandırmaya yüklendi.
 | :-------------: | :----: |
 | dizi: girdiler: 3 | value3 |
 
-Sınıf örneği, JSON yapılandırma sağlayıcısı Dizin &num;3 ' ü içeriyorsa, `ArrayExample.Entries` dizi değerini içerir. `ArrayExample`
+@No__t_0 sınıf örneği, JSON yapılandırma sağlayıcısı Dizin &num;3 girdisini ekledikten sonra bağlıysa `ArrayExample.Entries` dizisi değeri içerir.
 
-| `ArrayExample.Entries`İndeks | `ArrayExample.Entries`Deeri |
+| `ArrayExample.Entries` dizini | `ArrayExample.Entries` değeri |
 | :--------------------------: | :--------------------------: |
 | 0                            | value0                       |
 | 1\.                            | value1                       |
@@ -1114,7 +1114,7 @@ Sınıf örneği, JSON yapılandırma sağlayıcısı Dizin &num;3 ' ü içeriyo
 
 **JSON dizi işleme**
 
-JSON dosyası bir dizi içeriyorsa, sıfır tabanlı bölüm diziniyle dizi öğeleri için yapılandırma anahtarları oluşturulur. Aşağıdaki yapılandırma dosyasında `subsection` bir dizidir:
+JSON dosyası bir dizi içeriyorsa, sıfır tabanlı bölüm diziniyle dizi öğeleri için yapılandırma anahtarları oluşturulur. Aşağıdaki yapılandırma dosyasında, `subsection` bir dizidir:
 
 ::: moniker range=">= aspnetcore-3.0"
 
@@ -1151,9 +1151,9 @@ JSON yapılandırma sağlayıcısı, yapılandırma verilerini aşağıdaki anah
 
 ::: moniker-end
 
-Bağlama `JsonArrayExample.Key` işleminden sonra değeri `valueA`barındırır. Alt bölüm değerleri POCO dizisi özelliğinde `Subsection`depolanır.
+Bağlamadan sonra, `JsonArrayExample.Key` `valueA` değerini tutar. Alt bölüm değerleri, `Subsection` POCO dizisi özelliğinde depolanır.
 
-| `JsonArrayExample.Subsection`İndeks | `JsonArrayExample.Subsection`Deeri |
+| `JsonArrayExample.Subsection` dizini | `JsonArrayExample.Subsection` değeri |
 | :---------------------------------: | :---------------------------------: |
 | 0                                   | valueB                              |
 | 1\.                                   | değer EC                              |
@@ -1165,11 +1165,11 @@ Bağlama `JsonArrayExample.Key` işleminden sonra değeri `valueA`barındırır.
 
 Sağlayıcı aşağıdaki özelliklere sahiptir:
 
-* EF bellek içi veritabanı, tanıtım amacıyla kullanılır. Bağlantı dizesi gerektiren bir veritabanını kullanmak için, başka bir yapılandırma sağlayıcısından bağlantı `ConfigurationBuilder` dizesini sağlamak üzere bir ikincil uygulayın.
+* EF bellek içi veritabanı, tanıtım amacıyla kullanılır. Bağlantı dizesi gerektiren bir veritabanını kullanmak için, başka bir yapılandırma sağlayıcısından bağlantı dizesini sağlamak üzere ikincil `ConfigurationBuilder` uygulayın.
 * Sağlayıcı bir veritabanı tablosunu başlangıçta yapılandırmaya okur. Sağlayıcı, her anahtar temelinde veritabanını sorgulayamaz.
 * Değişiklik değişikliği uygulanmadı, bu nedenle uygulama başladıktan sonra veritabanının güncelleştirilmesi uygulamanın yapılandırması üzerinde hiçbir etkiye sahip değildir.
 
-Yapılandırma değerlerini `EFConfigurationValue` veritabanında depolamak için bir varlık tanımlayın.
+Yapılandırma değerlerini veritabanında depolamak için bir `EFConfigurationValue` varlığı tanımlayın.
 
 ::: moniker range=">= aspnetcore-3.0"
 
@@ -1177,31 +1177,31 @@ Yapılandırma değerlerini `EFConfigurationValue` veritabanında depolamak içi
 
 [!code-csharp[](index/samples/3.x/ConfigurationSample/Models/EFConfigurationValue.cs?name=snippet1)]
 
-Bir `EFConfigurationContext` mağazaya ekleyin ve yapılandırılan değerlere erişin.
+Yapılandırılan değerleri depolamak ve erişmek için bir `EFConfigurationContext` ekleyin.
 
 *Efconfigurationprovider/EFConfigurationContext. cs*:
 
 [!code-csharp[](index/samples/3.x/ConfigurationSample/EFConfigurationProvider/EFConfigurationContext.cs?name=snippet1)]
 
-Uygulayan <xref:Microsoft.Extensions.Configuration.IConfigurationSource>bir sınıf oluşturun.
+@No__t_0 uygulayan bir sınıf oluşturun.
 
 *Efconfigurationprovider/EFConfigurationSource. cs*:
 
 [!code-csharp[](index/samples/3.x/ConfigurationSample/EFConfigurationProvider/EFConfigurationSource.cs?name=snippet1)]
 
-Öğesinden <xref:Microsoft.Extensions.Configuration.ConfigurationProvider>devralarak özel yapılandırma sağlayıcısını oluşturun. Yapılandırma sağlayıcısı boş olduğunda veritabanını başlatır.
+@No__t_0 devralan özel yapılandırma sağlayıcısını oluşturun. Yapılandırma sağlayıcısı boş olduğunda veritabanını başlatır.
 
 *Efconfigurationprovider/efconfigurationprovider. cs*:
 
 [!code-csharp[](index/samples/3.x/ConfigurationSample/EFConfigurationProvider/EFConfigurationProvider.cs?name=snippet1)]
 
-Genişletme yöntemi, yapılandırma kaynağını bir `ConfigurationBuilder`öğesine eklemeye izin verir. `AddEFConfiguration`
+@No__t_0 uzantısı yöntemi, yapılandırma kaynağının bir `ConfigurationBuilder` eklenmesine izin verir.
 
 *Uzantılar/EntityFrameworkExtensions. cs*:
 
 [!code-csharp[](index/samples/3.x/ConfigurationSample/Extensions/EntityFrameworkExtensions.cs?name=snippet1)]
 
-Aşağıdaki kod, `EFConfigurationProvider` *program.cs*içinde özel kullanımı göstermektedir:
+Aşağıdaki kod, *program.cs*içinde özel `EFConfigurationProvider` nasıl kullanacağınızı gösterir:
 
 [!code-csharp[](index/samples/3.x/ConfigurationSample/Program.cs?name=snippet_Program&highlight=30-31)]
 
@@ -1213,31 +1213,31 @@ Aşağıdaki kod, `EFConfigurationProvider` *program.cs*içinde özel kullanım�
 
 [!code-csharp[](index/samples/2.x/ConfigurationSample/Models/EFConfigurationValue.cs?name=snippet1)]
 
-Bir `EFConfigurationContext` mağazaya ekleyin ve yapılandırılan değerlere erişin.
+Yapılandırılan değerleri depolamak ve erişmek için bir `EFConfigurationContext` ekleyin.
 
 *Efconfigurationprovider/EFConfigurationContext. cs*:
 
 [!code-csharp[](index/samples/2.x/ConfigurationSample/EFConfigurationProvider/EFConfigurationContext.cs?name=snippet1)]
 
-Uygulayan <xref:Microsoft.Extensions.Configuration.IConfigurationSource>bir sınıf oluşturun.
+@No__t_0 uygulayan bir sınıf oluşturun.
 
 *Efconfigurationprovider/EFConfigurationSource. cs*:
 
 [!code-csharp[](index/samples/2.x/ConfigurationSample/EFConfigurationProvider/EFConfigurationSource.cs?name=snippet1)]
 
-Öğesinden <xref:Microsoft.Extensions.Configuration.ConfigurationProvider>devralarak özel yapılandırma sağlayıcısını oluşturun. Yapılandırma sağlayıcısı boş olduğunda veritabanını başlatır.
+@No__t_0 devralan özel yapılandırma sağlayıcısını oluşturun. Yapılandırma sağlayıcısı boş olduğunda veritabanını başlatır.
 
 *Efconfigurationprovider/efconfigurationprovider. cs*:
 
 [!code-csharp[](index/samples/2.x/ConfigurationSample/EFConfigurationProvider/EFConfigurationProvider.cs?name=snippet1)]
 
-Genişletme yöntemi, yapılandırma kaynağını bir `ConfigurationBuilder`öğesine eklemeye izin verir. `AddEFConfiguration`
+@No__t_0 uzantısı yöntemi, yapılandırma kaynağının bir `ConfigurationBuilder` eklenmesine izin verir.
 
 *Uzantılar/EntityFrameworkExtensions. cs*:
 
 [!code-csharp[](index/samples/2.x/ConfigurationSample/Extensions/EntityFrameworkExtensions.cs?name=snippet1)]
 
-Aşağıdaki kod, `EFConfigurationProvider` *program.cs*içinde özel kullanımı göstermektedir:
+Aşağıdaki kod, *program.cs*içinde özel `EFConfigurationProvider` nasıl kullanacağınızı gösterir:
 
 [!code-csharp[](index/samples/2.x/ConfigurationSample/Program.cs?name=snippet_Program&highlight=30-31)]
 
@@ -1245,7 +1245,7 @@ Aşağıdaki kod, `EFConfigurationProvider` *program.cs*içinde özel kullanım�
 
 ## <a name="access-configuration-during-startup"></a>Başlangıç sırasında yapılandırmaya erişim
 
-İçindeki `IConfiguration` yapılandırmadeğerlerineerişmek`Startup.ConfigureServices`için `Startup` oluşturucuya ekleme. ' Da yapılandırmaya `Startup.Configure`erişmek için, `IConfiguration` doğrudan yönteme ekleyin veya örneği oluşturucudan kullanın:
+@No__t_2 yapılandırma değerlerine erişmek için `Startup` oluşturucusuna `IConfiguration` ekleyin. @No__t_0 yapılandırmaya erişmek için `IConfiguration` doğrudan yönteme ekleyin ya da oluşturucuyu kullanarak örneği kullanın:
 
 ```csharp
 public class Startup
@@ -1269,11 +1269,11 @@ public class Startup
 }
 ```
 
-Başlangıç kolaylığı yöntemlerini kullanarak yapılandırmaya erişme örneği için bkz [. uygulama başlatma: Kullanışlı yöntemler](xref:fundamentals/startup#convenience-methods).
+Başlangıç kolaylığı yöntemlerini kullanarak yapılandırmaya erişme örneği için bkz. [uygulama başlatma: kullanışlı yöntemler](xref:fundamentals/startup#convenience-methods).
 
 ## <a name="access-configuration-in-a-razor-pages-page-or-mvc-view"></a>Razor Pages sayfasında veya MVC görünümünde erişim yapılandırması
 
-Razor Pages sayfasındaki veya MVC görünümündeki yapılandırma ayarlarına erişmek için, <xref:Microsoft.Extensions.Configuration.IConfiguration> [Microsoft. Extensions. Configuration ad alanı](xref:Microsoft.Extensions.Configuration) için bir [using yönergesi](xref:mvc/views/razor#using) ([ C# başvuru: using yönergesi](/dotnet/csharp/language-reference/keywords/using-directive)) ekleyin ve sayfaya ekleyin veya görünümü.
+Razor Pages sayfasındaki veya MVC görünümündeki yapılandırma ayarlarına erişmek için, [Microsoft. Extensions. Configuration ad alanı](xref:Microsoft.Extensions.Configuration) için bir [using yönergesi](xref:mvc/views/razor#using) ([ C# başvuru: using yönergesi](/dotnet/csharp/language-reference/keywords/using-directive)) ekleyin ve sayfa ya da görünüme <xref:Microsoft.Extensions.Configuration.IConfiguration> ekleyin.
 
 Razor Pages sayfasında:
 
@@ -1315,7 +1315,7 @@ MVC görünümünde:
 
 ## <a name="add-configuration-from-an-external-assembly"></a>Bir dış derlemeden yapılandırma Ekle
 
-<xref:Microsoft.AspNetCore.Hosting.IHostingStartup> Uygulama ,`Startup` uygulamanın sınıfı dışında bir dış derlemeden başlatma sırasında bir uygulamaya iyileştirmeler eklenmesine olanak sağlar. Daha fazla bilgi için bkz. <xref:fundamentals/configuration/platform-specific-configuration>.
+@No__t_0 bir uygulama, uygulamanın `Startup` sınıfının dışında bir dış derlemeden başlangıçta bir uygulamaya iyileştirmeler eklenmesine izin verir. Daha fazla bilgi için bkz. <xref:fundamentals/configuration/platform-specific-configuration>.
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 

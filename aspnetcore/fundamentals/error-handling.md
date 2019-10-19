@@ -7,18 +7,18 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/08/2019
 uid: fundamentals/error-handling
-ms.openlocfilehash: a610c42d75864259b609e11b8bf0776c5ab8e507
-ms.sourcegitcommit: 020c3760492efed71b19e476f25392dda5dd7388
+ms.openlocfilehash: bff526e196ecc378d4687e1c38188977aeeccfd9
+ms.sourcegitcommit: a166291c6708f5949c417874108332856b53b6a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/12/2019
-ms.locfileid: "72288855"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72589882"
 ---
 # <a name="handle-errors-in-aspnet-core"></a>ASP.NET Core hataları işleme
 
 [Tom Dykstra](https://github.com/tdykstra/), [Luke Latham](https://github.com/guardrex)ve [Steve Smith](https://ardalis.com/) tarafından
 
-Bu makalede ASP.NET Core uygulamalardaki hataları işlemeye yönelik yaygın yaklaşımlar ele alınmaktadır.
+Bu makalede ASP.NET Core Web Apps 'teki hataları işlemeye yönelik yaygın yaklaşımlar ele alınmaktadır. Bkz. Web API 'Leri için <xref:web-api/handle-errors>.
 
 [Örnek kodu görüntüleyin veya indirin](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/error-handling/samples). ([Nasıl indirilir](xref:index#how-to-download-a-sample).) Makale, farklı senaryoları etkinleştirmek için örnek uygulamada Önişlemci yönergelerinin (`#if`, `#endif`, `#define`) nasıl ayarlanacağı hakkında yönergeler içerir.
 
@@ -38,7 +38,7 @@ Sayfa, özel durum ve istek hakkında şu bilgileri içerir:
 * Yığın izleme
 * Sorgu dizesi parametreleri (varsa)
 * Tanımlama bilgileri (varsa)
-* Üst bilgiler
+* Bilgisinde
 
 [Örnek uygulamada](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/error-handling/samples)geliştirici özel durum sayfasını görmek için `DevEnvironment` ön işlemci yönergesini kullanın ve giriş sayfasında **özel durum Tetikle** ' yi seçin.
 
@@ -64,7 +64,7 @@ public IActionResult Error()
 }
 ```
 
-@No__t-0 gibi HTTP Yöntem öznitelikleriyle hata işleyicisi eylem yöntemini süslememe. Açık fiiller bazı isteklerin yönteme ulaşmasını önler. Kimliği doğrulanmamış kullanıcıların hata görünümünü alabilmesi için metoda anonim erişime izin verin.
+Hata işleyicisi eylem yöntemini, `HttpGet` gibi HTTP Yöntem öznitelikleriyle süsmayın. Açık fiiller bazı isteklerin yönteme ulaşmasını önler. Kimliği doğrulanmamış kullanıcıların hata görünümünü alabilmesi için metoda anonim erişime izin verin.
 
 ### <a name="access-the-exception"></a>Özel duruma erişin
 
@@ -86,7 +86,7 @@ Bir hata işleyicisi denetleyicisi veya sayfasındaki özel duruma ve özgün is
 [!code-csharp[](error-handling/samples/2.x/ErrorHandlingSample/Startup.cs?name=snippet_HandlerPageLambda)]
 
 > [!WARNING]
-> @No__t -1 veya <xref:Microsoft.AspNetCore.Diagnostics.IExceptionHandlerPathFeature> ' den istemcilere hassas hata bilgileri sunma. Hatalara hizmet vermek bir güvenlik riskidir.
+> @No__t_1 veya <xref:Microsoft.AspNetCore.Diagnostics.IExceptionHandlerPathFeature> istemcilere duyarlı hata bilgileri sunma. Hatalara hizmet vermek bir güvenlik riskidir.
 
 [Örnek uygulamada](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/error-handling/samples)lambda işlemenin özel durum işleme sonucunu görmek için `ProdEnvironment` ve `ErrorHandlerLambda` ön işlemci yönergelerini kullanın ve giriş sayfasında **bir özel durum Tetikle** ' yi seçin.
 
@@ -124,7 +124,7 @@ Yanıt içerik türünü ve metnini özelleştirmek için, içerik türü ve bi�
 
 ## <a name="usestatuscodepageswithredirects"></a>Usestatuscodepageswithyönlendirmeler
 
-@No__t-0 genişletme yöntemi:
+@No__t_0 uzantısı yöntemi:
 
 * İstemciye *302 tarafından bulunan* bir durum kodu gönderir.
 * İstemciyi, URL şablonunda belirtilen konuma yönlendirir.
@@ -140,7 +140,7 @@ Bu yöntem genellikle uygulama şu şekilde kullanılır:
 
 ## <a name="usestatuscodepageswithreexecute"></a>UseStatusCodePagesWithReExecute
 
-@No__t-0 genişletme yöntemi:
+@No__t_0 uzantısı yöntemi:
 
 * İstemciye özgün durum kodunu döndürür.
 * Alternatif bir yol kullanarak istek ardışık düzenini yeniden yürüterek yanıt gövdesini oluşturur.
@@ -208,7 +208,7 @@ Barındırma katmanı, yalnızca hatanın ana bilgisayar adresi/bağlantı nokta
 
 ## <a name="database-error-page"></a>Veritabanı hata sayfası
 
-Veritabanı hata sayfası ara yazılımı, Entity Framework geçişleri kullanılarak çözümleneyolabilecek veritabanıyla ilgili özel durumları yakalar. Bu özel durumlar gerçekleştiğinde, sorunu çözmeye yönelik olası eylemlerin ayrıntılarını içeren bir HTML yanıtı oluşturulur. Bu sayfa yalnızca geliştirme ortamında etkinleştirilmelidir. @No__t-0 ' a kod ekleyerek sayfayı etkinleştirin:
+Veritabanı hata sayfası ara yazılımı, Entity Framework geçişleri kullanılarak çözümleneyolabilecek veritabanıyla ilgili özel durumları yakalar. Bu özel durumlar gerçekleştiğinde, sorunu çözmeye yönelik olası eylemlerin ayrıntılarını içeren bir HTML yanıtı oluşturulur. Bu sayfa yalnızca geliştirme ortamında etkinleştirilmelidir. @No__t_0 kod ekleyerek sayfayı etkinleştirin:
 
 ```csharp
 if (env.IsDevelopment())
