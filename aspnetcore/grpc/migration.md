@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-3.0'
 ms.author: johluo
 ms.date: 09/25/2019
 uid: grpc/migration
-ms.openlocfilehash: 8f0d9dd980fa3281f30dc29d329d10ccd352ae72
-ms.sourcegitcommit: 994da92edb0abf856b1655c18880028b15a28897
+ms.openlocfilehash: 596eca0f510387a18472eb353672980e0a8e0d24
+ms.sourcegitcommit: eb4fcdeb2f9e8413117624de42841a4997d1d82d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71278708"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72697993"
 ---
 # <a name="migrating-grpc-services-from-c-core-to-aspnet-core"></a>GRPC hizmetlerini C Core 'dan ASP.NET Core geçirme
 
@@ -23,13 +23,13 @@ Temel alınan yığının uygulanması nedeniyle, tüm özellikler [C Core taban
 
 ASP.NET Core yığınında, varsayılan olarak gRPC Hizmetleri [kapsamlı bir ömür](xref:fundamentals/dependency-injection#service-lifetimes)ile oluşturulur. Buna karşılık, gRPC C-Core varsayılan olarak [tek bir yaşam süresine](xref:fundamentals/dependency-injection#service-lifetimes)sahip bir hizmete bağlanır.
 
-Kapsamlı ömür, hizmet uygulamasının kapsamlı ömürlerle diğer hizmetleri çözümlemesine izin verir. Örneğin, kapsamlı bir yaşam süresi aynı zamanda, `DbContext` Oluşturucu ekleme yoluyla dı kapsayıcısından da çözümlenir. Kapsamlı ömür kullanımı:
+Kapsamlı ömür, hizmet uygulamasının kapsamlı ömürlerle diğer hizmetleri çözümlemesine izin verir. Örneğin, kapsamlı bir yaşam süresi Ayrıca, Oluşturucu ekleme yoluyla DI kapsayıcısından `DbContext` çözümleyebilir. Kapsamlı ömür kullanımı:
 
 * Her istek için hizmet uygulamasının yeni bir örneği oluşturulur.
 * Uygulama türündeki örnek üyeleri aracılığıyla istekler arasında durum paylaşmak mümkün değildir.
 * Beklentisi, paylaşılan durumları dı kapsayıcısında tek bir hizmette depobir biçimde depokadır. Depolanan paylaşılan durumlar, gRPC hizmet uygulamasının oluşturucusunda çözümlenir.
 
-Hizmet yaşam süreleri hakkında daha fazla bilgi için <xref:fundamentals/dependency-injection#service-lifetimes>bkz.
+Hizmet yaşam süreleri hakkında daha fazla bilgi için bkz. <xref:fundamentals/dependency-injection#service-lifetimes>.
 
 ### <a name="add-a-singleton-service"></a>Tek bir hizmet ekleyin
 
@@ -47,25 +47,25 @@ Ancak, tek bir yaşam süresine sahip bir hizmet uygulamasının kapsamı, kapsa
 
 ## <a name="configure-grpc-services-options"></a>GRPC Hizmetleri seçeneklerini yapılandırma
 
-C Core tabanlı uygulamalarda `grpc.max_receive_message_length` , ve `grpc.max_send_message_length` gibi ayarlar [sunucu örneği oluşturulurken](https://grpc.io/grpc/csharp/api/Grpc.Core.Server.html#Grpc_Core_Server__ctor_System_Collections_Generic_IEnumerable_Grpc_Core_ChannelOption__)ile `ChannelOption` yapılandırılır.
+C Core tabanlı uygulamalarda, `grpc.max_receive_message_length` ve `grpc.max_send_message_length` gibi ayarlar [sunucu örneği oluşturulurken](https://grpc.io/grpc/csharp/api/Grpc.Core.Server.html#Grpc_Core_Server__ctor_System_Collections_Generic_IEnumerable_Grpc_Core_ChannelOption__)`ChannelOption` ile yapılandırılır.
 
-ASP.NET Core, GRPC, `GrpcServiceOptions` tür aracılığıyla yapılandırma sağlar. Örneğin, gRPC hizmetinin en büyük gelen ileti boyutu ile `AddGrpc`yapılandırılabilir. Aşağıdaki örnek 4 MB ile 16 `ReceiveMaxMessageSize` MB arasında varsayılan değer değiştirir:
+ASP.NET Core, gRPC `GrpcServiceOptions` türü aracılığıyla yapılandırma sağlar. Örneğin, bir gRPC hizmetinin en büyük gelen ileti boyutu `AddGrpc` aracılığıyla yapılandırılabilir. Aşağıdaki örnek, varsayılan `MaxReceiveMessageSize` 4 MB ile 16 MB arasında değişir:
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
 {
     services.AddGrpc(options =>
     {
-        options.ReceiveMaxMessageSize = 16 * 1024 * 1024; // 16 MB
+        options.MaxReceiveMessageSize = 16 * 1024 * 1024; // 16 MB
     });
 }
 ```
 
-Yapılandırma hakkında daha fazla bilgi için bkz <xref:grpc/configuration>.
+Yapılandırma hakkında daha fazla bilgi için bkz. <xref:grpc/configuration>.
 
 ## <a name="logging"></a>Günlüğe Kaydetme
 
-C çekirdekli tabanlı uygulamalar, `GrpcEnvironment` hata ayıklama amacıyla [günlükçüsü yapılandırmak](https://grpc.io/grpc/csharp/api/Grpc.Core.GrpcEnvironment.html?q=size#Grpc_Core_GrpcEnvironment_SetLogger_Grpc_Core_Logging_ILogger_) için kullanır. ASP.NET Core Stack, bu işlevselliği [günlüğe kaydetme API 'si](xref:fundamentals/logging/index)aracılığıyla sağlar. Örneğin, gRPC hizmetine Oluşturucu ekleme yoluyla bir günlükçü eklenebilir:
+C çekirdekli tabanlı uygulamalar, hata ayıklama amacıyla [günlükçüsü yapılandırmak](https://grpc.io/grpc/csharp/api/Grpc.Core.GrpcEnvironment.html?q=size#Grpc_Core_GrpcEnvironment_SetLogger_Grpc_Core_Logging_ILogger_) için `GrpcEnvironment` kullanır. ASP.NET Core Stack, bu işlevselliği [günlüğe kaydetme API 'si](xref:fundamentals/logging/index)aracılığıyla sağlar. Örneğin, gRPC hizmetine Oluşturucu ekleme yoluyla bir günlükçü eklenebilir:
 
 ```csharp
 public class GreeterService : Greeter.GreeterBase

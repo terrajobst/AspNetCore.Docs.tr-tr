@@ -5,14 +5,14 @@ description: Veri bağlama, olayları işleme ve bileşen yaşam döngülerini y
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/05/2019
+ms.date: 10/20/2019
 uid: blazor/components
-ms.openlocfilehash: cd48111e8d601fc67e8a938fcdd686759a9ddeca
-ms.sourcegitcommit: ce2bfb01f2cc7dd83f8a97da0689d232c71bcdc4
+ms.openlocfilehash: 065a3a078c56f813ed38f85d7414f22061217dff
+ms.sourcegitcommit: eb4fcdeb2f9e8413117624de42841a4997d1d82d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72531121"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72697958"
 ---
 # <a name="create-and-use-aspnet-core-razor-components"></a>ASP.NET Core Razor bileşenleri oluşturma ve kullanma
 
@@ -30,7 +30,7 @@ Bir bileşenin adı, büyük harfle başlamalıdır. Örneğin, *mycoolcomponent
 
 Bir bileşen için Kullanıcı arabirimi HTML kullanılarak tanımlanır. Dinamik işleme mantığı (örneğin, döngüler, koşullar, ifadeler) C# [Razor](xref:mvc/views/razor)adlı gömülü bir sözdizimi kullanılarak eklenir. Bir uygulama derlendiğinde, HTML biçimlendirme ve C# işleme mantığı bir bileşen sınıfına dönüştürülür. Oluşturulan sınıfın adı, dosyanın adıyla eşleşir.
 
-Bileşen sınıfının üyeleri `@code` bloğunda tanımlanır. @No__t-0 bloğunda, bileşen durumu (özellikler, alanlar) olay işleme yöntemleriyle veya diğer bileşen mantığını tanımlamaya yönelik yöntemlerle belirtilir. Birden fazla `@code` bloğu izin verilir.
+Bileşen sınıfının üyeleri `@code` bloğunda tanımlanır. @No__t_0 bloğunda, bileşen durumu (özellikler, alanlar) olay işleme yöntemleriyle veya diğer bileşen mantığını tanımlamaya yönelik yöntemlerle belirtilir. Birden fazla `@code` bloğu izin verilir.
 
 > [!NOTE]
 > ASP.NET Core 3,0 ' nin önceki önizlemelerinde, `@functions` blokları Razor bileşenlerinde `@code` bloklarında aynı amaçla kullanılmıştır. `@functions` blokları Razor bileşenlerinde çalışmaya devam eder, ancak ASP.NET Core 3,0 Preview 6 veya sonraki bir sürümünde `@code` bloğunu kullanmanızı öneririz.
@@ -107,14 +107,14 @@ Aşağıdaki örnekte, `ParentComponent` `ChildComponent` ' nin `Title` özelli�
 
 Bileşenler, başka bir bileşenin içeriğini ayarlayabilir. Atama bileşeni, alıcı bileşeni belirten Etiketler arasında içerik sağlar.
 
-Aşağıdaki örnekte, `ChildComponent` ' ı @no__t temsil eden bir `ChildContent` özelliği vardır. Bu bir kullanıcı arabirimi, işlemek için bir segmenti temsil eder. @No__t-0 değeri, içeriğin işlenmesi gereken bileşenin biçimlendirmesinde konumlandırılır. @No__t-0 değeri üst bileşenden alınır ve önyükleme panelinin `panel-body` ' in içinde işlenir.
+Aşağıdaki örnekte `ChildComponent`, işlemek için bir kullanıcı arabirimi segmentini temsil eden bir `RenderFragment` temsil eden bir `ChildContent` özelliğine sahiptir. @No__t_0 değeri bileşenin, içeriğin işlenmesi gereken biçimlendirmesinde konumlandırılır. @No__t_0 değeri üst bileşenden alınır ve önyükleme bölmesinin `panel-body` içinde işlenir.
 
 *Bileşenler/ChildComponent. Razor*:
 
 [!code-cshtml[](common/samples/3.x/BlazorWebAssemblySample/Components/ChildComponent.razor?highlight=3,14-15)]
 
 > [!NOTE]
-> @No__t-0 içeriğini alan özelliğin kurala göre `ChildContent` olarak adlandırılması gerekir.
+> @No__t_0 içeriği alan özelliğin kurala göre `ChildContent` olarak adlandırılması gerekir.
 
 Aşağıdaki `ParentComponent`, içeriği `<ChildComponent>` etiketlerinin içine yerleştirerek `ChildComponent` ' i işlemek için içerik sağlayabilir.
 
@@ -163,9 +163,9 @@ Aşağıdaki örnekte, ilk `<input>` öğesi (`id="useIndividualParams"`) tek te
 }
 ```
 
-Parametrenin türü dize anahtarlarıyla `IEnumerable<KeyValuePair<string, object>>` uygulamalıdır. @No__t-0 kullanmak Bu senaryoda da bir seçenektir.
+Parametrenin türü dize anahtarlarıyla `IEnumerable<KeyValuePair<string, object>>` uygulamalıdır. @No__t_0 kullanmak Bu senaryoda da bir seçenektir.
 
-Her iki yaklaşımın de kullanıldığı işlenen @no__t 0 öğeleri aynıdır:
+Her iki yaklaşımın de kullanıldığı işlenen `<input>` öğeleri aynıdır:
 
 ```html
 <input id="useIndividualParams"
@@ -190,7 +190,7 @@ Rastgele öznitelikleri kabul etmek için, `CaptureUnmatchedValues` özelliği `
 }
 ```
 
-@No__t_1 `CaptureUnmatchedValues` özelliği, parametrenin diğer bir parametreyle eşleşmeyen tüm özniteliklerle eşleşmesini sağlar. Bir bileşen yalnızca `CaptureUnmatchedValues` olan tek bir parametre tanımlayabilir. @No__t-0 ile kullanılan özellik türü, `Dictionary<string, object>` ' den dize anahtarlarıyla atanabilir olmalıdır. `IEnumerable<KeyValuePair<string, object>>` veya `IReadOnlyDictionary<string, object>` Ayrıca bu senaryodaki seçeneklerdir.
+@No__t_1 `CaptureUnmatchedValues` özelliği, parametrenin diğer bir parametreyle eşleşmeyen tüm özniteliklerle eşleşmesini sağlar. Bir bileşen yalnızca `CaptureUnmatchedValues` olan tek bir parametre tanımlayabilir. @No__t_0 ile kullanılan özellik türü, `Dictionary<string, object>` dize anahtarlarıyla atanabilir olmalıdır. `IEnumerable<KeyValuePair<string, object>>` veya `IReadOnlyDictionary<string, object>` Ayrıca bu senaryodaki seçeneklerdir.
 
 ## <a name="data-binding"></a>Veri bağlama
 
@@ -208,7 +208,7 @@ Metin kutusu odağı kaybettiğinde, özelliğin değeri güncellenir.
 
 Metin kutusu kullanıcı arabiriminde, özelliğin değerini değiştirme yanıt olarak değil, yalnızca bileşen işlendiğinde güncelleştirilir. Bileşenler olay işleyicisi kodu yürütüldükten sonra kendilerini oluşturduğundan, özellik güncelleştirmeleri *genellikle* olay işleyicisi tetiklendikten hemen sonra Kullanıcı arabirimine yansıtılır.
 
-@No__t-0 ' i `CurrentValue` özelliği (`<input @bind="CurrentValue" />`) ile kullanmak, temelde aşağıdakilere eşdeğerdir:
+@No__t_1 özelliği (`<input @bind="CurrentValue" />`) ile `@bind` kullanmak, temelde aşağıdakilere eşdeğerdir:
 
 ```cshtml
 <input value="@CurrentValue"
@@ -220,9 +220,9 @@ Metin kutusu kullanıcı arabiriminde, özelliğin değerini değiştirme yanıt
 }
 ```
 
-Bileşen işlendiğinde, giriş öğesinin `value` ' ı `CurrentValue` özelliğinden gelir. Kullanıcı metin kutusuna yazdığında ve öğe odağını değiştirdiğinde, `onchange` olayı tetiklenir ve `CurrentValue` özelliği değiştirilen değere ayarlanır. @No__t-0 tür dönüştürmelerin gerçekleştirildiği durumları işlediği için, gerçekte kod oluşturma daha karmaşıktır. İlke ' de, `@bind` bir ifadenin geçerli değerini bir `value` özniteliğiyle ilişkilendirir ve kayıtlı işleyiciyi kullanarak değişiklikleri işler.
+Bileşen işlendiğinde, giriş öğesinin `value` ' ı `CurrentValue` özelliğinden gelir. Kullanıcı metin kutusuna yazdığında ve öğe odağını değiştirdiğinde, `onchange` olayı tetiklenir ve `CurrentValue` özelliği değiştirilen değere ayarlanır. @No__t_0, tür dönüştürmelerin gerçekleştirildiği durumları işlediği için kod oluşturma daha karmaşıktır. İlke ' de, `@bind` bir ifadenin geçerli değerini bir `value` özniteliğiyle ilişkilendirir ve kayıtlı işleyiciyi kullanarak değişiklikleri işler.
 
-@No__t-1 sözdizimiyle `onchange` olaylarını işlemenin yanı sıra, bir özellik veya alan, `event` parametresiyle bir [@bind-value](xref:mvc/views/razor#bind) özniteliği belirterek diğer olaylar kullanılarak da bağlanabilir ([@bind-value:event](xref:mvc/views/razor#bind)). Aşağıdaki örnek, `CurrentValue` özelliğini `oninput` olayı için bağlar:
+@No__t_1 sözdizimiyle `onchange` olaylarının işlenmesine ek olarak, bir özellik veya alan, `event` parametreli bir [@bind-value](xref:mvc/views/razor#bind) özniteliği belirterek diğer olaylar kullanılarak da bağlanabilir ([ @bind-value:event](xref:mvc/views/razor#bind)). Aşağıdaki örnek, `CurrentValue` özelliğini `oninput` olayı için bağlar:
 
 ```cshtml
 <input @bind-value="CurrentValue" @bind-value:event="oninput" />
@@ -232,7 +232,7 @@ Bileşen işlendiğinde, giriş öğesinin `value` ' ı `CurrentValue` özelliğ
 }
 ```
 
-@No__t-0 ' dan farklı olarak, öğe odağı kaybettiğinde harekete geçirilir `oninput`, metin kutusunun değeri değiştiğinde harekete geçirilir.
+@No__t_0 aksine, öğe odağı kaybettiğinde harekete geçirilir `oninput` metin kutusunun değeri değiştiğinde harekete geçirilir.
 
 **Ayrıştırılamayan değerler**
 
@@ -240,7 +240,7 @@ Bir Kullanıcı, bir veri sınırlama öğesine ayrıştırılamayan bir değer 
 
 Aşağıdaki senaryoyu göz önünde bulundurun:
 
-* @No__t-0 öğesi, ilk değeri `123` olan `int` türüne bağlanır:
+* Bir `<input>` öğesi, `123` başlangıçtaki değeri olan bir `int` türüne bağlanır:
 
   ```cshtml
   <input @bind="MyProperty" />
@@ -252,13 +252,13 @@ Aşağıdaki senaryoyu göz önünde bulundurun:
   ```
 * Kullanıcı, öğe değerini sayfada `123.45` olarak güncelleştirir ve öğe odağını değiştirir.
 
-Önceki senaryoda, öğenin değeri `123` ' a geri döndürülür. @No__t-0 değeri, `123` ' in özgün değeri yararına reddedildiğinde, Kullanıcı değerinin kabul edilmediğini anlamıştır.
+Önceki senaryoda, öğenin değeri `123` ' a geri döndürülür. Değer `123.45` özgün `123` değerinin yararına reddedildiğinde, Kullanıcı değerinin kabul edilmediğini anlamıştır.
 
-Varsayılan olarak, bağlama öğenin `onchange` olayına uygulanır (`@bind="{PROPERTY OR FIELD}"`). Farklı bir olay ayarlamak için `@bind-value="{PROPERTY OR FIELD}" @bind-value:event={EVENT}` kullanın. @No__t-0 olayı (`@bind-value:event="oninput"`) için, yeniden sürüm, ayrıştırılamayan bir değer sunan herhangi bir tuş vuruşu sonrasında oluşur. @No__t-0 olayını @no__t -1 ile bağlantılı bir türle hedeflerken, kullanıcının `.` karakteri yazmasının engellenmiş olması engellenir. @No__t-0 karakteri hemen kaldırılır, bu nedenle Kullanıcı yalnızca tam sayılara izin verilen anında geri bildirim alır. @No__t-0 olaylarındaki değerin geri döndürülebileceği senaryolar vardır; örneğin, kullanıcının çözümlenemeyen bir `<input>` değerini temizme izni verilmesi gerektiği durumlar gibi. Alternatifler şunlardır:
+Varsayılan olarak, bağlama öğenin `onchange` olayına uygulanır (`@bind="{PROPERTY OR FIELD}"`). Farklı bir olay ayarlamak için `@bind-value="{PROPERTY OR FIELD}" @bind-value:event={EVENT}` kullanın. @No__t_0 olayı (`@bind-value:event="oninput"`) için yeniden sürüm, ayrıştırılamayan bir değer sunan herhangi bir tuş vuruşu sonrasında oluşur. @No__t_0 olayı `int` bağlantılı bir türle hedeflenirken, kullanıcının bir `.` karakteri yazmasının engellenmiş olması engellenir. @No__t_0 bir karakter hemen kaldırılır, bu nedenle Kullanıcı yalnızca tam sayılara izin verilen anında geri bildirim alır. @No__t_0 olaylarındaki değerin geri döndürülmesi ideal olmayan, örneğin kullanıcının ayrıştırılamayan `<input>` bir değeri temizlemeye izin verilmesi gereken senaryolar vardır. Alternatifler şunlardır:
 
-* @No__t-0 olayını kullanmayın. Öğe odağı kaybederene kadar geçersiz bir değer geri döndürülmediğinde, varsayılan `onchange` olayını (`@bind="{PROPERTY OR FIELD}"`) kullanın.
-* @No__t-0 veya `string` gibi null yapılabilir bir türe bağlayın ve geçersiz girdileri işlemek için özel mantık sağlayın.
-* @No__t-1 veya `InputDate` gibi bir [form doğrulama bileşeni](xref:blazor/forms-validation)kullanın. Form doğrulama bileşenlerinde geçersiz girişleri yönetmek için yerleşik destek vardır. Form doğrulama bileşenleri:
+* @No__t_0 olayını kullanmayın. Öğe odağı kaybederene kadar geçersiz bir değer geri döndürülmediğinde, varsayılan `onchange` olayını (`@bind="{PROPERTY OR FIELD}"`) kullanın.
+* @No__t_0 veya `string` gibi null yapılabilir bir türe bağlayın ve geçersiz girdileri işlemek için özel mantık sağlayın.
+* @No__t_1 veya `InputDate` gibi bir [form doğrulama bileşeni](xref:blazor/forms-validation)kullanın. Form doğrulama bileşenlerinde geçersiz girişleri yönetmek için yerleşik destek vardır. Form doğrulama bileşenleri:
   * Kullanıcının, ilişkili `EditContext` ' da geçersiz giriş sağlamasına ve doğrulama hataları almasına izin verin.
   * Kullanıcı ek WebForm verisi girmeye uğramadan doğrulama hatalarını Kullanıcı ARABIRIMINDE görüntüleyin.
 
@@ -285,7 +285,7 @@ Aşağıdaki alan türleri özel biçimlendirme gereksinimlerine sahiptir ve şu
 * `month`
 * `week`
 
-`@bind`, bir değeri ayrıştırmak ve biçimlendirmek için <xref:System.Globalization.CultureInfo?displayProperty=fullName> sağlamak üzere `@bind:culture` parametresini destekler. @No__t-0 ve `number` alan türleri kullanılırken bir kültür belirtilmesi önerilmez. `date` ve `number`, gerekli kültürü sağlayan yerleşik Blazor desteğine sahiptir.
+`@bind`, bir değeri ayrıştırmak ve biçimlendirmek için <xref:System.Globalization.CultureInfo?displayProperty=fullName> sağlamak üzere `@bind:culture` parametresini destekler. @No__t_0 ve `number` alan türleri kullanılırken bir kültür belirtilmesi önerilmez. `date` ve `number`, gerekli kültürü sağlayan yerleşik Blazor desteğine sahiptir.
 
 Kullanıcının kültürünü ayarlama hakkında daha fazla bilgi için [Yerelleştirme](#localization) bölümüne bakın.
 
@@ -309,7 +309,7 @@ Yukarıdaki kodda `<input>` öğesinin alan türü (`type`) varsayılan olarak `
 * <xref:System.DateTimeOffset?displayProperty=fullName>
 * <xref:System.DateTimeOffset?displayProperty=fullName>?
 
-@No__t-0 özniteliği, `<input>` öğesinin `value` ' e uygulanacak tarih biçimini belirtir. Biçim, bir `onchange` olayı gerçekleştiğinde değeri ayrıştırmak için de kullanılır.
+@No__t_0 özniteliği, `<input>` öğesinin `value` uygulanacak tarih biçimini belirtir. Biçim, bir `onchange` olayı gerçekleştiğinde değeri ayrıştırmak için de kullanılır.
 
 Blazor 'in tarihleri biçimlendirmek için yerleşik desteği olduğundan `date` alan türü için biçim belirtme önerilmez.
 
@@ -361,7 +361,7 @@ Aşağıdaki üst bileşen `ChildComponent` kullanır ve `ParentYear` parametres
 }
 ```
 
-@No__t yüklemek-0 aşağıdaki biçimlendirmeyi oluşturur:
+@No__t_0 yüklemek aşağıdaki biçimlendirmeyi üretir:
 
 ```html
 <h1>Parent Component</h1>
@@ -373,7 +373,7 @@ Aşağıdaki üst bileşen `ChildComponent` kullanır ve `ParentYear` parametres
 <p>Year: 1978</p>
 ```
 
-@No__t-0 özelliğinin değeri `ParentComponent` ' deki düğme seçilerek değiştirilirse, `ChildComponent` ' ün `Year` özelliği güncellenir. @No__t-0 ' ın yeni değeri, `ParentComponent` tekrar eklendiğinde Kullanıcı arabiriminde işlenir:
+@No__t_0 özelliğinin değeri `ParentComponent` düğme seçilerek değiştirilirse, `ChildComponent` `Year` özelliği güncellenir. @No__t_0 yeni değeri, `ParentComponent` yeniden eklendiğinde Kullanıcı arabiriminde işlenir:
 
 ```html
 <h1>Parent Component</h1>
@@ -385,7 +385,7 @@ Aşağıdaki üst bileşen `ChildComponent` kullanır ve `ParentYear` parametres
 <p>Year: 1986</p>
 ```
 
-@No__t-0 parametresi, `Year` parametresinin türüyle eşleşen bir yardımcı `YearChanged` olayına sahip olduğundan bağlanabilir.
+@No__t_0 parametresi, `Year` parametresinin türüyle eşleşen bir yardımcı `YearChanged` olayına sahip olduğundan bağlanabilir.
 
 Kurala göre `<ChildComponent @bind-Year="ParentYear" />` temelde yazmaya eşdeğerdir:
 
@@ -431,7 +431,7 @@ Aşağıdaki kod, Kullanıcı arabiriminde onay kutusu değiştirildiğinde `Che
 }
 ```
 
-Olay işleyicileri Ayrıca zaman uyumsuz olabilir ve bir @no__t döndürebilir. @No__t-0 ' yı el ile çağırmanız gerekmez. Özel durumlar oluştuğunda günlüğe kaydedilir.
+Olay işleyicileri Ayrıca zaman uyumsuz olabilir ve bir <xref:System.Threading.Tasks.Task> döndürebilir. @No__t_0 el ile çağırmanız gerekmez. Özel durumlar oluştuğunda günlüğe kaydedilir.
 
 Aşağıdaki örnekte, düğme seçildiğinde `UpdateHeading` zaman uyumsuz olarak çağrılır:
 
@@ -457,7 +457,7 @@ Desteklenen `EventArgs` aşağıdaki tabloda gösterilmiştir.
 | Olay | örneği |
 | ----- | ----- |
 | Pano        | `ClipboardEventArgs` |
-| Sürükleyin             | `DragEventArgs` &ndash; `DataTransfer` ve @no__t 3 saklama öğe verilerini sürüklemiş. |
+| Sürükleyin             | `DragEventArgs` &ndash; `DataTransfer` ve `DataTransferItem` basılı tutup öğe verileri sürüklenmiştir. |
 | Hata            | `ErrorEventArgs` |
 | Çı            | `FocusEventArgs` &ndash; `relatedTarget` desteğini içermez. |
 | `<input>` değişiklik | `ChangeEventArgs` |
@@ -509,19 +509,19 @@ Genellikle, bir dizi öğe üzerinde yineleme yaparken olduğu gibi ek değerler
 
 ### <a name="eventcallback"></a>EventCallback
 
-İç içe bileşenler içeren yaygın bir senaryo, alt bileşen olayı olduğunda bir üst bileşen yönteminin (örneğin, bir `onclick`) bir ' no__t-0' ı bir olay gerçekleştiği zaman çalıştırılması yöntemidir. Olayları bileşenler arasında ortaya çıkarmak için `EventCallback` kullanın. Bir üst bileşen, bir alt bileşenin `EventCallback` ' a bir geri çağırma yöntemi atayabilir.
+İç içe bileşenler içeren yaygın bir senaryo, alt bileşen olayı gerçekleştiğinde bir üst bileşenin yöntemini çalıştırmak, örneğin `onclick` bir olay oluştuğunda &mdash;for. Olayları bileşenler arasında ortaya çıkarmak için `EventCallback` kullanın. Bir üst bileşen, bir alt bileşenin `EventCallback` ' a bir geri çağırma yöntemi atayabilir.
 
-Örnek uygulamadaki `ChildComponent` ' ın, bir düğmenin `onclick` işleyicisinin, örneğin `ParentComponent` ' ten `EventCallback` temsilcisini almak üzere nasıl ayarlandığını gösterir. @No__t-0 `MouseEventArgs` ile yazılır ve bu, çevrebirim cihazından gelen @no__t 2 olayına uygundur:
+Örnek uygulamadaki `ChildComponent` ' ın, bir düğmenin `onclick` işleyicisinin, örneğin `ParentComponent` ' ten `EventCallback` temsilcisini almak üzere nasıl ayarlandığını gösterir. @No__t_0, bir çevresel cihazdan `onclick` olayına uygun `MouseEventArgs` ile yazılır:
 
 [!code-cshtml[](common/samples/3.x/BlazorWebAssemblySample/Components/ChildComponent.razor?highlight=5-7,17-18)]
 
-@No__t-0, çocuğun `EventCallback<T>` ' i `ShowMessage` yöntemine ayarlar:
+@No__t_0, alt öğenin `EventCallback<T>` `ShowMessage` yöntemine ayarlar:
 
 [!code-cshtml[](common/samples/3.x/BlazorWebAssemblySample/Pages/ParentComponent.razor?name=snippet_ParentComponent&highlight=6,16-19)]
 
-Düğme @no__t seçildiğinde-0:
+@No__t_0 düğme seçildiğinde:
 
-* @No__t-0 ' ın `ShowMessage` yöntemi çağırılır. `messageText`, `ParentComponent` ' de güncellenir ve görüntülenir.
+* @No__t_0 `ShowMessage` yöntemi çağrılır. `messageText`, `ParentComponent` ' de güncellenir ve görüntülenir.
 * Geri çağırma yönteminde `StateHasChanged` çağrısı gerekli değildir (`ShowMessage`). `StateHasChanged` `ParentComponent` ' i yeniden çalıştırmak için otomatik olarak çağrılır. Örneğin, alt olaylar, alt öğe içinde yürütülen olay işleyicilerinde bileşen rerendering tetikler.
 
 `EventCallback` ve `EventCallback<T>` zaman uyumsuz temsilcilere izin verir. `EventCallback<T>` kesin bir şekilde türdedir ve belirli bir bağımsız değişken türü gerektirir. `EventCallback`, kesin olarak yazılmış ve herhangi bir bağımsız değişken türüne izin veriyor.
@@ -539,7 +539,7 @@ Düğme @no__t seçildiğinde-0:
 }
 ```
 
-@No__t-0 veya `EventCallback<T>` ' i `InvokeAsync` ile çağırın ve <xref:System.Threading.Tasks.Task> ' i await:
+@No__t_2 ile bir `EventCallback` veya `EventCallback<T>` çağırın ve <xref:System.Threading.Tasks.Task> await:
 
 ```csharp
 await callback.InvokeAsync(arg);
@@ -547,7 +547,7 @@ await callback.InvokeAsync(arg);
 
 Olay işleme ve bağlama bileşeni parametrelerini `EventCallback` ve `EventCallback<T>` kullanın.
 
-@No__t-1 üzerinde türü kesin belirlenmiş `EventCallback<T>` tercih edin. `EventCallback<T>`, bileşenin kullanıcılarına daha iyi hata geri bildirimi sağlar. Diğer UI olay işleyicileriyle benzer şekilde, olay parametresini belirtmek isteğe bağlıdır. Geri çağırmaya hiçbir değer geçirilmemişse `EventCallback` kullanın.
+@No__t_1 üzerinde türü kesin belirlenmiş `EventCallback<T>` tercih edin. `EventCallback<T>`, bileşenin kullanıcılarına daha iyi hata geri bildirimi sağlar. Diğer UI olay işleyicileriyle benzer şekilde, olay parametresini belirtmek isteğe bağlıdır. Geri çağırmaya hiçbir değer geçirilmemişse `EventCallback` kullanın.
 
 ## <a name="chained-bind"></a>Zincirleme bağlama
 
@@ -557,8 +557,8 @@ Bir zincir bağlama, sayfanın öğesinde `@bind` sözdizimi ile uygulanamaz. Ol
 
 Aşağıdaki `PasswordField` bileşeni (*Passwordfield. Razor*):
 
-* @No__t-0 öğesinin değerini bir `Password` özelliğine ayarlar.
-* @No__t-0 özelliğindeki değişiklikleri [Eventcallback](#eventcallback)ile bir üst bileşene gösterir.
+* Bir `<input>` öğesinin değerini bir `Password` özelliğine ayarlar.
+* @No__t_0 özelliğindeki değişiklikleri, bir [Eventcallback](#eventcallback)ile bir üst bileşene gösterir.
 
 ```cshtml
 Password: 
@@ -595,7 +595,7 @@ Password:
 }
 ```
 
-@No__t-0 bileşeni başka bir bileşende kullanılır:
+@No__t_0 bileşeni başka bir bileşende kullanılır:
 
 ```cshtml
 <PasswordField @bind-Password="password" />
@@ -607,8 +607,8 @@ Password:
 
 Önceki örnekteki parolada denetim veya tuzak hataları gerçekleştirmek için:
 
-* @No__t-0 (Aşağıdaki örnek kodda `password`) için bir yedekleme alanı oluşturun.
-* @No__t-0 ayarlayıcısından denetimleri veya yakalama hatalarını gerçekleştirin.
+* @No__t_0 için bir yedekleme alanı oluşturun (Aşağıdaki örnek kodda `password`).
+* @No__t_0 ayarlayıcısı 'nda denetimleri veya yakalama hatalarını gerçekleştirin.
 
 Aşağıdaki örnek, parolanın değerinde bir boşluk kullanılmışsa kullanıcıya anında geri bildirim sağlar:
 
@@ -692,16 +692,16 @@ Bileşen başvuruları bir bileşen örneğine başvurmak için bir yol sağlar,
 Bileşen işlendiğinde `loginDialog` alanı `MyLoginDialog` alt bileşen örneğiyle doldurulur. Daha sonra bileşen örneğinde .NET yöntemlerini çağırabilirsiniz.
 
 > [!IMPORTANT]
-> @No__t-0 değişkeni yalnızca bileşen işlendikten sonra ve çıktısı `MyLoginDialog` öğesini içerdiğinde doldurulur. Bu noktaya kadar başvurulmasına hiçbir şey yok. Bileşen işlemesini tamamladıktan sonra bileşen başvurularını işlemek için [Onafterrenderasync veya OnAfterRender yöntemlerini](#lifecycle-methods)kullanın.
+> @No__t_0 değişkeni yalnızca bileşen işlendikten sonra ve çıktısı `MyLoginDialog` öğesini içerdiğinde doldurulur. Bu noktaya kadar başvurulmasına hiçbir şey yok. Bileşen işlemesini tamamladıktan sonra bileşen başvurularını işlemek için [Onafterrenderasync veya OnAfterRender yöntemlerini](#lifecycle-methods)kullanın.
 
-Bileşen başvurularını yakalama, [öğe başvurularını yakalamak](xref:blazor/javascript-interop#capture-references-to-elements)için benzer bir sözdizimi kullanın, bir [JavaScript birlikte çalışma](xref:blazor/javascript-interop) özelliği değildir. Bileşen başvuruları, yalnızca .NET kodunda kullanılan @ no__t-0thei JavaScript koduna aktarılmaz.
+Bileşen başvurularını yakalama, [öğe başvurularını yakalamak](xref:blazor/javascript-interop#capture-references-to-elements)için benzer bir sözdizimi kullanın, bir [JavaScript birlikte çalışma](xref:blazor/javascript-interop) özelliği değildir. Bileşen başvuruları JavaScript koduna aktarılmaz &mdash;they yalnızca .NET kodunda kullanılır.
 
 > [!NOTE]
 > Alt bileşenlerin durumunu bulunmamalıdır için bileşen **başvurularını kullanmayın.** Bunun yerine, alt bileşenlere veri geçirmek için normal bildirime dayalı parametreleri kullanın. Normal bildirime dayalı parametrelerin kullanımı, otomatik olarak doğru zamanların yeniden yönlendirmesi için alt bileşenlerde oluşur.
 
 ## <a name="invoke-component-methods-externally-to-update-state"></a>Durumu güncelleştirmek için bileşen yöntemlerini dışarıdan çağır
 
-Blazor, yürütmenin tek bir mantıksal iş parçacığını zorlamak için `SynchronizationContext` kullanır. Bir bileşenin yaşam döngüsü yöntemleri ve Blazor tarafından oluşturulan tüm olay geri çağırmaları bu @no__t yürütülür-0. Bir bileşenin, Zamanlayıcı veya diğer bildirimler gibi dış bir olaya göre güncellenmesi gerekir, bu, @no__t Blazor ' a gönderilen `InvokeAsync` yöntemini kullanır.
+Blazor, yürütmenin tek bir mantıksal iş parçacığını zorlamak için `SynchronizationContext` kullanır. Bir bileşenin yaşam döngüsü yöntemleri ve Blazor tarafından oluşturulan tüm olay geri çağırmaları bu `SynchronizationContext` yürütülür. Bir bileşenin bir zamanlayıcı veya diğer bildirimler gibi dış bir olaya göre güncellenmesi gerekir, `SynchronizationContext` Blazor ' ye gönderilecek `InvokeAsync` yöntemini kullanın.
 
 Örneğin, güncelleştirilmiş durumdaki herhangi bir dinleme bileşenine bildirimde bulunan bir *bildirim hizmeti* düşünün:
 
@@ -774,7 +774,7 @@ Aşağıdaki örneği göz önünde bulundurun:
 }
 ```
 
-@No__t-0 koleksiyonunun içeriği, ekli, silinmiş veya yeniden sıralanmış girdilerle değişebilir. Bileşen yeniden oluşturulduğunda, `<DetailsEditor>` bileşeni farklı `Details` parametre değerleri almak için değişebilir. Bu, beklenenden daha karmaşık rerendering oluşmasına neden olabilir. Bazı durumlarda rerendering, kayıp öğe odağı gibi görünür davranış farklılıklarına yol açabilir.
+@No__t_0 koleksiyonun içerikleri, ekli, silinmiş veya yeniden sıralanmış girdilerle değişebilir. Bileşen yeniden oluşturulduğunda, `<DetailsEditor>` bileşeni farklı `Details` parametre değerleri almak için değişebilir. Bu, beklenenden daha karmaşık rerendering oluşmasına neden olabilir. Bazı durumlarda rerendering, kayıp öğe odağı gibi görünür davranış farklılıklarına yol açabilir.
 
 Eşleme işlemi `@key` yönergesi özniteliğiyle denetlenebilir. `@key`, anahtar değerine göre öğelerin veya bileşenlerin korunmasını güvence altına almak için dağıtılmış algoritmaya neden olur:
 
@@ -790,18 +790,18 @@ Eşleme işlemi `@key` yönergesi özniteliğiyle denetlenebilir. `@key`, anahta
 }
 ```
 
-@No__t-0 koleksiyonu değiştiğinde, yayılma algoritması `<DetailsEditor>` örnekleri ile `person` örnekleri arasındaki ilişkilendirmeyi korur:
+@No__t_0 koleksiyonu değiştiğinde, yayılma algoritması `<DetailsEditor>` örnekleri ve `person` örnekleri arasındaki ilişkilendirmeyi korur:
 
-* @No__t-0 `People` listesinden silinirse, yalnızca ilgili `<DetailsEditor>` örneği kullanıcı arabiriminden kaldırılır. Diğer örnekler değişmeden bırakılır.
-* @No__t-0 listedeki bir konuma eklenirse, ilgili konuma yeni bir `<DetailsEditor>` örnek eklenir. Diğer örnekler değişmeden bırakılır.
-* @No__t-0 girdileri yeniden sıralandıysanız, karşılık gelen `<DetailsEditor>` örnekleri korunur ve Kullanıcı arabiriminde yeniden sıralanır.
+* Bir `Person` `People` listesinden silinirse, yalnızca ilgili `<DetailsEditor>` örneği kullanıcı arabiriminden kaldırılır. Diğer örnekler değişmeden bırakılır.
+* Listedeki bir konuma `Person` eklenirse, ilgili konuma bir yeni `<DetailsEditor>` örneği eklenir. Diğer örnekler değişmeden bırakılır.
+* @No__t_0 girdileri yeniden sıralandıysanız, karşılık gelen `<DetailsEditor>` örnekleri korunur ve Kullanıcı arabiriminde yeniden sıralanır.
 
 Bazı senaryolarda `@key` kullanımı, rerendering karmaşıklığını en aza indirir ve odak konumu gibi DOM 'ın durum bilgisi olan kısımlarıyla ilgili olası sorunları önler.
 
 > [!IMPORTANT]
 > Anahtarlar her kapsayıcı öğesi veya bileşeni için yereldir. Anahtarlar belge genelinde küresel olarak karşılaştırılmaz.
 
-### <a name="when-to-use-key"></a>@No__t-0key ne zaman kullanılır?
+### <a name="when-to-use-key"></a>Ne zaman kullanılacağı \@key
 
 Genellikle, bir liste işlendiğinde (örneğin, bir `@foreach` bloğunda) ve `@key` tanımlamak için uygun bir değer olduğunda `@key` ' ı kullanmak mantıklı olur.
 
@@ -813,22 +813,22 @@ Bir nesne değiştiğinde Blazor 'in bir öğeyi veya bileşen alt ağacını en
 </div>
 ```
 
-@No__t-0 değişirse `@key` öznitelik yönergesi, Blazor tüm `<div>` ve alt öğelerini atmayı ve yeni öğeler ve bileşenlerle Kullanıcı arabiriminde alt ağacı yeniden oluşturmayı zorlar. Bu, `@currentPerson` değiştiğinde hiçbir Kullanıcı arabirimi durumunun korunmayacağını garanti etmeniz gerektiğinde yararlı olabilir.
+@No__t_0 değişirse `@key` Attribute yönergesi, tüm `<div>` ve alt öğelerini atmayı ve yeni öğeler ve bileşenlerle Kullanıcı arabiriminde alt ağacı yeniden oluşturmayı zorlar. Bu, `@currentPerson` değiştiğinde hiçbir Kullanıcı arabirimi durumunun korunmayacağını garanti etmeniz gerektiğinde yararlı olabilir.
 
-### <a name="when-not-to-use-key"></a>@No__t-0key ne zaman kullanılmaz
+### <a name="when-not-to-use-key"></a>Ne zaman kullanılmaz \@key
 
-@No__t-0 ile dağıtılmış bir performans maliyeti vardır. Performans maliyeti büyük değildir, ancak öğe veya bileşen koruma kuralları denetlenmediğinde yalnızca `@key` belirtin.
+@No__t_0 bir performans maliyeti vardır. Performans maliyeti büyük değildir, ancak öğe veya bileşen koruma kuralları denetlenmediğinde yalnızca `@key` belirtin.
 
-@No__t-0 kullanılmasa bile, Blazor alt öğe ve bileşen örneklerini mümkün olduğunca korur. @No__t-0 ' ı kullanmanın tek avantajı, model örneklerinin eşlemeyi seçme algoritması yerine, korunan bileşen örneklerine *nasıl* eşlendiğine ilişkin bir denetimdir.
+@No__t_0 kullanılmasa bile, Blazor alt öğe ve bileşen örneklerini mümkün olduğunca korur. @No__t_0 kullanmanın avantajı, model örneklerinin eşlemeyi seçme algoritması yerine, korunan bileşen örneklerine *nasıl* eşlendiğine ilişkin denetimdir.
 
-### <a name="what-values-to-use-for-key"></a>@No__t-0key için kullanılacak değerler
+### <a name="what-values-to-use-for-key"></a>@No__t_0key için kullanılacak değerler
 
 Genellikle, `@key` için aşağıdaki değer türlerinden birini sağlamak mantıklı olur:
 
 * Model nesne örnekleri (örneğin, önceki örnekte olduğu gibi `Person` örneği). Bu, nesne başvurusu eşitliğine göre koruma sağlar.
 * Benzersiz tanımlayıcılar (örneğin, `int`, `string` veya `Guid`) türündeki birincil anahtar değerleri.
 
-@No__t-0 için kullanılan değerlerin çakışmayın olduğundan emin olun. Aynı üst öğe içinde çakışan değerler algılanırsa, eski öğeleri veya bileşenleri yeni öğe veya bileşenlere kesin bir şekilde eşlemediğinden Blazor bir özel durum oluşturur. Yalnızca nesne örnekleri veya birincil anahtar değerleri gibi farklı değerleri kullanın.
+@No__t_0 için kullanılan değerlerin çakışmayın olduğundan emin olun. Aynı üst öğe içinde çakışan değerler algılanırsa, eski öğeleri veya bileşenleri yeni öğe veya bileşenlere kesin bir şekilde eşlemediğinden Blazor bir özel durum oluşturur. Yalnızca nesne örnekleri veya birincil anahtar değerleri gibi farklı değerleri kullanın.
 
 ## <a name="lifecycle-methods"></a>Yaşam döngüsü yöntemleri
 
@@ -876,7 +876,7 @@ protected override void OnParametersSet()
 
 `OnAfterRender` *sunucuda prerendering çağrıldığında çağrılmaz.*
 
-@No__t-1 ve `OnAfterRender` için `firstRender` parametresi:
+@No__t_1 ve `OnAfterRender` için `firstRender` parametresi:
 
 * Bileşen örneği ilk kez çağrıldığında `true` olarak ayarlayın.
 * Başlatma işinin yalnızca bir kez gerçekleştirildiğinden emin olur.
@@ -892,7 +892,7 @@ protected override async Task OnAfterRenderAsync(bool firstRender)
 ```
 
 > [!NOTE]
-> @No__t-0 yaşam döngüsü olayı sırasında, işleme hemen sonra zaman uyumsuz çalışma gerçekleşmelidir.
+> @No__t_0 yaşam döngüsü olayında, işleme hemen sonra zaman uyumsuz çalışma gerçekleşmelidir.
 
 ```csharp
 protected override void OnAfterRender(bool firstRender)
@@ -908,7 +908,7 @@ protected override void OnAfterRender(bool firstRender)
 
 Yaşam döngüsü olaylarında gerçekleştirilen zaman uyumsuz eylemler, bileşen işlenmeden önce tamamlanmamış olabilir. Yaşam döngüsü yöntemi yürütülürken nesneler `null` veya verilerle tamamen doldurulmuş olabilir. Nesnelerin başlatıldığını onaylamak için işleme mantığı sağlayın. Nesneler `null` olduğunda yer tutucu Kullanıcı arabirimi öğelerini (örneğin, bir yükleme iletisi) işleme.
 
-Blazor şablonlarının `FetchData` bileşeninde, `OnInitializedAsync`, Asychronously tahmin verileri al (`forecasts`) için geçersiz kılınır. @No__t-0 `null` olduğunda, kullanıcıya bir yükleme iletisi görüntülenir. @No__t-1 tarafından döndürülen `Task` ' ı tamamladıktan sonra, bileşen güncelleştirilmiş durumla yeniden yapılır.
+Blazor şablonlarının `FetchData` bileşeninde, `OnInitializedAsync`, Asychronously tahmin verileri al (`forecasts`) için geçersiz kılınır. @No__t_0 `null` olduğunda, kullanıcıya bir yükleme iletisi görüntülenir. @No__t_1 tamamlandığında döndürülen `Task`, bileşen güncelleştirilmiş durumla yeniden yapılır.
 
 *Pages/FetchData. Razor*:
 
@@ -927,11 +927,11 @@ public override void SetParameters(ParameterView parameters)
 }
 ```
 
-@No__t-0 çağrılmazsa, özel kod gelen parametreler değerini gerekli herhangi bir şekilde yorumlayabilir. Örneğin, gelen parametrelerin, sınıftaki özelliklere atanması gerekmez.
+@No__t_0 çağrılmazsa, özel kod gelen parametreler değerini gerekli herhangi bir şekilde yorumlayabilir. Örneğin, gelen parametrelerin, sınıftaki özelliklere atanması gerekmez.
 
 ### <a name="suppress-refreshing-of-the-ui"></a>Kullanıcı arabiriminin yenilenmesini gösterme
 
-`ShouldRender`, Kullanıcı arabiriminin yenilenmesini gizlemek için geçersiz kılınabilir. Uygulama `true` döndürürse, Kullanıcı arabirimi yenilenir. @No__t-0 geçersiz kılınsa bile, bileşen her zaman ilk olarak işlenir.
+`ShouldRender`, Kullanıcı arabiriminin yenilenmesini gizlemek için geçersiz kılınabilir. Uygulama `true` döndürürse, Kullanıcı arabirimi yenilenir. @No__t_0 geçersiz kılınsa bile, bileşen her zaman ilk olarak işlenir.
 
 ```csharp
 protected override bool ShouldRender()
@@ -960,11 +960,14 @@ Bir bileşen <xref:System.IDisposable> ' ı uygularsa, bileşen kullanıcı arab
 }
 ```
 
+> [!NOTE]
+> @No__t_1 `StateHasChanged` çağrısı desteklenmiyor. `StateHasChanged`, yırtılmış oluşturucunun parçası olarak çağrılabilir. Bu noktada UI güncelleştirmelerini isteme desteklenmiyor.
+
 ## <a name="routing"></a>Yönlendirme
 
 Blazor ' de yönlendirme, uygulamadaki her erişilebilir bileşene bir rota şablonu sunarak elde edilir.
 
-@No__t-0 yönergesi içeren bir Razor dosyası derlendiğinde, oluşturulan sınıfa yol şablonunu belirten bir <xref:Microsoft.AspNetCore.Mvc.RouteAttribute> verilir. Çalışma zamanında, yönlendirici `RouteAttribute` ile bileşen sınıflarına bakar ve hangi bileşenin istenen URL ile eşleşen bir rota şablonuna sahip olduğunu işler.
+@No__t_0 yönergesine sahip bir Razor dosyası derlendiğinde, oluşturulan sınıfa yol şablonunu belirten bir <xref:Microsoft.AspNetCore.Mvc.RouteAttribute> verilir. Çalışma zamanında, yönlendirici `RouteAttribute` ile bileşen sınıflarına bakar ve hangi bileşenin istenen URL ile eşleşen bir rota şablonuna sahip olduğunu işler.
 
 Birden çok yol şablonu, bir bileşene uygulanabilir. Aşağıdaki bileşen `/BlazorRoute` ve `/DifferentBlazorRoute` isteklerine yanıt verir:
 
@@ -980,21 +983,106 @@ Bileşenler, `@page` yönergesinde belirtilen yol şablonundan rota parametreler
 
 İsteğe bağlı parametreler desteklenmez, bu nedenle yukarıdaki örnekte iki `@page` yönergesi uygulanır. İlki, bir parametre olmadan bileşene gezinmesine izin verir. İkinci `@page` yönergesi `{text}` yol parametresini alır ve değeri `Text` özelliğine atar.
 
-## <a name="base-class-inheritance-for-a-code-behind-experience"></a>"Arka plan kod" deneyimi için temel sınıf devralma
+::: moniker range=">= aspnetcore-3.1"
 
-Bileşen dosyaları aynı dosyada HTML biçimlendirme C# ve işleme kodu karışımını. @No__t-0 yönergesi, bileşen işaretlemesini işleme kodundan ayıran "arka plan kod" deneyimiyle Blazor uygulamalar sağlamak için kullanılabilir.
+## <a name="partial-class-support"></a>Kısmi sınıf desteği
+
+Razor bileşenleri kısmi sınıflar olarak oluşturulur. Razor bileşenleri aşağıdaki yaklaşımlardan birini kullanarak yazılır:
+
+* C#kod, tek bir dosyada HTML işaretlemesi ve Razor kodu ile bir [@code](xref:mvc/views/razor#code) bloğunda tanımlanmıştır. Blazor şablonları bu yaklaşımı kullanarak Razor bileşenlerini tanımlar.
+* C#kod, kısmi sınıf olarak tanımlanan bir arka plan kod dosyasına yerleştirilir.
+
+Aşağıdaki örnek, Blazor şablonundan oluşturulan bir uygulamada bir `@code` bloğu olan varsayılan `Counter` bileşenini gösterir. HTML işaretleme, Razor kodu ve C# kod aynı dosyada:
+
+*Counter. Razor*:
+
+```cshtml
+@page "/counter"
+
+<h1>Counter</h1>
+
+<p>Current count: @currentCount</p>
+
+<button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
+
+@code {
+    int currentCount = 0;
+
+    void IncrementCount()
+    {
+        currentCount++;
+    }
+}
+```
+
+@No__t_0 bileşeni, kısmi bir sınıf içeren bir arka plan kod dosyası kullanılarak da oluşturulabilir:
+
+*Counter. Razor*:
+
+```cshtml
+@page "/counter"
+
+<h1>Counter</h1>
+
+<p>Current count: @currentCount</p>
+
+<button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
+```
+
+*Counter.Razor.cs*:
+
+```csharp
+namespace BlazorApp.Pages
+{
+    public partial class Counter
+    {
+        int currentCount = 0;
+
+        void IncrementCount()
+        {
+            currentCount++;
+        }
+    }
+}
+```
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.1"
+
+## <a name="specify-a-component-base-class"></a>Bir bileşen taban sınıfı belirtin
+
+@No__t_0 yönergesi, bir bileşen için temel sınıf belirtmek üzere kullanılabilir.
 
 [Örnek uygulama](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/blazor/common/samples/) , bileşenin özelliklerini ve yöntemlerini sağlamak için bir bileşenin `BlazorRocksBase` temel sınıfını nasıl devralmasını gösterir.
 
 *Pages/BlazorRocks. Razor*:
 
-[!code-cshtml[](common/samples/3.x/BlazorWebAssemblySample/Pages/BlazorRocks.razor?name=snippet_BlazorRocks)]
+```cshtml
+@page "/BlazorRocks"
+@inherits BlazorRocksBase
+
+<h1>@BlazorRocksText</h1>
+```
 
 *BlazorRocksBase.cs*:
 
-[!code-csharp[](common/samples/3.x/BlazorWebAssemblySample/Pages/BlazorRocksBase.cs)]
+```csharp
+using Microsoft.AspNetCore.Components;
+
+namespace BlazorSample
+{
+    public class BlazorRocksBase : ComponentBase
+    {
+        public string BlazorRocksText { get; set; } = 
+            "Blazor rocks the browser!";
+    }
+}
+```
 
 Temel sınıf `ComponentBase` ' dan türetilmelidir.
+
+::: moniker-end
 
 ## <a name="import-components"></a>Bileşenleri içeri aktar
 
@@ -1008,7 +1096,7 @@ Razor ile yazılan bir bileşenin ad alanı temel alınarak belirlenir (öncelik
 
 Farklı bir ad alanında tanımlanan bileşenler, Razor 'nin [@using](xref:mvc/views/razor#using) yönergesi kullanılarak kapsam içine getirilir.
 
-@No__t-0 adlı başka bir bileşen *BlazorSample/Shared/* klasöründe varsa, bileşen aşağıdaki `@using` ifadesiyle `Index.razor` ' de kullanılabilir:
+*BlazorSample/Shared/* klasöründe `NavMenu.razor` başka bir bileşen varsa, bileşen aşağıdaki `@using` ifadesiyle `Index.razor` kullanılabilir:
 
 ```cshtml
 @using BlazorSample.Shared
@@ -1027,7 +1115,7 @@ This is the Index page.
 ```
 
 > [!NOTE]
-> @No__t-0 niteliği desteklenmez.
+> @No__t_0 niteleme desteklenmiyor.
 >
 > Diğer ad `using` deyimleriyle bileşenleri içeri aktarma (örneğin, `@using Foo = Bar`) desteklenmez.
 >
@@ -1048,13 +1136,13 @@ Aşağıdaki örnekte `IsCompleted` öğesi öğenin biçimlendirmesinde `checke
 }
 ```
 
-@No__t-0 `true` ise, onay kutusu şu şekilde işlenir:
+@No__t_0 `true`, onay kutusu şu şekilde işlenir:
 
 ```html
 <input type="checkbox" checked />
 ```
 
-@No__t-0 `false` ise, onay kutusu şu şekilde işlenir:
+@No__t_0 `false`, onay kutusu şu şekilde işlenir:
 
 ```html
 <input type="checkbox" />
@@ -1188,7 +1276,7 @@ public class ThemeInfo
 }
 ```
 
-Bir üst bileşen basamaklı değer bileşeni kullanılarak basamaklı bir değer sağlayabilir. @No__t-0 bileşeni, bileşen hiyerarşisinin bir alt ağacını sarmalanmış ve bu alt ağaçta bulunan tüm bileşenlere tek bir değer sağlar.
+Bir üst bileşen basamaklı değer bileşeni kullanılarak basamaklı bir değer sağlayabilir. @No__t_0 bileşeni, bileşen hiyerarşisinin bir alt ağacını sarmalanmış ve bu alt ağaçta bulunan tüm bileşenlere tek bir değer sağlar.
 
 Örneğin, örnek uygulama, `@Body` özelliğinin düzen gövdesini oluşturan tüm bileşenler için bir geçişli parametre olarak uygulamanın düzenlerindeki tema bilgilerini (`ThemeInfo`) belirtir. `ButtonClass` ' a, düzen bileşeninde `btn-success` değeri atanır. Tüm alt bileşenler, `ThemeInfo` basamaklı nesne aracılığıyla bu özelliği kullanabilir.
 
@@ -1299,7 +1387,7 @@ Basamaklı parametreler, bileşenlerin bileşen hiyerarşisinde işbirliği yapm
 
 [!code-csharp[](common/samples/3.x/BlazorWebAssemblySample/UIInterfaces/ITab.cs)]
 
-@No__t-0 bileşeni, çeşitli `Tab` bileşenleri içeren `TabSet` bileşenini kullanır:
+@No__t_0 bileşeni, çeşitli `Tab` bileşenleri içeren `TabSet` bileşenini kullanır:
 
 [!code-cshtml[](common/samples/3.x/BlazorWebAssemblySample/Pages/CascadingValuesParametersTabSet.razor?name=snippet_TabSet)]
 
@@ -1309,7 +1397,7 @@ Alt `Tab` bileşenleri, `TabSet` ' e açıkça parametre olarak geçirilmemekted
 
 [!code-cshtml[](common/samples/3.x/BlazorWebAssemblySample/Components/TabSet.razor)]
 
-@No__t-0 bileşenleri, kapsayan `TabSet` ' i basamaklı bir parametre olarak yakalar, bu nedenle `Tab` bileşenleri kendilerini `TabSet` ' e ekler ve sekmenin etkin olduğu koordine edilir.
+Alt `Tab` bileşenleri, kapsayan `TabSet` kendisini basamaklı bir parametre olarak yakalar, bu nedenle `Tab` bileşenleri kendilerini `TabSet` ve bu sekmenin etkin olduğu koordine eder.
 
 `Tab` bileşeni:
 
@@ -1371,7 +1459,7 @@ Başka bir bileşende el ile kullanılabilecek aşağıdaki `PetDetails` bileşe
 }
 ```
 
-Aşağıdaki örnekte, `CreateComponent` yöntemindeki döngü üç `PetDetails` bileşeni oluşturur. Bileşenleri oluşturmak için `RenderTreeBuilder` yöntemleri çağrılırken (`OpenComponent` ve `AddAttribute`), dizi numaraları kaynak kodu satır sayılarıdır. Blazor fark algoritması, ayrı çağrı etkinleştirmeleri değil ayrı kod satırlarına karşılık gelen sıra numaralarına dayanır. @No__t-0 yöntemleriyle bir bileşen oluştururken, dizi numaralarına yönelik bağımsız değişkenleri sabit olarak kodlayın. **Sıra numarasını oluşturmak için bir hesaplama veya sayaç kullanmak kötü performansa neden olabilir.** Daha fazla bilgi için bkz. [kod satırı numaralarıyla Ilgili sıra numaraları ve yürütme sırası çalışmıyor](#sequence-numbers-relate-to-code-line-numbers-and-not-execution-order) bölümü.
+Aşağıdaki örnekte, `CreateComponent` yöntemindeki döngü üç `PetDetails` bileşeni oluşturur. Bileşenleri oluşturmak için `RenderTreeBuilder` yöntemleri çağrılırken (`OpenComponent` ve `AddAttribute`), dizi numaraları kaynak kodu satır sayılarıdır. Blazor fark algoritması, ayrı çağrı etkinleştirmeleri değil ayrı kod satırlarına karşılık gelen sıra numaralarına dayanır. @No__t_0 yöntemlerle bir bileşen oluştururken, dizi numaraları için bağımsız değişkenleri sabit olarak kodlayın. **Sıra numarasını oluşturmak için bir hesaplama veya sayaç kullanmak kötü performansa neden olabilir.** Daha fazla bilgi için bkz. [kod satırı numaralarıyla Ilgili sıra numaraları ve yürütme sırası çalışmıyor](#sequence-numbers-relate-to-code-line-numbers-and-not-execution-order) bölümü.
 
 `BuiltContent` bileşeni:
 
@@ -1443,7 +1531,7 @@ Kod ilk kez yürütüldüğünde, `someFlag` `true` ise, Oluşturucu şunları a
 | 0        | Metin düğümü | Adı  |
 | 1\.        | Metin düğümü | Saniye |
 
-@No__t-0 `false` ' in olduğunu düşünün ve biçimlendirme yeniden işlenir. Bu kez, Oluşturucu şunları alır:
+@No__t_0 `false` hale geldiğini ve biçimlendirmenin yeniden işleneceğini varsayın. Bu kez, Oluşturucu şunları alır:
 
 | Sequence | Tür       | Veri   |
 | :------: | ---------- | :----: |
@@ -1494,7 +1582,7 @@ Bu, önemsiz bir örnektir. Karmaşık ve derin iç içe yapıları ve özellikl
 
 * Sıra numaraları dinamik olarak oluşturulursa uygulama performansı de vardır.
 * Altyapı, derleme zamanında yakalanmadığı takdirde gerekli bilgiler bulunmadığından, çalışma zamanında kendi sıra numaralarını otomatik olarak oluşturamaz.
-* El ile uygulanan `RenderTreeBuilder` Logic uzun bloklar yazmayın. @No__t-0 dosyalarını tercih edin ve derleyicinin sıra numaralarıyla uğraşmak için izin verin. @No__t-0 mantığının el ile kurtulamadıysanız, uzun kod bloklarını `OpenRegion` @ no__t-2 @ no__t-3 çağrılarında kaydırılmış daha küçük parçalara ayırın. Her bölge kendi ayrı dizi numaralarına sahiptir, bu nedenle her bölge içinde sıfırdan (veya herhangi bir rastgele sayıdan) yeniden başlatabilirsiniz.
+* El ile uygulanan `RenderTreeBuilder` Logic uzun bloklar yazmayın. @No__t_0 dosyalarını tercih edin ve derleyicinin sıra numaralarıyla uğraşmak için izin verin. El ile `RenderTreeBuilder` mantığın olmaması durumunda, uzun kod bloklarını `OpenRegion` / `CloseRegion` çağrılarına kaydırılmış daha küçük parçalara ayırın. Her bölge kendi ayrı dizi numaralarına sahiptir, bu nedenle her bölge içinde sıfırdan (veya herhangi bir rastgele sayıdan) yeniden başlatabilirsiniz.
 * Dizi numaraları sabit kodluysa, fark algoritması yalnızca değer değerinde sıra numaralarının artırılmasını gerektirir. İlk değer ve boşluklar ilgisiz. Tek bir seçenek, kod satırı numarasını sıra numarası olarak kullanmak veya sıfırdan başlayıp bir ya da yüzlerce (ya da tercih edilen aralığa) artırmak için kullanılır. 
 * Blazor, sıra numaralarını kullanır, diğer ağaç dağıtma Kullanıcı arabirimi çerçeveleri bunları kullanmaz. Dizi numaraları kullanıldığında ve Blazor, `.razor` dosyalarını yazan geliştiriciler için otomatik olarak sıra numaralarıyla ilgilenen bir derleme adımının avantajına sahiptir.
 
@@ -1545,7 +1633,7 @@ Yerelleştirme uygulamada işlenir:
 
 ## <a name="provide-ui-to-choose-the-culture"></a>Kültürü seçmek için Kullanıcı arabirimi sağlama
 
-Bir kullanıcının bir kültür seçmesine izin vermek için kullanıcı ARABIRIMI sağlamak üzere bir *yeniden yönlendirme tabanlı yaklaşım* önerilir. Bu işlem, bir Kullanıcı güvenli bir kaynağa erişmeye çalıştığında bir Web uygulamasında gerçekleşmelere benzer @ no__t-0kullanıcı oturum açma sayfasına yönlendirilir ve ardından özgün kaynağa yeniden yönlendirilir. 
+Bir kullanıcının bir kültür seçmesine izin vermek için kullanıcı ARABIRIMI sağlamak üzere bir *yeniden yönlendirme tabanlı yaklaşım* önerilir. Bu işlem, bir Kullanıcı güvenli bir kaynağa erişmeyi denediğinde bir Web uygulamasında gerçekleşmelere benzer &mdash;the Kullanıcı, oturum açma sayfasına yönlendirilir ve ardından özgün kaynağa yeniden yönlendirilir. 
 
 Uygulama, bir denetleyiciye yeniden yönlendirme yoluyla kullanıcının seçili kültürünü devam ettirir. Denetleyici kullanıcının seçili kültürünü bir tanımlama bilgisine ayarlar ve kullanıcıyı özgün URI 'ye yeniden yönlendirir.
 

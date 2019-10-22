@@ -6,21 +6,33 @@ Tarayıcı bağlantısı kurulana kadar JavaScript birlikte çalışma çağrıl
 @using Microsoft.JSInterop
 @inject IJSRuntime JSRuntime
 
-<input @ref="myInput" value="Value set during render" />
+<div @ref="divElement">Text during render</div>
 
 @code {
-    private ElementReference myInput;
+    private ElementReference divElement;
 
-    protected override void OnAfterRender(bool firstRender)
+    protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender)
         {
-            JSRuntime.InvokeVoidAsync(
-                "setElementValue", myInput, "Value set after render");
+            await JSRuntime.InvokeVoidAsync(
+                "setElementText", divElement, "Text after render");
         }
     }
 }
 ```
+
+Yukarıdaki örnek kod için, *Wwwroot/index.html* (Blazor WebAssembly) veya *Pages/_host. cshtml* (Blazor Server) öğesinin `<head>` öğesi içinde bir `setElementText` JavaScript işlevi sağlayın. İşlevi `IJSRuntime.InvokeVoidAsync` ile çağrılır ve bir değer döndürmez:
+
+```html
+<!--  -->
+<script>
+  window.setElementText = (element, text) => element.innerText = text;
+</script>
+```
+
+> [!WARNING]
+> Yukarıdaki örnek yalnızca tanıtım amacıyla Belge Nesne Modeli (DOM) değiştirir. JavaScript, Blazor 'in değişiklik izlemesini kesintiye uğradığı için çoğu senaryoda, JavaScript ile DOM 'ı doğrudan değiştirme önerilmez.
 
 Aşağıdaki bileşen, prerendering ile uyumlu bir şekilde bileşenin başlatma mantığının bir parçası olarak JavaScript birlikte çalışabilirinin nasıl kullanılacağını göstermektedir. Bileşeni, `OnAfterRenderAsync` içinden bir işleme güncelleştirmesi tetiklemenin mümkün olduğunu gösterir. Geliştirici Bu senaryoda sonsuz bir döngü oluşturmaktan kaçınmalıdır.
 
@@ -39,24 +51,36 @@ Aşağıdaki bileşen, prerendering ile uyumlu bir şekilde bileşenin başlatma
     <strong id="val-get-by-interop">@(infoFromJs ?? "No value yet")</strong>
 </p>
 
-<p>
-    Set value via JS interop call:
-    <input id="val-set-by-interop" @ref="myElem" />
-</p>
+Set value via JS interop call:
+<div id="val-set-by-interop" @ref="divElement"></div>
 
 @code {
     private string infoFromJs;
-    private ElementReference myElem;
+    private ElementReference divElement;
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender && infoFromJs == null)
         {
             infoFromJs = await JSRuntime.InvokeAsync<string>(
-                "setElementValue", myElem, "Hello from interop call");
+                "setElementText", divElement, "Hello from interop call!");
 
             StateHasChanged();
         }
     }
 }
 ```
+
+Yukarıdaki örnek kod için, *Wwwroot/index.html* (Blazor WebAssembly) veya *Pages/_host. cshtml* (Blazor Server) öğesinin `<head>` öğesi içinde bir `setElementText` JavaScript işlevi sağlayın. İşlevi `IJSRuntime.InvokeAsync` ile çağrılır ve bir değer döndürür:
+
+```html
+<script>
+  window.setElementText = (element, text) => {
+    element.innerText = text;
+    return text;
+  };
+</script>
+```
+
+> [!WARNING]
+> Yukarıdaki örnek yalnızca tanıtım amacıyla Belge Nesne Modeli (DOM) değiştirir. JavaScript, Blazor 'in değişiklik izlemesini kesintiye uğradığı için çoğu senaryoda, JavaScript ile DOM 'ı doğrudan değiştirme önerilmez.
