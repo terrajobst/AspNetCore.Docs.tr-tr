@@ -5,14 +5,14 @@ description: Tercih ettiğiniz araç ile bir Blazor uygulaması oluşturarak Bla
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/15/2019
+ms.date: 10/21/2019
 uid: blazor/get-started
-ms.openlocfilehash: fc368be5eb2e5d8f7c80071dc86a02ae986a685f
-ms.sourcegitcommit: 35a86ce48041caaf6396b1e88b0472578ba24483
+ms.openlocfilehash: 80ff7b42a44e722dd27bc4fde53a066863448e10
+ms.sourcegitcommit: 810d5831169770ee240d03207d6671dabea2486e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72391048"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72779120"
 ---
 # <a name="get-started-with-aspnet-core-blazor"></a>ASP.NET Core Blazor kullanmaya başlama
 
@@ -46,7 +46,7 @@ Blazor kullanmaya başlama:
 
    5 \. Blazor WebAssembly deneyimi için **Blazor Webassembly uygulama** şablonunu seçin. Blazor sunucu deneyimi için **Blazor Server uygulama** şablonunu seçin. **Oluştur**' u seçin. İki Blazor barındırma modeli, *Blazor Server* ve *Blazor webassembly*hakkında daha fazla bilgi için bkz. <xref:blazor/hosting-models>.
 
-   6 \. Uygulamayı çalıştırmak için **F5** tuşuna basın.
+   6 \. Uygulamayı çalıştırmak için **Ctrl** +**F5** tuşuna basın.
 
    > [!NOTE]
    > ASP.NET Core Blazor 'nin önceki bir önizleme sürümü için Blazor Visual Studio uzantısı 'nı yüklediyseniz (Preview 6 veya daha önceki bir sürümü), uzantıyı kaldırabilirsiniz. Blazor şablonlarının bir komut kabuğu 'na yüklenmesi artık Visual Studio 'daki şablonları yüzey için yeterlidir.
@@ -246,9 +246,9 @@ En üstteki `@page` yönergesinde belirtilen şekilde tarayıcıda `/counter` i�
 
 **Bana tıklama** düğmesi her seçildiğinde:
 
-* @No__t-0 olayı tetiklenir.
-* @No__t-0 yöntemi çağrılır.
-* @No__t-0 artırılır.
+* @No__t_0 olayı tetiklenir.
+* @No__t_0 yöntemi çağrılır.
+* @No__t_0 artırılır.
 * Bileşen yeniden işlenir.
 
 Çalışma zamanı, yeni içeriği önceki içerikle karşılaştırır ve yalnızca değiştirilen içeriği Belge Nesne Modeli (DOM) öğesine uygular.
@@ -261,10 +261,10 @@ HTML sözdizimini kullanarak başka bir bileşene bileşen ekleyin. Örneğin, `
 
 Uygulamayı çalıştırın. Giriş sayfasının `Counter` bileşeni tarafından sağlanmış kendi sayacı vardır.
 
-Bileşen parametreleri, alt bileşende özellikler ayarlamanıza olanak tanıyan öznitelikler veya [alt içerik](xref:blazor/components#child-content)kullanılarak belirtilir. @No__t-0 bileşenine bir parametre eklemek için, bileşenin `@code` bloğunu güncelleştirin:
+Bileşen parametreleri, alt bileşende özellikler ayarlamanıza olanak tanıyan öznitelikler veya [alt içerik](xref:blazor/components#child-content)kullanılarak belirtilir. @No__t_0 bileşenine bir parametre eklemek için, bileşenin `@code` bloğunu güncelleştirin:
 
-* @No__t-1 özniteliğiyle `IncrementAmount` için ortak özellik ekleyin.
-* @No__t-0 yöntemini `currentCount` değerini artırdığınızda `IncrementAmount` ' i kullanacak şekilde değiştirin.
+* @No__t_1 özniteliğiyle `IncrementAmount` için ortak özellik ekleyin.
+* @No__t_2 değerini artırdığınızda `IncrementAmount` kullanmak için `IncrementCount` yöntemini değiştirin.
 
 *Pages/Counter. Razor*:
 
@@ -276,7 +276,7 @@ Bir özniteliği kullanarak `Index` bileşeninin `<Counter>` öğesinde `Increme
 
 [!code-cshtml[](get-started/samples_snapshot/3.x/Index2.razor?highlight=7)]
 
-Uygulamayı çalıştırın. @No__t-0 bileşeni, **bana tıklama** düğmesi seçildiğinde her seferinde on ile artan kendi sayacıdır. @No__t-2 ' deki `Counter` bileşeni (*Counter. Razor*) bir artış ile devam eder.
+Uygulamayı çalıştırın. @No__t_0 bileşeni, **bana tıklama** düğmesi seçildiğinde her seferinde on ile artan kendi sayacıdır. @No__t_2 `Counter` bileşeni (*Counter. Razor*), bir tarafından arttırmaya devam eder.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
