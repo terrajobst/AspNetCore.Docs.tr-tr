@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 7/23/2019
 uid: tutorials/razor-pages/new-field
-ms.openlocfilehash: 1b08e1515afe656b95be9fb436caa00cd53ab9ad
-ms.sourcegitcommit: 07d98ada57f2a5f6d809d44bdad7a15013109549
+ms.openlocfilehash: b31711eb6f797de2de1559a3303e14b32a88f1ff
+ms.sourcegitcommit: b3ebf96560b75b752d0e71161d788da800ad0999
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72334099"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72822377"
 ---
 # <a name="add-a-new-field-to-a-razor-page-in-aspnet-core"></a>ASP.NET Core Razor sayfasına yeni bir alan ekleyin
 
@@ -43,6 +43,8 @@ Uygulamayı derleyin.
 
 *Pages/filmlerini/Index. cshtml*dosyasını düzenleyin ve `Rating` alanı ekleyin:
 
+<a name="addrat"></a>
+
 [!code-cshtml[](razor-pages-start/sample/RazorPagesMovie30/SnapShots/IndexRating.cshtml?highlight=40-42,62-64)]
 
 Aşağıdaki sayfaları güncelleştirin:
@@ -51,11 +53,11 @@ Aşağıdaki sayfaları güncelleştirin:
 * [Create. cshtml](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie30/Pages/Movies/Create.cshtml) dosyasını `Rating` alanıyla güncelleştirin.
 * Düzenleme sayfasına `Rating` alanını ekleyin.
 
-VERITABANı yeni alanı içerecek şekilde güncelleştirilene kadar uygulama çalışmaz. Veritabanını güncelleştirmeden uygulamayı çalıştırmak bir @no__t oluşturur-0:
+VERITABANı yeni alanı içerecek şekilde güncelleştirilene kadar uygulama çalışmaz. Veritabanını güncelleştirmeden uygulamayı çalıştırmak bir `SqlException`oluşturur:
 
 `SqlException: Invalid column name 'Rating'.`
 
-@No__t-0 özel durumu, güncelleştirilmiş film modeli sınıfının, veritabanının film tablosunun şemasından farklı olmasından kaynaklanır. (Veritabanı tablosunda `Rating` sütunu yoktur.)
+`SqlException` özel durumu, güncelleştirilmiş film modeli sınıfının, veritabanının film tablosunun şemasından farklı olmasından kaynaklanır. (Veritabanı tablosunda `Rating` sütunu yoktur.)
 
 Hatayı çözmek için birkaç yaklaşım vardır:
 
@@ -67,7 +69,7 @@ Hatayı çözmek için birkaç yaklaşım vardır:
 
 Bu öğretici için Code First Migrations kullanın.
 
-@No__t-0 sınıfını yeni sütun için bir değer sağlayacak şekilde güncelleştirin. Aşağıda örnek bir değişiklik gösterilmektedir, ancak her bir `new Movie` bloğu için bu değişikliği yapmak isteyeceksiniz.
+`SeedData` sınıfını yeni sütun için bir değer sağlayacak şekilde güncelleştirin. Aşağıda örnek bir değişiklik gösterilmektedir, ancak her bir `new Movie` bloğu için bu değişikliği yapmak isteyeceksiniz.
 
 [!code-csharp[](razor-pages-start/sample/RazorPagesMovie30/Models/SeedDataRating.cs?name=snippet1&highlight=8)]
 
@@ -89,14 +91,14 @@ Add-Migration Rating
 Update-Database
 ```
 
-@No__t-0 komutu, çerçeveye şunları belirtir:
+`Add-Migration` komutu, çerçeveye şunları belirtir:
 
-* @No__t-0 modelini `Movie` DB şemasıyla karşılaştırın.
+* `Movie` modelini `Movie` DB şemasıyla karşılaştırın.
 * DB şemasını yeni modele geçirmek için kod oluşturun.
 
 "Derecelendirme" adı rastgele olur ve geçiş dosyasını adlandırmak için kullanılır. Geçiş dosyası için anlamlı bir ad kullanılması yararlı olur.
 
-@No__t-0 komutu, çerçeveye şema değişikliklerinin veritabanına uygulanmasını ve mevcut verilerin korunmasını söyler.
+`Update-Database` komutu, çerçeveye şema değişikliklerini uygulamaya ve var olan verileri korumanıza bildirir.
 
 <a name="ssox"></a>
 
@@ -137,7 +139,8 @@ Uygulamayı çalıştırın ve `Rating` alanı ile film oluşturabileceğiniz/d�
 * [Bu öğreticinin YouTube sürümü](https://youtu.be/3i7uMxiGGR8)
 
 > [!div class="step-by-step"]
-> [Previous: arama @no__t ekleme](xref:tutorials/razor-pages/search)-1[Next: doğrulama ekleme](xref:tutorials/razor-pages/validation)
+> [Önceki: arama](xref:tutorials/razor-pages/search)
+> ekleme [Sonraki: doğrulama ekleme](xref:tutorials/razor-pages/validation)
 
 ::: moniker-end
 
@@ -175,7 +178,7 @@ Aşağıdaki sayfaları güncelleştirin:
 * [Create. cshtml](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie22/Pages/Movies/Create.cshtml) dosyasını `Rating` alanıyla güncelleştirin.
 * Düzenleme sayfasına `Rating` alanını ekleyin.
 
-VERITABANı yeni alanı içerecek şekilde güncelleştirilene kadar uygulama çalışmaz. Şimdi çalıştırırsanız, uygulama bir @no__t atar-0:
+VERITABANı yeni alanı içerecek şekilde güncelleştirilene kadar uygulama çalışmaz. Şimdi çalıştırırsanız, uygulama bir `SqlException`oluşturur:
 
 `SqlException: Invalid column name 'Rating'.`
 
@@ -191,7 +194,7 @@ Hatayı çözmek için birkaç yaklaşım vardır:
 
 Bu öğretici için Code First Migrations kullanın.
 
-@No__t-0 sınıfını yeni sütun için bir değer sağlayacak şekilde güncelleştirin. Aşağıda örnek bir değişiklik gösterilmektedir, ancak her bir `new Movie` bloğu için bu değişikliği yapmak isteyeceksiniz.
+`SeedData` sınıfını yeni sütun için bir değer sağlayacak şekilde güncelleştirin. Aşağıda örnek bir değişiklik gösterilmektedir, ancak her bir `new Movie` bloğu için bu değişikliği yapmak isteyeceksiniz.
 
 [!code-csharp[](razor-pages-start/sample/RazorPagesMovie22/Models/SeedDataRating.cs?name=snippet1&highlight=8)]
 
@@ -213,14 +216,14 @@ Add-Migration Rating
 Update-Database
 ```
 
-@No__t-0 komutu, çerçeveye şunları belirtir:
+`Add-Migration` komutu, çerçeveye şunları belirtir:
 
-* @No__t-0 modelini `Movie` DB şemasıyla karşılaştırın.
+* `Movie` modelini `Movie` DB şemasıyla karşılaştırın.
 * DB şemasını yeni modele geçirmek için kod oluşturun.
 
 "Derecelendirme" adı rastgele olur ve geçiş dosyasını adlandırmak için kullanılır. Geçiş dosyası için anlamlı bir ad kullanılması yararlı olur.
 
-@No__t-0 komutu, çerçeveye şema değişikliklerini veritabanına uygulamasını söyler.
+`Update-Database` komutu, çerçeveye şema değişikliklerini veritabanına uygulamasını söyler.
 
 <a name="ssox"></a>
 
@@ -259,6 +262,7 @@ Uygulamayı çalıştırın ve `Rating` alanı ile film oluşturabileceğiniz/d�
 * [Bu öğreticinin YouTube sürümü](https://youtu.be/3i7uMxiGGR8)
 
 > [!div class="step-by-step"]
-> [Previous: arama @no__t ekleme](xref:tutorials/razor-pages/search)-1[Next: doğrulama ekleme](xref:tutorials/razor-pages/validation)
+> [Önceki: arama](xref:tutorials/razor-pages/search)
+> ekleme [Sonraki: doğrulama ekleme](xref:tutorials/razor-pages/validation)
 
 ::: moniker-end
