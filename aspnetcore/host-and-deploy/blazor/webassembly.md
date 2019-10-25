@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/15/2019
 uid: host-and-deploy/blazor/webassembly
-ms.openlocfilehash: 8ff3f7b089b7aec6b1a6be2c85f24cfb9674b684
-ms.sourcegitcommit: 35a86ce48041caaf6396b1e88b0472578ba24483
+ms.openlocfilehash: 943dbb772d9a7bcb337012c126828d1ab4eb545c
+ms.sourcegitcommit: 383017d7060a6d58f6a79cf4d7335d5b4b6c5659
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72391327"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72816056"
 ---
 # <a name="host-and-deploy-aspnet-core-blazor-webassembly"></a>Barındırma ve dağıtım ASP.NET Core Blazor WebAssembly
 
@@ -44,9 +44,9 @@ Uygulamanın varsayılan belgesi, tarayıcının adres çubuğu kullanılarak is
 1. uygulamanın *index. html* önyükleme.
 1. Blazor 'in yönlendirici yükleri ve Razor `Main` bileşeni işlenir.
 
-Ana sayfada, Blazor yönlendiricisi tarayıcının Internet üzerinde @no__t-@no__t 2 için `www.contoso.com` ' e yönelik bir istek yapmasını durdurduğundan `About` bileşeninin bağlantısını seçtiğinizde istemci üzerinde çalışır. *Blazor WebAssembly uygulamasındaki* iç uç noktalara yönelik tüm istekler aynı şekilde çalışır: istekler tarayıcı tabanlı istekleri Internet 'teki sunucu tarafından barındırılan kaynaklara tetiklemez. Yönlendirici istekleri dahili olarak işler.
+Ana sayfada, Blazor yönlendiricisi tarayıcının `www.contoso.com` Internet üzerinde `About` için bir istek yapmasını durdurduğundan ve işlenmiş `About` bileşeninin kendisini hizmet ettiğinden, `About` bileşen bağlantısını seçmek istemcide çalışır. *Blazor WebAssembly uygulamasındaki* iç uç noktalara yönelik tüm istekler aynı şekilde çalışır: istekler tarayıcı tabanlı istekleri Internet 'teki sunucu tarafından barındırılan kaynaklara tetiklemez. Yönlendirici istekleri dahili olarak işler.
 
-@No__t-0 için tarayıcının adres çubuğu kullanılarak bir istek yapılırsa, istek başarısız olur. Uygulamanın Internet ana bilgisayarında böyle bir kaynak yok, bu nedenle *404-bulunamayan* bir yanıt döndürülür.
+`www.contoso.com/About`için tarayıcının adres çubuğu kullanılarak bir istek yapılırsa, istek başarısız olur. Uygulamanın Internet ana bilgisayarında böyle bir kaynak yok, bu nedenle *404-bulunamayan* bir yanıt döndürülür.
 
 Tarayıcılar, istemci tarafı sayfaları için Internet tabanlı konaklara istek yaptığından, Web sunucuları ve barındırma hizmetleri, fiziksel olarak sunucu üzerinde olmayan kaynakların tüm isteklerini *Dizin. html* sayfasına yeniden yazmalıdır. *İndex. html* döndürüldüğünde, uygulamanın Blazor yönlendiricisi, doğru kaynakla yararlanır ve yanıt verir.
 
@@ -119,7 +119,7 @@ Tek başına bir uygulama bir IIS alt uygulaması olarak barındırılıyorsa, a
   </handlers>
   ```
 
-* @No__t-2 @no__t 3 olarak ayarlanan `<location>` öğesi kullanarak kök (üst) uygulamanın `<system.webServer>` bölümünü devralmayı devre dışı bırakın:
+* `inheritInChildApplications` `false`olarak ayarlanan `<location>` bir öğesi kullanarak kök (üst) uygulamanın `<system.webServer>` bölümünü devralmayı devre dışı bırakın:
 
   ```xml
   <?xml version="1.0" encoding="utf-8"?>
@@ -186,11 +186,59 @@ COPY ./bin/Release/netstandard2.0/publish /usr/share/nginx/html/
 COPY nginx.conf /etc/nginx/nginx.conf
 ```
 
+### <a name="apache"></a>Apache
+
+CentOS 7 veya sonraki bir Blazor WebAssembly uygulamasını dağıtmak için:
+
+1. Apache yapılandırma dosyasını oluşturun. Aşağıdaki örnek basitleştirilmiş bir yapılandırma dosyasıdır (*blazorapp. config*):
+
+   ```
+   <VirtualHost *:80>
+       ServerName www.example.com
+       ServerAlias *.example.com
+
+       DocumentRoot "/var/www/blazorapp"
+       ErrorDocument 404 /index.html
+
+       AddType aplication/wasm .wasm
+       AddType application/octet-stream .dll
+   
+       <Directory "/var/www/blazorapp">
+           Options -Indexes
+           AllowOverride None
+       </Directory>
+
+       <IfModule mod_deflate.c>
+           AddOutputFilterByType DEFLATE text/css
+           AddOutputFilterByType DEFLATE application/javascript
+           AddOutputFilterByType DEFLATE text/html
+           AddOutputFilterByType DEFLATE application/octet-stream
+           AddOutputFilterByType DEFLATE application/wasm
+           <IfModule mod_setenvif.c>
+           BrowserMatch ^Mozilla/4 gzip-only-text/html
+           BrowserMatch ^Mozilla/4.0[678] no-gzip
+           BrowserMatch bMSIE !no-gzip !gzip-only-text/html
+       </IfModule>
+       </IfModule>
+
+       ErrorLog /var/log/httpd/blazorapp-error.log
+       CustomLog /var/log/httpd/blazorapp-access.log common
+   </VirtualHost>
+   ```
+
+1. Apache yapılandırma dosyasını, CentOS 7 ' de varsayılan Apache yapılandırma dizini olan `/etc/httpd/conf.d/` dizinine yerleştirin.
+
+1. Uygulamanın dosyalarını `/var/www/blazorapp` dizinine yerleştirin (yapılandırma dosyasına `DocumentRoot` için belirtilen konum).
+
+1. Apache hizmetini yeniden başlatın.
+
+Daha fazla bilgi için bkz. [mod_mime](https://httpd.apache.org/docs/2.4/mod/mod_mime.html) and [mod_deflate](https://httpd.apache.org/docs/current/mod/mod_deflate.html).
+
 ### <a name="github-pages"></a>GitHub sayfaları
 
 URL yeniden işlemesini işlemek için, isteği *index. html* sayfasına yönlendirmeyi işleyen bir betiği olan bir *404. html* dosyası ekleyin. Topluluk tarafından sunulan örnek bir uygulama için bkz. [GitHub sayfaları Için tek sayfalı uygulamalar](https://spa-github-pages.rafrex.com/) ([GitHub üzerinde rafrex/Spa-GitHub-Pages](https://github.com/rafrex/spa-github-pages#readme)). Topluluk yaklaşımını kullanan bir örnek, GitHub ([canlı site](https://blazor-demo.github.io/)) [üzerinde blazor-demo/blazor-demo. GitHub. IO](https://github.com/blazor-demo/blazor-demo.github.io) adresinde görülebilir.
 
-Bir kuruluş sitesi yerine bir proje sitesi kullanırken, *index. html*dosyasına `<base>` etiketi ekleyin veya güncelleştirin. @No__t-0 öznitelik değerini GitHub deposu adına sondaki eğik çizgiyle (örneğin, `my-repository/`) ayarlayın.
+Bir kuruluş sitesi yerine bir proje sitesi kullanırken, *index. html*dosyasına `<base>` etiketi ekleyin veya güncelleştirin. `href` öznitelik değerini, sondaki eğik çizgiyle (örneğin, `my-repository/`) GitHub depo adına ayarlayın.
 
 ## <a name="host-configuration-values"></a>Ana bilgisayar yapılandırma değerleri
 
@@ -198,7 +246,7 @@ Bir kuruluş sitesi yerine bir proje sitesi kullanırken, *index. html*dosyasın
 
 ### <a name="content-root"></a>İçerik kökü
 
-@No__t-0 bağımsız değişkeni, uygulamanın içerik dosyalarını ([içerik kökü](xref:fundamentals/index#content-root)) içeren dizinin mutlak yolunu ayarlar. Aşağıdaki örneklerde, `/content-root-path`, uygulamanın içerik kök yoludur.
+`--contentroot` bağımsız değişkeni, uygulamanın içerik dosyalarını ([içerik kökü](xref:fundamentals/index#content-root)) içeren dizinin mutlak yolunu ayarlar. Aşağıdaki örneklerde, `/content-root-path`, uygulamanın içerik kök yoludur.
 
 * Uygulamayı bir komut isteminde yerel olarak çalıştırırken bağımsız değişkenini geçirin. Uygulamanın dizininden şunu yürütün:
 
@@ -220,10 +268,10 @@ Bir kuruluş sitesi yerine bir proje sitesi kullanırken, *index. html*dosyasın
 
 ### <a name="path-base"></a>Yol tabanı
 
-@No__t-0 bağımsız değişkeni, kök olmayan bir göreli URL yoluyla yerel olarak çalışan bir uygulamanın uygulama temel yolunu ayarlar (`<base>` etiketi `href` ' nin hazırlama ve üretim için @no__t 3 ' ten farklı bir yol olarak ayarlanır). Aşağıdaki örneklerde, `/relative-URL-path`, uygulamanın yol tabanı olur. Daha fazla bilgi için bkz. [uygulama temel yolu](xref:host-and-deploy/blazor/index#app-base-path).
+`--pathbase` bağımsız değişkeni, kök olmayan göreli URL yoluyla yerel olarak çalıştırılan bir uygulamanın uygulama temel yolunu ayarlar (`<base>` etiketi `href`, hazırlama ve üretim için `/` dışında bir yola ayarlanır). Aşağıdaki örneklerde, `/relative-URL-path`, uygulamanın yol tabanı olur. Daha fazla bilgi için bkz. [uygulama temel yolu](xref:host-and-deploy/blazor/index#app-base-path).
 
 > [!IMPORTANT]
-> @No__t-1 etiketinin `href` ' a girilen yolun aksine, @no__t 3 bağımsız değişken değeri geçirilirken sondaki eğik çizgi (`/`) eklemeyin. Uygulama temel yolu `<base>` etiketinde `<base href="/CoolApp/">` (sondaki eğik çizgi içeriyorsa) olarak sağlanmışsa, komut satırı bağımsız değişken değerini `--pathbase=/CoolApp` (sondaki eğik çizgi olmadan) olarak geçirin.
+> `<base>` etiketinin `href` olarak belirtilen yolun aksine, `--pathbase` bağımsız değişken değeri geçirilirken sondaki eğik çizgi (`/`) eklemeyin. Uygulama temel yolu `<base>` etiketinde `<base href="/CoolApp/">` (sondaki eğik çizgi içeriyorsa) olarak sağlanmışsa, komut satırı bağımsız değişken değerini `--pathbase=/CoolApp` (sondaki eğik çizgi olmadan) olarak geçirin.
 
 * Uygulamayı bir komut isteminde yerel olarak çalıştırırken bağımsız değişkenini geçirin. Uygulamanın dizininden şunu yürütün:
 
@@ -245,7 +293,7 @@ Bir kuruluş sitesi yerine bir proje sitesi kullanırken, *index. html*dosyasın
 
 ### <a name="urls"></a>URL'ler
 
-@No__t-0 bağımsız değişkeni, istekler için dinlemek üzere bağlantı noktaları ve protokollerle IP adreslerini veya konak adreslerini ayarlar.
+`--urls` bağımsız değişkeni, istekler için dinlemek üzere bağlantı noktaları ve protokollerle IP adreslerini veya konak adreslerini ayarlar.
 
 * Uygulamayı bir komut isteminde yerel olarak çalıştırırken bağımsız değişkenini geçirin. Uygulamanın dizininden şunu yürütün:
 
