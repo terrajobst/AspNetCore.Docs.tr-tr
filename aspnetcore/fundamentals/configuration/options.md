@@ -5,14 +5,14 @@ description: ASP.NET Core uygulamalarında ilgili ayarların gruplarını temsil
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/11/2019
+ms.date: 10/28/2019
 uid: fundamentals/configuration/options
-ms.openlocfilehash: eb0b7f3f4596b63cf3142017c5c5fe4923aac3a4
-ms.sourcegitcommit: dd026eceee79e943bd6b4a37b144803b50617583
+ms.openlocfilehash: f9e94e8d1736b7ffaa2640aba03da6b239a34f0a
+ms.sourcegitcommit: 16cf016035f0c9acf3ff0ad874c56f82e013d415
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72378736"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73034023"
 ---
 # <a name="options-pattern-in-aspnet-core"></a>ASP.NET Core için seçenek kalıbı
 
@@ -23,7 +23,7 @@ ms.locfileid: "72378736"
 Seçenekler stili, ilişkili ayarların gruplarını temsil etmek için sınıfları kullanır. [Yapılandırma ayarları](xref:fundamentals/configuration/index) senaryo tarafından ayrı sınıflara ayrılmışsa, uygulama iki önemli yazılım mühendisliği ilkelerine uyar:
 
 * Yapılandırma ayarlarına bağlı olan [arabirim ayırma ilkesi (ISS) veya kapsülleme](/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#encapsulation) &ndash; senaryoları (sınıflar) yalnızca kullandıkları yapılandırma ayarlarına bağlıdır.
-* @No__t, uygulamanın farklı bölümleri için 1 ayarların [ayrılması,](/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#separation-of-concerns) birbirine bağımlı veya bir diğeriyle bağlantılı değildir.
+* Uygulamanın farklı parçaları için &ndash; ayarlarının [ayrılması,](/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#separation-of-concerns) birbirine bağımlı değildir veya birbirlerine aktarılmaz.
 
 Seçenekler Ayrıca yapılandırma verilerini doğrulamaya yönelik bir mekanizma sağlar. Daha fazla bilgi için [Seçenekler doğrulama](#options-validation) bölümüne bakın.
 
@@ -42,15 +42,15 @@ Seçenekler Ayrıca yapılandırma verilerini doğrulamaya yönelik bir mekanizm
 * [Yeniden yüklenebilir yapılandırma](#reload-configuration-data-with-ioptionssnapshot)
 * Seçmeli seçenekler geçersiz kılma (<xref:Microsoft.Extensions.Options.IOptionsMonitorCache%601>)
 
-[Yapılandırma sonrası](#options-post-configuration) senaryolar, tüm <xref:Microsoft.Extensions.Options.IConfigureOptions%601> yapılandırması oluştuktan sonra seçenekleri ayarlamanıza veya değiştirmenize olanak sağlar.
+[Yapılandırma sonrası](#options-post-configuration) senaryolar, tüm <xref:Microsoft.Extensions.Options.IConfigureOptions%601> yapılandırma oluştuktan sonra seçenekleri ayarlamanıza veya değiştirmenize olanak sağlar.
 
-<xref:Microsoft.Extensions.Options.IOptionsFactory%601>, yeni seçenek örnekleri oluşturmaktan sorumludur. Tek bir <xref:Microsoft.Extensions.Options.IOptionsFactory`1.Create*> yöntemi vardır. Varsayılan uygulama tüm kayıtlı <xref:Microsoft.Extensions.Options.IConfigureOptions%601> ' ı ve <xref:Microsoft.Extensions.Options.IPostConfigureOptions%601> ' ı alır ve önce tüm yapılandırmaları çalıştırır, sonrasında yapılandırma sonrası. @No__t-0 ve <xref:Microsoft.Extensions.Options.IConfigureOptions%601> arasında ayrım yapar ve yalnızca uygun arabirimi çağırır.
+<xref:Microsoft.Extensions.Options.IOptionsFactory%601> yeni seçenek örnekleri oluşturmaktan sorumludur. Tek bir <xref:Microsoft.Extensions.Options.IOptionsFactory`1.Create*> yöntemi vardır. Varsayılan uygulama tüm kayıtlı <xref:Microsoft.Extensions.Options.IConfigureOptions%601> ve <xref:Microsoft.Extensions.Options.IPostConfigureOptions%601> alır ve önce tüm yapılandırmaların, ardından yapılandırma sonrası sonrasında çalıştırılır. <xref:Microsoft.Extensions.Options.IConfigureNamedOptions%601> ve <xref:Microsoft.Extensions.Options.IConfigureOptions%601> arasında ayrım yapar ve yalnızca uygun arabirimi çağırır.
 
-<xref:Microsoft.Extensions.Options.IOptionsMonitorCache%601> <xref:Microsoft.Extensions.Options.IOptionsMonitor%601> tarafından `TOptions` örnekleri önbelleğe almak için kullanılır. @No__t-0, değer yeniden hesaplanabilmesi için izleyici içindeki seçenek örneklerini geçersiz kılar (<xref:Microsoft.Extensions.Options.IOptionsMonitorCache`1.TryRemove*>). Değerler, <xref:Microsoft.Extensions.Options.IOptionsMonitorCache`1.TryAdd*> ile el ile tanıtılamaz. @No__t-0 yöntemi, tüm adlandırılmış örneklerin isteğe bağlı olarak yeniden oluşturulması gerektiğinde kullanılır.
+<xref:Microsoft.Extensions.Options.IOptionsMonitorCache%601>, <xref:Microsoft.Extensions.Options.IOptionsMonitor%601> tarafından `TOptions` örnekleri önbelleğe almak için kullanılır. <xref:Microsoft.Extensions.Options.IOptionsMonitorCache%601>, değer yeniden hesaplanabilmesi için izleyici içindeki seçenek örneklerini geçersiz kılar (<xref:Microsoft.Extensions.Options.IOptionsMonitorCache`1.TryRemove*>). Değerler, <xref:Microsoft.Extensions.Options.IOptionsMonitorCache`1.TryAdd*> ile el ile tanıtılamaz. <xref:Microsoft.Extensions.Options.IOptionsMonitorCache`1.Clear*> yöntemi, tüm adlandırılmış örneklerin isteğe bağlı olarak yeniden oluşturulması gerektiğinde kullanılır.
 
 <xref:Microsoft.Extensions.Options.IOptionsSnapshot%601>, her istekte seçeneklerin yeniden hesaplanması gereken senaryolarda faydalıdır. Daha fazla bilgi için bkz. [ıoptionssnapshot ile yapılandırma verilerini yeniden yükleme](#reload-configuration-data-with-ioptionssnapshot) bölümü.
 
-<xref:Microsoft.Extensions.Options.IOptions%601>, seçenekleri desteklemek için kullanılabilir. Ancak, <xref:Microsoft.Extensions.Options.IOptions%601> <xref:Microsoft.Extensions.Options.IOptionsMonitor%601> ' in önceki senaryolarını desteklemez. @No__t-1 arabirimini kullanan mevcut çerçeveler ve kitaplıklarda <xref:Microsoft.Extensions.Options.IOptions%601> kullanmaya devam edebilir ve <xref:Microsoft.Extensions.Options.IOptionsMonitor%601> tarafından sunulan senaryolara gerek kalmaz.
+<xref:Microsoft.Extensions.Options.IOptions%601>, seçenekleri desteklemek için kullanılabilir. Ancak, <xref:Microsoft.Extensions.Options.IOptions%601> önceki <xref:Microsoft.Extensions.Options.IOptionsMonitor%601>senaryolarını desteklemez. Zaten <xref:Microsoft.Extensions.Options.IOptions%601> arabirimini kullanan mevcut çerçeveler ve kitaplıklarda <xref:Microsoft.Extensions.Options.IOptions%601> kullanmaya devam edebilir ve <xref:Microsoft.Extensions.Options.IOptionsMonitor%601>tarafından sağlanmış senaryolara gerek kalmaz.
 
 ## <a name="general-options-configuration"></a>Genel Seçenekler yapılandırması
 
@@ -60,7 +60,7 @@ Bir seçenek sınıfı ortak parametresiz bir Oluşturucu ile soyut olmamalıdı
 
 [!code-csharp[](options/samples/3.x/OptionsSample/Models/MyOptions.cs?name=snippet1)]
 
-@No__t-0 sınıfı, <xref:Microsoft.Extensions.DependencyInjection.OptionsConfigurationServiceCollectionExtensions.Configure*> ile hizmet kapsayıcısına eklenir ve yapılandırmaya bağlanır:
+`MyOptions` sınıfı, <xref:Microsoft.Extensions.DependencyInjection.OptionsConfigurationServiceCollectionExtensions.Configure*> ve yapılandırmayla bağlantılı olarak hizmet kapsayıcısına eklenir:
 
 [!code-csharp[](options/samples/3.x/OptionsSample/Startup.cs?name=snippet_Example1)]
 
@@ -104,7 +104,7 @@ Seçenek değerlerini ayarlamak için bir temsilci kullanın. Örnek uygulama `M
 
 [!code-csharp[](options/samples/3.x/OptionsSample/Models/MyOptionsWithDelegateConfig.cs?name=snippet1)]
 
-Aşağıdaki kodda, hizmet kapsayıcısına ikinci bir <xref:Microsoft.Extensions.Options.IConfigureOptions%601> hizmeti eklenir. @No__t-0 ile bağlamayı yapılandırmak için bir temsilci kullanır:
+Aşağıdaki kodda, hizmet kapsayıcısına ikinci bir <xref:Microsoft.Extensions.Options.IConfigureOptions%601> hizmeti eklenir. `MyOptionsWithDelegateConfig`ile bağlamayı yapılandırmak için bir temsilci kullanır:
 
 [!code-csharp[](options/samples/3.x/OptionsSample/Startup.cs?name=snippet_Example2)]
 
@@ -118,7 +118,7 @@ Aşağıdaki kodda, hizmet kapsayıcısına ikinci bir <xref:Microsoft.Extension
 
 Birden çok yapılandırma sağlayıcısı ekleyebilirsiniz. Yapılandırma sağlayıcıları NuGet paketlerinde kullanılabilir ve kayıtlı oldukları sırayla uygulanır. Daha fazla bilgi için bkz. <xref:fundamentals/configuration/index>.
 
-@No__t-0 ' a yapılan her çağrı, hizmet kapsayıcısına bir <xref:Microsoft.Extensions.Options.IConfigureOptions%601> hizmeti ekler. Yukarıdaki örnekte, `Option1` ve `Option2` değerlerinin ikisi de *appSettings. JSON*içinde belirtilmiştir, ancak `Option1` ve `Option2` değerleri yapılandırılan temsilci tarafından geçersiz kılınır.
+Her <xref:Microsoft.Extensions.Options.IConfigureOptions%601.Configure*> çağrısı, hizmet kapsayıcısına bir <xref:Microsoft.Extensions.Options.IConfigureOptions%601> hizmeti ekler. Yukarıdaki örnekte, `Option1` ve `Option2` değerlerinin ikisi de *appSettings. JSON*içinde belirtilmiştir, ancak `Option1` ve `Option2` değerleri yapılandırılan temsilci tarafından geçersiz kılınır.
 
 Birden fazla yapılandırma hizmeti etkinleştirildiğinde, son yapılandırma kaynağı *WINS* ' i ve yapılandırma değerini ayarlar. Uygulama çalıştırıldığında, sayfa modelinin `OnGet` yöntemi, seçenek sınıfı değerlerini gösteren bir dize döndürür:
 
@@ -132,19 +132,19 @@ Alt seçenekler yapılandırması örnek uygulamada &num;3 örnek olarak göster
 
 Uygulamalar, uygulamadaki belirli senaryo gruplarına (sınıflar) ait seçenek sınıfları oluşturmamalıdır. Uygulamanın yapılandırma değerleri gerektiren bölümlerinin yalnızca kullandıkları yapılandırma değerlerine erişimi olmalıdır.
 
-Seçenekleri yapılandırmaya bağlama sırasında, seçenek türündeki her özellik `property[:sub-property:]` biçiminde bir yapılandırma anahtarına bağlanır. Örneğin, `MyOptions.Option1` özelliği *appSettings. JSON*içindeki `option1` özelliğinden okunan `Option1` anahtarına bağlanır.
+Seçenekleri yapılandırmaya bağlama sırasında, seçenek türündeki her bir özellik `property[:sub-property:]`formun bir yapılandırma anahtarına bağlanır. Örneğin, `MyOptions.Option1` özelliği *appSettings. JSON*içindeki `option1` özelliğinden okunan `Option1` anahtarına bağlanır.
 
-Aşağıdaki kodda, hizmet kapsayıcısına üçüncü bir <xref:Microsoft.Extensions.Options.IConfigureOptions%601> hizmeti eklenir. @No__t-0 ' i *appSettings. JSON* dosyasının `subsection` bölümüne bağlar:
+Aşağıdaki kodda, hizmet kapsayıcısına üçüncü bir <xref:Microsoft.Extensions.Options.IConfigureOptions%601> hizmeti eklenir. `MySubOptions` *appSettings. JSON* dosyasının `subsection` bölümüne bağlar:
 
 [!code-csharp[](options/samples/3.x/OptionsSample/Startup.cs?name=snippet_Example3)]
 
-@No__t-0 genişletme yöntemi, [Microsoft. Extensions. Options. ConfigurationExtensions](https://www.nuget.org/packages/Microsoft.Extensions.Options.ConfigurationExtensions/) NuGet paketini gerektirir. `Microsoft.Extensions.Options.ConfigurationExtensions` ASP.NET Core uygulamalarda örtülü olarak başvurulur.
+`GetSection` yöntemi <xref:Microsoft.Extensions.Configuration?displayProperty=fullName> ad alanını gerektirir.
 
 Örneğin *appSettings. JSON* dosyası, `suboption1` ve `suboption2` anahtarlarına sahip `subsection` üyesini tanımlar:
 
 [!code-json[](options/samples/3.x/OptionsSample/appsettings.json?highlight=4-7)]
 
-@No__t-0 sınıfı, Seçenekler değerlerini tutmak için, `SubOption1` ve `SubOption2` özelliklerini tanımlar (*modeller/Myalt seçenekler. cs*):
+`MySubOptions` sınıfı, Seçenekler değerlerini tutmak için özellikleri, `SubOption1` ve `SubOption2`tanımlar (*modeller/Myalt seçenekler. cs*):
 
 [!code-csharp[](options/samples/3.x/OptionsSample/Models/MySubOptions.cs?name=snippet1)]
 
@@ -166,7 +166,7 @@ subOption1 = subvalue1_from_json, subOption2 = 200
 
 Bir görünüm modeli veya doğrudan görünüm ekleme ile sunulan seçenekler örnek uygulamada &num;4 örnek olarak gösterilmiştir.
 
-Seçenekler bir görünüm modelinde veya ekleme <xref:Microsoft.Extensions.Options.IOptionsMonitor%601> tarafından doğrudan bir görünüme (*Sayfalar/Index. cshtml. cs*) sağlanabilir:
+Seçenekler, bir görünüm modelinde veya <xref:Microsoft.Extensions.Options.IOptionsMonitor%601> ekleme tarafından doğrudan bir görünüme (*Pages/Index. cshtml. cs*) sağlanabilir.
 
 [!code-csharp[](options/samples/3.x/OptionsSample/Pages/Index.cshtml.cs?range=9)]
 
@@ -184,13 +184,13 @@ Uygulama çalıştırıldığında, seçenek değerleri işlenen sayfada göster
 
 ## <a name="reload-configuration-data-with-ioptionssnapshot"></a>Ioptionssnapshot ile yapılandırma verilerini yeniden yükleme
 
-Yapılandırma verilerini <xref:Microsoft.Extensions.Options.IOptionsSnapshot%601> ile yeniden yükleme, örnek uygulamada &num;5 örnek olarak gösterilmiştir.
+Yapılandırma verilerini <xref:Microsoft.Extensions.Options.IOptionsSnapshot%601> ile yeniden yükleme örnek uygulamada örnek &num;5 gösterilmiştir.
 
 <xref:Microsoft.Extensions.Options.IOptionsSnapshot%601>, minimum işleme yüküyle yeniden yükleme seçeneklerini destekler.
 
 Seçenekler erişildiğinde ve isteğin ömrü boyunca önbelleğe alındığında her istek için bir kez hesaplanır.
 
-Aşağıdaki örnek, *appSettings. JSON* değişikliklerinden sonra New <xref:Microsoft.Extensions.Options.IOptionsSnapshot%601> ' ın nasıl oluşturulduğunu gösterir (*Pages/Index. cshtml. cs*). Sunucu için birden çok istek, dosya değiştirilene ve yapılandırma yeniden yükleninceye kadar *appSettings. JSON* dosyası tarafından belirtilen sabit değerler döndürüyor.
+Aşağıdaki örnek, *appSettings. JSON* değişikliklerinden sonra yeni bir <xref:Microsoft.Extensions.Options.IOptionsSnapshot%601> nasıl oluşturulduğunu gösterir (*Pages/Index. cshtml. cs*). Sunucu için birden çok istek, dosya değiştirilene ve yapılandırma yeniden yükleninceye kadar *appSettings. JSON* dosyası tarafından belirtilen sabit değerler döndürüyor.
 
 [!code-csharp[](options/samples/3.x/OptionsSample/Pages/Index.cshtml.cs?range=12)]
 
@@ -198,13 +198,13 @@ Aşağıdaki örnek, *appSettings. JSON* değişikliklerinden sonra New <xref:Mi
 
 [!code-csharp[](options/samples/3.x/OptionsSample/Pages/Index.cshtml.cs?name=snippet_Example5)]
 
-Aşağıdaki görüntüde, *appSettings. JSON* dosyasından yüklenen ilk @no__t 0 ve `option2` değerleri gösterilmektedir:
+Aşağıdaki görüntüde, *appSettings. JSON* dosyasından yüklenen ilk `option1` ve `option2` değerleri gösterilmektedir:
 
 ```html
 snapshot option1 = value1_from_json, snapshot option2 = -1
 ```
 
-*AppSettings. JSON* dosyasındaki değerleri `value1_from_json UPDATED` ve `200` ' e değiştirin. *AppSettings. JSON* dosyasını kaydedin. Seçenekler değerlerinin güncelleştirildiğini görmek için tarayıcıyı yenileyin:
+*AppSettings. JSON* dosyasındaki değerleri `value1_from_json UPDATED` ve `200`olacak şekilde değiştirin. *AppSettings. JSON* dosyasını kaydedin. Seçenekler değerlerinin güncelleştirildiğini görmek için tarayıcıyı yenileyin:
 
 ```html
 snapshot option1 = value1_from_json UPDATED, snapshot option2 = 200
@@ -212,9 +212,9 @@ snapshot option1 = value1_from_json UPDATED, snapshot option2 = 200
 
 ## <a name="named-options-support-with-iconfigurenamedoptions"></a>IController Enamedooptıons ile adlandırılmış seçenekler desteği
 
-@No__t-0 ile adlandırılmış seçenekler desteği örnek uygulamada &num;6 örnek olarak gösterilmiştir.
+<xref:Microsoft.Extensions.Options.IConfigureNamedOptions%601> ile adlandırılmış seçenekler, örnek uygulamada 6 &num;örnek olarak gösterilmiştir.
 
-*Adlandırılmış seçenekler* desteği, uygulamanın adlandırılmış seçenek yapılandırmalarının ayırt etmesine izin verir. Örnek uygulamada, adlandırılmış Seçenekler [OptionsServiceCollectionExtensions. configure](xref:Microsoft.Extensions.DependencyInjection.OptionsServiceCollectionExtensions.Configure*)ile bildirilmiştir ve bu, [configurenamedooptıons @ No__t-2toptions > ' i çağırır. ](xref:Microsoft.Extensions.Options.ConfigureNamedOptions`1.Configure*)Uzantı yöntemini Yapılandır:
+*Adlandırılmış seçenekler* desteği, uygulamanın adlandırılmış seçenek yapılandırmalarının ayırt etmesine izin verir. Örnek uygulamada, adlandırılmış Seçenekler [OptionsServiceCollectionExtensions. configure](xref:Microsoft.Extensions.DependencyInjection.OptionsServiceCollectionExtensions.Configure*)ile bildirilmiştir ve bu, [\<TOptions > ' i çağırır. ](xref:Microsoft.Extensions.Options.ConfigureNamedOptions`1.Configure*)Uzantı yöntemini Yapılandır:
 
 [!code-csharp[](options/samples/3.x/OptionsSample/Startup.cs?name=snippet_Example6)]
 
@@ -233,10 +233,10 @@ named_options_1: option1 = value1_from_json, option2 = -1
 named_options_2: option1 = named_options_2_value1_from_action, option2 = 5
 ```
 
-`named_options_1` değerleri, *appSettings. JSON* dosyasından yüklenen yapılandırmadan sağlanır. `named_options_2` değerleri tarafından sağlanır:
+`named_options_1` değerler, *appSettings. JSON* dosyasından yüklenen yapılandırmadan sağlanır. `named_options_2` değerleri tarafından sağlanır:
 
-* @No__t-2 için `ConfigureServices` `named_options_2` temsilcisi.
-* @No__t-1 sınıfı tarafından sunulan `Option2` için varsayılan değer.
+* `Option1`için `ConfigureServices` `named_options_2` temsilcisi.
+* `MyOptions` sınıfı tarafından sağlanmış `Option2` için varsayılan değer.
 
 ## <a name="configure-all-options-with-the-configureall-method"></a>Tüm seçenekleri ConfigureAll yöntemiyle yapılandırma
 
@@ -257,11 +257,11 @@ named_options_2: option1 = ConfigureAll replacement value, option2 = 5
 ```
 
 > [!NOTE]
-> Tüm seçenekler adlandırılmış örneklerdir. Mevcut <xref:Microsoft.Extensions.Options.IConfigureOptions%601> örnekleri, `string.Empty` olan `Options.DefaultName` örneğini hedefleyecek şekilde değerlendirilir. <xref:Microsoft.Extensions.Options.IConfigureNamedOptions%601>, <xref:Microsoft.Extensions.Options.IConfigureOptions%601> ' i de uygular. @No__t-0 ' ın varsayılan uygulamasının her birini uygun şekilde kullanma mantığı vardır. @No__t-0 adlandırılmış seçeneği, belirli bir adlandırılmış örnek yerine tüm adlandırılmış örnekleri hedeflemek için kullanılır (<xref:Microsoft.Extensions.DependencyInjection.OptionsServiceCollectionExtensions.ConfigureAll*> ve <xref:Microsoft.Extensions.DependencyInjection.OptionsServiceCollectionExtensions.PostConfigureAll*> Bu kuralı kullanın).
+> Tüm seçenekler adlandırılmış örneklerdir. Mevcut <xref:Microsoft.Extensions.Options.IConfigureOptions%601> örnekleri, `string.Empty``Options.DefaultName` örneğini hedefleyecek şekilde değerlendirilir. <xref:Microsoft.Extensions.Options.IConfigureNamedOptions%601> Ayrıca <xref:Microsoft.Extensions.Options.IConfigureOptions%601>uygular. <xref:Microsoft.Extensions.Options.IOptionsFactory%601> varsayılan uygulamasının her birini uygun şekilde kullanma mantığı vardır. `null` adlandırılmış seçenek, belirli bir adlandırılmış örnek yerine tüm adlandırılmış örnekleri hedeflemek için kullanılır (<xref:Microsoft.Extensions.DependencyInjection.OptionsServiceCollectionExtensions.ConfigureAll*> ve <xref:Microsoft.Extensions.DependencyInjection.OptionsServiceCollectionExtensions.PostConfigureAll*> bu kuralı kullanın).
 
 ## <a name="optionsbuilder-api"></a>Seçenekno Oluşturucu API 'SI
 
-<xref:Microsoft.Extensions.Options.OptionsBuilder%601> `TOptions` örnekleri yapılandırmak için kullanılır. `OptionsBuilder` @no__t, sonraki çağrıların tümünde görünmesini yerine yalnızca tek bir parametre olan adlandırılmış seçenekleri oluşturmayı kolaylaştırır. Seçenekler doğrulaması ve hizmet bağımlılıklarını kabul eden `ConfigureOptions` aşırı yüklemeleri yalnızca `OptionsBuilder` aracılığıyla kullanılabilir.
+<xref:Microsoft.Extensions.Options.OptionsBuilder%601>, `TOptions` örnekleri yapılandırmak için kullanılır. `OptionsBuilder`, sonraki çağrıların tümünde olmak yerine ilk `AddOptions<TOptions>(string optionsName)` çağrısına yalnızca tek bir parametre olan adlandırılmış seçenekleri oluşturmayı kolaylaştırır. Seçenekler doğrulaması ve hizmet bağımlılıklarını kabul eden `ConfigureOptions` aşırı yüklemeleri yalnızca `OptionsBuilder` aracılığıyla kullanılabilir.
 
 ```csharp
 // Options.DefaultName = "" is used.
@@ -275,7 +275,7 @@ services.AddOptions<MyOptions>("optionalName")
 
 Seçenekleri iki şekilde yapılandırırken, bağımlılık ekleme işleminden diğer hizmetlere erişebilirsiniz:
 
-* [Options Builder @ no__t-2TOptions >](xref:Microsoft.Extensions.Options.OptionsBuilder`1)üzerinde [yapılandırmak](xref:Microsoft.Extensions.Options.OptionsBuilder`1.Configure*) için bir yapılandırma temsilcisi geçirin. Options [Builder @ no__t-1TOptions >](xref:Microsoft.Extensions.Options.OptionsBuilder`1) , seçenekleri yapılandırmak için en fazla beş hizmeti kullanmanıza olanak sağlayan, [yapılandırma](xref:Microsoft.Extensions.Options.OptionsBuilder`1.Configure*) yüklerini sağlar:
+* [\<TOptions > ' nin Options Builder](xref:Microsoft.Extensions.Options.OptionsBuilder`1)'da [yapılandırılması](xref:Microsoft.Extensions.Options.OptionsBuilder`1.Configure*) için bir yapılandırma temsilcisi geçirin. [\<bir TOptions > seçenek Oluşturucusu](xref:Microsoft.Extensions.Options.OptionsBuilder`1) , seçenekleri yapılandırmak için en fazla beş hizmeti kullanmanıza olanak sağlayan, [yapılandırma](xref:Microsoft.Extensions.Options.OptionsBuilder`1.Configure*) yüklerini sağlar:
 
   ```csharp
   services.AddOptions<MyOptions>("optionalName")
@@ -284,13 +284,13 @@ Seçenekleri iki şekilde yapılandırırken, bağımlılık ekleme işleminden 
               o.Property = DoSomethingWith(s, s2, s3, s4, s5));
   ```
 
-* @No__t-0 veya <xref:Microsoft.Extensions.Options.IConfigureNamedOptions%601> uygulayan kendi türünü oluşturun ve türü bir hizmet olarak kaydedin.
+* <xref:Microsoft.Extensions.Options.IConfigureOptions%601> veya <xref:Microsoft.Extensions.Options.IConfigureNamedOptions%601> uygulayan ve türü bir hizmet olarak kaydeden kendi türünü oluşturun.
 
-Bir hizmetin oluşturulması daha karmaşık olduğundan, [yapılandırmak](xref:Microsoft.Extensions.Options.OptionsBuilder`1.Configure*)için bir yapılandırma temsilcisinin geçirilmesini öneririz. Kendi türünü oluşturmak, [Yapılandır](xref:Microsoft.Extensions.Options.OptionsBuilder`1.Configure*)'ı kullandığınızda çerçevenin sizin için yaptığı işe eşdeğerdir. [Yapılandırma](xref:Microsoft.Extensions.Options.OptionsBuilder`1.Configure*) çağrısı, belirtilen genel hizmet türlerini kabul eden bir oluşturucuya sahip olan geçici genel <xref:Microsoft.Extensions.Options.IConfigureNamedOptions%601> ' i kaydettirir. 
+Bir hizmetin oluşturulması daha karmaşık olduğundan, [yapılandırmak](xref:Microsoft.Extensions.Options.OptionsBuilder`1.Configure*)için bir yapılandırma temsilcisinin geçirilmesini öneririz. Kendi türünü oluşturmak, [Yapılandır](xref:Microsoft.Extensions.Options.OptionsBuilder`1.Configure*)'ı kullandığınızda çerçevenin sizin için yaptığı işe eşdeğerdir. [Yapılandırma](xref:Microsoft.Extensions.Options.OptionsBuilder`1.Configure*) çağrısı, belirtilen genel hizmet türlerini kabul eden bir oluşturucuya sahip olan geçici genel <xref:Microsoft.Extensions.Options.IConfigureNamedOptions%601>kaydeder. 
 
 ## <a name="options-validation"></a>Seçenekler doğrulaması
 
-Seçenekler doğrulaması seçenekler yapılandırıldığında seçenekleri doğrulamanızı sağlar. Seçenekler geçerliyse `true` döndüren bir doğrulama yöntemiyle `Validate` ' i çağırın ve geçerli değillerse-2 ' ye @no__t:
+Seçenekler doğrulaması seçenekler yapılandırıldığında seçenekleri doğrulamanızı sağlar. Seçenekler geçerliyse `true` döndüren ve geçerli değillerse `false` bir doğrulama yöntemiyle `Validate` çağırın:
 
 ```csharp
 // Registration
@@ -323,7 +323,7 @@ Seçenekler örneği oluşturulduğunda doğrulama çalıştırılır. Seçenek 
 > [!IMPORTANT]
 > Seçenekler, Seçenekler başlangıçta yapılandırıldıktan ve doğrulandıktan sonra seçeneklerindeki değişikliklere karşı koruma yapmaz.
 
-@No__t-0 yöntemi `Func<TOptions, bool>` kabul eder. Doğrulamayı tamamen özelleştirmek için, şunları sağlayan `IValidateOptions<TOptions>` ' ı uygulayın:
+`Validate` yöntemi bir `Func<TOptions, bool>`kabul eder. Doğrulamayı tamamen özelleştirmek için, şunları sağlayan `IValidateOptions<TOptions>` ' ı uygulayın:
 
 * Birden çok seçenek türü doğrulaması: `class ValidateTwo : IValidateOptions<Option1>, IValidationOptions<Option2>`
 * Başka bir seçenek türüne bağlı olan doğrulama: `public DependsOnAnotherOptionValidator(IOptionsMonitor<AnotherOption> options)`
@@ -331,7 +331,7 @@ Seçenekler örneği oluşturulduğunda doğrulama çalıştırılır. Seçenek 
 `IValidateOptions` şunları doğrular:
 
 * Belirli bir adlandırılmış seçenekler örneği.
-* @No__t-0 `null` olduğunda tüm seçenekler.
+* `name` `null`tüm seçenekler.
 
 Arabirimin uygulanınızdan bir `ValidateOptionsResult` döndürün:
 
@@ -391,7 +391,7 @@ Eager doğrulaması (başlangıçta hızlı başarısız), gelecek bir sürüm i
 
 ## <a name="options-post-configuration"></a>Yapılandırma sonrası seçenekler
 
-Yapılandırma sonrası <xref:Microsoft.Extensions.Options.IPostConfigureOptions%601> olarak ayarlayın. Tüm <xref:Microsoft.Extensions.Options.IConfigureOptions%601> yapılandırması oluştuktan sonra yapılandırma sonrası çalıştırılır:
+Yapılandırma sonrası <xref:Microsoft.Extensions.Options.IPostConfigureOptions%601>ayarlayın. Tüm <xref:Microsoft.Extensions.Options.IConfigureOptions%601> yapılandırma oluştuktan sonra yapılandırma sonrası çalıştırmalar:
 
 ```csharp
 services.PostConfigure<MyOptions>(myOptions =>
@@ -420,7 +420,7 @@ services.PostConfigureAll<MyOptions>(myOptions =>
 
 ## <a name="accessing-options-during-startup"></a>Başlangıç sırasında seçeneklere erişme
 
-<xref:Microsoft.Extensions.Options.IOptions%601> ve <xref:Microsoft.Extensions.Options.IOptionsMonitor%601> `Startup.Configure` ' de kullanılabilir. çünkü hizmetler `Configure` Yöntemi yürütülmeden önce oluşturulmuştur.
+<xref:Microsoft.Extensions.Options.IOptions%601> ve <xref:Microsoft.Extensions.Options.IOptionsMonitor%601> `Startup.Configure`kullanılabilir, çünkü Hizmetleri `Configure` Yöntemi yürütülmeden önce oluşturulmuştur.
 
 ```csharp
 public void Configure(IApplicationBuilder app, 
@@ -430,7 +430,7 @@ public void Configure(IApplicationBuilder app,
 }
 ```
 
-@No__t-2 ' de <xref:Microsoft.Extensions.Options.IOptions%601> veya <xref:Microsoft.Extensions.Options.IOptionsMonitor%601> kullanmayın. Hizmet kayıtlarının sıralaması nedeniyle tutarsız bir seçenek durumu var olabilir.
+`Startup.ConfigureServices`<xref:Microsoft.Extensions.Options.IOptions%601> veya <xref:Microsoft.Extensions.Options.IOptionsMonitor%601> kullanmayın. Hizmet kayıtlarının sıralaması nedeniyle tutarsız bir seçenek durumu var olabilir.
 
 ::: moniker-end
 
@@ -439,7 +439,7 @@ public void Configure(IApplicationBuilder app,
 Seçenekler stili, ilişkili ayarların gruplarını temsil etmek için sınıfları kullanır. [Yapılandırma ayarları](xref:fundamentals/configuration/index) senaryo tarafından ayrı sınıflara ayrılmışsa, uygulama iki önemli yazılım mühendisliği ilkelerine uyar:
 
 * Yapılandırma ayarlarına bağlı olan [arabirim ayırma ilkesi (ISS) veya kapsülleme](/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#encapsulation) &ndash; senaryoları (sınıflar) yalnızca kullandıkları yapılandırma ayarlarına bağlıdır.
-* @No__t, uygulamanın farklı bölümleri için 1 ayarların [ayrılması,](/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#separation-of-concerns) birbirine bağımlı veya bir diğeriyle bağlantılı değildir.
+* Uygulamanın farklı parçaları için &ndash; ayarlarının [ayrılması,](/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#separation-of-concerns) birbirine bağımlı değildir veya birbirlerine aktarılmaz.
 
 Seçenekler Ayrıca yapılandırma verilerini doğrulamaya yönelik bir mekanizma sağlar. Daha fazla bilgi için [Seçenekler doğrulama](#options-validation) bölümüne bakın.
 
@@ -458,15 +458,15 @@ Microsoft. [AspNetCore. app metapackage](xref:fundamentals/metapackage-app) 'e b
 * [Yeniden yüklenebilir yapılandırma](#reload-configuration-data-with-ioptionssnapshot)
 * Seçmeli seçenekler geçersiz kılma (<xref:Microsoft.Extensions.Options.IOptionsMonitorCache%601>)
 
-[Yapılandırma sonrası](#options-post-configuration) senaryolar, tüm <xref:Microsoft.Extensions.Options.IConfigureOptions%601> yapılandırması oluştuktan sonra seçenekleri ayarlamanıza veya değiştirmenize olanak sağlar.
+[Yapılandırma sonrası](#options-post-configuration) senaryolar, tüm <xref:Microsoft.Extensions.Options.IConfigureOptions%601> yapılandırma oluştuktan sonra seçenekleri ayarlamanıza veya değiştirmenize olanak sağlar.
 
-<xref:Microsoft.Extensions.Options.IOptionsFactory%601>, yeni seçenek örnekleri oluşturmaktan sorumludur. Tek bir <xref:Microsoft.Extensions.Options.IOptionsFactory`1.Create*> yöntemi vardır. Varsayılan uygulama tüm kayıtlı <xref:Microsoft.Extensions.Options.IConfigureOptions%601> ' ı ve <xref:Microsoft.Extensions.Options.IPostConfigureOptions%601> ' ı alır ve önce tüm yapılandırmaları çalıştırır, sonrasında yapılandırma sonrası. @No__t-0 ve <xref:Microsoft.Extensions.Options.IConfigureOptions%601> arasında ayrım yapar ve yalnızca uygun arabirimi çağırır.
+<xref:Microsoft.Extensions.Options.IOptionsFactory%601> yeni seçenek örnekleri oluşturmaktan sorumludur. Tek bir <xref:Microsoft.Extensions.Options.IOptionsFactory`1.Create*> yöntemi vardır. Varsayılan uygulama tüm kayıtlı <xref:Microsoft.Extensions.Options.IConfigureOptions%601> ve <xref:Microsoft.Extensions.Options.IPostConfigureOptions%601> alır ve önce tüm yapılandırmaların, ardından yapılandırma sonrası sonrasında çalıştırılır. <xref:Microsoft.Extensions.Options.IConfigureNamedOptions%601> ve <xref:Microsoft.Extensions.Options.IConfigureOptions%601> arasında ayrım yapar ve yalnızca uygun arabirimi çağırır.
 
-<xref:Microsoft.Extensions.Options.IOptionsMonitorCache%601> <xref:Microsoft.Extensions.Options.IOptionsMonitor%601> tarafından `TOptions` örnekleri önbelleğe almak için kullanılır. @No__t-0, değer yeniden hesaplanabilmesi için izleyici içindeki seçenek örneklerini geçersiz kılar (<xref:Microsoft.Extensions.Options.IOptionsMonitorCache`1.TryRemove*>). Değerler, <xref:Microsoft.Extensions.Options.IOptionsMonitorCache`1.TryAdd*> ile el ile tanıtılamaz. @No__t-0 yöntemi, tüm adlandırılmış örneklerin isteğe bağlı olarak yeniden oluşturulması gerektiğinde kullanılır.
+<xref:Microsoft.Extensions.Options.IOptionsMonitorCache%601>, <xref:Microsoft.Extensions.Options.IOptionsMonitor%601> tarafından `TOptions` örnekleri önbelleğe almak için kullanılır. <xref:Microsoft.Extensions.Options.IOptionsMonitorCache%601>, değer yeniden hesaplanabilmesi için izleyici içindeki seçenek örneklerini geçersiz kılar (<xref:Microsoft.Extensions.Options.IOptionsMonitorCache`1.TryRemove*>). Değerler, <xref:Microsoft.Extensions.Options.IOptionsMonitorCache`1.TryAdd*> ile el ile tanıtılamaz. <xref:Microsoft.Extensions.Options.IOptionsMonitorCache`1.Clear*> yöntemi, tüm adlandırılmış örneklerin isteğe bağlı olarak yeniden oluşturulması gerektiğinde kullanılır.
 
 <xref:Microsoft.Extensions.Options.IOptionsSnapshot%601>, her istekte seçeneklerin yeniden hesaplanması gereken senaryolarda faydalıdır. Daha fazla bilgi için bkz. [ıoptionssnapshot ile yapılandırma verilerini yeniden yükleme](#reload-configuration-data-with-ioptionssnapshot) bölümü.
 
-<xref:Microsoft.Extensions.Options.IOptions%601>, seçenekleri desteklemek için kullanılabilir. Ancak, <xref:Microsoft.Extensions.Options.IOptions%601> <xref:Microsoft.Extensions.Options.IOptionsMonitor%601> ' in önceki senaryolarını desteklemez. @No__t-1 arabirimini kullanan mevcut çerçeveler ve kitaplıklarda <xref:Microsoft.Extensions.Options.IOptions%601> kullanmaya devam edebilir ve <xref:Microsoft.Extensions.Options.IOptionsMonitor%601> tarafından sunulan senaryolara gerek kalmaz.
+<xref:Microsoft.Extensions.Options.IOptions%601>, seçenekleri desteklemek için kullanılabilir. Ancak, <xref:Microsoft.Extensions.Options.IOptions%601> önceki <xref:Microsoft.Extensions.Options.IOptionsMonitor%601>senaryolarını desteklemez. Zaten <xref:Microsoft.Extensions.Options.IOptions%601> arabirimini kullanan mevcut çerçeveler ve kitaplıklarda <xref:Microsoft.Extensions.Options.IOptions%601> kullanmaya devam edebilir ve <xref:Microsoft.Extensions.Options.IOptionsMonitor%601>tarafından sağlanmış senaryolara gerek kalmaz.
 
 ## <a name="general-options-configuration"></a>Genel Seçenekler yapılandırması
 
@@ -476,7 +476,7 @@ Bir seçenek sınıfı ortak parametresiz bir Oluşturucu ile soyut olmamalıdı
 
 [!code-csharp[](options/samples/2.x/OptionsSample/Models/MyOptions.cs?name=snippet1)]
 
-@No__t-0 sınıfı, <xref:Microsoft.Extensions.DependencyInjection.OptionsConfigurationServiceCollectionExtensions.Configure*> ile hizmet kapsayıcısına eklenir ve yapılandırmaya bağlanır:
+`MyOptions` sınıfı, <xref:Microsoft.Extensions.DependencyInjection.OptionsConfigurationServiceCollectionExtensions.Configure*> ve yapılandırmayla bağlantılı olarak hizmet kapsayıcısına eklenir:
 
 [!code-csharp[](options/samples/2.x/OptionsSample/Startup.cs?name=snippet_Example1)]
 
@@ -520,7 +520,7 @@ Seçenek değerlerini ayarlamak için bir temsilci kullanın. Örnek uygulama `M
 
 [!code-csharp[](options/samples/2.x/OptionsSample/Models/MyOptionsWithDelegateConfig.cs?name=snippet1)]
 
-Aşağıdaki kodda, hizmet kapsayıcısına ikinci bir <xref:Microsoft.Extensions.Options.IConfigureOptions%601> hizmeti eklenir. @No__t-0 ile bağlamayı yapılandırmak için bir temsilci kullanır:
+Aşağıdaki kodda, hizmet kapsayıcısına ikinci bir <xref:Microsoft.Extensions.Options.IConfigureOptions%601> hizmeti eklenir. `MyOptionsWithDelegateConfig`ile bağlamayı yapılandırmak için bir temsilci kullanır:
 
 [!code-csharp[](options/samples/2.x/OptionsSample/Startup.cs?name=snippet_Example2)]
 
@@ -534,7 +534,7 @@ Aşağıdaki kodda, hizmet kapsayıcısına ikinci bir <xref:Microsoft.Extension
 
 Birden çok yapılandırma sağlayıcısı ekleyebilirsiniz. Yapılandırma sağlayıcıları NuGet paketlerinde kullanılabilir ve kayıtlı oldukları sırayla uygulanır. Daha fazla bilgi için bkz. <xref:fundamentals/configuration/index>.
 
-@No__t-0 ' a yapılan her çağrı, hizmet kapsayıcısına bir <xref:Microsoft.Extensions.Options.IConfigureOptions%601> hizmeti ekler. Yukarıdaki örnekte, `Option1` ve `Option2` değerlerinin ikisi de *appSettings. JSON*içinde belirtilmiştir, ancak `Option1` ve `Option2` değerleri yapılandırılan temsilci tarafından geçersiz kılınır.
+Her <xref:Microsoft.Extensions.Options.IConfigureOptions%601.Configure*> çağrısı, hizmet kapsayıcısına bir <xref:Microsoft.Extensions.Options.IConfigureOptions%601> hizmeti ekler. Yukarıdaki örnekte, `Option1` ve `Option2` değerlerinin ikisi de *appSettings. JSON*içinde belirtilmiştir, ancak `Option1` ve `Option2` değerleri yapılandırılan temsilci tarafından geçersiz kılınır.
 
 Birden fazla yapılandırma hizmeti etkinleştirildiğinde, son yapılandırma kaynağı *WINS* ' i ve yapılandırma değerini ayarlar. Uygulama çalıştırıldığında, sayfa modelinin `OnGet` yöntemi, seçenek sınıfı değerlerini gösteren bir dize döndürür:
 
@@ -548,19 +548,19 @@ Alt seçenekler yapılandırması örnek uygulamada &num;3 örnek olarak göster
 
 Uygulamalar, uygulamadaki belirli senaryo gruplarına (sınıflar) ait seçenek sınıfları oluşturmamalıdır. Uygulamanın yapılandırma değerleri gerektiren bölümlerinin yalnızca kullandıkları yapılandırma değerlerine erişimi olmalıdır.
 
-Seçenekleri yapılandırmaya bağlama sırasında, seçenek türündeki her özellik `property[:sub-property:]` biçiminde bir yapılandırma anahtarına bağlanır. Örneğin, `MyOptions.Option1` özelliği *appSettings. JSON*içindeki `option1` özelliğinden okunan `Option1` anahtarına bağlanır.
+Seçenekleri yapılandırmaya bağlama sırasında, seçenek türündeki her bir özellik `property[:sub-property:]`formun bir yapılandırma anahtarına bağlanır. Örneğin, `MyOptions.Option1` özelliği *appSettings. JSON*içindeki `option1` özelliğinden okunan `Option1` anahtarına bağlanır.
 
-Aşağıdaki kodda, hizmet kapsayıcısına üçüncü bir <xref:Microsoft.Extensions.Options.IConfigureOptions%601> hizmeti eklenir. @No__t-0 ' i *appSettings. JSON* dosyasının `subsection` bölümüne bağlar:
+Aşağıdaki kodda, hizmet kapsayıcısına üçüncü bir <xref:Microsoft.Extensions.Options.IConfigureOptions%601> hizmeti eklenir. `MySubOptions` *appSettings. JSON* dosyasının `subsection` bölümüne bağlar:
 
 [!code-csharp[](options/samples/2.x/OptionsSample/Startup.cs?name=snippet_Example3)]
 
-@No__t-0 genişletme yöntemi, [Microsoft. Extensions. Options. ConfigurationExtensions](https://www.nuget.org/packages/Microsoft.Extensions.Options.ConfigurationExtensions/) NuGet paketini gerektirir. Uygulama [Microsoft. AspNetCore. app metapackage](xref:fundamentals/metapackage-app) (ASP.NET Core 2,1 veya üzeri) kullanıyorsa, paket otomatik olarak eklenir.
+`GetSection` yöntemi <xref:Microsoft.Extensions.Configuration?displayProperty=fullName> ad alanını gerektirir.
 
 Örneğin *appSettings. JSON* dosyası, `suboption1` ve `suboption2` anahtarlarına sahip `subsection` üyesini tanımlar:
 
 [!code-json[](options/samples/2.x/OptionsSample/appsettings.json?highlight=4-7)]
 
-@No__t-0 sınıfı, Seçenekler değerlerini tutmak için, `SubOption1` ve `SubOption2` özelliklerini tanımlar (*modeller/Myalt seçenekler. cs*):
+`MySubOptions` sınıfı, Seçenekler değerlerini tutmak için özellikleri, `SubOption1` ve `SubOption2`tanımlar (*modeller/Myalt seçenekler. cs*):
 
 [!code-csharp[](options/samples/2.x/OptionsSample/Models/MySubOptions.cs?name=snippet1)]
 
@@ -582,7 +582,7 @@ subOption1 = subvalue1_from_json, subOption2 = 200
 
 Bir görünüm modeli veya doğrudan görünüm ekleme ile sunulan seçenekler örnek uygulamada &num;4 örnek olarak gösterilmiştir.
 
-Seçenekler bir görünüm modelinde veya ekleme <xref:Microsoft.Extensions.Options.IOptionsMonitor%601> tarafından doğrudan bir görünüme (*Sayfalar/Index. cshtml. cs*) sağlanabilir:
+Seçenekler, bir görünüm modelinde veya <xref:Microsoft.Extensions.Options.IOptionsMonitor%601> ekleme tarafından doğrudan bir görünüme (*Pages/Index. cshtml. cs*) sağlanabilir.
 
 [!code-csharp[](options/samples/2.x/OptionsSample/Pages/Index.cshtml.cs?range=9)]
 
@@ -600,13 +600,13 @@ Uygulama çalıştırıldığında, seçenek değerleri işlenen sayfada göster
 
 ## <a name="reload-configuration-data-with-ioptionssnapshot"></a>Ioptionssnapshot ile yapılandırma verilerini yeniden yükleme
 
-Yapılandırma verilerini <xref:Microsoft.Extensions.Options.IOptionsSnapshot%601> ile yeniden yükleme, örnek uygulamada &num;5 örnek olarak gösterilmiştir.
+Yapılandırma verilerini <xref:Microsoft.Extensions.Options.IOptionsSnapshot%601> ile yeniden yükleme örnek uygulamada örnek &num;5 gösterilmiştir.
 
 <xref:Microsoft.Extensions.Options.IOptionsSnapshot%601>, minimum işleme yüküyle yeniden yükleme seçeneklerini destekler.
 
 Seçenekler erişildiğinde ve isteğin ömrü boyunca önbelleğe alındığında her istek için bir kez hesaplanır.
 
-Aşağıdaki örnek, *appSettings. JSON* değişikliklerinden sonra New <xref:Microsoft.Extensions.Options.IOptionsSnapshot%601> ' ın nasıl oluşturulduğunu gösterir (*Pages/Index. cshtml. cs*). Sunucu için birden çok istek, dosya değiştirilene ve yapılandırma yeniden yükleninceye kadar *appSettings. JSON* dosyası tarafından belirtilen sabit değerler döndürüyor.
+Aşağıdaki örnek, *appSettings. JSON* değişikliklerinden sonra yeni bir <xref:Microsoft.Extensions.Options.IOptionsSnapshot%601> nasıl oluşturulduğunu gösterir (*Pages/Index. cshtml. cs*). Sunucu için birden çok istek, dosya değiştirilene ve yapılandırma yeniden yükleninceye kadar *appSettings. JSON* dosyası tarafından belirtilen sabit değerler döndürüyor.
 
 [!code-csharp[](options/samples/2.x/OptionsSample/Pages/Index.cshtml.cs?range=12)]
 
@@ -614,13 +614,13 @@ Aşağıdaki örnek, *appSettings. JSON* değişikliklerinden sonra New <xref:Mi
 
 [!code-csharp[](options/samples/2.x/OptionsSample/Pages/Index.cshtml.cs?name=snippet_Example5)]
 
-Aşağıdaki görüntüde, *appSettings. JSON* dosyasından yüklenen ilk @no__t 0 ve `option2` değerleri gösterilmektedir:
+Aşağıdaki görüntüde, *appSettings. JSON* dosyasından yüklenen ilk `option1` ve `option2` değerleri gösterilmektedir:
 
 ```html
 snapshot option1 = value1_from_json, snapshot option2 = -1
 ```
 
-*AppSettings. JSON* dosyasındaki değerleri `value1_from_json UPDATED` ve `200` ' e değiştirin. *AppSettings. JSON* dosyasını kaydedin. Seçenekler değerlerinin güncelleştirildiğini görmek için tarayıcıyı yenileyin:
+*AppSettings. JSON* dosyasındaki değerleri `value1_from_json UPDATED` ve `200`olacak şekilde değiştirin. *AppSettings. JSON* dosyasını kaydedin. Seçenekler değerlerinin güncelleştirildiğini görmek için tarayıcıyı yenileyin:
 
 ```html
 snapshot option1 = value1_from_json UPDATED, snapshot option2 = 200
@@ -628,9 +628,9 @@ snapshot option1 = value1_from_json UPDATED, snapshot option2 = 200
 
 ## <a name="named-options-support-with-iconfigurenamedoptions"></a>IController Enamedooptıons ile adlandırılmış seçenekler desteği
 
-@No__t-0 ile adlandırılmış seçenekler desteği örnek uygulamada &num;6 örnek olarak gösterilmiştir.
+<xref:Microsoft.Extensions.Options.IConfigureNamedOptions%601> ile adlandırılmış seçenekler, örnek uygulamada 6 &num;örnek olarak gösterilmiştir.
 
-*Adlandırılmış seçenekler* desteği, uygulamanın adlandırılmış seçenek yapılandırmalarının ayırt etmesine izin verir. Örnek uygulamada, adlandırılmış Seçenekler [OptionsServiceCollectionExtensions. configure](xref:Microsoft.Extensions.DependencyInjection.OptionsServiceCollectionExtensions.Configure*)ile bildirilmiştir ve bu, [configurenamedooptıons @ No__t-2toptions > ' i çağırır. ](xref:Microsoft.Extensions.Options.ConfigureNamedOptions`1.Configure*)Uzantı yöntemini Yapılandır:
+*Adlandırılmış seçenekler* desteği, uygulamanın adlandırılmış seçenek yapılandırmalarının ayırt etmesine izin verir. Örnek uygulamada, adlandırılmış Seçenekler [OptionsServiceCollectionExtensions. configure](xref:Microsoft.Extensions.DependencyInjection.OptionsServiceCollectionExtensions.Configure*)ile bildirilmiştir ve bu, [\<TOptions > ' i çağırır. ](xref:Microsoft.Extensions.Options.ConfigureNamedOptions`1.Configure*)Uzantı yöntemini Yapılandır:
 
 [!code-csharp[](options/samples/2.x/OptionsSample/Startup.cs?name=snippet_Example6)]
 
@@ -649,10 +649,10 @@ named_options_1: option1 = value1_from_json, option2 = -1
 named_options_2: option1 = named_options_2_value1_from_action, option2 = 5
 ```
 
-`named_options_1` değerleri, *appSettings. JSON* dosyasından yüklenen yapılandırmadan sağlanır. `named_options_2` değerleri tarafından sağlanır:
+`named_options_1` değerler, *appSettings. JSON* dosyasından yüklenen yapılandırmadan sağlanır. `named_options_2` değerleri tarafından sağlanır:
 
-* @No__t-2 için `ConfigureServices` `named_options_2` temsilcisi.
-* @No__t-1 sınıfı tarafından sunulan `Option2` için varsayılan değer.
+* `Option1`için `ConfigureServices` `named_options_2` temsilcisi.
+* `MyOptions` sınıfı tarafından sağlanmış `Option2` için varsayılan değer.
 
 ## <a name="configure-all-options-with-the-configureall-method"></a>Tüm seçenekleri ConfigureAll yöntemiyle yapılandırma
 
@@ -673,11 +673,11 @@ named_options_2: option1 = ConfigureAll replacement value, option2 = 5
 ```
 
 > [!NOTE]
-> Tüm seçenekler adlandırılmış örneklerdir. Mevcut <xref:Microsoft.Extensions.Options.IConfigureOptions%601> örnekleri, `string.Empty` olan `Options.DefaultName` örneğini hedefleyecek şekilde değerlendirilir. <xref:Microsoft.Extensions.Options.IConfigureNamedOptions%601>, <xref:Microsoft.Extensions.Options.IConfigureOptions%601> ' i de uygular. @No__t-0 ' ın varsayılan uygulamasının her birini uygun şekilde kullanma mantığı vardır. @No__t-0 adlandırılmış seçeneği, belirli bir adlandırılmış örnek yerine tüm adlandırılmış örnekleri hedeflemek için kullanılır (<xref:Microsoft.Extensions.DependencyInjection.OptionsServiceCollectionExtensions.ConfigureAll*> ve <xref:Microsoft.Extensions.DependencyInjection.OptionsServiceCollectionExtensions.PostConfigureAll*> Bu kuralı kullanın).
+> Tüm seçenekler adlandırılmış örneklerdir. Mevcut <xref:Microsoft.Extensions.Options.IConfigureOptions%601> örnekleri, `string.Empty``Options.DefaultName` örneğini hedefleyecek şekilde değerlendirilir. <xref:Microsoft.Extensions.Options.IConfigureNamedOptions%601> Ayrıca <xref:Microsoft.Extensions.Options.IConfigureOptions%601>uygular. <xref:Microsoft.Extensions.Options.IOptionsFactory%601> varsayılan uygulamasının her birini uygun şekilde kullanma mantığı vardır. `null` adlandırılmış seçenek, belirli bir adlandırılmış örnek yerine tüm adlandırılmış örnekleri hedeflemek için kullanılır (<xref:Microsoft.Extensions.DependencyInjection.OptionsServiceCollectionExtensions.ConfigureAll*> ve <xref:Microsoft.Extensions.DependencyInjection.OptionsServiceCollectionExtensions.PostConfigureAll*> bu kuralı kullanın).
 
 ## <a name="optionsbuilder-api"></a>Seçenekno Oluşturucu API 'SI
 
-<xref:Microsoft.Extensions.Options.OptionsBuilder%601> `TOptions` örnekleri yapılandırmak için kullanılır. `OptionsBuilder` @no__t, sonraki çağrıların tümünde görünmesini yerine yalnızca tek bir parametre olan adlandırılmış seçenekleri oluşturmayı kolaylaştırır. Seçenekler doğrulaması ve hizmet bağımlılıklarını kabul eden `ConfigureOptions` aşırı yüklemeleri yalnızca `OptionsBuilder` aracılığıyla kullanılabilir.
+<xref:Microsoft.Extensions.Options.OptionsBuilder%601>, `TOptions` örnekleri yapılandırmak için kullanılır. `OptionsBuilder`, sonraki çağrıların tümünde olmak yerine ilk `AddOptions<TOptions>(string optionsName)` çağrısına yalnızca tek bir parametre olan adlandırılmış seçenekleri oluşturmayı kolaylaştırır. Seçenekler doğrulaması ve hizmet bağımlılıklarını kabul eden `ConfigureOptions` aşırı yüklemeleri yalnızca `OptionsBuilder` aracılığıyla kullanılabilir.
 
 ```csharp
 // Options.DefaultName = "" is used.
@@ -691,7 +691,7 @@ services.AddOptions<MyOptions>("optionalName")
 
 Seçenekleri iki şekilde yapılandırırken, bağımlılık ekleme işleminden diğer hizmetlere erişebilirsiniz:
 
-* [Options Builder @ no__t-2TOptions >](xref:Microsoft.Extensions.Options.OptionsBuilder`1)üzerinde [yapılandırmak](xref:Microsoft.Extensions.Options.OptionsBuilder`1.Configure*) için bir yapılandırma temsilcisi geçirin. Options [Builder @ no__t-1TOptions >](xref:Microsoft.Extensions.Options.OptionsBuilder`1) , seçenekleri yapılandırmak için en fazla beş hizmeti kullanmanıza olanak sağlayan, [yapılandırma](xref:Microsoft.Extensions.Options.OptionsBuilder`1.Configure*) yüklerini sağlar:
+* [\<TOptions > ' nin Options Builder](xref:Microsoft.Extensions.Options.OptionsBuilder`1)'da [yapılandırılması](xref:Microsoft.Extensions.Options.OptionsBuilder`1.Configure*) için bir yapılandırma temsilcisi geçirin. [\<bir TOptions > seçenek Oluşturucusu](xref:Microsoft.Extensions.Options.OptionsBuilder`1) , seçenekleri yapılandırmak için en fazla beş hizmeti kullanmanıza olanak sağlayan, [yapılandırma](xref:Microsoft.Extensions.Options.OptionsBuilder`1.Configure*) yüklerini sağlar:
 
   ```csharp
   services.AddOptions<MyOptions>("optionalName")
@@ -700,13 +700,13 @@ Seçenekleri iki şekilde yapılandırırken, bağımlılık ekleme işleminden 
               o.Property = DoSomethingWith(s, s2, s3, s4, s5));
   ```
 
-* @No__t-0 veya <xref:Microsoft.Extensions.Options.IConfigureNamedOptions%601> uygulayan kendi türünü oluşturun ve türü bir hizmet olarak kaydedin.
+* <xref:Microsoft.Extensions.Options.IConfigureOptions%601> veya <xref:Microsoft.Extensions.Options.IConfigureNamedOptions%601> uygulayan ve türü bir hizmet olarak kaydeden kendi türünü oluşturun.
 
-Bir hizmetin oluşturulması daha karmaşık olduğundan, [yapılandırmak](xref:Microsoft.Extensions.Options.OptionsBuilder`1.Configure*)için bir yapılandırma temsilcisinin geçirilmesini öneririz. Kendi türünü oluşturmak, [Yapılandır](xref:Microsoft.Extensions.Options.OptionsBuilder`1.Configure*)'ı kullandığınızda çerçevenin sizin için yaptığı işe eşdeğerdir. [Yapılandırma](xref:Microsoft.Extensions.Options.OptionsBuilder`1.Configure*) çağrısı, belirtilen genel hizmet türlerini kabul eden bir oluşturucuya sahip olan geçici genel <xref:Microsoft.Extensions.Options.IConfigureNamedOptions%601> ' i kaydettirir. 
+Bir hizmetin oluşturulması daha karmaşık olduğundan, [yapılandırmak](xref:Microsoft.Extensions.Options.OptionsBuilder`1.Configure*)için bir yapılandırma temsilcisinin geçirilmesini öneririz. Kendi türünü oluşturmak, [Yapılandır](xref:Microsoft.Extensions.Options.OptionsBuilder`1.Configure*)'ı kullandığınızda çerçevenin sizin için yaptığı işe eşdeğerdir. [Yapılandırma](xref:Microsoft.Extensions.Options.OptionsBuilder`1.Configure*) çağrısı, belirtilen genel hizmet türlerini kabul eden bir oluşturucuya sahip olan geçici genel <xref:Microsoft.Extensions.Options.IConfigureNamedOptions%601>kaydeder. 
 
 ## <a name="options-validation"></a>Seçenekler doğrulaması
 
-Seçenekler doğrulaması seçenekler yapılandırıldığında seçenekleri doğrulamanızı sağlar. Seçenekler geçerliyse `true` döndüren bir doğrulama yöntemiyle `Validate` ' i çağırın ve geçerli değillerse-2 ' ye @no__t:
+Seçenekler doğrulaması seçenekler yapılandırıldığında seçenekleri doğrulamanızı sağlar. Seçenekler geçerliyse `true` döndüren ve geçerli değillerse `false` bir doğrulama yöntemiyle `Validate` çağırın:
 
 ```csharp
 // Registration
@@ -739,7 +739,7 @@ Seçenekler örneği oluşturulduğunda doğrulama çalıştırılır. Seçenek 
 > [!IMPORTANT]
 > Seçenekler, Seçenekler başlangıçta yapılandırıldıktan ve doğrulandıktan sonra seçeneklerindeki değişikliklere karşı koruma yapmaz.
 
-@No__t-0 yöntemi `Func<TOptions, bool>` kabul eder. Doğrulamayı tamamen özelleştirmek için, şunları sağlayan `IValidateOptions<TOptions>` ' ı uygulayın:
+`Validate` yöntemi bir `Func<TOptions, bool>`kabul eder. Doğrulamayı tamamen özelleştirmek için, şunları sağlayan `IValidateOptions<TOptions>` ' ı uygulayın:
 
 * Birden çok seçenek türü doğrulaması: `class ValidateTwo : IValidateOptions<Option1>, IValidationOptions<Option2>`
 * Başka bir seçenek türüne bağlı olan doğrulama: `public DependsOnAnotherOptionValidator(IOptionsMonitor<AnotherOption> options)`
@@ -747,7 +747,7 @@ Seçenekler örneği oluşturulduğunda doğrulama çalıştırılır. Seçenek 
 `IValidateOptions` şunları doğrular:
 
 * Belirli bir adlandırılmış seçenekler örneği.
-* @No__t-0 `null` olduğunda tüm seçenekler.
+* `name` `null`tüm seçenekler.
 
 Arabirimin uygulanınızdan bir `ValidateOptionsResult` döndürün:
 
@@ -806,7 +806,7 @@ Eager doğrulaması (başlangıçta hızlı başarısız), gelecek bir sürüm i
 
 ## <a name="options-post-configuration"></a>Yapılandırma sonrası seçenekler
 
-Yapılandırma sonrası <xref:Microsoft.Extensions.Options.IPostConfigureOptions%601> olarak ayarlayın. Tüm <xref:Microsoft.Extensions.Options.IConfigureOptions%601> yapılandırması oluştuktan sonra yapılandırma sonrası çalıştırılır:
+Yapılandırma sonrası <xref:Microsoft.Extensions.Options.IPostConfigureOptions%601>ayarlayın. Tüm <xref:Microsoft.Extensions.Options.IConfigureOptions%601> yapılandırma oluştuktan sonra yapılandırma sonrası çalıştırmalar:
 
 ```csharp
 services.PostConfigure<MyOptions>(myOptions =>
@@ -835,7 +835,7 @@ services.PostConfigureAll<MyOptions>(myOptions =>
 
 ## <a name="accessing-options-during-startup"></a>Başlangıç sırasında seçeneklere erişme
 
-<xref:Microsoft.Extensions.Options.IOptions%601> ve <xref:Microsoft.Extensions.Options.IOptionsMonitor%601> `Startup.Configure` ' de kullanılabilir. çünkü hizmetler `Configure` Yöntemi yürütülmeden önce oluşturulmuştur.
+<xref:Microsoft.Extensions.Options.IOptions%601> ve <xref:Microsoft.Extensions.Options.IOptionsMonitor%601> `Startup.Configure`kullanılabilir, çünkü Hizmetleri `Configure` Yöntemi yürütülmeden önce oluşturulmuştur.
 
 ```csharp
 public void Configure(IApplicationBuilder app, IOptionsMonitor<MyOptions> optionsAccessor)
@@ -844,7 +844,7 @@ public void Configure(IApplicationBuilder app, IOptionsMonitor<MyOptions> option
 }
 ```
 
-@No__t-2 ' de <xref:Microsoft.Extensions.Options.IOptions%601> veya <xref:Microsoft.Extensions.Options.IOptionsMonitor%601> kullanmayın. Hizmet kayıtlarının sıralaması nedeniyle tutarsız bir seçenek durumu var olabilir.
+`Startup.ConfigureServices`<xref:Microsoft.Extensions.Options.IOptions%601> veya <xref:Microsoft.Extensions.Options.IOptionsMonitor%601> kullanmayın. Hizmet kayıtlarının sıralaması nedeniyle tutarsız bir seçenek durumu var olabilir.
 
 ::: moniker-end
 
@@ -853,7 +853,7 @@ public void Configure(IApplicationBuilder app, IOptionsMonitor<MyOptions> option
 Seçenekler stili, ilişkili ayarların gruplarını temsil etmek için sınıfları kullanır. [Yapılandırma ayarları](xref:fundamentals/configuration/index) senaryo tarafından ayrı sınıflara ayrılmışsa, uygulama iki önemli yazılım mühendisliği ilkelerine uyar:
 
 * Yapılandırma ayarlarına bağlı olan [arabirim ayırma ilkesi (ISS) veya kapsülleme](/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#encapsulation) &ndash; senaryoları (sınıflar) yalnızca kullandıkları yapılandırma ayarlarına bağlıdır.
-* @No__t, uygulamanın farklı bölümleri için 1 ayarların [ayrılması,](/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#separation-of-concerns) birbirine bağımlı veya bir diğeriyle bağlantılı değildir.
+* Uygulamanın farklı parçaları için &ndash; ayarlarının [ayrılması,](/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#separation-of-concerns) birbirine bağımlı değildir veya birbirlerine aktarılmaz.
 
 Seçenekler Ayrıca yapılandırma verilerini doğrulamaya yönelik bir mekanizma sağlar. Daha fazla bilgi için [Seçenekler doğrulama](#options-validation) bölümüne bakın.
 
@@ -872,15 +872,15 @@ Microsoft. [AspNetCore. app metapackage](xref:fundamentals/metapackage-app) 'e b
 * [Yeniden yüklenebilir yapılandırma](#reload-configuration-data-with-ioptionssnapshot)
 * Seçmeli seçenekler geçersiz kılma (<xref:Microsoft.Extensions.Options.IOptionsMonitorCache%601>)
 
-[Yapılandırma sonrası](#options-post-configuration) senaryolar, tüm <xref:Microsoft.Extensions.Options.IConfigureOptions%601> yapılandırması oluştuktan sonra seçenekleri ayarlamanıza veya değiştirmenize olanak sağlar.
+[Yapılandırma sonrası](#options-post-configuration) senaryolar, tüm <xref:Microsoft.Extensions.Options.IConfigureOptions%601> yapılandırma oluştuktan sonra seçenekleri ayarlamanıza veya değiştirmenize olanak sağlar.
 
-<xref:Microsoft.Extensions.Options.IOptionsFactory%601>, yeni seçenek örnekleri oluşturmaktan sorumludur. Tek bir <xref:Microsoft.Extensions.Options.IOptionsFactory`1.Create*> yöntemi vardır. Varsayılan uygulama tüm kayıtlı <xref:Microsoft.Extensions.Options.IConfigureOptions%601> ' ı ve <xref:Microsoft.Extensions.Options.IPostConfigureOptions%601> ' ı alır ve önce tüm yapılandırmaları çalıştırır, sonrasında yapılandırma sonrası. @No__t-0 ve <xref:Microsoft.Extensions.Options.IConfigureOptions%601> arasında ayrım yapar ve yalnızca uygun arabirimi çağırır.
+<xref:Microsoft.Extensions.Options.IOptionsFactory%601> yeni seçenek örnekleri oluşturmaktan sorumludur. Tek bir <xref:Microsoft.Extensions.Options.IOptionsFactory`1.Create*> yöntemi vardır. Varsayılan uygulama tüm kayıtlı <xref:Microsoft.Extensions.Options.IConfigureOptions%601> ve <xref:Microsoft.Extensions.Options.IPostConfigureOptions%601> alır ve önce tüm yapılandırmaların, ardından yapılandırma sonrası sonrasında çalıştırılır. <xref:Microsoft.Extensions.Options.IConfigureNamedOptions%601> ve <xref:Microsoft.Extensions.Options.IConfigureOptions%601> arasında ayrım yapar ve yalnızca uygun arabirimi çağırır.
 
-<xref:Microsoft.Extensions.Options.IOptionsMonitorCache%601> <xref:Microsoft.Extensions.Options.IOptionsMonitor%601> tarafından `TOptions` örnekleri önbelleğe almak için kullanılır. @No__t-0, değer yeniden hesaplanabilmesi için izleyici içindeki seçenek örneklerini geçersiz kılar (<xref:Microsoft.Extensions.Options.IOptionsMonitorCache`1.TryRemove*>). Değerler, <xref:Microsoft.Extensions.Options.IOptionsMonitorCache`1.TryAdd*> ile el ile tanıtılamaz. @No__t-0 yöntemi, tüm adlandırılmış örneklerin isteğe bağlı olarak yeniden oluşturulması gerektiğinde kullanılır.
+<xref:Microsoft.Extensions.Options.IOptionsMonitorCache%601>, <xref:Microsoft.Extensions.Options.IOptionsMonitor%601> tarafından `TOptions` örnekleri önbelleğe almak için kullanılır. <xref:Microsoft.Extensions.Options.IOptionsMonitorCache%601>, değer yeniden hesaplanabilmesi için izleyici içindeki seçenek örneklerini geçersiz kılar (<xref:Microsoft.Extensions.Options.IOptionsMonitorCache`1.TryRemove*>). Değerler, <xref:Microsoft.Extensions.Options.IOptionsMonitorCache`1.TryAdd*> ile el ile tanıtılamaz. <xref:Microsoft.Extensions.Options.IOptionsMonitorCache`1.Clear*> yöntemi, tüm adlandırılmış örneklerin isteğe bağlı olarak yeniden oluşturulması gerektiğinde kullanılır.
 
 <xref:Microsoft.Extensions.Options.IOptionsSnapshot%601>, her istekte seçeneklerin yeniden hesaplanması gereken senaryolarda faydalıdır. Daha fazla bilgi için bkz. [ıoptionssnapshot ile yapılandırma verilerini yeniden yükleme](#reload-configuration-data-with-ioptionssnapshot) bölümü.
 
-<xref:Microsoft.Extensions.Options.IOptions%601>, seçenekleri desteklemek için kullanılabilir. Ancak, <xref:Microsoft.Extensions.Options.IOptions%601> <xref:Microsoft.Extensions.Options.IOptionsMonitor%601> ' in önceki senaryolarını desteklemez. @No__t-1 arabirimini kullanan mevcut çerçeveler ve kitaplıklarda <xref:Microsoft.Extensions.Options.IOptions%601> kullanmaya devam edebilir ve <xref:Microsoft.Extensions.Options.IOptionsMonitor%601> tarafından sunulan senaryolara gerek kalmaz.
+<xref:Microsoft.Extensions.Options.IOptions%601>, seçenekleri desteklemek için kullanılabilir. Ancak, <xref:Microsoft.Extensions.Options.IOptions%601> önceki <xref:Microsoft.Extensions.Options.IOptionsMonitor%601>senaryolarını desteklemez. Zaten <xref:Microsoft.Extensions.Options.IOptions%601> arabirimini kullanan mevcut çerçeveler ve kitaplıklarda <xref:Microsoft.Extensions.Options.IOptions%601> kullanmaya devam edebilir ve <xref:Microsoft.Extensions.Options.IOptionsMonitor%601>tarafından sağlanmış senaryolara gerek kalmaz.
 
 ## <a name="general-options-configuration"></a>Genel Seçenekler yapılandırması
 
@@ -890,7 +890,7 @@ Bir seçenek sınıfı ortak parametresiz bir Oluşturucu ile soyut olmamalıdı
 
 [!code-csharp[](options/samples/2.x/OptionsSample/Models/MyOptions.cs?name=snippet1)]
 
-@No__t-0 sınıfı, <xref:Microsoft.Extensions.DependencyInjection.OptionsConfigurationServiceCollectionExtensions.Configure*> ile hizmet kapsayıcısına eklenir ve yapılandırmaya bağlanır:
+`MyOptions` sınıfı, <xref:Microsoft.Extensions.DependencyInjection.OptionsConfigurationServiceCollectionExtensions.Configure*> ve yapılandırmayla bağlantılı olarak hizmet kapsayıcısına eklenir:
 
 [!code-csharp[](options/samples/2.x/OptionsSample/Startup.cs?name=snippet_Example1)]
 
@@ -934,7 +934,7 @@ Seçenek değerlerini ayarlamak için bir temsilci kullanın. Örnek uygulama `M
 
 [!code-csharp[](options/samples/2.x/OptionsSample/Models/MyOptionsWithDelegateConfig.cs?name=snippet1)]
 
-Aşağıdaki kodda, hizmet kapsayıcısına ikinci bir <xref:Microsoft.Extensions.Options.IConfigureOptions%601> hizmeti eklenir. @No__t-0 ile bağlamayı yapılandırmak için bir temsilci kullanır:
+Aşağıdaki kodda, hizmet kapsayıcısına ikinci bir <xref:Microsoft.Extensions.Options.IConfigureOptions%601> hizmeti eklenir. `MyOptionsWithDelegateConfig`ile bağlamayı yapılandırmak için bir temsilci kullanır:
 
 [!code-csharp[](options/samples/2.x/OptionsSample/Startup.cs?name=snippet_Example2)]
 
@@ -948,7 +948,7 @@ Aşağıdaki kodda, hizmet kapsayıcısına ikinci bir <xref:Microsoft.Extension
 
 Birden çok yapılandırma sağlayıcısı ekleyebilirsiniz. Yapılandırma sağlayıcıları NuGet paketlerinde kullanılabilir ve kayıtlı oldukları sırayla uygulanır. Daha fazla bilgi için bkz. <xref:fundamentals/configuration/index>.
 
-@No__t-0 ' a yapılan her çağrı, hizmet kapsayıcısına bir <xref:Microsoft.Extensions.Options.IConfigureOptions%601> hizmeti ekler. Yukarıdaki örnekte, `Option1` ve `Option2` değerlerinin ikisi de *appSettings. JSON*içinde belirtilmiştir, ancak `Option1` ve `Option2` değerleri yapılandırılan temsilci tarafından geçersiz kılınır.
+Her <xref:Microsoft.Extensions.Options.IConfigureOptions%601.Configure*> çağrısı, hizmet kapsayıcısına bir <xref:Microsoft.Extensions.Options.IConfigureOptions%601> hizmeti ekler. Yukarıdaki örnekte, `Option1` ve `Option2` değerlerinin ikisi de *appSettings. JSON*içinde belirtilmiştir, ancak `Option1` ve `Option2` değerleri yapılandırılan temsilci tarafından geçersiz kılınır.
 
 Birden fazla yapılandırma hizmeti etkinleştirildiğinde, son yapılandırma kaynağı *WINS* ' i ve yapılandırma değerini ayarlar. Uygulama çalıştırıldığında, sayfa modelinin `OnGet` yöntemi, seçenek sınıfı değerlerini gösteren bir dize döndürür:
 
@@ -962,19 +962,19 @@ Alt seçenekler yapılandırması örnek uygulamada &num;3 örnek olarak göster
 
 Uygulamalar, uygulamadaki belirli senaryo gruplarına (sınıflar) ait seçenek sınıfları oluşturmamalıdır. Uygulamanın yapılandırma değerleri gerektiren bölümlerinin yalnızca kullandıkları yapılandırma değerlerine erişimi olmalıdır.
 
-Seçenekleri yapılandırmaya bağlama sırasında, seçenek türündeki her özellik `property[:sub-property:]` biçiminde bir yapılandırma anahtarına bağlanır. Örneğin, `MyOptions.Option1` özelliği *appSettings. JSON*içindeki `option1` özelliğinden okunan `Option1` anahtarına bağlanır.
+Seçenekleri yapılandırmaya bağlama sırasında, seçenek türündeki her bir özellik `property[:sub-property:]`formun bir yapılandırma anahtarına bağlanır. Örneğin, `MyOptions.Option1` özelliği *appSettings. JSON*içindeki `option1` özelliğinden okunan `Option1` anahtarına bağlanır.
 
-Aşağıdaki kodda, hizmet kapsayıcısına üçüncü bir <xref:Microsoft.Extensions.Options.IConfigureOptions%601> hizmeti eklenir. @No__t-0 ' i *appSettings. JSON* dosyasının `subsection` bölümüne bağlar:
+Aşağıdaki kodda, hizmet kapsayıcısına üçüncü bir <xref:Microsoft.Extensions.Options.IConfigureOptions%601> hizmeti eklenir. `MySubOptions` *appSettings. JSON* dosyasının `subsection` bölümüne bağlar:
 
 [!code-csharp[](options/samples/2.x/OptionsSample/Startup.cs?name=snippet_Example3)]
 
-@No__t-0 genişletme yöntemi, [Microsoft. Extensions. Options. ConfigurationExtensions](https://www.nuget.org/packages/Microsoft.Extensions.Options.ConfigurationExtensions/) NuGet paketini gerektirir. Uygulama [Microsoft. AspNetCore. app metapackage](xref:fundamentals/metapackage-app) (ASP.NET Core 2,1 veya üzeri) kullanıyorsa, paket otomatik olarak eklenir.
+`GetSection` yöntemi <xref:Microsoft.Extensions.Configuration?displayProperty=fullName> ad alanını gerektirir.
 
 Örneğin *appSettings. JSON* dosyası, `suboption1` ve `suboption2` anahtarlarına sahip `subsection` üyesini tanımlar:
 
 [!code-json[](options/samples/2.x/OptionsSample/appsettings.json?highlight=4-7)]
 
-@No__t-0 sınıfı, Seçenekler değerlerini tutmak için, `SubOption1` ve `SubOption2` özelliklerini tanımlar (*modeller/Myalt seçenekler. cs*):
+`MySubOptions` sınıfı, Seçenekler değerlerini tutmak için özellikleri, `SubOption1` ve `SubOption2`tanımlar (*modeller/Myalt seçenekler. cs*):
 
 [!code-csharp[](options/samples/2.x/OptionsSample/Models/MySubOptions.cs?name=snippet1)]
 
@@ -996,7 +996,7 @@ subOption1 = subvalue1_from_json, subOption2 = 200
 
 Bir görünüm modeli veya doğrudan görünüm ekleme ile sunulan seçenekler örnek uygulamada &num;4 örnek olarak gösterilmiştir.
 
-Seçenekler bir görünüm modelinde veya ekleme <xref:Microsoft.Extensions.Options.IOptionsMonitor%601> tarafından doğrudan bir görünüme (*Sayfalar/Index. cshtml. cs*) sağlanabilir:
+Seçenekler, bir görünüm modelinde veya <xref:Microsoft.Extensions.Options.IOptionsMonitor%601> ekleme tarafından doğrudan bir görünüme (*Pages/Index. cshtml. cs*) sağlanabilir.
 
 [!code-csharp[](options/samples/2.x/OptionsSample/Pages/Index.cshtml.cs?range=9)]
 
@@ -1014,13 +1014,13 @@ Uygulama çalıştırıldığında, seçenek değerleri işlenen sayfada göster
 
 ## <a name="reload-configuration-data-with-ioptionssnapshot"></a>Ioptionssnapshot ile yapılandırma verilerini yeniden yükleme
 
-Yapılandırma verilerini <xref:Microsoft.Extensions.Options.IOptionsSnapshot%601> ile yeniden yükleme, örnek uygulamada &num;5 örnek olarak gösterilmiştir.
+Yapılandırma verilerini <xref:Microsoft.Extensions.Options.IOptionsSnapshot%601> ile yeniden yükleme örnek uygulamada örnek &num;5 gösterilmiştir.
 
 <xref:Microsoft.Extensions.Options.IOptionsSnapshot%601>, minimum işleme yüküyle yeniden yükleme seçeneklerini destekler.
 
 Seçenekler erişildiğinde ve isteğin ömrü boyunca önbelleğe alındığında her istek için bir kez hesaplanır.
 
-Aşağıdaki örnek, *appSettings. JSON* değişikliklerinden sonra New <xref:Microsoft.Extensions.Options.IOptionsSnapshot%601> ' ın nasıl oluşturulduğunu gösterir (*Pages/Index. cshtml. cs*). Sunucu için birden çok istek, dosya değiştirilene ve yapılandırma yeniden yükleninceye kadar *appSettings. JSON* dosyası tarafından belirtilen sabit değerler döndürüyor.
+Aşağıdaki örnek, *appSettings. JSON* değişikliklerinden sonra yeni bir <xref:Microsoft.Extensions.Options.IOptionsSnapshot%601> nasıl oluşturulduğunu gösterir (*Pages/Index. cshtml. cs*). Sunucu için birden çok istek, dosya değiştirilene ve yapılandırma yeniden yükleninceye kadar *appSettings. JSON* dosyası tarafından belirtilen sabit değerler döndürüyor.
 
 [!code-csharp[](options/samples/2.x/OptionsSample/Pages/Index.cshtml.cs?range=12)]
 
@@ -1028,13 +1028,13 @@ Aşağıdaki örnek, *appSettings. JSON* değişikliklerinden sonra New <xref:Mi
 
 [!code-csharp[](options/samples/2.x/OptionsSample/Pages/Index.cshtml.cs?name=snippet_Example5)]
 
-Aşağıdaki görüntüde, *appSettings. JSON* dosyasından yüklenen ilk @no__t 0 ve `option2` değerleri gösterilmektedir:
+Aşağıdaki görüntüde, *appSettings. JSON* dosyasından yüklenen ilk `option1` ve `option2` değerleri gösterilmektedir:
 
 ```html
 snapshot option1 = value1_from_json, snapshot option2 = -1
 ```
 
-*AppSettings. JSON* dosyasındaki değerleri `value1_from_json UPDATED` ve `200` ' e değiştirin. *AppSettings. JSON* dosyasını kaydedin. Seçenekler değerlerinin güncelleştirildiğini görmek için tarayıcıyı yenileyin:
+*AppSettings. JSON* dosyasındaki değerleri `value1_from_json UPDATED` ve `200`olacak şekilde değiştirin. *AppSettings. JSON* dosyasını kaydedin. Seçenekler değerlerinin güncelleştirildiğini görmek için tarayıcıyı yenileyin:
 
 ```html
 snapshot option1 = value1_from_json UPDATED, snapshot option2 = 200
@@ -1042,9 +1042,9 @@ snapshot option1 = value1_from_json UPDATED, snapshot option2 = 200
 
 ## <a name="named-options-support-with-iconfigurenamedoptions"></a>IController Enamedooptıons ile adlandırılmış seçenekler desteği
 
-@No__t-0 ile adlandırılmış seçenekler desteği örnek uygulamada &num;6 örnek olarak gösterilmiştir.
+<xref:Microsoft.Extensions.Options.IConfigureNamedOptions%601> ile adlandırılmış seçenekler, örnek uygulamada 6 &num;örnek olarak gösterilmiştir.
 
-*Adlandırılmış seçenekler* desteği, uygulamanın adlandırılmış seçenek yapılandırmalarının ayırt etmesine izin verir. Örnek uygulamada, adlandırılmış Seçenekler [OptionsServiceCollectionExtensions. configure](xref:Microsoft.Extensions.DependencyInjection.OptionsServiceCollectionExtensions.Configure*)ile bildirilmiştir ve bu, [configurenamedooptıons @ No__t-2toptions > ' i çağırır. ](xref:Microsoft.Extensions.Options.ConfigureNamedOptions`1.Configure*)Uzantı yöntemini Yapılandır:
+*Adlandırılmış seçenekler* desteği, uygulamanın adlandırılmış seçenek yapılandırmalarının ayırt etmesine izin verir. Örnek uygulamada, adlandırılmış Seçenekler [OptionsServiceCollectionExtensions. configure](xref:Microsoft.Extensions.DependencyInjection.OptionsServiceCollectionExtensions.Configure*)ile bildirilmiştir ve bu, [\<TOptions > ' i çağırır. ](xref:Microsoft.Extensions.Options.ConfigureNamedOptions`1.Configure*)Uzantı yöntemini Yapılandır:
 
 [!code-csharp[](options/samples/2.x/OptionsSample/Startup.cs?name=snippet_Example6)]
 
@@ -1063,10 +1063,10 @@ named_options_1: option1 = value1_from_json, option2 = -1
 named_options_2: option1 = named_options_2_value1_from_action, option2 = 5
 ```
 
-`named_options_1` değerleri, *appSettings. JSON* dosyasından yüklenen yapılandırmadan sağlanır. `named_options_2` değerleri tarafından sağlanır:
+`named_options_1` değerler, *appSettings. JSON* dosyasından yüklenen yapılandırmadan sağlanır. `named_options_2` değerleri tarafından sağlanır:
 
-* @No__t-2 için `ConfigureServices` `named_options_2` temsilcisi.
-* @No__t-1 sınıfı tarafından sunulan `Option2` için varsayılan değer.
+* `Option1`için `ConfigureServices` `named_options_2` temsilcisi.
+* `MyOptions` sınıfı tarafından sağlanmış `Option2` için varsayılan değer.
 
 ## <a name="configure-all-options-with-the-configureall-method"></a>Tüm seçenekleri ConfigureAll yöntemiyle yapılandırma
 
@@ -1087,11 +1087,11 @@ named_options_2: option1 = ConfigureAll replacement value, option2 = 5
 ```
 
 > [!NOTE]
-> Tüm seçenekler adlandırılmış örneklerdir. Mevcut <xref:Microsoft.Extensions.Options.IConfigureOptions%601> örnekleri, `string.Empty` olan `Options.DefaultName` örneğini hedefleyecek şekilde değerlendirilir. <xref:Microsoft.Extensions.Options.IConfigureNamedOptions%601>, <xref:Microsoft.Extensions.Options.IConfigureOptions%601> ' i de uygular. @No__t-0 ' ın varsayılan uygulamasının her birini uygun şekilde kullanma mantığı vardır. @No__t-0 adlandırılmış seçeneği, belirli bir adlandırılmış örnek yerine tüm adlandırılmış örnekleri hedeflemek için kullanılır (<xref:Microsoft.Extensions.DependencyInjection.OptionsServiceCollectionExtensions.ConfigureAll*> ve <xref:Microsoft.Extensions.DependencyInjection.OptionsServiceCollectionExtensions.PostConfigureAll*> Bu kuralı kullanın).
+> Tüm seçenekler adlandırılmış örneklerdir. Mevcut <xref:Microsoft.Extensions.Options.IConfigureOptions%601> örnekleri, `string.Empty``Options.DefaultName` örneğini hedefleyecek şekilde değerlendirilir. <xref:Microsoft.Extensions.Options.IConfigureNamedOptions%601> Ayrıca <xref:Microsoft.Extensions.Options.IConfigureOptions%601>uygular. <xref:Microsoft.Extensions.Options.IOptionsFactory%601> varsayılan uygulamasının her birini uygun şekilde kullanma mantığı vardır. `null` adlandırılmış seçenek, belirli bir adlandırılmış örnek yerine tüm adlandırılmış örnekleri hedeflemek için kullanılır (<xref:Microsoft.Extensions.DependencyInjection.OptionsServiceCollectionExtensions.ConfigureAll*> ve <xref:Microsoft.Extensions.DependencyInjection.OptionsServiceCollectionExtensions.PostConfigureAll*> bu kuralı kullanın).
 
 ## <a name="optionsbuilder-api"></a>Seçenekno Oluşturucu API 'SI
 
-<xref:Microsoft.Extensions.Options.OptionsBuilder%601> `TOptions` örnekleri yapılandırmak için kullanılır. `OptionsBuilder` @no__t, sonraki çağrıların tümünde görünmesini yerine yalnızca tek bir parametre olan adlandırılmış seçenekleri oluşturmayı kolaylaştırır. Seçenekler doğrulaması ve hizmet bağımlılıklarını kabul eden `ConfigureOptions` aşırı yüklemeleri yalnızca `OptionsBuilder` aracılığıyla kullanılabilir.
+<xref:Microsoft.Extensions.Options.OptionsBuilder%601>, `TOptions` örnekleri yapılandırmak için kullanılır. `OptionsBuilder`, sonraki çağrıların tümünde olmak yerine ilk `AddOptions<TOptions>(string optionsName)` çağrısına yalnızca tek bir parametre olan adlandırılmış seçenekleri oluşturmayı kolaylaştırır. Seçenekler doğrulaması ve hizmet bağımlılıklarını kabul eden `ConfigureOptions` aşırı yüklemeleri yalnızca `OptionsBuilder` aracılığıyla kullanılabilir.
 
 ```csharp
 // Options.DefaultName = "" is used.
@@ -1105,7 +1105,7 @@ services.AddOptions<MyOptions>("optionalName")
 
 Seçenekleri iki şekilde yapılandırırken, bağımlılık ekleme işleminden diğer hizmetlere erişebilirsiniz:
 
-* [Options Builder @ no__t-2TOptions >](xref:Microsoft.Extensions.Options.OptionsBuilder`1)üzerinde [yapılandırmak](xref:Microsoft.Extensions.Options.OptionsBuilder`1.Configure*) için bir yapılandırma temsilcisi geçirin. Options [Builder @ no__t-1TOptions >](xref:Microsoft.Extensions.Options.OptionsBuilder`1) , seçenekleri yapılandırmak için en fazla beş hizmeti kullanmanıza olanak sağlayan, [yapılandırma](xref:Microsoft.Extensions.Options.OptionsBuilder`1.Configure*) yüklerini sağlar:
+* [\<TOptions > ' nin Options Builder](xref:Microsoft.Extensions.Options.OptionsBuilder`1)'da [yapılandırılması](xref:Microsoft.Extensions.Options.OptionsBuilder`1.Configure*) için bir yapılandırma temsilcisi geçirin. [\<bir TOptions > seçenek Oluşturucusu](xref:Microsoft.Extensions.Options.OptionsBuilder`1) , seçenekleri yapılandırmak için en fazla beş hizmeti kullanmanıza olanak sağlayan, [yapılandırma](xref:Microsoft.Extensions.Options.OptionsBuilder`1.Configure*) yüklerini sağlar:
 
   ```csharp
   services.AddOptions<MyOptions>("optionalName")
@@ -1114,13 +1114,13 @@ Seçenekleri iki şekilde yapılandırırken, bağımlılık ekleme işleminden 
               o.Property = DoSomethingWith(s, s2, s3, s4, s5));
   ```
 
-* @No__t-0 veya <xref:Microsoft.Extensions.Options.IConfigureNamedOptions%601> uygulayan kendi türünü oluşturun ve türü bir hizmet olarak kaydedin.
+* <xref:Microsoft.Extensions.Options.IConfigureOptions%601> veya <xref:Microsoft.Extensions.Options.IConfigureNamedOptions%601> uygulayan ve türü bir hizmet olarak kaydeden kendi türünü oluşturun.
 
-Bir hizmetin oluşturulması daha karmaşık olduğundan, [yapılandırmak](xref:Microsoft.Extensions.Options.OptionsBuilder`1.Configure*)için bir yapılandırma temsilcisinin geçirilmesini öneririz. Kendi türünü oluşturmak, [Yapılandır](xref:Microsoft.Extensions.Options.OptionsBuilder`1.Configure*)'ı kullandığınızda çerçevenin sizin için yaptığı işe eşdeğerdir. [Yapılandırma](xref:Microsoft.Extensions.Options.OptionsBuilder`1.Configure*) çağrısı, belirtilen genel hizmet türlerini kabul eden bir oluşturucuya sahip olan geçici genel <xref:Microsoft.Extensions.Options.IConfigureNamedOptions%601> ' i kaydettirir. 
+Bir hizmetin oluşturulması daha karmaşık olduğundan, [yapılandırmak](xref:Microsoft.Extensions.Options.OptionsBuilder`1.Configure*)için bir yapılandırma temsilcisinin geçirilmesini öneririz. Kendi türünü oluşturmak, [Yapılandır](xref:Microsoft.Extensions.Options.OptionsBuilder`1.Configure*)'ı kullandığınızda çerçevenin sizin için yaptığı işe eşdeğerdir. [Yapılandırma](xref:Microsoft.Extensions.Options.OptionsBuilder`1.Configure*) çağrısı, belirtilen genel hizmet türlerini kabul eden bir oluşturucuya sahip olan geçici genel <xref:Microsoft.Extensions.Options.IConfigureNamedOptions%601>kaydeder. 
 
 ## <a name="options-post-configuration"></a>Yapılandırma sonrası seçenekler
 
-Yapılandırma sonrası <xref:Microsoft.Extensions.Options.IPostConfigureOptions%601> olarak ayarlayın. Tüm <xref:Microsoft.Extensions.Options.IConfigureOptions%601> yapılandırması oluştuktan sonra yapılandırma sonrası çalıştırılır:
+Yapılandırma sonrası <xref:Microsoft.Extensions.Options.IPostConfigureOptions%601>ayarlayın. Tüm <xref:Microsoft.Extensions.Options.IConfigureOptions%601> yapılandırma oluştuktan sonra yapılandırma sonrası çalıştırmalar:
 
 ```csharp
 services.PostConfigure<MyOptions>(myOptions =>
@@ -1149,7 +1149,7 @@ services.PostConfigureAll<MyOptions>(myOptions =>
 
 ## <a name="accessing-options-during-startup"></a>Başlangıç sırasında seçeneklere erişme
 
-<xref:Microsoft.Extensions.Options.IOptions%601> ve <xref:Microsoft.Extensions.Options.IOptionsMonitor%601> `Startup.Configure` ' de kullanılabilir. çünkü hizmetler `Configure` Yöntemi yürütülmeden önce oluşturulmuştur.
+<xref:Microsoft.Extensions.Options.IOptions%601> ve <xref:Microsoft.Extensions.Options.IOptionsMonitor%601> `Startup.Configure`kullanılabilir, çünkü Hizmetleri `Configure` Yöntemi yürütülmeden önce oluşturulmuştur.
 
 ```csharp
 public void Configure(IApplicationBuilder app, IOptionsMonitor<MyOptions> optionsAccessor)
@@ -1158,7 +1158,7 @@ public void Configure(IApplicationBuilder app, IOptionsMonitor<MyOptions> option
 }
 ```
 
-@No__t-2 ' de <xref:Microsoft.Extensions.Options.IOptions%601> veya <xref:Microsoft.Extensions.Options.IOptionsMonitor%601> kullanmayın. Hizmet kayıtlarının sıralaması nedeniyle tutarsız bir seçenek durumu var olabilir.
+`Startup.ConfigureServices`<xref:Microsoft.Extensions.Options.IOptions%601> veya <xref:Microsoft.Extensions.Options.IOptionsMonitor%601> kullanmayın. Hizmet kayıtlarının sıralaması nedeniyle tutarsız bir seçenek durumu var olabilir.
 
 ::: moniker-end
 

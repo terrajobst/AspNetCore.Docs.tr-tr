@@ -5,14 +5,14 @@ description: Çalışma zamanında yüklenen ad-değer çiftlerini kullanarak bi
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/14/2019
+ms.date: 10/27/2019
 uid: security/key-vault-configuration
-ms.openlocfilehash: c8e76068dbcf2a59a15fa75a1fc5aa0032e6acc5
-ms.sourcegitcommit: 07d98ada57f2a5f6d809d44bdad7a15013109549
+ms.openlocfilehash: acc3a77cdeb3ba73d8467d465128106e461efa7c
+ms.sourcegitcommit: 16cf016035f0c9acf3ff0ad874c56f82e013d415
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72334209"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73034323"
 ---
 # <a name="azure-key-vault-configuration-provider-in-aspnet-core"></a>ASP.NET Core Azure Key Vault yapılandırma sağlayıcısı
 
@@ -34,7 +34,7 @@ Azure Key Vault yapılandırma sağlayıcısını kullanmak için [Microsoft. Ex
 [Azure kaynakları Için Yönetilen kimlikler senaryosunu benimsemek](/azure/active-directory/managed-identities-azure-resources/overview) için [Microsoft. Azure. Services. appauthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication/) paketine bir paket başvurusu ekleyin.
 
 > [!NOTE]
-> Yazma sırasında, `Microsoft.Azure.Services.AppAuthentication`, sürüm `1.0.3` ' in en son kararlı sürümü, [sistem tarafından atanan Yönetilen kimlikler](/azure/active-directory/managed-identities-azure-resources/overview#how-does-the-managed-identities-for-azure-resources-work)için destek sağlar. @No__t-1 paketinde *Kullanıcı tarafından atanan Yönetilen kimlikler* için destek sunulmaktadır. Bu konu, sistem tarafından yönetilen kimliklerin kullanımını gösterir ve belirtilen örnek uygulama `Microsoft.Azure.Services.AppAuthentication` paketinin `1.0.3` sürümünü kullanır.
+> Yazma sırasında, `Microsoft.Azure.Services.AppAuthentication`, sürüm `1.0.3` ' in en son kararlı sürümü, [sistem tarafından atanan Yönetilen kimlikler](/azure/active-directory/managed-identities-azure-resources/overview#how-does-the-managed-identities-for-azure-resources-work)için destek sağlar. *Kullanıcı tarafından atanan Yönetilen kimlikler* için destek, `1.2.0-preview2` paketinde bulunabilir. Bu konu, sistem tarafından yönetilen kimliklerin kullanımını gösterir ve belirtilen örnek uygulama `Microsoft.Azure.Services.AppAuthentication` paketinin `1.0.3` sürümünü kullanır.
 
 ## <a name="sample-app"></a>Örnek uygulama
 
@@ -72,7 +72,7 @@ dotnet user-secrets set "SecretName" "secret_value_1_dev"
 dotnet user-secrets set "Section:SecretName" "secret_value_2_dev"
 ```
 
-Bu gizlilikler, [Azure Key Vault bölümü Ile üretim ortamındaki gizli depolama](#secret-storage-in-the-production-environment-with-azure-key-vault) alanında Azure Key Vault depolandığında `_dev` son eki `_prod` olarak değiştirilir. Sonek, uygulamanın çıktısında yapılandırma değerlerinin kaynağını gösteren bir görsel ipucu sağlar.
+Bu gizlilikler, [Azure Key Vault bölümü Ile üretim ortamındaki gizli depolama](#secret-storage-in-the-production-environment-with-azure-key-vault) alanında Azure Key Vault depolandığında `_dev` son eki `_prod`olarak değiştirilir. Sonek, uygulamanın çıktısında yapılandırma değerlerinin kaynağını gösteren bir görsel ipucu sağlar.
 
 ## <a name="secret-storage-in-the-production-environment-with-azure-key-vault"></a>Azure Key Vault ile üretim ortamında gizli dizi
 
@@ -104,7 +104,7 @@ Hızlı başlangıç tarafından sunulan yönergeler [: Azure CLI kullanarak Azu
 
    Azure Key Vault gizli dizi adları, alfasayısal karakterler ve tireler ile sınırlıdır. Hiyerarşik değerler (yapılandırma bölümleri) ayırıcı olarak `--` (iki tire) kullanır. Genellikle [ASP.NET Core yapılandırmasındaki](xref:fundamentals/configuration/index)bir alt anahtardan bir bölümü sınırlandırmak için kullanılan iki nokta üst üste, Anahtar Kasası gizli adlarında izin verilmez. Bu nedenle, gizlilikler uygulamanın yapılandırmasına yüklendiğinde iki tire kullanılır ve iki nokta üst üste bulunur.
 
-   Aşağıdaki gizlilikler örnek uygulamayla kullanım içindir. Değerler, Kullanıcı parolalarından geliştirme ortamında yüklenen `_dev` sonek değerlerinden ayırt etmek için bir `_prod` soneki içerir. @No__t-0 ' yı önceki adımda oluşturduğunuz anahtar kasasının adıyla değiştirin:
+   Aşağıdaki gizlilikler örnek uygulamayla kullanım içindir. Değerler, geliştirme ortamında yüklenen `_dev` sonek değerlerinden Kullanıcı parolalarından ayırt etmek için bir `_prod` soneki içerir. `{KEY VAULT NAME}`, önceki adımda oluşturduğunuz anahtar kasasının adıyla değiştirin:
 
    ```azure-cli
    az keyvault secret set --vault-name "{KEY VAULT NAME}" --name "SecretName" --value "secret_value_1_prod"
@@ -139,9 +139,9 @@ Hızlı başlangıç tarafından sunulan yönergeler [: Azure CLI kullanarak Azu
 1. **Kaydet**' i seçin.
 1. Uygulamayı dağıtın.
 
-@No__t-0 örnek uygulaması, `IConfigurationRoot` ' den gelen yapılandırma değerlerini gizli adıyla aynı adla alır:
+`Certificate` örnek uygulama, `IConfigurationRoot` yapılandırma değerlerini gizli adı ile aynı ada sahip bir adla edinir:
 
-* Hiyerarşik olmayan değerler: `SecretName` değeri `config["SecretName"]` ile elde edilir.
+* Hiyerarşik olmayan değerler: `SecretName` değeri `config["SecretName"]`ile elde edilir.
 * Hiyerarşik değerler (bölümler): `:` (iki nokta üst üste) gösterimini veya `GetSection` uzantı yöntemini kullanın. Yapılandırma değerini elde etmek için şu yaklaşımlardan birini kullanın:
   * `config["Section:SecretName"]`
   * `config.GetSection("Section")["SecretName"]`
@@ -160,7 +160,7 @@ X. 509.440 sertifikası işletim sistemi tarafından yönetiliyor. Uygulama, *ap
 
 [!code-json[](key-vault-configuration/sample/appsettings.json)]
 
-Uygulamayı çalıştırdığınızda, bir Web sayfası yüklenen gizli değerleri gösterir. Geliştirme ortamında, gizli değerler `_dev` sonekiyle yüklenir. Üretim ortamında, değerler `_prod` soneki ile yüklenir.
+Uygulamayı çalıştırdığınızda, bir Web sayfası yüklenen gizli değerleri gösterir. Geliştirme ortamında, gizli değerler `_dev` sonekiyle yüklenir. Üretim ortamında, değerler `_prod` sonekiyle yüklenir.
 
 ## <a name="use-managed-identities-for-azure-resources"></a>Azure kaynakları için Yönetilen kimlikler kullanma
 
@@ -186,7 +186,7 @@ Azure CLı, PowerShell veya Azure portal kullanarak **uygulamayı yeniden başla
 
 * Bağlantı dizesi olmadan `AzureServiceTokenProvider` sınıfının bir örneğini oluşturur. Bir bağlantı dizesi sağlanmazsa, sağlayıcı Azure kaynakları için yönetilen kimliklerden bir erişim belirteci almaya çalışır.
 * Yeni bir `KeyVaultClient` `AzureServiceTokenProvider` örnek belirteci geri çağırması ile oluşturulur.
-* @No__t-0 örneği, tüm gizli değerleri yükleyen ve çift tireleri (`--`) anahtar adlarında iki nokta (`:`) ile değiştirir `IKeyVaultSecretManager` varsayılan uygulamasıyla kullanılır.
+* `KeyVaultClient` örneği, tüm gizli değerleri yükleyen ve çift tire (`--`) anahtar adlarında iki nokta (`:`) ile değiştirir `IKeyVaultSecretManager` varsayılan uygulamasıyla kullanılır.
 
 [!code-csharp[](key-vault-configuration/sample/Program.cs?name=snippet2&highlight=13-21)]
 
@@ -202,7 +202,9 @@ Anahtar Kasası adı örnek değeri: `contosovault`
 
 Uygulamayı çalıştırdığınızda, bir Web sayfası yüklenen gizli değerleri gösterir. Geliştirme ortamında, gizli değerler `_dev` sonekine sahiptir çünkü Kullanıcı gizli dizileri tarafından sağlanırlar. Üretim ortamında, Azure Key Vault tarafından sağlandıklarından, değerler `_prod` sonekiyle yüklenir.
 
-@No__t-0 hatası alırsanız, uygulamanın Azure AD 'ye kayıtlı olduğunu ve anahtar kasasına erişim sağladıklarını doğrulayın. Azure 'da hizmeti yeniden başlattığınızdan emin olun.
+`Access denied` bir hata alırsanız, uygulamanın Azure AD 'ye kayıtlı olduğunu ve anahtar kasasına erişim sağladıklarını doğrulayın. Azure 'da hizmeti yeniden başlattığınızdan emin olun.
+
+Sağlayıcıyı yönetilen bir kimlik ve bir Azure DevOps işlem hattı ile kullanma hakkında bilgi için bkz. [yönetilen hizmet KIMLIĞIYLE VM 'ye Azure Resource Manager hizmet bağlantısı oluşturma](/azure/devops/pipelines/library/connect-to-azure#create-an-azure-resource-manager-service-connection-to-a-vm-with-a-managed-service-identity).
 
 ## <a name="use-a-key-name-prefix"></a>Anahtar adı öneki kullanın
 
@@ -217,11 +219,11 @@ Aşağıdaki örnekte, anahtar kasasında (ve geliştirme ortamı için gizli Y�
 
 [!code-csharp[](key-vault-configuration/sample_snapshot/Program.cs?highlight=30-34)]
 
-@No__t 0 uygulama, doğru gizli anahtarı yapılandırmaya yüklemek için gizli dizi sürüm öneklerine yeniden davranır:
+`IKeyVaultSecretManager` uygulama, doğru gizli anahtarı yapılandırmaya yüklemek için gizli dizi sürüm öneklerine yeniden davranır:
 
 [!code-csharp[](key-vault-configuration/sample_snapshot/Startup.cs?name=snippet1)]
 
-@No__t-0 yöntemi, sürüm ön ekine sahip olanları bulmak için kasa gizli dizileri aracılığıyla yinelenen bir sağlayıcı algoritması tarafından çağırılır. @No__t-0 ile bir sürüm ön eki bulunduğunda, algoritma, parola adının yapılandırma adını döndürmek için `GetKey` yöntemini kullanır. Gizlilik adından sürüm önekini kaldırır ve uygulamanın yapılandırma adı-değer çiftlerine yüklemek için gizli dizi adının geri kalanını döndürür.
+`Load` yöntemi, sürüm ön ekine sahip olanları bulmak için kasa gizli dizileri aracılığıyla yinelenen bir sağlayıcı algoritması tarafından çağırılır. `Load`ile bir sürüm ön eki bulunduğunda, algoritma, gizli anahtar adının yapılandırma adını döndürmek için `GetKey` yöntemini kullanır. Gizlilik adından sürüm önekini kaldırır ve uygulamanın yapılandırma adı-değer çiftlerine yüklemek için gizli dizi adının geri kalanını döndürür.
 
 Bu yaklaşım uygulandığında:
 
@@ -255,11 +257,11 @@ Bu yaklaşım uygulandığında:
    az keyvault secret set --vault-name "{KEY VAULT NAME}" --name "5100-AppSecret" --value "5.1.0.0_secret_value_prod"
    ```
 
-1. Uygulama çalıştırıldığında, Anahtar Kasası gizli dizileri yüklenir. @No__t-0 için dize gizli dizisi, uygulamanın proje dosyasında belirtilen sürümle (`5.0.0.0`) eşleşir.
+1. Uygulama çalıştırıldığında, Anahtar Kasası gizli dizileri yüklenir. `5000-AppSecret` dize gizli dizisi, uygulamanın proje dosyasında (`5.0.0.0`) belirtilen uygulamanın sürümüyle eşleştirilir.
 
-1. @No__t-0 (Dash ile) sürümü, anahtar adından çıkarılır. Uygulamanın tamamında, `AppSecret` anahtarıyla yapılandırmayı okumak gizli değeri yükler.
+1. `5000` (Dash ile) sürümü, anahtar adından çıkarılır. Uygulamanın tamamında, `AppSecret` anahtarıyla yapılandırmayı okumak gizli değeri yükler.
 
-1. Uygulamanın sürümü proje dosyasında `5.1.0.0` olarak değiştirilirse ve uygulama yeniden çalıştırıldığında, döndürülen gizli değer geliştirme ortamında ve üretimde `5.1.0.0_secret_value_prod` ' dir `5.1.0.0_secret_value_dev` ' dir.
+1. Uygulamanın sürümü proje dosyasında `5.1.0.0` olarak değiştirilirse ve uygulama yeniden çalıştırıldığında, döndürülen gizli değer geliştirme ortamında ve üretimde `5.1.0.0_secret_value_prod` `5.1.0.0_secret_value_dev`.
 
 > [!NOTE]
 > Ayrıca, `AddAzureKeyVault` için kendi `KeyVaultClient` uygulamanızı sağlayabilirsiniz. Özel istemci, uygulama genelinde istemcinin tek bir örneğini paylaşıma izin verir.
@@ -272,7 +274,7 @@ Anahtarların iki nokta (`:`) ayırıcılar içermesine izin veren bir yapıland
 
 Azure Key Vault anahtarlar ayırıcı olarak iki nokta üst üste kullanamaz. Bu konuda açıklanan yaklaşım, hiyerarşik değerler (bölümler) için bir ayırıcı olarak çift tire (`--`) kullanır. Dizi anahtarları Çift tire ve sayısal anahtar kesimlerle Azure Key Vault depolanır (`--0--`, `--1--`, &hellip; `--{n}--`).
 
-Bir JSON dosyası tarafından sunulan aşağıdaki [Serilog](https://serilog.net/) günlük sağlayıcısı yapılandırmasını inceleyin. @No__t-0 dizisinde, günlük çıkışı için hedefleri açıklayan *Iki Serilog girişi*yansıtan iki nesne sabit değeri mevcuttur:
+Bir JSON dosyası tarafından sunulan aşağıdaki [Serilog](https://serilog.net/) günlük sağlayıcısı yapılandırmasını inceleyin. `WriteTo` dizisinde, günlüğe kaydetme için hedefleri açıklayan iki Serilog *evni*yansıtan iki nesne sabit değeri mevcuttur:
 
 ```json
 "Serilog": {

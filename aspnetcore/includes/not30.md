@@ -1,0 +1,1 @@
+> Uyarı Bu konu ASP.NET Core 3,0 için güncelleştirilmedi.

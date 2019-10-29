@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/15/2019
 uid: blazor/hosting-models
-ms.openlocfilehash: 072f9bbdcf7171ede63383b085f9f0f030bf1076
-ms.sourcegitcommit: 35a86ce48041caaf6396b1e88b0472578ba24483
+ms.openlocfilehash: be67c129af4f071d10719e0bbf121de761dde9f4
+ms.sourcegitcommit: 16cf016035f0c9acf3ff0ad874c56f82e013d415
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72391165"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73033986"
 ---
 # <a name="aspnet-core-blazor-hosting-models"></a>Blazor barındırma modellerini ASP.NET Core
 
@@ -66,7 +66,7 @@ ASP.NET Core uygulaması, uygulamanın `Startup` sınıfına şu ekleme için ba
 * Sunucu tarafı hizmetler.
 * İstek işleme işlem hattının uygulaması.
 
-*Blazor. Server. js* betiği @ no__t-1, istemci bağlantısını oluşturur. Uygulamanın, uygulama durumunu (örneğin, kayıp ağ bağlantısı durumunda) kalıcı hale getirmek ve geri yüklemek, uygulamanın sorumluluğundadır.
+*Blazor. Server. js* komut dosyası&dagger; istemci bağlantısını kurar. Uygulamanın, uygulama durumunu (örneğin, kayıp ağ bağlantısı durumunda) kalıcı hale getirmek ve geri yüklemek, uygulamanın sorumluluğundadır.
 
 Blazor sunucusu barındırma modeli çeşitli avantajlar sunar:
 
@@ -83,7 +83,7 @@ Blazor sunucusu barındırma için aşağı taraf vardır:
 * Ölçeklenebilirlik, çok sayıda kullanıcısı olan uygulamalar için zorlayıcı bir uygulamalardır. Sunucunun birden çok istemci bağlantısını yönetmesi ve istemci durumunu işlemesi gerekir.
 * Uygulamayı çalıştırmak için bir ASP.NET Core sunucusu gerekir. Sunucusuz dağıtım senaryoları mümkün değildir (örneğin, bir CDN 'den uygulama sunma).
 
-@no__t- *0blazor. Server. js* betiği, ASP.NET Core paylaşılan çerçevede eklenmiş bir kaynaktan sunulur.
+&dagger;*blazor. Server. js* komut dosyası, ASP.NET Core paylaşılan çerçevesindeki gömülü bir kaynaktan sunulur.
 
 ### <a name="comparison-to-server-rendered-ui"></a>Sunucu tarafından işlenmiş Kullanıcı arabirimine karşılaştırma
 
@@ -133,11 +133,11 @@ Blazor sunucu uygulamaları, ağ gecikmesini ve bellek kullanımını azaltarak 
 
 Blazor Server uygulamaları, sunucusuna etkin bir SignalR bağlantısı gerektirir. Bağlantı kaybolursa, uygulama sunucuya yeniden bağlanmaya çalışır. İstemcinin durumu hala bellekte olduğu sürece, istemci oturumu durum kaybı olmadan devam eder.
 
-İstemci bağlantının kaybolduğunu algıladığında, istemci yeniden bağlanmayı denediğinde kullanıcıya varsayılan bir kullanıcı arabirimi görüntülenir. Yeniden bağlantı başarısız olursa, kullanıcıya yeniden deneme seçeneği sağlanır. Kullanıcı arabirimini özelleştirmek için, *_Host. cshtml* Razor sayfasında `id` olarak `components-reconnect-modal` olan bir öğe tanımlayın. İstemci bu öğeyi bağlantı durumuna göre aşağıdaki CSS sınıflarından biriyle güncelleştirir:
+İstemci bağlantının kaybolduğunu algıladığında, istemci yeniden bağlanmayı denediğinde kullanıcıya varsayılan bir kullanıcı arabirimi görüntülenir. Yeniden bağlantı başarısız olursa, kullanıcıya yeniden deneme seçeneği sağlanır. Kullanıcı arabirimini özelleştirmek için, *_Host. cshtml* Razor sayfasında `id` olarak `components-reconnect-modal` bir öğe tanımlayın. İstemci bu öğeyi bağlantı durumuna göre aşağıdaki CSS sınıflarından biriyle güncelleştirir:
 
 * `components-reconnect-show` &ndash; Kullanıcı arabirimini kayıp bağlantıyı belirtecek şekilde gösterir ve istemci yeniden bağlanmaya çalışıyor demektir.
 * `components-reconnect-hide` &ndash; istemcide etkin bir bağlantı varsa Kullanıcı arabirimini gizleyin.
-* `components-reconnect-failed` @no__t-büyük olasılıkla ağ hatasından dolayı 1 yeniden bağlantı başarısız oldu. Yeniden bağlanmayı denemek için `window.Blazor.reconnect()` ' ı çağırın.
+* `components-reconnect-failed` &ndash; yeniden bağlantı başarısız oldu, muhtemelen bir ağ hatasından kaynaklanıyor. Yeniden bağlanmayı denemek için `window.Blazor.reconnect()` ' ı çağırın.
 * `components-reconnect-rejected` &ndash; yeniden bağlantı reddedildi. Sunucuya ulaşıldı ancak bağlantı reddedildi ve kullanıcının sunucudaki durumu geçti. Uygulamayı yeniden yüklemek için `location.reload()` ' ı çağırın. Bu bağlantı durumu şu durumlarda oluşabilir:
   * Devrendeki bir kilitlenme (sunucu tarafı kodu) oluşur.
   * Sunucunun kullanıcının durumunu bırakması için istemcinin bağlantısı yeterince uzun değil. Kullanıcının etkileşimde bulunduğu bileşenlerin örnekleri atıldı.
@@ -208,7 +208,7 @@ Aşağıdaki Razor sayfasında, `MyComponent` bileşeni, bir form kullanılarak 
 }
 ```
 
-@No__t-0 statik olarak işlendiğinden, bileşen etkileşimli olamaz.
+`MyComponent` statik olarak işlendiğinde, bileşen etkileşimli olamaz.
 
 ### <a name="detect-when-the-app-is-prerendering"></a>Uygulamanın ne zaman prerendering olduğunu Algıla
 
@@ -221,14 +221,14 @@ Bazen, Blazor Server uygulamaları tarafından kullanılan SignalR istemcisini y
 */_Host. cshtml* dosyasında SignalR istemcisini yapılandırmak için:
 
 * *Blazor. Server. js* betiği için `<script>` etiketine `autostart="false"` özniteliği ekleyin.
-* @No__t-0 ' yı çağırın ve SignalR oluşturucuyu belirten bir yapılandırma nesnesi geçirin.
+* `Blazor.start` çağırın ve SignalR oluşturucuyu belirten bir yapılandırma nesnesi geçirin.
 
 ```html
 <script src="_framework/blazor.server.js" autostart="false"></script>
 <script>
   Blazor.start({
     configureSignalR: function (builder) {
-      builder.configureLogging(2); // LogLevel.Information
+      builder.configureLogging("information"); // LogLevel.Information
     }
   });
 </script>

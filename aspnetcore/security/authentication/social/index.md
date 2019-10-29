@@ -1,31 +1,30 @@
 ---
 title: ASP.NET Core Facebook, Google ve dış sağlayıcı kimlik doğrulaması
 author: rick-anderson
-description: Bu öğreticide, dış kimlik doğrulama sağlayıcılarıyla OAuth 2,0 kullanarak bir ASP.NET Core 2. x uygulamasının nasıl oluşturulacağı gösterilmektedir.
+description: Bu öğreticide, dış kimlik doğrulama sağlayıcılarıyla OAuth 2,0 kullanarak bir ASP.NET Core uygulamasının nasıl oluşturulacağı gösterilmektedir.
 ms.author: riande
 ms.custom: mvc
-ms.date: 05/10/2019
+ms.date: 10/21/2019
 uid: security/authentication/social/index
-ms.openlocfilehash: edaf9eeaf02879b2f7816bab0eb373a7de640c05
-ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
+ms.openlocfilehash: 627ca483d60514d85e38c0e346ff5aef64ad9fee
+ms.sourcegitcommit: 16cf016035f0c9acf3ff0ad874c56f82e013d415
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71082512"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73034303"
 ---
 # <a name="facebook-google-and-external-provider-authentication-in-aspnet-core"></a>ASP.NET Core Facebook, Google ve dış sağlayıcı kimlik doğrulaması
 
-Tarafından [Valeriy Novytskyy](https://github.com/01binary) ve [Rick Anderson](https://twitter.com/RickAndMSFT)
+Tarafından [Valeriy Novyıtskyy](https://github.com/01binary) ve [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-Bu öğreticide, kullanıcıların dış kimlik doğrulama sağlayıcılarından kimlik bilgileriyle OAuth 2,0 kullanarak oturum açmasını sağlayan ASP.NET Core 2,2 uygulamasının nasıl oluşturulacağı gösterilmektedir.
+Bu öğreticide, kullanıcıların dış kimlik doğrulama sağlayıcılarından kimlik bilgileriyle OAuth 2,0 kullanarak oturum açmasını sağlayan ASP.NET Core 3,0 uygulamasının nasıl oluşturulacağı gösterilmektedir.
 
-[Facebook](xref:security/authentication/facebook-logins), [Twitter](xref:security/authentication/twitter-logins), [Google](xref:security/authentication/google-logins)ve [Microsoft](xref:security/authentication/microsoft-logins) sağlayıcıları aşağıdaki bölümlerde ele alınmıştır. Diğer sağlayıcılar, [Aspnet. Security. OAuth. Providers](https://github.com/aspnet-contrib/AspNet.Security.OAuth.Providers) ve [Aspnet. Security. OpenID. Providers](https://github.com/aspnet-contrib/AspNet.Security.OpenId.Providers)gibi üçüncü taraf paketlerinde kullanılabilir.
-
-![Facebook, Twitter, Google Plus ve Windows için sosyal medya simgeleri](index/_static/social.png)
+[Facebook](xref:security/authentication/facebook-logins), [Twitter](xref:security/authentication/twitter-logins), [Google](xref:security/authentication/google-logins)ve [Microsoft](xref:security/authentication/microsoft-logins) sağlayıcıları aşağıdaki bölümlerde ele alınmıştır ve bu makalede oluşturulan Başlatıcı projesini kullanır. Diğer sağlayıcılar, [Aspnet. Security. OAuth. Providers](https://github.com/aspnet-contrib/AspNet.Security.OAuth.Providers) ve [Aspnet. Security. OpenID. Providers](https://github.com/aspnet-contrib/AspNet.Security.OpenId.Providers)gibi üçüncü taraf paketlerinde kullanılabilir.
 
 Kullanıcıların mevcut kimlik bilgileriyle oturum açmasını sağlama:
+
 * Kullanıcılar için kullanışlıdır.
-* Oturum açma işlemini üçüncü bir tarafa yönetmenin karmaşıklıklarını birçok kaydırır. 
+* Oturum açma işlemini üçüncü bir tarafa yönetmenin karmaşıklıklarını birçok kaydırır.
 
 Sosyal oturumların trafik ve müşteri dönüştürmelerini nasıl ve ne şekilde, [Facebook](https://www.facebook.com/unsupportedbrowser) ve [Twitter](https://dev.twitter.com/resources/case-studies)tarafından örnek olay incelemeleri hakkında örnekler için bkz.
 
@@ -35,37 +34,33 @@ Sosyal oturumların trafik ve müşteri dönüştürmelerini nasıl ve ne şekil
 
 * Yeni bir proje oluşturun.
 * **ASP.NET Core Web uygulaması** ' nı ve **İleri ' yi**seçin.
-* Bir **Proje adı** girin ve **konumu**onaylayın veya değiştirin. **Oluştur**’u seçin.
-* Açılan kutuda **ASP.NET Core 2,2** ' ı seçin. Şablon listesinden **Web uygulaması** ' nı seçin.
-* **Kimlik doğrulaması**altında **Değiştir** ' i seçin ve kimlik doğrulamasını **bireysel kullanıcı hesapları**olarak ayarlayın. **Tamam**’ı seçin.
+* Bir **Proje adı** girin ve **konumu**onaylayın veya değiştirin. **Oluştur**' u seçin.
+* Açılan kutuda **ASP.NET Core 3,0** ' i seçin ve ardından **Web uygulaması**' nı seçin.
+* **Kimlik doğrulaması**altında **Değiştir** ' i seçin ve kimlik doğrulamasını **bireysel kullanıcı hesapları**olarak ayarlayın. **Tamam ' ı**seçin.
 * **Yeni ASP.NET Core Web uygulaması oluştur** penceresinde **Oluştur**' u seçin.
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Visual Studio Code/Mac için Visual Studio](#tab/visual-studio-code+visual-studio-mac)
 
-* Açık [tümleşik Terminalini](https://code.visualstudio.com/docs/editor/integrated-terminal).
+* Terminali açın.  Visual Studio Code için [Tümleşik Terminal](https://code.visualstudio.com/docs/editor/integrated-terminal)' i açabilirsiniz.
 
 * Dizinleri (`cd`), projeyi içerecek bir klasöre değiştirin.
 
-* Aşağıdaki komutları çalıştırın:
+* Windows için aşağıdaki komutu çalıştırın:
 
   ```dotnetcli
   dotnet new webapp -o WebApp1 -au Individual -uld
-  code -r WebApp1
   ```
 
-  * Komut WebApp1 klasöründe yeni bir Razor Pages projesi oluşturur. `dotnet new`
-  * `-uld`SQLite yerine LocalDB kullanır. SQLite `-uld` kullanmak için atlayın.
-  * `-au Individual`Tek kimlik doğrulaması için kodu oluşturur.
-  * Komutu, Visual Studio Code yeni bir örneğinde WebApp1 klasörünü açar. `code`
+  MacOS ve Linux için aşağıdaki komutu çalıştırın:
 
-* ' WebApp1 ' içinde derleme **ve hata ayıklama için gerekli varlıkların bulunduğu bir iletişim kutusu görünür. Bunları ekleyin mi?** **Evet**' i seçin.
+  ```dotnetcli
+  dotnet new webapp -o WebApp1 -au Individual
+  ```
 
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Mac için Visual Studio](#tab/visual-studio-mac)
-
-* Seçin **dosya** > **yeni çözüm**.
-* Kenar çubuğunda **.NET Core** > **uygulaması** ' nı seçin. **Web uygulaması** şablonunu seçin. **İleri**’yi seçin.
-* **Hedef Framework** açılan öğesini **.NET Core 2,2**olarak ayarlayın. **İleri**’yi seçin.
-* Bir **Proje adı**girin. **Konumu**onaylayın veya değiştirin. **Oluştur**’u seçin.
+  * `dotnet new` komutu, *WebApp1* klasöründe yeni bir Razor Pages projesi oluşturur.
+  * `-au Individual`, bireysel kimlik doğrulaması için kodu oluşturur.
+  * `-uld`, Windows için SQL Server Express basit bir sürümü olan LocalDB 'yi kullanır. SQLite kullanmak için `-uld` atlayın.
+  * `code` komutu, yeni bir Visual Studio Code örneğinde *WebApp1* klasörünü açar.
 
 ---
 
@@ -104,11 +99,11 @@ Bir dış oturum açma sağlayıcısına kaydolduysanız, uygulamaya kayıtlı b
 
 Bir parola oluşturmak ve dış sağlayıcılar ile oturum açma işlemi sırasında ayarladığınız e-postanızı kullanarak oturum açmak için:
 
-* **Yönet** görünümüne gitmek için sağ üst köşedeki **Merhaba &lt;e-&gt; posta diğer adı** bağlantısını seçin.
+* **Yönet** görünümüne gitmek için sağ üst köşedeki **Merhaba &lt;e-posta diğer adı&gt;** bağlantısını seçin.
 
 ![Web uygulaması yönetme görünümü](index/_static/pass1a.png)
 
-* **Oluştur**’u seçin
+* **Oluştur** ' u seçin
 
 ![Parola sayfanızı ayarlama](index/_static/pass2a.png)
 

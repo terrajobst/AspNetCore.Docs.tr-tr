@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 08/31/2018
 uid: security/ip-safelist
-ms.openlocfilehash: 02e44135ab1742d44691cfda8c4167f21d6efa4e
-ms.sourcegitcommit: 8835b6777682da6fb3becf9f9121c03f89dc7614
+ms.openlocfilehash: ca5b0f8088773027f7403120247cbeca8900bcf5
+ms.sourcegitcommit: 16cf016035f0c9acf3ff0ad874c56f82e013d415
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69975641"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73034340"
 ---
 # <a name="client-ip-safelist-for-aspnet-core"></a>ASP.NET Core için istemci IP SafeList
 
@@ -25,7 +25,7 @@ Bu makalede bir ASP.NET Core uygulamasında bir IP SafeList (beyaz liste olarak 
 
 Her durumda, onaylanan istemci IP adreslerini içeren bir dize bir uygulama ayarında saklanır. Ara yazılım veya filtre, dizeyi bir liste olarak ayrıştırır ve uzak IP 'nin listede olup olmadığını denetler. Aksi takdirde, HTTP 403 yasaklanmış durum kodu döndürülür.
 
-[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/ip-safelist/samples/2.x/ClientIpAspNetCore) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
+[Örnek kodu görüntüleme veya indirme](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/ip-safelist/samples/2.x/ClientIpAspNetCore) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
 
 ## <a name="the-safelist"></a>SafeList
 
@@ -35,7 +35,7 @@ Liste *appSettings. JSON* dosyasında yapılandırılır. Bu, noktalı virgülle
 
 ## <a name="middleware"></a>Ara yazılım
 
-`Configure` Yöntemi, ara yazılımı ekler ve bir Oluşturucu parametresinde SafeList dizesini buna geçirir.
+`Configure` yöntemi, ara yazılımı ekler ve bir Oluşturucu parametresinde SafeList dizesini buna geçirir.
 
 [!code-csharp[](ip-safelist/samples/2.x/ClientIpAspNetCore/Startup.cs?name=snippet_Configure&highlight=10)]
 
@@ -47,7 +47,7 @@ Ara yazılım, dizeyi bir dizi olarak ayrıştırır ve dizideki uzak IP adresin
 
 Yalnızca belirli denetleyiciler veya eylem yöntemleri için bir SafeList istiyorsanız, bir eylem filtresi kullanın. Örnek buradadır: 
 
-[!code-csharp[](ip-safelist/samples/2.x/ClientIpAspNetCore/Filters/ClientIdCheckFilter.cs)]
+[!code-csharp[](ip-safelist/samples/2.x/ClientIpAspNetCore/Filters/ClientIpCheckFilter.cs)]
 
 Eylem filtresi, hizmetler kapsayıcısına eklenir.
 
@@ -57,13 +57,13 @@ Filtre daha sonra bir denetleyici veya eylem yönteminde kullanılabilir.
 
 [!code-csharp[](ip-safelist/samples/2.x/ClientIpAspNetCore/Controllers/ValuesController.cs?name=snippet_Filter&highlight=1)]
 
-Örnek uygulamada, filtre `Get` yöntemine uygulanır. Bu nedenle, bir `Get` API isteği göndererek uygulamayı test ettiğinizde, öznitelik istemci IP adresini doğruluyor. API 'YI başka bir HTTP yöntemiyle çağırarak test ettiğinizde, ara yazılım istemci IP 'sini doğruluyor.
+Örnek uygulamada, filtre `Get` yöntemine uygulanır. Bu nedenle, uygulamayı bir `Get` API isteği göndererek test ettiğinizde, öznitelik istemci IP adresini doğruluyor. API 'YI başka bir HTTP yöntemiyle çağırarak test ettiğinizde, ara yazılım istemci IP 'sini doğruluyor.
 
 ## <a name="razor-pages-filter"></a>Razor Pages filtresi 
 
 Razor Pages bir uygulama için bir SafeList istiyorsanız, bir Razor Pages filtresi kullanın. Örnek buradadır: 
 
-[!code-csharp[](ip-safelist/samples/2.x/ClientIpAspNetCore/Filters/ClientIdCheckPageFilter.cs)]
+[!code-csharp[](ip-safelist/samples/2.x/ClientIpAspNetCore/Filters/ClientIpCheckPageFilter.cs)]
 
 Bu filtre, MVC filtreleri koleksiyonuna eklenerek etkinleştirilir.
 
