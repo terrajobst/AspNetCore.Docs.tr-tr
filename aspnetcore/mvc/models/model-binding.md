@@ -6,18 +6,18 @@ ms.assetid: 0be164aa-1d72-4192-bd6b-192c9c301164
 ms.author: riande
 ms.date: 05/31/2019
 uid: mvc/models/model-binding
-ms.openlocfilehash: 298e305cf918117ec2d313060a7420a1e721a365
-ms.sourcegitcommit: 8835b6777682da6fb3becf9f9121c03f89dc7614
+ms.openlocfilehash: aeb2da7e11df1eab5a17e2ae0a3971420c9383b4
+ms.sourcegitcommit: 032113208bb55ecfb2faeb6d3e9ea44eea827950
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69975289"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73190600"
 ---
 # <a name="model-binding-in-aspnet-core"></a>ASP.NET Core 'de model bağlama
 
 Bu makalede, model bağlamanın ne olduğu, nasıl çalıştığı ve davranışını nasıl özelleştireceğiniz açıklanmaktadır.
 
-[Örnek kodu görüntüle veya indir](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/models/model-binding/samples) ([indirme](xref:index#how-to-download-a-sample)).
+[Örnek kodu görüntüleyin veya indirin](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/models/model-binding/samples) ([nasıl indirilir](xref:index#how-to-download-a-sample)).
 
 ## <a name="what-is-model-binding"></a>Model bağlama nedir?
 
@@ -42,14 +42,14 @@ http://contoso.com/api/pets/2?DogsOnly=true
 
 Model bağlama, yönlendirme sistemi eylem yöntemini seçtikten sonra aşağıdaki adımlarla geçer:
 
-* `GetByID` Adlı`id`bir tamsayı olan ilk parametresini bulur.
-* HTTP isteğindeki kullanılabilir kaynakları arar ve Route verilerinde = "2 `id` " bulur.
+* `id`adlı bir tamsayı olan `GetByID`ilk parametresini bulur.
+* HTTP isteğindeki kullanılabilir kaynakları arar ve yönlendirme verilerinde `id` = "2" bulur.
 * "2" dizesini tamsayı 2 ' ye dönüştürür.
-* `GetByID` Adlı`dogsOnly`bir Boole değeri olan bir sonraki parametresini bulur.
+* `dogsOnly`adlı bir Boole değeri olan `GetByID`sonraki parametresini bulur.
 * Kaynakları arar ve sorgu dizesinde "DogsOnly = true" bulur. Ad eşleştirme, büyük/küçük harfe duyarlı değildir.
-* "True" dizesini Boole `true`değerine dönüştürür.
+* "True" dizesini Boole `true`dönüştürür.
 
-Framework daha sonra `GetById` yöntemi çağırır `true` , `id` parametresi için 2 ' ye geçerek ve parametresiiçin.`dogsOnly`
+Daha sonra Framework, `id` parametresi için 2 ' ye geçerek ve `dogsOnly` parametresi için `true` `GetById` yöntemini çağırır.
 
 Önceki örnekte, model bağlama hedefleri basit türler olan yöntem parametreleridir. Hedefler, karmaşık bir türün özellikleri de olabilir. Her bir özellik başarıyla bağlandıktan sonra, bu özellik için [model doğrulaması](xref:mvc/models/validation) oluşur. Hangi verilerin modele bağladığına ve tüm bağlama veya doğrulama hatalarıyla ilgili kayıt, [ControllerBase. ModelState](xref:Microsoft.AspNetCore.Mvc.ControllerBase.ModelState) veya [Pagemodel. ModelState](xref:Microsoft.AspNetCore.Mvc.ControllerBase.ModelState)içinde depolanır. Bu işlemin başarılı olup olmadığını öğrenmek için uygulama [ModelState. IsValid](xref:Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary.IsValid) bayrağını denetler.
 
@@ -59,23 +59,23 @@ Model bağlama, aşağıdaki tür hedeflerin değerlerini bulmayı dener:
 
 * Bir isteğin yönlendirildiği denetleyici eylemi yönteminin parametreleri.
 * Bir isteğin yönlendirildiği Razor Pages işleyicisi yönteminin parametreleri. 
-* Bir denetleyicinin veya `PageModel` sınıfın öznitelikleri tarafından belirtilmişse ortak özellikleri.
+* Bir denetleyicinin veya `PageModel` sınıfının öznitelikler tarafından belirtilmişse ortak özellikleri.
 
 ### <a name="bindproperty-attribute"></a>[BindProperty] özniteliği
 
-, Model bağlamasının bu özelliği hedeflemesini sağlamak için bir denetleyicinin `PageModel` veya sınıfın ortak özelliğine uygulanabilir:
+Bir denetleyicinin veya `PageModel` sınıfın ortak özelliğine, model bağlamasının bu özelliği hedeflemesini sağlamak için uygulanabilir:
 
 [!code-csharp[](model-binding/samples/2.x/Pages/Instructors/Edit.cshtml.cs?name=snippet_BindProperty&highlight=7-8)]
 
 ### <a name="bindpropertiesattribute"></a>[BindProperties] özniteliği
 
-ASP.NET Core 2,1 ve üzeri sürümlerde kullanılabilir.  Model bağlamaya, sınıfın tüm ortak özelliklerini `PageModel` hedeflemesini bildirmek için bir denetleyiciye veya sınıfa uygulanabilir:
+ASP.NET Core 2,1 ve üzeri sürümlerde kullanılabilir.  Model bağlamaya, sınıfın tüm ortak özelliklerini hedeflemesini bildirmek için bir denetleyiciye veya `PageModel` sınıfa uygulanabilir:
 
 [!code-csharp[](model-binding/samples/2.x/Pages/Instructors/Create.cshtml.cs?name=snippet_BindProperties&highlight=1-2)]
 
 ### <a name="model-binding-for-http-get-requests"></a>HTTP GET istekleri için model bağlama
 
-Varsayılan olarak, Özellikler HTTP GET istekleri için bağlantılı değildir. Genellikle, bir GET isteği için tüm ihtiyacınız olan bir kayıt KIMLIĞI parametresidir. Kayıt KIMLIĞI, veritabanındaki öğeyi aramak için kullanılır. Bu nedenle, modelin bir örneğini tutan bir özelliği bağlamaya gerek yoktur. Get isteklerinden alınan özelliklerin verilerine bağlanmasını istediğiniz senaryolarda `SupportsGet` özelliği şu şekilde `true`ayarlayın:
+Varsayılan olarak, Özellikler HTTP GET istekleri için bağlantılı değildir. Genellikle, bir GET isteği için tüm ihtiyacınız olan bir kayıt KIMLIĞI parametresidir. Kayıt KIMLIĞI, veritabanındaki öğeyi aramak için kullanılır. Bu nedenle, modelin bir örneğini tutan bir özelliği bağlamaya gerek yoktur. GET isteklerinden alınan özelliklerin verilerine bağlanmasını istediğiniz senaryolarda `SupportsGet` özelliğini `true`olarak ayarlayın:
 
 [!code-csharp[](model-binding/samples/2.x/Pages/Instructors/Index.cshtml.cs?name=snippet_SupportsGet)]
 
@@ -92,7 +92,7 @@ Varsayılan olarak, model bağlama, bir HTTP isteğindeki aşağıdaki kaynaklar
 Her hedef parametresi veya özelliği için, kaynaklar bu listede belirtilen sırada taranır. Birkaç özel durum vardır:
 
 * Rota verileri ve sorgu dizesi değerleri yalnızca basit türler için kullanılır.
-* Karşıya yüklenen dosyalar yalnızca veya `IFormFile` `IEnumerable<IFormFile>`uygulayan hedef türlere bağlanır.
+* Karşıya yüklenen dosyalar yalnızca `IFormFile` veya `IEnumerable<IFormFile>`uygulayan hedef türlere bağlanır.
 
 Varsayılan davranış doğru sonuçları vermezse, belirli bir hedefte kullanılacak kaynağı belirtmek için aşağıdaki özniteliklerden birini kullanabilirsiniz. 
 
@@ -116,40 +116,40 @@ Bu öznitelikler:
 
 İstek gövdesi verileri, isteğin içerik türüne özgü giriş formatlayıcıları kullanılarak ayrıştırılır. Giriş biçimleri [Bu makalenin ilerleyen kısımlarında](#input-formatters)açıklanmıştır.
 
-Action yöntemi `[FromBody]` başına birden fazla parametreye uygulanmaz. ASP.NET Core çalışma zamanı, istek akışını giriş biçimlendirici 'ya okuma sorumluluğunu temsil eder. İstek akışı okunduktan sonra, diğer `[FromBody]` parametreleri bağlamak için artık bir daha okunamaz.
+Eylem yöntemi başına birden fazla parametreye `[FromBody]` uygulamayın. ASP.NET Core çalışma zamanı, istek akışını giriş biçimlendirici 'ya okuma sorumluluğunu temsil eder. İstek akışı okunduktan sonra, diğer `[FromBody]` parametrelerini bağlamak için artık bir daha okunamaz.
 
 ### <a name="additional-sources"></a>Ek kaynaklar
 
 Kaynak verileri, model bağlama sistemine *değer sağlayıcılara*göre sağlanır. Diğer kaynaklardan model bağlamaya yönelik verileri alan özel değer sağlayıcıları yazabilir ve kaydedebilirsiniz. Örneğin, tanımlama bilgileri veya oturum durumu verilerini isteyebilirsiniz. Yeni bir kaynaktan veri almak için:
 
-* Uygulayan `IValueProvider`bir sınıf oluşturun.
-* Uygulayan `IValueProviderFactory`bir sınıf oluşturun.
-* Fabrika sınıfını içine `Startup.ConfigureServices`kaydedin.
+* `IValueProvider`uygulayan bir sınıf oluşturun.
+* `IValueProviderFactory`uygulayan bir sınıf oluşturun.
+* Factory sınıfını `Startup.ConfigureServices`kaydedin.
 
-Örnek uygulama, tanımlama bilgilerinden değerler alan bir [değer sağlayıcısı](https://github.com/aspnet/AspNetCore.Docs/blob/master/aspnetcore/mvc/models/model-binding/samples/2.x/CookieValueProvider.cs) ve [Factory](https://github.com/aspnet/AspNetCore.Docs/blob/master/aspnetcore/mvc/models/model-binding/samples/2.x/CookieValueProviderFactory.cs) örneği içerir. Kayıt kodu `Startup.ConfigureServices`aşağıda verilmiştir:
+Örnek uygulama, tanımlama bilgilerinden değerler alan bir [değer sağlayıcısı](https://github.com/aspnet/AspNetCore.Docs/blob/master/aspnetcore/mvc/models/model-binding/samples/2.x/CookieValueProvider.cs) ve [Factory](https://github.com/aspnet/AspNetCore.Docs/blob/master/aspnetcore/mvc/models/model-binding/samples/2.x/CookieValueProviderFactory.cs) örneği içerir. `Startup.ConfigureServices`kayıt kodu aşağıda verilmiştir:
 
 [!code-csharp[](model-binding/samples/2.x/Startup.cs?name=snippet_ValueProvider&highlight=3)]
 
-Gösterilen kod, tüm yerleşik değer sağlayıcılarından sonra özel değer sağlayıcısını koyar.  Bunu listede ilk yapmak için `Insert(0, new CookieValueProviderFactory())` `Add`yerine çağırın.
+Gösterilen kod, tüm yerleşik değer sağlayıcılarından sonra özel değer sağlayıcısını koyar.  Listenin ilk olması için, `Add`yerine `Insert(0, new CookieValueProviderFactory())` çağırın.
 
 ## <a name="no-source-for-a-model-property"></a>Model özelliği için kaynak yok
 
 Varsayılan olarak, model özelliği için bir değer bulunmazsa model durumu hatası oluşturulmaz. Özelliği null veya varsayılan bir değer olarak ayarlanır:
 
-* Null yapılabilir basit türler olarak `null`ayarlanır.
-* Null yapılamayan değer türleri olarak `default(T)`ayarlanır. Örneğin, bir parametre `int id` 0 olarak ayarlanır.
+* Null yapılabilir basit türler `null`olarak ayarlanır.
+* Null yapılamayan değer türleri `default(T)`olarak ayarlanır. Örneğin, `int id` parametresi 0 olarak ayarlanır.
 * Karmaşık türler için model bağlama, özellikleri ayarlamadan varsayılan oluşturucuyu kullanarak bir örnek oluşturur.
-* Diziler olarak ayarlanır `byte[]` `null`, ancak diziler olarak ayarlanır. `Array.Empty<T>()`
+* Diziler, `byte[]` dizilerinin `null`olarak ayarlandığı durumlar dışında `Array.Empty<T>()`olarak ayarlanır.
 
 Model özelliği için form alanlarında hiçbir şey bulunamadığında model durumunun geçersiz kılınmalıdır, [[Bindrequired] özniteliğini](#bindrequired-attribute)kullanın.
 
-Bu `[BindRequired]` davranışın, bir istek gövdesinde JSON veya XML verilerine değil, postalanan form verilerinden model bağlama için geçerli olduğunu unutmayın. İstek gövdesi verileri, [giriş formatlayıcıları](#input-formatters)tarafından işlenir.
+Bu `[BindRequired]` davranışının, bir istek gövdesinde JSON veya XML verilerine değil, postalanan form verilerinden model bağlama için geçerli olduğunu unutmayın. İstek gövdesi verileri, [giriş formatlayıcıları](#input-formatters)tarafından işlenir.
 
 ## <a name="type-conversion-errors"></a>Tür dönüştürme hataları
 
 Bir kaynak bulunursa ancak hedef türe dönüştürülemiyorsa, model durumu geçersiz olarak işaretlenir. Hedef parametresi veya özelliği, önceki bölümde belirtildiği gibi null veya varsayılan değer olarak ayarlanır.
 
-`[ApiController]` Özniteliği olan bir API denetleyicisinde, geçersiz model durumu otomatik http 400 yanıtına neden olur.
+`[ApiController]` özniteliğine sahip bir API denetleyicisinde, geçersiz model durumu otomatik HTTP 400 yanıtına neden olur.
 
 Razor sayfasında, sayfayı bir hata iletisiyle yeniden görüntüleyin:
 
@@ -165,7 +165,7 @@ Tür dönüştürme hatalarının model durumu hatalarına neden olmasını iste
 
 Model cildin kaynak dizeleri dönüştürebileceğiniz basit türler aşağıdakileri içerir:
 
-* [Boole değeri](xref:System.ComponentModel.BooleanConverter)
+* [Boolean](xref:System.ComponentModel.BooleanConverter)
 * [Byte](xref:System.ComponentModel.ByteConverter), [SByte](xref:System.ComponentModel.SByteConverter)
 * [Char](xref:System.ComponentModel.CharConverter)
 * [Hem](xref:System.ComponentModel.DateTimeConverter)
@@ -187,9 +187,9 @@ Karmaşık bir türün bağlanması için ortak bir varsayılan Oluşturucusu ve
 
 Karmaşık türün her özelliği için model bağlama, ad modeli *öneki. property_name*için kaynakları arar. Hiçbir şey bulunamazsa, ön ek olmadan yalnızca *property_name* arar.
 
-Bir parametreye bağlama için, önek parametre adıdır. `PageModel` Ortak özelliğe bağlama için, önek ortak özellik adıdır. Bazı özniteliklerin, parametre `Prefix` veya özellik adının varsayılan kullanımını geçersiz kılabilmenizi sağlayan bir özelliği vardır.
+Bir parametreye bağlama için, önek parametre adıdır. `PageModel` public özelliğine bağlama için, önek ortak özellik adıdır. Bazı özniteliklerin, parametre veya özellik adının varsayılan kullanımını geçersiz kılabilmenizi sağlayan `Prefix` bir özelliği vardır.
 
-Örneğin, karmaşık türün aşağıdaki `Instructor` sınıf olduğunu varsayalım:
+Örneğin, karmaşık türün aşağıdaki `Instructor` sınıfı olduğunu varsayalım:
 
   ```csharp
   public class Instructor
@@ -202,35 +202,35 @@ Bir parametreye bağlama için, önek parametre adıdır. `PageModel` Ortak öze
 
 ### <a name="prefix--parameter-name"></a>Önek = parametre adı
 
-Bağlanacak model adlı `instructorToUpdate`bir parametre ise:
+Bağlanacak model `instructorToUpdate`adlı bir parametredir:
 
 ```csharp
 public IActionResult OnPost(int? id, Instructor instructorToUpdate)
 ```
 
-Model bağlama, anahtar `instructorToUpdate.ID`kaynaklarına bakarak başlar. Bu bulunamazsa, öneki `ID` olmadan arar.
+Model bağlama, anahtar `instructorToUpdate.ID`kaynaklara bakarak başlar. Bu bulunamazsa, öneki olmayan `ID` arar.
 
 ### <a name="prefix--property-name"></a>Önek = Özellik adı
 
-Bağlanacak model, denetleyicinin veya `Instructor` `PageModel` sınıfın adında bir özelliktir:
+Bağlanacak model, denetleyicinin veya `PageModel` sınıfının `Instructor` adlı bir özelliktir:
 
 ```csharp
 [BindProperty]
 public Instructor Instructor { get; set; }
 ```
 
-Model bağlama, anahtar `Instructor.ID`kaynaklarına bakarak başlar. Bu bulunamazsa, öneki `ID` olmadan arar.
+Model bağlama, anahtar `Instructor.ID`kaynaklara bakarak başlar. Bu bulunamazsa, öneki olmayan `ID` arar.
 
 ### <a name="custom-prefix"></a>Özel ön ek
 
-Bağlanacak model adlı `instructorToUpdate` bir parametre ise ve bir `Bind` öznitelik önek olarak belirtirse `Instructor` :
+Bağlanacak model `instructorToUpdate` adlı bir parametredir ve `Bind` özniteliği önek olarak `Instructor` belirtir:
 
 ```csharp
 public IActionResult OnPost(
     int? id, [Bind(Prefix = "Instructor")] Instructor instructorToUpdate)
 ```
 
-Model bağlama, anahtar `Instructor.ID`kaynaklarına bakarak başlar. Bu bulunamazsa, öneki `ID` olmadan arar.
+Model bağlama, anahtar `Instructor.ID`kaynaklara bakarak başlar. Bu bulunamazsa, öneki olmayan `ID` arar.
 
 ### <a name="attributes-for-complex-type-targets"></a>Karmaşık tür hedefleri için öznitelikler
 
@@ -243,7 +243,7 @@ Karmaşık türlerin model bağlamasını denetlemek için birkaç yerleşik öz
 > [!NOTE]
 > Bu öznitelikler, gönderilen form verileri değer kaynağı olduğunda model bağlamayı etkiler. Bunlar, gönderilen JSON ve XML istek gövdelerini işleyen giriş formatlayıcıları 'nı etkilemez. Giriş biçimleri [Bu makalenin ilerleyen kısımlarında](#input-formatters)açıklanmıştır.
 >
-> Ayrıca bkz. [model doğrulama](xref:mvc/models/validation#required-attribute)içindeki `[Required]` öznitelik tartışması.
+> Ayrıca bkz. [model doğrulamasında](xref:mvc/models/validation#required-attribute)`[Required]` özniteliği tartışması.
 
 ### <a name="bindrequired-attribute"></a>[BindRequired] özniteliği
 
@@ -268,20 +268,20 @@ Aşağıdaki örnekte, herhangi bir işleyici veya eylem yöntemi çağrıldığ
 public class Instructor
 ```
 
-Aşağıdaki örnekte, `Instructor` `OnPost` yöntemi çağrıldığında yalnızca modelin belirtilen özellikleri bağlanır:
+Aşağıdaki örnekte, `OnPost` yöntemi çağrıldığında yalnızca `Instructor` modelin belirtilen özellikleri bağlanır:
 
 ```csharp
 [HttpPost]
 public IActionResult OnPost([Bind("LastName,FirstMidName,HireDate")] Instructor instructor)
 ```
 
-Özniteliği `[Bind]` , *oluşturma* senaryolarında fazla nakline karşı korumak için kullanılabilir. Dışlanan Özellikler null ya da boş değer olarak ayarlandığı için, düzenleme senaryolarında iyi çalışmaz. Fazla naklin savunma için, `[Bind]` öznitelik yerine görüntüleme modelleri önerilir. Daha fazla bilgi için bkz. fazla [nakil hakkında güvenlik NOI](xref:data/ef-mvc/crud#security-note-about-overposting).
+`[Bind]` özniteliği, *oluşturma* senaryolarında fazla nakline karşı korumak için kullanılabilir. Dışlanan Özellikler null ya da boş değer olarak ayarlandığı için, düzenleme senaryolarında iyi çalışmaz. Fazla nakline karşı savunma için, `[Bind]` özniteliği yerine, görüntüleme modelleri önerilir. Daha fazla bilgi için bkz. fazla [nakil hakkında güvenlik NOI](xref:data/ef-mvc/crud#security-note-about-overposting).
 
 ## <a name="collections"></a>Koleksiyonlar
 
 Basit türlerin koleksiyonları olan hedefler için model bağlama, *parameter_name* veya *property_name*ile eşleşmeleri arar. Eşleşme bulunmazsa, ön ek olmadan desteklenen biçimlerden birini arar. Örneğin:
 
-* Bağlanacak parametrenin adlı `selectedCourses`bir dizi olduğunu varsayalım:
+* Bağlanacak parametrenin `selectedCourses`adlı bir dizi olduğunu varsayalım:
 
   ```csharp
   public IActionResult OnPost(int? id, int[] selectedCourses)
@@ -315,18 +315,18 @@ Basit türlerin koleksiyonları olan hedefler için model bağlama, *parameter_n
   selectedCourses[]=1050&selectedCourses[]=2000
   ```
 
-* Önceki örnek biçimlerinin hepsi için model bağlama iki öğe `selectedCourses` dizisini parametreye geçirir:
+* Önceki örnek biçimlerinin hepsi için model bağlama iki öğe dizisini `selectedCourses` parametresine geçirir:
 
   * Selectedkurslar [0] = 1050
   * Selectedkurslar [1] = 2000
 
   Alt simge numaralarını kullanan veri biçimleri (... [0]... [1]...) sıfırdan başlayarak sıralı olarak numaralandırıldıklarından emin olmalıdır. Alt simge numaralandırmasında boşluk varsa, boşluklardan sonraki tüm öğeler yoksayılır. Örneğin, alt simgeler 0 ve 1 yerine 0 ve 2 ise ikinci öğe yok sayılır.
 
-## <a name="dictionaries"></a>Sözlüğü
+## <a name="dictionaries"></a>sözlüğü
 
-Hedefler `Dictionary` için model bağlama, *parameter_name* veya *property_name*ile eşleşmeleri arar. Eşleşme bulunmazsa, ön ek olmadan desteklenen biçimlerden birini arar. Örneğin:
+`Dictionary` hedefler için, model bağlama *parameter_name* veya *property_name*ile eşleşmeleri arar. Eşleşme bulunmazsa, ön ek olmadan desteklenen biçimlerden birini arar. Örneğin:
 
-* Hedef parametrenin bir `Dictionary<int, string>` adlandırılmış `selectedCourses`olduğunu varsayalım:
+* Hedef parametrenin `selectedCourses`adlı bir `Dictionary<int, string>` olduğunu varsayalım:
 
   ```csharp
   public IActionResult OnPost(int? id, Dictionary<int, string> selectedCourses)
@@ -351,7 +351,7 @@ Hedefler `Dictionary` için model bağlama, *parameter_name* veya *property_name
   [0].Key=1050&[0].Value=Chemistry&[1].Key=2000&[1].Value=Economics
   ```
 
-* Önceki örnek biçimlerinin hepsi için model bağlama iki öğenin `selectedCourses` bir sözlüğünü parametreye geçirir:
+* Önceki örnek biçimlerinin hepsi için model bağlama iki öğenin sözlüğünü `selectedCourses` parametresine geçirir:
 
   * Selectedkurslar ["1050"] = "Chemistry"
   * Selectedkurslar ["2000"] = "Ekonomiks"
@@ -362,7 +362,7 @@ Model bağlamanın işleyebileceği bazı özel veri türleri vardır.
 
 ### <a name="iformfile-and-iformfilecollection"></a>Iformfile ve ıformfilecollection
 
-HTTP isteğine eklenen karşıya yüklenen dosya.  Ayrıca, `IEnumerable<IFormFile>` birden çok dosya için de desteklenir.
+HTTP isteğine eklenen karşıya yüklenen dosya.  Ayrıca, birden çok dosya için `IEnumerable<IFormFile>` desteklenir.
 
 ### <a name="cancellationtoken"></a>CancellationToken
 
@@ -382,11 +382,11 @@ Yerleşik XML girişi formatlayıcıları 'nı kullanmak için:
 
 * `Microsoft.AspNetCore.Mvc.Formatters.Xml` NuGet paketini yükler.
 
-* İçinde `Startup.ConfigureServices`, veya <xref:Microsoft.Extensions.DependencyInjection.MvcXmlMvcCoreBuilderExtensions.AddXmlSerializerFormatters*> öğesiniçağırın.<xref:Microsoft.Extensions.DependencyInjection.MvcXmlMvcCoreBuilderExtensions.AddXmlDataContractSerializerFormatters*>
+* `Startup.ConfigureServices`<xref:Microsoft.Extensions.DependencyInjection.MvcXmlMvcCoreBuilderExtensions.AddXmlSerializerFormatters*> veya <xref:Microsoft.Extensions.DependencyInjection.MvcXmlMvcCoreBuilderExtensions.AddXmlDataContractSerializerFormatters*>çağırın.
 
   [!code-csharp[](model-binding/samples/2.x/Startup.cs?name=snippet_ValueProvider&highlight=9)]
 
-* `Consumes` Özniteliği, istek gövdesinde XML beklemeniz gereken denetleyici sınıflarına veya eylem yöntemlerine uygulayın.
+* `Consumes` özniteliğini, istek gövdesinde XML beklemeniz gereken denetleyici sınıflarına veya eylem yöntemlerine uygulayın.
 
   ```csharp
   [HttpPost]
@@ -394,17 +394,17 @@ Yerleşik XML girişi formatlayıcıları 'nı kullanmak için:
   public ActionResult<Pet> Create(Pet pet)
   ```
 
-  Daha fazla bilgi için bkz. [XML serileştirme tanıtımı](https://docs.microsoft.com/en-us/dotnet/standard/serialization/introducing-xml-serialization).
+  Daha fazla bilgi için bkz. [XML serileştirme tanıtımı](/dotnet/standard/serialization/introducing-xml-serialization).
 
 ## <a name="exclude-specified-types-from-model-binding"></a>Belirtilen türleri model bağlamalarından Dışla
 
-Model bağlama ve doğrulama sistemlerinin davranışı [ModelMetadata](/dotnet/api/microsoft.aspnetcore.mvc.modelbinding.modelmetadata)tarafından yönlendiriliyor. `ModelMetadata` [Mvcoptions. modelmetadatadetails sağlayıcılarına](xref:Microsoft.AspNetCore.Mvc.MvcOptions.ModelMetadataDetailsProviders)bir ayrıntı sağlayıcısı ekleyerek özelleştirebilirsiniz. Yerleşik Ayrıntılar sağlayıcıları, belirtilen türler için model bağlamayı veya doğrulamayı devre dışı bırakmak üzere kullanılabilir.
+Model bağlama ve doğrulama sistemlerinin davranışı [ModelMetadata](/dotnet/api/microsoft.aspnetcore.mvc.modelbinding.modelmetadata)tarafından yönlendiriliyor. [Mvcoptions. Modelmetadatadetails sağlayıcılarına](xref:Microsoft.AspNetCore.Mvc.MvcOptions.ModelMetadataDetailsProviders)bir ayrıntı sağlayıcısı ekleyerek `ModelMetadata` özelleştirebilirsiniz. Yerleşik Ayrıntılar sağlayıcıları, belirtilen türler için model bağlamayı veya doğrulamayı devre dışı bırakmak üzere kullanılabilir.
 
-Belirtilen türdeki tüm modellerdeki model bağlamayı devre dışı bırakmak için içine <xref:Microsoft.AspNetCore.Mvc.ModelBinding.Metadata.ExcludeBindingMetadataProvider> `Startup.ConfigureServices`bir ekleyin. Örneğin, türü `System.Version`tüm modeller üzerinde model bağlamayı devre dışı bırakmak için:
+Belirtilen türdeki tüm modellerdeki model bağlamayı devre dışı bırakmak için `Startup.ConfigureServices`bir <xref:Microsoft.AspNetCore.Mvc.ModelBinding.Metadata.ExcludeBindingMetadataProvider> ekleyin. Örneğin, `System.Version`türündeki tüm modeller üzerinde model bağlamayı devre dışı bırakmak için:
 
 [!code-csharp[](model-binding/samples/2.x/Startup.cs?name=snippet_ValueProvider&highlight=4-5)]
 
-Belirtilen türdeki özelliklerde doğrulamayı devre dışı bırakmak için içine <xref:Microsoft.AspNetCore.Mvc.ModelBinding.SuppressChildValidationMetadataProvider> `Startup.ConfigureServices`bir ekleyin. Örneğin, türündeki `System.Guid`özelliklerde doğrulamayı devre dışı bırakmak için:
+Belirtilen türdeki özelliklerde doğrulamayı devre dışı bırakmak için `Startup.ConfigureServices`<xref:Microsoft.AspNetCore.Mvc.ModelBinding.SuppressChildValidationMetadataProvider> ekleyin. Örneğin, `System.Guid`türündeki özelliklerde doğrulamayı devre dışı bırakmak için:
 
 [!code-csharp[](model-binding/samples/2.x/Startup.cs?name=snippet_ValueProvider&highlight=6-7)]
 
@@ -414,7 +414,7 @@ Belirtilen türdeki özelliklerde doğrulamayı devre dışı bırakmak için i�
 
 ## <a name="manual-model-binding"></a>El ile model bağlama
 
-Model bağlama <xref:Microsoft.AspNetCore.Mvc.ControllerBase.TryUpdateModelAsync*> yöntemi kullanılarak el ile çağrılabilir. Yöntemi hem hem de `ControllerBase` `PageModel` sınıflarında tanımlanmıştır. Yöntem aşırı yüklemeleri, kullanılacak öneki ve değer sağlayıcısını belirtmenizi sağlar. Yöntemi model bağlamanın `false` başarısız olup olmadığını döndürür. Örnek buradadır:
+Model bağlama, <xref:Microsoft.AspNetCore.Mvc.ControllerBase.TryUpdateModelAsync*> yöntemi kullanılarak el ile çağrılabilir. Yöntemi hem `ControllerBase` hem de `PageModel` sınıflarında tanımlanmıştır. Yöntem aşırı yüklemeleri, kullanılacak öneki ve değer sağlayıcısını belirtmenizi sağlar. Model bağlama başarısız olursa Yöntem `false` döndürür. Örnek buradadır:
 
 [!code-csharp[](model-binding/samples/2.x/Pages/InstructorsWithCollection/Create.cshtml.cs?name=snippet_TryUpdate&highlight=1-4)]
 

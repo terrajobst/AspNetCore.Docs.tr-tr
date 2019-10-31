@@ -7,12 +7,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 03/07/2019
 uid: spa/react
-ms.openlocfilehash: 0e61c5b3e31a0b050d356b8f8e16306dc1e2a7f3
-ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
+ms.openlocfilehash: bbe5328bfa5b4187989a00c3c94e98dabc5d032a
+ms.sourcegitcommit: 032113208bb55ecfb2faeb6d3e9ea44eea827950
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71080409"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73190521"
 ---
 # <a name="use-the-react-project-template-with-aspnet-core"></a>ASP.NET Core ile tepki verme proje şablonunu kullanın
 
@@ -20,11 +20,13 @@ Güncelleştirilmiş tepki verme projesi şablonu, zengin, istemci tarafı Kulla
 
 Şablon, API arka ucu olarak davranacak bir ASP.NET Core projesi ve bir kullanıcı arabirimi olarak görev yapacak standart CRA tepki veren bir proje oluşturmaya eşdeğerdir, ancak her ikisini de tek bir birim olarak oluşturulup yayımlanabilen tek bir uygulama projesinde barındırmanın rahatlığını sağlar.
 
-## <a name="create-a-new-app"></a>Yeni bir uygulama oluşturma
+Tepki verme projesi şablonu, sunucu tarafı işleme (SSR) için tasarlanmamıştır. Yanıt verme ve Node. js ile SSR için, [Next. js](https://github.com/zeit/next.js/) veya [rampale](https://github.com/jaredpalmer/razzle)'yı göz önünde bulundurun.
+
+## <a name="create-a-new-app"></a>Yeni bir uygulama oluşturun
 
 ASP.NET Core 2,1 yüklüyse, tepki verme projesi şablonunu yüklemeniz gerekmez.
 
-Boş bir dizinde komutunu `dotnet new react` kullanarak komut isteminden yeni bir proje oluşturun. Örneğin, aşağıdaki komutlar uygulamayı *Yeni bir uygulama* dizininde oluşturur ve bu dizine geçer:
+Boş bir dizinde komut `dotnet new react` kullanarak komut isteminden yeni bir proje oluşturun. Örneğin, aşağıdaki komutlar uygulamayı *Yeni bir uygulama* dizininde oluşturur ve bu dizine geçer:
 
 ```dotnetcli
 dotnet new react -o my-new-app
@@ -41,7 +43,7 @@ Yapı işlemi ilk çalıştırmada NPM bağımlılıklarını geri yükler ve bu
 
 # <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
 
-Değeri ile çağrılan `ASPNETCORE_Environment` bir ortam değişkenine sahip olduğunuzdan emin olun. `Development` Windows 'ta (PowerShell olmayan istemler ' de), `SET ASPNETCORE_Environment=Development`öğesini çalıştırın. Linux veya macOS üzerinde öğesini çalıştırın `export ASPNETCORE_Environment=Development`.
+`Development`değerine sahip `ASPNETCORE_Environment` adlı bir ortam değişkenine sahip olduğunuzdan emin olun. Windows 'da (PowerShell olmayan istemlerinde) `SET ASPNETCORE_Environment=Development`çalıştırın. Linux veya macOS üzerinde `export ASPNETCORE_Environment=Development`çalıştırın.
 
 Uygulamanızın doğru derlemelerinizi doğrulamak için [DotNet derlemesini](/dotnet/core/tools/dotnet-build) çalıştırın. İlk çalıştırmada, derleme işlemi NPM bağımlılıklarını geri yükler ve bu işlem birkaç dakika sürebilir. Sonraki derlemeler çok daha hızlıdır.
 
@@ -95,7 +97,7 @@ Bu varsayılan Kurulumun bir dezavantajı vardır. C# Kodunuzun her değiştiril
     npm start
     ```
 
-3. ASP.NET Core uygulamanızı, kendi kendine birini başlatmak yerine dış CRA sunucu örneğini kullanacak şekilde değiştirin. *Başlangıç* sınıfınıza, `spa.UseReactDevelopmentServer` çağrıyı aşağıdaki ile değiştirin:
+3. ASP.NET Core uygulamanızı, kendi kendine birini başlatmak yerine dış CRA sunucu örneğini kullanacak şekilde değiştirin. *Başlangıç* sınıfınıza `spa.UseReactDevelopmentServer` çağrılmasını aşağıdaki kodla değiştirin:
 
     ```csharp
     spa.UseProxyToSpaDevelopmentServer("http://localhost:3000");

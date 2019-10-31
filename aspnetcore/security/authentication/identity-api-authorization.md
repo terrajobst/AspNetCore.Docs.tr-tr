@@ -5,14 +5,14 @@ description: ASP.NET Core uygulamasının içinde barındırılan tek sayfalı b
 monikerRange: '>= aspnetcore-3.0'
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 08/05/2019
+ms.date: 10/29/2019
 uid: security/authentication/identity/spa
-ms.openlocfilehash: 4f6e3a4922c0a8a74b0e13edf1f00fe5f7bb76ba
-ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
+ms.openlocfilehash: 98df1aa1671c22384252676c56e8cb4a3a0a35eb
+ms.sourcegitcommit: 032113208bb55ecfb2faeb6d3e9ea44eea827950
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71082324"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73190494"
 ---
 # <a name="authentication-and-authorization-for-spas"></a>Maça kimlik doğrulaması ve yetkilendirme
 
@@ -22,7 +22,7 @@ Web uygulamasındaki kimlik doğrulama parametresine benzer bir kimlik doğrulam
 
 ## <a name="create-an-app-with-api-authorization-support"></a>API yetkilendirme desteğiyle uygulama oluşturma
 
-Kullanıcı kimlik doğrulaması ve yetkilendirme, hem angular ile hem de maça 'Ları ile kullanılabilir. Bir komut kabuğunu açın ve aşağıdaki komutu çalıştırın:
+Kullanıcı kimlik doğrulaması ve yetkilendirme, hem angular ile hem de maça 'Ları ile kullanılabilir. Bir komut kabuğu açın ve şu komutu çalıştırın:
 
 **Angular**:
 
@@ -44,9 +44,9 @@ Aşağıdaki bölümlerde, kimlik doğrulama desteği dahil edildiğinde projeni
 
 ### <a name="startup-class"></a>Başlangıç sınıfı
 
-`Startup` Sınıfı aşağıdaki eklemelere sahiptir:
+`Startup` sınıfı aşağıdaki eklemelere sahiptir:
 
-* `Startup.ConfigureServices` Yöntemin içinde:
+* `Startup.ConfigureServices` yönteminin içinde:
   * Varsayılan Kullanıcı arabirimine sahip kimlik:
 
     ```csharp
@@ -58,21 +58,21 @@ Aşağıdaki bölümlerde, kimlik doğrulama desteği dahil edildiğinde projeni
         .AddEntityFrameworkStores<ApplicationDbContext>();
     ```
 
-  * IdentityServer 'ın en üstünde `AddApiAuthorization` yer alan bazı varsayılan ASP.NET Core kurallarını yükleyen ek bir yardımcı yöntemi olan IdentityServer:
+  * IdentityServer 'ın en üstünde yer alan bazı varsayılan ASP.NET Core kurallarını yükleyen ek bir `AddApiAuthorization` Yardımcısı yöntemi olan IdentityServer:
 
     ```csharp
     services.AddIdentityServer()
         .AddApiAuthorization<ApplicationUser, ApplicationDbContext>();
     ```
 
-  * Kimliği, IdentityServer `AddIdentityServerJwt` tarafından üretilen JWT belirteçlerini doğrulamak üzere uygulamayı yapılandıran ek bir yardımcı yöntem ile kimlik doğrulaması:
+  * Kimliği, IdentityServer tarafından üretilen JWT belirteçlerini doğrulamak üzere uygulamayı yapılandıran ek bir `AddIdentityServerJwt` Yardımcısı yöntemiyle kimlik doğrulaması:
 
     ```csharp
     services.AddAuthentication()
         .AddIdentityServerJwt();
     ```
 
-* `Startup.Configure` Yöntemin içinde:
+* `Startup.Configure` yönteminin içinde:
   * İstek kimlik bilgilerini doğrulamadan ve Kullanıcı istek bağlamında ayarlamaktan sorumlu kimlik doğrulama ara yazılımı:
 
     ```csharp
@@ -91,17 +91,17 @@ Bu yardımcı yöntemi, IdentityServer 'ı desteklenen yapılandırmamızı kull
 
 ### <a name="addidentityserverjwt"></a>Addentityserverjwt
 
-Bu yardımcı yöntemi, varsayılan kimlik doğrulama işleyicisi olarak uygulama için bir ilke düzeni yapılandırır. İlke, kimlik URL 'SI alanı "/Identity" içindeki herhangi bir alt yol için tüm isteklerin kimlik işlemesini sağlamak üzere yapılandırılır. Diğer tüm istekleri işler. `JwtBearerHandler` Ayrıca, bu yöntem, IdentityServer ile bir `<<ApplicationName>>API` API kaynağını varsayılan `<<ApplicationName>>API` kapsamına kaydeder ve bu uygulama için IdentityServer tarafından verilen belirteçleri doğrulamak üzere JWT taşıyıcı belirteç ara yazılımını yapılandırır.
+Bu yardımcı yöntemi, varsayılan kimlik doğrulama işleyicisi olarak uygulama için bir ilke düzeni yapılandırır. İlke, kimlik URL 'SI alanı "/Identity" içindeki herhangi bir alt yol için tüm isteklerin kimlik işlemesini sağlamak üzere yapılandırılır. `JwtBearerHandler` diğer tüm istekleri işler. Ayrıca, bu yöntem, IdentityServer 'a `<<ApplicationName>>API` varsayılan kapsamına sahip bir `<<ApplicationName>>API` API kaynağı kaydeder ve JWT taşıyıcı belirteç ara yazılımını, bu uygulama için IdentityServer tarafından verilen belirteçleri doğrulamak için yapılandırır.
 
 ### <a name="weatherforecastcontroller"></a>Dalgalı bir denetleyici
 
-*Controllers\dalgalı therforebir Controller.cs* dosyasında, kullanıcıya kaynağa erişim için `[Authorize]` varsayılan ilkeye göre yetkilendirilmiş olması gerektiğini belirten sınıfa uygulanan özniteliğe dikkat edin. Varsayılan yetkilendirme ilkesi, yukarıda `AddIdentityServerJwt` `JwtBearerHandler` belirtilen ilke şemasına tarafından yapılandırılan varsayılan kimlik doğrulama şemasını kullanacak şekilde yapılandırılmış olur ve bu tür bir yardımcı yöntemi tarafından yapılandırılmış bir için varsayılan işleyici uygulamaya yönelik istekler.
+*Controllers\dalgalı therforeroı Controller.cs* dosyasında, kullanıcıya kaynağa erişim için varsayılan ilkeye göre yetkilendirileceğini belirten sınıfa uygulanan `[Authorize]` özniteliğine dikkat edin. Varsayılan yetkilendirme ilkesi, yukarıda belirtilen ilke şemasına `AddIdentityServerJwt` tarafından ayarlanan varsayılan kimlik doğrulama şemasını kullanacak şekilde yapılandırılmıştır. Bu, bu tür yardımcı yöntemi tarafından yapılandırılan `JwtBearerHandler` istekleri için varsayılan işleyicidir uygulama.
 
 ### <a name="applicationdbcontext"></a>ApplicationDbContext
 
-*Data\applicationdbcontext.cs* dosyasında, ' ın `DbContext` `ApiAuthorizationDbContext` (öğesinden `IdentityDbContext`daha fazla türetilmiş bir sınıf) IdentityServer şemasını dahil etmek için kullandığı özel durum ile kimliğin aynı olduğunu fark edin.
+*Data\applicationdbcontext.cs* dosyasında, `DbContext` (`IdentityDbContext`' den daha fazla türetilmiş bir sınıf), IdentityServer şemasını dahil etmek için `ApiAuthorizationDbContext` genişlettiği özel durum ile kimliğin aynı kullanıldığını görürsünüz.
 
-Veritabanı şemasının tam denetimini elde etmek için, kullanılabilir kimlik `DbContext` sınıflarından birini ve `OnModelCreating` yöntemi çağırarak `builder.ConfigurePersistedGrantContext(_operationalStoreOptions.Value)` kimlik şemasını dahil etmek üzere yapılandırın.
+Veritabanı şeması üzerinde tam denetim elde etmek için, kullanılabilir kimlik `DbContext` sınıflarından birinden devralma ve bağlamı `OnModelCreating` yöntemine `builder.ConfigurePersistedGrantContext(_operationalStoreOptions.Value)` çağırarak kimlik şemasını içerecek şekilde yapılandırma.
 
 ### <a name="oidcconfigurationcontroller"></a>Oıdcconfigurationcontroller
 
@@ -109,7 +109,7 @@ Veritabanı şemasının tam denetimini elde etmek için, kullanılabilir kimlik
 
 ### <a name="appsettingsjson"></a>appSettings. JSON
 
-Proje kökünün *appSettings. JSON* dosyasında, yapılandırılmış istemciler listesini açıklayan yeni `IdentityServer` bir bölüm vardır. Aşağıdaki örnekte, tek bir istemci vardır. İstemci adı, uygulama adına karşılık gelir ve kural tarafından OAuth `ClientId` parametresine eşlenir. Profil, yapılandırılan uygulama türünü gösterir. Sunucu için yapılandırma işlemini basitleştiren kuralları yönlendirmek için dahili olarak kullanılır. [Uygulama profilleri](#application-profiles) bölümünde açıklandığı gibi çeşitli profiller mevcuttur.
+Proje kökünün *appSettings. JSON* dosyasında, yapılandırılmış istemciler listesini açıklayan yeni bir `IdentityServer` bölümü vardır. Aşağıdaki örnekte, tek bir istemci vardır. İstemci adı, uygulama adına karşılık gelir ve bir kural tarafından OAuth `ClientId` parametresine eşlenir. Profil, yapılandırılan uygulama türünü gösterir. Sunucu için yapılandırma işlemini basitleştiren kuralları yönlendirmek için dahili olarak kullanılır. [Uygulama profilleri](#application-profiles) bölümünde açıklandığı gibi çeşitli profiller mevcuttur.
 
 ```json
 "IdentityServer": {
@@ -123,7 +123,7 @@ Proje kökünün *appSettings. JSON* dosyasında, yapılandırılmış istemcile
 
 ### <a name="appsettingsdevelopmentjson"></a>appSettings. Development. JSON
 
-, *AppSettings 'de. Proje kökünün geliştirme. JSON* dosyası, belirteçleri imzalamak için kullanılan anahtarı `IdentityServer` açıklayan bir bölüm vardır. Üretime dağıtım yaparken, [üretime dağıtma](#deploy-to-production) bölümünde açıklandığı gibi bir anahtarın uygulamayla birlikte sağlanması ve dağıtılması gerekir.
+, *AppSettings 'de. Proje kökünün geliştirme. JSON* dosyası, belirteçleri imzalamak için kullanılan anahtarı açıklayan bir `IdentityServer` bölümü vardır. Üretime dağıtım yaparken, [üretime dağıtma](#deploy-to-production) bölümünde açıklandığı gibi bir anahtarın uygulamayla birlikte sağlanması ve dağıtılması gerekir.
 
 ```json
 "IdentityServer": {
@@ -138,14 +138,14 @@ Proje kökünün *appSettings. JSON* dosyasında, yapılandırılmış istemcile
 Angular şablonundaki kimlik doğrulama ve API yetkilendirme desteği *Clientapp\src\api-Authorization* dizinindeki kendi angular modülünde yer alır. Modül aşağıdaki öğelerden oluşur:
 
 * 3 bileşen:
-  * *login. Component. TS*: Uygulamanın oturum açma akışını işler.
-  * *Logout. Component. TS*: Uygulamanın oturum kapatma akışını işler.
-  * *login-Menu. Component. TS*: Aşağıdaki bağlantı kümelerinden birini görüntüleyen pencere öğesi:
+  * *login. Component. TS*: uygulamanın oturum açma akışını işler.
+  * *Logout. Component. TS*: uygulamanın oturum kapatma akışını işler.
+  * *login-Menu. Component. TS*: aşağıdaki bağlantı kümelerinden birini görüntüleyen pencere öğesi:
     * Kullanıcı profili yönetimi ve kullanıcının kimlik doğrulaması yapıldığında oturum kapatma bağlantıları.
     * Kullanıcının kimlik doğrulaması olmadığında kayıt ve oturum açma bağlantıları.
-* Rotalara eklenebilen `AuthorizeGuard` ve yolu ziyaret etmeden önce bir kullanıcının kimliğinin doğrulanmasını gerektiren bir Route koruyucusu.
-* Kullanıcının kimlik doğrulaması yapıldığında `AuthorizeInterceptor` API 'yi hedefleyen giden http isteklerine erişim belirtecini bağlayan bir http yakalayıcısı.
-* Kimlik doğrulama `AuthorizeService` işleminin alt düzey ayrıntılarını işleyen ve kimliği doğrulanmış kullanıcı hakkındaki bilgileri, tüketim için uygulamanın geri kalanına getiren bir hizmet.
+* Rotalara eklenebilen ve yolu ziyaret etmeden önce kullanıcının kimliğinin doğrulanmasını gerektiren bir Route Guard `AuthorizeGuard`.
+* Kullanıcının kimlik doğrulaması yapıldığında API 'YI hedefleyen giden HTTP isteklerine erişim belirtecini ekleyen bir HTTP yakalayıcısı `AuthorizeInterceptor`.
+* Kimlik doğrulama işleminin alt düzey ayrıntılarını işleyen ve kimliği doğrulanmış kullanıcı hakkındaki bilgileri, tüketim için uygulamanın geri kalanına getiren bir hizmet `AuthorizeService`.
 * Uygulamanın kimlik doğrulama bölümleriyle ilişkili yolları tanımlayan angular modülü. Oturum açma menü bileşeni, yakalayıcısı, koruyucu ve uygulamanın geri kalanından tüketim için hizmeti sunar.
 
 ## <a name="general-description-of-the-react-app"></a>Tepki verme uygulamasının genel açıklaması
@@ -153,23 +153,39 @@ Angular şablonundaki kimlik doğrulama ve API yetkilendirme desteği *Clientapp
 Yanıt verme şablonunda kimlik doğrulama ve API yetkilendirmesi desteği *Clientapp\src\\disk api-Authorization* dizininde bulunur. Şu öğelerden oluşur:
 
 * 4 bileşen:
-  * *Login. js*: Uygulamanın oturum açma akışını işler.
-  * *Logout. js*: Uygulamanın oturum kapatma akışını işler.
-  * *Loginmenu. js*: Aşağıdaki bağlantı kümelerinden birini görüntüleyen pencere öğesi:
+  * *Login. js*: uygulamanın oturum açma akışını işler.
+  * *Logout. js*: uygulamanın oturum kapatma akışını işler.
+  * *Loginmenu. js*: aşağıdaki bağlantı kümelerinden birini görüntüleyen pencere öğesi:
     * Kullanıcı profili yönetimi ve kullanıcının kimlik doğrulaması yapıldığında oturum kapatma bağlantıları.
     * Kullanıcının kimlik doğrulaması olmadığında kayıt ve oturum açma bağlantıları.
-  * *Authorizeroute. js*: `Component` Parametresinde belirtilen bileşeni işlemeden önce kullanıcının kimliğinin doğrulanmasını gerektiren bir rota bileşeni.
-* Kimlik doğrulama `authService` işleminin alt düzey `AuthorizeService` ayrıntılarını işleyen ve kimliği doğrulanmış kullanıcı hakkındaki bilgileri, tüketim için uygulamanın geri kalanına getiren, dışa aktarılmış bir sınıf örneği.
+  * *Authorizeroute. js*: `Component` parametresinde belirtilen bileşeni işlemeden önce kullanıcının kimliğinin doğrulanmasını gerektiren bir rota bileşeni.
+* Bir `AuthorizeService` sınıfının dışa, kimlik doğrulama işleminin alt düzey ayrıntılarını işleyen ve kimliği doğrulanmış kullanıcı hakkında bilgileri, tüketim için uygulamanın geri kalanına getiren bir `authService` örneği.
 
 Artık çözümün ana bileşenlerini gördüğünüze göre, uygulama için ayrı senaryolara daha ayrıntılı bir şekilde göz atabilirsiniz.
 
 ## <a name="require-authorization-on-a-new-api"></a>Yeni bir API 'de yetkilendirme gerektir
 
-Varsayılan olarak, sistem yeni API 'Ler için kolayca yetkilendirme gerektirecek şekilde yapılandırılmıştır. Bunu yapmak için yeni bir denetleyici oluşturun ve `[Authorize]` özniteliği Controller sınıfına veya denetleyici içindeki herhangi bir eyleme ekleyin.
+Varsayılan olarak, sistem yeni API 'Ler için kolayca yetkilendirme gerektirecek şekilde yapılandırılmıştır. Bunu yapmak için yeni bir denetleyici oluşturun ve denetleyici sınıfına veya denetleyici içindeki herhangi bir eyleme `[Authorize]` özniteliğini ekleyin.
+
+## <a name="customize-the-api-authentication-handler"></a>API kimlik doğrulama işleyicisini özelleştirme
+
+API 'nin JWT işleyicisinin yapılandırmasını özelleştirmek için <xref:Microsoft.AspNetCore.Builder.JwtBearerOptions> örneğini yapılandırın:
+
+```csharp
+services.AddAuthentication()
+    .AddIdentityServerJwt();
+
+services.ConfigureOptions<JwtBearerOptions>(
+    IdentityServerJwtConstants.IdentityServerJwtBearerScheme,
+    options =>
+    {
+        ...
+    });
+```
 
 ## <a name="protect-a-client-side-route-angular"></a>İstemci tarafı yolunu koruma (angular)
 
-İstemci tarafı bir yolu korumak, yetkilendirme koruyucusu bir rota yapılandırılırken çalıştırılacak korumalara listesine eklenerek yapılır. Örnek olarak, `fetch-data` yolun ana uygulama angular modülü içinde nasıl yapılandırıldığını görebilirsiniz:
+İstemci tarafı bir yolu korumak, yetkilendirme koruyucusu bir rota yapılandırılırken çalıştırılacak korumalara listesine eklenerek yapılır. Örnek olarak, `fetch-data` yolun ana uygulama angular modülünde nasıl yapılandırıldığını görebilirsiniz:
 
 ```typescript
 RouterModule.forRoot([
@@ -178,7 +194,7 @@ RouterModule.forRoot([
 ])
 ```
 
-Bir yolu korumanın gerçek uç noktayı korumadığını (buna hala bir `[Authorize]` öznitelik uygulanacağını), ancak kullanıcının kimlik doğrulaması olmadığında verilen istemci tarafı rotasında gezinmelerini önlediği bahsetmek önemlidir.
+Bir yolu korumanın gerçek uç noktayı korumadığını (yine de buna uygulanan bir `[Authorize]` özniteliği gerektirdiğini), ancak kullanıcının kimlik doğrulaması olmadığında yalnızca belirtilen istemci tarafı rotasında gezinmelerini önlediği bahsetmek önemlidir.
 
 ## <a name="authenticate-api-requests-angular"></a>API isteklerinin kimliğini doğrulama (angular)
 
@@ -186,7 +202,7 @@ Uygulama ile barındırılan API 'lere yönelik kimlik doğrulama istekleri, uyg
 
 ## <a name="protect-a-client-side-route-react"></a>İstemci tarafı yolunu koruma (tepki verme)
 
-`AuthorizeRoute` Düz`Route` bileşen yerine bileşeni kullanarak bir istemci tarafı yolunu koruyun. Örneğin, `fetch-data` yolun `App` bileşen içinde nasıl yapılandırıldığına dikkat edin:
+Düz `Route` bileşeni yerine `AuthorizeRoute` bileşenini kullanarak bir istemci tarafı yolunu koruyun. Örneğin, `fetch-data` yolunun `App` bileşeni içinde nasıl yapılandırıldığı hakkında dikkat edin:
 
 ```jsx
 <AuthorizeRoute path='/fetch-data' component={FetchData} />
@@ -194,12 +210,12 @@ Uygulama ile barındırılan API 'lere yönelik kimlik doğrulama istekleri, uyg
 
 Bir yolu koruma:
 
-* Gerçek uç noktayı korumaz (yine de ona uygulanan bir `[Authorize]` özniteliği gerektirir).
+* Gerçek uç noktayı korumaz (hala buna uygulanan bir `[Authorize]` özniteliği gerektirir).
 * Yalnızca kullanıcının kimlik doğrulaması olmadığında verilen istemci tarafı rotasında gezinmelerini engeller.
 
 ## <a name="authenticate-api-requests-react"></a>API isteklerinin kimliğini doğrulama (tepki)
 
-Yanıt vererek istekleri kimlik doğrulama işlemi, `authService` `AuthorizeService`önce örneği öğesinden içeri aktarılarak yapılır. Erişim belirteci konumundan `authService` alınır ve aşağıda gösterildiği gibi isteğe iliştirilir. Yanıt verme bileşenlerinde, bu çalışma genellikle `componentDidMount` yaşam döngüsü yönteminde veya bazı Kullanıcı etkileşiminden elde edilen sonuç olarak yapılır.
+Yanıt vererek istekleri doğrulamak, öncelikle `authService` örneği `AuthorizeService`içeri aktararak yapılır. Erişim belirteci `authService` alınır ve aşağıda gösterildiği gibi isteğe iliştirilir. Yanıt verme bileşenlerinde, bu iş genellikle `componentDidMount` yaşam döngüsü yönteminde veya bazı Kullanıcı etkileşiminden elde edilen sonuç olarak yapılır.
 
 ### <a name="import-the-authservice-into-your-component"></a>AuthService 'i bileşeninizdeki içeri aktarın
 
@@ -232,7 +248,7 @@ Uygulamayı üretime dağıtmak için aşağıdaki kaynakların sağlanması ger
 
 ### <a name="example-deploy-to-azure-websites"></a>Örnek: Azure Web sitelerine dağıtma
 
-Bu bölümde, sertifika deposunda depolanan bir sertifika kullanılarak uygulamanın Azure Web sitelerine dağıtımı açıklanmaktadır. Uygulamayı sertifika deposundan bir sertifika yükleyecek şekilde değiştirmek için, daha sonraki bir adımda yapılandırdığınızda App Service planının en azından Standart katmanda olması gerekir. Uygulamanın *appSettings. JSON* dosyasında, önemli ayrıntıları dahil etmek için `IdentityServer` bölümünü değiştirin:
+Bu bölümde, sertifika deposunda depolanan bir sertifika kullanılarak uygulamanın Azure Web sitelerine dağıtımı açıklanmaktadır. Uygulamayı sertifika deposundan bir sertifika yükleyecek şekilde değiştirmek için, daha sonraki bir adımda yapılandırdığınızda App Service planının en azından Standart katmanda olması gerekir. Uygulamanın *appSettings. JSON* dosyasında, `IdentityServer` bölümünü, anahtar ayrıntılarını içerecek şekilde değiştirin:
 
 ```json
 "IdentityServer": {
@@ -265,26 +281,26 @@ API yetkilendirmesi desteği, IdentityServer 'ın en üstünde bir dizi kural, v
 
 Uygulama profilleri, parametrelerini daha fazla tanımlayan uygulamalar için önceden tanımlanmış yapılandırlardır. Şu anda, aşağıdaki profiller desteklenir:
 
-* `IdentityServerSPA`: Tek bir birim olarak IdentityServer ile barındırılan bir SPA 'yı temsil eder.
-  * `redirect_uri` Varsayılan olarak`/authentication/login-callback`olur.
-  * `post_logout_redirect_uri` Varsayılan olarak`/authentication/logout-callback`olur.
-  * Kapsam kümesi `openid`, `profile`, ve uygulamadaki API 'ler için tanımlanan tüm kapsamları içerir.
-  * İzin verilen OIDC yanıt türleri `id_token token` kümesi, tek tek (`id_token`, `token`).
+* `IdentityServerSPA`: IdentityServer 'ın yanı sıra tek bir birim olarak barındırılan bir SPA 'yı temsil eder.
+  * `redirect_uri` varsayılan olarak `/authentication/login-callback`.
+  * `post_logout_redirect_uri` varsayılan olarak `/authentication/logout-callback`.
+  * Kapsam kümesi, uygulamadaki API 'Ler için tanımlanan `openid`, `profile`ve tüm kapsamları içerir.
+  * İzin verilen OıDC yanıt türleri kümesi tek tek `id_token token` veya her biri (`id_token`, `token`).
   * İzin verilen yanıt modu `fragment`.
 * `SPA`: IdentityServer ile barındırılmayan bir SPA 'yı temsil eder.
-  * Kapsam kümesi `openid`, `profile`, ve uygulamadaki API 'ler için tanımlanan tüm kapsamları içerir.
-  * İzin verilen OIDC yanıt türleri `id_token token` kümesi, tek tek (`id_token`, `token`).
+  * Kapsam kümesi, uygulamadaki API 'Ler için tanımlanan `openid`, `profile`ve tüm kapsamları içerir.
+  * İzin verilen OıDC yanıt türleri kümesi tek tek `id_token token` veya her biri (`id_token`, `token`).
   * İzin verilen yanıt modu `fragment`.
 * `IdentityServerJwt`: IdentityServer ile birlikte barındırılan bir API 'YI temsil eder.
   * Uygulama, uygulama adı için varsayılan olarak kullanılan tek bir kapsama sahip olacak şekilde yapılandırılmıştır.
-* `API`: IdentityServer ile barındırılan bir API 'YI temsil eder.
+* `API`: IdentityServer ile barındırılmayan bir API 'YI temsil eder.
   * Uygulama, uygulama adı için varsayılan olarak kullanılan tek bir kapsama sahip olacak şekilde yapılandırılmıştır.
 
 ### <a name="configuration-through-appsettings"></a>AppSettings aracılığıyla yapılandırma
 
-Uygulamaları, `Clients` veya `Resources`listesine ekleyerek yapılandırma sistemi aracılığıyla yapılandırın.
+Uygulamaları `Clients` veya `Resources`listesine ekleyerek yapılandırma sistemi aracılığıyla yapılandırın.
 
-Aşağıdaki örnekte gösterildiği gibi `redirect_uri` , `post_logout_redirect_uri` her bir istemcinin ve özelliğini yapılandırın:
+Aşağıdaki örnekte gösterildiği gibi, her bir istemcinin `redirect_uri` ve `post_logout_redirect_uri` özelliğini yapılandırın:
 
 ```json
 "IdentityServer": {
@@ -313,7 +329,7 @@ Kaynakları yapılandırırken, kaynak için kapsamları aşağıda gösterildi�
 
 ### <a name="configuration-through-code"></a>Kod aracılığıyla yapılandırma
 
-Ayrıca, seçeneklerini yapılandırmak için bir eylem alan aşırı yüklemesini `AddApiAuthorization` kullanarak, istemcileri ve kaynakları kod aracılığıyla da yapılandırabilirsiniz.
+Ayrıca, seçenekleri yapılandırmak için bir eylem alan `AddApiAuthorization` aşırı yüklemesini kullanarak, istemcileri ve kaynakları kod aracılığıyla da yapılandırabilirsiniz.
 
 ```csharp
 AddApiAuthorization<ApplicationUser, ApplicationDbContext>(options =>

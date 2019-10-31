@@ -1,18 +1,18 @@
 ---
 title: ASP.NET Core uygulamalarını Azure App Service dağıtma
-author: guardrex
+author: bradygaster
 description: Bu makale, Azure ana bilgisayarına bağlantılar ve kaynakları dağıtmak için bağlantı içerir.
 monikerRange: '>= aspnetcore-2.1'
-ms.author: riande
+ms.author: bradyg
 ms.custom: mvc
-ms.date: 10/02/2019
+ms.date: 10/11/2019
 uid: host-and-deploy/azure-apps/index
-ms.openlocfilehash: bda4923adb0f9769f883ef64f7902c8650308222
-ms.sourcegitcommit: 73e255e846e414821b8cc20ffa3aec946735cd4e
+ms.openlocfilehash: 392868b4fc9105279f8f3b10436a9915123e7070
+ms.sourcegitcommit: 032113208bb55ecfb2faeb6d3e9ea44eea827950
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71924896"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73190629"
 ---
 # <a name="deploy-aspnet-core-apps-to-azure-app-service"></a>ASP.NET Core uygulamalarını Azure App Service dağıtma
 
@@ -30,10 +30,12 @@ Linux üzerinde Azure App Service için bir ASP.NET Core Web uygulaması oluştu
 
 Azure App Service 'te bulunan ASP.NET Core sürümü için [App Service panosundaki ASP.NET Core](https://aspnetcoreon.azurewebsites.net/) bakın.
 
+[App Service Duyurular](https://github.com/Azure/app-service-announcements/) deposuna abone olun ve sorunları izleyin. App Service takım, App Service gelen duyuruları ve senaryoları düzenli olarak gönderir.
+
 Aşağıdaki makaleler ASP.NET Core belgelerinde sunulmaktadır:
 
 <xref:tutorials/publish-to-azure-webapp-using-vs>  
-Visual Studio kullanarak Azure App Service'e bir ASP.NET Core uygulaması yayımlama hakkında bilgi edinin.
+ASP.NET Core uygulamasının Visual Studio kullanarak Azure App Service nasıl yayımlanacağını öğrenin.
 
 <xref:host-and-deploy/azure-apps/azure-continuous-deployment>  
 Visual Studio kullanarak ASP.NET Core bir Web uygulaması oluşturmayı ve sürekli dağıtım için git 'i kullanarak Azure App Service nasıl dağıtacağınızı öğrenin.
@@ -63,17 +65,17 @@ Yerel bağımlılıklara sahip uygulamalar için, 32-bit (x86) uygulamalarının
 
 ::: moniker-end
 
-.NET Core Framework bileşenleri ve dağıtım yöntemleri hakkında daha fazla bilgi için, .NET Core çalışma zamanı ve .NET Core SDK hakkında bilgi gibi bkz [. .NET Core hakkında: Oluşturma](/dotnet/core/about#composition).
+.NET Core Framework bileşenleri ve dağıtım yöntemleri hakkında daha fazla bilgi için, .NET Core çalışma zamanı ve .NET Core SDK hakkında bilgi gibi bkz. [.NET Core: bileşim hakkında](/dotnet/core/about#composition).
 
 ### <a name="packages"></a>Paketler
 
 Azure App Service dağıtılan uygulamalar için otomatik günlük oluşturma özellikleri sağlamak üzere aşağıdaki NuGet paketlerini ekleyin:
 
-* [Microsoft. AspNetCore. AzureAppServices. hostingstartup](https://www.nuget.org/packages/Microsoft.AspNetCore.AzureAppServices.HostingStartup/) , Azure App Service ile ASP.NET Core hafif tümleştirme sağlamak Için [ıhostingstartup](xref:fundamentals/configuration/platform-specific-configuration) kullanır. Eklenen günlük özellikleri, `Microsoft.AspNetCore.AzureAppServicesIntegration` paket tarafından sağlanır.
-* [Microsoft.AspNetCore.AzureAppServicesIntegration](https://www.nuget.org/packages/Microsoft.AspNetCore.AzureAppServicesIntegration/) executes [AddAzureWebAppDiagnostics](/dotnet/api/microsoft.extensions.logging.azureappservicesloggerfactoryextensions.addazurewebappdiagnostics) to add Azure App Service diagnostics logging providers in the `Microsoft.Extensions.Logging.AzureAppServices` package.
+* [Microsoft. AspNetCore. AzureAppServices. hostingstartup](https://www.nuget.org/packages/Microsoft.AspNetCore.AzureAppServices.HostingStartup/) , Azure App Service ile ASP.NET Core hafif tümleştirme sağlamak Için [ıhostingstartup](xref:fundamentals/configuration/platform-specific-configuration) kullanır. Eklenen günlük özellikleri `Microsoft.AspNetCore.AzureAppServicesIntegration` paketi tarafından sağlanır.
+* [Microsoft. AspNetCore. AzureAppServicesIntegration](https://www.nuget.org/packages/Microsoft.AspNetCore.AzureAppServicesIntegration/) , `Microsoft.Extensions.Logging.AzureAppServices` paketine Azure App Service tanılama günlüğü sağlayıcıları eklemek Için [Addavzurewebappdiagnostics](/dotnet/api/microsoft.extensions.logging.azureappservicesloggerfactoryextensions.addazurewebappdiagnostics) ' i yürütür.
 * [Microsoft. Extensions. Logging. AzureAppServices](https://www.nuget.org/packages/Microsoft.Extensions.Logging.AzureAppServices/) , Azure App Service tanılama günlüklerini ve günlük akışı özelliklerini desteklemek için günlükçü uygulamaları sağlar.
 
-Önceki paketlere [Microsoft. AspNetCore. app metapackage](xref:fundamentals/metapackage-app)tarafından ulaşılabilir. `Microsoft.AspNetCore.App` Metapackage 'i .NET Framework veya başvurusunu hedefleyen uygulamalar, uygulamanın proje dosyasındaki ayrı paketlere açık olarak başvurmalıdır.
+Önceki paketlere [Microsoft. AspNetCore. app metapackage](xref:fundamentals/metapackage-app)tarafından ulaşılabilir. `Microsoft.AspNetCore.App` metapackage .NET Framework veya başvurusunu hedefleyen uygulamalar, uygulamanın proje dosyasındaki ayrı paketlere açık olarak başvurmalıdır.
 
 ## <a name="override-app-configuration-using-the-azure-portal"></a>Azure portalını kullanarak uygulama yapılandırmasını geçersiz kılma
 
@@ -83,19 +85,19 @@ Azure portalında bir uygulama ayarı oluşturulduğunda veya değiştirildiğin
 
 ::: moniker range=">= aspnetcore-3.0"
 
-Bir uygulama [genel ana bilgisayarı](xref:fundamentals/host/generic-host)kullandığında, ortam değişkenleri varsayılan olarak bir uygulamanın yapılandırmasına yüklenmez ve yapılandırma sağlayıcısı geliştirici tarafından eklenmelidir. Geliştirici, yapılandırma sağlayıcısı eklendiğinde ortam değişkeni önekini belirler. Daha fazla bilgi için bkz <xref:fundamentals/host/generic-host> . ve [ortam değişkenleri yapılandırma sağlayıcısı](xref:fundamentals/configuration/index#environment-variables-configuration-provider).
+Bir uygulama [genel ana bilgisayarı](xref:fundamentals/host/generic-host)kullandığında, ortam değişkenleri varsayılan olarak bir uygulamanın yapılandırmasına yüklenmez ve yapılandırma sağlayıcısı geliştirici tarafından eklenmelidir. Geliştirici, yapılandırma sağlayıcısı eklendiğinde ortam değişkeni önekini belirler. Daha fazla bilgi için bkz. <xref:fundamentals/host/generic-host> ve [ortam değişkenleri yapılandırma sağlayıcısı](xref:fundamentals/configuration/index#environment-variables-configuration-provider).
 
 ::: moniker-end
 
 ::: moniker range="< aspnetcore-3.0"
 
-Bir uygulama, [Webhost. createdefaultbuilder](/dotnet/api/microsoft.aspnetcore.webhost.createdefaultbuilder)kullanarak Konağı oluşturduğunda, Konağı yapılandıran ortam değişkenleri `ASPNETCORE_` ön eki kullanır. Daha fazla bilgi için bkz <xref:fundamentals/host/web-host> . ve [ortam değişkenleri yapılandırma sağlayıcısı](xref:fundamentals/configuration/index#environment-variables-configuration-provider).
+Bir uygulama, [Webhost. CreateDefaultBuilder](/dotnet/api/microsoft.aspnetcore.webhost.createdefaultbuilder)kullanarak Konağı oluşturduğunda, Konağı yapılandıran ortam değişkenleri `ASPNETCORE_` önekini kullanır. Daha fazla bilgi için bkz. <xref:fundamentals/host/web-host> ve [ortam değişkenleri yapılandırma sağlayıcısı](xref:fundamentals/configuration/index#environment-variables-configuration-provider).
 
 ::: moniker-end
 
-## <a name="proxy-server-and-load-balancer-scenarios"></a>Ara sunucu ve yük dengeleyici senaryoları
+## <a name="proxy-server-and-load-balancer-scenarios"></a>Proxy sunucusu ve yük dengeleyici senaryoları
 
-[İşlem dışı](xref:host-and-deploy/iis/index#out-of-process-hosting-model)barındırma sırasında Iletilen üstbilgiler ara yazılımını yapılandıran ve ASP.NET Core modülü DÜZENI (http/https) ve isteğin BAŞLATıLDıĞı uzak IP adresini iletecek şekilde yapılandırılmış [IIS tümleştirme ara yazılımı](xref:host-and-deploy/iis/index#enable-the-iisintegration-components). . Ek Ara sunucuları ve yük dengeleyici barındırılan uygulamalar için ek yapılandırma gerekebilir. Daha fazla bilgi için [proxy sunucuları ile çalışma ve yük Dengeleyiciler için ASP.NET Core yapılandırma](xref:host-and-deploy/proxy-load-balancer).
+[İşlem dışı](xref:host-and-deploy/iis/index#out-of-process-hosting-model)barındırma sırasında Iletilen üstbilgiler ara yazılımını yapılandıran ve ASP.NET Core modülü DÜZENI (http/https) ve isteğin BAŞLATıLDıĞı uzak IP adresini iletecek şekilde yapılandırılmış [IIS tümleştirme ara yazılımı](xref:host-and-deploy/iis/index#enable-the-iisintegration-components). . Ek proxy sunucularının ve yük dengeleyiciler arkasında barındırılan uygulamalar için ek yapılandırma gerekebilir. Daha fazla bilgi için bkz. [proxy sunucularıyla ve yük dengeleyicilerle çalışacak ASP.NET Core yapılandırma](xref:host-and-deploy/proxy-load-balancer).
 
 ## <a name="monitoring-and-logging"></a>İzleme ve günlüğe kaydetme
 
@@ -134,77 +136,40 @@ Sorun giderme önerisi ile Azure App Service/IIS tarafından barındırılan uyg
 
 Dağıtım yuvaları arasında takas edildiğinde, veri koruma kullanan tüm sistem, önceki yuva içindeki anahtar halkasını kullanarak depolanan verilerin şifresini çözemeyecektir. ASP.NET tanımlama bilgisi ara yazılımı, tanımlama bilgilerini korumak için veri koruma kullanır. Bu, kullanıcılara standart ASP.NET tanımlama bilgisi ara yazılımı kullanan bir uygulamanın oturumunu kapatmakta olduğunu gösterir. Yuvada bağımsız bir anahtar halka çözümü için, bir dış anahtar halka sağlayıcısı kullanın, örneğin:
 
-* Azure Blob Depolama
+* Azure Blob depolama
 * Azure Key Vault
 * SQL Mağazası
 * Redsıs önbelleği
 
 Daha fazla bilgi için bkz. <xref:security/data-protection/implementation/key-storage-providers>.
 <a name="deploy-aspnet-core-preview-release-to-azure-app-service"></a>
-<!-- revert this after 3.0 supported
-## Deploy ASP.NET Core preview release to Azure App Service
 
-Use one of the following approaches if the app relies on a preview release of .NET Core:
-
-* [Install the preview site extension](#install-the-preview-site-extension).
-* [Deploy a self-contained preview app](#deploy-a-self-contained-preview-app).
-* [Use Docker with Web Apps for containers](#use-docker-with-web-apps-for-containers).
--->
 ## <a name="deploy-aspnet-core-30-to-azure-app-service"></a>Azure App Service ASP.NET Core 3,0 dağıtma
 
-Yakında Azure App Service ASP.NET Core 3,0 kullanılabilir olmasını umuyoruz.
+ASP.NET Core 3,0 Azure App Service desteklenir. .NET Core 3,0 ' den sonraki bir .NET Core sürümünün önizleme sürümünü dağıtmak için, aşağıdaki tekniklerden birini kullanın. Bu yaklaşımlar, çalışma zamanı kullanılabilir ancak SDK Azure App Service üzerine yüklenmemişse de kullanılır.
 
-Uygulama .NET Core 3,0 ' i temel alıyorsa aşağıdaki yaklaşımlardan birini kullanın:
-
-* [Önizleme sitesi uzantısını yükler](#install-the-preview-site-extension).
+* [Azure Pipelines kullanarak .NET Core SDK sürümünü belirtin](#specify-the-net-core-sdk-version-using-azure-pipelines)
 * [Kendi kendine içerilen bir önizleme uygulaması dağıtın](#deploy-a-self-contained-preview-app).
 * [Kapsayıcılar için Web Apps Docker kullanın](#use-docker-with-web-apps-for-containers).
+* [Önizleme sitesi uzantısını yükler](#install-the-preview-site-extension).
 
-### <a name="install-the-preview-site-extension"></a>Önizleme sitesi uzantısını yükler
+### <a name="specify-the-net-core-sdk-version-using-azure-pipelines"></a>Azure Pipelines kullanarak .NET Core SDK sürümünü belirtin
 
-Önizleme sitesi uzantısı kullanılarak bir sorun oluşursa, bir [ASPNET/AspNetCore sorunu](https://github.com/aspnet/AspNetCore/issues)açın.
+Azure DevOps ile sürekli tümleştirme derlemesi ayarlamak için [Azure App SERVICE CI/CD senaryoları](/azure/app-service/deploy-continuous-deployment) kullanın. Azure DevOps derlemesi oluşturulduktan sonra, isteğe bağlı olarak derlemeyi belirli bir SDK sürümünü kullanacak şekilde yapılandırın. 
 
-1. Azure portalından App Service gidin.
-1. Web uygulamasını seçin.
-1. "Uzantıları" filtrelemek için arama kutusuna "Ex" yazın veya yönetim araçları listesini aşağı kaydırın.
-1. **Uzantıları**seçin.
-1. **Add (Ekle)** seçeneğini belirleyin.
-1. `{x64|x86}` Listeden`{X.Y}` ASP.NET Core önizleme sürümü olduğu ve platformu belirten **ASP.NET Core {X. Y} ({x64 | x86}) çalışma zamanı** uzantısını seçin.
-1. Yasal koşulları kabul etmek için **Tamam ' ı** seçin.
-1. Uzantıyı yüklemek için **Tamam ' ı** seçin.
+#### <a name="specify-the-net-core-sdk-version"></a>.NET Core SDK sürümünü belirtin
 
-İşlem tamamlandığında, en son .NET Core önizlemesi yüklenir. Yüklemeyi doğrulayın:
+Azure DevOps derlemesi oluşturmak için App Service dağıtım merkezini kullanırken, varsayılan derleme işlem hattı `Restore`, `Build`, `Test`ve `Publish`için adımlar içerir. SDK sürümünü belirtmek için, yeni bir adım eklemek üzere aracı iş listesindeki **Ekle (+)** düğmesini seçin. Arama çubuğunda **.NET Core SDK** arayın. 
 
-1. **Gelişmiş Araçlar**' ı seçin.
-1. **Gelişmiş araçlarda** **Git** ' i seçin.
-1. **Hata ayıklama konsolu** > **PowerShell** menü öğesini seçin.
-1. PowerShell komut isteminde aşağıdaki komutu yürütün. Komutu için `{X.Y}` ASP.NET Core çalışma zamanı sürümünü ve `{PLATFORM}` platformunu değiştirin:
+![.NET Core SDK adımını ekleyin](index/add-sdk-step.png)
 
-   ```powershell
-   Test-Path D:\home\SiteExtensions\AspNetCoreRuntime.{X.Y}.{PLATFORM}\
-   ```
+Aşağıdaki adımların .NET Core SDK belirtilen sürümünü kullanmasını sağlamak için adımı derlemedeki ilk konuma taşıyın. .NET Core SDK sürümünü belirtin. Bu örnekte, SDK `3.0.100`olarak ayarlanmıştır.
 
-   Bu komut x64 `True` önizlemesi çalışma zamanı yüklendiğinde döndürür.
+![SDK adımı tamamlandı](index/sdk-step-first-place.png)
 
-> [!NOTE]
-> Uygulama hizmetleri uygulamasının platform mimarisi (x86/x64), bir dizi işlem veya daha iyi barındırma katmanında barındırılan uygulamalar için Azure portalındaki uygulama ayarlarında ayarlanır. Uygulama, işlem içi modda çalışıyorsa ve platform mimarisi 64-bit (x64) için yapılandırılmışsa ASP.NET Core modülü, varsa 64 bit önizleme çalışma zamanını kullanır. **ASP.NET Core {X. Y} (x64) çalışma zamanı** uzantısını yükler.
->
-> X64 Önizleme çalışma zamanını yükledikten sonra, yüklemenin doğrulanması için kudu PowerShell komut penceresinde aşağıdaki komutu çalıştırın. Komutu için `{X.Y}` ASP.NET Core çalışma zamanı sürümünü yerine koyun:
->
-> ```powershell
-> Test-Path D:\home\SiteExtensions\AspNetCoreRuntime.{X.Y}.x64\
-> ```
->
-> Bu komut x64 `True` önizlemesi çalışma zamanı yüklendiğinde döndürür.
+[Kendi kendine içerilen bir dağıtımı (SCD)](/dotnet/core/deploying/#self-contained-deployments-scd)yayımlamak için `Publish` adımında SCD ' yi yapılandırın ve [çalışma zamanı tanımlayıcısını (RID)](/dotnet/core/rid-catalog)sağlayın.
 
-> [!NOTE]
-> **ASP.NET Core uzantıları** , Azure Uygulama Hizmetleri 'nde Azure günlük kaydı etkinleştirme gibi ek ASP.NET Core işlevler sunar. Uzantı Visual Studio 'dan dağıtıldığında otomatik olarak yüklenir. Uzantı yüklü değilse, uygulama için bu uygulamayı yükleme.
-
-**Bir ARM şablonuyla önizleme sitesi uzantısını kullanma**
-
-Uygulama oluşturmak ve dağıtmak için bir ARM şablonu kullanılıyorsa, `siteextensions` kaynak türü bir Web uygulamasına site uzantısını eklemek için kullanılabilir. Örneğin:
-
-[!code-json[](index/sample/arm.json?highlight=2)]
+![Kendi içinde yayımlama](index/self-contained.png)
 
 ### <a name="deploy-a-self-contained-preview-app"></a>Kendi içinde bir önizleme uygulaması dağıtma
 
@@ -221,6 +186,52 @@ Kendi kendine içerilen bir uygulama dağıtımında:
 
 [Docker Hub](https://hub.docker.com/r/microsoft/aspnetcore/) , en son önizleme Docker görüntülerini içerir. Görüntüler, temel görüntü olarak kullanılabilir. Görüntüyü kullanın ve kapsayıcılar için normal olarak Web Apps için dağıtın.
 
+### <a name="install-the-preview-site-extension"></a>Önizleme sitesi uzantısını yükler
+
+Önizleme sitesi uzantısı kullanılarak bir sorun oluşursa, bir [ASPNET/AspNetCore sorunu](https://github.com/aspnet/AspNetCore/issues)açın.
+
+1. Azure portalından App Service gidin.
+1. Web uygulamasını seçin.
+1. "Uzantıları" filtrelemek için arama kutusuna "Ex" yazın veya yönetim araçları listesini aşağı kaydırın.
+1. **Uzantıları**seçin.
+1. **Ekle**' yi seçin.
+1. Listeden `{X.Y}` ASP.NET Core önizleme sürümü olduğu ve `{x64|x86}` platformu belirten **ASP.NET Core {X. Y} ({x64 | x86}) çalışma zamanı** uzantısını seçin.
+1. Yasal koşulları kabul etmek için **Tamam ' ı** seçin.
+1. Uzantıyı yüklemek için **Tamam ' ı** seçin.
+
+İşlem tamamlandığında, en son .NET Core önizlemesi yüklenir. Yüklemeyi doğrulayın:
+
+1. **Gelişmiş Araçlar**' ı seçin.
+1. **Gelişmiş araçlarda** **Git** ' i seçin.
+1. **Hata ayıklama konsolu** > **PowerShell** menü öğesini seçin.
+1. PowerShell komut isteminde aşağıdaki komutu yürütün. `{X.Y}` için ASP.NET Core çalışma zamanı sürümünü ve komutuna `{PLATFORM}` platformunu değiştirin:
+
+   ```powershell
+   Test-Path D:\home\SiteExtensions\AspNetCoreRuntime.{X.Y}.{PLATFORM}\
+   ```
+
+   X64 Önizleme çalışma zamanı yüklendiğinde komut `True` döndürür.
+
+> [!NOTE]
+> Uygulama hizmetleri uygulamasının platform mimarisi (x86/x64), bir dizi işlem veya daha iyi barındırma katmanında barındırılan uygulamalar için Azure portalındaki uygulama ayarlarında ayarlanır. Uygulama, işlem içi modda çalışıyorsa ve platform mimarisi 64-bit (x64) için yapılandırılmışsa ASP.NET Core modülü, varsa 64 bit önizleme çalışma zamanını kullanır. **ASP.NET Core {X. Y} (x64) çalışma zamanı** uzantısını yükler.
+>
+> X64 Önizleme çalışma zamanını yükledikten sonra, yüklemenin doğrulanması için kudu PowerShell komut penceresinde aşağıdaki komutu çalıştırın. `{X.Y}` için ASP.NET Core çalışma zamanı sürümünü şu komutta değiştirin:
+>
+> ```powershell
+> Test-Path D:\home\SiteExtensions\AspNetCoreRuntime.{X.Y}.x64\
+> ```
+>
+> X64 Önizleme çalışma zamanı yüklendiğinde komut `True` döndürür.
+
+> [!NOTE]
+> **ASP.NET Core uzantıları** , Azure Uygulama Hizmetleri 'nde Azure günlük kaydı etkinleştirme gibi ek ASP.NET Core işlevler sunar. Uzantı Visual Studio 'dan dağıtıldığında otomatik olarak yüklenir. Uzantı yüklü değilse, uygulama için bu uygulamayı yükleme.
+
+**Bir ARM şablonuyla önizleme sitesi uzantısını kullanma**
+
+Uygulamaları oluşturmak ve dağıtmak için bir ARM şablonu kullanılıyorsa, `siteextensions` kaynak türü, site uzantısını bir Web uygulamasına eklemek için kullanılabilir. Örneğin:
+
+[!code-json[](index/sample/arm.json?highlight=2)]
+
 ## <a name="publish-and-deploy-the-app"></a>Uygulamayı yayımlama ve dağıtma
 
 ### <a name="deploy-the-app-framework-dependent"></a>Uygulama çerçevesine bağımlı dağıtım
@@ -230,21 +241,21 @@ Kendi kendine içerilen bir uygulama dağıtımında:
 64 bitlik bir [çerçeveye bağımlı dağıtım](/dotnet/core/deploying/#framework-dependent-deployments-fdd)için:
 
 * 64 bit uygulama derlemek için 64 bit .NET Core SDK kullanın.
-* App Service **yapılandırma** genel > ayarlarında platformu **64 bit** olarak ayarlayın. Uygulamanın, platform bit özelliğini tercih etmek için temel veya daha yüksek bir hizmet planı kullanması gerekir.
+* App Service **yapılandırma** > **genel ayarları**'nda **platformu** **64 bit** olarak ayarlayın. Uygulamanın, platform bit özelliğini tercih etmek için temel veya daha yüksek bir hizmet planı kullanması gerekir.
 
 ::: moniker-end
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-1. Visual Studio araç çubuğundan **derleme** > **yayımlaması {Application Name}** öğesini seçin veya **Çözüm Gezgini** ' de projeye sağ tıklayıp **Yayımla**' yı seçin.
+1. Visual Studio araç çubuğundan **derleme** >  **{Application Name} Yayımla** ' yı seçin veya **Çözüm Gezgini** projeye sağ tıklayıp **Yayımla**' yı seçin.
 1. **Bir yayımlama hedefi seç** iletişim kutusunda **App Service** seçili olduğunu onaylayın.
-1. **Gelişmiş**'i seçin. **Yayımla** iletişim kutusu açılır.
-1. İçinde **Yayımla** iletişim:
+1. **Gelişmiş**' i seçin. **Yayımla** iletişim kutusu açılır.
+1. **Yayımla** iletişim kutusunda:
    * **Yayın** yapılandırmasının seçili olduğunu doğrulayın.
    * **Dağıtım modu** açılır listesini açın ve **çerçeveye bağımlı**' ı seçin.
    * **Hedef çalışma zamanı**olarak **Taşınabilir** öğesini seçin.
    * Dağıtımdan sonra ek dosyaları kaldırmanız gerekiyorsa, **dosya yayımlama seçenekleri** ' ni açın ve hedefteki ek dosyaları kaldırmak için onay kutusunu işaretleyin.
-   * **Kaydet**’i seçin.
+   * **Kaydet**' i seçin.
 1. Yayımla sihirbazının kalan istemlerini izleyerek yeni bir site oluşturun veya var olan bir siteyi güncelleştirin.
 
 # <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli/)
@@ -257,7 +268,7 @@ Kendi kendine içerilen bir uygulama dağıtımında:
    dotnet publish --configuration Release
    ```
 
-1. *Bin/Release/{Target Framework}/Publish* dizininin içeriğini App Service sitesinde siteye taşıyın. *Klasör içeriğini* yerel sabit sürücünüzden veya ağ paylaşımınızdan, [kudu](https://github.com/projectkudu/kudu/wiki) konsolundaki App Service doğrudan sürüklerseniz, `D:\home\site\wwwroot` dosyaları kudu konsolundaki klasöre sürükleyin.
+1. *Bin/Release/{Target Framework}/Publish* dizininin içeriğini App Service sitesinde siteye taşıyın. *Klasör içeriğini* yerel sabit sürücünüzden veya ağ paylaşımınızdan, [kudu](https://github.com/projectkudu/kudu/wiki) konsolundaki App Service doğrudan sürüklerseniz, dosyaları kudu konsolundaki `D:\home\site\wwwroot` klasörüne sürükleyin.
 
 ---
 
@@ -267,20 +278,20 @@ Kendi içinde dağıtım için Visual Studio 'Yu veya komut satırı arabirimi (
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-1. Visual Studio araç çubuğundan **derleme** > **yayımlaması {Application Name}** öğesini seçin veya **Çözüm Gezgini** ' de projeye sağ tıklayıp **Yayımla**' yı seçin.
+1. Visual Studio araç çubuğundan **derleme** >  **{Application Name} Yayımla** ' yı seçin veya **Çözüm Gezgini** projeye sağ tıklayıp **Yayımla**' yı seçin.
 1. **Bir yayımlama hedefi seç** iletişim kutusunda **App Service** seçili olduğunu onaylayın.
-1. **Gelişmiş**'i seçin. **Yayımla** iletişim kutusu açılır.
-1. İçinde **Yayımla** iletişim:
+1. **Gelişmiş**' i seçin. **Yayımla** iletişim kutusu açılır.
+1. **Yayımla** iletişim kutusunda:
    * **Yayın** yapılandırmasının seçili olduğunu doğrulayın.
    * **Dağıtım modu** açılır listesini açın ve **kendinden bağımsız**' i seçin.
    * Hedef **çalışma** zamanı açılır listesinden hedef çalışma zamanını seçin. Varsayılan, `win-x86` değeridir.
    * Dağıtımdan sonra ek dosyaları kaldırmanız gerekiyorsa, **dosya yayımlama seçenekleri** ' ni açın ve hedefteki ek dosyaları kaldırmak için onay kutusunu işaretleyin.
-   * **Kaydet**’i seçin.
+   * **Kaydet**' i seçin.
 1. Yayımla sihirbazının kalan istemlerini izleyerek yeni bir site oluşturun veya var olan bir siteyi güncelleştirin.
 
 # <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli/)
 
-1. Proje dosyasında bir veya daha fazla [çalışma zamanı tanımlayıcısı (RID 'ler)](/dotnet/core/rid-catalog)belirtin. Tek `<RuntimeIdentifier>` bir RID için (tekil) kullanın veya (plural `<RuntimeIdentifiers>` ) kullanarak, noktalı virgülle ayrılmış RID 'ler listesini sağlayın. Aşağıdaki örnekte, `win-x86` RID belirtilir:
+1. Proje dosyasında bir veya daha fazla [çalışma zamanı tanımlayıcısı (RID 'ler)](/dotnet/core/rid-catalog)belirtin. Tek bir RID için `<RuntimeIdentifier>` (tekil) kullanın veya noktalı virgülle ayrılmış RID listesi sağlamak için `<RuntimeIdentifiers>` (plural) kullanın. Aşağıdaki örnekte, `win-x86` RID belirtilir:
 
    ```xml
    <PropertyGroup>
@@ -289,23 +300,23 @@ Kendi içinde dağıtım için Visual Studio 'Yu veya komut satırı arabirimi (
    </PropertyGroup>
    ```
 
-1. Bir komut kabuğundan, uygulamayı, [DotNet Publish](/dotnet/core/tools/dotnet-publish) komutuyla konağın çalışma zamanının sürüm yapılandırmasında yayımlayın. Aşağıdaki örnekte, uygulama `win-x86` RID için yayımlanır. `--runtime` Seçeneğe sağlanan RID, proje dosyasındaki `<RuntimeIdentifier>` (veya `<RuntimeIdentifiers>`) özelliğinde sağlanmalıdır.
+1. Bir komut kabuğundan, uygulamayı, [DotNet Publish](/dotnet/core/tools/dotnet-publish) komutuyla konağın çalışma zamanının sürüm yapılandırmasında yayımlayın. Aşağıdaki örnekte, uygulama `win-x86` RID için yayımlanır. `--runtime` seçeneğine sağlanan RID, proje dosyasındaki `<RuntimeIdentifier>` (veya `<RuntimeIdentifiers>`) özelliğinde sağlanmalıdır.
 
    ```console
    dotnet publish --configuration Release --runtime win-x86 --self-contained
    ```
 
-1. *Bin/Release/{Target Framework}/{RUNTIME Identifier}/Publish* dizininin içeriğini App Service sitesinde siteye taşıyın. *Klasör içeriğini* yerel sabit sürücünüzden veya ağ paylaşımınızdan, kudu konsolundaki App Service doğrudan sürüklerseniz, dosyaları `D:\home\site\wwwroot` kudu konsolundaki klasöre sürükleyin.
+1. *Bin/Release/{Target Framework}/{RUNTIME Identifier}/Publish* dizininin içeriğini App Service sitesinde siteye taşıyın. *Klasör içeriğini* yerel sabit sürücünüzden veya ağ paylaşımınızdan, kudu konsolundaki App Service doğrudan sürüklerseniz, dosyaları kudu konsolundaki `D:\home\site\wwwroot` klasörüne sürükleyin.
 
 ---
 
 ## <a name="protocol-settings-https"></a>Protokol ayarları (HTTPS)
 
-Güvenli Protokol bağlamaları, HTTPS üzerinden isteklere yanıt verme sırasında kullanılacak bir sertifika belirtmenize olanak tanır. Bağlama, belirli bir ana bilgisayar adı için verilen geçerli bir özel sertifika ( *. pfx*) gerektirir. Daha fazla bilgi için bkz [. Öğretici: Var olan bir özel SSL sertifikasını Azure App Service](/azure/app-service/app-service-web-tutorial-custom-ssl)bağlayın.
+Güvenli Protokol bağlamaları, HTTPS üzerinden isteklere yanıt verme sırasında kullanılacak bir sertifika belirtmenize olanak tanır. Bağlama, belirli bir ana bilgisayar adı için verilen geçerli bir özel sertifika ( *. pfx*) gerektirir. Daha fazla bilgi için bkz. [öğretici: var olan bir özel SSL sertifikasını Azure App Service bağlama](/azure/app-service/app-service-web-tutorial-custom-ssl).
 
 ## <a name="transform-webconfig"></a>Web.config’i dönüştürme
 
-*Web. config* 'i yayımlama sırasında dönüştürmeniz gerekiyorsa (örneğin, yapılandırma, profil veya ortama göre ortam değişkenlerini ayarlayın), bkz <xref:host-and-deploy/iis/transform-webconfig>.
+*Web. config* 'i yayımlama sırasında dönüştürmeniz gerekiyorsa (örneğin, yapılandırma, profil veya ortama göre ortam değişkenlerini ayarlayın) <xref:host-and-deploy/iis/transform-webconfig> ' e bakın.
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
