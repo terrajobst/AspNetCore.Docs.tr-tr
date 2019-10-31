@@ -5,18 +5,18 @@ description: Tümleştirme testlerinin, bir uygulamanın bileşenlerinin, verita
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/14/2019
+ms.date: 10/28/2019
 uid: test/integration-tests
-ms.openlocfilehash: c0fede8f9f46d1b10502055d8e1fe7caa48cf351
-ms.sourcegitcommit: 810d5831169770ee240d03207d6671dabea2486e
+ms.openlocfilehash: 33f3e29bc649fa65efdff0c47e54a83662005577
+ms.sourcegitcommit: de0fc77487a4d342bcc30965ec5c142d10d22c03
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72779224"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73143369"
 ---
 # <a name="integration-tests-in-aspnet-core"></a>ASP.NET Core tümleştirme testleri
 
-[Luke Latham](https://github.com/guardrex) ve [Steve Smith](https://ardalis.com/) tarafından
+[Luke Latham](https://github.com/guardrex), [Javier Calvarro Nelson](https://github.com/javiercn), [Steve Smith](https://ardalis.com/)ve [Jos van der](https://jvandertil.nl) .
 
 ::: moniker range=">= aspnetcore-3.0"
 
@@ -86,11 +86,11 @@ Genellikle, test Web ana bilgisayarı, test çalıştırmaları için uygulaman�
 
 Test Web Konağı ve bellek içi test sunucusu ([TestServer](/dotnet/api/microsoft.aspnetcore.testhost.testserver)) gibi altyapı bileşenleri, [Microsoft. Aspnetcore. Mvc. Testing](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc.Testing) paketi tarafından sağlanır veya yönetilir. Bu paketin kullanımı, test oluşturma ve yürütmeyi kolaylaştırır.
 
-@No__t_0 paketi aşağıdaki görevleri gerçekleştirir:
+`Microsoft.AspNetCore.Mvc.Testing` paketi aşağıdaki görevleri gerçekleştirir:
 
 * Bağımlılıklar dosyasını ( *. Deps*) sut 'den test projesinin *bin* dizinine kopyalar.
 * , Testler yürütüldüğünde statik dosya ve sayfa/görünümlerin bulunması için [içerik kökünü](xref:fundamentals/index#content-root) sut 'nin proje köküne ayarlar.
-* @No__t_1 ile SUT önyükleyiciyi kolaylaştırmak için [Webapplicationfactory](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactory-1) sınıfını sağlar.
+* `TestServer`ile SUT önyükleyiciyi kolaylaştırmak için [Webapplicationfactory](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactory-1) sınıfını sağlar.
 
 [Birim](/dotnet/articles/core/testing/unit-testing-with-dotnet-test) testi belgeleri bir test projesi ve Test Çalıştırıcısı ayarlamayı ve testlerin ve test sınıflarının nasıl belirleneceğini gösteren testlerin ve önerilerin nasıl çalıştırılacağını gösteren ayrıntılı yönergelerle birlikte açıklanır.
 
@@ -130,8 +130,6 @@ SUT [ortamı](xref:fundamentals/environments) ayarlanmamışsa, ortam varsayıla
 
 Test sınıfları sınıfı testlerin içerdiğini göstermek ve sınıftaki testler arasında paylaşılan nesne örnekleri sağlamak için bir *sınıf armatürü* arabirimi ([ıssfixture](https://xunit.github.io/docs/shared-context#class-fixture)) uygular.
 
-### <a name="basic-test-of-app-endpoints"></a>Uygulama uç noktalarının temel testi
-
 Aşağıdaki test sınıfı `BasicTests`, SUT 'yi önyüklemek ve bir test yöntemine [HttpClient](/dotnet/api/system.net.http.httpclient) sağlamak için `WebApplicationFactory` kullanır `Get_EndpointsReturnSuccessAndCorrectContentType`. Yöntemi, yanıt durum kodunun başarılı olup olmadığını denetler (200-299 aralığındaki durum kodları) ve `Content-Type` üstbilgisi çeşitli uygulama sayfaları için `text/html; charset=utf-8` ' dir.
 
 [Createclient](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactory-1.createclient) , yeniden yönlendirmeleri otomatik olarak izleyen ve tanımlama bilgilerini işleyen bir `HttpClient` örneği oluşturur.
@@ -140,30 +138,11 @@ Aşağıdaki test sınıfı `BasicTests`, SUT 'yi önyüklemek ve bir test yönt
 
 Varsayılan olarak, [GDPR onay ilkesi](xref:security/gdpr) etkinleştirildiğinde, önemli olmayan tanımlama bilgileri istekler arasında korunmaz. TempData sağlayıcısı tarafından kullanılanlar gibi, önemli olmayan tanımlama bilgilerini korumak için, bunları testlerinizde gerekli olarak işaretleyin. Tanımlama bilgisini önemli olarak işaretleme hakkında yönergeler için bkz. [temel tanımlama bilgileri](xref:security/gdpr#essential-cookies).
 
-### <a name="test-a-secure-endpoint"></a>Güvenli uç noktayı test etme
-
-@No__t_0 sınıftaki başka bir test, güvenli bir uç noktanın, kimliği doğrulanmamış bir kullanıcıyı uygulamanın oturum açma sayfasına yönlendirdiğini denetler.
-
-SUT 'de `/SecurePage` sayfası, sayfaya bir [Authorizefilter](/dotnet/api/microsoft.aspnetcore.mvc.authorization.authorizefilter) uygulamak Için bir [authorizepage](/dotnet/api/microsoft.extensions.dependencyinjection.pageconventioncollectionextensions.authorizepage) kuralı kullanır. Daha fazla bilgi için bkz. [Razor Pages yetkilendirme kuralları](xref:security/authorization/razor-pages-authorization#require-authorization-to-access-a-page).
-
-[!code-csharp[](integration-tests/samples/3.x/IntegrationTestsSample/src/RazorPagesProject/Startup.cs?name=snippet1)]
-
-@No__t_0 testinde, bir [Webapplicationfactoryclientoptions](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactoryclientoptions) , `false` olarak [allowoto Redirect ayarlanarak yeniden](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactoryclientoptions.allowautoredirect) yönlendirmeye izin vermez olarak ayarlanır:
-
-[!code-csharp[](integration-tests/samples/3.x/IntegrationTestsSample/tests/RazorPagesProject.Tests/IntegrationTests/BasicTests.cs?name=snippet2)]
-
-İstemcinin yeniden yönlendirmeyi izlemeye izin vererek aşağıdaki denetimler yapılabilir:
-
-* SUT tarafından döndürülen durum kodu, oturum açma sayfasına yeniden yönlendirmeden sonra, [HttpStatusCode. Tamam](/dotnet/api/system.net.httpstatuscode)olacak şekilde, son durum koduna değil beklenen [HttpStatusCode. Redirect](/dotnet/api/system.net.httpstatuscode) sonucuyla denetlenebilir.
-* Yanıt üst bilgilerindeki `Location` üst bilgi değeri, `Location` üstbilgisinin mevcut olmadığı son oturum açma sayfası yanıtıyla değil `http://localhost/Identity/Account/Login` ile başlayacağını doğrulamak üzere denetlenir.
-
-@No__t_0 hakkında daha fazla bilgi için [istemci seçenekleri](#client-options) bölümüne bakın.
-
 ## <a name="customize-webapplicationfactory"></a>WebApplicationFactory 'yi özelleştirme
 
 Web ana bilgisayar yapılandırması, bir veya daha fazla özel fabrika oluşturmak için `WebApplicationFactory` ' dan devralarak test sınıflarından bağımsız olarak oluşturulabilir:
 
-1. @No__t_0 'den devralma ve [Configurewebhost](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactory-1.configurewebhost)'i geçersiz kılma. [Iwebhostbuilder](/dotnet/api/microsoft.aspnetcore.hosting.iwebhostbuilder) , hizmet koleksiyonunun [ConfigureServices](/dotnet/api/microsoft.aspnetcore.hosting.istartup.configureservices)ile yapılandırılmasına izin verir:
+1. `WebApplicationFactory` 'den devralma ve [Configurewebhost](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactory-1.configurewebhost)'i geçersiz kılma. [Iwebhostbuilder](/dotnet/api/microsoft.aspnetcore.hosting.iwebhostbuilder) , hizmet koleksiyonunun [ConfigureServices](/dotnet/api/microsoft.aspnetcore.hosting.istartup.configureservices)ile yapılandırılmasına izin verir:
 
    [!code-csharp[](integration-tests/samples/3.x/IntegrationTestsSample/tests/RazorPagesProject.Tests/CustomWebApplicationFactory.cs?name=snippet1)]
 
@@ -190,7 +169,7 @@ Web ana bilgisayar yapılandırması, bir veya daha fazla özel fabrika oluştur
 
    [!code-csharp[](integration-tests/samples/3.x/IntegrationTestsSample/tests/RazorPagesProject.Tests/IntegrationTests/IndexPageTests.cs?name=snippet1)]
 
-   Örnek uygulamanın istemcisi, aşağıdaki yeniden yönlendirmelere `HttpClient` ' i engelleyecek şekilde yapılandırılmıştır. [Güvenli uç nokta testi](#test-a-secure-endpoint) bölümünde açıklandığı gibi, bu, testlerin uygulamanın ilk yanıtının sonucunu denetlemesini sağlar. İlk yanıt, `Location` üst bilgisiyle bu testlerin çoğunda bir yeniden yönlendirmelidir.
+   Örnek uygulamanın istemcisi, aşağıdaki yeniden yönlendirmelere `HttpClient` ' i engelleyecek şekilde yapılandırılmıştır. Daha sonra, [sahte kimlik doğrulama](#mock-authentication) bölümünde açıklandığı gibi, bu, testlerin uygulamanın ilk yanıtının sonucunu denetlemesini sağlar. İlk yanıt, `Location` üst bilgisiyle bu testlerin çoğunda bir yeniden yönlendirmelidir.
 
 3. Tipik bir test, isteği ve yanıtı işlemek için `HttpClient` ve yardımcı yöntemlerini kullanır:
 
@@ -205,7 +184,7 @@ SUT 'a yönelik herhangi bir POST isteği, uygulamanın [veri koruma antiforgery
 [Örnek uygulamadaki](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/test/integration-tests/samples/) `SendAsync` yardımcı uzantı yöntemleri (*yardımcılar/Httpclienconversionsions. cs*) ve `GetDocumentAsync` yardımcı yöntemi (*yardımcılar/htmlyardımcıları. cs* [),](https://anglesharp.github.io/) Aşağıdaki Yöntemler:
 
 * `GetDocumentAsync` &ndash; [HttpResponseMessage](/dotnet/api/system.net.http.httpresponsemessage) 'yi alır ve bir `IHtmlDocument` döndürür. `GetDocumentAsync`, özgün `HttpResponseMessage` göre sanal bir *Yanıt* hazırlayan bir fabrika kullanır. Daha fazla bilgi için bkz. [Anglesharp belgeleri](https://github.com/AngleSharp/AngleSharp#documentation).
-* `HttpClient` için `SendAsync` genişletme yöntemleri bir [HttpRequestMessage](/dotnet/api/system.net.http.httprequestmessage) oluşturun ve istekleri sut 'e göndermek Için [sendadsync (HttpRequestMessage)](/dotnet/api/system.net.http.httpclient.sendasync#System_Net_Http_HttpClient_SendAsync_System_Net_Http_HttpRequestMessage_) çağrısı yapın. @No__t_0 için aşırı yüklemeler HTML formunu (`IHtmlFormElement`) ve aşağıdakileri kabul eder:
+* `HttpClient` için `SendAsync` genişletme yöntemleri bir [HttpRequestMessage](/dotnet/api/system.net.http.httprequestmessage) oluşturun ve istekleri sut 'e göndermek Için [sendadsync (HttpRequestMessage)](/dotnet/api/system.net.http.httpclient.sendasync#System_Net_Http_HttpClient_SendAsync_System_Net_Http_HttpRequestMessage_) çağrısı yapın. `SendAsync` için aşırı yüklemeler HTML formunu (`IHtmlFormElement`) ve aşağıdakileri kabul eder:
   * Formun Gönder düğmesi (`IHtmlElement`)
   * Form değerleri koleksiyonu (`IEnumerable<KeyValuePair<string, string>>`)
   * Gönder düğmesi (`IHtmlElement`) ve form değerleri (`IEnumerable<KeyValuePair<string, string>>`)
@@ -217,9 +196,9 @@ SUT 'a yönelik herhangi bir POST isteği, uygulamanın [veri koruma antiforgery
 
 Bir test yönteminde ek yapılandırma gerektiğinde, [Withwebhostbuilder](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactory-1.withwebhostbuilder) , yapılandırmaya göre daha fazla özelleştirilmiş bir [ıwebhostbuilder](/dotnet/api/microsoft.aspnetcore.hosting.iwebhostbuilder) ile yeni bir `WebApplicationFactory` oluşturur.
 
-[Örnek uygulamanın](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/test/integration-tests/samples) `Post_DeleteMessageHandler_ReturnsRedirectToRoot` test yöntemi `WithWebHostBuilder` kullanımını gösterir. Bu test, SUT 'da form gönderimini tetikleyerek veritabanında silme işlemini gerçekleştirir.
+[Örnek uygulamanın](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/test/integration-tests/samples) `Post_DeleteMessageHandler_ReturnsRedirectToRoot` test yöntemi `WithWebHostBuilder`kullanımını gösterir. Bu test, SUT 'da form gönderimini tetikleyerek veritabanında silme işlemini gerçekleştirir.
 
-@No__t_0 sınıftaki başka bir test, veritabanındaki tüm kayıtları silen ve `Post_DeleteMessageHandler_ReturnsRedirectToRoot` yönteminden önce çalışabilen bir işlem gerçekleştirdiğinden, SUT 'in silinmesine yönelik bir kaydın mevcut olduğundan emin olmak için veritabanı bu test yönteminde yeniden oluşturulur. SUT içindeki `messages` formunun ilk Sil düğmesini seçmek, SUT isteğine göre benzetilir:
+`IndexPageTests` sınıftaki başka bir test, veritabanındaki tüm kayıtları silen ve `Post_DeleteMessageHandler_ReturnsRedirectToRoot` yönteminden önce çalışabilen bir işlem gerçekleştirdiğinden, SUT 'in silinmesine yönelik bir kaydın mevcut olduğundan emin olmak için veritabanı bu test yönteminde yeniden oluşturulur. SUT içindeki `messages` formunun ilk Sil düğmesini seçmek, SUT isteğine göre benzetilir:
 
 [!code-csharp[](integration-tests/samples/3.x/IntegrationTestsSample/tests/RazorPagesProject.Tests/IntegrationTests/IndexPageTests.cs?name=snippet3)]
 
@@ -229,12 +208,12 @@ Aşağıdaki tabloda `HttpClient` örnekleri oluşturulurken kullanılabilen var
 
 | Seçenek | Açıklama | Varsayılan |
 | ------ | ----------- | ------- |
-| [Allowoto yeniden yönlendirme](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactoryclientoptions.allowautoredirect) | @No__t_0 örneklerinin yeniden yönlendirme yanıtlarını otomatik olarak izleyip ayarlamamayacağını alır veya ayarlar. | `true` |
-| [BaseAddress](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactoryclientoptions.baseaddress) | @No__t_0 örneklerinin temel adresini alır veya ayarlar. | `http://localhost` |
-| [HandleCookies](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactoryclientoptions.handlecookies) | @No__t_0 örneklerinin tanımlama bilgilerini işlemesinin gerekip gerekmediğini alır veya ayarlar. | `true` |
-| [Maxautomaticyönlendirmeler](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactoryclientoptions.maxautomaticredirections) | @No__t_0 örneklerin izlemesi gereken en fazla yeniden yönlendirme yanıtı sayısını alır veya ayarlar. | 7 |
+| [Allowoto yeniden yönlendirme](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactoryclientoptions.allowautoredirect) | `HttpClient` örneklerinin yeniden yönlendirme yanıtlarını otomatik olarak izleyip ayarlamamayacağını alır veya ayarlar. | `true` |
+| [BaseAddress](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactoryclientoptions.baseaddress) | `HttpClient` örneklerinin temel adresini alır veya ayarlar. | `http://localhost` |
+| [HandleCookies](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactoryclientoptions.handlecookies) | `HttpClient` örneklerinin tanımlama bilgilerini işlemesinin gerekip gerekmediğini alır veya ayarlar. | `true` |
+| [Maxautomaticyönlendirmeler](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactoryclientoptions.maxautomaticredirections) | `HttpClient` örneklerin izlemesi gereken en fazla yeniden yönlendirme yanıtı sayısını alır veya ayarlar. | 7 |
 
-@No__t_0 sınıfını oluşturun ve [Createclient](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactory-1.createclient) yöntemine geçirin (varsayılan değerler kod örneğinde gösterilir):
+`WebApplicationFactoryClientOptions` sınıfını oluşturun ve [Createclient](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactory-1.createclient) yöntemine geçirin (varsayılan değerler kod örneğinde gösterilir):
 
 ```csharp
 // Default client option values are shown
@@ -297,9 +276,53 @@ Testin yürütülmesi sırasında üretilen biçimlendirme `TestQuoteService` ta
     Mr. Scarman, and time is my business.">
 ```
 
+## <a name="mock-authentication"></a>Sahte kimlik doğrulaması
+
+`AuthTests` sınıftaki testler güvenli bir uç noktanın bulunup bulunmadığını denetler:
+
+* Kimliği doğrulanmamış bir kullanıcıyı uygulamanın oturum açma sayfasına yönlendirir.
+* Kimliği doğrulanmış bir kullanıcı için içerik döndürür.
+
+SUT 'de `/SecurePage` sayfası, sayfaya bir [Authorizefilter](/dotnet/api/microsoft.aspnetcore.mvc.authorization.authorizefilter) uygulamak Için bir [authorizepage](/dotnet/api/microsoft.extensions.dependencyinjection.pageconventioncollectionextensions.authorizepage) kuralı kullanır. Daha fazla bilgi için bkz. [Razor Pages yetkilendirme kuralları](xref:security/authorization/razor-pages-authorization#require-authorization-to-access-a-page).
+
+[!code-csharp[](integration-tests/samples/3.x/IntegrationTestsSample/src/RazorPagesProject/Startup.cs?name=snippet1)]
+
+`Get_SecurePageRedirectsAnUnauthenticatedUser` testinde, bir [Webapplicationfactoryclientoptions](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactoryclientoptions) , `false`olarak [allowoto Redirect ayarlanarak yeniden](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactoryclientoptions.allowautoredirect) yönlendirmeye izin vermez olarak ayarlanır:
+
+[!code-csharp[](integration-tests/samples/3.x/IntegrationTestsSample/tests/RazorPagesProject.Tests/IntegrationTests/AuthTests.cs?name=snippet2)]
+
+İstemcinin yeniden yönlendirmeyi izlemeye izin vererek aşağıdaki denetimler yapılabilir:
+
+* SUT tarafından döndürülen durum kodu, oturum açma sayfasına yeniden yönlendirmeden sonra, [HttpStatusCode. Tamam](/dotnet/api/system.net.httpstatuscode)olacak şekilde, son durum koduna değil beklenen [HttpStatusCode. Redirect](/dotnet/api/system.net.httpstatuscode) sonucuyla denetlenebilir.
+* Yanıt üst bilgilerindeki `Location` üst bilgi değeri, `Location` üstbilgisinin mevcut olmadığı son oturum açma sayfası yanıtıyla değil `http://localhost/Identity/Account/Login` ile başlayacağını doğrulamak üzere denetlenir.
+
+Test uygulaması, kimlik doğrulama ve yetkilendirme işlemlerini test etmek için [Configuretestservices](/dotnet/api/microsoft.aspnetcore.testhost.webhostbuilderextensions.configuretestservices) içindeki bir <xref:Microsoft.AspNetCore.Authentication.AuthenticationHandler`1> sahte olabilir. En az bir senaryo, bir [kimlik doğrulayan Poesult. Success](xref:Microsoft.AspNetCore.Authentication.AuthenticateResult.Success*)döndürür:
+
+[!code-csharp[](integration-tests/samples/3.x/IntegrationTestsSample/tests/RazorPagesProject.Tests/IntegrationTests/AuthTests.cs?name=snippet4&highlight=11-18)]
+
+`TestAuthHandler`, kimlik doğrulama şeması, `ConfigureTestServices`için `AddAuthentication` kaydedildiği `Test` olarak ayarlandığında bir kullanıcının kimliğini doğrulamak için çağrılır:
+
+[!code-csharp[](integration-tests/samples/3.x/IntegrationTestsSample/tests/RazorPagesProject.Tests/IntegrationTests/AuthTests.cs?name=snippet3&highlight=7-12)]
+
+`WebApplicationFactoryClientOptions`hakkında daha fazla bilgi için [istemci seçenekleri](#client-options) bölümüne bakın.
+
+## <a name="set-the-environment"></a>Ortamı ayarlama
+
+Varsayılan olarak, SUT 'nin ana bilgisayar ve uygulama ortamı geliştirme ortamını kullanacak şekilde yapılandırılmıştır. SUT ortamını geçersiz kılmak için:
+
+* `ASPNETCORE_ENVIRONMENT` ortam değişkenini ayarlayın (örneğin, `Staging`, `Production`veya `Testing`gibi başka bir özel değer).
+* `ASPNETCORE`ön eki eklenmiş ortam değişkenlerini okumak için test uygulamasındaki `CreateHostBuilder` geçersiz kılın.
+
+```csharp
+protected override IHostBuilder CreateHostBuilder() => 
+    base.CreateHostBuilder()
+        .ConfigureHostConfiguration(
+            config => config.AddEnvironmentVariables("ASPNETCORE"));
+```
+
 ## <a name="how-the-test-infrastructure-infers-the-app-content-root-path"></a>Test altyapısının uygulama içeriği kök yolunu nasıl öğrendiğini
 
-@No__t_0 Oluşturucusu, `TEntryPoint` bütünleştirilmiş `System.Reflection.Assembly.FullName` koduna eşit bir anahtarla tümleştirme testlerini içeren derlemede bir [Webapplicationfactorycontentrootattribute](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactorycontentrootattribute) arayarak uygulama [içeriği kök](xref:fundamentals/index#content-root) yolunu alır. Doğru anahtara sahip bir özniteliğin bulunamaması durumunda, `WebApplicationFactory` bir çözüm dosyasını ( *. sln*) aramaya geri döner ve `TEntryPoint` derleme adını çözüm dizinine ekler. Uygulama kök dizini (içerik kök yolu) görünümleri ve içerik dosyalarını saptamak için kullanılır.
+`WebApplicationFactory` Oluşturucusu, `TEntryPoint` bütünleştirilmiş `System.Reflection.Assembly.FullName`koduna eşit bir anahtarla tümleştirme testlerini içeren derlemede bir [Webapplicationfactorycontentrootattribute](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactorycontentrootattribute) arayarak uygulama [içeriği kök](xref:fundamentals/index#content-root) yolunu alır. Doğru anahtara sahip bir özniteliğin bulunamaması durumunda, `WebApplicationFactory` bir çözüm dosyasını ( *. sln*) aramaya geri döner ve `TEntryPoint` derleme adını çözüm dizinine ekler. Uygulama kök dizini (içerik kök yolu) görünümleri ve içerik dosyalarını saptamak için kullanılır.
 
 ## <a name="disable-shadow-copying"></a>Gölge kopyalamayı devre dışı bırak
 
@@ -315,7 +338,7 @@ Aşağıdaki içeriğe sahip test projesinin köküne *xUnit. Runner. JSON* dosy
 
 ## <a name="disposal-of-objects"></a>Nesnelerin elden çıkarılması
 
-@No__t_0 uygulamasının testleri yürütüldükten sonra, [TestServer](/dotnet/api/microsoft.aspnetcore.testhost.testserver) ve [HttpClient](/dotnet/api/system.net.http.httpclient) , [webapplicationfactory](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactory-1)'nin xUnit 'i çıkardığı zaman yürütülür. Geliştirici tarafından oluşturulan nesneler için aktiften çıkarma gerekiyorsa, bunları `IClassFixture` uygulamasında atın. Daha fazla bilgi için bkz. [Dispose yöntemi uygulama](/dotnet/standard/garbage-collection/implementing-dispose).
+`IClassFixture` uygulamasının testleri yürütüldükten sonra, [TestServer](/dotnet/api/microsoft.aspnetcore.testhost.testserver) ve [HttpClient](/dotnet/api/system.net.http.httpclient) , [webapplicationfactory](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactory-1)'nin xUnit 'i çıkardığı zaman yürütülür. Geliştirici tarafından oluşturulan nesneler için aktiften çıkarma gerekiyorsa, bunları `IClassFixture` uygulamasında atın. Daha fazla bilgi için bkz. [Dispose yöntemi uygulama](/dotnet/standard/garbage-collection/implementing-dispose).
 
 ## <a name="integration-tests-sample"></a>Tümleştirme Testleri örneği
 
@@ -337,7 +360,7 @@ dotnet test
 SUT, aşağıdaki özelliklere sahip bir Razor Pages ileti sistemidir:
 
 * Uygulamanın (*Pages/Index. cshtml* ve *Pages/index. cshtml. cs*) dizin sayfası, iletilerin eklenmesi, silinmesini ve ANALIZINI denetlemek için bir UI ve sayfa modeli yöntemleri sağlar (ileti başına ortalama sözcük).
-* Bir ileti, iki özellik içeren `Message` sınıfı (*Data/Message. cs*) tarafından tanımlanır: `Id` (anahtar) ve `Text` (ileti). @No__t_0 özelliği gereklidir ve 200 karakterle sınırlıdır.
+* Bir ileti, iki özellik içeren `Message` sınıfı (*Data/Message. cs*) tarafından tanımlanır: `Id` (anahtar) ve `Text` (ileti). `Text` özelliği gereklidir ve 200 karakterle sınırlıdır.
 * İletiler, [Entity Framework bellek içi veritabanı](/ef/core/providers/in-memory/)&#8224;kullanılarak depolanır.
 * Uygulama, `AppDbContext` (*Data/AppDbContext. cs*) veritabanı bağlamı sınıfında bir veri erişim KATMANı (dal) içerir.
 * Veritabanı uygulama başlangıcında boşsa, ileti deposu üç iletiyle başlatılır.
@@ -353,8 +376,9 @@ Test uygulaması, *testler/RazorPagesProject. Tests* dizini içindeki bir konsol
 
 | Uygulama dizinini test et | Açıklama |
 | ------------------ | ----------- |
-| *BasicTests* | *BasicTests.cs* , yönlendirme için test yöntemleri, kimliği doğrulanmamış bir kullanıcı tarafından güvenli bir sayfaya erişmek ve bir GitHub Kullanıcı profili elde etmek ve profilin Kullanıcı oturum açma bilgilerini denetlemek içerir. |
-| *Tümleştirme Testleri* | *IndexPageTests.cs* , özel `WebApplicationFactory` sınıfı kullanarak Dizin sayfası için tümleştirme testlerini içerir. |
+| *AuthTests* | İçin test yöntemleri içerir:<ul><li>Güvenli bir sayfaya, kimliği doğrulanmamış bir kullanıcıyla erişme.</li><li>Bir sahte <xref:Microsoft.AspNetCore.Authentication.AuthenticationHandler`1>kimliği doğrulanmış bir kullanıcı tarafından güvenli bir sayfaya erişme.</li><li>GitHub kullanıcı profilini alma ve profilin Kullanıcı oturum açma bilgilerini denetleme.</li></ul> |
+| *BasicTests* | Yönlendirme ve içerik türü için bir test yöntemi içerir. |
+| *Tümleştirme Testleri* | Özel `WebApplicationFactory` sınıfı kullanarak dizin sayfasına yönelik tümleştirme testlerini içerir. |
 | *Yardımcılar/yardımcı programlar* | <ul><li>*Utilities.cs* , veritabanını test verileriyle tohum için kullanılan `InitializeDbForTests` metodunu içerir.</li><li>*HtmlHelpers.cs* , test yöntemleri tarafından kullanılmak üzere AngleSharp `IHtmlDocument` döndüren bir yöntem sağlar.</li><li>*HttpClientExtensions.cs* , istekleri sut 'a göndermek için `SendAsync` için aşırı yüklemeler sağlar.</li></ul> |
 
 Test çerçevesi [xUnit](https://xunit.github.io/)' dir. Tümleştirme testleri, [TestServer](/dotnet/api/microsoft.aspnetcore.testhost.testserver)içeren [Microsoft. Aspnetcore. testhost](/dotnet/api/microsoft.aspnetcore.testhost)kullanılarak yürütülür. Test ana bilgisayarı ve test sunucusunu yapılandırmak için [Microsoft. AspNetCore. Mvc. Testing](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc.Testing) paketi kullanıldığından, `TestHost` ve `TestServer` paketleri test uygulamasının proje dosyasında ya da testteki geliştirici yapılandırmasında doğrudan paket başvuruları gerektirmez uygulamanızda.
@@ -439,11 +463,11 @@ Genellikle, test Web ana bilgisayarı, test çalıştırmaları için uygulaman�
 
 Test Web Konağı ve bellek içi test sunucusu ([TestServer](/dotnet/api/microsoft.aspnetcore.testhost.testserver)) gibi altyapı bileşenleri, [Microsoft. Aspnetcore. Mvc. Testing](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc.Testing) paketi tarafından sağlanır veya yönetilir. Bu paketin kullanımı, test oluşturma ve yürütmeyi kolaylaştırır.
 
-@No__t_0 paketi aşağıdaki görevleri gerçekleştirir:
+`Microsoft.AspNetCore.Mvc.Testing` paketi aşağıdaki görevleri gerçekleştirir:
 
 * Bağımlılıklar dosyasını ( *. Deps*) sut 'den test projesinin *bin* dizinine kopyalar.
 * , Testler yürütüldüğünde statik dosya ve sayfa/görünümlerin bulunması için [içerik kökünü](xref:fundamentals/index#content-root) sut 'nin proje köküne ayarlar.
-* @No__t_1 ile SUT önyükleyiciyi kolaylaştırmak için [Webapplicationfactory](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactory-1) sınıfını sağlar.
+* `TestServer`ile SUT önyükleyiciyi kolaylaştırmak için [Webapplicationfactory](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactory-1) sınıfını sağlar.
 
 [Birim](/dotnet/articles/core/testing/unit-testing-with-dotnet-test) testi belgeleri bir test projesi ve Test Çalıştırıcısı ayarlamayı ve testlerin ve test sınıflarının nasıl belirleneceğini gösteren testlerin ve önerilerin nasıl çalıştırılacağını gösteren ayrıntılı yönergelerle birlikte açıklanır.
 
@@ -477,8 +501,6 @@ SUT [ortamı](xref:fundamentals/environments) ayarlanmamışsa, ortam varsayıla
 
 Test sınıfları sınıfı testlerin içerdiğini göstermek ve sınıftaki testler arasında paylaşılan nesne örnekleri sağlamak için bir *sınıf armatürü* arabirimi ([ıssfixture](https://xunit.github.io/docs/shared-context#class-fixture)) uygular.
 
-### <a name="basic-test-of-app-endpoints"></a>Uygulama uç noktalarının temel testi
-
 Aşağıdaki test sınıfı `BasicTests`, SUT 'yi önyüklemek ve bir test yöntemine [HttpClient](/dotnet/api/system.net.http.httpclient) sağlamak için `WebApplicationFactory` kullanır `Get_EndpointsReturnSuccessAndCorrectContentType`. Yöntemi, yanıt durum kodunun başarılı olup olmadığını denetler (200-299 aralığındaki durum kodları) ve `Content-Type` üstbilgisi çeşitli uygulama sayfaları için `text/html; charset=utf-8` ' dir.
 
 [Createclient](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactory-1.createclient) , yeniden yönlendirmeleri otomatik olarak izleyen ve tanımlama bilgilerini işleyen bir `HttpClient` örneği oluşturur.
@@ -487,30 +509,11 @@ Aşağıdaki test sınıfı `BasicTests`, SUT 'yi önyüklemek ve bir test yönt
 
 Varsayılan olarak, [GDPR onay ilkesi](xref:security/gdpr) etkinleştirildiğinde, önemli olmayan tanımlama bilgileri istekler arasında korunmaz. TempData sağlayıcısı tarafından kullanılanlar gibi, önemli olmayan tanımlama bilgilerini korumak için, bunları testlerinizde gerekli olarak işaretleyin. Tanımlama bilgisini önemli olarak işaretleme hakkında yönergeler için bkz. [temel tanımlama bilgileri](xref:security/gdpr#essential-cookies).
 
-### <a name="test-a-secure-endpoint"></a>Güvenli uç noktayı test etme
-
-@No__t_0 sınıftaki başka bir test, güvenli bir uç noktanın, kimliği doğrulanmamış bir kullanıcıyı uygulamanın oturum açma sayfasına yönlendirdiğini denetler.
-
-SUT 'de `/SecurePage` sayfası, sayfaya bir [Authorizefilter](/dotnet/api/microsoft.aspnetcore.mvc.authorization.authorizefilter) uygulamak Için bir [authorizepage](/dotnet/api/microsoft.extensions.dependencyinjection.pageconventioncollectionextensions.authorizepage) kuralı kullanır. Daha fazla bilgi için bkz. [Razor Pages yetkilendirme kuralları](xref:security/authorization/razor-pages-authorization#require-authorization-to-access-a-page).
-
-[!code-csharp[](integration-tests/samples/2.x/IntegrationTestsSample/src/RazorPagesProject/Startup.cs?name=snippet1)]
-
-@No__t_0 testinde, bir [Webapplicationfactoryclientoptions](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactoryclientoptions) , `false` olarak [allowoto Redirect ayarlanarak yeniden](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactoryclientoptions.allowautoredirect) yönlendirmeye izin vermez olarak ayarlanır:
-
-[!code-csharp[](integration-tests/samples/2.x/IntegrationTestsSample/tests/RazorPagesProject.Tests/IntegrationTests/BasicTests.cs?name=snippet2)]
-
-İstemcinin yeniden yönlendirmeyi izlemeye izin vererek aşağıdaki denetimler yapılabilir:
-
-* SUT tarafından döndürülen durum kodu, oturum açma sayfasına yeniden yönlendirmeden sonra, [HttpStatusCode. Tamam](/dotnet/api/system.net.httpstatuscode)olacak şekilde, son durum koduna değil beklenen [HttpStatusCode. Redirect](/dotnet/api/system.net.httpstatuscode) sonucuyla denetlenebilir.
-* Yanıt üst bilgilerindeki `Location` üst bilgi değeri, `Location` üstbilgisinin mevcut olmadığı son oturum açma sayfası yanıtıyla değil `http://localhost/Identity/Account/Login` ile başlayacağını doğrulamak üzere denetlenir.
-
-@No__t_0 hakkında daha fazla bilgi için [istemci seçenekleri](#client-options) bölümüne bakın.
-
 ## <a name="customize-webapplicationfactory"></a>WebApplicationFactory 'yi özelleştirme
 
 Web ana bilgisayar yapılandırması, bir veya daha fazla özel fabrika oluşturmak için `WebApplicationFactory` ' dan devralarak test sınıflarından bağımsız olarak oluşturulabilir:
 
-1. @No__t_0 'den devralma ve [Configurewebhost](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactory-1.configurewebhost)'i geçersiz kılma. [Iwebhostbuilder](/dotnet/api/microsoft.aspnetcore.hosting.iwebhostbuilder) , hizmet koleksiyonunun [ConfigureServices](/dotnet/api/microsoft.aspnetcore.hosting.istartup.configureservices)ile yapılandırılmasına izin verir:
+1. `WebApplicationFactory` 'den devralma ve [Configurewebhost](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactory-1.configurewebhost)'i geçersiz kılma. [Iwebhostbuilder](/dotnet/api/microsoft.aspnetcore.hosting.iwebhostbuilder) , hizmet koleksiyonunun [ConfigureServices](/dotnet/api/microsoft.aspnetcore.hosting.istartup.configureservices)ile yapılandırılmasına izin verir:
 
    [!code-csharp[](integration-tests/samples/2.x/IntegrationTestsSample/tests/RazorPagesProject.Tests/CustomWebApplicationFactory.cs?name=snippet1)]
 
@@ -520,7 +523,7 @@ Web ana bilgisayar yapılandırması, bir veya daha fazla özel fabrika oluştur
 
    [!code-csharp[](integration-tests/samples/2.x/IntegrationTestsSample/tests/RazorPagesProject.Tests/IntegrationTests/IndexPageTests.cs?name=snippet1)]
 
-   Örnek uygulamanın istemcisi, aşağıdaki yeniden yönlendirmelere `HttpClient` ' i engelleyecek şekilde yapılandırılmıştır. [Güvenli uç nokta testi](#test-a-secure-endpoint) bölümünde açıklandığı gibi, bu, testlerin uygulamanın ilk yanıtının sonucunu denetlemesini sağlar. İlk yanıt, `Location` üst bilgisiyle bu testlerin çoğunda bir yeniden yönlendirmelidir.
+   Örnek uygulamanın istemcisi, aşağıdaki yeniden yönlendirmelere `HttpClient` ' i engelleyecek şekilde yapılandırılmıştır. Daha sonra, [sahte kimlik doğrulama](#mock-authentication) bölümünde açıklandığı gibi, bu, testlerin uygulamanın ilk yanıtının sonucunu denetlemesini sağlar. İlk yanıt, `Location` üst bilgisiyle bu testlerin çoğunda bir yeniden yönlendirmelidir.
 
 3. Tipik bir test, isteği ve yanıtı işlemek için `HttpClient` ve yardımcı yöntemlerini kullanır:
 
@@ -535,7 +538,7 @@ SUT 'a yönelik herhangi bir POST isteği, uygulamanın [veri koruma antiforgery
 [Örnek uygulamadaki](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/test/integration-tests/samples/) `SendAsync` yardımcı uzantı yöntemleri (*yardımcılar/Httpclienconversionsions. cs*) ve `GetDocumentAsync` yardımcı yöntemi (*yardımcılar/htmlyardımcıları. cs* [),](https://anglesharp.github.io/) Aşağıdaki Yöntemler:
 
 * `GetDocumentAsync` &ndash; [HttpResponseMessage](/dotnet/api/system.net.http.httpresponsemessage) 'yi alır ve bir `IHtmlDocument` döndürür. `GetDocumentAsync`, özgün `HttpResponseMessage` göre sanal bir *Yanıt* hazırlayan bir fabrika kullanır. Daha fazla bilgi için bkz. [Anglesharp belgeleri](https://github.com/AngleSharp/AngleSharp#documentation).
-* `HttpClient` için `SendAsync` genişletme yöntemleri bir [HttpRequestMessage](/dotnet/api/system.net.http.httprequestmessage) oluşturun ve istekleri sut 'e göndermek Için [sendadsync (HttpRequestMessage)](/dotnet/api/system.net.http.httpclient.sendasync#System_Net_Http_HttpClient_SendAsync_System_Net_Http_HttpRequestMessage_) çağrısı yapın. @No__t_0 için aşırı yüklemeler HTML formunu (`IHtmlFormElement`) ve aşağıdakileri kabul eder:
+* `HttpClient` için `SendAsync` genişletme yöntemleri bir [HttpRequestMessage](/dotnet/api/system.net.http.httprequestmessage) oluşturun ve istekleri sut 'e göndermek Için [sendadsync (HttpRequestMessage)](/dotnet/api/system.net.http.httpclient.sendasync#System_Net_Http_HttpClient_SendAsync_System_Net_Http_HttpRequestMessage_) çağrısı yapın. `SendAsync` için aşırı yüklemeler HTML formunu (`IHtmlFormElement`) ve aşağıdakileri kabul eder:
   * Formun Gönder düğmesi (`IHtmlElement`)
   * Form değerleri koleksiyonu (`IEnumerable<KeyValuePair<string, string>>`)
   * Gönder düğmesi (`IHtmlElement`) ve form değerleri (`IEnumerable<KeyValuePair<string, string>>`)
@@ -547,9 +550,9 @@ SUT 'a yönelik herhangi bir POST isteği, uygulamanın [veri koruma antiforgery
 
 Bir test yönteminde ek yapılandırma gerektiğinde, [Withwebhostbuilder](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactory-1.withwebhostbuilder) , yapılandırmaya göre daha fazla özelleştirilmiş bir [ıwebhostbuilder](/dotnet/api/microsoft.aspnetcore.hosting.iwebhostbuilder) ile yeni bir `WebApplicationFactory` oluşturur.
 
-[Örnek uygulamanın](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/test/integration-tests/samples) `Post_DeleteMessageHandler_ReturnsRedirectToRoot` test yöntemi `WithWebHostBuilder` kullanımını gösterir. Bu test, SUT 'da form gönderimini tetikleyerek veritabanında silme işlemini gerçekleştirir.
+[Örnek uygulamanın](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/test/integration-tests/samples) `Post_DeleteMessageHandler_ReturnsRedirectToRoot` test yöntemi `WithWebHostBuilder`kullanımını gösterir. Bu test, SUT 'da form gönderimini tetikleyerek veritabanında silme işlemini gerçekleştirir.
 
-@No__t_0 sınıftaki başka bir test, veritabanındaki tüm kayıtları silen ve `Post_DeleteMessageHandler_ReturnsRedirectToRoot` yönteminden önce çalışabilen bir işlem gerçekleştirdiğinden, SUT 'in silinmesine yönelik bir kaydın mevcut olduğundan emin olmak için veritabanı bu test yönteminde yeniden oluşturulur. SUT içindeki `messages` formunun ilk Sil düğmesini seçmek, SUT isteğine göre benzetilir:
+`IndexPageTests` sınıftaki başka bir test, veritabanındaki tüm kayıtları silen ve `Post_DeleteMessageHandler_ReturnsRedirectToRoot` yönteminden önce çalışabilen bir işlem gerçekleştirdiğinden, SUT 'in silinmesine yönelik bir kaydın mevcut olduğundan emin olmak için veritabanı bu test yönteminde yeniden oluşturulur. SUT içindeki `messages` formunun ilk Sil düğmesini seçmek, SUT isteğine göre benzetilir:
 
 [!code-csharp[](integration-tests/samples/2.x/IntegrationTestsSample/tests/RazorPagesProject.Tests/IntegrationTests/IndexPageTests.cs?name=snippet3)]
 
@@ -559,12 +562,12 @@ Aşağıdaki tabloda `HttpClient` örnekleri oluşturulurken kullanılabilen var
 
 | Seçenek | Açıklama | Varsayılan |
 | ------ | ----------- | ------- |
-| [Allowoto yeniden yönlendirme](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactoryclientoptions.allowautoredirect) | @No__t_0 örneklerinin yeniden yönlendirme yanıtlarını otomatik olarak izleyip ayarlamamayacağını alır veya ayarlar. | `true` |
-| [BaseAddress](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactoryclientoptions.baseaddress) | @No__t_0 örneklerinin temel adresini alır veya ayarlar. | `http://localhost` |
-| [HandleCookies](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactoryclientoptions.handlecookies) | @No__t_0 örneklerinin tanımlama bilgilerini işlemesinin gerekip gerekmediğini alır veya ayarlar. | `true` |
-| [Maxautomaticyönlendirmeler](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactoryclientoptions.maxautomaticredirections) | @No__t_0 örneklerin izlemesi gereken en fazla yeniden yönlendirme yanıtı sayısını alır veya ayarlar. | 7 |
+| [Allowoto yeniden yönlendirme](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactoryclientoptions.allowautoredirect) | `HttpClient` örneklerinin yeniden yönlendirme yanıtlarını otomatik olarak izleyip ayarlamamayacağını alır veya ayarlar. | `true` |
+| [BaseAddress](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactoryclientoptions.baseaddress) | `HttpClient` örneklerinin temel adresini alır veya ayarlar. | `http://localhost` |
+| [HandleCookies](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactoryclientoptions.handlecookies) | `HttpClient` örneklerinin tanımlama bilgilerini işlemesinin gerekip gerekmediğini alır veya ayarlar. | `true` |
+| [Maxautomaticyönlendirmeler](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactoryclientoptions.maxautomaticredirections) | `HttpClient` örneklerin izlemesi gereken en fazla yeniden yönlendirme yanıtı sayısını alır veya ayarlar. | 7 |
 
-@No__t_0 sınıfını oluşturun ve [Createclient](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactory-1.createclient) yöntemine geçirin (varsayılan değerler kod örneğinde gösterilir):
+`WebApplicationFactoryClientOptions` sınıfını oluşturun ve [Createclient](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactory-1.createclient) yöntemine geçirin (varsayılan değerler kod örneğinde gösterilir):
 
 ```csharp
 // Default client option values are shown
@@ -627,9 +630,53 @@ Testin yürütülmesi sırasında üretilen biçimlendirme `TestQuoteService` ta
     Mr. Scarman, and time is my business.">
 ```
 
+## <a name="mock-authentication"></a>Sahte kimlik doğrulaması
+
+`AuthTests` sınıftaki testler güvenli bir uç noktanın bulunup bulunmadığını denetler:
+
+* Kimliği doğrulanmamış bir kullanıcıyı uygulamanın oturum açma sayfasına yönlendirir.
+* Kimliği doğrulanmış bir kullanıcı için içerik döndürür.
+
+SUT 'de `/SecurePage` sayfası, sayfaya bir [Authorizefilter](/dotnet/api/microsoft.aspnetcore.mvc.authorization.authorizefilter) uygulamak Için bir [authorizepage](/dotnet/api/microsoft.extensions.dependencyinjection.pageconventioncollectionextensions.authorizepage) kuralı kullanır. Daha fazla bilgi için bkz. [Razor Pages yetkilendirme kuralları](xref:security/authorization/razor-pages-authorization#require-authorization-to-access-a-page).
+
+[!code-csharp[](integration-tests/samples/2.x/IntegrationTestsSample/src/RazorPagesProject/Startup.cs?name=snippet1)]
+
+`Get_SecurePageRedirectsAnUnauthenticatedUser` testinde, bir [Webapplicationfactoryclientoptions](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactoryclientoptions) , `false`olarak [allowoto Redirect ayarlanarak yeniden](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactoryclientoptions.allowautoredirect) yönlendirmeye izin vermez olarak ayarlanır:
+
+[!code-csharp[](integration-tests/samples/2.x/IntegrationTestsSample/tests/RazorPagesProject.Tests/IntegrationTests/AuthTests.cs?name=snippet2)]
+
+İstemcinin yeniden yönlendirmeyi izlemeye izin vererek aşağıdaki denetimler yapılabilir:
+
+* SUT tarafından döndürülen durum kodu, oturum açma sayfasına yeniden yönlendirmeden sonra, [HttpStatusCode. Tamam](/dotnet/api/system.net.httpstatuscode)olacak şekilde, son durum koduna değil beklenen [HttpStatusCode. Redirect](/dotnet/api/system.net.httpstatuscode) sonucuyla denetlenebilir.
+* Yanıt üst bilgilerindeki `Location` üst bilgi değeri, `Location` üstbilgisinin mevcut olmadığı son oturum açma sayfası yanıtıyla değil `http://localhost/Identity/Account/Login` ile başlayacağını doğrulamak üzere denetlenir.
+
+Test uygulaması, kimlik doğrulama ve yetkilendirme işlemlerini test etmek için [Configuretestservices](/dotnet/api/microsoft.aspnetcore.testhost.webhostbuilderextensions.configuretestservices) içindeki bir <xref:Microsoft.AspNetCore.Authentication.AuthenticationHandler`1> sahte olabilir. En az bir senaryo, bir [kimlik doğrulayan Poesult. Success](xref:Microsoft.AspNetCore.Authentication.AuthenticateResult.Success*)döndürür:
+
+[!code-csharp[](integration-tests/samples/2.x/IntegrationTestsSample/tests/RazorPagesProject.Tests/IntegrationTests/AuthTests.cs?name=snippet4&highlight=11-18)]
+
+`TestAuthHandler`, kimlik doğrulama şeması, `ConfigureTestServices`için `AddAuthentication` kaydedildiği `Test` olarak ayarlandığında bir kullanıcının kimliğini doğrulamak için çağrılır:
+
+[!code-csharp[](integration-tests/samples/2.x/IntegrationTestsSample/tests/RazorPagesProject.Tests/IntegrationTests/AuthTests.cs?name=snippet3&highlight=7-12)]
+
+`WebApplicationFactoryClientOptions`hakkında daha fazla bilgi için [istemci seçenekleri](#client-options) bölümüne bakın.
+
+## <a name="set-the-environment"></a>Ortamı ayarlama
+
+Varsayılan olarak, SUT 'nin ana bilgisayar ve uygulama ortamı geliştirme ortamını kullanacak şekilde yapılandırılmıştır. SUT ortamını geçersiz kılmak için:
+
+* `ASPNETCORE_ENVIRONMENT` ortam değişkenini ayarlayın (örneğin, `Staging`, `Production`veya `Testing`gibi başka bir özel değer).
+* `ASPNETCORE`ön eki eklenmiş ortam değişkenlerini okumak için test uygulamasındaki `CreateHostBuilder` geçersiz kılın.
+
+```csharp
+protected override IHostBuilder CreateHostBuilder() => 
+    base.CreateHostBuilder()
+        .ConfigureHostConfiguration(
+            config => config.AddEnvironmentVariables("ASPNETCORE"));
+```
+
 ## <a name="how-the-test-infrastructure-infers-the-app-content-root-path"></a>Test altyapısının uygulama içeriği kök yolunu nasıl öğrendiğini
 
-@No__t_0 Oluşturucusu, `TEntryPoint` bütünleştirilmiş `System.Reflection.Assembly.FullName` koduna eşit bir anahtarla tümleştirme testlerini içeren derlemede bir [Webapplicationfactorycontentrootattribute](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactorycontentrootattribute) arayarak uygulama [içeriği kök](xref:fundamentals/index#content-root) yolunu alır. Doğru anahtara sahip bir özniteliğin bulunamaması durumunda, `WebApplicationFactory` bir çözüm dosyasını ( *. sln*) aramaya geri döner ve `TEntryPoint` derleme adını çözüm dizinine ekler. Uygulama kök dizini (içerik kök yolu) görünümleri ve içerik dosyalarını saptamak için kullanılır.
+`WebApplicationFactory` Oluşturucusu, `TEntryPoint` bütünleştirilmiş `System.Reflection.Assembly.FullName`koduna eşit bir anahtarla tümleştirme testlerini içeren derlemede bir [Webapplicationfactorycontentrootattribute](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactorycontentrootattribute) arayarak uygulama [içeriği kök](xref:fundamentals/index#content-root) yolunu alır. Doğru anahtara sahip bir özniteliğin bulunamaması durumunda, `WebApplicationFactory` bir çözüm dosyasını ( *. sln*) aramaya geri döner ve `TEntryPoint` derleme adını çözüm dizinine ekler. Uygulama kök dizini (içerik kök yolu) görünümleri ve içerik dosyalarını saptamak için kullanılır.
 
 ## <a name="disable-shadow-copying"></a>Gölge kopyalamayı devre dışı bırak
 
@@ -655,7 +702,7 @@ Visual Studio kullanıyorsanız, dosyanın **Çıkış Dizinine Kopyala** özell
 
 ## <a name="disposal-of-objects"></a>Nesnelerin elden çıkarılması
 
-@No__t_0 uygulamasının testleri yürütüldükten sonra, [TestServer](/dotnet/api/microsoft.aspnetcore.testhost.testserver) ve [HttpClient](/dotnet/api/system.net.http.httpclient) , [webapplicationfactory](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactory-1)'nin xUnit 'i çıkardığı zaman yürütülür. Geliştirici tarafından oluşturulan nesneler için aktiften çıkarma gerekiyorsa, bunları `IClassFixture` uygulamasında atın. Daha fazla bilgi için bkz. [Dispose yöntemi uygulama](/dotnet/standard/garbage-collection/implementing-dispose).
+`IClassFixture` uygulamasının testleri yürütüldükten sonra, [TestServer](/dotnet/api/microsoft.aspnetcore.testhost.testserver) ve [HttpClient](/dotnet/api/system.net.http.httpclient) , [webapplicationfactory](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactory-1)'nin xUnit 'i çıkardığı zaman yürütülür. Geliştirici tarafından oluşturulan nesneler için aktiften çıkarma gerekiyorsa, bunları `IClassFixture` uygulamasında atın. Daha fazla bilgi için bkz. [Dispose yöntemi uygulama](/dotnet/standard/garbage-collection/implementing-dispose).
 
 ## <a name="integration-tests-sample"></a>Tümleştirme Testleri örneği
 
@@ -677,7 +724,7 @@ dotnet test
 SUT, aşağıdaki özelliklere sahip bir Razor Pages ileti sistemidir:
 
 * Uygulamanın (*Pages/Index. cshtml* ve *Pages/index. cshtml. cs*) dizin sayfası, iletilerin eklenmesi, silinmesini ve ANALIZINI denetlemek için bir UI ve sayfa modeli yöntemleri sağlar (ileti başına ortalama sözcük).
-* Bir ileti, iki özellik içeren `Message` sınıfı (*Data/Message. cs*) tarafından tanımlanır: `Id` (anahtar) ve `Text` (ileti). @No__t_0 özelliği gereklidir ve 200 karakterle sınırlıdır.
+* Bir ileti, iki özellik içeren `Message` sınıfı (*Data/Message. cs*) tarafından tanımlanır: `Id` (anahtar) ve `Text` (ileti). `Text` özelliği gereklidir ve 200 karakterle sınırlıdır.
 * İletiler, [Entity Framework bellek içi veritabanı](/ef/core/providers/in-memory/)&#8224;kullanılarak depolanır.
 * Uygulama, `AppDbContext` (*Data/AppDbContext. cs*) veritabanı bağlamı sınıfında bir veri erişim KATMANı (dal) içerir.
 * Veritabanı uygulama başlangıcında boşsa, ileti deposu üç iletiyle başlatılır.
@@ -693,8 +740,9 @@ Test uygulaması, *testler/RazorPagesProject. Tests* dizini içindeki bir konsol
 
 | Uygulama dizinini test et | Açıklama |
 | ------------------ | ----------- |
-| *BasicTests* | *BasicTests.cs* , yönlendirme için test yöntemleri, kimliği doğrulanmamış bir kullanıcı tarafından güvenli bir sayfaya erişmek ve bir GitHub Kullanıcı profili elde etmek ve profilin Kullanıcı oturum açma bilgilerini denetlemek içerir. |
-| *Tümleştirme Testleri* | *IndexPageTests.cs* , özel `WebApplicationFactory` sınıfı kullanarak Dizin sayfası için tümleştirme testlerini içerir. |
+| *AuthTests* | İçin test yöntemleri içerir:<ul><li>Güvenli bir sayfaya, kimliği doğrulanmamış bir kullanıcıyla erişme.</li><li>Bir sahte <xref:Microsoft.AspNetCore.Authentication.AuthenticationHandler`1>kimliği doğrulanmış bir kullanıcı tarafından güvenli bir sayfaya erişme.</li><li>GitHub kullanıcı profilini alma ve profilin Kullanıcı oturum açma bilgilerini denetleme.</li></ul> |
+| *BasicTests* | Yönlendirme ve içerik türü için bir test yöntemi içerir. |
+| *Tümleştirme Testleri* | Özel `WebApplicationFactory` sınıfı kullanarak dizin sayfasına yönelik tümleştirme testlerini içerir. |
 | *Yardımcılar/yardımcı programlar* | <ul><li>*Utilities.cs* , veritabanını test verileriyle tohum için kullanılan `InitializeDbForTests` metodunu içerir.</li><li>*HtmlHelpers.cs* , test yöntemleri tarafından kullanılmak üzere AngleSharp `IHtmlDocument` döndüren bir yöntem sağlar.</li><li>*HttpClientExtensions.cs* , istekleri sut 'a göndermek için `SendAsync` için aşırı yüklemeler sağlar.</li></ul> |
 
 Test çerçevesi [xUnit](https://xunit.github.io/)' dir. Tümleştirme testleri, [TestServer](/dotnet/api/microsoft.aspnetcore.testhost.testserver)içeren [Microsoft. Aspnetcore. testhost](/dotnet/api/microsoft.aspnetcore.testhost)kullanılarak yürütülür. Test ana bilgisayarı ve test sunucusunu yapılandırmak için [Microsoft. AspNetCore. Mvc. Testing](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc.Testing) paketi kullanıldığından, `TestHost` ve `TestServer` paketleri test uygulamasının proje dosyasında ya da testteki geliştirici yapılandırmasında doğrudan paket başvuruları gerektirmez uygulamanızda.
@@ -712,6 +760,6 @@ Tümleştirme testleri genellikle veritabanında test yürütmeden önce küçü
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [Birim testleri](/dotnet/articles/core/testing/unit-testing-with-dotnet-test)
-* [Razor Sayfaları birim testleri](xref:test/razor-pages-tests)
-* [Ara Yazılım](xref:fundamentals/middleware/index)
-* [Test denetleyicileri](xref:mvc/controllers/testing)
+* <xref:test/razor-pages-tests>
+* <xref:fundamentals/middleware/index>
+* <xref:mvc/controllers/testing>
