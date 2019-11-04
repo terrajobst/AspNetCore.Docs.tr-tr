@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 09/24/2019
 uid: fundamentals/routing
-ms.openlocfilehash: 8b4da4e1e262ec82225413d0338b3492d0b5e152
-ms.sourcegitcommit: 032113208bb55ecfb2faeb6d3e9ea44eea827950
+ms.openlocfilehash: be4493cc927bd5437a2c9dab00b6a555756195bb
+ms.sourcegitcommit: eb2fe5ad2e82fab86ca952463af8d017ba659b25
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73190509"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73416132"
 ---
 # <a name="routing-in-aspnet-core"></a>ASP.NET Core yönlendirme
 
@@ -127,7 +127,7 @@ Bu yöntemlerin aşırı yüklemesi `HttpContext`içeren bağımsız değişkenl
 >
 > * `Map` veya `MapWhen`birlikte ara yazılım ile birlikte <xref:Microsoft.AspNetCore.Routing.LinkGenerator> kullanın. `Map*`, yürütülen isteğin temel yolunu değiştirir ve bu da bağlantı oluşturma çıktısını etkiler. Tüm <xref:Microsoft.AspNetCore.Routing.LinkGenerator> API 'Leri temel yol belirtmeye izin verir. `Map*`bağlantı oluşturmada etkilerini geri almak için her zaman boş bir temel yol belirtin.
 
-## <a name="differences-from-earlier-versions-of-routing"></a>Yönlendirmenin önceki sürümlerinden farklılıklar
+## <a name="endpoint-routing-differences-from-earlier-versions-of-routing"></a>Önceki yönlendirme sürümlerinden uç nokta yönlendirme farkları
 
 ASP.NET Core 2,2 ' den önceki yönlendirmenin uç nokta yönlendirme ve sürümleri arasında birkaç fark vardır:
 

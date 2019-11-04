@@ -5,28 +5,28 @@ description: ASP.NET Core uygulamasında Razor dosyalarının derlemesini nasıl
 monikerRange: '>= aspnetcore-1.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 06/20/2019
+ms.date: 10/31/2019
 uid: mvc/views/view-compilation
-ms.openlocfilehash: 0aa632bce32ef44f65d92639284c64c1d00e952e
-ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
+ms.openlocfilehash: 95fa0d72ed9c088945707ac6b79c3fbde35a5a30
+ms.sourcegitcommit: eb2fe5ad2e82fab86ca952463af8d017ba659b25
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71080820"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73416142"
 ---
 # <a name="razor-file-compilation-in-aspnet-core"></a>ASP.NET Core 'de Razor dosyası derlemesi
 
-Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
+[Rick Anderson](https://twitter.com/RickAndMSFT) tarafından
 
 ::: moniker range="= aspnetcore-1.1"
 
-Bir Razor dosyası, ilişkili MVC görünümü çağrıldığında çalışma zamanında derlenir. Derleme zamanı Razor dosyası yayımlama desteklenmiyor. Razor dosyaları isteğe bağlı olarak yayımlama zamanında derlenebilir ve ön derleme Aracı kullanılarak&mdash;uygulamayla birlikte dağıtılabilir.
+Bir Razor dosyası, ilişkili MVC görünümü çağrıldığında çalışma zamanında derlenir. Derleme zamanı Razor dosyası yayımlama desteklenmiyor. Razor dosyaları isteğe bağlı olarak yayımlama zamanında derlenebilir ve ön derleme Aracı kullanılarak uygulama&mdash;dağıtılabilir.
 
 ::: moniker-end
 
 ::: moniker range="= aspnetcore-2.0"
 
-Razor dosyası, ilişkili Razor sayfası veya MVC görünümü çağrıldığında çalışma zamanında derlenir. Derleme zamanı Razor dosyası yayımlama desteklenmiyor. Razor dosyaları isteğe bağlı olarak yayımlama zamanında derlenebilir ve ön derleme Aracı kullanılarak&mdash;uygulamayla birlikte dağıtılabilir.
+Razor dosyası, ilişkili Razor sayfası veya MVC görünümü çağrıldığında çalışma zamanında derlenir. Derleme zamanı Razor dosyası yayımlama desteklenmiyor. Razor dosyaları isteğe bağlı olarak yayımlama zamanında derlenebilir ve ön derleme Aracı kullanılarak uygulama&mdash;dağıtılabilir.
 
 ::: moniker-end
 
@@ -38,13 +38,14 @@ Razor dosyası, ilişkili Razor sayfası veya MVC görünümü çağrıldığın
 
 ::: moniker range=">= aspnetcore-3.0"
 
-Razor dosyaları, [Razor SDK](xref:razor-pages/sdk)kullanılarak hem derlemede hem de yayımlama zamanında derlenir. Çalışma zamanı derlemesi, uygulamanız yapılandırılarak isteğe bağlı olarak etkinleştirilebilir.
+*. Cshtml* uzantılı Razor dosyaları, [Razor SDK](xref:razor-pages/sdk)kullanılarak hem derlemede hem de yayımlama zamanında derlenir. Çalışma zamanı derlemesi, uygulamanız yapılandırılarak isteğe bağlı olarak etkinleştirilebilir.
 
 ::: moniker-end
 
 ## <a name="razor-compilation"></a>Razor derleme
 
 ::: moniker range=">= aspnetcore-3.0"
+
 Razor dosyalarının derleme ve yayımlama zamanı derlemesi, Razor SDK tarafından varsayılan olarak etkinleştirilmiştir. Etkinleştirildiğinde, çalışma zamanı derlemesi derleme zamanı derlemesini tamamlar ve bunlar düzenlendiklerinde, Razor dosyalarının güncelleştirilmesine izin verir.
 
 ::: moniker-end
@@ -56,7 +57,7 @@ Razor dosyalarının derleme ve yayımlama zamanı derlemesi, Razor SDK tarafın
 > [!IMPORTANT]
 > Ön derleme aracı kullanım dışı bırakılmıştır ve ASP.NET Core 3,0 ' de kaldırılacak. [Razor SDK](xref:razor-pages/sdk)'ya geçiş yapmanızı öneririz.
 >
-> Razor SDK yalnızca proje dosyasında ön derleme özgü hiçbir özellik ayarlanmamışsa etkilidir. Örneğin, *. csproj* dosyasının `MvcRazorCompileOnPublish` özelliği Razor SDK 'sını devre dışı `true` bırakacak şekilde ayarlanıyor.
+> Razor SDK yalnızca proje dosyasında ön derleme özgü hiçbir özellik ayarlanmamışsa etkilidir. Örneğin, *. csproj* dosyasının `MvcRazorCompileOnPublish` özelliğinin `true` olarak ayarlanması Razor SDK 'sını devre dışı bırakır.
 
 ::: moniker-end
 
@@ -68,7 +69,7 @@ Projeniz .NET Framework hedefliyorsa [Microsoft. AspNetCore. Mvc. Razor. ViewCom
 
 Projeniz .NET Core 'u hedefliyorsa, hiçbir değişiklik yapılması gerekmez.
 
-ASP.NET Core 2. x proje şablonları `MvcRazorCompileOnPublish` `true` özelliği varsayılan olarak olarak olarak ayarlar. Sonuç olarak, bu öğe *. csproj* dosyasından güvenle kaldırılabilir.
+ASP.NET Core 2. x proje şablonları, varsayılan olarak `MvcRazorCompileOnPublish` özelliğini `true` olarak ayarlar. Sonuç olarak, bu öğe *. csproj* dosyasından güvenle kaldırılabilir.
 
 > [!IMPORTANT]
 > Ön derleme aracı kullanım dışı bırakılmıştır ve ASP.NET Core 3,0 ' de kaldırılacak. [Razor SDK](xref:razor-pages/sdk)'ya geçiş yapmanızı öneririz.
@@ -79,7 +80,7 @@ ASP.NET Core 2. x proje şablonları `MvcRazorCompileOnPublish` `true` özelliğ
 
 ::: moniker range="= aspnetcore-1.1"
 
-Özelliğini olarak `true`ayarlayın ve [Microsoft. aspnetcore. Mvc. Razor. viewcompilation](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc.Razor.ViewCompilation/) NuGet paketini yükler. `MvcRazorCompileOnPublish` Aşağıdaki *. csproj* örneği bu ayarları vurgular:
+`MvcRazorCompileOnPublish` özelliğini `true`olarak ayarlayın ve [Microsoft. AspNetCore. Mvc. Razor. ViewCompilation](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc.Razor.ViewCompilation/) NuGet paketini yükler. Aşağıdaki *. csproj* örneği bu ayarları vurgular:
 
 [!code-xml[](view-compilation/sample/MvcRazorCompileOnPublish.csproj?highlight=4,10)]
 
@@ -93,7 +94,7 @@ ASP.NET Core 2. x proje şablonları `MvcRazorCompileOnPublish` `true` özelliğ
 dotnet publish -c Release
 ```
 
-*Bir\<Project_Name >. Derlenen Razor dosyalarını içeren PrecompiledViews. dll* dosyası, ön derleme başarılı olduğunda üretilir. Örneğin, aşağıdaki ekran görüntüsünde *WebApplication1. PrecompiledViews. dll*içindeki *Index. cshtml* 'nin içerikleri gösterilmektedir:
+Bir *\<project_name >. Derlenen Razor dosyalarını içeren PrecompiledViews. dll* dosyası, ön derleme başarılı olduğunda üretilir. Örneğin, aşağıdaki ekran görüntüsünde *WebApplication1. PrecompiledViews. dll*içindeki *Index. cshtml* 'nin içerikleri gösterilmektedir:
 
 ![DLL içinde Razor görünümleri](view-compilation/_static/razor-views-in-dll.png)
 
@@ -109,23 +110,23 @@ Yapı zamanı derlemesi, Razor dosyalarının çalışma zamanı derlemesi taraf
 
 ::: moniker range="= aspnetcore-2.2"
 
-Yapı zamanı derlemesi, Razor dosyalarının çalışma zamanı derlemesi tarafından belirlenir. <xref:Microsoft.AspNetCore.Mvc.Razor.RazorViewEngineOptions> ,<xref:Microsoft.AspNetCore.Mvc.Razor.RazorViewEngineOptions.AllowRecompilingViewsOnFileChange> Razor dosyalarının (Razor görünümleri ve Razor Pages) yeniden derlendiğini ve dosyaların diskte değiştirilmesi durumunda güncelleştirilip güncelleştirilmediğini belirleyen bir değer alır veya ayarlar.
+Yapı zamanı derlemesi, Razor dosyalarının çalışma zamanı derlemesi tarafından belirlenir. <xref:Microsoft.AspNetCore.Mvc.Razor.RazorViewEngineOptions> <xref:Microsoft.AspNetCore.Mvc.Razor.RazorViewEngineOptions.AllowRecompilingViewsOnFileChange>, Razor dosyalarının (Razor görünümleri ve Razor Pages) yeniden derlendiğini ve dosyaların diskte değiştirilmesi durumunda güncelleştirilip güncelleştirilmediğini belirleyen bir değer alır veya ayarlar.
 
-Varsayılan değer `true` :
+Varsayılan değer için `true`:
 
 * Uygulamanın uyumluluk sürümü <xref:Microsoft.AspNetCore.Mvc.CompatibilityVersion.Version_2_1> veya daha önceki bir sürüme ayarlandıysa
-* Uygulamanın uyumluluk sürümü veya üzeri olarak <xref:Microsoft.AspNetCore.Mvc.CompatibilityVersion.Version_2_2> ayarlandıysa ve uygulama geliştirme ortamındaysanız. <xref:Microsoft.AspNetCore.Hosting.HostingEnvironmentExtensions.IsDevelopment*> Diğer bir deyişle, açıkça ayarlanmamışsa Razor dosyaları geliştirme dışı ortamda <xref:Microsoft.AspNetCore.Mvc.Razor.RazorViewEngineOptions.AllowRecompilingViewsOnFileChange> yeniden derlenmez.
+* Uygulamanın uyumluluk sürümü <xref:Microsoft.AspNetCore.Mvc.CompatibilityVersion.Version_2_2> veya üzeri olarak ayarlandıysa ve uygulama geliştirme ortamındaysanız <xref:Microsoft.AspNetCore.Hosting.HostingEnvironmentExtensions.IsDevelopment*>. Diğer bir deyişle, <xref:Microsoft.AspNetCore.Mvc.Razor.RazorViewEngineOptions.AllowRecompilingViewsOnFileChange> açıkça ayarlanmamışsa, Razor dosyaları geliştirme dışı ortamda yeniden derlenmez.
 
-Uygulamanın uyumluluk sürümünü ayarlamaya yönelik rehberlik ve örnekler için bkz <xref:mvc/compatibility-version>.
+Uygulamanın uyumluluk sürümünü ayarlamaya yönelik rehberlik ve örnekler için bkz. <xref:mvc/compatibility-version>.
 
 ::: moniker-end
 
 ::: moniker range=">= aspnetcore-3.0"
 
-Çalışma zamanı derlemesi `Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation` paket kullanılarak etkinleştirildi. Çalışma zamanı derlemesini etkinleştirmek için uygulamalar şu şekilde olmalıdır:
+Çalışma zamanı derlemesi `Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation` paketi kullanılarak etkinleştirildi. Çalışma zamanı derlemesini etkinleştirmek için uygulamalar şu şekilde olmalıdır:
 
 * [Microsoft. AspNetCore. Mvc. Razor. RuntimeCompilation](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation/) NuGet paketini yükler.
-* Projenin `Startup.ConfigureServices` metodunu bir `AddRazorRuntimeCompilation`çağrı içerecek şekilde güncelleştirin:
+* Projenin `Startup.ConfigureServices` yöntemini `AddRazorRuntimeCompilation`çağrısı içerecek şekilde güncelleştirin:
 
   ```csharp
   services

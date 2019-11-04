@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 09/29/2019
 uid: tutorials/first-web-api
-ms.openlocfilehash: 6f2d62600da828261ecfc3a1df688ce914eccf33
-ms.sourcegitcommit: a166291c6708f5949c417874108332856b53b6a9
+ms.openlocfilehash: abb55ea12583374639f28945037cb6aa41a5a32d
+ms.sourcegitcommit: 77c8be22d5e88dd710f42c739748869f198865dd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72590023"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73427046"
 ---
 # <a name="tutorial-create-a-web-api-with-aspnet-core"></a>Öğretici: ASP.NET Core bir Web API 'SI oluşturma
 
@@ -214,7 +214,7 @@ Aşağıdakine benzer bir JSON döndürülür:
 
   [!code-csharp[](first-web-api/samples/3.0/TodoApi/Models/TodoItem.cs)]
 
-@No__t_0 özelliği, ilişkisel bir veritabanındaki benzersiz anahtar olarak çalışır.
+`Id` özelliği, ilişkisel bir veritabanındaki benzersiz anahtar olarak çalışır.
 
 Model sınıfları projede herhangi bir yere gidebilir, ancak *modeller* klasörü kural tarafından kullanılır.
 
@@ -230,7 +230,7 @@ Model sınıfları projede herhangi bir yere gidebilir, ancak *modeller* klasör
 * **Araştır** sekmesini seçin ve arama kutusuna **Microsoft. Entityframeworkcore. SqlServer** yazın.
 * Sol bölmedeki **Microsoft. EntityFrameworkCore. SqlServer** öğesini seçin.
 * Sağ bölmedeki **Proje** onay kutusunu seçin ve ardından **Install**' ı seçin.
-* @No__t_0 NuGet paketini eklemek için yukarıdaki yönergeleri kullanın.
+* `Microsoft.EntityFrameworkCore.InMemory` NuGet paketini eklemek için yukarıdaki yönergeleri kullanın.
 
 ![NuGet Paket Yöneticisi](first-web-api/_static/vs3NuGet.png)
 
@@ -267,7 +267,7 @@ Aşağıdaki Vurgulanan kodla *Startup.cs* güncelleştirin:
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * *Denetleyiciler* klasörüne sağ tıklayın.
-* @No__t_1 **yeni yapı Iskelesi öğesi** **Ekle** ' yi seçin.
+* > **yeni yapı Iskelesi öğesi** **Ekle** ' yi seçin.
 * **Entity Framework kullanarak ve eylemler Içeren API denetleyicisi**' ni seçin ve ardından **Ekle**' yi seçin.
 * **API denetleyiciyi eylemler Ile Ekle ' de Entity Framework** iletişim kutusunu kullanarak:
 
@@ -290,7 +290,7 @@ dotnet aspnet-codegenerator controller -name TodoItemsController -async -api -m 
 
 * Yapı iskelesi için gereken NuGet paketlerini ekleyin.
 * Scafkatlama altyapısını (`dotnet-aspnet-codegenerator`) kurar.
-* @No__t_0 yapı iskelesi.
+* `TodoItemsController`yapı iskelesi.
 
 ---
 
@@ -302,17 +302,17 @@ Oluşturulan kod:
 
 ## <a name="examine-the-posttodoitem-create-method"></a>PostTodoItem Create metodunu inceleyin
 
-@No__t_0 ' deki return ifadesini, [NameOf](/dotnet/csharp/language-reference/operators/nameof) işlecini kullanacak şekilde değiştirin:
+`PostTodoItem` ' deki return ifadesini, [NameOf](/dotnet/csharp/language-reference/operators/nameof) işlecini kullanacak şekilde değiştirin:
 
 [!code-csharp[](first-web-api/samples/3.0/TodoApi/Controllers/TodoItemsController.cs?name=snippet_Create)]
 
 Yukarıdaki kod, [[HttpPost]](/dotnet/api/microsoft.aspnetcore.mvc.httppostattribute) özniteliğiyle gösterildiği gıbı bır http post yöntemidir. Yöntemi, HTTP isteğinin gövdesinden Yapılacaklar öğesinin değerini alır.
 
-@No__t_0 yöntemi:
+<xref:Microsoft.AspNetCore.Mvc.ControllerBase.CreatedAtAction*> yöntemi:
 
 * Başarılı olursa bir HTTP 201 durum kodu döndürür. HTTP 201, sunucuda yeni bir kaynak oluşturan HTTP POST yöntemi için standart yanıttır.
-* Yanıta bir [konum](https://developer.mozilla.org/docs/Web/HTTP/Headers/Location) üst bilgisi ekler. @No__t_0 üstbilgisi, yeni oluşturulan Yapılacaklar öğesinin [URI](https://developer.mozilla.org/docs/Glossary/URI) 'sini belirtir. Daha fazla bilgi için bkz. [10.2.2 201 oluşturma](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html).
-* @No__t_1 üst bilgisinin URI 'sini oluşturmak için `GetTodoItem` eyleme başvurur. C# @No__t_1 anahtar sözcüğü, `CreatedAtAction` çağrısında eylem adının sabit kodlanmasını önlemek için kullanılır.
+* Yanıta bir [konum](https://developer.mozilla.org/docs/Web/HTTP/Headers/Location) üst bilgisi ekler. `Location` üstbilgisi, yeni oluşturulan Yapılacaklar öğesinin [URI](https://developer.mozilla.org/docs/Glossary/URI) 'sini belirtir. Daha fazla bilgi için bkz. [10.2.2 201 oluşturma](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html).
+* `Location` üst bilgisinin URI 'sini oluşturmak için `GetTodoItem` eyleme başvurur. C# `nameof` anahtar sözcüğü, `CreatedAtAction` çağrısında eylem adının sabit kodlanmasını önlemek için kullanılır.
 
 ### <a name="install-postman"></a>Postman yükleme
 
@@ -395,37 +395,37 @@ Bu uygulama, bellek içi bir veritabanını kullanır. Uygulama durdurulup başl
 
 ## <a name="routing-and-url-paths"></a>Yönlendirme ve URL yolları
 
-[@No__t_1](/dotnet/api/microsoft.aspnetcore.mvc.httpgetattribute) ÖZNITELIĞI BIR HTTP GET isteğine yanıt veren bir yöntemi gösterir. Her yöntemin URL yolu şu şekilde oluşturulur:
+[`[HttpGet]`](/dotnet/api/microsoft.aspnetcore.mvc.httpgetattribute) ÖZNITELIĞI BIR HTTP GET isteğine yanıt veren bir yöntemi gösterir. Her yöntemin URL yolu şu şekilde oluşturulur:
 
 * Denetleyicinin `Route` özniteliğinde şablon dizesiyle başlayın:
 
   [!code-csharp[](first-web-api/samples/3.0/TodoApi/Controllers/TodoItemsController.cs?name=TodoController&highlight=1)]
 
-* @No__t_0, denetleyicinin adıyla değiştirin, bu kural, denetleyici sınıf adı "denetleyici" sonekidir. Bu örnek için denetleyici sınıfı adı **todoıtems**denetleyicisidir, bu nedenle denetleyicinin adı "todoıtems" olur. ASP.NET Core [yönlendirme](xref:mvc/controllers/routing) büyük/küçük harfe duyarlıdır.
-* @No__t_0 özniteliğinin bir yol şablonu varsa (örneğin, `[HttpGet("products")]`), yola ekleyin. Bu örnek, bir şablon kullanmaz. Daha fazla bilgi için bkz. [http [fiil] öznitelikleriyle öznitelik yönlendirme](xref:mvc/controllers/routing#attribute-routing-with-httpverb-attributes).
+* `[controller]`, denetleyicinin adıyla değiştirin, bu kural, denetleyici sınıf adı "denetleyici" sonekidir. Bu örnek için denetleyici sınıfı adı **todoıtems**denetleyicisidir, bu nedenle denetleyicinin adı "todoıtems" olur. ASP.NET Core [yönlendirme](xref:mvc/controllers/routing) büyük/küçük harfe duyarlıdır.
+* `[HttpGet]` özniteliğinin bir yol şablonu varsa (örneğin, `[HttpGet("products")]`), yola ekleyin. Bu örnek, bir şablon kullanmaz. Daha fazla bilgi için bkz. [http [fiil] öznitelikleriyle öznitelik yönlendirme](xref:mvc/controllers/routing#attribute-routing-with-httpverb-attributes).
 
-Aşağıdaki `GetTodoItem` yönteminde, `"{id}"` Yapılacaklar öğesinin benzersiz tanımlayıcısı için bir yer tutucu değişkenidir. @No__t_0 çağrıldığında, URL 'deki `"{id}"` değeri `id` parametresindeki yöntemine sağlanır.
+Aşağıdaki `GetTodoItem` yönteminde, `"{id}"` Yapılacaklar öğesinin benzersiz tanımlayıcısı için bir yer tutucu değişkenidir. `GetTodoItem` çağrıldığında, URL 'deki `"{id}"` değeri `id` parametresindeki yöntemine sağlanır.
 
 [!code-csharp[](first-web-api/samples/3.0/TodoApi/Controllers/TodoItemsController.cs?name=snippet_GetByID&highlight=1-2)]
 
 ## <a name="return-values"></a>Döndürülen değerler
 
-@No__t_0 ve `GetTodoItem` yöntemlerinin dönüş türü [ActionResult \<T > türüdür](xref:web-api/action-return-types#actionresultt-type). ASP.NET Core nesneyi [JSON](https://www.json.org/) 'a otomatik olarak serileştirir ve yanıt ILETISININ gövdesine JSON yazar. Bu dönüş türü için yanıt kodu, işlenmemiş özel durum olmadığı varsayılarak 200 ' dir. İşlenmemiş özel durumlar 5 xx hataya çevrilir.
+`GetTodoItems` ve `GetTodoItem` yöntemlerinin dönüş türü [actionresult\<t > türüdür](xref:web-api/action-return-types#actionresultt-type). ASP.NET Core nesneyi [JSON](https://www.json.org/) 'a otomatik olarak serileştirir ve yanıt ILETISININ gövdesine JSON yazar. Bu dönüş türü için yanıt kodu, işlenmemiş özel durum olmadığı varsayılarak 200 ' dir. İşlenmemiş özel durumlar 5 xx hataya çevrilir.
 
 `ActionResult` dönüş türleri, çok çeşitli HTTP durum kodlarını temsil edebilir. Örneğin, `GetTodoItem` iki farklı durum değeri döndürebilir:
 
 * İstenen KIMLIKLE eşleşen hiçbir öğe yoksa, yöntem 404 [NotFound](/dotnet/api/microsoft.aspnetcore.mvc.controllerbase.notfound) hata kodu döndürür.
-* Aksi takdirde, yöntemi bir JSON yanıt gövdesi ile 200 döndürür. @No__t_0 sonuçları bir HTTP 200 yanıtına döndürülüyor.
+* Aksi takdirde, yöntemi bir JSON yanıt gövdesi ile 200 döndürür. `item` sonuçları bir HTTP 200 yanıtına döndürülüyor.
 
 ## <a name="the-puttodoitem-method"></a>PutTodoItem yöntemi
 
-@No__t_0 yöntemini inceleyin:
+`PutTodoItem` yöntemini inceleyin:
 
 [!code-csharp[](first-web-api/samples/3.0/TodoApi/Controllers/TodoItemsController.cs?name=snippet_Update)]
 
 `PutTodoItem`, HTTP PUT kullanması dışında `PostTodoItem` benzerdir. Yanıt 204 ' dir [(Içerik yok)](https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html). HTTP belirtimine göre bir PUT isteği, istemcinin yalnızca değişiklikleri değil, tüm güncelleştirilmiş varlığı göndermesini gerektirir. Kısmi güncelleştirmeleri desteklemek için [http Patch](xref:Microsoft.AspNetCore.Mvc.HttpPatchAttribute)kullanın.
 
-@No__t_0 çağırırken bir hata alırsanız, veritabanında bir öğe olduğundan emin olmak için `GET` çağırın.
+`PutTodoItem`çağırırken bir hata alırsanız, veritabanında bir öğe olduğundan emin olmak için `GET` çağırın.
 
 ### <a name="test-the-puttodoitem-method"></a>PutTodoItem yöntemini test etme
 
@@ -447,11 +447,11 @@ Aşağıdaki görüntüde Postman güncelleştirmesi gösterilmektedir:
 
 ## <a name="the-deletetodoitem-method"></a>DeleteTodoItem yöntemi
 
-@No__t_0 yöntemini inceleyin:
+`DeleteTodoItem` yöntemini inceleyin:
 
 [!code-csharp[](first-web-api/samples/3.0/TodoApi/Controllers/TodoItemsController.cs?name=snippet_Delete)]
 
-@No__t_0 yanıtı 204 ' dir [(Içerik yok)](https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html).
+`DeleteTodoItem` yanıtı 204 ' dir [(Içerik yok)](https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html).
 
 ### <a name="test-the-deletetodoitem-method"></a>DeleteTodoItem yöntemini test etme
 
@@ -619,7 +619,7 @@ Aşağıdaki JSON döndürülür:
 
   [!code-csharp[](first-web-api/samples/2.2/TodoApi/Models/TodoItem.cs)]
 
-@No__t_0 özelliği, ilişkisel bir veritabanındaki benzersiz anahtar olarak çalışır.
+`Id` özelliği, ilişkisel bir veritabanındaki benzersiz anahtar olarak çalışır.
 
 Model sınıfları projede herhangi bir yere gidebilir, ancak *modeller* klasörü kural tarafından kullanılır.
 
@@ -660,7 +660,7 @@ Aşağıdaki Vurgulanan kodla *Startup.cs* güncelleştirin:
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * *Denetleyiciler* klasörüne sağ tıklayın.
-* @No__t_1 **Yeni öğe** **Ekle** ' yi seçin.
+* > **Yeni öğe** **Ekle** ' yi seçin.
 * **Yeni öğe Ekle** iletişim kutusunda, **API denetleyici sınıfı** şablonunu seçin.
 * Sınıfı *TodoController*olarak adlandırın ve **Ekle**' yi seçin.
 
@@ -715,27 +715,27 @@ Aşağıdaki HTTP yanıtı `GetTodoItems` çağrısı tarafından üretilir:
 
 ## <a name="routing-and-url-paths"></a>Yönlendirme ve URL yolları
 
-[@No__t_1](/dotnet/api/microsoft.aspnetcore.mvc.httpgetattribute) ÖZNITELIĞI BIR HTTP GET isteğine yanıt veren bir yöntemi gösterir. Her yöntemin URL yolu şu şekilde oluşturulur:
+[`[HttpGet]`](/dotnet/api/microsoft.aspnetcore.mvc.httpgetattribute) ÖZNITELIĞI BIR HTTP GET isteğine yanıt veren bir yöntemi gösterir. Her yöntemin URL yolu şu şekilde oluşturulur:
 
 * Denetleyicinin `Route` özniteliğinde şablon dizesiyle başlayın:
 
   [!code-csharp[](first-web-api/samples/2.2/TodoApi/Controllers/TodoController.cs?name=TodoController&highlight=3)]
 
-* @No__t_0, denetleyicinin adıyla değiştirin, bu kural, denetleyici sınıf adı "denetleyici" sonekidir. Bu örnek için denetleyici sınıf adı **Todo**Controller olduğundan, denetleyici adı "Todo" olur. ASP.NET Core [yönlendirme](xref:mvc/controllers/routing) büyük/küçük harfe duyarlıdır.
-* @No__t_0 özniteliğinin bir yol şablonu varsa (örneğin, `[HttpGet("products")]`), yola ekleyin. Bu örnek, bir şablon kullanmaz. Daha fazla bilgi için bkz. [http [fiil] öznitelikleriyle öznitelik yönlendirme](xref:mvc/controllers/routing#attribute-routing-with-httpverb-attributes).
+* `[controller]`, denetleyicinin adıyla değiştirin, bu kural, denetleyici sınıf adı "denetleyici" sonekidir. Bu örnek için denetleyici sınıf adı **Todo**Controller olduğundan, denetleyici adı "Todo" olur. ASP.NET Core [yönlendirme](xref:mvc/controllers/routing) büyük/küçük harfe duyarlıdır.
+* `[HttpGet]` özniteliğinin bir yol şablonu varsa (örneğin, `[HttpGet("products")]`), yola ekleyin. Bu örnek, bir şablon kullanmaz. Daha fazla bilgi için bkz. [http [fiil] öznitelikleriyle öznitelik yönlendirme](xref:mvc/controllers/routing#attribute-routing-with-httpverb-attributes).
 
-Aşağıdaki `GetTodoItem` yönteminde, `"{id}"` Yapılacaklar öğesinin benzersiz tanımlayıcısı için bir yer tutucu değişkenidir. @No__t_0 çağrıldığında, URL 'deki `"{id}"` değeri `id` parametresindeki yöntemine sağlanır.
+Aşağıdaki `GetTodoItem` yönteminde, `"{id}"` Yapılacaklar öğesinin benzersiz tanımlayıcısı için bir yer tutucu değişkenidir. `GetTodoItem` çağrıldığında, URL 'deki `"{id}"` değeri`id` parametresindeki yöntemine sağlanır.
 
 [!code-csharp[](first-web-api/samples/2.2/TodoApi/Controllers/TodoController.cs?name=snippet_GetByID&highlight=1-2)]
 
 ## <a name="return-values"></a>Döndürülen değerler
 
-@No__t_0 ve `GetTodoItem` yöntemlerinin dönüş türü [ActionResult \<T > türüdür](xref:web-api/action-return-types#actionresultt-type). ASP.NET Core nesneyi [JSON](https://www.json.org/) 'a otomatik olarak serileştirir ve yanıt ILETISININ gövdesine JSON yazar. Bu dönüş türü için yanıt kodu, işlenmemiş özel durum olmadığı varsayılarak 200 ' dir. İşlenmemiş özel durumlar 5 xx hataya çevrilir.
+`GetTodoItems` ve `GetTodoItem` yöntemlerinin dönüş türü [actionresult\<t > türüdür](xref:web-api/action-return-types#actionresultt-type). ASP.NET Core nesneyi [JSON](https://www.json.org/) 'a otomatik olarak serileştirir ve yanıt ILETISININ gövdesine JSON yazar. Bu dönüş türü için yanıt kodu, işlenmemiş özel durum olmadığı varsayılarak 200 ' dir. İşlenmemiş özel durumlar 5 xx hataya çevrilir.
 
 `ActionResult` dönüş türleri, çok çeşitli HTTP durum kodlarını temsil edebilir. Örneğin, `GetTodoItem` iki farklı durum değeri döndürebilir:
 
 * İstenen KIMLIKLE eşleşen hiçbir öğe yoksa, yöntem 404 [NotFound](/dotnet/api/microsoft.aspnetcore.mvc.controllerbase.notfound) hata kodu döndürür.
-* Aksi takdirde, yöntemi bir JSON yanıt gövdesi ile 200 döndürür. @No__t_0 sonuçları bir HTTP 200 yanıtına döndürülüyor.
+* Aksi takdirde, yöntemi bir JSON yanıt gövdesi ile 200 döndürür. `item` sonuçları bir HTTP 200 yanıtına döndürülüyor.
 
 ## <a name="test-the-gettodoitems-method"></a>GetTodoItems yöntemini test etme
 
@@ -775,11 +775,11 @@ Aşağıdaki `PostTodoItem` yöntemini *Controllers/TodoController. cs*içine ek
 
 Yukarıdaki kod, [[HttpPost]](/dotnet/api/microsoft.aspnetcore.mvc.httppostattribute) özniteliğiyle gösterildiği gıbı bır http post yöntemidir. Yöntemi, HTTP isteğinin gövdesinden Yapılacaklar öğesinin değerini alır.
 
-@No__t_0 yöntemi:
+`CreatedAtAction` yöntemi:
 
 * Başarılı olursa bir HTTP 201 durum kodu döndürür. HTTP 201, sunucuda yeni bir kaynak oluşturan HTTP POST yöntemi için standart yanıttır.
-* Yanıta bir `Location` üst bilgisi ekler. @No__t_0 üstbilgisi, yeni oluşturulan Yapılacaklar öğesinin URI 'sini belirtir. Daha fazla bilgi için bkz. [10.2.2 201 oluşturma](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html).
-* @No__t_1 üst bilgisinin URI 'sini oluşturmak için `GetTodoItem` eyleme başvurur. C# @No__t_1 anahtar sözcüğü, `CreatedAtAction` çağrısında eylem adının sabit kodlanmasını önlemek için kullanılır.
+* Yanıta bir `Location` üst bilgisi ekler. `Location` üstbilgisi, yeni oluşturulan Yapılacaklar öğesinin URI 'sini belirtir. Daha fazla bilgi için bkz. [10.2.2 201 oluşturma](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html).
+* `Location` üst bilgisinin URI 'sini oluşturmak için `GetTodoItem` eyleme başvurur. C# `nameof` anahtar sözcüğü, `CreatedAtAction` çağrısında eylem adının sabit kodlanmasını önlemek için kullanılır.
 
   [!code-csharp[](first-web-api/samples/2.2/TodoApi/Controllers/TodoController.cs?name=snippet_GetByID&highlight=1-2)]
 
@@ -824,7 +824,7 @@ Aşağıdaki `PutTodoItem` yöntemi ekleyin:
 
 `PutTodoItem`, HTTP PUT kullanması dışında `PostTodoItem` benzerdir. Yanıt 204 ' dir [(Içerik yok)](https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html). HTTP belirtimine göre bir PUT isteği, istemcinin yalnızca değişiklikleri değil, tüm güncelleştirilmiş varlığı göndermesini gerektirir. Kısmi güncelleştirmeleri desteklemek için [http Patch](xref:Microsoft.AspNetCore.Mvc.HttpPatchAttribute)kullanın.
 
-@No__t_0 çağırırken bir hata alırsanız, veritabanında bir öğe olduğundan emin olmak için `GET` çağırın.
+`PutTodoItem`çağırırken bir hata alırsanız, veritabanında bir öğe olduğundan emin olmak için `GET` çağırın.
 
 ### <a name="test-the-puttodoitem-method"></a>PutTodoItem yöntemini test etme
 
@@ -850,7 +850,7 @@ Aşağıdaki `DeleteTodoItem` yöntemi ekleyin:
 
 [!code-csharp[](first-web-api/samples/2.2/TodoApi/Controllers/TodoController.cs?name=snippet_Delete)]
 
-@No__t_0 yanıtı 204 ' dir [(Içerik yok)](https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html).
+`DeleteTodoItem` yanıtı 204 ' dir [(Içerik yok)](https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html).
 
 ### <a name="test-the-deletetodoitem-method"></a>DeleteTodoItem yöntemini test etme
 
@@ -889,19 +889,19 @@ Bu örnek, Web API 'sinin tüm CRUD yöntemlerini çağırır. API çağrıları
 
 ### <a name="get-a-list-of-to-do-items"></a>Yapılacaklar öğelerinin bir listesini alın
 
-jQuery, bir to-do öğesi dizisini temsil eden JSON döndüren Web API 'sine bir HTTP GET isteği gönderir. @No__t_0 geri çağırma işlevi, istek başarılı olursa çağrılır. Geri aramada, DOM, yapılacaklar bilgileriyle güncelleştirilir.
+jQuery, bir to-do öğesi dizisini temsil eden JSON döndüren Web API 'sine bir HTTP GET isteği gönderir. `success` geri çağırma işlevi, istek başarılı olursa çağrılır. Geri aramada, DOM, yapılacaklar bilgileriyle güncelleştirilir.
 
 [!code-javascript[](first-web-api/samples/2.2/TodoApi/wwwroot/site.js?name=snippet_GetData)]
 
 ### <a name="add-a-to-do-item"></a>Yapılacaklar öğesi ekleme
 
-jQuery, istek gövdesinde Yapılacaklar öğesiyle bir HTTP POST isteği gönderir. @No__t_0 ve `contentType` seçenekleri, alınan ve gönderilen medya türünü belirtmek için `application/json` olarak ayarlanır. Yapılacaklar öğesi [JSON. stringbelirt](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify)kullanılarak JSON 'a dönüştürülür. API başarılı bir durum kodu döndürdüğünde, `getData` işlevi HTML tablosunu güncelleştirmek için çağrılır.
+jQuery, istek gövdesinde Yapılacaklar öğesiyle bir HTTP POST isteği gönderir. `accepts` ve `contentType` seçenekleri, alınan ve gönderilen medya türünü belirtmek için `application/json` olarak ayarlanır. Yapılacaklar öğesi [JSON. stringbelirt](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify)kullanılarak JSON 'a dönüştürülür. API başarılı bir durum kodu döndürdüğünde, `getData` işlevi HTML tablosunu güncelleştirmek için çağrılır.
 
 [!code-javascript[](first-web-api/samples/2.2/TodoApi/wwwroot/site.js?name=snippet_AddItem)]
 
 ### <a name="update-a-to-do-item"></a>Yapılacaklar öğesini güncelleştirme
 
-Bir yapılacaklar öğesinin güncelleştirilmesi, bir tane eklemeye benzer. @No__t_0 öğenin benzersiz tanımlayıcısını eklemek için değişir ve `type` `PUT`.
+Bir yapılacaklar öğesinin güncelleştirilmesi, bir tane eklemeye benzer. `url` öğenin benzersiz tanımlayıcısını eklemek için değişir ve `type` `PUT`.
 
 [!code-javascript[](first-web-api/samples/2.2/TodoApi/wwwroot/site.js?name=snippet_AjaxPut)]
 
@@ -917,7 +917,7 @@ Bir yapılacaklar öğesinin silinmesi, AJAX çağrısının `DELETE` `type` aya
 
 ## <a name="add-authentication-support-to-a-web-api"></a>Web API 'sine kimlik doğrulama desteği ekleme
 
-Bkz. [ıdentityserver4](https://identityserver4.readthedocs.io/en/latest/quickstarts/0_overview.html) öğreticisi.
+[!INCLUDE[](~/includes/IdentityServer4.md)]
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
