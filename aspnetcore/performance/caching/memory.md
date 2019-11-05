@@ -4,14 +4,14 @@ author: rick-anderson
 description: ASP.NET Core bellekteki verileri önbelleğe alma hakkında bilgi edinin.
 ms.author: riande
 ms.custom: mvc
-ms.date: 8/22/2019
+ms.date: 11/2/2019
 uid: performance/caching/memory
-ms.openlocfilehash: d6b2aa363c552fdbda7f6e9ec5d476768c17d8a5
-ms.sourcegitcommit: 810d5831169770ee240d03207d6671dabea2486e
+ms.openlocfilehash: 1114d154ed1af09958df63ae718712177bbf6db0
+ms.sourcegitcommit: 09f4a5ded39cc8204576fe801d760bd8b611f3aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72779188"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73611437"
 ---
 # <a name="cache-in-memory-in-aspnet-core"></a>ASP.NET Core 'de önbellek belleği
 
@@ -29,7 +29,7 @@ ASP.NET Core birçok farklı önbelleği destekler. En basit önbellek [ımemory
 
 Bir Web grubundaki yapışkan olmayan oturumlar, önbellek tutarlılığı sorunlarından kaçınmak için [Dağıtılmış bir önbellek](distributed.md) gerektirir. Bazı uygulamalarda, dağıtılmış bir önbellek, bellek içi bir önbellekten daha yüksek genişleme desteği sağlayabilir. Dağıtılmış bir önbellek kullanmak önbellek belleğini bir dış işleme devreder.
 
-Bellek içi önbellek herhangi bir nesneyi depolayabilirler. Dağıtılmış önbellek arabirimi `byte[]` sınırlıdır. Bellek içi ve dağıtılmış önbellek deposu öğeleri anahtar-değer çiftleri olarak önbelleğe alma.
+Bellek içi önbellek herhangi bir nesneyi depolayabilirler. Dağıtılmış önbellek arabirimi `byte[]`sınırlıdır. Bellek içi ve dağıtılmış önbellek deposu öğeleri anahtar-değer çiftleri olarak önbelleğe alma.
 
 ## <a name="systemruntimecachingmemorycache"></a>System. Runtime. Caching/MemoryCache
 
@@ -62,7 +62,7 @@ Bellek içi önbelleğe alma, [bağımlılık ekleme](xref:fundamentals/dependen
 
 [!code-csharp[](memory/3.0sample/WebCacheSample/Controllers/HomeController.cs?name=snippet_ctor)]
 
-Aşağıdaki kod, bir saatin önbellekte olup olmadığını denetlemek için [TryGetValue](/dotnet/api/microsoft.extensions.caching.memory.imemorycache.trygetvalue?view=aspnetcore-2.0#Microsoft_Extensions_Caching_Memory_IMemoryCache_TryGetValue_System_Object_System_Object__) kullanır. Bir zaman önbelleğe alınmadıysa, yeni bir giriş oluşturulur ve [Ayarla](/dotnet/api/microsoft.extensions.caching.memory.cacheextensions.set?view=aspnetcore-2.0#Microsoft_Extensions_Caching_Memory_CacheExtensions_Set__1_Microsoft_Extensions_Caching_Memory_IMemoryCache_System_Object___0_Microsoft_Extensions_Caching_Memory_MemoryCacheEntryOptions_)birlikte önbelleğe eklenir. @No__t_0 sınıfı, indirme örneğinin bir parçasıdır.
+Aşağıdaki kod, bir saatin önbellekte olup olmadığını denetlemek için [TryGetValue](/dotnet/api/microsoft.extensions.caching.memory.imemorycache.trygetvalue?view=aspnetcore-2.0#Microsoft_Extensions_Caching_Memory_IMemoryCache_TryGetValue_System_Object_System_Object__) kullanır. Bir zaman önbelleğe alınmadıysa, yeni bir giriş oluşturulur ve [Ayarla](/dotnet/api/microsoft.extensions.caching.memory.cacheextensions.set?view=aspnetcore-2.0#Microsoft_Extensions_Caching_Memory_CacheExtensions_Set__1_Microsoft_Extensions_Caching_Memory_IMemoryCache_System_Object___0_Microsoft_Extensions_Caching_Memory_MemoryCacheEntryOptions_)birlikte önbelleğe eklenir. `CacheKeys` sınıfı, indirme örneğinin bir parçasıdır.
 
 [!code-csharp[](memory/3.0sample/WebCacheSample/CacheKeys.cs)]
 
@@ -108,14 +108,14 @@ Aşağıdaki örnek:
 
 ## <a name="use-setsize-size-and-sizelimit-to-limit-cache-size"></a>Önbellek boyutunu sınırlamak için SetSize, size ve SizeLimit kullanın
 
-@No__t_0 örnek, isteğe bağlı olarak bir boyut sınırı belirtebilir ve uygulayabilir. Önbelleğin, girdilerin boyutunu ölçmeye yönelik bir mekanizması olmadığından, önbellek boyutu sınırının tanımlı bir ölçü birimi yok. Önbellek boyutu sınırı ayarlandıysa, tüm girişlerin boyut belirtmesi gerekir. ASP.NET Core çalışma zamanı, bellek baskısı temelinde önbellek boyutunu sınırlamaz. En fazla geliştirici, önbellek boyutunu sınırlayacak. Belirtilen boyut, geliştiricinin seçtiği birimlerde bulunur.
+`MemoryCache` örnek, isteğe bağlı olarak bir boyut sınırı belirtebilir ve uygulayabilir. Önbelleğin, girdilerin boyutunu ölçmeye yönelik bir mekanizması olmadığından, önbellek boyutu sınırının tanımlı bir ölçü birimi yok. Önbellek boyutu sınırı ayarlandıysa, tüm girişlerin boyut belirtmesi gerekir. ASP.NET Core çalışma zamanı, bellek baskısı temelinde önbellek boyutunu sınırlamaz. En fazla geliştirici, önbellek boyutunu sınırlayacak. Belirtilen boyut, geliştiricinin seçtiği birimlerde bulunur.
 
 Örneğin:
 
 * Web uygulaması öncelikle dizeleri önbelleğe alıyorsa, her önbellek girdisi boyutu dize uzunluğu olabilir.
 * Uygulama tüm girdilerin boyutunu 1 olarak belirtebilir ve boyut sınırı girdi sayısıdır.
 
-@No__t_0 ayarlanmamışsa, önbellek bağlantılı olmadan büyür. ASP.NET Core çalışma zamanı, sistem belleği azaldığında önbelleği kırpmaz. Uygulamalar şu şekilde tasarlanmıştır:
+<xref:Microsoft.Extensions.Caching.Memory.MemoryCacheOptions.SizeLimit> ayarlanmamışsa, önbellek bağlantılı olmadan büyür. ASP.NET Core çalışma zamanı, sistem belleği azaldığında önbelleği kırpmaz. Uygulamalar şu şekilde tasarlanmıştır:
 
 * Önbellek büyümesini sınırla.
 * Kullanılabilir bellek sınırlıysa <xref:Microsoft.Extensions.Caching.Memory.MemoryCache.Compact*> veya <xref:Microsoft.Extensions.Caching.Memory.MemoryCache.Remove*> ' i çağırın:
@@ -158,15 +158,18 @@ Daha fazla bilgi için bkz. [GitHub 'Da Compact Source](https://github.com/aspne
 
 ## <a name="cache-dependencies"></a>Önbellek bağımlılıkları
 
-Aşağıdaki örnek, bağımlı bir girdinin süresi dolduğunda önbellek girişinin süresinin dolacağını gösterir. Önbelleğe alınmış öğeye bir `CancellationChangeToken` eklenir. @No__t_1 `Cancel` çağrıldığında, her iki önbellek girişi de kaldırılır.
+Aşağıdaki örnek, bağımlı bir girdinin süresi dolduğunda önbellek girişinin süresinin dolacağını gösterir. Önbelleğe alınmış öğeye bir <xref:Microsoft.Extensions.Primitives.CancellationChangeToken> eklenir. `CancellationTokenSource``Cancel` çağrıldığında, her iki önbellek girişi de kaldırılır.
 
 [!code-csharp[](memory/3.0sample/WebCacheSample/Controllers/HomeController.cs?name=snippet_ed)]
 
-@No__t_0 kullanmak birden çok önbellek girişinin bir grup olarak çıkarıyapılmasına izin verir. Yukarıdaki kodda `using` düzeniyle, `using` bloğunun içinde oluşturulan önbellek girdileri Tetikleyiciler ve süre sonu ayarlarını devralacak.
+<xref:System.Threading.CancellationTokenSource> kullanmak birden çok önbellek girişinin bir grup olarak çıkarıyapılmasına izin verir. Yukarıdaki kodda `using` düzeniyle, `using` bloğunun içinde oluşturulan önbellek girdileri Tetikleyiciler ve süre sonu ayarlarını devralacak.
 
 ## <a name="additional-notes"></a>Ek notlar
 
-* Süre sonu arka planda gerçekleşmez. Süre dolmakta olan öğeler için önbelleği etkin bir şekilde tarayan bir Zamanlayıcı yok. Önbellekteki (`Get`, `Set`, `Remove`) herhangi bir etkinlik, süre sonu olmayan öğeler için bir arka plan taraması tetikleyebilir. @No__t_0 (`CancelAfter`) bir Zamanlayıcı Ayrıca girişi de kaldırır ve vadesi geçmiş öğeler için bir tarama tetikler. Örneğin, `SetAbsoluteExpiration(TimeSpan.FromHours(1))` kullanmak yerine, kayıtlı belirteç için `CancellationTokenSource.CancelAfter(TimeSpan.FromHours(1))` kullanın. Bu belirteç tetiklendiğinde, girdiyi hemen kaldırır ve çıkarma geri çağırmaları tetikler. Daha fazla bilgi için [Bu GitHub sorununa](https://github.com/aspnet/Caching/issues/248)bakın.
+* Süre sonu arka planda gerçekleşmez. Süre dolmakta olan öğeler için önbelleği etkin bir şekilde tarayan bir Zamanlayıcı yok. Önbellekteki (`Get`, `Set`, `Remove`) herhangi bir etkinlik, süre sonu olmayan öğeler için bir arka plan taraması tetikleyebilir. `CancellationTokenSource` (<xref:System.Threading.CancellationTokenSource.CancelAfter*>) bir Zamanlayıcı girişi de kaldırır ve vadesi geçmiş öğeler için bir tarama tetikler. Aşağıdaki örnek, kayıtlı belirteç için [CancellationTokenSource (TimeSpan)](/dotnet/api/system.threading.cancellationtokensource.-ctor) kullanır. Bu belirteç tetiklendiğinde, girdiyi hemen kaldırır ve çıkarma geri çağırmaları tetikler:
+
+[!code-csharp[](memory/3.0sample/WebCacheSample/Controllers/HomeController.cs?name=snippet_ae)]
+
 * Bir önbellek öğesini yeniden doldurmak için geri çağırma kullanırken:
 
   * Geri arama tamamlanmadığından, birden çok istek önbelleğe alınan anahtar değeri boş olabilir.
@@ -203,7 +206,7 @@ ASP.NET Core birçok farklı önbelleği destekler. En basit önbellek, Web sunu
 
 Bir Web grubundaki yapışkan olmayan oturumlar, önbellek tutarlılığı sorunlarından kaçınmak için [Dağıtılmış bir önbellek](distributed.md) gerektirir. Bazı uygulamalarda, dağıtılmış bir önbellek, bellek içi bir önbellekten daha yüksek genişleme desteği sağlayabilir. Dağıtılmış bir önbellek kullanmak önbellek belleğini bir dış işleme devreder.
 
-Bellek içi önbellek herhangi bir nesneyi depolayabilirler. Dağıtılmış önbellek arabirimi `byte[]` sınırlıdır. Bellek içi ve dağıtılmış önbellek deposu öğeleri anahtar-değer çiftleri olarak önbelleğe alma.
+Bellek içi önbellek herhangi bir nesneyi depolayabilirler. Dağıtılmış önbellek arabirimi `byte[]`sınırlıdır. Bellek içi ve dağıtılmış önbellek deposu öğeleri anahtar-değer çiftleri olarak önbelleğe alma.
 
 ## <a name="systemruntimecachingmemorycache"></a>System. Runtime. Caching/MemoryCache
 
@@ -231,7 +234,7 @@ Kodu ASP.NET 4. x ' ten ASP.NET Core taşıma sırasında uyumluluk Köprüsü o
 > Ön sınır [ekleme](xref:fundamentals/dependency-injection) ve `SetSize`, `Size` veya `SizeLimit` ' e çağrı için bir *paylaşılan* bellek önbelleğinin kullanılması uygulamanın başarısız olmasına neden olabilir. Önbellekte bir boyut sınırı ayarlandığında, tüm girişlerin eklenmekte olan bir boyut belirtmesi gerekir. Bu, geliştiricilerin paylaşılan önbelleğin kullanıldığı ilgili tam denetime sahip olmaması nedeniyle sorunlara yol açabilir. Örneğin, Entity Framework Core paylaşılan önbelleği kullanır ve bir boyut belirtmez. Bir uygulama önbellek boyutu sınırı ayarlarsa ve EF Core kullanıyorsa, uygulama bir `InvalidOperationException` oluşturur.
 > Önbelleği sınırlandırmak için `SetSize`, `Size` veya `SizeLimit` kullanıldığında, önbelleğe alma için bir önbellek oluşturun. Daha fazla bilgi ve bir örnek için bkz. [önbellek boyutunu sınırlamak Için SetSize, size ve SizeLimit kullanma](#use-setsize-size-and-sizelimit-to-limit-cache-size).
 
-Bellek içi önbelleğe alma, [bağımlılık ekleme](../../fundamentals/dependency-injection.md)kullanılarak uygulamanız tarafından başvurulan bir *hizmettir* . @No__t_1 `AddMemoryCache` çağrısı:
+Bellek içi önbelleğe alma, [bağımlılık ekleme](../../fundamentals/dependency-injection.md)kullanılarak uygulamanız tarafından başvurulan bir *hizmettir* . `ConfigureServices``AddMemoryCache` çağrısı:
 
 [!code-csharp[](memory/sample/WebCache/Startup.cs?highlight=9)]
 
@@ -277,14 +280,14 @@ Aşağıdaki örnek:
 
 ## <a name="use-setsize-size-and-sizelimit-to-limit-cache-size"></a>Önbellek boyutunu sınırlamak için SetSize, size ve SizeLimit kullanın
 
-@No__t_0 örnek, isteğe bağlı olarak bir boyut sınırı belirtebilir ve uygulayabilir. Önbelleğin, girdilerin boyutunu ölçmeye yönelik bir mekanizması olmadığından, önbellek boyutu sınırının tanımlı bir ölçü birimi yok. Önbellek boyutu sınırı ayarlandıysa, tüm girişlerin boyut belirtmesi gerekir. ASP.NET Core çalışma zamanı, bellek baskısı temelinde önbellek boyutunu sınırlamaz. En fazla geliştirici, önbellek boyutunu sınırlayacak. Belirtilen boyut, geliştiricinin seçtiği birimlerde bulunur.
+`MemoryCache` örnek, isteğe bağlı olarak bir boyut sınırı belirtebilir ve uygulayabilir. Önbelleğin, girdilerin boyutunu ölçmeye yönelik bir mekanizması olmadığından, önbellek boyutu sınırının tanımlı bir ölçü birimi yok. Önbellek boyutu sınırı ayarlandıysa, tüm girişlerin boyut belirtmesi gerekir. ASP.NET Core çalışma zamanı, bellek baskısı temelinde önbellek boyutunu sınırlamaz. En fazla geliştirici, önbellek boyutunu sınırlayacak. Belirtilen boyut, geliştiricinin seçtiği birimlerde bulunur.
 
 Örneğin:
 
 * Web uygulaması öncelikle dizeleri önbelleğe alıyorsa, her önbellek girdisi boyutu dize uzunluğu olabilir.
 * Uygulama tüm girdilerin boyutunu 1 olarak belirtebilir ve boyut sınırı girdi sayısıdır.
 
-@No__t_0 ayarlanmamışsa, önbellek bağlantılı olmadan büyür. ASP.NET Core çalışma zamanı, sistem belleği azaldığında önbelleği kırpmaz. Uygulamalar şu şekilde tasarlanmıştır:
+<xref:Microsoft.Extensions.Caching.Memory.MemoryCacheOptions.SizeLimit> ayarlanmamışsa, önbellek bağlantılı olmadan büyür. ASP.NET Core çalışma zamanı, sistem belleği azaldığında önbelleği kırpmaz. Uygulamalar şu şekilde tasarlanmıştır:
 
 * Önbellek büyümesini sınırla.
 * Kullanılabilir bellek sınırlıysa <xref:Microsoft.Extensions.Caching.Memory.MemoryCache.Compact*> veya <xref:Microsoft.Extensions.Caching.Memory.MemoryCache.Remove*> ' i çağırın:
@@ -327,11 +330,11 @@ Daha fazla bilgi için bkz. [GitHub 'Da Compact Source](https://github.com/aspne
 
 ## <a name="cache-dependencies"></a>Önbellek bağımlılıkları
 
-Aşağıdaki örnek, bağımlı bir girdinin süresi dolduğunda önbellek girişinin süresinin dolacağını gösterir. Önbelleğe alınmış öğeye bir `CancellationChangeToken` eklenir. @No__t_1 `Cancel` çağrıldığında, her iki önbellek girişi de kaldırılır.
+Aşağıdaki örnek, bağımlı bir girdinin süresi dolduğunda önbellek girişinin süresinin dolacağını gösterir. Önbelleğe alınmış öğeye bir <xref:Microsoft.Extensions.Primitives.CancellationChangeToken> eklenir. `CancellationTokenSource``Cancel` çağrıldığında, her iki önbellek girişi de kaldırılır.
 
 [!code-csharp[](memory/sample/WebCache/Controllers/HomeController.cs?name=snippet_ed)]
 
-@No__t_0 kullanmak birden çok önbellek girişinin bir grup olarak çıkarıyapılmasına izin verir. Yukarıdaki kodda `using` düzeniyle, `using` bloğunun içinde oluşturulan önbellek girdileri Tetikleyiciler ve süre sonu ayarlarını devralacak.
+`CancellationTokenSource` kullanmak birden çok önbellek girişinin bir grup olarak çıkarıyapılmasına izin verir. Yukarıdaki kodda `using` düzeniyle, `using` bloğunun içinde oluşturulan önbellek girdileri Tetikleyiciler ve süre sonu ayarlarını devralacak.
 
 ## <a name="additional-notes"></a>Ek notlar
 

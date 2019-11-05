@@ -5,20 +5,20 @@ description: ASP.NET Core 'de yanıt önbelleğe alma ara yazılımını yapıla
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 08/09/2019
+ms.date: 11/04/2019
 uid: performance/caching/middleware
-ms.openlocfilehash: 838a08c12316d218501f26d5905f9e31ab93dfc9
-ms.sourcegitcommit: 89fcc6cb3e12790dca2b8b62f86609bed6335be9
+ms.openlocfilehash: a8e656e1d59114e2e953323e98e0a2399efca98a
+ms.sourcegitcommit: 09f4a5ded39cc8204576fe801d760bd8b611f3aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68994222"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73611450"
 ---
 # <a name="response-caching-middleware-in-aspnet-core"></a>ASP.NET Core 'de yanıt önbelleğe alma ara yazılımı
 
 [Luke Latham](https://github.com/guardrex) ve [John Luo](https://github.com/JunTaoLuo) tarafından
 
-[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/performance/caching/middleware/samples) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
+[Örnek kodu görüntüleme veya indirme](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/performance/caching/middleware/samples) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
 
 Bu makalede, yanıt önbelleğe alma ara yazılımı ASP.NET Core bir uygulamada nasıl yapılandırılacağı açıklanmaktadır. Ara yazılım, yanıtların önbelleklenebilir olup olmadığını belirler, yanıtları depolar ve önbellekten yanıt verir. HTTP önbelleğine giriş ve [[Responsecache]](xref:Microsoft.AspNetCore.Mvc.ResponseCacheAttribute) özniteliği için bkz. [Yanıt önbelleği](xref:performance/caching/response).
 
@@ -26,20 +26,20 @@ Bu makalede, yanıt önbelleğe alma ara yazılımı ASP.NET Core bir uygulamada
 
 ::: moniker range=">= aspnetcore-3.0"
 
-Yanıt önbelleğe alma ara yazılımı, ASP.NET Core uygulamalarına örtük olarak eklenen [Microsoft. AspNetCore. responsecaching](https://www.nuget.org/packages/Microsoft.AspNetCore.ResponseCaching/) paketi tarafından kullanılabilir hale getirilir.
+Yanıt önbelleğe alma ara yazılımı, paylaşılan Framework aracılığıyla ASP.NET Core uygulamalar için örtülü olarak kullanılabilir.
 
-' `Startup.ConfigureServices`De, yanıt önbelleğe alma ara yazılımını hizmet koleksiyonuna ekleyin:
+`Startup.ConfigureServices`, yanıt önbelleğe alma ara yazılımını hizmet koleksiyonuna ekleyin:
 
 [!code-csharp[](middleware/samples/3.x/ResponseCachingMiddleware/Startup.cs?name=snippet1&highlight=3)]
 
-Uygulamayı, içindeki `Startup.Configure`istek işleme işlem hattına bir ara <xref:Microsoft.AspNetCore.Builder.ResponseCachingExtensions.UseResponseCaching*> yazılım ekleyen uzantı yöntemiyle ara yazılımı kullanacak şekilde yapılandırın:
+Uygulamayı, `Startup.Configure`içindeki istek işleme ardışık düzenine ekleyen <xref:Microsoft.AspNetCore.Builder.ResponseCachingExtensions.UseResponseCaching*> uzantısı yöntemiyle ara yazılımı kullanacak şekilde yapılandırın:
 
 [!code-csharp[](middleware/samples/3.x/ResponseCachingMiddleware/Startup.cs?name=snippet2&highlight=16)]
 
 Örnek uygulama, sonraki isteklerde önbelleğe almayı denetlemek için üstbilgiler ekler:
 
-* [Cache-Control](https://tools.ietf.org/html/rfc7234#section-5.2) &ndash; 10 saniyeye kadar önbelleklenebilir yanıtları önbelleğe alır.
-* [Farklılık gösterir](https://tools.ietf.org/html/rfc7231#section-7.1.4) &ndash; Yalnızca [sonrakiisteklerinüstbilgisiözgünistektenbiriyleeşleşiyorsaönbelleğealınmışbiryanıta`Accept-Encoding`](https://tools.ietf.org/html/rfc7231#section-5.3.4) yönelik ara yazılımı yapılandırır.
+* [Cache-Control](https://tools.ietf.org/html/rfc7234#section-5.2) &ndash; önbelleklenebilir yanıtları 10 saniyeye kadar önbelleğe alır.
+* [Değişiklik](https://tools.ietf.org/html/rfc7231#section-7.1.4) &ndash;, ara yazılımı yalnızca sonraki isteklerin [`Accept-Encoding`](https://tools.ietf.org/html/rfc7231#section-5.3.4) üstbilgisi özgün istekten biriyle eşleşiyorsa önbelleğe alınmış bir yanıta sunacak şekilde yapılandırır.
 
 [!code-csharp[](middleware/samples_snippets/3.x/AddHeaders.cs)]
 
@@ -54,18 +54,18 @@ Yanıt önbelleğe alma ara yazılımı yalnızca 200 (Tamam) durum kodu ile son
 
 Microsoft. [aspnetcore. app metapackage](xref:fundamentals/metapackage-app) kullanın veya [Microsoft. Aspnetcore. responsecaching](https://www.nuget.org/packages/Microsoft.AspNetCore.ResponseCaching/) paketine bir paket başvurusu ekleyin.
 
-' `Startup.ConfigureServices`De, yanıt önbelleğe alma ara yazılımını hizmet koleksiyonuna ekleyin:
+`Startup.ConfigureServices`, yanıt önbelleğe alma ara yazılımını hizmet koleksiyonuna ekleyin:
 
 [!code-csharp[](middleware/samples/2.x/ResponseCachingMiddleware/Startup.cs?name=snippet1&highlight=3)]
 
-Uygulamayı, içindeki `Startup.Configure`istek işleme işlem hattına bir ara <xref:Microsoft.AspNetCore.Builder.ResponseCachingExtensions.UseResponseCaching*> yazılım ekleyen uzantı yöntemiyle ara yazılımı kullanacak şekilde yapılandırın:
+Uygulamayı, `Startup.Configure`içindeki istek işleme ardışık düzenine ekleyen <xref:Microsoft.AspNetCore.Builder.ResponseCachingExtensions.UseResponseCaching*> uzantısı yöntemiyle ara yazılımı kullanacak şekilde yapılandırın:
 
 [!code-csharp[](middleware/samples/2.x/ResponseCachingMiddleware/Startup.cs?name=snippet2&highlight=14)]
 
 Örnek uygulama, sonraki isteklerde önbelleğe almayı denetlemek için üstbilgiler ekler:
 
-* [Cache-Control](https://tools.ietf.org/html/rfc7234#section-5.2) &ndash; 10 saniyeye kadar önbelleklenebilir yanıtları önbelleğe alır.
-* [Farklılık gösterir](https://tools.ietf.org/html/rfc7231#section-7.1.4) &ndash; Yalnızca [sonrakiisteklerinüstbilgisiözgünistektenbiriyleeşleşiyorsaönbelleğealınmışbiryanıta`Accept-Encoding`](https://tools.ietf.org/html/rfc7231#section-5.3.4) yönelik ara yazılımı yapılandırır.
+* [Cache-Control](https://tools.ietf.org/html/rfc7234#section-5.2) &ndash; önbelleklenebilir yanıtları 10 saniyeye kadar önbelleğe alır.
+* [Değişiklik](https://tools.ietf.org/html/rfc7231#section-7.1.4) &ndash;, ara yazılımı yalnızca sonraki isteklerin [`Accept-Encoding`](https://tools.ietf.org/html/rfc7231#section-5.3.4) üstbilgisi özgün istekten biriyle eşleşiyorsa önbelleğe alınmış bir yanıta sunacak şekilde yapılandırır.
 
 [!code-csharp[](middleware/samples_snippets/2.x/AddHeaders.cs)]
 
@@ -101,9 +101,9 @@ services.AddResponseCaching(options =>
 
 ## <a name="varybyquerykeys"></a>VaryByQueryKeys
 
-MVC/web API denetleyicilerini veya Razor Pages sayfa modellerini kullanırken, [[Responsecache]](xref:Microsoft.AspNetCore.Mvc.ResponseCacheAttribute) özniteliği, yanıt önbelleğe alma için uygun üst bilgileri ayarlamak için gereken parametreleri belirtir. `[ResponseCache]` Yalnızca<xref:Microsoft.AspNetCore.Mvc.ResponseCacheAttribute.VaryByQueryKeys>ara yazılım gerektiren özniteliğin tek parametresi, gerçek bir http üst bilgisine karşılık gelmiyor. Daha fazla bilgi için bkz. <xref:performance/caching/response#responsecache-attribute>.
+MVC/web API denetleyicilerini veya Razor Pages sayfa modellerini kullanırken, [[Responsecache]](xref:Microsoft.AspNetCore.Mvc.ResponseCacheAttribute) özniteliği, yanıt önbelleğe alma için uygun üst bilgileri ayarlamak için gereken parametreleri belirtir. Ara yazılımı kesinlikle gerektiren `[ResponseCache]` özniteliğinin tek parametresi, gerçek bir HTTP üst bilgisine karşılık gelen <xref:Microsoft.AspNetCore.Mvc.ResponseCacheAttribute.VaryByQueryKeys>. Daha fazla bilgi için bkz. <xref:performance/caching/response#responsecache-attribute>.
 
-`[ResponseCache]` Özniteliği kullanmıyorsanız, yanıt önbelleğe alma ile `VaryByQueryKeys`değiştirilebilir. Doğrudan HttpContext. Features içinden kullanın: [](xref:Microsoft.AspNetCore.Http.HttpContext.Features) <xref:Microsoft.AspNetCore.ResponseCaching.ResponseCachingFeature>
+`[ResponseCache]` özniteliği kullanılırken, yanıt önbelleğe alma `VaryByQueryKeys`değiştirilebilir. <xref:Microsoft.AspNetCore.ResponseCaching.ResponseCachingFeature> doğrudan [HttpContext. Features](xref:Microsoft.AspNetCore.Http.HttpContext.Features)içinden kullanın:
 
 ```csharp
 var responseCachingFeature = context.HttpContext.Features.Get<IResponseCachingFeature>();
@@ -114,7 +114,7 @@ if (responseCachingFeature != null)
 }
 ```
 
-Tek bir değerin `*` ' de `VaryByQueryKeys` değerine eşit olması, önbelleğin tüm istek sorgu parametrelerine göre değişiklik gösterir.
+`VaryByQueryKeys` `*` eşit tek bir değer kullanmak, tüm istek sorgu parametrelerine göre önbelleği değiştirir.
 
 ## <a name="http-headers-used-by-response-caching-middleware"></a>Yanıt önbelleğe alma ara yazılımı tarafından kullanılan HTTP üstbilgileri
 
@@ -123,20 +123,20 @@ Aşağıdaki tabloda, yanıt önbelleğini etkileyen HTTP üstbilgileri hakkınd
 | Üstbilgi | Ayrıntılar |
 | ------ | ------- |
 | `Authorization` | Üst bilgi varsa yanıt önbelleğe alınmaz. |
-| `Cache-Control` | Ara yazılım yalnızca `public` önbellek yönergesi ile işaretlenmiş önbelleğe alma yanıtlarını dikkate alır. Aşağıdaki parametrelerle önbelleğe alma denetimi:<ul><li>Maksimum yaş</li><li>en fazla-eski&#8224;</li><li>en az-yeni</li><li>yeniden doğrulama gerekir</li><li>önbellek yok</li><li>mağaza yok</li><li>yalnızca-if-önbelleğe alındı</li><li>private</li><li>public</li><li>s-maxage</li><li>ara sunucu-yeniden doğrulama&#8225;</li></ul>&#8224;İçin `max-stale`hiçbir sınır belirtilmemişse, ara yazılım hiçbir eylemde bulunmaz.<br>&#8225;`proxy-revalidate`, ile `must-revalidate`aynı etkiye sahiptir.<br><br>Daha fazla bilgi için bkz [. RFC 7231: Cache-Control yönergeleri](https://tools.ietf.org/html/rfc7234#section-5.2.1)iste. |
-| `Pragma` | İstekteki `Pragma: no-cache` bir üst bilgi, ile `Cache-Control: no-cache`aynı etkiyi üretir. Bu üst bilgi, varsa `Cache-Control` başlıktaki ilgili yönergeler tarafından geçersiz kılınır. HTTP/1.0 ile geriye dönük uyumluluk için değerlendirilir. |
+| `Cache-Control` | Ara yazılım yalnızca `public` cache yönergesi ile işaretlenmiş önbelleğe alma yanıtlarını dikkate alır. Aşağıdaki parametrelerle önbelleğe alma denetimi:<ul><li>Maksimum yaş</li><li>en fazla-eski&#8224;</li><li>en az-yeni</li><li>yeniden doğrulama gerekir</li><li>önbellek yok</li><li>mağaza yok</li><li>yalnızca-if-önbelleğe alındı</li><li>private</li><li>public</li><li>s-maxage</li><li>ara sunucu-yeniden doğrulama&#8225;</li></ul>&#8224;`max-stale`için hiçbir sınır belirtilmemişse, ara yazılım hiçbir işlem gerçekleşmez.<br>&#8225;`proxy-revalidate` `must-revalidate`ile aynı etkiye sahiptir.<br><br>Daha fazla bilgi için bkz. [RFC 7231: Istek Cache-Control yönergeleri](https://tools.ietf.org/html/rfc7234#section-5.2.1). |
+| `Pragma` | İstekteki bir `Pragma: no-cache` üst bilgisi `Cache-Control: no-cache`ile aynı etkiyi üretir. Bu üst bilgi, varsa `Cache-Control` üst bilgisinde ilgili yönergeler tarafından geçersiz kılınır. HTTP/1.0 ile geriye dönük uyumluluk için değerlendirilir. |
 | `Set-Cookie` | Üst bilgi varsa yanıt önbelleğe alınmaz. İstek işleme ardışık düzeninde bir veya daha fazla tanımlama bilgisi ayarlayan herhangi bir ara yazılım, yanıt önbelleğe alma ara hattının yanıtı önbelleğe almasını önler (örneğin, [tanımlama bilgisi tabanlı TempData sağlayıcısı](xref:fundamentals/app-state#tempdata)).  |
-| `Vary` | `Vary` Üst bilgi, başka bir üst bilgi tarafından önbelleğe alınan yanıtı değiştirmek için kullanılır. Örneğin, üst bilgi `Vary: Accept-Encoding` `Accept-Encoding: gzip` ve `Accept-Encoding: text/plain` ayrı ayrı istekler için yanıtları önbelleğe alan üstbilgiyi ekleyerek kodlamaya göre yanıtları önbelleğe alır. Üstbilgi değeri `*` olan bir yanıt hiçbir şekilde depolanmaz. |
-| `Expires` | Bu üstbilginin eski olduğu bir yanıt, diğer `Cache-Control` üstbilgiler tarafından geçersiz kılınmadıkça depolanmaz veya alınamaz. |
-| `If-None-Match` | Tam yanıt, değer değilse `*` önbellekten, `ETag` yanıtın ise belirtilen değerlerden hiçbiriyle eşleşmez. Aksi takdirde, 304 (değiştirilmez) yanıtı sunulur. |
-| `If-Modified-Since` | `If-None-Match` Üst bilgi yoksa, önbelleğe alınmış yanıt tarihi verilen değerden daha yeniyse önbellekten tam bir yanıt sunulur. Aksi takdirde, *304 olarak değiştirilmemiş* bir yanıt sunulur. |
-| `Date` | Önbellekten hizmet verirken, `Date` özgün yanıtta sağlanmadıysa üst bilgi ara yazılım tarafından ayarlanır. |
-| `Content-Length` | Önbellekten hizmet verirken, `Content-Length` özgün yanıtta sağlanmadıysa üst bilgi ara yazılım tarafından ayarlanır. |
-| `Age` | Özgün yanıtta gönderilen üstbilgi yok sayılır. `Age` Ara yazılım, önbelleğe alınmış bir yanıta hizmet verirken yeni bir değeri hesaplar. |
+| `Vary` | `Vary` üstbilgisi, başka bir üst bilgi tarafından önbelleğe alınan yanıtı değiştirmek için kullanılır. Örneğin, üst bilgileri `Accept-Encoding: gzip` ve `Accept-Encoding: text/plain` ayrı olarak istekler için yanıtları önbelleğe alan `Vary: Accept-Encoding` üst bilgisini ekleyerek, kodlamaya göre yanıtları önbelleğe alır. `*` üstbilgi değeri olan bir yanıt hiçbir şekilde depolanmaz. |
+| `Expires` | Bu üst bilgi tarafından kabul edilen bir yanıt, diğer `Cache-Control` üstbilgileri tarafından geçersiz kılınmadıkça depolanmaz veya alınamaz. |
+| `If-None-Match` | Tam yanıt, değerin `*` olmaması ve yanıtın `ETag` verilen değerlerden hiçbiriyle eşleşmezse önbellekten sunulur. Aksi takdirde, 304 (değiştirilmez) yanıtı sunulur. |
+| `If-Modified-Since` | `If-None-Match` üstbilgisi yoksa, önbelleğe alınmış yanıt tarihi verilen değerden daha yeniyse önbellekten tam bir yanıt sunulur. Aksi takdirde, *304 olarak değiştirilmemiş* bir yanıt sunulur. |
+| `Date` | Önbellekten hizmet verirken, özgün yanıtta sağlanmadıysa `Date` üstbilgisi ara yazılım tarafından ayarlanır. |
+| `Content-Length` | Önbellekten hizmet verirken, özgün yanıtta sağlanmadıysa `Content-Length` üstbilgisi ara yazılım tarafından ayarlanır. |
+| `Age` | Özgün yanıtta gönderilen `Age` üst bilgisi yok sayılır. Ara yazılım, önbelleğe alınmış bir yanıta hizmet verirken yeni bir değeri hesaplar. |
 
 ## <a name="caching-respects-request-cache-control-directives"></a>İstekleri önbelleğe alma isteği Cache-Control yönergeleri
 
-Ara yazılım, [HTTP 1,1 önbelleğe alma belirtiminin](https://tools.ietf.org/html/rfc7234#section-5.2)kurallarına uyar. Kurallar, istemci tarafından gönderilen geçerli `Cache-Control` bir üst bilgiyi kabul etmek için bir önbellek gerektirir. Belirtim altında, bir istemci bir `no-cache` üst bilgi değeri ile istek yapabilir ve sunucuyu her istek için yeni bir yanıt oluşturmaya zorlayabilir. Şu anda, ara yazılım resmi önbelleğe alma belirtimine bağlı olduğundan, ara yazılım kullanılırken bu önbelleğe alma davranışı üzerinde geliştirici denetimi yoktur.
+Ara yazılım, [HTTP 1,1 önbelleğe alma belirtiminin](https://tools.ietf.org/html/rfc7234#section-5.2)kurallarına uyar. Kurallar, istemci tarafından gönderilen geçerli bir `Cache-Control` üst bilgisini kabul etmek için bir önbellek gerektirir. Belirtim altında istemci, `no-cache` üst bilgi değeri ile istek yapabilir ve sunucuyu her istek için yeni bir yanıt oluşturmaya zorlayabilir. Şu anda, ara yazılım resmi önbelleğe alma belirtimine bağlı olduğundan, ara yazılım kullanılırken bu önbelleğe alma davranışı üzerinde geliştirici denetimi yoktur.
 
 Önbelleğe alma davranışı üzerinde daha fazla denetim için ASP.NET Core diğer önbelleğe alma özelliklerine göz atın. Aşağıdaki konulara bakın:
 
@@ -149,7 +149,7 @@ Ara yazılım, [HTTP 1,1 önbelleğe alma belirtiminin](https://tools.ietf.org/h
 
 Önbelleğe alma davranışı beklenmiyorsa, yanıtların önbelleklenmesini ve önbellekten sunulduğunu doğrulayın. İsteğin gelen üst bilgilerini ve yanıtın giden üst bilgilerini inceleyin. Hata ayıklamaya yardımcı olmak için [günlük kaydını](xref:fundamentals/logging/index) etkinleştirin.
 
-Önbelleğe alma davranışını test ederken ve sorun giderirken, bir tarayıcı, istenmeyen yollarla önbelleğe almayı etkileyen istek üst bilgilerini ayarlayabilir. Örneğin, bir tarayıcı `Cache-Control` üstbilgiyi bir sayfa yenileyene veya `max-age=0` olarak `no-cache` ayarlayabilir. Aşağıdaki araçlar, istek üst bilgilerini açık bir şekilde ayarlayabilir ve önbelleğe alma testi için tercih edilir:
+Önbelleğe alma davranışını test ederken ve sorun giderirken, bir tarayıcı, istenmeyen yollarla önbelleğe almayı etkileyen istek üst bilgilerini ayarlayabilir. Örneğin, bir tarayıcı, bir sayfa yenilenirken `Cache-Control` üst bilgisini `no-cache` veya `max-age=0` olarak ayarlayabilir. Aşağıdaki araçlar, istek üst bilgilerini açık bir şekilde ayarlayabilir ve önbelleğe alma testi için tercih edilir:
 
 * [Fiddler](https://www.telerik.com/fiddler)
 * [Postman](https://www.getpostman.com/)
@@ -158,20 +158,20 @@ Ara yazılım, [HTTP 1,1 önbelleğe alma belirtiminin](https://tools.ietf.org/h
 
 * İstek, 200 (Tamam) durum kodu ile bir sunucu yanıtı ile sonuçlanmalıdır.
 * İstek yöntemi GET veya HEAD olmalıdır.
-* ' `Startup.Configure`De, yanıt önbelleğe alma ara yazılımı, önbelleğe alma gerektiren ara yazılımlar için yerleştirilmelidir. Daha fazla bilgi için bkz. <xref:fundamentals/middleware/index>.
-* `Authorization` Üst bilgi mevcut olmamalıdır.
-* `Cache-Control`üst bilgi parametreleri geçerli olmalıdır ve yanıtın işaretlenmiş `public` ve işaretlenmemiş `private`olması gerekir.
-* Üst bilgi mevcut olmadığında üst bilgi mevcut olmamalıdır, `Cache-Control` üstbilgi mevcut olduğunda üstbilgiyi geçersiz kılar `Pragma`. `Pragma: no-cache` `Cache-Control`
-* `Set-Cookie` Üst bilgi mevcut olmamalıdır.
-* `Vary`üst bilgi parametreleri geçerli ve eşit `*`olmalıdır.
-* `Content-Length` Üst bilgi değeri (ayarlandıysa), yanıt gövdesinin boyutuyla aynı olmalıdır.
-* <xref:Microsoft.AspNetCore.Http.Features.IHttpSendFileFeature> Kullanılmaz.
-* Yanıtın `Expires` üst bilgi `max-age` ve ve `s-maxage` önbellek yönergeleri tarafından belirtilen eski olmaması gerekir.
-* Yanıt arabelleğe alma başarılı olmalıdır. Yanıtın boyutu yapılandırılan veya varsayılan <xref:Microsoft.AspNetCore.ResponseCaching.ResponseCachingOptions.SizeLimit>değerden küçük olmalıdır. Yanıtın gövde boyutu yapılandırılan veya varsayılan <xref:Microsoft.AspNetCore.ResponseCaching.ResponseCachingOptions.MaximumBodySize>değerden küçük olmalıdır.
-* Yanıt, [RFC 7234](https://tools.ietf.org/html/rfc7234) belirtimlerine göre önbelleklenebilir olmalıdır. Örneğin, `no-store` yönerge istek veya yanıt üst bilgisi alanlarında mevcut olmamalıdır. Bkz *. Bölüm 3: Ayrıntılar için* [RFC 7234](https://tools.ietf.org/html/rfc7234) önbelleklerinde yanıtları depolama.
+* `Startup.Configure`, yanıt önbelleği ara yazılımı, önbelleğe alma gerektiren ara yazılımlar için yerleştirilmelidir. Daha fazla bilgi için bkz. <xref:fundamentals/middleware/index>.
+* `Authorization` üst bilgisi mevcut olmamalıdır.
+* `Cache-Control` üst bilgi parametreleri geçerli olmalıdır ve yanıt `public` olarak işaretlenmelidir ve `private`işaretlenmemiş olmalıdır.
+* `Pragma: no-cache` üst bilgisi mevcut olmadığında, `Cache-Control` üst bilgisi mevcut olduğunda `Pragma` üst bilgisini geçersiz kılıyorsa, `Cache-Control` üstbilgisi mevcut olmamalıdır.
+* `Set-Cookie` üst bilgisi mevcut olmamalıdır.
+* `Vary` üst bilgi parametreleri geçerli ve `*`eşit olmalıdır.
+* `Content-Length` üst bilgi değeri (ayarlandıysa), yanıt gövdesinin boyutuyla aynı olmalıdır.
+* <xref:Microsoft.AspNetCore.Http.Features.IHttpSendFileFeature> kullanılmıyor.
+* Yanıt, `Expires` üst bilgisi ve `max-age` ve `s-maxage` önbellek yönergeleri tarafından belirtilen eski olmamalıdır.
+* Yanıt arabelleğe alma başarılı olmalıdır. Yanıtın boyutu yapılandırılmış veya varsayılan <xref:Microsoft.AspNetCore.ResponseCaching.ResponseCachingOptions.SizeLimit>daha küçük olmalıdır. Yanıtın gövde boyutu yapılandırılmış veya varsayılan <xref:Microsoft.AspNetCore.ResponseCaching.ResponseCachingOptions.MaximumBodySize>küçük olmalıdır.
+* Yanıt, [RFC 7234](https://tools.ietf.org/html/rfc7234) belirtimlerine göre önbelleklenebilir olmalıdır. Örneğin, istek veya yanıt üst bilgisi alanlarında `no-store` yönergesi bulunmamalıdır. Ayrıntılar için bkz. 3. Bölüm: [RFC 7234](https://tools.ietf.org/html/rfc7234) *önbelleklerinde yanıtları depolama* .
 
 > [!NOTE]
-> Siteler arası istek sahteciliği (CSRF) saldırılarını önlemeye yönelik güvenli belirteçler oluşturmaya yönelik antiforgery sistemi, `Cache-Control` yanıtların önbelleğe alınmaması için ve `Pragma` üst `no-cache` bilgilerini olarak ayarlar. HTML form öğeleri için antiforgery belirteçlerini devre dışı bırakma hakkında daha fazla bilgi için <xref:security/anti-request-forgery#aspnet-core-antiforgery-configuration>bkz.
+> Siteler arası Istek sahteciliği (CSRF) saldırılarını önlemeye yönelik güvenli belirteçler oluşturmaya yönelik Antiforgery sistemi, `Cache-Control` ve `Pragma` üst bilgilerini `no-cache` olarak ayarlar ve böylece yanıtlar önbelleğe alınmaz. HTML form öğeleri için antiforgery belirteçlerini devre dışı bırakma hakkında daha fazla bilgi için bkz. <xref:security/anti-request-forgery#aspnet-core-antiforgery-configuration>.
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
