@@ -5,14 +5,14 @@ description: Blazor WebAssembly ve Blazor Server barındırma modellerini anlay�
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/15/2019
+ms.date: 11/03/2019
 uid: blazor/hosting-models
-ms.openlocfilehash: be67c129af4f071d10719e0bbf121de761dde9f4
-ms.sourcegitcommit: 16cf016035f0c9acf3ff0ad874c56f82e013d415
+ms.openlocfilehash: d1b9e6ab7ba93c00a569be309f2334df9e3f4140
+ms.sourcegitcommit: e5d4768aaf85703effb4557a520d681af8284e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73033986"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73616584"
 ---
 # <a name="aspnet-core-blazor-hosting-models"></a>Blazor barındırma modellerini ASP.NET Core
 
@@ -146,6 +146,22 @@ Blazor Server uygulamaları, sunucusuna etkin bir SignalR bağlantısı gerektir
 
 Blazor sunucu uygulamaları, sunucu bağlantısı oluşturulmadan önce sunucudaki kullanıcı arabirimini varsayılan olarak PreRender 'a ayarlar. Bu, *_Host. cshtml* Razor sayfasında ayarlanır:
 
+::: moniker range=">= aspnetcore-3.1"
+
+```cshtml
+<body>
+    <app>
+      <component type="typeof(App)" render-mode="ServerPrerendered" />
+    </app>
+
+    <script src="_framework/blazor.server.js"></script>
+</body>
+```
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.1"
+
 ```cshtml
 <body>
     <app>@(await Html.RenderComponentAsync<App>(RenderMode.ServerPrerendered))</app>
@@ -154,10 +170,24 @@ Blazor sunucu uygulamaları, sunucu bağlantısı oluşturulmadan önce sunucuda
 </body>
 ```
 
+::: moniker-end
+
 `RenderMode` bileşenin şunları yapıp kullanmadığını yapılandırır:
 
 * , Sayfaya ön gönderilir.
 * , Sayfada statik HTML olarak veya Kullanıcı aracısından bir Blazor uygulamasını önyüklemek için gerekli bilgileri içeriyorsa.
+
+::: moniker range=">= aspnetcore-3.1"
+
+| `RenderMode`        | Açıklama |
+| ------------------- | ----------- |
+| `ServerPrerendered` | Bileşeni statik HTML olarak işler ve bir Blazor Server uygulaması için işaret içerir. Kullanıcı Aracısı başladığında, bu işaretleyici bir Blazor uygulamasını önyüklemek için kullanılır. |
+| `Server`            | Bir Blazor sunucu uygulaması için işaretleyici işler. Bileşen çıkışı dahil değildir. Kullanıcı Aracısı başladığında, bu işaretleyici bir Blazor uygulamasını önyüklemek için kullanılır. |
+| `Static`            | Bileşeni statik HTML olarak işler. |
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.1"
 
 | `RenderMode`        | Açıklama |
 | ------------------- | ----------- |
@@ -165,9 +195,65 @@ Blazor sunucu uygulamaları, sunucu bağlantısı oluşturulmadan önce sunucuda
 | `Server`            | Bir Blazor sunucu uygulaması için işaretleyici işler. Bileşen çıkışı dahil değildir. Kullanıcı Aracısı başladığında, bu işaretleyici bir Blazor uygulamasını önyüklemek için kullanılır. Parametreler desteklenmiyor. |
 | `Static`            | Bileşeni statik HTML olarak işler. Parametreler destekleniyor. |
 
+::: moniker-end
+
 Statik HTML sayfasından sunucu bileşenleri işleme desteklenmiyor.
 
-İstemci, uygulamayı PreRender 'da kullanılan aynı durum ile sunucuya yeniden bağlanır. Uygulamanın durumu hala bellekte ise, SignalR bağlantısı kurulduktan sonra bileşen durumu tekrar verilmez.
+`RenderMode` `ServerPrerendered`, bileşen başlangıçta sayfanın bir parçası olarak statik olarak işlenir. Tarayıcı sunucuya geri bir bağlantı kurduğunda, bileşen *yeniden*işlenir ve bileşen artık etkileşimli olur. Bileşeni başlatmak için bir [yaşam döngüsü yöntemi](xref:blazor/components#lifecycle-methods) varsa (`OnInitialized{Async}`), yöntemi *iki kez*yürütülür:
+
+* Bileşen statik olarak önceden kullanılırken.
+* Sunucu bağlantısı kurulduktan sonra.
+
+Bu, bileşen son işlendiğinde Kullanıcı arabiriminde görünen verilerde fark edilebilir bir değişikliğe neden olabilir.
+
+Blazor sunucu uygulamasında çift işleme senaryosunu önlemek için:
+
+* Prerendering sırasında durumu önbelleğe almak için kullanılabilecek bir tanımlayıcı geçirin ve uygulamayı yeniden başlattıktan sonra durumu alma.
+* Bileşen durumunu kaydetmek için prerendering sırasında tanımlayıcıyı kullanın.
+* Önbelleğe alınan durumu almak için prerendering öğesinden sonra tanımlayıcıyı kullanın.
+
+Aşağıdaki kod, bir şablon tabanlı Blazor sunucu uygulamasında, Çift işlemeyi engelleyen güncelleştirilmiş bir `WeatherForecastService` gösterir:
+
+```csharp
+public class WeatherForecastService
+{
+    private static readonly string[] Summaries = new[]
+    {
+        "Freezing", "Bracing", "Chilly", "Cool", "Mild",
+        "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
+    };
+    
+    public WeatherForecastService(IMemoryCache memoryCache)
+    {
+        MemoryCache = memoryCache;
+    }
+    
+    public IMemoryCache MemoryCache { get; }
+
+    public Task<WeatherForecast[]> GetForecastAsync(DateTime startDate)
+    {
+        return MemoryCache.GetOrCreateAsync(startDate, async e =>
+        {
+            e.SetOptions(new MemoryCacheEntryOptions
+            {
+                AbsoluteExpirationRelativeToNow = 
+                    TimeSpan.FromSeconds(30)
+            });
+
+            var rng = new Random();
+
+            await Task.Delay(TimeSpan.FromSeconds(10));
+
+            return Enumerable.Range(1, 5).Select(index => new WeatherForecast
+            {
+                Date = startDate.AddDays(index),
+                TemperatureC = rng.Next(-20, 55),
+                Summary = Summaries[rng.Next(Summaries.Length)]
+            }).ToArray();
+        });
+    }
+}
+```
 
 ### <a name="render-stateful-interactive-components-from-razor-pages-and-views"></a>Razor sayfaları ve görünümlerinden durum bilgisi olan etkileşimli bileşenleri işleme
 
@@ -181,15 +267,63 @@ Sayfa veya görünüm şunları işler:
 
 Aşağıdaki Razor sayfası `Counter` bileşeni işler:
 
+::: moniker range=">= aspnetcore-3.1"
+
+```cshtml
+<h1>My Razor Page</h1>
+
+<component type="typeof(Counter)" render-mode="ServerPrerendered" 
+    param-InitialValue="InitialValue" />
+
+@code {
+    [BindProperty(SupportsGet=true)]
+    public int InitialValue { get; set; }
+}
+```
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.1"
+
 ```cshtml
 <h1>My Razor Page</h1>
 
 @(await Html.RenderComponentAsync<Counter>(RenderMode.ServerPrerendered))
+
+@code {
+    [BindProperty(SupportsGet=true)]
+    public int InitialValue { get; set; }
+}
 ```
+
+::: moniker-end
 
 ### <a name="render-noninteractive-components-from-razor-pages-and-views"></a>Razor sayfaları ve görünümlerinden etkileşimsiz bileşenleri işleme
 
 Aşağıdaki Razor sayfasında, `MyComponent` bileşeni, bir form kullanılarak belirtilen bir başlangıç değeri ile statik olarak işlenir:
+
+::: moniker range=">= aspnetcore-3.1"
+
+```cshtml
+<h1>My Razor Page</h1>
+
+<form>
+    <input type="number" asp-for="InitialValue" />
+    <button type="submit">Set initial value</button>
+</form>
+
+<component type="typeof(Counter)" render-mode="Static" 
+    param-InitialValue="InitialValue" />
+
+@code {
+    [BindProperty(SupportsGet=true)]
+    public int InitialValue { get; set; }
+}
+```
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.1"
 
 ```cshtml
 <h1>My Razor Page</h1>
@@ -207,6 +341,8 @@ Aşağıdaki Razor sayfasında, `MyComponent` bileşeni, bir form kullanılarak 
     public int InitialValue { get; set; }
 }
 ```
+
+::: moniker-end
 
 `MyComponent` statik olarak işlendiğinde, bileşen etkileşimli olamaz.
 
