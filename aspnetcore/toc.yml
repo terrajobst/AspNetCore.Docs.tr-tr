@@ -8,7 +8,7 @@
       uid: fundamentals/choose-between-aspnet-and-aspnetcore
     - name: .NET Core ile .NET Framework Karşılaştırması
       href: /dotnet/standard/choosing-core-framework-server?toc=/aspnet/core/toc.json&bc=/aspnet/core/breadcrumb/toc.json
-- name: Kullanmaya başlayın
+- name: Başlarken
   uid: getting-started
 - name: Yenilikler
   items:
@@ -31,7 +31,7 @@
           items:
             - name: Genel Bakış
               uid: tutorials/razor-pages/index
-            - name: Kullanmaya başlayın
+            - name: Başlarken
               uid: tutorials/razor-pages/razor-pages-start
             - name: Model ekleme
               uid: tutorials/razor-pages/model
@@ -52,7 +52,7 @@
           items:
             - name: Genel Bakış
               uid: tutorials/first-mvc-app/index
-            - name: Kullanmaya başlayın
+            - name: Başlarken
               uid: tutorials/first-mvc-app/start-mvc
             - name: Denetleyici ekleme
               uid: tutorials/first-mvc-app/adding-controller
@@ -106,7 +106,7 @@
         - name: Razor Pages ile EF Core
           displayName: tutorial
           items:
-            - name: Kullanmaya başlayın
+            - name: Başlarken
               uid: data/ef-rp/intro
             - name: 'Oluşturma, Okuma, Güncelleştirme ve Silme'
               uid: data/ef-rp/crud
@@ -127,7 +127,7 @@
           items:
             - name: Genel Bakış
               uid: data/ef-mvc/index
-            - name: Kullanmaya başlayın
+            - name: Başlarken
               uid: data/ef-mvc/intro
             - name: 'Oluşturma, Okuma, Güncelleştirme ve Silme'
               uid: data/ef-mvc/crud
@@ -161,7 +161,7 @@
     - name: Web uygulaması güvenliği
       displayName: 'tutorial, identity'
       href: /learn/modules/secure-aspnet-core-identity/
-- name: Temeller
+- name: Temel Konular
   items:
     - name: Genel Bakış
       uid: fundamentals/index
@@ -171,7 +171,7 @@
       uid: fundamentals/dependency-injection
     - name: Ara yazılım
       uid: fundamentals/middleware/index
-    - name: Ana bilgisayar
+    - name: Host
       items:
         - name: Genel Konak
           uid: fundamentals/host/generic-host
@@ -185,7 +185,7 @@
       uid: fundamentals/configuration/options
     - name: 'Ortamlar (geliştirme, hazırlama, üretim)'
       uid: fundamentals/environments
-    - name: Günlüğe Kaydetme
+    - name: Günlüğe kaydetme
       uid: fundamentals/logging/index
     - name: Yönlendirme
       uid: fundamentals/routing
@@ -202,11 +202,11 @@
       items:
         - name: Giriş
           uid: razor-pages/index
-        - name: Eğitmen
+        - name: Öğretici
           items:
             - name: Genel Bakış
               uid: tutorials/razor-pages/index
-            - name: Kullanmaya başlayın
+            - name: Başlarken
               uid: tutorials/razor-pages/razor-pages-start
             - name: Model ekleme
               uid: tutorials/razor-pages/model
@@ -222,7 +222,7 @@
               uid: tutorials/razor-pages/new-field
             - name: Doğrulama ekleme
               uid: tutorials/razor-pages/validation
-        - name: FilTReleri
+        - name: Filtreler
           uid: razor-pages/filter
         - name: Yol ve uygulama kuralları
           uid: razor-pages/razor-pages-conventions
@@ -232,11 +232,11 @@
       items:
         - name: Genel Bakış
           uid: mvc/overview
-        - name: Eğitmen
+        - name: Öğretici
           items:
             - name: Genel Bakış
               uid: tutorials/first-mvc-app/index
-            - name: Kullanmaya başlayın
+            - name: Başlarken
               uid: tutorials/first-mvc-app/start-mvc
             - name: Denetleyici ekleme
               uid: tutorials/first-mvc-app/adding-controller
@@ -276,7 +276,7 @@
           uid: blazor/index
         - name: Desteklenen platformlar
           uid: blazor/supported-platforms
-        - name: Kullanmaya başlayın
+        - name: Başlarken
           uid: blazor/get-started
         - name: Barındırma modelleri
           uid: blazor/hosting-models
@@ -324,7 +324,7 @@
           href: 'https://github.com/aspnet/samples/tree/master/samples/aspnetcore/blazor'
     - name: İstemci tarafı geliştirme
       items:
-        - name: Tek Sayfalı Uygulamalar
+        - name: Tek Sayfa Uygulamaları
           items:
             - name: Angular
               uid: spa/angular
@@ -383,13 +383,13 @@
               href: 'mvc/views/working-with-forms.md#the-form-tag-helper'
             - name: Görüntü
               uid: mvc/views/tag-helpers/builtin-th/image-tag-helper
-            - name: Giriş
+            - name: Girdi
               href: 'mvc/views/working-with-forms.md#the-input-tag-helper'
             - name: Etiketle
               href: 'mvc/views/working-with-forms.md#the-label-tag-helper'
             - name: Kısmi
               uid: mvc/views/tag-helpers/builtin-th/partial-tag-helper
-            - name: Seçim
+            - name: 'Şunu seçin:'
               href: 'mvc/views/working-with-forms.md#the-select-tag-helper'
             - name: Metin Alanı
               href: 'mvc/views/working-with-forms.md#the-textarea-tag-helper'
@@ -405,7 +405,7 @@
           uid: mvc/views/view-compilation
         - name: Uygulama modeli
           uid: mvc/controllers/application-model
-        - name: FilTReleri
+        - name: Filtreler
           uid: mvc/controllers/filters
         - name: Alanlar
           uid: mvc/controllers/areas
@@ -527,7 +527,7 @@
     - name: Kimlik doğrulaması ve yetkilendirme
       uid: signalr/authn-and-authz
       displayName: signalr
-    - name: Güvenlik konuları
+    - name: Güvenlikle ilgili dikkat edilmesi gerekenler
       uid: signalr/security
       displayName: signalr
     - name: MessagePack Hub Protokolü
@@ -563,11 +563,11 @@
       uid: grpc/clientfactory
     - name: Yapılandırma
       uid: grpc/configuration
-    - name: Kimlik doğrulaması ve yetkilendirme
+    - name: Kimlik doğrulama ve yetkilendirme
       uid: grpc/authn-and-authz
     - name: Günlüğe kaydetme ve tanılama
       uid: grpc/diagnostics
-    - name: Güvenlik konuları
+    - name: Güvenlikle ilgili dikkat edilmesi gerekenler
       uid: grpc/security
     - name: dotnet-grpc ile Protobuf başvurularını yönetme
       uid: grpc/dotnet-grpc
@@ -599,7 +599,7 @@
       uid: test/loadtests
     - name: Sorun giderme
       uid: test/troubleshoot
-    - name: Günlüğe Kaydetme
+    - name: Günlüğe kaydetme
       uid: fundamentals/logging/index
     - name: Azure ve IIS sorunlarını giderme
       uid: test/troubleshoot-azure-iis
@@ -611,7 +611,7 @@
       items:
         - name: Razor Pages ile EF Core
           items:
-            - name: Kullanmaya başlayın
+            - name: Başlarken
               uid: data/ef-rp/intro
             - name: 'Oluşturma, Okuma, Güncelleştirme ve Silme'
               uid: data/ef-rp/crud
@@ -631,7 +631,7 @@
           items:
             - name: Genel Bakış
               uid: data/ef-mvc/index
-            - name: Kullanmaya başlayın
+            - name: Başlarken
               uid: data/ef-mvc/intro
             - name: 'Oluşturma, Okuma, Güncelleştirme ve Silme'
               uid: data/ef-mvc/crud
@@ -661,7 +661,7 @@
           href: /azure/visual-studio/vs-storage-aspnet5-getting-started-blobs?toc=/aspnet/core/toc.json&bc=/aspnet/core/breadcrumb/toc.json
         - name: Kuyruk depolama
           href: /azure/visual-studio/vs-storage-aspnet5-getting-started-queues?toc=/aspnet/core/toc.json&bc=/aspnet/core/breadcrumb/toc.json
-        - name: Tablo depolama
+        - name: Table Storage
           href: /azure/visual-studio/vs-storage-aspnet5-getting-started-tables?toc=/aspnet/core/toc.json&bc=/aspnet/core/breadcrumb/toc.json
 - name: Barındırma ve dağıtma
   displayName: publish
@@ -811,7 +811,7 @@
   items:
     - name: Genel Bakış
       uid: security/index
-    - name: Kimlik doğrulaması
+    - name: Kimlik Doğrulaması
       items:
         - name: Kimliğe giriş
           uid: security/authentication/identity
@@ -990,7 +990,7 @@
         - name: Azure Key Vault Yapılandırma Sağlayıcısı
           displayName: 'password, connection string, API key, secrets'
           uid: security/key-vault-configuration
-    - name: HTTPS'yi zorunlu tutma
+    - name: HTTPS zorlama
       uid: security/enforcing-ssl
     - name: HTTPS ile Docker’ı barındırma
       uid: security/docker-https
@@ -1020,6 +1020,8 @@
   items:
     - name: Genel Bakış
       uid: performance/performance-best-practices
+    - name: Bellek ve GC
+      uid: performance/memory
     - name: Yanıtları Önbelleğe Alma
       items:
         - name: Genel Bakış
