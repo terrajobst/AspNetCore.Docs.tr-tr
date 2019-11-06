@@ -5,14 +5,14 @@ description: ASP.NET Core uygulamasını yapılandırmak için yapılandırma AP
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/29/2019
+ms.date: 11/04/2019
 uid: fundamentals/configuration/index
-ms.openlocfilehash: c63609cfb91a1668b8e125c54fcfecf5f4ec259b
-ms.sourcegitcommit: de0fc77487a4d342bcc30965ec5c142d10d22c03
+ms.openlocfilehash: 9f0ad2791e504a0ff46daad07054b6bf909a546a
+ms.sourcegitcommit: 897d4abff58505dae86b2947c5fe3d1b80d927f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73143354"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73634084"
 ---
 # <a name="configuration-in-aspnet-core"></a>ASP.NET Core yapılandırma
 
@@ -1189,7 +1189,7 @@ Yapılandırılan değerleri depolamak ve erişmek için bir `EFConfigurationCon
 
 [!code-csharp[](index/samples/3.x/ConfigurationSample/EFConfigurationProvider/EFConfigurationSource.cs?name=snippet1)]
 
-<xref:Microsoft.Extensions.Configuration.ConfigurationProvider>devralan özel yapılandırma sağlayıcısını oluşturun. Yapılandırma sağlayıcısı boş olduğunda veritabanını başlatır.
+<xref:Microsoft.Extensions.Configuration.ConfigurationProvider>devralan özel yapılandırma sağlayıcısını oluşturun. Yapılandırma sağlayıcısı boş olduğunda veritabanını başlatır. [Yapılandırma anahtarları büyük/küçük harfe duyarsız](#keys)olduğundan, veritabanını başlatmak için kullanılan sözlük, büyük/küçük harf duyarsız karşılaştırıcı ([StringComparer. OrdinalIgnoreCase](xref:System.StringComparer.OrdinalIgnoreCase)) ile oluşturulur.
 
 *Efconfigurationprovider/efconfigurationprovider. cs*:
 

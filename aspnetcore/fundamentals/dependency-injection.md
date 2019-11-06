@@ -5,14 +5,14 @@ description: ASP.NET Core bağımlılık ekleme ve nasıl kullanılacağı hakk�
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/12/2019
+ms.date: 11/05/2019
 uid: fundamentals/dependency-injection
-ms.openlocfilehash: b07ed6d1c23454c95778a5942de615684b70bc36
-ms.sourcegitcommit: a166291c6708f5949c417874108332856b53b6a9
+ms.openlocfilehash: c46e7322e86c2836a15bd0720995a8634bb185be
+ms.sourcegitcommit: 897d4abff58505dae86b2947c5fe3d1b80d927f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72589897"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73634017"
 ---
 # <a name="dependency-injection-in-aspnet-core"></a>ASP.NET Core bağımlılık ekleme
 
@@ -45,7 +45,7 @@ public class MyDependency
 }
 ```
 
-@No__t_1 yöntemini bir sınıf için kullanılabilir hale getirmek için `MyDependency` sınıfının bir örneği oluşturulabilir. @No__t_0 sınıfı, `IndexModel` sınıfının bir bağımlılığı olur:
+`WriteMessage` yöntemini bir sınıf için kullanılabilir hale getirmek için `MyDependency` sınıfının bir örneği oluşturulabilir. `MyDependency` sınıfı, `IndexModel` sınıfının bir bağımlılığı olur:
 
 ```csharp
 public class IndexModel : PageModel
@@ -62,8 +62,8 @@ public class IndexModel : PageModel
 
 Sınıf oluşturur ve doğrudan `MyDependency` örneğine bağlıdır. Kod bağımlılıkları (önceki örnekte olduğu gibi) sorunlu olur ve aşağıdaki nedenlerden dolayı kaçınılması gerekir:
 
-* @No__t_0 farklı bir uygulamayla değiştirmek için, sınıfın değiştirilmesi gerekir.
-* @No__t_0 bağımlılıklar içeriyorsa, sınıfı tarafından yapılandırılması gerekir. @No__t_0 bağlı olarak, birden çok sınıfa sahip büyük bir projede yapılandırma kodu uygulama genelinde dağılmış hale gelir.
+* `MyDependency` farklı bir uygulamayla değiştirmek için, sınıfın değiştirilmesi gerekir.
+* `MyDependency` bağımlılıklar içeriyorsa, sınıfı tarafından yapılandırılması gerekir. `MyDependency`bağlı olarak, birden çok sınıfa sahip büyük bir projede yapılandırma kodu uygulama genelinde dağılmış hale gelir.
 * Bu uygulamanın birim testi zordur. Uygulama, bu yaklaşımla mümkün olmayan bir sahte veya saplama `MyDependency` sınıfı kullanmalıdır.
 
 Bağımlılık ekleme bu sorunları şu şekilde giderir:
@@ -180,7 +180,7 @@ Daha fazla bilgi için bkz. <xref:fundamentals/startup>.
 
 ## <a name="framework-provided-services"></a>Framework tarafından sunulan hizmetler
 
-@No__t_0 yöntemi, uygulamanın kullandığı hizmetlerin (Entity Framework Core ve ASP.NET Core MVC gibi platform özellikleri de dahil) tanımlanmasından sorumludur. Başlangıçta, `ConfigureServices` için belirtilen `IServiceCollection` [konağın nasıl yapılandırıldığına](xref:fundamentals/index#host)bağlı olarak Framework tarafından tanımlanan hizmetlere sahiptir. Çerçeve tarafından kaydedilmiş yüzlerce hizmete sahip olmak ASP.NET Core şablona dayalı bir uygulama için sık görülen bir durumdur. Aşağıdaki tabloda çerçeve kayıtlı hizmetlerden oluşan küçük bir örnek listelenmiştir.
+`Startup.ConfigureServices` yöntemi, uygulamanın kullandığı hizmetlerin (Entity Framework Core ve ASP.NET Core MVC gibi platform özellikleri de dahil) tanımlanmasından sorumludur. Başlangıçta, `ConfigureServices` için belirtilen `IServiceCollection` [konağın nasıl yapılandırıldığına](xref:fundamentals/index#host)bağlı olarak Framework tarafından tanımlanan hizmetlere sahiptir. Çerçeve tarafından kaydedilmiş yüzlerce hizmete sahip olmak ASP.NET Core şablona dayalı bir uygulama için sık görülen bir durumdur. Aşağıdaki tabloda çerçeve kayıtlı hizmetlerden oluşan küçük bir örnek listelenmiştir.
 
 ::: moniker range=">= aspnetcore-3.0"
 
@@ -284,7 +284,7 @@ Tür çıkarma hakkında daha fazla bilgi için [Hizmetler 'In aktiften çıkar�
 
 `TryAdd{LIFETIME}` Yöntemler, zaten kayıtlı bir uygulama yoksa hizmeti kaydeder.
 
-Aşağıdaki örnekte, ilk satır `IMyDependency` için `MyDependency` kaydettirir. @No__t_0 zaten kayıtlı bir uygulamaya sahip olduğundan ikinci satır etkisizdir:
+Aşağıdaki örnekte, ilk satır `IMyDependency` için `MyDependency` kaydettirir. `IMyDependency` zaten kayıtlı bir uygulamaya sahip olduğundan ikinci satır etkisizdir:
 
 ```csharp
 services.AddSingleton<IMyDependency, MyDependency>();
@@ -301,7 +301,7 @@ Daha fazla bilgi için bkz.:
 
 [TryAddEnumerable (ServiceDescriptor)](xref:Microsoft.Extensions.DependencyInjection.Extensions.ServiceCollectionDescriptorExtensions.TryAddEnumerable*) yöntemleri yalnızca *aynı türde*bir uygulama yoksa hizmeti kaydeder. Birden çok hizmet `IEnumerable<{SERVICE}>` ile çözümlenir. Hizmetleri kaydederken, geliştirici yalnızca aynı türden biri zaten eklenmediyse bir örnek eklemek istemektedir. Genellikle, bu yöntem, kapsayıcıda bir örneğin iki kopyasını kaydetmemek için kitaplık yazarları tarafından kullanılır.
 
-Aşağıdaki örnekte, ilk satır `IMyDep1` için `MyDep` kaydettirir. İkinci satır, `IMyDep2` için `MyDep` kaydeder. @No__t_0 `MyDep` kayıtlı bir uygulamasına zaten sahip olduğundan, üçüncü satırın etkisi yoktur:
+Aşağıdaki örnekte, ilk satır `IMyDep1` için `MyDep` kaydettirir. İkinci satır, `IMyDep2` için `MyDep` kaydeder. `IMyDep1` `MyDep`kayıtlı bir uygulamasına zaten sahip olduğundan, üçüncü satırın etkisi yoktur:
 
 ```csharp
 public interface IMyDep1 {}
@@ -348,7 +348,7 @@ Entity Framework bağlamlar genellikle, Web uygulaması veritabanı işlemleri n
 
 ::: moniker-end
 
-Arabirimler `Operation` sınıfında uygulanır. @No__t_0 Oluşturucusu bir GUID sağlanmamışsa bir GUID oluşturur:
+Arabirimler `Operation` sınıfında uygulanır. `Operation` Oluşturucusu bir GUID sağlanmamışsa bir GUID oluşturur:
 
 ::: moniker range=">= aspnetcore-3.0"
 
@@ -380,7 +380,7 @@ Diğer `Operation` türlerinin her birine bağlı olan bir `OperationService` ka
 
 ::: moniker-end
 
-@No__t_0, her tür kapsayıcıya, adlandırılmış ömrüne göre eklenir:
+`Startup.ConfigureServices`, her tür kapsayıcıya, adlandırılmış ömrüne göre eklenir:
 
 ::: moniker range=">= aspnetcore-3.0"
 
@@ -394,7 +394,7 @@ Diğer `Operation` türlerinin her birine bağlı olan bir `OperationService` ka
 
 ::: moniker-end
 
-@No__t_0 hizmeti, bilinen bir `Guid.Empty` KIMLIĞIYLE belirli bir örnek kullanıyor. Bu tür kullanımda olduğunda (GUID 'sinin tümü sıfırlardan tamamen) Bu bir şey vardır.
+`IOperationSingletonInstance` hizmeti, bilinen bir `Guid.Empty`KIMLIĞIYLE belirli bir örnek kullanıyor. Bu tür kullanımda olduğunda (GUID 'sinin tümü sıfırlardan tamamen) Bu bir şey vardır.
 
 Örnek uygulama, bireysel istekler içindeki ve içindeki nesne yaşam sürelerini gösterir. Örnek uygulamanın `IndexModel` her tür `IOperation` türü ve `OperationService` ister. Daha sonra sayfa, tüm sayfa modeli sınıfının ve hizmetin `OperationId` değerlerini özellik atamaları aracılığıyla görüntüler:
 
@@ -444,7 +444,7 @@ Kapsam: 31e820c5-4834-4d22-83fc-a60118acb9f4
 Tek: 01271bc1-9e31-48e7-8f7c-7261b040ded9  
 Örnek: 00000000-0000-0000-0000-000000000000
 
-@No__t_0 değerlerinden hangisinin bir istek içinde ve istekler arasında değiştiğini gözlemleyin:
+`OperationId` değerlerinden hangisinin bir istek içinde ve istekler arasında değiştiğini gözlemleyin:
 
 * *Geçici* nesneler her zaman farklıdır. Hem birinci hem de ikinci istemci isteklerinin geçici `OperationId` değeri hem `OperationService` işlemleri hem de istemci istekleri için farklıdır. Her hizmet isteğine ve istemci isteğine yeni bir örnek sağlanır.
 * *Kapsamlı* nesneler istemci isteği içinde aynıdır ancak istemci istekleri arasında farklıdır.
@@ -549,7 +549,7 @@ Uygulama geliştirme ortamında çalışırken, varsayılan hizmet sağlayıcıs
 * Kapsamlı hizmetler doğrudan veya dolaylı olarak kök hizmet sağlayıcısından çözümlenmez.
 * Kapsamlı hizmetler doğrudan veya dolaylı olarak Singleton 'a eklenmiş değildir.
 
-@No__t_0 çağrıldığında kök hizmet sağlayıcısı oluşturulur. Kök hizmet sağlayıcısının ömrü, sağlayıcının uygulamayla başladığı ve uygulama kapandığında bırakıldığı uygulama/sunucunun yaşam süresine karşılık gelir.
+<xref:Microsoft.Extensions.DependencyInjection.ServiceCollectionContainerBuilderExtensions.BuildServiceProvider*> çağrıldığında kök hizmet sağlayıcısı oluşturulur. Kök hizmet sağlayıcısının ömrü, sağlayıcının uygulamayla başladığı ve uygulama kapandığında bırakıldığı uygulama/sunucunun yaşam süresine karşılık gelir.
 
 Kapsamlı hizmetler kendilerini oluşturan kapsayıcı tarafından atılmış. Kök kapsayıcıda kapsamlı bir hizmet oluşturulduysa, hizmetin ömrü etkin şekilde tek başına yükseltilir çünkü yalnızca uygulama/sunucu kapatıldığında kök kapsayıcı tarafından atılmış olur. Hizmet kapsamlarını doğrulamak `BuildServiceProvider` çağrıldığında bu durumları yakalar.
 
@@ -557,21 +557,21 @@ Daha fazla bilgi için bkz. <xref:fundamentals/host/web-host#scope-validation>.
 
 ## <a name="request-services"></a>İstek Hizmetleri
 
-@No__t_0 bir ASP.NET Core isteği içinde kullanılabilen hizmetler, [HttpContext. RequestServices](xref:Microsoft.AspNetCore.Http.HttpContext.RequestServices) koleksiyonu aracılığıyla sunulur.
+`HttpContext` bir ASP.NET Core isteği içinde kullanılabilen hizmetler, [HttpContext. RequestServices](xref:Microsoft.AspNetCore.Http.HttpContext.RequestServices) koleksiyonu aracılığıyla sunulur.
 
 İstek Hizmetleri, uygulamanın bir parçası olarak yapılandırılan ve istenen hizmetleri temsil eder. Nesneler bağımlılıklar belirttiğinizde, bunlar `ApplicationServices` değil `RequestServices` bulunan türler tarafından karşılanır.
 
 Genellikle, uygulamanın bu özellikleri doğrudan kullanmamalıdır. Bunun yerine, sınıfların Sınıf oluşturucuları aracılığıyla gerektirdiği türleri isteyin ve çerçevenin bağımlılıkları eklemesine izin verin. Bu, test etmek daha kolay olan sınıfları oluşturur.
 
 > [!NOTE]
-> @No__t_0 koleksiyonuna erişmek için Oluşturucu parametreleri olarak bağımlılıklar istemeyi tercih edin.
+> `RequestServices` koleksiyonuna erişmek için Oluşturucu parametreleri olarak bağımlılıklar istemeyi tercih edin.
 
 ## <a name="design-services-for-dependency-injection"></a>Bağımlılık ekleme için tasarım hizmetleri
 
 En iyi uygulamalar şunlardır:
 
 * Bağımlılıklarını almak için bağımlılık ekleme 'yi kullanmak üzere Hizmetleri tasarlayın.
-* Durum bilgisi olan statik yöntem çağrılarından kaçının.
+* Durum bilgisi olan statik sınıflar ve Üyeler kullanmaktan kaçının. Genel durum oluşturulmasını önlemek yerine, tek tek Hizmetleri kullanmak için uygulamaları tasarlayın.
 * Hizmetler içindeki bağımlı sınıfların doğrudan örneklenmesini önleyin. Doğrudan örnekleme kodu belirli bir uygulamaya bağar.
 * Uygulama sınıflarını küçük, iyi bir şekilde ve kolayca test edin.
 
@@ -679,7 +679,7 @@ Tek bir hizmetin fabrika yöntemi (örneğin, [AddSingleton \<TService > (IServi
 
 * Önlemek için başka bir hizmet bulucu çeşitlemesi, çalışma zamanında bağımlılıkları çözümleyen bir ekleme. Bu uygulamalardan her ikisi de [Denetim stratejilerini geçersiz kılar](/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#dependency-inversion) .
 
-* @No__t_0 statik erişimden kaçının (örneğin, [ıhttpcontextaccessor. HttpContext](xref:Microsoft.AspNetCore.Http.IHttpContextAccessor.HttpContext)).
+* `HttpContext` statik erişimden kaçının (örneğin, [ıhttpcontextaccessor. HttpContext](xref:Microsoft.AspNetCore.Http.IHttpContextAccessor.HttpContext)).
 
 Tüm öneri kümeleri gibi, bir öneriyi yok saymayı yok saymış durumlarla karşılaşabilirsiniz. Özel durumlar, Framework içindeki özel durumlar &mdash;mostly nadir bir durumdur.
 

@@ -4,14 +4,14 @@ author: blowdart
 description: IIS ve HTTP. sys için ASP.NET Core sertifika kimlik doğrulamasını nasıl yapılandıracağınızı öğrenin.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: bdorrans
-ms.date: 08/19/2019
+ms.date: 11/05/2019
 uid: security/authentication/certauth
-ms.openlocfilehash: 1e646aabb4e384e6906575e7beaa680e91f968a0
-ms.sourcegitcommit: e5d4768aaf85703effb4557a520d681af8284e26
+ms.openlocfilehash: 081935e6e6248b5fe9b7bf4cd966dc73761d2ec1
+ms.sourcegitcommit: 897d4abff58505dae86b2947c5fe3d1b80d927f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73616575"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73634047"
 ---
 # <a name="configure-certificate-authentication-in-aspnet-core"></a>ASP.NET Core sertifika kimlik doğrulamasını yapılandırma
 
@@ -32,7 +32,7 @@ Proxy 'lerin ve yük dengeleyicilerin kullanıldığı ortamlarda sertifika kiml
 
 Bir HTTPS sertifikası alın, uygulayın ve [ana bilgisayarınızı](#configure-your-host-to-require-certificates) sertifika gerektirecek şekilde yapılandırın.
 
-Web uygulamanızda `Microsoft.AspNetCore.Authentication.Certificate` paketine bir başvuru ekleyin. Daha sonra `Startup.ConfigureServices` yönteminde, `services.AddAuthentication(CertificateAuthenticationDefaults.AuthenticationScheme).UseCertificateAuthentication(...);`, isteklerle gönderilen istemci sertifikası üzerinde herhangi bir ek doğrulama yapmak üzere `OnCertificateValidated` için bir temsilci sağlayarak seçeneklerinizi çağırın. Bu bilgileri bir `ClaimsPrincipal` açın ve `context.Principal` özelliğinde ayarlayın.
+Web uygulamanızda `Microsoft.AspNetCore.Authentication.Certificate` paketine bir başvuru ekleyin. Daha sonra `Startup.ConfigureServices` yönteminde, `services.AddAuthentication(CertificateAuthenticationDefaults.AuthenticationScheme).AddCertificate(...);`, isteklerle gönderilen istemci sertifikası üzerinde herhangi bir ek doğrulama yapmak üzere `OnCertificateValidated` için bir temsilci sağlayarak seçeneklerinizi çağırın. Bu bilgileri bir `ClaimsPrincipal` açın ve `context.Principal` özelliğinde ayarlayın.
 
 Kimlik doğrulaması başarısız olursa, bu işleyici, bekleneceğiniz gibi bir `401 (Unauthorized)`yerine `403 (Forbidden)` yanıtı döndürür. Bu durum, kimlik doğrulamanın ilk TLS bağlantısı sırasında gerçekleşme nedendir. İşleyiciye ulaştığında, çok geç olur. Anonim bir bağlantıyla bir sertifikayla bir bağlantıyı yükseltmenin bir yolu yoktur.
 
@@ -186,16 +186,24 @@ Kavramsal olarak, sertifikanın doğrulanması bir yetkilendirme konusudur. `OnC
 *Program.cs*' de, Kestrel ' yi aşağıdaki şekilde yapılandırın:
 
 ```csharp
-public static IWebHost BuildWebHost(string[] args) =>
-    WebHost.CreateDefaultBuilder(args)
-        .UseStartup<Startup>()
-        .ConfigureKestrel(options =>
-        {
-            options.ConfigureHttpsDefaults(opt => 
-                opt.ClientCertificateMode = 
-                    ClientCertificateMode.RequireCertificate);
-        })
-        .Build();
+
+public static void Main(string[] args)
+{
+    CreateHostBuilder(args).Build().Run();
+}
+
+public static IHostBuilder CreateHostBuilder(string[] args)
+{
+    return Host.CreateDefaultBuilder(args)
+               .ConfigureWebHostDefaults(webBuilder =>
+                {
+                    webBuilder.UseStartup<Startup>();
+                    webBuilder.ConfigureKestrel(o =>
+                    {
+                        o.ConfigureHttpsDefaults(o => o.ClientCertificateMode = ClientCertificateMode.RequireCertificate);
+                    });
+                });
+}
 ```
 
 ### <a name="iis"></a>IIS

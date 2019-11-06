@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-3.0'
 ms.author: johluo
 ms.date: 09/25/2019
 uid: grpc/migration
-ms.openlocfilehash: 596eca0f510387a18472eb353672980e0a8e0d24
-ms.sourcegitcommit: eb4fcdeb2f9e8413117624de42841a4997d1d82d
+ms.openlocfilehash: c4c07808540c9af370bfa253e8154a8a19f0f3de
+ms.sourcegitcommit: 897d4abff58505dae86b2947c5fe3d1b80d927f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72697993"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73634062"
 ---
 # <a name="migrating-grpc-services-from-c-core-to-aspnet-core"></a>GRPC hizmetlerini C Core 'dan ASP.NET Core geçirme
 
@@ -80,9 +80,27 @@ public class GreeterService : Greeter.GreeterBase
 
 C-Core tabanlı uygulamalar, [Server. Ports özelliği](https://grpc.io/grpc/csharp/api/Grpc.Core.Server.html#Grpc_Core_Server_Ports)aracılığıyla https 'yi yapılandırır. Benzer bir kavram, ASP.NET Core sunucuları yapılandırmak için kullanılır. Örneğin, Kestrel Bu işlevsellik için [uç nokta yapılandırması](xref:fundamentals/servers/kestrel#endpoint-configuration) kullanır.
 
-## <a name="interceptors-and-middleware"></a>Yakalayıcılar ve ara yazılım
+## <a name="grpc-interceptors-vs-middleware"></a>gRPC yakalayıcılar vs ara yazılımı
 
-ASP.NET Core [Ara yazılım](xref:fundamentals/middleware/index) , C çekirdekli tabanlı GRPC uygulamalarındaki yakalayıcılar ile karşılaştırıldığında benzer işlevler sunar. Bir gRPC isteğini işleyen bir işlem hattı oluşturmak için, ara yazılım ve yakalayıcılar kavramsal olarak aynıdır. Bunlar her ikisi de iş hattındaki bir sonraki bileşenden önce veya sonra çalışmasına izin verir. Ancak ASP.NET Core, ana bilgisayar, temel alınan HTTP/2 iletilerinde çalışır, ancak dinleyici yöneticileri [Servercallcontext](https://grpc.io/grpc/csharp/api/Grpc.Core.ServerCallContext.html)kullanarak GRPC soyutlama katmanı üzerinde çalışır.
+ASP.NET Core [Ara yazılım](xref:fundamentals/middleware/index) , C çekirdekli tabanlı GRPC uygulamalarındaki yakalayıcılar ile karşılaştırıldığında benzer işlevler sunar. ASP.NET Core ara yazılımı ve yakalayıcılar kavramsal olarak benzerdir. İs
+
+* , Bir gRPC isteğini işleyen bir işlem hattı oluşturmak için kullanılır.
+* İşlem hattındaki bir sonraki bileşenden önce veya sonra iş gerçekleştirilmesine izin verin.
+* `HttpContext`erişim sağlayın:
+  * Ara yazılım ' de `HttpContext` bir parametredir.
+  * Yakalayıcılar ' de `HttpContext`, `ServerCallContext.GetHttpContext` uzantısı yöntemiyle `ServerCallContext` parametresi kullanılarak erişilebilir. Bu özelliğin ASP.NET Core ' de çalışan yakalayıcılar için özel olduğunu unutmayın.
+
+gRPC yakalayıcısı ASP.NET Core ara yazılım farklılıkları:
+
+* Kesiciler
+  * [Servercallcontext](https://grpc.io/grpc/csharp/api/Grpc.Core.ServerCallContext.html)kullanarak GRPC soyutlama katmanı üzerinde çalışır.
+  * Erişim sağla:
+    * Seri durumdan çıkarılmış ileti bir çağrıya gönderildi.
+    * Seri hale getirilmeden önce çağrıdan döndürülen ileti.
+* Yazılımlar
+  * GRPC yakalayıcılar öncesinde çalışır.
+  * Temel alınan HTTP/2 iletileri üzerinde çalışır.
+  * Yalnızca istek ve yanıt akışlarından gelen baytlara erişebilir.
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
