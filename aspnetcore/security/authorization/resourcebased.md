@@ -6,12 +6,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 11/15/2018
 uid: security/authorization/resourcebased
-ms.openlocfilehash: 835592521c714e270595e1448ae6e0aed1707b77
-ms.sourcegitcommit: a166291c6708f5949c417874108332856b53b6a9
+ms.openlocfilehash: acc931da1be0940fac72b0aabe07ab17ca7e63bd
+ms.sourcegitcommit: 6628cd23793b66e4ce88788db641a5bbf470c3c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72589998"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73659996"
 ---
 # <a name="resource-based-authorization-in-aspnet-core"></a>ASP.NET Core kaynak tabanlı yetkilendirme
 
@@ -19,7 +19,17 @@ Yetkilendirme stratejisi erişilmekte olan kaynağa bağlıdır. Yazar özelliğ
 
 Öznitelik değerlendirmesi, veri bağlamadan önce ve belgeyi yükleyen sayfa işleyicisinin veya eylemin yürütmeden önce oluşur. Bu nedenlerden dolayı, bir `[Authorize]` özniteliği ile bildirime dayalı yetkilendirme yok olacaktır. Bunun yerine, zorunlu *Yetkilendirme*olarak bilinen &mdash;a stili özel bir yetkilendirme yöntemi çağırabilirsiniz.
 
-[Örnek kodu görüntüleyin veya indirin](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/authorization/resourcebased/samples) ([nasıl indirilir](xref:index#how-to-download-a-sample)).
+::: moniker range=">= aspnetcore-3.0"
+[Örnek kodu görüntüleyin veya indirin](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/authorization/resourcebased/samples/3_0) ([nasıl indirilir](xref:index#how-to-download-a-sample)).
+::: moniker-end
+
+ ::: moniker range=">= aspnetcore-2.0 < aspnetcore-3.0"
+[Örnek kodu görüntüleyin veya indirin](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/authorization/resourcebased/samples/2_2) ([nasıl indirilir](xref:index#how-to-download-a-sample)).
+::: moniker-end
+
+::: moniker range="<= aspnetcore-1.1"
+[Örnek kodu görüntüleyin veya indirin](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/authorization/resourcebased/samples/1_1) ([nasıl indirilir](xref:index#how-to-download-a-sample)).
+::: moniker-end
 
 [Yetkilendirme ile korunan kullanıcı verileriyle ASP.NET Core uygulama oluşturma](xref:security/authorization/secure-data) kaynak tabanlı yetkilendirme kullanan bir örnek uygulama içerir.
 
@@ -27,7 +37,7 @@ Yetkilendirme stratejisi erişilmekte olan kaynağa bağlıdır. Yazar özelliğ
 
 Yetkilendirme bir [IAuthorizationService](/dotnet/api/microsoft.aspnetcore.authorization.iauthorizationservice) hizmeti olarak uygulanır ve `Startup` sınıfı içindeki hizmet koleksiyonuna kaydedilir. Hizmet, sayfa işleyicilere veya eylemlere [bağımlılık ekleme](xref:fundamentals/dependency-injection) yoluyla kullanılabilir hale getirilir.
 
-[!code-csharp[](resourcebased/samples/ResourceBasedAuthApp2/Controllers/DocumentController.cs?name=snippet_IAuthServiceDI&highlight=6)]
+[!code-csharp[](resourcebased/samples/3_0/ResourceBasedAuthApp2/Controllers/DocumentController.cs?name=snippet_IAuthServiceDI&highlight=6)]
 
 `IAuthorizationService` iki `AuthorizeAsync` yöntemi aşırı yüklemesi vardır: kaynağın ve ilke adının yanı sıra kaynağı kabul eden diğeri, değerlendirmek için gereksinimlerin bir listesi.
 
@@ -66,13 +76,13 @@ Aşağıdaki örnekte, güvenli hale getirilme kaynağı özel bir `Document` ne
 
 ::: moniker range=">= aspnetcore-2.0"
 
-[!code-csharp[](resourcebased/samples/ResourceBasedAuthApp2/Pages/Document/Edit.cshtml.cs?name=snippet_DocumentEditHandler)]
+[!code-csharp[](resourcebased/samples/3_0/ResourceBasedAuthApp2/Pages/Document/Edit.cshtml.cs?name=snippet_DocumentEditHandler)]
 
 ::: moniker-end
 
 ::: moniker range="<= aspnetcore-1.1"
 
-[!code-csharp[](resourcebased/samples/ResourceBasedAuthApp1/Controllers/DocumentController.cs?name=snippet_DocumentEditAction)]
+[!code-csharp[](resourcebased/samples/1_1/ResourceBasedAuthApp1/Controllers/DocumentController.cs?name=snippet_DocumentEditAction)]
 
 ::: moniker-end
 
@@ -84,39 +94,48 @@ Handler sınıfı hem gereksinim hem de kaynak türünü belirtir. Örneğin, bi
 
 ::: moniker range=">= aspnetcore-2.0"
 
-[!code-csharp[](resourcebased/samples/ResourceBasedAuthApp2/Services/DocumentAuthorizationHandler.cs?name=snippet_HandlerAndRequirement)]
+[!code-csharp[](resourcebased/samples/3_0/ResourceBasedAuthApp2/Services/DocumentAuthorizationHandler.cs?name=snippet_HandlerAndRequirement)]
 
 ::: moniker-end
 
 ::: moniker range="<= aspnetcore-1.1"
 
-[!code-csharp[](resourcebased/samples/ResourceBasedAuthApp1/Services/DocumentAuthorizationHandler.cs?name=snippet_HandlerAndRequirement)]
+[!code-csharp[](resourcebased/samples/1_1/ResourceBasedAuthApp1/Services/DocumentAuthorizationHandler.cs?name=snippet_HandlerAndRequirement)]
 
 ::: moniker-end
 
-Yukarıdaki örnekte, `SameAuthorRequirement` daha genel `SpecificAuthorRequirement` sınıfının özel bir durumu olduğunu düşünün. @No__t_0 sınıfı (gösterilmez) yazarın adını temsil eden bir `Name` özelliği içerir. @No__t_0 özelliği geçerli kullanıcıya ayarlanabilir.
+Yukarıdaki örnekte, `SameAuthorRequirement` daha genel `SpecificAuthorRequirement` sınıfının özel bir durumu olduğunu düşünün. `SpecificAuthorRequirement` sınıfı (gösterilmez) yazarın adını temsil eden bir `Name` özelliği içerir. `Name` özelliği geçerli kullanıcıya ayarlanabilir.
 
 Gereksinimi ve işleyiciyi `Startup.ConfigureServices` Kaydet:
 
-[!code-csharp[](resourcebased/samples/ResourceBasedAuthApp2/Startup.cs?name=snippet_ConfigureServicesSample&highlight=3-7,9)]
+::: moniker range=">= aspnetcore-3.0"
+[!code-csharp[](resourcebased/samples/3_0/ResourceBasedAuthApp2/Startup.cs?name=snippet_ConfigureServicesSample&highlight=4-8,10)]
+::: moniker-end
+
+ ::: moniker range=">= aspnetcore-2.0 < aspnetcore-3.0"
+[!code-csharp[](resourcebased/samples/2_2/ResourceBasedAuthApp2/Startup.cs?name=snippet_ConfigureServicesSample&highlight=3-7,9)]
+::: moniker-end
+
+::: moniker range="<= aspnetcore-1.1"
+[!code-csharp[](resourcebased/samples/1_1/ResourceBasedAuthApp1/Startup.cs?name=snippet_ConfigureServicesSample&highlight=3-7,9)]
+::: moniker-end
 
 ### <a name="operational-requirements"></a>İşletimsel gereksinimler
 
 CRUD (oluşturma, okuma, güncelleştirme, silme) işlemlerinin sonuçlarını temel alan kararlar verirken [Operationauthorizationrequirement](/dotnet/api/microsoft.aspnetcore.authorization.infrastructure.operationauthorizationrequirement) yardımcı sınıfını kullanın. Bu sınıf her işlem türü için tek bir sınıf yerine tek bir işleyici yazmanızı sağlar. Kullanmak için, bazı işlem adlarını sağlayın:
 
-[!code-csharp[](resourcebased/samples/ResourceBasedAuthApp2/Services/DocumentAuthorizationCrudHandler.cs?name=snippet_OperationsClass)]
+[!code-csharp[](resourcebased/samples/3_0/ResourceBasedAuthApp2/Services/DocumentAuthorizationCrudHandler.cs?name=snippet_OperationsClass)]
 
 İşleyici, bir `OperationAuthorizationRequirement` gereksinimi ve `Document` kaynağı kullanılarak aşağıdaki gibi uygulanır:
 
-::: moniker range=">= aspnetcore-2.0"
-
-[!code-csharp[](resourcebased/samples/ResourceBasedAuthApp2/Services/DocumentAuthorizationCrudHandler.cs?name=snippet_Handler)]
+ ::: moniker range=">= aspnetcore-2.0"
+[!code-csharp[](resourcebased/samples/3_0/ResourceBasedAuthApp2/Services/DocumentAuthorizationCrudHandler.cs?name=snippet_Handler)]
 
 ::: moniker-end
 
 ::: moniker range="<= aspnetcore-1.1"
 
-[!code-csharp[](resourcebased/samples/ResourceBasedAuthApp1/Services/DocumentAuthorizationCrudHandler.cs?name=snippet_Handler)]
+[!code-csharp[](resourcebased/samples/1_1/ResourceBasedAuthApp1/Services/DocumentAuthorizationCrudHandler.cs?name=snippet_Handler)]
 
 ::: moniker-end
 
@@ -133,7 +152,7 @@ Bu bölümde, Challenge ve fordeklarasyon eylem sonuçlarının nasıl işlendi�
 
 ::: moniker range=">= aspnetcore-2.0"
 
-[!code-csharp[](resourcebased/samples/ResourceBasedAuthApp2/Pages/Document/View.cshtml.cs?name=snippet_DocumentViewHandler&highlight=10-11)]
+[!code-csharp[](resourcebased/samples/3_0/ResourceBasedAuthApp2/Pages/Document/View.cshtml.cs?name=snippet_DocumentViewHandler&highlight=10-11)]
 
 Yetkilendirme başarılı olursa belgeyi görüntüleme sayfası döndürülür. Yetkilendirme başarısız olursa, ancak kullanıcının kimliği doğrulanırsa, `ForbidResult` döndürülüyor, yetkilendirme başarısız olan tüm kimlik doğrulama ara yazılımını bilgilendirir. Kimlik doğrulaması gerçekleştirilmesi gerektiğinde bir `ChallengeResult` döndürülür. Etkileşimli tarayıcı istemcileri için, kullanıcıyı bir oturum açma sayfasına yönlendirmek uygun olabilir.
 
@@ -141,7 +160,7 @@ Yetkilendirme başarılı olursa belgeyi görüntüleme sayfası döndürülür.
 
 ::: moniker range="<= aspnetcore-1.1"
 
-[!code-csharp[](resourcebased/samples/ResourceBasedAuthApp1/Controllers/DocumentController.cs?name=snippet_DocumentViewAction&highlight=11-12)]
+[!code-csharp[](resourcebased/samples/1_1/ResourceBasedAuthApp1/Controllers/DocumentController.cs?name=snippet_DocumentViewAction&highlight=11-12)]
 
 Yetkilendirme başarılı olursa belge görünümü döndürülür. Yetkilendirme başarısız olursa, döndüren `ChallengeResult` kimlik doğrulama ara yazılımı yetkilendirme başarısız olur ve ara yazılım uygun yanıtı alabilir. Uygun bir yanıt 401 veya 403 durum kodu döndürüyor olabilir. Etkileşimli tarayıcı istemcileri için kullanıcıyı bir oturum açma sayfasına yeniden yönlendirmek anlamına gelebilir.
 

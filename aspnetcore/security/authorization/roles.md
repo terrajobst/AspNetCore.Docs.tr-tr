@@ -1,28 +1,28 @@
 ---
-title: ASP.NET core'da rol tabanlı yetkilendirme
+title: ASP.NET Core rol tabanlı yetkilendirme
 author: rick-anderson
-description: Authorize özniteliği için rolleri geçirerek ASP.NET Core denetleyici ve eylem erişimi kısıtlama hakkında bilgi edinin.
+description: Rolleri Yetkilendir özniteliğine geçirerek ASP.NET Core denetleyicisi ve eylem erişimini nasıl kısıtlayacağınızı öğrenin.
 ms.author: riande
 ms.date: 10/14/2016
 uid: security/authorization/roles
-ms.openlocfilehash: 0e01e1976e2721ca64720a67c6341661f646395c
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 28aa3df6aa661d0b762df78fe611cd827af43f75
+ms.sourcegitcommit: 6628cd23793b66e4ce88788db641a5bbf470c3c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64900335"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73660049"
 ---
-# <a name="role-based-authorization-in-aspnet-core"></a>ASP.NET core'da rol tabanlı yetkilendirme
+# <a name="role-based-authorization-in-aspnet-core"></a>ASP.NET Core rol tabanlı yetkilendirme
 
 <a name="security-authorization-role-based"></a>
 
-Bir kimlik oluşturulduğunda bir veya daha fazla role ait olabilir. Örneğin, Scott yalnızca kullanıcı rolünde yer artırabileceksiniz Tracy yönetici ve kullanıcı rollerine ait olabilir. Bu roller nasıl oluşturulduğunu ve yönetilen yedekleme deposu Yetkilendirme işlemi bağlıdır. Rolleri geliştiricilere sunulur [IPrincipal](/dotnet/api/system.security.principal.genericprincipal.isinrole) metodunda [ClaimsPrincipal](/dotnet/api/system.security.claims.claimsprincipal) sınıfı.
+Bir kimlik oluşturulduğunda, bir veya daha fazla role ait olabilir. Örneğin, Tracy yönetici 'ye ait olabilir ve IHOST Scott yalnızca kullanıcı rolüne ait olabilir. Bu rollerin oluşturulması ve yönetilmesi, yetkilendirme işleminin yedekleme deposuna bağlıdır. Roller, [ClaimsPrincipal](/dotnet/api/system.security.claims.claimsprincipal) sınıfındaki [ıınrole](/dotnet/api/system.security.principal.genericprincipal.isinrole) yöntemi aracılığıyla geliştiriciye sunulur.
 
 ## <a name="adding-role-checks"></a>Rol denetimleri ekleme
 
-Rol tabanlı yetkilendirme denetimleri, bildirim temelli&mdash;Geliştirici bunları kendi kodundaki bir denetleyici veya eylem bir denetleyici içinde karşı geçerli kullanıcının istenen kaynağa erişim için bir üyesi olması gereken roller belirtme katıştırır.
+Rol tabanlı yetkilendirme denetimleri bildirime dayalı&mdash;geliştirici, bu dosyaları bir denetleyiciye veya denetleyici içindeki bir eyleme karşı, geçerli kullanıcının istenen kaynağa erişmek için üyesi olması gereken rolleri belirterek kod içinde katıştırır.
 
-Örneğin, aşağıdaki kod üzerinde herhangi bir eylem erişimi sınırlar `AdministrationController` kullanıcılara üyesi olan `Administrator` rolü:
+Örneğin, aşağıdaki kod, `Administrator` rolünün bir üyesi olan kullanıcılar için `AdministrationController` tüm eylemlere erişimi kısıtlar:
 
 ```csharp
 [Authorize(Roles = "Administrator")]
@@ -31,7 +31,7 @@ public class AdministrationController : Controller
 }
 ```
 
-Birden çok rol virgülle ayrılmış bir liste belirtebilirsiniz:
+Birden çok rolü, virgülle ayrılmış bir liste olarak belirtebilirsiniz:
 
 ```csharp
 [Authorize(Roles = "HRManager,Finance")]
@@ -40,9 +40,9 @@ public class SalaryController : Controller
 }
 ```
 
-Bu denetleyici yalnızca üyeleri olan kullanıcılar tarafından erişilebilir olur, `HRManager` rol veya `Finance` rol.
+Bu denetleyiciye yalnızca `HRManager` rolü veya `Finance` rolü üyesi olan kullanıcılar erişebilir.
 
-Birden çok öznitelik uygularsanız erişen bir kullanıcı belirtilen tüm rollerin bir üyesi olması gerekir; Aşağıdaki örnek bir kullanıcı hem de bir üyesi olmasını gerektirir `PowerUser` ve `ControlPanelUser` rol.
+Birden çok öznitelik uygularsanız, bir erişen kullanıcının belirtilen tüm rollerin üyesi olması gerekir; Aşağıdaki örnek, bir kullanıcının `PowerUser` ve `ControlPanelUser` rolünün bir üyesi olması gerekir.
 
 ```csharp
 [Authorize(Roles = "PowerUser")]
@@ -52,7 +52,7 @@ public class ControlPanelController : Controller
 }
 ```
 
-Daha fazla eylem düzeyinde ek rol yetkilendirme öznitelikleri uygulayarak erişimi kısıtlayabilirsiniz:
+İşlem düzeyinde ek rol yetkilendirme öznitelikleri uygulayarak erişimi daha da sınırlayabilirsiniz:
 
 ```csharp
 [Authorize(Roles = "Administrator, PowerUser")]
@@ -69,9 +69,9 @@ public class ControlPanelController : Controller
 }
 ```
 
-Önceki kod parçacığı üyelerinde `Administrator` rol veya `PowerUser` denetleyici rolü erişebilir ve `SetTime` eylem, ancak yalnızca üyelerinin `Administrator` rol erişebilir `ShutDown` eylem.
+`Administrator` rolün önceki kod parçacığı üyeleri veya `PowerUser` rolü denetleyiciye ve `SetTime` eylemine erişebilir, ancak yalnızca `Administrator` rolünün üyeleri `ShutDown` eylemine erişebilir.
 
-Bir denetleyiciyi kilitleme ancak ayrı Eylemler anonim, kimliği doğrulanmamış erişime izin vermek.
+Ayrıca, bir denetleyiciyi kilitleyebilir, ancak tek tek eylemlere anonim, kimliği doğrulanmamış erişime izin verebilirsiniz.
 
 ```csharp
 [Authorize]
@@ -90,10 +90,10 @@ public class ControlPanelController : Controller
 
 ::: moniker range=">= aspnetcore-2.0"
 
-Razor sayfaları için `AuthorizeAttribute` ya da uygulanabilir:
+Razor Pages için `AuthorizeAttribute` şu şekilde uygulanabilir:
 
-* Kullanarak bir [kuralı](xref:razor-pages/razor-pages-conventions#page-model-action-conventions), veya
-* Uygulama `AuthorizeAttribute` için `PageModel` örneği:
+* Bir [kural](xref:razor-pages/razor-pages-conventions#page-model-action-conventions)kullanma veya
+* `AuthorizeAttribute` `PageModel` örneğine uygulanıyor:
 
 ```csharp
 [Authorize(Policy = "RequireAdministratorRole")]
@@ -106,15 +106,32 @@ public class UpdateModel : PageModel
 ```
 
 > [!IMPORTANT]
-> Özniteliklerini dahil olmak üzere, filtre `AuthorizeAttribute`Pagemodel'a yalnızca uygulanabilir ve belirli bir sayfaya işleyici yöntemleri için uygulanamaz.
+> `AuthorizeAttribute`dahil filtre öznitelikleri yalnızca PageModel 'e uygulanabilir ve belirli sayfa işleyicisi yöntemlerine uygulanamaz.
 ::: moniker-end
 
 <a name="security-authorization-role-policy"></a>
 
 ## <a name="policy-based-role-checks"></a>İlke tabanlı rol denetimleri
 
-Rol gereksinimlerini de Geliştirici başlatma sırasında bir ilke yetkilendirme hizmet yapılandırmasının bir parçası olarak kaydettiği yeni ilke söz dizimi kullanılarak belirtilebilir. Bu normalde oluşuyor `ConfigureServices()` içinde *Startup.cs* dosya.
+Rol gereksinimleri, bir geliştiricinin bir ilkeyi yetkilendirme hizmeti yapılandırmasının bir parçası olarak bir ilke kaydettiğinde yeni Ilke sözdizimi kullanılarak da ifade edilebilir. Bu, normal olarak *Startup.cs* dosyanızdaki `ConfigureServices()` oluşur.
 
+::: moniker range=">= aspnetcore-3.0"
+```csharp
+public void ConfigureServices(IServiceCollection services)
+{
+    services.AddControllersWithViews();
+    services.AddRazorPages();
+
+    services.AddAuthorization(options =>
+    {
+        options.AddPolicy("RequireAdministratorRole",
+             policy => policy.RequireRole("Administrator"));
+    });
+}
+```
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
 ```csharp
 public void ConfigureServices(IServiceCollection services)
 {
@@ -127,8 +144,9 @@ public void ConfigureServices(IServiceCollection services)
     });
 }
 ```
+::: moniker-end
 
-İlkeleri kullanarak uygulanır `Policy` özelliği `AuthorizeAttribute` özniteliği:
+İlkeler, `AuthorizeAttribute` özniteliğinde `Policy` özelliği kullanılarak uygulanır:
 
 ```csharp
 [Authorize(Policy = "RequireAdministratorRole")]
@@ -138,17 +156,24 @@ public IActionResult Shutdown()
 }
 ```
 
-Birden çok izin verilen rol için bir gereksinim olarak belirtmek istediğiniz sonra parametreleri olarak belirtebilirsiniz `RequireRole` yöntemi:
+Bir gereksinimde birden fazla izin verilen rol belirtmek istiyorsanız, bunları `RequireRole` yöntemine parametre olarak belirtebilirsiniz:
 
 ```csharp
 options.AddPolicy("ElevatedRights", policy =>
                   policy.RequireRole("Administrator", "PowerUser", "BackupAdministrator"));
 ```
 
-Bu örnekte ait kullanıcılar yetkilendirir `Administrator`, `PowerUser` veya `BackupAdministrator` rolleri.
+Bu örnek, `Administrator`, `PowerUser` veya `BackupAdministrator` rollerine ait olan kullanıcıları yetkilendirir.
 
-### <a name="add-role-services-to-identity"></a>Kimlik için rol hizmetleri Ekle
+### <a name="add-role-services-to-identity"></a>Kimliğe rol hizmetleri Ekle
 
-Append [ndeki](/dotnet/api/microsoft.aspnetcore.identity.identitybuilder.addroles#Microsoft_AspNetCore_Identity_IdentityBuilder_AddRoles__1) rol hizmetlerini eklemek için:
+Rol hizmetleri eklemek için [Addroles](/dotnet/api/microsoft.aspnetcore.identity.identitybuilder.addroles#Microsoft_AspNetCore_Identity_IdentityBuilder_AddRoles__1) ekleyin:
 
-[!code-csharp[](roles/samples/Startup.cs?name=snippet&highlight=7)]
+::: moniker range=">= aspnetcore-3.0"
+[!code-csharp[](roles/samples/3_0/Startup.cs?name=snippet&highlight=7)]
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
+[!code-csharp[](roles/samples/2_2/Startup.cs?name=snippet&highlight=7)]
+::: moniker-end
+

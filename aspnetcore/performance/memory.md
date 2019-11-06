@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 11/05/2019
 uid: performance/memory
-ms.openlocfilehash: 48397e9fe7da912c1930f17fb86b686f0a20c60e
-ms.sourcegitcommit: 897d4abff58505dae86b2947c5fe3d1b80d927f3
+ms.openlocfilehash: 8f6b47ecde6f265bfb9437234b89f11f7d235869
+ms.sourcegitcommit: 6628cd23793b66e4ce88788db641a5bbf470c3c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/06/2019
-ms.locfileid: "73638243"
+ms.locfileid: "73660008"
 ---
 # <a name="memory-management-and-garbage-collection-gc-in-aspnet-core"></a>ASP.NET Core 'de bellek yönetimi ve çöp toplama (GC)
 
@@ -70,7 +70,7 @@ Görev Yöneticisi bellek değeri sonsuza kadar artıyorsa ve hiçbir şekilde d
 
 [Memoryleak örnek uygulaması](https://github.com/sebastienros/memoryleak) GitHub ' da kullanılabilir. MemoryLeak uygulaması:
 
-* , Uygulamanın gerçek tine belleğini ve GC verilerini toplayan bir tanılama denetleyicisi içerir.
+* , Uygulamanın gerçek zamanlı bellek ve GC verilerini toplayan bir tanılama denetleyicisi içerir.
 * , Bellek ve GC verilerini görüntüleyen bir dizin sayfasına sahiptir. Dizin sayfası her saniye yenilenir.
 * Çeşitli bellek yük desenleri sağlayan bir API denetleyicisi içerir.
 * Desteklenen bir araç değildir, ancak ASP.NET Core uygulamaların bellek kullanım düzenlerini göstermek için kullanılabilir.
@@ -114,7 +114,7 @@ Aşağıdaki grafik, makine tarafından işlenebilen en fazla aktarım hızı ü
 
 Yukarıdaki grafik şunları gösterir:
 
-* 22 RPS
+* 22K RPS
 * Nesil 0 GC koleksiyonları saniye başına birkaç kez gerçekleşir.
 * 1\. nesil koleksiyonlar, uygulama saniye başına önemli ölçüde daha fazla bellek ayırdığından tetiklenir.
 * Çalışma kümesi yaklaşık 500 MB 'tan sabittir.
