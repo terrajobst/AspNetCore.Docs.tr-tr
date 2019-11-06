@@ -3,15 +3,15 @@
 | Parametre               | Açıklama|
 | ----------------- | ------------ |
 | -a  | Modelin adı. |
-| -dc  | Kullanılacak `DbContext` sınıf. |
+| -DC  | Kullanılacak `DbContext` sınıfı. |
 | -UDL | Varsayılan düzeni kullanın. |
 | -outDir | Görünümleri oluşturmak için göreli çıkış klasörü yolu. |
-| --referenceScriptLibraries | Sayfaları `_ValidationScriptsPartial` Düzenle ve oluştur 'a ekler |
+| --referenceScriptLibraries | Sayfaları düzenlemek ve oluşturmak için `_ValidationScriptsPartial` ekler |
 
-Komutuyla ilgili yardım almak için anahtarıkullanın:`h` `aspnet-codegenerator razorpage`
+`aspnet-codegenerator razorpage` komutu hakkında yardım almak için `h` anahtarını kullanın:
 
 ```dotnetcli
 dotnet aspnet-codegenerator razorpage -h
 ```
 
-Daha fazla bilgi için bkz. [DotNet ASPNET-CodeGenerator](xref:fundamentals/tools/dotnet-aspnet-codegenerator) 
+Daha fazla bilgi için bkz. [DotNet ASPNET-CodeGenerator](xref:fundamentals/tools/dotnet-aspnet-codegenerator).
