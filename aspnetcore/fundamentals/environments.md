@@ -1,55 +1,73 @@
 ---
-title: ASP.NET Core birden çok ortam kullanma
+title: ASP.NET Core çoklu ortamları kullanma
 author: rick-anderson
-description: ASP.NET Core uygulamaları birden fazla ortam arasında uygulama davranışını denetleme konusunda bilgi edinin.
+description: ASP.NET Core uygulamalarında birden çok ortamda uygulama davranışını denetlemeyi öğrenin.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 04/10/2019
+ms.date: 11/05/2019
 uid: fundamentals/environments
-ms.openlocfilehash: a0e6d62f352a886a9bc051813a21d94c1605a1ce
-ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
+ms.openlocfilehash: 91fa2a78e62dff65704a3dda826f45f27bad6064
+ms.sourcegitcommit: 897d4abff58505dae86b2947c5fe3d1b80d927f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65087040"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73634090"
 ---
-# <a name="use-multiple-environments-in-aspnet-core"></a>ASP.NET Core birden çok ortam kullanma
+# <a name="use-multiple-environments-in-aspnet-core"></a>ASP.NET Core çoklu ortamları kullanma
 
-Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
+[Rick Anderson](https://twitter.com/RickAndMSFT) tarafından
 
-ASP.NET Core, bir ortam değişkeni kullanarak çalışma zamanı ortama göre uygulama davranışını yapılandırır.
+ASP.NET Core, bir ortam değişkeni kullanarak çalışma zamanı ortamı temelinde uygulama davranışını yapılandırır.
 
-[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/environments/sample) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
+[Örnek kodu görüntüleme veya indirme](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/environments/sample) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
 
-## <a name="environments"></a>Ortamlar
+## <a name="environments"></a>Lý
 
-ASP.NET Core ortam değişkenini okur `ASPNETCORE_ENVIRONMENT` uygulamanın başlangıcında ve değeri depolar [IHostingEnvironment.EnvironmentName](/dotnet/api/microsoft.aspnetcore.hosting.ihostingenvironment.environmentname). Ayarlayabileceğiniz `ASPNETCORE_ENVIRONMENT` herhangi bir değere ancak [üç değerden](/dotnet/api/microsoft.aspnetcore.hosting.environmentname) framework tarafından desteklenir: [Geliştirme](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.development), [hazırlama](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.staging), ve [üretim](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.production). Varsa `ASPNETCORE_ENVIRONMENT` değil, varsayılan olarak, belirlenen `Production`.
+::: moniker range=">= aspnetcore-3.0"
+
+ASP.NET Core, uygulama başlangıcında `ASPNETCORE_ENVIRONMENT` ortam değişkenini okur ve değeri [ıwebhostenvironment. EnvironmentName](xref:Microsoft.Extensions.Hosting.IHostEnvironment.EnvironmentName)içinde depolar. `ASPNETCORE_ENVIRONMENT` herhangi bir değere ayarlanabilir, ancak Framework tarafından üç değer sağlanır:
+
+* <xref:Microsoft.Extensions.Hosting.Environments.Development>
+* <xref:Microsoft.Extensions.Hosting.Environments.Staging>
+* <xref:Microsoft.Extensions.Hosting.Environments.Production> (varsayılan)
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
+
+ASP.NET Core, uygulama başlangıcında `ASPNETCORE_ENVIRONMENT` ortam değişkenini okur ve değeri [ıhostingenvironment. EnvironmentName](xref:Microsoft.AspNetCore.Hosting.IHostingEnvironment.EnvironmentName)içinde depolar. `ASPNETCORE_ENVIRONMENT` herhangi bir değere ayarlanabilir, ancak Framework tarafından üç değer sağlanır:
+
+* <xref:Microsoft.AspNetCore.Hosting.EnvironmentName.Development>
+* <xref:Microsoft.AspNetCore.Hosting.EnvironmentName.Staging>
+* <xref:Microsoft.AspNetCore.Hosting.EnvironmentName.Production> (varsayılan)
+
+::: moniker-end
 
 [!code-csharp[](environments/sample/EnvironmentsSample/Startup.cs?name=snippet)]
 
-Yukarıdaki kod:
+Önceki kod:
 
-* Çağrıları [UseDeveloperExceptionPage](/dotnet/api/microsoft.aspnetcore.builder.developerexceptionpageextensions.usedeveloperexceptionpage) olduğunda `ASPNETCORE_ENVIRONMENT` ayarlanır `Development`.
-* Çağrıları [UseExceptionHandler](/dotnet/api/microsoft.aspnetcore.builder.exceptionhandlerextensions.useexceptionhandler) zaman değerini `ASPNETCORE_ENVIRONMENT` aşağıdakilerden birine ayarlanır:
+* `ASPNETCORE_ENVIRONMENT` `Development`olarak ayarlandığında, [UseDeveloperExceptionPage](/dotnet/api/microsoft.aspnetcore.builder.developerexceptionpageextensions.usedeveloperexceptionpage) çağırır.
+* `ASPNETCORE_ENVIRONMENT` değeri aşağıdakilerden birini ayarladığınızda [Useexceptionhandler](/dotnet/api/microsoft.aspnetcore.builder.exceptionhandlerextensions.useexceptionhandler) ' i çağırır:
 
   * `Staging`
   * `Production`
   * `Staging_2`
 
-[Ortam etiketi Yardımcısı](xref:mvc/views/tag-helpers/builtin-th/environment-tag-helper) değerini kullanır `IHostingEnvironment.EnvironmentName` dahil edin veya dışlayın öğesinde bulunan işaretleme:
+[Ortam etiketi Yardımcısı](xref:mvc/views/tag-helpers/builtin-th/environment-tag-helper) , öğesinde biçimlendirme eklemek veya dışlamak için `IHostingEnvironment.EnvironmentName` değerini kullanır:
 
 [!code-cshtml[](environments/sample-snapshot/EnvironmentsSample/Pages/About.cshtml)]
 
-Windows ve macOS üzerinde ortam değişkenlerini ve değerleri büyük küçük harfe duyarlı değildir. Linux ortam değişkenlerini ve değerleri **büyük küçük harfe duyarlı** varsayılan olarak.
+Windows ve macOS 'ta, ortam değişkenleri ve değerleri büyük/küçük harfe duyarlı değildir. Linux ortam değişkenleri ve değerleri varsayılan olarak **büyük/küçük harfe duyarlıdır** .
 
 ### <a name="development"></a>Geliştirme
 
-Geliştirme ortamının, üretim ortamında kullanıma sunulan olmamalıdır özellikleri etkinleştirebilirsiniz. Örneğin, ASP.NET Core şablonları etkinleştirme [Geliştirici özel durum sayfasında](xref:fundamentals/error-handling#developer-exception-page) geliştirme ortamında.
+Geliştirme ortamı, üretimde gösterilmemelidir özellikleri etkinleştirebilir. Örneğin, ASP.NET Core Şablonlar geliştirme ortamında [Geliştirici özel durum sayfasını](xref:fundamentals/error-handling#developer-exception-page) etkinleştirir.
 
-Yerel makine geliştirme ortamını ayarlanabilir *Properties\launchSettings.json* proje dosyası. Ortam değerlerini kümesinde *launchSettings.json* sistemi ortamında ayarlanan değerleri geçersiz.
+Yerel makine geliştirme ortamı, projenin *Properties\launchSettings.JSON* dosyasında ayarlanabilir. *Launchsettings. JSON* geçersiz kılma değerlerini sistem ortamında ayarlanan ortam değerleri.
 
-Aşağıdaki JSON üç profillerden gösterir bir *launchSettings.json* dosyası:
+Aşağıdaki JSON, bir *Launchsettings. JSON* dosyasından üç profil gösterir:
 
 ```json
 {
@@ -94,7 +112,7 @@ Aşağıdaki JSON üç profillerden gösterir bir *launchSettings.json* dosyası
 ```
 
 > [!NOTE]
-> `applicationUrl` Özelliğinde *launchSettings.json* sunucu URL'lerin bir listesini belirtebilirsiniz. Listedeki URL'leri arasında noktalı virgül kullanın:
+> *Launchsettings. JSON* içindeki `applicationUrl` özelliği sunucu URL 'lerinin bir listesini belirtebilir. Listedeki URL 'Ler arasında noktalı virgül kullanın:
 >
 > ```json
 > "EnvironmentsSample": {
@@ -107,18 +125,18 @@ Aşağıdaki JSON üç profillerden gösterir bir *launchSettings.json* dosyası
 > }
 > ```
 
-Ne zaman uygulama başlatıldığında ile [çalıştırma dotnet](/dotnet/core/tools/dotnet-run), ilk profiliyle `"commandName": "Project"` kullanılır. Değerini `commandName` başlatmak için web sunucusunu belirtir. `commandName` aşağıdakilerden herhangi biri olabilir:
+Uygulama [DotNet çalıştırması](/dotnet/core/tools/dotnet-run)ile başlatıldığında, `"commandName": "Project"` ilk profili kullanılır. `commandName` değeri, başlatılacak Web sunucusunu belirtir. `commandName` aşağıdakilerden biri olabilir:
 
 * `IISExpress`
 * `IIS`
-* `Project` (hangi Kestrel başlatır)
+* `Project` (Kestrel Başlatan)
 
-Ne zaman bir uygulama başlatıldığında ile [çalıştırma dotnet](/dotnet/core/tools/dotnet-run):
+Bir uygulama [DotNet çalıştırması](/dotnet/core/tools/dotnet-run)ile başlatıldığında:
 
-* *launchSettings.json* okunur varsa. `environmentVariables` ayarlarında *launchSettings.json* ortam değişkenlerini geçersiz kılar.
+* *Launchsettings. JSON* varsa okundu. *launchsettings. JSON* geçersiz kılma ortamı değişkenlerine `environmentVariables` ayarları.
 * Barındırma ortamı görüntülenir.
 
-Bir uygulama kullanmaya aşağıdaki çıktıyı gösterir [çalıştırma dotnet](/dotnet/core/tools/dotnet-run):
+Aşağıdaki çıktıda, [DotNet çalıştırması](/dotnet/core/tools/dotnet-run)ile başlatılan bir uygulama gösterilmektedir:
 
 ```bash
 PS C:\Websites\EnvironmentsSample> dotnet run
@@ -129,16 +147,16 @@ Now listening on: http://localhost:54340
 Application started. Press Ctrl+C to shut down.
 ```
 
-Visual Studio Proje özelliklerini **hata ayıklama** sekmesi düzenlemek için bir GUI sağlar *launchSettings.json* dosyası:
+Visual Studio proje özellikleri **hata ayıklama** sekmesi, *launchsettings. JSON* dosyasını düzenlemek için bir GUI sağlar:
 
-![Proje Özellikleri ayarı ortam değişkenleri](environments/_static/project-properties-debug.png)
+![Proje özellikleri ayar ortamı değişkenleri](environments/_static/project-properties-debug.png)
 
-Proje profillere yapılan değişiklikler web sunucu yeniden başlatılana kadar etkili değildir. Kestrel'i, ortama yapılan değişiklikleri algılayabilir önce başlatılması gerekir.
+Proje profillerinde yapılan değişiklikler, Web sunucusu yeniden başlatılana kadar etkili olmayabilir. Kestrel, ortamında yapılan değişiklikleri algılayabilmesi için yeniden başlatılmalıdır.
 
 > [!WARNING]
-> *launchSettings.json* gizli dizileri depolamak olmamalıdır. [Gizli dizi Yöneticisi aracını](xref:security/app-secrets) yerel geliştirme için gizli dizileri depolamak için kullanılabilir.
+> *Launchsettings. JSON* gizli dizileri depolamamamalıdır. Gizli anahtar geliştirme için gizli dizileri depolamak için [gizli dizi Yöneticisi aracı](xref:security/app-secrets) kullanılabilir.
 
-Kullanırken [Visual Studio Code](https://code.visualstudio.com/), ortam değişkenleri ayarlanabilir *.vscode/launch.json* dosya. Aşağıdaki örnek ortamı ayarlar `Development`:
+[Visual Studio Code](https://code.visualstudio.com/)kullanırken, ortam değişkenleri *. vscode/Launch. JSON* dosyasında ayarlanabilir. Aşağıdaki örnek, `Development`için ortamı ayarlar:
 
 ```json
 {
@@ -157,40 +175,44 @@ Kullanırken [Visual Studio Code](https://code.visualstudio.com/), ortam değiş
 }
 ```
 
-A *.vscode/launch.json* proje dosyasında değil okuma uygulamayı başlatırken `dotnet run` aynı şekilde *Properties/launchSettings.json*. Bir uygulamaya sahip olmayan geliştirme başlatırken bir *launchSettings.json* dosyası ortamında bir ortam değişkeni veya bir komut satırı bağımsız değişkeni ile ayarlanan `dotnet run` komutu.
+Uygulama `dotnet run` *Özellikler/launchSettings. JSON*ile aynı şekilde başlatılırken, projedeki bir *. vscode/Launch. JSON* dosyası okunamaz. Geliştirme sırasında *Launchsettings. JSON* dosyası olmayan bir uygulama başlatırken, ortam değişkeni veya bir komut satırı bağımsız değişkeni olan ortamı `dotnet run` komutuna ayarlayın.
 
-### <a name="production"></a>Üretim
+### <a name="production"></a>Üretiminden
 
-Üretim ortamında, güvenlik, performans ve uygulama sağlamlık en üst düzeye çıkarmak için yapılandırılmalıdır. Geliştirme farklı bazı ortak ayarlar şunlardır:
+Üretim ortamının güvenliği, performansı ve uygulama sağlamlık düzeyini en üst düzeye çıkarmak için yapılandırılması gerekir. Geliştirmeden farklı bazı yaygın ayarlar şunlardır:
 
-* Önbelleğe alma.
-* İstemci tarafı kaynakları küçültülmüş, toplanmış ve potansiyel olarak cdn'den.
-* Tanılama hata sayfalarını devre dışı.
-* Kolay hata sayfalarını etkin.
-* Üretim günlüğe kaydetme ve izleme etkin. Örneğin, [Application Insights](/azure/application-insights/app-insights-asp-net-core).
+* Önbelleği.
+* İstemci tarafı kaynaklar paketlenmiş, küçültülmüş ve potansiyel olarak bir CDN 'den sunulan.
+* Tanılama hata sayfaları devre dışı.
+* Kolay hata sayfaları etkin.
+* Üretim günlüğü ve izleme etkin. Örneğin, [Application Insights](/azure/application-insights/app-insights-asp-net-core).
 
 ## <a name="set-the-environment"></a>Ortamı ayarlama
 
-Genellikle, test etmek için belirli bir ortamı kullanışlıdır. Ortam ayarlanmadıysa, varsayılan `Production`, hangi devre dışı bırakır çoğu hata ayıklama özellikleri. Ortamını yöntemi işletim sistemine bağlıdır.
+Bir ortam değişkeni veya platform ayarıyla test için belirli bir ortam ayarlamak genellikle yararlıdır. Ortam ayarlanmamışsa, çoğu hata ayıklama özelliğini devre dışı bırakan `Production`varsayılan olarak ayarlanır. Ortamı ayarlama yöntemi işletim sistemine bağlıdır.
 
-### <a name="azure-app-service"></a>Azure uygulama hizmeti
+Konak yapılandırıldığında, uygulama tarafından okunan son ortam ayarı, uygulamanın ortamını belirler. Uygulama çalışırken uygulamanın ortamı değiştirilemez.
 
-Ortamı ayarlamak için [Azure App Service](https://azure.microsoft.com/services/app-service/), aşağıdaki adımları gerçekleştirin:
+### <a name="environment-variable-or-platform-setting"></a>Ortam değişkeni veya platform ayarı
 
-1. Uygulamadan seçin **uygulama hizmetleri** dikey penceresi.
-1. İçinde **ayarları** grubu, select **uygulama ayarları** dikey penceresi.
-1. İçinde **uygulama ayarları** alanında **yeni ayar Ekle**.
-1. İçin **bir ad girin**, sağlayan `ASPNETCORE_ENVIRONMENT`. İçin **bir değer girin**, ortamı sağlayın (örneğin, `Staging`).
-1. Seçin **yuva ayarı** ortam ayarını, dağıtım yuvaları takas zaman ile geçerli yuvadaki kalmasına istiyorsanız kutuyu. Daha fazla bilgi için [Azure belgeleri: Hangi ayarların değiştirilir? ](/azure/app-service/web-sites-staged-publishing).
-1. Seçin **Kaydet** dikey penceresinin üstünde.
+#### <a name="azure-app-service"></a>Azure App Service
 
-Bir uygulama ayarı (ortam değişkeni) eklenmesine, değiştirilmesine veya Azure portalda silinen sonra azure App Service uygulama otomatik olarak yeniden başlatılır.
+[Azure App Service](https://azure.microsoft.com/services/app-service/)ortamında ortamı ayarlamak için aşağıdaki adımları gerçekleştirin:
 
-### <a name="windows"></a>Windows
+1. Uygulama **Hizmetleri** dikey penceresinden uygulamayı seçin.
+1. **Ayarlar** grubunda, **uygulama ayarları** dikey penceresini seçin.
+1. **Uygulama ayarları** alanında **yeni ayar Ekle**' yi seçin.
+1. **Ad girin**için `ASPNETCORE_ENVIRONMENT`sağlayın. **Değer girin**için ortamı sağlayın (örneğin, `Staging`).
+1. Ortam ayarının, dağıtım yuvaları takas edildiğinde geçerli yuvada kalmasını istiyorsanız, **yuva ayarı** onay kutusunu işaretleyin. Daha fazla bilgi için bkz. [Azure belgeleri: hangi ayarları değiştirmiş?](/azure/app-service/web-sites-staged-publishing).
+1. Dikey pencerenin en üstünde **Kaydet** ' i seçin.
 
-Ayarlanacak `ASPNETCORE_ENVIRONMENT` uygulama başlatıldığında geçerli oturum için kullanarak [çalıştırma dotnet](/dotnet/core/tools/dotnet-run), aşağıdaki komutları kullanılır:
+Azure App Service, Azure portal bir uygulama ayarı (ortam değişkeni) eklendikten, değiştirildikten veya silindikten sonra uygulamayı otomatik olarak yeniden başlatır.
 
-**Komut İstemi**
+#### <a name="windows"></a>Windows
+
+Uygulama [DotNet çalıştırması](/dotnet/core/tools/dotnet-run)kullanılarak başlatıldığında geçerli oturumun `ASPNETCORE_ENVIRONMENT` ayarlamak için aşağıdaki komutlar kullanılır:
+
+**Komut istemi**
 
 ```console
 set ASPNETCORE_ENVIRONMENT=Development
@@ -202,25 +224,25 @@ set ASPNETCORE_ENVIRONMENT=Development
 $Env:ASPNETCORE_ENVIRONMENT = "Development"
 ```
 
-Bu komutları yalnızca geçerli pencere için etkili. Penceresi kapatıldığında `ASPNETCORE_ENVIRONMENT` ayarı varsayılan ayar veya bir makine değere döner.
+Bu komutlar yalnızca geçerli pencere için etkili olur. Pencere kapatıldığında, `ASPNETCORE_ENVIRONMENT` ayarı varsayılan ayar veya makine değerine geri döner.
 
-Değerini genel olarak Windows içinde ayarlamak için aşağıdaki yaklaşımlardan birini kullanın:
+Windows 'da genel değeri ayarlamak için aşağıdaki yaklaşımlardan birini kullanın:
 
-* Açık **Denetim Masası** > **sistem** > **Gelişmiş Sistem ayarları** ve ekleme veya düzenleme `ASPNETCORE_ENVIRONMENT` değeri:
+* **Sistem** > **gelişmiş sistem ayarları** > **denetim masası** 'nı açın ve `ASPNETCORE_ENVIRONMENT` değerini ekleyin veya düzenleyin:
 
-  ![Sistem Gelişmiş özellikleri](environments/_static/systemsetting_environment.png)
+  ![Sistem Gelişmiş Özellikler](environments/_static/systemsetting_environment.png)
 
-  ![ASP.NET Core ortam değişkeni](environments/_static/windows_aspnetcore_environment.png)
+  ![ASPNET Core ortam değişkeni](environments/_static/windows_aspnetcore_environment.png)
 
-* Bir yönetici komut istemi açın ve kullanmak `setx` komutu veya bir yönetici PowerShell komut istemi açın ve kullanmak `[Environment]::SetEnvironmentVariable`:
+* Bir yönetim komut istemi açın ve `setx` komutunu kullanın veya bir yönetim PowerShell komut istemi açın ve `[Environment]::SetEnvironmentVariable`kullanın:
 
-  **Komut İstemi**
+  **Komut istemi**
 
   ```console
   setx ASPNETCORE_ENVIRONMENT Development /M
   ```
 
-  `/M` Sistem düzeyinde ortam değişkenini ayarlamak için anahtar belirtir. Varsa `/M` anahtar kullanılmaz, kullanıcı hesabı için ortam değişkeni ayarlanır.
+  `/M` anahtarı, ortam değişkenini sistem düzeyinde ayarlamaya yönelik olduğunu gösterir. `/M` anahtarı kullanılmazsa, ortam değişkeni Kullanıcı hesabı için ayarlanır.
 
   **PowerShell**
 
@@ -228,19 +250,19 @@ Değerini genel olarak Windows içinde ayarlamak için aşağıdaki yaklaşımla
   [Environment]::SetEnvironmentVariable("ASPNETCORE_ENVIRONMENT", "Development", "Machine")
   ```
 
-  `Machine` Sistem düzeyinde ortam değişkenini ayarlamak için seçeneği değeri gösterir. Seçenek değeri değiştirilirse `User`, kullanıcı hesabı için ortam değişkeni ayarlanır.
+  `Machine` seçenek değeri, ortam değişkeninin sistem düzeyinde ayarlandığını gösterir. Seçenek değeri `User`olarak değiştirilirse, ortam değişkeni Kullanıcı hesabı için ayarlanır.
 
-Zaman `ASPNETCORE_ENVIRONMENT` ortam değişkeni genel olarak ayarlandığında, etkili olur `dotnet run` değer ayarlandıktan sonra herhangi bir komut penceresinde açılır.
+`ASPNETCORE_ENVIRONMENT` ortam değişkeni genel olarak ayarlandığında, değer ayarlandıktan sonra açılan herhangi bir komut penceresinde `dotnet run` için geçerli olur.
 
-**Web.config**
+**Web. config**
 
-Ayarlanacak `ASPNETCORE_ENVIRONMENT` ortam değişkeni ile *web.config*, bkz: *ortam değişkenlerini ayarlama* bölümünü <xref:host-and-deploy/aspnet-core-module#setting-environment-variables>.
+`ASPNETCORE_ENVIRONMENT` ortam değişkenini *Web. config*ile ayarlamak için, <xref:host-and-deploy/aspnet-core-module#setting-environment-variables>*ortam değişkenlerini ayarlama* bölümüne bakın.
 
 ::: moniker range=">= aspnetcore-2.2"
 
 **Proje dosyası veya yayımlama profili**
 
-**Windows IIS dağıtımlar için:** Dahil `<EnvironmentName>` yayımlama profilini özelliğinde (*.pubxml*) ya da proje dosyası. Bu yaklaşım ortamı ayarlar *web.config* proje yayımlandığında ne zaman:
+**WINDOWS IIS dağıtımları için:** `<EnvironmentName>` özelliğini Publish profile ( *. pubxml*) veya proje dosyasına ekleyin. Bu yaklaşım, proje yayımlandığında *Web. config* içinde ortamı ayarlar:
 
 ```xml
 <PropertyGroup>
@@ -252,53 +274,221 @@ Ayarlanacak `ASPNETCORE_ENVIRONMENT` ortam değişkeni ile *web.config*, bkz: *o
 
 **IIS uygulama havuzu başına**
 
-Ayarlanacak `ASPNETCORE_ENVIRONMENT` bir yalıtılmış uygulama (IIS 10.0 veya sonraki sürümlerde desteklenir) havuzunda, bkz: çalışan bir uygulama için ortam değişkenini *AppCmd.exe komut* bölümünü [ortam değişkenlerini &lt; environmentVariables&gt; ](/iis/configuration/system.applicationHost/applicationPools/add/environmentVariables/#appcmdexe) konu. Zaman `ASPNETCORE_ENVIRONMENT` ortam değişkeni için bir uygulama havuzu ayarlandığında, sistem düzeyindeki bir ayarı değerini geçersiz kılar.
+Yalıtılmış uygulama havuzunda çalışan bir uygulamanın `ASPNETCORE_ENVIRONMENT` ortam değişkenini ayarlamak için (IIS 10,0 veya üzeri sürümlerde desteklenir), [ortam değişkenlerinin &lt;environmentVariables&gt;](/iis/configuration/system.applicationHost/applicationPools/add/environmentVariables/#appcmdexe) konusunun *Appcmd. exe komut* bölümüne bakın. `ASPNETCORE_ENVIRONMENT` ortam değişkeni bir uygulama havuzu için ayarlandığında, değeri sistem düzeyindeki bir ayarı geçersiz kılar.
 
 > [!IMPORTANT]
-> IIS'de bir uygulamanın barındırma ve ekleme veya değiştirme `ASPNETCORE_ENVIRONMENT` aşağıdakilerden herhangi birini yaklaşıyor uygulamalar tarafından toplanmış yeni değerine sahip olacak şekilde ortam değişkeni kullanın:
+> IIS 'de bir uygulama barındırırken ve `ASPNETCORE_ENVIRONMENT` ortam değişkenini ekleyerek veya değiştirirken, yeni değerin uygulamalar tarafından çekilmek için aşağıdaki yaklaşımlardan birini kullanın:
 >
-> * Yürütme `net stop was /y` ardından `net start w3svc` bir komut isteminden.
+> * `net stop was /y` ve ardından komut isteminden `net start w3svc` yürütün.
 > * Sunucuyu yeniden başlatın.
 
-### <a name="macos"></a>macOS
+#### <a name="macos"></a>macOS
 
-MacOS olabilir geçerli ortamı ayarı satır içi uygulamayı çalıştırırken gerçekleştirmiştir:
+MacOS için geçerli ortamın ayarlanması, uygulamayı çalıştırırken satır içinde gerçekleştirilebilir:
 
 ```bash
 ASPNETCORE_ENVIRONMENT=Development dotnet run
 ```
 
-Alternatif olarak, ortam kümesi `export` uygulamayı çalıştırmadan önce:
+Alternatif olarak, uygulamayı çalıştırmadan önce ortamı `export` ayarlayın:
 
 ```bash
 export ASPNETCORE_ENVIRONMENT=Development
 ```
 
-Makine düzeyinde ortam değişkenlerini ayarlanır *.bashrc* veya *.bash_profile* dosya. Herhangi bir metin düzenleyicisi kullanarak dosyayı düzenleyin. Aşağıdaki deyimi ekleyin:
+Makine düzeyinde ortam değişkenleri *. bashrc* veya *. bash_profile* dosyasında ayarlanır. Herhangi bir metin düzenleyicisini kullanarak dosyayı düzenleyin. Aşağıdaki ifadeyi ekleyin:
 
 ```bash
 export ASPNETCORE_ENVIRONMENT=Development
 ```
 
-### <a name="linux"></a>Linux
+#### <a name="linux"></a>Linux
 
-Linux dağıtımları için kullanmak `export` oturum tabanlı değişken ayarları için bir komut isteminde komutunu ve *bash_profile* makine düzeyinde ortam ayarları dosyası.
+Linux distros için, makine düzeyindeki ortam ayarları için oturum tabanlı değişken ayarları ve *bash_profile* dosyası için bir komut isteminde `export` komutunu kullanın.
+
+### <a name="set-the-environment-in-code"></a>Kodda ortam ayarlama
+
+::: moniker range=">= aspnetcore-3.0"
+
+Konağı oluştururken <xref:Microsoft.Extensions.Hosting.HostingHostBuilderExtensions.UseEnvironment*> çağırın. Bkz. <xref:fundamentals/host/generic-host#environmentname>.
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
+
+Konağı oluştururken <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseEnvironment*> çağırın. Bkz. <xref:fundamentals/host/web-host#environment>.
+
+::: moniker-end
 
 ### <a name="configuration-by-environment"></a>Ortama göre yapılandırma
 
-Yapılandırma ortamı tarafından yüklenecek öneririz:
+Yapılandırmayı ortama göre yüklemek için şunları yapmanızı öneririz:
 
-* *appSettings* dosyaları (*appsettings.\< Ortam > .json*). Bkz: [yapılandırma: Dosya yapılandırma sağlayıcısı](xref:fundamentals/configuration/index#file-configuration-provider).
-* ortam değişkenleri (her sisteminde uygulamanın barındırıldığı ayarlanır). Bkz: [yapılandırma: Dosya yapılandırma sağlayıcısı](xref:fundamentals/configuration/index#file-configuration-provider) ve [geliştirmede uygulama gizli anahtarlarının Güvenli Depolama: Ortam değişkenlerini](xref:security/app-secrets#environment-variables).
-* Gizli dizi Yöneticisi (geliştirme ortamındaki yalnızca). Bkz. <xref:security/app-secrets>.
+::: moniker range=">= aspnetcore-3.0"
+
+* *appSettings* dosyaları (*appSettings. { Environment}. JSON*). Bkz. <xref:fundamentals/configuration/index#json-configuration-provider>.
+* Ortam değişkenleri (uygulamanın barındırıldığı her bir sistemde ayarlanır). Bkz. <xref:fundamentals/host/generic-host#environmentname> ve <xref:security/app-secrets#environment-variables>.
+* Gizli dizi Yöneticisi (yalnızca geliştirme ortamında). Bkz. <xref:security/app-secrets>.
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
+
+* *appSettings* dosyaları (*appSettings. { Environment}. JSON*). Bkz. <xref:fundamentals/configuration/index#json-configuration-provider>.
+* Ortam değişkenleri (uygulamanın barındırıldığı her bir sistemde ayarlanır). Bkz. <xref:fundamentals/host/web-host#environment> ve <xref:security/app-secrets#environment-variables>.
+* Gizli dizi Yöneticisi (yalnızca geliştirme ortamında). Bkz. <xref:security/app-secrets>.
+
+::: moniker-end
 
 ## <a name="environment-based-startup-class-and-methods"></a>Ortam tabanlı başlangıç sınıfı ve yöntemleri
 
+::: moniker range=">= aspnetcore-3.0"
+
+### <a name="inject-iwebhostenvironment-into-startupconfigure"></a>Iwebhostenvironment 'ı başlatmaya ekleme. configure
+
+<xref:Microsoft.AspNetCore.Hosting.IWebHostEnvironment> `Startup.Configure`ekleme. Bu yaklaşım, uygulama yalnızca, ortam başına en az kod farklılığı olan birkaç ortam için `Startup.Configure` ayarlamayı gerektirdiğinde yararlıdır.
+
+```csharp
+public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+{
+    if (env.IsDevelopment())
+    {
+        // Development environment code
+    }
+    else
+    {
+        // Code for all other environments
+    }
+}
+```
+
+### <a name="inject-iwebhostenvironment-into-the-startup-class"></a>Başlangıç sınıfına ıwebhostenvironment ekleme
+
+`Startup` oluşturucusuna <xref:Microsoft.AspNetCore.Hosting.IWebHostEnvironment> ekleyin. Bu yaklaşım, uygulama her ortam için en az kod farklılığı olan birkaç ortam için `Startup` yapılandırmayı gerektirdiğinde yararlıdır.
+
+Aşağıdaki örnekte:
+
+* Ortam `_env` alanında tutulur.
+* `_env`, `ConfigureServices` ve `Configure` uygulamanın ortamına göre başlangıç yapılandırmasını uygulamak için kullanılır.
+
+```csharp
+public class Startup
+{
+    private readonly IWebHostEnvironment _env;
+
+    public Startup(IWebHostEnvironment env)
+    {
+        _env = env;
+    }
+
+    public void ConfigureServices(IServiceCollection services)
+    {
+        if (_env.IsDevelopment())
+        {
+            // Development environment code
+        }
+        else if (_env.IsStaging())
+        {
+            // Staging environment code
+        }
+        else
+        {
+            // Code for all other environments
+        }
+    }
+
+    public void Configure(IApplicationBuilder app)
+    {
+        if (_env.IsDevelopment())
+        {
+            // Development environment code
+        }
+        else
+        {
+            // Code for all other environments
+        }
+    }
+}
+```
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
+
+### <a name="inject-ihostingenvironment-into-startupconfigure"></a>Başlangıç olarak ıhostingenvironment ekleme. yapılandırma
+
+<xref:Microsoft.AspNetCore.Hosting.IHostingEnvironment> `Startup.Configure`ekleme. Bu yaklaşım, uygulama yalnızca, ortam başına en az kod farklılığı olan birkaç ortam için `Startup.Configure` yapılandırmayı gerektirdiğinde yararlıdır.
+
+```csharp
+public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+{
+    if (env.IsDevelopment())
+    {
+        // Development environment code
+    }
+    else
+    {
+        // Code for all other environments
+    }
+}
+```
+
+### <a name="inject-ihostingenvironment-into-the-startup-class"></a>Başlangıç sınıfına ıhostingenvironment ekleme
+
+`Startup` oluşturucusuna <xref:Microsoft.AspNetCore.Hosting.IHostingEnvironment> ekleyin ve hizmeti `Startup` sınıfı boyunca kullanmak üzere bir alana atayın. Bu yaklaşım, uygulama her ortam için en az kod farklılığı olan birkaç ortam için başlatma yapılandırması gerektirdiğinde faydalıdır.
+
+Aşağıdaki örnekte:
+
+* Ortam `_env` alanında tutulur.
+* `_env`, `ConfigureServices` ve `Configure` uygulamanın ortamına göre başlangıç yapılandırmasını uygulamak için kullanılır.
+
+```csharp
+public class Startup
+{
+    private readonly IHostingEnvironment _env;
+
+    public Startup(IHostingEnvironment env)
+    {
+        _env = env;
+    }
+
+    public void ConfigureServices(IServiceCollection services)
+    {
+        if (_env.IsDevelopment())
+        {
+            // Development environment code
+        }
+        else if (_env.IsStaging())
+        {
+            // Staging environment code
+        }
+        else
+        {
+            // Code for all other environments
+        }
+    }
+
+    public void Configure(IApplicationBuilder app)
+    {
+        if (_env.IsDevelopment())
+        {
+            // Development environment code
+        }
+        else
+        {
+            // Code for all other environments
+        }
+    }
+}
+```
+
+::: moniker-end
+
 ### <a name="startup-class-conventions"></a>Başlangıç sınıfı kuralları
 
-ASP.NET Core uygulaması başladığında [başlangıç sınıfı](xref:fundamentals/startup) uygulama bootstraps. Uygulamayı ayrı tanımlayabilirsiniz `Startup` sınıflar farklı ortamlar için (örneğin, `StartupDevelopment`) ve uygun `Startup` sınıfı, çalışma zamanında seçilidir. Geçerli ortamı olan adı sonekiyle sınıfı kurtarılmasına öncelik verilir. Eşleşen bir `Startup{EnvironmentName}` sınıfı değil bulundu, `Startup` sınıfı kullanılır.
+ASP.NET Core bir uygulama başlatıldığında, [Başlangıç sınıfı](xref:fundamentals/startup) uygulamayı önyükleme. Uygulama farklı ortamlar için ayrı `Startup` sınıfları tanımlayabilir (örneğin, `StartupDevelopment`). Uygun `Startup` sınıfı çalışma zamanında seçildi. Geçerli ortamla eşleşen ad sonekine sahip olan sınıf önceliklendirilir. Eşleşen bir `Startup{EnvironmentName}` sınıfı bulunamazsa, `Startup` sınıfı kullanılır. Bu yaklaşım, uygulama başına çok sayıda kod farklılığı olan birkaç ortam için başlangıç yapılandırması gerektirdiğinde yararlıdır.
 
-Ortam tabanlı uygulamak için `Startup` sınıfları oluşturma bir `Startup{EnvironmentName}` her ortamda kullanın ve bir geri dönüş için sınıf `Startup` sınıfı:
+Ortam tabanlı `Startup` sınıfları uygulamak için, kullanımdaki her ortam için bir `Startup{EnvironmentName}` sınıfı ve bir geri dönüş `Startup` sınıfı oluşturun:
 
 ```csharp
 // Startup class to use in the Development environment
@@ -306,12 +496,10 @@ public class StartupDevelopment
 {
     public void ConfigureServices(IServiceCollection services)
     {
-        ...
     }
 
     public void Configure(IApplicationBuilder app, IHostingEnvironment env)
     {
-        ...
     }
 }
 
@@ -320,12 +508,10 @@ public class StartupProduction
 {
     public void ConfigureServices(IServiceCollection services)
     {
-        ...
     }
 
     public void Configure(IApplicationBuilder app, IHostingEnvironment env)
     {
-        ...
     }
 }
 
@@ -335,17 +521,15 @@ public class Startup
 {
     public void ConfigureServices(IServiceCollection services)
     {
-        ...
     }
 
     public void Configure(IApplicationBuilder app, IHostingEnvironment env)
     {
-        ...
     }
 }
 ```
 
-Kullanım [UseStartup (IWebHostBuilder, String)](/dotnet/api/microsoft.aspnetcore.hosting.hostingabstractionswebhostbuilderextensions.usestartup) bir derleme adı kabul eden aşırı yükleme:
+Derleme adını kabul eden [Usestartup (ıwebhostbuilder, String)](/dotnet/api/microsoft.aspnetcore.hosting.hostingabstractionswebhostbuilderextensions.usestartup) aşırı yüklemesini kullanın:
 
 ```csharp
 public static void Main(string[] args)
@@ -362,9 +546,9 @@ public static IWebHostBuilder CreateWebHostBuilder(string[] args)
 }
 ```
 
-### <a name="startup-method-conventions"></a>Başlangıç yöntem kuralları
+### <a name="startup-method-conventions"></a>Başlangıç yöntemi kuralları
 
-[Yapılandırma](/dotnet/api/microsoft.aspnetcore.hosting.startupbase.configure) ve [Createservicereplicalisteners()](/dotnet/api/microsoft.aspnetcore.hosting.startupbase.configureservices) formun ortama özgü sürümlerini destekleyen `Configure<EnvironmentName>` ve `Configure<EnvironmentName>Services`:
+[Yapılandırma](/dotnet/api/microsoft.aspnetcore.hosting.startupbase.configure) ve [ConfigureServices](/dotnet/api/microsoft.aspnetcore.hosting.startupbase.configureservices) , form `Configure<EnvironmentName>` ve `Configure<EnvironmentName>Services`ortama özgü sürümlerini destekler. Bu yaklaşım, uygulama başına çok sayıda kod farklılığı olan birkaç ortam için başlangıç yapılandırması gerektirdiğinde yararlıdır.
 
 [!code-csharp[](environments/sample/EnvironmentsSample/Startup.cs?name=snippet_all&highlight=15,42)]
 
@@ -372,4 +556,3 @@ public static IWebHostBuilder CreateWebHostBuilder(string[] args)
 
 * <xref:fundamentals/startup>
 * <xref:fundamentals/configuration/index>
-* [IHostingEnvironment.EnvironmentName](/dotnet/api/microsoft.aspnetcore.hosting.ihostingenvironment.environmentname)

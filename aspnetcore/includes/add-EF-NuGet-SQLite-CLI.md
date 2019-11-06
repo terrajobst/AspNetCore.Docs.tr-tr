@@ -14,3 +14,5 @@ Yukarıdaki komutlar şunları ekler:
 * .NET Core CLI için Entity Framework Core araçları.
 * EF Core paketini bir bağımlılık olarak yükleyecek EF Core SQLite sağlayıcı.
 * Yapı iskelesi için gereken paketler: `Microsoft.VisualStudio.Web.CodeGeneration.Design` ve `Microsoft.EntityFrameworkCore.SqlServer`.
+
+Bir uygulamanın, veritabanı bağlamlarını ortama göre yapılandırmasına izin veren birden çok ortam yapılandırmasında rehberlik için, bkz. <xref:fundamentals/environments#environment-based-startup-class-and-methods>.

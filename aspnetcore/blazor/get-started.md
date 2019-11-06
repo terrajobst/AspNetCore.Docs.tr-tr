@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/21/2019
 uid: blazor/get-started
-ms.openlocfilehash: 80ff7b42a44e722dd27bc4fde53a066863448e10
-ms.sourcegitcommit: 810d5831169770ee240d03207d6671dabea2486e
+ms.openlocfilehash: 48d7ff4bf23273daf43128831aa46cfab3d982fe
+ms.sourcegitcommit: 897d4abff58505dae86b2947c5fe3d1b80d927f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72779120"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73634024"
 ---
 # <a name="get-started-with-aspnet-core-blazor"></a>ASP.NET Core Blazor kullanmaya başlama
 
@@ -29,7 +29,7 @@ Blazor kullanmaya başlama:
 1. Komut kabuğu 'nda aşağıdaki komutu çalıştırarak [Blazor WebAssembly](xref:blazor/hosting-models#blazor-webassembly) şablonunu yükler. [Microsoft. AspNetCore. Blazor. Templates](https://www.nuget.org/packages/Microsoft.AspNetCore.Blazor.Templates/) paketinin önizleme sürümü vardır, ancak Blazor WebAssembly önizlemededir.
 
    ```dotnetcli
-   dotnet new -i Microsoft.AspNetCore.Blazor.Templates::3.1.0-preview1.19508.20
+   dotnet new -i Microsoft.AspNetCore.Blazor.Templates::3.1.0-preview2.19528.8
    ```
 
 1. Araç seçiminiz için yönergeleri izleyin:
@@ -246,9 +246,9 @@ En üstteki `@page` yönergesinde belirtilen şekilde tarayıcıda `/counter` i�
 
 **Bana tıklama** düğmesi her seçildiğinde:
 
-* @No__t_0 olayı tetiklenir.
-* @No__t_0 yöntemi çağrılır.
-* @No__t_0 artırılır.
+* `onclick` olayı tetiklenir.
+* `IncrementCount` yöntemi çağrılır.
+* `currentCount` artırılır.
 * Bileşen yeniden işlenir.
 
 Çalışma zamanı, yeni içeriği önceki içerikle karşılaştırır ve yalnızca değiştirilen içeriği Belge Nesne Modeli (DOM) öğesine uygular.
@@ -261,10 +261,10 @@ HTML sözdizimini kullanarak başka bir bileşene bileşen ekleyin. Örneğin, `
 
 Uygulamayı çalıştırın. Giriş sayfasının `Counter` bileşeni tarafından sağlanmış kendi sayacı vardır.
 
-Bileşen parametreleri, alt bileşende özellikler ayarlamanıza olanak tanıyan öznitelikler veya [alt içerik](xref:blazor/components#child-content)kullanılarak belirtilir. @No__t_0 bileşenine bir parametre eklemek için, bileşenin `@code` bloğunu güncelleştirin:
+Bileşen parametreleri, alt bileşende özellikler ayarlamanıza olanak tanıyan öznitelikler veya [alt içerik](xref:blazor/components#child-content)kullanılarak belirtilir. `Counter` bileşenine bir parametre eklemek için, bileşenin `@code` bloğunu güncelleştirin:
 
-* @No__t_1 özniteliğiyle `IncrementAmount` için ortak özellik ekleyin.
-* @No__t_2 değerini artırdığınızda `IncrementAmount` kullanmak için `IncrementCount` yöntemini değiştirin.
+* `[Parameter]` özniteliğiyle `IncrementAmount` için ortak özellik ekleyin.
+* `currentCount`değerini artırdığınızda `IncrementAmount` kullanmak için `IncrementCount` yöntemini değiştirin.
 
 *Pages/Counter. Razor*:
 
@@ -276,7 +276,7 @@ Bir özniteliği kullanarak `Index` bileşeninin `<Counter>` öğesinde `Increme
 
 [!code-cshtml[](get-started/samples_snapshot/3.x/Index2.razor?highlight=7)]
 
-Uygulamayı çalıştırın. @No__t_0 bileşeni, **bana tıklama** düğmesi seçildiğinde her seferinde on ile artan kendi sayacıdır. @No__t_2 `Counter` bileşeni (*Counter. Razor*), bir tarafından arttırmaya devam eder.
+Uygulamayı çalıştırın. `Index` bileşeni, **bana tıklama** düğmesi seçildiğinde her seferinde on ile artan kendi sayacıdır. `/counter` `Counter` bileşeni (*Counter. Razor*), bir tarafından arttırmaya devam eder.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

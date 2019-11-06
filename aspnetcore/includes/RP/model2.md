@@ -2,11 +2,11 @@
 
 ### <a name="add-a-database-context-class"></a>Veritabanı bağlamı sınıfı ekleme
 
-RazorPagesMovie projesinde, *veri*adlı yeni bir klasör oluşturun. Aşağıdaki `RazorPagesMovieContext` sınıfı *veri* klasörüne ekleyin:
+RazorPagesMovie projesinde, *veri*adlı yeni bir klasör oluşturun. Aşağıdaki `RazorPagesMovieContext` sınıfını *veri* klasörüne ekleyin:
 
 [!code-csharp[](~/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie22/Data/RazorPagesMovieContext.cs)]
 
-Önceki kod, varlık kümesi `DbSet` için bir özellik oluşturur. Entity Framework terimlerinde, genellikle bir varlık kümesi bir veritabanı tablosuna karşılık gelir ve bir varlık tablodaki bir satıra karşılık gelir.
+Önceki kod, varlık kümesi için bir `DbSet` özelliği oluşturur. Entity Framework terimlerinde, genellikle bir varlık kümesi bir veritabanı tablosuna karşılık gelir ve bir varlık tablodaki bir satıra karşılık gelir.
 
 <a name="cs"></a>
 
@@ -24,7 +24,7 @@ Aşağıdaki Vurgulanan kodda gösterildiği gibi *appSettings. JSON* dosyasına
 
 <a name="reg"></a>
 
-### <a name="register-the-database-context"></a>Veritabanı bağlamı Kaydet
+### <a name="register-the-database-context"></a>Veritabanı bağlamını kaydetme
 
 Aşağıdaki `using` deyimlerini *Startup.cs*üst kısmına ekleyin:
 
@@ -33,7 +33,7 @@ using RazorPagesMovie.Models;
 using Microsoft.EntityFrameworkCore;
 ```
 
-Veritabanı bağlamını içindeki `Startup.ConfigureServices` [bağımlılık ekleme](xref:fundamentals/dependency-injection) kapsayıcısına kaydedin.
+Veritabanı bağlamını `Startup.ConfigureServices`içindeki [bağımlılık ekleme](xref:fundamentals/dependency-injection) kapsayıcısına kaydedin.
 
 [!code-csharp[](~/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie30/Startup.cs?name=snippet_UseSqlite&highlight=11-12)]
 
@@ -53,11 +53,11 @@ dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design
 dotnet add package Microsoft.EntityFrameworkCore.Design
 ```
 
-Paket `Microsoft.VisualStudio.Web.CodeGeneration.Design` , yapı iskelesi için gereklidir.
+Yapı iskelesi için `Microsoft.VisualStudio.Web.CodeGeneration.Design` paketi gereklidir.
 
 <a name="reg"></a>
 
-### <a name="register-the-database-context"></a>Veritabanı bağlamı Kaydet
+### <a name="register-the-database-context"></a>Veritabanı bağlamını kaydetme
 
 Aşağıdaki `using` deyimlerini *Startup.cs*üst kısmına ekleyin:
 
@@ -66,9 +66,10 @@ using RazorPagesMovie.Models;
 using Microsoft.EntityFrameworkCore;
 ```
 
-Veritabanı bağlamını içindeki `Startup.ConfigureServices` [bağımlılık ekleme](xref:fundamentals/dependency-injection) kapsayıcısına kaydedin.
+Veritabanı bağlamını `Startup.ConfigureServices`içindeki [bağımlılık ekleme](xref:fundamentals/dependency-injection) kapsayıcısına kaydedin.
 
 [!code-csharp[](~/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie22/Startup.cs?name=snippet_UseSqlite&highlight=11-12)]
 
 Hataları denetlemek için projeyi bir denetim olarak derleyin.
+
 ::: moniker-end
