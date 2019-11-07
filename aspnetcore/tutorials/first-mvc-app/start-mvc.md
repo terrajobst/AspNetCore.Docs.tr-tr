@@ -5,12 +5,12 @@ description: ASP.NET Core MVC ile çalışmaya başlama hakkında bilgi edinin.
 ms.author: riande
 ms.date: 10/16/2019
 uid: tutorials/first-mvc-app/start-mvc
-ms.openlocfilehash: f07afb15c0a31110c20d96a5db5c02030cefe5d5
-ms.sourcegitcommit: e71b6a85b0e94a600af607107e298f932924c849
+ms.openlocfilehash: 0c8c59a5c59c8a70985dc8463c80f9569a00621f
+ms.sourcegitcommit: 6628cd23793b66e4ce88788db641a5bbf470c3c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72519094"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73761243"
 ---
 # <a name="get-started-with-aspnet-core-mvc"></a>ASP.NET Core MVC ile çalışmaya başlama
 
@@ -94,7 +94,7 @@ Visual Studio, az önce oluşturduğunuz MVC projesi için varsayılan şablonu 
 
   ![macOS yeni çözüm](./start-mvc/_static/new_project_vsmac.png)
 
-* **.NET Core** > **uygulama** > **Web uygulaması (Model-View-Controller)** @no__t **-5 '** i seçin.
+* Bir **sonraki**> **.NET Core** > **App** > **Web uygulaması (Model-View-Controller)** seçeneğini belirleyin.
 
   ![macOS yeni proje iletişim kutusu](./start-mvc/_static/new_project_mvc_vsmac.png)
 
@@ -144,7 +144,7 @@ Hata ayıklayıcı olmadan çalıştırmak için CTRL + F5 tuşlarına basın.
 
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Mac için Visual Studio](#tab/visual-studio-mac)
 
-Uygulamayı başlatmak için @no__t **Çalıştır**' ı veya**hata ayıklama olmadan Başlat** ' ı seçin. Mac için Visual Studio, [Kestrel](xref:fundamentals/servers/index#kestrel) Server 'ı başlatır, bir tarayıcı başlatır ve `http://localhost:port` ' e gider ve *bağlantı noktası* rastgele seçilmiş bir bağlantı noktası numarasıdır.
+Uygulamayı başlatmak için **çalıştır** > **hata ayıklama olmadan Başlat** ' ı seçin. Mac için Visual Studio, [Kestrel](xref:fundamentals/servers/index#kestrel) Server 'ı başlatır, bir tarayıcı başlatır ve `http://localhost:port` ' e gider ve *bağlantı noktası* rastgele seçilmiş bir bağlantı noktası numarasıdır.
 
 [!INCLUDE[](~/includes/trustCertMac.md)]
 
@@ -205,7 +205,7 @@ Sonunda, film verilerini yönetebilen ve görüntüleyebilen bir uygulamanız va
 
 * Visual Studio 'da **Yeni proje oluştur**' u seçin.
 
-* **ASP.NET Core Web uygulamasını** seçip **İleri**' yi seçin.
+* **ASP.NET Core Web uygulaması** ' nı seçin ve ardından **İleri**' yi seçin.
 
 ![Yeni ASP.NET Core Web uygulaması](start-mvc/_static/np_2.1.png)
 
@@ -244,7 +244,7 @@ Visual Studio, az önce oluşturduğunuz MVC projesi için varsayılan şablonu 
 
   ![macOS yeni çözüm](./start-mvc/_static/new_project_vsmac.png)
 
-* **.NET Core** > **uygulama** > **Web uygulaması (Model-View-Controller)** @no__t **-5 '** i seçin.
+* Bir **sonraki**> **.NET Core** > **App** > **Web uygulaması (Model-View-Controller)** seçeneğini belirleyin.
 
   ![macOS yeni proje iletişim kutusu](./start-mvc/_static/new_project_mvc_vsmac.png)
 
@@ -302,7 +302,7 @@ Hata ayıklayıcı olmadan çalıştırmak için CTRL + F5 tuşlarına basın.
 
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Mac için Visual Studio](#tab/visual-studio-mac)
 
-Uygulamayı başlatmak için @no__t **Çalıştır**' ı veya**hata ayıklama olmadan Başlat** ' ı seçin. Mac için Visual Studio, [Kestrel](xref:fundamentals/servers/index#kestrel) Server 'ı başlatır, bir tarayıcı başlatır ve `http://localhost:port` ' e gider ve *bağlantı noktası* rastgele seçilmiş bir bağlantı noktası numarasıdır.
+Uygulamayı başlatmak için **çalıştır** > **hata ayıklama olmadan Başlat** ' ı seçin. Mac için Visual Studio, [Kestrel](xref:fundamentals/servers/index#kestrel) Server 'ı başlatır, bir tarayıcı başlatır ve `http://localhost:port` ' e gider ve *bağlantı noktası* rastgele seçilmiş bir bağlantı noktası numarasıdır.
 
 [!INCLUDE[](~/includes/trustCertMac.md)]
 

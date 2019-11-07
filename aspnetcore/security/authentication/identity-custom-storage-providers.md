@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 07/23/2019
 uid: security/authentication/identity-custom-storage-providers
-ms.openlocfilehash: 500824807307840a9279dd00c2fe632835737c2d
-ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
+ms.openlocfilehash: 6d0d9b5467d9d27b936a17fa86f73e7d8123b75b
+ms.sourcegitcommit: 6628cd23793b66e4ce88788db641a5bbf470c3c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71080788"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73760974"
 ---
 # <a name="custom-storage-providers-for-aspnet-core-identity"></a>ASP.NET Core kimlik için özel depolama sağlayıcıları
 
@@ -33,7 +33,7 @@ Bu durumların her birinde, depolama mekanizmanız için özelleştirilmiş bir 
 
 ASP.NET Core kimlik, Visual Studio 'daki proje şablonlarına "bireysel kullanıcı hesapları" seçeneği ile dahildir.
 
-.NET Core CLI kullanırken şunu ekleyin `-au Individual`:
+.NET Core CLI kullanırken `-au Individual`ekleyin:
 
 ```dotnetcli
 dotnet new mvc -au Individual
@@ -49,15 +49,15 @@ Aşağıdaki diyagramda, bir Web uygulamasının yöneticileriyle nasıl etkile�
 
 Özel bir depolama sağlayıcısı oluşturmak için veri kaynağını, veri erişim katmanını ve bu veri erişim katmanıyla etkileşime geçen mağaza sınıflarını oluşturun (Yukarıdaki diyagramda yeşil ve gri kutular). Yöneticileri veya bunlarla etkileşim kuran uygulama kodunuzu özelleştirmeniz gerekmez (Yukarıdaki mavi kutular).
 
-`UserManager` Veya`RoleManager` ' nin yeni bir örneğini oluştururken, Kullanıcı sınıfının türünü sağlarsınız ve depo sınıfının bir örneğini bir bağımsız değişken olarak geçitirsiniz. Bu yaklaşım özelleştirilmiş sınıflarınızı ASP.NET Core eklemenize olanak sağlar. 
+`UserManager` veya `RoleManager` yeni bir örneğini oluştururken Kullanıcı sınıfının türünü sağlarsınız ve depo sınıfının bir örneğini bir bağımsız değişken olarak geçitirsiniz. Bu yaklaşım özelleştirilmiş sınıflarınızı ASP.NET Core eklemenize olanak sağlar. 
 
-[Uygulamayı yeni depolama sağlayıcısını kullanacak şekilde yeniden yapılandırmak](#reconfigure-app-to-use-a-new-storage-provider) , özelleştirilmiş bir `UserManager` deponun `RoleManager` örneğini oluşturmayı ve bunu gösterir.
+[Yeni depolama sağlayıcısını kullanmak için uygulamayı yeniden yapılandırma](#reconfigure-app-to-use-a-new-storage-provider) `UserManager` ve `RoleManager` özelleştirilmiş bir depolamayla nasıl örneklendirilemeyeceğini gösterir.
 
 ## <a name="aspnet-core-identity-stores-data-types"></a>ASP.NET Core kimlik veri türlerini depolar
 
 [ASP.NET Core Identity](https://github.com/aspnet/identity) veri türleri aşağıdaki bölümlerde ayrıntılı olarak verilmiştir:
 
-### <a name="users"></a>Kullanıcılar
+### <a name="users"></a>Kullanıcılarına
 
 Web sitenizin kayıtlı kullanıcıları. [Identityuser](/dotnet/api/microsoft.aspnet.identity.corecompat.identityuser) türü, kendi özel türü için bir örnek olarak genişletilebilir veya kullanılıyor olabilir. Kendi özel kimlik depolama çözümünüzü uygulamak için belirli bir türden devralma gerekmez.
 
@@ -105,25 +105,25 @@ Kullanıcı oturum açma bilgilerini depolar ve alır (örneğin, bir dış kiml
 
 Hangi rollerin hangi kullanıcılara atandığını depolar ve alır. [Örnek](/dotnet/api/microsoft.aspnet.identity.corecompat.userstore-1)
 
-**IPUCUYLA** Yalnızca uygulamanızda kullanmayı düşündüğünüz sınıfları uygulayın.
+**İpucu:** Yalnızca uygulamanızda kullanmayı düşündüğünüz sınıfları uygulayın.
 
 Veri erişim sınıflarında, kalıcılık mekanizmanız için veri işlemlerini gerçekleştirmek üzere kod sağlayın. Örneğin, özel bir sağlayıcı içinde, *Mağaza* sınıfında yeni bir kullanıcı oluşturmak için aşağıdaki koda sahip olabilirsiniz:
 
 [!code-csharp[](identity-custom-storage-providers/sample/CustomIdentityProviderSample/CustomProvider/CustomUserStore.cs?name=createuser&highlight=7)]
 
-Kullanıcı oluşturmaya yönelik uygulama mantığı aşağıda gösterildiği `_usersTable.CreateAsync` yöntemdir.
+Kullanıcı oluşturmaya yönelik uygulama mantığı aşağıda gösterilen `_usersTable.CreateAsync` yöntemidir.
 
 ## <a name="customize-the-user-class"></a>Kullanıcı sınıfını özelleştirme
 
 Bir depolama sağlayıcısı uygularken, [ıdentityuser sınıfına](/dotnet/api/microsoft.aspnet.identity.corecompat.identityuser)eşdeğer bir Kullanıcı sınıfı oluşturun.
 
-En azından, Kullanıcı sınıfınızın bir `Id` ve bir `UserName` özelliği içermesi gerekir.
+En azından, Kullanıcı sınıfınız bir `Id` ve `UserName` özelliği içermelidir.
 
-Sınıfı, istenen işlemleri gerçekleştirirken `UserManager` çağrıların özelliklerini tanımlar. `IdentityUser` `Id` Özelliğin varsayılan türü bir dizedir, ancak öğesinden `IdentityUser<TKey, TUserClaim, TUserRole, TUserLogin, TUserToken>` kalıtımla alabilir ve farklı bir tür belirtebilirsiniz. Çerçeve, depolama uygulamasının veri türü dönüştürmelerini işlemesini bekler.
+`IdentityUser` sınıfı, istenen işlemleri gerçekleştirirken `UserManager` çağırdığı özellikleri tanımlar. `Id` özelliğinin varsayılan türü bir dizedir, ancak `IdentityUser<TKey, TUserClaim, TUserRole, TUserLogin, TUserToken>` öğesinden kalıtımla alabilir ve farklı bir tür belirtebilirsiniz. Çerçeve, depolama uygulamasının veri türü dönüştürmelerini işlemesini bekler.
 
 ## <a name="customize-the-user-store"></a>Kullanıcı deposunu özelleştirme
 
-Kullanıcı üzerindeki `UserStore` tüm veri işlemlerine yönelik yöntemleri sağlayan bir sınıf oluşturun. Bu sınıf, [userStore&lt;Tuser&gt; ](/dotnet/api/microsoft.aspnetcore.identity.entityframeworkcore.userstore-1) sınıfına eşdeğerdir. `UserStore` Sınıfınıza`IUserStore<TUser>` ve isteğe bağlı arabirimler gereklidir. Uygulamanızda belirtilen işlevlere göre hangi isteğe bağlı arabirimlerin uygulanacağını seçersiniz.
+Kullanıcı üzerindeki tüm veri işlemlerine yönelik yöntemleri sağlayan bir `UserStore` sınıfı oluşturun. Bu sınıf, [userStore&lt;TUser&gt;](/dotnet/api/microsoft.aspnetcore.identity.entityframeworkcore.userstore-1) sınıfına eşdeğerdir. `UserStore` sınıfınıza `IUserStore<TUser>` ve gerekli olan isteğe bağlı arabirimleri uygulayın. Uygulamanızda belirtilen işlevlere göre hangi isteğe bağlı arabirimlerin uygulanacağını seçersiniz.
 
 ### <a name="optional-interfaces"></a>İsteğe bağlı arabirimler
 
@@ -132,42 +132,42 @@ Kullanıcı üzerindeki `UserStore` tüm veri işlemlerine yönelik yöntemleri 
 * [Iuserpasswordstore](/dotnet/api/microsoft.aspnetcore.identity.iuserpasswordstore-1)
 * [Iusersecuritystampstore](/dotnet/api/microsoft.aspnetcore.identity.iusersecuritystampstore-1)
 * [Iuseremailstore](/dotnet/api/microsoft.aspnetcore.identity.iuseremailstore-1)
-* [IUserPhoneNumberStore](/dotnet/api/microsoft.aspnetcore.identity.iuserphonenumberstore-1)
+* [Iuserphonenumberstore](/dotnet/api/microsoft.aspnetcore.identity.iuserphonenumberstore-1)
 * [Iqueryableuserstore](/dotnet/api/microsoft.aspnetcore.identity.iqueryableuserstore-1)
 * [Iuserloginstore](/dotnet/api/microsoft.aspnetcore.identity.iuserloginstore-1)
 * [Iusertwofactorstore](/dotnet/api/microsoft.aspnetcore.identity.iusertwofactorstore-1)
 * [Iuserlockoutstore](/dotnet/api/microsoft.aspnetcore.identity.iuserlockoutstore-1)
 
-İsteğe bağlı arabirimler öğesinden `IUserStore<TUser>`devralınır. [Örnek uygulamada](https://github.com/aspnet/AspNetCore.Docs/blob/master/aspnetcore/security/authentication/identity-custom-storage-providers/sample/CustomIdentityProviderSample/CustomProvider/CustomUserStore.cs)kısmen uygulanmış bir örnek kullanıcı deposu görebilirsiniz.
+İsteğe bağlı arabirimler `IUserStore<TUser>`devralınır. [Örnek uygulamada](https://github.com/aspnet/AspNetCore.Docs/blob/master/aspnetcore/security/authentication/identity-custom-storage-providers/sample/CustomIdentityProviderSample/CustomProvider/CustomUserStore.cs)kısmen uygulanmış bir örnek kullanıcı deposu görebilirsiniz.
 
-`UserStore` Sınıfı içinde, işlemleri gerçekleştirmek için oluşturduğunuz veri erişim sınıflarını kullanırsınız. Bunlar bağımlılık ekleme kullanılarak geçirilir. Örneğin, davber uygulamasıyla SQL Server, `UserStore` sınıfı yeni bir kayıt eklemek `DapperUsersTable` için örneğini kullanan `CreateAsync` yöntemine sahiptir:
+`UserStore` sınıfı içinde, işlemleri gerçekleştirmek için oluşturduğunuz veri erişim sınıflarını kullanırsınız. Bunlar bağımlılık ekleme kullanılarak geçirilir. Örneğin, kaber uygulamasıyla SQL Server, `UserStore` sınıfı yeni bir kayıt eklemek için `DapperUsersTable` örneğini kullanan `CreateAsync` yöntemine sahiptir:
 
 [!code-csharp[](identity-custom-storage-providers/sample/CustomIdentityProviderSample/CustomProvider/DapperUsersTable.cs?name=createuser&highlight=7)]
 
 ### <a name="interfaces-to-implement-when-customizing-user-store"></a>Kullanıcı deposunu özelleştirirken uygulanacak arabirimler
 
 * **Iuserstore**  
- [Iuserstore&lt;&gt; Tuser](/dotnet/api/microsoft.aspnetcore.identity.iuserstore-1) arabirimi, kullanıcı deposunda uygulamanız gereken tek arabirimdir. Kullanıcıları oluşturma, güncelleştirme, silme ve alma yöntemlerini tanımlar.
+ [Iuserstore&lt;tuser&gt;](/dotnet/api/microsoft.aspnetcore.identity.iuserstore-1) arabirimi, kullanıcı deposunda uygulamanız gereken tek arabirimdir. Kullanıcıları oluşturma, güncelleştirme, silme ve alma yöntemlerini tanımlar.
 * **Iuserclaimstore**  
- [Iuserclaimstore&lt;&gt; Tuser](/dotnet/api/microsoft.aspnetcore.identity.iuserclaimstore-1) arabirimi, Kullanıcı taleplerini etkinleştirmek için uyguladığınız yöntemleri tanımlar. Kullanıcı taleplerini ekleme, kaldırma ve alma yöntemlerini içerir.
+ [Iuserclaimstore&lt;TUser&gt;](/dotnet/api/microsoft.aspnetcore.identity.iuserclaimstore-1) arabirimi, Kullanıcı taleplerini etkinleştirmek için uyguladığınız yöntemleri tanımlar. Kullanıcı taleplerini ekleme, kaldırma ve alma yöntemlerini içerir.
 * **Iuserloginstore**  
- [Iuserloginstore&lt;&gt; Tuser](/dotnet/api/microsoft.aspnetcore.identity.iuserloginstore-1) , dış kimlik doğrulama sağlayıcılarını etkinleştirmek için uyguladığınız yöntemleri tanımlar. Kullanıcı oturum açma bilgilerini ekleme, kaldırma ve alma ve oturum açma bilgilerine göre Kullanıcı alma yöntemi gibi yöntemleri içerir.
+ [Iuserloginstore&lt;TUser&gt;](/dotnet/api/microsoft.aspnetcore.identity.iuserloginstore-1) , dış kimlik doğrulama sağlayıcılarını etkinleştirmek için uyguladığınız yöntemleri tanımlar. Kullanıcı oturum açma bilgilerini ekleme, kaldırma ve alma ve oturum açma bilgilerine göre Kullanıcı alma yöntemi gibi yöntemleri içerir.
 * **Iuserrolestore**  
- [Iuserrolestore&lt;&gt; Tuser](/dotnet/api/microsoft.aspnetcore.identity.iuserrolestore-1) arabirimi, bir kullanıcıyı bir rolle eşlemek için uyguladığınız yöntemleri tanımlar. Bir kullanıcının rollerini ekleme, kaldırma ve alma yöntemlerini ve bir rolün bir rolün atanıp atanmadığını denetlemek için bir yöntem içerir.
+ [Iuserrolestore&lt;TUser&gt;](/dotnet/api/microsoft.aspnetcore.identity.iuserrolestore-1) arabirimi, bir kullanıcıyı bir rolle eşlemek için uyguladığınız yöntemleri tanımlar. Bir kullanıcının rollerini ekleme, kaldırma ve alma yöntemlerini ve bir rolün bir rolün atanıp atanmadığını denetlemek için bir yöntem içerir.
 * **Iuserpasswordstore**  
- [Iuserpasswordstore&lt;&gt; Tuser](/dotnet/api/microsoft.aspnetcore.identity.iuserpasswordstore-1) arabirimi, Karma parolaları kalıcı hale getirmek için uyguladığınız yöntemleri tanımlar. Karma parolanın alınması ve ayarlanması için yöntemler ve kullanıcının bir parola ayarlayıp ayarlamadığını belirten bir yöntem içerir.
+ [Iuserpasswordstore&lt;TUser&gt;](/dotnet/api/microsoft.aspnetcore.identity.iuserpasswordstore-1) arabirimi, Karma parolaları kalıcı hale getirmek için uyguladığınız yöntemleri tanımlar. Karma parolanın alınması ve ayarlanması için yöntemler ve kullanıcının bir parola ayarlayıp ayarlamadığını belirten bir yöntem içerir.
 * **Iusersecuritystampstore**  
- [&lt;Iusersecuritystampstore Tuser&gt; ](/dotnet/api/microsoft.aspnetcore.identity.iusersecuritystampstore-1) arabirimi, kullanıcının hesap bilgilerinin değişip değişmediğini belirten bir güvenlik damgası kullanmak için uyguladığınız yöntemleri tanımlar. Bu damga, Kullanıcı parolayı değiştirdiğinde veya oturum açma ekler veya kaldırdığında güncelleştirilir. Güvenlik damgasını alma ve ayarlama yöntemlerini içerir.
+ [Iusersecuritystampstore&lt;tuser&gt;](/dotnet/api/microsoft.aspnetcore.identity.iusersecuritystampstore-1) arabirimi, kullanıcının hesap bilgilerinin değişip değişmediğini belirten bir güvenlik damgası kullanmak için uyguladığınız yöntemleri tanımlar. Bu damga, Kullanıcı parolayı değiştirdiğinde veya oturum açma ekler veya kaldırdığında güncelleştirilir. Güvenlik damgasını alma ve ayarlama yöntemlerini içerir.
 * **Iusertwofactorstore**  
- [&lt;Iusertwofactorstore Tuser&gt; ](/dotnet/api/microsoft.aspnetcore.identity.iusertwofactorstore-1) arabirimi iki öğeli kimlik doğrulamayı desteklemek için uyguladığınız yöntemleri tanımlar. Bir kullanıcı için iki öğeli kimlik doğrulamasının etkin olup olmadığını alma ve ayarlama yöntemlerini içerir.
-* **IUserPhoneNumberStore**  
- [Iuserphonenumberstore&lt;&gt; Tuser](/dotnet/api/microsoft.aspnetcore.identity.iuserphonenumberstore-1) arabirimi, Kullanıcı telefon numaralarını depolamak için uyguladığınız yöntemleri tanımlar. Telefon numarasını alma ve ayarlama ve telefon numarasının onaylanıp onaylanmayacağı yöntemlerini içerir.
+ [Iusertwofactorstore&lt;TUser&gt;](/dotnet/api/microsoft.aspnetcore.identity.iusertwofactorstore-1) arabirimi iki öğeli kimlik doğrulamayı desteklemek için uyguladığınız yöntemleri tanımlar. Bir kullanıcı için iki öğeli kimlik doğrulamasının etkin olup olmadığını alma ve ayarlama yöntemlerini içerir.
+* **Iuserphonenumberstore**  
+ [Iuserphonenumberstore&lt;tuser&gt;](/dotnet/api/microsoft.aspnetcore.identity.iuserphonenumberstore-1) arabirimi, Kullanıcı telefon numaralarını depolamak için uyguladığınız yöntemleri tanımlar. Telefon numarasını alma ve ayarlama ve telefon numarasının onaylanıp onaylanmayacağı yöntemlerini içerir.
 * **Iuseremailstore**  
- [Iuseremailstore&lt;&gt; Tuser](/dotnet/api/microsoft.aspnetcore.identity.iuseremailstore-1) arabirimi, kullanıcı e-posta adreslerini depolamak için uyguladığınız yöntemleri tanımlar. E-posta adresini alma ve ayarlama yöntemlerini ve e-postanın onaylanıp onaylanmadığını içerir.
+ [Iuseremailstore&lt;tuser&gt;](/dotnet/api/microsoft.aspnetcore.identity.iuseremailstore-1) arabirimi, kullanıcı e-posta adreslerini depolamak için uyguladığınız yöntemleri tanımlar. E-posta adresini alma ve ayarlama yöntemlerini ve e-postanın onaylanıp onaylanmadığını içerir.
 * **Iuserlockoutstore**  
- [Iuserlockoutstore&lt;&gt; Tuser](/dotnet/api/microsoft.aspnetcore.identity.iuserlockoutstore-1) arabirimi, bir hesabı kilitleme hakkındaki bilgileri depolamak için uyguladığınız yöntemleri tanımlar. Başarısız erişim girişimlerini ve kilitleme işlemleri izlemek için yöntemler içerir.
+ [Iuserlockoutstore&lt;TUser&gt;](/dotnet/api/microsoft.aspnetcore.identity.iuserlockoutstore-1) arabirimi, bir hesabı kilitleme hakkındaki bilgileri depolamak için uyguladığınız yöntemleri tanımlar. Başarısız erişim girişimlerini ve kilitleme işlemleri izlemek için yöntemler içerir.
 * **Iqueryableuserstore**  
- [Iqueryableuserstore&lt;&gt; Tuser](/dotnet/api/microsoft.aspnetcore.identity.iqueryableuserstore-1) arabirimi, bir sorgulanabilir kullanıcı deposu sağlamak için uyguladığınız üyeleri tanımlar.
+ [Iqueryableuserstore&lt;TUser&gt;](/dotnet/api/microsoft.aspnetcore.identity.iqueryableuserstore-1) arabirimi, bir sorgulanabilir kullanıcı deposu sağlamak için uyguladığınız üyeleri tanımlar.
 
 Yalnızca uygulamanızda gerekli olan arabirimleri uygulayabilirsiniz. Örneğin:
 
@@ -185,11 +185,11 @@ public class UserStore : IUserStore<IdentityUser>,
 
 ### <a name="identityuserclaim-identityuserlogin-and-identityuserrole"></a>Identityuserclaim, ıdentityuserlogin ve ıdentityuserrole
 
-Ad alanı [ıdentityuserclaim](/dotnet/api/microsoft.aspnetcore.identity.entityframeworkcore.identityuserclaim-1), [ıdentityuserlogin](/dotnet/api/microsoft.aspnet.identity.corecompat.identityuserlogin)ve [ıdentityuserrole](/dotnet/api/microsoft.aspnetcore.identity.entityframeworkcore.identityuserrole-1) sınıflarının uygulamalarını içerir. `Microsoft.AspNet.Identity.EntityFramework` Bu özellikleri kullanıyorsanız, bu sınıfların kendi sürümlerinizi oluşturmak ve uygulamanızın özelliklerini tanımlamak isteyebilirsiniz. Ancak bazen, temel işlemleri gerçekleştirirken bu varlıkların belleğe yüklenmemesinin (örneğin, bir kullanıcının talebini ekleme veya kaldırma) daha etkilidir. Bunun yerine, arka uç deposu sınıfları bu işlemleri doğrudan veri kaynağında yürütebilir. Örneğin, `UserStore.GetClaimsAsync` yöntemi bu tablo üzerinde doğrudan bir `userClaimTable.FindByUserId(user.Id)` sorgu yürütmek ve talepler listesini döndürmek için yöntemini çağırabilir.
+`Microsoft.AspNet.Identity.EntityFramework` ad alanı [ıdentityuserclaim](/dotnet/api/microsoft.aspnetcore.identity.entityframeworkcore.identityuserclaim-1), [ıdentityuserlogin](/dotnet/api/microsoft.aspnet.identity.corecompat.identityuserlogin)ve [ıdentityuserrole](/dotnet/api/microsoft.aspnetcore.identity.entityframeworkcore.identityuserrole-1) sınıflarının uygulamalarını içerir. Bu özellikleri kullanıyorsanız, bu sınıfların kendi sürümlerinizi oluşturmak ve uygulamanızın özelliklerini tanımlamak isteyebilirsiniz. Ancak bazen, temel işlemleri gerçekleştirirken bu varlıkların belleğe yüklenmemesinin (örneğin, bir kullanıcının talebini ekleme veya kaldırma) daha etkilidir. Bunun yerine, arka uç deposu sınıfları bu işlemleri doğrudan veri kaynağında yürütebilir. Örneğin `UserStore.GetClaimsAsync` yöntemi, doğrudan bu tabloda bir sorgu yürütmek ve talepler listesini döndürmek için `userClaimTable.FindByUserId(user.Id)` metodunu çağırabilir.
 
 ## <a name="customize-the-role-class"></a>Rol sınıfını özelleştirme
 
-Rol depolama sağlayıcısı uygularken özel bir rol türü oluşturabilirsiniz. Belirli bir arabirim gerçekleştirmemelidir, ancak `Id` bir özelliği olmalıdır ve genellikle bir `Name` özelliğine sahip olur.
+Rol depolama sağlayıcısı uygularken özel bir rol türü oluşturabilirsiniz. Belirli bir arabirim gerçekleştirmemelidir, ancak bir `Id` olmalıdır ve genellikle bir `Name` özelliğine sahip olur.
 
 Aşağıda örnek bir rol sınıfı verilmiştir:
 
@@ -197,12 +197,12 @@ Aşağıda örnek bir rol sınıfı verilmiştir:
 
 ## <a name="customize-the-role-store"></a>Rol deposunu özelleştirme
 
-Rollerdeki tüm veri `RoleStore` işlemleri için yöntemler sağlayan bir sınıf oluşturabilirsiniz. Bu sınıf [rolestore&lt;trole&gt; ](/dotnet/api/microsoft.aspnetcore.identity.entityframeworkcore.rolestore-1) sınıfına eşdeğerdir. Sınıfında, `IRoleStore<TRole>` ve isteğe bağlı olarak `IQueryableRoleStore<TRole>` arabirimini uygulayacağınızı görürsünüz. `RoleStore`
+Rollerdeki tüm veri işlemlerine yönelik yöntemleri sağlayan bir `RoleStore` sınıfı oluşturabilirsiniz. Bu sınıf [Rolestore&lt;TRole&gt;](/dotnet/api/microsoft.aspnetcore.identity.entityframeworkcore.rolestore-1) sınıfına eşdeğerdir. `RoleStore` sınıfında, `IRoleStore<TRole>` ve isteğe bağlı olarak `IQueryableRoleStore<TRole>` arabirimini uygulayacağınızı görürsünüz.
 
-* **Irolestore&lt;trole&gt;**  
- [Irolestore&lt;&gt; trole](/dotnet/api/microsoft.aspnetcore.identity.irolestore-1) arabirimi, rol deposu sınıfında uygulanacak yöntemleri tanımlar. Rol oluşturma, güncelleştirme, silme ve alma yöntemlerini içerir.
-* **Rolestore&lt;trole&gt;**  
- Özelleştirmek `RoleStore`için, `IRoleStore<TRole>` arabirimini uygulayan bir sınıf oluşturun. 
+* **Irolestore&lt;TRole&gt;**  
+ [Irolestore&lt;TRole&gt;](/dotnet/api/microsoft.aspnetcore.identity.irolestore-1) arabirimi, rol deposu sınıfında uygulanacak yöntemleri tanımlar. Rol oluşturma, güncelleştirme, silme ve alma yöntemlerini içerir.
+* **RoleStore&lt;TRole&gt;**  
+ `RoleStore`özelleştirmek için `IRoleStore<TRole>` arabirimini uygulayan bir sınıf oluşturun. 
 
 ## <a name="reconfigure-app-to-use-a-new-storage-provider"></a>Yeni bir depolama sağlayıcısını kullanmak için uygulamayı yeniden yapılandırın
 
@@ -210,9 +210,9 @@ Bir depolama sağlayıcısı uygulandıktan sonra uygulamanızı kullanacak şek
 
 1. `Microsoft.AspNetCore.EntityFramework.Identity` NuGet paketini kaldırın.
 1. Depolama sağlayıcısı ayrı bir projede veya pakette bulunuyorsa buna bir başvuru ekleyin.
-1. Tüm başvuruları `Microsoft.AspNetCore.EntityFramework.Identity` , depolama sağlayıcınızın ad alanı için bir using ifadesiyle değiştirin.
-1. Yönteminde, özel türlerinizi kullanmak için `AddIdentity` yöntemini değiştirin. `ConfigureServices` Bu amaçla kendi genişletme yöntemlerinizi oluşturabilirsiniz. Bir örnek için bkz. [IdentityServiceCollectionExtensions](https://github.com/aspnet/Identity/blob/rel/1.1.0/src/Microsoft.AspNetCore.Identity/IdentityServiceCollectionExtensions.cs) .
-1. Roller kullanıyorsanız, `RoleManager` `RoleStore` sınıfınızı kullanmak için ' i güncelleştirin.
+1. `Microsoft.AspNetCore.EntityFramework.Identity` tüm başvuruları, depolama sağlayıcınızın ad alanı için bir using ifadesiyle değiştirin.
+1. `ConfigureServices` yönteminde, `AddIdentity` yöntemini özel türlerinizi kullanacak şekilde değiştirin. Bu amaçla kendi genişletme yöntemlerinizi oluşturabilirsiniz. Bir örnek için bkz. [IdentityServiceCollectionExtensions](https://github.com/aspnet/Identity/blob/rel/1.1.0/src/Microsoft.AspNetCore.Identity/IdentityServiceCollectionExtensions.cs) .
+1. Rolleri kullanıyorsanız, `RoleManager` `RoleStore` sınıfınızı kullanacak şekilde güncelleştirin.
 1. Bağlantı dizesini ve kimlik bilgilerini uygulamanızın yapılandırmasına güncelleştirin.
 
 Örnek:
@@ -238,4 +238,4 @@ public void ConfigureServices(IServiceCollection services)
 ## <a name="references"></a>Referanslar
 
 * [ASP.NET 4. x kimliği için özel depolama sağlayıcıları](/aspnet/identity/overview/extensibility/overview-of-custom-storage-providers-for-aspnet-identity)
-* [ASP.NET Core kimliği](https://github.com/aspnet/identity) &ndash; Bu depo, topluluk tarafından tutulan depo sağlayıcılarının bağlantılarını içerir.
+* Bu depo &ndash; [kimlik ASP.NET Core](https://github.com/aspnet/AspNetCore/tree/master/src/Identity) , topluluk tarafından tutulan depo sağlayıcılarının bağlantılarını içerir.
