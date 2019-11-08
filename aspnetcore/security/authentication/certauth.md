@@ -4,14 +4,14 @@ author: blowdart
 description: IIS ve HTTP. sys için ASP.NET Core sertifika kimlik doğrulamasını nasıl yapılandıracağınızı öğrenin.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: bdorrans
-ms.date: 11/05/2019
+ms.date: 11/07/2019
 uid: security/authentication/certauth
-ms.openlocfilehash: 081935e6e6248b5fe9b7bf4cd966dc73761d2ec1
-ms.sourcegitcommit: 897d4abff58505dae86b2947c5fe3d1b80d927f3
+ms.openlocfilehash: 0db23c325f0b1f5a6500e3b2549db170e3df97c5
+ms.sourcegitcommit: 68d804d60e104c81fe77a87a9af70b5df2726f60
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73634047"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73830713"
 ---
 # <a name="configure-certificate-authentication-in-aspnet-core"></a>ASP.NET Core sertifika kimlik doğrulamasını yapılandırma
 
@@ -36,7 +36,7 @@ Web uygulamanızda `Microsoft.AspNetCore.Authentication.Certificate` paketine bi
 
 Kimlik doğrulaması başarısız olursa, bu işleyici, bekleneceğiniz gibi bir `401 (Unauthorized)`yerine `403 (Forbidden)` yanıtı döndürür. Bu durum, kimlik doğrulamanın ilk TLS bağlantısı sırasında gerçekleşme nedendir. İşleyiciye ulaştığında, çok geç olur. Anonim bir bağlantıyla bir sertifikayla bir bağlantıyı yükseltmenin bir yolu yoktur.
 
-Ayrıca, `Startup.Configure` yöntemine `app.UseAuthentication();` ekleyin. Aksi halde, HttpContext. User, sertifikadan oluşturulan `ClaimsPrincipal` olarak ayarlanmayacak. Örneğin:
+Ayrıca, `Startup.Configure` yöntemine `app.UseAuthentication();` ekleyin. Aksi takdirde `HttpContext.User`, sertifikadan oluşturulan `ClaimsPrincipal` olarak ayarlanmayacak. Örneğin:
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -186,7 +186,6 @@ Kavramsal olarak, sertifikanın doğrulanması bir yetkilendirme konusudur. `OnC
 *Program.cs*' de, Kestrel ' yi aşağıdaki şekilde yapılandırın:
 
 ```csharp
-
 public static void Main(string[] args)
 {
     CreateHostBuilder(args).Build().Run();
@@ -208,7 +207,7 @@ public static IHostBuilder CreateHostBuilder(string[] args)
 
 ### <a name="iis"></a>IIS
 
-IIS Yöneticisi 'Nde aşağıdaki adımları uygulayın:
+IIS Yöneticisi 'nde aşağıdaki adımları uygulayın:
 
 1. **Bağlantılar** sekmesinden sitenizi seçin.
 1. **Özellikler Görünümü** penceresinde **SSL ayarları** seçeneğine çift tıklayın.
@@ -219,3 +218,254 @@ IIS Yöneticisi 'Nde aşağıdaki adımları uygulayın:
 ### <a name="azure-and-custom-web-proxies"></a>Azure ve özel Web proxy 'leri
 
 Sertifika iletme ara yazılımını yapılandırma hakkında bilgi için bkz. [konak ve dağıtım belgeleri](xref:host-and-deploy/proxy-load-balancer#certificate-forwarding) .
+
+### <a name="use-certificate-authentication-in-azure-web-apps"></a>Azure Web Apps sertifika kimlik doğrulamasını kullanma
+
+`AddCertificateForwarding` yöntemi şunu belirtmek için kullanılır:
+
+* İstemci üst bilgi adı.
+* Sertifika nasıl yüklenir (`HeaderConverter` özelliği kullanılarak).
+
+Azure Web Apps, sertifika, `X-ARR-ClientCert`adlı özel bir istek üst bilgisi olarak geçirilir. Bunu kullanmak için `Startup.ConfigureServices`sertifika iletmeyi yapılandırın:
+
+```csharp
+services.AddCertificateForwarding(options =>
+{
+    options.CertificateHeader = "X-ARR-ClientCert";
+    options.HeaderConverter = (headerValue) =>
+    {
+        X509Certificate2 clientCertificate = null;
+        if(!string.IsNullOrWhiteSpace(headerValue))
+        {
+            byte[] bytes = StringToByteArray(headerValue);
+            clientCertificate = new X509Certificate2(bytes);
+        }
+
+        return clientCertificate;
+    };
+});
+```
+
+`Startup.Configure` yöntemi daha sonra ara yazılımı ekler. `UseCertificateForwarding`, `UseAuthentication` ve `UseAuthorization`çağrılarından önce çağrılır:
+
+```csharp
+public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+{
+    ...
+    
+    app.UseRouting();
+
+    app.UseCertificateForwarding();
+    app.UseAuthentication();
+    app.UseAuthorization();
+
+    app.UseEndpoints(endpoints =>
+    {
+        endpoints.MapControllers();
+    });
+}
+```
+
+Ayrı bir sınıf, doğrulama mantığını uygulamak için kullanılabilir. Bu örnekte otomatik olarak imzalanan sertifika kullanıldığından, yalnızca sertifikanızın kullanılabildiğinden emin olun. İstemci sertifikasının ve sunucu sertifikasının parmak izlerinin eşleştiğinden emin olun, aksi takdirde herhangi bir sertifika kullanılabilir ve kimlik doğrulaması için yeterli olacaktır. Bu, `AddCertificate` yöntemi içinde kullanılacaktır. Ara veya alt sertifikalar kullanıyorsanız konuyu veya sertifikayı vereni de doğrulayabilirsiniz.
+
+```csharp
+using System.IO;
+using System.Security.Cryptography.X509Certificates;
+
+namespace AspNetCoreCertificateAuthApi
+{
+    public class MyCertificateValidationService
+    {
+        public bool ValidateCertificate(X509Certificate2 clientCertificate)
+        {
+            // Do not hardcode passwords in production code, use thumbprint or key vault
+            var cert = new X509Certificate2(Path.Combine("sts_dev_cert.pfx"), "1234");
+            if (clientCertificate.Thumbprint == cert.Thumbprint)
+            {
+                return true;
+            }
+
+            return false;
+        }
+    }
+}
+```
+
+#### <a name="implement-an-httpclient-using-a-certificate"></a>Sertifika kullanarak bir HttpClient uygulama
+
+Web API istemcisi, bir `IHttpClientFactory` örneği kullanılarak oluşturulan bir `HttpClient`kullanır. Bu, `HttpClient`için bir işleyici tanımlamak için bir yol sağlamaz, bu nedenle sertifikayı `X-ARR-ClientCert` istek başlığına eklemek için bir `HttpRequestMessage` kullanın. Sertifika, `GetRawCertDataString` yöntemi kullanılarak bir dize olarak eklenir. 
+
+```csharp
+private async Task<JsonDocument> GetApiDataAsync()
+{
+    try
+    {
+        // Do not hardcode passwords in production code, use thumbprint or key vault
+        var cert = new X509Certificate2(Path.Combine(_environment.ContentRootPath, "sts_dev_cert.pfx"), "1234");
+
+        var client = _clientFactory.CreateClient();
+
+        var request = new HttpRequestMessage()
+        {
+            RequestUri = new Uri("https://localhost:44379/api/values"),
+            Method = HttpMethod.Get,
+        };
+
+        request.Headers.Add("X-ARR-ClientCert", cert.GetRawCertDataString());
+        var response = await client.SendAsync(request);
+
+        if (response.IsSuccessStatusCode)
+        {
+            var responseContent = await response.Content.ReadAsStringAsync();
+            var data = JsonDocument.Parse(responseContent);
+
+            return data;
+        }
+
+        throw new ApplicationException($"Status code: {response.StatusCode}, Error: {response.ReasonPhrase}");
+    }
+    catch (Exception e)
+    {
+        throw new ApplicationException($"Exception {e}");
+    }
+}
+```
+
+Sunucuya doğru sertifika gönderiliyorsa, veriler döndürülür. Sertifika yoksa veya yanlış sertifika gönderilmezse bir HTTP 403 durum kodu döndürülür.
+
+### <a name="create-certificates-in-powershell"></a>PowerShell 'de sertifika oluşturma
+
+Sertifikaların oluşturulması, bu akışı ayarlamanın en zor bölümüdür. Bir kök sertifika `New-SelfSignedCertificate` PowerShell cmdlet 'i kullanılarak oluşturulabilir. Sertifikayı oluştururken güçlü bir parola kullanın. `KeyUsageProperty` parametresini ve `KeyUsage` parametresini gösterildiği gibi eklemek önemlidir.
+
+#### <a name="create-root-ca"></a>Kök CA oluştur
+
+```powershell
+New-SelfSignedCertificate -DnsName "root_ca_dev_damienbod.com", "root_ca_dev_damienbod.com" -CertStoreLocation "cert:\LocalMachine\My" -NotAfter (Get-Date).AddYears(20) -FriendlyName "root_ca_dev_damienbod.com" -KeyUsageProperty All -KeyUsage CertSign, CRLSign, DigitalSignature
+
+$mypwd = ConvertTo-SecureString -String "1234" -Force -AsPlainText
+
+Get-ChildItem -Path cert:\localMachine\my\"The thumbprint..." | Export-PfxCertificate -FilePath C:\git\root_ca_dev_damienbod.pfx -Password $mypwd
+
+Export-Certificate -Cert cert:\localMachine\my\"The thumbprint..." -FilePath root_ca_dev_damienbod.crt
+```
+
+#### <a name="install-in-the-trusted-root"></a>Güvenilen köke yüklensin
+
+Kök sertifikanın ana bilgisayar sisteminizde güvenilir olması gerekir. Sertifika yetkilisi tarafından oluşturulmamış bir kök sertifikaya varsayılan olarak güvenilmez. Aşağıdaki bağlantıda bunun Windows 'da nasıl gerçekleştirebileceği açıklanmaktadır:
+
+https://social.msdn.microsoft.com/Forums/SqlServer/5ed119ef-1704-4be4-8a4f-ef11de7c8f34/a-certificate-chain-processed-but-terminated-in-a-root-certificate-which-is-not-trusted-by-the
+
+#### <a name="intermediate-certificate"></a>Ara sertifika
+
+Artık kök sertifikadan bir ara sertifika oluşturulabilir. Bu, tüm kullanım durumları için gerekli değildir, ancak birçok sertifika oluşturmanız veya sertifika gruplarını etkinleştirmeniz veya devre dışı bırakmanız gerekebilir. Sertifikanın temel kısıtlamalarında yol uzunluğunu ayarlamak için `TextExtension` parametresi gereklidir.
+
+Ara sertifika daha sonra Windows ana bilgisayar sistemindeki güvenilen ara sertifikaya eklenebilir.
+
+```powershell
+$mypwd = ConvertTo-SecureString -String "1234" -Force -AsPlainText
+
+$parentcert = ( Get-ChildItem -Path cert:\LocalMachine\My\"The thumbprint of the root..." )
+
+New-SelfSignedCertificate -certstorelocation cert:\localmachine\my -dnsname "intermediate_dev_damienbod.com" -Signer $parentcert -NotAfter (Get-Date).AddYears(20) -FriendlyName "intermediate_dev_damienbod.com" -KeyUsageProperty All -KeyUsage CertSign, CRLSign, DigitalSignature -TextExtension @("2.5.29.19={text}CA=1&pathlength=1")
+
+Get-ChildItem -Path cert:\localMachine\my\"The thumbprint..." | Export-PfxCertificate -FilePath C:\git\AspNetCoreCertificateAuth\Certs\intermediate_dev_damienbod.pfx -Password $mypwd
+
+Export-Certificate -Cert cert:\localMachine\my\"The thumbprint..." -FilePath intermediate_dev_damienbod.crt
+```
+
+#### <a name="create-child-certificate-from-intermediate-certificate"></a>Ara sertifikadan alt sertifika oluştur
+
+Ara sertifikadan bir alt sertifika oluşturulabilir. Bu, son varlıktır ve daha fazla alt sertifika oluşturmak zorunda değildir.
+
+```powershell
+$parentcert = ( Get-ChildItem -Path cert:\LocalMachine\My\"The thumbprint from the Intermediate certificate..." )
+
+New-SelfSignedCertificate -certstorelocation cert:\localmachine\my -dnsname "child_a_dev_damienbod.com" -Signer $parentcert -NotAfter (Get-Date).AddYears(20) -FriendlyName "child_a_dev_damienbod.com"
+
+$mypwd = ConvertTo-SecureString -String "1234" -Force -AsPlainText
+
+Get-ChildItem -Path cert:\localMachine\my\"The thumbprint..." | Export-PfxCertificate -FilePath C:\git\AspNetCoreCertificateAuth\Certs\child_a_dev_damienbod.pfx -Password $mypwd
+
+Export-Certificate -Cert cert:\localMachine\my\"The thumbprint..." -FilePath child_a_dev_damienbod.crt
+```
+
+#### <a name="create-child-certificate-from-root-certificate"></a>Kök sertifikadan alt sertifika oluştur
+
+Kök sertifikadan doğrudan bir alt sertifika da oluşturulabilir. 
+
+```powershell
+$rootcert = ( Get-ChildItem -Path cert:\LocalMachine\My\"The thumbprint from the root cert..." )
+
+New-SelfSignedCertificate -certstorelocation cert:\localmachine\my -dnsname "child_a_dev_damienbod.com" -Signer $rootcert -NotAfter (Get-Date).AddYears(20) -FriendlyName "child_a_dev_damienbod.com"
+
+$mypwd = ConvertTo-SecureString -String "1234" -Force -AsPlainText
+
+Get-ChildItem -Path cert:\localMachine\my\"The thumbprint..." | Export-PfxCertificate -FilePath C:\git\AspNetCoreCertificateAuth\Certs\child_a_dev_damienbod.pfx -Password $mypwd
+
+Export-Certificate -Cert cert:\localMachine\my\"The thumbprint..." -FilePath child_a_dev_damienbod.crt
+```
+
+#### <a name="example-root---intermediate-certificate---certificate"></a>Örnek kök-ara sertifika-sertifika
+
+```powershell
+$mypwdroot = ConvertTo-SecureString -String "1234" -Force -AsPlainText
+$mypwd = ConvertTo-SecureString -String "1234" -Force -AsPlainText
+
+New-SelfSignedCertificate -DnsName "root_ca_dev_damienbod.com", "root_ca_dev_damienbod.com" -CertStoreLocation "cert:\LocalMachine\My" -NotAfter (Get-Date).AddYears(20) -FriendlyName "root_ca_dev_damienbod.com" -KeyUsageProperty All -KeyUsage CertSign, CRLSign, DigitalSignature
+
+Get-ChildItem -Path cert:\localMachine\my\0C89639E4E2998A93E423F919B36D4009A0F9991 | Export-PfxCertificate -FilePath C:\git\root_ca_dev_damienbod.pfx -Password $mypwdroot
+
+Export-Certificate -Cert cert:\localMachine\my\0C89639E4E2998A93E423F919B36D4009A0F9991 -FilePath root_ca_dev_damienbod.crt
+
+$rootcert = ( Get-ChildItem -Path cert:\LocalMachine\My\0C89639E4E2998A93E423F919B36D4009A0F9991 )
+
+New-SelfSignedCertificate -certstorelocation cert:\localmachine\my -dnsname "child_a_dev_damienbod.com" -Signer $rootcert -NotAfter (Get-Date).AddYears(20) -FriendlyName "child_a_dev_damienbod.com" -KeyUsageProperty All -KeyUsage CertSign, CRLSign, DigitalSignature -TextExtension @("2.5.29.19={text}CA=1&pathlength=1")
+
+Get-ChildItem -Path cert:\localMachine\my\BA9BF91ED35538A01375EFC212A2F46104B33A44 | Export-PfxCertificate -FilePath C:\git\AspNetCoreCertificateAuth\Certs\child_a_dev_damienbod.pfx -Password $mypwd
+
+Export-Certificate -Cert cert:\localMachine\my\BA9BF91ED35538A01375EFC212A2F46104B33A44 -FilePath child_a_dev_damienbod.crt
+
+$parentcert = ( Get-ChildItem -Path cert:\LocalMachine\My\BA9BF91ED35538A01375EFC212A2F46104B33A44 )
+
+New-SelfSignedCertificate -certstorelocation cert:\localmachine\my -dnsname "child_b_from_a_dev_damienbod.com" -Signer $parentcert -NotAfter (Get-Date).AddYears(20) -FriendlyName "child_b_from_a_dev_damienbod.com" 
+
+Get-ChildItem -Path cert:\localMachine\my\141594A0AE38CBBECED7AF680F7945CD51D8F28A | Export-PfxCertificate -FilePath C:\git\AspNetCoreCertificateAuth\Certs\child_b_from_a_dev_damienbod.pfx -Password $mypwd
+
+Export-Certificate -Cert cert:\localMachine\my\141594A0AE38CBBECED7AF680F7945CD51D8F28A -FilePath child_b_from_a_dev_damienbod.crt
+```
+
+Kök, ara veya alt sertifikaları kullanırken, sertifikalar veren veya özne kullanılarak doğrulanabilir.
+
+```csharp
+using System.Collections.Generic;
+using System.IO;
+using System.Security.Cryptography.X509Certificates;
+
+namespace AspNetCoreCertificateAuthApi
+{
+    public class MyCertificateValidationService 
+    {
+        public bool ValidateCertificate(X509Certificate2 clientCertificate)
+        {
+            return CheckIfThumbprintIsValid(clientCertificate);
+        }
+
+        private bool CheckIfThumbprintIsValid(X509Certificate2 clientCertificate)
+        {
+            var listOfValidThumbprints = new List<string>
+            {
+                "141594A0AE38CBBECED7AF680F7945CD51D8F28A",
+                "0C89639E4E2998A93E423F919B36D4009A0F9991",
+                "BA9BF91ED35538A01375EFC212A2F46104B33A44"
+            };
+
+            if (listOfValidThumbprints.Contains(clientCertificate.Thumbprint))
+            {
+                return true;
+            }
+
+            return false;
+        }
+    }
+}
+```
