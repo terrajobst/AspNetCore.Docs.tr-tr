@@ -3,14 +3,14 @@ title: ASP.NET Core MVC’ye Genel Bakış
 author: ardalis
 description: ASP.NET Core MVC 'nin, Model-View-Controller tasarım modelini kullanarak Web uygulamaları ve API 'Ler oluşturmak için zengin bir çatı olduğunu öğrenin.
 ms.author: riande
-ms.date: 08/01/2019
+ms.date: 11/07/2019
 uid: mvc/overview
-ms.openlocfilehash: 7f09751850cbfa7bb3dc79656d4530445a9767b1
-ms.sourcegitcommit: 3204bc89ae6354b61ee0a9b2770ebe5214b7790c
+ms.openlocfilehash: 4f4ea3da8563cabaaa6183c6835c2f1eb8c387b4
+ms.sourcegitcommit: 67116718dc33a7a01696d41af38590fdbb58e014
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68707816"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73799489"
 ---
 # <a name="overview-of-aspnet-core-mvc"></a>ASP.NET Core MVC’ye Genel Bakış
 
@@ -20,7 +20,7 @@ ASP.NET Core MVC, Model-View-Controller tasarım modelini kullanarak Web uygulam
 
 ## <a name="what-is-the-mvc-pattern"></a>MVC deseninin anlamı nedir?
 
-Model-View-Controller (MVC) mimari modeli, bir uygulamayı üç ana bileşen grubuna ayırır: Modeller, görünümler ve denetleyiciler. Bu model [, kaygıları ayrımı](/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#separation-of-concerns)elde etmeye yardımcı olur. Bu modeli kullanarak Kullanıcı istekleri, kullanıcı eylemlerini gerçekleştirmek ve/veya sorguların sonuçlarını almak için modeliyle çalışmaktan sorumlu bir denetleyiciye yönlendirilir. Denetleyici, kullanıcıya görüntülenecek görünümü seçer ve gereken model verilerini sağlar.
+Model-View-Controller (MVC) mimari modeli, bir uygulamayı üç ana bileşen grubuna ayırır: modeller, görünümler ve denetleyiciler. Bu model [, kaygıları ayrımı](/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#separation-of-concerns)elde etmeye yardımcı olur. Bu modeli kullanarak Kullanıcı istekleri, kullanıcı eylemlerini gerçekleştirmek ve/veya sorguların sonuçlarını almak için modeliyle çalışmaktan sorumlu bir denetleyiciye yönlendirilir. Denetleyici, kullanıcıya görüntülenecek görünümü seçer ve gereken model verilerini sağlar.
 
 Aşağıdaki diyagramda üç ana bileşen gösterilmektedir ve bunlar diğerlerine başvuramazlar:
 
@@ -145,7 +145,7 @@ public async Task<IActionResult> Login(LoginViewModel model, string returnUrl = 
 
 ASP.NET Core, [bağımlılık ekleme (dı)](../fundamentals/dependency-injection.md)için yerleşik desteğe sahiptir. ASP.NET Core MVC 'de, [denetleyiciler](controllers/dependency-injection.md) oluşturucuları aracılığıyla gerekli hizmetleri talep edebilir ve bu kullanıcıların [Açık bağımlılıklar ilkesini](/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#explicit-dependencies)izleyebilmesine olanak tanır.
 
-Uygulamanız Ayrıca, `@inject` yönergeyi [görüntüleme dosyalarını kullanarak bağımlılık ekleme](views/dependency-injection.md)işlemini de kullanabilir:
+Uygulamanız Ayrıca, `@inject` yönergesini kullanarak, [görüntüleme dosyalarına bağımlılık ekleme](views/dependency-injection.md)işlemini de kullanabilir:
 
 ```cshtml
 @inject SomeService ServiceName
@@ -163,7 +163,7 @@ Uygulamanız Ayrıca, `@inject` yönergeyi [görüntüleme dosyalarını kullana
 
 ### <a name="filters"></a>FilTReleri
 
-[Filtreler](controllers/filters.md) , geliştiricilerin özel durum işleme veya yetkilendirme gibi çapraz sorunları yalıtmalarına yardımcı olur. Filtreler, eylem yöntemleri için özel ön ve son işlem dışı mantığı çalıştırmayı etkinleştirir ve belirli bir istek için yürütme işlem hattının içindeki belirli noktalarda çalışacak şekilde yapılandırılabilir. Filtreler, denetleyicilere veya eylemlere öznitelik olarak uygulanabilir (veya küresel olarak çalıştırılabilir). Birçok filtre ( `Authorize`gibi) çerçeveye dahil edilir. `[Authorize]`, MVC yetkilendirme filtrelerini oluşturmak için kullanılan özniteliktir.
+[Filtreler](controllers/filters.md) , geliştiricilerin özel durum işleme veya yetkilendirme gibi çapraz sorunları yalıtmalarına yardımcı olur. Filtreler, eylem yöntemleri için özel ön ve son işlem dışı mantığı çalıştırmayı etkinleştirir ve belirli bir istek için yürütme işlem hattının içindeki belirli noktalarda çalışacak şekilde yapılandırılabilir. Filtreler, denetleyicilere veya eylemlere öznitelik olarak uygulanabilir (veya küresel olarak çalıştırılabilir). Çeşitli filtreler (örneğin `Authorize`) çerçeveye dahil edilir. `[Authorize]`, MVC yetkilendirme filtrelerini oluşturmak için kullanılan özniteliktir.
 
 ```csharp
 [Authorize]
@@ -204,7 +204,7 @@ Razor görünüm altyapısını kullanarak [düzenler](views/layout.md), [kısmi
 
 MVC 'de Razor görünümleri modelinize göre kesin bir şekilde yazılabilir. Denetleyiciler, görünümlerinizin tür denetlemesi ve IntelliSense desteği olmasını sağlayan görünümlere kesin olarak belirlenmiş bir model geçirebilir.
 
-Örneğin, aşağıdaki görünüm türünde `IEnumerable<Product>`bir model işler:
+Örneğin, aşağıdaki görünüm `IEnumerable<Product>`türünde bir model işler:
 
 ```cshtml
 @model IEnumerable<Product>
@@ -220,7 +220,7 @@ MVC 'de Razor görünümleri modelinize göre kesin bir şekilde yazılabilir. D
 
 [Etiket Yardımcıları](views/tag-helpers/intro.md) , Razor dosyalarında HTML öğeleri oluşturma ve oluşturma ile sunucu tarafı kodunun katılmasını sağlar. Etiket Yardımcıları kullanarak özel Etiketler tanımlayabilir (örneğin, `<environment>`) veya varolan etiketlerin davranışını değiştirebilirsiniz (örneğin, `<label>`). Etiket Yardımcıları, öğe adı ve öznitelikleri temelinde belirli öğelere bağlanır. Bunlar, hala HTML düzenlemesi deneyimini korurken sunucu tarafı işlemenin avantajlarını sağlar.
 
-Yaygın görevler için, genel GitHub depolarında ve NuGet paketleri olarak formlar, bağlantılar, yükleme varlıkları ve daha fazlasını ve daha fazlasını oluşturma gibi birçok yerleşik etiket yardımcıları vardır. Etiket Yardımcıları ' de C#yazılır ve öğe adı, öznitelik adı veya üst etıkete göre HTML öğelerini hedefleyin. Örneğin, yerleşik linakghelper, `Login` eyleminin `AccountsController`bir bağlantısını oluşturmak için kullanılabilir:
+Yaygın görevler için, genel GitHub depolarında ve NuGet paketleri olarak formlar, bağlantılar, yükleme varlıkları ve daha fazlasını ve daha fazlasını oluşturma gibi birçok yerleşik etiket yardımcıları vardır. Etiket Yardımcıları ' de C#yazılır ve öğe adı, öznitelik adı veya üst etıkete göre HTML öğelerini hedefleyin. Örneğin, yerleşik Linakghelper, `AccountsController``Login` eylemine bir bağlantı oluşturmak için kullanılabilir:
 
 ```cshtml
 <p>
@@ -229,7 +229,7 @@ Yaygın görevler için, genel GitHub depolarında ve NuGet paketleri olarak for
 </p>
 ```
 
-, `EnvironmentTagHelper` Geliştirme, hazırlama veya üretim gibi çalışma zamanı ortamına göre görünümlerinizde farklı betikler (örneğin, ham veya küçültülmüş) dahil etmek için kullanılabilir:
+`EnvironmentTagHelper`, geliştirme, hazırlama veya üretim gibi çalışma zamanı ortamına göre görünümlerinizde farklı betikler (örneğin, ham veya küçültülmüş) dahil etmek için kullanılabilir:
 
 ```cshtml
 <environment names="Development">
@@ -251,6 +251,11 @@ Etiket Yardımcıları, HTML ve Razor biçimlendirmesi oluşturmaya yönelik zen
 
 ## <a name="compatibility-version"></a>Uyumluluk sürümü
 
-Yöntemi <xref:Microsoft.Extensions.DependencyInjection.MvcCoreMvcBuilderExtensions.SetCompatibilityVersion*> , bir uygulamanın ASP.NET Core MVC 2,1 veya sonraki bir sürümde sunulmuş olabilecek davranış değişikliklerinin kabul etmesine veya devre dışı olmasına izin verir.
+<xref:Microsoft.Extensions.DependencyInjection.MvcCoreMvcBuilderExtensions.SetCompatibilityVersion*> yöntemi, bir uygulamanın, ASP.NET Core MVC 2,1 veya sonraki sürümlerde ortaya çıkan olası davranış değişikliklerinin kabul etmesine veya devre dışı olmasına izin verir.
 
 Daha fazla bilgi için bkz. <xref:mvc/compatibility-version>.
+
+## <a name="additional-resources"></a>Ek kaynaklar
+
+* [ASP.NET Core &ndash; MVC Için Mysınanan. AspNetCore. Mvc-Floent test Kitaplığı](https://github.com/ivaylokenov/MyTested.AspNetCore.Mvc) , MVC ve Web API uygulamalarını test etmek için akıcı bir arabirim sağlar. (*Microsoft tarafından korunmaz veya desteklenmez.* )
+

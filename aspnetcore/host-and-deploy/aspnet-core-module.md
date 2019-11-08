@@ -5,14 +5,14 @@ description: ASP.NET Core uygulamalarını barındırmak için ASP.NET Core mod�
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/24/2019
+ms.date: 11/07/2019
 uid: host-and-deploy/aspnet-core-module
-ms.openlocfilehash: 42ff4438738931fde70e123031412bcfc8a83efb
-ms.sourcegitcommit: 16cf016035f0c9acf3ff0ad874c56f82e013d415
+ms.openlocfilehash: c9bbd36b8a55b837f6d78abf99215c5496895a39
+ms.sourcegitcommit: 67116718dc33a7a01696d41af38590fdbb58e014
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73034207"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73799407"
 ---
 # <a name="aspnet-core-module"></a>ASP.NET Core Modülü
 
@@ -208,7 +208,7 @@ Aşağıdaki örnek, *Web. config*dosyasında iki ortam değişkenini ayarlar. `
 ```
 
 > [!NOTE]
-> Ortamı doğrudan *Web. config* içinde ayarlamaya alternatif olarak, `<EnvironmentName>` özelliği yayımlama profili ( *. pubxml*) veya proje dosyasına dahil edilir. Bu yaklaşım, proje yayımlandığında *Web. config* içinde ortamı ayarlar:
+> Ortamı doğrudan *Web. config* içinde ayarlamaya alternatif olarak, `<EnvironmentName>` özelliği [Publish profile (. pubxml)](xref:host-and-deploy/visual-studio-publish-profiles) veya proje dosyasına dahil edilir. Bu yaklaşım, proje yayımlandığında *Web. config* içinde ortamı ayarlar:
 >
 > ```xml
 > <PropertyGroup>
@@ -623,7 +623,7 @@ Aşağıdaki örnek iki ortam değişkenini ayarlar. `ASPNETCORE_ENVIRONMENT`, u
 ```
 
 > [!NOTE]
-> Ortamı doğrudan *Web. config* içinde ayarlamaya alternatif olarak, `<EnvironmentName>` özelliği yayımlama profili ( *. pubxml*) veya proje dosyasına dahil edilir. Bu yaklaşım, proje yayımlandığında *Web. config* içinde ortamı ayarlar:
+> Ortamı doğrudan *Web. config* içinde ayarlamaya alternatif olarak, `<EnvironmentName>` özelliği [Publish profile (. pubxml)](xref:host-and-deploy/visual-studio-publish-profiles) veya proje dosyasına dahil edilir. Bu yaklaşım, proje yayımlandığında *Web. config* içinde ortamı ayarlar:
 >
 > ```xml
 > <PropertyGroup>

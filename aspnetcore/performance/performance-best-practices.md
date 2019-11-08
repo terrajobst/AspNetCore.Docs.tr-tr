@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.date: 09/26/2019
 uid: performance/performance-best-practices
-ms.openlocfilehash: 3484a0233a0d56811235192c4b64aa9296e72b58
-ms.sourcegitcommit: 020c3760492efed71b19e476f25392dda5dd7388
+ms.openlocfilehash: 1cd4ca6fccfee674f46e87ba051e049f7daa5b66
+ms.sourcegitcommit: 67116718dc33a7a01696d41af38590fdbb58e014
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/12/2019
-ms.locfileid: "72289075"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73799520"
 ---
 # <a name="aspnet-core-performance-best-practices"></a>ASP.NET Core performans En Iyi yöntemleri
 
@@ -44,7 +44,7 @@ ASP.NET Core uygulamalarda yaygın bir performans sorunu, zaman uyumsuz olabilec
 * Veri erişimi ve uzun süreli işlem API 'Lerini zaman uyumsuz olarak çağırın.
 * Denetleyiciyi/Razor sayfası eylemlerini zaman uyumsuz yapın. [Zaman uyumsuz/await](/dotnet/csharp/programming-guide/concepts/async/) desenlerinden faydalanmak için tüm çağrı yığını zaman uyumsuzdur.
 
-[Iş parçacığı havuzuna](/windows/desktop/procthread/thread-pools)sık sık eklenen iş parçacıklarını bulmak Için [PerfView](https://github.com/Microsoft/perfview)gibi bir profil oluşturucu kullanılabilir. @No__t-0 olayı, iş parçacığı havuzuna eklenen bir iş parçacığını gösterir. <!--  For more information, see [async guidance docs](TBD-Link_To_Davifowl_Doc)  -->
+[Iş parçacığı havuzuna](/windows/desktop/procthread/thread-pools)sık sık eklenen iş parçacıklarını bulmak Için [PerfView](https://github.com/Microsoft/perfview)gibi bir profil oluşturucu kullanılabilir. `Microsoft-Windows-DotNETRuntime/ThreadPoolWorkerThread/Start` olayı, iş parçacığı havuzuna eklenen bir iş parçacığını gösterir. <!--  For more information, see [async guidance docs](TBD-Link_To_Davifowl_Doc)  -->
 
 ## <a name="minimize-large-object-allocations"></a>Büyük nesne ayırmalarını en aza indir
 
@@ -90,12 +90,12 @@ Sorgu sorunları, [Application Insights](/azure/application-insights/app-insight
 
 ## <a name="pool-http-connections-with-httpclientfactory"></a>HttpClientFactory ile HTTP bağlantılarını havuz
 
-[HttpClient](/dotnet/api/system.net.http.httpclient) `IDisposable` arabirimini uyguluyor olsa da, yeniden kullanım için tasarlanmıştır. Kapalı `HttpClient` örnek, yuvaları kısa bir süre için `TIME_WAIT` durumunda açık bırakır. @No__t-0 nesneleri oluşturan ve içermeyen bir kod yolu sıklıkla kullanılırsa, uygulama kullanılabilir yuvaları tüketebilir. [Httpclientfactory](/dotnet/standard/microservices-architecture/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests) , bu soruna çözüm olarak ASP.NET Core 2,1 ' de tanıtılmıştı. Performansı ve güvenilirliği iyileştirmek için havuz HTTP bağlantılarını işler.
+[HttpClient](/dotnet/api/system.net.http.httpclient) `IDisposable` arabirimini uyguluyor olsa da, yeniden kullanım için tasarlanmıştır. Kapalı `HttpClient` örnekleri, yuvaları kısa bir süre için `TIME_WAIT` durumunda açık bırakır. `HttpClient` nesneleri oluşturan ve içermeyen bir kod yolu sıklıkla kullanılırsa, uygulama kullanılabilir yuvaları tüketebilir. [Httpclientfactory](/dotnet/standard/microservices-architecture/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests) , bu soruna çözüm olarak ASP.NET Core 2,1 ' de tanıtılmıştı. Performansı ve güvenilirliği iyileştirmek için havuz HTTP bağlantılarını işler.
 
 Öneri
 
-* @No__t-1 örneklerini **doğrudan oluşturma ve** atma.
-* @No__t-2 örnekleri almak için [Httpclientfactory](/dotnet/standard/microservices-architecture/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests) **kullanın.** Daha fazla bilgi için bkz. [Esnek http isteklerini uygulamak Için HttpClientFactory kullanma](/dotnet/standard/microservices-architecture/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests).
+* `HttpClient` örneklerini **doğrudan oluşturma ve** atma.
+* `HttpClient` örnekleri almak için [Httpclientfactory](/dotnet/standard/microservices-architecture/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests) **kullanın.** Daha fazla bilgi için bkz. [Esnek http isteklerini uygulamak Için HttpClientFactory kullanma](/dotnet/standard/microservices-architecture/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests).
 
 ## <a name="keep-common-code-paths-fast"></a>Ortak kod yollarını hızlı tutun
 
@@ -183,11 +183,11 @@ Yukarıdaki kod, istek gövdesini bir C# nesneye zaman uyumsuz olarak serileşti
 
 ## <a name="prefer-readformasync-over-requestform"></a>Istek üzerinde ReadFormAsync tercih et. form
 
-@No__t-1 yerine `HttpContext.Request.ReadFormAsync` kullanın.
+`HttpContext.Request.Form`yerine `HttpContext.Request.ReadFormAsync` kullanın.
 `HttpContext.Request.Form`, yalnızca aşağıdaki koşullara göre güvenle okunabilir:
 
 * Form, `ReadFormAsync` ' a bir çağrı tarafından okundu ve
-* Önbelleğe alınmış form değeri @no__t kullanılarak okunmakta-0
+* Önbelleğe alınmış form değeri `HttpContext.Request.Form` kullanılarak okunmakta
 
 Bunu **yapın:** Aşağıdaki örnek `HttpContext.Request.Form` ' i kullanır.  `HttpContext.Request.Form`, [zaman uyumsuz olarak eşitleme](https://github.com/davidfowl/AspNetCoreDiagnosticScenarios/blob/master/AsyncGuidance.md#warning-sync-over-async
 ) kullanır ve iş parçacığı havuzunda ortaya çıkmasına neden olabilir.
@@ -211,7 +211,7 @@ Bu [blog gönderisi](https://adamsitnik.com/Array-Pool/#the-problem) succinctly 
 
 > Büyük bir nesne ayrıldığında, Gen 2 nesnesi olarak işaretlenir. Küçük nesneler için Gen 0 değildir. Sonuçlar LOH 'de bellek tükeniyorsa, GC yalnızca LOH değil, yönetilen yığının tamamını temizler. Bu nedenle, LOH dahil olmak üzere Gen 0, Gen 1 ve Gen 2 ' yi temizler. Bu, tam atık toplama olarak adlandırılır ve en çok kullanılan çöp toplamadır. Birçok uygulama için kabul edilebilir. Ancak, ortalama bir web isteğini işlemek için çok büyük bellek arabelleklerinin (bir yuvadan okunan, sıkıştırmayı açık olan JSON & daha fazla kod çözme) gerekli olduğu yüksek performanslı Web sunucuları için kesinlikle değildir.
 
-Büyük bir istek ya da yanıt gövdesini tek bir `byte[]` veya `string` olarak depoladığını.
+Büyük bir istek veya Yanıt gövdesini tek bir `byte[]` veya `string`olarak depolar.
 
 * LOH 'de hızlı bir şekilde boş alan tükenmenize neden olabilir.
 * Çalıştıran tam GC 'Ler nedeniyle uygulama için performans sorunlarına neden olabilir.
@@ -233,7 +233,7 @@ ASP.NET Core 3,0, JSON serileştirme için varsayılan olarak <xref:System.Text.
 
 ## <a name="do-not-store-ihttpcontextaccessorhttpcontext-in-a-field"></a>Bir alanda ıhttpcontextaccessor. HttpContext depolamayın
 
-[Ihttpcontextaccessor. HttpContext](xref:Microsoft.AspNetCore.Http.IHttpContextAccessor.HttpContext) , istek iş parçacığından erişildiğinde etkin isteğin `HttpContext` ' i döndürür. @No__t-0 bir alan veya değişkende **depolanmamalıdır.**
+[Ihttpcontextaccessor. HttpContext](xref:Microsoft.AspNetCore.Http.IHttpContextAccessor.HttpContext) , istek iş parçacığından erişildiğinde etkin isteğin `HttpContext` ' i döndürür. `IHttpContextAccessor.HttpContext`, bir alan veya değişkende **depolanmamalıdır.**
 
 Bunu **yapın:** Aşağıdaki örnek, `HttpContext` ' i bir alanda depolar ve daha sonra kullanmaya çalışır.
 
@@ -243,7 +243,7 @@ Yukarıdaki kod, oluşturucuda genellikle null veya yanlış `HttpContext` yakal
 
 **Bunu yapın:** Aşağıdaki örnek:
 
-* @No__t-0 ' i bir alana depolar.
+* <xref:Microsoft.AspNetCore.Http.IHttpContextAccessor> bir alana depolar.
 * Doğru zamanda `HttpContext` alanını kullanır ve `null` olup olmadığını denetler.
 
 [!code-csharp[](performance-best-practices/samples/3.0/MyType.cs?name=snippet2)]
@@ -264,7 +264,7 @@ Bunu **yapın:** Aşağıdaki örnek üç paralel istek yapar ve giden HTTP iste
 
 `HttpContext` yalnızca, ASP.NET Core ardışık düzeninde etkin bir HTTP isteği olduğu sürece geçerlidir. Tüm ASP.NET Core işlem hattı, her isteği yürüten zaman uyumsuz temsilciler zinciridir. Bu zincirden döndürülen `Task` tamamlandığında, `HttpContext` geri dönüştürülür.
 
-Bunu **yapın:** Aşağıdaki örnekte, ilk @no__t 2 ' ye ulaşıldığında HTTP isteğinin tamamlanmasını sağlayan `async void` kullanılmaktadır:
+Bunu **yapın:** Aşağıdaki örnek, ilk `await` ulaşıldığında HTTP isteğini tamamlamasını sağlayan `async void` kullanır:
 
 * ASP.NET Core uygulamalarda bu **her zaman** hatalı bir uygulamadır.
 * HTTP isteği tamamlandıktan sonra `HttpResponse` ' a erişir.
@@ -281,7 +281,7 @@ Bunu **yapın:** Aşağıdaki örnekte, ilk @no__t 2 ' ye ulaşıldığında HTT
 Bunu **yapın:** Aşağıdaki örnek, `Controller` özelliğinden `HttpContext` ' i yakaladığı bir kapanış gösterir. Bu kötü bir uygulamadır çünkü iş öğesi şu şekilde olabilir:
 
 * İstek kapsamının dışında çalıştırın.
-* Yanlış @no__t okuma girişimi-0.
+* Yanlış `HttpContext`okuma girişimi.
 
 [!code-csharp[](performance-best-practices/samples/3.0/Controllers/FireAndForgetFirstController.cs?name=snippet1)]
 
@@ -292,9 +292,11 @@ Bunu **yapın:** Aşağıdaki örnek, `Controller` özelliğinden `HttpContext` 
 
 [!code-csharp[](performance-best-practices/samples/3.0/Controllers/FireAndForgetFirstController.cs?name=snippet2)]
 
+Arka plan görevleri barındırılan hizmet olarak uygulanmalıdır. Daha fazla bilgi için bkz. [barındırılan hizmetlerle arka plan görevleri](xref:fundamentals/host/hosted-services).
+
 ## <a name="do-not-capture-services-injected-into-the-controllers-on-background-threads"></a>Arka plan iş parçacıklarında denetleyicilere eklenen Hizmetleri yakalama
 
-Bunu **yapın:** Aşağıdaki örnek, `Controller` eylem parametresinden `DbContext` ' i yakaladığı bir kapanışı gösterir. Bu kötü bir uygulamadır.  İş öğesi, istek kapsamı dışında çalıştırılabilir. @No__t-0, isteğin kapsamına alınır ve bir `ObjectDisposedException` olur.
+Bunu **yapın:** Aşağıdaki örnek, `Controller` eylem parametresinden `DbContext` ' i yakaladığı bir kapanışı gösterir. Bu kötü bir uygulamadır.  İş öğesi, istek kapsamı dışında çalıştırılabilir. `ContosoDbContext`, isteğin kapsamına alınır ve `ObjectDisposedException`sonuçlanır.
 
 [!code-csharp[](performance-best-practices/samples/3.0/Controllers/FireAndForgetSecondController.cs?name=snippet1)]
 
@@ -325,7 +327,7 @@ Bunu **yapın:** Aşağıdaki kod, yanıt önceden başlatıldıktan sonra yanı
 
 [!code-csharp[](performance-best-practices/samples/3.0/Startup22.cs?name=snippet1)]
 
-Önceki kodda, `context.Response.Headers["test"] = "test value";`, yanıta `next()` yazıldığında bir özel durum oluşturur.
+Önceki kodda, `next()` yanıta yazılmışsa `context.Response.Headers["test"] = "test value";` bir özel durum oluşturur.
 
 **Bunu yapın:** Aşağıdaki örnek, üst bilgileri değiştirmeden önce HTTP yanıtının başlatılıp başlatılmadığını denetler.
 

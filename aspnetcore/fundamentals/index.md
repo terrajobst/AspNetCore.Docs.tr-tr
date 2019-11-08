@@ -5,14 +5,14 @@ description: ASP.NET Core uygulamalar oluşturmaya yönelik temel kavramları ö
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/07/2019
+ms.date: 11/07/2019
 uid: fundamentals/index
-ms.openlocfilehash: a70d6aa05a2c92d19076b8d6e4ea24d7554368b6
-ms.sourcegitcommit: 3d082bd46e9e00a3297ea0314582b1ed2abfa830
+ms.openlocfilehash: 7173a732a04bf3e598adef298fa9120c15dd52fb
+ms.sourcegitcommit: 67116718dc33a7a01696d41af38590fdbb58e014
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72007123"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73799378"
 ---
 # <a name="aspnet-core-fundamentals"></a>ASP.NET Core temelleri
 
@@ -20,14 +20,14 @@ Bu makale, ASP.NET Core uygulamaları geliştirmeyi anlamak için önemli konula
 
 ## <a name="the-startup-class"></a>Başlangıç sınıfı
 
-@No__t-0 sınıfı şu konumda:
+`Startup` sınıfı şu konumda:
 
 * Uygulamanın gerektirdiği hizmetler yapılandırıldı.
 * İstek işleme işlem hattı tanımlandı.
 
 *Hizmetler* , uygulama tarafından kullanılan bileşenlerdir. Örneğin, bir günlük bileşeni bir hizmettir. Hizmetleri yapılandırmak (veya *kaydettirmek*) için kod `Startup.ConfigureServices` yöntemine eklenir.
 
-İstek işleme işlem hattı, bir dizi *Ara yazılım* bileşeni olarak oluşur. Örneğin, bir ara yazılım statik dosyalar için istekleri işleyebilir veya HTTP isteklerini HTTPS 'ye yeniden yönlendirebilir. Her bir ara yazılım `HttpContext` ' da zaman uyumsuz işlemler gerçekleştirir ve sonra işlem hattında sonraki ara yazılımı çağırır veya isteği sonlandırır. İstek işleme işlem hattını yapılandırma kodu `Startup.Configure` yöntemine eklenir.
+İstek işleme işlem hattı, bir dizi *Ara yazılım* bileşeni olarak oluşur. Örneğin, bir ara yazılım statik dosyalar için istekleri işleyebilir veya HTTP isteklerini HTTPS 'ye yeniden yönlendirebilir. Her bir ara yazılım bir `HttpContext` zaman uyumsuz işlemler gerçekleştirir ve sonra işlem hattında sonraki ara yazılımı çağırır ya da isteği sonlandırır. İstek işleme işlem hattını yapılandırma kodu `Startup.Configure` yöntemine eklenir.
 
 Örnek bir `Startup` sınıfı aşağıda verilmiştir:
 
@@ -49,9 +49,9 @@ Daha fazla bilgi için bkz. <xref:fundamentals/dependency-injection>.
 
 ## <a name="middleware"></a>Ara yazılım
 
-İstek işleme işlem hattı, bir dizi ara yazılım bileşeni olarak oluşur. Her bileşen `HttpContext` ' da zaman uyumsuz işlemler gerçekleştirir ve sonra işlem hattında sonraki ara yazılımı çağırır veya isteği sonlandırır.
+İstek işleme işlem hattı, bir dizi ara yazılım bileşeni olarak oluşur. Her bileşen bir `HttpContext` zaman uyumsuz işlemler gerçekleştirir ve sonra işlem hattında sonraki ara yazılımı çağırır ya da isteği sonlandırır.
 
-Kurala göre, `Startup.Configure` yönteminde `Use...` genişletme yöntemini çağırarak işlem hattına bir ara yazılım bileşeni eklenir. Örneğin, statik dosyaların işlenmesini etkinleştirmek için `UseStaticFiles` ' ı çağırın.
+Kurala göre, `Startup.Configure` yönteminde `Use...` uzantısı yöntemini çağırarak işlem hattına bir ara yazılım bileşeni eklenir. Örneğin, statik dosyaların işlenmesini etkinleştirmek için `UseStaticFiles`çağırın.
 
 Aşağıdaki örnekteki vurgulanan kod, istek işleme işlem hattını yapılandırır:
 
@@ -77,11 +77,11 @@ Uygulamanın tüm birbirine bağlı kaynaklarını tek bir nesnede dahil etmek i
 
 İki konak mevcuttur: genel ana bilgisayar ve Web ana bilgisayarı. Genel ana bilgisayar önerilir ve Web konağı yalnızca geriye dönük uyumluluk için kullanılabilir.
 
-Bir konak oluşturma kodu `Program.Main` ' dır:
+Bir konak oluşturma kodu `Program.Main`:
 
 [!code-csharp[](index/snapshots/3.x/Program1.cs)]
 
-@No__t-0 ve `ConfigureWebHostDefaults` yöntemleri, aşağıdaki gibi yaygın olarak kullanılan seçeneklere sahip bir konak yapılandırır:
+`CreateDefaultBuilder` ve `ConfigureWebHostDefaults` yöntemleri, aşağıdaki gibi yaygın olarak kullanılan seçeneklerle bir konak yapılandırır:
 
 * Web sunucusu olarak [Kestrel](#servers) kullanın ve IIS tümleştirmesini etkinleştirin.
 * *AppSettings. JSON*, appSettings 'ten yapılandırma yükleyin *. { Ortam adı}. JSON*, ortam değişkenleri, komut satırı bağımsız değişkenleri ve diğer yapılandırma kaynakları.
@@ -95,11 +95,11 @@ Daha fazla bilgi için bkz. <xref:fundamentals/host/generic-host>.
 
 İki konak mevcuttur: Web Konağı ve genel ana bilgisayar. ASP.NET Core 2. x içinde, genel konak yalnızca Web dışı senaryolar içindir.
 
-Bir konak oluşturma kodu `Program.Main` ' dır:
+Bir konak oluşturma kodu `Program.Main`:
 
 [!code-csharp[](index/snapshots/2.x/Program1.cs)]
 
-@No__t-0 yöntemi, aşağıdaki gibi yaygın olarak kullanılan seçeneklere sahip bir konak yapılandırır:
+`CreateDefaultBuilder` yöntemi, aşağıdaki gibi yaygın olarak kullanılan seçeneklere sahip bir konak yapılandırır:
 
 * Web sunucusu olarak [Kestrel](#servers) kullanın ve IIS tümleştirmesini etkinleştirin.
 * *AppSettings. JSON*, appSettings 'ten yapılandırma yükleyin *. { Ortam adı}. JSON*, ortam değişkenleri, komut satırı bağımsız değişkenleri ve diğer yapılandırma kaynakları.
@@ -115,7 +115,7 @@ Genel ana bilgisayar, diğer uygulama türlerinin günlüğe kaydetme, bağıml�
 
 ## <a name="servers"></a>Sunucular
 
-Bir ASP.NET Core uygulaması HTTP isteklerini dinlemek için HTTP sunucu uygulamasını kullanır. Sunucu, `HttpContext` ' e oluşturulan [istek özellikleri](xref:fundamentals/request-features) kümesi olarak uygulamaya ister.
+Bir ASP.NET Core uygulaması HTTP isteklerini dinlemek için HTTP sunucu uygulamasını kullanır. Sunucu, bir `HttpContext`oluşan [istek özellikleri](xref:fundamentals/request-features) kümesi olarak uygulamaya istekleri ister.
 
 ::: moniker range=">= aspnetcore-2.2"
 
@@ -131,7 +131,7 @@ ASP.NET Core aşağıdaki sunucu uygulamalarını sağlar:
 
 ASP.NET Core, *Kestrel* platformlar arası sunucu uygulamasını sağlar. ASP.NET Core 2,0 veya üzeri sürümlerde, Kestrel doğrudan Internet 'e açık olan bir genel kullanıma yönelik uç sunucu olarak çalıştırılabilir. Kestrel, genellikle [NGINX](https://nginx.org) veya [Apache](https://httpd.apache.org/)ile ters proxy yapılandırmasında çalıştırılır.
 
-# <a name="linuxtablinux"></a>[Linux](#tab/linux)
+# <a name="linuxtablinux"></a>['Un](#tab/linux)
 
 ASP.NET Core, *Kestrel* platformlar arası sunucu uygulamasını sağlar. ASP.NET Core 2,0 veya üzeri sürümlerde, Kestrel doğrudan Internet 'e açık olan bir genel kullanıma yönelik uç sunucu olarak çalıştırılabilir. Kestrel, genellikle [NGINX](https://nginx.org) veya [Apache](https://httpd.apache.org/)ile ters proxy yapılandırmasında çalıştırılır.
 
@@ -152,7 +152,7 @@ ASP.NET Core aşağıdaki sunucu uygulamalarını sağlar:
 
 ASP.NET Core, *Kestrel* platformlar arası sunucu uygulamasını sağlar. ASP.NET Core 2,0 veya üzeri sürümlerde, Kestrel doğrudan Internet 'e açık olan bir genel kullanıma yönelik uç sunucu olarak çalıştırılabilir. Kestrel, genellikle [NGINX](https://nginx.org) veya [Apache](https://httpd.apache.org/)ile ters proxy yapılandırmasında çalıştırılır.
 
-# <a name="linuxtablinux"></a>[Linux](#tab/linux)
+# <a name="linuxtablinux"></a>['Un](#tab/linux)
 
 ASP.NET Core, *Kestrel* platformlar arası sunucu uygulamasını sağlar. ASP.NET Core 2,0 veya üzeri sürümlerde, Kestrel doğrudan Internet 'e açık olan bir genel kullanıma yönelik uç sunucu olarak çalıştırılabilir. Kestrel, genellikle [NGINX](https://nginx.org) veya [Apache](https://httpd.apache.org/)ile ters proxy yapılandırmasında çalıştırılır.
 
@@ -191,9 +191,9 @@ Daha fazla bilgi için bkz. <xref:fundamentals/configuration/options>.
 
 ## <a name="environments"></a>Lý
 
-*Geliştirme*, *hazırlık*ve *üretim*gibi yürütme ortamları, ASP.NET Core birinci sınıf kavramlardır. @No__t-0 ortam değişkenini ayarlayarak bir uygulamanın üzerinde çalıştığı ortamı belirtebilirsiniz. ASP.NET Core, uygulamanın başlangıcında bu ortam değişkenini okur ve değeri bir `IHostingEnvironment` uygulamasında depolar. Ortam nesnesi, uygulama tarafından her yerde DI aracılığıyla kullanılabilir.
+*Geliştirme*, *hazırlık*ve *üretim*gibi yürütme ortamları, ASP.NET Core birinci sınıf kavramlardır. `ASPNETCORE_ENVIRONMENT` ortam değişkenini ayarlayarak bir uygulamanın üzerinde çalıştığı ortamı belirtebilirsiniz. ASP.NET Core, uygulamanın başlangıcında bu ortam değişkenini okur ve değeri bir `IHostingEnvironment` uygulamasında depolar. Ortam nesnesi, uygulama tarafından her yerde DI aracılığıyla kullanılabilir.
 
-@No__t-0 sınıfından aşağıdaki örnek kod, uygulamayı yalnızca geliştirmede çalıştırıldığında ayrıntılı hata bilgilerini sunacak şekilde yapılandırır:
+`Startup` sınıfından aşağıdaki örnek kod, uygulamayı yalnızca geliştirmede çalıştırıldığında ayrıntılı hata bilgilerini sunacak şekilde yapılandırır:
 
 [!code-csharp[](index/snapshots/2.x/Startup2.cs?highlight=3-6)]
 
@@ -203,21 +203,21 @@ Daha fazla bilgi için bkz. <xref:fundamentals/environments>.
 
 ASP.NET Core, çeşitli yerleşik ve üçüncü taraf günlük sağlayıcılarıyla birlikte çalışarak bir günlüğe kaydetme API 'sini destekler. Kullanılabilir sağlayıcılar şunları içerir:
 
-* Konsol
+* Konsolu
 * Hata ayıklama
 * Windows üzerinde olay Izleme
 * Windows olay günlüğü
 * TraceSource
-* Azure uygulama hizmeti
+* Azure App Service
 * Azure Application Insights
 
-Dı ve çağrı günlüğü yöntemlerinden `ILogger` nesnesi alarak uygulamanın kodundaki her yerden günlükleri yazın.
+Dı ve çağrı günlüğü yöntemlerinden `ILogger` nesne alarak uygulamanın kodundaki her yerden günlükleri yazın.
 
 Oluşturucu Ekleme ve günlük yöntemi çağrılarını vurgulanmış bir `ILogger` nesnesi kullanan örnek kod aşağıda verilmiştir.
 
 [!code-csharp[](index/snapshots/2.x/TodoController.cs?highlight=5,13,17)]
 
-@No__t-0 arabirimi, günlük sağlayıcısına istediğiniz sayıda alanı geçirmenize olanak sağlar. Alanlar genellikle bir ileti dizesi oluşturmak için kullanılır, ancak sağlayıcı bunları bir veri deposuna ayrı alanlar olarak da gönderebilir. Bu özellik, günlük sağlayıcılarının [yapılandırılmış günlük olarak da bilinen anlam günlüğü](https://softwareengineering.stackexchange.com/questions/312197/benefits-of-structured-logging-vs-basic-logging)uygulamasına olanak tanır.
+`ILogger` arabirimi, günlük sağlayıcısına istediğiniz sayıda alanı geçirmenize olanak sağlar. Alanlar genellikle bir ileti dizesi oluşturmak için kullanılır, ancak sağlayıcı bunları bir veri deposuna ayrı alanlar olarak da gönderebilir. Bu özellik, günlük sağlayıcılarının [yapılandırılmış günlük olarak da bilinen anlam günlüğü](https://softwareengineering.stackexchange.com/questions/312197/benefits-of-structured-logging-vs-basic-logging)uygulamasına olanak tanır.
 
 Daha fazla bilgi için bkz. <xref:fundamentals/logging/index>.
 
@@ -240,13 +240,13 @@ Daha fazla bilgi için bkz. <xref:fundamentals/error-handling>.
 
 ## <a name="make-http-requests"></a>HTTP isteğinde bulunma
 
-@No__t-0 ' a bir uygulama `HttpClient` örnek oluşturmak için kullanılabilir. Fabrika:
+`IHttpClientFactory` bir uygulama `HttpClient` örnekleri oluşturmak için kullanılabilir. Fabrika:
 
 * , Mantıksal `HttpClient` örneklerinin adlandırılması ve yapılandırılması için merkezi bir konum sağlar. Örneğin, *GitHub istemcisi kayıtlı ve GitHub 'a* erişebilecek şekilde yapılandırılabilir. Varsayılan istemci, diğer amaçlar için kaydedilebilir.
 * , Bir giden istek ara yazılım işlem hattı oluşturmak için birden çok temsilci seçme işleyicisinin kaydını ve zincirlemeyi destekler. Bu düzen, ASP.NET Core gelen ara yazılım ardışık düzenine benzer. Bu model, önbelleğe alma, hata işleme, serileştirme ve günlüğe kaydetme dahil olmak üzere HTTP istekleri etrafında çapraz kesme sorunlarını yönetmek için bir mekanizma sağlar.
 * Geçici hata işleme için popüler bir üçüncü taraf kitaplığı olan *Polly*ile tümleşir.
-* @No__t-1 yaşam sürelerini el ile yönetirken gerçekleşen yaygın DNS sorunlarından kaçınmak için temeldeki `HttpClientMessageHandler` örneklerinin biriktirmesini ve ömrünü yönetir.
-* Fabrika tarafından oluşturulan istemciler aracılığıyla gönderilen tüm istekler için yapılandırılabilir bir günlük deneyimi (`ILogger` aracılığıyla) ekler.
+* `HttpClient` yaşam sürelerini el ile yönetirken gerçekleşen yaygın DNS sorunlarından kaçınmak için temel `HttpClientMessageHandler` örneklerinin biriktirmesini ve ömrünü yönetir.
+* Fabrika tarafından oluşturulan istemcilerle gönderilen tüm istekler için yapılandırılabilir bir günlük deneyimi (`ILogger`aracılığıyla) ekler.
 
 Daha fazla bilgi için bkz. <xref:fundamentals/http-requests>.
 
@@ -303,6 +303,14 @@ Web kök yolu varsayılan olarak *{Content root}/Wwwroot*olarak belirlenir, anca
 
 ::: moniker-end
 
-Razor ( *. cshtml*) dosyalarında, tilde işareti (`~/`) Web köküne işaret eder. @No__t-0 ' dan başlayan bir yol, *sanal yol*olarak adlandırılır.
+Proje dosyasındaki [\<içerik > proje öğesi](/visualstudio/msbuild/common-msbuild-project-items#content) ile *Wwwroot* 'da dosya yayımlamayı önleyin. Aşağıdaki örnek, *Wwwroot/yerel* dizin ve alt dizinlerde içerik yayımlamayı engeller:
+
+```xml
+<ItemGroup>
+  <Content Update="wwwroot\local\**\*.*" CopyToPublishDirectory="Never" />
+</ItemGroup>
+```
+
+Razor ( *. cshtml*) dosyalarında, tilde işareti (`~/`) Web köküne işaret eder. `~/` başlayan bir yol, *sanal yol*olarak adlandırılır.
 
 Daha fazla bilgi için bkz. <xref:fundamentals/static-files>.
