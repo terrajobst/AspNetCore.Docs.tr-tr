@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 11/05/2019
 uid: performance/memory
-ms.openlocfilehash: 8f6b47ecde6f265bfb9437234b89f11f7d235869
-ms.sourcegitcommit: 6628cd23793b66e4ce88788db641a5bbf470c3c1
+ms.openlocfilehash: 4c25c069aa2a6088c0549d786ecdd487ab7b9ea5
+ms.sourcegitcommit: 4818385c3cfe0805e15138a2c1785b62deeaab90
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73660008"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73896939"
 ---
 # <a name="memory-management-and-garbage-collection-gc-in-aspnet-core"></a>ASP.NET Core 'de bellek yönetimi ve çöp toplama (GC)
 
@@ -82,7 +82,7 @@ MemoryLeak 'yi çalıştırın. Ayrılan bellek, GC gerçekleşene kadar yavaş 
 Grafik, bellek kullanımı için iki değer görüntüler:
 
 - Ayrılan: yönetilen nesnelerin kapladığı bellek miktarı
-- Çalışma kümesi: işlem tarafından kullanılan toplam fiziksel bellek (RAM). Gösterilen çalışma kümesi, Görev Yöneticisi 'nin görüntülemesi için aynı değerdir.
+- [Çalışma kümesi](/windows/win32/memory/working-set): Şu anda fiziksel bellekte bulunan işlemin sanal adres alanındaki sayfa kümesi. Gösterilen çalışma kümesi, Görev Yöneticisi 'nin görüntülediği değerdir.
 
 ### <a name="transient-objects"></a>Geçici nesneler
 

@@ -1,24 +1,23 @@
 ---
-title: ASP.NET core'da belirli bir düzeni ile yetkilendirme
+title: ASP.NET Core belirli bir şemayla yetkilendir
 author: rick-anderson
-description: Bu makalede, birden çok kimlik doğrulama yöntemleri ile çalışırken, belirli bir düzen kimliğini sınırlamak açıklanmaktadır.
+description: Bu makalede, birden çok kimlik doğrulama yöntemleriyle çalışırken kimliğin belirli bir şemayla nasıl sınırlandırılacağını açıklamaktadır.
+monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
-ms.date: 10/22/2018
+ms.date: 11/08/2019
 uid: security/authorization/limitingidentitybyscheme
-ms.openlocfilehash: 778bb61f472ab2e76f85da5999d3c79238188f19
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 38da80519b9d5d097c24d38b5a37503174629fc4
+ms.sourcegitcommit: 4818385c3cfe0805e15138a2c1785b62deeaab90
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64903005"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73896962"
 ---
-# <a name="authorize-with-a-specific-scheme-in-aspnet-core"></a>ASP.NET core'da belirli bir düzeni ile yetkilendirme
+# <a name="authorize-with-a-specific-scheme-in-aspnet-core"></a>ASP.NET Core belirli bir şemayla yetkilendir
 
-Tek sayfa uygulamaları (Spa'lar) gibi bazı senaryolarda birden çok kimlik doğrulama yöntemleri kullanan yaygındır. Örneğin, uygulama oturum açma tanımlama bilgisi tabanlı kimlik doğrulaması ve JWT taşıyıcı kimlik doğrulaması için JavaScript istekleri kullanabilir. Bazı durumlarda, uygulama birden fazla örneğini bir kimlik doğrulama işleyicisi olabilir. Örneğin, iki tanımlama bilgisi işleyicileri burada temel bir kimlik içerir ve bir oluşturulduğunda bir multi-Factor authentication (MFA) tetiklendiğinde. Kullanıcıya ek güvenlik gerektiren bir işlem istediğinden MFA tetiklenebilir.
+Tek sayfalı uygulamalar (maça 'Lar) gibi bazı senaryolarda, birden çok kimlik doğrulama yöntemi kullanılması yaygındır. Örneğin, uygulama, JavaScript istekleri için oturum açma ve JWT taşıyıcı kimlik doğrulaması için tanımlama bilgisi tabanlı kimlik doğrulaması kullanabilir. Bazı durumlarda, uygulamanın bir kimlik doğrulama işleyicisinin birden çok örneği olabilir. Örneğin, biri temel kimlik içeren ve bir Multi-Factor Authentication (MFA) tetiklendiğinde bir tane olan iki tanımlama bilgisi işleyicisi oluşturulur. Kullanıcı ek güvenlik gerektiren bir işlem istediği için MFA tetiklenebilir.
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
-
-Kimlik doğrulaması sırasında kimlik doğrulama hizmeti tarafından yapılandırıldığında bir kimlik doğrulama düzeni olarak adlandırılır. Örneğin:
+Kimlik doğrulaması sırasında kimlik doğrulama hizmeti yapılandırıldığında bir kimlik doğrulama düzeni adlandırılır. Örneğin:
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -36,50 +35,14 @@ public void ConfigureServices(IServiceCollection services)
         });
 ```
 
-Önceki kodda, iki kimlik doğrulaması işleyici eklendi: biri tanımlama bilgileri, diğeri taşıyıcı için.
+Yukarıdaki kodda iki kimlik doğrulama işleyicisi eklenmiştir: biri tanımlama bilgileri ve bir taşıyıcı için bir tane.
 
 >[!NOTE]
->Varsayılan düzenini belirten sonuçlanıyor `HttpContext.User` kimliğe ayarlanan özelliği. Bu davranışı gerekli değildir, parametresiz derleyeceği harekete geçirerek devre dışı `AddAuthentication`.
+>Varsayılan düzeni belirtmek `HttpContext.User` özelliğinin bu kimliğe ayarlandığı sonuçları elde ediyor. Bu davranış istenmiyorsa, `AddAuthentication`parametresiz biçimini çağırarak devre dışı bırakın.
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
+## <a name="selecting-the-scheme-with-the-authorize-attribute"></a>Yetkilendir özniteliğiyle düzeni seçme
 
-Kimlik doğrulaması sırasında kimlik doğrulaması middlewares yapılandırıldığında kimlik doğrulama düzeni olarak adlandırılır. Örneğin:
-
-```csharp
-public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
-{
-    // Code omitted for brevity
-
-    app.UseCookieAuthentication(new CookieAuthenticationOptions()
-    {
-        AuthenticationScheme = "Cookie",
-        LoginPath = "/Account/Unauthorized/",
-        AccessDeniedPath = "/Account/Forbidden/",
-        AutomaticAuthenticate = false
-    });
-    
-    app.UseJwtBearerAuthentication(new JwtBearerOptions()
-    {
-        AuthenticationScheme = "Bearer",
-        AutomaticAuthenticate = false,
-        Audience = "http://localhost:5001/",
-        Authority = "http://localhost:5000/",
-        RequireHttpsMetadata = false
-    });
-```
-
-Önceki kodda, iki kimlik doğrulaması middlewares eklenmiştir: biri tanımlama bilgileri, diğeri taşıyıcı için.
-
->[!NOTE]
->Varsayılan düzenini belirten sonuçlanıyor `HttpContext.User` kimliğe ayarlanan özelliği. Bu davranışı gerekli değildir, ayarı devre dışı `AuthenticationOptions.AutomaticAuthenticate` özelliğini `false`.
-
----
-
-## <a name="selecting-the-scheme-with-the-authorize-attribute"></a>Authorize özniteliği düzeni seçme
-
-Yetkilendirme noktasında kullanılacak işleyici uygulamayı gösterir. Uygulama ile yetkilendirmek için kimlik doğrulama düzenleri, virgülle ayrılmış listesini geçirerek işleyiciyi seçin `[Authorize]`. `[Authorize]` Kimlik doğrulama düzeni veya düzenleri varsayılan yapılandırılmış bağımsız olarak kullanılacak özniteliği belirtir. Örneğin:
-
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
+Uygulama, yetkilendirme noktasında kullanılacak işleyiciyi gösterir. `[Authorize]`için virgülle ayrılmış bir kimlik doğrulama düzeni listesi geçirerek uygulamanın yetkilendirdiği işleyiciyi seçin. `[Authorize]` özniteliği, varsayılan olarak yapılandırılıp yapılandırılmadığını ne olursa olsun, kullanılacak kimlik doğrulama düzenini veya düzenlerini belirtir. Örneğin:
 
 ```csharp
 [Authorize(AuthenticationSchemes = AuthSchemes)]
@@ -92,24 +55,7 @@ public class MixedController : Controller
         JwtBearerDefaults.AuthenticationScheme;
 ```
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
-
-```csharp
-[Authorize(ActiveAuthenticationSchemes = AuthSchemes)]
-public class MixedController : Controller
-    // Requires the following imports:
-    // using Microsoft.AspNetCore.Authentication.Cookies;
-    // using Microsoft.AspNetCore.Authentication.JwtBearer;
-    private const string AuthSchemes =
-        CookieAuthenticationDefaults.AuthenticationScheme + "," +
-        JwtBearerDefaults.AuthenticationScheme;
-```
-
----
-
-Yukarıdaki örnekte tanımlama bilgisi ve taşıyıcı işleyicileri çalıştırın ve oluşturun ve geçerli kullanıcı için bir kimlik eklenecek şansına sahip olabilirsiniz. Yalnızca tek bir düzen belirterek, karşılık gelen işleyici çalıştırır.
-
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
+Yukarıdaki örnekte, hem tanımlama bilgisi hem de taşıyıcı işleyiciler çalışır ve geçerli kullanıcı için bir kimlik oluşturma ve ekleme şansı vardır. Yalnızca tek bir düzen belirterek, karşılık gelen işleyici çalışır.
 
 ```csharp
 [Authorize(AuthenticationSchemes = 
@@ -117,21 +63,11 @@ Yukarıdaki örnekte tanımlama bilgisi ve taşıyıcı işleyicileri çalışt�
 public class MixedController : Controller
 ```
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
+Yukarıdaki kodda yalnızca "taşıyıcı" düzenine sahip işleyici çalışır. Tanımlama bilgisi tabanlı kimlikler yok sayılır.
 
-```csharp
-[Authorize(ActiveAuthenticationSchemes = 
-    JwtBearerDefaults.AuthenticationScheme)]
-public class MixedController : Controller
-```
+## <a name="selecting-the-scheme-with-policies"></a>İlkeleri olan düzeni seçme
 
----
-
-Önceki kodda; yalnızca işleyici "Bearer" düzeni ile çalışır. Tanımlama bilgisi tabanlı hiç kimlik yok sayılır.
-
-## <a name="selecting-the-scheme-with-policies"></a>İlkeleriyle düzenini seçme
-
-İstenen düzenleri belirtmek istiyorsanız [ilke](xref:security/authorization/policies), ayarlayabileceğiniz `AuthenticationSchemes` ilkenizi eklerken koleksiyonu:
+[İlkede](xref:security/authorization/policies)istenen şemaları belirtmeyi tercih ediyorsanız, ilkenizi eklerken `AuthenticationSchemes` koleksiyonu ayarlayabilirsiniz:
 
 ```csharp
 services.AddAuthorization(options =>
@@ -145,7 +81,7 @@ services.AddAuthorization(options =>
 });
 ```
 
-Önceki örnekte, "Over18" ilke karşı "Bearer" işleyicisi tarafından oluşturulan kimlik yalnızca çalışır. Bir ilke ayarlayarak kullanın `[Authorize]` özniteliğin `Policy` özelliği:
+Yukarıdaki örnekte, "Over18" ilkesi yalnızca "taşıyıcı" işleyicisi tarafından oluşturulan kimliğe göre çalışır. `[Authorize]` özniteliğinin `Policy` özelliğini ayarlayarak ilkeyi kullanın:
 
 ```csharp
 [Authorize(Policy = "Over18")]
@@ -154,11 +90,11 @@ public class RegistrationController : Controller
 
 ::: moniker range=">= aspnetcore-2.0"
 
-## <a name="use-multiple-authentication-schemes"></a>Birden fazla kimlik doğrulama şeması kullanma
+## <a name="use-multiple-authentication-schemes"></a>Birden çok kimlik doğrulama şeması kullanma
 
-Bazı uygulamalar birden çok kimlik doğrulama türlerini desteklemek gerekebilir. Örneğin, uygulamanız kullanıcıların Azure Active Directory'den ve kullanıcıların veritabanından kimlik doğrulaması. Başka bir örnek, hem Active Directory Federasyon Hizmetleri, hem de Azure Active Directory B2C kullanıcılarının kimliğini doğrulayan bir uygulamadır. Bu durumda, uygulama, JWT taşıyıcı belirtecinden birkaç verenler kabul etmelidir.
+Bazı uygulamaların birden çok tür kimlik doğrulamasını desteklemesi gerekebilir. Örneğin, uygulamanız Azure Active Directory kullanıcıların kimliğini ve bir kullanıcılar veritabanından kimlik doğrulaması yapabilir. Diğer bir örnek, hem Active Directory Federasyon Hizmetleri (AD FS) hem de Azure Active Directory B2C kullanıcıların kimliğini doğrulayan bir uygulamadır. Bu durumda, uygulamanın birkaç verenler tarafından bir JWT taşıyıcı belirtecini kabul etmesi gerekir.
 
-Kabul etmek istediğiniz tüm kimlik doğrulama düzenleri ekleyin. Aşağıdaki örnek, kod `Startup.ConfigureServices` farklı verenler ile iki JWT taşıyıcı kimlik doğrulama düzenleri ekler:
+Kabul etmek istediğiniz tüm kimlik doğrulama düzenlerini ekleyin. Örneğin, `Startup.ConfigureServices` aşağıdaki kod farklı verenler ile iki JWT taşıyıcı kimlik doğrulama şeması ekler:
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -180,9 +116,9 @@ public void ConfigureServices(IServiceCollection services)
 ```
 
 > [!NOTE]
-> Yalnızca bir JWT taşıyıcı kimlik doğrulaması varsayılan kimlik doğrulama düzeni kayıtlı `JwtBearerDefaults.AuthenticationScheme`. Ek kimlik doğrulama bir benzersiz kimlik doğrulama düzeni ile kayıtlı olması gerekir.
+> Varsayılan kimlik doğrulama düzenine `JwtBearerDefaults.AuthenticationScheme`yalnızca bir JWT taşıyıcı kimlik doğrulaması kaydedilir. Ek kimlik doğrulaması, benzersiz bir kimlik doğrulama şemasına kaydedilmelidir.
 
-Sonraki adım her iki kimlik doğrulama düzenleri kabul etmek için varsayılan yetkilendirme ilkesi güncelleştirmektir. Örneğin:
+Bir sonraki adım, varsayılan yetkilendirme ilkesini her iki kimlik doğrulama şemasını kabul edecek şekilde güncelleştirmesidir. Örneğin:
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -201,6 +137,6 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-Varsayılan yetkilendirme ilkesi geçersiz kılınan gibi kullanmak mümkün mü `[Authorize]` denetleyicileri özniteliği. Denetleyici ardından istekleri ile ilk veya ikinci veren tarafından verilen JWT kabul eder.
+Varsayılan yetkilendirme ilkesi geçersiz kılındığından, denetleyicilerde `[Authorize]` özniteliğini kullanmak mümkündür. Denetleyici daha sonra ilk veya ikinci veren tarafından JWT veren istekleri kabul eder.
 
 ::: moniker-end
