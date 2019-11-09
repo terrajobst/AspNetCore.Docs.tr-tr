@@ -22,10 +22,9 @@ Tarayıcı bağlantısı kurulana kadar JavaScript birlikte çalışma çağrıl
 }
 ```
 
-Yukarıdaki örnek kod için, *Wwwroot/index.html* (Blazor WebAssembly) veya *Pages/_host. cshtml* (Blazor Server) öğesinin `<head>` öğesi içinde bir `setElementText` JavaScript işlevi sağlayın. İşlevi `IJSRuntime.InvokeVoidAsync` ile çağrılır ve bir değer döndürmez:
+Yukarıdaki örnek kod için, *Wwwroot/index.html* (Blazor WebAssembly) veya *Pages/_Host. cshtml* (Blazor Server) `<head>` öğesi içinde bir `setElementText` JavaScript işlevi sağlayın. İşlevi `IJSRuntime.InvokeVoidAsync` ile çağrılır ve bir değer döndürmez:
 
 ```html
-<!--  -->
 <script>
   window.setElementText = (element, text) => element.innerText = text;
 </script>
@@ -36,9 +35,9 @@ Yukarıdaki örnek kod için, *Wwwroot/index.html* (Blazor WebAssembly) veya *Pa
 
 Aşağıdaki bileşen, prerendering ile uyumlu bir şekilde bileşenin başlatma mantığının bir parçası olarak JavaScript birlikte çalışabilirinin nasıl kullanılacağını göstermektedir. Bileşeni, `OnAfterRenderAsync` içinden bir işleme güncelleştirmesi tetiklemenin mümkün olduğunu gösterir. Geliştirici Bu senaryoda sonsuz bir döngü oluşturmaktan kaçınmalıdır.
 
-@No__t_0 çağrıldığında, bileşen işlenene kadar hiçbir JavaScript öğesi olmadığından, `ElementRef` yalnızca `OnAfterRenderAsync` için kullanılır ve daha önceki bir yaşam döngüsü yönteminde değil.
+`JSRuntime.InvokeAsync` çağrıldığında, bileşen işlenene kadar hiçbir JavaScript öğesi olmadığından, `ElementRef` yalnızca `OnAfterRenderAsync` için kullanılır ve daha önceki bir yaşam döngüsü yönteminde değil.
 
-`StateHasChanged`, bileşeni JavaScript birlikte çalışma çağrısından alınan yeni durumla yeniden eklemek için çağrılır. @No__t_0 yalnızca `infoFromJs` `null` olduğunda çağrıldığı için, kod sonsuz bir döngü oluşturmaz.
+`StateHasChanged`, bileşeni JavaScript birlikte çalışma çağrısından alınan yeni durumla yeniden eklemek için çağrılır. `StateHasChanged` yalnızca `infoFromJs` `null`olduğunda çağrıldığı için, kod sonsuz bir döngü oluşturmaz.
 
 ```cshtml
 @page "/prerendered-interop"
@@ -71,7 +70,7 @@ Set value via JS interop call:
 }
 ```
 
-Yukarıdaki örnek kod için, *Wwwroot/index.html* (Blazor WebAssembly) veya *Pages/_host. cshtml* (Blazor Server) öğesinin `<head>` öğesi içinde bir `setElementText` JavaScript işlevi sağlayın. İşlevi `IJSRuntime.InvokeAsync` ile çağrılır ve bir değer döndürür:
+Yukarıdaki örnek kod için, *Wwwroot/index.html* (Blazor WebAssembly) veya *Pages/_Host. cshtml* (Blazor Server) `<head>` öğesi içinde bir `setElementText` JavaScript işlevi sağlayın. İşlevi `IJSRuntime.InvokeAsync` ile çağrılır ve bir değer döndürür:
 
 ```html
 <script>
