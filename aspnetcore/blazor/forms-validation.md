@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 11/04/2019
 uid: blazor/forms-validation
-ms.openlocfilehash: 09281779e7f0b31e525e0e79c2d6d9ce9ca5b8ce
-ms.sourcegitcommit: 6628cd23793b66e4ce88788db641a5bbf470c3c1
+ms.openlocfilehash: 6dcc36c5133367493b476655dbdf73b75db9d168
+ms.sourcegitcommit: a7bbe3890befead19440075b05b9674351f98872
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73659780"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73905740"
 ---
 # <a name="aspnet-core-blazor-forms-and-validation"></a>ASP.NET Core Blazor formları ve doğrulaması
 
@@ -40,7 +40,7 @@ Bir form `EditForm` bileşeni kullanılarak tanımlanır. Aşağıdaki formda ti
     <DataAnnotationsValidator />
     <ValidationSummary />
 
-    <InputText id="name" @bind-Value="@exampleModel.Name" />
+    <InputText id="name" @bind-Value="exampleModel.Name" />
 
     <button type="submit">Submit</button>
 </EditForm>
