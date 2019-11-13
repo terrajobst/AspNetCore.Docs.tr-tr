@@ -4,13 +4,13 @@ author: rick-anderson
 description: JavaScript ile ASP.NET Core Web API 'sini çağırmayı öğrenin.
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/15/2019
+ms.date: 08/27/2019
 uid: tutorials/web-api-javascript
-ms.openlocfilehash: bbe261307f6f68af002cb98cc4895888ade7f61c
-ms.sourcegitcommit: dd026eceee79e943bd6b4a37b144803b50617583
+ms.openlocfilehash: 0070816149d64fc1d71d453eb0f135050c78597a
+ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/15/2019
+ms.lasthandoff: 11/13/2019
 ms.locfileid: "72378698"
 ---
 # <a name="tutorial-call-an-aspnet-core-web-api-with-javascript"></a>Öğretici: JavaScript ile ASP.NET Core Web API 'SI çağırma
@@ -18,6 +18,14 @@ ms.locfileid: "72378698"
 [Rick Anderson](https://twitter.com/RickAndMSFT) tarafından
 
 Bu öğreticide, [Fetch API](https://developer.mozilla.org/docs/Web/API/Fetch_API)kullanılarak JavaScript ile ASP.NET Core Web API 'sinin nasıl çağrılacağını gösterilmektedir.
+
+::: moniker range="< aspnetcore-3.0"
+
+ASP.NET Core 2,2 için, [JavaScript ile Web API 'Sini çağırma](xref:tutorials/first-web-api#call-the-web-api-with-javascript)2,2 sürümüne bakın.
+
+::: moniker-end
+
+::: moniker range=">= aspnetcore-3.0"
 
 ## <a name="prerequisites"></a>Prerequisites
 
@@ -28,9 +36,9 @@ Bu öğreticide, [Fetch API](https://developer.mozilla.org/docs/Web/API/Fetch_AP
 
 Bu bölümde, Yapılacaklar öğeleri oluşturmak ve yönetmek için form içeren bir HTML sayfası ekleyeceksiniz. Olay işleyicileri sayfadaki öğelere iliştirilir. Olay işleyicileri, Web API 'sinin eylem yöntemlerine HTTP istekleri sonucu vermez. Fetch API 'sinin `fetch` işlevi her HTTP isteğini başlatır.
 
-@No__t-0 işlevi, `Response` nesnesi olarak temsil edilen bir HTTP yanıtı içeren bir `Promise` nesnesi döndürür. Ortak bir model, `Response` nesnesinde `json` işlevini çağırarak JSON yanıt gövdesini ayıklamaya yönelik olur. JavaScript, sayfayı Web API 'sinin yanıtından alınan ayrıntılarla güncelleştirir.
+`fetch` işlevi, bir `Response` nesnesi olarak temsil edilen bir HTTP yanıtı içeren bir `Promise` nesnesi döndürür. Ortak bir model, `Response` nesnesinde `json` işlevini çağırarak JSON yanıt gövdesini ayıklamaya yönelik olur. JavaScript, sayfayı Web API 'sinin yanıtından alınan ayrıntılarla güncelleştirir.
 
-En basit `fetch` çağrısı, yolu temsil eden tek bir parametre kabul eder. @No__t-0 nesnesi olarak bilinen ikinci bir parametre isteğe bağlıdır. `init`, HTTP isteğini yapılandırmak için kullanılır.
+En basit `fetch` çağrısı, yolu temsil eden tek bir parametre kabul eder. `init` nesnesi olarak bilinen ikinci bir parametre isteğe bağlıdır. `init`, HTTP isteğini yapılandırmak için kullanılır.
 
 1. Uygulamayı [statik dosyaları sunacak](/dotnet/api/microsoft.aspnetcore.builder.staticfileextensions.usestaticfiles#Microsoft_AspNetCore_Builder_StaticFileExtensions_UseStaticFiles_Microsoft_AspNetCore_Builder_IApplicationBuilder_) ve [varsayılan dosya eşlemesini etkinleştirecek](/dotnet/api/microsoft.aspnetcore.builder.defaultfilesextensions.usedefaultfiles#Microsoft_AspNetCore_Builder_DefaultFilesExtensions_UseDefaultFiles_Microsoft_AspNetCore_Builder_IApplicationBuilder_)şekilde yapılandırın. Aşağıdaki vurgulanan kod, *Startup.cs*öğesinin `Configure` yönteminde gereklidir:
 
@@ -49,7 +57,7 @@ En basit `fetch` çağrısı, yolu temsil eden tek bir parametre kabul eder. @No
 HTML sayfasını yerel olarak test etmek için ASP.NET Core projesinin başlatma ayarlarındaki bir değişikliğin yapılması gerekebilir:
 
 1. *Properties\launchSettings.JSON*'i açın.
-1. @No__t-0 özelliğini kaldırarak uygulamayı *Dizin. html*&mdash; ' de projenin varsayılan dosyasında açılmasını zorunlu kılın.
+1. Uygulamanın *index. html* &mdash;the projenin varsayılan dosyasında açılmasını zorlamak için `launchUrl` özelliğini kaldırın.
 
 Bu örnek, Web API 'sinin tüm CRUD yöntemlerini çağırır. Web API isteklerinin açıklamaları aşağıda verilmiştir.
 
@@ -59,17 +67,17 @@ Aşağıdaki kodda, *API/todoıtems* yoluna BIR http get isteği gönderilir:
 
 [!code-javascript[](first-web-api/samples/3.0/TodoApi/wwwroot/js/site.js?name=snippet_GetItems)]
 
-Web API 'SI başarılı bir durum kodu döndürdüğünde `_displayItems` işlevi çağrılır. @No__t-0 tarafından kabul edilen dizi parametresindeki her Yapılacaklar öğesi, **Düzenle** ve **Sil** düğmeleriyle bir tabloya eklenir. Web API isteği başarısız olursa, tarayıcının konsoluna bir hata kaydedilir.
+Web API 'SI başarılı bir durum kodu döndürdüğünde `_displayItems` işlevi çağrılır. `_displayItems` tarafından kabul edilen dizi parametresindeki her Yapılacaklar öğesi, **Düzenle** ve **Sil** düğmeleriyle bir tabloya eklenir. Web API isteği başarısız olursa, tarayıcının konsoluna bir hata kaydedilir.
 
 ### <a name="add-a-to-do-item"></a>Yapılacaklar öğesi ekleme
 
 Aşağıdaki kodda:
 
-* @No__t-0 değişkeni, yapılacaklar öğesinin nesne sabit gösterimini oluşturmak için bildirilmiştir.
+* `item` değişken, yapılacaklar öğesinin nesne sabit gösterimini oluşturmak için bildirilmiştir.
 * Aşağıdaki seçeneklerle bir getirme isteği yapılandırılır:
-  * `method` @ no__t-1post HTTP eylem fiilini belirtir.
-  * `body` @ no__t-1istek gövdesinin JSON temsilini belirtir. JSON, `item` ' da depolanan nesne sabit değeri [JSON. stringbelirt](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify) işlevine geçirilerek oluşturulur.
-  * `headers` @ no__t-1`Accept` ve `Content-Type` HTTP istek üst bilgilerini belirtir. Her iki üst bilgi de `application/json` olarak ayarlanır ve sırasıyla alınan ve gönderilen medya türünü belirtir.
+    * `method`&mdash;HTTP eyleminin SONRASı fiilini belirtir.
+    * `body`&mdash;, istek gövdesinin JSON temsilini belirtir. JSON, `item` ' da depolanan nesne sabit değeri [JSON. stringbelirt](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify) işlevine geçirilerek oluşturulur.
+    * `headers`&mdash;`Accept` ve `Content-Type` HTTP istek üst bilgilerini belirtir. Her iki üst bilgi de `application/json` olarak ayarlanır ve sırasıyla alınan ve gönderilen medya türünü belirtir.
 * *API/todoıtems* yoluna BIR http post isteği gönderilir.
 
 [!code-javascript[](first-web-api/samples/3.0/TodoApi/wwwroot/js/site.js?name=snippet_AddItem)]
@@ -95,3 +103,5 @@ Web API 'SI yardım sayfaları oluşturmayı öğrenmek için bir sonraki öğre
 
 > [!div class="nextstepaction"]
 > <xref:tutorials/get-started-with-swashbuckle>
+
+::: moniker-end
