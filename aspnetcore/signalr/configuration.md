@@ -1,30 +1,32 @@
 ---
 title: ASP.NET Core SignalR yapılandırması
 author: bradygaster
-description: ASP.NET Core SignalR uygulamalarını yapılandırmayı öğrenin.
+description: ASP.NET Core SignalR uygulamalarını nasıl yapılandıracağınızı öğrenin.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: bradyg
 ms.custom: mvc
-ms.date: 08/05/2019
+ms.date: 11/12/2019
+no-loc:
+- SignalR
 uid: signalr/configuration
-ms.openlocfilehash: 66f274fcda27392091de6b4be8c7221bc87b7585
-ms.sourcegitcommit: c452e6af92e130413106c4863193f377cde4cd9c
+ms.openlocfilehash: 682cc36216a4dc9b38c87b4f67100ab565a70e5c
+ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72246487"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73963979"
 ---
-# <a name="aspnet-core-signalr-configuration"></a>ASP.NET Core SignalR yapılandırması
+# <a name="aspnet-core-opno-locsignalr-configuration"></a>ASP.NET Core SignalR yapılandırması
 
 ## <a name="jsonmessagepack-serialization-options"></a>JSON/MessagePack serileştirme seçenekleri
 
-ASP.NET Core SignalR, kodlama iletileri için iki protokolü destekler: [JSON](https://www.json.org/) ve [MessagePack](https://msgpack.org/index.html). Her protokol serileştirme yapılandırma seçenekleri vardır.
+ASP.NET Core SignalR iletileri kodlamak için iki protokolü destekler: [JSON](https://www.json.org/) ve [MessagePack](https://msgpack.org/index.html). Her protokol serileştirme yapılandırma seçenekleri vardır.
 
 ::: moniker range=">= aspnetcore-3.0"
 
-JSON serileştirme, [Addjsonprotocol](/dotnet/api/microsoft.extensions.dependencyinjection.jsonprotocoldependencyinjectionextensions.addjsonprotocol) genişletme yöntemi kullanılarak sunucuda yapılandırılabilir. `AddJsonProtocol`, `Startup.ConfigureServices` ' de [Addsignalr](/dotnet/api/microsoft.extensions.dependencyinjection.signalrdependencyinjectionextensions.addsignalr) öğesinden sonra eklenebilir. @No__t-0 yöntemi, bir `options` nesnesi alan bir temsilci alır. Bu nesnedeki [Payloadserializeroptions](/dotnet/api/microsoft.aspnetcore.signalr.jsonhubprotocoloptions.payloadserializeroptions) özelliği, bağımsız değişkenlerin ve dönüş değerlerinin serileştirilmesi yapılandırmak için kullanılabilen bir `System.Text.Json` <xref:System.Text.Json.JsonSerializerOptions> nesnesidir. Daha fazla bilgi için bkz. [System. Text. JSON belgeleri](/dotnet/api/system.text.json).
+JSON serileştirme, [Addjsonprotocol](/dotnet/api/microsoft.extensions.dependencyinjection.jsonprotocoldependencyinjectionextensions.addjsonprotocol) genişletme yöntemi kullanılarak sunucuda yapılandırılabilir. `AddJsonProtocol`, `Startup.ConfigureServices`[Addsignalr](/dotnet/api/microsoft.extensions.dependencyinjection.signalrdependencyinjectionextensions.addsignalr) öğesinden sonra eklenebilir. `AddJsonProtocol` yöntemi, `options` nesnesini alan bir temsilciyi alır. Bu nesnedeki [Payloadserializeroptions](/dotnet/api/microsoft.aspnetcore.signalr.jsonhubprotocoloptions.payloadserializeroptions) özelliği, bağımsız değişkenlerin serileştirmesini ve dönüş değerlerini yapılandırmak için kullanılabilen bir `System.Text.Json` <xref:System.Text.Json.JsonSerializerOptions> nesnesidir. Daha fazla bilgi için bkz. [System. Text. JSON belgeleri](/dotnet/api/system.text.json).
 
-Örnek olarak, serileştiriciyi varsayılan "camelCase" adları yerine özellik adlarının büyük küçük harflerini değiştirmemelidir şekilde yapılandırmak için `Startup.ConfigureServices` ' da aşağıdaki kodu kullanın:
+Örnek olarak, serileştiriciyi varsayılan "camelCase" adları yerine özellik adlarının büyük küçük harflerini değiştirmemelidir şekilde yapılandırmak için, `Startup.ConfigureServices`içinde aşağıdaki kodu kullanın:
 
 ```csharp
 services.AddSignalR()
@@ -33,7 +35,7 @@ services.AddSignalR()
     });
 ```
 
-.NET istemcisinde aynı `AddJsonProtocol` genişletme yöntemi [Hubconnectionbuilder](/dotnet/api/microsoft.aspnetcore.signalr.client.hubconnectionbuilder)üzerinde bulunur. Uzantı metodunu çözümlemek için `Microsoft.Extensions.DependencyInjection` ad alanı içeri aktarılmalıdır:
+.NET istemcisinde aynı `AddJsonProtocol` uzantısı yöntemi [Hubconnectionbuilder](/dotnet/api/microsoft.aspnetcore.signalr.client.hubconnectionbuilder)üzerinde bulunur. Uzantı metodunu çözümlemek için `Microsoft.Extensions.DependencyInjection` ad alanı içeri aktarılmalıdır:
 
 ```csharp
 // At the top of the file:
@@ -47,17 +49,20 @@ var connection = new HubConnectionBuilder()
     .Build();
 ```
 
+> [!NOTE]
+> JavaScript istemcisinde Şu anda JSON serileştirme yapılandırmak mümkün değildir.
+
 ### <a name="switch-to-newtonsoftjson"></a>Newtonsoft. JSON öğesine geç
 
-@No__t-1 ' de desteklenmeyen `Newtonsoft.Json` özelliklerine ihtiyacınız varsa, bkz. [Newtonsoft. JSON öğesine geçme](xref:migration/22-to-30#switch-to-newtonsoftjson).
+`System.Text.Json`desteklenmeyen `Newtonsoft.Json` özelliklerine ihtiyacınız varsa, bkz. [Newtonsoft. JSON öğesine geçme](xref:migration/22-to-30#switch-to-newtonsoftjson).
 
 ::: moniker-end
 
 ::: moniker range="<= aspnetcore-2.2"
 
-JSON serileştirme, `Startup.ConfigureServices` yönteminde [Addsignalr](/dotnet/api/microsoft.extensions.dependencyinjection.signalrdependencyinjectionextensions.addsignalr) öğesinden sonra eklenebilecek [addjsonprotocol](/dotnet/api/microsoft.extensions.dependencyinjection.jsonprotocoldependencyinjectionextensions.addjsonprotocol) genişletme yöntemi kullanılarak sunucuda yapılandırılabilir. @No__t-0 yöntemi, bir `options` nesnesi alan bir temsilci alır. Bu nesnedeki [Payloadserializersettings](/dotnet/api/microsoft.aspnetcore.signalr.jsonhubprotocoloptions.payloadserializersettings) özelliği, bağımsız değişkenlerin serileştirmesini ve dönüş değerlerini yapılandırmak için kullanılabilen bir JSON.net `JsonSerializerSettings` nesnesidir. Daha fazla bilgi için [JSON.net belgelerine](https://www.newtonsoft.com/json/help/html/Introduction.htm)bakın.
+JSON serileştirme, `Startup.ConfigureServices` yönteminizin [Addsignalr](/dotnet/api/microsoft.extensions.dependencyinjection.signalrdependencyinjectionextensions.addsignalr) öğesinden sonra eklenebilecek [addjsonprotocol](/dotnet/api/microsoft.extensions.dependencyinjection.jsonprotocoldependencyinjectionextensions.addjsonprotocol) genişletme yöntemi kullanılarak sunucuda yapılandırılabilir. `AddJsonProtocol` yöntemi, `options` nesnesini alan bir temsilciyi alır. Bu nesnedeki [Payloadserializersettings](/dotnet/api/microsoft.aspnetcore.signalr.jsonhubprotocoloptions.payloadserializersettings) özelliği, bağımsız değişkenlerin serileştirmesini ve dönüş değerlerini yapılandırmak için kullanılabilen bir JSON.net `JsonSerializerSettings` nesnesidir. Daha fazla bilgi için [JSON.net belgelerine](https://www.newtonsoft.com/json/help/html/Introduction.htm)bakın.
  
-Örnek olarak, serileştiriciyi varsayılan "camelCase" adları yerine "PascalCase" özellik adlarını kullanacak şekilde yapılandırmak için `Startup.ConfigureServices` ' da aşağıdaki kodu kullanın:
+Örnek olarak, serileştiriciyi varsayılan "camelCase" adları yerine "PascalCase" özellik adlarını kullanacak şekilde yapılandırmak için, `Startup.ConfigureServices`' de aşağıdaki kodu kullanın:
  
 ```csharp
 services.AddSignalR()
@@ -67,7 +72,7 @@ services.AddSignalR()
     });
 ```
 
-.NET istemcisinde aynı `AddJsonProtocol` genişletme yöntemi [Hubconnectionbuilder](/dotnet/api/microsoft.aspnetcore.signalr.client.hubconnectionbuilder)üzerinde bulunur. Uzantı metodunu çözümlemek için `Microsoft.Extensions.DependencyInjection` ad alanı içeri aktarılmalıdır:
+.NET istemcisinde aynı `AddJsonProtocol` uzantısı yöntemi [Hubconnectionbuilder](/dotnet/api/microsoft.aspnetcore.signalr.client.hubconnectionbuilder)üzerinde bulunur. Uzantı metodunu çözümlemek için `Microsoft.Extensions.DependencyInjection` ad alanı içeri aktarılmalıdır:
 
 ```csharp
 // At the top of the file:
@@ -82,31 +87,31 @@ var connection = new HubConnectionBuilder()
     .Build();
 ```
 
-::: moniker-end
-
 > [!NOTE]
 > JavaScript istemcisinde Şu anda JSON serileştirme yapılandırmak mümkün değildir.
 
+::: moniker-end
+
 ### <a name="messagepack-serialization-options"></a>MessagePack serileştirme seçenekleri
 
-MessagePack serileştirme, [Addmessagepackprotocol](/dotnet/api/microsoft.extensions.dependencyinjection.msgpackprotocoldependencyinjectionextensions.addmessagepackprotocol) çağrısına bir temsilci sağlanarak yapılandırılabilir. Daha fazla ayrıntı için bkz. [SignalR 'de MessagePack](xref:signalr/messagepackhubprotocol) .
+MessagePack serileştirme, [Addmessagepackprotocol](/dotnet/api/microsoft.extensions.dependencyinjection.msgpackprotocoldependencyinjectionextensions.addmessagepackprotocol) çağrısına bir temsilci sağlanarak yapılandırılabilir. Daha fazla bilgi için bkz. [SignalRMessagePack](xref:signalr/messagepackhubprotocol) .
 
 > [!NOTE]
 > Şu anda JavaScript istemcisinde MessagePack serileştirme yapılandırmak mümkün değildir.
 
 ## <a name="configure-server-options"></a>Sunucu seçeneklerini yapılandırma
 
-Aşağıdaki tabloda, SignalR hub 'larını yapılandırma seçenekleri açıklanmaktadır:
+Aşağıdaki tabloda SignalR hub 'ları yapılandırmaya yönelik seçenekler açıklanmaktadır:
 
 ::: moniker range=">= aspnetcore-3.0"
 
-| Seçenek | Varsayılan değer | Açıklama |
+| Seçenek | Varsayılan Değer | Açıklama |
 | ------ | ------------- | ----------- |
-| `ClientTimeoutInterval` | 30 saniye | Sunucu, bu aralıkta (canlı tut dahil) bir ileti almamışsa istemcinin bağlantısının kesileceğini kabul eder. Bu işlem, uygulanması nedeniyle istemcinin bağlantısının gerçekten kesilmesinin ardından bu zaman aşımı aralığından daha uzun sürebilir. Önerilen değer `KeepAliveInterval` değerinin çift değeridir.|
-| `HandshakeTimeout` | 15 saniye | İstemci bu zaman aralığı içinde bir ilk el sıkışma iletisi göndermezse bağlantı kapatılır. Bu, yalnızca önemli ağ gecikmesi nedeniyle el sıkışma zaman aşımı hataları gerçekleşirken değiştirilmesi gereken gelişmiş bir ayardır. El sıkışma işlemi hakkında daha fazla bilgi için bkz. [SignalR hub protokol belirtimi](https://github.com/aspnet/SignalR/blob/master/specs/HubProtocol.md). |
-| `KeepAliveInterval` | 15 saniye | Sunucu bu Aralık dahilinde bir ileti göndermediyse bağlantının açık tutulması için bir ping iletisi otomatik olarak gönderilir. @No__t-0 ' ı değiştirirken istemcide `ServerTimeout` @ no__t-2 @ no__t-3 ayarını değiştirin. Önerilen `ServerTimeout` @ no__t-1 @ no__t-2 değeri `KeepAliveInterval` değeri çift.  |
+| `ClientTimeoutInterval` | 30 saniye | Sunucu, bu aralıkta (canlı tut dahil) bir ileti almamışsa istemcinin bağlantısının kesileceğini kabul eder. Bu işlem, uygulanması nedeniyle istemcinin bağlantısının gerçekten kesilmesinin ardından bu zaman aşımı aralığından daha uzun sürebilir. Önerilen değer `KeepAliveInterval` değeri iki katına kaydedilir.|
+| `HandshakeTimeout` | 15 saniye | İstemci bu zaman aralığı içinde bir ilk el sıkışma iletisi göndermezse bağlantı kapatılır. Bu, yalnızca önemli ağ gecikmesi nedeniyle el sıkışma zaman aşımı hataları gerçekleşirken değiştirilmesi gereken gelişmiş bir ayardır. El sıkışma işlemi hakkında daha fazla ayrıntı için [SignalR hub protokol belirtimine](https://github.com/aspnet/SignalR/blob/master/specs/HubProtocol.md)bakın. |
+| `KeepAliveInterval` | 15 saniye | Sunucu bu Aralık dahilinde bir ileti göndermediyse bağlantının açık tutulması için bir ping iletisi otomatik olarak gönderilir. `KeepAliveInterval`değiştirilirken, istemcide `ServerTimeout`/`serverTimeoutInMilliseconds` ayarını değiştirin. Önerilen `ServerTimeout`/`serverTimeoutInMilliseconds` değeri `KeepAliveInterval` değeri iki katına kaydedilir.  |
 | `SupportedProtocols` | Tüm yüklü protokoller | Bu hub tarafından desteklenen protokoller. Varsayılan olarak, sunucuda kayıtlı tüm protokollere izin verilir, ancak tek tek hub 'lara yönelik belirli protokolleri devre dışı bırakmak için protokollerin bu listeden kaldırılması gerekir. |
-| `EnableDetailedErrors` | `false` | @No__t-0 ise, bir hub yönteminde özel durum oluştuğunda istemcilere ayrıntılı özel durum iletileri döndürülür. Varsayılan değer `false` ' dır, bu durum iletileri hassas bilgiler içerebilir. |
+| `EnableDetailedErrors` | `false` | `true`, bir hub yönteminde özel durum oluştuğunda istemcilere ayrıntılı özel durum iletileri döndürülür. Varsayılan değer `false`, bu özel durum iletilerinde gizli bilgiler bulunabilir. |
 | `StreamBufferCapacity` | `10` | İstemci yükleme akışları için ara belleğe oluşturulabilecek en fazla öğe sayısı. Bu sınıra ulaşıldığında, sunucu akış öğelerini işlemeden, etkinleştirmeleri işleme engellenir.|
 | `MaximumReceiveMessageSize` | 32 KB | Tek bir gelen hub iletisinin en büyük boyutu. |
 
@@ -114,28 +119,28 @@ Aşağıdaki tabloda, SignalR hub 'larını yapılandırma seçenekleri açıkla
 
 ::: moniker range="= aspnetcore-2.2"
 
-| Seçenek | Varsayılan değer | Açıklama |
+| Seçenek | Varsayılan Değer | Açıklama |
 | ------ | ------------- | ----------- |
-| `ClientTimeoutInterval` | 30 saniye | Sunucu, bu aralıkta (canlı tut dahil) bir ileti almamışsa istemcinin bağlantısının kesileceğini kabul eder. Bu işlem, uygulanması nedeniyle istemcinin bağlantısının gerçekten kesilmesinin ardından bu zaman aşımı aralığından daha uzun sürebilir. Önerilen değer `KeepAliveInterval` değerinin çift değeridir.|
-| `HandshakeTimeout` | 15 saniye | İstemci bu zaman aralığı içinde bir ilk el sıkışma iletisi göndermezse bağlantı kapatılır. Bu, yalnızca önemli ağ gecikmesi nedeniyle el sıkışma zaman aşımı hataları gerçekleşirken değiştirilmesi gereken gelişmiş bir ayardır. El sıkışma işlemi hakkında daha fazla bilgi için bkz. [SignalR hub protokol belirtimi](https://github.com/aspnet/SignalR/blob/master/specs/HubProtocol.md). |
-| `KeepAliveInterval` | 15 saniye | Sunucu bu Aralık dahilinde bir ileti göndermediyse bağlantının açık tutulması için bir ping iletisi otomatik olarak gönderilir. @No__t-0 ' ı değiştirirken istemcide `ServerTimeout` @ no__t-2 @ no__t-3 ayarını değiştirin. Önerilen `ServerTimeout` @ no__t-1 @ no__t-2 değeri `KeepAliveInterval` değeri çift.  |
+| `ClientTimeoutInterval` | 30 saniye | Sunucu, bu aralıkta (canlı tut dahil) bir ileti almamışsa istemcinin bağlantısının kesileceğini kabul eder. Bu işlem, uygulanması nedeniyle istemcinin bağlantısının gerçekten kesilmesinin ardından bu zaman aşımı aralığından daha uzun sürebilir. Önerilen değer `KeepAliveInterval` değeri iki katına kaydedilir.|
+| `HandshakeTimeout` | 15 saniye | İstemci bu zaman aralığı içinde bir ilk el sıkışma iletisi göndermezse bağlantı kapatılır. Bu, yalnızca önemli ağ gecikmesi nedeniyle el sıkışma zaman aşımı hataları gerçekleşirken değiştirilmesi gereken gelişmiş bir ayardır. El sıkışma işlemi hakkında daha fazla ayrıntı için [SignalR hub protokol belirtimine](https://github.com/aspnet/SignalR/blob/master/specs/HubProtocol.md)bakın. |
+| `KeepAliveInterval` | 15 saniye | Sunucu bu Aralık dahilinde bir ileti göndermediyse bağlantının açık tutulması için bir ping iletisi otomatik olarak gönderilir. `KeepAliveInterval`değiştirilirken, istemcide `ServerTimeout`/`serverTimeoutInMilliseconds` ayarını değiştirin. Önerilen `ServerTimeout`/`serverTimeoutInMilliseconds` değeri `KeepAliveInterval` değeri iki katına kaydedilir.  |
 | `SupportedProtocols` | Tüm yüklü protokoller | Bu hub tarafından desteklenen protokoller. Varsayılan olarak, sunucuda kayıtlı tüm protokollere izin verilir, ancak tek tek hub 'lara yönelik belirli protokolleri devre dışı bırakmak için protokollerin bu listeden kaldırılması gerekir. |
-| `EnableDetailedErrors` | `false` | @No__t-0 ise, bir hub yönteminde özel durum oluştuğunda istemcilere ayrıntılı özel durum iletileri döndürülür. Varsayılan değer `false` ' dır, bu durum iletileri hassas bilgiler içerebilir. |
+| `EnableDetailedErrors` | `false` | `true`, bir hub yönteminde özel durum oluştuğunda istemcilere ayrıntılı özel durum iletileri döndürülür. Varsayılan değer `false`, bu özel durum iletilerinde gizli bilgiler bulunabilir. |
 
 ::: moniker-end
 
 ::: moniker range="= aspnetcore-2.1"
 
-| Seçenek | Varsayılan değer | Açıklama |
+| Seçenek | Varsayılan Değer | Açıklama |
 | ------ | ------------- | ----------- |
-| `HandshakeTimeout` | 15 saniye | İstemci bu zaman aralığı içinde bir ilk el sıkışma iletisi göndermezse bağlantı kapatılır. Bu, yalnızca önemli ağ gecikmesi nedeniyle el sıkışma zaman aşımı hataları gerçekleşirken değiştirilmesi gereken gelişmiş bir ayardır. El sıkışma işlemi hakkında daha fazla bilgi için bkz. [SignalR hub protokol belirtimi](https://github.com/aspnet/SignalR/blob/master/specs/HubProtocol.md). |
-| `KeepAliveInterval` | 15 saniye | Sunucu bu Aralık dahilinde bir ileti göndermediyse bağlantının açık tutulması için bir ping iletisi otomatik olarak gönderilir. @No__t-0 ' ı değiştirirken istemcide `ServerTimeout` @ no__t-2 @ no__t-3 ayarını değiştirin. Önerilen `ServerTimeout` @ no__t-1 @ no__t-2 değeri `KeepAliveInterval` değeri çift.  |
+| `HandshakeTimeout` | 15 saniye | İstemci bu zaman aralığı içinde bir ilk el sıkışma iletisi göndermezse bağlantı kapatılır. Bu, yalnızca önemli ağ gecikmesi nedeniyle el sıkışma zaman aşımı hataları gerçekleşirken değiştirilmesi gereken gelişmiş bir ayardır. El sıkışma işlemi hakkında daha fazla ayrıntı için [SignalR hub protokol belirtimine](https://github.com/aspnet/SignalR/blob/master/specs/HubProtocol.md)bakın. |
+| `KeepAliveInterval` | 15 saniye | Sunucu bu Aralık dahilinde bir ileti göndermediyse bağlantının açık tutulması için bir ping iletisi otomatik olarak gönderilir. `KeepAliveInterval`değiştirilirken, istemcide `ServerTimeout`/`serverTimeoutInMilliseconds` ayarını değiştirin. Önerilen `ServerTimeout`/`serverTimeoutInMilliseconds` değeri `KeepAliveInterval` değeri iki katına kaydedilir.  |
 | `SupportedProtocols` | Tüm yüklü protokoller | Bu hub tarafından desteklenen protokoller. Varsayılan olarak, sunucuda kayıtlı tüm protokollere izin verilir, ancak tek tek hub 'lara yönelik belirli protokolleri devre dışı bırakmak için protokollerin bu listeden kaldırılması gerekir. |
-| `EnableDetailedErrors` | `false` | @No__t-0 ise, bir hub yönteminde özel durum oluştuğunda istemcilere ayrıntılı özel durum iletileri döndürülür. Varsayılan değer `false` ' dır, bu durum iletileri hassas bilgiler içerebilir. |
+| `EnableDetailedErrors` | `false` | `true`, bir hub yönteminde özel durum oluştuğunda istemcilere ayrıntılı özel durum iletileri döndürülür. Varsayılan değer `false`, bu özel durum iletilerinde gizli bilgiler bulunabilir. |
 
 ::: moniker-end
 
-Seçenekler, `Startup.ConfigureServices` ' deki `AddSignalR` çağrısına bir seçenek temsilcisi sağlayarak tüm Hub 'lar için yapılandırılabilir.
+Seçenekler, `Startup.ConfigureServices``AddSignalR` çağrısına bir seçenek temsilcisi sağlayarak tüm Hub 'lar için yapılandırılabilir.
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -148,7 +153,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-Tek bir hub için seçenekler `AddSignalR` ' da belirtilen genel seçenekleri geçersiz kılar ve <xref:Microsoft.Extensions.DependencyInjection.SignalRDependencyInjectionExtensions.AddHubOptions*> kullanılarak yapılandırılabilir:
+Tek bir hub için seçenekler, `AddSignalR` belirtilen genel seçenekleri geçersiz kılar ve <xref:Microsoft.Extensions.DependencyInjection.SignalRDependencyInjectionExtensions.AddHubOptions*>kullanılarak yapılandırılabilir:
 
 ```csharp
 services.AddSignalR().AddHubOptions<MyHub>(options =>
@@ -161,7 +166,7 @@ services.AddSignalR().AddHubOptions<MyHub>(options =>
 
 ::: moniker range=">= aspnetcore-3.0"
 
-Aktarımlara ve bellek arabelleği yönetimine ilişkin gelişmiş ayarları yapılandırmak için `HttpConnectionDispatcherOptions` kullanın. Bu seçenekler, `Startup.Configure` ' de [Maphub @ no__t-1T >](/dotnet/api/microsoft.aspnetcore.builder.hubendpointroutebuilderextensions.maphub) bir temsilci geçirilerek yapılandırılır.
+Aktarımlara ve bellek arabelleği yönetimine ilişkin gelişmiş ayarları yapılandırmak için `HttpConnectionDispatcherOptions` kullanın. Bu seçenekler, `Startup.Configure`[> Maphub\<t](/dotnet/api/microsoft.aspnetcore.builder.hubendpointroutebuilderextensions.maphub) 'ye bir temsilci geçirilerek yapılandırılır.
 
 ```csharp
 public void Configure(IApplicationBuilder app, IHostingEnvironment env)
@@ -183,7 +188,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 
 ::: moniker range="<= aspnetcore-2.2"
 
-Aktarımlara ve bellek arabelleği yönetimine ilişkin gelişmiş ayarları yapılandırmak için `HttpConnectionDispatcherOptions` kullanın. Bu seçenekler, `Startup.Configure` ' de [Maphub @ no__t-1T >](/dotnet/api/microsoft.aspnetcore.signalr.hubroutebuilder.maphub) bir temsilci geçirilerek yapılandırılır.
+Aktarımlara ve bellek arabelleği yönetimine ilişkin gelişmiş ayarları yapılandırmak için `HttpConnectionDispatcherOptions` kullanın. Bu seçenekler, `Startup.Configure`[> Maphub\<t](/dotnet/api/microsoft.aspnetcore.signalr.hubroutebuilder.maphub) 'ye bir temsilci geçirilerek yapılandırılır.
 
 ```csharp
 public void Configure(IApplicationBuilder app, IHostingEnvironment env)
@@ -204,11 +209,11 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 
 ::: moniker-end
 
-Aşağıdaki tabloda ASP.NET Core SignalR 'nin gelişmiş HTTP seçeneklerini yapılandırma seçenekleri açıklanmaktadır:
+Aşağıdaki tabloda ASP.NET Core SignalRgelişmiş HTTP seçeneklerini yapılandırma seçenekleri açıklanmaktadır:
 
 ::: moniker range=">= aspnetcore-3.0"
 
-| Seçenek | Varsayılan değer | Açıklama |
+| Seçenek | Varsayılan Değer | Açıklama |
 | ------ | ------------- | ----------- |
 | `ApplicationMaxBufferSize` | 32 KB | İstemci tarafından, geri basıncı uygulamadan önce sunucunun arabelleğe aldığı en fazla bayt sayısı. Bu değeri artırmak, sunucunun geri basınç uygulamadan daha büyük iletileri daha hızlı almasına izin verir, ancak bellek tüketimini artırabilir. |
 | `AuthorizationData` | Veriler, hub sınıfına uygulanan `Authorize` özniteliklerinden otomatik olarak toplanır. | Bir istemcinin hub 'a bağlanmasına yetkili olup olmadığını belirlemede kullanılan [ıauthorizedata](/dotnet/api/microsoft.aspnetcore.authorization.iauthorizedata) nesnelerinin listesi. |
@@ -221,7 +226,7 @@ Aşağıdaki tabloda ASP.NET Core SignalR 'nin gelişmiş HTTP seçeneklerini ya
 
 ::: moniker range="< aspnetcore-3.0"
 
-| Seçenek | Varsayılan değer | Açıklama |
+| Seçenek | Varsayılan Değer | Açıklama |
 | ------ | ------------- | ----------- |
 | `ApplicationMaxBufferSize` | 32 KB | İstemciden sunucunun arabelleğe aldığı en fazla bayt sayısı. Bu değeri artırmak, sunucunun daha büyük iletiler almasına izin verir, ancak bellek tüketimini olumsuz etkileyebilir. |
 | `AuthorizationData` | Veriler, hub sınıfına uygulanan `Authorize` özniteliklerinden otomatik olarak toplanır. | Bir istemcinin hub 'a bağlanmasına yetkili olup olmadığını belirlemede kullanılan [ıauthorizedata](/dotnet/api/microsoft.aspnetcore.authorization.iauthorizedata) nesnelerinin listesi. |
@@ -234,20 +239,20 @@ Aşağıdaki tabloda ASP.NET Core SignalR 'nin gelişmiş HTTP seçeneklerini ya
 
 Uzun yoklama taşıması `LongPolling` özelliği kullanılarak yapılandırılabilecek ek seçeneklere sahiptir:
 
-| Seçenek | Varsayılan değer | Açıklama |
+| Seçenek | Varsayılan Değer | Açıklama |
 | ------ | ------------- | ----------- |
 | `PollTimeout` | 90 saniye | Tek bir yoklama isteğini sonlandırmadan önce sunucunun istemciye göndermek için bekleyeceği en uzun süre. Bu değeri azaltmak istemcinin yeni yoklama istekleri daha sık vermesine neden olur. |
 
 WebSocket taşıması `WebSockets` özelliği kullanılarak yapılandırılabilen ek seçeneklere sahiptir:
 
-| Seçenek | Varsayılan değer | Açıklama |
+| Seçenek | Varsayılan Değer | Açıklama |
 | ------ | ------------- | ----------- |
 | `CloseTimeout` | 5 saniye | Sunucu kapandıktan sonra, istemci bu zaman aralığında kapanamazsa bağlantı sonlandırılır. |
-| `SubProtocolSelector` | `null` | @No__t-0 üst bilgisini özel bir değere ayarlamak için kullanılabilen bir temsilci. Temsilci, istemci tarafından istenen değerleri girdi olarak alır ve istenen değeri döndürmesi beklenir. |
+| `SubProtocolSelector` | `null` | `Sec-WebSocket-Protocol` üst bilgisini özel bir değere ayarlamak için kullanılabilen bir temsilci. Temsilci, istemci tarafından istenen değerleri girdi olarak alır ve istenen değeri döndürmesi beklenir. |
 
 ## <a name="configure-client-options"></a>İstemci seçeneklerini yapılandırma
 
-İstemci seçenekleri `HubConnectionBuilder` türünde (.NET ve JavaScript istemcilerinde bulunur) yapılandırılabilir. Java istemcisinde de bulunur, ancak `HttpHubConnectionBuilder` alt sınıfı, Oluşturucu yapılandırma seçeneklerinin yanı sıra `HubConnection` ' i içerir.
+İstemci seçenekleri `HubConnectionBuilder` türünde yapılandırılabilir (.NET ve JavaScript istemcilerinde kullanılabilir). Java istemcisinde de bulunur, ancak `HttpHubConnectionBuilder` alt sınıfı, Oluşturucu yapılandırma seçeneklerinin yanı sıra `HubConnection` kendisidir.
 
 ### <a name="configure-logging"></a>Günlüğe kaydetmeyi yapılandırma
 
@@ -256,7 +261,7 @@ Günlüğe kaydetme, .NET Istemcisinde `ConfigureLogging` yöntemi kullanılarak
 > [!NOTE]
 > Günlüğe kaydetme sağlayıcılarını kaydetmek için gerekli paketleri yüklemelisiniz. Tam liste için docs 'ın [yerleşik günlük sağlayıcıları](xref:fundamentals/logging/index#built-in-logging-providers) bölümüne bakın.
 
-Örneğin, konsol günlüğünü etkinleştirmek için `Microsoft.Extensions.Logging.Console` NuGet paketini yüklemelisiniz. @No__t-0 genişletme yöntemini çağırın:
+Örneğin, konsol günlüğünü etkinleştirmek için `Microsoft.Extensions.Logging.Console` NuGet paketini yüklemelisiniz. `AddConsole` uzantısı yöntemini çağırın:
 
 ```csharp
 var connection = new HubConnectionBuilder()
@@ -268,7 +273,7 @@ var connection = new HubConnectionBuilder()
     .Build();
 ```
 
-JavaScript istemcisinde benzer bir `configureLogging` yöntemi vardır. Üretilecek günlük iletilerinin en düşük düzeyini belirten bir `LogLevel` değeri belirtin. Günlükler tarayıcı konsolu penceresine yazılır.
+JavaScript istemcisinde benzer bir `configureLogging` yöntemi vardır. Üretilecek günlük iletilerinin en düşük düzeyini belirten bir `LogLevel` değeri girin. Günlükler tarayıcı konsolu penceresine yazılır.
 
 ```javascript
 let connection = new signalR.HubConnectionBuilder()
@@ -279,7 +284,7 @@ let connection = new signalR.HubConnectionBuilder()
 
 ::: moniker range=">= aspnetcore-3.0"
 
-@No__t-0 değeri yerine, bir günlük düzeyi adını temsil eden bir `string` değeri de sağlayabilirsiniz. Bu, `LogLevel` sabitlerine erişiminizin olmadığı ortamlarda SignalR günlüğünü yapılandırırken yararlıdır.
+`LogLevel` bir değer yerine, bir günlük düzeyi adını temsil eden bir `string` değeri de sağlayabilirsiniz. Bu, `LogLevel` sabitlerine erişiminizin olmadığı ortamlarda SignalR günlüğe kaydetme yapılandırılırken yararlı olur.
 
 ```javascript
 let connection = new signalR.HubConnectionBuilder()
@@ -288,9 +293,9 @@ let connection = new signalR.HubConnectionBuilder()
     .build();
 ```
 
-Aşağıdaki tabloda kullanılabilir günlük düzeyleri listelenmektedir. @No__t-0 ' a sağladığınız değer, günlüğe kaydedilecek **Minimum** günlük düzeyini ayarlar. Bu düzeyde günlüğe kaydedilen iletiler **veya tabloda bundan sonra listelenen düzeyler**günlüğe kaydedilir.
+Aşağıdaki tabloda kullanılabilir günlük düzeyleri listelenmektedir. `configureLogging` için sağladığınız değer, günlüğe kaydedilecek **Minimum** günlük düzeyini ayarlar. Bu düzeyde günlüğe kaydedilen iletiler **veya tabloda bundan sonra listelenen düzeyler**günlüğe kaydedilir.
 
-| Dize                      | logLevel               |
+| Dize                      | LogLevel               |
 | --------------------------- | ---------------------- |
 | `trace`                     | `LogLevel.Trace`       |
 | `debug`                     | `LogLevel.Debug`       |
@@ -305,9 +310,9 @@ Aşağıdaki tabloda kullanılabilir günlük düzeyleri listelenmektedir. @No__
 > [!NOTE]
 > Günlüğe kaydetmeyi tamamen devre dışı bırakmak için `configureLogging` yönteminde `signalR.LogLevel.None` belirtin.
 
-Günlüğe kaydetme hakkında daha fazla bilgi için bkz. [SignalR Diagnostics belgeleri](xref:signalr/diagnostics).
+Günlüğe kaydetme hakkında daha fazla bilgi için [SignalR tanılama belgelerine](xref:signalr/diagnostics)bakın.
 
-SignalR Java istemcisi, günlük kaydı için [dolayısıyla slf4j](https://www.slf4j.org/) kitaplığını kullanır. Bu, kitaplık kullanıcılarının belirli bir günlüğe kaydetme bağımlılığı vererek kendi belirli günlük uygulamasını seçmesine olanak sağlayan, üst düzey bir günlüğe kaydetme API 'sidir. Aşağıdaki kod parçacığı, SignalR Java istemcisiyle `java.util.logging` ' nın nasıl kullanılacağını gösterir.
+SignalR Java istemcisi, günlük kaydı için [dolayısıyla slf4j](https://www.slf4j.org/) kitaplığını kullanır. Bu, kitaplık kullanıcılarının belirli bir günlüğe kaydetme bağımlılığı vererek kendi belirli günlük uygulamasını seçmesine olanak sağlayan, üst düzey bir günlüğe kaydetme API 'sidir. Aşağıdaki kod parçacığı, SignalR Java istemcisiyle `java.util.logging` nasıl kullanacağınızı gösterir.
 
 ```gradle
 implementation 'org.slf4j:slf4j-jdk14:1.7.25'
@@ -325,7 +330,7 @@ Bu, güvenle yoksayılabilir.
 
 ### <a name="configure-allowed-transports"></a>İzin verilen taşımaları yapılandırma
 
-SignalR tarafından kullanılan aktarımlar `WithUrl` çağrısında yapılandırılabilir (JavaScript 'te `withUrl`). @No__t-0 değerleri, istemciyi yalnızca belirtilen aktarımları kullanacak şekilde kısıtlamak için kullanılabilir. Tüm aktarımlar varsayılan olarak etkindir.
+SignalR tarafından kullanılan aktarımlar `WithUrl` çağrısında (`withUrl` JavaScript 'te) yapılandırılabilir. `HttpTransportType` değerlerinin bit düzeyinde veya değerleri yalnızca belirtilen aktarımları kullanacak şekilde sınırlamak için kullanılabilir. Tüm aktarımlar varsayılan olarak etkindir.
 
 Örneğin, sunucu tarafından gönderilen olay taşımasını devre dışı bırakmak, ancak WebSockets ve uzun yoklama bağlantılarına izin vermek için:
 
@@ -335,7 +340,7 @@ var connection = new HubConnectionBuilder()
     .Build();
 ```
 
-JavaScript istemcisinde aktarımlar, `withUrl` için sunulan Options nesnesindeki `transport` alanı ayarlanarak yapılandırılır:
+JavaScript istemcisinde aktarımlar, `withUrl`için sunulan Options nesnesindeki `transport` alanı ayarlanarak yapılandırılır:
 
 ```javascript
 let connection = new signalR.HubConnectionBuilder()
@@ -351,7 +356,7 @@ Java Client WebSockets 'in bu sürümünde, kullanılabilir tek aktarım bir sü
 
 ::: moniker range="= aspnetcore-3.0"
 
-Java istemcisinde, taşıma, `HttpHubConnectionBuilder` üzerinde `withTransport` yöntemiyle seçilir. Java istemcisi WebSockets taşımasını varsayılan olarak kullanmaktır.
+Java istemcisinde, taşıma, `HttpHubConnectionBuilder``withTransport` yöntemiyle seçilir. Java istemcisi WebSockets taşımasını varsayılan olarak kullanmaktır.
 
 ```java
 HubConnection hubConnection = HubConnectionBuilder.create("https://example.com/myhub")
@@ -366,9 +371,9 @@ HubConnection hubConnection = HubConnectionBuilder.create("https://example.com/m
 
 ### <a name="configure-bearer-authentication"></a>Taşıyıcı kimlik doğrulamasını yapılandırma
 
-Kimlik doğrulama verilerini SignalR istekleriyle birlikte sağlamak için, istenen erişim belirtecini döndüren bir işlevi belirtmek üzere `AccessTokenProvider` seçeneğini (JavaScript 'te `accessTokenFactory`) kullanın. .NET Istemcisinde, bu erişim belirteci bir HTTP "taşıyıcı kimlik doğrulaması" belirteci olarak geçirilir (`Bearer` türü ile `Authorization` üst bilgisi kullanılarak). JavaScript istemcisinde, tarayıcı API 'Lerinin üstbilgileri uygulama özelliğini (özellikle de sunucu tarafından gönderilen olaylar ve WebSockets istekleri) kısıtlayacağı birkaç durum **dışında** , erişim belirteci bir taşıyıcı belirteci olarak kullanılır. Bu gibi durumlarda, erişim belirteci bir sorgu dizesi değeri olarak sağlanır `access_token`.
+SignalR isteklerle birlikte kimlik doğrulama verileri sağlamak için, istenen erişim belirtecini döndüren bir işlevi belirtmek üzere `AccessTokenProvider` seçeneğini (JavaScript 'te`accessTokenFactory`) kullanın. .NET Istemcisinde, bu erişim belirteci bir HTTP "taşıyıcı kimlik doğrulaması" belirteci olarak geçirilir (`Bearer`türü ile `Authorization` üst bilgisi kullanılarak). JavaScript istemcisinde, tarayıcı API 'Lerinin üstbilgileri uygulama özelliğini (özellikle de sunucu tarafından gönderilen olaylar ve WebSockets istekleri) kısıtlayacağı birkaç durum **dışında** , erişim belirteci bir taşıyıcı belirteci olarak kullanılır. Bu durumlarda, erişim belirteci `access_token`bir sorgu dizesi değeri olarak sağlanır.
 
-.NET istemcisinde `AccessTokenProvider` seçeneği, `WithUrl` ' deki Seçenekler temsilcisi kullanılarak belirtilebilir:
+.NET istemcisinde `AccessTokenProvider` seçeneği, `WithUrl`içindeki seçenekler temsilcisi kullanılarak belirtilebilir:
 
 ```csharp
 var connection = new HubConnectionBuilder()
@@ -380,7 +385,7 @@ var connection = new HubConnectionBuilder()
     .Build();
 ```
 
-JavaScript istemcisinde erişim belirteci, `withUrl` ' deki Seçenekler nesnesindeki `accessTokenFactory` alanı ayarlanarak yapılandırılır:
+JavaScript istemcisinde, erişim belirteci `withUrl`içindeki seçenekler nesnesindeki `accessTokenFactory` alanı ayarlanarak yapılandırılır:
 
 ```javascript
 let connection = new signalR.HubConnectionBuilder()
@@ -394,7 +399,7 @@ let connection = new signalR.HubConnectionBuilder()
     .build();
 ```
 
-SignalR Java istemcisinde, [Httphubconnectionbuilder](/java/api/com.microsoft.signalr._http_hub_connection_builder?view=aspnet-signalr-java)'a bir erişim belirteci fabrikası sağlayarak kimlik doğrulaması için kullanılacak bir taşıyıcı belirteç yapılandırabilirsiniz. [Rxjava](https://github.com/ReactiveX/RxJava) [tek @ No__t-3string >](https://reactivex.io/documentation/single.html)sağlamak Için [withaccesstokenfactory](/java/api/com.microsoft.signalr._http_hub_connection_builder.withaccesstokenprovider?view=aspnet-signalr-java#com_microsoft_signalr__http_hub_connection_builder_withAccessTokenProvider_Single_String__) kullanın. [Tek. ertele](https://reactivex.io/RxJava/javadoc/io/reactivex/Single.html#defer-java.util.concurrent.Callable-)çağrısıyla, istemciniz için erişim belirteçleri oluşturmak üzere mantık yazabilirsiniz.
+Java istemcisinde SignalR, [Httphubconnectionbuilder](/java/api/com.microsoft.signalr._http_hub_connection_builder?view=aspnet-signalr-java)'a bir erişim belirteci fabrikası sağlayarak kimlik doğrulaması için kullanılacak bir taşıyıcı belirteç yapılandırabilirsiniz. [Rxjava](https://github.com/ReactiveX/RxJava) [tek bir\<dize >](https://reactivex.io/documentation/single.html)sağlamak Için [withaccesstokenfactory](/java/api/com.microsoft.signalr._http_hub_connection_builder.withaccesstokenprovider?view=aspnet-signalr-java#com_microsoft_signalr__http_hub_connection_builder_withAccessTokenProvider_Single_String__) kullanın. [Tek. ertele](https://reactivex.io/RxJava/javadoc/io/reactivex/Single.html#defer-java.util.concurrent.Callable-)çağrısıyla, istemciniz için erişim belirteçleri oluşturmak üzere mantık yazabilirsiniz.
 
 ```java
 HubConnection hubConnection = HubConnectionBuilder.create("https://example.com/myhub")
@@ -406,7 +411,7 @@ HubConnection hubConnection = HubConnectionBuilder.create("https://example.com/m
 
 ### <a name="configure-timeout-and-keep-alive-options"></a>Zaman aşımını yapılandırın ve canlı tut seçeneklerini yapılandırın
 
-Zaman aşımını ve canlı tutma davranışını yapılandırmaya yönelik ek seçenekler `HubConnection` nesnesinin kendisi üzerinde kullanılabilir:
+Zaman aşımını ve canlı tutma davranışını yapılandırmaya yönelik ek seçenekler `HubConnection` nesnenin kendisinde bulunabilir:
 
 
 ::: moniker range=">= aspnetcore-2.2"
@@ -415,26 +420,26 @@ Zaman aşımını ve canlı tutma davranışını yapılandırmaya yönelik ek s
 
 | Seçenek | Varsayılan değer | Açıklama |
 | ------ | ------------- | ----------- |
-| `ServerTimeout` | 30 saniye (30.000 milisaniye) | Sunucu etkinliği için zaman aşımı. Sunucu bu aralıkta bir ileti göndermediyse, istemci, sunucunun bağlantısını kesmiş olarak değerlendirir ve `Closed` olayını (JavaScript 'te `onclose`) tetikler. Bu değer, ping iletisinin sunucudan gönderilmesi **ve** istemci tarafından zaman aşımı aralığı içinde alınması için yeterince büyük olmalıdır. Önerilen değer, ping için en az iki sunucunun `KeepAliveInterval` değeri olması için gereken bir sayıdır. |
-| `HandshakeTimeout` | 15 saniye | İlk sunucu el sıkışması için zaman aşımı. Sunucu bu aralıkta bir el sıkışma yanıtı göndermezse, istemci el sıkışmasını iptal eder ve `Closed` olayını tetikler (JavaScript 'te `onclose`). Bu, yalnızca önemli ağ gecikmesi nedeniyle el sıkışma zaman aşımı hataları gerçekleşirken değiştirilmesi gereken gelişmiş bir ayardır. El sıkışma işlemi hakkında daha fazla bilgi için bkz. [SignalR hub protokol belirtimi](https://github.com/aspnet/SignalR/blob/master/specs/HubProtocol.md). |
-| `KeepAliveInterval` | 15 saniye | İstemcinin ping iletileri gönderdiği aralığı belirler. İstemciden herhangi bir ileti gönderildiğinde, süreölçeri aralığın başına sıfırlanır. İstemci sunucuda `ClientTimeoutInterval` kümesinde bir ileti göndermediyse sunucu, istemcinin bağlantısının kesileceğini kabul eder. |
+| `ServerTimeout` | 30 saniye (30.000 milisaniye) | Sunucu etkinliği için zaman aşımı. Sunucu bu aralıkta bir ileti göndermediyse istemci, sunucunun bağlantısının kesileceğini kabul eder ve `Closed` olayını (JavaScript 'te`onclose`) tetikler. Bu değer, ping iletisinin sunucudan gönderilmesi **ve** istemci tarafından zaman aşımı aralığı içinde alınması için yeterince büyük olmalıdır. Önerilen değer, ping için en az iki sunucunun `KeepAliveInterval` değeri olan bir sayıdır. |
+| `HandshakeTimeout` | 15 saniye | İlk sunucu el sıkışması için zaman aşımı. Sunucu bu aralıkta bir el sıkışma yanıtı göndermezse, istemci el sıkışmasını iptal eder ve `Closed` olayını (JavaScript 'te`onclose`) tetikler. Bu, yalnızca önemli ağ gecikmesi nedeniyle el sıkışma zaman aşımı hataları gerçekleşirken değiştirilmesi gereken gelişmiş bir ayardır. El sıkışma işlemi hakkında daha fazla ayrıntı için [SignalR hub protokol belirtimine](https://github.com/aspnet/SignalR/blob/master/specs/HubProtocol.md)bakın. |
+| `KeepAliveInterval` | 15 saniye | İstemcinin ping iletileri gönderdiği aralığı belirler. İstemciden herhangi bir ileti gönderildiğinde, süreölçeri aralığın başına sıfırlanır. İstemci sunucuda `ClientTimeoutInterval` ayarlanmış bir ileti göndermediyse sunucu, istemcinin bağlantısının kesileceğini kabul eder. |
 
-.NET Istemcisinde, zaman aşımı değerleri `TimeSpan` değerleri olarak belirtilir.
+.NET Istemcisinde zaman aşımı değerleri `TimeSpan` değerler olarak belirtilir.
 
 # <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 | Seçenek | Varsayılan değer | Açıklama |
 | ------ | ------------- | ----------- |
-| `serverTimeoutInMilliseconds` | 30 saniye (30.000 milisaniye) | Sunucu etkinliği için zaman aşımı. Sunucu bu aralıkta bir ileti göndermediyse istemci, sunucunun bağlantısını kesmediği kabul eder ve `onclose` olayını tetikler. Bu değer, ping iletisinin sunucudan gönderilmesi **ve** istemci tarafından zaman aşımı aralığı içinde alınması için yeterince büyük olmalıdır. Önerilen değer, ping için en az iki sunucunun `KeepAliveInterval` değeri olması için gereken bir sayıdır. |
-| `keepAliveIntervalInMilliseconds` | 15 saniye (15.000 'ları harcanan) | İstemcinin ping iletileri gönderdiği aralığı belirler. İstemciden herhangi bir ileti gönderildiğinde, süreölçeri aralığın başına sıfırlanır. İstemci sunucuda `ClientTimeoutInterval` kümesinde bir ileti göndermediyse sunucu, istemcinin bağlantısının kesileceğini kabul eder. |
+| `serverTimeoutInMilliseconds` | 30 saniye (30.000 milisaniye) | Sunucu etkinliği için zaman aşımı. Sunucu bu aralıkta bir ileti göndermediyse istemci, sunucunun bağlantısını kesmediği kabul eder ve `onclose` olayını tetikler. Bu değer, ping iletisinin sunucudan gönderilmesi **ve** istemci tarafından zaman aşımı aralığı içinde alınması için yeterince büyük olmalıdır. Önerilen değer, ping için en az iki sunucunun `KeepAliveInterval` değeri olan bir sayıdır. |
+| `keepAliveIntervalInMilliseconds` | 15 saniye (15.000 'ları harcanan) | İstemcinin ping iletileri gönderdiği aralığı belirler. İstemciden herhangi bir ileti gönderildiğinde, süreölçeri aralığın başına sıfırlanır. İstemci sunucuda `ClientTimeoutInterval` ayarlanmış bir ileti göndermediyse sunucu, istemcinin bağlantısının kesileceğini kabul eder. |
 
 # <a name="javatabjava"></a>[Java](#tab/java)
 
 | Seçenek | Varsayılan değer | Açıklama |
 | ------ | ------------- | ----------- |
-| `getServerTimeout` / `setServerTimeout` | 30 saniye (30.000 milisaniye) | Sunucu etkinliği için zaman aşımı. Sunucu bu aralıkta bir ileti göndermediyse istemci, sunucunun bağlantısını kesmediği kabul eder ve `onClose` olayını tetikler. Bu değer, ping iletisinin sunucudan gönderilmesi **ve** istemci tarafından zaman aşımı aralığı içinde alınması için yeterince büyük olmalıdır. Önerilen değer, ping için en az iki sunucunun `KeepAliveInterval` değeri olması için gereken bir sayıdır. |
-| `withHandshakeResponseTimeout` | 15 saniye | İlk sunucu el sıkışması için zaman aşımı. Sunucu bu aralıkta bir el sıkışma yanıtı göndermezse, istemci el sıkışmasını iptal eder ve `onClose` olayını tetikler. Bu, yalnızca önemli ağ gecikmesi nedeniyle el sıkışma zaman aşımı hataları gerçekleşirken değiştirilmesi gereken gelişmiş bir ayardır. El sıkışma işlemi hakkında daha fazla bilgi için bkz. [SignalR hub protokol belirtimi](https://github.com/aspnet/SignalR/blob/master/specs/HubProtocol.md). |
-| `getKeepAliveInterval` / `setKeepAliveInterval` | 15 saniye (15.000 milisaniye) | İstemcinin ping iletileri gönderdiği aralığı belirler. İstemciden herhangi bir ileti gönderildiğinde, süreölçeri aralığın başına sıfırlanır. İstemci sunucuda `ClientTimeoutInterval` kümesinde bir ileti göndermediyse sunucu, istemcinin bağlantısının kesileceğini kabul eder. |
+| `getServerTimeout` / `setServerTimeout` | 30 saniye (30.000 milisaniye) | Sunucu etkinliği için zaman aşımı. Sunucu bu aralıkta bir ileti göndermediyse istemci, sunucunun bağlantısını kesmediği kabul eder ve `onClose` olayını tetikler. Bu değer, ping iletisinin sunucudan gönderilmesi **ve** istemci tarafından zaman aşımı aralığı içinde alınması için yeterince büyük olmalıdır. Önerilen değer, ping için en az iki sunucunun `KeepAliveInterval` değeri olan bir sayıdır. |
+| `withHandshakeResponseTimeout` | 15 saniye | İlk sunucu el sıkışması için zaman aşımı. Sunucu bu aralıkta bir el sıkışma yanıtı göndermezse, istemci el sıkışmasını iptal eder ve `onClose` olayını tetikler. Bu, yalnızca önemli ağ gecikmesi nedeniyle el sıkışma zaman aşımı hataları gerçekleşirken değiştirilmesi gereken gelişmiş bir ayardır. El sıkışma işlemi hakkında daha fazla ayrıntı için [SignalR hub protokol belirtimine](https://github.com/aspnet/SignalR/blob/master/specs/HubProtocol.md)bakın. |
+| `getKeepAliveInterval` / `setKeepAliveInterval` | 15 saniye (15.000 milisaniye) | İstemcinin ping iletileri gönderdiği aralığı belirler. İstemciden herhangi bir ileti gönderildiğinde, süreölçeri aralığın başına sıfırlanır. İstemci sunucuda `ClientTimeoutInterval` ayarlanmış bir ileti göndermediyse sunucu, istemcinin bağlantısının kesileceğini kabul eder. |
 
 ::: moniker-end
 
@@ -444,23 +449,23 @@ Zaman aşımını ve canlı tutma davranışını yapılandırmaya yönelik ek s
 
 | Seçenek | Varsayılan değer | Açıklama |
 | ------ | ------------- | ----------- |
-| `ServerTimeout` | 30 saniye (30.000 milisaniye) | Sunucu etkinliği için zaman aşımı. Sunucu bu aralıkta bir ileti göndermediyse, istemci, sunucunun bağlantısını kesmiş olarak değerlendirir ve `Closed` olayını (JavaScript 'te `onclose`) tetikler. Bu değer, ping iletisinin sunucudan gönderilmesi **ve** istemci tarafından zaman aşımı aralığı içinde alınması için yeterince büyük olmalıdır. Önerilen değer, ping için en az iki sunucunun `KeepAliveInterval` değeri olması için gereken bir sayıdır. |
-| `HandshakeTimeout` | 15 saniye | İlk sunucu el sıkışması için zaman aşımı. Sunucu bu aralıkta bir el sıkışma yanıtı göndermezse, istemci el sıkışmasını iptal eder ve `Closed` olayını tetikler (JavaScript 'te `onclose`). Bu, yalnızca önemli ağ gecikmesi nedeniyle el sıkışma zaman aşımı hataları gerçekleşirken değiştirilmesi gereken gelişmiş bir ayardır. El sıkışma işlemi hakkında daha fazla bilgi için bkz. [SignalR hub protokol belirtimi](https://github.com/aspnet/SignalR/blob/master/specs/HubProtocol.md). |
+| `ServerTimeout` | 30 saniye (30.000 milisaniye) | Sunucu etkinliği için zaman aşımı. Sunucu bu aralıkta bir ileti göndermediyse istemci, sunucunun bağlantısının kesileceğini kabul eder ve `Closed` olayını (JavaScript 'te`onclose`) tetikler. Bu değer, ping iletisinin sunucudan gönderilmesi **ve** istemci tarafından zaman aşımı aralığı içinde alınması için yeterince büyük olmalıdır. Önerilen değer, ping için en az iki sunucunun `KeepAliveInterval` değeri olan bir sayıdır. |
+| `HandshakeTimeout` | 15 saniye | İlk sunucu el sıkışması için zaman aşımı. Sunucu bu aralıkta bir el sıkışma yanıtı göndermezse, istemci el sıkışmasını iptal eder ve `Closed` olayını (JavaScript 'te`onclose`) tetikler. Bu, yalnızca önemli ağ gecikmesi nedeniyle el sıkışma zaman aşımı hataları gerçekleşirken değiştirilmesi gereken gelişmiş bir ayardır. El sıkışma işlemi hakkında daha fazla ayrıntı için [SignalR hub protokol belirtimine](https://github.com/aspnet/SignalR/blob/master/specs/HubProtocol.md)bakın. |
 
-.NET Istemcisinde, zaman aşımı değerleri `TimeSpan` değerleri olarak belirtilir.
+.NET Istemcisinde zaman aşımı değerleri `TimeSpan` değerler olarak belirtilir.
 
 # <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 | Seçenek | Varsayılan değer | Açıklama |
 | ------ | ------------- | ----------- |
-| `serverTimeoutInMilliseconds` | 30 saniye (30.000 milisaniye) | Sunucu etkinliği için zaman aşımı. Sunucu bu aralıkta bir ileti göndermediyse istemci, sunucunun bağlantısını kesmediği kabul eder ve `onclose` olayını tetikler. Bu değer, ping iletisinin sunucudan gönderilmesi **ve** istemci tarafından zaman aşımı aralığı içinde alınması için yeterince büyük olmalıdır. Önerilen değer, ping için en az iki sunucunun `KeepAliveInterval` değeri olması için gereken bir sayıdır. |
+| `serverTimeoutInMilliseconds` | 30 saniye (30.000 milisaniye) | Sunucu etkinliği için zaman aşımı. Sunucu bu aralıkta bir ileti göndermediyse istemci, sunucunun bağlantısını kesmediği kabul eder ve `onclose` olayını tetikler. Bu değer, ping iletisinin sunucudan gönderilmesi **ve** istemci tarafından zaman aşımı aralığı içinde alınması için yeterince büyük olmalıdır. Önerilen değer, ping için en az iki sunucunun `KeepAliveInterval` değeri olan bir sayıdır. |
 
 # <a name="javatabjava"></a>[Java](#tab/java)
 
 | Seçenek | Varsayılan değer | Açıklama |
 | ------ | ------------- | ----------- |
 | `getServerTimeout` / `setServerTimeout` | 30 saniye (30.000 milisaniye) | Sunucu etkinliği için zaman aşımı. Sunucu bu aralıkta bir ileti göndermediyse istemci, sunucunun bağlantısını kesmediği kabul eder ve `onClose` olayını tetikler. Bu değer, ping iletisinin sunucudan gönderilmesi **ve** istemci tarafından zaman aşımı aralığı içinde alınması için yeterince büyük olmalıdır. Önerilen değer, ping için en az iki sunucunun `KeepAliveInterval` değeri olan bir sayıdır. |
-| `withHandshakeResponseTimeout` | 15 saniye | İlk sunucu el sıkışması için zaman aşımı. Sunucu bu aralıkta bir el sıkışma yanıtı göndermezse, istemci el sıkışmasını iptal eder ve `onClose` olayını tetikler. Bu, yalnızca önemli ağ gecikmesi nedeniyle el sıkışma zaman aşımı hataları gerçekleşirken değiştirilmesi gereken gelişmiş bir ayardır. El sıkışma işlemi hakkında daha fazla bilgi için bkz. [SignalR hub protokol belirtimi](https://github.com/aspnet/SignalR/blob/master/specs/HubProtocol.md). |
+| `withHandshakeResponseTimeout` | 15 saniye | İlk sunucu el sıkışması için zaman aşımı. Sunucu bu aralıkta bir el sıkışma yanıtı göndermezse, istemci el sıkışmasını iptal eder ve `onClose` olayını tetikler. Bu, yalnızca önemli ağ gecikmesi nedeniyle el sıkışma zaman aşımı hataları gerçekleşirken değiştirilmesi gereken gelişmiş bir ayardır. El sıkışma işlemi hakkında daha fazla ayrıntı için [SignalR hub protokol belirtimine](https://github.com/aspnet/SignalR/blob/master/specs/HubProtocol.md)bakın. |
 
 ::: moniker-end
 
@@ -468,42 +473,42 @@ Zaman aşımını ve canlı tutma davranışını yapılandırmaya yönelik ek s
 
 ### <a name="configure-additional-options"></a>Ek seçenekleri yapılandırma
 
-Ek seçenekler `HubConnectionBuilder` ' deki `WithUrl` (JavaScript 'te `withUrl`) yönteminde veya Java istemcisinde `HttpHubConnectionBuilder` ' teki çeşitli yapılandırma API 'Lerinde yapılandırılabilir:
+Ek seçenekler, `HubConnectionBuilder` veya Java istemcisindeki `HttpHubConnectionBuilder` çeşitli yapılandırma API 'Lerinde `WithUrl` (JavaScript 'te`withUrl`) yönteminde yapılandırılabilir:
 
 # <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
 
 | .NET seçeneği |  Varsayılan değer | Açıklama |
 | ----------- | -------------- | ----------- |
 | `AccessTokenProvider` | `null` | HTTP isteklerinde taşıyıcı kimlik doğrulama belirteci olarak belirtilen bir dize döndüren bir işlev. |
-| `SkipNegotiation` | `false` | Anlaşma adımını atlamak için bunu `true` olarak ayarlayın. **Yalnızca WebSockets taşıması etkin olan tek taşıma olduğunda desteklenir**. Bu ayar, Azure SignalR hizmeti kullanılırken etkinleştirilemez. |
+| `SkipNegotiation` | `false` | Anlaşma adımını atlamak için bunu `true` olarak ayarlayın. **Yalnızca WebSockets taşıması etkin olan tek taşıma olduğunda desteklenir**. Azure SignalR hizmeti kullanılırken bu ayar etkinleştirilemez. |
 | `ClientCertificates` | Olmamalıdır | Kimlik doğrulaması isteklerine gönderilmek üzere TLS sertifikaları koleksiyonu. |
 | `Cookies` | Olmamalıdır | Her HTTP isteğiyle gönderilmek üzere HTTP tanımlama bilgilerinin bir koleksiyonu. |
 | `Credentials` | Olmamalıdır | Her HTTP isteğiyle gönderilen kimlik bilgileri. |
 | `CloseTimeout` | 5 saniye | Yalnızca WebSockets. Sunucunun kapatma isteğini onaylaması için kapatıldıktan sonra bekleyeceği en uzun süre. Sunucu bu süre içinde kapatmayı kabul etmezse, istemci bağlantısını keser. |
 | `Headers` | Olmamalıdır | Her HTTP isteğiyle birlikte gönderilmek üzere ek HTTP üstbilgileri haritası. |
-| `HttpMessageHandlerFactory` | `null` | HTTP istekleri göndermek için kullanılan @no__t (0) yapılandırmak veya değiştirmek için kullanılabilen bir temsilci. WebSocket bağlantıları için kullanılmıyor. Bu temsilci null olmayan bir değer döndürmelidir ve varsayılan değeri bir parametre olarak alır. Bu varsayılan değerde ayarları değiştirin ve döndürün ya da yeni bir `HttpMessageHandler` örneği döndürün. **İşleyiciyi değiştirirken, belirtilen işleyiciden tutmak istediğiniz ayarları kopyalamadığınızdan emin olun, aksi takdirde, yapılandırılan seçenekler (tanımlama bilgileri ve üstbilgiler gibi) yeni işleyiciye uygulanmaz.** |
+| `HttpMessageHandlerFactory` | `null` | HTTP istekleri göndermek için kullanılan `HttpMessageHandler` yapılandırmak veya değiştirmek için kullanılabilen bir temsilci. WebSocket bağlantıları için kullanılmıyor. Bu temsilci null olmayan bir değer döndürmelidir ve varsayılan değeri bir parametre olarak alır. Bu varsayılan değerde ayarları değiştirin ve döndürün ya da yeni bir `HttpMessageHandler` örneği döndürün. **İşleyiciyi değiştirirken, belirtilen işleyiciden tutmak istediğiniz ayarları kopyalamadığınızdan emin olun, aksi takdirde, yapılandırılan seçenekler (tanımlama bilgileri ve üstbilgiler gibi) yeni işleyiciye uygulanmaz.** |
 | `Proxy` | `null` | HTTP istekleri gönderilirken kullanılacak bir HTTP proxy 'si. |
 | `UseDefaultCredentials` | `false` | Bu Boole değeri HTTP ve WebSockets istekleri için varsayılan kimlik bilgilerini gönderecek şekilde ayarlayın. Bu, Windows kimlik doğrulamasının kullanılmasını mümkün. |
 | `WebSocketConfiguration` | `null` | Ek WebSocket seçeneklerini yapılandırmak için kullanılabilen bir temsilci. Seçenekleri yapılandırmak için kullanılabilecek [ClientWebSocketOptions](/dotnet/api/system.net.websockets.clientwebsocketoptions) örneğini alır. |
 
 # <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
-| JavaScript seçeneği | Varsayılan değer | Açıklama |
+| JavaScript seçeneği | Varsayılan Değer | Açıklama |
 | ----------------- | ------------- | ----------- |
 | `accessTokenFactory` | `null` | HTTP isteklerinde taşıyıcı kimlik doğrulama belirteci olarak belirtilen bir dize döndüren bir işlev. |
-| `skipNegotiation` | `false` | Anlaşma adımını atlamak için bunu `true` olarak ayarlayın. **Yalnızca WebSockets taşıması etkin olan tek taşıma olduğunda desteklenir**. Bu ayar, Azure SignalR hizmeti kullanılırken etkinleştirilemez. |
+| `skipNegotiation` | `false` | Anlaşma adımını atlamak için bunu `true` olarak ayarlayın. **Yalnızca WebSockets taşıması etkin olan tek taşıma olduğunda desteklenir**. Azure SignalR hizmeti kullanılırken bu ayar etkinleştirilemez. |
 
 # <a name="javatabjava"></a>[Java](#tab/java)
 
-| Java seçeneği | Varsayılan değer | Açıklama |
+| Java seçeneği | Varsayılan Değer | Açıklama |
 | ----------- | ------------- | ----------- |
 | `withAccessTokenProvider` | `null` | HTTP isteklerinde taşıyıcı kimlik doğrulama belirteci olarak belirtilen bir dize döndüren bir işlev. |
-| `shouldSkipNegotiate` | `false` | Anlaşma adımını atlamak için bunu `true` olarak ayarlayın. **Yalnızca WebSockets taşıması etkin olan tek taşıma olduğunda desteklenir**. Bu ayar, Azure SignalR hizmeti kullanılırken etkinleştirilemez. |
-| `withHeader` `withHeaders` | Olmamalıdır | Her HTTP isteğiyle birlikte gönderilmek üzere ek HTTP üstbilgileri haritası. |
+| `shouldSkipNegotiate` | `false` | Anlaşma adımını atlamak için bunu `true` olarak ayarlayın. **Yalnızca WebSockets taşıması etkin olan tek taşıma olduğunda desteklenir**. Azure SignalR hizmeti kullanılırken bu ayar etkinleştirilemez. |
+| `withHeader``withHeaders` | Olmamalıdır | Her HTTP isteğiyle birlikte gönderilmek üzere ek HTTP üstbilgileri haritası. |
 
 ---
 
-.NET Istemcisinde, bu seçenekler `WithUrl` ' a sunulan seçenekler temsilcisi tarafından değiştirilebilir:
+.NET Istemcisinde, bu seçenekler `WithUrl`için belirtilen seçenekler temsilcisi tarafından değiştirilebilir:
 
 ```csharp
 var connection = new HubConnectionBuilder()
@@ -515,7 +520,7 @@ var connection = new HubConnectionBuilder()
     .Build();
 ```
 
-JavaScript Istemcisinde, bu seçenekler `withUrl` ' a sunulan bir JavaScript nesnesi içinde bulunabilir:
+JavaScript Istemcisinde, bu seçenekler `withUrl`için sunulan bir JavaScript nesnesi içinde bulunabilir:
 
 ```javascript
 let connection = new signalR.HubConnectionBuilder()
@@ -526,7 +531,7 @@ let connection = new signalR.HubConnectionBuilder()
     .build();
 ```
 
-Java istemcisinde, bu seçenekler `HubConnectionBuilder.create("HUB URL")` ' den döndürülen `HttpHubConnectionBuilder` ' daki yöntemlerle yapılandırılabilir
+Java istemcisinde, bu seçenekler `HubConnectionBuilder.create("HUB URL")` döndürülen `HttpHubConnectionBuilder` yöntemleriyle yapılandırılabilir
 
 ```java
 HubConnection hubConnection = HubConnectionBuilder.create("https://example.com/myhub")

@@ -1,38 +1,40 @@
 ---
-title: TypeScript ve WebPack ile ASP.NET Core SignalR kullanın
+title: TypeScript ve WebPack ile ASP.NET Core SignalR kullanma
 author: ssougnez
 description: Bu öğreticide, Web paketini istemcisi TypeScript 'te yazılmış bir ASP.NET Core SignalR Web uygulaması paketleyip derlemek üzere yapılandırırsınız.
 ms.author: bradyg
 ms.custom: mvc
-ms.date: 10/04/2019
+ms.date: 11/12/2019
+no-loc:
+- SignalR
 uid: tutorials/signalr-typescript-webpack
-ms.openlocfilehash: 630e8cb5efe9c313479960626d3d864c4923cbd1
-ms.sourcegitcommit: 3ffcd8cbff8b49128733842f72270bc58279de70
+ms.openlocfilehash: 759584f432807689ba194c86046364552fce1a45
+ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71955925"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73964025"
 ---
-# <a name="use-aspnet-core-signalr-with-typescript-and-webpack"></a>TypeScript ve WebPack ile ASP.NET Core SignalR kullanın
+# <a name="use-aspnet-core-opno-locsignalr-with-typescript-and-webpack"></a>TypeScript ve WebPack ile ASP.NET Core SignalR kullanma
 
 , [Sébastien Sougnez](https://twitter.com/ssougnez) ve [Scott Ade](https://twitter.com/Scott_Addie) tarafından
 
-[WebPack](https://webpack.js.org/) , geliştiricilerin bir Web uygulamasının istemci tarafı kaynaklarını paketleyip oluşturmalarına olanak sağlar. Bu öğreticide, istemcisinin [TypeScript](https://www.typescriptlang.org/)'te yazıldığı bir ASP.NET Core SignalR Web uygulamasında WebPack 'in kullanımı gösterilmektedir.
+[WebPack](https://webpack.js.org/) , geliştiricilerin bir Web uygulamasının istemci tarafı kaynaklarını paketleyip oluşturmalarına olanak sağlar. Bu öğretici, istemcisinin [TypeScript](https://www.typescriptlang.org/)'te yazıldığı bir ASP.NET Core SignalR Web uygulamasında WebPack 'in kullanımını gösterir.
 
-Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
+Bu öğreticide şunların nasıl yapıladığını öğreneceksiniz:
 
 > [!div class="checklist"]
-> * Bir başlatıcı ASP.NET Core SignalR uygulaması yapı iskelesi
+> * Bir başlatıcı ASP.NET Core SignalR uygulama için yapı iskelesi
 > * SignalR TypeScript istemcisini yapılandırma
 > * WebPack kullanarak derleme işlem hattı yapılandırma
 > * SignalR sunucusunu yapılandırma
 > * İstemci ve sunucu arasındaki iletişimi etkinleştir
 
-[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/tutorials/signalr-typescript-webpack/sample) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
+[Örnek kodu görüntüleme veya indirme](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/tutorials/signalr-typescript-webpack/sample) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
 
 ::: moniker range=">= aspnetcore-3.0"
 
-## <a name="prerequisites"></a>Önkoşullar
+## <a name="prerequisites"></a>Prerequisites
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
@@ -55,14 +57,14 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 Visual Studio 'Yu, *Path* ortam değişkeninde NPM için arama yapmak üzere yapılandırın. Varsayılan olarak, Visual Studio yükleme dizininde bulunan NPM sürümünü kullanır. Visual Studio 'da şu yönergeleri izleyin:
 
-1. **Araçlar** > **seçenekleri** > **Proje ve çözüm** > **Web paket yönetimi** > **dış Web araçları**' na gidin.
+1. **Web Paket Yönetimi** > **dış web araçları**> > > **Araçlar** ve **Seçenekler** **'** e gidin.
 1. Listeden *$ (yol)* girişini seçin. Girdiyi listedeki ikinci konuma taşımak için yukarı oka tıklayın.
 
     ![Visual Studio yapılandırması](signalr-typescript-webpack/_static/signalr-configure-path-visual-studio.png)
 
 Visual Studio yapılandırması tamamlandı. Projeyi oluşturma zamanı.
 
-1. **@No__t-** 1 **Yeni** > **proje** menü seçeneğini kullanın ve **ASP.NET Core Web uygulaması** şablonunu seçin.
+1. **Dosya** > **Yeni** > **projesi** menü seçeneğini kullanın ve **ASP.NET Core Web uygulaması** şablonunu seçin.
 1. Projeyi *Signalrwebpack*olarak adlandırın ve **Oluştur**' u seçin.
 1. Hedef çerçeve açılır listesinden *.NET Core* ' u seçin ve çerçeve Seçicisi açılır listesinden *ASP.NET Core 3,0* ' ı seçin. **Boş** şablonu seçin ve **Oluştur**' u seçin.
 
@@ -92,7 +94,7 @@ Aşağıdaki adımlar, TypeScript 'in JavaScript 'e dönüştürülmesini ve ist
 
     [!code-json[package.json](signalr-typescript-webpack/sample/3.x/snippets/package1.json?highlight=4)]
 
-    @No__t-0 özelliğinin `true` olarak ayarlanması, sonraki adımda paket yükleme uyarılarını önler.
+    `private` özelliğinin `true` olarak ayarlanması, sonraki adımda paket yükleme uyarılarını önler.
 
 1. Gerekli NPM paketlerini yükler. Proje kökünden aşağıdaki komutu yürütün:
 
@@ -103,7 +105,7 @@ Aşağıdaki adımlar, TypeScript 'in JavaScript 'e dönüştürülmesini ve ist
     Aklınızda bazı komut ayrıntıları:
 
     * Sürüm numarası, her paket adı için `@` işaretini izler. NPM bu özel paket sürümlerini yüklüyor.
-    * @No__t-0 seçeneği, NPM 'nin [semantik sürüm](https://semver.org/) aralığı işleçlerini *Package. JSON*öğesine yazmanın varsayılan davranışını devre dışı bırakır. Örneğin, `"webpack": "^4.29.3"` yerine `"webpack": "4.29.3"` kullanılır. Bu seçenek, daha yeni paket sürümlerine istenmeden yükseltme yapılmasını engeller.
+    * `-E` seçeneği, NPM 'nin [semantik sürüm](https://semver.org/) aralığı işleçlerini *Package. JSON*öğesine yazmanın varsayılan davranışını devre dışı bırakır. Örneğin, `"webpack": "^4.29.3"`yerine `"webpack": "4.29.3"` kullanılır. Bu seçenek, daha yeni paket sürümlerine istenmeden yükseltme yapılmasını engeller.
 
     Daha ayrıntılı bilgi için resmi [NPM-Install](https://docs.npmjs.com/cli/install) docs bölümüne bakın.
 
@@ -119,9 +121,9 @@ Aşağıdaki adımlar, TypeScript 'in JavaScript 'e dönüştürülmesini ve ist
 
     Betiklerin bazı açıklamaları:
 
-    * `build`: İstemci tarafı kaynaklarınızı geliştirme modunda paketler ve dosya değişikliklerini izler. Dosya izleyici, bir proje dosyası her değiştiğinde paketin yeniden oluşturulmasına neden olur. @No__t-0 seçeneği, Tree gerçekleşmesi ve minbirleşme gibi üretim iyileştirmelerini devre dışı bırakır. Geliştirme sırasında yalnızca `build` kullanın.
-    * `release`: İstemci tarafı kaynaklarınızı üretim modunda paketlayın.
-    * `publish`: İstemci tarafı kaynaklarını üretim modunda paketleyip `release` betiğini çalıştırır. Uygulamayı yayımlamak için .NET Core CLI [Publish](/dotnet/core/tools/dotnet-publish) komutunu çağırır.
+    * `build`: istemci tarafı kaynaklarınızı geliştirme modunda paketler ve dosya değişikliklerini izler. Dosya izleyici, bir proje dosyası her değiştiğinde paketin yeniden oluşturulmasına neden olur. `mode` seçeneği, Tree gerçekleşmesi ve minbirleşme gibi üretim iyileştirmeleri devre dışı bırakır. Yalnızca geliştirmede `build` kullanın.
+    * `release`: istemci tarafı kaynaklarınızı üretim modunda Paketlayın.
+    * `publish`: `release` betiği, istemci tarafı kaynaklarını üretim modunda paketleyip çalıştırır. Uygulamayı yayımlamak için .NET Core CLI [Publish](/dotnet/core/tools/dotnet-publish) komutunu çağırır.
 
 1. Aşağıdaki içeriğe sahip proje kökünde *WebPack. config. js*adlı bir dosya oluşturun:
 
@@ -129,8 +131,8 @@ Aşağıdaki adımlar, TypeScript 'in JavaScript 'e dönüştürülmesini ve ist
 
     Yukarıdaki dosya Web paketi derlemesini yapılandırır. Aklınızda bazı yapılandırma ayrıntıları:
 
-    * @No__t-0 özelliği, *dağ*'ın varsayılan değerini geçersiz kılar. Paket, *Wwwroot* dizininde yayınlanır.
-    * @No__t-0 dizisi, SignalR istemcisi JavaScript 'ı içeri aktarmak için *. js* içerir.
+    * `output` özelliği, *dağ*'ın varsayılan değerini geçersiz kılar. Paket, *Wwwroot* dizininde yayınlanır.
+    * `resolve.extensions` dizisi, SignalR istemci JavaScript 'ı içeri aktarmak için *. js* içerir.
 
 1. Proje kökünde yeni bir *src* dizini oluşturun. Amaç, projenin istemci tarafı varlıklarını depolardır.
 
@@ -160,22 +162,22 @@ Aşağıdaki adımlar, TypeScript 'in JavaScript 'e dönüştürülmesini ve ist
 
     Önceki TypeScript, DOM öğelerine başvuruları alır ve iki olay işleyicisini ekler:
 
-    * `keyup`: Bu olay Kullanıcı metin kutusuna `tbMessage` olarak tanımlanan bir şey yazdığında ateşlenir. @No__t-0 işlevi, Kullanıcı **ENTER** tuşuna bastığında çağrılır.
-    * `click`: Bu olay Kullanıcı **Gönder** düğmesine tıkladığında ateşlenir. @No__t-0 işlevi çağırılır.
+    * `keyup`: Bu olay Kullanıcı metin kutusuna `tbMessage`olarak tanımlanan bir şeyi yazdığında ateşlenir. `send` işlevi, Kullanıcı **ENTER** tuşuna bastığında çağrılır.
+    * `click`: Kullanıcı **Gönder** düğmesine tıkladığında bu olay ateşlenir. `send` işlevi çağırılır.
 
 ## <a name="configure-the-aspnet-core-app"></a>ASP.NET Core uygulamasını yapılandırma
 
-1. @No__t-0 yönteminde, [Usedefaultfiles](/dotnet/api/microsoft.aspnetcore.builder.defaultfilesextensions.usedefaultfiles#Microsoft_AspNetCore_Builder_DefaultFilesExtensions_UseDefaultFiles_Microsoft_AspNetCore_Builder_IApplicationBuilder_) ve [usestaticfiles](/dotnet/api/microsoft.aspnetcore.builder.staticfileextensions.usestaticfiles#Microsoft_AspNetCore_Builder_StaticFileExtensions_UseStaticFiles_Microsoft_AspNetCore_Builder_IApplicationBuilder_)öğesine çağrılar ekleyin.
+1. `Startup.Configure` yönteminde, [Usedefaultfiles](/dotnet/api/microsoft.aspnetcore.builder.defaultfilesextensions.usedefaultfiles#Microsoft_AspNetCore_Builder_DefaultFilesExtensions_UseDefaultFiles_Microsoft_AspNetCore_Builder_IApplicationBuilder_) ve [usestaticfiles](/dotnet/api/microsoft.aspnetcore.builder.staticfileextensions.usestaticfiles#Microsoft_AspNetCore_Builder_StaticFileExtensions_UseStaticFiles_Microsoft_AspNetCore_Builder_IApplicationBuilder_)öğesine çağrılar ekleyin.
 
    [!code-csharp[Startup](signalr-typescript-webpack/sample/3.x/Startup.cs?name=snippet_UseStaticDefaultFiles&highlight=2-3)]
 
    Yukarıdaki kod, kullanıcının tam URL 'sini veya Web uygulamasının kök URL 'sini girmeksizin *Dizin. html* dosyasını bulmasını ve sunmasını sağlar.
 
-1. @No__t-0 yönteminin sonunda, bir */hub* yolunu `ChatHub` hub 'ına eşleyin. Merhaba Dünya görüntülenen kodu değiştirin *!* Aşağıdaki satırla: 
+1. `Startup.Configure` yönteminin sonunda, bir */hub* yolunu `ChatHub` hub 'ına eşleyin. Merhaba Dünya görüntülenen kodu değiştirin *!* Aşağıdaki satırla: 
 
    [!code-csharp[Startup](signalr-typescript-webpack/sample/3.x/Startup.cs?name=snippet_UseSignalR&highlight=3)]
 
-1. @No__t-0 yönteminde [Addsignalr](/dotnet/api/microsoft.extensions.dependencyinjection.signalrdependencyinjectionextensions.addsignalr#Microsoft_Extensions_DependencyInjection_SignalRDependencyInjectionExtensions_AddSignalR_Microsoft_Extensions_DependencyInjection_IServiceCollection_)öğesini çağırın. SignalR hizmetlerini projenize ekler.
+1. `Startup.ConfigureServices` yönteminde [Addsignalr](/dotnet/api/microsoft.extensions.dependencyinjection.signalrdependencyinjectionextensions.addsignalr#Microsoft_Extensions_DependencyInjection_SignalRDependencyInjectionExtensions_AddSignalR_Microsoft_Extensions_DependencyInjection_IServiceCollection_)öğesini çağırın. SignalR hizmetlerini projenize ekler.
 
    [!code-csharp[Startup](signalr-typescript-webpack/sample/3.x/Startup.cs?name=snippet_AddSignalR)]
 
@@ -185,7 +187,7 @@ Aşağıdaki adımlar, TypeScript 'in JavaScript 'e dönüştürülmesini ve ist
 
     [!code-csharp[ChatHub](signalr-typescript-webpack/sample/3.x/snippets/ChatHub.cs?name=snippet_ChatHubStubClass)]
 
-1. @No__t-1 başvurusunu çözümlemek için, *Startup.cs* dosyasının en üstüne aşağıdaki kodu ekleyin:
+1. `ChatHub` başvurusunu çözümlemek için, *Startup.cs* dosyasının en üstüne aşağıdaki kodu ekleyin:
 
     [!code-csharp[Startup](signalr-typescript-webpack/sample/3.x/Startup.cs?name=snippet_HubsNamespace)]
 
@@ -199,29 +201,29 @@ Uygulama Şu anda ileti göndermek için basit bir form görüntülüyor. Bunu y
     npm install @aspnet/signalr
     ```
 
-    Yukarıdaki komut, istemcisinin sunucuya ileti göndermesini sağlayan [SignalR TypeScript istemcisini](https://www.npmjs.com/package/@aspnet/signalr)yüklüyor.
+    Yukarıdaki komut, istemcinin sunucuya ileti göndermesini sağlayan [SignalR TypeScript istemcisini](https://www.npmjs.com/package/@aspnet/signalr)yüklüyor.
 
 1. Vurgulanan kodu *src/index. TS* dosyasına ekleyin:
 
     [!code-typescript[index.ts](signalr-typescript-webpack/sample/3.x/snippets/index2.ts?name=snippet_IndexTsPhase2File&highlight=2,9-23)]
 
-    Yukarıdaki kod, sunucudan ileti almayı destekler. @No__t-0 sınıfı, sunucu bağlantısını yapılandırmak için yeni bir Oluşturucu oluşturur. @No__t-0 işlevi hub URL 'sini yapılandırır.
+    Yukarıdaki kod, sunucudan ileti almayı destekler. `HubConnectionBuilder` sınıfı, sunucu bağlantısını yapılandırmak için yeni bir Oluşturucu oluşturur. `withUrl` işlevi hub URL 'sini yapılandırır.
 
-    SignalR, istemci ile sunucu arasında ileti alışverişi yapılmasını mümkün. Her ileti belirli bir ada sahiptir. Örneğin, ileti bölgesindeki yeni iletiyi görüntülemeden sorumlu mantığı çalıştıran `messageReceived` adlı iletilere sahip olabilirsiniz. Belirli bir iletiyi dinlemek `on` işlevi aracılığıyla yapılabilir. Herhangi bir sayıda ileti adını dinleyebilmeniz gerekir. Ayrıca, yazarın adı ve alınan iletinin içeriği gibi parametreleri iletiye geçirmek da mümkündür. İstemci bir ileti aldıktan sonra, yazarın adı ve `innerHTML` özniteliğinde ileti içeriğiyle yeni bir `div` öğesi oluşturulur. İletileri görüntüleyen Main `div` öğesine eklenir.
+    SignalR, istemci ile sunucu arasında ileti alışverişi yapılmasını mümkün. Her ileti belirli bir ada sahiptir. Örneğin, ileti bölgesindeki yeni iletiyi görüntülemekten sorumlu mantığı çalıştıran `messageReceived` adına sahip iletilere sahip olabilirsiniz. Belirli bir iletiyi dinlemek `on` işlevi aracılığıyla yapılabilir. Herhangi bir sayıda ileti adını dinleyebilmeniz gerekir. Ayrıca, yazarın adı ve alınan iletinin içeriği gibi parametreleri iletiye geçirmek da mümkündür. İstemci bir ileti aldıktan sonra yazarın adı ve `innerHTML` özniteliğinde ileti içeriğiyle yeni bir `div` öğesi oluşturulur. Bu, iletileri görüntüleyen ana `div` öğesine eklenir.
 
 1. Artık istemci bir ileti aldığına göre, ileti gönderecek şekilde yapılandırın. Vurgulanan kodu *src/index. TS* dosyasına ekleyin:
 
     [!code-typescript[index.ts](signalr-typescript-webpack/sample/3.x/src/index.ts?highlight=34-35)]
 
-    WebSockets bağlantısı aracılığıyla bir ileti gönderildiğinde `send` yönteminin çağrılması gerekir. Yöntemin ilk parametresi ileti adıdır. İleti verileri diğer parametreleri geçersiz kılar. Bu örnekte, sunucuya `newMessage` olarak tanımlanan bir ileti gönderilir. İleti, bir metin kutusundan Kullanıcı adından ve Kullanıcı girişinden oluşur. Gönderme işlemi çalışırsa metin kutusu değeri temizlenir.
+    WebSockets bağlantısı aracılığıyla bir ileti gönderildiğinde `send` yönteminin çağrılması gerekir. Yöntemin ilk parametresi ileti adıdır. İleti verileri diğer parametreleri geçersiz kılar. Bu örnekte, `newMessage` sunucusuna gönderildiği gibi bir ileti gönderilir. İleti, bir metin kutusundan Kullanıcı adından ve Kullanıcı girişinden oluşur. Gönderme işlemi çalışırsa metin kutusu değeri temizlenir.
 
 1. Vurgulanan yöntemi `ChatHub` sınıfına ekleyin:
 
     [!code-csharp[ChatHub](signalr-typescript-webpack/sample/3.x/Hubs/ChatHub.cs?highlight=8-11)]
 
-    Yukarıdaki kod, sunucu onları aldıktan sonra tüm bağlı kullanıcılara ileti almış iletileri yayınlar. Tüm iletileri almak için genel bir `on` yönteminin olması gereksizdir. İleti adından sonra adlandırılmış bir yöntem.
+    Yukarıdaki kod, sunucu onları aldıktan sonra tüm bağlı kullanıcılara ileti almış iletileri yayınlar. Tüm iletileri almak için genel bir `on` yöntemi olması gereksizdir. İleti adından sonra adlandırılmış bir yöntem.
 
-    Bu örnekte, TypeScript istemcisi `newMessage` olarak tanımlanan bir ileti gönderir. C# @No__t-1 yöntemi, istemci tarafından gönderilen verileri bekliyor. [Istemcilerdeki](/dotnet/api/microsoft.aspnetcore.signalr.ihubclients-1.all) [sendadsync](/dotnet/api/microsoft.aspnetcore.signalr.clientproxyextensions.sendasync) yöntemine bir çağrı yapılır. Alınan iletiler, hub 'a bağlı tüm istemcilere gönderilir.
+    Bu örnekte, TypeScript istemcisi `newMessage`olarak tanımlanan bir ileti gönderir. C# `NewMessage` yöntemi, istemci tarafından gönderilen verileri bekler. [Istemcilerdeki](/dotnet/api/microsoft.aspnetcore.signalr.ihubclients-1.all) [sendadsync](/dotnet/api/microsoft.aspnetcore.signalr.clientproxyextensions.sendasync) yöntemine bir çağrı yapılır. Alınan iletiler, hub 'a bağlı tüm istemcilere gönderilir.
 
 ## <a name="test-the-app"></a>Uygulamayı test etme
 
@@ -233,7 +235,7 @@ Uygulamanın aşağıdaki adımlarla çalıştığından emin olun.
 
     [!INCLUDE [npm-run-release](../includes/signalr-typescript-webpack/npm-run-release.md)]
 
-1. Hata**ayıklamayı** eklemeden uygulamayı tarayıcıda başlatmak **için hata ayıklama @no__t-** 1 ' i seçin. *Wwwroot/index.html* dosyası `http://localhost:<port_number>` ' de sunulur.
+1. Hata ayıklayıcıyı eklemeden uygulamayı bir tarayıcıda başlatmak **için hata ayıklama > ** **Başlat** ' ı seçin. *Wwwroot/index.html* dosyası `http://localhost:<port_number>`olarak sunulur.
 
    Derleme hataları alırsanız, çözümü kapatıp yeniden açmayı deneyin. 
 
@@ -255,7 +257,7 @@ Uygulamanın aşağıdaki adımlarla çalıştığından emin olun.
 
     Web sunucusu uygulamayı başlatır ve localhost üzerinde kullanılabilir hale getirir.
 
-1. @No__t-0 ' a bir tarayıcı açın. *Wwwroot/index.html* dosyası sunulur. Adres çubuğundan URL 'YI kopyalayın.
+1. `http://localhost:<port_number>`için bir tarayıcı açın. *Wwwroot/index.html* dosyası sunulur. Adres çubuğundan URL 'YI kopyalayın.
 
 1. Başka bir tarayıcı örneği (herhangi bir tarayıcı) açın. URL 'YI adres çubuğuna yapıştırın.
 
@@ -272,13 +274,13 @@ Uygulamanın aşağıdaki adımlarla çalıştığından emin olun.
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * **ASP.net ve Web geliştirme** iş yüküyle [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=inline+link&utm_content=download+vs2019)
-* [.NET core SDK 2.2 veya üzeri](https://www.microsoft.com/net/download/all)
+* [.NET Core SDK 2,2 veya üzeri](https://www.microsoft.com/net/download/all)
 * [NPM](https://www.npmjs.com/) ile [Node. js](https://nodejs.org/)
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 * [Visual Studio Code](https://code.visualstudio.com/download)
-* [.NET core SDK 2.2 veya üzeri](https://www.microsoft.com/net/download/all)
+* [.NET Core SDK 2,2 veya üzeri](https://www.microsoft.com/net/download/all)
 * [C#Visual Studio Code sürüm 1.17.1 veya üzeri için](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)
 * [NPM](https://www.npmjs.com/) ile [Node. js](https://nodejs.org/)
 
@@ -290,14 +292,14 @@ Uygulamanın aşağıdaki adımlarla çalıştığından emin olun.
 
 Visual Studio 'Yu, *Path* ortam değişkeninde NPM için arama yapmak üzere yapılandırın. Varsayılan olarak, Visual Studio yükleme dizininde bulunan NPM sürümünü kullanır. Visual Studio 'da şu yönergeleri izleyin:
 
-1. **Araçlar** > **seçenekleri** > **Proje ve çözüm** > **Web paket yönetimi** > **dış Web araçları**' na gidin.
+1. **Web Paket Yönetimi** > **dış web araçları**> > > **Araçlar** ve **Seçenekler** **'** e gidin.
 1. Listeden *$ (yol)* girişini seçin. Girdiyi listedeki ikinci konuma taşımak için yukarı oka tıklayın.
 
     ![Visual Studio yapılandırması](signalr-typescript-webpack/_static/signalr-configure-path-visual-studio.png)
 
 Visual Studio yapılandırması tamamlandı. Projeyi oluşturma zamanı.
 
-1. **@No__t-** 1 **Yeni** > **proje** menü seçeneğini kullanın ve **ASP.NET Core Web uygulaması** şablonunu seçin.
+1. **Dosya** > **Yeni** > **projesi** menü seçeneğini kullanın ve **ASP.NET Core Web uygulaması** şablonunu seçin.
 1. Projeyi *Signalrwebpack*olarak adlandırın ve **Oluştur**' u seçin.
 1. Hedef çerçeve açılır listesinden *.NET Core* ' u seçin ve çerçeve Seçicisi açılır listesinden *ASP.NET Core 2,2* ' ı seçin. **Boş** şablonu seçin ve **Oluştur**' u seçin.
 
@@ -327,7 +329,7 @@ Aşağıdaki adımlar, TypeScript 'in JavaScript 'e dönüştürülmesini ve ist
 
     [!code-json[package.json](signalr-typescript-webpack/sample/2.x/snippets/package1.json?highlight=4)]
 
-    @No__t-0 özelliğinin `true` olarak ayarlanması, sonraki adımda paket yükleme uyarılarını önler.
+    `private` özelliğinin `true` olarak ayarlanması, sonraki adımda paket yükleme uyarılarını önler.
 
 1. Gerekli NPM paketlerini yükler. Proje kökünden aşağıdaki komutu yürütün:
 
@@ -338,7 +340,7 @@ Aşağıdaki adımlar, TypeScript 'in JavaScript 'e dönüştürülmesini ve ist
     Aklınızda bazı komut ayrıntıları:
 
     * Sürüm numarası, her paket adı için `@` işaretini izler. NPM bu özel paket sürümlerini yüklüyor.
-    * @No__t-0 seçeneği, NPM 'nin [semantik sürüm](https://semver.org/) aralığı işleçlerini *Package. JSON*öğesine yazmanın varsayılan davranışını devre dışı bırakır. Örneğin, `"webpack": "^4.29.3"` yerine `"webpack": "4.29.3"` kullanılır. Bu seçenek, daha yeni paket sürümlerine istenmeden yükseltme yapılmasını engeller.
+    * `-E` seçeneği, NPM 'nin [semantik sürüm](https://semver.org/) aralığı işleçlerini *Package. JSON*öğesine yazmanın varsayılan davranışını devre dışı bırakır. Örneğin, `"webpack": "^4.29.3"`yerine `"webpack": "4.29.3"` kullanılır. Bu seçenek, daha yeni paket sürümlerine istenmeden yükseltme yapılmasını engeller.
 
     Daha ayrıntılı bilgi için resmi [NPM-Install](https://docs.npmjs.com/cli/install) docs bölümüne bakın.
 
@@ -354,9 +356,9 @@ Aşağıdaki adımlar, TypeScript 'in JavaScript 'e dönüştürülmesini ve ist
 
     Betiklerin bazı açıklamaları:
 
-    * `build`: İstemci tarafı kaynaklarınızı geliştirme modunda paketler ve dosya değişikliklerini izler. Dosya izleyici, bir proje dosyası her değiştiğinde paketin yeniden oluşturulmasına neden olur. @No__t-0 seçeneği, Tree gerçekleşmesi ve minbirleşme gibi üretim iyileştirmelerini devre dışı bırakır. Geliştirme sırasında yalnızca `build` kullanın.
-    * `release`: İstemci tarafı kaynaklarınızı üretim modunda paketlayın.
-    * `publish`: İstemci tarafı kaynaklarını üretim modunda paketleyip `release` betiğini çalıştırır. Uygulamayı yayımlamak için .NET Core CLI [Publish](/dotnet/core/tools/dotnet-publish) komutunu çağırır.
+    * `build`: istemci tarafı kaynaklarınızı geliştirme modunda paketler ve dosya değişikliklerini izler. Dosya izleyici, bir proje dosyası her değiştiğinde paketin yeniden oluşturulmasına neden olur. `mode` seçeneği, Tree gerçekleşmesi ve minbirleşme gibi üretim iyileştirmeleri devre dışı bırakır. Yalnızca geliştirmede `build` kullanın.
+    * `release`: istemci tarafı kaynaklarınızı üretim modunda Paketlayın.
+    * `publish`: `release` betiği, istemci tarafı kaynaklarını üretim modunda paketleyip çalıştırır. Uygulamayı yayımlamak için .NET Core CLI [Publish](/dotnet/core/tools/dotnet-publish) komutunu çağırır.
 
 1. Aşağıdaki içeriğe sahip proje kökünde *WebPack. config. js*adlı bir dosya oluşturun:
 
@@ -364,8 +366,8 @@ Aşağıdaki adımlar, TypeScript 'in JavaScript 'e dönüştürülmesini ve ist
 
     Yukarıdaki dosya Web paketi derlemesini yapılandırır. Aklınızda bazı yapılandırma ayrıntıları:
 
-    * @No__t-0 özelliği, *dağ*'ın varsayılan değerini geçersiz kılar. Paket, *Wwwroot* dizininde yayınlanır.
-    * @No__t-0 dizisi, SignalR istemcisi JavaScript 'ı içeri aktarmak için *. js* içerir.
+    * `output` özelliği, *dağ*'ın varsayılan değerini geçersiz kılar. Paket, *Wwwroot* dizininde yayınlanır.
+    * `resolve.extensions` dizisi, SignalR istemci JavaScript 'ı içeri aktarmak için *. js* içerir.
 
 1. Proje kökünde yeni bir *src* dizini oluşturun. Amaç, projenin istemci tarafı varlıklarını depolardır.
 
@@ -395,22 +397,22 @@ Aşağıdaki adımlar, TypeScript 'in JavaScript 'e dönüştürülmesini ve ist
 
     Önceki TypeScript, DOM öğelerine başvuruları alır ve iki olay işleyicisini ekler:
 
-    * `keyup`: Bu olay Kullanıcı metin kutusuna `tbMessage` olarak tanımlanan bir şey yazdığında ateşlenir. @No__t-0 işlevi, Kullanıcı **ENTER** tuşuna bastığında çağrılır.
-    * `click`: Bu olay Kullanıcı **Gönder** düğmesine tıkladığında ateşlenir. @No__t-0 işlevi çağırılır.
+    * `keyup`: Bu olay Kullanıcı metin kutusuna `tbMessage`olarak tanımlanan bir şeyi yazdığında ateşlenir. `send` işlevi, Kullanıcı **ENTER** tuşuna bastığında çağrılır.
+    * `click`: Kullanıcı **Gönder** düğmesine tıkladığında bu olay ateşlenir. `send` işlevi çağırılır.
 
 ## <a name="configure-the-aspnet-core-app"></a>ASP.NET Core uygulamasını yapılandırma
 
-1. @No__t-0 yönteminde belirtilen kod *Merhaba Dünya!* görüntülüyor. @No__t-0 yöntem çağrısını, [Usedefaultfiles](/dotnet/api/microsoft.aspnetcore.builder.defaultfilesextensions.usedefaultfiles#Microsoft_AspNetCore_Builder_DefaultFilesExtensions_UseDefaultFiles_Microsoft_AspNetCore_Builder_IApplicationBuilder_) ve [usestaticfiles](/dotnet/api/microsoft.aspnetcore.builder.staticfileextensions.usestaticfiles#Microsoft_AspNetCore_Builder_StaticFileExtensions_UseStaticFiles_Microsoft_AspNetCore_Builder_IApplicationBuilder_)çağrılarıyla değiştirin.
+1. `Startup.Configure` yönteminde belirtilen kod *Merhaba Dünya!* görüntülüyor. `app.Run` yöntemi çağrısını, [Usedefaultfiles](/dotnet/api/microsoft.aspnetcore.builder.defaultfilesextensions.usedefaultfiles#Microsoft_AspNetCore_Builder_DefaultFilesExtensions_UseDefaultFiles_Microsoft_AspNetCore_Builder_IApplicationBuilder_) ve [usestaticfiles](/dotnet/api/microsoft.aspnetcore.builder.staticfileextensions.usestaticfiles#Microsoft_AspNetCore_Builder_StaticFileExtensions_UseStaticFiles_Microsoft_AspNetCore_Builder_IApplicationBuilder_)çağrılarıyla değiştirin.
 
     [!code-csharp[Startup](signalr-typescript-webpack/sample/2.x/Startup.cs?name=snippet_UseStaticDefaultFiles)]
 
     Yukarıdaki kod, kullanıcının tam URL 'sini veya Web uygulamasının kök URL 'sini girmeksizin *Dizin. html* dosyasını bulmasını ve sunmasını sağlar.
 
-1. @No__t-1 yönteminde [Addsignalr](/dotnet/api/microsoft.extensions.dependencyinjection.signalrdependencyinjectionextensions.addsignalr#Microsoft_Extensions_DependencyInjection_SignalRDependencyInjectionExtensions_AddSignalR_Microsoft_Extensions_DependencyInjection_IServiceCollection_) öğesini çağırın. SignalR hizmetlerini projenize ekler.
+1. `Startup.ConfigureServices` yönteminde [Addsignalr](/dotnet/api/microsoft.extensions.dependencyinjection.signalrdependencyinjectionextensions.addsignalr#Microsoft_Extensions_DependencyInjection_SignalRDependencyInjectionExtensions_AddSignalR_Microsoft_Extensions_DependencyInjection_IServiceCollection_) öğesini çağırın. SignalR hizmetlerini projenize ekler.
 
     [!code-csharp[Startup](signalr-typescript-webpack/sample/2.x/Startup.cs?name=snippet_AddSignalR)]
 
-1. Bir */hub* yolunu `ChatHub` hub 'ına eşleyin. @No__t-0 yönteminin sonuna aşağıdaki satırları ekleyin:
+1. Bir */hub* yolunu `ChatHub` hub 'ına eşleyin. `Startup.Configure` yönteminin sonuna aşağıdaki satırları ekleyin:
 
     [!code-csharp[Startup](signalr-typescript-webpack/sample/2.x/Startup.cs?name=snippet_UseSignalR)]
 
@@ -420,7 +422,7 @@ Aşağıdaki adımlar, TypeScript 'in JavaScript 'e dönüştürülmesini ve ist
 
     [!code-csharp[ChatHub](signalr-typescript-webpack/sample/2.x/snippets/ChatHub.cs?name=snippet_ChatHubStubClass)]
 
-1. @No__t-1 başvurusunu çözümlemek için, *Startup.cs* dosyasının en üstüne aşağıdaki kodu ekleyin:
+1. `ChatHub` başvurusunu çözümlemek için, *Startup.cs* dosyasının en üstüne aşağıdaki kodu ekleyin:
 
     [!code-csharp[Startup](signalr-typescript-webpack/sample/2.x/Startup.cs?name=snippet_HubsNamespace)]
 
@@ -434,29 +436,29 @@ Uygulama Şu anda ileti göndermek için basit bir form görüntülüyor. Bunu y
     npm install @aspnet/signalr
     ```
 
-    Yukarıdaki komut, istemcisinin sunucuya ileti göndermesini sağlayan [SignalR TypeScript istemcisini](https://www.npmjs.com/package/@aspnet/signalr)yüklüyor.
+    Yukarıdaki komut, istemcinin sunucuya ileti göndermesini sağlayan [SignalR TypeScript istemcisini](https://www.npmjs.com/package/@aspnet/signalr)yüklüyor.
 
 1. Vurgulanan kodu *src/index. TS* dosyasına ekleyin:
 
     [!code-typescript[index.ts](signalr-typescript-webpack/sample/2.x/snippets/index2.ts?name=snippet_IndexTsPhase2File&highlight=2,9-23)]
 
-    Yukarıdaki kod, sunucudan ileti almayı destekler. @No__t-0 sınıfı, sunucu bağlantısını yapılandırmak için yeni bir Oluşturucu oluşturur. @No__t-0 işlevi hub URL 'sini yapılandırır.
+    Yukarıdaki kod, sunucudan ileti almayı destekler. `HubConnectionBuilder` sınıfı, sunucu bağlantısını yapılandırmak için yeni bir Oluşturucu oluşturur. `withUrl` işlevi hub URL 'sini yapılandırır.
 
-    SignalR, istemci ile sunucu arasında ileti alışverişi yapılmasını mümkün. Her ileti belirli bir ada sahiptir. Örneğin, ileti bölgesindeki yeni iletiyi görüntülemeden sorumlu mantığı çalıştıran `messageReceived` adlı iletilere sahip olabilirsiniz. Belirli bir iletiyi dinlemek `on` işlevi aracılığıyla yapılabilir. Herhangi bir sayıda ileti adını dinleyebilmeniz gerekir. Ayrıca, yazarın adı ve alınan iletinin içeriği gibi parametreleri iletiye geçirmek da mümkündür. İstemci bir ileti aldıktan sonra, yazarın adı ve `innerHTML` özniteliğinde ileti içeriğiyle yeni bir `div` öğesi oluşturulur. İletileri görüntüleyen Main `div` öğesine eklenir.
+    SignalR, istemci ile sunucu arasında ileti alışverişi yapılmasını mümkün. Her ileti belirli bir ada sahiptir. Örneğin, ileti bölgesindeki yeni iletiyi görüntülemekten sorumlu mantığı çalıştıran `messageReceived` adına sahip iletilere sahip olabilirsiniz. Belirli bir iletiyi dinlemek `on` işlevi aracılığıyla yapılabilir. Herhangi bir sayıda ileti adını dinleyebilmeniz gerekir. Ayrıca, yazarın adı ve alınan iletinin içeriği gibi parametreleri iletiye geçirmek da mümkündür. İstemci bir ileti aldıktan sonra yazarın adı ve `innerHTML` özniteliğinde ileti içeriğiyle yeni bir `div` öğesi oluşturulur. Bu, iletileri görüntüleyen ana `div` öğesine eklenir.
 
 1. Artık istemci bir ileti aldığına göre, ileti gönderecek şekilde yapılandırın. Vurgulanan kodu *src/index. TS* dosyasına ekleyin:
 
     [!code-typescript[index.ts](signalr-typescript-webpack/sample/2.x/src/index.ts?highlight=34-35)]
 
-    WebSockets bağlantısı aracılığıyla bir ileti gönderildiğinde `send` yönteminin çağrılması gerekir. Yöntemin ilk parametresi ileti adıdır. İleti verileri diğer parametreleri geçersiz kılar. Bu örnekte, sunucuya `newMessage` olarak tanımlanan bir ileti gönderilir. İleti, bir metin kutusundan Kullanıcı adından ve Kullanıcı girişinden oluşur. Gönderme işlemi çalışırsa metin kutusu değeri temizlenir.
+    WebSockets bağlantısı aracılığıyla bir ileti gönderildiğinde `send` yönteminin çağrılması gerekir. Yöntemin ilk parametresi ileti adıdır. İleti verileri diğer parametreleri geçersiz kılar. Bu örnekte, `newMessage` sunucusuna gönderildiği gibi bir ileti gönderilir. İleti, bir metin kutusundan Kullanıcı adından ve Kullanıcı girişinden oluşur. Gönderme işlemi çalışırsa metin kutusu değeri temizlenir.
 
 1. Vurgulanan yöntemi `ChatHub` sınıfına ekleyin:
 
     [!code-csharp[ChatHub](signalr-typescript-webpack/sample/2.x/Hubs/ChatHub.cs?highlight=8-11)]
 
-    Yukarıdaki kod, sunucu onları aldıktan sonra tüm bağlı kullanıcılara ileti almış iletileri yayınlar. Tüm iletileri almak için genel bir `on` yönteminin olması gereksizdir. İleti adından sonra adlandırılmış bir yöntem.
+    Yukarıdaki kod, sunucu onları aldıktan sonra tüm bağlı kullanıcılara ileti almış iletileri yayınlar. Tüm iletileri almak için genel bir `on` yöntemi olması gereksizdir. İleti adından sonra adlandırılmış bir yöntem.
 
-    Bu örnekte, TypeScript istemcisi `newMessage` olarak tanımlanan bir ileti gönderir. C# @No__t-1 yöntemi, istemci tarafından gönderilen verileri bekliyor. [Istemcilerdeki](/dotnet/api/microsoft.aspnetcore.signalr.ihubclients-1.all) [sendadsync](/dotnet/api/microsoft.aspnetcore.signalr.clientproxyextensions.sendasync) yöntemine bir çağrı yapılır. Alınan iletiler, hub 'a bağlı tüm istemcilere gönderilir.
+    Bu örnekte, TypeScript istemcisi `newMessage`olarak tanımlanan bir ileti gönderir. C# `NewMessage` yöntemi, istemci tarafından gönderilen verileri bekler. [Istemcilerdeki](/dotnet/api/microsoft.aspnetcore.signalr.ihubclients-1.all) [sendadsync](/dotnet/api/microsoft.aspnetcore.signalr.clientproxyextensions.sendasync) yöntemine bir çağrı yapılır. Alınan iletiler, hub 'a bağlı tüm istemcilere gönderilir.
 
 ## <a name="test-the-app"></a>Uygulamayı test etme
 
@@ -468,7 +470,7 @@ Uygulamanın aşağıdaki adımlarla çalıştığından emin olun.
 
     [!INCLUDE [npm-run-release](../includes/signalr-typescript-webpack/npm-run-release.md)]
 
-1. Hata**ayıklamayı** eklemeden uygulamayı tarayıcıda başlatmak **için hata ayıklama @no__t-** 1 ' i seçin. *Wwwroot/index.html* dosyası `http://localhost:<port_number>` ' de sunulur.
+1. Hata ayıklayıcıyı eklemeden uygulamayı bir tarayıcıda başlatmak **için hata ayıklama > ** **Başlat** ' ı seçin. *Wwwroot/index.html* dosyası `http://localhost:<port_number>`olarak sunulur.
 
 1. Başka bir tarayıcı örneği (herhangi bir tarayıcı) açın. URL 'YI adres çubuğuna yapıştırın.
 
@@ -488,7 +490,7 @@ Uygulamanın aşağıdaki adımlarla çalıştığından emin olun.
 
     Web sunucusu uygulamayı başlatır ve localhost üzerinde kullanılabilir hale getirir.
 
-1. @No__t-0 ' a bir tarayıcı açın. *Wwwroot/index.html* dosyası sunulur. Adres çubuğundan URL 'YI kopyalayın.
+1. `http://localhost:<port_number>`için bir tarayıcı açın. *Wwwroot/index.html* dosyası sunulur. Adres çubuğundan URL 'YI kopyalayın.
 
 1. Başka bir tarayıcı örneği (herhangi bir tarayıcı) açın. URL 'YI adres çubuğuna yapıştırın.
 

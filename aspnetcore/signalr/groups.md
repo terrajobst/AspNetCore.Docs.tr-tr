@@ -1,47 +1,49 @@
 ---
-title: SignalR öğesindeki kullanıcılar ve Gruplar'ı yönetme
+title: SignalR içinde kullanıcıları ve grupları yönetme
 author: bradygaster
-description: ASP.NET Core SignalR kullanıcı ve Grup yönetimine genel bakış.
+description: ASP.NET Core SignalR Kullanıcı ve grup yönetimine genel bakış.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: bradyg
 ms.custom: mvc
-ms.date: 06/04/2018
+ms.date: 11/12/2019
+no-loc:
+- SignalR
 uid: signalr/groups
-ms.openlocfilehash: 180f8b4551eea39cc340bf1d250f4575cb5f71ed
-ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
+ms.openlocfilehash: 59e90042ecbaf936602643bbdc3965e036426b26
+ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65087429"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73963816"
 ---
-# <a name="manage-users-and-groups-in-signalr"></a>SignalR öğesindeki kullanıcılar ve Gruplar'ı yönetme
+# <a name="manage-users-and-groups-in-opno-locsignalr"></a>SignalR içinde kullanıcıları ve grupları yönetme
 
-Tarafından [Brennan Conroy](https://github.com/BrennanConroy)
+[Brennan Conroy](https://github.com/BrennanConroy) tarafından
 
-SignalR iletileri belirli bir kullanıcıyla ilişkili tüm bağlantıları gönderilmesi gibi adlı gruplarına bağlantılar sağlar.
+SignalR, iletilerin belirli bir kullanıcıyla ilişkili tüm bağlantılara ve ayrıca adlandırılmış bağlantı gruplarına gönderilmesini sağlar.
 
-[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/signalr/groups/sample/) [(karşıdan yükleme)](xref:index#how-to-download-a-sample)
+[Örnek kodu görüntüleme veya indirme](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/signalr/groups/sample/) [(nasıl indirileceği)](xref:index#how-to-download-a-sample)
 
-## <a name="users-in-signalr"></a>Signalr'da kullanıcılar
+## <a name="users-in-opno-locsignalr"></a>SignalR kullanıcılar
 
-SignalR, belirli bir kullanıcıyla ilişkili tüm bağlantılara ileti göndermek sağlar. Varsayılan olarak, SignalR kullanır `ClaimTypes.NameIdentifier` gelen `ClaimsPrincipal` kullanıcı tanımlayıcısı olarak bağlantı ile ilişkili. Tek bir kullanıcı bir SignalR uygulama birden fazla bağlantı olabilir. Örneğin, bir kullanıcının telefon numaraları yanı sıra Masaüstü bağlı. Her cihaz için ayrı bir SignalR bağlantı olsa da, bunlar aynı kullanıcıyla ilişkili tüm. Kullanıcıya bir ileti gönderildiğinde, tüm bu kullanıcı ile ilişkili bağlantıları iletisi alırsınız. Kullanıcı tanımlayıcısı için bir bağlantı tarafından erişilebilen `Context.UserIdentifier` hub'ınızdaki özelliği.
+SignalR, belirli bir kullanıcıyla ilişkili tüm bağlantılara ileti göndermenizi sağlar. Varsayılan olarak, SignalR, Kullanıcı tanımlayıcısı olarak bağlantıyla ilişkili `ClaimsPrincipal` `ClaimTypes.NameIdentifier` kullanır. Tek bir kullanıcının SignalR uygulamasına birden fazla bağlantısı olabilir. Örneğin, bir Kullanıcı masaüstüne ve telefonlarına bağlanabilir. Her cihazın ayrı bir SignalR bağlantısı vardır, ancak hepsi aynı kullanıcıyla ilişkilendirilir. Kullanıcıya bir ileti gönderildiğinde, bu kullanıcıyla ilişkili tüm bağlantılar iletiyi alır. Bir bağlantı için Kullanıcı tanımlayıcısına, hub 'ınızdaki `Context.UserIdentifier` özelliği tarafından erişilebilir.
 
-Kullanıcı tanımlayıcısı için geçirerek belirli bir kullanıcıya bir ileti gönder `User` aşağıdaki örnekte gösterildiği gibi hub yönteminizi işlev:
+Aşağıdaki örnekte gösterildiği gibi, kullanıcı tanımlayıcısını hub yönteminizin `User` işleve geçirerek belirli bir kullanıcıya bir ileti gönderin:
 
 > [!NOTE]
-> Kullanıcı tanımlayıcısı büyük/küçük harf duyarlıdır.
+> Kullanıcı tanımlayıcısı büyük/küçük harfe duyarlıdır.
 
 [!code-csharp[Configure service](groups/sample/hubs/chathub.cs?range=29-32)]
 
-## <a name="groups-in-signalr"></a>Signalr'da gruplarla
+## <a name="groups-in-opno-locsignalr"></a>SignalR gruplar
 
-Bir grubu, bir ad ile ilişkili bağlantılar koleksiyonudur. Bir gruptaki tüm bağlantılara ileti gönderilebilir. Grupları bir bağlantı veya birden çok bağlantı grupları uygulama tarafından yönetildiği göndermek için önerilen yoldur. Bir bağlantı, birden çok grubunun bir üyesi olabilir. Bu grup için bir sohbet uygulaması gibi burada her odanın bir grup olarak temsil edilebilir ideal hale getirir. Bağlantılar için eklendiğinde veya grupları kaldırıldığında `AddToGroupAsync` ve `RemoveFromGroupAsync` yöntemleri.
+Grup, bir adla ilişkili bir bağlantı koleksiyonudur. İletiler, bir gruptaki tüm bağlantılara gönderilebilir. Gruplar uygulama tarafından yönetildiğinden, gruplar bir bağlantıya veya birden çok bağlantıya göndermek için önerilen yoldur. Bir bağlantı, birden fazla grubun üyesi olabilir. Bu, grupları her odanın bir grup olarak gösterilebileceği bir sohbet uygulaması gibi bir şey için ideal hale getirir. `AddToGroupAsync` ve `RemoveFromGroupAsync` yöntemleri aracılığıyla gruplardan bağlantılar eklenebilir veya gruplardan kaldırılabilir.
 
 [!code-csharp[Hub methods](groups/sample/hubs/chathub.cs?range=15-27)]
 
-Bir bağlantı bağlandığında, grup üyeliği korunmaz. Bağlantı yeniden kurulduğunda gruba katılabilir gerekir. Bu bilgiler uygulamanın birden çok sunucuya ölçeklendirilirse kullanılabilir olmadığından, bir grubun üyelerinin sayısı mümkün değildir.
+Bağlantı yeniden bağlandığında grup üyeliği korunmaz. Bağlantı, yeniden oluşturulduğunda gruba yeniden katılması gerekir. Uygulama birden çok sunucuya ölçeklendirildiyse bu bilgiler kullanılamadığından, bir grubun üyelerini saymak mümkün değildir.
 
-Grupları kullanarak kaynaklarına erişimi korumak için [kimlik doğrulama ve yetkilendirme](xref:signalr/authn-and-authz) ASP.NET Core işlevselliği. Kimlik bilgilerini o grup için geçerli olduğunda, yalnızca bir gruba kullanıcı ekleme, bu gruba gönderilen iletileri yalnızca yetkili kullanıcıların gidin. Ancak, Grup bir güvenlik özelliği değildir. Kimlik doğrulaması talep süre sonu ve iptal etme gibi gruplar desteklemediği özelliklere sahip. Bir kullanıcı grubuna erişim izni iptal edilirse, el ile algılayan ve bunları gruptan kaldırmanız gerekir.
+Grupları kullanırken kaynaklara erişimi korumak için ASP.NET Core [kimlik doğrulaması ve yetkilendirme](xref:signalr/authn-and-authz) işlevini kullanın. Yalnızca bu grup için kimlik bilgileri geçerliyse bir gruba Kullanıcı eklerseniz, bu gruba gönderilen iletiler yalnızca yetkili kullanıcılara gider. Ancak, gruplar bir güvenlik özelliği değildir. Kimlik doğrulama talepleri, süre sonu ve iptal gibi grupların olmadığı özelliklere sahiptir. Bir kullanıcının gruba erişim izni iptal edildiğinde, bunu el ile tespit etmeniz ve gruptan kaldırmanız gerekir.
 
 > [!NOTE]
 > Grup adları büyük/küçük harfe duyarlıdır.

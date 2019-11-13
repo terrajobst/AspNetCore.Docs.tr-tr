@@ -1,33 +1,35 @@
 ---
-title: ASP.NET Core SignalR 'de güvenlik konuları
+title: ASP.NET Core SignalR güvenlik konuları
 author: bradygaster
-description: ASP.NET Core SignalR 'de kimlik doğrulama ve yetkilendirmeyi nasıl kullanacağınızı öğrenin.
+description: ASP.NET Core SignalRkimlik doğrulama ve yetkilendirmeyi nasıl kullanacağınızı öğrenin.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: anurse
 ms.custom: mvc
-ms.date: 11/06/2018
+ms.date: 11/12/2019
+no-loc:
+- SignalR
 uid: signalr/security
-ms.openlocfilehash: a52db2ff51c55f7299d63aa3c7398f99727e0694
-ms.sourcegitcommit: 387cf29f5d5addef2cbc70670a11d612806b36b2
+ms.openlocfilehash: c5a34ae67bdfb8f7fd92c00f18973b66b685a99c
+ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70746553"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73963908"
 ---
-# <a name="security-considerations-in-aspnet-core-signalr"></a>ASP.NET Core SignalR 'de güvenlik konuları
+# <a name="security-considerations-in-aspnet-core-opno-locsignalr"></a>ASP.NET Core SignalR güvenlik konuları
 
 , [Andrew Stanton-nurte](https://twitter.com/anurse)
 
-Bu makalede SignalR güvenliğini sağlama hakkında bilgi sağlanır.
+Bu makalede SignalRgüvenliğini sağlama hakkında bilgi sağlanır.
 
 ## <a name="cross-origin-resource-sharing"></a>Çıkış noktaları arası kaynak paylaşımı
 
-[Çapraz kaynak kaynak paylaşımı (CORS)](https://www.w3.org/TR/cors/) , tarayıcıda çapraz kaynak SignalR bağlantılarına izin vermek için kullanılabilir. JavaScript kodu, SignalR uygulamasından farklı bir etki alanında barındırılıyorsa, JavaScript 'In SignalR uygulamasına bağlanmasına izin vermek için [CORS ara yazılımı](xref:security/cors) etkinleştirilmelidir. Yalnızca güvendiğiniz veya denetlediğiniz etki alanlarından çıkış noktaları arası isteklere izin verin. Örneğin:
+[Çapraz kaynak kaynak paylaşımı (CORS)](https://www.w3.org/TR/cors/) , tarayıcıda çapraz kaynak SignalR bağlantılara izin vermek için kullanılabilir. JavaScript kodu SignalR uygulamasından farklı bir etki alanında barındırılıyorsa, JavaScript 'In SignalR uygulamasına bağlanmasına izin vermek için [CORS ara yazılımı](xref:security/cors) etkinleştirilmelidir. Yalnızca güvendiğiniz veya denetlediğiniz etki alanlarından çıkış noktaları arası isteklere izin verin. Örneğin:
 
-* Siteniz üzerinde barındırılıyor`http://www.example.com`
-* SignalR uygulamanız üzerinde barındırılıyor`http://signalr.example.com`
+* Siteniz `http://www.example.com` barındırılıyor
+* SignalR uygulamanız `http://signalr.example.com` üzerinde barındırılıyor
 
-CORS, SignalR uygulamasında yalnızca kaynağa `www.example.com`izin verecek şekilde yapılandırılmalıdır.
+CORS, SignalR uygulamasında yalnızca kaynak `www.example.com`izin verecek şekilde yapılandırılmalıdır.
 
 CORS 'yi yapılandırma hakkında daha fazla bilgi için bkz. [çıkış noktaları arası istekleri (CORS) etkinleştirme](xref:security/cors). SignalR aşağıdaki CORS ilkelerini **gerektirir** :
 
@@ -35,7 +37,7 @@ CORS 'yi yapılandırma hakkında daha fazla bilgi için bkz. [çıkış noktala
 * HTTP yöntemlerine `GET` ve `POST` izin verilmelidir.
 * Kimlik doğrulaması kullanılmasa bile kimlik bilgilerinin etkinleştirilmesi gerekir.
 
-Örneğin, aşağıdaki CORS ilkesi üzerinde barındırılan bir SignalR tarayıcı istemcisinin `https://example.com` , üzerinde `https://signalr.example.com`barındırılan SignalR uygulamasına erişmesine izin verir:
+Örneğin, aşağıdaki CORS ilkesi, `https://example.com` barındırılan SignalR tarayıcısı istemcisinin `https://signalr.example.com`üzerinde barındırılan SignalR uygulamasına erişmesine izin verir:
 
 ::: moniker range=">= aspnetcore-3.0"
 
@@ -89,16 +91,16 @@ CORS tarafından sunulan korumalar WebSockets için geçerlidir. WebSockets üze
 CORS tarafından sunulan korumalar WebSockets için geçerlidir. Tarayıcılar şunları **desteklemez**:
 
 * CORS ön uçuş istekleri gerçekleştirin.
-* WebSocket istekleri yapılırken `Access-Control` üst bilgilerde belirtilen kısıtlamalara saygı.
+* WebSocket istekleri yaparken `Access-Control` üst bilgilerinde belirtilen kısıtlamalara saygı.
 
-Ancak, tarayıcılar WebSocket istekleri verirken `Origin` üstbilgiyi gönderir. Yalnızca beklenen kaynaklardan gelen WebSockets izin verildiğinden emin olmak için uygulamalar bu üstbilgileri doğrulamak üzere yapılandırılmalıdır.
+Ancak, tarayıcılar WebSocket istekleri verirken `Origin` üst bilgisini gönderir. Yalnızca beklenen kaynaklardan gelen WebSockets izin verildiğinden emin olmak için uygulamalar bu üstbilgileri doğrulamak üzere yapılandırılmalıdır.
 
-ASP.NET Core 2,1 ve üzeri sürümlerde, daha önce `Configure`  **`UseSignalR`** yerleştirilmiş özel bir ara yazılım ve içindeki kimlik doğrulama ara yazılımı kullanılarak üst bilgi doğrulaması elde edilebilir:
+ASP.NET Core 2,1 ve üzeri sürümlerde, üst bilgi doğrulaması, **`UseSignalR`ve `Configure`kimlik doğrulama ara yazılımı** aracılığıyla bulunan özel bir ara yazılım kullanılarak elde edilebilir:
 
 [!code-csharp[Main](security/sample/Startup.cs?name=snippet2)]
 
 > [!NOTE]
-> Üst bilgi istemci tarafından denetlenir ve `Referer` üst bilgi gibi erişilebilir. `Origin` Bu üst bilgiler bir kimlik doğrulama mekanizması **olarak kullanılmamalıdır.**
+> `Origin` üstbilgisi istemci tarafından denetlenir ve `Referer` üst bilgisi gibi erişilebilir. Bu üst bilgiler bir kimlik doğrulama mekanizması **olarak kullanılmamalıdır.**
 
 ::: moniker-end
 
@@ -111,15 +113,15 @@ info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
       Request starting HTTP/1.1 GET http://localhost:5000/myhub?access_token=1234
 ```
 
-Bu verilerin sunucu günlüklerinizi günlüğe kaydetmekle ilgili endişeleriniz varsa, `Microsoft.AspNetCore.Hosting` günlükçü `Warning` 'yi düzeye veya yukarıya yapılandırarak ( `Info` bu iletiler düzeyinde yazılır) bu günlüğü tamamen devre dışı bırakabilirsiniz. Daha fazla bilgi için [günlük filtrelemeye](xref:fundamentals/logging/index#log-filtering) yönelik belgelere bakın. Hala belirli istek bilgilerini günlüğe kaydetmek istiyorsanız, ihtiyacınız olan verileri günlüğe kaydetmek için [bir ara yazılım yazabilir](xref:fundamentals/middleware/write) ve `access_token` sorgu dizesi değerini (varsa) filtreleyebilirsiniz.
+Bu verileri sunucu günlüklerinize kaydetme hakkında endişeleriniz varsa, `Microsoft.AspNetCore.Hosting` günlükçüsü `Warning` düzeyine veya üstüne yapılandırarak (Bu iletiler `Info` düzeyinde yazılır) bu günlüğü tamamen devre dışı bırakabilirsiniz. Daha fazla bilgi için [günlük filtrelemeye](xref:fundamentals/logging/index#log-filtering) yönelik belgelere bakın. Hala belirli istek bilgilerini günlüğe kaydetmek istiyorsanız, ihtiyacınız olan verileri günlüğe kaydetmek için [bir ara yazılım yazabilir](xref:fundamentals/middleware/write) ve `access_token` sorgu dizesi değerini (varsa) filtreleyebilirsiniz.
 
 ## <a name="exceptions"></a>Özel Durumlar
 
-Özel durum iletileri genellikle bir istemciye görüntülenmemelidir gizli veriler olarak değerlendirilir. Varsayılan olarak, SignalR bir hub yöntemi tarafından oluşturulan bir özel durumun ayrıntılarını istemciye göndermez. Bunun yerine, istemci bir hata oluştuğunu belirten genel bir ileti alır. İstemciye özel durum iletisi teslimi (örneğin, geliştirme veya test) ile [`EnableDetailedErrors`](xref:signalr/configuration#configure-server-options)geçersiz kılınabilir. Özel durum iletileri, üretim uygulamalarındaki istemciye gösterilmemelidir.
+Özel durum iletileri genellikle bir istemciye görüntülenmemelidir gizli veriler olarak değerlendirilir. Varsayılan olarak, SignalR bir hub yöntemi tarafından oluşturulan bir özel durumun ayrıntılarını istemciye göndermez. Bunun yerine, istemci bir hata oluştuğunu belirten genel bir ileti alır. İstemciye özel durum iletisi teslimi, [`EnableDetailedErrors`](xref:signalr/configuration#configure-server-options)ile geçersiz kılınabilir (örneğin, geliştirme veya test). Özel durum iletileri, üretim uygulamalarındaki istemciye gösterilmemelidir.
 
 ## <a name="buffer-management"></a>Arabellek Yönetimi
 
-SignalR gelen ve giden iletileri yönetmek için bağlantı başına arabellekleri kullanır. SignalR, varsayılan olarak bu arabellekleri 32 KB ile sınırlandırır. Bir istemcinin veya sunucunun gönderecan en büyük ileti 32 KB 'tır. İleti bağlantısı tarafından tüketilen maksimum bellek 32 KB 'tır. İletileriniz her zaman 32 KB 'den küçükse, sınırı azaltabilirsiniz ve şunları yapabilirsiniz:
+SignalR gelen ve giden iletileri yönetmek için bağlantı başına arabellekleri kullanır. Varsayılan olarak, SignalR bu arabellekleri 32 KB ile sınırlandırır. Bir istemcinin veya sunucunun gönderecan en büyük ileti 32 KB 'tır. İleti bağlantısı tarafından tüketilen maksimum bellek 32 KB 'tır. İletileriniz her zaman 32 KB 'den küçükse, sınırı azaltabilirsiniz ve şunları yapabilirsiniz:
 
 * Bir istemcinin daha büyük bir ileti gönderebilmesini engeller.
 * Sunucu, iletileri kabul etmek için hiçbir şekilde büyük arabellekler ayırmayı gerektirmez.
@@ -129,9 +131,9 @@ SignalR gelen ve giden iletileri yönetmek için bağlantı başına arabellekle
 * İstemci, sunucunun büyük bellek arabellekleri ayırmasına neden olabilir.
 * Büyük arabelleklerin sunucu ayırması, eşzamanlı bağlantı sayısını azaltabilir.
 
-Gelen ve giden iletiler için sınırlar vardır, her ikisi de ' de [`HttpConnectionDispatcherOptions`](xref:signalr/configuration#configure-server-options) `MapHub`yapılandırılan nesne üzerinde yapılandırılabilir:
+Gelen ve giden iletiler için, her ikisi de `MapHub`yapılandırılan [`HttpConnectionDispatcherOptions`](xref:signalr/configuration#configure-server-options) nesnesi üzerinde yapılandırılabilir:
 
-* `ApplicationMaxBufferSize`istemciden sunucunun arabelleğe aldığı en fazla bayt sayısını temsil eder. İstemci bu sınırdan daha büyük bir ileti göndermemeyi denerse bağlantı kapatılabilir.
-* `TransportMaxBufferSize`sunucunun gönderemediği en fazla bayt sayısını temsil eder. Sunucu, bu sınırdan daha büyük bir ileti (hub metotlarından dönüş değerleri dahil) gönderilmeye çalışırsa, bir özel durum oluşturulur.
+* `ApplicationMaxBufferSize`, istemciden sunucunun arabelleğe aldığı en fazla bayt sayısını temsil eder. İstemci bu sınırdan daha büyük bir ileti göndermemeyi denerse bağlantı kapatılabilir.
+* `TransportMaxBufferSize`, sunucunun gönderemediği en fazla bayt sayısını temsil eder. Sunucu, bu sınırdan daha büyük bir ileti (hub metotlarından dönüş değerleri dahil) gönderilmeye çalışırsa, bir özel durum oluşturulur.
 
-Limit ayarı sınırı `0` devre dışı bırakır. Sınırı kaldırmak, bir istemcinin herhangi bir boyutta ileti göndermesini sağlar. Büyük iletiler gönderen kötü amaçlı istemciler fazla belleğin ayrılmasına neden olabilir. Aşırı bellek kullanımı, eşzamanlı bağlantı sayısını önemli ölçüde azaltabilir.
+Sınırın `0` olarak ayarlanması sınırı devre dışı bırakır. Sınırı kaldırmak, bir istemcinin herhangi bir boyutta ileti göndermesini sağlar. Büyük iletiler gönderen kötü amaçlı istemciler fazla belleğin ayrılmasına neden olabilir. Aşırı bellek kullanımı, eşzamanlı bağlantı sayısını önemli ölçüde azaltabilir.

@@ -1,73 +1,75 @@
 ---
-title: ASP.NET Core SignalR Java istemci
+title: ASP.NET Core SignalR Java istemcisi
 author: mikaelm12
-description: ASP.NET Core SignalR Java istemcisi kullanmayı öğrenin.
+description: ASP.NET Core SignalR Java istemcisinin nasıl kullanılacağını öğrenin.
 monikerRange: '>= aspnetcore-2.2'
 ms.author: mimengis
 ms.custom: mvc
-ms.date: 06/27/2019
+ms.date: 11/12/2019
+no-loc:
+- SignalR
 uid: signalr/java-client
-ms.openlocfilehash: ea0abbaee81222493ff02e1f3bba13ed1e494bf5
-ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
+ms.openlocfilehash: d7143b2c22ecdc4e68f484aa4c244e1c520beae0
+ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67814976"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73963791"
 ---
-# <a name="aspnet-core-signalr-java-client"></a>ASP.NET Core SignalR Java istemci
+# <a name="aspnet-core-opno-locsignalr-java-client"></a>ASP.NET Core SignalR Java istemcisi
 
-Tarafından [Mikael Mengistu](https://twitter.com/MikaelM_12)
+X [MIKAEL Mengistu](https://twitter.com/MikaelM_12) tarafından
 
-Android uygulamaları dahil olmak üzere Java koddan bir ASP.NET Core SignalR sunucusuna bağlanan Java istemci sağlar. Gibi [JavaScript istemci](xref:signalr/javascript-client) ve [.NET istemci](xref:signalr/dotnet-client), almak ve gerçek zamanlı bir hub'ına ileti göndermek Java istemcisi sağlar. Java istemci, ASP.NET Core 2.2 bulunan ve üzerinde desteklenir.
+Java istemcisi, Android uygulamaları dahil olmak üzere Java kodundan bir ASP.NET Core SignalR sunucusuna bağlanmasını sağlar. [JavaScript istemcisi](xref:signalr/javascript-client) ve [.NET istemcisi](xref:signalr/dotnet-client)gibi Java istemcisi, bir hub 'a gerçek zamanlı iletiler alıp göndermenizi sağlar. Java istemcisi ASP.NET Core 2,2 ve üzeri sürümlerde kullanılabilir.
 
-Bu makalede bahsedilen örnek Java konsol uygulaması SignalR Java istemcisi kullanır.
+Bu makalede başvurulan örnek Java konsol uygulaması SignalR Java istemcisini kullanır.
 
-[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/signalr/java-client/sample) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
+[Örnek kodu görüntüleme veya indirme](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/signalr/java-client/sample) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
 
-## <a name="install-the-signalr-java-client-package"></a>SignalR Java istemci paketini yükle
+## <a name="install-the-opno-locsignalr-java-client-package"></a>SignalR Java istemci paketini yükler
 
-*Signalr 1.0.0* JAR dosyasını istemcilerin SignalR hub'ları bağlanmasına izin verir. JAR dosyası en son sürüm numarasını bulmak için bkz: [Maven arama sonuçları](https://search.maven.org/search?q=g:com.microsoft.signalr%20AND%20a:signalr).
+*SignalR-1.0.0* jar dosyası istemcilerin SignalR hub 'lara bağlanmasına izin verir. En son JAR dosyası sürüm numarasını bulmak için bkz. [Maven arama sonuçları](https://search.maven.org/search?q=g:com.microsoft.signalr%20AND%20a:signalr).
 
-Gradle kullanıyorsanız, aşağıdaki satırı ekleyin `dependencies` bölümünü, *build.gradle* dosyası:
+Gradle kullanıyorsanız, *Build. Gradle* dosyanızın `dependencies` bölümüne aşağıdaki satırı ekleyin:
 
 ```gradle
 implementation 'com.microsoft.signalr:signalr:1.0.0'
 ```
 
-Maven kullanarak eklerseniz içinde aşağıdaki satırları `<dependencies>` öğesinin, *pom.xml* dosyası:
+Maven kullanıyorsanız, *Pok. xml* dosyanızın `<dependencies>` öğesinin içine aşağıdaki satırları ekleyin:
 
 [!code-xml[pom.xml dependency element](java-client/sample/pom.xml?name=snippet_dependencyElement)]
 
-## <a name="connect-to-a-hub"></a>Bir hub'ına bağlama
+## <a name="connect-to-a-hub"></a>Bir hub 'a bağlanma
 
-Kurmak için bir `HubConnection`, `HubConnectionBuilder` kullanılmalıdır. Hub'ı URL'si ve günlük düzeyinde bir bağlantı oluşturulurken yapılandırılabilir. Gerekli tüm seçenekler herhangi birini çağırarak yapılandırma `HubConnectionBuilder` yöntemleri önce `build`. Bağlantıyı başlatmak `start`.
+`HubConnection`oluşturmak için `HubConnectionBuilder` kullanılmalıdır. Hub URL 'SI ve günlük düzeyi bir bağlantı derlenirken yapılandırılabilir. `build`önce `HubConnectionBuilder` yöntemlerinden herhangi birini çağırarak gerekli seçenekleri yapılandırın. Bağlantıyı `start`başlatın.
 
 [!code-java[Build hub connection](java-client/sample/src/main/java/Chat.java?range=16-17)]
 
-## <a name="call-hub-methods-from-client"></a>İstemciden hub yöntemlerini çağırma
+## <a name="call-hub-methods-from-client"></a>İstemciden çağrı merkezi yöntemleri
 
-Bir çağrı `send` bir hub yöntemini çağırır. Hub yönteminin adını ve hub yöntemi için tanımlanan herhangi bir bağımsız değişken geçirme `send`.
+Bir `send` çağrısı, hub yöntemini çağırır. Hub yöntemi adını ve hub yönteminde tanımlanan tüm bağımsız değişkenleri `send`geçirin.
 
 [!code-java[send method](java-client/sample/src/main/java/Chat.java?range=28)]
 
 > [!NOTE]
-> Azure SignalR hizmeti kullanıyorsanız, *sunucusuz modu*, bir istemciden hub yöntemlerini çağıramazsınız. Daha fazla bilgi için [SignalR hizmeti belgeleri](/azure/azure-signalr/signalr-concept-serverless-development-config).
+> Azure SignalR hizmetini *sunucusuz modda*kullanıyorsanız, bir istemciden hub yöntemlerini çağıramezsiniz. Daha fazla bilgi için [SignalR hizmeti belgelerine](/azure/azure-signalr/signalr-concept-serverless-development-config)bakın.
 
-## <a name="call-client-methods-from-hub"></a>İstemci hub'ından yöntemleri çağırma
+## <a name="call-client-methods-from-hub"></a>Hub 'dan istemci yöntemlerini çağır
 
-Kullanım `hubConnection.on` hub çağıran istemciye yöntemleri tanımlamak için. Yapı sonra ancak bağlantı başlatmadan önce yöntemleri tanımlar.
+İstemcide hub 'ın çağırakullanabileceği yöntemleri tanımlamak için `hubConnection.on` kullanın. Bağlantıyı başlatmadan önce, oluşturma işleminden sonra yöntemleri tanımlayın.
 
 [!code-java[Define client methods](java-client/sample/src/main/java/Chat.java?range=19-21)]
 
-## <a name="add-logging"></a>Günlük kaydı ekleme
+## <a name="add-logging"></a>Günlüğe kaydetme ekleme
 
-SignalR Java istemcinin kullandığı [SLF4J](https://www.slf4j.org/) günlüğe kaydetme için kitaplığı. Seçtiğiniz kendi özel günlük uygulama özel günlük bağımlılık olarak getirerek kullanıcıların Kitaplığı'nın izin veren bir üst düzey günlüğe kaydetme API'si var. Aşağıdaki kod parçacığını nasıl kullanılacağını gösterir `java.util.logging` SignalR Java istemcisi ile.
+SignalR Java istemcisi, günlük kaydı için [dolayısıyla slf4j](https://www.slf4j.org/) kitaplığını kullanır. Bu, kitaplık kullanıcılarının belirli bir günlüğe kaydetme bağımlılığı vererek kendi belirli günlük uygulamasını seçmesine olanak sağlayan, üst düzey bir günlüğe kaydetme API 'sidir. Aşağıdaki kod parçacığı, SignalR Java istemcisiyle `java.util.logging` nasıl kullanacağınızı gösterir.
 
 ```gradle
 implementation 'org.slf4j:slf4j-jdk14:1.7.25'
 ```
 
-Bağımlılıklarınızı içinde günlüğü yapılandırmazsanız, aşağıdaki uyarı iletisi ile bir varsayılan yok-işlem günlükçü SLF4J yükler:
+Bağımlılıklarınız için günlük kaydını yapılandırmazsanız, DOLAYıSıYLA SLF4J aşağıdaki uyarı iletisiyle varsayılan işlem olmayan bir günlükçü yükler:
 
 ```
 SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
@@ -75,18 +77,18 @@ SLF4J: Defaulting to no-operation (NOP) logger implementation
 SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
 ```
 
-Bu güvenle yoksayılabilir.
+Bu, güvenle yoksayılabilir.
 
 ## <a name="android-development-notes"></a>Android geliştirme notları
 
-SignalR istemcisi özellikleri için Android SDK'sı uyumluluk bakımından, hedef Android SDK sürümünü belirtmek için aşağıdakileri göz önünde bulundurun:
+SignalR istemci özelliklerine Android SDK uyumlulukla ilgili olarak, hedef Android SDK sürümünüzü belirtirken aşağıdaki öğeleri göz önünde bulundurun:
 
-* SignalR Java istemci Android API düzeyi 16 ve daha sonra çalışır.
-* Azure SignalR hizmeti aracılığıyla bağlanma Android API düzeyi 20 ve sonraki sürümleri gerektirir çünkü [Azure SignalR hizmeti](/azure/azure-signalr/signalr-overview) TLS 1.2 gerektirir ve SHA-1 tabanlı şifre paketleri desteklemez. Android [destek SHA-256 (ve üstü) şifre paketleri eklenen](https://developer.android.com/reference/javax/net/ssl/SSLSocket) API düzeyi 20 içinde.
+* SignalR Java Istemcisi, Android API düzeyi 16 ve sonrasında çalışır.
+* Azure [SignalR HIZMETI](/azure/azure-signalr/signalr-overview) TLS 1,2 GEREKTIRDIĞINDEN ve SHA-1 tabanlı şifre paketlerini desteklemediğinden Azure SignalR hizmeti üzerinden bağlanmak IÇIN Android API düzeyi 20 ve üzeri bir sürüm gerekir. Android, API düzeyi 20 ' de [SHA-256 (ve üzeri) şifre paketleri için destek ekledi](https://developer.android.com/reference/javax/net/ssl/SSLSocket) .
 
-## <a name="configure-bearer-token-authentication"></a>Taşıyıcı belirteci kimlik doğrulamasını yapılandırma
+## <a name="configure-bearer-token-authentication"></a>Taşıyıcı belirteç kimlik doğrulamasını yapılandırma
 
-SignalR Java istemci, bir "erişim belirteci fabrikası" sağlayarak kimlik doğrulaması için kullanılacak bir taşıyıcı belirteç için yapılandırabilirsiniz [HttpHubConnectionBuilder](/java/api/com.microsoft.signalr._http_hub_connection_builder?view=aspnet-signalr-java). Kullanım [withAccessTokenFactory](/java/api/com.microsoft.signalr._http_hub_connection_builder.withaccesstokenprovider?view=aspnet-signalr-java#com_microsoft_signalr__http_hub_connection_builder_withAccessTokenProvider_Single_String__) sağlamak için bir [RxJava](https://github.com/ReactiveX/RxJava) [tek\<dizesi >](https://reactivex.io/documentation/single.html). Çağrısıyla [Single.defer](https://reactivex.io/RxJava/javadoc/io/reactivex/Single.html#defer-java.util.concurrent.Callable-), istemciniz için erişim belirteci üretmek için mantığı yazabilirsiniz.
+Java istemcisinde SignalR, [Httphubconnectionbuilder](/java/api/com.microsoft.signalr._http_hub_connection_builder?view=aspnet-signalr-java)'a "erişim belirteci fabrikası" sağlayarak kimlik doğrulaması için kullanılacak bir taşıyıcı belirteç yapılandırabilirsiniz. [Rxjava](https://github.com/ReactiveX/RxJava) [tek bir\<dize >](https://reactivex.io/documentation/single.html)sağlamak Için [withaccesstokenfactory](/java/api/com.microsoft.signalr._http_hub_connection_builder.withaccesstokenprovider?view=aspnet-signalr-java#com_microsoft_signalr__http_hub_connection_builder_withAccessTokenProvider_Single_String__) kullanın. [Tek. ertele](https://reactivex.io/RxJava/javadoc/io/reactivex/Single.html#defer-java.util.concurrent.Callable-)çağrısıyla, istemciniz için erişim belirteçleri oluşturmak üzere mantık yazabilirsiniz.
 
 ```java
 HubConnection hubConnection = HubConnectionBuilder.create("YOUR HUB URL HERE")
@@ -100,15 +102,15 @@ HubConnection hubConnection = HubConnectionBuilder.create("YOUR HUB URL HERE")
 
 ::: moniker range=">= aspnetcore-3.0"
 
-* Yalnızca JSON Protokolü desteklenir.
-* Geri dönüş taşıma ve sunucu tarafından gönderilen olaylarla taşıma desteklenmiyor.
+* Yalnızca JSON Protokolü destekleniyor.
+* Taşıma geri dönüşü ve sunucu gönderme olayları aktarımı desteklenmez.
 
 ::: moniker-end
 
 ::: moniker range="< aspnetcore-3.0"
 
-* Yalnızca JSON Protokolü desteklenir.
-* WebSockets taşıma desteklenmiyor.
+* Yalnızca JSON Protokolü destekleniyor.
+* Yalnızca WebSockets taşıması desteklenir.
 * Akış henüz desteklenmiyor.
 
 ::: moniker-end
@@ -119,4 +121,4 @@ HubConnection hubConnection = HubConnectionBuilder.create("YOUR HUB URL HERE")
 * <xref:signalr/hubs>
 * <xref:signalr/javascript-client>
 * <xref:signalr/publish-to-azure-web-app>
-* [Sunucusuz Azure SignalR hizmeti belgeleri](/azure/azure-signalr/signalr-concept-serverless-development-config)
+* [Azure SignalR hizmeti sunucusuz belgeler](/azure/azure-signalr/signalr-concept-serverless-development-config)

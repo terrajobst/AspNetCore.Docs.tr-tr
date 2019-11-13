@@ -4,14 +4,16 @@ author: rick-anderson
 description: ASP.NET Core 2,2 ' deki yeni özellikler hakkında bilgi edinin.
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/18/2018
+ms.date: 11/12/2019
+no-loc:
+- SignalR
 uid: aspnetcore-2.2
-ms.openlocfilehash: 88a202d85c4d4ed7a395dba78feea29ef4637732
-ms.sourcegitcommit: 8835b6777682da6fb3becf9f9121c03f89dc7614
+ms.openlocfilehash: fca653158c95e7c1a11f25f4076830fe3e7e93ae
+ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69975707"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73963131"
 ---
 # <a name="whats-new-in-aspnet-core-22"></a>ASP.NET Core 2,2 ' deki yenilikler
 
@@ -29,7 +31,7 @@ Daha fazla bilgi için aşağıdaki kaynaklara bakın:
 
 ## <a name="problem-details-support"></a>Sorun ayrıntıları desteği
 
-ASP.NET Core 2,1, `ProblemDetails`http yanıtıyla bir hatanın ayrıntılarını taşıyan [RFC 7807](https://tools.ietf.org/html/rfc7807) belirtimine göre sunulmuştur. 2,2 ' de `ProblemDetails` , ile `ApiControllerAttribute`ilişkilendirilen denetleyicilerde istemci hata kodlarına yönelik standart yanıttır. İstemci hatası durum kodu (4xx) `ProblemDetails` döndürenbirgövdedöndürüyor.`IActionResult` Sonuç Ayrıca, istek günlüklerini kullanarak hatayı ilişkilendirmek için kullanılabilecek bir bağıntı KIMLIĞI içerir. İstemci hataları `ProducesResponseType` için varsayılan `ProblemDetails` olarak yanıt türü olarak kullanılacak. Bu, NSwag veya swashbuckle. AspNetCore kullanılarak oluşturulan OpenAPI/Swagger çıktısında belgelenmiştir.
+ASP.NET Core 2,1, HTTP yanıtıyla bir hatanın ayrıntılarını taşıyan [RFC 7807](https://tools.ietf.org/html/rfc7807) belirtimine göre `ProblemDetails`tanıtılmıştır. 2,2 ' de `ProblemDetails`, `ApiControllerAttribute`öznitelikli denetleyicilerde istemci hata kodları için standart yanıttır. İstemci hata durum kodu (4xx) döndüren bir `IActionResult`, artık bir `ProblemDetails` gövdesi döndürüyor. Sonuç Ayrıca, istek günlüklerini kullanarak hatayı ilişkilendirmek için kullanılabilecek bir bağıntı KIMLIĞI içerir. İstemci hataları için `ProducesResponseType` varsayılan olarak yanıt türü olarak `ProblemDetails` kullanın. Bu, NSwag veya swashbuckle. AspNetCore kullanılarak oluşturulan OpenAPI/Swagger çıktısında belgelenmiştir.
 
 ## <a name="endpoint-routing"></a>Uç nokta yönlendirme
 
@@ -43,7 +45,7 @@ Daha fazla bilgi için aşağıdaki kaynaklara bakın:
 
 ## <a name="health-checks"></a>Sistem durumu denetimleri
 
-Yeni bir sistem durumu denetimleri hizmeti, Kubernetes gibi sistem durumu denetimleri gerektiren ortamlarda ASP.NET Core kullanmayı kolaylaştırır. Sistem durumu denetimleri, bir `IHealthCheck` soyutlama ve hizmeti tanımlayan bir dizi kitaplığı ve ara yazılım içerir.
+Yeni bir sistem durumu denetimleri hizmeti, Kubernetes gibi sistem durumu denetimleri gerektiren ortamlarda ASP.NET Core kullanmayı kolaylaştırır. Sistem durumu denetimleri, ara yazılım ve bir `IHealthCheck` soyutlama ve hizmet tanımlayan bir kitaplık kümesi içerir.
 
 Sistem durum denetimleri bir kapsayıcı Orchestrator veya yük dengeleyici tarafından, sistemin isteklere normal olarak yanıt verip vermediğini hızlı bir şekilde tespit etmek için kullanılır. Bir kapsayıcı Orchestrator, sıralı bir dağıtımı kaldırarak veya kapsayıcıyı yeniden başlatarak başarısız olan bir sistem durumu denetimine yanıt verebilir. Yük dengeleyici, trafiği hizmetin başarısız olan örneğinden dışarıda yönlendirerek bir sistem durumu denetimine yanıt verebilir.
 
@@ -63,7 +65,7 @@ Daha fazla bilgi için bkz. [http/2 desteği](xref:fundamentals/servers/index?vi
 
 ## <a name="kestrel-configuration"></a>Kestrel yapılandırması
 
-ASP.NET Core önceki sürümlerinde, Kestrel seçenekleri çağırarak `UseKestrel`yapılandırılır. 2,2 ' de, Kestrel seçenekleri konak Oluşturucu 'yu `ConfigureKestrel` çağırarak yapılandırılır. Bu değişiklik, işlem içi barındırma için `IServer` kayıt sırasıyla bir sorunu çözer. Daha fazla bilgi için aşağıdaki kaynaklara bakın:
+ASP.NET Core önceki sürümlerinde, Kestrel seçenekleri `UseKestrel`çağırarak yapılandırılır. 2,2 ' de, Kestrel seçenekleri konak Oluşturucu üzerinde `ConfigureKestrel` çağırarak yapılandırılır. Bu değişiklik, işlem içi barındırma için `IServer` kayıtları sırasıyla bir sorunu çözer. Daha fazla bilgi için aşağıdaki kaynaklara bakın:
 
 * [Useııs çakışmasını azaltma](https://github.com/aspnet/KestrelHttpServer/issues/2760)
 * [ConfigureKestrel ile Kestrel Server seçeneklerini yapılandırma](xref:fundamentals/servers/kestrel?view=aspnetcore-2.2#how-to-use-kestrel-in-aspnet-core-apps)
@@ -74,15 +76,15 @@ ASP.NET Core önceki sürümlerinde IIS, ters proxy işlevi görür. 2,2 ' de AS
 
 Daha fazla bilgi için bkz. [IIS için işlem içi barındırma](xref:host-and-deploy/aspnet-core-module?view=aspnetcore-2.2#in-process-hosting-model).
 
-## <a name="signalr-java-client"></a>SignalR Java istemcisi
+## <a name="opno-locsignalr-java-client"></a>SignalR Java istemcisi
 
-ASP.NET Core 2,2, SignalR için bir Java Istemcisi sunar. Bu istemci, Android uygulamaları dahil olmak üzere Java kodundan bir ASP.NET Core SignalR sunucusuna bağlanmayı destekler.
+ASP.NET Core 2,2 SignalRiçin bir Java Istemcisi sunar. Bu istemci, Android uygulamaları dahil olmak üzere Java kodundan bir ASP.NET Core SignalR sunucusuna bağlanmayı destekler.
 
-Daha fazla bilgi için bkz. [SignalR Java client ASP.NET Core](https://docs.microsoft.com/aspnet/core/signalr/java-client?view=aspnetcore-2.2).
+Daha fazla bilgi için bkz. [ASP.NET Core SignalR Java istemcisi](https://docs.microsoft.com/aspnet/core/signalr/java-client?view=aspnetcore-2.2).
 
 ## <a name="cors-improvements"></a>CORS geliştirmeleri
 
-ASP.NET Core önceki sürümlerinde, CORS ara yazılımı ' de `Accept` `CorsPolicy.Headers`yapılandırılan `Accept-Language`değerlere `Content-Language`bakılmaksızın, `Origin` , ve üst bilgilerin gönderilmesine izin verir. 2,2 ' de, bir CORS ara yazılım ilkesi eşleşmesi yalnızca ' de `Access-Control-Request-Headers` `WithHeaders`belirtilen üstbilgilere tam olarak eşleşen üstbilgiler varsa mümkündür.
+ASP.NET Core önceki sürümlerinde, CORS ara yazılımı `Origin` yapılandırılan değerlere bakılmaksızın `Accept`, `Accept-Language`, `Content-Language`ve `CorsPolicy.Headers`üst bilgilerinin gönderilmesini sağlar. 2,2 ' de, bir CORS ara yazılım ilkesi eşleşmesi yalnızca `Access-Control-Request-Headers` ' de gönderilen üstbilgiler `WithHeaders`belirtilen üstbilgileriyle tam olarak eşleşiyorsa mümkündür.
 
 Daha fazla bilgi için bkz. [CORS ara yazılımı](xref:security/cors?view=aspnetcore-2.2#set-the-allowed-request-headers).
 
@@ -100,13 +102,13 @@ ASP.NET Core Web projesi şablonları, [önyükleme 4](https://getbootstrap.com/
 
 ## <a name="validation-performance"></a>Doğrulama performansı
 
-MVC 'nin doğrulama sistemi genişletilebilir ve esnek olacak şekilde tasarlanmıştır. bu sayede, belirli bir modele yönelik doğrulayıcıların hangi istek tabanlı olarak uygulanacağını belirlemenizi sağlar. Bu, karmaşık doğrulama sağlayıcıları yazmak için idealdir. Ancak, en yaygın durumda bir uygulama yalnızca yerleşik Doğrulayıcıları kullanır ve bu fazladan esneklik gerektirmez. Yerleşik doğrulayıcılar, `IValidatableObject`[gerekli] ve [StringLength] gibi veri açıklamalarını içerir.
+MVC 'nin doğrulama sistemi genişletilebilir ve esnek olacak şekilde tasarlanmıştır. bu sayede, belirli bir modele yönelik doğrulayıcıların hangi istek tabanlı olarak uygulanacağını belirlemenizi sağlar. Bu, karmaşık doğrulama sağlayıcıları yazmak için idealdir. Ancak, en yaygın durumda bir uygulama yalnızca yerleşik Doğrulayıcıları kullanır ve bu fazladan esneklik gerektirmez. Yerleşik doğrulayıcılar, [gerekli] ve [StringLength] gibi veri açıklamalarını içerir ve `IValidatableObject`.
 
-ASP.NET Core 2,2 ' de, MVC, belirli bir model grafiğinin doğrulama gerektirmediğini belirlerse kısa devre doğrulaması yapabilir. Doğrulama sonuçları, hiçbir doğrulayıcıya sahip olmayan modelleri doğrularken önemli geliştirmelere karşı atlanıyor. Bu, çok sayıda Doğrulayıcıları olmayan temel nesnelerin (örneğin `byte[]` `string[]`,, `Dictionary<string, string>`) veya karmaşık nesne grafiklerin koleksiyonları gibi nesneleri içerir.
+ASP.NET Core 2,2 ' de, MVC, belirli bir model grafiğinin doğrulama gerektirmediğini belirlerse kısa devre doğrulaması yapabilir. Doğrulama sonuçları, hiçbir doğrulayıcıya sahip olmayan modelleri doğrularken önemli geliştirmelere karşı atlanıyor. Bu, çok sayıda Doğrulayıcıları olmayan temel elemanlar koleksiyonları (`byte[]`, `string[]`, `Dictionary<string, string>`) veya karmaşık nesne grafikleri gibi nesneleri içerir.
 
 ## <a name="http-client-performance"></a>HTTP Istemci performansı
 
-ASP.NET Core 2,2 ' de, bağlantı havuzu `SocketsHttpHandler` kilitleme çakışması azaltılarak performansı geliştirilmiştir. Bazı mikro hizmet mimarileri gibi birçok giden HTTP isteğini yapan uygulamalar için üretilen iş geliştirildi. Yük altında, `HttpClient` verimlilik Linux üzerinde% 60 ' e kadar ve Windows üzerinde% 20 oranında artırılabilir.
+ASP.NET Core 2,2 ' de, bağlantı havuzu kilitleme çakışması azaltılarak `SocketsHttpHandler` performansı geliştirilmiştir. Bazı mikro hizmet mimarileri gibi birçok giden HTTP isteğini yapan uygulamalar için üretilen iş geliştirildi. Yük altında `HttpClient` işleme, Linux üzerinde %60 ' e kadar ve Windows üzerinde %20 oranında artırılabilir.
 
 Daha fazla bilgi için [Bu geliştirmeyi yapan çekme isteğine](https://github.com/dotnet/corefx/pull/32568)bakın.
 

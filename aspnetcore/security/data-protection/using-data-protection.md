@@ -1,36 +1,38 @@
 ---
-title: ASP.NET core'da veri koruma API'lerini kullanmaya başlama
+title: ASP.NET Core 'de veri koruma API 'Lerini kullanmaya başlayın
 author: rick-anderson
-description: Koruma ve uygulama veri koruması kaldırıldıktan için ASP.NET Core veri koruma API'lerini kullanmayı öğrenin.
+description: Bir uygulamadaki verileri korumak ve korumayı kaldırmak için ASP.NET Core veri koruma API 'Lerini kullanmayı öğrenin.
 ms.author: riande
-ms.date: 10/14/2016
+ms.date: 11/12/2019
+no-loc:
+- SignalR
 uid: security/data-protection/using-data-protection
-ms.openlocfilehash: 25bf099a3d9edd7e6e0872725cbc3707750314e6
-ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
+ms.openlocfilehash: 8c3f3c7fb21434cf335591c41741f0ce868df33e
+ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65087632"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73963860"
 ---
-# <a name="get-started-with-the-data-protection-apis-in-aspnet-core"></a>ASP.NET core'da veri koruma API'lerini kullanmaya başlama
+# <a name="get-started-with-the-data-protection-apis-in-aspnet-core"></a>ASP.NET Core 'de veri koruma API 'Lerini kullanmaya başlayın
 
 <a name="security-data-protection-getting-started"></a>
 
-Basit ve koruma verilerini aşağıdaki adımlardan oluşur:
+En basit olan verileri korumak aşağıdaki adımlardan oluşur:
 
-1. Veri koruyucu bir veri koruma sağlayıcısı oluşturun.
+1. Bir veri koruma sağlayıcısından veri koruyucusu oluşturun.
 
-2. Çağrı `Protect` yöntemi ile korumak istediğiniz verileri.
+2. `Protect` yöntemini korumak istediğiniz verilerle çağırın.
 
-3. Çağrı `Unprotect` düz metin yeniden etkinleştirmek istediğiniz veri yöntemi.
+3. `Unprotect` yöntemini, düz metin haline döndürmek istediğiniz verilerle çağırın.
 
-Çoğu çerçeveleri ve ASP.NET Core veya SignalR, gibi uygulama modelleri zaten veri koruma sisteminde yapılandırın ve bağımlılık ekleme erişim hizmet kapsayıcı ekleyin. Aşağıdaki örnek, bir hizmet kapsayıcısı için bağımlılık ekleme ve veri koruma yığın kaydetme, DI aracılığıyla veri koruma sağlayıcısı alma, koruyucusu ve veri koruma sonra koruması kaldırılıyor oluşturma gösterilmektedir.
+ASP.NET Core veya SignalRgibi çoğu çerçeve ve uygulama modelleri, veri koruma sistemini zaten yapılandırıp bağımlılık ekleme yoluyla erişenbir hizmet kapsayıcısına ekler. Aşağıdaki örnek, bağımlılık ekleme ve veri koruma yığınını kaydetme, veri koruma sağlayıcısını dı aracılığıyla alma, bir koruyucu oluşturma ve verilerin korumasını kaldırma için bir hizmet kapsayıcısını yapılandırmayı gösterir.
 
 [!code-csharp[](../../security/data-protection/using-data-protection/samples/protectunprotect.cs?highlight=26,34,35,36,37,38,39,40)]
 
-Bir koruyucu oluşturduğunuzda, bir veya daha fazla sağlamalısınız [amaç dizeleri](xref:security/data-protection/consumer-apis/purpose-strings). Amaç dize tüketicileri arasında yalıtım sağlar. Örneğin, "green" amaçlı dizisi ile oluşturulan bir koruyucu "mor" bir amacı bir koruyucu ile sağlanan verilerin korumasını saptayamazdınız.
+Bir koruyucu oluşturduğunuzda bir veya daha fazla [Amaç dizesi](xref:security/data-protection/consumer-apis/purpose-strings)sağlamanız gerekir. Amaç dizesi, tüketiciler arasında yalıtım sağlar. Örneğin, "yeşil" bir amaç dizesiyle oluşturulan bir koruyucu, "mor" amacını taşıyan bir koruyucu tarafından belirtilen verilerin korumasını yapamaz.
 
 >[!TIP]
-> Örneklerini `IDataProtectionProvider` ve `IDataProtector` olan birden çok arayanlar için iş parçacığı açısından güvenli. Bir bileşen için bir başvuru alır. sonra istemiş bir `IDataProtector` çağrısıyla `CreateProtector`, birden çok çağrı için bu başvuru kullanacağı `Protect` ve `Unprotect`.
+> `IDataProtectionProvider` ve `IDataProtector` örnekleri, birden çok çağıranlar için iş parçacığı güvenlidir. Bir bileşen `CreateProtector`çağrısı aracılığıyla bir `IDataProtector` başvuru aldığında, bu başvuruyu `Protect` ve `Unprotect`birden çok çağrı için kullanacaktır.
 >
->Bir çağrı `Unprotect` korumalı yükü doğrulandı veya yararlanılarak CryptographicException oluşturmaz. Bazı bileşenler hataları yoksayma isteyebilirsiniz sırasında işlemleri; Korumasını Kaldır kimlik doğrulaması tanımlama bilgileri okuyan bir bileşen bu hatayı işlemek ve isteği, tanımlama bilgisi hiç varmış gibi davran yerine yükseltebilir istek başarısız. Bu davranış istediğiniz bileşenleri, tüm özel durumları swallowing yerine CryptographicException özel olarak yakalamalısınız.
+>Korunan yük doğrulanamazsa veya çözülemez bir `Unprotect` çağrısı CryptographicException oluşturur. Bazı bileşenler, kaldırma işlemleri sırasında hataları yoksaymak isteyebilir; kimlik doğrulama tanımlama bilgilerini okuyan bir bileşen bu hatayı işleyebilir ve isteği, isteğin hemen başarısız olması yerine hiç bir tanımlama bilgisine sahip olmamış gibi değerlendirir. Bu davranışın, tüm özel durumlara izin vermek yerine CryptographicException özel olarak yakalamalı bileşenler.

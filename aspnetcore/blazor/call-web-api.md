@@ -1,28 +1,30 @@
 ---
-title: ASP.NET Core Blazor 'ten bir Web API 'SI çağırma
+title: ASP.NET Core Blazor bir Web API 'SI çağırma
 author: guardrex
-description: "\"Çıkış noktaları arası kaynak paylaşımı (CORS) istekleri de dahil olmak üzere JSON yardımcıları kullanarak bir Blazor uygulamasından Web API 'SI çağırmayı öğrenin."
+description: Çıkış noktaları arası kaynak paylaşımı (CORS) istekleri yapma dahil olmak üzere JSON yardımcıları kullanarak bir Blazor uygulamasından Web API 'SI çağırmayı öğrenin.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
 ms.date: 10/15/2019
+no-loc:
+- Blazor
 uid: blazor/call-web-api
-ms.openlocfilehash: b08fdf5c2f9a523314b1744a33087eb64fa4c14a
-ms.sourcegitcommit: 35a86ce48041caaf6396b1e88b0472578ba24483
+ms.openlocfilehash: b5c57317005d0072410542bad322458b1cb3f5ee
+ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72390849"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73962720"
 ---
-# <a name="call-a-web-api-from-aspnet-core-blazor"></a>ASP.NET Core Blazor 'ten bir Web API 'SI çağırma
+# <a name="call-a-web-api-from-aspnet-core-opno-locblazor"></a>ASP.NET Core Blazor bir Web API 'SI çağırma
 
 [Luke Latham](https://github.com/guardrex), [Daniel Roth](https://github.com/danroth27)ve [Juan de la Cruz](https://github.com/juandelacruz23) tarafından
 
 [!INCLUDE[](~/includes/blazorwasm-preview-notice.md)]
 
-Blazor WebAssembly Apps önceden yapılandırılmış bir `HttpClient` hizmeti kullanarak Web API 'Lerini çağırır. Blazor JSON yardımcıları veya <xref:System.Net.Http.HttpRequestMessage> ile JavaScript [Fetch API](https://developer.mozilla.org/docs/Web/API/Fetch_API) seçeneklerini içerebilen oluşturma istekleri.
+Blazor WebAssembly Apps, önceden yapılandırılmış bir `HttpClient` hizmetini kullanarak Web API 'Lerini çağırır. Blazor JSON yardımcıları veya <xref:System.Net.Http.HttpRequestMessage>kullanarak JavaScript [getirme API 'si](https://developer.mozilla.org/docs/Web/API/Fetch_API) seçeneklerini içerebilen oluşturma istekleri.
 
-Blazor Server Apps, genellikle <xref:System.Net.Http.IHttpClientFactory> kullanılarak oluşturulan <xref:System.Net.Http.HttpClient> örnek kullanarak Web API 'Lerini çağırır. Daha fazla bilgi için bkz. <xref:fundamentals/http-requests>.
+Blazor Server Apps, genellikle <xref:System.Net.Http.IHttpClientFactory>kullanılarak oluşturulan <xref:System.Net.Http.HttpClient> örneklerini kullanarak Web API 'Lerini çağırır. Daha fazla bilgi için bkz. <xref:fundamentals/http-requests>.
 
 [Örnek kodu görüntüleme veya indirme](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/blazor/common/samples/) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
 
@@ -33,9 +35,9 @@ Blazor WebAssembly örnekleri için örnek uygulamada aşağıdaki bileşenlere 
 
 ## <a name="httpclient-and-json-helpers"></a>HttpClient ve JSON yardımcıları
 
-Blazor WebAssembly uygulamalarında [HttpClient](xref:fundamentals/http-requests) , istekleri kaynak sunucuya geri getirmek için önceden yapılandırılmış bir hizmet olarak sunulmaktadır. @No__t-0 JSON yardımcıları kullanmak için, `Microsoft.AspNetCore.Blazor.HttpClient` ' e bir paket başvurusu ekleyin. `HttpClient` ve JSON yardımcıları, üçüncü taraf Web API uç noktalarını çağırmak için de kullanılır. `HttpClient` tarayıcı [getirme API 'si](https://developer.mozilla.org/docs/Web/API/Fetch_API) kullanılarak uygulanır ve aynı kaynak ilkesini zorlama dahil olmak üzere sınırlamalarına tabidir.
+Blazor WebAssembly uygulamalarında, [HttpClient](xref:fundamentals/http-requests) , istekleri kaynak sunucuya geri getirmek için önceden yapılandırılmış bir hizmet olarak sunulmaktadır. `HttpClient` JSON yardımcıları kullanmak için `Microsoft.AspNetCore.Blazor.HttpClient`bir paket başvurusu ekleyin. `HttpClient` ve JSON yardımcıları, üçüncü taraf Web API uç noktalarını çağırmak için de kullanılır. `HttpClient` tarayıcı [getirme API 'si](https://developer.mozilla.org/docs/Web/API/Fetch_API) kullanılarak uygulanır ve aynı kaynak ilkesini zorlama dahil olmak üzere sınırlamalarına tabidir.
 
-İstemcinin temel adresi, kaynak sunucunun adresine ayarlanır. @No__t-1 yönergesini kullanarak `HttpClient` örneği ekleme:
+İstemcinin temel adresi, kaynak sunucunun adresine ayarlanır. `@inject` yönergesini kullanarak bir `HttpClient` örneği ekleme:
 
 ```cshtml
 @using System.Net.Http
@@ -61,7 +63,7 @@ JSON yardımcı yöntemleri bir URI 'ye (aşağıdaki örneklerde bir Web API 's
 
 * `GetJsonAsync` &ndash; bir HTTP GET isteği gönderir ve bir nesne oluşturmak için JSON yanıt gövdesini ayrıştırır.
 
-  Aşağıdaki kodda `_todoItems` bileşen tarafından görüntülenir. @No__t-0 yöntemi, bileşen işlemeyi tamamladığında tetiklenir ([Onınitializedadsync](xref:blazor/components#lifecycle-methods)). Örnek uygulamaya bkz. örnek uygulama.
+  Aşağıdaki kodda `_todoItems` bileşen tarafından görüntülenir. `GetTodoItems` yöntemi, bileşen işlemeyi tamamladığında tetiklenir ([Onınitializedadsync](xref:blazor/components#lifecycle-methods)). Örnek uygulamaya bkz. örnek uygulama.
 
   ```cshtml
   @using System.Net.Http
@@ -77,7 +79,7 @@ JSON yardımcı yöntemleri bir URI 'ye (aşağıdaki örneklerde bir Web API 's
 
 * `PostJsonAsync` &ndash; JSON kodlu içerik dahil bir HTTP POST isteği gönderir ve bir nesne oluşturmak için JSON yanıt gövdesini ayrıştırır.
 
-  Aşağıdaki kodda, `_newItemName` bileşenin bağlantılı bir öğesi tarafından sağlanır. @No__t-0 yöntemi bir `<button>` öğesi seçilerek tetiklenir. Örnek uygulamaya bkz. örnek uygulama.
+  Aşağıdaki kodda, `_newItemName` bileşenin bağlantılı bir öğesi tarafından sağlanır. `AddItem` yöntemi bir `<button>` öğesi seçilerek tetiklenir. Örnek uygulamaya bkz. örnek uygulama.
 
   ```cshtml
   @using System.Net.Http
@@ -99,7 +101,7 @@ JSON yardımcı yöntemleri bir URI 'ye (aşağıdaki örneklerde bir Web API 's
 
 * `PutJsonAsync` &ndash; JSON kodlu içerik dahil bir HTTP PUT isteği gönderir.
 
-  Aşağıdaki kodda, `Name` ve `IsCompleted` için `_editItem` değerleri bileşenin bağlantılı öğeleri tarafından sağlanır. Öğe `Id`, öğe Kullanıcı arabiriminin başka bir bölümünde seçildiğinde ayarlanır ve `EditItem` çağırılır. @No__t-0 yöntemi, Save `<button>` öğesi seçilerek tetiklenir. Örnek uygulamaya bkz. örnek uygulama.
+  Aşağıdaki kodda, `Name` ve `IsCompleted` değerlerinin `_editItem`, bileşenin bağlantılı öğeleri tarafından sağlanır. Öğe `Id`, öğe Kullanıcı arabiriminin başka bir bölümünde seçildiğinde ayarlanır ve `EditItem` çağırılır. `SaveItem` yöntemi, Kaydet `<button>` öğesi seçilerek tetiklenir. Örnek uygulamaya bkz. örnek uygulama.
 
   ```cshtml
   @using System.Net.Http
@@ -126,7 +128,7 @@ JSON yardımcı yöntemleri bir URI 'ye (aşağıdaki örneklerde bir Web API 's
 
 <xref:System.Net.Http>, HTTP istekleri göndermeye ve HTTP yanıtlarını almaya yönelik ek uzantı yöntemleri içerir. [HttpClient. DeleteAsync](xref:System.Net.Http.HttpClient.DeleteAsync*) , BIR Web API 'SINE http delete isteği göndermek için kullanılır.
 
-Aşağıdaki kodda, DELETE `<button>` öğesi `DeleteItem` yöntemini çağırır. @No__t-0 öğesi, silinecek öğenin `id` ' i sağlar. Örnek uygulamaya bkz. örnek uygulama.
+Aşağıdaki kodda, DELETE `<button>` öğesi `DeleteItem` yöntemini çağırır. Bağlantılı `<input>` öğesi, silinecek öğenin `id` sağlar. Örnek uygulamaya bkz. örnek uygulama.
 
 ```cshtml
 @using System.Net.Http

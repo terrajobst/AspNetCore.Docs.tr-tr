@@ -1,24 +1,27 @@
 ---
-title: ASP.NET Core Blazor 'e giriş
+title: ASP.NET Core Blazor giriş
 author: guardrex
-description: ASP.NET Core uygulamasında .NET ile etkileşimli istemci tarafı Web Kullanıcı arabirimi oluşturmak için bir yol olan ASP.NET Core Blazor 'i gezin.
+description: ASP.NET Core uygulamasında .NET ile etkileşimli istemci tarafı Web Kullanıcı arabirimi oluşturmak için bir yol olan ASP.NET Core Blazorgezin.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc, seoapril2019
-ms.date: 10/31/2019
+ms.date: 11/12/2019
+no-loc:
+- Blazor
+- SignalR
 uid: blazor/index
-ms.openlocfilehash: c2574c1250cf94e89dd5476b6174620d83546236
-ms.sourcegitcommit: 77c8be22d5e88dd710f42c739748869f198865dd
+ms.openlocfilehash: 8b656a7461c78475432722540ad628258cfe19c4
+ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2019
-ms.locfileid: "73427021"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73962919"
 ---
-# <a name="introduction-to-aspnet-core-blazor"></a>ASP.NET Core Blazor 'e giriş
+# <a name="introduction-to-aspnet-core-opno-locblazor"></a>ASP.NET Core Blazor giriş
 
 [Daniel Roth](https://github.com/danroth27) ve [Luke Latham](https://github.com/guardrex) tarafından
 
-*Blazor 'e hoş geldiniz!*
+*Blazorhoş geldiniz!*
 
 Blazor, .NET ile etkileşimli istemci tarafı Web Kullanıcı arabirimi oluşturmaya yönelik bir çerçevedir:
 
@@ -37,7 +40,7 @@ Blazor, .NET ile etkileşimli istemci tarafı Web Kullanıcı arabirimi oluştur
 
 ## <a name="components"></a>Bileşenler
 
-Blazor uygulamaları, *bileşenleri*temel alır. Blazor içindeki bir bileşen, bir sayfa, iletişim veya veri girişi formu gibi bir kullanıcı arabirimi öğesidir.
+Blazor uygulamalar *bileşenleri*temel alır. Blazor bir bileşen, bir sayfa, iletişim kutusu veya veri girişi formu gibi bir kullanıcı arabirimi öğesidir.
 
 Bileşenler, .NET Derlemeleriyle yerleşik olarak bulunan .NET sınıflarıdır:
 
@@ -46,7 +49,7 @@ Bileşenler, .NET Derlemeleriyle yerleşik olarak bulunan .NET sınıflarıdır:
 * İç içe ve yeniden kullanılabilir olabilir.
 * , [Razor sınıfı kitaplıkları](xref:razor-pages/ui-class) veya [NuGet paketleri](/nuget/what-is-nuget)olarak paylaşılabilir ve dağıtılabilir.
 
-Bileşen sınıfı genellikle *. Razor* dosya uzantısına sahip bir [Razor](xref:mvc/views/razor) biçimlendirme sayfası biçiminde yazılır. Blazor içindeki bileşenler, resmi olarak *Razor bileşenleri*olarak adlandırılır. Razor, geliştirici üretkenliği için tasarlanan C# kodla HTML işaretlemesini birleştirmek için bir sözdizimidir. Razor, IntelliSense desteğiyle aynı dosyada HTML işaretlemesi ve C# arasında geçiş yapmanıza olanak sağlar [](/visualstudio/ide/using-intellisense) . Razor Pages ve MVC de Razor kullanır. İstek/yanıt modeli etrafında oluşturulan Razor Pages ve MVC 'nin aksine, bileşenler özellikle istemci tarafı UI mantığı ve bileşimi için kullanılır.
+Bileşen sınıfı genellikle *. Razor* dosya uzantısına sahip bir [Razor](xref:mvc/views/razor) biçimlendirme sayfası biçiminde yazılır. Blazor bileşenler, resmi olarak *Razor bileşenleri*olarak adlandırılır. Razor, geliştirici üretkenliği için tasarlanan C# kodla HTML işaretlemesini birleştirmek için bir sözdizimidir. Razor, IntelliSense desteğiyle aynı dosyada HTML işaretlemesi ve C# arasında geçiş yapmanıza olanak sağlar [](/visualstudio/ide/using-intellisense) . Razor Pages ve MVC de Razor kullanır. İstek/yanıt modeli etrafında oluşturulan Razor Pages ve MVC 'nin aksine, bileşenler özellikle istemci tarafı UI mantığı ve bileşimi için kullanılır.
 
 Aşağıdaki Razor biçimlendirmesi, başka bir bileşen içinde iç içe kullanılabilecek bir bileşeni (*Iletişim kutusu. Razor*) gösterir:
 
@@ -101,7 +104,7 @@ Bu bileşen uygulamada kullanıldığında, [Visual Studio](/visualstudio/ide/us
 
 Bileşenler, Kullanıcı arabirimini esnek ve verimli bir şekilde güncelleştirmek için kullanılan bir *işleme ağacı*adlı, tarayıcı belge nesne MODELI (DOM) ' ın bellek içi gösterimine işlenir.
 
-## <a name="blazor-webassembly"></a>Blazor WebAssembly
+## <a name="opno-locblazor-webassembly"></a>Blazor WebAssembly
 
 [!INCLUDE[](~/includes/blazorwasm-preview-notice.md)]
 
@@ -111,29 +114,29 @@ Web tarayıcıları içinde .NET kodu çalıştırmak, [Webassembly](https://web
 
 WebAssembly Code, JavaScript ile *birlikte çalışabilirlik* (veya *JavaScript birlikte çalışma*) olarak adlandırılan JavaScript aracılığıyla tarayıcının tüm işlevlerine erişebilir. Tarayıcıda WebAssembly aracılığıyla yürütülen .NET kodu, sanal makinenin istemci makinesindeki kötü amaçlı eylemlere karşı sağladığı korumalar ile tarayıcının JavaScript korumalı alanında çalışır.
 
-![Blazor WebAssembly, WebAssembly ile tarayıcıda .NET kodu çalıştırır.](index/_static/blazor-webassembly.png)
+![[! Üs. NO-LOC (Blazor)] WebAssembly, WebAssembly ile tarayıcıda .NET kodu çalıştırır.](index/_static/blazor-webassembly.png)
 
-Bir Blazor WebAssembly uygulaması bir tarayıcıda oluşturulup çalıştırıldığında:
+Blazor WebAssembly uygulaması bir tarayıcıda oluşturulup çalıştırıldığında:
 
 * C#kod dosyaları ve Razor dosyaları .NET Derlemeleriyle derlenir.
 * Derlemeler ve .NET çalışma zamanı tarayıcıya indirilir.
-* .NET çalışma zamanı Blazor WebAssembly önyükleme ve çalışma zamanını uygulamanın derlemelerini yükleyecek şekilde yapılandırır. Blazor WebAssembly çalışma zamanı, DOM işleme ve tarayıcı API çağrılarını işlemek için JavaScript birlikte çalışabilirliği kullanır.
+* WebAssembly önyükleme .NET çalışma zamanını Blazor ve çalışma zamanını uygulamanın derlemelerini yükleyecek şekilde yapılandırır. Blazor WebAssembly çalışma zamanı, DOM işleme ve tarayıcı API çağrılarını işlemek için JavaScript birlikte çalışabilirliği kullanır.
 
-Yayınlanan uygulamanın boyutu, *Yük boyutu*, uygulamanın useyeteneğinin önemli bir performans etkendir. Büyük bir uygulamanın tarayıcıya indirmesi oldukça uzun sürer ve bu da Kullanıcı deneyimini azaltabilecek. Blazor WebAssembly indirme sürelerini azaltmak için yük boyutunu iyileştirir:
+Yayınlanan uygulamanın boyutu, *Yük boyutu*, uygulamanın useyeteneğinin önemli bir performans etkendir. Büyük bir uygulamanın tarayıcıya indirmesi oldukça uzun sürer ve bu da Kullanıcı deneyimini azaltabilecek. Blazor WebAssembly, indirme sürelerini azaltmak için yük boyutunu iyileştirir:
 
 * Kullanılmayan kod, [ara dil (IL) bağlayıcı](xref:host-and-deploy/blazor/configure-linker)tarafından yayımlandığında uygulamadan çıkarılır.
 * HTTP yanıtları sıkıştırılır.
 * .NET çalışma zamanı ve derlemeler tarayıcıda önbelleğe alınır.
 
-## <a name="blazor-server"></a>Blazor Server
+## <a name="opno-locblazor-server"></a>Blazor sunucusu
 
-Blazor, Kullanıcı arabirimi güncelleştirmelerinin uygulanma, bileşen işleme mantığını ayırır. Blazor Server, Razor bileşenlerini bir ASP.NET Core uygulamasındaki sunucuda barındırmak için destek sağlar. Kullanıcı Arabirimi güncelleştirmeleri bir [SignalR](xref:signalr/introduction) bağlantısı üzerinden işlenir.
+Blazor, Kullanıcı arabirimi güncelleştirmelerinin uygulanma, bileşen işleme mantığını ayırır. Blazor Server, bir ASP.NET Core uygulamasındaki sunucuda Razor bileşenlerini barındırmak için destek sağlar. Kullanıcı Arabirimi güncelleştirmeleri [SignalR](xref:signalr/introduction) bir bağlantı üzerinden işlenir.
 
 Çalışma zamanı, tarayıcıdan sunucuya kullanıcı arabirimi olayları göndermeyi ve bileşenleri çalıştırdıktan sonra sunucu tarafından tarayıcıya geri gönderilen Kullanıcı arabirimi güncelleştirmelerini uygular.
 
 Blazor sunucusu tarafından tarayıcıyla iletişim kurmak için kullanılan bağlantı, JavaScript birlikte çalışma çağrılarını işlemek için de kullanılır.
 
-![Blazor Server, sunucuda .NET kodu çalıştırır ve bir SignalR bağlantısı üzerinden istemcideki Belge Nesne Modeli etkileşime girer](index/_static/blazor-server.png)
+![[! Üs. NO-LOC (Blazor)] sunucusu, sunucuda .NET kodu çalıştırır ve istemcide bir [! üzerinden Belge Nesne Modeli etkileşime girer. Üs. NO-LOC (SignalR)] bağlantı](index/_static/blazor-server.png)
 
 ## <a name="javascript-interop"></a>JavaScript ile birlikte çalışma
 
@@ -141,7 +144,7 @@ Blazor sunucusu tarafından tarayıcıyla iletişim kurmak için kullanılan ba�
 
 ## <a name="code-sharing-and-net-standard"></a>Kod paylaşımı ve .NET Standard
 
-Blazor [2,0 uygular .NET Standard](/dotnet/standard/net-standard). .NET Standard, .NET uygulamaları genelinde ortak olan .NET API 'lerinin resmi bir belirtimidir. .NET Standard sınıf kitaplıkları, Blazor, .NET Framework, .NET Core, Xamarin, mono ve Unity gibi farklı .NET platformları arasında paylaşılabilir.
+Blazor, [.NET Standard 2,0](/dotnet/standard/net-standard)uygular. .NET Standard, .NET uygulamaları genelinde ortak olan .NET API 'lerinin resmi bir belirtimidir. .NET Standard sınıf kitaplıkları, Blazor, .NET Framework, .NET Core, Xamarin, mono ve Unity gibi farklı .NET platformları arasında paylaşılabilir.
 
 Bir Web tarayıcısı içinde geçerli olmayan API 'Ler (örneğin, dosya sistemine erişmek, bir yuva açmak ve iş parçacığı açmak) <xref:System.PlatformNotSupportedException> oluşturur.
 

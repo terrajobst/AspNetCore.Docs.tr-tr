@@ -1,20 +1,22 @@
 ---
 title: İlk Blazor uygulamanızı oluşturma
 author: guardrex
-description: Adım adım Blazor uygulaması oluşturun.
+description: Blazor uygulaması oluşturun adım adım.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
 ms.date: 10/31/2019
+no-loc:
+- Blazor
 uid: tutorials/first-blazor-app
-ms.openlocfilehash: cc7caa1ee01e0282024895ab35c5b9933b1504d0
-ms.sourcegitcommit: eb2fe5ad2e82fab86ca952463af8d017ba659b25
+ms.openlocfilehash: 646e14060b88fc2a0fefc2f7a5ebb1c15ac39b79
+ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2019
-ms.locfileid: "73416170"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73963707"
 ---
-# <a name="build-your-first-blazor-app"></a>İlk Blazor uygulamanızı oluşturma
+# <a name="build-your-first-opno-locblazor-app"></a>İlk Blazor uygulamanızı oluşturma
 
 [Daniel Roth](https://github.com/danroth27) ve [Luke Latham](https://github.com/guardrex) tarafından
 
@@ -28,7 +30,7 @@ Bu öğreticide bir Blazor projesi oluşturmak için <xref:blazor/get-started> m
 
 1. *Sayfalar* klasöründe uygulamanın üç sayfasının her birine gidin: giriş, sayaç ve veri getirme. Bu sayfalar, Razor bileşen dosyaları *dizini. Razor*, *Counter. Razor*ve *fetchdata. Razor*tarafından uygulanır.
 
-1. Sayaç sayfasında, bir sayfa yenilemesi olmadan sayacı artırmak için **bana tıklama** düğmesini seçin. Bir Web sayfasında normal olarak bir sayacı artırma, JavaScript yazmayı gerektirir. Blazor ile bunun yerine yazabilirsiniz C# .
+1. Sayaç sayfasında, bir sayfa yenilemesi olmadan sayacı artırmak için **bana tıklama** düğmesini seçin. Bir Web sayfasında normal olarak bir sayacı artırma, JavaScript yazmayı gerektirir. Blazor, bunun yerine yazabilirsiniz C# .
 
 1. *Counter. Razor* dosyasındaki `Counter` bileşeninin uygulamasını inceleyin.
 
@@ -38,7 +40,7 @@ Bu öğreticide bir Blazor projesi oluşturmak için <xref:blazor/get-started> m
 
    `Counter` bileşenin kullanıcı arabirimi HTML kullanılarak tanımlanır. Dinamik işleme mantığı (örneğin, döngüler, koşullar, ifadeler) C# [Razor](xref:mvc/views/razor)adlı gömülü bir sözdizimi kullanılarak eklenir. HTML biçimlendirme ve C# işleme mantığı, derleme zamanında bir bileşen sınıfına dönüştürülür. Oluşturulan .NET sınıfının adı dosya adıyla eşleşir.
 
-   Bileşen sınıfının üyeleri `@code` bloğunda tanımlanır. `@code` bloğunda, bileşen durumu (özellikler, alanlar) ve yöntemler olay işleme için veya diğer bileşen mantığını tanımlamak için belirtilir. Bu Üyeler daha sonra bileşenin işleme mantığının bir parçası olarak ve olayları işlemek için kullanılır.
+   Bileşen sınıfının üyeleri bir `@code` bloğunda tanımlanmıştır. `@code` bloğunda, bileşen durumu (özellikler, alanlar) ve yöntemler olay işleme için veya diğer bileşen mantığını tanımlamak için belirtilir. Bu Üyeler daha sonra bileşenin işleme mantığının bir parçası olarak ve olayları işlemek için kullanılır.
 
    **Bana tıklama** düğmesi seçildiğinde:
 
@@ -59,7 +61,7 @@ Bir bileşeni, bir HTML söz dizimini kullanarak başka bir bileşene ekleyin.
 
 1. `Index` bileşenine bir `<Counter />` öğesi ekleyerek uygulamanın `Index` bileşenine `Counter` bileşenini ekleyin (*Index. Razor*).
 
-   Bu deneyim için Blazor WebAssembly kullanıyorsanız, `SurveyPrompt` bileşeni `Index` bileşeni tarafından kullanılır. `<SurveyPrompt>` öğesini bir `<Counter />` öğesiyle değiştirin. Bu deneyim için bir Blazor Server uygulaması kullanıyorsanız, `<Counter />` öğesini `Index` bileşenine ekleyin:
+   Bu deneyim için Blazor WebAssembly kullanıyorsanız, `Index` bileşeni tarafından `SurveyPrompt` bir bileşen kullanılır. `<SurveyPrompt>` öğesini bir `<Counter />` öğesiyle değiştirin. Bu deneyim için bir Blazor sunucusu uygulaması kullanıyorsanız, `Index` bileşenine `<Counter />` öğesini ekleyin:
 
    *Pages/Index. Razor*:
 
@@ -99,9 +101,9 @@ Bileşenler de parametrelere sahip olabilir. Bileşen parametreleri, bileşen s�
 
 ## <a name="dependency-injection"></a>Bağımlılık ekleme
 
-### <a name="blazor-server-experience"></a>Blazor sunucusu deneyimi
+### <a name="opno-locblazor-server-experience"></a>Blazor sunucusu deneyimi
 
-Bir Blazor sunucu uygulamasıyla çalışıyorsanız, `WeatherForecastService` hizmeti `Startup.ConfigureServices` ' de [tek](xref:fundamentals/dependency-injection#service-lifetimes) bir kayıt olarak kaydedilir. Uygulamanın tamamında [bağımlılık ekleme (dı)](xref:fundamentals/dependency-injection)yoluyla hizmetin bir örneği mevcuttur:
+Blazor sunucu uygulamasıyla çalışıyorsanız, `WeatherForecastService` hizmeti bir [tek](xref:fundamentals/dependency-injection#service-lifetimes) `Startup.ConfigureServices`olarak kaydedilir. Uygulamanın tamamında [bağımlılık ekleme (dı)](xref:fundamentals/dependency-injection)yoluyla hizmetin bir örneği mevcuttur:
 
 [!code-csharp[](build-your-first-blazor-app/samples_snapshot/3.x/Startup.cs?highlight=5)]
 
@@ -115,7 +117,7 @@ Bir Blazor sunucu uygulamasıyla çalışıyorsanız, `WeatherForecastService` h
 
 [!code-cshtml[](build-your-first-blazor-app/samples_snapshot/3.x/FetchData2.razor?highlight=6)]
 
-### <a name="blazor-webassembly-experience"></a>Blazor WebAssembly deneyimi
+### <a name="opno-locblazor-webassembly-experience"></a>Blazor Weelsembly deneyimi
 
 Blazor WebAssembly uygulamasıyla çalışıyorsanız, *Wwwroot/Sample-Data* klasöründeki *Hava durumu. JSON* dosyasından Hava durumu tahmin verileri almak için `HttpClient` eklenir.
 

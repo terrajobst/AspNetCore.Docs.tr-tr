@@ -1,53 +1,55 @@
 ---
-title: Devre kartına ASP.NET Core SignalR ölçek genişletme için redis
+title: ASP.NET Core SignalR genişletme için redsıs geri düzlemi
 author: bradygaster
-description: Bir ASP.NET Core SignalR uygulama için ölçek genişletme etkinleştirmek için bir Redis devre kartı kurmayı öğrenin.
+description: Bir ASP.NET Core SignalR uygulaması için ölçeklendirmeyi etkinleştirmek üzere Redsıs arka düzlemi ayarlamayı öğrenin.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: bradyg
 ms.custom: mvc
-ms.date: 11/28/2018
+ms.date: 11/12/2019
+no-loc:
+- SignalR
 uid: signalr/redis-backplane
-ms.openlocfilehash: adf9bbce1353fd811a4044e173533f76bc4193de
-ms.sourcegitcommit: 4ef0362ef8b6e5426fc5af18f22734158fe587e1
+ms.openlocfilehash: 379d46fcaabb8eb0d04e521a5ad698229f947b7c
+ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67152920"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73963911"
 ---
-# <a name="set-up-a-redis-backplane-for-aspnet-core-signalr-scale-out"></a>Bir Redis devre kartı ASP.NET Core SignalR genişleme için ayarlama
+# <a name="set-up-a-redis-backplane-for-aspnet-core-opno-locsignalr-scale-out"></a>ASP.NET Core SignalR genişleme için Redsıs arka düzlemi ayarlama
 
-Tarafından [Andrew Stanton-Nurse](https://twitter.com/anurse), [Brady Gaster](https://twitter.com/bradygaster), ve [Tom Dykstra](https://github.com/tdykstra),
+, [Andrew Stanton-nuri](https://twitter.com/anurse), [Brady Gaster](https://twitter.com/bradygaster)ve [Tom Dykstra](https://github.com/tdykstra),
 
-Bu makalede, SignalR özgü yönlerini ayarlama açıklanmaktadır bir [Redis](https://redis.io/) bir ASP.NET Core SignalR uygulamayı kullanıma ölçeklendirme için kullanılacak sunucusu.
+Bu makalede, bir ASP.NET Core SignalR uygulamasını ölçeklendirmek için kullanılacak bir [redo](https://redis.io/) sunucusu ayarlamanın SignalRözgü yönleri açıklanmaktadır.
 
-## <a name="set-up-a-redis-backplane"></a>Bir Redis devre kartı ayarlayın
+## <a name="set-up-a-redis-backplane"></a>Redsıs geri düzlemi ayarlama
 
-* Bir Redis sunucusuna dağıtın.
+* Redsıs sunucusunu dağıtın.
 
   > [!IMPORTANT] 
-  > Yalnızca aynı veri merkezinde SignalR uygulama olarak çalıştırılan Redis devre kartı üretim kullanımı için önerilir. Aksi takdirde, ağ gecikmesi, performansı düşürür. SignalR uygulamanızı Azure bulutunda çalışır durumdaysa bir Redis devre kartı yerine Azure SignalR hizmeti öneririz. Azure Redis Cache hizmeti kullanmak için geliştirme ve test ortamları.
+  > Üretim kullanımı için, yalnızca SignalR uygulamasıyla aynı veri merkezinde çalıştığında Redsıs geri düzlemi önerilir. Aksi takdirde, ağ gecikmesi performansı düşürür. SignalR uygulamanız Azure bulutu 'nda çalışıyorsa, redin geri düzlemi yerine Azure SignalR hizmeti önerilir. Geliştirme ve test ortamları için Azure Redis Cache hizmetini kullanabilirsiniz.
 
   Daha fazla bilgi için aşağıdaki kaynaklara bakın:
 
   * <xref:signalr/scale>
-  * [Redis belgeleri](https://redis.io/)
+  * [Redsıs belgeleri](https://redis.io/)
   * [Azure Redis Cache belgeleri](https://docs.microsoft.com/azure/redis-cache/)
 
 ::: moniker range="= aspnetcore-2.1"
 
-* SignalR uygulamada, yükleme `Microsoft.AspNetCore.SignalR.Redis` NuGet paketi. (Ayrıca bir `Microsoft.AspNetCore.SignalR.StackExchangeRedis` ASP.NET Core 2.2 ve daha sonra biridir ancak bu, paket.)
+* SignalR uygulamasında `Microsoft.AspNetCore.SignalR.Redis` NuGet paketini () yüklemelisiniz. (Bir `Microsoft.AspNetCore.SignalR.StackExchangeRedis` paketi de vardır, ancak bu bir tane ASP.NET Core 2,2 ve üzeri içindir.)
 
-* İçinde `Startup.ConfigureServices` yöntemi, çağrı `AddRedis` sonra `AddSignalR`:
+* `Startup.ConfigureServices` yönteminde, `AddSignalR`sonra `AddRedis` çağırın:
 
   ```csharp
   services.AddSignalR().AddRedis("<your_Redis_connection_string>");
   ```
 
-* Seçenekleri gerektiği gibi yapılandırın:
+* Seçenekleri gerektiği şekilde yapılandırın:
  
-  Bağlantı dizesi veya çoğu seçenekler ayarlanabilir [ConfigurationOptions](https://stackexchange.github.io/StackExchange.Redis/Configuration#configuration-options) nesne. Belirtilen seçenekler `ConfigurationOptions` bağlantı dizesinde olanları geçersiz kılar.
+  Çoğu seçenek bağlantı dizesinde veya [ConfigurationOptions](https://stackexchange.github.io/StackExchange.Redis/Configuration#configuration-options) nesnesinde ayarlanabilir. `ConfigurationOptions` belirtilen seçenekler bağlantı dizesinde ayarlanmış olanları geçersiz kılar.
 
-  Aşağıdaki örnekte de seçeneklerini ayarlama işlemi gösterilmektedir `ConfigurationOptions` nesne. Birden çok uygulama aynı Redis örneği paylaşabileceği Bu örnek aşağıdaki adımda açıklandığı gibi bir kanal önek ekler.
+  Aşağıdaki örnek, `ConfigurationOptions` nesnesindeki seçeneklerin nasıl ayarlanacağını gösterir. Bu örnek, aşağıdaki adımda anlatıldığı gibi birden çok uygulamanın aynı redo örneğini paylaşabilmesi için bir kanal öneki ekler.
 
   ```csharp
   services.AddSignalR()
@@ -56,28 +58,28 @@ Bu makalede, SignalR özgü yönlerini ayarlama açıklanmaktadır bir [Redis](h
     });
   ```
 
-  Önceki kodda, `options.Configuration` ne olursa olsun bağlantı dizesinde belirtilmedi ile başlatılır.
+  Yukarıdaki kodda `options.Configuration`, bağlantı dizesinde belirtilen şeyle başlatılır.
 
 ::: moniker-end
 
 ::: moniker range="> aspnetcore-2.1"
 
-* SignalR uygulamasında aşağıdaki NuGet paketlerini yükleyin:
+* SignalR uygulamasında, aşağıdaki NuGet paketlerinden birini yüklemelisiniz:
 
-  * `Microsoft.AspNetCore.SignalR.StackExchangeRedis` -StackExchange.Redis 2.X.X üzerinde bağlıdır. Bu daha sonra ve ASP.NET Core 2.2 için önerilen pakettir.
-  * `Microsoft.AspNetCore.SignalR.Redis` -StackExchange.Redis 1.X.X üzerinde bağlıdır. Bu paket, ASP.NET Core 3. 0'sevkiyat değil.
+  * `Microsoft.AspNetCore.SignalR.StackExchangeRedis`-StackExchange 'e bağlıdır. Redsıs 2. X.X. Bu, ASP.NET Core 2,2 ve üzeri için önerilen pakettir.
+  * `Microsoft.AspNetCore.SignalR.Redis`-StackExchange. Redsıs 1. X.X. 'e bağımlıdır Bu paket, ASP.NET Core 3,0 ' ye teslim edilmez.
 
-* İçinde `Startup.ConfigureServices` yöntemi, çağrı `AddStackExchangeRedis` sonra `AddSignalR`:
+* `Startup.ConfigureServices` yönteminde, `AddSignalR`sonra `AddStackExchangeRedis` çağırın:
 
   ```csharp
   services.AddSignalR().AddStackExchangeRedis("<your_Redis_connection_string>");
   ```
 
-* Seçenekleri gerektiği gibi yapılandırın:
+* Seçenekleri gerektiği şekilde yapılandırın:
  
-  Bağlantı dizesi veya çoğu seçenekler ayarlanabilir [ConfigurationOptions](https://stackexchange.github.io/StackExchange.Redis/Configuration#configuration-options) nesne. Belirtilen seçenekler `ConfigurationOptions` bağlantı dizesinde olanları geçersiz kılar.
+  Çoğu seçenek bağlantı dizesinde veya [ConfigurationOptions](https://stackexchange.github.io/StackExchange.Redis/Configuration#configuration-options) nesnesinde ayarlanabilir. `ConfigurationOptions` belirtilen seçenekler bağlantı dizesinde ayarlanmış olanları geçersiz kılar.
 
-  Aşağıdaki örnekte de seçeneklerini ayarlama işlemi gösterilmektedir `ConfigurationOptions` nesne. Birden çok uygulama aynı Redis örneği paylaşabileceği Bu örnek aşağıdaki adımda açıklandığı gibi bir kanal önek ekler.
+  Aşağıdaki örnek, `ConfigurationOptions` nesnesindeki seçeneklerin nasıl ayarlanacağını gösterir. Bu örnek, aşağıdaki adımda anlatıldığı gibi birden çok uygulamanın aynı redo örneğini paylaşabilmesi için bir kanal öneki ekler.
 
   ```csharp
   services.AddSignalR()
@@ -86,38 +88,38 @@ Bu makalede, SignalR özgü yönlerini ayarlama açıklanmaktadır bir [Redis](h
     });
   ```
 
-  Önceki kodda, `options.Configuration` ne olursa olsun bağlantı dizesinde belirtilmedi ile başlatılır.
+  Yukarıdaki kodda `options.Configuration`, bağlantı dizesinde belirtilen şeyle başlatılır.
 
-  Redis seçenekleri hakkında daha fazla bilgi için bkz. [StackExchange Redis belgeleri](https://stackexchange.github.io/StackExchange.Redis/Configuration.html).
+  Redu seçenekleri hakkında daha fazla bilgi için bkz. [StackExchange redin belgeleri](https://stackexchange.github.io/StackExchange.Redis/Configuration.html).
 
 ::: moniker-end
 
-* Birden fazla SignalR uygulama için bir Redis sunucusu kullanıyorsanız, her bir SignalR uygulama için farklı bir kanal önek kullanın.
+* Birden çok SignalR uygulama için bir Redsıs sunucusu kullanıyorsanız, her bir SignalR uygulaması için farklı bir kanal öneki kullanın.
 
-  Bir kanal önek ayarı bir SignalR uygulamadan farklı bir kanal önekleri kullanan diğer yalıtır. Farklı önekler atamazsanız, tümü kendi istemcileri bir uygulamadan gönderilen ileti devre kartı olarak Redis sunucusunu kullanan tüm uygulamalar, tüm istemcilere geçer.
+  Kanal öneki ayarlamak, farklı kanal öneklerini kullanan diğerlerinden bir SignalR uygulamasını yalıtır. Farklı ön ekler atamadıysanız, bir uygulamadan tüm istemcilerine gönderilen bir ileti, Redo sunucusunu bir geri düzlemi olarak kullanan tüm uygulamaların tüm istemcilerine gider.
 
-* Yazılım Yapışkan oturumlar için sunucu grubunda yük dengelemeyi yapılandırın. Bunu yapmak ilgili belgeler bazı örnekleri aşağıda verilmiştir:
+* Sunucu grubu yük dengeleme yazılımınızı yapışkan oturumlar için yapılandırın. Bunun nasıl yapılacağını gösteren bazı örnekler aşağıda verilmiştir:
 
-  * [IIS](/iis/extensions/configuring-application-request-routing-arr/http-load-balancing-using-application-request-routing)
+  * [ISS](/iis/extensions/configuring-application-request-routing-arr/http-load-balancing-using-application-request-routing)
   * [HAProxy](https://www.haproxy.com/blog/load-balancing-affinity-persistence-sticky-sessions-what-you-need-to-know/)
-  * [Nginx](https://docs.nginx.com/nginx/admin-guide/load-balancer/http-load-balancer/#sticky)
+  * [NGINX](https://docs.nginx.com/nginx/admin-guide/load-balancer/http-load-balancer/#sticky)
   * [pfSense](https://www.netgate.com/docs/pfsense/loadbalancing/inbound-load-balancing.html#sticky-connections)
 
-## <a name="redis-server-errors"></a>Redis sunucu hataları
+## <a name="redis-server-errors"></a>Redsıs sunucu hataları
 
-Bir Redis sunucusuna çıktığında SignalR iletileri teslim olmaz gösteren özel durum oluşturur. Bazı tipik bir özel durum iletileri:
+Bir redin sunucusu aşağı gittiğinde SignalR, iletilerin teslim edilmediğini belirten özel durumlar oluşturur. Bazı tipik özel durum iletileri:
 
-* *Başarısız yazma iletisi*
-* *'MethodName' hub'yöntemini çağırmak başarısız oldu*
-* *Redis bağlantısı başarısız oldu*
+* *İleti yazılamadı*
+* *' MethodName ' hub yöntemi çağrılamadı*
+* *Redsıs bağlantısı başarısız oldu*
 
-SignalR sunucunun geri geldiğinde bunları gönderilecek iletileri arabelleğe almayan. Redis sunucusu çalışmadığında gönderilen tüm iletiler kaybolur.
+SignalR, sunucu geri geldiğinde iletileri göndermek için arabelleğe almaz. Redsıs sunucusu kapatıldığında gönderilen iletiler kaybedilir.
 
-SignalR Redis sunucusuna yeniden kullanılabilir olduğunda otomatik olarak yeniden bağlanır.
+Redi sunucusu yeniden kullanılabilir olduğunda SignalR otomatik olarak yeniden bağlanır.
 
-### <a name="custom-behavior-for-connection-failures"></a>Bağlantı hataları için özel davranış
+### <a name="custom-behavior-for-connection-failures"></a>Bağlantı hatalarıyla ilgili özel davranış
 
-Redis bağlantısı hatası olaylarının nasıl ele alınacağını gösteren bir örnek aşağıda verilmiştir.
+Redsıs bağlantı hatası olaylarının nasıl işleneceğini gösteren bir örnek aşağıda verilmiştir.
 
 ::: moniker range="= aspnetcore-2.1"
 
@@ -184,15 +186,15 @@ services.AddSignalR()
 
 ::: moniker-end
 
-## <a name="redis-clustering"></a>Redis kümeleme
+## <a name="redis-clustering"></a>Redsıs Kümelemesi
 
-[Redis Kümeleme](https://redis.io/topics/cluster-spec) birden çok Redis sunucuları kullanarak yüksek kullanılabilirlik elde etmek için kullanabileceğiniz bir yöntemdir. Kümeleme resmi olarak desteklenmez ancak işe yarayabilir.
+[Redsıs Kümelemesi](https://redis.io/topics/cluster-spec) , birden çok redo sunucusu kullanarak yüksek kullanılabilirlik elde etmek için kullanılan bir yöntemdir. Kümeleme resmi olarak desteklenmez, ancak çalışmayabilir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Daha fazla bilgi için aşağıdaki kaynaklara bakın:
 
 * <xref:signalr/scale>
-* [Redis belgeleri](https://redis.io/documentation)
-* [StackExchange Redis belgeleri](https://stackexchange.github.io/StackExchange.Redis/)
+* [Redsıs belgeleri](https://redis.io/documentation)
+* [StackExchange redin belgeleri](https://stackexchange.github.io/StackExchange.Redis/)
 * [Azure Redis Cache belgeleri](https://docs.microsoft.com/azure/redis-cache/)

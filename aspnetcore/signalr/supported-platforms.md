@@ -1,20 +1,22 @@
 ---
-title: ASP.NET Core SignalR desteklenen platformlar
+title: Desteklenen SignalR platformları ASP.NET Core
 author: bradygaster
-description: ASP.NET Core SignalR için desteklenen platformlar hakkında bilgi edinin.
+description: ASP.NET Core SignalRiçin desteklenen platformlar hakkında bilgi edinin.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: bradyg
 ms.custom: mvc
-ms.date: 11/01/2019
+ms.date: 11/12/2019
+no-loc:
+- SignalR
 uid: signalr/supported-platforms
-ms.openlocfilehash: 1be7a307710e6e522c0088fd1ca01da11a13eda1
-ms.sourcegitcommit: 77c8be22d5e88dd710f42c739748869f198865dd
+ms.openlocfilehash: 86ba5b1aec230d78c1a0e1709187e129df6cb4cc
+ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2019
-ms.locfileid: "73426975"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73963739"
 ---
-# <a name="aspnet-core-signalr-supported-platforms"></a>ASP.NET Core SignalR desteklenen platformlar
+# <a name="aspnet-core-opno-locsignalr-supported-platforms"></a>Desteklenen SignalR platformları ASP.NET Core
 
 ## <a name="server-system-requirements"></a>Sunucu sistem gereksinimleri
 
@@ -36,7 +38,7 @@ ASP.NET Core için SignalR, ASP.NET Core desteklediği tüm sunucu platformunu d
 
 ## <a name="net-client"></a>.NET istemcisi
 
-[.Net Client](https://www.nuget.org/packages/Microsoft.AspNetCore.SignalR/) , ASP.NET Core tarafından desteklenen herhangi bir platformda çalışır. Örneğin, Xamarin geliştiricileri, Xamarin. iOS 8.4.0.1 ve üzeri ile iOS uygulamalarını ve Xamarin. iOS 11.14.0.4 ve üstünü kullanarak Android uygulamaları oluşturmak için [SignalR 'yi kullanabilir](https://github.com/aspnet/Announcements/issues/305) .
+[.Net Client](https://www.nuget.org/packages/Microsoft.AspNetCore.SignalR/) , ASP.NET Core tarafından desteklenen herhangi bir platformda çalışır. Örneğin, Xamarin geliştiricileri, Xamarin. iOS 8.4.0.1 ve üstünü kullanarak Android uygulamaları oluşturmak için [SignalRkullanabilir](https://github.com/aspnet/Announcements/issues/305) ve Xamarin. iOS 11.14.0.4 ve üstünü kullanarak iOS uygulamaları oluşturabilir.
 
 Sunucu IIS çalıştırıyorsa, WebSockets aktarımı Windows Server 2012 veya üzeri sürümlerde IIS 8,0 veya sonraki bir sürümü gerektirir. Diğer aktarımlar tüm platformlarda desteklenir.
 

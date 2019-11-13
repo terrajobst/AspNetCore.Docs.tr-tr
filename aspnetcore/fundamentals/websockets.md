@@ -5,14 +5,16 @@ description: ASP.NET Core 'de WebSockets kullanmaya başlama hakkında bilgi edi
 monikerRange: '>= aspnetcore-1.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 05/10/2019
+ms.date: 11/12/2019
+no-loc:
+- SignalR
 uid: fundamentals/websockets
-ms.openlocfilehash: 098e6826d6f7114baceb9578dc6d9883eb83f0aa
-ms.sourcegitcommit: a166291c6708f5949c417874108332856b53b6a9
+ms.openlocfilehash: fc07d572116f8eea2b30ea6cf80324e5c66f994c
+ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72589702"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73963166"
 ---
 # <a name="websockets-support-in-aspnet-core"></a>ASP.NET Core desteği WebSockets
 
@@ -22,11 +24,11 @@ Bu makalede, ASP.NET Core ' de WebSockets ile çalışmaya başlama açıklanmak
 
 [Örnek kodu görüntüleyin veya indirin](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/websockets/samples) ([nasıl indirilir](xref:index#how-to-download-a-sample)). [Nasıl çalıştırılır?](#sample-app)
 
-## <a name="signalr"></a>SignalR
+## SignalR
 
 [ASP.NET Core SignalR](xref:signalr/introduction) , uygulamalara gerçek zamanlı Web işlevselliği eklemeyi kolaylaştıran bir kitaplıktır. Mümkün olduğunda WebSockets kullanır.
 
-Çoğu uygulama için ham WebSockets üzerinden SignalR önerilir. SignalR, WebSockets 'in kullanılamadığı ortamlar için taşıma geri dönüşü sağlar. Ayrıca, basit bir uzak yordam çağrısı uygulama modeli sağlar. Birçok senaryoda, SignalR 'nin ham WebSockets kullanmaya kıyasla önemli bir performans dezavantajı yoktur.
+Çoğu uygulama için ham WebSockets üzerinde SignalR önerilir. SignalR, WebSockets 'in kullanılamadığı ortamlar için taşıma geri dönüşü sağlar. Ayrıca, basit bir uzak yordam çağrısı uygulama modeli sağlar. Çoğu senaryoda, ham WebSockets kullanmaya kıyasla SignalR önemli bir performans dezavantajı yoktur.
 
 ## <a name="prerequisites"></a>Prerequisites
 
@@ -60,7 +62,7 @@ Bu makalede, ASP.NET Core ' de WebSockets ile çalışmaya başlama açıklanmak
 ## <a name="configure-the-middleware"></a>Ara yazılımı yapılandırma
 
 
-@No__t_1 sınıfının `Configure` metoduna WebSockets ara yazılımını ekleyin:
+`Startup` sınıfının `Configure` metoduna WebSockets ara yazılımını ekleyin:
 
 [!code-csharp[](websockets/samples/2.x/WebSocketsSample/Startup.cs?name=UseWebSockets)]
 
@@ -102,7 +104,7 @@ System.Net.WebSockets.WebSocketException (0x80004005): The remote party closed t
 Object name: 'HttpResponseStream'.
 ```
 
-WebSocket 'e veri yazmak için bir arka plan hizmeti kullanıyorsanız, ara yazılım ardışık düzenini çalışır durumda tutmanız gerekir. Bunu bir <xref:System.Threading.Tasks.TaskCompletionSource%601> kullanarak yapın. @No__t_0 arka plan hizmetinize geçirin ve WebSocket ile bitirdiğinizde <xref:System.Threading.Tasks.TaskCompletionSource%601.TrySetResult%2A> çağırın. Ardından, aşağıdaki örnekte gösterildiği gibi, istek sırasında <xref:System.Threading.Tasks.TaskCompletionSource%601.Task> özelliğini `await`:
+WebSocket 'e veri yazmak için bir arka plan hizmeti kullanıyorsanız, ara yazılım ardışık düzenini çalışır durumda tutmanız gerekir. Bunu bir <xref:System.Threading.Tasks.TaskCompletionSource%601>kullanarak yapın. `TaskCompletionSource` arka plan hizmetinize geçirin ve WebSocket ile bitirdiğinizde <xref:System.Threading.Tasks.TaskCompletionSource%601.TrySetResult%2A> çağırın. Ardından, aşağıdaki örnekte gösterildiği gibi, istek sırasında <xref:System.Threading.Tasks.TaskCompletionSource%601.Task> özelliğini `await`:
 
 ```csharp
 app.Use(async (context, next) => {
@@ -116,11 +118,11 @@ app.Use(async (context, next) => {
 ```
 Bir eylem yönteminden çok yakında döndürüyseniz, WebSocket kapalı özel durumu da oluşabilir. Bir eylem yönteminde bir yuvayı kabul ediyorsanız, işlem yönteminden dönmeden önce yuva kullanan kodun tamamlanmasını bekleyin.
 
-Önemli iş parçacığı sorunlarına neden olabileceği için, yuvanın tamamlanmasını beklemek için `Task.Wait()`, `Task.Result` veya benzer engelleme çağrılarını hiçbir şekilde kullanmayın. @No__t_0 her zaman kullanın.
+Önemli iş parçacığı sorunlarına neden olabileceği için, yuvanın tamamlanmasını beklemek için `Task.Wait()`, `Task.Result` veya benzer engelleme çağrılarını hiçbir şekilde kullanmayın. `await`her zaman kullanın.
 
 ## <a name="send-and-receive-messages"></a>İleti gönderme ve alma
 
-@No__t_0 yöntemi, TCP bağlantısını WebSocket bağlantısıyla yükseltir ve bir [WebSocket](/dotnet/core/api/system.net.websockets.websocket) nesnesi sağlar. İleti göndermek ve almak için `WebSocket` nesnesini kullanın.
+`AcceptWebSocketAsync` yöntemi, TCP bağlantısını WebSocket bağlantısıyla yükseltir ve bir [WebSocket](/dotnet/core/api/system.net.websockets.websocket) nesnesi sağlar. İleti göndermek ve almak için `WebSocket` nesnesini kullanın.
 
 WebSocket isteğini kabul eden daha önce gösterilen kod `WebSocket` nesnesini bir `Echo` yöntemine geçirir. Kod bir ileti alır ve hemen aynı iletiyi geri gönderir. İletiler, istemci bağlantıyı kapatana kadar bir döngüde gönderilir ve alınır:
 
@@ -150,7 +152,7 @@ Sunucunuzu "https://server.com" üzerinde barındırıyorsanız ve istemcinizi "
 [!code-csharp[](websockets/samples/2.x/WebSocketsSample/Startup.cs?name=UseWebSocketsOptionsAO&highlight=6-7)]
 
 > [!NOTE]
-> @No__t_0 üstbilgisi istemci tarafından denetlenir ve `Referer` üst bilgisi gibi erişilebilir. Bu üst bilgileri kimlik doğrulama mekanizması **olarak kullanmayın.**
+> `Origin` üstbilgisi istemci tarafından denetlenir ve `Referer` üst bilgisi gibi erişilebilir. Bu üst bilgileri kimlik doğrulama mekanizması **olarak kullanmayın.**
 
 ::: moniker-end
 
@@ -182,7 +184,7 @@ Windows 8 veya sonraki sürümlerde WebSocket protokolü desteğini etkinleştir
 > [!NOTE]
 > IIS Express kullanılırken bu adımlar gerekli değildir
 
-1. **Denetim masası** > **Programlar** > **Programlar ve Özellikler** > **Windows özelliklerini açın veya kapatın** (ekranın sol tarafında).
+1.  > programlar ve Özellikler > **Programlar** **ve Özellikler** ' **e gidin > ** **Windows özelliklerini açın veya kapatın** (ekranın sol tarafında).
 1. Şu düğümleri açın: **Internet Information Services**  > **World Wide Web  >  Hizmetleri** **uygulama geliştirme özellikleri**.
 1. **WebSocket protokolü** özelliğini seçin. **Tamam ' ı**seçin.
 

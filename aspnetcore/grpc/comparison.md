@@ -4,14 +4,16 @@ author: jamesnk
 description: GRPC 'nin HTTP API 'Leri ile nasıl Karşılaştırıldığı ve bu senaryonun önerdiğimiz ne olduğunu öğrenin.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: jamesnk
-ms.date: 09/25/2019
+ms.date: 11/12/2019
+no-loc:
+- SignalR
 uid: grpc/comparison
-ms.openlocfilehash: 52b057876481bd9be4f83d93b1f05081ed19660f
-ms.sourcegitcommit: a166291c6708f5949c417874108332856b53b6a9
+ms.openlocfilehash: ceb24d656827548492a6fa326681922297fc481b
+ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72589969"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73963652"
 ---
 # <a name="compare-grpc-services-with-http-apis"></a>gRPC hizmetlerini HTTP API’leriyle karşılaştırma
 
@@ -80,8 +82,8 @@ gRPC aşağıdaki senaryolara uygundur:
 
 * **Mikro hizmetler** &ndash; GRPC, düşük gecikme süresi ve yüksek işleme iletişimi için tasarlanmıştır. gRPC, verimlilik açısından kritik olan hafif mikro hizmetler için harika.
 * **Noktadan noktaya gerçek zamanlı iletişim** &ndash; GRPC, iki yönlü akış için harika desteğe sahiptir. gRPC Hizmetleri, yoklama yapmadan iletileri gerçek zamanlı olarak gönderebilir.
-* **@No__t_1** GRPC araçları, tüm popüler geliştirme dillerini destekler ve GRPC 'yi çok dilli ortamlar için iyi bir seçenek yapar.
-* **Ağ kısıtlamalı ortamlar** &ndash; GRPC iletileri, hafif bir ileti biçimi olan protoarabelleğe göre serileştirilir. GRPC iletisi her zaman denk bir JSON iletisinden daha küçüktür.
+* **&ndash;** GRPC araçları, tüm popüler geliştirme dillerini destekler ve GRPC 'yi çok dilli ortamlar için iyi bir seçenek yapar.
+* **Ağ kısıtlamalı ortamlar** &ndash; GRPC iletileri, hafif bir ileti biçimi olan protoarabellek ile serileştirilir. GRPC iletisi her zaman denk bir JSON iletisinden daha küçüktür.
 
 ## <a name="grpc-weaknesses"></a>gRPC zayıflığı
 
@@ -105,9 +107,9 @@ gRPC iletileri varsayılan olarak Protodeğer ile kodlanır. Protoarabellek gön
 
 Aşağıdaki senaryolarda gRPC üzerinden diğer çerçeveler önerilir:
 
-* **Tarayıcıda erişilebilir API 'ler** &ndash; GRPC tarayıcıda tam olarak desteklenmez. gRPC-Web tarayıcı desteği sunabilir, ancak sınırlamaları vardır ve sunucu proxy 'sini tanıtır.
+* Tarayıcı **erişilebilir API 'ler** &ndash; GRPC, tarayıcıda tam olarak desteklenmez. gRPC-Web tarayıcı desteği sunabilir, ancak sınırlamaları vardır ve sunucu proxy 'sini tanıtır.
 * **Gerçek zamanlı iletişim** &ndash; GRPC, akış aracılığıyla gerçek zamanlı iletişimi destekler, ancak kayıtlı bağlantılara bir ileti yayınlama kavramı mevcut değildir. Örneğin, sohbet odasındaki tüm istemcilere yeni sohbet iletilerinin gönderilmesi gereken bir sohbet odası senaryosunda her bir gRPC çağrısı, istemciye yeni sohbet iletilerini tek tek akışa almak için gereklidir. [SignalR](xref:signalr/introduction) , bu senaryo için kullanışlı bir çerçevedir. SignalR, sürekli bağlantılar ve yayın iletileri için yerleşik destek kavramıdır.
-* **İşlem içi iletişim** &ndash; bir işlem, gelen GRPC çağrılarını kabul etmek IÇIN bir http/2 sunucusu barındırmalıdır. Windows için, işlemler arası iletişim [kanalları](/dotnet/standard/io/pipe-operations) hızlı ve hafif bir iletişim yöntemidir.
+* İşlemler **arası iletişim** &ndash; bir işlem, gelen GRPC çağrılarını kabul etmek IÇIN bir http/2 sunucusu barındırmalıdır. Windows için, işlemler arası iletişim [kanalları](/dotnet/standard/io/pipe-operations) hızlı ve hafif bir iletişim yöntemidir.
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
