@@ -1,20 +1,23 @@
 ---
-title: ASP.NET Core Blazor Server 'ı barındırma ve dağıtma
+title: ASP.NET Core Blazor sunucusu barındırma ve dağıtma
 author: guardrex
-description: ASP.NET Core kullanarak bir Blazor Server uygulamasını nasıl barındırılacağını ve dağıtacağınızı öğrenin.
+description: ASP.NET Core kullanarak Blazor sunucu uygulamasının nasıl barındırılacağını ve dağıtılacağını öğrenin.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/05/2019
+ms.date: 11/12/2019
+no-loc:
+- Blazor
+- SignalR
 uid: host-and-deploy/blazor/server
-ms.openlocfilehash: 693d7ff67bad3a0c5bd050b795833763056ed511
-ms.sourcegitcommit: dd026eceee79e943bd6b4a37b144803b50617583
+ms.openlocfilehash: ad83c57f55c75d4a49656fa5d7046c32b0f049ff
+ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72378823"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73963571"
 ---
-# <a name="host-and-deploy-blazor-server"></a>Blazor sunucusu barındırma ve dağıtma
+# <a name="host-and-deploy-opno-locblazor-server"></a>Blazor sunucusu barındırma ve dağıtma
 
 , [Luke Latham](https://github.com/guardrex), [Rainer Stropek](https://www.timecockpit.com)ve [Daniel Roth](https://github.com/danroth27) tarafından
 
@@ -24,13 +27,13 @@ ms.locfileid: "72378823"
 
 ## <a name="deployment"></a>Dağıtım
 
-[Blazor sunucusu barındırma modelini](xref:blazor/hosting-models#blazor-server)kullanarak, Blazor, sunucuda ASP.NET Core bir uygulama içinden yürütülür. Kullanıcı Arabirimi güncelleştirmeleri, olay işleme ve JavaScript çağrıları bir [SignalR](xref:signalr/introduction) bağlantısı üzerinden işlenir.
+[Blazor sunucusu barındırma modelini](xref:blazor/hosting-models#blazor-server)kullanarak, Blazor sunucuda bir ASP.NET Core uygulaması içinden yürütülür. Kullanıcı Arabirimi güncelleştirmeleri, olay işleme ve JavaScript çağrıları [SignalR](xref:signalr/introduction) bir bağlantı üzerinden işlenir.
 
-ASP.NET Core uygulaması barındırabilen bir Web sunucusu gerekiyor. Visual Studio, [DotNet New](/dotnet/core/tools/dotnet-new) komutu kullanılırken **Blazor Server App** proje şablonunu (`blazorserverside` şablonu) içerir.
+ASP.NET Core uygulaması barındırabilen bir Web sunucusu gerekiyor. Visual Studio, [DotNet New](/dotnet/core/tools/dotnet-new) komutu kullanılırken **Blazor Server uygulaması** proje şablonunu (`blazorserverside` şablonu) içerir.
 
 ## <a name="scalability"></a>Ölçeklenebilirlik
 
-Bir Blazor sunucusu uygulaması için kullanılabilir altyapıyı en iyi şekilde kullanmasını sağlamak üzere bir dağıtım planlayın. Blazor Server uygulama ölçeklenebilirliğini ele almak için aşağıdaki kaynaklara bakın:
+Bir Blazor sunucusu uygulaması için kullanılabilir altyapıyı en iyi şekilde kullanmasını sağlamak üzere bir dağıtım planlayın. Blazor Server uygulama ölçeklenebilirliğini karşılamak için aşağıdaki kaynaklara bakın:
 
 * [Blazor Server uygulamalarının temelleri](xref:blazor/hosting-models#blazor-server)
 * <xref:security/blazor/server>
@@ -42,20 +45,20 @@ Tek bir sunucunun ölçeklenebilirliğini değerlendirirken (ölçeği büyütme
 * Bir sunucunun destekleyebileceği etkin devre sayısı.
 * İstemcide UI gecikme süresi.
 
-Güvenli ve ölçeklenebilir Blazor Server uygulamaları oluşturma hakkında yönergeler için bkz. <xref:security/blazor/server>.
+Güvenli ve ölçeklenebilir Blazor sunucu uygulamaları oluşturma hakkında yönergeler için bkz. <xref:security/blazor/server>.
 
 Her bağlantı hattı en düşük *Merhaba Dünya*stilinde bir uygulama için YAKLAŞıK 250 KB bellek kullanır. Bir devrenin boyutu, uygulamanın koduna ve her bileşenle ilişkili durum bakım gereksinimlerine bağlıdır. Uygulama ve altyapınız için geliştirme sırasında kaynak taleplerini ölçmenizi öneririz, ancak aşağıdaki taban çizgisi, dağıtım hedefini planlamada bir başlangıç noktası olabilir: uygulamanızın 5.000 eşzamanlı kullanıcı desteklemesini istiyorsanız, şu adreste bütçeleme yapmayı düşünün: uygulamaya en az 1,3 GB sunucu belleği (veya Kullanıcı başına ~ 273 KB).
 
-### <a name="signalr-configuration"></a>SignalR yapılandırması
+### <a name="opno-locsignalr-configuration"></a>SignalR yapılandırması
 
-Blazor Server Apps, tarayıcıyla iletişim kurmak için ASP.NET Core SignalR kullanır. [SignalR 'nin barındırma ve ölçeklendirme koşulları](xref:signalr/publish-to-azure-web-app) Blazor Server uygulamaları için geçerlidir.
+Blazor sunucu uygulamaları tarayıcıyla iletişim kurmak için ASP.NET Core SignalR kullanır. [SignalRbarındırma ve ölçeklendirme koşulları](xref:signalr/publish-to-azure-web-app) Blazor sunucu uygulamaları için geçerlidir.
 
-Blazor, düşük gecikme süresi, güvenilirlik ve [güvenlik](xref:signalr/security)nedeniyle SignalR taşıması olarak WebSockets kullanırken en iyi şekilde geçerlidir. Uzun yoklama, WebSockets kullanılamadığında veya uygulama açıkça uzun yoklamayı kullanacak şekilde yapılandırıldığında, SignalR tarafından kullanılır. Azure App Service dağıtım sırasında, uygulamayı hizmetin Azure portal ayarları içinde kullanmak üzere yapılandırın. Azure App Service için uygulamayı yapılandırma hakkında ayrıntılı bilgi için bkz. [SignalR yayımlama yönergeleri](xref:signalr/publish-to-azure-web-app).
+daha düşük gecikme süresi, güvenilirlik ve [güvenlik](xref:signalr/security)nedeniyle SignalR taşıma olarak WebSockets kullanırken Blazor en iyi şekilde işe yarar. Uzun yoklama, WebSockets kullanılamadığında veya uygulama açıkça uzun yoklamayı kullanacak şekilde yapılandırıldığında SignalR tarafından kullanılır. Azure App Service dağıtım sırasında, uygulamayı hizmetin Azure portal ayarları içinde kullanmak üzere yapılandırın. Azure App Service için uygulamayı yapılandırma hakkında ayrıntılı bilgi için bkz. [SignalR yayımlama yönergeleri](xref:signalr/publish-to-azure-web-app).
 
-Blazor Server uygulamaları için [Azure SignalR hizmetini](/azure/azure-signalr) kullanmanızı öneririz. Hizmet, Blazor sunucu uygulamasını çok sayıda eşzamanlı SignalR bağlantısına ölçeklendirmeye olanak tanır. Ayrıca, SignalR hizmetinin küresel erişim ve yüksek performanslı veri merkezleri Coğrafya nedeniyle gecikme süresini azaltmaya önemli ölçüde yardımcı olur. Azure SignalR hizmetini bir uygulamayı yapılandırmak (ve isteğe bağlı olarak sağlamak) için:
+Blazor Server uygulamaları için [Azure SignalR hizmetini](/azure/azure-signalr) kullanmanızı öneririz. Hizmet, Blazor sunucu uygulamasının ölçeğini çok sayıda eşzamanlı SignalR bağlantı ile ölçeklendirmeye olanak tanır. Ayrıca, SignalR hizmetin küresel erişim ve yüksek performanslı veri merkezleri Coğrafya nedeniyle gecikme süresini azaltmaya önemli ölçüde yardımcı olur. Azure SignalR hizmetini bir uygulamayı yapılandırmak (ve isteğe bağlı olarak sağlamak) için:
 
 * Blazor Server uygulaması için Visual Studio 'da bir Azure Apps yayımlama profili oluşturun.
-* **Azure SignalR hizmeti** bağımlılığını profile ekleyin. Azure aboneliğinin uygulamaya atanacak önceden var olan bir Azure SignalR hizmeti örneği yoksa, yeni bir hizmet örneği sağlamak için **Yeni bir Azure SignalR hizmet örneği oluştur** ' u seçin.
+* **Azure SignalR hizmeti** bağımlılığını profile ekleyin. Azure aboneliğinin uygulamaya atanacak önceden mevcut bir Azure SignalR hizmeti örneği yoksa, yeni bir hizmet örneği sağlamak için **Yeni bir azure SignalR hizmet örneği oluştur** ' u seçin.
 * Uygulamayı Azure 'da yayımlayın.
 
 ### <a name="measure-network-latency"></a>Ölçü ağı gecikmesi

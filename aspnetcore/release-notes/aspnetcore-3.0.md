@@ -4,20 +4,23 @@ author: rick-anderson
 description: ASP.NET Core 3,0 ' deki yeni özellikler hakkında bilgi edinin.
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/31/2019
+ms.date: 11/12/2019
+no-loc:
+- Blazor
+- SignalR
 uid: aspnetcore-3.0
-ms.openlocfilehash: 8c53d8a9fa222ca40f26dc713ec3b70ddde76539
-ms.sourcegitcommit: eb2fe5ad2e82fab86ca952463af8d017ba659b25
+ms.openlocfilehash: c3dde383507ec919f82b5268ddbf23911c3d24f8
+ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2019
-ms.locfileid: "73416117"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73963116"
 ---
 # <a name="whats-new-in-aspnet-core-30"></a>ASP.NET Core 3,0 ' deki yenilikler
 
 Bu makalede, ASP.NET Core 3,0 ' deki en önemli değişiklikler ilgili belgelerin bağlantılarıyla vurgulanır.
 
-## <a name="blazor"></a>Blazor
+## Blazor
 
 Blazor, .NET ile etkileşimli istemci tarafı Web Kullanıcı arabirimi oluşturmak için ASP.NET Core yeni bir çerçevedir:
 
@@ -37,19 +40,19 @@ Blazor Framework desteklenen senaryolar:
 
 Daha fazla bilgi için bkz. <xref:blazor/index>.
 
-### <a name="blazor-server"></a>Blazor Server
+### <a name="opno-locblazor-server"></a>Blazor sunucusu
 
-Blazor, Kullanıcı arabirimi güncelleştirmelerinin uygulanma, bileşen işleme mantığını ayırır. Blazor Server, Razor bileşenlerini bir ASP.NET Core uygulamasındaki sunucuda barındırmak için destek sağlar. Kullanıcı Arabirimi güncelleştirmeleri bir SignalR bağlantısı üzerinden işlenir. Blazor sunucusu ASP.NET Core 3,0 ' de desteklenir.
+Blazor, Kullanıcı arabirimi güncelleştirmelerinin uygulanma, bileşen işleme mantığını ayırır. Blazor Server, bir ASP.NET Core uygulamasındaki sunucuda Razor bileşenlerini barındırmak için destek sağlar. Kullanıcı Arabirimi güncelleştirmeleri SignalR bir bağlantı üzerinden işlenir. Blazor Server ASP.NET Core 3,0 ' de desteklenir.
 
-### <a name="blazor-webassembly-preview"></a>Blazor WebAssembly (Önizleme)
+### <a name="opno-locblazor-webassembly-preview"></a>Blazor WebAssembly (Önizleme)
 
 Blazor uygulamalar, bir WebAssembly tabanlı .NET çalışma zamanı kullanarak doğrudan tarayıcıda da çalıştırılabilir. Blazor WebAssembly Önizleme *aşamasındadır ve ASP.NET Core 3,0 ' de* desteklenmez. Blazor WebAssembly ASP.NET Core gelecek bir sürümünde desteklenecektir.
 
 ### <a name="razor-components"></a>Razor bileşenleri
 
-Blazor uygulamaları bileşenlerinden oluşturulmuştur. Bileşenler, bir sayfa, iletişim kutusu veya form gibi kullanıcı arabirimi (UI) için kendi içinde yer alan öbeklerdir. Bileşenler, Kullanıcı arabirimi işleme mantığını ve istemci tarafı olay işleyicilerini tanımlayan normal .NET sınıflarıdır. JavaScript olmadan zengin etkileşimli Web uygulamaları oluşturabilirsiniz.
+Blazor uygulamalar bileşenlerinden oluşturulmuştur. Bileşenler, bir sayfa, iletişim kutusu veya form gibi kullanıcı arabirimi (UI) için kendi içinde yer alan öbeklerdir. Bileşenler, Kullanıcı arabirimi işleme mantığını ve istemci tarafı olay işleyicilerini tanımlayan normal .NET sınıflarıdır. JavaScript olmadan zengin etkileşimli Web uygulamaları oluşturabilirsiniz.
 
-Blazor içindeki bileşenler genellikle HTML ve C#doğal bir Blend Razor söz dizimi kullanılarak yazılır. Razor bileşenleri, her ikisi de Razor kullanan Razor Pages ve MVC görünümlerine benzerdir. Bir istek-yanıt modelini temel alan sayfaların ve görünümlerin aksine, bileşenler Kullanıcı arabirimi oluşturmayı işlemek için kullanılır.
+Blazor bileşenleri genellikle HTML ve C#doğal bir Blend Razor söz dizimi kullanılarak yazılır. Razor bileşenleri, her ikisi de Razor kullanan Razor Pages ve MVC görünümlerine benzerdir. Bir istek-yanıt modelini temel alan sayfaların ve görünümlerin aksine, bileşenler Kullanıcı arabirimi oluşturmayı işlemek için kullanılır.
 
 ## <a name="grpc"></a>gRPC
 
@@ -76,11 +79,11 @@ ASP.NET Core 3,0 ' deki gRPC işlevselliği şunları içerir:
 
 Daha fazla bilgi için bkz. <xref:grpc/index>.
 
-## <a name="signalr"></a>SignalR
+## SignalR
 
-Bkz. geçiş yönergeleri için [SignalR kodunu güncelleştirme](xref:migration/22-to-30#signalr) . SignalR artık JSON iletilerini serileştirmek/seri durumdan çıkarmak için `System.Text.Json` kullanır. `Newtonsoft.Json`tabanlı serileştiriciyi geri yükleme yönergeleri için [Newtonsoft. JSON anahtarına geçin](xref:migration/22-to-30#switch-to-newtonsoftjson) .
+Bkz. geçiş yönergeleri için [SignalR kodu güncelleştirme](xref:migration/22-to-30#signalr) . SignalR artık JSON iletilerini serileştirmek/seri durumdan çıkarmak için `System.Text.Json` kullanır. `Newtonsoft.Json`tabanlı serileştiriciyi geri yükleme yönergeleri için [Newtonsoft. JSON anahtarına geçin](xref:migration/22-to-30#switch-to-newtonsoftjson) .
 
-SignalR için JavaScript ve .NET Istemcilerinde otomatik yeniden bağlantı için destek eklenmiştir. Varsayılan olarak, istemci hemen yeniden bağlanmaya çalışır ve gerekirse 2, 10 ve 30 saniye sonra yeniden dener. İstemci başarıyla yeniden bağlanırsa, yeni bir bağlantı KIMLIĞI alır. Otomatik yeniden bağlanma kabul etme:
+SignalRiçin JavaScript ve .NET Istemcilerinde, otomatik yeniden bağlanma için destek eklenmiştir. Varsayılan olarak, istemci hemen yeniden bağlanmaya çalışır ve gerekirse 2, 10 ve 30 saniye sonra yeniden dener. İstemci başarıyla yeniden bağlanırsa, yeni bir bağlantı KIMLIĞI alır. Otomatik yeniden bağlanma kabul etme:
 
 ```javascript
 const connection = new signalR.HubConnectionBuilder()
@@ -105,7 +108,7 @@ Son yeniden bağlanma aralığından sonra yeniden bağlantı başarısız olurs
 
 Yeniden bağlanma denemeleri sırasında, kullanıcıya yeniden bağlantı denenmekte olduğunu bildirmek için uygulama kullanıcı arabirimini güncelleştirin.
 
-Bağlantı kesildiğinde UI geri bildirimi sağlamak için, SignalR istemci API 'SI aşağıdaki olay işleyicilerini içerecek şekilde genişletilir:
+Bağlantı kesildiğinde UI geri bildirimi sağlamak için SignalR istemci API 'SI aşağıdaki olay işleyicilerini içerecek şekilde genişletilir:
 
 * `onreconnecting`: geliştiricilere Kullanıcı arabirimini devre dışı bırakma veya kullanıcıların uygulamanın çevrimdışı olduğunu bilmesini sağlayan bir fırsat sağlar.
 * `onreconnected`: bağlantı kurulduktan sonra geliştiricilere Kullanıcı arabirimini güncelleştirme fırsatı verir.
@@ -222,7 +225,7 @@ services
     });
 ```
 
-SignalR hub 'ları [Endpoint Routing](xref:fundamentals/routing)kullanır. SignalR Hub bağlantısı daha önce açık şekilde yapıldı:
+SignalR hub 'ları [uç nokta yönlendirme](xref:fundamentals/routing)kullanır. SignalR Hub bağlantısı daha önce açık olarak yapıldı:
 
 ```csharp
 app.UseSignalR(routes =>
@@ -286,7 +289,7 @@ async IAsyncEnumerable<string> clientStreamData()
 await connection.SendAsync("UploadStream", clientStreamData());
 ```
 
-JavaScript istemci uygulamaları, yukarıdaki `UploadStream` hub yönteminin `stream` bağımsız değişkeni için SignalR `Subject` (veya bir [Rxjs konusu](https://rxjs.dev/api/index/class/Subject)) kullanır.
+JavaScript istemci uygulamaları yukarıdaki `UploadStream` hub yönteminin `stream` bağımsız değişkeni için SignalR `Subject` (veya bir [Rxjs konusu](https://rxjs.dev/api/index/class/Subject)) kullanır.
 
 ```javascript
 let subject = new signalR.Subject();
@@ -308,7 +311,7 @@ ASP.NET Core 3,0 artık JSON serileştirme için varsayılan olarak <xref:System
 
 * JSON 'yi zaman uyumsuz olarak okur ve yazar.
 * UTF-8 metni için iyileştirilmiştir.
-* Genellikle `Newtonsoft.Json` ' dan daha yüksek performans.
+* Genellikle `Newtonsoft.Json`kıyasla daha yüksek performans.
 
 ASP.NET Core 3,0 ' ye Json.NET eklemek için bkz. [Newtonsoft. JSON tabanlı JSON biçimi desteği ekleme](xref:web-api/advanced/formatting#add-newtonsoftjson-based-json-format-support).
 
@@ -423,7 +426,7 @@ Tüm hizmetler yine de `Startup.Configure` metoduna bağımsız değişken olara
 
 * Kestrel yapılandırması, genel konağa geçiş için güncelleştirildi. 3,0 ' de Kestrel, `ConfigureWebHostDefaults`tarafından belirtilen Web ana bilgisayar Oluşturucu üzerinde yapılandırılır.
 * Bağlantı bağdaştırıcıları, Kestrel adresinden kaldırılmıştır ve bağlantı ara yazılımı ile değiştirilmiştir ve bu, ASP.NET Core işlem hattındaki HTTP ara hattına benzer ancak alt düzey bağlantılar için kullanılır.
-* Kestrel aktarım katmanı `Connections.Abstractions` ' da ortak arabirim olarak kullanıma sunuldu.
+* Kestrel aktarım katmanı `Connections.Abstractions`bir ortak arabirim olarak kullanıma sunuldu.
 * Sondaki üstbilgiler yeni bir koleksiyona taşınarak üstbilgiler ve tanıtımları arasındaki belirsizlik çözüldü.
 * `HttpRequest.Body.Read`gibi zaman uyumlu GÇ API 'Leri, uygulama kilitlenmelerine neden olan yaygın bir iş parçacığı kaynağıdır. 3,0 ' de, `AllowSynchronousIO` varsayılan olarak devre dışıdır.
 

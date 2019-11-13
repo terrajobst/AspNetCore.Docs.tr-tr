@@ -1,20 +1,22 @@
 ---
-title: ASP.NET Core Blazor desteklenen platformlar
+title: Desteklenen Blazor platformları ASP.NET Core
 author: guardrex
-description: ASP.NET Core Blazor için desteklenen platformlar hakkında bilgi edinin.
+description: ASP.NET Core Blazoriçin desteklenen platformlar hakkında bilgi edinin.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
 ms.date: 10/15/2019
+no-loc:
+- Blazor
 uid: blazor/supported-platforms
-ms.openlocfilehash: 4e86bd6967a747a59c99a515c1c838cc2c21770f
-ms.sourcegitcommit: 35a86ce48041caaf6396b1e88b0472578ba24483
+ms.openlocfilehash: de51296cc8785474e1c1406cfd5d4e5bd4050172
+ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72391225"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73962739"
 ---
-# <a name="aspnet-core-blazor-supported-platforms"></a>ASP.NET Core Blazor desteklenen platformlar
+# <a name="aspnet-core-opno-locblazor-supported-platforms"></a>Desteklenen Blazor platformları ASP.NET Core
 
 [Luke Latham](https://github.com/guardrex) tarafından
 
@@ -22,7 +24,7 @@ ms.locfileid: "72391225"
 
 ## <a name="browser-requirements"></a>Tarayıcı gereksinimleri
 
-### <a name="blazor-webassembly"></a>Blazor WebAssembly
+### <a name="opno-locblazor-webassembly"></a>Blazor WebAssembly
 
 | Tarayıcı                          | Version               |
 | -------------------------------- | :-------------------: |
@@ -30,11 +32,11 @@ ms.locfileid: "72391225"
 | Mozilla Firefox                  | Geçerli               |
 | Android dahil Google Chrome | Geçerli               |
 | İOS dahil Safari            | Geçerli               |
-| Microsoft Internet Explorer      | Desteklenmiyor @ no__t-0 |
+| Microsoft Internet Explorer      | Desteklenmez&dagger; |
 
 &dagger;Microsoft Internet Explorer [Webassembly](https://webassembly.org)'yi desteklemez.
 
-### <a name="blazor-server"></a>Blazor Server
+### <a name="opno-locblazor-server"></a>Blazor sunucusu
 
 | Tarayıcı                          | Version    |
 | -------------------------------- | :--------: |
@@ -42,7 +44,7 @@ ms.locfileid: "72391225"
 | Mozilla Firefox                  | Geçerli    |
 | Android dahil Google Chrome | Geçerli    |
 | İOS dahil Safari            | Geçerli    |
-| Microsoft Internet Explorer      | 11 @ no__t-0 |
+| Microsoft Internet Explorer      | 11&dagger; |
 
 &dagger;Ek polydolgular gereklidir (örneğin, [Polyfill.io](https://polyfill.io/v3/) bir paket aracılığıyla taahhüt eklenebilir).
 
