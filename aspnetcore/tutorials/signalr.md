@@ -8,12 +8,12 @@ ms.date: 11/12/2019
 no-loc:
 - SignalR
 uid: tutorials/signalr
-ms.openlocfilehash: 962cc0318ebbfc7fac16ca0947a2e3e83e51665c
+ms.openlocfilehash: ac727ed0517a8b30fd8194c010576fdd74a5950a
 ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73964039"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74052850"
 ---
 # <a name="tutorial-get-started-with-aspnet-core-opno-locsignalr"></a>Öğretici: ASP.NET Core SignalR ile çalışmaya başlama
 
@@ -249,13 +249,6 @@ SignalR sunucusu, SignalRSignalR istekleri geçirilecek şekilde yapılandırıl
 >   dotnet dev-certs https --trust
 >   ```
 
-## <a name="next-steps"></a>Sonraki adımlar
-
-SignalRhakkında daha fazla bilgi edinmek için bkz. giriş:
-
-> [!div class="nextstepaction"]
-> [ASP.NET Core SignalR giriş](xref:signalr/introduction)
-
 ::: moniker-end
 
 ::: moniker range="< aspnetcore-3.0"
@@ -485,18 +478,4 @@ SignalR sunucusu, SignalRSignalR istekleri geçirilecek şekilde yapılandırıl
 ## <a name="additional-resources"></a>Ek kaynaklar 
 * [Bu öğreticinin YouTube sürümü](https://www.youtube.com/watch?v=iKlVmu-r0JQ)   
 
-## <a name="next-steps"></a>Sonraki adımlar   
-
-Bu öğreticide, nasıl yapılacağını öğrendiniz:   
-
-> [!div class="checklist"]  
-> * Bir Web uygulaması projesi oluşturun.   
-> * SignalR istemci kitaplığı ekleyin.   
-> * SignalR hub 'ı oluşturun. 
-> * Projeyi SignalRkullanacak şekilde yapılandırın. 
-> * Herhangi bir istemciden tüm bağlı istemcilere ileti göndermek için hub 'ı kullanan kodu ekleyin.   
-SignalRhakkında daha fazla bilgi edinmek için bkz. giriş:    
-> [!div class="nextstepaction"] 
-> [ASP.NET Core SignalR giriş](xref:signalr/introduction)   
 ::: moniker-end
-
