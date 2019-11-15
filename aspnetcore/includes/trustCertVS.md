@@ -1,14 +1,31 @@
-
+::: moniker range=">= aspnetcore-3.0"
 Visual Studio aşağıdaki iletişim kutusunu görüntüler:
 
-![Bu proje, SSL kullanacak şekilde yapılandırılır. Tarayıcıda SSL uyarılarından kaçınmak için IIS Express'in oluşturduğu otomatik olarak imzalanan sertifikaya güvenmeyi tercih edebilirsiniz. IIS Express SSL sertifikasına güvenmek ister misiniz?](~/getting-started/_static/trustCert.png)
+![Bu proje SSL kullanmak üzere yapılandırılmış. Tarayıcıdaki SSL uyarılarını önlemek için ASP.NET Core oluşturduğu otomatik olarak imzalanan sertifikaya güvenmeyi tercih edebilirsiniz. ASP.NET Core SSL sertifikasına güvenmek istiyor musunuz?](~/getting-started/_static/trustCert-3x.png)
 
-Seçin **Evet** IIS Express SSL sertifikasına güveniyorsanız.
+ASP.NET Core SSL sertifikasına güveniyorsanız **Evet** ' i seçin.
 
 Aşağıdaki iletişim kutusu görüntülenir:
 
 ![Güvenlik Uyarısı iletişim kutusu](~/getting-started/_static/cert.png)
 
-Seçin **Evet** geliştirme sertifikasına güvenmek kabul etmesi durumunda.
+Geliştirme sertifikasına güvenmeyi kabul ediyorsanız **Evet** ' i seçin.
 
-Bkz: [ASP.NET Core HTTPS geliştirme sertifikasına güvenmek](xref:security/enforcing-ssl#trust-the-aspnet-core-https-development-certificate-on-windows-and-macos) daha fazla bilgi için.
+Daha fazla bilgi için bkz. [ASP.NET Core https geliştirme sertifikasına güvenin](xref:security/enforcing-ssl#trust-the-aspnet-core-https-development-certificate-on-windows-and-macos) .
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
+Visual Studio aşağıdaki iletişim kutusunu görüntüler:
+
+![Bu proje SSL kullanmak üzere yapılandırılmış. Tarayıcıdaki SSL uyarılarını önlemek için IIS Express oluşturduğu otomatik olarak imzalanan sertifikaya güvenmeyi tercih edebilirsiniz. IIS Express SSL sertifikasına güvenmek istiyor musunuz?](~/getting-started/_static/trustCert.png)
+
+IIS Express SSL sertifikasına güveniyorsanız **Evet** ' i seçin.
+
+Aşağıdaki iletişim kutusu görüntülenir:
+
+![Güvenlik Uyarısı iletişim kutusu](~/getting-started/_static/cert.png)
+
+Geliştirme sertifikasına güvenmeyi kabul ediyorsanız **Evet** ' i seçin.
+
+Daha fazla bilgi için bkz. [ASP.NET Core https geliştirme sertifikasına güvenin](xref:security/enforcing-ssl#trust-the-aspnet-core-https-development-certificate-on-windows-and-macos) .
+::: moniker-end

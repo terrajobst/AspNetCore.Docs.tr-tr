@@ -1,20 +1,20 @@
 ---
-title: 'Öğretici: ASP.NET Core Razor Pages kullanmaya başlama'
+title: 'Öğretici: ASP.NET Core Razor Pages ile çalışmaya başlama'
 author: rick-anderson
 description: Bu öğretici dizisinde Razor Pages ASP.NET Core nasıl kullanılacağı gösterilmektedir. Model oluşturma, Razor sayfaları için kod oluşturma, veri erişimi için Entity Framework Core ve SQL Server kullanma, arama işlevselliği ekleme, giriş doğrulaması ekleme ve modeli güncelleştirmek için geçişleri kullanma hakkında bilgi edinin.
 ms.author: riande
-ms.date: 07/25/2019
+ms.date: 11/12/2019
 uid: tutorials/razor-pages/razor-pages-start
-ms.openlocfilehash: 0cc00cb85b6054752417b82c783cfd4c306aeda5
-ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
+ms.openlocfilehash: a8381dee05f267077a29999f3d8bbe6327c2b863
+ms.sourcegitcommit: 231780c8d7848943e5e9fd55e93f437f7e5a371d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71082571"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74116153"
 ---
-# <a name="tutorial-get-started-with-razor-pages-in-aspnet-core"></a>Öğretici: ASP.NET Core Razor Pages kullanmaya başlama
+# <a name="tutorial-get-started-with-razor-pages-in-aspnet-core"></a>Öğretici: ASP.NET Core Razor Pages ile çalışmaya başlama
 
-Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
+[Rick Anderson](https://twitter.com/RickAndMSFT) tarafından
 
 ::: moniker range=">= aspnetcore-3.0"
 Bu, bir serinin ASP.NET Core Razor Pages Web uygulaması oluşturma hakkında temel bilgileri öğretir.
@@ -25,7 +25,7 @@ Serinin sonunda, bir film veritabanını yöneten bir uygulamanız olacaktır.
 
 [!INCLUDE[View or download sample code](~/includes/rp/download.md)]
 
-Bu öğreticide şunları yaptınız:
+Bu öğreticide şunları yapabilirsiniz:
 
 > [!div class="checklist"]
 > * Razor Pages bir Web uygulaması oluşturun.
@@ -36,7 +36,7 @@ Bu öğreticinin sonunda, daha sonraki öğreticilerde oluşturacağınız çal�
 
 ![Giriş veya dizin sayfası](razor-pages-start/_static/home2.2.png)
 
-## <a name="prerequisites"></a>Önkoşullar
+## <a name="prerequisites"></a>Prerequisites
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
@@ -56,11 +56,11 @@ Bu öğreticinin sonunda, daha sonraki öğreticilerde oluşturacağınız çal�
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-* Visual Studio'dan **dosya** menüsünde **yeni** > **proje**.
+* Visual Studio **Dosya** menüsünden **Yeni** > **projesi**' ni seçin.
 * Yeni bir ASP.NET Core Web uygulaması oluşturun ve **İleri ' yi**seçin.
-  ![Yeni ASP.NET Core Web uygulaması](razor-pages-start/_static/np_2.1.png)
+  Yeni ASP.NET Core Web uygulaması ![](razor-pages-start/_static/np_2.1.png)
 * Projeyi **RazorPagesMovie**olarak adlandırın. Kodu kopyaladığınızda ve yapıştırdığınızda ad alanlarının eşleşmesi için Project *RazorPagesMovie* olarak adı vermek önemlidir.
-  ![Yeni ASP.NET Core Web uygulaması](razor-pages-start/_static/config.png)
+  Yeni ASP.NET Core Web uygulaması ![](razor-pages-start/_static/config.png)
 
 * Açılan **Web uygulamasındaki** **ASP.NET Core 3,0** ' i seçin ve ardından **Oluştur**' u seçin.
 
@@ -72,7 +72,7 @@ Bu öğreticinin sonunda, daha sonraki öğreticilerde oluşturacağınız çal�
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
-* Açık [tümleşik Terminalini](https://code.visualstudio.com/docs/editor/integrated-terminal).
+* [Tümleşik terminali](https://code.visualstudio.com/docs/editor/integrated-terminal)açın.
 
 * Projeyi içerecek dizine (`cd`) geçin.
 
@@ -83,20 +83,20 @@ Bu öğreticinin sonunda, daha sonraki öğreticilerde oluşturacağınız çal�
   code -r RazorPagesMovie
   ```
 
-  * Komut RazorPagesMovie klasöründe yeni bir Razor Pages projesi oluşturur. `dotnet new`
-  * Komut, Visual Studio Code geçerli örneğindeki RazorPagesMovie klasörünü açar. `code`
+  * `dotnet new` komutu, *RazorPagesMovie* klasöründe yeni bir Razor Pages projesi oluşturur.
+  * `code` komutu, geçerli Visual Studio Code örneğindeki *RazorPagesMovie* klasörünü açar.
 
-* Durum çubuğunun omnisharp Yangın simgesi yeşil ' i etkinleştirdikten sonra, gerekli varlıkların derleme **ve hata ayıklama için ' RazorPagesMovie ' içinde eksik olduğunu soran bir iletişim kutusu yok. Bunları ekleyin mi?** **Evet**' i seçin.
+* Durum çubuğunun omnisharp Yangın simgesi yeşil ' i etkinleştirdikten sonra, **gerekli varlıkların derleme ve hata ayıklama için ' RazorPagesMovie ' içinde eksik olduğunu soran bir iletişim kutusu yok. Bunları ekleyin mi?** **Evet**' i seçin.
 
   *Launch. JSON* ve *Tasks. JSON* dosyalarını içeren bir *. vscode* dizini, projenin kök dizinine eklenir.
 
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Mac için Visual Studio](#tab/visual-studio-mac)
 
-* **Dosya** > **yeni çözüm**' ü seçin.
+* **Dosya** > **yeni çözüm**seçin.
 
-![Yeni çözüm macOS](../first-mvc-app/start-mvc/_static/new_project_vsmac.png)
+![macOS yeni çözüm](../first-mvc-app/start-mvc/_static/new_project_vsmac.png)
 
-* **Daha sonra** **.NET Core** > **App** > **Web** uygulaması> ' nı seçin.
+* **Web uygulaması** > bir **sonraki**> **.NET Core** > **App** ' i seçin.
 
   ![macOS yeni proje iletişim kutusu](razor-pages-start/_static/webapp.png)
 
@@ -119,34 +119,7 @@ Visual Studio 'da **dosya > aç**' ı seçin ve ardından *RazorPagesMovie. cspr
 
 ## <a name="run-the-app"></a>Uygulamayı çalıştırma
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
-
-* Hata ayıklayıcı olmadan çalıştırmak için CTRL + F5 tuşlarına basın.
-
-  [!INCLUDE[](~/includes/trustCertVS.md)]
-
-  Visual Studio [IIS Express](/iis/extensions/introduction-to-iis-express/iis-express-overview) başlar ve uygulamayı çalıştırır. Adres çubuğu gibi `example.com`bir `localhost:port#` şey gösterir. Bunun nedeni `localhost` , yerel bilgisayar için Standart ana bilgisayar adıdır. Localhost yalnızca yerel bilgisayardan Web isteklerine hizmet verir. Visual Studio bir Web projesi oluşturduğunda, Web sunucusu için rastgele bir bağlantı noktası kullanılır.
- 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
-
-  [!INCLUDE[](~/includes/trustCertVSC.md)]
-
-* Hata ayıklayıcı olmadan çalıştırmak için **CTRL-F5** tuşlarına basın.
-
-  Visual Studio Code, [Kestrel](xref:fundamentals/servers/kestrel)başlatır, bir tarayıcı başlatır ve şuraya gider `http://localhost:5001`. Adres çubuğu gibi `example.com`bir `localhost:port#` şey gösterir. Bunun nedeni `localhost` , yerel bilgisayar için Standart ana bilgisayar adıdır. Localhost yalnızca yerel bilgisayardan Web isteklerine hizmet verir.
-
-  
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Mac için Visual Studio](#tab/visual-studio-mac)
-
-  [!INCLUDE[](~/includes/trustCertMac.md)]
-
-* Hata ayıklayıcı olmadan çalıştırmak için **alt-cmd-ENTER** tuşlarına basın. Alternatif olarak, menü çubuğuna gidin ve hata ayıklama olmadan Başlat > Çalıştır ' a gidin.
-
-  Visual Studio, [Kestrel](xref:fundamentals/servers/kestrel)başlatır, bir tarayıcı başlatır ve şuraya gider `http://localhost:5001`.
-
-<!-- End of VS tabs -->
-
----
+  [!INCLUDE[](~/includes/run-the-app.md)]
 
 ## <a name="examine-the-project-files"></a>Proje dosyalarını inceleyin
 
@@ -198,7 +171,7 @@ Serinin sonunda, bir film veritabanını yöneten bir uygulamanız olacaktır.
 
 [!INCLUDE[View or download sample code](~/includes/rp/download.md)]
 
-Bu öğreticide şunları yaptınız:
+Bu öğreticide şunları yapabilirsiniz:
 
 > [!div class="checklist"]
 > * Razor Pages bir Web uygulaması oluşturun.
@@ -209,7 +182,7 @@ Bu öğreticinin sonunda, daha sonraki öğreticilerde oluşturacağınız çal�
 
 ![Giriş veya dizin sayfası](razor-pages-start/_static/home2.2.png)
 
-## <a name="prerequisites"></a>Önkoşullar
+## <a name="prerequisites"></a>Prerequisites
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
@@ -229,7 +202,7 @@ Bu öğreticinin sonunda, daha sonraki öğreticilerde oluşturacağınız çal�
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-* Visual Studio'dan **dosya** menüsünde **yeni** > **proje**.
+* Visual Studio **Dosya** menüsünden **Yeni** > **projesi**' ni seçin.
 
 * Yeni bir ASP.NET Core Web uygulaması oluşturun ve **İleri ' yi**seçin.
 
@@ -249,7 +222,7 @@ Bu öğreticinin sonunda, daha sonraki öğreticilerde oluşturacağınız çal�
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
-* Açık [tümleşik Terminalini](https://code.visualstudio.com/docs/editor/integrated-terminal).
+* [Tümleşik terminali](https://code.visualstudio.com/docs/editor/integrated-terminal)açın.
 
 * Projeyi içerecek dizine (`cd`) geçin.
 
@@ -260,10 +233,10 @@ Bu öğreticinin sonunda, daha sonraki öğreticilerde oluşturacağınız çal�
   code -r RazorPagesMovie
   ```
 
-  * Komut RazorPagesMovie klasöründe yeni bir Razor Pages projesi oluşturur. `dotnet new`
-  * Komut, Visual Studio Code geçerli örneğindeki RazorPagesMovie klasörünü açar. `code`
+  * `dotnet new` komutu, *RazorPagesMovie* klasöründe yeni bir Razor Pages projesi oluşturur.
+  * `code` komutu, geçerli Visual Studio Code örneğindeki *RazorPagesMovie* klasörünü açar.
 
-* Durum çubuğunun omnisharp Yangın simgesi yeşil ' i etkinleştirdikten sonra, gerekli varlıkların derleme **ve hata ayıklama için ' RazorPagesMovie ' içinde eksik olduğunu soran bir iletişim kutusu yok. Bunları ekleyin mi?** **Evet**' i seçin.
+* Durum çubuğunun omnisharp Yangın simgesi yeşil ' i etkinleştirdikten sonra, **gerekli varlıkların derleme ve hata ayıklama için ' RazorPagesMovie ' içinde eksik olduğunu soran bir iletişim kutusu yok. Bunları ekleyin mi?** **Evet**' i seçin.
 
   *Launch. JSON* ve *Tasks. JSON* dosyalarını içeren bir *. vscode* dizini, projenin kök dizinine eklenir.
 
@@ -295,7 +268,7 @@ Visual Studio 'da **dosya > aç**' ı seçin ve ardından *RazorPagesMovie. cspr
 
   [!INCLUDE[](~/includes/trustCertVS.md)]
 
-  Visual Studio [IIS Express](/iis/extensions/introduction-to-iis-express/iis-express-overview) başlar ve uygulamayı çalıştırır. Adres çubuğu gibi `example.com`bir `localhost:port#` şey gösterir. Bunun nedeni `localhost` , yerel bilgisayar için Standart ana bilgisayar adıdır. Localhost yalnızca yerel bilgisayardan Web isteklerine hizmet verir. Visual Studio bir Web projesi oluşturduğunda, Web sunucusu için rastgele bir bağlantı noktası kullanılır.
+  Visual Studio [IIS Express](/iis/extensions/introduction-to-iis-express/iis-express-overview) başlar ve uygulamayı çalıştırır. Adres çubuğunda `localhost:port#` ve `example.com` gibi bir şey görüntülenir. Bunun nedeni, `localhost` yerel bilgisayar için Standart ana bilgisayar adıdır. Localhost yalnızca yerel bilgisayardan Web isteklerine hizmet verir. Visual Studio bir Web projesi oluşturduğunda, Web sunucusu için rastgele bir bağlantı noktası kullanılır.
 
 * Uygulamanın giriş sayfasında, izlemeye izin vermek için **kabul et** ' i seçin.
 
@@ -313,7 +286,7 @@ Visual Studio 'da **dosya > aç**' ı seçin ve ardından *RazorPagesMovie. cspr
 
 * Hata ayıklayıcı olmadan çalıştırmak için **CTRL-F5** tuşlarına basın.
 
-  Visual Studio Code, [Kestrel](xref:fundamentals/servers/kestrel)başlatır, bir tarayıcı başlatır ve şuraya gider `http://localhost:5001`. Adres çubuğu gibi `example.com`bir `localhost:port#` şey gösterir. Bunun nedeni `localhost` , yerel bilgisayar için Standart ana bilgisayar adıdır. Localhost yalnızca yerel bilgisayardan Web isteklerine hizmet verir.
+  Visual Studio Code, [Kestrel](xref:fundamentals/servers/kestrel)başlatır, bir tarayıcı başlatır ve `http://localhost:5001`gider. Adres çubuğunda `localhost:port#` ve `example.com` gibi bir şey görüntülenir. Bunun nedeni, `localhost` yerel bilgisayar için Standart ana bilgisayar adıdır. Localhost yalnızca yerel bilgisayardan Web isteklerine hizmet verir.
 
 * Uygulamanın giriş sayfasında, izlemeye izin vermek için **kabul et** ' i seçin.
 
@@ -331,7 +304,7 @@ Visual Studio 'da **dosya > aç**' ı seçin ve ardından *RazorPagesMovie. cspr
 
 * Hata ayıklayıcı olmadan çalıştırmak için **cmd-opt-F5** tuşuna basın.
 
-  Visual Studio, [Kestrel](xref:fundamentals/servers/kestrel)başlatır, bir tarayıcı başlatır ve şuraya gider `http://localhost:5001`.
+  Visual Studio, [Kestrel](xref:fundamentals/servers/kestrel)başlatır, bir tarayıcı başlatır ve `http://localhost:5001`gider.
 
 * Uygulamanın giriş sayfasında, izlemeye izin vermek için **kabul et** ' i seçin.
 
