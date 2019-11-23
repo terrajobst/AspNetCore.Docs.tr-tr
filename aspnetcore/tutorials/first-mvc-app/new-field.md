@@ -29,7 +29,7 @@ EF Code First otomatik olarak bir veritabanı oluşturmak için kullanıldığı
 
 ## <a name="add-a-rating-property-to-the-movie-model"></a>Film modeline bir derecelendirme özelliği ekleyin
 
-`Rating` *Modeller/film. cs*'ye bir özellik ekleyin:
+*Modeller/film. cs*' ye bir `Rating` özelliği ekleyin:
 
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie22/Models/MovieDateRating.cs?highlight=13&name=snippet)]
 
@@ -51,19 +51,19 @@ Komut ⌘ + B
 
 ------
 
-`Movie` Sınıfa yeni bir alan eklediyseniz, bu yeni özelliğin dahil edilmesini sağlamak için bağlama beyaz listesini güncelleştirmeniz gerekir. *MoviesController.cs*içinde, `[Bind]` özelliğidahil`Rating` etmek için hem hem `Create` de `Edit` eylem yöntemlerinin özniteliğini güncelleştirin:
+`Movie` sınıfına yeni bir alan eklediyseniz, bu yeni özellik dahil edilecek şekilde bağlama beyaz listesini güncelleştirmeniz gerekir. *MoviesController.cs*' de, `Rating` özelliği dahil etmek için hem `Create` hem de `Edit` eylem yöntemlerinin `[Bind]` özniteliğini güncelleştirin:
 
 ```csharp
 [Bind("Id,Title,ReleaseDate,Genre,Price,Rating")]
    ```
 
-Yeni `Rating` özelliği tarayıcı görünümünde görüntülemek, oluşturmak ve düzenlemek için görünüm şablonlarını güncelleştirin.
+Yeni `Rating` özelliğini tarayıcı görünümünde görüntülemek, oluşturmak ve düzenlemek için görünüm şablonlarını güncelleştirin.
 
-*/Views/movies/Index.cshtml* dosyasını düzenleyin ve bir `Rating` alan ekleyin:
+*/Views/movies/Index.cshtml* dosyasını düzenleyin ve bir `Rating` alanı ekleyin:
 
 [!code-HTML[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie22/Views/Movies/IndexGenreRating.cshtml?highlight=16,38&range=24-64)]
 
-*/Views/movies/Create.cshtml* ile bir `Rating` alanı güncelleştirin.
+Bir `Rating` alanla */views/movies/Create.cshtml* güncelleştirin.
 
 # <a name="visual-studio--visual-studio-for-mactabvisual-studiovisual-studio-mac"></a>[Visual Studio/Mac için Visual Studio](#tab/visual-studio+visual-studio-mac)
 
@@ -79,15 +79,15 @@ Yeni `Rating` özelliği tarayıcı görünümünde görüntülemek, oluşturmak
 
 Kalan şablonları güncelleştirin.
 
-`SeedData` Sınıfını yeni sütun için bir değer sağlayacak şekilde güncelleştirin. Aşağıda örnek bir değişiklik gösterilmektedir, ancak her biri `new Movie`için bu değişikliği yapmak isteyeceksiniz.
+`SeedData` sınıfını yeni sütun için bir değer sağlayacak şekilde güncelleştirin. Aşağıda örnek bir değişiklik gösterilmektedir, ancak her bir `new Movie`için bu değişikliği yapmak isteyeceksiniz.
 
 [!code-csharp[](start-mvc/sample/MvcMovie/Models/SeedDataRating.cs?name=snippet1&highlight=6)]
 
-VERITABANı yeni alanı içerecek şekilde güncelleştirilene kadar uygulama çalışmaz. Şimdi çalıştırıldığında, şunlar `SqlException` oluşur:
+VERITABANı yeni alanı içerecek şekilde güncelleştirilene kadar uygulama çalışmaz. Şimdi çalıştırıldığında, aşağıdaki `SqlException` atılır:
 
 `SqlException: Invalid column name 'Rating'.`
 
-Bu hata, güncelleştirilmiş film modeli sınıfı varolan veritabanının film tablosunun şemasından farklı olduğu için oluşur. (Veritabanı tablosunda sütun `Rating` yok.)
+Bu hata, güncelleştirilmiş film modeli sınıfı varolan veritabanının film tablosunun şemasından farklı olduğu için oluşur. (Veritabanı tablosunda `Rating` sütunu yoktur.)
 
 Hatayı çözmek için birkaç yaklaşım vardır:
 
@@ -112,17 +112,17 @@ Add-Migration Rating
 Update-Database
 ```
 
-Bu komut, geçiş çerçevesinin geçerli `Movie` DB şemasıyla geçerli `Movie` modeli incelemesini ve veritabanını yeni modele geçirmek için gerekli kodu oluşturmasını söyler. `Add-Migration`
+`Add-Migration` komutu, geçiş çerçevesinin geçerli `Movie` modelini geçerli `Movie` DB şemasıyla incelemesini ve VERITABANıNı yeni modele geçirmek için gerekli kodu oluşturmasını söyler.
 
 "Derecelendirme" adı rastgele olur ve geçiş dosyasını adlandırmak için kullanılır. Geçiş dosyası için anlamlı bir ad kullanılması yararlı olur.
 
-Veritabanındaki tüm kayıtlar silinirse, Initialize yöntemi veritabanını temel alır ve `Rating` alanını içerir.
+VERITABANıNDAKI tüm kayıtlar silinirse, Initialize yöntemi VERITABANıNı temel alır ve `Rating` alanını içerir.
 
 # <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Visual Studio Code/Mac için Visual Studio](#tab/visual-studio-code+visual-studio-mac)
 
 [!INCLUDE[](~/includes/RP-mvc-shared/sqlite-warn.md)]
 
-Veritabanını silin ve geçişleri kullanarak veritabanını yeniden oluşturun. Veritabanını silmek için veritabanı dosyasını (*Mvcmovie. db*) silin. Ardından şu `ef database update` komutu çalıştırın:
+Veritabanını silin ve geçişleri kullanarak veritabanını yeniden oluşturun. Veritabanını silmek için veritabanı dosyasını (*Mvcmovie. db*) silin. Sonra `ef database update` komutunu çalıştırın:
 
 ```dotnetcli
 dotnet ef database update
@@ -131,7 +131,7 @@ dotnet ef database update
 ---
 <!-- End of VS tabs -->
 
-Uygulamayı çalıştırın ve bir `Rating` alan ile film oluşturabileceğiniz/düzenleyebileceğiniz/görüntüleydiğinizi doğrulayın. `Rating` Alanı `Edit`, ,ve`Delete` şablonları görüntülemek için eklemeniz gerekir. `Details`
+Uygulamayı çalıştırın ve bir `Rating` alanı ile film oluşturabileceğiniz/düzenleyebileceğiniz/görüntüleydiğinizi doğrulayın. `Edit`, `Details`ve `Delete` görünüm şablonlarına `Rating` alanı eklemeniz gerekir.
 
 > [!div class="step-by-step"]
 > [Önceki](search.md)

@@ -14,7 +14,7 @@ ms.locfileid: "72334059"
 ---
 # <a name="add-search-to-aspnet-core-razor-pages"></a>ASP.NET Core Razor Pages arama Ekle
 
-[Rick Anderson](https://twitter.com/RickAndMSFT) tarafından
+Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 ::: moniker range=">= aspnetcore-3.0"
 
@@ -26,8 +26,8 @@ Aşağıdaki Vurgulanan özellikleri *sayfalara/filmlere/Index. cshtml. cs*öğe
 
 [!code-csharp[](razor-pages-start/sample/RazorPagesMovie30/Pages/Movies/Index.cshtml.cs?name=snippet_newProps&highlight=11-999)]
 
-* `SearchString`: kullanıcıların arama metin kutusuna girebileceği metni içerir. `SearchString` [`[BindProperty]`](/dotnet/api/microsoft.aspnetcore.mvc.bindpropertyattribute) özniteliğiyle donatılmalıdır. `[BindProperty]` form değerlerini ve Sorgu dizelerini özelliği ile aynı ada bağlar. GET isteklerinde bağlama için `(SupportsGet = true)` gereklidir.
-* `Genres`: tarzın listesini içerir. `Genres`, kullanıcının listeden bir tarz seçmesine izin verir. `SelectList` @no__t gerektirir-1
+* `SearchString`: kullanıcıların arama metin kutusuna girebileceği metni içerir. `SearchString`, [`[BindProperty]`](/dotnet/api/microsoft.aspnetcore.mvc.bindpropertyattribute) özniteliğiyle donatılmalıdır. `[BindProperty]` form değerlerini ve Sorgu dizelerini özelliğiyle aynı ada bağlar. GET isteklerinde bağlama için `(SupportsGet = true)` gereklidir.
+* `Genres`: tarzlar listesini içerir. `Genres`, kullanıcının listeden bir tarz seçmesine izin verir. `SelectList` `using Microsoft.AspNetCore.Mvc.Rendering;` gerektiriyor
 * `MovieGenre`: kullanıcının seçtiği belirli tarzı içerir (örneğin, "Batı").
 * `Genres` ve `MovieGenre` daha sonra bu öğreticide kullanılır.
 
@@ -37,7 +37,7 @@ Dizin sayfasının `OnGetAsync` yöntemini aşağıdaki kodla güncelleştirin:
 
 [!code-csharp[](razor-pages-start/sample/RazorPagesMovie30/Pages/Movies/Index.cshtml.cs?name=snippet_1stSearch)]
 
-@No__t-0 yönteminin ilk satırı, filmleri seçmek için bir [LINQ](/dotnet/csharp/programming-guide/concepts/linq/) sorgusu oluşturur:
+`OnGetAsync` yönteminin ilk satırı, filmleri seçmek için bir [LINQ](/dotnet/csharp/programming-guide/concepts/linq/) sorgusu oluşturur:
 
 ```csharp
 // using System.Linq;
@@ -47,14 +47,14 @@ var movies = from m in _context.Movie
 
 Sorgu *yalnızca* bu noktada tanımlanmış, veritabanında çalıştırılmadı.
 
-@No__t-0 özelliği null veya boş değilse, filmler sorgusu arama dizesinde filtrelenecek şekilde değiştirilir:
+`SearchString` özelliği null veya boş değilse, filmler sorgusu arama dizesinde filtrelenecek şekilde değiştirilir:
 
 [!code-csharp[](razor-pages-start/sample/RazorPagesMovie30/Pages/Movies/Index.cshtml.cs?name=snippet_SearchNull)]
 
-@No__t-0 kodu bir [lambda ifadesidir](/dotnet/csharp/programming-guide/statements-expressions-operators/lambda-expressions). Lambdalar, Yöntem tabanlı [LINQ](/dotnet/csharp/programming-guide/concepts/linq/) sorgularında, [Where](/dotnet/csharp/programming-guide/concepts/linq/query-syntax-and-method-syntax-in-linq) yöntemi veya `Contains` (önceki kodda kullanılan) gibi standart sorgu işleci yöntemlerine bağımsız değişkenler olarak kullanılır. LINQ sorguları tanımlandıklarında veya bir Yöntem (`Where`, `Contains` veya `OrderBy`) çağırarak değiştirildiklerinde yürütülmez. Bunun yerine sorgu yürütmesi ertelenir. Diğer bir deyişle, bir ifadenin değerlendirmesi, gerçekleştirilmiş değeri yinelenene veya `ToListAsync` yöntemi çağrılana kadar gecikir. Daha fazla bilgi için bkz. [sorgu yürütme](/dotnet/framework/data/adonet/ef/language-reference/query-execution) .
+`s => s.Title.Contains()` kodu bir [lambda ifadesidir](/dotnet/csharp/programming-guide/statements-expressions-operators/lambda-expressions). Lambdalar, Yöntem tabanlı [LINQ](/dotnet/csharp/programming-guide/concepts/linq/) sorgularında, [Where](/dotnet/csharp/programming-guide/concepts/linq/query-syntax-and-method-syntax-in-linq) yöntemi veya `Contains` (önceki kodda kullanılan) gibi standart sorgu işleci yöntemlerine bağımsız değişkenler olarak kullanılır. LINQ sorguları tanımlandıklarında veya bir Yöntem (örneğin, `Where`, `Contains` veya `OrderBy`) çağırarak değiştirildiklerinde yürütülmez. Bunun yerine sorgu yürütmesi ertelenir. Diğer bir deyişle, bir ifadenin değerlendirmesi, gerçekleştirilmiş değeri yinelenene veya `ToListAsync` yöntemi çağrılana kadar gecikir. Daha fazla bilgi için bkz. [sorgu yürütme](/dotnet/framework/data/adonet/ef/language-reference/query-execution) .
 
 > [!NOTE]
-> [Contains](/dotnet/api/system.data.objects.dataclasses.entitycollection-1.contains) yöntemi C# kodda değil, veritabanında çalıştırılır. Sorgudaki büyük/küçük harf duyarlılığı veritabanına ve harmanlamaya bağlıdır. SQL Server, `Contains` [SQL Ile benzer](/sql/t-sql/language-elements/like-transact-sql), büyük/küçük harfe duyarlı değildir. SQLite ' da, varsayılan harmanlama ile büyük/küçük harfe duyarlıdır.
+> [Contains](/dotnet/api/system.data.objects.dataclasses.entitycollection-1.contains) yöntemi C# kodda değil, veritabanında çalıştırılır. Sorgudaki büyük/küçük harf duyarlılığı veritabanına ve harmanlamaya bağlıdır. SQL Server, [SQL Ile benzer](/sql/t-sql/language-elements/like-transact-sql), büyük/küçük harfe duyarsız `Contains` eşlenir. SQLite ' da, varsayılan harmanlama ile büyük/küçük harfe duyarlıdır.
 
 Filmler sayfasına gidin ve URL 'ye `?searchString=Ghost` gibi bir sorgu dizesi ekleyin (örneğin, `https://localhost:5001/Movies?searchString=Ghost`). Filtrelenmiş filmler görüntülenir.
 
@@ -66,13 +66,13 @@ Aşağıdaki yol şablonu dizin sayfasına eklendiyse, arama dizesi bir URL segm
 @page "{searchString?}"
 ```
 
-Önceki yol kısıtlaması, başlığın sorgu dizesi değeri yerine rota verileri (bir URL segmenti) olarak aranmasına olanak tanır.  @No__t-1 ' deki `?` ' ın isteğe bağlı bir yol parametresi olduğu anlamına gelir.
+Önceki yol kısıtlaması, başlığın sorgu dizesi değeri yerine rota verileri (bir URL segmenti) olarak aranmasına olanak tanır.  `"{searchString?}"` `?`, bu isteğe bağlı bir yol parametresi anlamına gelir.
 
 ![URL 'ye hayalet sözcük eklenmiş olan dizin görünümü, Ghostbusters ve Ghostbusters ters ve 2 adet film listesi](search/_static/g2.png)
 
-ASP.NET Core çalışma zamanı, sorgu dizesinden (`?searchString=Ghost`) veya rota verilerinden (`https://localhost:5001/Movies/Ghost`) `SearchString` özelliğinin değerini ayarlamak için [model bağlamayı](xref:mvc/models/model-binding) kullanır. Model bağlama büyük/küçük harfe duyarlı değildir.
+ASP.NET Core çalışma zamanı, `SearchString` özelliğinin değerini sorgu dizesinden (`?searchString=Ghost`) veya rota verilerinden (`https://localhost:5001/Movies/Ghost`) ayarlamak için [model bağlamayı](xref:mvc/models/model-binding) kullanır. Model bağlama büyük/küçük harfe duyarlı değildir.
 
-Ancak, kullanıcıların bir filmi aramak için URL 'YI değiştirmesini beklemeniz gerekmez. Bu adımda, filmleri filtrelemek için Kullanıcı arabirimi eklenir. @No__t-0 yol kısıtlamasını eklediyseniz, kaldırın.
+Ancak, kullanıcıların bir filmi aramak için URL 'YI değiştirmesini beklemeniz gerekmez. Bu adımda, filmleri filtrelemek için Kullanıcı arabirimi eklenir. `"{searchString?}"`yol kısıtlaması eklediyseniz, kaldırın.
 
 *Pages/filmler/Index. cshtml* dosyasını açın ve aşağıdaki kodda vurgulanan `<form>` işaretlemesini ekleyin:
 
@@ -89,7 +89,7 @@ Değişiklikleri kaydedin ve filtreyi test edin.
 
 ## <a name="search-by-genre"></a>Tarza göre ara
 
-@No__t-0 yöntemini aşağıdaki kodla güncelleştirin:
+`OnGetAsync` yöntemini aşağıdaki kodla güncelleştirin:
 
 [!code-csharp[](razor-pages-start/sample/RazorPagesMovie30/Pages/Movies/Index.cshtml.cs?name=snippet_SearchGenre)]
 
@@ -97,7 +97,7 @@ Aşağıdaki kod, veritabanından tüm tarzları alan bir LINQ sorgusudur.
 
 [!code-csharp[](razor-pages-start/sample/RazorPagesMovie30/Pages/Movies/Index.cshtml.cs?name=snippet_LINQ)]
 
-Tarzlar `SelectList` ' ın ayrı tarzlar yansıtılayarak oluşturulur.
+Tarzın `SelectList`, farklı tarzlar yansıtılayarak oluşturulur.
 
 [!code-csharp[](razor-pages-start/sample/RazorPagesMovie30/Pages/Movies/Index.cshtml.cs?name=snippet_SelectList)]
 
@@ -115,7 +115,7 @@ Türe göre, film başlığına göre ve her ikisine birden arayarak uygulamayı
 
 > [!div class="step-by-step"]
 > [Önceki: sayfaları güncelleştirme](xref:tutorials/razor-pages/da1)
-> [Sonraki: yeni bir alan ekleme](xref:tutorials/razor-pages/new-field)
+> [İleri: yeni bir alan ekleme](xref:tutorials/razor-pages/new-field)
 
 ::: moniker-end
 
@@ -129,8 +129,8 @@ Aşağıdaki Vurgulanan özellikleri *sayfalara/filmlere/Index. cshtml. cs*öğe
 
 [!code-csharp[](razor-pages-start/sample/RazorPagesMovie22/Pages/Movies/Index.cshtml.cs?name=snippet_newProps&highlight=11-999)]
 
-* `SearchString`: kullanıcıların arama metin kutusuna girebileceği metni içerir. `SearchString` [`[BindProperty]`](/dotnet/api/microsoft.aspnetcore.mvc.bindpropertyattribute) özniteliğiyle donatılmalıdır. `[BindProperty]` form değerlerini ve Sorgu dizelerini özelliği ile aynı ada bağlar. GET isteklerinde bağlama için `(SupportsGet = true)` gereklidir.
-* `Genres`: tarzın listesini içerir. `Genres`, kullanıcının listeden bir tarz seçmesine izin verir. `SelectList` @no__t gerektirir-1
+* `SearchString`: kullanıcıların arama metin kutusuna girebileceği metni içerir. `SearchString`, [`[BindProperty]`](/dotnet/api/microsoft.aspnetcore.mvc.bindpropertyattribute) özniteliğiyle donatılmalıdır. `[BindProperty]` form değerlerini ve Sorgu dizelerini özelliğiyle aynı ada bağlar. GET isteklerinde bağlama için `(SupportsGet = true)` gereklidir.
+* `Genres`: tarzlar listesini içerir. `Genres`, kullanıcının listeden bir tarz seçmesine izin verir. `SelectList` `using Microsoft.AspNetCore.Mvc.Rendering;` gerektiriyor
 * `MovieGenre`: kullanıcının seçtiği belirli tarzı içerir (örneğin, "Batı").
 * `Genres` ve `MovieGenre` daha sonra bu öğreticide kullanılır.
 
@@ -140,7 +140,7 @@ Dizin sayfasının `OnGetAsync` yöntemini aşağıdaki kodla güncelleştirin:
 
 [!code-csharp[](razor-pages-start/sample/RazorPagesMovie22/Pages/Movies/Index.cshtml.cs?name=snippet_1stSearch)]
 
-@No__t-0 yönteminin ilk satırı, filmleri seçmek için bir [LINQ](/dotnet/csharp/programming-guide/concepts/linq/) sorgusu oluşturur:
+`OnGetAsync` yönteminin ilk satırı, filmleri seçmek için bir [LINQ](/dotnet/csharp/programming-guide/concepts/linq/) sorgusu oluşturur:
 
 ```csharp
 // using System.Linq;
@@ -150,13 +150,13 @@ var movies = from m in _context.Movie
 
 Sorgu *yalnızca* bu noktada tanımlanmış, veritabanında çalıştırılmadı.
 
-@No__t-0 özelliği null veya boş değilse, filmler sorgusu arama dizesinde filtrelenecek şekilde değiştirilir:
+`SearchString` özelliği null veya boş değilse, filmler sorgusu arama dizesinde filtrelenecek şekilde değiştirilir:
 
 [!code-csharp[](razor-pages-start/sample/RazorPagesMovie22/Pages/Movies/Index.cshtml.cs?name=snippet_SearchNull)]
 
-@No__t-0 kodu bir [lambda ifadesidir](/dotnet/csharp/programming-guide/statements-expressions-operators/lambda-expressions). Lambdalar, Yöntem tabanlı [LINQ](/dotnet/csharp/programming-guide/concepts/linq/) sorgularında, [Where](/dotnet/csharp/programming-guide/concepts/linq/query-syntax-and-method-syntax-in-linq) yöntemi veya `Contains` (önceki kodda kullanılan) gibi standart sorgu işleci yöntemlerine bağımsız değişkenler olarak kullanılır. LINQ sorguları tanımlandıklarında veya bir Yöntem (`Where`, `Contains` veya `OrderBy`) çağırarak değiştirildiklerinde yürütülmez. Bunun yerine sorgu yürütmesi ertelenir. Diğer bir deyişle, bir ifadenin değerlendirmesi, gerçekleştirilmiş değeri yinelenene veya `ToListAsync` yöntemi çağrılana kadar gecikir. Daha fazla bilgi için bkz. [sorgu yürütme](/dotnet/framework/data/adonet/ef/language-reference/query-execution) .
+`s => s.Title.Contains()` kodu bir [lambda ifadesidir](/dotnet/csharp/programming-guide/statements-expressions-operators/lambda-expressions). Lambdalar, Yöntem tabanlı [LINQ](/dotnet/csharp/programming-guide/concepts/linq/) sorgularında, [Where](/dotnet/csharp/programming-guide/concepts/linq/query-syntax-and-method-syntax-in-linq) yöntemi veya `Contains` (önceki kodda kullanılan) gibi standart sorgu işleci yöntemlerine bağımsız değişkenler olarak kullanılır. LINQ sorguları tanımlandıklarında veya bir Yöntem (örneğin, `Where`, `Contains` veya `OrderBy`) çağırarak değiştirildiklerinde yürütülmez. Bunun yerine sorgu yürütmesi ertelenir. Diğer bir deyişle, bir ifadenin değerlendirmesi, gerçekleştirilmiş değeri yinelenene veya `ToListAsync` yöntemi çağrılana kadar gecikir. Daha fazla bilgi için bkz. [sorgu yürütme](/dotnet/framework/data/adonet/ef/language-reference/query-execution) .
 
-**Note:** [Contains](/dotnet/api/system.data.objects.dataclasses.entitycollection-1.contains) yöntemi C# kodda değil, veritabanında çalıştırılır. Sorgudaki büyük/küçük harf duyarlılığı veritabanına ve harmanlamaya bağlıdır. SQL Server, `Contains` [SQL Ile benzer](/sql/t-sql/language-elements/like-transact-sql), büyük/küçük harfe duyarlı değildir. SQLite ' da, varsayılan harmanlama ile büyük/küçük harfe duyarlıdır.
+**Note:** [Contains](/dotnet/api/system.data.objects.dataclasses.entitycollection-1.contains) yöntemi C# kodda değil, veritabanında çalıştırılır. Sorgudaki büyük/küçük harf duyarlılığı veritabanına ve harmanlamaya bağlıdır. SQL Server, [SQL Ile benzer](/sql/t-sql/language-elements/like-transact-sql), büyük/küçük harfe duyarsız `Contains` eşlenir. SQLite ' da, varsayılan harmanlama ile büyük/küçük harfe duyarlıdır.
 
 Filmler sayfasına gidin ve URL 'ye `?searchString=Ghost` gibi bir sorgu dizesi ekleyin (örneğin, `https://localhost:5001/Movies?searchString=Ghost`). Filtrelenmiş filmler görüntülenir.
 
@@ -168,13 +168,13 @@ Aşağıdaki yol şablonu dizin sayfasına eklendiyse, arama dizesi bir URL segm
 @page "{searchString?}"
 ```
 
-Önceki yol kısıtlaması, başlığın sorgu dizesi değeri yerine rota verileri (bir URL segmenti) olarak aranmasına olanak tanır.  @No__t-1 ' deki `?` ' ın isteğe bağlı bir yol parametresi olduğu anlamına gelir.
+Önceki yol kısıtlaması, başlığın sorgu dizesi değeri yerine rota verileri (bir URL segmenti) olarak aranmasına olanak tanır.  `"{searchString?}"` `?`, bu isteğe bağlı bir yol parametresi anlamına gelir.
 
 ![URL 'ye hayalet sözcük eklenmiş olan dizin görünümü, Ghostbusters ve Ghostbusters ters ve 2 adet film listesi](search/_static/g2.png)
 
-ASP.NET Core çalışma zamanı, sorgu dizesinden (`?searchString=Ghost`) veya rota verilerinden (`https://localhost:5001/Movies/Ghost`) `SearchString` özelliğinin değerini ayarlamak için [model bağlamayı](xref:mvc/models/model-binding) kullanır. Model bağlama büyük/küçük harfe duyarlı değildir.
+ASP.NET Core çalışma zamanı, `SearchString` özelliğinin değerini sorgu dizesinden (`?searchString=Ghost`) veya rota verilerinden (`https://localhost:5001/Movies/Ghost`) ayarlamak için [model bağlamayı](xref:mvc/models/model-binding) kullanır. Model bağlama büyük/küçük harfe duyarlı değildir.
 
-Ancak, kullanıcıların bir filmi aramak için URL 'YI değiştirmesini beklemeniz gerekmez. Bu adımda, filmleri filtrelemek için Kullanıcı arabirimi eklenir. @No__t-0 yol kısıtlamasını eklediyseniz, kaldırın.
+Ancak, kullanıcıların bir filmi aramak için URL 'YI değiştirmesini beklemeniz gerekmez. Bu adımda, filmleri filtrelemek için Kullanıcı arabirimi eklenir. `"{searchString?}"`yol kısıtlaması eklediyseniz, kaldırın.
 
 *Pages/filmler/Index. cshtml* dosyasını açın ve aşağıdaki kodda vurgulanan `<form>` işaretlemesini ekleyin:
 
@@ -191,7 +191,7 @@ Değişiklikleri kaydedin ve filtreyi test edin.
 
 ## <a name="search-by-genre"></a>Tarza göre ara
 
-@No__t-0 yöntemini aşağıdaki kodla güncelleştirin:
+`OnGetAsync` yöntemini aşağıdaki kodla güncelleştirin:
 
 [!code-csharp[](razor-pages-start/sample/RazorPagesMovie22/Pages/Movies/Index.cshtml.cs?name=snippet_SearchGenre)]
 
@@ -199,7 +199,7 @@ Aşağıdaki kod, veritabanından tüm tarzları alan bir LINQ sorgusudur.
 
 [!code-csharp[](razor-pages-start/sample/RazorPagesMovie22/Pages/Movies/Index.cshtml.cs?name=snippet_LINQ)]
 
-Tarzlar `SelectList` ' ın ayrı tarzlar yansıtılayarak oluşturulur.
+Tarzın `SelectList`, farklı tarzlar yansıtılayarak oluşturulur.
 
 [!code-csharp[](razor-pages-start/sample/RazorPagesMovie22/Pages/Movies/Index.cshtml.cs?name=snippet_SelectList)]
 
@@ -218,6 +218,6 @@ Türe göre, film başlığına göre ve her ikisine birden arayarak uygulamayı
 
 > [!div class="step-by-step"]
 > [Önceki: sayfaları güncelleştirme](xref:tutorials/razor-pages/da1)
-> [Sonraki: yeni bir alan ekleme](xref:tutorials/razor-pages/new-field)
+> [İleri: yeni bir alan ekleme](xref:tutorials/razor-pages/new-field)
 
 ::: moniker-end

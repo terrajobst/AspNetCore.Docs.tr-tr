@@ -16,15 +16,15 @@ ms.locfileid: "72289084"
 
 ::: moniker range=">= aspnetcore-3.0"
 
-Gönderen [Rick Anderson](https://twitter.com/RickAndMSFT)
+Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-@No__t-0 nesnesi veritabanına bağlanma ve `Movie` nesnelerini veritabanı kayıtlarına eşleme görevini işler. Veritabanı bağlamı, *Startup.cs* dosyasındaki `ConfigureServices` yönteminde [bağımlılık ekleme](xref:fundamentals/dependency-injection) kapsayıcısına kaydedilir:
+`MvcMovieContext` nesnesi veritabanına bağlanma ve `Movie` nesneleri veritabanı kayıtlarına eşleme görevini işler. Veritabanı bağlamı, *Startup.cs* dosyasındaki `ConfigureServices` yönteminde [bağımlılık ekleme](xref:fundamentals/dependency-injection) kapsayıcısına kaydedilir:
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie3/Startup.cs?name=snippet_ConfigureServices&highlight=5-6)]
 
-ASP.NET Core [yapılandırma](xref:fundamentals/configuration/index) sistemi, `ConnectionString` ' i okur. Yerel geliştirme için, *appSettings. JSON* dosyasından bağlantı dizesini alır:
+ASP.NET Core [yapılandırma](xref:fundamentals/configuration/index) sistemi `ConnectionString`okur. Yerel geliştirme için, *appSettings. JSON* dosyasından bağlantı dizesini alır:
 
 [!code-json[](start-mvc/sample/MvcMovie/appsettings.json?highlight=2&range=8-10)]
 
@@ -32,7 +32,7 @@ ASP.NET Core [yapılandırma](xref:fundamentals/configuration/index) sistemi, `C
 
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie3/Startup.cs?name=snippet_UseSqlite&highlight=5-6)]
 
-ASP.NET Core [yapılandırma](xref:fundamentals/configuration/index) sistemi, `ConnectionString` ' i okur. Yerel geliştirme için, *appSettings. JSON* dosyasından bağlantı dizesini alır:
+ASP.NET Core [yapılandırma](xref:fundamentals/configuration/index) sistemi `ConnectionString`okur. Yerel geliştirme için, *appSettings. JSON* dosyasından bağlantı dizesini alır:
 
 [!code-json[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie22/appsettingsSQLite.json?highlight=2&range=8-10)]
 
@@ -44,21 +44,21 @@ Uygulama bir test veya üretim sunucusuna dağıtıldığında, bağlantı dizes
 
 ## <a name="sql-server-express-localdb"></a>SQL Server Express LocalDB
 
-LocalDB, program geliştirmeye yönelik SQL Server Express veritabanı altyapısının hafif bir sürümüdür. LocalDB, istek üzerine başlar ve kullanıcı modunda çalışır, bu nedenle karmaşık bir yapılandırma yoktur. Varsayılan olarak, LocalDB veritabanı *C:/Users/{User}* dizininde *. mdf* dosyaları oluşturur.
+LocalDB, program geliştirmeye yönelik SQL Server Express veritabanı altyapısının hafif bir sürümüdür. LocalDB, isteğe bağlı olarak başlar ve karmaşık yapılandırma olduğundan kullanıcı modunda çalışır. Varsayılan olarak, LocalDB veritabanı *C:/Users/{User}* dizininde *. mdf* dosyaları oluşturur.
 
 * **Görünüm** menüsünden **SQL Server Nesne Gezgini** (ssox) öğesini açın.
 
   ![Görünüm menüsü](working-with-sql/_static/ssox.png)
 
-* @No__t-0 tablosuna sağ tıklayıp **Görünüm tasarımcısı >**
+* `Movie` tablo **> görünüm tasarımcısına** sağ tıklayın
 
   ![Film tablosunda bağlam menüsü açık](working-with-sql/_static/design.png)
 
   ![Tasarımcıda film tablosu aç](working-with-sql/_static/dv.png)
 
-@No__t-0 ' ın yanındaki anahtar simgesine göz önünde edin. Varsayılan olarak, EF, birincil anahtar `ID` adlı bir özellik oluşturacak.
+`ID`yanındaki anahtar simgesine göz önünde edin. Varsayılan olarak, EF birincil anahtar `ID` adlı bir özellik oluşturacak.
 
-* @No__t-0 tablosuna sağ tıklayın **> verileri görüntüleyin**
+* `Movie` tabloya sağ tıklayarak **verileri görüntüleyin >**
 
   ![Film tablosunda bağlam menüsü açık](working-with-sql/_static/ssox2.png)
 
@@ -72,7 +72,7 @@ LocalDB, program geliştirmeye yönelik SQL Server Express veritabanı altyapıs
 ---
 <!-- End of VS tabs -->
 
-## <a name="seed-the-database"></a>Veritabanını çekirdek
+## <a name="seed-the-database"></a>Veritabanının çekirdeğini oluşturma
 
 *Modeller* klasöründe `SeedData` adlı yeni bir sınıf oluşturun. Oluşturulan kodu aşağıdaki kodla değiştirin:
 
@@ -95,12 +95,12 @@ if (context.Movie.Any())
 
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie3/Program.cs)]
 
-Uygulamayı test edin
+Uygulamayı test etme
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * VERITABANıNDAKI tüm kayıtları silin. Bunu, tarayıcıda veya SSOX 'ten silme bağlantılarıyla yapabilirsiniz.
-* Çekirdek yöntemin çalışması için uygulamayı başlamaya zorlayın (`Startup` sınıfındaki Yöntemleri çağırın). Başlatmayı zorlamak için IIS Express durdurulup yeniden başlatılması gerekir. Bunu aşağıdaki yaklaşımlardan biriyle yapabilirsiniz:
+* Çekirdek yöntemin çalışması için uygulamayı başlamaya zorlayın (`Startup` sınıfında yöntemleri çağırın). Başlatmayı zorlamak için IIS Express durdurulup yeniden başlatılması gerekir. Bunu aşağıdaki yaklaşımlardan biriyle yapabilirsiniz:
 
   * Bildirim alanında IIS Express sistem tepsisi simgesine sağ tıklayın ve **Çıkış** veya **siteyi durdur** ' a dokunun
 
@@ -128,15 +128,15 @@ Uygulama, sağlanan verileri gösterir.
 
 ::: moniker range="< aspnetcore-3.0"
 
-Gönderen [Rick Anderson](https://twitter.com/RickAndMSFT)
+Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-@No__t-0 nesnesi veritabanına bağlanma ve `Movie` nesnelerini veritabanı kayıtlarına eşleme görevini işler. Veritabanı bağlamı, *Startup.cs* dosyasındaki `ConfigureServices` yönteminde [bağımlılık ekleme](xref:fundamentals/dependency-injection) kapsayıcısına kaydedilir:
+`MvcMovieContext` nesnesi veritabanına bağlanma ve `Movie` nesneleri veritabanı kayıtlarına eşleme görevini işler. Veritabanı bağlamı, *Startup.cs* dosyasındaki `ConfigureServices` yönteminde [bağımlılık ekleme](xref:fundamentals/dependency-injection) kapsayıcısına kaydedilir:
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie22/Startup.cs?name=snippet_ConfigureServices&highlight=13-99)]
 
-ASP.NET Core [yapılandırma](xref:fundamentals/configuration/index) sistemi, `ConnectionString` ' i okur. Yerel geliştirme için, *appSettings. JSON* dosyasından bağlantı dizesini alır:
+ASP.NET Core [yapılandırma](xref:fundamentals/configuration/index) sistemi `ConnectionString`okur. Yerel geliştirme için, *appSettings. JSON* dosyasından bağlantı dizesini alır:
 
 [!code-json[](start-mvc/sample/MvcMovie/appsettings.json?highlight=2&range=8-10)]
 
@@ -144,7 +144,7 @@ ASP.NET Core [yapılandırma](xref:fundamentals/configuration/index) sistemi, `C
 
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie22/Startup.cs?name=snippet_UseSqlite&highlight=11-12)]
 
-ASP.NET Core [yapılandırma](xref:fundamentals/configuration/index) sistemi, `ConnectionString` ' i okur. Yerel geliştirme için, *appSettings. JSON* dosyasından bağlantı dizesini alır:
+ASP.NET Core [yapılandırma](xref:fundamentals/configuration/index) sistemi `ConnectionString`okur. Yerel geliştirme için, *appSettings. JSON* dosyasından bağlantı dizesini alır:
 
 [!code-json[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie22/appsettingsSQLite.json?highlight=2&range=8-10)]
 
@@ -156,21 +156,21 @@ Uygulamayı bir test veya üretim sunucusuna dağıtırken, bağlantı dizesini 
 
 ## <a name="sql-server-express-localdb"></a>SQL Server Express LocalDB
 
-LocalDB, program geliştirmeye yönelik SQL Server Express veritabanı altyapısının hafif bir sürümüdür. LocalDB, istek üzerine başlar ve kullanıcı modunda çalışır, bu nedenle karmaşık bir yapılandırma yoktur. Varsayılan olarak, LocalDB veritabanı *C:/Users/{User}* dizininde *. mdf* dosyaları oluşturur.
+LocalDB, program geliştirmeye yönelik SQL Server Express veritabanı altyapısının hafif bir sürümüdür. LocalDB, isteğe bağlı olarak başlar ve karmaşık yapılandırma olduğundan kullanıcı modunda çalışır. Varsayılan olarak, LocalDB veritabanı *C:/Users/{User}* dizininde *. mdf* dosyaları oluşturur.
 
 * **Görünüm** menüsünden **SQL Server Nesne Gezgini** (ssox) öğesini açın.
 
   ![Görünüm menüsü](working-with-sql/_static/ssox.png)
 
-* @No__t-0 tablosuna sağ tıklayıp **Görünüm tasarımcısı >**
+* `Movie` tablo **> görünüm tasarımcısına** sağ tıklayın
 
   ![Film tablosunda bağlam menüsü açık](working-with-sql/_static/design.png)
 
   ![Tasarımcıda film tablosu aç](working-with-sql/_static/dv.png)
 
-@No__t-0 ' ın yanındaki anahtar simgesine göz önünde edin. Varsayılan olarak, EF, birincil anahtar `ID` adlı bir özellik oluşturacak.
+`ID`yanındaki anahtar simgesine göz önünde edin. Varsayılan olarak, EF birincil anahtar `ID` adlı bir özellik oluşturacak.
 
-* @No__t-0 tablosuna sağ tıklayın **> verileri görüntüleyin**
+* `Movie` tabloya sağ tıklayarak **verileri görüntüleyin >**
 
   ![Film tablosunda bağlam menüsü açık](working-with-sql/_static/ssox2.png)
 
@@ -184,7 +184,7 @@ LocalDB, program geliştirmeye yönelik SQL Server Express veritabanı altyapıs
 ---
 <!-- End of VS tabs -->
 
-## <a name="seed-the-database"></a>Veritabanını çekirdek
+## <a name="seed-the-database"></a>Veritabanının çekirdeğini oluşturma
 
 *Modeller* klasöründe `SeedData` adlı yeni bir sınıf oluşturun. Oluşturulan kodu aşağıdaki kodla değiştirin:
 
@@ -207,12 +207,12 @@ if (context.Movie.Any())
 
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie22/Program.cs)]
 
-Uygulamayı test edin
+Uygulamayı test etme
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * VERITABANıNDAKI tüm kayıtları silin. Bunu, tarayıcıda veya SSOX 'ten silme bağlantılarıyla yapabilirsiniz.
-* Çekirdek yöntemin çalışması için uygulamayı başlamaya zorlayın (`Startup` sınıfındaki Yöntemleri çağırın). Başlatmayı zorlamak için IIS Express durdurulup yeniden başlatılması gerekir. Bunu aşağıdaki yaklaşımlardan biriyle yapabilirsiniz:
+* Çekirdek yöntemin çalışması için uygulamayı başlamaya zorlayın (`Startup` sınıfında yöntemleri çağırın). Başlatmayı zorlamak için IIS Express durdurulup yeniden başlatılması gerekir. Bunu aşağıdaki yaklaşımlardan biriyle yapabilirsiniz:
 
   * Bildirim alanında IIS Express sistem tepsisi simgesine sağ tıklayın ve **Çıkış** veya **siteyi durdur** ' a dokunun
 

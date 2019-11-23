@@ -35,31 +35,31 @@ Kurala göre, proxy 'leri HTTP başlıklarında iletme bilgileri.
 | X-Iletilen-proto | Kaynak düzenin değeri (HTTP/HTTPS). Bu değer, istek birden çok proxy 'ye geçen bir düzen listesi de olabilir. |
 | X-Iletilen-konak | Ana bilgisayar üst bilgisi alanının özgün değeri. Genellikle, proxy 'ler ana bilgisayar üst bilgisini değiştirmez. Proxy 'nin konak üstbilgilerini doğrulamadığı veya kısıtlayamayacağı sistemleri etkileyen ayrıcalık yükselmesi güvenlik açığı hakkında bilgi için bkz. [Microsoft Güvenlik Danışmanlığı CVE-2018-0787](https://github.com/aspnet/Announcements/issues/295) . |
 
-[Microsoft. AspNetCore. HttpOverrides](https://www.nuget.org/packages/Microsoft.AspNetCore.HttpOverrides/) paketindeki Iletilen üstbilgiler ara yazılımı, bu üst bilgileri okur ve <xref:Microsoft.AspNetCore.Http.HttpContext> ' deki ilişkili alanları doldurur.
+[Microsoft. AspNetCore. HttpOverrides](https://www.nuget.org/packages/Microsoft.AspNetCore.HttpOverrides/) paketindeki Iletilen üstbilgiler ara yazılımı, bu üst bilgileri okur ve <xref:Microsoft.AspNetCore.Http.HttpContext>ilişkili alanları doldurur.
 
 Ara yazılım güncelleştirmeleri:
 
-* [HttpContext. Connection. Remoteıpaddress](xref:Microsoft.AspNetCore.Http.ConnectionInfo.RemoteIpAddress) &ndash; `X-Forwarded-For` üst bilgi değeri kullanılarak ayarlanır. Ek ayarlar, ara yazılım `RemoteIpAddress` ' ın nasıl ayarlanacağını etkiler. Ayrıntılar için bkz. [Iletilen üstbilgiler ara yazılım seçenekleri](#forwarded-headers-middleware-options).
-* @No__t `X-Forwarded-Proto` üst bilgi değeri kullanılarak ayarlanan [HttpContext. Request. Scheme](xref:Microsoft.AspNetCore.Http.HttpRequest.Scheme) -1.
-* [HttpContext. Request. Host](xref:Microsoft.AspNetCore.Http.HttpRequest.Host) &ndash; `X-Forwarded-Host` üst bilgi değeri kullanılarak ayarlanır.
+* [HttpContext. Connection. Remoteıpaddress](xref:Microsoft.AspNetCore.Http.ConnectionInfo.RemoteIpAddress) &ndash; `X-Forwarded-For` üst bilgi değeri kullanılarak ayarlanır. Ek ayarlar, ara yazılımın `RemoteIpAddress`nasıl ayarlakullandığını etkiler. Ayrıntılar için bkz. [Iletilen üstbilgiler ara yazılım seçenekleri](#forwarded-headers-middleware-options).
+* `X-Forwarded-Proto` üst bilgi değeri kullanılarak ayarlanan [HttpContext. Request. Scheme](xref:Microsoft.AspNetCore.Http.HttpRequest.Scheme) &ndash;.
+* &ndash; `X-Forwarded-Host` üst bilgi değeri kullanılarak ayarlanan [HttpContext. Request. Host](xref:Microsoft.AspNetCore.Http.HttpRequest.Host) .
 
 İletilen üstbilgiler ara yazılımı [varsayılan ayarları](#forwarded-headers-middleware-options) yapılandırılabilir. Varsayılan ayarlar şunlardır:
 
 * Uygulama ve isteklerin kaynağı arasında yalnızca *bir ara sunucu* vardır.
 * Bilinen proxy 'ler ve bilinen ağlar için yalnızca geri döngü adresleri yapılandırılır.
-* İletilen üstbilgiler `X-Forwarded-For` ve `X-Forwarded-Proto` olarak adlandırılır.
+* İletilen üst bilgiler `X-Forwarded-For` ve `X-Forwarded-Proto`olarak adlandırılır.
 
-Tüm ağ gereçleri, ek yapılandırma olmadan `X-Forwarded-For` ve `X-Forwarded-Proto` üst bilgilerini eklemez. Proxy istekler uygulamaya ulaştığında bu üst bilgileri içermiyorsa, Gereç üreticinizin kılavuzuna başvurun. Gereç `X-Forwarded-For` ve `X-Forwarded-Proto` ' den farklı üstbilgi adları kullanıyorsa, <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersOptions.ForwardedForHeaderName> ve <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersOptions.ForwardedProtoHeaderName> seçeneklerini gereç tarafından kullanılan üstbilgi adlarıyla eşleşecek şekilde ayarlayın. Daha fazla bilgi için bkz. [Iletilen üstbilgiler ara yazılım seçenekleri](#forwarded-headers-middleware-options) ve [farklı üstbilgi adları kullanan bir proxy için yapılandırma](#configuration-for-a-proxy-that-uses-different-header-names).
+Tüm ağ gereçleri, ek yapılandırma olmadan `X-Forwarded-For` ve `X-Forwarded-Proto` üst bilgilerini eklemez. Proxy istekler uygulamaya ulaştığında bu üst bilgileri içermiyorsa, Gereç üreticinizin kılavuzuna başvurun. Gereç `X-Forwarded-For` ve `X-Forwarded-Proto`farklı üstbilgi adları kullanıyorsa, <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersOptions.ForwardedForHeaderName> ve <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersOptions.ForwardedProtoHeaderName> seçeneklerini gereç tarafından kullanılan üstbilgi adlarıyla eşleşecek şekilde ayarlayın. Daha fazla bilgi için bkz. [Iletilen üstbilgiler ara yazılım seçenekleri](#forwarded-headers-middleware-options) ve [farklı üstbilgi adları kullanan bir proxy için yapılandırma](#configuration-for-a-proxy-that-uses-different-header-names).
 
 ## <a name="iisiis-express-and-aspnet-core-module"></a>IIS/IIS Express ve ASP.NET Core modülü
 
-İletilen üstbilgiler ara yazılımı, uygulama IIS 'nin arkasında ve ASP.NET Core modülünden sonra [işlem dışı](xref:host-and-deploy/iis/index#out-of-process-hosting-model) barındırılıyorsa [IIS tümleştirme ara yazılımı](xref:host-and-deploy/iis/index#enable-the-iisintegration-components) tarafından varsayılan olarak etkinleştirilir. İletilen üstbilgiler ara yazılımı, iletilen üst bilgilerle (örneğin, [IP aldatmacası](https://www.iplocation.net/ip-spoofing)) güven sorunları nedeniyle ASP.NET Core modülüne özgü kısıtlanmış bir yapılandırmaya sahip olan ara yazılım ardışık düzeninde ilk olarak çalışır. Ara yazılım `X-Forwarded-For` ve `X-Forwarded-Proto` üst bilgilerini iletmek üzere yapılandırılmıştır ve tek bir localhost proxy ile kısıtlanır. Ek yapılandırma gerekliyse, [Iletilen üstbilgiler ara yazılım seçeneklerine](#forwarded-headers-middleware-options)bakın.
+İletilen üstbilgiler ara yazılımı, uygulama IIS 'nin arkasında ve ASP.NET Core modülünden sonra [işlem dışı](xref:host-and-deploy/iis/index#out-of-process-hosting-model) barındırılıyorsa [IIS tümleştirme ara yazılımı](xref:host-and-deploy/iis/index#enable-the-iisintegration-components) tarafından varsayılan olarak etkinleştirilir. İletilen üstbilgiler ara yazılımı, iletilen üst bilgilerle (örneğin, [IP aldatmacası](https://www.iplocation.net/ip-spoofing)) güven sorunları nedeniyle ASP.NET Core modülüne özgü kısıtlanmış bir yapılandırmaya sahip olan ara yazılım ardışık düzeninde ilk olarak çalışır. Ara yazılım, `X-Forwarded-For` ve `X-Forwarded-Proto` üst bilgilerini iletmek üzere yapılandırılır ve tek bir localhost proxy ile kısıtlanır. Ek yapılandırma gerekliyse, [Iletilen üstbilgiler ara yazılım seçeneklerine](#forwarded-headers-middleware-options)bakın.
 
 ## <a name="other-proxy-server-and-load-balancer-scenarios"></a>Diğer proxy sunucu ve yük dengeleyici senaryoları
 
-[İşlem dışı](xref:host-and-deploy/iis/index#out-of-process-hosting-model)barındırma sırasında [IIS tümleştirmesi](xref:host-and-deploy/iis/index#enable-the-iisintegration-components) 'nin kullanılması dışında, iletilen üstbilgiler ara yazılımı varsayılan olarak etkinleştirilmemiştir. Bir uygulamanın iletilen üstbilgileri <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersExtensions.UseForwardedHeaders*> ile işlemesi için iletilen üstbilgiler ara yazılımı etkinleştirilmelidir. Ara yazılım için <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersOptions> belirtilmemişse, ara yazılımı etkinleştirdikten sonra varsayılan [Forwardedheadersoptions. ForwardedHeaders](xref:Microsoft.AspNetCore.Builder.ForwardedHeadersOptions.ForwardedHeaders) , [Forwardedheaders. None](xref:Microsoft.AspNetCore.HttpOverrides.ForwardedHeaders)' dır.
+[İşlem dışı](xref:host-and-deploy/iis/index#out-of-process-hosting-model)barındırma sırasında [IIS tümleştirmesi](xref:host-and-deploy/iis/index#enable-the-iisintegration-components) 'nin kullanılması dışında, iletilen üstbilgiler ara yazılımı varsayılan olarak etkinleştirilmemiştir. Bir uygulamanın iletilen üstbilgileri <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersExtensions.UseForwardedHeaders*>işlemesi için iletilen üstbilgiler ara yazılımı etkinleştirilmelidir. Ara yazılım için <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersOptions> belirtilmemişse, ara yazılımı etkinleştirdikten sonra varsayılan [Forwardedheadersoptions. ForwardedHeaders](xref:Microsoft.AspNetCore.Builder.ForwardedHeadersOptions.ForwardedHeaders) , [Forwardedheaders. None](xref:Microsoft.AspNetCore.HttpOverrides.ForwardedHeaders)' dir.
 
-@No__t-0 ile ara yazılımı, `X-Forwarded-For` ve `X-Forwarded-Proto` üst bilgilerini `Startup.ConfigureServices` ' te iletmek üzere yapılandırın. Diğer ara yazılım çağrılmadan önce `Startup.Configure` <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersExtensions.UseForwardedHeaders*> yöntemini çağırın:
+`X-Forwarded-For` ve `X-Forwarded-Proto` üst `Startup.ConfigureServices`bilgilerini iletmek için <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersOptions> ile ara yazılımı yapılandırın. Diğer ara yazılım çağrılmadan önce `Startup.Configure` <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersExtensions.UseForwardedHeaders*> yöntemi çağırın:
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -94,23 +94,23 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 ```
 
 > [!NOTE]
-> @No__t-0 `Startup.ConfigureServices` ' de veya doğrudan <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersExtensions.UseForwardedHeaders*> ile uzantı yöntemine belirtilmemişse, iletmek için varsayılan üstbilgiler [Forwardedheaders. None](xref:Microsoft.AspNetCore.HttpOverrides.ForwardedHeaders)' dır. @No__t-0 özelliği, iletmek için üst bilgilerle yapılandırılmalıdır.
+> `Startup.ConfigureServices` içinde <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersOptions> belirtilmemişse veya doğrudan uzantı yöntemine <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersExtensions.UseForwardedHeaders*>, iletmek için varsayılan üstbilgiler [Forwardedheaders. None](xref:Microsoft.AspNetCore.HttpOverrides.ForwardedHeaders)' dır. <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersOptions.ForwardedHeaders> özelliği, iletmek için üst bilgilerle yapılandırılmalıdır.
 
 ## <a name="nginx-configuration"></a>NGINX yapılandırması
 
-@No__t-0 ve `X-Forwarded-Proto` üst bilgilerini iletmek için, bkz. <xref:host-and-deploy/linux-nginx#configure-nginx>. Daha fazla bilgi için bkz. [NGıNX: Iletilen üstbilgi @ no__t-0 ' i kullanma.
+`X-Forwarded-For` ve `X-Forwarded-Proto` üstbilgilerini iletmek için bkz. <xref:host-and-deploy/linux-nginx#configure-nginx>. Daha fazla bilgi için bkz. [NGINX: iletilen üstbilgiyi kullanma](https://www.nginx.com/resources/wiki/start/topics/examples/forwarded/).
 
 ## <a name="apache-configuration"></a>Apache yapılandırması
 
-`X-Forwarded-For` otomatik olarak eklenir (bkz. [Apache Module mod_proxy: Ters proxy Istek üstbilgileri @ no__t-0). @No__t-0 üst bilgisini iletme hakkında daha fazla bilgi için, bkz. <xref:host-and-deploy/linux-apache#configure-apache>.
+`X-Forwarded-For` otomatik olarak eklenir (bkz. [Apache modülü mod_proxy: ters proxy Isteği üstbilgileri](https://httpd.apache.org/docs/2.4/mod/mod_proxy.html#x-headers)). `X-Forwarded-Proto` üst bilgisini iletme hakkında daha fazla bilgi için bkz. <xref:host-and-deploy/linux-apache#configure-apache>.
 
 ## <a name="forwarded-headers-middleware-options"></a>İletilen üstbilgiler ara yazılım seçenekleri
 
-<xref:Microsoft.AspNetCore.Builder.ForwardedHeadersOptions> Iletilen üstbilgiler ara yazılımı davranışını denetler. Aşağıdaki örnek varsayılan değerleri değiştirir:
+Iletilen üstbilgiler ara yazılımı davranışını kontrol <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersOptions>. Aşağıdaki örnek varsayılan değerleri değiştirir:
 
-* İletilen üst bilgilerdeki giriş sayısını `2` olarak sınırlandırın.
-* @No__t-0 ' ın bilinen bir proxy adresini ekleyin.
-* İletilen üst bilgi adını varsayılan `X-Forwarded-For` ' dan `X-Forwarded-For-My-Custom-Header-Name` ' e değiştirin.
+* İletilen üst bilgilerdeki giriş sayısını `2`olarak sınırlandırın.
+* `127.0.10.1`bilinen bir proxy adresi ekleyin.
+* İletilen üst bilgi adını varsayılan `X-Forwarded-For` `X-Forwarded-For-My-Custom-Header-Name`olacak şekilde değiştirin.
 
 ```csharp
 services.Configure<ForwardedHeadersOptions>(options =>
@@ -123,24 +123,24 @@ services.Configure<ForwardedHeadersOptions>(options =>
 
 | Seçenek | Açıklama |
 | ------ | ----------- |
-| <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersOptions.AllowedHosts> | @No__t-0 üst bilgisine sahip Konakları belirtilen değerlerle kısıtlar.<ul><li>Değerler, Ordinal-Ignore-Case kullanılarak karşılaştırılır.</li><li>Bağlantı noktası numaraları dışlanmalıdır.</li><li>Liste boşsa, tüm konaklara izin verilir.</li><li>En üst düzey joker karakter `*` boş olmayan tüm konaklara izin verir.</li><li>Alt etki alanı Joker karakterlere izin verilir ancak kök etki alanıyla eşleşmez. Örneğin, `*.contoso.com` alt etki alanı `foo.contoso.com` ile eşleşir, ancak `contoso.com` kök etki alanını değil.</li><li>Unicode ana bilgisayar adlarına izin verilir, ancak eşleştirme için [puni koduna](https://tools.ietf.org/html/rfc3492) dönüştürülür.</li><li>[IPv6 adresleri](https://tools.ietf.org/html/rfc4291) sınırlayıcı ayraçları içermeli ve [geleneksel biçimde](https://tools.ietf.org/html/rfc4291#section-2.2) olmalıdır (örneğin, `[ABCD:EF01:2345:6789:ABCD:EF01:2345:6789]`). IPv6 adresleri, farklı biçimler arasında mantıksal eşitlik denetimi için özel değildir ve hiçbir kurallı kullanım yapılmaz.</li><li>İzin verilen konaklar kısıtlanamaması, bir saldırganın hizmet tarafından oluşturulan bağlantıları sızdırmasına izin verebilir.</li></ul>Varsayılan değer boş bir `IList<string>` ' dır. |
-| <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersOptions.ForwardedForHeaderName> | Bu özellik tarafından belirtilen üstbilgiyi, [Forwardedheadersdefaults varsayılan. XForwardedForHeaderName](xref:Microsoft.AspNetCore.HttpOverrides.ForwardedHeadersDefaults.XForwardedForHeaderName)tarafından belirtilen bir yerine kullanın. Bu seçenek, proxy/iletici `X-Forwarded-For` üst bilgisini kullanmadığınızda, ancak bilgileri iletmek için başka bir üst bilgi kullandığında kullanılır.<br><br>Varsayılan, `X-Forwarded-For` değeridir. |
-| <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersOptions.ForwardedHeaders> | Hangi ileticilerin işleneceğini tanımlar. Uygulanan alanların listesi için [Forwardedheaders numaralandırması](xref:Microsoft.AspNetCore.HttpOverrides.ForwardedHeaders) ' ne bakın. Bu özelliğe atanan tipik değerler `ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto` ' dır.<br><br>Varsayılan değer [Forwardedheaders. None](xref:Microsoft.AspNetCore.HttpOverrides.ForwardedHeaders)' dır. |
-| <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersOptions.ForwardedHostHeaderName> | [Forwardedheadersdefaults varsayılan. XForwardedHostHeaderName](xref:Microsoft.AspNetCore.HttpOverrides.ForwardedHeadersDefaults.XForwardedHostHeaderName)tarafından belirtilen yerine bu özellik tarafından belirtilen üstbilgiyi kullanın. Bu seçenek, proxy/iletici `X-Forwarded-Host` üst bilgisini kullanmadığınızda, ancak bilgileri iletmek için başka bir üst bilgi kullandığında kullanılır.<br><br>Varsayılan, `X-Forwarded-Host` değeridir. |
-| <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersOptions.ForwardedProtoHeaderName> | Bu özellik tarafından belirtilen üstbilgiyi, [Forwardedheadersdefaults varsayılan. XForwardedProtoHeaderName](xref:Microsoft.AspNetCore.HttpOverrides.ForwardedHeadersDefaults.XForwardedProtoHeaderName)tarafından belirtilen bir yerine kullanın. Bu seçenek, proxy/iletici `X-Forwarded-Proto` üst bilgisini kullanmadığınızda, ancak bilgileri iletmek için başka bir üst bilgi kullandığında kullanılır.<br><br>Varsayılan, `X-Forwarded-Proto` değeridir. |
-| <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersOptions.ForwardLimit> | İşlenen üst bilgilerdeki giriş sayısını sınırlandırır. Limiti devre dışı bırakmak için `null` olarak ayarlayın, ancak yalnızca `KnownProxies` veya `KnownNetworks` yapılandırılmışsa bu işlem yapılmalıdır. @No__t-0 olmayan bir değer ayarlamak, hatalı yapılandırılmış proxy 'lerde ve ağdaki yan kanallardan gelen kötü amaçlı isteklere karşı koruma sağlamak için bir önlem (garanti değildir) olarak ayarlanır.<br><br>İletilen üstbilgiler ara yazılımı, üst bilgileri sağdan sola doğru sırada işler. Varsayılan değer (`1`) kullanılırsa, `ForwardLimit` değeri arttırılmadığı müddetçe yalnızca üst bilgilerden en sağdaki değer işlenir.<br><br>Varsayılan, `1` değeridir. |
-| <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersOptions.KnownNetworks> | İletilen üstbilgileri kabul etmek için bilinen ağların adres aralıkları. Sınıfsız Etki alanları arası yönlendirme (CıDR) gösterimini kullanarak IP aralıkları sağlayın.<br><br>Sunucu çift modlu yuvalar kullanıyorsa, IPv4 adresleri IPv6 biçiminde sağlanır (örneğin, IPv4 'de `::ffff:10.0.0.1` olarak temsil edilen `10.0.0.1`). Bkz. [IPAddress. MapToIPv6](xref:System.Net.IPAddress.MapToIPv6*). [HttpContext. Connection. Remoteıpaddress](xref:Microsoft.AspNetCore.Http.ConnectionInfo.RemoteIpAddress*)öğesine bakarak bu biçimin gerekip gerekmediğini saptayın. Daha fazla bilgi için, [IPv6 adresi olarak temsil edilen IPv4 adresi Için yapılandırma](#configuration-for-an-ipv4-address-represented-as-an-ipv6-address) bölümüne bakın.<br><br>Varsayılan değer, `IPAddress.Loopback` için tek bir giriş içeren bir `IList` @ no__t-1 @ no__t-2 >. |
-| <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersOptions.KnownProxies> | İletilen üstbilgileri kabul etmek için bilinen proxy 'lerin adresleri. Tam IP adresi eşleşmelerini belirtmek için `KnownProxies` kullanın.<br><br>Sunucu çift modlu yuvalar kullanıyorsa, IPv4 adresleri IPv6 biçiminde sağlanır (örneğin, IPv4 'de `::ffff:10.0.0.1` olarak temsil edilen `10.0.0.1`). Bkz. [IPAddress. MapToIPv6](xref:System.Net.IPAddress.MapToIPv6*). [HttpContext. Connection. Remoteıpaddress](xref:Microsoft.AspNetCore.Http.ConnectionInfo.RemoteIpAddress*)öğesine bakarak bu biçimin gerekip gerekmediğini saptayın. Daha fazla bilgi için, [IPv6 adresi olarak temsil edilen IPv4 adresi Için yapılandırma](#configuration-for-an-ipv4-address-represented-as-an-ipv6-address) bölümüne bakın.<br><br>Varsayılan değer, `IPAddress.IPv6Loopback` için tek bir giriş içeren bir `IList` @ no__t-1 @ no__t-2 >. |
+| <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersOptions.AllowedHosts> | Ana bilgisayarları `X-Forwarded-Host` üst bilgisini belirtilen değerlerle kısıtlar.<ul><li>Değerler, Ordinal-Ignore-Case kullanılarak karşılaştırılır.</li><li>Bağlantı noktası numaraları dışlanmalıdır.</li><li>Liste boşsa, tüm konaklara izin verilir.</li><li>Üst düzey joker karakter `*` boş olmayan tüm konaklara izin verir.</li><li>Alt etki alanı Joker karakterlere izin verilir ancak kök etki alanıyla eşleşmez. Örneğin `*.contoso.com`, kök etki alanı `contoso.com`değil, alt etki alanıyla eşleşir `foo.contoso.com`.</li><li>Unicode ana bilgisayar adlarına izin verilir, ancak eşleştirme için [puni koduna](https://tools.ietf.org/html/rfc3492) dönüştürülür.</li><li>[IPv6 adresleri](https://tools.ietf.org/html/rfc4291) sınırlayıcı ayraçları içermeli ve [geleneksel biçimde](https://tools.ietf.org/html/rfc4291#section-2.2) olmalıdır (örneğin, `[ABCD:EF01:2345:6789:ABCD:EF01:2345:6789]`). IPv6 adresleri, farklı biçimler arasında mantıksal eşitlik denetimi için özel değildir ve hiçbir kurallı kullanım yapılmaz.</li><li>İzin verilen konaklar kısıtlanamaması, bir saldırganın hizmet tarafından oluşturulan bağlantıları sızdırmasına izin verebilir.</li></ul>Varsayılan değer boş bir `IList<string>`. |
+| <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersOptions.ForwardedForHeaderName> | Bu özellik tarafından belirtilen üstbilgiyi, [Forwardedheadersdefaults varsayılan. XForwardedForHeaderName](xref:Microsoft.AspNetCore.HttpOverrides.ForwardedHeadersDefaults.XForwardedForHeaderName)tarafından belirtilen bir yerine kullanın. Bu seçenek, proxy/iletici `X-Forwarded-For` üstbilgisini kullanmıyorsa ve bilgileri iletmek için başka bir üst bilgi kullandığında kullanılır.<br><br>Varsayılan, `X-Forwarded-For` değeridir. |
+| <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersOptions.ForwardedHeaders> | Hangi ileticilerin işleneceğini tanımlar. Uygulanan alanların listesi için [Forwardedheaders numaralandırması](xref:Microsoft.AspNetCore.HttpOverrides.ForwardedHeaders) ' ne bakın. Bu özelliğe atanan tipik değerler `ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto`.<br><br>Varsayılan değer [Forwardedheaders. None](xref:Microsoft.AspNetCore.HttpOverrides.ForwardedHeaders)' dır. |
+| <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersOptions.ForwardedHostHeaderName> | [Forwardedheadersdefaults varsayılan. XForwardedHostHeaderName](xref:Microsoft.AspNetCore.HttpOverrides.ForwardedHeadersDefaults.XForwardedHostHeaderName)tarafından belirtilen yerine bu özellik tarafından belirtilen üstbilgiyi kullanın. Bu seçenek, proxy/iletici `X-Forwarded-Host` üstbilgisini kullanmıyorsa ve bilgileri iletmek için başka bir üst bilgi kullandığında kullanılır.<br><br>Varsayılan, `X-Forwarded-Host` değeridir. |
+| <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersOptions.ForwardedProtoHeaderName> | Bu özellik tarafından belirtilen üstbilgiyi, [Forwardedheadersdefaults varsayılan. XForwardedProtoHeaderName](xref:Microsoft.AspNetCore.HttpOverrides.ForwardedHeadersDefaults.XForwardedProtoHeaderName)tarafından belirtilen bir yerine kullanın. Bu seçenek, proxy/iletici `X-Forwarded-Proto` üstbilgisini kullanmıyorsa ve bilgileri iletmek için başka bir üst bilgi kullandığında kullanılır.<br><br>Varsayılan, `X-Forwarded-Proto` değeridir. |
+| <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersOptions.ForwardLimit> | İşlenen üst bilgilerdeki giriş sayısını sınırlandırır. Limiti devre dışı bırakmak için `null` olarak ayarlayın, ancak bu yalnızca `KnownProxies` veya `KnownNetworks` yapılandırılırsa yapılmalıdır. `null` olmayan bir değer ayarlamak, yanlış yapılandırılmış proxy 'lerde ve ağdaki yan kanallardan gelen kötü amaçlı isteklere karşı koruma sağlamak için bir önlem (garanti değildir) olarak ayarlanır.<br><br>İletilen üstbilgiler ara yazılımı, üst bilgileri sağdan sola doğru sırada işler. Varsayılan değer (`1`) kullanılırsa, `ForwardLimit` değeri artmadığı müddetçe yalnızca üst bilgilerden en sağdaki değer işlenir.<br><br>Varsayılan, `1` değeridir. |
+| <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersOptions.KnownNetworks> | İletilen üstbilgileri kabul etmek için bilinen ağların adres aralıkları. Sınıfsız Etki alanları arası yönlendirme (CıDR) gösterimini kullanarak IP aralıkları sağlayın.<br><br>Sunucu çift modlu yuvalar kullanıyorsa, IPv4 adresleri IPv6 biçiminde sağlanır (örneğin, IPv4 içinde, `::ffff:10.0.0.1`olarak temsil edilen `10.0.0.1`). Bkz. [IPAddress. MapToIPv6](xref:System.Net.IPAddress.MapToIPv6*). [HttpContext. Connection. Remoteıpaddress](xref:Microsoft.AspNetCore.Http.ConnectionInfo.RemoteIpAddress*)öğesine bakarak bu biçimin gerekip gerekmediğini saptayın. Daha fazla bilgi için, [IPv6 adresi olarak temsil edilen IPv4 adresi Için yapılandırma](#configuration-for-an-ipv4-address-represented-as-an-ipv6-address) bölümüne bakın.<br><br>Varsayılan değer, `IPAddress.Loopback`için tek bir giriş içeren bir `IList`\<<xref:Microsoft.AspNetCore.HttpOverrides.IPNetwork>>. |
+| <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersOptions.KnownProxies> | İletilen üstbilgileri kabul etmek için bilinen proxy 'lerin adresleri. Tam IP adresi eşleşmelerini belirtmek için `KnownProxies` kullanın.<br><br>Sunucu çift modlu yuvalar kullanıyorsa, IPv4 adresleri IPv6 biçiminde sağlanır (örneğin, IPv4 içinde, `::ffff:10.0.0.1`olarak temsil edilen `10.0.0.1`). Bkz. [IPAddress. MapToIPv6](xref:System.Net.IPAddress.MapToIPv6*). [HttpContext. Connection. Remoteıpaddress](xref:Microsoft.AspNetCore.Http.ConnectionInfo.RemoteIpAddress*)öğesine bakarak bu biçimin gerekip gerekmediğini saptayın. Daha fazla bilgi için, [IPv6 adresi olarak temsil edilen IPv4 adresi Için yapılandırma](#configuration-for-an-ipv4-address-represented-as-an-ipv6-address) bölümüne bakın.<br><br>Varsayılan değer, `IPAddress.IPv6Loopback`için tek bir giriş içeren bir `IList`\<<xref:System.Net.IPAddress>>. |
 | <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersOptions.OriginalForHeaderName> | Bu özellik tarafından belirtilen üstbilgiyi, [Forwardedheadersdefaults varsayılan. XOriginalForHeaderName](xref:Microsoft.AspNetCore.HttpOverrides.ForwardedHeadersDefaults.XOriginalForHeaderName)tarafından belirtilen bir yerine kullanın.<br><br>Varsayılan, `X-Original-For` değeridir. |
 | <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersOptions.OriginalHostHeaderName> | [Forwardedheadersdefaults varsayılan. XOriginalHostHeaderName](xref:Microsoft.AspNetCore.HttpOverrides.ForwardedHeadersDefaults.XOriginalHostHeaderName)tarafından belirtilen yerine bu özellik tarafından belirtilen üstbilgiyi kullanın.<br><br>Varsayılan, `X-Original-Host` değeridir. |
 | <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersOptions.OriginalProtoHeaderName> | Bu özellik tarafından belirtilen üstbilgiyi, [Forwardedheadersdefaults varsayılan. XOriginalProtoHeaderName](xref:Microsoft.AspNetCore.HttpOverrides.ForwardedHeadersDefaults.XOriginalProtoHeaderName)tarafından belirtilen bir yerine kullanın.<br><br>Varsayılan, `X-Original-Proto` değeridir. |
-| <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersOptions.RequireHeaderSymmetry> | Bilgi işlem sayısının, işlenmekte olan [Forwardedheadersoptions. ForwardedHeaders](xref:Microsoft.AspNetCore.Builder.ForwardedHeadersOptions.ForwardedHeaders) arasında eşitlenmiş olmasını gerektir.<br><br>ASP.NET Core 1. x içindeki varsayılan değer `true` ' dır. ASP.NET Core 2,0 veya sonraki sürümlerde varsayılan değer `false` ' dır. |
+| <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersOptions.RequireHeaderSymmetry> | Bilgi işlem sayısının, işlenmekte olan [Forwardedheadersoptions. ForwardedHeaders](xref:Microsoft.AspNetCore.Builder.ForwardedHeadersOptions.ForwardedHeaders) arasında eşitlenmiş olmasını gerektir.<br><br>ASP.NET Core 1. x içindeki varsayılan değer `true`. ASP.NET Core 2,0 veya sonraki sürümlerde varsayılan değer `false`. |
 
 ## <a name="scenarios-and-use-cases"></a>Senaryolar ve kullanım örnekleri
 
 ### <a name="when-it-isnt-possible-to-add-forwarded-headers-and-all-requests-are-secure"></a>İletilen üstbilgiler eklemek mümkün olmadığında ve tüm istekler güvenlidir
 
-Bazı durumlarda, iletilen üstbilgileri uygulamaya yönelik isteklere eklemek mümkün olmayabilir. Proxy tüm genel dış isteklerin HTTPS olduğunu zortacaktır, herhangi bir tür ara yazılım kullanılmadan önce Düzen `Startup.Configure` ' da el ile ayarlanabilir:
+Bazı durumlarda, iletilen üstbilgileri uygulamaya yönelik isteklere eklemek mümkün olmayabilir. Proxy tüm genel dış isteklerin HTTPS olduğunu zortacaktır, düzen herhangi bir tür ara yazılım kullanılmadan önce `Startup.Configure` el ile ayarlanabilir:
 
 ```csharp
 app.Use((context, next) =>
@@ -156,7 +156,7 @@ Bu kod bir geliştirme veya hazırlama ortamındaki ortam değişkeniyle veya di
 
 Bazı proxy 'ler yolu bozulmadan, ancak yönlendirmenin düzgün çalışması için kaldırılması gereken bir uygulama temel yolu ile geçer. [Usepathbaseextensions. usepathbase](xref:Microsoft.AspNetCore.Builder.UsePathBaseExtensions.UsePathBase*) ara yazılımı, yolu HttpRequest. [Path](xref:Microsoft.AspNetCore.Http.HttpRequest.Path) ve uygulama temeli yoluna, [HttpRequest. pathbase](xref:Microsoft.AspNetCore.Http.HttpRequest.PathBase)içine böler.
 
-@No__t-0, `/foo/api/1` olarak geçirilen bir ara sunucu yolu için uygulama temel yollarsa, ara yazılım `Request.PathBase` ' ye `/foo` ' e ve `Request.Path` ' e `/api/1` ' i aşağıdaki komutla ayarlar:
+`/foo`, `/foo/api/1`olarak geçirilen bir ara sunucu yolu için uygulama temel yolu ise, ara yazılım `Request.PathBase` `/foo` ve `Request.Path` aşağıdaki komutla `/api/1` olarak ayarlar:
 
 ```csharp
 app.UsePathBase("/foo");
@@ -164,7 +164,7 @@ app.UsePathBase("/foo");
 
 Özgün yol ve yol tabanı, ara yazılım ters ' de çağrıldığında yeniden uygulanır. Ara yazılım sırası işleme hakkında daha fazla bilgi için bkz. <xref:fundamentals/middleware/index>.
 
-Proxy, yolu kırpar (örneğin, `/foo/api/1` `/api/1` ' e iletiyorsa) isteğin [Pathbase](xref:Microsoft.AspNetCore.Http.HttpRequest.PathBase) özelliğini ayarlayarak yeniden yönlendirmeleri ve bağlantıları düzeltir:
+Proxy, yolu kırpar (örneğin, `/api/1``/foo/api/1` iletme), isteğin [Pathbase](xref:Microsoft.AspNetCore.Http.HttpRequest.PathBase) özelliğini ayarlayarak yeniden yönlendirmeleri ve bağlantıları düzeltir:
 
 ```csharp
 app.Use((context, next) =>
@@ -174,7 +174,7 @@ app.Use((context, next) =>
 });
 ```
 
-Proxy yol verileri ekliyor ise, <xref:Microsoft.AspNetCore.Http.PathString.StartsWithSegments*> kullanarak yeniden yönlendirmeleri ve bağlantıları onarmak üzere yolun bir bölümünü atın ve <xref:Microsoft.AspNetCore.Http.HttpRequest.Path> özelliğine atama yapın:
+Proxy yol verileri ekliyor ise, <xref:Microsoft.AspNetCore.Http.PathString.StartsWithSegments*> kullanarak yeniden yönlendirmeleri ve bağlantıları onarmak üzere yolun bir parçasını atın ve <xref:Microsoft.AspNetCore.Http.HttpRequest.Path> özelliğine atama yapın:
 
 ```csharp
 app.Use((context, next) =>
@@ -190,7 +190,7 @@ app.Use((context, next) =>
 
 ### <a name="configuration-for-a-proxy-that-uses-different-header-names"></a>Farklı üstbilgi adları kullanan bir ara sunucu için yapılandırma
 
-Proxy, proxy adresi/bağlantı noktası ve kaynak düzen bilgilerini iletmek için `X-Forwarded-For` ve `X-Forwarded-Proto` adlı üstbilgileri kullanmıyorsa, <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersOptions.ForwardedForHeaderName> ve <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersOptions.ForwardedProtoHeaderName> seçeneklerini proxy tarafından kullanılan üstbilgi adlarıyla eşleşecek şekilde ayarlayın:
+Proxy, `X-Forwarded-For` adlı üstbilgileri kullanmıyorsa ve proxy adresini/bağlantı noktasını ve kaynak düzen bilgilerini iletmek için `X-Forwarded-Proto`, <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersOptions.ForwardedForHeaderName> ve <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersOptions.ForwardedProtoHeaderName> seçeneklerini proxy tarafından kullanılan üstbilgi adlarıyla eşleşecek şekilde ayarlayın:
 
 ```csharp
 services.Configure<ForwardedHeadersOptions>(options =>
@@ -202,16 +202,16 @@ services.Configure<ForwardedHeadersOptions>(options =>
 
 ### <a name="configuration-for-an-ipv4-address-represented-as-an-ipv6-address"></a>IPv6 adresi olarak temsil edilen IPv4 adresinin yapılandırması
 
-Sunucu çift modlu yuvalar kullanıyorsa, IPv4 adresleri IPv6 biçiminde sağlanır (örneğin, IPv4 'de `::ffff:10.0.0.1` veya `::ffff:a00:1` olarak temsil edilen `10.0.0.1`). Bkz. [IPAddress. MapToIPv6](xref:System.Net.IPAddress.MapToIPv6*). [HttpContext. Connection. Remoteıpaddress](xref:Microsoft.AspNetCore.Http.ConnectionInfo.RemoteIpAddress*)öğesine bakarak bu biçimin gerekip gerekmediğini saptayın.
+Sunucu çift modlu yuvalar kullanıyorsa, IPv4 adresleri IPv6 biçiminde sağlanır (örneğin, IPv4 'de `::ffff:10.0.0.1` veya `::ffff:a00:1`olarak temsil edilen `10.0.0.1`). Bkz. [IPAddress. MapToIPv6](xref:System.Net.IPAddress.MapToIPv6*). [HttpContext. Connection. Remoteıpaddress](xref:Microsoft.AspNetCore.Http.ConnectionInfo.RemoteIpAddress*)öğesine bakarak bu biçimin gerekip gerekmediğini saptayın.
 
-Aşağıdaki örnekte, iletilen üstbilgileri sağlayan bir ağ adresi, IPv6 biçimindeki `KnownNetworks` listesine eklenir.
+Aşağıdaki örnekte, iletilen üstbilgileri sağlayan bir ağ adresi `KnownNetworks` listesine IPv6 biçiminde eklenir.
 
 IPv4 adresi: `10.11.12.1/8`
 
 Dönüştürülen IPv6 adresi: `::ffff:10.11.12.1`  
 Dönüştürülen önek uzunluğu: 104
 
-Ayrıca, adresi onaltılık biçimde (`10.11.12.1` `::ffff:0a0b:0c01` olarak temsil edilen) sağlayabilirsiniz. Bir IPv4 adresini IPv6 'ya dönüştürürken, ek `::ffff:` IPv6 öneki (8 + 96 = 104) için hesaba CıDR önek uzunluğu (örnekteki `8`) 96 ekleyin. 
+Ayrıca, adresi onaltılık biçimde (`10.11.12.1` `::ffff:0a0b:0c01`IPv6 olarak temsil edilir) da sağlayabilirsiniz. Bir IPv4 adresini IPv6 'ya dönüştürürken, ek `::ffff:` IPv6 öneki (8 + 96 = 104) için hesaba (örnekteki`8`) CıDR ön eki uzunluğuna 96 ekleyin. 
 
 ```csharp
 // To access IPNetwork and IPAddress, add the following namespaces:
@@ -228,9 +228,9 @@ services.Configure<ForwardedHeadersOptions>(options =>
 
 ## <a name="forward-the-scheme-for-linux-and-non-iis-reverse-proxies"></a>Linux ve IIS olmayan ters proxy 'ler için Düzen iletme
 
-@No__t-0 ve <xref:Microsoft.AspNetCore.Builder.HstsBuilderExtensions.UseHsts*> ' i çağıran uygulamalar, bir Azure Linux App Service, Azure Linux sanal makinesi (VM) veya IIS 'nin yanı sıra diğer tüm ters proxy 'ler için dağıtılan bir siteyi sonsuz döngüye koyar. TLS, ters proxy tarafından sonlandırılır ve Kestrel doğru istek düzeninden haberdar değildir. OAuth ve OıDC yanlış yeniden yönlendirmeler oluşturduğundan bu yapılandırmada de başarısız olur. <xref:Microsoft.AspNetCore.Hosting.WebHostBuilderIISExtensions.UseIISIntegration*>, IIS 'nin arkasında çalışırken Iletilen üstbilgiler ara yazılımını ekler ve yapılandırır, ancak Linux için eşleşen otomatik yapılandırma (Apache veya NGINX tümleştirmesi) yoktur.
+<xref:Microsoft.AspNetCore.Builder.HttpsPolicyBuilderExtensions.UseHttpsRedirection*> ve <xref:Microsoft.AspNetCore.Builder.HstsBuilderExtensions.UseHsts*> çağıran ve bir Azure Linux App Service, Azure Linux sanal makinesi (VM) veya IIS 'in yanı sıra diğer tüm ters proxy 'ler için dağıtılan bir siteyi sonsuz döngüye koymak için kullanılan uygulamalar. TLS, ters proxy tarafından sonlandırılır ve Kestrel doğru istek düzeninden haberdar değildir. OAuth ve OıDC yanlış yeniden yönlendirmeler oluşturduğundan bu yapılandırmada de başarısız olur. <xref:Microsoft.AspNetCore.Hosting.WebHostBuilderIISExtensions.UseIISIntegration*>, IIS 'nin arkasında çalışırken Iletilen üstbilgiler ara yazılımını ekler ve yapılandırır, ancak Linux için eşleşen otomatik yapılandırma (Apache veya NGINX tümleştirmesi) yoktur.
 
-IIS olmayan senaryolarda düzeni proxy 'den iletmek için, Iletilen üstbilgiler ara yazılımını ekleyin ve yapılandırın. @No__t-0 ' da aşağıdaki kodu kullanın:
+IIS olmayan senaryolarda düzeni proxy 'den iletmek için, Iletilen üstbilgiler ara yazılımını ekleyin ve yapılandırın. `Startup.ConfigureServices`' de aşağıdaki kodu kullanın:
 
 ```csharp
 // using Microsoft.AspNetCore.HttpOverrides;
@@ -260,14 +260,14 @@ if (string.Equals(
 
 Sertifika iletme için Azure App Service yapılandırmak için, bkz. [Azure App Service IÇIN TLS karşılıklı kimlik doğrulamasını yapılandırma](/azure/app-service/app-service-web-configure-tls-mutual-auth). Aşağıdaki kılavuz ASP.NET Core uygulamasını yapılandırmaya aittir.
 
-@No__t-0 ' da, `app.UseAuthentication();` ' e çağrıdan önce aşağıdaki kodu ekleyin:
+`Startup.Configure`, `app.UseAuthentication();`çağrısından önce aşağıdaki kodu ekleyin:
 
 ```csharp
 app.UseCertificateForwarding();
 ```
 
 
-Sertifika Iletme ara yazılımını, Azure 'un kullandığı üst bilgi adını belirtecek şekilde yapılandırın. @No__t-0 ' da, ara yazılımın bir sertifika oluşturmasındaki üstbilgiyi yapılandırmak için aşağıdaki kodu ekleyin:
+Sertifika Iletme ara yazılımını, Azure 'un kullandığı üst bilgi adını belirtecek şekilde yapılandırın. `Startup.ConfigureServices`' de, ara yazılımın bir sertifika oluşturmasındaki üstbilgiyi yapılandırmak için aşağıdaki kodu ekleyin:
 
 ```csharp
 services.AddCertificateForwarding(options =>
@@ -276,20 +276,20 @@ services.AddCertificateForwarding(options =>
 
 ### <a name="other-web-proxies"></a>Diğer Web proxy 'leri
 
-IIS veya Azure App Service uygulama Isteği yönlendirme (ARR) olmayan bir ara sunucu kullanılıyorsa, proxy 'yi bir HTTP üst bilgisinde aldığı sertifikayı iletecek şekilde yapılandırın. @No__t-0 ' da, `app.UseAuthentication();` ' e çağrıdan önce aşağıdaki kodu ekleyin:
+IIS veya Azure App Service uygulama Isteği yönlendirme (ARR) olmayan bir ara sunucu kullanılıyorsa, proxy 'yi bir HTTP üst bilgisinde aldığı sertifikayı iletecek şekilde yapılandırın. `Startup.Configure`, `app.UseAuthentication();`çağrısından önce aşağıdaki kodu ekleyin:
 
 ```csharp
 app.UseCertificateForwarding();
 ```
 
-Üst bilgi adını belirtmek için sertifika Iletme ara yazılımını yapılandırın. @No__t-0 ' da, ara yazılımın bir sertifika oluşturmasındaki üstbilgiyi yapılandırmak için aşağıdaki kodu ekleyin:
+Üst bilgi adını belirtmek için sertifika Iletme ara yazılımını yapılandırın. `Startup.ConfigureServices`' de, ara yazılımın bir sertifika oluşturmasındaki üstbilgiyi yapılandırmak için aşağıdaki kodu ekleyin:
 
 ```csharp
 services.AddCertificateForwarding(options =>
     options.CertificateHeader = "YOUR_CERTIFICATE_HEADER_NAME");
 ```
 
-Ara sunucu Base64 ile kodlanmazsa (NGINX ile olduğu gibi), `HeaderConverter` seçeneğini ayarlayın. @No__t-0 ' da aşağıdaki örneği göz önünde bulundurun:
+Ara sunucu Base64 ile kodlanmazsa (NGINX ile olduğu gibi), `HeaderConverter` seçeneğini ayarlayın. `Startup.ConfigureServices`içinde aşağıdaki örneği göz önünde bulundurun:
 
 ```csharp
 services.AddCertificateForwarding(options =>
@@ -310,7 +310,7 @@ services.AddCertificateForwarding(options =>
 
 Üstbilgiler beklendiği gibi iletilemediği zaman [günlüğe kaydetmeyi](xref:fundamentals/logging/index)etkinleştirin. Günlükler sorunu gidermek için yeterli bilgi sağlamıyorsa, sunucu tarafından alınan istek üstbilgilerini numaralandırın. Bir uygulama yanıtına istek üst bilgileri yazmak veya üst bilgileri günlüğe kaydetmek için satır içi ara yazılım kullanın. 
 
-Üst bilgileri uygulamanın yanıtına yazmak için, `Startup.Configure` ' de <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersExtensions.UseForwardedHeaders*> ' a çağrıdan sonra aşağıdaki Terminal satır içi ara yazılımını hemen yerleştirin:
+Üst bilgileri uygulamanın yanıtına yazmak için aşağıdaki Terminal satır içi ara yazılımları `Startup.Configure`<xref:Microsoft.AspNetCore.Builder.ForwardedHeadersExtensions.UseForwardedHeaders*> çağrısından hemen sonra yerleştirin:
 
 ```csharp
 app.Run(async (context) =>
@@ -346,8 +346,8 @@ Yanıt gövdesi yerine günlüklere yazabilirsiniz. Günlüklere yazmak, sitenin
 
 Yanıt gövdesi yerine günlükleri yazmak için:
 
-* @No__t-0 ' `Startup` sınıfına, [Başlangıçta günlükleri oluşturma](xref:fundamentals/logging/index#create-logs-in-startup)bölümünde açıklandığı gibi ekleyin.
-* @No__t-1 ' de <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersExtensions.UseForwardedHeaders*> ' a çağrıdan sonraki satır içi ara yazılımı hemen yerleştirin.
+* `ILogger<Startup>` [Başlangıçta günlükleri oluşturma](xref:fundamentals/logging/index#create-logs-in-startup)bölümünde açıklandığı gibi `Startup` sınıfına ekleyin.
+* `Startup.Configure`<xref:Microsoft.AspNetCore.Builder.ForwardedHeadersExtensions.UseForwardedHeaders*> çağrısından hemen sonra aşağıdaki satır içi ara yazılımı yerleştirin.
 
 ```csharp
 app.Use(async (context, next) =>
@@ -371,15 +371,15 @@ app.Use(async (context, next) =>
 });
 ```
 
-İşlendiğinde `X-Forwarded-{For|Proto|Host}` değerleri `X-Original-{For|Proto|Host}` ' e taşınır. Belirli bir üst bilgide birden çok değer varsa, Iletilen üstbilgiler ara yazılımı sağdan sola doğru sırada üst bilgileri işler. Varsayılan `1` ' dir (bir)  ' dir. bu nedenle, `ForwardLimit` değeri artmadığı müddetçe yalnızca en sağdaki üst bilgilerden en sağdaki değer işlenir.
+İşlendiğinde `X-Forwarded-{For|Proto|Host}` değerler `X-Original-{For|Proto|Host}`taşınır. Belirli bir üst bilgide birden çok değer varsa, Iletilen üstbilgiler ara yazılımı sağdan sola doğru sırada üst bilgileri işler. Varsayılan `ForwardLimit` `1` (bir), bu nedenle `ForwardLimit` değeri artmadığı müddetçe yalnızca üst bilgilerden en sağdaki değer işlenir.
 
-İletilen üstbilgiler işlenmeden önce isteğin özgün uzak IP `KnownProxies` veya `KnownNetworks` listelerindeki bir girdiyle eşleşmelidir. Bu, güvenilmeyen proxy 'lerden ileticileri kabul etmediği için üst bilgi yanıltmasını kısıtlar. Bilinmeyen bir proxy algılandığında günlüğe kaydetme, proxy 'nin adresini gösterir:
+İletilen üstbilgiler işlenmeden önce isteğin özgün uzak IP 'si `KnownProxies` veya `KnownNetworks` listelerindeki bir girdiyle eşleşmelidir. Bu, güvenilmeyen proxy 'lerden ileticileri kabul etmediği için üst bilgi yanıltmasını kısıtlar. Bilinmeyen bir proxy algılandığında günlüğe kaydetme, proxy 'nin adresini gösterir:
 
 ```console
 September 20th 2018, 15:49:44.168 Unknown proxy: 10.0.0.100:54321
 ```
 
-Yukarıdaki örnekte, alana 10.0.0.100 bir proxy sunucusudur. Sunucu güvenilir bir proxy ise, sunucunun IP adresini `KnownProxies` ' a ekleyin (veya `KnownNetworks` ' e bir güvenilen ağ ekleyin) `Startup.ConfigureServices` ' ye ekleyin. Daha fazla bilgi için [Iletilen üstbilgiler ara yazılım seçenekleri](#forwarded-headers-middleware-options) bölümüne bakın.
+Yukarıdaki örnekte, alana 10.0.0.100 bir proxy sunucusudur. Sunucu güvenilir bir ara sunucu ise, `Startup.ConfigureServices`içindeki sunucunun IP adresini `KnownProxies` ekleyin (veya `KnownNetworks`bir güvenilen ağ ekleyin). Daha fazla bilgi için [Iletilen üstbilgiler ara yazılım seçenekleri](#forwarded-headers-middleware-options) bölümüne bakın.
 
 ```csharp
 services.Configure<ForwardedHeadersOptions>(options =>
@@ -394,4 +394,4 @@ services.Configure<ForwardedHeadersOptions>(options =>
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * <xref:host-and-deploy/web-farm>
-* [Microsoft Güvenlik Danışma CVE-2018-0787: ASP.NET Core ayrıcalık yükselmesi güvenlik açığı @ no__t-0
+* [Microsoft güvenlik danışmanlık CVE-2018-0787: ayrıcalık yükselmesi güvenlik açığı ASP.NET Core](https://github.com/aspnet/Announcements/issues/295)

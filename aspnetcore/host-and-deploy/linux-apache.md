@@ -20,7 +20,7 @@ Sağlayan- [Shayne Boyer](https://github.com/spboyer)
 
 Bu kılavuzu kullanarak, HTTP trafiğinin [Kestrel](xref:fundamentals/servers/kestrel) Server üzerinde çalışan bir ASP.NET Core Web uygulamasına yönlendirilmesini sağlamak Için [CentOS 7](https://www.centos.org/) ' de bir ters proxy sunucusu olarak [Apache](https://httpd.apache.org/) 'yi ayarlamayı öğrenin. [Mod_proxy uzantısı](https://httpd.apache.org/docs/2.4/mod/mod_proxy.html) ve ilgili Modüller sunucunun ters proxy 'sini oluşturur.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Önkoşullar
 
 * Sudo ayrıcalığına sahip standart bir kullanıcı hesabıyla CentOS 7 çalıştıran sunucu.
 * .NET Core çalışma zamanını sunucuya yükler.
@@ -145,7 +145,7 @@ Uygulama için *HelloApp. conf*adlı bir yapılandırma dosyası oluşturun:
 `VirtualHost` bloğu, sunucuda bir veya daha fazla dosyada birden çok kez görünebilir. Yukarıdaki yapılandırma dosyasında Apache, 80 numaralı bağlantı noktasında genel trafiği kabul eder. Etki alanı `www.example.com` sunulmakta ve `*.example.com` diğer adı aynı Web sitesine çözümleniyor. Daha fazla bilgi için bkz. [ad tabanlı sanal konak desteği](https://httpd.apache.org/docs/current/vhosts/name-based.html) . İstekler, kökte, sunucunun bağlantı noktası 5000 ' den 127.0.0.1 ' de sunucu üzerinden alınır. İki yönlü iletişim için `ProxyPass` ve `ProxyPassReverse` gereklidir. Kestrel 'in IP/bağlantı noktasını değiştirmek için bkz. [Kestrel: Endpoint Configuration](xref:fundamentals/servers/kestrel#endpoint-configuration).
 
 > [!WARNING]
-> **VirtualHost** bloğunda uygun bir [ServerName yönergesi](https://httpd.apache.org/docs/current/mod/core.html#servername) belirtmemesi, uygulamanızı güvenlik açıklarına karşı kullanıma sunar. Alt etki alanı joker karakteri bağlama (örneğin, `*.example.com`), tüm üst etki alanını (güvenlik açığı olan `*.com`aksine) kontrol ediyorsanız bu güvenlik riskini ortadan yapmaz. Daha fazla bilgi için bkz. [rfc7230 Section-5,4](https://tools.ietf.org/html/rfc7230#section-5.4) .
+> **VirtualHost** bloğunda uygun bir [ServerName yönergesi](https://httpd.apache.org/docs/current/mod/core.html#servername) belirtmemesi, uygulamanızı güvenlik açıklarına karşı kullanıma sunar. Alt etki alanı joker karakteri bağlama (örneğin, `*.example.com`), tüm üst etki alanını (güvenlik açığı olan `*.com`aksine) kontrol ediyorsanız bu güvenlik riskini ortadan yapmaz. Bkz: [rfc7230 bölümü-5.4](https://tools.ietf.org/html/rfc7230#section-5.4) daha fazla bilgi için.
 
 Günlüğe kaydetme, `ErrorLog` ve `CustomLog` yönergeleri kullanılarak `VirtualHost` başına yapılandırılabilir. `ErrorLog`, sunucunun hataları günlüğe kaydettiği konumdur ve `CustomLog` dosya adını ve günlük dosyasının biçimini ayarlar. Bu durumda istek bilgileri günlüğe kaydedilir. Her istek için bir satır vardır.
 
@@ -247,7 +247,7 @@ Connection: Keep-Alive
 Transfer-Encoding: chunked
 ```
 
-### <a name="view-logs"></a>Günlükleri görüntüle
+### <a name="view-logs"></a>Günlükleri görüntüleme
 
 Kestrel kullanan Web uygulaması *systemd*kullanılarak yönetildiğinden, olaylar ve süreçler merkezi bir günlüğe kaydedilir. Ancak, bu günlük *systemd*tarafından yönetilen tüm hizmet ve işlemlere ait girişleri içerir. `kestrel-helloapp.service`özgü öğeleri görüntülemek için aşağıdaki komutu kullanın:
 
@@ -263,13 +263,13 @@ sudo journalctl -fu kestrel-helloapp.service --since "2016-10-18" --until "2016-
 
 ## <a name="data-protection"></a>Veri koruma
 
-[ASP.NET Core veri koruma yığını](xref:security/data-protection/introduction) , kimlik doğrulama ara yazılımı (örneğin, tanımlama bilgisi ara yazılımı) ve siteler arası istek sahteciliğini önleme (CSRF) korumaları dahil olmak üzere birkaç ASP.NET Core [middlewares](xref:fundamentals/middleware/index)tarafından kullanılır. Veri koruma API 'Leri Kullanıcı kodu tarafından çağrılmasa bile, veri korumasının kalıcı bir şifreleme [anahtarı deposu](xref:security/data-protection/implementation/key-management)oluşturacak şekilde yapılandırılması gerekir. Veri koruması yapılandırılmamışsa, anahtarlar bellekte tutulur ve uygulama yeniden başlatıldığında atılır.
+[ASP.NET Core veri koruma yığını](xref:security/data-protection/introduction) , kimlik doğrulama ara yazılımı (örneğin, tanımlama bilgisi ara yazılımı) ve siteler arası istek sahteciliğini önleme (CSRF) korumaları dahil olmak üzere birkaç ASP.NET Core [middlewares](xref:fundamentals/middleware/index)tarafından kullanılır. Veri koruma API 'Leri Kullanıcı kodu tarafından çağrılmasa bile, veri korumasının kalıcı bir şifreleme [anahtarı deposu](xref:security/data-protection/implementation/key-management)oluşturacak şekilde yapılandırılması gerekir. Veri koruma yapılandırılmamışsa, anahtarlar bellekte tutulur ve uygulama yeniden başlatıldığında atılan.
 
 Uygulama yeniden başlatıldığında anahtar halkası bellekte depolanıyorsa:
 
-* Tüm tanımlama bilgisi tabanlı kimlik doğrulama belirteçleri geçersiz kılınır.
-* Kullanıcıların bir sonraki isteğinde yeniden oturum açması gerekir.
-* Anahtar halkası ile korunan tüm veriler artık çözülemez. Bu, [CSRF belirteçlerini](xref:security/anti-request-forgery#aspnet-core-antiforgery-configuration) ve [ASP.NET Core MVC TempData tanımlama bilgilerini](xref:fundamentals/app-state#tempdata)içerebilir.
+* Tüm tanımlama bilgisi tabanlı kimlik doğrulama belirteçlerini geçersiz kılınır.
+* Kullanıcıların, bir sonraki istekte tekrar oturum açmanız gerekir.
+* Anahtar halkası ile korunan tüm veriler artık şifresi çözülebilir. Bu içerebilir [CSRF belirteçleri](xref:security/anti-request-forgery#aspnet-core-antiforgery-configuration) ve [ASP.NET Core MVC TempData tanımlama bilgilerini](xref:fundamentals/app-state#tempdata).
 
 Veri korumayı, anahtar halkasını sürdürmek ve şifrelemek üzere yapılandırmak için, bkz.:
 
@@ -325,7 +325,7 @@ Aşağıdaki yaklaşımlardan birini kullanarak uygulamayı `dotnet run` komutu 
 
 **Güvenli (HTTPS) istemci bağlantıları için ters proxy 'yi yapılandırma**
 
-HTTPS için Apache 'yi yapılandırmak için, *mod_ssl* modülü kullanılır. *Httpd* modülü yüklendiğinde, *mod_ssl* modülü de yüklüdür. Yüklenmemişse, yapılandırmaya eklemek için `yum` kullanın.
+HTTPS için Apache 'yi yapılandırmak için *mod_ssl* modülü kullanılır. *Httpd* modülü yüklendiğinde *mod_ssl* modülü de yüklendi. Yüklenmemişse, yapılandırmaya eklemek için `yum` kullanın.
 
 ```bash
 sudo yum install mod_ssl
@@ -465,7 +465,7 @@ Aşağıda gösterilen yapılandırma dosyasında, `helloapp` ek bir örneği 50
 
 ### <a name="rate-limits"></a>Oran limitleri
 
-*Httpd* modülüne dahil olan *mod_ratelimit*kullanarak, istemcilerin bant genişliği sınırlandırılabilir:
+*Httpd* modülüne eklenen *mod_ratelimit*kullanarak, istemcilerin bant genişliği sınırlandırılabilir:
 
 ```bash
 sudo nano /etc/httpd/conf.d/ratelimit.conf

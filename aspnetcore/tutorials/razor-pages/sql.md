@@ -14,13 +14,13 @@ ms.locfileid: "72334224"
 ---
 # <a name="work-with-a-database-and-aspnet-core"></a>Veritabanı ve ASP.NET Core çalışma
 
-By [Rick Anderson](https://twitter.com/RickAndMSFT) ve [ali Audette](https://twitter.com/joeaudette)
+Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT) ve [ALi Audette](https://twitter.com/joeaudette)
 
 ::: moniker range=">= aspnetcore-3.0"
 
 [!INCLUDE[](~/includes/rp/download.md)]
 
-@No__t-0 nesnesi veritabanına bağlanma ve `Movie` nesnelerini veritabanı kayıtlarına eşleme görevini işler. Veritabanı bağlamı, *Startup.cs*içinde `ConfigureServices` yönteminde [bağımlılık ekleme](xref:fundamentals/dependency-injection) kapsayıcısına kaydedilir:
+`RazorPagesMovieContext` nesnesi veritabanına bağlanma ve `Movie` nesneleri veritabanı kayıtlarına eşleme görevini işler. Veritabanı bağlamı, *Startup.cs*içindeki `ConfigureServices` yönteminde [bağımlılık ekleme](xref:fundamentals/dependency-injection) kapsayıcısına kaydedilir:
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
@@ -32,7 +32,7 @@ By [Rick Anderson](https://twitter.com/RickAndMSFT) ve [ali Audette](https://twi
 
 ---
 
-ASP.NET Core [yapılandırma](xref:fundamentals/configuration/index) sistemi, `ConnectionString` ' i okur. Yerel geliştirme için, *appSettings. JSON* dosyasından bağlantı dizesini alır.
+ASP.NET Core [yapılandırma](xref:fundamentals/configuration/index) sistemi `ConnectionString`okur. Yerel geliştirme için, *appSettings. JSON* dosyasından bağlantı dizesini alır.
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
@@ -52,22 +52,22 @@ Uygulama bir test veya üretim sunucusuna dağıtıldığında, bağlantı dizes
 
 ## <a name="sql-server-express-localdb"></a>SQL Server Express LocalDB
 
-LocalDB, program geliştirmeye yönelik SQL Server Express veritabanı altyapısının hafif bir sürümüdür. LocalDB, istek üzerine başlar ve kullanıcı modunda çalışır, bu nedenle karmaşık bir yapılandırma yoktur. Varsayılan olarak, LocalDB veritabanı `C:\Users\<user>\` dizininde `*.mdf` dosyaları oluşturur.
+LocalDB, program geliştirmeye yönelik SQL Server Express veritabanı altyapısının hafif bir sürümüdür. LocalDB, isteğe bağlı olarak başlar ve karmaşık yapılandırma olduğundan kullanıcı modunda çalışır. Varsayılan olarak, LocalDB veritabanı `C:\Users\<user>\` dizininde `*.mdf` dosyaları oluşturur.
 
 <a name="ssox"></a>
 * **Görünüm** menüsünden **SQL Server Nesne Gezgini** (ssox) öğesini açın.
 
   ![Görünüm menüsü](sql/_static/ssox.png)
 
-* @No__t-0 tablosuna sağ tıklayıp **Görünüm Tasarımcısı**' nı seçin:
+* `Movie` tabloya sağ tıklayıp **Görünüm Tasarımcısı**' nı seçin:
 
   ![Film tablosunda açık bağlamsal menüler](sql/_static/design.png)
 
   ![Tasarımcı 'da açık film tabloları](sql/_static/dv.png)
 
-@No__t-0 ' ın yanındaki anahtar simgesine göz önünde edin. Varsayılan olarak, EF birincil anahtar için `ID` adlı bir özellik oluşturur.
+`ID`yanındaki anahtar simgesine göz önünde edin. Varsayılan olarak, EF birincil anahtar için `ID` adlı bir özellik oluşturur.
 
-* @No__t-0 tablosuna sağ tıklayın ve **verileri görüntüle**' yi seçin:
+* `Movie` tabloya sağ tıklayın ve **verileri görüntüle**' yi seçin:
 
   ![Tablo verilerini gösteren film tablosu açma](sql/_static/vd22.png)
 
@@ -78,7 +78,7 @@ LocalDB, program geliştirmeye yönelik SQL Server Express veritabanı altyapıs
 
 ---
 
-## <a name="seed-the-database"></a>Veritabanını çekirdek
+## <a name="seed-the-database"></a>Veritabanının çekirdeğini oluşturma
 
 *Modeller* klasöründe aşağıdaki kodla `SeedData` adlı yeni bir sınıf oluşturun:
 
@@ -97,17 +97,17 @@ if (context.Movie.Any())
 
 ### <a name="add-the-seed-initializer"></a>Tohum başlatıcısı ekleme
 
-*Program.cs*' de `Main` yöntemini aşağıdaki şekilde değiştirin:
+İçinde *Program.cs*, değişiklik `Main` yöntemi aşağıdakileri yapmak için:
 
-* Bağımlılık ekleme kapsayıcısından bir DB bağlam örneği alın.
+* Bir DB bağlamı örneği bağımlılık ekleme kapsayıcısını alın.
 * Temel yöntemi çağırın ve bu yönteme geçerek bağlamı geçer.
 * Çekirdek yöntemi tamamlandığında bağlamı atın.
 
-Aşağıdaki kod güncelleştirilmiş *program.cs* dosyasını gösterir.
+Aşağıdaki kod güncelleştirilmiş gösterir *Program.cs* dosya.
 
 [!code-csharp[](razor-pages-start/sample/RazorPagesMovie30/Program.cs)]
 
-@No__t-0 çalıştırılmayan aşağıdaki özel durum oluşur:
+`Update-Database` çalıştırılmayan aşağıdaki özel durum oluşur:
 
 > `SqlException: Cannot open database "RazorPagesMovieContext-" requested by the login. The login failed.`
 > `Login failed for user 'user name'.`
@@ -117,7 +117,7 @@ Aşağıdaki kod güncelleştirilmiş *program.cs* dosyasını gösterir.
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * VERITABANıNDAKI tüm kayıtları silin. Bunu, tarayıcıda veya [Ssox](xref:tutorials/razor-pages/new-field#ssox) 'ten silme bağlantılarıyla yapabilirsiniz
-* Çekirdek yöntemin çalışması için uygulamayı başlamaya zorlayın (`Startup` sınıfındaki Yöntemleri çağırın). Başlatmayı zorlamak için IIS Express durdurulup yeniden başlatılması gerekir. Bunu aşağıdaki yaklaşımlardan biriyle yapabilirsiniz:
+* Çekirdek yöntemin çalışması için uygulamayı başlamaya zorlayın (`Startup` sınıfında yöntemleri çağırın). Başlatmayı zorlamak için IIS Express durdurulup yeniden başlatılması gerekir. Bunu aşağıdaki yaklaşımlardan biriyle yapabilirsiniz:
 
   * Bildirim alanında IIS Express sistem tepsisi simgesine sağ tıklayın ve **Çıkış** veya **siteyi durdur**' a dokunun:
 
@@ -141,7 +141,7 @@ Sonraki öğreticide, verilerin sunumu gelişmeyecektir.
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 > [!div class="step-by-step"]
-> [Previous: ScafkatRazor Pages](xref:tutorials/razor-pages/page)
+> [Önceki: yapı Iskelesi Razor Pages](xref:tutorials/razor-pages/page)
 > [Ileri: sayfaları güncelleştirme](xref:tutorials/razor-pages/da1)
 
 ::: moniker-end
@@ -150,7 +150,7 @@ Sonraki öğreticide, verilerin sunumu gelişmeyecektir.
 
 [!INCLUDE[](~/includes/rp/download.md)]
 
-@No__t-0 nesnesi veritabanına bağlanma ve `Movie` nesnelerini veritabanı kayıtlarına eşleme görevini işler. Veritabanı bağlamı, *Startup.cs*içinde `ConfigureServices` yönteminde [bağımlılık ekleme](xref:fundamentals/dependency-injection) kapsayıcısına kaydedilir:
+`RazorPagesMovieContext` nesnesi veritabanına bağlanma ve `Movie` nesneleri veritabanı kayıtlarına eşleme görevini işler. Veritabanı bağlamı, *Startup.cs*içindeki `ConfigureServices` yönteminde [bağımlılık ekleme](xref:fundamentals/dependency-injection) kapsayıcısına kaydedilir:
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
@@ -162,12 +162,12 @@ Sonraki öğreticide, verilerin sunumu gelişmeyecektir.
 
 ---
 
-@No__t-0 ' da kullanılan yöntemler hakkında daha fazla bilgi için bkz.:
+`ConfigureServices`' de kullanılan yöntemler hakkında daha fazla bilgi için bkz.:
 
-* [Ab genel veri koruma yönetmeliği (GDPR)](xref:security/gdpr) `CookiePolicyOptions` için ASP.NET Core destekler.
+* `CookiePolicyOptions`için [ASP.NET Core ab genel veri koruma yönetmeliği (GDPR) desteği](xref:security/gdpr) .
 * [SetCompatibilityVersion](xref:mvc/compatibility-version)
 
-ASP.NET Core [yapılandırma](xref:fundamentals/configuration/index) sistemi, `ConnectionString` ' i okur. Yerel geliştirme için, *appSettings. JSON* dosyasından bağlantı dizesini alır.
+ASP.NET Core [yapılandırma](xref:fundamentals/configuration/index) sistemi `ConnectionString`okur. Yerel geliştirme için, *appSettings. JSON* dosyasından bağlantı dizesini alır.
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
@@ -191,22 +191,22 @@ Uygulama bir test veya üretim sunucusuna dağıtıldığında, bağlantı dizes
 
 ## <a name="sql-server-express-localdb"></a>SQL Server Express LocalDB
 
-LocalDB, program geliştirmeye yönelik SQL Server Express veritabanı altyapısının hafif bir sürümüdür. LocalDB, istek üzerine başlar ve kullanıcı modunda çalışır, bu nedenle karmaşık bir yapılandırma yoktur. Varsayılan olarak, LocalDB veritabanı `C:/Users/<user/>` dizininde `*.mdf` dosyaları oluşturur.
+LocalDB, program geliştirmeye yönelik SQL Server Express veritabanı altyapısının hafif bir sürümüdür. LocalDB, isteğe bağlı olarak başlar ve karmaşık yapılandırma olduğundan kullanıcı modunda çalışır. Varsayılan olarak, LocalDB veritabanı `C:/Users/<user/>` dizininde `*.mdf` dosyaları oluşturur.
 
 <a name="ssox"></a>
 * **Görünüm** menüsünden **SQL Server Nesne Gezgini** (ssox) öğesini açın.
 
   ![Görünüm menüsü](sql/_static/ssox.png)
 
-* @No__t-0 tablosuna sağ tıklayıp **Görünüm Tasarımcısı**' nı seçin:
+* `Movie` tabloya sağ tıklayıp **Görünüm Tasarımcısı**' nı seçin:
 
   ![Film tablosunda bağlam menüsü açık](sql/_static/design.png)
 
   ![Tasarımcıda film tablosu aç](sql/_static/dv.png)
 
-@No__t-0 ' ın yanındaki anahtar simgesine göz önünde edin. Varsayılan olarak, EF birincil anahtar için `ID` adlı bir özellik oluşturur.
+`ID`yanındaki anahtar simgesine göz önünde edin. Varsayılan olarak, EF birincil anahtar için `ID` adlı bir özellik oluşturur.
 
-* @No__t-0 tablosuna sağ tıklayın ve **verileri görüntüle**' yi seçin:
+* `Movie` tabloya sağ tıklayın ve **verileri görüntüle**' yi seçin:
 
   ![Tablo verilerini gösteren film tablosu açma](sql/_static/vd22.png)
 
@@ -222,7 +222,7 @@ LocalDB, program geliştirmeye yönelik SQL Server Express veritabanı altyapıs
 
 ---
 
-## <a name="seed-the-database"></a>Veritabanını çekirdek
+## <a name="seed-the-database"></a>Veritabanının çekirdeğini oluşturma
 
 *Modeller* klasöründe aşağıdaki kodla `SeedData` adlı yeni bir sınıf oluşturun:
 
@@ -241,17 +241,17 @@ if (context.Movie.Any())
 
 ### <a name="add-the-seed-initializer"></a>Tohum başlatıcısı ekleme
 
-*Program.cs*' de `Main` yöntemini aşağıdaki şekilde değiştirin:
+İçinde *Program.cs*, değişiklik `Main` yöntemi aşağıdakileri yapmak için:
 
-* Bağımlılık ekleme kapsayıcısından bir DB bağlam örneği alın.
+* Bir DB bağlamı örneği bağımlılık ekleme kapsayıcısını alın.
 * Temel yöntemi çağırın ve bu yönteme geçerek bağlamı geçer.
 * Çekirdek yöntemi tamamlandığında bağlamı atın.
 
-Aşağıdaki kod güncelleştirilmiş *program.cs* dosyasını gösterir.
+Aşağıdaki kod güncelleştirilmiş gösterir *Program.cs* dosya.
 
 [!code-csharp[](razor-pages-start/sample/RazorPagesMovie22/Program.cs)]
 
-Bir üretim uygulaması `Database.Migrate` ' i çağırmaz. @No__t-0 çalıştırılmadığından aşağıdaki özel durumu engellemek için yukarıdaki koda eklenir:
+Bir üretim uygulaması `Database.Migrate`çağırmaz. `Update-Database` çalıştırılmadığından aşağıdaki özel durumu engellemek için yukarıdaki koda eklenir:
 
 SqlException: oturum açma tarafından istenen "RazorPagesMovieContext-21" veritabanı açılamıyor. Oturum açılamadı.
 ' Kullanıcı adı ' kullanıcısı için oturum açma başarısız.
@@ -261,7 +261,7 @@ SqlException: oturum açma tarafından istenen "RazorPagesMovieContext-21" verit
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * VERITABANıNDAKI tüm kayıtları silin. Bunu, tarayıcıda veya [Ssox](xref:tutorials/razor-pages/new-field#ssox) 'ten silme bağlantılarıyla yapabilirsiniz
-* Çekirdek yöntemin çalışması için uygulamayı başlamaya zorlayın (`Startup` sınıfındaki Yöntemleri çağırın). Başlatmayı zorlamak için IIS Express durdurulup yeniden başlatılması gerekir. Bunu aşağıdaki yaklaşımlardan biriyle yapabilirsiniz:
+* Çekirdek yöntemin çalışması için uygulamayı başlamaya zorlayın (`Startup` sınıfında yöntemleri çağırın). Başlatmayı zorlamak için IIS Express durdurulup yeniden başlatılması gerekir. Bunu aşağıdaki yaklaşımlardan biriyle yapabilirsiniz:
 
   * Bildirim alanında IIS Express sistem tepsisi simgesine sağ tıklayın ve **Çıkış** veya **siteyi durdur**' a dokunun:
 
@@ -297,7 +297,7 @@ Sonraki öğretici, verilerin sunumunu temizler.
 * [Bu öğreticinin YouTube sürümü](https://youtu.be/A_5ff11sDHY)
 
 > [!div class="step-by-step"]
-> [Previous: ScafkatRazor Pages](xref:tutorials/razor-pages/page)
+> [Önceki: yapı Iskelesi Razor Pages](xref:tutorials/razor-pages/page)
 > [Ileri: sayfaları güncelleştirme](xref:tutorials/razor-pages/da1)
 
 ::: moniker-end

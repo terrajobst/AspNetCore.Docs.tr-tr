@@ -37,7 +37,7 @@ Bu öğreticide şunları yaptınız:
 
 ## <a name="add-column-sort-links"></a>Sütun sıralama bağlantıları Ekle
 
-Öğrenci dizini sayfasına sıralama eklemek için, öğrenciler denetleyicisinin `Index` yöntemini değiştireceksiniz ve öğrenci dizini görünümüne kod eklersiniz.
+Öğrenci dizini sayfasına sıralama eklemek için, öğrenciler denetleyicisinin `Index` yöntemini değiştirecek ve öğrenci dizini görünümüne kod ekleyeceksiniz.
 
 ### <a name="add-sorting-functionality-to-the-index-method"></a>Dizin yöntemine sıralama Işlevi ekleme
 
@@ -47,9 +47,9 @@ Bu öğreticide şunları yaptınız:
 
 Bu kod, URL 'deki sorgu dizesinden bir `sortOrder` parametresi alır. Sorgu dizesi değeri, ASP.NET Core MVC tarafından eylem yöntemine bir parametre olarak sağlanır. Parametresi, "Name" veya "Date" adlı bir dize, isteğe bağlı olarak bir alt çizgi ve azalan sıralama belirtmek için "desc" dizesi olacaktır. Varsayılan sıralama düzeni artan.
 
-Dizin sayfası ilk kez istendiğinde sorgu dizesi yoktur. Öğrenciler, en son ada göre artan sırada görüntülenir. Bu, `switch` deyimindeki karşı bir durum tarafından kurulduğu varsayılan değer olan addır. Kullanıcı bir sütun başlığı köprüsüne tıkladığında, sorgu dizesinde uygun `sortOrder` değeri sağlanır.
+Dizin sayfası ilk kez istendiğinde sorgu dizesi yoktur. Öğrenciler, son ada göre artan sırada görüntülenir, bu, `switch` deyimindeki karşı bir durum tarafından kurulduğu varsayılan değer olan addır. Kullanıcı bir sütun başlığı köprüsüne tıkladığında, sorgu dizesinde uygun `sortOrder` değeri sağlanır.
 
-İki `ViewData` öğesi (Namesortpara ve Datesortpard), görünüm tarafından sütun başlığı köprülerini uygun sorgu dizesi değerleriyle yapılandırmak için kullanılır.
+İki `ViewData` öğesi (Namesortpara ve Datesortpard), sütun başlığı köprülerini uygun sorgu dizesi değerleriyle yapılandırmak için görünüm tarafından kullanılır.
 
 [!code-csharp[](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_SortOnly&highlight=3-4)]
 
@@ -57,12 +57,12 @@ Bunlar Üçlü ifadelerdir. İlki `sortOrder` parametresi null veya boş ise, Na
 
 |  Geçerli sıralama düzeni  | Son ad Köprüsü | Tarih Köprüsü |
 |:--------------------:|:-------------------:|:--------------:|
-| Artan son ad  | sıralamada          | artan      |
-| Azalan son ad | artan           | artan      |
-| Artan Tarih       | artan           | sıralamada     |
-| Azalan Tarih      | artan           | artan      |
+| Artan son ad  | descending          | ascending      |
+| Azalan son ad | ascending           | ascending      |
+| Artan Tarih       | ascending           | descending     |
+| Azalan Tarih      | ascending           | ascending      |
 
-Yöntemi, sıralama yapılacak sütunu belirtmek için LINQ to Entities kullanır. Kod, Switch ifadesinden önce bir `IQueryable` değişkeni oluşturur, Switch ifadesinde değiştirir ve `switch` deyimden sonra `ToListAsync` yöntemini çağırır. @No__t-0 değişkenlerini oluşturup değiştirirken veritabanına hiçbir sorgu gönderilmez. Sorgu, `ToListAsync` gibi bir yöntemi çağırarak `IQueryable` nesnesini bir koleksiyona dönüştürene kadar yürütülmez. Bu nedenle, bu kod `return View` ifadesine kadar Yürütülmeyen tek bir sorgu ile sonuçlanır.
+Yöntemi, sıralama yapılacak sütunu belirtmek için LINQ to Entities kullanır. Kod, Switch ifadesinden önce bir `IQueryable` değişkeni oluşturur, Switch ifadesinde değiştirir ve `switch` deyimden sonra `ToListAsync` yöntemini çağırır. `IQueryable` değişkenleri oluşturup değiştirirken veritabanına hiçbir sorgu gönderilmez. Sorgu, `ToListAsync`gibi bir yöntemi çağırarak `IQueryable` nesnesini bir koleksiyona dönüştürene kadar yürütülmez. Bu nedenle, bu kod `return View` ifadeye kadar Yürütülmeyen tek bir sorgu ile sonuçlanır.
 
 Bu kod çok sayıda sütunla ayrıntı alabilir. [Bu serideki son öğretici](advanced.md#dynamic-linq) , bir dize değişkeninde `OrderBy` sütununun adını geçirmenize olanak sağlayan kodun nasıl yazılacağını gösterir.
 
@@ -88,12 +88,12 @@ Uygulamayı çalıştırın, **öğrenciler** sekmesini seçin ve sıralamanın 
 
 [!code-csharp[](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_SortFilter&highlight=1,5,9-13)]
 
-@No__t-1 yöntemine `searchString` parametresi eklediniz. Arama dizesi değeri, dizin görünümüne ekleyeceğiniz bir metin kutusundan alınır. Ayrıca, yalnızca adı veya soyadı arama dizesini içeren öğrencileri seçen bir where yan tümcesine LINQ deyimi de eklediniz. WHERE yan tümcesini ekleyen deyimi, yalnızca aranacak bir değer varsa yürütülür.
+`Index` yöntemine bir `searchString` parametresi eklediniz. Arama dizesi değeri, dizin görünümüne ekleyeceğiniz bir metin kutusundan alınır. Ayrıca, yalnızca adı veya soyadı arama dizesini içeren öğrencileri seçen bir where yan tümcesine LINQ deyimi de eklediniz. WHERE yan tümcesini ekleyen deyimi, yalnızca aranacak bir değer varsa yürütülür.
 
 > [!NOTE]
-> Burada, `Where` yöntemini bir `IQueryable` nesnesi üzerinde arıyorsanız ve filtrenin sunucuda işlenmesi gerekir. Bazı senaryolarda, bellek içi bir koleksiyonda `Where` yöntemini genişletme yöntemi olarak çağırma olabilirsiniz. (Örneğin, `_context.Students` ' a yönelik başvuruyu değiştirdiğinizi varsayın. bu nedenle, bir EF yerine-1 @no__t bir `IEnumerable` koleksiyonu döndüren bir depo yöntemine başvurur.) Sonuç normalde aynı olur, ancak bazı durumlarda farklı olabilir.
+> Burada `Where` yöntemi bir `IQueryable` nesnesi üzerinde arıyorsanız ve filtrenin sunucuda işlenmesi gerekir. Bazı senaryolarda, bellek içi bir koleksiyonda `Where` yöntemini genişletme yöntemi olarak çağırma olabilirsiniz. (Örneğin, `_context.Students` başvurusunu, bir `DbSet` EF yerine bir `IEnumerable` koleksiyonu döndüren bir depo yöntemine başvurduğu gibi) değiştirdiğinizi varsayın.) Sonuç normalde aynı olur, ancak bazı durumlarda farklı olabilir.
 >
->Örneğin, `Contains` yönteminin .NET Framework uygulanması, varsayılan olarak büyük/küçük harfe duyarlı bir karşılaştırma gerçekleştirir, ancak SQL Server ' de SQL Server örneğinin harmanlama ayarı tarafından belirlenir. Bu ayar varsayılan olarak büyük/küçük harfe duyarsız olur. Testi açık büyük/küçük harfe duyarsız hale getirmek için `ToUpper` yöntemini çağırabilirsiniz: *burada (s = > s. LastName. ToUpper (). Contains (searchString. ToUpper ())* . Bu, kodu daha sonra bir `IQueryable` nesnesi yerine `IEnumerable` koleksiyonu döndüren bir depoyu kullanacak şekilde değiştirirseniz sonuçların aynı kalmasını sağlar. (Bir `IEnumerable` koleksiyonunda `Contains` yöntemini çağırdığınızda .NET Framework uygulamasını alırsınız; bunu `IQueryable` nesnesinde çağırdığınızda, veritabanı sağlayıcısı uygulamasını alırsınız.) Ancak, bu çözüm için bir performans cezası vardır. @No__t-0 kodu, TSQL SELECT ifadesinin WHERE yan tümcesine bir işlev koyar. Bu, iyileştiricinin bir dizin kullanmasını engelleyecek. SQL 'in çoğunlukla büyük/küçük harf duyarsız olarak yüklediği, büyük/küçük harfe duyarlı bir veri deposuna geçiş yapılıncaya kadar `ToUpper` kodundan kaçınmak en iyisidir.
+>Örneğin, `Contains` yönteminin .NET Framework uygulanması, varsayılan olarak büyük/küçük harfe duyarlı bir karşılaştırma gerçekleştirir, ancak SQL Server ' de SQL Server örneğinin harmanlama ayarı tarafından belirlenir. Bu ayar varsayılan olarak büyük/küçük harfe duyarsız olur. Testi açıkça büyük/küçük harfe duyarsız hale getirmek için `ToUpper` yöntemini çağırabilirsiniz: *burada (s = > s. LastName. ToUpper (). Contains (searchString. ToUpper ())* . Bu, kodu daha sonra bir `IQueryable` nesnesi yerine `IEnumerable` koleksiyonu döndüren bir depoyu kullanacak şekilde değiştirirseniz sonuçların aynı kalmasını sağlar. (Bir `IEnumerable` koleksiyonunda `Contains` yöntemini çağırdığınızda .NET Framework uygulamasını alırsınız; bunu bir `IQueryable` nesnesi üzerinde çağırdığınızda, veritabanı sağlayıcısı uygulamasını alırsınız.) Ancak, bu çözüm için bir performans cezası vardır. `ToUpper` kodu, TSQL SELECT ifadesinin WHERE yan tümcesine bir işlev koyar. Bu, iyileştiricinin bir dizin kullanmasını engelleyecek. SQL 'in çoğu büyük küçük harfe duyarsız olarak yüklendiği için, büyük/küçük harfe duyarlı bir veri deposuna geçiş yapılıncaya kadar `ToUpper` koddan kaçınmak en iyisidir.
 
 ### <a name="add-a-search-box-to-the-student-index-view"></a>Öğrenci dizini görünümüne arama kutusu ekleme
 
@@ -101,7 +101,7 @@ Uygulamayı çalıştırın, **öğrenciler** sekmesini seçin ve sıralamanın 
 
 [!code-html[](intro/samples/cu/Views/Students/Index3.cshtml?range=9-23&highlight=5-13)]
 
-Bu kod, arama metin kutusu ve düğmesini eklemek için `<form>` [etiketi yardımcısını](xref:mvc/views/tag-helpers/intro) kullanır. Varsayılan olarak, `<form>` etiketi Yardımcısı, form verilerini bir GÖNDERIYLE gönderir, yani Parametreler, URL 'de sorgu dizeleri olarak değil, HTTP ileti gövdesine geçirilir. HTTP GET belirttiğinizde, form verileri URL 'ye sorgu dizeleri olarak geçirilir ve bu da kullanıcıların URL 'ye yer işareti eklemesini sağlar. W3C yönergeleri, eylem bir güncelleştirme ile sonuçlanmazsa Al ' ın kullanılması önerilir.
+Bu kod, arama metin kutusu ve düğmesini eklemek için `<form>` [Tag yardımcısını](xref:mvc/views/tag-helpers/intro) kullanır. Varsayılan olarak, `<form>` etiketi Yardımcısı, form verilerini bir GÖNDERIYLE gönderir, yani Parametreler, URL 'de sorgu dizeleri olarak değil, HTTP ileti gövdesinde geçirilir. HTTP GET belirttiğinizde, form verileri URL 'ye sorgu dizeleri olarak geçirilir ve bu da kullanıcıların URL 'ye yer işareti eklemesini sağlar. W3C yönergeleri, eylem bir güncelleştirme ile sonuçlanmazsa Al ' ın kullanılması önerilir.
 
 Uygulamayı çalıştırın, **öğrenciler** sekmesini seçin, bir arama dizesi girin ve filtreleme 'nin çalıştığını doğrulamak için ara ' ya tıklayın.
 
@@ -113,23 +113,23 @@ URL 'nin arama dizesini içerdiğine dikkat edin.
 http://localhost:5813/Students?SearchString=an
 ```
 
-Bu sayfaya yer işareti eklerseniz, yer işaretini kullandığınızda filtrelenmiş listeyi alırsınız. @No__t-1 etiketine `method="get"` eklemek, sorgu dizesinin oluşturulmasına neden olur.
+Bu sayfaya yer işareti eklerseniz, yer işaretini kullandığınızda filtrelenmiş listeyi alırsınız. `form` etiketine `method="get"` eklemek, sorgu dizesinin oluşturulmasına neden olur.
 
 Bu aşamada, bir sütun başlığı sıralama bağlantısını tıklatırsanız, **arama** kutusuna girdiğiniz filtre değerini kaybedersiniz. Sonraki bölümde bunu çözeceksiniz.
 
 ## <a name="add-paging-to-students-index"></a>Öğrenciler dizinine sayfalama ekleme
 
-Öğrenciler dizin sayfasına sayfalama eklemek için, tablodaki tüm satırları almak yerine, sunucu üzerinde verileri filtrelemek için `Skip` ve `Take` deyimlerini kullanan `PaginatedList` sınıfı oluşturacaksınız. Daha sonra `Index` yönteminde ek değişiklikler yapar ve `Index` görünümüne sayfalama düğmeleri eklersiniz. Aşağıdaki çizimde sayfalama düğmeleri gösterilmektedir.
+Öğrenciler dizin sayfasına sayfalama eklemek için, `Skip` ve `Take` deyimlerini kullanan bir `PaginatedList` sınıfını, tablodaki verileri her zaman almak yerine, sunucuda filtrelemek için oluşturacaksınız. Daha sonra `Index` yönteminde ek değişiklikler yapar ve `Index` görünümüne sayfalama düğmeleri eklersiniz. Aşağıdaki çizimde sayfalama düğmeleri gösterilmektedir.
 
 ![Sayfa bağlantılarıyla öğrenciler Dizin sayfası](sort-filter-page/_static/paging.png)
 
-Proje klasöründe, `PaginatedList.cs` oluşturun ve ardından şablon kodunu aşağıdaki kodla değiştirin.
+Proje klasöründe `PaginatedList.cs`oluşturun ve ardından şablon kodunu aşağıdaki kodla değiştirin.
 
 [!code-csharp[](intro/samples/cu/PaginatedList.cs)]
 
-Bu koddaki `CreateAsync` yöntemi sayfa boyutunu ve sayfa numarasını alır ve `IQueryable` ' e uygun `Skip` ve `Take` deyimlerini uygular. @No__t-0 `IQueryable` ' de çağrıldığında, yalnızca istenen sayfayı içeren bir liste döndürür. @No__t-0 ve `HasNextPage` özellikleri, **önceki** ve **sonraki** sayfalama düğmelerini etkinleştirmek veya devre dışı bırakmak için kullanılabilir.
+Bu koddaki `CreateAsync` yöntemi sayfa boyutunu ve sayfa numarasını alır ve uygun `Skip` ve `Take` deyimlerini `IQueryable`uygular. `IQueryable``ToListAsync` çağrıldığında, yalnızca istenen sayfayı içeren bir liste döndürür. `HasPreviousPage` ve `HasNextPage` özellikleri, **önceki** ve **sonraki** sayfalama düğmelerini etkinleştirmek veya devre dışı bırakmak için kullanılabilir.
 
-Oluşturucular zaman uyumsuz kod çalıştıramadığından `PaginatedList<T>` nesnesini oluşturmak için bir Oluşturucu yerine `CreateAsync` yöntemi kullanılır.
+Oluşturucular zaman uyumsuz kod çalıştıramadığından `PaginatedList<T>` nesnesini oluşturmak için bir Oluşturucu yerine bir `CreateAsync` yöntemi kullanılır.
 
 ## <a name="add-paging-to-index-method"></a>Dizin yöntemine sayfalama ekleme
 
@@ -149,7 +149,7 @@ public async Task<IActionResult> Index(
 
 Sayfa ilk kez görüntülenirken veya Kullanıcı bir sayfalama veya sıralama bağlantısına tıklamamışsa, tüm parametreler null olur.  Bir sayfalama bağlantısına tıklandıysanız, sayfa değişkeni görüntülenecek sayfa numarasını içerir.
 
-CurrentSort adlı `ViewData` öğesi, sayfalama bağlantılarına dahil edilmesi gerektiğinden, bu sıralama düzeni geçerli sıralama düzeni ile birlikte görüntülenir.
+CurrentSort adlı `ViewData` öğesi, sayfalama bağlantılarına dahil edilmesi gerektiğinden, bu sıralama düzeni geçerli sıralama düzeni ile birlikte sağlar.
 
 CurrentFilter adlı `ViewData` öğesi, geçerli filtre dizesiyle görünüm sağlar. Bu değer, disk belleği sırasında filtre ayarlarını korumak için disk belleği bağlantılarına dahil olmalıdır ve sayfa yeniden görüntülenirken metin kutusuna geri yüklenmesi gerekir.
 
@@ -166,13 +166,13 @@ else
 }
 ```
 
-@No__t-0 yönteminin sonunda, `PaginatedList.CreateAsync` yöntemi öğrenci sorgusunu, sayfalama destekleyen bir koleksiyon türünde tek bir öğrenciler sayfasına dönüştürür. Bu tek bir öğrenci sayfası daha sonra görünüme geçirilir.
+`Index` yönteminin sonunda, `PaginatedList.CreateAsync` yöntemi öğrenci sorgusunu, sayfalama destekleyen bir koleksiyon türünde tek bir öğrenciye dönüştürür. Bu tek bir öğrenci sayfası daha sonra görünüme geçirilir.
 
 ```csharp
 return View(await PaginatedList<Student>.CreateAsync(students.AsNoTracking(), pageNumber ?? 1, pageSize));
 ```
 
-@No__t-0 yöntemi bir sayfa numarası alır. İki soru işareti, null birleşim işlecini temsil eder. Null birleşim işleci, Nullable bir tür için varsayılan değeri tanımlar; `(pageNumber ?? 1)` ifadesi, bir değer varsa `pageNumber` değerini döndürür veya `pageNumber` null ise 1 döndürür.
+`PaginatedList.CreateAsync` yöntemi bir sayfa numarası alır. İki soru işareti, null birleşim işlecini temsil eder. Null birleşim işleci, Nullable bir tür için varsayılan değeri tanımlar; `(pageNumber ?? 1)` ifadesi bir değere sahipse `pageNumber` değerini döndürür veya `pageNumber` null ise 1 döndürür.
 
 ## <a name="add-paging-links"></a>Sayfalama bağlantıları Ekle
 
@@ -180,7 +180,7 @@ return View(await PaginatedList<Student>.CreateAsync(students.AsNoTracking(), pa
 
 [!code-html[](intro/samples/cu/Views/Students/Index.cshtml?highlight=1,27,30,33,61-79)]
 
-Sayfanın üst kısmındaki `@model` ifadesinde, görünümün artık `List<T>` nesnesi yerine `PaginatedList<T>` nesnesi aldığından emin olarak belirtilir.
+Sayfanın üst kısmındaki `@model` ifade, görünümün artık `List<T>` nesnesi yerine `PaginatedList<T>` bir nesne aldığından emin olarak belirtir.
 
 Sütun üst bilgisi bağlantıları, kullanıcının filtre sonuçları içinde sıralama yapabilmesi için geçerli arama dizesini denetleyiciye geçirmek için sorgu dizesini kullanır:
 
@@ -236,7 +236,7 @@ Aşağıdaki kodla bir `About` yöntemi ekleyin:
 
 [!code-csharp[](intro/samples/cu/Controllers/HomeController.cs?name=snippet_UseDbSet)]
 
-LINQ deyimleri, öğrenci varlıklarını kayıt tarihine göre gruplandırır, her bir gruptaki varlıkların sayısını hesaplar ve sonuçları `EnrollmentDateGroup` görüntüleme modeli nesneleri koleksiyonunda depolar.
+LINQ deyimleri, öğrenci varlıklarını kayıt tarihine göre gruplandırır, her bir gruptaki varlıkların sayısını hesaplar ve sonuçları bir `EnrollmentDateGroup` View model nesneleri koleksiyonunda depolar.
 
 ### <a name="create-the-about-view"></a>Hakkında görünüm oluştur
 
@@ -246,7 +246,7 @@ Aşağıdaki kodla bir *Görünümler/Home/about. cshtml* dosyası ekleyin:
 
 Uygulamayı çalıştırın ve hakkında sayfasına gidin. Her kayıt tarihi için öğrenci sayısı bir tabloda görüntülenir.
 
-## <a name="get-the-code"></a>Kodu edinin
+## <a name="get-the-code"></a>Kodu alın
 
 [Tamamlanmış uygulamayı indirin veya görüntüleyin.](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final)
 

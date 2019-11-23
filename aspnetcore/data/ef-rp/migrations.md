@@ -22,7 +22,7 @@ ms.locfileid: "72259713"
 
 Bu öğreticide, veri modeli değişikliklerini yönetmek için EF Core geçişleri özelliği tanıtılmıştır.
 
-Yeni bir uygulama geliştirildiğinde, veri modeli sıklıkla değişir. Modelin her değiştirilişinde, model veritabanıyla eşitlenmemiş olur. Bu öğretici serisi, mevcut değilse veritabanını oluşturmak için Entity Framework yapılandırılarak başlatılır. Veri modelinin her değiştirilişinde veritabanını bırakmalısınız. Uygulamanın bir sonraki çalıştırılışında, `EnsureCreated` ' a yapılan çağrı, veritabanını yeni veri modeliyle eşleşecek şekilde yeniden oluşturur. @No__t-0 sınıfı yeni veritabanını temel almak için çalışır.
+Yeni bir uygulama geliştirildiğinde, veri modeli sıklıkla değişir. Modelin her değiştirilişinde, model veritabanıyla eşitlenmemiş olur. Bu öğretici serisi, mevcut değilse veritabanını oluşturmak için Entity Framework yapılandırılarak başlatılır. Veri modelinin her değiştirilişinde veritabanını bırakmalısınız. Uygulamanın bir sonraki çalıştırılışında, `EnsureCreated` çağrısı yeni veri modeliyle eşleşecek şekilde veritabanını yeniden oluşturur. `DbInitializer` sınıfı, yeni veritabanını temel alarak çalışır.
 
 Veritabanını veri modeliyle eşitlenmiş halde tutmaya yönelik bu yaklaşım, uygulamayı üretime dağıtana kadar iyi çalışır. Uygulama üretimde çalıştığında genellikle saklanması gereken verileri depolar. Uygulama her değişiklik yapıldığında (yeni sütun ekleme gibi) bir test veritabanıyla başlayamaz. EF Core geçişleri özelliği, yeni bir veritabanı oluşturmak yerine EF Core veritabanı şemasını güncelleştirmesine olanak sağlayarak bu sorunu çözer.
 
@@ -82,14 +82,14 @@ dotnet ef database update
 
 ## <a name="up-and-down-methods"></a>Yukarı ve aşağı Yöntemler
 
-EF Core `migrations add` komutu, veritabanını oluşturmak için kod üretti. Bu geçiş kodu *geçişleri @ no__t-1timestamp > _ınitialcreate. cs* dosyasında bulunur. @No__t-1 sınıfının `Up` yöntemi, veri modeli varlık kümelerine karşılık gelen veritabanı tablolarını oluşturur. @No__t-0 yöntemi, aşağıdaki örnekte gösterildiği gibi bunları siler:
+EF Core `migrations add` komut, veritabanını oluşturmak için kodu oluşturdu. Bu geçiş kodu *geçişleri\<zaman damgasında _InitialCreate. cs dosyasında >* . `InitialCreate` sınıfının `Up` yöntemi, veri modeli varlık kümelerine karşılık gelen veritabanı tablolarını oluşturur. `Down` yöntemi, aşağıdaki örnekte gösterildiği gibi onları siler:
 
 [!code-csharp[](intro/samples/cu30/Migrations/20190731193522_InitialCreate.cs)]
 
 Önceki kod ilk geçişe yöneliktir. Kod:
 
-* @No__t-0 komutu tarafından oluşturuldu. 
-* @No__t-0 komutu tarafından yürütülür.
+* `migrations add InitialCreate` komutu tarafından oluşturuldu. 
+* `database update` komutu tarafından yürütülür.
 * Veritabanı bağlamı sınıfı tarafından belirtilen veri modeli için bir veritabanı oluşturur.
 
 Dosya adı için geçiş adı parametresi (örnekteki "ınitialcreate") kullanılır. Geçiş adı herhangi bir geçerli dosya adı olabilir. Geçiş sırasında nelerin yapıldığını özetleyen bir sözcük veya tümcecik seçmek en iyisidir. Örneğin, bir departman tablosu ekleyen bir geçişe "AddDepartmentTable" adı verilir.
@@ -97,8 +97,8 @@ Dosya adı için geçiş adı parametresi (örnekteki "ınitialcreate") kullanı
 ## <a name="the-migrations-history-table"></a>Geçişler geçmiş tablosu
 
 * Veritabanını incelemek için SSOX veya SQLite aracınızı kullanın.
-* @No__t-0 tablosuna eklendiğine dikkat edin. @No__t-0 tablosu, veritabanına hangi geçişlerin uygulandığını izler.
-* @No__t-0 tablosundaki verileri görüntüleyin. İlk geçiş için bir satır gösterir.
+* `__EFMigrationsHistory` tablo ekleme hakkında dikkat edin. `__EFMigrationsHistory` tablo, hangi geçişlerin veritabanına uygulandığını izler.
+* `__EFMigrationsHistory` tablosundaki verileri görüntüleyin. İlk geçiş için bir satır gösterir.
 
 ## <a name="the-data-model-snapshot"></a>Veri modeli anlık görüntüsü
 
@@ -108,7 +108,7 @@ Anlık görüntü dosyası veri modelinin durumunu izlediğinden, `<timestamp>_<
 
 ## <a name="remove-ensurecreated"></a>Yeniden oluşturulmasını kaldır
 
-Bu öğretici serisi `EnsureCreated` kullanılarak başlatıldı. `EnsureCreated` bir geçişler geçmişi tablosu oluşturmaz ve geçişle birlikte kullanılamaz. Bu, veritabanının düşürülme ve sıklıkla yeniden oluşturulduğu test veya hızlı prototip oluşturma için tasarlanmıştır.
+Bu öğretici serisi `EnsureCreated`kullanılarak başlatıldı. `EnsureCreated` geçişler geçmişi tablosu oluşturmaz ve geçişle birlikte kullanılamaz. Bu, veritabanının düşürülme ve sıklıkla yeniden oluşturulduğu test veya hızlı prototip oluşturma için tasarlanmıştır.
 
 Bu noktadan sonra öğreticiler, geçişleri kullanacaktır.
 
@@ -121,7 +121,7 @@ Uygulamayı çalıştırın ve veritabanının çalıştığını doğrulayın.
 
 ## <a name="applying-migrations-in-production"></a>Üretimde geçişleri uygulama
 
-Uygulama başlangıcında, üretim uygulamalarının [Database. Migrate](/dotnet/api/microsoft.entityframeworkcore.relationaldatabasefacadeextensions.migrate?view=efcore-2.0#Microsoft_EntityFrameworkCore_RelationalDatabaseFacadeExtensions_Migrate_Microsoft_EntityFrameworkCore_Infrastructure_DatabaseFacade_) **olarak çağırmalarını** öneririz. `Migrate` bir sunucu grubuna dağıtılan bir uygulamadan çağrılmamalıdır. Uygulama birden çok sunucu örneğine ölçekleniyorsa, veritabanı şeması güncelleştirmelerinin birden çok sunucudan oluşmaması veya okuma/yazma erişimiyle çakışmamasını sağlamak zordur.
+Uygulama başlangıcında, üretim uygulamalarının [Database. Migrate](/dotnet/api/microsoft.entityframeworkcore.relationaldatabasefacadeextensions.migrate?view=efcore-2.0#Microsoft_EntityFrameworkCore_RelationalDatabaseFacadeExtensions_Migrate_Microsoft_EntityFrameworkCore_Infrastructure_DatabaseFacade_) **olarak çağırmalarını** öneririz. sunucu grubuna dağıtılan bir uygulamadan `Migrate` çağrılmamalıdır. Uygulama birden çok sunucu örneğine ölçekleniyorsa, veritabanı şeması güncelleştirmelerinin birden çok sunucudan oluşmaması veya okuma/yazma erişimiyle çakışmamasını sağlamak zordur.
 
 Veritabanı geçişi, dağıtımın bir parçası olarak ve denetimli bir şekilde yapılmalıdır. Üretim veritabanı geçiş yaklaşımları şunları içerir:
 
@@ -138,7 +138,7 @@ The login failed.
 Login failed for user 'user name'.
 ```
 
-Çözüm, bir komut isteminde `dotnet ef database update` ' i çalıştırmak olabilir.
+Çözüm, bir komut isteminde `dotnet ef database update` çalıştırmak olabilir.
 
 ### <a name="additional-resources"></a>Ek kaynaklar
 
@@ -184,7 +184,7 @@ Veri modeli değiştiğinde VERITABANıNı bırakıp yeniden oluşturmak yerine,
 Drop-Database
 ```
 
-Yardım bilgileri almak için PMC 'ten `Get-Help about_EntityFrameworkCore` ' i çalıştırın.
+Yardım bilgileri almak için PMC 'ten `Get-Help about_EntityFrameworkCore` çalıştırın.
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
@@ -220,7 +220,7 @@ dotnet ef database update
 
 ### <a name="examine-the-up-and-down-methods"></a>Yukarı ve aşağı yöntemlerini inceleyin
 
-EF Core `migrations add` komutu, DB oluşturmak için kod oluşturdu. Bu geçiş kodu *geçişleri @ no__t-1timestamp > _ınitialcreate. cs* dosyasında bulunur. @No__t-1 sınıfının `Up` yöntemi, veri modeli varlık kümelerine karşılık gelen VERITABANı tablolarını oluşturur. @No__t-0 yöntemi, aşağıdaki örnekte gösterildiği gibi bunları siler:
+EF Core `migrations add` komutu VERITABANıNı oluşturmak için kodu oluşturdu. Bu geçiş kodu *geçişleri\<zaman damgasında _InitialCreate. cs dosyasında >* . `InitialCreate` sınıfının `Up` yöntemi, veri modeli varlık kümelerine karşılık gelen VERITABANı tablolarını oluşturur. `Down` yöntemi, aşağıdaki örnekte gösterildiği gibi onları siler:
 
 [!code-csharp[](intro/samples/cu21/Migrations/20180626224812_InitialCreate.cs?range=7-24,77-88)]
 
@@ -268,7 +268,7 @@ Erken geliştirme için `EnsureCreated` kullanıldı. Bu öğreticide geçişler
 * Geçişlerle *kullanılamaz.*
 * , DB 'nin bıraktığı ve sıklıkla yeniden oluşturulduğu test veya hızlı prototipleme için tasarlanmıştır.
 
-@No__t kaldır-0:
+`EnsureCreated`kaldır:
 
 ```csharp
 context.Database.EnsureCreated();
@@ -278,13 +278,13 @@ Uygulamayı çalıştırın ve DB 'nin çalıştığını doğrulayın.
 
 ### <a name="inspect-the-database"></a>Veritabanını inceleyin
 
-DB 'yi denetlemek için **SQL Server Nesne Gezgini** kullanın. @No__t-0 tablosuna eklendiğine dikkat edin. @No__t-0 tablosu, hangi geçişlerin VERITABANıNA uygulandığını izler. @No__t-0 tablosundaki verileri görüntüleyin, ilk geçiş için bir satır gösterir. Önceki CLı çıkış örneğinde yer alan son oturum, bu satırı oluşturan INSERT ifadesini gösterir.
+DB 'yi denetlemek için **SQL Server Nesne Gezgini** kullanın. `__EFMigrationsHistory` tablo ekleme hakkında dikkat edin. `__EFMigrationsHistory` tablo, hangi geçişlerin VERITABANıNA uygulandığını izler. `__EFMigrationsHistory` tablosundaki verileri görüntüleyin, ilk geçiş için bir satır gösterir. Önceki CLı çıkış örneğinde yer alan son oturum, bu satırı oluşturan INSERT ifadesini gösterir.
 
 Uygulamayı çalıştırın ve her şeyin çalıştığını doğrulayın.
 
 ## <a name="applying-migrations-in-production"></a>Üretimde geçişleri uygulama
 
-Uygulama başlangıcında, üretim uygulamalarının [Database. Migrate](/dotnet/api/microsoft.entityframeworkcore.relationaldatabasefacadeextensions.migrate?view=efcore-2.0#Microsoft_EntityFrameworkCore_RelationalDatabaseFacadeExtensions_Migrate_Microsoft_EntityFrameworkCore_Infrastructure_DatabaseFacade_) **çağrısını yapmanızı** öneririz. `Migrate` sunucu grubundaki bir uygulamadan çağrılmamalıdır. Örneğin, uygulama bulutu genişleme ile dağıtılmışsa (uygulamanın birden çok örneği çalışır).
+Uygulama başlangıcında, üretim uygulamalarının [Database. Migrate](/dotnet/api/microsoft.entityframeworkcore.relationaldatabasefacadeextensions.migrate?view=efcore-2.0#Microsoft_EntityFrameworkCore_RelationalDatabaseFacadeExtensions_Migrate_Microsoft_EntityFrameworkCore_Infrastructure_DatabaseFacade_) **çağrısını yapmanızı** öneririz. sunucu grubundaki bir uygulamadan `Migrate` çağrılmamalıdır. Örneğin, uygulama bulutu genişleme ile dağıtılmışsa (uygulamanın birden çok örneği çalışır).
 
 Veritabanı geçişi, dağıtımın bir parçası olarak ve denetimli bir şekilde yapılmalıdır. Üretim veritabanı geçiş yaklaşımları şunları içerir:
 
@@ -306,7 +306,7 @@ The login failed.
 Login failed for user 'user name'.
 ```
 
-Çözüm: Run `dotnet ef database update`
+Çözüm: `dotnet ef database update` Çalıştır
 
 ### <a name="additional-resources"></a>Ek kaynaklar
 

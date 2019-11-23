@@ -44,7 +44,7 @@ dotnet new webapp -o aspnetcoreapp
 Önceki komut:
 
 * Yeni bir Web uygulaması oluşturur.  
-* @No__t-0 parametresi, uygulama için kaynak dosyalarla *aspnetcoreapp* adlı bir dizin oluşturur.
+* `-o aspnetcoreapp` parametresi, uygulama için kaynak dosyalarla *aspnetcoreapp* adlı bir dizin oluşturur.
 
 ### <a name="trust-the-development-certificate"></a>Geliştirme sertifikasına güven
 
@@ -70,7 +70,7 @@ dotnet dev-certs https --trust
 
 Yukarıdaki komut aşağıdaki iletiyi görüntüler:
 
-@no__t-HTTPS geliştirme sertifikası istendi. Sertifika zaten güvenilmiyorsa, şu komutu çalıştıracağız: * `'sudo security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keychain <<certificate>>'`
+*Https geliştirme sertifikasına güvenmek istendi. Sertifika zaten güvenilmiyorsa, şu komutu çalıştıracağız:* `'sudo security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keychain <<certificate>>'`
 
 Bu komut, sertifikayı sistem anahtarlığınıza yüklemek için parolanızı isteyebilir. Geliştirme sertifikasına güvenmeyi kabul ediyorsanız parolanızı girin.
 
@@ -91,7 +91,7 @@ cd aspnetcoreapp
 dotnet watch run
 ```
 
-Komut kabuğu, uygulamanın başlatıldığını gösteriyorsa [https://localhost:5001](https://localhost:5001)' e gidin.
+Komut kabuğu, uygulamanın başlatıldığını gösteriyorsa, [https://localhost:5001](https://localhost:5001)gidin.
 
 ## <a name="edit-a-razor-page"></a>Razor sayfasını düzenleme
 
@@ -99,7 +99,7 @@ Komut kabuğu, uygulamanın başlatıldığını gösteriyorsa [https://localhos
 
 [!code-cshtml[](sample/index.cshtml?highlight=9)]
 
-[@No__t-1](https://localhost:5001)' e gidin, sayfayı yenileyin ve değişikliklerin görüntülendiğini doğrulayın.
+[https://localhost:5001](https://localhost:5001)gidin, sayfayı yenileyin ve değişikliklerin görüntülendiğini doğrulayın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

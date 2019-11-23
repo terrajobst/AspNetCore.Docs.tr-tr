@@ -15,7 +15,7 @@ ms.locfileid: "72822377"
 ---
 # <a name="add-a-new-field-to-a-razor-page-in-aspnet-core"></a>ASP.NET Core Razor sayfasına yeni bir alan ekleyin
 
-[Rick Anderson](https://twitter.com/RickAndMSFT) tarafından
+Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 ::: moniker range=">= aspnetcore-3.0"
 
@@ -41,7 +41,7 @@ Bir veritabanını otomatik olarak oluşturmak için EF Code First kullanırken 
 
 Uygulamayı derleyin.
 
-*Pages/filmlerini/Index. cshtml*dosyasını düzenleyin ve `Rating` alanı ekleyin:
+*Sayfaları/filmleri/dizini. cshtml*'yi düzenleyin ve bir `Rating` alanı ekleyin:
 
 <a name="addrat"></a>
 
@@ -49,8 +49,8 @@ Uygulamayı derleyin.
 
 Aşağıdaki sayfaları güncelleştirin:
 
-* Sil ve Ayrıntılar sayfalarına `Rating` alanını ekleyin.
-* [Create. cshtml](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie30/Pages/Movies/Create.cshtml) dosyasını `Rating` alanıyla güncelleştirin.
+* Silme ve Ayrıntılar sayfalarına `Rating` alanını ekleyin.
+* [Create. cshtml](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie30/Pages/Movies/Create.cshtml) dosyasını bir `Rating` alanla güncelleştirin.
 * Düzenleme sayfasına `Rating` alanını ekleyin.
 
 VERITABANı yeni alanı içerecek şekilde güncelleştirilene kadar uygulama çalışmaz. Veritabanını güncelleştirmeden uygulamayı çalıştırmak bir `SqlException`oluşturur:
@@ -84,7 +84,7 @@ Bu öğretici için Code First Migrations kullanın.
 ### <a name="add-a-migration-for-the-rating-field"></a>Derecelendirme alanı için bir geçiş ekleyin
 
 **Araçlar** menüsünde **NuGet Paket Yöneticisi > Paket Yöneticisi konsolu**' nu seçin.
-PMC 'de aşağıdaki komutları girin:
+PMC'de aşağıdaki komutları girin:
 
 ```powershell
 Add-Migration Rating
@@ -109,7 +109,7 @@ Başka bir seçenek de veritabanını silmek ve geçişleri kullanarak veritaban
 * SSOX 'te veritabanını seçin.
 * Veritabanına sağ tıklayın ve *Sil*' i seçin.
 * **Mevcut bağlantıları kapat**' a bakın.
-* **Tamam ' ı**seçin.
+* Seçin **Tamam**.
 * [PMC](xref:tutorials/razor-pages/new-field#pmc)'de veritabanını güncelleştirin:
 
   ```powershell
@@ -132,7 +132,7 @@ dotnet ef database update
 
 ---
 
-Uygulamayı çalıştırın ve `Rating` alanı ile film oluşturabileceğiniz/düzenleyebileceğiniz/görüntüleydiğinizi doğrulayın. Veritabanı birlikte yoksa, `SeedData.Initialize` yönteminde bir kesme noktası ayarlayın.
+Uygulamayı çalıştırın ve bir `Rating` alanı ile film oluşturabileceğiniz/düzenleyebileceğiniz/görüntüleydiğinizi doğrulayın. Veritabanı birlikte olmazsa, `SeedData.Initialize` yönteminde bir kesme noktası ayarlayın.
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
@@ -168,14 +168,14 @@ Bir veritabanını otomatik olarak oluşturmak için EF Code First kullanırken 
 
 Uygulamayı derleyin.
 
-*Pages/filmlerini/Index. cshtml*dosyasını düzenleyin ve `Rating` alanı ekleyin:
+*Sayfaları/filmleri/dizini. cshtml*'yi düzenleyin ve bir `Rating` alanı ekleyin:
 
 [!code-cshtml[](razor-pages-start/sample/RazorPagesMovie22/Pages/Movies/IndexRating.cshtml?highlight=40-42,61-63)]
 
 Aşağıdaki sayfaları güncelleştirin:
 
-* Sil ve Ayrıntılar sayfalarına `Rating` alanını ekleyin.
-* [Create. cshtml](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie22/Pages/Movies/Create.cshtml) dosyasını `Rating` alanıyla güncelleştirin.
+* Silme ve Ayrıntılar sayfalarına `Rating` alanını ekleyin.
+* [Create. cshtml](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie22/Pages/Movies/Create.cshtml) dosyasını bir `Rating` alanla güncelleştirin.
 * Düzenleme sayfasına `Rating` alanını ekleyin.
 
 VERITABANı yeni alanı içerecek şekilde güncelleştirilene kadar uygulama çalışmaz. Şimdi çalıştırırsanız, uygulama bir `SqlException`oluşturur:
@@ -209,7 +209,7 @@ Bu öğretici için Code First Migrations kullanın.
 ### <a name="add-a-migration-for-the-rating-field"></a>Derecelendirme alanı için bir geçiş ekleyin
 
 **Araçlar** menüsünde **NuGet Paket Yöneticisi > Paket Yöneticisi konsolu**' nu seçin.
-PMC 'de aşağıdaki komutları girin:
+PMC'de aşağıdaki komutları girin:
 
 ```powershell
 Add-Migration Rating
@@ -234,7 +234,7 @@ Başka bir seçenek de veritabanını silmek ve geçişleri kullanarak veritaban
 * SSOX 'te veritabanını seçin.
 * Veritabanına sağ tıklayın ve *Sil*' i seçin.
 * **Mevcut bağlantıları kapat**' a bakın.
-* **Tamam ' ı**seçin.
+* Seçin **Tamam**.
 * [PMC](xref:tutorials/razor-pages/new-field#pmc)'de veritabanını güncelleştirin:
 
   ```powershell
@@ -255,7 +255,7 @@ dotnet ef database update
 
 ---
 
-Uygulamayı çalıştırın ve `Rating` alanı ile film oluşturabileceğiniz/düzenleyebileceğiniz/görüntüleydiğinizi doğrulayın. Veritabanı birlikte yoksa, `SeedData.Initialize` yönteminde bir kesme noktası ayarlayın.
+Uygulamayı çalıştırın ve bir `Rating` alanı ile film oluşturabileceğiniz/düzenleyebileceğiniz/görüntüleydiğinizi doğrulayın. Veritabanı birlikte olmazsa, `SeedData.Initialize` yönteminde bir kesme noktası ayarlayın.
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 

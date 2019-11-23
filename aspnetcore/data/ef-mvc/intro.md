@@ -28,13 +28,13 @@ Bu öğretici 3,0 ASP.NET Core güncelleştirilmedi. [Razor Pages sürümü](xre
 
 Contoso Üniversitesi örnek Web uygulaması, Entity Framework (EF) Core 2,2 ve Visual Studio 2017 veya 2019 kullanarak ASP.NET Core 2,2 MVC web uygulamalarının nasıl oluşturulacağını gösterir.
 
-Örnek uygulama, kurgusal bir Contoso Üniversitesi için bir Web sitesidir. Öğrenci giriş, kurs oluşturma ve eğitmen atamaları gibi işlevleri içerir. Bu, Contoso Üniversitesi örnek uygulamasının sıfırdan nasıl oluşturulacağını açıklayan bir öğretici serisinin ilkisidir.
+Örnek uygulama, kurgusal bir Contoso Üniversitesi için bir Web sitesidir. Öğrenci giriş, kurs oluşturma ve Eğitmen atamaları gibi işlevleri içerir. Bu, Contoso Üniversitesi örnek uygulamasının sıfırdan nasıl oluşturulacağını açıklayan bir öğretici serisinin ilkisidir.
 
 Bu öğreticide şunları yaptınız:
 
 > [!div class="checklist"]
 > * ASP.NET Core MVC web uygulaması oluşturma
-> * Site stilini ayarlayın
+> * Site stili Ayarla
 > * EF Core NuGet paketleri hakkında bilgi edinin
 > * Veri modeli oluşturma
 > * Veritabanı bağlamını oluşturma
@@ -52,7 +52,7 @@ Bu öğreticide şunları yaptınız:
 
 ## <a name="troubleshooting"></a>Sorun giderme
 
-Çözemiyoruz bir sorunla karşılaşırsanız, kodunuzun [Tamamlanan projeyle](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final)karşılaştırılmasıyla genellikle çözümü bulabilirsiniz. Yaygın hataların bir listesi ve bunların nasıl çözüleceği için, [serideki son öğreticinin sorun giderme bölümüne](advanced.md#common-errors)bakın. İhtiyacınız olanları bulamazsanız, [ASP.NET Core](https://stackoverflow.com/questions/tagged/asp.net-core) veya [EF Core](https://stackoverflow.com/questions/tagged/entity-framework-core)için bir soru gönderebilirsiniz.
+Bir sorunla karşılaşırsanız, çözümleyemiyor çalıştırırsanız, genel olarak çözüm kodunuzda karşılaştırarak bulabilirsiniz [projeyi](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final). Yaygın hataların bir listesi ve bunların nasıl çözüleceği için, [serideki son öğreticinin sorun giderme bölümüne](advanced.md#common-errors)bakın. İhtiyacınız olanları bulamazsanız, [ASP.NET Core](https://stackoverflow.com/questions/tagged/asp.net-core) veya [EF Core](https://stackoverflow.com/questions/tagged/entity-framework-core)için bir soru gönderebilirsiniz.
 
 > [!TIP]
 > Bu, her biri daha önceki öğreticilerde gerçekleştirilen bir dizi 10 öğreticisidir. Her başarılı öğreticinin tamamlanmasından sonra projenin bir kopyasını kaydetmeyi göz önünde bulundurun. Daha sonra sorunlarla karşılaşırsanız, tüm serinin başlangıcına dönmek yerine önceki öğreticiden baştan başlayabilirsiniz.
@@ -61,9 +61,9 @@ Bu öğreticide şunları yaptınız:
 
 Bu öğreticilerde oluşturacağınız uygulama basit bir üniversite web sitesidir.
 
-Kullanıcılar öğrenci, kurs ve eğitmen bilgilerini görüntüleyebilir ve güncelleştirebilir. Oluşturacağınız ekranların bazıları aşağıda verilmiştir.
+Kullanıcılar görüntüleyebilir ve Öğrenci, kurs ve Eğitmen bilgileri güncelleştirin. Oluşturacağınız ekranların bazıları aşağıda verilmiştir.
 
-![Öğrenciler Dizin sayfası](intro/_static/students-index.png)
+![Öğrenciler dizin sayfası](intro/_static/students-index.png)
 
 ![Öğrenciler düzenleme sayfası](intro/_static/student-edit.png)
 
@@ -87,17 +87,17 @@ Kullanıcılar öğrenci, kurs ve eğitmen bilgilerini görüntüleyebilir ve g�
 
 * **Kimlik doğrulamanın** **kimlik doğrulaması yok**olarak ayarlandığından emin olun.
 
-* **Tamam**’ı seçin
+* **Tamam 'ı** seçin
 
   ![Yeni ASP.NET Core projesi iletişim kutusu](intro/_static/new-aspnet2.png)
 
-## <a name="set-up-the-site-style"></a>Site stilini ayarlayın
+## <a name="set-up-the-site-style"></a>Site stili Ayarla
 
 Birkaç basit değişiklik, site menüsünü, düzeni ve giriş sayfasını ayarlar.
 
-*Views/Shared/_Layout. cshtml* dosyasını açın ve aşağıdaki değişiklikleri yapın:
+*Görünümler/paylaşılan/_Layout. cshtml* dosyasını açın ve aşağıdaki değişiklikleri yapın:
 
-* "ContosoUniversity" öğesinin her oluşumunu "Contoso Üniversitesi" olarak değiştirin. Üç oluşum vardır.
+* "Contoso Üniversitesi" için "ContosoUniversity" her örneğini değiştirin. Üç örnekleri vardır.
 
 * **Hakkında**, **öğrenciler**, **Kurslar**, **eğitmenler**ve **Departmanlar**için menü girişleri ekleyin ve **Gizlilik** menü girişini silin.
 
@@ -125,13 +125,13 @@ Entity Framework Core için kullanılabilen diğer veritabanı sağlayıcıları
 
 Daha sonra Contoso Üniversitesi uygulaması için varlık sınıfları oluşturacaksınız. Aşağıdaki üç varlıkla başlayacaksınız.
 
-![Kurs-kayıt-öğrenci veri modeli diyagramı](intro/_static/data-model-diagram.png)
+![Kurs kayıt Öğrenci veri modeli diyagramı](intro/_static/data-model-diagram.png)
 
-@No__t-0 ve `Enrollment` varlıkları arasında bire çok ilişki vardır ve `Course` ile `Enrollment` varlıkları arasında bire çok bir ilişki vardır. Diğer bir deyişle, bir öğrenci herhangi bir sayıda kursa kaydedilebilir ve bir kurs, kayıtlı sayıda öğrenciye sahip olabilir.
+`Student` ve `Enrollment` varlıkları arasında bire çok ilişki vardır ve `Course` ile `Enrollment` varlıkları arasında bire çok bir ilişki vardır. Diğer bir deyişle, bir öğrenci herhangi bir sayıda kursa kaydedilebilir ve bir kurs, kayıtlı sayıda öğrenciye sahip olabilir.
 
 Aşağıdaki bölümlerde, bu varlıkların her biri için bir sınıf oluşturacaksınız.
 
-### <a name="the-student-entity"></a>Öğrenci varlığı
+### <a name="the-student-entity"></a>Öğrenci varlık
 
 ![Öğrenci varlık diyagramı](intro/_static/student-entity.png)
 
@@ -139,13 +139,13 @@ Aşağıdaki bölümlerde, bu varlıkların her biri için bir sınıf oluştura
 
 [!code-csharp[](intro/samples/cu/Models/Student.cs?name=snippet_Intro)]
 
-@No__t-0 özelliği, bu sınıfa karşılık gelen veritabanı tablosunun birincil anahtar sütunu olacak. Varsayılan olarak Entity Framework, `ID` veya `classnameID` adlı bir özelliği birincil anahtar olarak yorumlar.
+`ID` özelliği, bu sınıfa karşılık gelen veritabanı tablosunun birincil anahtar sütunu olacak. Varsayılan olarak, Entity Framework `ID` veya `classnameID` adında bir özelliği birincil anahtar olarak yorumlar.
 
-@No__t-0 özelliği bir [Gezinti özelliğidir](/ef/core/modeling/relationships). Gezinti özellikleri, bu varlıkla ilgili diğer varlıkları tutar. Bu durumda, bir `Student entity` ' in `Enrollments` özelliği, bu `Student` varlığıyla ilgili @no__t 2 varlıkların tümünü tutacaktır. Diğer bir deyişle, veritabanında verilen bir öğrenci satırı, iki ilişkili kayıt satırına (bu öğrencinin birincil anahtar değerini kendi StudentID yabancı anahtar sütununda içeren satırlar) sahipse, bu `Student` varlığının `Enrollments` gezinti özelliği bu iki `Enrollment` ' yi içerir varlıklar.
+`Enrollments` Özelliği bir [gezinti özelliği](/ef/core/modeling/relationships). Gezinti özellikleri, bu varlıkla ilgili diğer varlıkları tutar. Bu durumda, bir `Student entity` `Enrollments` özelliği, bu `Student` varlıkla ilgili `Enrollment` varlıkların tümünü tutacaktır. Diğer bir deyişle, veritabanında verilen bir öğrenci satırı, iki ilişkili kayıt satırına (bu öğrencinin birincil anahtar değerini kendi StudentID yabancı anahtar sütununda içeren satırlar) sahipse, `Student` varlığın `Enrollments` gezinti özelliği bu iki `Enrollment` varlığını içerir.
 
-Bir gezinti özelliği birden çok varlığı tutabilecek (çoktan çoğa veya bire çok ilişkilerde olduğu gibi), türü `ICollection<T>` gibi girişlerin eklenebileceği, silinebileceği ve güncelleştirilebilen bir liste olmalıdır. @No__t-0 veya `List<T>` veya `HashSet<T>` gibi bir tür belirtebilirsiniz. @No__t-0 belirtirseniz, EF varsayılan olarak bir `HashSet<T>` koleksiyonu oluşturur.
+Bir gezinti özelliği birden çok varlığı tutabileceiyorsa (çok-çok veya bire çok ilişkilerde olduğu gibi), türü `ICollection<T>`gibi girişlerin eklenebileceği, silinebileceği ve güncelleştirilemeyebilir bir liste olmalıdır. `ICollection<T>` veya `List<T>` veya `HashSet<T>`gibi bir tür belirtebilirsiniz. `ICollection<T>`belirtirseniz, EF varsayılan olarak bir `HashSet<T>` koleksiyonu oluşturur.
 
-### <a name="the-enrollment-entity"></a>Kayıt varlığı
+### <a name="the-enrollment-entity"></a>Kayıt varlık
 
 ![Kayıt varlık diyagramı](intro/_static/enrollment-entity.png)
 
@@ -153,17 +153,17 @@ Bir gezinti özelliği birden çok varlığı tutabilecek (çoktan çoğa veya b
 
 [!code-csharp[](intro/samples/cu/Models/Enrollment.cs?name=snippet_Intro)]
 
-@No__t-0 özelliği birincil anahtar olacaktır; Bu varlık `Student` varlığında gördüğünüz gibi, `ID` yerine `classnameID` modelini kullanır. Normalde tek bir model seçip veri modeliniz genelinde kullanabilirsiniz. Burada, değişim, her iki stili de kullanabileceğinizi gösterir. [Daha sonraki bir öğreticide](inheritance.md), ID 'yi ClassName olmadan kullanarak, veri modelinde devralma uygulamayı daha kolay hale getirir.
+`EnrollmentID` özelliği birincil anahtar olacaktır; Bu varlık, `Student` varlığında gördüğünüz gibi kendisini `ID` yerine `classnameID` modelini kullanır. Normalde tek bir model seçip veri modeliniz genelinde kullanabilirsiniz. Burada, değişim, her iki stili de kullanabileceğinizi gösterir. [Daha sonraki bir öğreticide](inheritance.md), ID 'yi ClassName olmadan kullanarak, veri modelinde devralma uygulamayı daha kolay hale getirir.
 
-@No__t-0 özelliği bir `enum` ' dir. @No__t-0 tür bildiriminden sonraki soru işareti, `Grade` özelliğinin null yapılabilir olduğunu gösterir. Null olan bir sınıf sıfır bir sınıf ile farklıdır--null, henüz bir sınıf bilinmediğini veya henüz atanmadığını belirtir.
+`Grade` Özelliği bir `enum`. Sonra soru işareti `Grade` türü bildirimi gösterir `Grade` özelliği boş değer atanabilir. Boş bir sınıf bir sıfır sınıf farklı--null anlamına gelir bir sınıf bilinen değil veya henüz atanmamış.
 
-@No__t-0 özelliği bir yabancı anahtardır ve karşılık gelen gezinti özelliği `Student` ' dir. @No__t-0 bir varlık bir `Student` varlıkla ilişkilendirilir, bu nedenle özellik yalnızca tek bir `Student` varlığı tutabilir (daha önce gördüğünüz `Student.Enrollments` gezinti özelliğinden farklı olarak, birden çok `Enrollment` varlığı tutabilir).
+`StudentID` Özelliği olduğundan yabancı anahtar ve karşılık gelen gezinme özelliğini `Student`. `Enrollment` bir varlık bir `Student` varlığıyla ilişkilendirilir, bu nedenle özellik yalnızca tek bir `Student` varlığı tutabilir (daha önce gördüğünüz `Student.Enrollments` gezinti özelliğinden farklı olarak, birden çok `Enrollment` varlığı tutabilir).
 
-@No__t-0 özelliği bir yabancı anahtardır ve karşılık gelen gezinti özelliği `Course` ' dir. @No__t-0 varlığı, bir `Course` varlığıyla ilişkilidir.
+`CourseID` Özelliği olduğundan yabancı anahtar ve karşılık gelen gezinme özelliğini `Course`. Bir `Enrollment` varlıktır biriyle ilişkili `Course` varlık.
 
-Entity Framework, bir özelliği bir yabancı anahtar @no__t özelliği olarak Yorumlar (örneğin, `Student` varlığının birincil anahtarı `ID` olduğundan `Student` gezinti özelliği için `StudentID`). Yabancı anahtar özellikleri de yalnızca `<primary key property name>` (örneğin @no__t, `Course` varlığının birincil anahtarı `CourseID`) olarak adlandırılır.
+Entity Framework, `<navigation property name><primary key property name>` adında bir özelliği yabancı anahtar özelliği olarak Yorumlar (örneğin, `Student` varlığının birincil anahtarı `ID`olduğundan `Student` gezinti özelliği için `StudentID`). Yabancı anahtar özelliklerine de yalnızca `<primary key property name>` (örneğin `CourseID`, `Course` varlığının birincil anahtarı `CourseID`olduğundan) adlandırılmış olabilir.
 
-### <a name="the-course-entity"></a>Kurs varlığı
+### <a name="the-course-entity"></a>Kurs varlık
 
 ![Kurs varlık diyagramı](intro/_static/course-entity.png)
 
@@ -171,13 +171,13 @@ Entity Framework, bir özelliği bir yabancı anahtar @no__t özelliği olarak Y
 
 [!code-csharp[](intro/samples/cu/Models/Course.cs?name=snippet_Intro)]
 
-@No__t-0 özelliği bir gezinti özelliğidir. @No__t-0 varlığı, herhangi bir sayıda `Enrollment` varlıkla ilişkili olabilir.
+`Enrollments` Özelliktir bir gezinme özelliği. A `Course` varlık dilediğiniz sayıda ilgili olabileceğini `Enrollment` varlıklar.
 
 Bu serinin [sonraki bir öğreticide](complex-data-model.md) `DatabaseGenerated` özniteliği hakkında daha fazla bilgi edineceksiniz. Temel olarak bu öznitelik, veritabanının oluşturması yerine kursa ait birincil anahtarı girmenize olanak sağlar.
 
 ## <a name="create-the-database-context"></a>Veritabanı bağlamını oluşturma
 
-Belirli bir veri modeli için Entity Framework işlevselliğini koordine eden ana sınıf veritabanı bağlamı sınıfıdır. Bu sınıfı `Microsoft.EntityFrameworkCore.DbContext` sınıfından türeterek oluşturursunuz. Kodunuzda, veri modeline hangi varlıkların ekleneceğini belirtirsiniz. Ayrıca, belirli Entity Framework davranışlarını özelleştirebilirsiniz. Bu projede, sınıfı `SchoolContext` olarak adlandırılmıştır.
+Belirli bir veri modeli için Entity Framework işlevselliğini koordine eden ana sınıf veritabanı bağlamı sınıfıdır. Bu sınıfı, `Microsoft.EntityFrameworkCore.DbContext` sınıfından türeterek oluşturursunuz. Kodunuzda, veri modeline hangi varlıkların ekleneceğini belirtirsiniz. Ayrıca, belirli Entity Framework davranışlarını özelleştirebilirsiniz. Bu projede adlı sınıfı `SchoolContext`.
 
 Proje klasöründe, *veri*adlı bir klasör oluşturun.
 
@@ -187,9 +187,9 @@ Proje klasöründe, *veri*adlı bir klasör oluşturun.
 
 Bu kod, her varlık kümesi için bir `DbSet` özelliği oluşturur. Entity Framework terimlerinde, genellikle bir varlık kümesi bir veritabanı tablosuna karşılık gelir ve bir varlık tablodaki bir satıra karşılık gelir.
 
-@No__t-0 ve `DbSet<Course>` deyimlerini atlarsanız aynı şekilde çalışır. Entity Framework, `Student` varlığı `Enrollment` varlığına başvurduğundan ve `Enrollment` varlığı `Course` varlığına başvurduğundan, bunları örtülü olarak içerebilir.
+`DbSet<Enrollment>` ve `DbSet<Course>` deyimlerini atlamış olabilirsiniz ve aynı şekilde çalışır. Entity Framework, `Student` varlık `Enrollment` varlığına başvurduğundan ve `Enrollment` varlığı `Course` varlığına başvurduğundan bunları örtülü olarak içerebilir.
 
-Veritabanı oluşturulduğunda EF, `DbSet` özellik adlarıyla aynı adlara sahip tablolar oluşturur. Koleksiyonlar için özellik adları genellikle plural (öğrenci yerine öğrenciler), ancak geliştiriciler tablo adlarının plurulululmasını kabul etmez. Bu öğreticiler için DbContext içinde tekil tablo adları belirterek varsayılan davranışı geçersiz kılarsınız. Bunu yapmak için, son DbSet özelliğinden sonra aşağıdaki vurgulanmış kodu ekleyin.
+Veritabanı oluşturulduğunda EF, `DbSet` Özellik adlarıyla aynı adlara sahip tablolar oluşturur. Koleksiyonlar için özellik adları genellikle plural (öğrenci yerine öğrenciler), ancak geliştiriciler tablo adlarının plurulululmasını kabul etmez. Bu öğreticiler için DbContext içinde tekil tablo adları belirterek varsayılan davranışı geçersiz kılarsınız. Bunu yapmak için, son DbSet özelliğinden sonra aşağıdaki vurgulanmış kodu ekleyin.
 
 [!code-csharp[](intro/samples/cu/Data/SchoolContext.cs?name=snippet_TableNames&highlight=16-21)]
 
@@ -197,13 +197,13 @@ Veritabanı oluşturulduğunda EF, `DbSet` özellik adlarıyla aynı adlara sahi
 
 ASP.NET Core, varsayılan olarak [bağımlılık ekleme](../../fundamentals/dependency-injection.md) işlemini uygular. Hizmetler (EF veritabanı bağlamı gibi) uygulama başlatma sırasında bağımlılık ekleme ile kaydedilir. Bu hizmetleri gerektiren bileşenler (MVC denetleyicileri gibi) bu hizmetleri Oluşturucu parametreleri aracılığıyla sağlamaktadır. Bu öğreticide daha sonra bir bağlam örneği alan denetleyici Oluşturucu kodunu görürsünüz.
 
-@No__t-0 ' ı bir hizmet olarak kaydetmek için *Startup.cs*açın ve vurgulanan satırları `ConfigureServices` yöntemine ekleyin.
+`SchoolContext` bir hizmet olarak kaydetmek için *Startup.cs*açın ve vurgulanan satırları `ConfigureServices` yöntemine ekleyin.
 
 [!code-csharp[](intro/samples/cu/Startup.cs?name=snippet_SchoolContext&highlight=9-10)]
 
-@No__t-0 nesnesi üzerinde bir yöntem çağırarak bağlantı dizesinin adı bağlama geçirilir. Yerel geliştirme için [ASP.NET Core yapılandırma sistemi](xref:fundamentals/configuration/index) , *appSettings. JSON* dosyasından bağlantı dizesini okur.
+Bağlantı dizesinin adı, `DbContextOptionsBuilder` nesnesi üzerinde bir yöntem çağırarak bağlama geçirilir. Yerel geliştirme için [ASP.NET Core yapılandırma sistemi](xref:fundamentals/configuration/index) bağlantı dizesinden okur *appsettings.json* dosya.
 
-@No__t-1 ve `Microsoft.EntityFrameworkCore` ad alanları için `using` deyimleri ekleyin ve ardından projeyi derleyin.
+`ContosoUniversity.Data` ve `Microsoft.EntityFrameworkCore` ad alanları için `using` deyimleri ekleyin ve ardından projeyi derleyin.
 
 [!code-csharp[](intro/samples/cu/Startup.cs?name=snippet_Usings)]
 
@@ -213,7 +213,7 @@ ASP.NET Core, varsayılan olarak [bağımlılık ekleme](../../fundamentals/depe
 
 ### <a name="sql-server-express-localdb"></a>SQL Server Express LocalDB
 
-Bağlantı dizesi bir SQL Server LocalDB veritabanı belirtir. LocalDB, SQL Server Express veritabanı altyapısının hafif bir sürümüdür ve üretim kullanımı için değil uygulama geliştirmeye yöneliktir. LocalDB, istek üzerine başlar ve kullanıcı modunda çalışır, bu nedenle karmaşık bir yapılandırma yoktur. Varsayılan olarak, LocalDB `C:/Users/<user>` dizininde *. mdf* veritabanı dosyaları oluşturur.
+Bağlantı dizesi bir SQL Server LocalDB veritabanı belirtir. LocalDB, SQL Server Express veritabanı altyapısının hafif bir sürümüdür ve üretim kullanımı için değil uygulama geliştirmeye yöneliktir. LocalDB, isteğe bağlı olarak başlar ve karmaşık yapılandırma olduğundan kullanıcı modunda çalışır. Varsayılan olarak, LocalDB `C:/Users/<user>` dizininde *. mdf* veritabanı dosyaları oluşturur.
 
 ## <a name="initialize-db-with-test-data"></a>Test verileriyle VERITABANıNı başlatma
 
@@ -225,7 +225,7 @@ Burada, veritabanını otomatik olarak oluşturmak için `EnsureCreated` yöntem
 
 [!code-csharp[](intro/samples/cu/Data/DbInitializer.cs?name=snippet_Intro)]
 
-Kod, veritabanında herhangi bir öğrenci olup olmadığını denetler ve yoksa, veritabanının yeni olduğunu ve test verileriyle hazırlanması gerektiğini varsayar. Performansı iyileştirmek için, test verilerini `List<T>` koleksiyonları yerine dizilere yükler.
+Kod, veritabanında herhangi bir öğrenci olup olmadığını denetler ve yoksa, veritabanının yeni olduğunu ve test verileriyle hazırlanması gerektiğini varsayar. Diziye test verileri yükler yerine `List<T>` performansını iyileştirmek için koleksiyonları.
 
 *Program.cs*' de, uygulama başlangıcında aşağıdakini yapmak için `Main` yöntemini değiştirin:
 
@@ -235,7 +235,7 @@ Kod, veritabanında herhangi bir öğrenci olup olmadığını denetler ve yoksa
 
 [!code-csharp[](intro/samples/cu/Program.cs?name=snippet_Seed&highlight=3-20)]
 
-@No__t-0 deyimleri ekleyin:
+`using` deyimleri ekle:
 
 [!code-csharp[](intro/samples/cu/Program.cs?name=snippet_Usings)]
 
@@ -269,15 +269,15 @@ CRUD eylem yöntemlerinin ve görünümlerinin otomatik olarak oluşturulması, 
 
   **Ekle**' ye tıkladığınızda, Visual Studio yapı iskelesi altyapısı, denetleyicisiyle birlikte çalışan bir *StudentsController.cs* dosyası ve bir dizi görünüm ( *. cshtml* dosyası) oluşturur.
 
-(Yapı iskelesi altyapısı, daha önce Bu öğreticide yaptığınız gibi, daha önce el ile oluşturmazsanız, sizin için veritabanı bağlamını de oluşturabilir. **Veri bağlam sınıfının**sağ tarafındaki artı Işaretine tıklayarak **Denetleyici Ekle** kutusunda yeni bir bağlam sınıfı belirtebilirsiniz.  Daha sonra Visual Studio `DbContext` sınıfınızın yanı sıra denetleyiciyi ve görünümleri de oluşturacaktır.)
+(Yapı iskelesi altyapısı, daha önce Bu öğreticide yaptığınız gibi, daha önce el ile oluşturmazsanız, sizin için veritabanı bağlamını de oluşturabilir. **Veri bağlam sınıfının**sağ tarafındaki artı Işaretine tıklayarak **Denetleyici Ekle** kutusunda yeni bir bağlam sınıfı belirtebilirsiniz.  Daha sonra Visual Studio, `DbContext` sınıfınızın yanı sıra denetleyiciyi ve görünümleri de oluşturacaktır.)
 
-Denetleyicinin bir oluşturucu parametresi olarak `SchoolContext` aldığını fark edeceksiniz.
+Denetleyicinin bir `SchoolContext` Oluşturucu parametresi olarak aldığını fark edeceksiniz.
 
 [!code-csharp[](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_Context&highlight=5,7,9)]
 
-ASP.NET Core bağımlılığı ekleme, denetleyiciye @no__t bir örneğini geçirmekten yararlanır. Bunu *Startup.cs* dosyasında daha önce yapılandırdınız.
+ASP.NET Core bağımlılığı ekleme, denetleyiciye `SchoolContext` bir örneği geçirmekten yararlanır. Bunu *Startup.cs* dosyasında daha önce yapılandırdınız.
 
-Denetleyici, veritabanındaki tüm öğrencileri görüntüleyen bir `Index` eylem yöntemi içerir. Yöntemi, veritabanı bağlamı örneğinin `Students` özelliğini okuyarak öğrenciler varlık kümesinden öğrencilerin bir listesini alır:
+Denetleyici, veritabanındaki tüm öğrencileri görüntüleyen bir `Index` Action yöntemi içerir. Yöntemi, veritabanı bağlamı örneğinin `Students` özelliğini okuyarak öğrenciler varlık kümesinden öğrencilerin bir listesini alır:
 
 [!code-csharp[](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_ScaffoldedIndex&highlight=3)]
 
@@ -289,15 +289,15 @@ Denetleyici, veritabanındaki tüm öğrencileri görüntüleyen bir `Index` eyl
 
 Projeyi çalıştırmak için CTRL + F5 tuşlarına basın veya menüden **hata ayıklama > Başlat** ' ı seçin.
 
-@No__t-0 yönteminin eklendiği test verilerini görmek için öğrenciler sekmesine tıklayın. Tarayıcı pencerenizin ne kadar dar olduğuna bağlı olarak, sayfanın üst kısmında `Students` sekme bağlantısını görürsünüz veya bağlantıyı görmek için sağ üst köşedeki gezinti simgesine tıklamanız gerekir.
+`DbInitializer.Initialize` yönteminin eklendiği test verilerini görmek için öğrenciler sekmesine tıklayın. Tarayıcı pencerenizin ne kadar dar olduğuna bağlı olarak, sayfanın üst kısmında `Students` Tab bağlantısını görürsünüz veya bağlantıyı görmek için sağ üst köşedeki gezinti simgesine tıklamanız gerekir.
 
 ![Contoso Üniversitesi giriş sayfası dar](intro/_static/home-page-narrow.png)
 
-![Öğrenciler Dizin sayfası](intro/_static/students-index.png)
+![Öğrenciler dizin sayfası](intro/_static/students-index.png)
 
 ## <a name="view-the-database"></a>Veritabanını görüntüleme
 
-Uygulamayı başlattığınızda `DbInitializer.Initialize` yöntemi `EnsureCreated` ' i çağırır. EF, bir veritabanı olmadığını ve bu nedenle bir tane oluşturduğunu gördük, `Initialize` Yöntem kodunun geri kalanı veritabanını verilerle doldurmuş. Visual Studio 'da veritabanını görüntülemek için **SQL Server Nesne Gezgini** (ssox) kullanabilirsiniz.
+Uygulamayı başlattığınızda, `DbInitializer.Initialize` yöntemi `EnsureCreated`çağırır. EF, bir veritabanı olmadığını ve bu nedenle bir tane oluşturduğunu gördük, `Initialize` yöntemi kodunun geri kalanı veritabanını verilerle doldurmuş. Visual Studio 'da veritabanını görüntülemek için **SQL Server Nesne Gezgini** (ssox) kullanabilirsiniz.
 
 Tarayıcıyı kapatın.
 
@@ -313,21 +313,21 @@ Oluşturulan sütunları ve tabloya eklenmiş satırları görmek için **öğre
 
 ![SSOX 'te öğrenci tablosu](intro/_static/ssox-student-table.png)
 
-*. Mdf* ve *. ldf* veritabanı dosyaları, *C:\Users @ no__t-3 @ no__t-4yourusername >* klasöründedir.
+*. Mdf* ve *. ldf* veritabanı dosyaları, *C:\Users\\\<YourUserName >* klasöründedir.
 
-Uygulama başlatma sırasında çalışan Başlatıcı yönteminde `EnsureCreated` ' ı çağırırken, artık `Student` sınıfında bir değişiklik yapabilir, veritabanını silebilir, uygulamayı yeniden çalıştırabilirsiniz ve veritabanı, değişikliklerinizi eşleştirmek için otomatik olarak yeniden oluşturulur. Örneğin, `Student` sınıfına bir `EmailAddress` özelliği eklerseniz, yeniden oluşturulan tabloda yeni bir `EmailAddress` sütunu görürsünüz.
+Uygulama başlatma sırasında çalışan Başlatıcı yönteminde `EnsureCreated` çağırırken, artık `Student` sınıfında bir değişiklik yapabilir, veritabanını silebilir, uygulamayı yeniden çalıştırabilirsiniz ve veritabanı, değişikliklerinizi eşleştirmek için otomatik olarak yeniden oluşturulur. Örneğin, `Student` sınıfına bir `EmailAddress` özelliği eklerseniz, yeniden oluşturulan tabloda yeni bir `EmailAddress` sütunu görürsünüz.
 
 ## <a name="conventions"></a>Kurallar
 
 Entity Framework, kuralların kullanımı veya Entity Framework varsayımlarıyla ilgili olarak en az bir veritabanı oluşturabilmesini sağlamak için yazmanız gereken kod miktarı.
 
-* @No__t-0 özelliklerinin adları tablo adı olarak kullanılır. @No__t-0 özelliği tarafından başvurulmayan varlıklar için, varlık sınıfı adları tablo adı olarak kullanılır.
+* `DbSet` özelliklerinin adları tablo adı olarak kullanılır. `DbSet` özelliği tarafından başvurulmayan varlıklar için, varlık sınıfı adları tablo adı olarak kullanılır.
 
 * Varlık özelliği adları, sütun adları için kullanılır.
 
 * ID veya Classnameıd olarak adlandırılan varlık özellikleri, birincil anahtar özellikleri olarak tanınır.
 
-* Bir özellik, *\<gezinti özelliği adı > \<birincil anahtar özellik adı >* (örneğin, `Student` ' in birincil anahtarı olduğundan `Student` gezinti özelliği için `StudentID`) olarak adlandırılmışsa, yabancı anahtar özelliği olarak yorumlanır. t-6). Yabancı anahtar özelliklerine de yalnızca *\<birincil anahtar özellik adı >* adlandırılabilir (örneğin, `Enrollment` varlığının birincil anahtarı `EnrollmentID` olduğundan, `EnrollmentID`).
+* Bir özellik, bir yabancı anahtar özelliği olarak yorumlanır *\<gezinti özelliği adı >\<birincil anahtar özellik adı >* (örneğin, `StudentID`, birincil anahtarı `Student` olduğundan `Student` gezinti özelliği için `ID`). Yabancı anahtar özellikleri, *\<birincil anahtar özellik adı >* olarak da adlandırılabilir (örneğin, `Enrollment` varlığının birincil anahtarı `EnrollmentID`olduğundan `EnrollmentID`).
 
 Geleneksel davranış geçersiz kılınabilir. Örneğin, bu öğreticide daha önce gördüğünüz gibi tablo adlarını açıkça belirtebilirsiniz. Ayrıca, bu serinin [sonraki bir öğreticide](complex-data-model.md) göreceğiniz gibi, sütun adlarını ayarlayabilir ve herhangi bir özelliği birincil anahtar veya yabancı anahtar olarak ayarlayabilirsiniz.
 
@@ -335,25 +335,25 @@ Geleneksel davranış geçersiz kılınabilir. Örneğin, bu öğreticide daha �
 
 Zaman uyumsuz programlama, ASP.NET Core ve EF Core için varsayılan moddur.
 
-Web sunucusunda sınırlı sayıda iş parçacığı bulunur ve yüksek yük durumlarında tüm kullanılabilir iş parçacıkları kullanımda olabilir. Bu durumda, sunucu, iş parçacıkları boşaltılana kadar yeni istekleri işleyemez. Zaman uyumlu kodla, çok sayıda iş parçacığı, g/ç 'nin tamamlanmasını beklediği için aslında herhangi bir iş yapmadıklarında bağlı olabilir. Zaman uyumsuz kod ile, bir işlem g/ç 'yi tamamlanmayı beklerken, sunucunun diğer istekleri işlemek için kullanması için iş parçacığı serbest bırakılır. Sonuç olarak, zaman uyumsuz kod sunucu kaynaklarının daha verimli kullanılmasını sağlar ve sunucu, gecikme olmadan daha fazla trafiği işlemeye etkinleştirilir.
+Sınırlı sayıda iş parçacığı kullanılabilir bir web sunucusuna sahip ve yüksek yük durumlarda tüm kullanılabilir iş parçacıklarının kullanımda olabilir. Bu durum oluştuğunda, sunucunun iş parçacıklarının serbest bırakılana kadar yeni istekleri işleyemiyor. G/ç tamamlanması bekleniyor çünkü bunlar herhangi bir iş gerçekten yapmamanız sırasında eş zamanlı kod ile birçok iş parçacığı bağlanması. İşlemi tamamlamak, g/ç için beklerken zaman uyumsuz kod ile diğer istekleri işlemek için kullanılacak sunucuyu için kendi iş parçacığı serbest bırakılır. Sonuç olarak, sunucu kaynaklarının daha etkin kullanılması zaman uyumsuz kod sağlar ve sunucu gecikmeler olmadan daha fazla trafik işlemek için etkinleştirilir.
 
 Zaman uyumsuz kod, çalışma zamanında az miktarda yük getirir, ancak düşük trafik durumlarında performans artışı göz ardı edilebilir, ancak yüksek trafik durumları için olası performans iyileştirmesi oldukça önemlidir.
 
-Aşağıdaki kodda `async` anahtar sözcüğü, `Task<T>` dönüş değeri, `await` anahtar sözcüğü ve `ToListAsync` yöntemi kodu zaman uyumsuz olarak yürütür.
+Aşağıdaki kodda `async` anahtar sözcüğü, `Task<T>` dönüş değeri, `await` anahtar sözcüğü ve `ToListAsync` metodu kodu zaman uyumsuz olarak yürütür.
 
 [!code-csharp[](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_ScaffoldedIndex)]
 
-* @No__t-0 anahtar sözcüğü, derleyiciye Yöntem gövdesinin parçaları için geri çağrılar oluşturmasını ve döndürülen `Task<IActionResult>` nesnesini otomatik olarak oluşturmasını söyler.
+* `async` anahtar sözcüğü, derleyiciye Yöntem gövdesinin parçaları için geri çağrılar oluşturmasını ve döndürülen `Task<IActionResult>` nesnesini otomatik olarak oluşturmasını söyler.
 
-* @No__t-0 dönüş türü, `IActionResult` türünde bir sonuçla devam eden işi temsil eder.
+* `Task<IActionResult>` dönüş türü, `IActionResult`türünde bir sonuçla devam eden işi temsil eder.
 
-* @No__t-0 anahtar sözcüğü, derleyicinin yöntemi iki parçaya böetmesine neden olur. İlk bölüm, zaman uyumsuz olarak başlatılan işlemle biter. İkinci bölüm, işlem tamamlandığında çağrılan bir geri çağırma yöntemine konur.
+* `await` Anahtar sözcüğü, derleyicinin yöntemin iki parçalara bölmek neden olur. İlk bölüm ile zaman uyumsuz olarak başlatıldığında işlemi sonlandırır. İkinci bölümü, işlemi tamamlandıktan sonra çağrılan bir geri çağırma yöntemi yerleştirilir.
 
-* `ToListAsync`, `ToList` Genişletme yönteminin zaman uyumsuz sürümüdür.
+* `ToListAsync` zaman uyumsuz sürümüdür `ToList` genişletme yöntemi.
 
 Entity Framework kullanan zaman uyumsuz kod yazarken dikkat edilmesi gereken bazı şeyler:
 
-* Yalnızca sorguları veya komutlarının veritabanına gönderilmesine neden olan deyimler zaman uyumsuz olarak yürütülür. Bu, örneğin, `ToListAsync`, `SingleOrDefaultAsync` ve `SaveChangesAsync` içerir. Örneğin, `var students = context.Students.Where(s => s.LastName == "Davolio")` gibi yalnızca `IQueryable` değiştiren deyimler dahil değildir.
+* Yalnızca sorguları veya komutlarının veritabanına gönderilmesine neden olan deyimler zaman uyumsuz olarak yürütülür. Bu, örneğin, `ToListAsync`, `SingleOrDefaultAsync`ve `SaveChangesAsync`içerir. Örneğin, `var students = context.Students.Where(s => s.LastName == "Davolio")`gibi yalnızca bir `IQueryable`değiştiren deyimler dahil değildir.
 
 * EF bağlamı iş parçacığı açısından güvenli değildir: paralel olarak birden çok işlem yapmayı denemeyin. Herhangi bir zaman uyumsuz EF yöntemini çağırdığınızda her zaman `await` anahtar sözcüğünü kullanın.
 
@@ -361,7 +361,7 @@ Entity Framework kullanan zaman uyumsuz kod yazarken dikkat edilmesi gereken baz
 
 .NET ' te zaman uyumsuz programlama hakkında daha fazla bilgi için bkz. [Async Overview](/dotnet/articles/standard/async).
 
-## <a name="get-the-code"></a>Kodu edinin
+## <a name="get-the-code"></a>Kodu alın
 
 [Tamamlanmış uygulamayı indirin veya görüntüleyin.](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final)
 
@@ -371,7 +371,7 @@ Bu öğreticide şunları yaptınız:
 
 > [!div class="checklist"]
 > * ASP.NET Core MVC web uygulaması oluşturuldu
-> * Site stilini ayarlayın
+> * Site stili Ayarla
 > * EF Core NuGet paketleri hakkında bilgi edinildi
 > * Veri modeli oluşturuldu
 > * Veritabanı bağlamı oluşturuldu

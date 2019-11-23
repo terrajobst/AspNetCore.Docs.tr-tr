@@ -90,7 +90,7 @@ Bir hata iletisi görürseniz "*dosyaya erişilemiyor... ContosoUniversity. dll 
 
 ## <a name="examine-up-and-down-methods"></a>Yukarı ve aşağı yöntemleri inceleyin
 
-@No__t-0 komutunu çalıştırdığınızda EF, veritabanını sıfırdan oluşturacak kodu oluşturmuş olur. Bu kod, *\<timestamp > _ınitialcreate. cs*adlı dosyada *geçişler* klasöründedir. @No__t-1 sınıfının `Up` yöntemi, veri modeli varlık kümelerine karşılık gelen veritabanı tablolarını oluşturur ve aşağıdaki örnekte gösterildiği gibi `Down` yöntemi onları siler.
+`migrations add` komutunu çalıştırdığınızda EF, veritabanını sıfırdan oluşturacak kodu oluşturdu. Bu kod, *_InitialCreate. cs >\<zaman damgası*adlı dosyada *geçişler* klasöründedir. `InitialCreate` sınıfının `Up` yöntemi, veri modeli varlık kümelerine karşılık gelen veritabanı tablolarını oluşturur ve aşağıdaki örnekte gösterildiği gibi `Down` yöntemi onları siler.
 
 [!code-csharp[](intro/samples/cu/Migrations/20170215220724_InitialCreate.cs?range=92-118)]
 
@@ -147,11 +147,11 @@ info: Microsoft.EntityFrameworkCore.Database.Command[20101]
 Done.
 ```
 
-İlk öğreticide yaptığınız gibi veritabanını incelemek için **SQL Server Nesne Gezgini** kullanın.  Veritabanına hangi geçişlerin uygulandığını izleyen bir \_ @ no__t-1EFMigrationsHistory tablosunun eklenmesini fark edeceksiniz. Bu tablodaki verileri görüntüleyin ve ilk geçiş için bir satır görürsünüz. (Önceki CLı çıkış örneğinde son oturum, bu satırı oluşturan INSERT ifadesini gösterir.)
+İlk öğreticide yaptığınız gibi veritabanını incelemek için **SQL Server Nesne Gezgini** kullanın.  Hangi geçişlerin veritabanına uygulandığını izleyen bir \_\_EFMigrationsHistory tablosunun eklenmesini fark edeceksiniz. Bu tablodaki verileri görüntüleyin ve ilk geçiş için bir satır görürsünüz. (Önceki CLı çıkış örneğinde son oturum, bu satırı oluşturan INSERT ifadesini gösterir.)
 
 Her şeyin daha önce olduğu gibi çalıştığını doğrulamak için uygulamayı çalıştırın.
 
-![Öğrenciler Dizin sayfası](migrations/_static/students-index.png)
+![Öğrenciler dizin sayfası](migrations/_static/students-index.png)
 
 <a id="pmc"></a>
 
@@ -159,15 +159,15 @@ Her şeyin daha önce olduğu gibi çalıştığını doğrulamak için uygulama
 
 Geçişleri yönetmek için EF araçları, .NET Core CLI komutlardan veya Visual Studio **Paket Yöneticisi konsolu** (PMC) penceresindeki PowerShell cmdlet 'lerinde bulunabilir. Bu öğreticide, CLı 'nın nasıl kullanılacağı gösterilmektedir, ancak isterseniz PMC 'yi kullanabilirsiniz.
 
-PMC komutlarına yönelik EF komutları [Microsoft. EntityFrameworkCore. Tools](https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.Tools) paketidir. Bu paket [Microsoft. AspNetCore. app metapackage](xref:fundamentals/metapackage-app)içinde bulunur, bu nedenle uygulamanızda `Microsoft.AspNetCore.App` için bir paket başvurusu varsa bir paket başvurusu eklemeniz gerekmez.
+PMC komutlarına yönelik EF komutları [Microsoft. EntityFrameworkCore. Tools](https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.Tools) paketidir. Bu paket [Microsoft. AspNetCore. app metapackage](xref:fundamentals/metapackage-app)içinde bulunur, bu nedenle uygulamanızın `Microsoft.AspNetCore.App`için bir paket başvurusu varsa bir paket başvurusu eklemeniz gerekmez.
 
-**Önemli:** Bu, *. csproj* dosyasını düzenleyerek CLI için yüklediğiniz paket ile aynı değildir. Bu adın adı, `Tools.DotNet` ' de biten CLı paketi adından farklı olarak `Tools` ' da sona erer.
+**Önemli:** Bu, *. csproj* dosyasını düzenleyerek CLI için yüklediğiniz paket ile aynı değildir. Bu adın adı, `Tools.DotNet`biten CLı paketi adından farklı olarak `Tools`biter.
 
 CLı komutları hakkında daha fazla bilgi için bkz. [.NET Core CLI](/ef/core/miscellaneous/cli/dotnet).
 
 PMC komutları hakkında daha fazla bilgi için bkz. [Paket Yöneticisi Konsolu (Visual Studio)](/ef/core/miscellaneous/cli/powershell).
 
-## <a name="get-the-code"></a>Kodu edinin
+## <a name="get-the-code"></a>Kodu alın
 
 [Tamamlanmış uygulamayı indirin veya görüntüleyin.](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final)
 

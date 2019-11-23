@@ -28,8 +28,8 @@ Aşağıdaki [http fiilleri](https://github.com/microsoft/api-guidelines/blob/vN
 
 * [SILMELI](#test-http-delete-requests)
 * [GET](#test-http-get-requests)
-* [BAŞLI](#test-http-head-requests)
-* [SEÇENEKLER](#test-http-options-requests)
+* [BAŞLı](#test-http-head-requests)
+* [Seçenekler](#test-http-options-requests)
 * [DÜZELTMESI](#test-http-patch-requests)
 * [POST](#test-http-post-requests)
 * [KONUR](#test-http-put-requests)
@@ -188,7 +188,7 @@ https://localhost:5001/~
 
 Yukarıdaki çıkış iki denetleyicinin bulunduğunu gösterir: `Fruits` ve `People`. Her iki denetleyici de parametresiz HTTP GET ve POST işlemlerini destekler.
 
-Belirli bir denetleyicide gezinmek daha ayrıntılı bilgi gösterir. Örneğin, aşağıdaki komut çıkışında `Fruits` denetleyicisi de HTTP GET, PUT ve DELETE işlemlerini destekler. Bu işlemlerin her biri, rotada bir `id` parametresi bekler:
+Belirli bir denetleyicide gezinmek daha ayrıntılı bilgi gösterir. Örneğin, aşağıdaki komut çıktısı, `Fruits` denetleyicisinin HTTP GET, PUT ve DELETE işlemlerini de desteklediğini gösterir. Bu işlemlerin her biri, rotada bir `id` parametresi bekler:
 
 ```console
 https://localhost:5001/fruits~ ls
@@ -213,7 +213,7 @@ Web API 'sindeki farklı bir uç noktaya gitmek için `cd` komutunu çalıştır
 https://localhost:5001/~ cd people
 ```
 
-@No__t-0 komutundan sonraki yol büyük/küçük harfe duyarlıdır. Aşağıdaki çıkış biçimi görüntülenir:
+`cd` komutundan sonraki yol büyük/küçük harfe duyarlıdır. Aşağıdaki çıkış biçimi görüntülenir:
 
 ```console
 /people    [get|post]
@@ -235,7 +235,7 @@ HTTP REPL 'un varsayılan [renkleri](#set-color-preferences) özelleştirilebili
 
 # <a name="windowstabwindows"></a>[Windows](#tab/windows)
 
-*% USERPROFILE% @no__t -1. httpreplprefs*
+*% USERPROFILE%\\. httpreplprefs*
 
 ---
 
@@ -264,7 +264,7 @@ colors.status=BoldYellow
 
 ### <a name="set-color-preferences"></a>Renk tercihlerini ayarla
 
-Yanıt renklendirme Şu anda yalnızca JSON için destekleniyor. Varsayılan HTTP REPL aracı renklendirmesini özelleştirmek için, değiştirilecek renge karşılık gelen anahtarı bulun. Anahtarları bulma hakkında yönergeler için bkz. [ayarları görüntüleme](#view-the-settings) bölümü. Örneğin, `colors.json` anahtar değerini `Green` ' den `White` ' den aşağıdaki gibi değiştirin:
+Yanıt renklendirme Şu anda yalnızca JSON için destekleniyor. Varsayılan HTTP REPL aracı renklendirmesini özelleştirmek için, değiştirilecek renge karşılık gelen anahtarı bulun. Anahtarları bulma hakkında yönergeler için bkz. [ayarları görüntüleme](#view-the-settings) bölümü. Örneğin, `Green` `colors.json` anahtar değerini aşağıdaki gibi `White` olarak değiştirin:
 
 ```console
 https://localhost:5001/people~ pref set colors.json White
@@ -274,10 +274,10 @@ Yalnızca [izin verilen renkler](https://github.com/aspnet/HttpRepl/blob/01d5c3c
 
 Belirli renk anahtarları ayarlanmamışsa, daha genel anahtarlar kabul edilir. Bu geri dönüş davranışını göstermek için aşağıdaki örneği göz önünde bulundurun:
 
-* @No__t-0 ' a bir değer yoksa, `colors.json.string` kullanılır.
-* @No__t-0 ' a bir değer yoksa, `colors.json.literal` kullanılır.
-* @No__t-0 ' a bir değer yoksa, `colors.json` kullanılır. 
-* @No__t-0 değeri yoksa, komut kabuğun varsayılan metin rengi (`AllowedColors.None`) kullanılır.
+* `colors.json.name` bir değere sahip değilse, `colors.json.string` kullanılır.
+* `colors.json.string` bir değere sahip değilse, `colors.json.literal` kullanılır.
+* `colors.json.literal` bir değere sahip değilse, `colors.json` kullanılır. 
+* `colors.json` bir değere sahip değilse, komut kabuğun varsayılan metin rengi (`AllowedColors.None`) kullanılır.
 
 ### <a name="set-indentation-size"></a>Girinti boyutunu ayarla
 
@@ -333,7 +333,7 @@ Varsayılan olarak, HTTP REPL 'un kullanılmak üzere yapılandırılmış metin
 pref set editor.command.default "<EXECUTABLE>"
 ```
 
-Yukarıdaki komutta, `<EXECUTABLE>`, metin düzenleyicisinin yürütülebilir dosyasının tam yoludur. Örneğin, Visual Studio Code varsayılan metin düzenleyicisi olarak ayarlamak için aşağıdaki komutu çalıştırın:
+Yukarıdaki komutta, `<EXECUTABLE>` metin düzenleyicisinin yürütülebilir dosyasının tam yoludur. Örneğin, Visual Studio Code varsayılan metin düzenleyicisi olarak ayarlamak için aşağıdaki komutu çalıştırın:
 
 # <a name="linuxtablinux"></a>[Linux](#tab/linux)
 
@@ -384,7 +384,7 @@ pref set swagger.searchPaths "swagger/v2/swagger.json|swagger/v3/swagger.json"
 get <PARAMETER> [-F|--no-formatting] [-h|--header] [--response] [--response:body] [--response:headers] [-s|--streaming]
 ```
 
-### <a name="arguments"></a>Bağımsız Değişkenler
+### <a name="arguments"></a>Arguments
 
 `PARAMETER`
 
@@ -392,7 +392,7 @@ Varsa, ilişkili denetleyici eylem yöntemi tarafından beklenen rota parametres
 
 ### <a name="options"></a>Seçenekler
 
-@No__t-0 komutu için aşağıdaki seçenekler kullanılabilir:
+`get` komutu için aşağıdaki seçenekler kullanılabilir:
 
 [!INCLUDE [standard CLI options](~/includes/http-repl/standard-options.md)]
 
@@ -400,7 +400,7 @@ Varsa, ilişkili denetleyici eylem yöntemi tarafından beklenen rota parametres
 
 HTTP GET isteği vermek için:
 
-1. Bunu destekleyen bir uç noktada `get` komutunu çalıştırın:
+1. `get` komutunu bunu destekleyen bir uç noktada çalıştırın:
 
     ```console
     https://localhost:5001/people~ get
@@ -434,7 +434,7 @@ HTTP GET isteği vermek için:
     https://localhost:5001/people~
     ```
 
-1. @No__t-0 komutuna bir parametre geçirerek belirli bir kaydı alın:
+1. `get` komutuna bir parametre geçirerek belirli bir kaydı alın:
 
     ```console
     https://localhost:5001/people~ get 2
@@ -468,7 +468,7 @@ HTTP GET isteği vermek için:
 post <PARAMETER> [-c|--content] [-f|--file] [-h|--header] [--no-body] [-F|--no-formatting] [--response] [--response:body] [--response:headers] [-s|--streaming]
 ```
 
-### <a name="arguments"></a>Bağımsız Değişkenler
+### <a name="arguments"></a>Arguments
 
 `PARAMETER`
 
@@ -484,7 +484,7 @@ Varsa, ilişkili denetleyici eylem yöntemi tarafından beklenen rota parametres
 
 HTTP POST isteği vermek için:
 
-1. Bunu destekleyen bir uç noktada `post` komutunu çalıştırın:
+1. `post` komutunu bunu destekleyen bir uç noktada çalıştırın:
 
     ```console
     https://localhost:5001/people~ post -h Content-Type=application/json
@@ -538,7 +538,7 @@ HTTP POST isteği vermek için:
 put <PARAMETER> [-c|--content] [-f|--file] [-h|--header] [--no-body] [-F|--no-formatting] [--response] [--response:body] [--response:headers] [-s|--streaming]
 ```
 
-### <a name="arguments"></a>Bağımsız Değişkenler
+### <a name="arguments"></a>Arguments
 
 `PARAMETER`
 
@@ -554,7 +554,7 @@ Varsa, ilişkili denetleyici eylem yöntemi tarafından beklenen rota parametres
 
 HTTP PUT isteği vermek için:
 
-1. *Isteğe bağlı*: Verileri değiştirmeden önce görüntülemek için `get` komutunu çalıştırın:
+1. *Isteğe bağlı*: verileri değiştirmeden önce görüntülemek için `get` komutunu çalıştırın:
 
     ```console
     https://localhost:5001/fruits~ get
@@ -615,7 +615,7 @@ HTTP PUT isteği vermek için:
     Server: Kestrel
     ```
 
-1. *Isteğe bağlı*: Değişiklikleri görmek için bir `get` komutu verin. Örneğin, metin düzenleyicisinde "Chraz" yazdıysanız, `get` aşağıdakileri döndürür:
+1. *Isteğe bağlı*: değişiklikleri görmek için bir `get` komutu verin. Örneğin, metin düzenleyicisinde "Chraz" yazdıysanız, `get` aşağıdakileri döndürür:
 
     ```console
     https://localhost:5001/fruits~ get
@@ -652,7 +652,7 @@ HTTP PUT isteği vermek için:
 delete <PARAMETER> [-F|--no-formatting] [-h|--header] [--response] [--response:body] [--response:headers] [-s|--streaming]
 ```
 
-### <a name="arguments"></a>Bağımsız Değişkenler
+### <a name="arguments"></a>Arguments
 
 `PARAMETER`
 
@@ -666,7 +666,7 @@ Varsa, ilişkili denetleyici eylem yöntemi tarafından beklenen rota parametres
 
 HTTP SILME isteği vermek için:
 
-1. *Isteğe bağlı*: Verileri değiştirmeden önce görüntülemek için `get` komutunu çalıştırın:
+1. *Isteğe bağlı*: verileri değiştirmeden önce görüntülemek için `get` komutunu çalıştırın:
 
     ```console
     https://localhost:5001/fruits~ get
@@ -705,7 +705,7 @@ HTTP SILME isteği vermek için:
     Server: Kestrel
     ```
 
-1. *Isteğe bağlı*: Değişiklikleri görmek için bir `get` komutu verin. Bu örnekte, `get`, aşağıdakileri döndürür:
+1. *Isteğe bağlı*: değişiklikleri görmek için bir `get` komutu verin. Bu örnekte, bir `get` aşağıdakini döndürür:
 
     ```console
     https://localhost:5001/fruits~ get
@@ -738,7 +738,7 @@ HTTP SILME isteği vermek için:
 patch <PARAMETER> [-c|--content] [-f|--file] [-h|--header] [--no-body] [-F|--no-formatting] [--response] [--response:body] [--response:headers] [-s|--streaming]
 ```
 
-### <a name="arguments"></a>Bağımsız Değişkenler
+### <a name="arguments"></a>Arguments
 
 `PARAMETER`
 
@@ -758,7 +758,7 @@ Varsa, ilişkili denetleyici eylem yöntemi tarafından beklenen rota parametres
 head <PARAMETER> [-F|--no-formatting] [-h|--header] [--response] [--response:body] [--response:headers] [-s|--streaming]
 ```
 
-### <a name="arguments"></a>Bağımsız Değişkenler
+### <a name="arguments"></a>Arguments
 
 `PARAMETER`
 
@@ -776,7 +776,7 @@ Varsa, ilişkili denetleyici eylem yöntemi tarafından beklenen rota parametres
 options <PARAMETER> [-F|--no-formatting] [-h|--header] [--response] [--response:body] [--response:headers] [-s|--streaming]
 ```
 
-### <a name="arguments"></a>Bağımsız Değişkenler
+### <a name="arguments"></a>Arguments
 
 `PARAMETER`
 
@@ -850,7 +850,7 @@ Azure 'da barındırılan bir uç noktaya erişmek veya [azure REST API](/rest/a
     httprepl https://management.azure.com
     ```
 
-1. @No__t-0 HTTP istek üst bilgisini ayarlayın:
+1. `Authorization` HTTP istek üst bilgisini ayarlayın:
 
     ```console
     https://management.azure.com/> set header Authorization "bearer <ACCESS TOKEN>"
@@ -898,7 +898,7 @@ Varsayılan olarak, gönderilmekte olan HTTP isteğinin görüntüsü bastırıl
 
 ### <a name="enable-request-display"></a>İstek görüntülemesini etkinleştir
 
-@No__t-0 komutunu çalıştırarak gönderilmekte olan HTTP isteğini görüntüleyin. Örneğin:
+`echo on` komutunu çalıştırarak gönderilmekte olan HTTP isteğini görüntüleyin. Örneğin:
 
 ```console
 https://localhost:5001/people~ echo on
@@ -943,7 +943,7 @@ https://localhost:5001/people~
 
 ### <a name="disable-request-display"></a>İstek görüntüsünü devre dışı bırak
 
-@No__t-0 komutu çalıştırılarak gönderilmekte olan HTTP isteğinin görüntülenmesini gizleyin. Örneğin:
+`echo off` komutu çalıştırılarak gönderilmekte olan HTTP isteğinin görüntülenmesini gizleyin. Örneğin:
 
 ```console
 https://localhost:5001/people~ echo off
@@ -952,7 +952,7 @@ Request echoing is off
 
 ## <a name="run-a-script"></a>Betik çalıştırma
 
-Aynı HTTP REPL komutları kümesini sıklıkla yürütüyorsanız bunları bir metin dosyasında depolamayı göz önünde bulundurun. Dosyadaki komutlar, komut satırında el ile çalıştıranlarla aynı formu alır. Komutlar `run` komutu kullanılarak toplanmış bir biçimde yürütülebilir. Örneğin:
+Aynı HTTP REPL komutları kümesini sıklıkla yürütüyorsanız bunları bir metin dosyasında depolamayı göz önünde bulundurun. Dosyadaki komutlar, komut satırında el ile çalıştıranlarla aynı formu alır. Komutlar, `run` komutu kullanılarak toplanmış bir biçimde yürütülebilir. Örneğin:
 
 1. Yeni satır için ayrılmış komutlar kümesini içeren bir metin dosyası oluşturun. Göstermek için aşağıdaki komutları içeren bir *People-Script. txt* dosyası düşünün:
 
