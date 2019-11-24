@@ -24,7 +24,7 @@ Aşağıdaki Vurgulanan kodda gösterildiği gibi *appSettings. JSON* dosyasına
 
 <a name="reg"></a>
 
-### <a name="register-the-database-context"></a>Veritabanı bağlamını kaydetme
+### <a name="register-the-database-context"></a>Veritabanı bağlamı Kaydet
 
 Aşağıdaki `using` deyimlerini *Startup.cs*üst kısmına ekleyin:
 
@@ -57,7 +57,7 @@ Yapı iskelesi için `Microsoft.VisualStudio.Web.CodeGeneration.Design` paketi g
 
 <a name="reg"></a>
 
-### <a name="register-the-database-context"></a>Veritabanı bağlamını kaydetme
+### <a name="register-the-database-context"></a>Veritabanı bağlamı Kaydet
 
 Aşağıdaki `using` deyimlerini *Startup.cs*üst kısmına ekleyin:
 

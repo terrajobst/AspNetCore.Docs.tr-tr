@@ -3,7 +3,7 @@
 | Parametre               | Açıklama|
 | ----------------- | ------------ |
 | -a  | Modelin adı. |
-| -DC  | Kullanılacak `DbContext` sınıfı. |
+| -dc  | Kullanılacak `DbContext` sınıfı. |
 | -UDL | Varsayılan düzeni kullanın. |
 | -outDir | Görünümleri oluşturmak için göreli çıkış klasörü yolu. |
 | --referenceScriptLibraries | Sayfaları düzenlemek ve oluşturmak için `_ValidationScriptsPartial` ekler |
