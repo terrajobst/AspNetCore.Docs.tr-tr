@@ -1,77 +1,77 @@
 ---
-title: Yetkilendirme ile korunan kullanıcı verileriyle ASP.NET Core uygulama oluşturma
+title: Create an ASP.NET Core app with user data protected by authorization
 author: rick-anderson
-description: Yetkilendirme ile korunan kullanıcı verileriyle Razor Pages bir uygulama oluşturmayı öğrenin. HTTPS, kimlik doğrulama, güvenlik, ASP.NET Core kimliğini içerir.
+description: Learn how to create a Razor Pages app with user data protected by authorization. Includes HTTPS, authentication, security, ASP.NET Core Identity.
 ms.author: riande
 ms.date: 12/18/2018
 ms.custom: mvc, seodec18
 uid: security/authorization/secure-data
-ms.openlocfilehash: 6e2f785a6dc014884f105766686f284cb2685530
-ms.sourcegitcommit: 383017d7060a6d58f6a79cf4d7335d5b4b6c5659
+ms.openlocfilehash: 65c72d4dd457f85451796c5713bedebafec7a7de
+ms.sourcegitcommit: 8157e5a351f49aeef3769f7d38b787b4386aad5f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72816157"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74239827"
 ---
-# <a name="create-an-aspnet-core-app-with-user-data-protected-by-authorization"></a>Yetkilendirme ile korunan kullanıcı verileriyle ASP.NET Core uygulama oluşturma
+# <a name="create-an-aspnet-core-app-with-user-data-protected-by-authorization"></a>Create an ASP.NET Core app with user data protected by authorization
 
-By [Rick Anderson](https://twitter.com/RickAndMSFT) ve [ali Audette](https://twitter.com/joeaudette)
+By [Rick Anderson](https://twitter.com/RickAndMSFT) and [Joe Audette](https://twitter.com/joeaudette)
 
 ::: moniker range="<= aspnetcore-1.1"
 
-ASP.NET Core MVC sürümü için [Bu PDF 'ye](https://webpifeed.blob.core.windows.net/webpifeed/Partners/asp.net_repo_pdf_1-16-18.pdf) bakın. Bu öğreticinin ASP.NET Core 1,1 sürümü [Bu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/authorization/secure-data) klasöründedir. 1,1 ASP.NET Core örnek [örnekleri](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/authorization/secure-data/samples/final2).
+See [this PDF](https://webpifeed.blob.core.windows.net/webpifeed/Partners/asp.net_repo_pdf_1-16-18.pdf) for the ASP.NET Core MVC version. The ASP.NET Core 1.1 version of this tutorial is in [this](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/authorization/secure-data) folder. The 1.1 ASP.NET Core sample is in the [samples](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/authorization/secure-data/samples/final2).
 
 ::: moniker-end
 
 ::: moniker range="= aspnetcore-2.0"
 
-[Bu PDF 'ye](https://webpifeed.blob.core.windows.net/webpifeed/Partners/asp.net_repo_pdf_July16_18.pdf) bakın
+See [this pdf](https://webpifeed.blob.core.windows.net/webpifeed/Partners/asp.net_repo_pdf_July16_18.pdf)
 
 ::: moniker-end
 
 ::: moniker range=">= aspnetcore-3.0"
 
-Bu öğreticide, yetkilendirme tarafından korunan kullanıcı verileriyle ASP.NET Core bir Web uygulamasının nasıl oluşturulacağı gösterilmektedir. Kimliği doğrulanmış (kayıtlı) kullanıcıların oluşturduğu kişilerin listesini görüntüler. Üç güvenlik grubu vardır:
+This tutorial shows how to create an ASP.NET Core web app with user data protected by authorization. It displays a list of contacts that authenticated (registered) users have created. There are three security groups:
 
-* **Kayıtlı kullanıcılar** tüm onaylanan verileri görüntüleyebilir ve kendi verilerini düzenleyebilir/silebilir.
-* **Yöneticiler** , kişi verilerini onaylayabilir veya reddedebilir. Yalnızca onaylanan kişiler kullanıcılara görünür.
-* **Yöneticiler** , verileri onaylayabilir/reddedebilir ve düzenleyebilir/silebilir.
+* **Registered users** can view all the approved data and can edit/delete their own data.
+* **Managers** can approve or reject contact data. Only approved contacts are visible to users.
+* **Administrators** can approve/reject and edit/delete any data.
 
-Bu belgedeki görüntüler en son şablonlarla tam olarak eşleşmez.
+The images in this document don't exactly match the latest templates.
 
-Aşağıdaki görüntüde, User Rick (`rick@example.com`) oturum açtı. Rick, onaylanan kişileri görüntüleyebilir ve kişiler için **yeni bağlantılar oluşturmak**//**silebilir** ve **düzenleyebilir** . Yalnızca Rick tarafından oluşturulan son kayıt, **Düzenle** ve **Sil** bağlantılarını görüntüler. Yönetici veya yönetici durumu "Onaylandı" olarak değiştirene kadar diğer kullanıcılar son kaydı görmez.
+In the following image, user Rick (`rick@example.com`) is signed in. Rick can only view approved contacts and **Edit**/**Delete**/**Create New** links for his contacts. Only the last record, created by Rick, displays **Edit** and **Delete** links. Other users won't see the last record until a manager or administrator changes the status to "Approved".
 
-![Rick oturum açmış olduğunu gösteren ekran görüntüsü](secure-data/_static/rick.png)
+![Screenshot showing Rick signed in](secure-data/_static/rick.png)
 
-Aşağıdaki görüntüde `manager@contoso.com`, ve yöneticisinin rolünde oturum açtı:
+In the following image, `manager@contoso.com` is signed in and in the manager's role:
 
-![manager@contoso.com oturum açmış olduğunu gösteren ekran görüntüsü](secure-data/_static/manager1.png)
+![Screenshot showing manager@contoso.com signed in](secure-data/_static/manager1.png)
 
-Aşağıdaki görüntüde, bir kişinin Yöneticiler Ayrıntılar görünümü gösterilmektedir:
+The following image shows the managers details view of a contact:
 
-![Yöneticinin bir kişinin görünümü](secure-data/_static/manager.png)
+![Manager's view of a contact](secure-data/_static/manager.png)
 
-**Onaylama** ve **reddetme** düğmeleri yalnızca Yöneticiler ve yöneticiler için görüntülenir.
+The **Approve** and **Reject** buttons are only displayed for managers and administrators.
 
-Aşağıdaki görüntüde `admin@contoso.com`, ve yönetici rolünde oturum açtı:
+In the following image, `admin@contoso.com` is signed in and in the administrator's role:
 
-![admin@contoso.com oturum açmış olduğunu gösteren ekran görüntüsü](secure-data/_static/admin.png)
+![Screenshot showing admin@contoso.com signed in](secure-data/_static/admin.png)
 
-Yöneticinin tüm ayrıcalıkları vardır. Herhangi bir kişiyi okuyabilir/düzenleyebilir/silebilir ve kişilerin durumunu değiştirebilir.
+The administrator has all privileges. She can read/edit/delete any contact and change the status of contacts.
 
-Uygulama, aşağıdaki `Contact` modeli için [Yapı iskelesi](xref:tutorials/first-mvc-app/adding-model#scaffold-the-movie-model) tarafından oluşturulmuştur:
+The app was created by [scaffolding](xref:tutorials/first-mvc-app/adding-model#scaffold-the-movie-model) the following `Contact` model:
 
 [!code-csharp[](secure-data/samples/starter2.1/Models/Contact.cs?name=snippet1)]
 
-Örnek, aşağıdaki yetkilendirme işleyicilerini içerir:
+The sample contains the following authorization handlers:
 
-* `ContactIsOwnerAuthorizationHandler`: kullanıcının yalnızca verilerini düzenleyebilmesini sağlar.
-* `ContactManagerAuthorizationHandler`: yöneticilerin kişileri onaylamasını veya reddetmesini sağlar.
-* `ContactAdministratorsAuthorizationHandler`: yöneticilerin kişileri onaylamasını veya reddetmesini ve kişileri düzenlemesini/silmesini sağlar.
+* `ContactIsOwnerAuthorizationHandler`: Ensures that a user can only edit their data.
+* `ContactManagerAuthorizationHandler`: Allows managers to approve or reject contacts.
+* `ContactAdministratorsAuthorizationHandler`: Allows administrators to approve or reject contacts and to edit/delete contacts.
 
 ## <a name="prerequisites"></a>Prerequisites
 
-Bu öğretici gelişmiş bir deyişle. Şunu tanımanız gerekir:
+This tutorial is advanced. You should be familiar with:
 
 * [ASP.NET Core](xref:tutorials/first-mvc-app/start-mvc)
 * [Kimlik Doğrulaması](xref:security/authentication/identity)
@@ -79,258 +79,260 @@ Bu öğretici gelişmiş bir deyişle. Şunu tanımanız gerekir:
 * [Yetkilendirme](xref:security/authorization/introduction)
 * [Entity Framework Core](xref:data/ef-mvc/intro)
 
-## <a name="the-starter-and-completed-app"></a>Başlatıcı ve tamamlanmış uygulama
+## <a name="the-starter-and-completed-app"></a>The starter and completed app
 
-[Tamamlanmış](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/authorization/secure-data/samples) uygulamayı [indirin](xref:index#how-to-download-a-sample) . Tamamlanmış uygulamayı [Test](#test-the-completed-app) edin, böylece güvenlik özellikleri hakkında bilgi sahibi olun.
+[Download](xref:index#how-to-download-a-sample) the [completed](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/authorization/secure-data/samples) app. [Test](#test-the-completed-app) the completed app so you become familiar with its security features.
 
-### <a name="the-starter-app"></a>Başlangıç uygulaması
+### <a name="the-starter-app"></a>The starter app
 
-[Başlangıç](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/authorization/secure-data/samples/) uygulamasını [indirin](xref:index#how-to-download-a-sample) .
+[Download](xref:index#how-to-download-a-sample) the [starter](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/authorization/secure-data/samples/) app.
 
-Uygulamayı çalıştırın, **ContactManager** bağlantısına dokunun ve bir kişi oluşturup silemdiğinizi doğrulayın.
+Run the app, tap the **ContactManager** link, and verify you can create, edit, and delete a contact.
 
-## <a name="secure-user-data"></a>Güvenli Kullanıcı verileri
+## <a name="secure-user-data"></a>Secure user data
 
-Aşağıdaki bölümlerde, güvenli Kullanıcı verileri uygulaması oluşturmak için tüm önemli adımlar verilmiştir. Tamamlanmış projeye başvurmak faydalı olabilir.
+The following sections have all the major steps to create the secure user data app. You may find it helpful to refer to the completed project.
 
-### <a name="tie-the-contact-data-to-the-user"></a>Kişi verilerini kullanıcıya bağlama
+### <a name="tie-the-contact-data-to-the-user"></a>Tie the contact data to the user
 
-Kullanıcıların verilerini düzenleyebilmeleri, ancak diğer kullanıcıların verilerini düzenleyebilmeleri için ASP.NET [Identity](xref:security/authentication/identity) Kullanıcı kimliğini kullanın. `Contact` modeline `OwnerID` ve `ContactStatus` ekleyin:
+Use the ASP.NET [Identity](xref:security/authentication/identity) user ID to ensure users can edit their data, but not other users data. Add `OwnerID` and `ContactStatus` to the `Contact` model:
 
 [!code-csharp[](secure-data/samples/final3/Models/Contact.cs?name=snippet1&highlight=5-6,16-999)]
 
-[kimlik](xref:security/authentication/identity) veritabanındaki `AspNetUser` TABLOSUNDAN kullanıcının kimliği `OwnerID`. `Status` alanı, bir kişinin genel kullanıcılar tarafından görüntülenebilir olup olmadığını belirler.
+`OwnerID` is the user's ID from the `AspNetUser` table in the [Identity](xref:security/authentication/identity) database. The `Status` field determines if a contact is viewable by general users.
 
-Yeni bir geçiş oluşturun ve veritabanını güncelleştirin:
+Create a new migration and update the database:
 
 ```dotnetcli
 dotnet ef migrations add userID_Status
 dotnet ef database update
 ```
 
-### <a name="add-role-services-to-identity"></a>Kimliğe rol hizmetleri Ekle
+### <a name="add-role-services-to-identity"></a>Add Role services to Identity
 
-Rol hizmetleri eklemek için [Addroles](/dotnet/api/microsoft.aspnetcore.identity.identitybuilder.addroles#Microsoft_AspNetCore_Identity_IdentityBuilder_AddRoles__1) ekleyin:
+Append [AddRoles](/dotnet/api/microsoft.aspnetcore.identity.identitybuilder.addroles#Microsoft_AspNetCore_Identity_IdentityBuilder_AddRoles__1) to add Role services:
 
 [!code-csharp[](secure-data/samples/final3/Startup.cs?name=snippet2&highlight=9)]
 
-### <a name="require-authenticated-users"></a>Kimliği doğrulanmış kullanıcılar iste
+### <a name="require-authenticated-users"></a>Require authenticated users
 
-Kullanıcıların kimliklerinin doğrulanmasını gerektirmek için varsayılan kimlik doğrulama ilkesini ayarlayın:
+Set the default authentication policy to require users to be authenticated:
 
 [!code-csharp[](secure-data/samples/final3/Startup.cs?name=snippet&highlight=15-99)] 
 
- `[AllowAnonymous]` özniteliğiyle Razor sayfasında, denetleyicide veya eylem yöntemi düzeyinde kimlik doğrulamasının devre dışı bırakabilirsiniz. Kullanıcıların kimliğinin doğrulanmasını gerektirmek için varsayılan kimlik doğrulama ilkesinin ayarlanması, yeni eklenen Razor Pages ve denetleyicilerin korunmasını sağlar. Varsayılan olarak kimlik doğrulamanın gerekli olması, yeni denetleyicilere bağlı olandan daha güvenlidir ve `[Authorize]` özniteliğini eklemek Razor Pages.
+ You can opt out of authentication at the Razor Page, controller, or action method level with the `[AllowAnonymous]` attribute. Setting the default authentication policy to require users to be authenticated protects newly added Razor Pages and controllers. Having authentication required by default is more secure than relying on new controllers and Razor Pages to include the `[Authorize]` attribute.
 
-Anonim kullanıcıların, kaydolmadan önce site hakkında bilgi alması için dizin ve gizlilik sayfalarına [AllowAnonymous](/dotnet/api/microsoft.aspnetcore.authorization.allowanonymousattribute) ekleyin.
+Add [AllowAnonymous](/dotnet/api/microsoft.aspnetcore.authorization.allowanonymousattribute) to the Index and Privacy pages so anonymous users can get information about the site before they register.
 
 [!code-csharp[](secure-data/samples/final3/Pages/Index.cshtml.cs?highlight=1,7)]
 
-### <a name="configure-the-test-account"></a>Test hesabını yapılandırma
+### <a name="configure-the-test-account"></a>Configure the test account
 
-`SeedData` sınıfı iki hesap oluşturur: yönetici ve yönetici. Bu hesaplara bir parola ayarlamak için [gizli dizi Yöneticisi aracını](xref:security/app-secrets) kullanın. Parolayı proje dizininden ayarlayın ( *program.cs*içeren dizin):
+The `SeedData` class creates two accounts: administrator and manager. Use the [Secret Manager tool](xref:security/app-secrets) to set a password for these accounts. Set the password from the project directory (the directory containing *Program.cs*):
 
 ```dotnetcli
 dotnet user-secrets set SeedUserPW <PW>
 ```
 
-Güçlü bir parola belirtilmemişse `SeedData.Initialize` çağrıldığında bir özel durum oluşturulur.
+If a strong password is not specified, an exception is thrown when `SeedData.Initialize` is called.
 
-Sınama parolasını kullanmak için `Main` güncelleştirin:
+Update `Main` to use the test password:
 
 [!code-csharp[](secure-data/samples/final3/Program.cs?name=snippet)]
 
-### <a name="create-the-test-accounts-and-update-the-contacts"></a>Test hesapları oluşturma ve kişileri güncelleştirme
+### <a name="create-the-test-accounts-and-update-the-contacts"></a>Create the test accounts and update the contacts
 
-Test hesapları oluşturmak için `SeedData` sınıfındaki `Initialize` yöntemi güncelleştirin:
+Update the `Initialize` method in the `SeedData` class to create the test accounts:
 
 [!code-csharp[](secure-data/samples/final3/Data/SeedData.cs?name=snippet_Initialize)]
 
-Yönetici kullanıcı KIMLIĞINI ve `ContactStatus` kişilere ekleyin. Kişilerden birini "gönderildi" ve bir "reddedildi" yapın. Kullanıcı KIMLIĞINI ve durumunu tüm kişilere ekleyin. Yalnızca bir kişi gösterilir:
+Add the administrator user ID and `ContactStatus` to the contacts. Make one of the contacts "Submitted" and one "Rejected". Add the user ID and status to all the contacts. Only one contact is shown:
 
 [!code-csharp[](secure-data/samples/final3/Data/SeedData.cs?name=snippet1&highlight=17,18)]
 
-## <a name="create-owner-manager-and-administrator-authorization-handlers"></a>Sahip, yönetici ve yönetici yetkilendirme işleyicileri oluşturma
+## <a name="create-owner-manager-and-administrator-authorization-handlers"></a>Create owner, manager, and administrator authorization handlers
 
-*Yetkilendirme* klasöründe bir `ContactIsOwnerAuthorizationHandler` sınıfı oluşturun. `ContactIsOwnerAuthorizationHandler`, bir kaynağın kaynak üzerinde davranan kullanıcının kaynağın sahip olduğunu doğrular.
+Create a `ContactIsOwnerAuthorizationHandler` class in the *Authorization* folder. The `ContactIsOwnerAuthorizationHandler` verifies that the user acting on a resource owns the resource.
 
 [!code-csharp[](secure-data/samples/final3/Authorization/ContactIsOwnerAuthorizationHandler.cs)]
 
-`ContactIsOwnerAuthorizationHandler` bağlamını çağırır [. ](/dotnet/api/microsoft.aspnetcore.authorization.authorizationhandlercontext.succeed#Microsoft_AspNetCore_Authorization_AuthorizationHandlerContext_Succeed_Microsoft_AspNetCore_Authorization_IAuthorizationRequirement_)Kimliği doğrulanmış geçerli kullanıcı kişi sahibsiyse başarılı olur. Yetkilendirme işleyicileri genellikle:
+The `ContactIsOwnerAuthorizationHandler` calls [context.Succeed](/dotnet/api/microsoft.aspnetcore.authorization.authorizationhandlercontext.succeed#Microsoft_AspNetCore_Authorization_AuthorizationHandlerContext_Succeed_Microsoft_AspNetCore_Authorization_IAuthorizationRequirement_) if the current authenticated user is the contact owner. Authorization handlers generally:
 
-* Gereksinimler karşılandığında `context.Succeed` döndürün.
-* Gereksinimler karşılanmazsa `Task.CompletedTask` döndürün. `Task.CompletedTask`, diğer yetkilendirme işleyicilerinin çalışmasına izin veren&mdash;başarılı veya başarısız değildir.
+* Return `context.Succeed` when the requirements are met.
+* Return `Task.CompletedTask` when requirements aren't met. `Task.CompletedTask` is not success or failure&mdash;it allows other authorization handlers to run.
 
-Açıkça başarısız olması gerekiyorsa, [bağlamı döndürün. Başarısız oldu](/dotnet/api/microsoft.aspnetcore.authorization.authorizationhandlercontext.fail).
+If you need to explicitly fail, return [context.Fail](/dotnet/api/microsoft.aspnetcore.authorization.authorizationhandlercontext.fail).
 
-Uygulama, iletişim sahiplerinin kendi verilerini düzenlemesine/silmesine/oluşturmasına izin verir. `ContactIsOwnerAuthorizationHandler` gereksinim parametresine geçirilen işlemi denetlemesi gerekmez.
+The app allows contact owners to edit/delete/create their own data. `ContactIsOwnerAuthorizationHandler` doesn't need to check the operation passed in the requirement parameter.
 
-### <a name="create-a-manager-authorization-handler"></a>Yönetici yetkilendirme işleyicisi oluşturma
+### <a name="create-a-manager-authorization-handler"></a>Create a manager authorization handler
 
-*Yetkilendirme* klasöründe bir `ContactManagerAuthorizationHandler` sınıfı oluşturun. `ContactManagerAuthorizationHandler`, kaynak üzerinde davranan kullanıcının bir yönetici olduğunu doğrular. İçerik değişikliklerini yalnızca Yöneticiler onaylayabilir veya reddedebilir (yeni veya değiştirilmiş).
+Create a `ContactManagerAuthorizationHandler` class in the *Authorization* folder. The `ContactManagerAuthorizationHandler` verifies the user acting on the resource is a manager. Only managers can approve or reject content changes (new or changed).
 
 [!code-csharp[](secure-data/samples/final3/Authorization/ContactManagerAuthorizationHandler.cs)]
 
-### <a name="create-an-administrator-authorization-handler"></a>Yönetici yetkilendirme işleyicisi oluşturma
+### <a name="create-an-administrator-authorization-handler"></a>Create an administrator authorization handler
 
-*Yetkilendirme* klasöründe bir `ContactAdministratorsAuthorizationHandler` sınıfı oluşturun. `ContactAdministratorsAuthorizationHandler`, kaynak üzerinde davranan kullanıcının bir yönetici olduğunu doğrular. Yönetici tüm işlemleri yapabilir.
+Create a `ContactAdministratorsAuthorizationHandler` class in the *Authorization* folder. The `ContactAdministratorsAuthorizationHandler` verifies the user acting on the resource is an administrator. Administrator can do all operations.
 
 [!code-csharp[](secure-data/samples/final3/Authorization/ContactAdministratorsAuthorizationHandler.cs)]
 
-## <a name="register-the-authorization-handlers"></a>Yetkilendirme işleyicilerini kaydetme
+## <a name="register-the-authorization-handlers"></a>Register the authorization handlers
 
-Entity Framework Core kullanan hizmetlerin, [Addkapsamlıdır](/dotnet/api/microsoft.extensions.dependencyinjection.servicecollectionserviceextensions)kullanılarak [bağımlılık ekleme](xref:fundamentals/dependency-injection) için kayıtlı olması gerekir. `ContactIsOwnerAuthorizationHandler`, Entity Framework Core oluşturulan ASP.NET Core [kimliğini](xref:security/authentication/identity)kullanır. İşleyicileri, [bağımlılık ekleme](xref:fundamentals/dependency-injection)yoluyla `ContactsController` için kullanılabilir olmaları için hizmet koleksiyonuyla kaydedin. `ConfigureServices`sonuna aşağıdaki kodu ekleyin:
+Services using Entity Framework Core must be registered for [dependency injection](xref:fundamentals/dependency-injection) using [AddScoped](/dotnet/api/microsoft.extensions.dependencyinjection.servicecollectionserviceextensions). The `ContactIsOwnerAuthorizationHandler` uses ASP.NET Core [Identity](xref:security/authentication/identity), which is built on Entity Framework Core. Register the handlers with the service collection so they're available to the `ContactsController` through [dependency injection](xref:fundamentals/dependency-injection). Add the following code to the end of `ConfigureServices`:
 
 [!code-csharp[](secure-data/samples/final3/Startup.cs?name=snippet_defaultPolicy&highlight=23-99)]
 
-`ContactAdministratorsAuthorizationHandler` ve `ContactManagerAuthorizationHandler` tekton olarak eklenir. Bunlar, EF kullanmadığından ve gereken tüm bilgiler `HandleRequirementAsync` yönteminin `Context` parametresinde olduğundan tektonlar vardır.
+`ContactAdministratorsAuthorizationHandler` and `ContactManagerAuthorizationHandler` are added as singletons. They're singletons because they don't use EF and all the information needed is in the `Context` parameter of the `HandleRequirementAsync` method.
 
-## <a name="support-authorization"></a>Destek yetkilendirme
+## <a name="support-authorization"></a>Support authorization
 
-Bu bölümde Razor Pages günceller ve bir işlem gereksinimleri sınıfı eklersiniz.
+In this section, you update the Razor Pages and add an operations requirements class.
 
-### <a name="review-the-contact-operations-requirements-class"></a>İlgili kişi işlemleri gereksinimleri sınıfını gözden geçirin
+### <a name="review-the-contact-operations-requirements-class"></a>Review the contact operations requirements class
 
-`ContactOperations` sınıfını gözden geçirin. Bu sınıf, uygulamanın desteklediği gereksinimleri içerir:
+Review the `ContactOperations` class. This class contains the requirements the app supports:
 
 [!code-csharp[](secure-data/samples/final3/Authorization/ContactOperations.cs)]
 
-### <a name="create-a-base-class-for-the-contacts-razor-pages"></a>Kişiler için bir temel sınıf oluşturun Razor Pages
+### <a name="create-a-base-class-for-the-contacts-razor-pages"></a>Create a base class for the Contacts Razor Pages
 
-Kişiler Razor Pages kullanılan hizmetleri içeren bir temel sınıf oluşturun. Temel sınıf, başlatma kodunu bir konuma koyar:
+Create a base class that contains the services used in the contacts Razor Pages. The base class puts the initialization code in one location:
 
 [!code-csharp[](secure-data/samples/final3/Pages/Contacts/DI_BasePageModel.cs)]
 
-Önceki kod:
+The preceding code:
 
-* Yetkilendirme işleyicilerine erişim için `IAuthorizationService` hizmetini ekler.
-* Kimlik `UserManager` hizmetini ekler.
-* `ApplicationDbContext`ekleyin.
+* Adds the `IAuthorizationService` service to access to the authorization handlers.
+* Adds the Identity `UserManager` service.
+* Add the `ApplicationDbContext`.
 
-### <a name="update-the-createmodel"></a>CreateModel 'i Güncelleştir
+### <a name="update-the-createmodel"></a>Update the CreateModel
 
-Create Page model oluşturucusunu `DI_BasePageModel` temel sınıfını kullanacak şekilde güncelleştirin:
+Update the create page model constructor to use the `DI_BasePageModel` base class:
 
 [!code-csharp[](secure-data/samples/final3/Pages/Contacts/Create.cshtml.cs?name=snippetCtor)]
 
-`CreateModel.OnPostAsync` yöntemini şu şekilde güncelleştirin:
+Update the `CreateModel.OnPostAsync` method to:
 
-* Kullanıcı KIMLIĞINI `Contact` modeline ekleyin.
-* Kullanıcının kişi oluşturma iznine sahip olduğunu doğrulamak için yetkilendirme işleyicisini çağırın.
+* Add the user ID to the `Contact` model.
+* Call the authorization handler to verify the user has permission to create contacts.
 
 [!code-csharp[](secure-data/samples/final3/Pages/Contacts/Create.cshtml.cs?name=snippet_Create)]
 
-### <a name="update-the-indexmodel"></a>Indexmodel 'i Güncelleştir
+### <a name="update-the-indexmodel"></a>Update the IndexModel
 
-`OnGetAsync` yöntemini yalnızca onaylanan kişilerin genel kullanıcılara gösterilmesi için güncelleştirin:
+Update the `OnGetAsync` method so only approved contacts are shown to general users:
 
 [!code-csharp[](secure-data/samples/final3/Pages/Contacts/Index.cshtml.cs?name=snippet)]
 
-### <a name="update-the-editmodel"></a>EditModel güncelleştirme
+### <a name="update-the-editmodel"></a>Update the EditModel
 
-Kullanıcının kişiye ait olduğunu doğrulamak için bir yetkilendirme işleyicisi ekleyin. Kaynak yetkilendirmesi doğrulanamadığından `[Authorize]` özniteliği yeterli değildir. Öznitelikler değerlendirildiğinde uygulamanın kaynağa erişimi yoktur. Kaynak tabanlı yetkilendirme sağlanmalıdır. Uygulamanın kaynağa erişimi olduğunda, sayfa modeline yükleyerek veya işleyicinin kendisi içine yükleyerek denetimlerin gerçekleştirilmesi gerekir. Kaynak anahtarını geçirerek kaynağa sıkça erişirsiniz.
+Add an authorization handler to verify the user owns the contact. Because resource authorization is being validated, the `[Authorize]` attribute is not enough. The app doesn't have access to the resource when attributes are evaluated. Resource-based authorization must be imperative. Checks must be performed once the app has access to the resource, either by loading it in the page model or by loading it within the handler itself. You frequently access the resource by passing in the resource key.
 
 [!code-csharp[](secure-data/samples/final3/Pages/Contacts/Edit.cshtml.cs?name=snippet)]
 
-### <a name="update-the-deletemodel"></a>DeleteModel 'i Güncelleştir
+### <a name="update-the-deletemodel"></a>Update the DeleteModel
 
-Kullanıcının kişide silme iznine sahip olduğunu doğrulamak için, silme sayfası modelini yetkilendirme işleyicisini kullanacak şekilde güncelleştirin.
+Update the delete page model to use the authorization handler to verify the user has delete permission on the contact.
 
 [!code-csharp[](secure-data/samples/final3/Pages/Contacts/Delete.cshtml.cs?name=snippet)]
 
-## <a name="inject-the-authorization-service-into-the-views"></a>Yetkilendirme hizmetini görünümlere ekleme
+## <a name="inject-the-authorization-service-into-the-views"></a>Inject the authorization service into the views
 
-Şu anda kullanıcı ARABIRIMI, kullanıcının değiştiremeyeceğiniz kişiler için Düzenle ve Sil bağlantılarını gösterir.
+Currently, the UI shows edit and delete links for contacts the user can't modify.
 
-Tüm görünümlerde kullanılabilmesi için *Sayfalar/_Viewwimports. cshtml* dosyasına yetkilendirme hizmetini ekleme:
+Inject the authorization service in the *Pages/_ViewImports.cshtml* file so it's available to all views:
 
 [!code-cshtml[](secure-data/samples/final3/Pages/_ViewImports.cshtml?highlight=6-99)]
 
-Yukarıdaki biçimlendirme birkaç `using` deyimi ekler.
+The preceding markup adds several `using` statements.
 
-*Sayfalar/kişiler/Index. cshtml* 'deki **Düzenle** ve **Sil** bağlantılarını yalnızca uygun izinlere sahip kullanıcılar için işlendikleri şekilde güncelleştirin:
+Update the **Edit** and **Delete** links in *Pages/Contacts/Index.cshtml* so they're only rendered for users with the appropriate permissions:
 
 [!code-cshtml[](secure-data/samples/final3/Pages/Contacts/Index.cshtml?highlight=34-36,62-999)]
 
 > [!WARNING]
-> Verileri değiştirme izni olmayan kullanıcıların bağlantılarının gizlenmesi, uygulamanın güvenliğini sağlar. Bağlantıların gizlenmesi, yalnızca geçerli bağlantıları görüntüleyerek uygulamayı daha kolay hale getirir. Kullanıcılar, sahip olmadıkları veriler üzerinde düzenleme ve silme işlemlerini çağırmak için oluşturulan URL 'Leri hacme edebilir. Razor sayfası veya denetleyicinin, verilerin güvenliğini sağlamak için erişim denetimlerini zorlaması gerekir.
+> Hiding links from users that don't have permission to change data doesn't secure the app. Hiding links makes the app more user-friendly by displaying only valid links. Users can hack the generated URLs to invoke edit and delete operations on data they don't own. The Razor Page or controller must enforce access checks to secure the data.
 
-### <a name="update-details"></a>Güncelleştirme ayrıntıları
+### <a name="update-details"></a>Update Details
 
-Yöneticilerin kişileri onaylamasını veya reddedebilmesi için Ayrıntılar görünümünü güncelleştirin:
+Update the details view so managers can approve or reject contacts:
 
 [!code-cshtml[](secure-data/samples/final3/Pages/Contacts/Details.cshtml?name=snippet)]
 
-Ayrıntılar sayfası modelini güncelleştirin:
+Update the details page model:
 
 [!code-csharp[](secure-data/samples/final3/Pages/Contacts/Details.cshtml.cs?name=snippet)]
 
-## <a name="add-or-remove-a-user-to-a-role"></a>Bir role Kullanıcı ekleme veya rolü kaldırma
+## <a name="add-or-remove-a-user-to-a-role"></a>Add or remove a user to a role
 
-Hakkında bilgi için [Bu soruna](https://github.com/aspnet/AspNetCore.Docs/issues/8502) bakın:
+See [this issue](https://github.com/aspnet/AspNetCore.Docs/issues/8502) for information on:
 
-* Bir kullanıcıdan ayrıcalıklar kaldırılıyor. Örneğin, bir sohbet uygulamasındaki kullanıcıyı kapatma.
-* Bir kullanıcıya ayrıcalık ekleme.
+* Removing privileges from a user. For example, muting a user in a chat app.
+* Adding privileges to a user.
 
-## <a name="differences-between-challenge-vs-forbid"></a>Çekişme ile Fordeklarasyon arasındaki farklılıklar
+<a name="challenge"></a>
 
-Bu uygulama, varsayılan ilkeyi [kimliği doğrulanmış kullanıcıları gerektirecek](#require-authenticated-users)şekilde ayarlar. Aşağıdaki kod anonim kullanıcılara izin verir. Anonim kullanıcılara, çekişme ile Fordeklarasyon arasındaki farkları gösterme izni verilir.
+## <a name="differences-between-challenge-and-forbid"></a>Differences between Challenge and Forbid
+
+This app sets the default policy to [require authenticated users](#require-authenticated-users). The following code allows anonymous users. Anonymous users are allowed to show the differences between Challenge vs Forbid.
 
 [!code-csharp[](secure-data/samples/final3/Pages/Contacts/Details2.cshtml.cs?name=snippet)]
 
-Önceki kodda:
+In the preceding code:
 
-* Kullanıcının kimliği **doğrulanmadığı** zaman, bir `ChallengeResult` döndürülür. Bir `ChallengeResult` döndürüldüğünde, Kullanıcı oturum açma sayfasına yönlendirilir.
-* Kullanıcının kimliği doğrulandığında, ancak yetkilendirilmediğinde, bir `ForbidResult` döndürülür. Bir `ForbidResult` döndürüldüğünde, Kullanıcı erişim reddedildi sayfasına yönlendirilir.
+* When the user is **not** authenticated, a `ChallengeResult` is returned. When a `ChallengeResult` is returned, the user is redirected to the sign-in page.
+* When the user is authenticated, but not authorized, a `ForbidResult` is returned. When a `ForbidResult` is returned, the user is redirected to the access denied page.
 
-## <a name="test-the-completed-app"></a>Tamamlanmış uygulamayı test etme
+## <a name="test-the-completed-app"></a>Test the completed app
 
-Önceden oluşturulmuş kullanıcı hesapları için bir parola ayarlamadıysanız, parola ayarlamak için [gizli dizi Yöneticisi aracını](xref:security/app-secrets#secret-manager) kullanın:
+If you haven't already set a password for seeded user accounts, use the [Secret Manager tool](xref:security/app-secrets#secret-manager) to set a password:
 
-* Güçlü bir parola seçin: sekiz veya daha fazla karakter, en az bir büyük harf karakter, sayı ve simge kullanın. Örneğin, `Passw0rd!` güçlü parola gereksinimlerini karşılar.
-* Projenin klasöründen aşağıdaki komutu yürütün, burada `<PW>` paroladır:
+* Choose a strong password: Use eight or more characters and at least one upper-case character, number, and symbol. For example, `Passw0rd!` meets the strong password requirements.
+* Execute the following command from the project's folder, where `<PW>` is the password:
 
   ```dotnetcli
   dotnet user-secrets set SeedUserPW <PW>
   ```
 
-Uygulamanın kişileri varsa:
+If the app has contacts:
 
-* `Contact` tablosundaki tüm kayıtları silin.
-* Veritabanını temel alarak uygulamayı yeniden başlatın.
+* Delete all of the records in the `Contact` table.
+* Restart the app to seed the database.
 
-Tamamlanmış uygulamayı test etmenin kolay bir yolu da üç farklı tarayıcı (veya bilito/InPrivate oturumlar) kullanmaktır. Tek bir tarayıcıda yeni bir Kullanıcı kaydedin (örneğin, `test@example.com`). Her bir tarayıcıda farklı bir kullanıcıyla oturum açın. Aşağıdaki işlemleri doğrulayın:
+An easy way to test the completed app is to launch three different browsers (or incognito/InPrivate sessions). In one browser, register a new user (for example, `test@example.com`). Sign in to each browser with a different user. Verify the following operations:
 
-* Kayıtlı kullanıcılar tüm onaylanan iletişim verilerini görüntüleyebilir.
-* Kayıtlı kullanıcılar kendi verilerini düzenleyebilir/silebilir.
-* Yöneticiler, kişi verilerini onaylayabilir/reddedebilir. `Details` görünümü **onaylama** ve **reddetme** düğmelerini gösterir.
-* Yöneticiler tüm verileri onaylayabilir/reddedebilir ve düzenleyebilir/silebilir.
+* Registered users can view all of the approved contact data.
+* Registered users can edit/delete their own data.
+* Managers can approve/reject contact data. The `Details` view shows **Approve** and **Reject** buttons.
+* Administrators can approve/reject and edit/delete all data.
 
-| Kullanıcı                | Uygulama tarafından sağlanan | Seçenekler                                  |
+| Kullanıcı                | Seeded by the app | Seçenekler                                  |
 | ------------------- | :---------------: | ---------------------------------------- |
-| test@example.com    | Hayır                | Kendi verilerini düzenleyin/silin.                |
-| manager@contoso.com | Evet               | Kendi verilerini onaylama/reddetme ve düzenleme/silme. |
-| admin@contoso.com   | Evet               | Tüm verileri onaylama/reddetme ve düzenleme/silme. |
+| test@example.com    | Hayır                | Edit/delete the own data.                |
+| manager@contoso.com | Evet               | Approve/reject and edit/delete own data. |
+| admin@contoso.com   | Evet               | Approve/reject and edit/delete all data. |
 
-Yöneticinin tarayıcısında bir kişi oluşturun. Yönetici iletişim kutusundan silme ve düzenleme için URL 'YI kopyalayın. Bu bağlantıları test kullanıcısının bu işlemleri gerçekleştiremediğinizi doğrulamak için test kullanıcısının tarayıcısına yapıştırın.
+Create a contact in the administrator's browser. Copy the URL for delete and edit from the administrator contact. Paste these links into the test user's browser to verify the test user can't perform these operations.
 
-## <a name="create-the-starter-app"></a>Başlangıç uygulamasını oluşturma
+## <a name="create-the-starter-app"></a>Create the starter app
 
-* "ContactManager" adlı bir Razor Pages uygulaması oluşturma
-  * **Ayrı kullanıcı hesaplarıyla**uygulamayı oluşturun.
-  * Ad alanı örnekte kullanılan ad alanıyla eşleşecek şekilde "ContactManager" olarak adlandırın.
-  * `-uld`, SQLite yerine LocalDB belirtir
+* Create a Razor Pages app named "ContactManager"
+  * Create the app with **Individual User Accounts**.
+  * Name it "ContactManager" so the namespace matches the namespace used in the sample.
+  * `-uld` specifies LocalDB instead of SQLite
 
   ```dotnetcli
   dotnet new webapp -o ContactManager -au Individual -uld
   ```
 
-* *Modeller/Ilgili kişi ekle. cs*:
+* Add *Models/Contact.cs*:
 
   [!code-csharp[](secure-data/samples/starter2.1/Models/Contact.cs?name=snippet1)]
 
-* `Contact` modeli için yapı iskelesi yapın.
-* İlk geçiş oluşturun ve veritabanını güncelleştirin:
+* Scaffold the `Contact` model.
+* Create initial migration and update the database:
 
 ```dotnetcli
 dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design
@@ -341,71 +343,71 @@ dotnet ef migrations add initial
 dotnet ef database update
 ```
 
-`dotnet aspnet-codegenerator razorpage` komutuyla bir hata yaşarsanız, [Bu GitHub sorununa](https://github.com/aspnet/Scaffolding/issues/984)bakın.
+If you experience a bug with the `dotnet aspnet-codegenerator razorpage` command, see [this GitHub issue](https://github.com/aspnet/Scaffolding/issues/984).
 
-* *Pages/Shared/_Layout. cshtml* dosyasındaki **ContactManager** bağlayıcısını güncelleştirin:
+* Update the **ContactManager** anchor in the *Pages/Shared/_Layout.cshtml* file:
 
  ```cshtml
 <a class="navbar-brand" asp-area="" asp-page="/Contacts/Index">ContactManager</a>
   ```
 
-* Kişiyi oluşturarak, düzenleyerek ve silerek uygulamayı test edin
+* Test the app by creating, editing, and deleting a contact
 
-### <a name="seed-the-database"></a>Veritabanını çekirdek
+### <a name="seed-the-database"></a>Seed the database
 
-*Veri* klasörüne [seeddata](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/authorization/secure-data/samples/starter3/Data/SeedData.cs) sınıfını ekleyin:
+Add the [SeedData](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/authorization/secure-data/samples/starter3/Data/SeedData.cs) class to the *Data* folder:
 
 [!code-csharp[](secure-data/samples/starter3/Data/SeedData.cs)]
 
-`Main``SeedData.Initialize` çağrısı:
+Call `SeedData.Initialize` from `Main`:
 
 [!code-csharp[](secure-data/samples/starter3/Program.cs)]
 
-Uygulamanın veritabanını sunan test edin. Kişi VERITABANıNDA herhangi bir satır varsa, çekirdek Yöntem çalıştırılmaz.
+Test that the app seeded the database. If there are any rows in the contact DB, the seed method doesn't run.
 
 ::: moniker-end
 
 ::: moniker range=">= aspnetcore-2.1 < aspnetcore-3.0"
 
-Bu öğreticide, yetkilendirme tarafından korunan kullanıcı verileriyle ASP.NET Core bir Web uygulamasının nasıl oluşturulacağı gösterilmektedir. Kimliği doğrulanmış (kayıtlı) kullanıcıların oluşturduğu kişilerin listesini görüntüler. Üç güvenlik grubu vardır:
+This tutorial shows how to create an ASP.NET Core web app with user data protected by authorization. It displays a list of contacts that authenticated (registered) users have created. There are three security groups:
 
-* **Kayıtlı kullanıcılar** tüm onaylanan verileri görüntüleyebilir ve kendi verilerini düzenleyebilir/silebilir.
-* **Yöneticiler** , kişi verilerini onaylayabilir veya reddedebilir. Yalnızca onaylanan kişiler kullanıcılara görünür.
-* **Yöneticiler** , verileri onaylayabilir/reddedebilir ve düzenleyebilir/silebilir.
+* **Registered users** can view all the approved data and can edit/delete their own data.
+* **Managers** can approve or reject contact data. Only approved contacts are visible to users.
+* **Administrators** can approve/reject and edit/delete any data.
 
-Aşağıdaki görüntüde, User Rick (`rick@example.com`) oturum açtı. Rick, onaylanan kişileri görüntüleyebilir ve kişiler için **yeni bağlantılar oluşturmak**//**silebilir** ve **düzenleyebilir** . Yalnızca Rick tarafından oluşturulan son kayıt, **Düzenle** ve **Sil** bağlantılarını görüntüler. Yönetici veya yönetici durumu "Onaylandı" olarak değiştirene kadar diğer kullanıcılar son kaydı görmez.
+In the following image, user Rick (`rick@example.com`) is signed in. Rick can only view approved contacts and **Edit**/**Delete**/**Create New** links for his contacts. Only the last record, created by Rick, displays **Edit** and **Delete** links. Other users won't see the last record until a manager or administrator changes the status to "Approved".
 
-![Rick oturum açmış olduğunu gösteren ekran görüntüsü](secure-data/_static/rick.png)
+![Screenshot showing Rick signed in](secure-data/_static/rick.png)
 
-Aşağıdaki görüntüde `manager@contoso.com`, ve yöneticisinin rolünde oturum açtı:
+In the following image, `manager@contoso.com` is signed in and in the manager's role:
 
-![manager@contoso.com oturum açmış olduğunu gösteren ekran görüntüsü](secure-data/_static/manager1.png)
+![Screenshot showing manager@contoso.com signed in](secure-data/_static/manager1.png)
 
-Aşağıdaki görüntüde, bir kişinin Yöneticiler Ayrıntılar görünümü gösterilmektedir:
+The following image shows the managers details view of a contact:
 
-![Yöneticinin bir kişinin görünümü](secure-data/_static/manager.png)
+![Manager's view of a contact](secure-data/_static/manager.png)
 
-**Onaylama** ve **reddetme** düğmeleri yalnızca Yöneticiler ve yöneticiler için görüntülenir.
+The **Approve** and **Reject** buttons are only displayed for managers and administrators.
 
-Aşağıdaki görüntüde `admin@contoso.com`, ve yönetici rolünde oturum açtı:
+In the following image, `admin@contoso.com` is signed in and in the administrator's role:
 
-![admin@contoso.com oturum açmış olduğunu gösteren ekran görüntüsü](secure-data/_static/admin.png)
+![Screenshot showing admin@contoso.com signed in](secure-data/_static/admin.png)
 
-Yöneticinin tüm ayrıcalıkları vardır. Herhangi bir kişiyi okuyabilir/düzenleyebilir/silebilir ve kişilerin durumunu değiştirebilir.
+The administrator has all privileges. She can read/edit/delete any contact and change the status of contacts.
 
-Uygulama, aşağıdaki `Contact` modeli için [Yapı iskelesi](xref:tutorials/first-mvc-app/adding-model#scaffold-the-movie-model) tarafından oluşturulmuştur:
+The app was created by [scaffolding](xref:tutorials/first-mvc-app/adding-model#scaffold-the-movie-model) the following `Contact` model:
 
 [!code-csharp[](secure-data/samples/starter2.1/Models/Contact.cs?name=snippet1)]
 
-Örnek, aşağıdaki yetkilendirme işleyicilerini içerir:
+The sample contains the following authorization handlers:
 
-* `ContactIsOwnerAuthorizationHandler`: kullanıcının yalnızca verilerini düzenleyebilmesini sağlar.
-* `ContactManagerAuthorizationHandler`: yöneticilerin kişileri onaylamasını veya reddetmesini sağlar.
-* `ContactAdministratorsAuthorizationHandler`: yöneticilerin kişileri onaylamasını veya reddetmesini ve kişileri düzenlemesini/silmesini sağlar.
+* `ContactIsOwnerAuthorizationHandler`: Ensures that a user can only edit their data.
+* `ContactManagerAuthorizationHandler`: Allows managers to approve or reject contacts.
+* `ContactAdministratorsAuthorizationHandler`: Allows administrators to approve or reject contacts and to edit/delete contacts.
 
 ## <a name="prerequisites"></a>Prerequisites
 
-Bu öğretici gelişmiş bir deyişle. Şunu tanımanız gerekir:
+This tutorial is advanced. You should be familiar with:
 
 * [ASP.NET Core](xref:tutorials/first-mvc-app/start-mvc)
 * [Kimlik Doğrulaması](xref:security/authentication/identity)
@@ -413,251 +415,251 @@ Bu öğretici gelişmiş bir deyişle. Şunu tanımanız gerekir:
 * [Yetkilendirme](xref:security/authorization/introduction)
 * [Entity Framework Core](xref:data/ef-mvc/intro)
 
-## <a name="the-starter-and-completed-app"></a>Başlatıcı ve tamamlanmış uygulama
+## <a name="the-starter-and-completed-app"></a>The starter and completed app
 
-[Tamamlanmış](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/authorization/secure-data/samples) uygulamayı [indirin](xref:index#how-to-download-a-sample) . Tamamlanmış uygulamayı [Test](#test-the-completed-app) edin, böylece güvenlik özellikleri hakkında bilgi sahibi olun.
+[Download](xref:index#how-to-download-a-sample) the [completed](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/authorization/secure-data/samples) app. [Test](#test-the-completed-app) the completed app so you become familiar with its security features.
 
-### <a name="the-starter-app"></a>Başlangıç uygulaması
+### <a name="the-starter-app"></a>The starter app
 
-[Başlangıç](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/authorization/secure-data/samples/) uygulamasını [indirin](xref:index#how-to-download-a-sample) .
+[Download](xref:index#how-to-download-a-sample) the [starter](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/authorization/secure-data/samples/) app.
 
-Uygulamayı çalıştırın, **ContactManager** bağlantısına dokunun ve bir kişi oluşturup silemdiğinizi doğrulayın.
+Run the app, tap the **ContactManager** link, and verify you can create, edit, and delete a contact.
 
-## <a name="secure-user-data"></a>Güvenli Kullanıcı verileri
+## <a name="secure-user-data"></a>Secure user data
 
-Aşağıdaki bölümlerde, güvenli Kullanıcı verileri uygulaması oluşturmak için tüm önemli adımlar verilmiştir. Tamamlanmış projeye başvurmak faydalı olabilir.
+The following sections have all the major steps to create the secure user data app. You may find it helpful to refer to the completed project.
 
-### <a name="tie-the-contact-data-to-the-user"></a>Kişi verilerini kullanıcıya bağlama
+### <a name="tie-the-contact-data-to-the-user"></a>Tie the contact data to the user
 
-Kullanıcıların verilerini düzenleyebilmeleri, ancak diğer kullanıcıların verilerini düzenleyebilmeleri için ASP.NET [Identity](xref:security/authentication/identity) Kullanıcı kimliğini kullanın. `Contact` modeline `OwnerID` ve `ContactStatus` ekleyin:
+Use the ASP.NET [Identity](xref:security/authentication/identity) user ID to ensure users can edit their data, but not other users data. Add `OwnerID` and `ContactStatus` to the `Contact` model:
 
 [!code-csharp[](secure-data/samples/final2.1/Models/Contact.cs?name=snippet1&highlight=5-6,16-999)]
 
-[kimlik](xref:security/authentication/identity) veritabanındaki `AspNetUser` TABLOSUNDAN kullanıcının kimliği `OwnerID`. `Status` alanı, bir kişinin genel kullanıcılar tarafından görüntülenebilir olup olmadığını belirler.
+`OwnerID` is the user's ID from the `AspNetUser` table in the [Identity](xref:security/authentication/identity) database. The `Status` field determines if a contact is viewable by general users.
 
-Yeni bir geçiş oluşturun ve veritabanını güncelleştirin:
+Create a new migration and update the database:
 
 ```dotnetcli
 dotnet ef migrations add userID_Status
 dotnet ef database update
 ```
 
-### <a name="add-role-services-to-identity"></a>Kimliğe rol hizmetleri Ekle
+### <a name="add-role-services-to-identity"></a>Add Role services to Identity
 
-Rol hizmetleri eklemek için [Addroles](/dotnet/api/microsoft.aspnetcore.identity.identitybuilder.addroles#Microsoft_AspNetCore_Identity_IdentityBuilder_AddRoles__1) ekleyin:
+Append [AddRoles](/dotnet/api/microsoft.aspnetcore.identity.identitybuilder.addroles#Microsoft_AspNetCore_Identity_IdentityBuilder_AddRoles__1) to add Role services:
 
 [!code-csharp[](secure-data/samples/final2.1/Startup.cs?name=snippet2&highlight=12)]
 
-### <a name="require-authenticated-users"></a>Kimliği doğrulanmış kullanıcılar iste
+### <a name="require-authenticated-users"></a>Require authenticated users
 
-Kullanıcıların kimliklerinin doğrulanmasını gerektirmek için varsayılan kimlik doğrulama ilkesini ayarlayın:
+Set the default authentication policy to require users to be authenticated:
 
 [!code-csharp[](secure-data/samples/final2.1/Startup.cs?name=snippet&highlight=17-99)] 
 
- `[AllowAnonymous]` özniteliğiyle Razor sayfasında, denetleyicide veya eylem yöntemi düzeyinde kimlik doğrulamasının devre dışı bırakabilirsiniz. Kullanıcıların kimliğinin doğrulanmasını gerektirmek için varsayılan kimlik doğrulama ilkesinin ayarlanması, yeni eklenen Razor Pages ve denetleyicilerin korunmasını sağlar. Varsayılan olarak kimlik doğrulamanın gerekli olması, yeni denetleyicilere bağlı olandan daha güvenlidir ve `[Authorize]` özniteliğini eklemek Razor Pages.
+ You can opt out of authentication at the Razor Page, controller, or action method level with the `[AllowAnonymous]` attribute. Setting the default authentication policy to require users to be authenticated protects newly added Razor Pages and controllers. Having authentication required by default is more secure than relying on new controllers and Razor Pages to include the `[Authorize]` attribute.
 
-Anonim kullanıcıların, kayıt yaptırmadan önce site hakkında bilgi alması için dizine, hakkında ve Iletişim sayfalarına [AllowAnonymous](/dotnet/api/microsoft.aspnetcore.authorization.allowanonymousattribute) ekleyin.
+Add [AllowAnonymous](/dotnet/api/microsoft.aspnetcore.authorization.allowanonymousattribute) to the Index, About, and Contact pages so anonymous users can get information about the site before they register.
 
 [!code-csharp[](secure-data/samples/final2.1/Pages/Index.cshtml.cs?highlight=1,6)]
 
-### <a name="configure-the-test-account"></a>Test hesabını yapılandırma
+### <a name="configure-the-test-account"></a>Configure the test account
 
-`SeedData` sınıfı iki hesap oluşturur: yönetici ve yönetici. Bu hesaplara bir parola ayarlamak için [gizli dizi Yöneticisi aracını](xref:security/app-secrets) kullanın. Parolayı proje dizininden ayarlayın ( *program.cs*içeren dizin):
+The `SeedData` class creates two accounts: administrator and manager. Use the [Secret Manager tool](xref:security/app-secrets) to set a password for these accounts. Set the password from the project directory (the directory containing *Program.cs*):
 
 ```dotnetcli
 dotnet user-secrets set SeedUserPW <PW>
 ```
 
-Güçlü bir parola belirtilmemişse `SeedData.Initialize` çağrıldığında bir özel durum oluşturulur.
+If a strong password is not specified, an exception is thrown when `SeedData.Initialize` is called.
 
-Sınama parolasını kullanmak için `Main` güncelleştirin:
+Update `Main` to use the test password:
 
 [!code-csharp[](secure-data/samples/final2.1/Program.cs?name=snippet)]
 
-### <a name="create-the-test-accounts-and-update-the-contacts"></a>Test hesapları oluşturma ve kişileri güncelleştirme
+### <a name="create-the-test-accounts-and-update-the-contacts"></a>Create the test accounts and update the contacts
 
-Test hesapları oluşturmak için `SeedData` sınıfındaki `Initialize` yöntemi güncelleştirin:
+Update the `Initialize` method in the `SeedData` class to create the test accounts:
 
 [!code-csharp[](secure-data/samples/final2.1/Data/SeedData.cs?name=snippet_Initialize)]
 
-Yönetici kullanıcı KIMLIĞINI ve `ContactStatus` kişilere ekleyin. Kişilerden birini "gönderildi" ve bir "reddedildi" yapın. Kullanıcı KIMLIĞINI ve durumunu tüm kişilere ekleyin. Yalnızca bir kişi gösterilir:
+Add the administrator user ID and `ContactStatus` to the contacts. Make one of the contacts "Submitted" and one "Rejected". Add the user ID and status to all the contacts. Only one contact is shown:
 
 [!code-csharp[](secure-data/samples/final2.1/Data/SeedData.cs?name=snippet1&highlight=17,18)]
 
-## <a name="create-owner-manager-and-administrator-authorization-handlers"></a>Sahip, yönetici ve yönetici yetkilendirme işleyicileri oluşturma
+## <a name="create-owner-manager-and-administrator-authorization-handlers"></a>Create owner, manager, and administrator authorization handlers
 
-Bir *Yetkilendirme* klasörü oluşturun ve içinde bir `ContactIsOwnerAuthorizationHandler` sınıfı oluşturun. `ContactIsOwnerAuthorizationHandler`, bir kaynağın kaynak üzerinde davranan kullanıcının kaynağın sahip olduğunu doğrular.
+Create an *Authorization* folder and create a `ContactIsOwnerAuthorizationHandler` class in it. The `ContactIsOwnerAuthorizationHandler` verifies that the user acting on a resource owns the resource.
 
 [!code-csharp[](secure-data/samples/final2.1/Authorization/ContactIsOwnerAuthorizationHandler.cs)]
 
-`ContactIsOwnerAuthorizationHandler` bağlamını çağırır [. ](/dotnet/api/microsoft.aspnetcore.authorization.authorizationhandlercontext.succeed#Microsoft_AspNetCore_Authorization_AuthorizationHandlerContext_Succeed_Microsoft_AspNetCore_Authorization_IAuthorizationRequirement_)Kimliği doğrulanmış geçerli kullanıcı kişi sahibsiyse başarılı olur. Yetkilendirme işleyicileri genellikle:
+The `ContactIsOwnerAuthorizationHandler` calls [context.Succeed](/dotnet/api/microsoft.aspnetcore.authorization.authorizationhandlercontext.succeed#Microsoft_AspNetCore_Authorization_AuthorizationHandlerContext_Succeed_Microsoft_AspNetCore_Authorization_IAuthorizationRequirement_) if the current authenticated user is the contact owner. Authorization handlers generally:
 
-* Gereksinimler karşılandığında `context.Succeed` döndürün.
-* Gereksinimler karşılanmazsa `Task.CompletedTask` döndürün. `Task.CompletedTask`, diğer yetkilendirme işleyicilerinin çalışmasına izin veren&mdash;başarılı veya başarısız değildir.
+* Return `context.Succeed` when the requirements are met.
+* Return `Task.CompletedTask` when requirements aren't met. `Task.CompletedTask` is not success or failure&mdash;it allows other authorization handlers to run.
 
-Açıkça başarısız olması gerekiyorsa, [bağlamı döndürün. Başarısız oldu](/dotnet/api/microsoft.aspnetcore.authorization.authorizationhandlercontext.fail).
+If you need to explicitly fail, return [context.Fail](/dotnet/api/microsoft.aspnetcore.authorization.authorizationhandlercontext.fail).
 
-Uygulama, iletişim sahiplerinin kendi verilerini düzenlemesine/silmesine/oluşturmasına izin verir. `ContactIsOwnerAuthorizationHandler` gereksinim parametresine geçirilen işlemi denetlemesi gerekmez.
+The app allows contact owners to edit/delete/create their own data. `ContactIsOwnerAuthorizationHandler` doesn't need to check the operation passed in the requirement parameter.
 
-### <a name="create-a-manager-authorization-handler"></a>Yönetici yetkilendirme işleyicisi oluşturma
+### <a name="create-a-manager-authorization-handler"></a>Create a manager authorization handler
 
-*Yetkilendirme* klasöründe bir `ContactManagerAuthorizationHandler` sınıfı oluşturun. `ContactManagerAuthorizationHandler`, kaynak üzerinde davranan kullanıcının bir yönetici olduğunu doğrular. İçerik değişikliklerini yalnızca Yöneticiler onaylayabilir veya reddedebilir (yeni veya değiştirilmiş).
+Create a `ContactManagerAuthorizationHandler` class in the *Authorization* folder. The `ContactManagerAuthorizationHandler` verifies the user acting on the resource is a manager. Only managers can approve or reject content changes (new or changed).
 
 [!code-csharp[](secure-data/samples/final2.1/Authorization/ContactManagerAuthorizationHandler.cs)]
 
-### <a name="create-an-administrator-authorization-handler"></a>Yönetici yetkilendirme işleyicisi oluşturma
+### <a name="create-an-administrator-authorization-handler"></a>Create an administrator authorization handler
 
-*Yetkilendirme* klasöründe bir `ContactAdministratorsAuthorizationHandler` sınıfı oluşturun. `ContactAdministratorsAuthorizationHandler`, kaynak üzerinde davranan kullanıcının bir yönetici olduğunu doğrular. Yönetici tüm işlemleri yapabilir.
+Create a `ContactAdministratorsAuthorizationHandler` class in the *Authorization* folder. The `ContactAdministratorsAuthorizationHandler` verifies the user acting on the resource is an administrator. Administrator can do all operations.
 
 [!code-csharp[](secure-data/samples/final2.1/Authorization/ContactAdministratorsAuthorizationHandler.cs)]
 
-## <a name="register-the-authorization-handlers"></a>Yetkilendirme işleyicilerini kaydetme
+## <a name="register-the-authorization-handlers"></a>Register the authorization handlers
 
-Entity Framework Core kullanan hizmetlerin, [Addkapsamlıdır](/dotnet/api/microsoft.extensions.dependencyinjection.servicecollectionserviceextensions)kullanılarak [bağımlılık ekleme](xref:fundamentals/dependency-injection) için kayıtlı olması gerekir. `ContactIsOwnerAuthorizationHandler`, Entity Framework Core oluşturulan ASP.NET Core [kimliğini](xref:security/authentication/identity)kullanır. İşleyicileri, [bağımlılık ekleme](xref:fundamentals/dependency-injection)yoluyla `ContactsController` için kullanılabilir olmaları için hizmet koleksiyonuyla kaydedin. `ConfigureServices`sonuna aşağıdaki kodu ekleyin:
+Services using Entity Framework Core must be registered for [dependency injection](xref:fundamentals/dependency-injection) using [AddScoped](/dotnet/api/microsoft.extensions.dependencyinjection.servicecollectionserviceextensions). The `ContactIsOwnerAuthorizationHandler` uses ASP.NET Core [Identity](xref:security/authentication/identity), which is built on Entity Framework Core. Register the handlers with the service collection so they're available to the `ContactsController` through [dependency injection](xref:fundamentals/dependency-injection). Add the following code to the end of `ConfigureServices`:
 
 [!code-csharp[](secure-data/samples/final2.1/Startup.cs?name=snippet_defaultPolicy&highlight=27-99)]
 
-`ContactAdministratorsAuthorizationHandler` ve `ContactManagerAuthorizationHandler` tekton olarak eklenir. Bunlar, EF kullanmadığından ve gereken tüm bilgiler `HandleRequirementAsync` yönteminin `Context` parametresinde olduğundan tektonlar vardır.
+`ContactAdministratorsAuthorizationHandler` and `ContactManagerAuthorizationHandler` are added as singletons. They're singletons because they don't use EF and all the information needed is in the `Context` parameter of the `HandleRequirementAsync` method.
 
-## <a name="support-authorization"></a>Destek yetkilendirme
+## <a name="support-authorization"></a>Support authorization
 
-Bu bölümde Razor Pages günceller ve bir işlem gereksinimleri sınıfı eklersiniz.
+In this section, you update the Razor Pages and add an operations requirements class.
 
-### <a name="review-the-contact-operations-requirements-class"></a>İlgili kişi işlemleri gereksinimleri sınıfını gözden geçirin
+### <a name="review-the-contact-operations-requirements-class"></a>Review the contact operations requirements class
 
-`ContactOperations` sınıfını gözden geçirin. Bu sınıf, uygulamanın desteklediği gereksinimleri içerir:
+Review the `ContactOperations` class. This class contains the requirements the app supports:
 
 [!code-csharp[](secure-data/samples/final2.1/Authorization/ContactOperations.cs)]
 
-### <a name="create-a-base-class-for-the-contacts-razor-pages"></a>Kişiler için bir temel sınıf oluşturun Razor Pages
+### <a name="create-a-base-class-for-the-contacts-razor-pages"></a>Create a base class for the Contacts Razor Pages
 
-Kişiler Razor Pages kullanılan hizmetleri içeren bir temel sınıf oluşturun. Temel sınıf, başlatma kodunu bir konuma koyar:
+Create a base class that contains the services used in the contacts Razor Pages. The base class puts the initialization code in one location:
 
 [!code-csharp[](secure-data/samples/final2.1/Pages/Contacts/DI_BasePageModel.cs)]
 
-Önceki kod:
+The preceding code:
 
-* Yetkilendirme işleyicilerine erişim için `IAuthorizationService` hizmetini ekler.
-* Kimlik `UserManager` hizmetini ekler.
-* `ApplicationDbContext`ekleyin.
+* Adds the `IAuthorizationService` service to access to the authorization handlers.
+* Adds the Identity `UserManager` service.
+* Add the `ApplicationDbContext`.
 
-### <a name="update-the-createmodel"></a>CreateModel 'i Güncelleştir
+### <a name="update-the-createmodel"></a>Update the CreateModel
 
-Create Page model oluşturucusunu `DI_BasePageModel` temel sınıfını kullanacak şekilde güncelleştirin:
+Update the create page model constructor to use the `DI_BasePageModel` base class:
 
 [!code-csharp[](secure-data/samples/final2.1/Pages/Contacts/Create.cshtml.cs?name=snippetCtor)]
 
-`CreateModel.OnPostAsync` yöntemini şu şekilde güncelleştirin:
+Update the `CreateModel.OnPostAsync` method to:
 
-* Kullanıcı KIMLIĞINI `Contact` modeline ekleyin.
-* Kullanıcının kişi oluşturma iznine sahip olduğunu doğrulamak için yetkilendirme işleyicisini çağırın.
+* Add the user ID to the `Contact` model.
+* Call the authorization handler to verify the user has permission to create contacts.
 
 [!code-csharp[](secure-data/samples/final2.1/Pages/Contacts/Create.cshtml.cs?name=snippet_Create)]
 
-### <a name="update-the-indexmodel"></a>Indexmodel 'i Güncelleştir
+### <a name="update-the-indexmodel"></a>Update the IndexModel
 
-`OnGetAsync` yöntemini yalnızca onaylanan kişilerin genel kullanıcılara gösterilmesi için güncelleştirin:
+Update the `OnGetAsync` method so only approved contacts are shown to general users:
 
 [!code-csharp[](secure-data/samples/final2.1/Pages/Contacts/Index.cshtml.cs?name=snippet)]
 
-### <a name="update-the-editmodel"></a>EditModel güncelleştirme
+### <a name="update-the-editmodel"></a>Update the EditModel
 
-Kullanıcının kişiye ait olduğunu doğrulamak için bir yetkilendirme işleyicisi ekleyin. Kaynak yetkilendirmesi doğrulanamadığından `[Authorize]` özniteliği yeterli değildir. Öznitelikler değerlendirildiğinde uygulamanın kaynağa erişimi yoktur. Kaynak tabanlı yetkilendirme sağlanmalıdır. Uygulamanın kaynağa erişimi olduğunda, sayfa modeline yükleyerek veya işleyicinin kendisi içine yükleyerek denetimlerin gerçekleştirilmesi gerekir. Kaynak anahtarını geçirerek kaynağa sıkça erişirsiniz.
+Add an authorization handler to verify the user owns the contact. Because resource authorization is being validated, the `[Authorize]` attribute is not enough. The app doesn't have access to the resource when attributes are evaluated. Resource-based authorization must be imperative. Checks must be performed once the app has access to the resource, either by loading it in the page model or by loading it within the handler itself. You frequently access the resource by passing in the resource key.
 
 [!code-csharp[](secure-data/samples/final2.1/Pages/Contacts/Edit.cshtml.cs?name=snippet)]
 
-### <a name="update-the-deletemodel"></a>DeleteModel 'i Güncelleştir
+### <a name="update-the-deletemodel"></a>Update the DeleteModel
 
-Kullanıcının kişide silme iznine sahip olduğunu doğrulamak için, silme sayfası modelini yetkilendirme işleyicisini kullanacak şekilde güncelleştirin.
+Update the delete page model to use the authorization handler to verify the user has delete permission on the contact.
 
 [!code-csharp[](secure-data/samples/final2.1/Pages/Contacts/Delete.cshtml.cs?name=snippet)]
 
-## <a name="inject-the-authorization-service-into-the-views"></a>Yetkilendirme hizmetini görünümlere ekleme
+## <a name="inject-the-authorization-service-into-the-views"></a>Inject the authorization service into the views
 
-Şu anda kullanıcı ARABIRIMI, kullanıcının değiştiremeyeceğiniz kişiler için Düzenle ve Sil bağlantılarını gösterir.
+Currently, the UI shows edit and delete links for contacts the user can't modify.
 
-Yetkilendirme hizmetini *Görünümler/_Viewwimports. cshtml* dosyasına yerleştirerek tüm görünümlerde kullanılabilir hale gelir:
+Inject the authorization service in the *Views/_ViewImports.cshtml* file so it's available to all views:
 
 [!code-cshtml[](secure-data/samples/final2.1/Pages/_ViewImports.cshtml?highlight=6-99)]
 
-Yukarıdaki biçimlendirme birkaç `using` deyimi ekler.
+The preceding markup adds several `using` statements.
 
-*Sayfalar/kişiler/Index. cshtml* 'deki **Düzenle** ve **Sil** bağlantılarını yalnızca uygun izinlere sahip kullanıcılar için işlendikleri şekilde güncelleştirin:
+Update the **Edit** and **Delete** links in *Pages/Contacts/Index.cshtml* so they're only rendered for users with the appropriate permissions:
 
 [!code-cshtml[](secure-data/samples/final2.1/Pages/Contacts/Index.cshtml?highlight=34-36,62-999)]
 
 > [!WARNING]
-> Verileri değiştirme izni olmayan kullanıcıların bağlantılarının gizlenmesi, uygulamanın güvenliğini sağlar. Bağlantıların gizlenmesi, yalnızca geçerli bağlantıları görüntüleyerek uygulamayı daha kolay hale getirir. Kullanıcılar, sahip olmadıkları veriler üzerinde düzenleme ve silme işlemlerini çağırmak için oluşturulan URL 'Leri hacme edebilir. Razor sayfası veya denetleyicinin, verilerin güvenliğini sağlamak için erişim denetimlerini zorlaması gerekir.
+> Hiding links from users that don't have permission to change data doesn't secure the app. Hiding links makes the app more user-friendly by displaying only valid links. Users can hack the generated URLs to invoke edit and delete operations on data they don't own. The Razor Page or controller must enforce access checks to secure the data.
 
-### <a name="update-details"></a>Güncelleştirme ayrıntıları
+### <a name="update-details"></a>Update Details
 
-Yöneticilerin kişileri onaylamasını veya reddedebilmesi için Ayrıntılar görünümünü güncelleştirin:
+Update the details view so managers can approve or reject contacts:
 
 [!code-cshtml[](secure-data/samples/final2.1/Pages/Contacts/Details.cshtml?name=snippet)]
 
-Ayrıntılar sayfası modelini güncelleştirin:
+Update the details page model:
 
 [!code-csharp[](secure-data/samples/final2.1/Pages/Contacts/Details.cshtml.cs?name=snippet)]
 
-## <a name="add-or-remove-a-user-to-a-role"></a>Bir role Kullanıcı ekleme veya rolü kaldırma
+## <a name="add-or-remove-a-user-to-a-role"></a>Add or remove a user to a role
 
-Hakkında bilgi için [Bu soruna](https://github.com/aspnet/AspNetCore.Docs/issues/8502) bakın:
+See [this issue](https://github.com/aspnet/AspNetCore.Docs/issues/8502) for information on:
 
-* Bir kullanıcıdan ayrıcalıklar kaldırılıyor. Örneğin, bir sohbet uygulamasındaki kullanıcıyı kapatma.
-* Bir kullanıcıya ayrıcalık ekleme.
+* Removing privileges from a user. For example, muting a user in a chat app.
+* Adding privileges to a user.
 
-## <a name="test-the-completed-app"></a>Tamamlanmış uygulamayı test etme
+## <a name="test-the-completed-app"></a>Test the completed app
 
-Önceden oluşturulmuş kullanıcı hesapları için bir parola ayarlamadıysanız, parola ayarlamak için [gizli dizi Yöneticisi aracını](xref:security/app-secrets#secret-manager) kullanın:
+If you haven't already set a password for seeded user accounts, use the [Secret Manager tool](xref:security/app-secrets#secret-manager) to set a password:
 
-* Güçlü bir parola seçin: sekiz veya daha fazla karakter, en az bir büyük harf karakter, sayı ve simge kullanın. Örneğin, `Passw0rd!` güçlü parola gereksinimlerini karşılar.
-* Projenin klasöründen aşağıdaki komutu yürütün, burada `<PW>` paroladır:
+* Choose a strong password: Use eight or more characters and at least one upper-case character, number, and symbol. For example, `Passw0rd!` meets the strong password requirements.
+* Execute the following command from the project's folder, where `<PW>` is the password:
 
   ```dotnetcli
   dotnet user-secrets set SeedUserPW <PW>
   ```
 
-* Veritabanını bırakma ve güncelleştirme
+* Drop and update the Database
 
   ```dotnetcli
   dotnet ef database drop -f
   dotnet ef database update  
   ```
 
-* Veritabanını temel alarak uygulamayı yeniden başlatın.
+* Restart the app to seed the database.
 
-Tamamlanmış uygulamayı test etmenin kolay bir yolu da üç farklı tarayıcı (veya bilito/InPrivate oturumlar) kullanmaktır. Tek bir tarayıcıda yeni bir Kullanıcı kaydedin (örneğin, `test@example.com`). Her bir tarayıcıda farklı bir kullanıcıyla oturum açın. Aşağıdaki işlemleri doğrulayın:
+An easy way to test the completed app is to launch three different browsers (or incognito/InPrivate sessions). In one browser, register a new user (for example, `test@example.com`). Sign in to each browser with a different user. Verify the following operations:
 
-* Kayıtlı kullanıcılar tüm onaylanan iletişim verilerini görüntüleyebilir.
-* Kayıtlı kullanıcılar kendi verilerini düzenleyebilir/silebilir.
-* Yöneticiler, kişi verilerini onaylayabilir/reddedebilir. `Details` görünümü **onaylama** ve **reddetme** düğmelerini gösterir.
-* Yöneticiler tüm verileri onaylayabilir/reddedebilir ve düzenleyebilir/silebilir.
+* Registered users can view all of the approved contact data.
+* Registered users can edit/delete their own data.
+* Managers can approve/reject contact data. The `Details` view shows **Approve** and **Reject** buttons.
+* Administrators can approve/reject and edit/delete all data.
 
-| Kullanıcı                | Uygulama tarafından sağlanan | Seçenekler                                  |
+| Kullanıcı                | Seeded by the app | Seçenekler                                  |
 | ------------------- | :---------------: | ---------------------------------------- |
-| test@example.com    | Hayır                | Kendi verilerini düzenleyin/silin.                |
-| manager@contoso.com | Evet               | Kendi verilerini onaylama/reddetme ve düzenleme/silme. |
-| admin@contoso.com   | Evet               | Tüm verileri onaylama/reddetme ve düzenleme/silme. |
+| test@example.com    | Hayır                | Edit/delete the own data.                |
+| manager@contoso.com | Evet               | Approve/reject and edit/delete own data. |
+| admin@contoso.com   | Evet               | Approve/reject and edit/delete all data. |
 
-Yöneticinin tarayıcısında bir kişi oluşturun. Yönetici iletişim kutusundan silme ve düzenleme için URL 'YI kopyalayın. Bu bağlantıları test kullanıcısının bu işlemleri gerçekleştiremediğinizi doğrulamak için test kullanıcısının tarayıcısına yapıştırın.
+Create a contact in the administrator's browser. Copy the URL for delete and edit from the administrator contact. Paste these links into the test user's browser to verify the test user can't perform these operations.
 
-## <a name="create-the-starter-app"></a>Başlangıç uygulamasını oluşturma
+## <a name="create-the-starter-app"></a>Create the starter app
 
-* "ContactManager" adlı bir Razor Pages uygulaması oluşturma
-  * **Ayrı kullanıcı hesaplarıyla**uygulamayı oluşturun.
-  * Ad alanı örnekte kullanılan ad alanıyla eşleşecek şekilde "ContactManager" olarak adlandırın.
-  * `-uld`, SQLite yerine LocalDB belirtir
+* Create a Razor Pages app named "ContactManager"
+  * Create the app with **Individual User Accounts**.
+  * Name it "ContactManager" so the namespace matches the namespace used in the sample.
+  * `-uld` specifies LocalDB instead of SQLite
 
   ```dotnetcli
   dotnet new webapp -o ContactManager -au Individual -uld
   ```
 
-* *Modeller/Ilgili kişi ekle. cs*:
+* Add *Models/Contact.cs*:
 
   [!code-csharp[](secure-data/samples/starter2.1/Models/Contact.cs?name=snippet1)]
 
-* `Contact` modeli için yapı iskelesi yapın.
-* İlk geçiş oluşturun ve veritabanını güncelleştirin:
+* Scaffold the `Contact` model.
+* Create initial migration and update the database:
 
   ```dotnetcli
   dotnet aspnet-codegenerator razorpage -m Contact -udl -dc ApplicationDbContext -outDir Pages\Contacts --referenceScriptLibraries
@@ -666,23 +668,23 @@ Yöneticinin tarayıcısında bir kişi oluşturun. Yönetici iletişim kutusund
   dotnet ef database update
   ```
 
-* *Pages/_Layout. cshtml* dosyasındaki **ContactManager** bağlayıcısını güncelleştirin:
+* Update the **ContactManager** anchor in the *Pages/_Layout.cshtml* file:
 
   ```cshtml
   <a asp-page="/Contacts/Index" class="navbar-brand">ContactManager</a>
   ```
 
-* Kişiyi oluşturarak, düzenleyerek ve silerek uygulamayı test edin
+* Test the app by creating, editing, and deleting a contact
 
-### <a name="seed-the-database"></a>Veritabanını çekirdek
+### <a name="seed-the-database"></a>Seed the database
 
-*Veri* klasörüne [seeddata](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/authorization/secure-data/samples/starter2.1/Data/SeedData.cs) sınıfını ekleyin.
+Add the [SeedData](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/authorization/secure-data/samples/starter2.1/Data/SeedData.cs) class to the *Data* folder.
 
-`Main``SeedData.Initialize` çağrısı:
+Call `SeedData.Initialize` from `Main`:
 
 [!code-csharp[](secure-data/samples/starter2.1/Program.cs?name=snippet)]
 
-Uygulamanın veritabanını sunan test edin. Kişi VERITABANıNDA herhangi bir satır varsa, çekirdek Yöntem çalıştırılmaz.
+Test that the app seeded the database. If there are any rows in the contact DB, the seed method doesn't run.
 
 ::: moniker-end
 
@@ -690,7 +692,7 @@ Uygulamanın veritabanını sunan test edin. Kişi VERITABANıNDA herhangi bir s
 
 ### <a name="additional-resources"></a>Ek kaynaklar
 
-* [Azure App Service bir .NET Core ve SQL veritabanı Web uygulaması oluşturun](/azure/app-service/app-service-web-tutorial-dotnetcore-sqldb)
-* [ASP.NET Core yetkilendirme Laboratuvarı](https://github.com/blowdart/AspNetAuthorizationWorkshop). Bu laboratuvar, bu öğreticide sunulan güvenlik özellikleri hakkında daha fazla ayrıntıya gider.
+* [Build a .NET Core and SQL Database web app in Azure App Service](/azure/app-service/app-service-web-tutorial-dotnetcore-sqldb)
+* [ASP.NET Core Authorization Lab](https://github.com/blowdart/AspNetAuthorizationWorkshop). This lab goes into more detail on the security features introduced in this tutorial.
 * <xref:security/authorization/introduction>
-* [Özel ilke tabanlı yetkilendirme](xref:security/authorization/policies)
+* [Custom policy-based authorization](xref:security/authorization/policies)

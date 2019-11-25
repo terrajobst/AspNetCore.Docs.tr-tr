@@ -10,12 +10,12 @@ products:
 - vs-code
 - vs-mac
 urlFragment: getstarted-swashbuckle-aspnetcore
-ms.openlocfilehash: c3c11f8b8f93cf7256a787c09dec7a2fb1f4e8b7
-ms.sourcegitcommit: eb2fe5ad2e82fab86ca952463af8d017ba659b25
+ms.openlocfilehash: d48288de90626ada83f5da1759f0057f0be46f19
+ms.sourcegitcommit: f91d322f790123d41ec3271fa084ae20ed9f89a6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2019
-ms.locfileid: "73416189"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74155151"
 ---
 # <a name="get-started-with-swashbuckle-and-aspnet-core"></a>Swashbuckle ve ASP.NET Core kullanmaya başlayın
 
@@ -52,7 +52,7 @@ public void Configure(IApplicationBuilder app)
     // specifying the Swagger JSON endpoint.
     app.UseSwaggerUI(c =>
     {
-        c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");In the 
+        c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1"); 
     });
 
     app.UseRouting();
@@ -132,7 +132,7 @@ XML açıklamaları aşağıdaki yaklaşımlar ile etkinleştirilebilir:
 
 #### <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-* **Çözüm Gezgini** projeye sağ tıklayın ve **düzenle < Project_Name >. csproj**' yı seçin.
+* **Çözüm Gezgini** projeye sağ tıklayın ve **>. csproj Project_Name < Düzenle**' yi seçin.
 * Vurgulanan satırları *. csproj* dosyasına el ile ekleyin:
 
 ```xml

@@ -1,349 +1,350 @@
 ---
-title: ASP.NET Core performans En Iyi yöntemleri
+title: ASP.NET Core Performance Best Practices
 author: mjrousos
-description: ASP.NET Core uygulamalarında performansı artırma ve sık karşılaşılan performans sorunlarından kaçınmaya yönelik ipuçları.
+description: Tips for increasing performance in ASP.NET Core apps and avoiding common performance problems.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.date: 11/12/2019
 no-loc:
 - SignalR
 uid: performance/performance-best-practices
-ms.openlocfilehash: 279bf352580e5e45fc005e800ee536871210409b
-ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
+ms.openlocfilehash: 64d231ca435ccbfe9bfcd839a2b67fcee68c0cc6
+ms.sourcegitcommit: 8157e5a351f49aeef3769f7d38b787b4386aad5f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73963251"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74239887"
 ---
-# <a name="aspnet-core-performance-best-practices"></a>ASP.NET Core performans En Iyi yöntemleri
+# <a name="aspnet-core-performance-best-practices"></a>ASP.NET Core Performance Best Practices
 
-, [Mike Rousos](https://github.com/mjrousos) tarafından
+By [Mike Rousos](https://github.com/mjrousos)
 
-Bu makalede, ASP.NET Core ile performans en iyi uygulamalarına yönelik yönergeler sunulmaktadır.
+This article provides guidelines for performance best practices with ASP.NET Core.
 
-## <a name="cache-aggressively"></a>Önbellek kararlılığı
+## <a name="cache-aggressively"></a>Cache aggressively
 
-Önbelleğe alma, bu belgenin çeşitli bölümlerinde ele alınmıştır. Daha fazla bilgi için bkz. <xref:performance/caching/response>.
+Caching is discussed in several parts of this document. Daha fazla bilgi için bkz. <xref:performance/caching/response>.
 
-## <a name="understand-hot-code-paths"></a>Etkin kod yollarını anlayın
+## <a name="understand-hot-code-paths"></a>Understand hot code paths
 
-Bu belgede, sık kullanılan bir *kod yolu* , genellikle çağrılan ve yürütme süresinin çoğunun gerçekleştiği bir kod yolu olarak tanımlanır. Sık kullanılan kod yolları genellikle uygulama ölçeğini ve performansını sınırlar ve bu belgenin çeşitli bölümlerinde ele alınmıştır.
+In this document, a *hot code path* is defined as a code path that is frequently called and where much of the execution time occurs. Hot code paths typically limit app scale-out and performance and are discussed in several parts of this document.
 
-## <a name="avoid-blocking-calls"></a>Çağrı engellemeyi önleyin
+## <a name="avoid-blocking-calls"></a>Avoid blocking calls
 
-ASP.NET Core uygulamalar aynı anda birçok isteği işleyecek şekilde tasarlanmalıdır. Zaman uyumsuz API 'Ler, blok çağrılarını beklemeden binlerce eşzamanlı isteği işlemek için küçük bir iş parçacığı havuzuna izin verir. Uzun süre çalışan bir zaman uyumlu görevin tamamlanmasını beklemek yerine, iş parçacığı başka bir istek üzerinde çalışabilir.
+ASP.NET Core apps should be designed to process many requests simultaneously. Asynchronous APIs allow a small pool of threads to handle thousands of concurrent requests by not waiting on blocking calls. Rather than waiting on a long-running synchronous task to complete, the thread can work on another request.
 
-ASP.NET Core uygulamalarda yaygın bir performans sorunu, zaman uyumsuz olabilecek çağrıları engelliyor. Birçok zaman uyumlu engelleme çağrısı, [Iş parçacığı havuzu](https://blogs.msdn.microsoft.com/vancem/2018/10/16/diagnosing-net-core-threadpool-starvation-with-perfview-why-my-service-is-not-saturating-all-cores-or-seems-to-stall/) ve azaltılmış yanıt sürelerinin oluşmasına yol açabilir.
+A common performance problem in ASP.NET Core apps is blocking calls that could be asynchronous. Many synchronous blocking calls lead to [Thread Pool starvation](https://blogs.msdn.microsoft.com/vancem/2018/10/16/diagnosing-net-core-threadpool-starvation-with-perfview-why-my-service-is-not-saturating-all-cores-or-seems-to-stall/) and degraded response times.
 
-**Şunları yapın**:
+**Do not**:
 
-* [Task. Wait](/dotnet/api/system.threading.tasks.task.wait) veya [Task. Result](/dotnet/api/system.threading.tasks.task-1.result)çağırarak zaman uyumsuz yürütmeyi engelleyin.
-* Ortak kod yollarındaki kilitleri alın. ASP.NET Core uygulamalar, kodu paralel olarak çalıştırmak için tasarlanmış olduğunda en iyi performansı sağlar.
+* Block asynchronous execution by calling [Task.Wait](/dotnet/api/system.threading.tasks.task.wait) or [Task.Result](/dotnet/api/system.threading.tasks.task-1.result).
+* Acquire locks in common code paths. ASP.NET Core apps are most performant when architected to run code in parallel.
+* Call [Task.Run](/dotnet/api/system.threading.tasks.task.run) and immediately await it. ASP.NET Core already runs app code on normal Thread Pool threads, so calling Task.Run only results in extra unnecessary Thread Pool scheduling. Even if the scheduled code would block a thread, Task.Run does not prevent that.
 
-**Şunları yapın**:
+**Do**:
 
-* [Etkin kod yollarını](#understand-hot-code-paths) zaman uyumsuz yapın.
-* Veri erişimi ve uzun süreli işlem API 'Lerini zaman uyumsuz olarak çağırın.
-* Denetleyiciyi/Razor sayfası eylemlerini zaman uyumsuz yapın. [Zaman uyumsuz/await](/dotnet/csharp/programming-guide/concepts/async/) desenlerinden faydalanmak için tüm çağrı yığını zaman uyumsuzdur.
+* Make [hot code paths](#understand-hot-code-paths) asynchronous.
+* Call data access and long-running operations APIs asynchronously if an asynchronous API is available. Once again, do not use [Task.Run](/dotnet/api/system.threading.tasks.task.run) to make a synchronus API asynchronous.
+* Make controller/Razor Page actions asynchronous. The entire call stack is asynchronous in order to benefit from [async/await](/dotnet/csharp/programming-guide/concepts/async/) patterns.
 
-[Iş parçacığı havuzuna](/windows/desktop/procthread/thread-pools)sık sık eklenen iş parçacıklarını bulmak Için [PerfView](https://github.com/Microsoft/perfview)gibi bir profil oluşturucu kullanılabilir. `Microsoft-Windows-DotNETRuntime/ThreadPoolWorkerThread/Start` olayı, iş parçacığı havuzuna eklenen bir iş parçacığını gösterir. <!--  For more information, see [async guidance docs](TBD-Link_To_Davifowl_Doc)  -->
+A profiler, such as [PerfView](https://github.com/Microsoft/perfview), can be used to find threads frequently added to the [Thread Pool](/windows/desktop/procthread/thread-pools). The `Microsoft-Windows-DotNETRuntime/ThreadPoolWorkerThread/Start` event indicates a thread added to the thread pool. <!--  For more information, see [async guidance docs](TBD-Link_To_Davifowl_Doc)  -->
 
-## <a name="minimize-large-object-allocations"></a>Büyük nesne ayırmalarını en aza indir
+## <a name="minimize-large-object-allocations"></a>Minimize large object allocations
 
-[.NET Core atık toplayıcısı](/dotnet/standard/garbage-collection/) , ASP.NET Core uygulamalarda otomatik olarak bellek ayırmayı ve serbest bırakma işlemini yönetir. Otomatik atık toplama işlemi, geliştiricilerin belleğin nasıl veya ne zaman boşaltılana ilişkin endişelenmek zorunda olmadığı anlamına gelir. Ancak, başvurulmayan nesnelerin temizlenmesi CPU süresi alırsa, geliştiricilerin [etkin kod yollarındaki](#understand-hot-code-paths)nesneleri ayırmayı en aza indirmeleri gerekir. Çöp toplama özellikle büyük nesneler üzerinde pahalıdır (> 85 K bayt). Büyük nesneler [büyük nesne yığınında](/dotnet/standard/garbage-collection/large-object-heap) depolanır ve temizlemek için tam (2. nesil) çöp toplama gerektirir. Nesil 0 ve 1. nesil koleksiyonlarının aksine, 2. nesil bir koleksiyon, uygulama yürütmenin geçici olarak askıya alınmasını gerektirir. Büyük nesnelerin sık aralıklarla ayrılması ve ayrılması, tutarsız performansa neden olabilir.
+The [.NET Core garbage collector](/dotnet/standard/garbage-collection/) manages allocation and release of memory automatically in ASP.NET Core apps. Automatic garbage collection generally means that developers don't need to worry about how or when memory is freed. However, cleaning up unreferenced objects takes CPU time, so developers should minimize allocating objects in [hot code paths](#understand-hot-code-paths). Garbage collection is especially expensive on large objects (> 85 K bytes). Large objects are stored on the [large object heap](/dotnet/standard/garbage-collection/large-object-heap) and require a full (generation 2) garbage collection to clean up. Unlike generation 0 and generation 1 collections, a generation 2 collection requires a temporary suspension of app execution. Frequent allocation and de-allocation of large objects can cause inconsistent performance.
 
-Öneri
+Recommendations:
 
-* Sık kullanılan büyük nesneleri önbelleğe **almayı düşünün.** Büyük nesnelerin önbelleğe alınması pahalı ayırmaları önler.
-* Büyük dizileri depolamak için bir [`ArrayPool<T>`](/dotnet/api/system.buffers.arraypool-1) kullanarak havuz arabellekleri **yapın** .
-* [Sık erişimli kod yollarında](#understand-hot-code-paths)çok sayıda, kısa süreli büyük **nesneler ayırmayın** .
+* **Do** consider caching large objects that are frequently used. Caching large objects prevents expensive allocations.
+* **Do** pool buffers by using an [`ArrayPool<T>`](/dotnet/api/system.buffers.arraypool-1) to store large arrays.
+* **Do not** allocate many, short-lived large objects on [hot code paths](#understand-hot-code-paths).
 
-Yukarıdaki gibi bellek sorunları, [PerfView](https://github.com/Microsoft/perfview) ve İnceleme içindeki çöp toplama (GC) istatistiklerini inceleyerek tanılanabilir:
+Memory issues, such as the preceding, can be diagnosed by reviewing garbage collection (GC) stats in [PerfView](https://github.com/Microsoft/perfview) and examining:
 
-* Çöp toplama duraklatma süresi.
-* Çöp toplama işlemi için işlemci zamanının yüzde kaçına harcanması.
-* Kaç çöp toplama 0, 1 ve 2. nesil.
+* Garbage collection pause time.
+* What percentage of the processor time is spent in garbage collection.
+* How many garbage collections are generation 0, 1, and 2.
 
-Daha fazla bilgi için bkz. [çöp toplama ve performans](/dotnet/standard/garbage-collection/performance).
+For more information, see [Garbage Collection and Performance](/dotnet/standard/garbage-collection/performance).
 
-## <a name="optimize-data-access"></a>Veri erişimini iyileştirme
+## <a name="optimize-data-access"></a>Optimize Data Access
 
-Veri deposuna ve diğer uzak hizmetlere sahip etkileşimler genellikle ASP.NET Core uygulamasının en yavaş parçalarından oluşur. Verileri etkili bir şekilde okumak ve yazmak iyi bir performans için önemlidir.
+Interactions with a data store and other remote services are often the slowest parts of an ASP.NET Core app. Reading and writing data efficiently is critical for good performance.
 
-Öneri
+Recommendations:
 
-* Tüm veri erişim API 'Lerini zaman uyumsuz **olarak çağırın.**
-* Gerekenden daha fazla **veri alınamaz.** Yalnızca geçerli HTTP isteği için gerekli olan verileri döndürmek için sorgular yazın.
-* Güncel olmayan veriler kabul edilebilir ise, bir veritabanından veya uzak hizmetten alınan sık erişilen verileri önbelleğe **almayı düşünün.** Senaryoya bağlı olarak, bir [MemoryCache](xref:performance/caching/memory) veya [DistributedCache](xref:performance/caching/distributed)kullanın. Daha fazla bilgi için bkz. <xref:performance/caching/response>.
-* Ağ gidiş dönüşlerini **en aza** indirir. Amaç, birkaç çağrı yerine, gerekli verileri tek bir çağrıda almak olur.
-* Salt okuma amacıyla verilere erişirken Entity Framework Core [izleme sorguları](/ef/core/querying/tracking#no-tracking-queries) **kullanmayın.** EF Core, hiçbir izleme sorgusunun sonuçlarını daha verimli bir şekilde döndürebilir.
-* Filtrelemenin veritabanı tarafından gerçekleştirilmesi için, LINQ **sorgularını filtreleyin ve** toplayın (örneğin, `.Where`, `.Select`veya `.Sum` deyimleriyle).
-* EF Core, istemci üzerindeki bazı sorgu işleçlerini çözdüğünü, bu da verimsiz sorgu yürütmeye neden **olabileceğini göz önünde** bulundurun. Daha fazla bilgi için bkz. [istemci değerlendirmesi performans sorunları](/ef/core/querying/client-eval#client-evaluation-performance-issues).
-* Koleksiyonlar üzerinde İzdüşüm sorguları kullanmayın ve bu, "N + 1" SQL sorgularının **yürütülmeleriyle** sonuçlanabilir. Daha fazla bilgi için bkz. [bağıntılı alt sorguları iyileştirme](/ef/core/what-is-new/ef-core-2.1#optimization-of-correlated-subqueries).
+* **Do** call all data access APIs asynchronously.
+* **Do not** retrieve more data than is necessary. Write queries to return just the data that's necessary for the current HTTP request.
+* **Do** consider caching frequently accessed data retrieved from a database or remote service if slightly out-of-date data is acceptable. Depending on the scenario, use a [MemoryCache](xref:performance/caching/memory) or a [DistributedCache](xref:performance/caching/distributed). Daha fazla bilgi için bkz. <xref:performance/caching/response>.
+* **Do** minimize network round trips. The goal is to retrieve the required data in a single call rather than several calls.
+* **Do** use [no-tracking queries](/ef/core/querying/tracking#no-tracking-queries) in Entity Framework Core when accessing data for read-only purposes. EF Core can return the results of no-tracking queries more efficiently.
+* **Do** filter and aggregate LINQ queries (with `.Where`, `.Select`, or `.Sum` statements, for example) so that the filtering is performed by the database.
+* **Do** consider that EF Core resolves some query operators on the client, which may lead to inefficient query execution. For more information, see [Client evaluation performance issues](/ef/core/querying/client-eval#client-evaluation-performance-issues).
+* **Do not** use projection queries on collections, which can result in executing "N + 1" SQL queries. For more information, see [Optimization of correlated subqueries](/ef/core/what-is-new/ef-core-2.1#optimization-of-correlated-subqueries).
 
-Yüksek ölçekli uygulamalarda performansı iyileştirebilecek yaklaşımlar için bkz. [EF High Performance](/ef/core/what-is-new/ef-core-2.0#explicitly-compiled-queries) :
+See [EF High Performance](/ef/core/what-is-new/ef-core-2.0#explicitly-compiled-queries) for approaches that may improve performance in high-scale apps:
 
-* [DbContext havuzu](/ef/core/what-is-new/ef-core-2.0#dbcontext-pooling)
-* [Açıkça derlenmiş sorgular](/ef/core/what-is-new/ef-core-2.0#explicitly-compiled-queries)
+* [DbContext pooling](/ef/core/what-is-new/ef-core-2.0#dbcontext-pooling)
+* [Explicitly compiled queries](/ef/core/what-is-new/ef-core-2.0#explicitly-compiled-queries)
 
-Kod tabanını çalıştırmadan önce, önceki yüksek performanslı yaklaşımların etkisini ölçmenizi öneririz. Derlenmiş sorguların ek karmaşıklığı performans iyileştirmesini engelleyebilir.
+We recommend measuring the impact of the preceding high-performance approaches before committing the code base. The additional complexity of compiled queries may not justify the performance improvement.
 
-Sorgu sorunları, [Application Insights](/azure/application-insights/app-insights-overview) veya profil oluşturma araçlarıyla verilere erişirken harcanan süreyi inceleyerek algılanabilir. Çoğu veritabanı Ayrıca, sık çalıştırılan sorgularla ilgili istatistikleri de kullanılabilir hale getirir.
+Query issues can be detected by reviewing the time spent accessing data with [Application Insights](/azure/application-insights/app-insights-overview) or with profiling tools. Most databases also make statistics available concerning frequently executed queries.
 
-## <a name="pool-http-connections-with-httpclientfactory"></a>HttpClientFactory ile HTTP bağlantılarını havuz
+## <a name="pool-http-connections-with-httpclientfactory"></a>Pool HTTP connections with HttpClientFactory
 
-[HttpClient](/dotnet/api/system.net.http.httpclient) `IDisposable` arabirimini uyguluyor olsa da, yeniden kullanım için tasarlanmıştır. Kapalı `HttpClient` örnekleri, yuvaları kısa bir süre için `TIME_WAIT` durumunda açık bırakır. `HttpClient` nesneleri oluşturan ve içermeyen bir kod yolu sıklıkla kullanılırsa, uygulama kullanılabilir yuvaları tüketebilir. [Httpclientfactory](/dotnet/standard/microservices-architecture/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests) , bu soruna çözüm olarak ASP.NET Core 2,1 ' de tanıtılmıştı. Performansı ve güvenilirliği iyileştirmek için havuz HTTP bağlantılarını işler.
+Although [HttpClient](/dotnet/api/system.net.http.httpclient) implements the `IDisposable` interface, it's designed for reuse. Closed `HttpClient` instances leave sockets open in the `TIME_WAIT` state for a short period of time. If a code path that creates and disposes of `HttpClient` objects is frequently used, the app may exhaust available sockets. [HttpClientFactory](/dotnet/standard/microservices-architecture/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests) was introduced in ASP.NET Core 2.1 as a solution to this problem. It handles pooling HTTP connections to optimize performance and reliability.
 
-Öneri
+Recommendations:
 
-* `HttpClient` örneklerini **doğrudan oluşturma ve** atma.
-* `HttpClient` örnekleri almak için [Httpclientfactory](/dotnet/standard/microservices-architecture/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests) **kullanın.** Daha fazla bilgi için bkz. [Esnek http isteklerini uygulamak Için HttpClientFactory kullanma](/dotnet/standard/microservices-architecture/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests).
+* **Do not** create and dispose of `HttpClient` instances directly.
+* **Do** use [HttpClientFactory](/dotnet/standard/microservices-architecture/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests) to retrieve `HttpClient` instances. For more information, see [Use HttpClientFactory to implement resilient HTTP requests](/dotnet/standard/microservices-architecture/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests).
 
-## <a name="keep-common-code-paths-fast"></a>Ortak kod yollarını hızlı tutun
+## <a name="keep-common-code-paths-fast"></a>Keep common code paths fast
 
-Tüm kodunuzun hızlı olmasını istiyorsunuz, en çok kullanılan kod yolları en kritik öneme sahiptir:
+You want all of your code to be fast, frequently called code paths are the most critical to optimize:
 
-* Uygulamanın istek işleme ardışık düzeninde bulunan ara yazılım bileşenleri, özellikle de ara yazılım ardışık düzende çalışır. Bu bileşenlerin performansı üzerinde büyük bir etkisi vardır.
-* Her istek için veya istek başına birden çok kez yürütülen kod. Örneğin, özel günlük kaydı, yetkilendirme işleyicileri veya geçici Hizmetleri başlatma.
+* Middleware components in the app's request processing pipeline, especially middleware run early in the pipeline. These components have a large impact on performance.
+* Code that's executed for every request or multiple times per request. For example, custom logging, authorization handlers, or initialization of transient services.
 
-Öneri
+Recommendations:
 
-* Uzun süre çalışan görevlerle özel ara yazılım **bileşenleri kullanmayın.**
-* [Etkin kod yollarını](#understand-hot-code-paths)belirlemek Için, [Visual Studio tanılama araçları](/visualstudio/profiling/profiling-feature-tour) veya [PerfView](https://github.com/Microsoft/perfview)gibi performans profil oluşturma **araçlarını kullanın.**
+* **Do not** use custom middleware components with long-running tasks.
+* **Do** use performance profiling tools, such as [Visual Studio Diagnostic Tools](/visualstudio/profiling/profiling-feature-tour) or [PerfView](https://github.com/Microsoft/perfview)), to identify [hot code paths](#understand-hot-code-paths).
 
-## <a name="complete-long-running-tasks-outside-of-http-requests"></a>Uzun süre çalışan görevleri http isteklerinin dışında Tamam
+## <a name="complete-long-running-tasks-outside-of-http-requests"></a>Complete long-running Tasks outside of HTTP requests
 
-ASP.NET Core uygulamasına yönelik çoğu istek, gerekli Hizmetleri çağıran ve HTTP yanıtı döndüren bir denetleyici veya sayfa modeli tarafından işlenebilir. Uzun süre çalışan görevleri içeren bazı istekler için, tüm istek-yanıt sürecini zaman uyumsuz hale getirmek daha iyidir.
+Most requests to an ASP.NET Core app can be handled by a controller or page model calling necessary services and returning an HTTP response. For some requests that involve long-running tasks, it's better to make the entire request-response process asynchronous.
 
-Öneri
+Recommendations:
 
-* Olağan HTTP istek işlemenin bir parçası olarak uzun süre çalışan görevlerin **tamamlanmasını beklememe** .
-* [Arka plan hizmetleri](xref:fundamentals/host/hosted-services) ile uzun süreli istekleri işlemeyi veya bir [Azure işlevi](/azure/azure-functions/)ile işlem dışı **bırakmayı düşünün.** İşlem dışı iş tamamlama, özellikle CPU yoğun görevler için faydalıdır.
-* İstemcilerle zaman uyumsuz iletişim kurmak için [SignalR](xref:signalr/introduction)gibi gerçek zamanlı iletişim **seçenekleri kullanın.**
+* **Do not** wait for long-running tasks to complete as part of ordinary HTTP request processing.
+* **Do** consider handling long-running requests with [background services](xref:fundamentals/host/hosted-services) or out of process with an [Azure Function](/azure/azure-functions/). Completing work out-of-process is especially beneficial for CPU-intensive tasks.
+* **Do** use real-time communication options, such as [SignalR](xref:signalr/introduction), to communicate with clients asynchronously.
 
-## <a name="minify-client-assets"></a>İstemci varlıklarını küçültmeye yönelik
+## <a name="minify-client-assets"></a>Minify client assets
 
-Karmaşık ön uçları olan ASP.NET Core uygulamalar sıklıkla birçok JavaScript, CSS veya görüntü dosyası sunar. İlk yük isteklerinin performansı şu şekilde geliştirilebilir:
+ASP.NET Core apps with complex front-ends frequently serve many JavaScript, CSS, or image files. Performance of initial load requests can be improved by:
 
-* Birden çok dosyayı bir içinde birleştiren paketleme.
-* Boşluk ve açıklamaları kaldırarak dosyaların boyutunu azaltan minifying.
+* Bundling, which combines multiple files into one.
+* Minifying, which reduces the size of files by removing whitespace and comments.
 
-Öneri
+Recommendations:
 
-* ASP.NET Core, istemci varlıklarını paketleme ve küçültmeye yönelik [yerleşik desteğini](xref:client-side/bundling-and-minification) **kullanın.**
-* Karmaşık istemci varlık yönetimi için [WebPack](https://webpack.js.org/)gibi diğer üçüncü taraf **araçları göz önünde** bulundurun.
+* **Do** use ASP.NET Core's [built-in support](xref:client-side/bundling-and-minification) for bundling and minifying client assets.
+* **Do** consider other third-party tools, such as [Webpack](https://webpack.js.org/), for complex client asset management.
 
-## <a name="compress-responses"></a>Yanıtları sıkıştır
+## <a name="compress-responses"></a>Compress responses
 
- Yanıt boyutunu azaltmak genellikle önemli ölçüde önemli ölçüde bir uygulamanın yanıt hızını artırır. Yük boyutlarını azaltmanın bir yolu, uygulamanın yanıtlarını sıkıştırmaktır. Daha fazla bilgi için bkz. [Yanıt sıkıştırması](xref:performance/response-compression).
+ Reducing the size of the response usually increases the responsiveness of an app, often dramatically. One way to reduce payload sizes is to compress an app's responses. For more information, see [Response compression](xref:performance/response-compression).
 
-## <a name="use-the-latest-aspnet-core-release"></a>En son ASP.NET Core sürümü kullan
+## <a name="use-the-latest-aspnet-core-release"></a>Use the latest ASP.NET Core release
 
-ASP.NET Core her yeni sürümü performans iyileştirmeleri içerir. .NET Core ve ASP.NET Core iyileştirmeler, daha yeni sürümlerin genellikle eski sürümlerin genel olarak gerçekleştirdiği anlamına gelir. Örneğin, .NET Core 2,1, derlenmiş normal ifadeler ve [`Span<T>`](https://msdn.microsoft.com/magazine/mt814808.aspx)'den benefitted için destek eklendi. ASP.NET Core 2,2 HTTP/2 desteği eklendi. ASP.NET Core 3,0, bellek kullanımını azaltan ve üretilen işi geliştiren [birçok geliştirme ekler](xref:aspnetcore-3.0) . Performans bir önceliktir, ASP.NET Core güncel sürümüne yükseltmeyi göz önünde bulundurun.
+Each new release of ASP.NET Core includes performance improvements. Optimizations in .NET Core and ASP.NET Core mean that newer versions generally outperform older versions. For example, .NET Core 2.1 added support for compiled regular expressions and benefitted from [`Span<T>`](https://msdn.microsoft.com/magazine/mt814808.aspx). ASP.NET Core 2.2 added support for HTTP/2. [ASP.NET Core 3.0 adds many improvements](xref:aspnetcore-3.0) that reduce memory usage and improve throughput. If performance is a priority, consider upgrading to the current version of ASP.NET Core.
 
-## <a name="minimize-exceptions"></a>Özel durumları Küçült
+## <a name="minimize-exceptions"></a>Minimize exceptions
 
-Özel durumlar nadir olmalıdır. Özel durumları oluşturma ve yakalama, diğer kod akışı desenlerine göre yavaş olur. Bu nedenle, normal program akışını denetlemek için özel durumlar kullanılmamalıdır.
+Exceptions should be rare. Throwing and catching exceptions is slow relative to other code flow patterns. Because of this, exceptions shouldn't be used to control normal program flow.
 
-Öneri
+Recommendations:
 
-* Özel durumları, özellikle de [sık erişimli kod yollarında](#understand-hot-code-paths)normal program akışının bir yolu olarak oluşturma veya **yakalama kullanmayın.**
-* Özel duruma neden olacak koşulları tespit etmek ve işlemek için uygulamaya **mantığı dahil edin** .
-* Olağan dışı veya beklenmedik koşullarda özel **durumlar oluşturun veya** yakalayın.
+* **Do not** use throwing or catching exceptions as a means of normal program flow, especially in [hot code paths](#understand-hot-code-paths).
+* **Do** include logic in the app to detect and handle conditions that would cause an exception.
+* **Do** throw or catch exceptions for unusual or unexpected conditions.
 
-Application Insights gibi uygulama tanılama araçları, bir uygulamadaki performansı etkileyebilecek ortak özel durumları belirlemesine yardımcı olabilir.
+App diagnostic tools, such as Application Insights, can help to identify common exceptions in an app that may affect performance.
 
-## <a name="performance-and-reliability"></a>Performans ve güvenilirlik
+## <a name="performance-and-reliability"></a>Performance and reliability
 
-Aşağıdaki bölümlerde performans ipuçları ve bilinen güvenilirlik sorunları ve çözümleri sağlanmaktadır.
+The following sections provide performance tips and known reliability problems and solutions.
 
-## <a name="avoid-synchronous-read-or-write-on-httprequesthttpresponse-body"></a>HttpRequest/HttpResponse gövdesinde zaman uyumlu okuma veya yazma yapmaktan kaçının
+## <a name="avoid-synchronous-read-or-write-on-httprequesthttpresponse-body"></a>Avoid synchronous read or write on HttpRequest/HttpResponse body
 
-ASP.NET Core içindeki tüm GÇ zaman uyumsuzdur. Sunucular, hem zaman uyumlu hem de zaman uyumsuz aşırı yüklemeleri olan `Stream` arabirimini uygular. İş parçacığı havuzu iş parçacıklarını engellemeyi önlemek için zaman uyumsuz olanlar tercih edilmelidir. İş parçacıklarını engelleme, iş parçacığı havuzunda ortaya çıkmasına neden olabilir.
+All IO in ASP.NET Core is asynchronous. Servers implement the `Stream` interface, which has both synchronous and asynchronous overloads. The asynchronous ones should be preferred to avoid blocking thread pool threads. Blocking threads can lead to thread pool starvation.
 
-Bunu **yapın:** Aşağıdaki örnek <xref:System.IO.StreamReader.ReadToEnd*>kullanır. Sonuç için beklemek üzere geçerli iş parçacığını engeller. Bu, [zaman uyumsuz olarak eşitleme](https://github.com/davidfowl/AspNetCoreDiagnosticScenarios/blob/master/AsyncGuidance.md#warning-sync-over-async
-)örneğidir.
+**Do not do this:** The following example uses the <xref:System.IO.StreamReader.ReadToEnd*>. It blocks the current thread to wait for the result. This is an example of [sync over async](https://github.com/davidfowl/AspNetCoreDiagnosticScenarios/blob/master/AsyncGuidance.md#warning-sync-over-async
+).
 
 [!code-csharp[](performance-best-practices/samples/3.0/Controllers/MyFirstController.cs?name=snippet1)]
 
-Yukarıdaki kodda, `Get` HTTP istek gövdesinin tamamını belleğe eşzamanlı olarak okur. İstemci yavaş karşıya yüklendikten sonra, uygulama zaman uyumsuz olarak eşitlenir. Kestrel zaman uyumlu **okumaları desteklemediğinden,** uygulama zaman uyumsuz olarak eşitlenir.
+In the preceding code, `Get` synchronously reads the entire HTTP request body into memory. If the client is slowly uploading, the app is doing sync over async. The app does sync over async because Kestrel does **NOT** support synchronous reads.
 
-**Bunu yapın:** Aşağıdaki örnek <xref:System.IO.StreamReader.ReadToEndAsync*> kullanır ve okurken iş parçacığını engellemez.
+**Do this:** The following example uses <xref:System.IO.StreamReader.ReadToEndAsync*> and does not block the thread while reading.
 
 [!code-csharp[](performance-best-practices/samples/3.0/Controllers/MyFirstController.cs?name=snippet2)]
 
-Yukarıdaki kod, HTTP istek gövdesinin tamamını belleğe zaman uyumsuz olarak okur.
+The preceding code asynchronously reads the entire HTTP request body into memory.
 
 > [!WARNING]
-> İstek büyükse HTTP istek gövdesinin tamamını belleğe okumak bellek yetersiz (OOM) koşuluna yol açabilir. OOM, hizmet reddine neden olabilir.  Daha fazla bilgi için, bu belgedeki [büyük istek gövdelerini veya Yanıt gövdelerinin belleğe okunmasını önleyin](#arlb) .
+> If the request is large, reading the entire HTTP request body into memory could lead to an out of memory (OOM) condition. OOM can result in a Denial Of Service.  For more information, see [Avoid reading large request bodies or response bodies into memory](#arlb) in this document.
 
-**Bunu yapın:** Aşağıdaki örnek, arabelleğe alınmamış bir istek gövdesi kullanılarak tamamen zaman uyumsuzdur:
+**Do this:** The following example is fully asynchronous using a non buffered request body:
 
 [!code-csharp[](performance-best-practices/samples/3.0/Controllers/MyFirstController.cs?name=snippet3)]
 
-Yukarıdaki kod, istek gövdesini bir C# nesneye zaman uyumsuz olarak serileştirir.
+The preceding code asynchronously de-serializes the request body into a C# object.
 
-## <a name="prefer-readformasync-over-requestform"></a>Istek üzerinde ReadFormAsync tercih et. form
+## <a name="prefer-readformasync-over-requestform"></a>Prefer ReadFormAsync over Request.Form
 
-`HttpContext.Request.Form`yerine `HttpContext.Request.ReadFormAsync` kullanın.
-`HttpContext.Request.Form`, yalnızca aşağıdaki koşullara göre güvenle okunabilir:
+Use `HttpContext.Request.ReadFormAsync` instead of `HttpContext.Request.Form`.
+`HttpContext.Request.Form` can be safely read only with the following conditions:
 
-* Form, `ReadFormAsync`çağrısıyla okundu ve
-* Önbelleğe alınmış form değeri `HttpContext.Request.Form` kullanılarak okunmakta
+* The form has been read by a call to `ReadFormAsync`, and
+* The cached form value is being read using `HttpContext.Request.Form`
 
-Bunu **yapın:** Aşağıdaki örnek `HttpContext.Request.Form`kullanır.  `HttpContext.Request.Form`, [zaman uyumsuz olarak eşitleme](https://github.com/davidfowl/AspNetCoreDiagnosticScenarios/blob/master/AsyncGuidance.md#warning-sync-over-async
-) kullanır ve iş parçacığı havuzuna yol açabilir.
+**Do not do this:** The following example uses `HttpContext.Request.Form`.  `HttpContext.Request.Form` uses [sync over async](https://github.com/davidfowl/AspNetCoreDiagnosticScenarios/blob/master/AsyncGuidance.md#warning-sync-over-async
+) and can lead to thread pool starvation.
 
 [!code-csharp[](performance-best-practices/samples/3.0/Controllers/MySecondController.cs?name=snippet1)]
 
-**Bunu yapın:** Aşağıdaki örnek, form gövdesini zaman uyumsuz olarak okumak için `HttpContext.Request.ReadFormAsync` kullanır.
+**Do this:** The following example uses `HttpContext.Request.ReadFormAsync` to read the form body asynchronously.
 
 [!code-csharp[](performance-best-practices/samples/3.0/Controllers/MySecondController.cs?name=snippet2)]
 
 <a name="arlb"></a>
 
-## <a name="avoid-reading-large-request-bodies-or-response-bodies-into-memory"></a>Büyük istek gövdelerini veya yanıt gövdelerini belleğe okumaktan kaçının
+## <a name="avoid-reading-large-request-bodies-or-response-bodies-into-memory"></a>Avoid reading large request bodies or response bodies into memory
 
-.NET ' te, 85 KB 'den büyük olan her nesne ayırması büyük nesne yığınında ([Loh](https://blogs.msdn.microsoft.com/maoni/2006/04/19/large-object-heap/)) sona erer. Büyük nesneler iki şekilde pahalıdır:
+In .NET, every object allocation greater than 85 KB ends up in the large object heap ([LOH](https://blogs.msdn.microsoft.com/maoni/2006/04/19/large-object-heap/)). Large objects are expensive in two ways:
 
-* Yeni ayrılan büyük bir nesne için belleğin temizlenmesi gerektiğinden, ayırma maliyeti yüksektir. CLR, tüm yeni ayrılmış nesneler için belleğin temizlenmiş olmasını garanti eder.
-* LOH, yığının geri kalanı ile toplanır. LOH, tam [atık toplama](/dotnet/standard/garbage-collection/fundamentals) veya [Gen2 koleksiyonu](/dotnet/standard/garbage-collection/fundamentals#generations)gerektirir.
+* The allocation cost is high because the memory for a newly allocated large object has to be cleared. The CLR guarantees that memory for all newly allocated objects is cleared.
+* LOH is collected with the rest of the heap. LOH requires a full [garbage collection](/dotnet/standard/garbage-collection/fundamentals) or [Gen2 collection](/dotnet/standard/garbage-collection/fundamentals#generations).
 
-Bu [blog gönderisi](https://adamsitnik.com/Array-Pool/#the-problem) succinctly sorununu açıklar:
+This [blog post](https://adamsitnik.com/Array-Pool/#the-problem) describes the problem succinctly:
 
-> Büyük bir nesne ayrıldığında, Gen 2 nesnesi olarak işaretlenir. Küçük nesneler için Gen 0 değildir. Sonuçlar LOH 'de bellek tükeniyorsa, GC yalnızca LOH değil, yönetilen yığının tamamını temizler. Bu nedenle, LOH dahil olmak üzere Gen 0, Gen 1 ve Gen 2 ' yi temizler. Bu, tam atık toplama olarak adlandırılır ve en çok kullanılan çöp toplamadır. Birçok uygulama için kabul edilebilir. Ancak, ortalama bir web isteğini işlemek için çok büyük bellek arabelleklerinin (bir yuvadan okunan, sıkıştırmayı açık olan JSON & daha fazla kod çözme) gerekli olduğu yüksek performanslı Web sunucuları için kesinlikle değildir.
+> When a large object is allocated, it’s marked as Gen 2 object. Not Gen 0 as for small objects. The consequences are that if you run out of memory in LOH, GC cleans up the whole managed heap, not only LOH. So it cleans up Gen 0, Gen 1 and Gen 2 including LOH. This is called full garbage collection and is the most time-consuming garbage collection. For many applications, it can be acceptable. But definitely not for high-performance web servers, where few big memory buffers are needed to handle an average web request (read from a socket, decompress, decode JSON & more).
 
-Büyük bir istek veya Yanıt gövdesini tek bir `byte[]` veya `string`olarak depolar.
+Naively storing a large request or response body into a single `byte[]` or `string`:
 
-* LOH 'de hızlı bir şekilde boş alan tükenmenize neden olabilir.
-* Çalıştıran tam GC 'Ler nedeniyle uygulama için performans sorunlarına neden olabilir.
+* May result in quickly running out of space in the LOH.
+* May cause performance issues for the app because of full GCs running.
 
-## <a name="working-with-a-synchronous-data-processing-api"></a>Zaman uyumlu veri işleme API 'SI ile çalışma
+## <a name="working-with-a-synchronous-data-processing-api"></a>Working with a synchronous data processing API
 
-Yalnızca zaman uyumlu okuma ve yazma işlemlerini destekleyen bir serileştirici/devre dışı bırakma kullanılırken (örneğin, [JSON.net](https://www.newtonsoft.com/json/help/html/Introduction.htm)):
+When using a serializer/de-serializer that only supports synchronous reads and writes (for example,  [JSON.NET](https://www.newtonsoft.com/json/help/html/Introduction.htm)):
 
-* Verileri seri hale getirici/devre dışı serileştiriciye geçirmeden önce zaman uyumsuz olarak belleğe arabelleğe ın.
+* Buffer the data into memory asynchronously before passing it into the serializer/de-serializer.
 
 > [!WARNING]
-> İstek büyükse, bellek yetersiz (OOM) koşuluna yol açabilir. OOM, hizmet reddine neden olabilir.  Daha fazla bilgi için, bu belgedeki [büyük istek gövdelerini veya Yanıt gövdelerinin belleğe okunmasını önleyin](#arlb) .
+> If the request is large, it could lead to an out of memory (OOM) condition. OOM can result in a Denial Of Service.  For more information, see [Avoid reading large request bodies or response bodies into memory](#arlb) in this document.
 
-ASP.NET Core 3,0, JSON serileştirme için varsayılan olarak <xref:System.Text.Json> kullanır. <xref:System.Text.Json>:
+ASP.NET Core 3.0 uses <xref:System.Text.Json> by default for JSON serialization. <xref:System.Text.Json>:
 
-* JSON 'yi zaman uyumsuz olarak okur ve yazar.
-* UTF-8 metni için iyileştirilmiştir.
-* Genellikle `Newtonsoft.Json`kıyasla daha yüksek performans.
+* Reads and writes JSON asynchronously.
+* Is optimized for UTF-8 text.
+* Typically higher performance than `Newtonsoft.Json`.
 
-## <a name="do-not-store-ihttpcontextaccessorhttpcontext-in-a-field"></a>Bir alanda ıhttpcontextaccessor. HttpContext depolamayın
+## <a name="do-not-store-ihttpcontextaccessorhttpcontext-in-a-field"></a>Do not store IHttpContextAccessor.HttpContext in a field
 
-[Ihttpcontextaccessor. HttpContext](xref:Microsoft.AspNetCore.Http.IHttpContextAccessor.HttpContext) , istek iş parçacığından erişildiğinde etkin isteğin `HttpContext` döndürür. `IHttpContextAccessor.HttpContext`, bir alan veya değişkende **depolanmamalıdır.**
+The [IHttpContextAccessor.HttpContext](xref:Microsoft.AspNetCore.Http.IHttpContextAccessor.HttpContext) returns the `HttpContext` of the active request when accessed from the request thread. The `IHttpContextAccessor.HttpContext` should **not** be stored in a field or variable.
 
-Bunu **yapın:** Aşağıdaki örnek, `HttpContext` bir alanda depolar ve daha sonra kullanmaya çalışır.
+**Do not do this:** The following example stores the `HttpContext` in a field, and then attempts to use it later.
 
 [!code-csharp[](performance-best-practices/samples/3.0/MyType.cs?name=snippet1)]
 
-Yukarıdaki kod, oluşturucuda genellikle null veya yanlış `HttpContext` yakalar.
+The preceding code frequently captures a null or incorrect `HttpContext` in the constructor.
 
-**Bunu yapın:** Aşağıdaki örnek:
+**Do this:** The following example:
 
-* <xref:Microsoft.AspNetCore.Http.IHttpContextAccessor> bir alana depolar.
-* Doğru zamanda `HttpContext` alanını kullanır ve `null`denetler.
+* Stores the <xref:Microsoft.AspNetCore.Http.IHttpContextAccessor> in a field.
+* Uses the `HttpContext` field at the correct time and checks for `null`.
 
 [!code-csharp[](performance-best-practices/samples/3.0/MyType.cs?name=snippet2)]
 
-## <a name="do-not-access-httpcontext-from-multiple-threads"></a>Birden çok iş parçacığından HttpContext 'e erişme
+## <a name="do-not-access-httpcontext-from-multiple-threads"></a>Do not access HttpContext from multiple threads
 
-`HttpContext`, iş parçacığı açısından güvenli *değildir* . Paralel olarak birden çok iş parçacığından `HttpContext` erişilmesi, askıda kalma, kilitlenme ve veri bozulması gibi tanımsız davranışlara neden olabilir.
+`HttpContext` is *NOT* thread-safe. Accessing `HttpContext` from multiple threads in parallel can result in undefined behavior such as hangs, crashes, and data corruption.
 
-Bunu **yapın:** Aşağıdaki örnek üç paralel istek yapar ve giden HTTP isteğinden önce ve sonra gelen istek yolunu günlüğe kaydeder. İstek yoluna, potansiyel olarak paralel olarak birden çok iş parçacığından erişilir.
+**Do not do this:** The following example makes three parallel requests and logs the incoming request path before and after the outgoing HTTP request. The request path is accessed from multiple threads, potentially in parallel.
 
 [!code-csharp[](performance-best-practices/samples/3.0/Controllers/AsyncFirstController.cs?name=snippet1&highlight=25,28)]
 
-**Bunu yapın:** Aşağıdaki örnek, üç paralel isteği yapmadan önce gelen istekten tüm verileri kopyalar.
+**Do this:** The following example copies all data from the incoming request before making the three parallel requests.
 
 [!code-csharp[](performance-best-practices/samples/3.0/Controllers/AsyncFirstController.cs?name=snippet2&highlight=6,8,22,28)]
 
-## <a name="do-not-use-the-httpcontext-after-the-request-is-complete"></a>İstek tamamlandıktan sonra HttpContext 'i kullanma
+## <a name="do-not-use-the-httpcontext-after-the-request-is-complete"></a>Do not use the HttpContext after the request is complete
 
-`HttpContext`, ASP.NET Core ardışık düzeninde etkin bir HTTP isteği olduğu sürece geçerlidir. Tüm ASP.NET Core işlem hattı, her isteği yürüten zaman uyumsuz temsilciler zinciridir. Bu zincirden döndürülen `Task` tamamlandığında `HttpContext` geri dönüştürülür.
+`HttpContext` is only valid as long as there is an active HTTP request in the ASP.NET Core pipeline. The entire ASP.NET Core pipeline is an asynchronous chain of delegates that executes every request. When the `Task` returned from this chain completes, the `HttpContext` is recycled.
 
-Bunu **yapın:** Aşağıdaki örnek, ilk `await` ulaşıldığında HTTP isteğini tamamlamasını sağlayan `async void` kullanır:
+**Do not do this:** The following example uses `async void` which makes the HTTP request complete when the first `await` is reached:
 
-* ASP.NET Core uygulamalarda bu **her zaman** hatalı bir uygulamadır.
-* HTTP isteği tamamlandıktan sonra `HttpResponse` erişir.
-* İşlemi çöker.
+* Which is **ALWAYS** a bad practice in ASP.NET Core apps.
+* Accesses the `HttpResponse` after the HTTP request is complete.
+* Crashes the process.
 
 [!code-csharp[](performance-best-practices/samples/3.0/Controllers/AsyncBadVoidController.cs?name=snippet1)]
 
-**Bunu yapın:** Aşağıdaki örnek, işlem tamamlanana kadar HTTP isteğinin tamamlanmaması için çerçeveye bir `Task` döndürür.
+**Do this:** The following example returns a `Task` to the framework so the HTTP request doesn't complete until the action completes.
 
 [!code-csharp[](performance-best-practices/samples/3.0/Controllers/AsyncSecondController.cs?name=snippet1)]
 
-## <a name="do-not-capture-the-httpcontext-in-background-threads"></a>Arka plan iş parçacıklarında HttpContext 'i yakalama
+## <a name="do-not-capture-the-httpcontext-in-background-threads"></a>Do not capture the HttpContext in background threads
 
-Bunu **yapın:** Aşağıdaki örnek, bir kapanışın `Controller` özelliğinden `HttpContext` yakalamadığını gösterir. Bu kötü bir uygulamadır çünkü iş öğesi şu şekilde olabilir:
+**Do not do this:** The following example shows a closure is capturing the `HttpContext` from the `Controller` property. This is a bad practice because the work item could:
 
-* İstek kapsamının dışında çalıştırın.
-* Yanlış `HttpContext`okuma girişimi.
+* Run outside of the request scope.
+* Attempt to read the wrong `HttpContext`.
 
 [!code-csharp[](performance-best-practices/samples/3.0/Controllers/FireAndForgetFirstController.cs?name=snippet1)]
 
-**Bunu yapın:** Aşağıdaki örnek:
+**Do this:** The following example:
 
-* İstek sırasında arka plan görevinde gereken verileri kopyalar.
-* Denetleyiciden hiçbir şeye başvurmuyor.
+* Copies the data required in the background task during the request.
+* Doesn't reference anything from the controller.
 
 [!code-csharp[](performance-best-practices/samples/3.0/Controllers/FireAndForgetFirstController.cs?name=snippet2)]
 
-Arka plan görevleri barındırılan hizmet olarak uygulanmalıdır. Daha fazla bilgi için bkz. [barındırılan hizmetlerle arka plan görevleri](xref:fundamentals/host/hosted-services).
+Background tasks should be implemented as hosted services. For more information, see [Background tasks with hosted services](xref:fundamentals/host/hosted-services).
 
-## <a name="do-not-capture-services-injected-into-the-controllers-on-background-threads"></a>Arka plan iş parçacıklarında denetleyicilere eklenen Hizmetleri yakalama
+## <a name="do-not-capture-services-injected-into-the-controllers-on-background-threads"></a>Do not capture services injected into the controllers on background threads
 
-Bunu **yapın:** Aşağıdaki örnek, bir kapanışın `Controller` eylem parametresinden `DbContext` yakalamadığını gösterir. Bu kötü bir uygulamadır.  İş öğesi, istek kapsamı dışında çalıştırılabilir. `ContosoDbContext`, isteğin kapsamına alınır ve `ObjectDisposedException`sonuçlanır.
+**Do not do this:** The following example shows a closure is capturing the `DbContext` from the `Controller` action parameter. This is a bad practice.  The work item could run outside of the request scope. The `ContosoDbContext` is scoped to the request, resulting in an `ObjectDisposedException`.
 
 [!code-csharp[](performance-best-practices/samples/3.0/Controllers/FireAndForgetSecondController.cs?name=snippet1)]
 
-**Bunu yapın:** Aşağıdaki örnek:
+**Do this:** The following example:
 
-* Arka plan iş öğesinde kapsam oluşturmak için bir <xref:Microsoft.Extensions.DependencyInjection.IServiceScopeFactory> çıkartır. `IServiceScopeFactory` tek bir.
-* Arka plan iş parçacığında yeni bir bağımlılık ekleme kapsamı oluşturur.
-* Denetleyiciden hiçbir şeye başvurmuyor.
-* Gelen istekten `ContosoDbContext` yakalamaz.
+* Injects an <xref:Microsoft.Extensions.DependencyInjection.IServiceScopeFactory> in order to create a scope in the background work item. `IServiceScopeFactory` is a singleton.
+* Creates a new dependency injection scope in the background thread.
+* Doesn't reference anything from the controller.
+* Doesn't capture the `ContosoDbContext` from the incoming request.
 
 [!code-csharp[](performance-best-practices/samples/3.0/Controllers/FireAndForgetSecondController.cs?name=snippet2)]
 
-Aşağıdaki vurgulanan kod:
+The following highlighted code:
 
-* Arka plan işleminin yaşam süresi boyunca bir kapsam oluşturur ve Hizmetleri bundan çözer.
-* Doğru kapsamdan `ContosoDbContext` kullanır.
+* Creates a scope for the lifetime of the background operation and resolves services from it.
+* Uses `ContosoDbContext` from the correct scope.
 
 [!code-csharp[](performance-best-practices/samples/3.0/Controllers/FireAndForgetSecondController.cs?name=snippet2&highlight=9-16)]
 
-## <a name="do-not-modify-the-status-code-or-headers-after-the-response-body-has-started"></a>Yanıt gövdesi başlatıldıktan sonra durum kodunu veya başlıkları değiştirmeyin
+## <a name="do-not-modify-the-status-code-or-headers-after-the-response-body-has-started"></a>Do not modify the status code or headers after the response body has started
 
-ASP.NET Core HTTP yanıt gövdesini arabelleğe almaz. Yanıtın ilk yazıldığı zaman:
+ASP.NET Core does not buffer the HTTP response body. The first time the response is written:
 
-* Üst bilgiler, bu gövdenin öbek ile birlikte gönderilir.
-* Artık yanıt üst bilgilerini değiştirmek mümkün değildir.
+* The headers are sent along with that chunk of the body to the client.
+* It's no longer possible to change response headers.
 
-Bunu **yapın:** Aşağıdaki kod, yanıt önceden başlatıldıktan sonra yanıt üst bilgileri eklemeye çalışır:
+**Do not do this:** The following code tries to add response headers after the response has already started:
 
 [!code-csharp[](performance-best-practices/samples/3.0/Startup22.cs?name=snippet1)]
 
-Önceki kodda, `next()` yanıta yazılmışsa `context.Response.Headers["test"] = "test value";` bir özel durum oluşturur.
+In the preceding code, `context.Response.Headers["test"] = "test value";` will throw an exception if `next()` has written to the response.
 
-**Bunu yapın:** Aşağıdaki örnek, üst bilgileri değiştirmeden önce HTTP yanıtının başlatılıp başlatılmadığını denetler.
+**Do this:** The following example checks if the HTTP response has started before modifying the headers.
 
 [!code-csharp[](performance-best-practices/samples/3.0/Startup22.cs?name=snippet2)]
 
-**Bunu yapın:** Aşağıdaki örnek, yanıt üst bilgileri istemciye temizlenmeden önce üst bilgileri ayarlamak için `HttpResponse.OnStarting` kullanır.
+**Do this:** The following example uses `HttpResponse.OnStarting` to set the headers before the response headers are flushed to the client.
 
-Yanıtın başlatılmamış olup olmadığı denetleniyor yanıt üst bilgileri yazılmadan önce çağrılacak geri aramanın kaydedilmesini sağlar. Yanıtın başlatılmamış olup olmadığı denetleniyor:
+Checking if the response has not started allows registering a callback that will be invoked just before response headers are written. Checking if the response has not started:
 
-* Başlıkları tam zamanında ekleme veya geçersiz kılma olanağı sağlar.
-* İşlem hattındaki bir sonraki ara yazılım hakkında bilgi gerektirmez.
+* Provides the ability to append or override headers just in time.
+* Doesn't require knowledge of the next middleware in the pipeline.
 
 [!code-csharp[](performance-best-practices/samples/3.0/Startup22.cs?name=snippet3)]
 
-## <a name="do-not-call-next-if-you-have-already-started-writing-to-the-response-body"></a>Yanıt gövdesine yazmaya başladıysanız ileri () çağrısı yapın
+## <a name="do-not-call-next-if-you-have-already-started-writing-to-the-response-body"></a>Do not call next() if you have already started writing to the response body
 
-Bileşenler yalnızca yanıtı işlemek ve işlemek için mümkünse çağrılabilir.
+Components only expect to be called if it's possible for them to handle and manipulate the response.

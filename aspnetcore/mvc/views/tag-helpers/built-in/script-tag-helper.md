@@ -6,12 +6,12 @@ description: ASP.NET Core betik etiketi yardımcı özniteliklerini ve her bir �
 ms.custom: mvc
 ms.date: 12/18/2018
 uid: mvc/views/tag-helpers/builtin-th/script-tag-helper
-ms.openlocfilehash: 5f2fb8a45048804afa8aff2989cd53489e45a33b
-ms.sourcegitcommit: fae6f0e253f9d62d8f39de5884d2ba2b4b2a6050
+ms.openlocfilehash: c3d9148bd62dcc045873cc3a72884ae458349d70
+ms.sourcegitcommit: 3e503ef510008e77be6dd82ee79213c9f7b97607
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71256500"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74317115"
 ---
 # <a name="script-tag-helper-in-aspnet-core"></a>ASP.NET Core 'de betik etiketi Yardımcısı
 
@@ -23,43 +23,28 @@ Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 Betik etiketi Yardımcısı, CDN kullanılabilir olmadığında betik dosyası ve geri dönüş için CDN belirtmenize olanak tanır. Betik etiketi Yardımcısı, bir CDN 'nin performans avantajlarından yararlanarak yerel barındırma sağlamlığı sağlar.
 
-Aşağıdaki Razor biçimlendirmesinde, ASP.NET Core Web `script` uygulaması şablonuyla oluşturulan bir düzen dosyasının öğesi gösterilmektedir:
+Aşağıdaki Razor biçimlendirmesinde geri dönüş içeren bir `script` öğesi gösterilmektedir:
 
-[!code-html[](link-tag-helper/sample/_Layout.cshtml?name=snippet2)]
-
-Aşağıdaki kod, önceki koddan işlenmiş HTML 'ye benzerdir (geliştirme dışı bir ortamda):
-
-[!code-csharp[](link-tag-helper/sample/HtmlPage2.html)]
-
-Önceki kodda, komut dosyası etiketi Yardımcısı, için `<script>  (window.jQuery || document.write(` `window.jQuery`test olan ikinci komut dosyası () öğesini oluşturdu. `window.jQuery` Bulunmazsa ,`document.write(` çalışır ve bir komut dosyası oluşturur 
+```HTML
+<script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.3.1.min.js"
+        asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
+        asp-fallback-test="window.jQuery"
+        crossorigin="anonymous"
+        integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT">
+</script>
+```
 
 ## <a name="commonly-used-script-tag-helper-attributes"></a>Yaygın olarak kullanılan betik etiketi Yardımcısı öznitelikleri
 
 Tüm betik etiketi Yardımcısı öznitelikleri, özellikleri ve yöntemleri için [komut dosyası etiketi Yardımcısı](xref:Microsoft.AspNetCore.Mvc.TagHelpers.ScriptTagHelper) ' na bakın.
 
-### <a name="href"></a>değerini
+### <a name="asp-fallback-test"></a>ASP-geri dönüş-test
 
-Bağlı kaynağın tercih edilen adresi. Adres, her durumda oluşturulan HTML 'ye düşünce olarak iletilir.
+Geri dönüş testi için kullanılacak birincil betikte tanımlanan betik yöntemi. Daha fazla bilgi için bkz. <xref:Microsoft.AspNetCore.Mvc.TagHelpers.ScriptTagHelper.FallbackTestExpression>.
 
-### <a name="asp-fallback-href"></a>ASP-geri dönüş-href
+### <a name="asp-fallback-src"></a>ASP-geri dönüş-src
 
-Birincil URL 'nin başarısız olması durumunda öğesine geri dönüş için CSS stil sayfasının URL 'SI.
-
-### <a name="asp-fallback-test-class"></a>ASP-geri dönüş-test sınıfı
-
-Geri dönüş testi için kullanılacak stil sayfasında tanımlanan sınıf adı. Daha fazla bilgi için bkz. <xref:Microsoft.AspNetCore.Mvc.TagHelpers.LinkTagHelper.FallbackTestClass>.
-
-### <a name="asp-fallback-test-property"></a>ASP-Fallback-test-özelliği
-
-Geri dönüş testi için kullanılacak CSS özellik adı. Daha fazla bilgi için bkz. <xref:Microsoft.AspNetCore.Mvc.TagHelpers.LinkTagHelper.FallbackTestProperty>.
-
-### <a name="asp-fallback-test-value"></a>ASP-geri dönüş-test-değeri
-
-Geri dönüş testi için kullanılacak CSS özelliği değeri. Daha fazla bilgi için bkz. <xref:Microsoft.AspNetCore.Mvc.TagHelpers.LinkTagHelper.FallbackTestValue>.
-
-### <a name="asp-fallback-test-value"></a>ASP-geri dönüş-test-değeri
-
-Geri dönüş testi için kullanılacak CSS özelliği değeri. Daha fazla bilgi için bkz.<xref:Microsoft.AspNetCore.Mvc.TagHelpers.LinkTagHelper.FallbackTestValue>
+Birincil bir hata durumunda öğesine geri dönüş yapılacak bir betik etiketinin URL 'SI. Daha fazla bilgi için bkz. <xref:Microsoft.AspNetCore.Mvc.TagHelpers.ScriptTagHelper.FallbackSrc>.
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 

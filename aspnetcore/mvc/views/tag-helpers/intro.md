@@ -1,35 +1,35 @@
 ---
-title: ASP.NET core'da etiket Yardımcıları
+title: Tag Helpers in ASP.NET Core
 author: rick-anderson
-description: Etiket Yardımcıları nelerdir ve bunların içinde ASP.NET Core nasıl kullanılacağını öğrenin.
+description: Learn what Tag Helpers are and how to use them in ASP.NET Core.
 ms.author: riande
 ms.custom: H1Hack27Feb2017
 ms.date: 03/18/2019
 uid: mvc/views/tag-helpers/intro
-ms.openlocfilehash: 870ce2eb28f384b380cc1178842325dc28199f09
-ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
+ms.openlocfilehash: 15f94fd1c619e9f69c5783f664eafc9ca28f86f9
+ms.sourcegitcommit: 8157e5a351f49aeef3769f7d38b787b4386aad5f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67814986"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74239852"
 ---
-# <a name="tag-helpers-in-aspnet-core"></a>ASP.NET core'da etiket Yardımcıları
+# <a name="tag-helpers-in-aspnet-core"></a>Tag Helpers in ASP.NET Core
 
-Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
+By [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-## <a name="what-are-tag-helpers"></a>Etiket Yardımcıları nelerdir
+## <a name="what-are-tag-helpers"></a>What are Tag Helpers
 
-Etiket Yardımcıları oluşturma ve Razor dosyalarında HTML öğeleri işleme katılmak sunucu tarafı kodu etkinleştirin. Örneğin, yerleşik `ImageTagHelper` görüntü adı için bir sürüm numarası ekleyebilirsiniz. Görüntü değiştiğinde geçerli resim (yerine, eski bir önbelleğe alınan görüntü) almak için istemcilerini garanti için sunucu görüntüsü için benzersiz yeni bir sürümü oluşturur. Birçok yerleşik etiket Yardımcıları için formlar, bağlantılar, yükleme varlıklar ve ortak GitHub depoları ve NuGet olarak daha kullanılabilir ve daha fazla - paketleri oluşturma gibi ortak görevler - vardır. Etiket Yardımcıları C# dilinde yazılmış ve öğe adı, öznitelik adı veya üst etiketi dayalı HTML öğeleri hedeflenir. Örneğin, yerleşik `LabelTagHelper` HTML hedefleyebilir `<label>` öğesi olduğunda `LabelTagHelper` öznitelikler uygulanır. Aşina değilseniz [HTML Yardımcıları](https://stephenwalther.com/archive/2009/03/03/chapter-6-understanding-html-helpers), HTML ve C# arasında açık geçişler Razor görünümleri, etiket Yardımcıları azaltın. Çoğu durumda, HTML Yardımcıları, belirli bir etiketi Yardımcısı için alternatif bir yaklaşım sağlar, ancak etiket Yardımcıları HTML Yardımcıları değiştirin yoktur ve her HTML Yardımcısı için bir etiket Yardımcısı olmadığını bilmek önemlidir. [Etiket Yardımcıları için HTML Yardımcıları karşılaştırıldığında](#tag-helpers-compared-to-html-helpers) farklar daha ayrıntılı açıklanmaktadır.
+Tag Helpers enable server-side code to participate in creating and rendering HTML elements in Razor files. For example, the built-in `ImageTagHelper` can append a version number to the image name. Whenever the image changes, the server generates a new unique version for the image, so clients are guaranteed to get the current image (instead of a stale cached image). There are many built-in Tag Helpers for common tasks - such as creating forms, links, loading assets and more - and even more available in public GitHub repositories and as NuGet packages. Tag Helpers are authored in C#, and they target HTML elements based on element name, attribute name, or parent tag. For example, the built-in `LabelTagHelper` can target the HTML `<label>` element when the `LabelTagHelper` attributes are applied. If you're familiar with [HTML Helpers](https://stephenwalther.com/archive/2009/03/03/chapter-6-understanding-html-helpers), Tag Helpers reduce the explicit transitions between HTML and C# in Razor views. In many cases, HTML Helpers provide an alternative approach to a specific Tag Helper, but it's important to recognize that Tag Helpers don't replace HTML Helpers and there's not a Tag Helper for each HTML Helper. [Tag Helpers compared to HTML Helpers](#tag-helpers-compared-to-html-helpers) explains the differences in more detail.
 
-## <a name="what-tag-helpers-provide"></a>Etiket Yardımcıları neler sağlar
+## <a name="what-tag-helpers-provide"></a>What Tag Helpers provide
 
-**Bir HTML kullanımı kolay geliştirme deneyimi** en bölümü için etiket Yardımcıları kullanarak Razor işaretlemesi standart HTML gibi görünüyor. Ön uç tasarımcılar ile HTML/CSS/JavaScript conversant öğrenme olmadan Razor düzenleyebilir C# Razor söz dizimi.
+**An HTML-friendly development experience** For the most part, Razor markup using Tag Helpers looks like standard HTML. Front-end designers conversant with HTML/CSS/JavaScript can edit Razor without learning C# Razor syntax.
 
-**HTML ve Razor biçimlendirme oluşturmak için zengin IntelliSense ortamı** sharp Karşıtlık HTML Yardımcıları, sunucu tarafı Razor görünümleri işaretlemede oluşturulmasını önceki yaklaşım budur. [Etiket Yardımcıları için HTML Yardımcıları karşılaştırıldığında](#tag-helpers-compared-to-html-helpers) farklar daha ayrıntılı açıklanmaktadır. [Etiket Yardımcıları için IntelliSense desteği](#intellisense-support-for-tag-helpers) IntelliSense ortamı açıklar. C# Razor işaretlemesi yazmaktan etiket Yardımcıları kullanarak daha üretken bile geliştiricilerin Razor C# sözdizimi ile karşılaştı.
+**A rich IntelliSense environment for creating HTML and Razor markup** This is in sharp contrast to HTML Helpers, the previous approach to server-side creation of markup in Razor views. [Tag Helpers compared to HTML Helpers](#tag-helpers-compared-to-html-helpers) explains the differences in more detail. [IntelliSense support for Tag Helpers](#intellisense-support-for-tag-helpers) explains the IntelliSense environment. Even developers experienced with Razor C# syntax are more productive using Tag Helpers than writing C# Razor markup.
 
-**Daha üretken ve üretmek için yaptığınız daha sağlam, güvenilir şekilde ve yalnızca sunucu üzerinde bilgileriyle Bakımı yapılabilir kodu** Örneğin, geçmişte görüntüleri güncelleştirme mantra değiştirdiğinizde, görüntünün adını değiştirmek için oluştu Resim. Görüntüleri performansla ilgili nedenlerden dolayı agresif önbelleğe alınması gerektiğini ve görüntü adını değiştirmediğiniz sürece, eski bir kopyasını alma istemciler risk. Tarihsel olarak, görüntü düzenlendi sonra adı değiştirilmesi gerekti ve web uygulamasında görüntü her başvuru güncelleştirilmesi gerekmiyor. Yalnızca bu, bu da hataya (, bir başvurusu eksik olabilir, yanlışlıkla girin yanlış dize, vb.) yoğundur çok emek mi Yerleşik `ImageTagHelper` sizin için otomatik olarak bunu yapabilirsiniz. `ImageTagHelper` Bir sürüm ekleyebilir görüntü değiştiğinde sunucu görüntüsü için benzersiz yeni bir sürümü otomatik olarak oluşturur. Bu nedenle sayı görüntü adı için. İstemciler, geçerli görüntü almak için garanti edilir. Kullanarak bu sağlamlık ve iş Pazarı tasarruf temelde ücretsiz gelen `ImageTagHelper`.
+**A way to make you more productive and able to produce more robust, reliable, and maintainable code using information only available on the server** For example, historically the mantra on updating images was to change the name of the image when you change the image. Images should be aggressively cached for performance reasons, and unless you change the name of an image, you risk clients getting a stale copy. Historically, after an image was edited, the name had to be changed and each reference to the image in the web app needed to be updated. Not only is this very labor intensive, it's also error prone (you could miss a reference, accidentally enter the wrong string, etc.) The built-in `ImageTagHelper` can do this for you automatically. The `ImageTagHelper` can append a version number to the image name, so whenever the image changes, the server automatically generates a new unique version for the image. Clients are guaranteed to get the current image. This robustness and labor savings comes essentially free by using the `ImageTagHelper`.
 
-En çok yerleşik etiket Yardımcıları standart HTML öğeleri hedef ve öğe için sunucu tarafı öznitelikler sağlar. Örneğin, `<input>` birçok görünümlerde kullanılan öğe *görünümler/hesap* klasörde `asp-for` özniteliği. Bu öznitelik, İşlenmiş HTML belirtilen model özelliğin adını ayıklar. Bir Razor görünüm aşağıdaki modeliyle göz önünde bulundurun:
+Most built-in Tag Helpers target standard HTML elements and provide server-side attributes for the element. For example, the `<input>` element used in many views in the *Views/Account* folder contains the `asp-for` attribute. This attribute extracts the name of the specified model property into the rendered HTML. Consider a Razor view with the following model:
 
 ```csharp
 public class Movie
@@ -42,39 +42,39 @@ public class Movie
 }
 ```
 
-Aşağıdaki Razor işaretlemesi:
+The following Razor markup:
 
 ```cshtml
 <label asp-for="Movie.Title"></label>
 ```
 
-Aşağıdaki HTML'yi oluşturur:
+Generates the following HTML:
 
 ```html
 <label for="Movie_Title">Title</label>
 ```
 
-`asp-for` Özniteliği tarafından kullanılabilir yapılan `For` özelliğinde [LabelTagHelper](/dotnet/api/microsoft.aspnetcore.mvc.taghelpers.labeltaghelper?view=aspnetcore-2.0). Bkz: [Yazar etiket Yardımcıları](xref:mvc/views/tag-helpers/authoring) daha fazla bilgi için.
+The `asp-for` attribute is made available by the `For` property in the [LabelTagHelper](/dotnet/api/microsoft.aspnetcore.mvc.taghelpers.labeltaghelper?view=aspnetcore-2.0). See [Author Tag Helpers](xref:mvc/views/tag-helpers/authoring) for more information.
 
-## <a name="managing-tag-helper-scope"></a>Kapsam etiketi Yardımcısı'nı yönetme
+## <a name="managing-tag-helper-scope"></a>Managing Tag Helper scope
 
-Etiket Yardımcıları kapsamı, bir birleşimiyle denetlenir `@addTagHelper`, `@removeTagHelper`ve "!" çevirme karakter.
+Tag Helpers scope is controlled by a combination of `@addTagHelper`, `@removeTagHelper`, and the "!" opt-out character.
 
 <a name="add-helper-label"></a>
 
-### <a name="addtaghelper-makes-tag-helpers-available"></a>`@addTagHelper` Etiket Yardımcıları kullanılabilir hale getirir
+### <a name="addtaghelper-makes-tag-helpers-available"></a>`@addTagHelper` makes Tag Helpers available
 
-Adlı yeni bir ASP.NET Core web uygulaması oluşturursanız *AuthoringTagHelpers*, aşağıdaki *Views/_ViewImports.cshtml* dosyası projenize eklenecek:
+If you create a new ASP.NET Core web app named *AuthoringTagHelpers*, the following *Views/_ViewImports.cshtml* file will be added to your project:
 
 [!code-cshtml[](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/_ViewImportsCopy.cshtml?highlight=2&range=2-3)]
 
-`@addTagHelper` Yönergesi etiket Yardımcıları için görüntüleme kullanıma sunar. Bu durumda, görünüm dosyasıdır *Pages/_ViewImports.cshtml*, varsayılan olarak tüm dosyaları tarafından devralınır *sayfaları* klasörü ve alt klasörleri; etiket Yardımcıları kullanılabilir hale getirir. Yukarıdaki kod joker karakter sözdizimini kullanır ("\*") olduğunu belirtmek için belirtilen derlemedeki tüm etiket Yardımcıları (*Microsoft.AspNetCore.Mvc.TagHelpers*) her bir görünüm dosyanın çalıştırılabilecek *görünümleri* dizin veya alt dizin. İlk parametresinden sonra `@addTagHelper` yüklemek için etiket Yardımcıları belirtir (kullanıyoruz "\*" tüm etiket Yardımcıları için), ve ikinci parametre "Microsoft.AspNetCore.Mvc.TagHelpers" etiket Yardımcıları içeren derlemeyi belirtir. *Microsoft.AspNetCore.Mvc.TagHelpers* yerleşik ASP.NET Core etiket Yardımcıları için derleme.
+The `@addTagHelper` directive makes Tag Helpers available to the view. In this case, the view file is *Pages/_ViewImports.cshtml*, which by default is inherited by all files in the *Pages* folder and subfolders; making Tag Helpers available. The code above uses the wildcard syntax ("\*") to specify that all Tag Helpers in the specified assembly (*Microsoft.AspNetCore.Mvc.TagHelpers*) will be available to every view file in the *Views* directory or subdirectory. The first parameter after `@addTagHelper` specifies the Tag Helpers to load (we are using "\*" for all Tag Helpers), and the second parameter "Microsoft.AspNetCore.Mvc.TagHelpers" specifies the assembly containing the Tag Helpers. *Microsoft.AspNetCore.Mvc.TagHelpers* is the assembly for the built-in ASP.NET Core Tag Helpers.
 
-Etiket Yardımcıları bu projedeki tüm kullanıma sunmak için (adlı bir derleme oluşturur *AuthoringTagHelpers*), aşağıdakileri kullanmanız gerekir:
+To expose all of the Tag Helpers in this project (which creates an assembly named *AuthoringTagHelpers*), you would use the following:
 
 [!code-cshtml[](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/_ViewImportsCopy.cshtml?highlight=3)]
 
-Projeniz varsa bir `EmailTagHelper` varsayılan ad alanı (`AuthoringTagHelpers.TagHelpers.EmailTagHelper`), etiket Yardımcısı'nın tam adı (FQN) sağlayabilir:
+If your project contains an `EmailTagHelper` with the default namespace (`AuthoringTagHelpers.TagHelpers.EmailTagHelper`), you can provide the fully qualified name (FQN) of the Tag Helper:
 
 ```cshtml
 @using AuthoringTagHelpers
@@ -82,170 +82,186 @@ Projeniz varsa bir `EmailTagHelper` varsayılan ad alanı (`AuthoringTagHelpers.
 @addTagHelper AuthoringTagHelpers.TagHelpers.EmailTagHelper, AuthoringTagHelpers
 ```
 
-Etiket Yardımcısı kullanarak bir FQN görünümüne eklemek için önce FQN ekleyin (`AuthoringTagHelpers.TagHelpers.EmailTagHelper`) ve ardından derleme adı (*AuthoringTagHelpers*). Çoğu geliştirici kullanmayı tercih eder "\*" joker karakter sözdizimini. Joker karakter eklemek joker karakter sözdizimini sağlar "\*" bir FQN soneki olarak. Örneğin, aşağıdaki yönergeleri hiçbirini getirecek `EmailTagHelper`:
+To add a Tag Helper to a view using an FQN, you first add the FQN (`AuthoringTagHelpers.TagHelpers.EmailTagHelper`), and then the assembly name (*AuthoringTagHelpers*). Most developers prefer to use the  "\*" wildcard syntax. The wildcard syntax allows you to insert the wildcard character "\*" as the suffix in an FQN. For example, any of the following directives will bring in the `EmailTagHelper`:
 
 ```cshtml
 @addTagHelper AuthoringTagHelpers.TagHelpers.E*, AuthoringTagHelpers
 @addTagHelper AuthoringTagHelpers.TagHelpers.Email*, AuthoringTagHelpers
 ```
 
-Daha önce belirtildiği gibi ekleme `@addTagHelper` yönergesini *Views/_ViewImports.cshtml* dosya etiketi Yardımcısı tüm görünüm dosyalarında kullanıma sunar *görünümleri* dizin ve alt dizinleri. Kullanabileceğiniz `@addTagHelper` istediğinizde bu görünümleri için etiket Yardımcısı kullanıma sunmak için katılım belirli görünüm dosyalarında yönergesi.
+As mentioned previously, adding the `@addTagHelper` directive to the *Views/_ViewImports.cshtml* file makes the Tag Helper available to all view files in the *Views* directory and subdirectories. You can use the `@addTagHelper` directive in specific view files if you want to opt-in to exposing the Tag Helper to only those views.
 
 <a name="remove-razor-directives-label"></a>
 
-### <a name="removetaghelper-removes-tag-helpers"></a>`@removeTagHelper` Etiket Yardımcıları kaldırır
+### <a name="removetaghelper-removes-tag-helpers"></a>`@removeTagHelper` removes Tag Helpers
 
-`@removeTagHelper` Olarak aynı iki parametreye sahip `@addTagHelper`, ve daha önce eklediğiniz etiket Yardımcısı kaldırır. Örneğin, `@removeTagHelper` görünümünden belirli görünüm kaldırır belirtilen etiketi Yardımcısı uygulanabilir. Kullanarak `@removeTagHelper` içinde bir *Views/Folder/_ViewImports.cshtml* dosyasını kaldırır belirtilen etiketi Yardımcısı tüm görünümlerde *klasör*.
+The `@removeTagHelper` has the same two parameters as `@addTagHelper`, and it removes a Tag Helper that was previously added. For example, `@removeTagHelper` applied to a specific view removes the specified Tag Helper from the view. Using `@removeTagHelper` in a *Views/Folder/_ViewImports.cshtml* file removes the specified Tag Helper from all of the views in *Folder*.
 
-### <a name="controlling-tag-helper-scope-with-the-viewimportscshtml-file"></a>Etiket Yardımcısı kapsamlı denetleme *_viewımports.cshtml* dosyası
+### <a name="controlling-tag-helper-scope-with-the-_viewimportscshtml-file"></a>Controlling Tag Helper scope with the *_ViewImports.cshtml* file
 
-Ekleyebileceğiniz bir *_viewımports.cshtml* herhangi bir görünüm klasörü ve görünüm altyapısı yönergeleri Bu iki dosyadan uygulanır ve *Views/_ViewImports.cshtml* dosya. Boş bir eklediyseniz *Views/Home/_ViewImports.cshtml* dosya *giriş* görünümleri olduğundan değişiklik olur *_viewımports.cshtml* dosya eklenebilir. Tüm `@addTagHelper` eklemek için yönergeleri *Views/Home/_ViewImports.cshtml* dosyası (varsayılan olmayan *Views/_ViewImports.cshtml* dosya) Bu etiket Yardımcıları görünümlere kullanılabilmesini yalnızca *Giriş* klasör.
+You can add a *_ViewImports.cshtml* to any view folder, and the view engine applies the directives from both that file and the *Views/_ViewImports.cshtml* file. If you added an empty *Views/Home/_ViewImports.cshtml* file for the *Home* views, there would be no change because the *_ViewImports.cshtml* file is additive. Any `@addTagHelper` directives you add to the *Views/Home/_ViewImports.cshtml* file (that are not in the default *Views/_ViewImports.cshtml* file) would expose those Tag Helpers to views only in the *Home* folder.
 
 <a name="opt-out"></a>
 
-### <a name="opting-out-of-individual-elements"></a>Tek tek öğelerin seçim yapma
+### <a name="opting-out-of-individual-elements"></a>Opting out of individual elements
 
-Etiket Yardımcısı etiketi Yardımcısı çevirme karakteri ile öğe düzeyinde devre dışı bırakabilirsiniz ("!"). Örneğin, `Email` doğrulama devre dışı `<span>` etiketi Yardımcısı çevirme karakteri ile:
+You can disable a Tag Helper at the element level with the Tag Helper opt-out character ("!"). For example, `Email` validation is disabled in the `<span>` with the Tag Helper opt-out character:
 
 ```cshtml
 <!span asp-validation-for="Email" class="text-danger"></!span>
 ```
 
-Etiket Yardımcısı çevirme karakterin açılış ve kapanış etiketi uygulamanız gerekir. (Bir açma etiketi eklediğinizde Visual Studio Düzenleyicisi'ni otomatik olarak geri çevirme karakter için kapanış etiketi ekler). Vazgeçme karakter ekledikten sonra etiket Yardımcısı öznitelikleri ve öğe artık farklı bir yazı tipinde görüntülenir.
+You must apply the Tag Helper opt-out character to the opening and closing tag. (The Visual Studio editor automatically adds the opt-out character to the closing tag when you add one to the opening tag). After you add the opt-out character, the element and Tag Helper attributes are no longer displayed in a distinctive font.
 
 <a name="prefix-razor-directives-label"></a>
 
-### <a name="using-taghelperprefix-to-make-tag-helper-usage-explicit"></a>Kullanarak `@tagHelperPrefix` etiketi Yardımcısı kullanım açık hale getirmek için
+### <a name="using-taghelperprefix-to-make-tag-helper-usage-explicit"></a>Using `@tagHelperPrefix` to make Tag Helper usage explicit
 
-`@tagHelperPrefix` Yönergesi, etiket Yardımcısı desteğinin etkinleştirmek ve etiket Yardımcısı kullanım açık hale getirmek için bir etiket önek dizesi belirtmenize olanak sağlar. Örneğin, aşağıdaki işaretlemede ekleyebilirsiniz *Views/_ViewImports.cshtml* dosyası:
+The `@tagHelperPrefix` directive allows you to specify a tag prefix string to enable Tag Helper support and to make Tag Helper usage explicit. For example, you could add the following markup to the *Views/_ViewImports.cshtml* file:
 
 ```cshtml
 @tagHelperPrefix th:
 ```
 
-Kod aşağıdaki resimde, etiket Yardımcısı ön ek ayarlanır `th:`, bu nedenle yalnızca önekini kullanarak öğeleri `th:` etiket Yardımcıları (etiket Yardımcısı etkin öğeleri sahip farklı bir yazı tipi) destekler. `<label>` Ve `<input>` öğeleri etiketi Yardımcısı önekine sahip ve etiket Yardımcısı etkinleştirilmiş, çalışırken `<span>` öğesi değil.
+In the code image below, the Tag Helper prefix is set to `th:`, so only those elements using the prefix `th:` support Tag Helpers (Tag Helper-enabled elements have a distinctive font). The `<label>` and `<input>` elements have the Tag Helper prefix and are Tag Helper-enabled, while the `<span>` element doesn't.
 
 ![görüntü](intro/_static/thp.png)
 
-Geçerli aynı hiyerarşi kuralları `@addTagHelper` için de geçerli `@tagHelperPrefix`.
+The same hierarchy rules that apply to `@addTagHelper` also apply to `@tagHelperPrefix`.
 
-## <a name="self-closing-tag-helpers"></a>Kendi kendine kapanan etiket Yardımcıları
+## <a name="self-closing-tag-helpers"></a>Self-closing Tag Helpers
 
-Çok sayıda etiket Yardımcıları etiketleri kendi kendine kapanan olarak kullanılamaz. Bazı etiket Yardımcıları, kendi kendine kapanan etiketleri için tasarlanmıştır. Kendi kendine kapanan olacak şekilde tasarlanmamıştır etiket Yardımcısı kullanarak işlenen çıkışı bastırır. Etiket Yardımcısı kendi kendine kapanan işlenen çıkışı bir kendi kendine kapanan etiket sonuçlanır. Daha fazla bilgi için [Bu Not](xref:mvc/views/tag-helpers/authoring#self-closing) içinde [yazma etiketi Yardımcıları](xref:mvc/views/tag-helpers/authoring).
+Many Tag Helpers can't be used as self-closing tags. Some Tag Helpers are designed to be self-closing tags. Using a Tag Helper that was not designed to be self-closing suppresses the rendered output. Self-closing a Tag Helper results in a self-closing tag in the rendered output. For more information, see [this note](xref:mvc/views/tag-helpers/authoring#self-closing) in [Authoring Tag Helpers](xref:mvc/views/tag-helpers/authoring).
 
-## <a name="intellisense-support-for-tag-helpers"></a>Etiket Yardımcıları için IntelliSense desteği
+## <a name="c-in-tag-helpers-attributedeclaration"></a>C# in Tag Helpers attribute/declaration 
 
-Visual Studio'da yeni bir ASP.NET Core web uygulaması oluşturduğunuzda, "Microsoft.AspNetCore.Razor.Tools" NuGet paketini ekler. Bu etiket Yardımcısı araçları ekleyen paketidir.
+Tag Helpers do not allow C# in the element's attribute or tag declaration area. For example, the following code is not valid:
 
-Bir HTML yazmayı düşünebilirsiniz `<label>` öğesi. Girdiğiniz hemen sonra `<l` Visual Studio düzenleyicisinde, IntelliSense eşleşen öğeleri görüntüler:
+```cshtml
+<input asp-for="LastName"  
+       @(Model?.LicenseId == null ? "disabled" : string.Empty) />
+```
+
+The preceding code can be written as:
+
+```cshtml
+<input asp-for="LastName" 
+       disabled="@(Model?.LicenseId == null)" />
+```
+
+## <a name="intellisense-support-for-tag-helpers"></a>IntelliSense support for Tag Helpers
+
+When you create a new ASP.NET Core web app in Visual Studio, it adds the NuGet package "Microsoft.AspNetCore.Razor.Tools". This is the package that adds Tag Helper tooling.
+
+Consider writing an HTML `<label>` element. As soon as you enter `<l` in the Visual Studio editor, IntelliSense displays matching elements:
 
 ![görüntü](intro/_static/label.png)
 
-Yalnızca simgesi ancak HTML Yardımı alın ("@" symbol with "<>" altındaki).
+Not only do you get HTML help, but the icon (the "@" symbol with "<>" under it).
 
 ![görüntü](intro/_static/tagSym.png)
 
-Etiket Yardımcıları tarafından hedeflenen öğe tanıtır. Saf HTML öğeleri (gibi `fieldset`) "<>" simgesi görüntüler.
+identifies the element as targeted by Tag Helpers. Pure HTML elements (such as the `fieldset`) display the "<>" icon.
 
-Saf bir HTML `<label>` etiketi kahverengi yazı tipi özniteliklerini kırmızı, HTML etiket (ile varsayılan Visual Studio renk teması) görüntüler ve öznitelik değerleri içinde mavi.
+A pure HTML `<label>` tag displays the HTML tag (with the default Visual Studio color theme) in a brown font, the attributes in red, and the attribute values in blue.
 
 ![görüntü](intro/_static/LableHtmlTag.png)
 
-Girdikten sonra `<label`, IntelliSense, kullanılabilir HTML/CSS öznitelikleri ve etiket Yardımcısı hedeflemeli öznitelikler listelenir:
+After you enter `<label`, IntelliSense lists the available HTML/CSS attributes and the Tag Helper-targeted attributes:
 
 ![görüntü](intro/_static/labelattr.png)
 
-IntelliSense deyim tamamlamada seçilen değeri deyimiyle tamamlamak için SEKME tuşunu girmenizi sağlar:
+IntelliSense statement completion allows you to enter the tab key to complete the statement with the selected value:
 
 ![görüntü](intro/_static/stmtcomplete.png)
 
-Bir etiketi yardımcı öznitelik girildikten hemen sonra etiketi ve özniteliği yazı tiplerini değiştirme. Varsayılan Visual Studio "Mavi" veya "Açık" renk teması kullanarak yazı tipinin kalın mor renkte. "Koyu" tema kullanıyorsanız, koyu Deniz Mavisi yazı tipidir. Bu belgedeki görüntüleri varsayılan tema kullanılarak alınmıştır.
+As soon as a Tag Helper attribute is entered, the tag and attribute fonts change. Using the default Visual Studio "Blue" or "Light" color theme, the font is bold purple. If you're using the "Dark" theme the font is bold teal. The images in this document were taken using the default theme.
 
 ![görüntü](intro/_static/labelaspfor2.png)
 
-Visual Studio girebilirsiniz *CompleteWord* kısayol (Ctrl + Ara çubuğu olan [varsayılan](/visualstudio/ide/default-keyboard-shortcuts-in-visual-studio) çift tırnak işareti içinde (""), ve bir C# sınıfta olması gibi C# dilinde sunulmuştur. IntelliSense, sayfa modeli üzerinde tüm yöntemleri ve özellikleri görüntüler. Özellik türü olduğundan yöntemleri ve özellikleri kullanılabilir `ModelExpression`. Aşağıdaki görüntüde, ı düzenleme `Register` görünümü, bu nedenle `RegisterViewModel` kullanılabilir.
+You can enter the Visual Studio *CompleteWord* shortcut (Ctrl +spacebar is the [default](/visualstudio/ide/default-keyboard-shortcuts-in-visual-studio) inside the double quotes (""), and you are now in C#, just like you would be in a C# class. IntelliSense displays all the methods and properties on the page model. The methods and properties are available because the property type is `ModelExpression`. In the image below, I'm editing the `Register` view, so the `RegisterViewModel` is available.
 
 ![görüntü](intro/_static/intellemail.png)
 
-IntelliSense özellikleri ve yöntemleri bir Modeli'ne sayfasında kullanılabilir listeler. Zengin IntelliSense ortam CSS sınıfının seçmenize yardımcı olur:
+IntelliSense lists the properties and methods available to the model on the page. The rich IntelliSense environment helps you select the CSS class:
 
 ![görüntü](intro/_static/iclass.png)
 
 ![görüntü](intro/_static/intel3.png)
 
-## <a name="tag-helpers-compared-to-html-helpers"></a>HTML Yardımcıları karşılaştırıldığında etiket Yardımcıları
+## <a name="tag-helpers-compared-to-html-helpers"></a>Tag Helpers compared to HTML Helpers
 
-Etiket Yardımcıları ekleme Razor görünümleri, HTML öğeleri için sırada [HTML Yardımcıları](https://stephenwalther.com/archive/2009/03/03/chapter-6-understanding-html-helpers) yöntemleri HTML Razor görünümleri interspersed şekilde çağırılır. CSS sınıfı "Başlık" ile bir HTML etiketi oluşturur aşağıdaki Razor işaretlemesi göz önünde bulundurun:
+Tag Helpers attach to HTML elements in Razor views, while [HTML Helpers](https://stephenwalther.com/archive/2009/03/03/chapter-6-understanding-html-helpers) are invoked as methods interspersed with HTML in Razor views. Consider the following Razor markup, which creates an HTML label with the CSS class "caption":
 
 ```cshtml
 @Html.Label("FirstName", "First Name:", new {@class="caption"})
 ```
 
-Konumunda (`@`) sembolü söyler Razor kod başlangıcını budur. Sonraki iki parametre ("FirstName" ve "ad:"), bu nedenle dizelerdir [IntelliSense](/visualstudio/ide/using-intellisense) yardımcı olamaz. Son bağımsız değişken:
+The at (`@`) symbol tells Razor this is the start of code. The next two parameters ("FirstName" and "First Name:") are strings, so [IntelliSense](/visualstudio/ide/using-intellisense) can't help. The last argument:
 
 ```cshtml
 new {@class="caption"}
 ```
 
-Bir anonim nesnenin öznitelikleri temsil etmek için kullanılır. Çünkü `class` ayrılmış bir anahtar sözcük C#, kullandığınız `@` zorlamak için Sembol C# yorumlamak için `@class=` sembol (özellik adı) olarak. Ön uç tasarımcıya (birisi HTML/CSS/JavaScript ve diğer istemci teknolojileri hakkında bilgi sahibi ancak C# ve Razor ile tanıdık), satır çoğunu yabancı. Tüm satırı IntelliSense hiçbir yardımıyla yazılması gerekir.
+Is an anonymous object used to represent attributes. Because `class` is a reserved keyword in C#, you use the `@` symbol to force C# to interpret `@class=` as a symbol (property name). To a front-end designer (someone familiar with HTML/CSS/JavaScript and other client technologies but not familiar with C# and Razor), most of the line is foreign. The entire line must be authored with no help from IntelliSense.
 
-Kullanarak `LabelTagHelper`, aynı biçimlendirme olarak yazılabilir:
+Using the `LabelTagHelper`, the same markup can be written as:
 
 ```cshtml
 <label class="caption" asp-for="FirstName"></label>
 ```
 
-Etiket Yardımcısı sürümüyle girdiğiniz hemen sonra `<l` Visual Studio düzenleyicisinde, IntelliSense eşleşen öğeleri görüntüler:
+With the Tag Helper version, as soon as you enter `<l` in the Visual Studio editor, IntelliSense displays matching elements:
 
 ![görüntü](intro/_static/label.png)
 
-IntelliSense, tüm satırı yazmanıza yardımcı olur.
+IntelliSense helps you write the entire line.
 
-Aşağıdaki kodu görüntüsünü Form bölümü gösterilmektedir *Views/Account/Register.cshtml* Visual Studio'ya dahil edildi ASP.NET 4.5.x MVC şablonu oluşturulmuş Razor görünüm.
+The following code image shows the Form portion of the *Views/Account/Register.cshtml* Razor view generated from the ASP.NET 4.5.x MVC template included with Visual Studio.
 
 ![görüntü](intro/_static/regCS.png)
 
-Visual Studio Düzenleyicisi, C# gri arka plan kodu görüntüler. Örneğin, `AntiForgeryToken` HTML Yardımcısı:
+The Visual Studio editor displays C# code with a grey background. For example, the `AntiForgeryToken` HTML Helper:
 
 ```cshtml
 @Html.AntiForgeryToken()
 ```
 
-gri arka plan görüntülenir. Kayıt görünümünde biçimlendirme çoğunu olan C#. Bu etiket Yardımcıları kullanarak eşdeğer bir yaklaşım karşılaştırın:
+is displayed with a grey background. Most of the markup in the Register view is C#. Compare that to the equivalent approach using Tag Helpers:
 
 ![görüntü](intro/_static/regTH.png)
 
-Biçimlendirme, çok daha net ve okuma, düzenlemek ve sürdürmek için HTML Yardımcıları yaklaşım kolay. C# kodu sunucu hakkında bilmesi gereken minimum azaltılır. Visual Studio Düzenleyicisi, farklı bir yazı tipi etiket Yardımcısı tarafından hedeflenen biçimlendirme görüntüler.
+The markup is much cleaner and easier to read, edit, and maintain than the HTML Helpers approach. The C# code is reduced to the minimum that the server needs to know about. The Visual Studio editor displays markup targeted by a Tag Helper in a distinctive font.
 
-Göz önünde bulundurun *e-posta* Grup:
+Consider the *Email* group:
 
 [!code-csharp[](intro/sample/Register.cshtml?range=12-18)]
 
-Her biri "asp-" öznitelikler "Email" değerine sahiptir ancak "Email" bir dize değil. Bu bağlamda "Email" C# model ifade özelliğidir `RegisterViewModel`.
+Each of the "asp-" attributes has a value of "Email", but "Email" isn't a string. In this context, "Email" is the C# model expression property for the `RegisterViewModel`.
 
-Visual Studio Düzenleyicisi yazmanıza yardımcı olur. **tüm** sağlarken, Visual Studio, HTML Yardımcıları yaklaşım kodun çoğu Yardım sağlar. kayıt formun etiketi Yardımcısı yaklaşımda biçimlendirme. [Etiket Yardımcıları için IntelliSense desteği](#intellisense-support-for-tag-helpers) Visual Studio Düzenleyicisi'nde etiket Yardımcıları ile çalışma konusunda ayrıntıya gider.
+The Visual Studio editor helps you write **all** of the markup in the Tag Helper approach of the register form, while Visual Studio provides no help for most of the code in the HTML Helpers approach. [IntelliSense support for Tag Helpers](#intellisense-support-for-tag-helpers) goes into detail on working with Tag Helpers in the Visual Studio editor.
 
-## <a name="tag-helpers-compared-to-web-server-controls"></a>Web sunucu denetimlerine kıyasla etiket Yardımcıları
+## <a name="tag-helpers-compared-to-web-server-controls"></a>Tag Helpers compared to Web Server Controls
 
-* Etiket Yardımcıları, ilişkili oldukları öğesi sahip değil; Bunlar, yalnızca öğe ve içeriği işlemede katılın. ASP.NET [Web sunucusu denetimleri](https://msdn.microsoft.com/library/7698y1f0.aspx) bildirildi ve bir sayfada çağrılır.
+* Tag Helpers don't own the element they're associated with; they simply participate in the rendering of the element and content. ASP.NET [Web Server controls](https://msdn.microsoft.com/library/7698y1f0.aspx) are declared and invoked on a page.
 
-* [Web sunucusu denetimleri](https://msdn.microsoft.com/library/zsyt68f1.aspx) geliştirmeye ve hata ayıklamayı zorlaştırabilir Önemsiz olmayan bir yaşam döngüleri vardır.
+* [Web Server controls](https://msdn.microsoft.com/library/zsyt68f1.aspx) have a non-trivial lifecycle that can make developing and debugging difficult.
 
-* Web sunucusu denetimleri istemci denetimi kullanarak istemci belge nesne modeli (DOM) öğelerine işlevselliğini eklemenizi sağlar. Etiket Yardımcıları hiçbir yerli sahip
+* Web Server controls allow you to add functionality to the client Document Object Model (DOM) elements by using a client control. Tag Helpers have no DOM.
 
-* Web sunucusu denetimleri otomatik tarayıcı Algılama'yı içerir. Etiket Yardımcıları tarayıcı hiçbir bilgiye sahip.
+* Web Server controls include automatic browser detection. Tag Helpers have no knowledge of the browser.
 
-* Aynı öğede birden çok etiket Yardımcıları davranabilir (bkz [çakışmaları önleme etiketi Yardımcısı](xref:mvc/views/tag-helpers/authoring#avoid-tag-helper-conflicts) ) Web sunucusu denetimleri genellikle oluşturamazsınız ancak.
+* Multiple Tag Helpers can act on the same element (see [Avoiding Tag Helper conflicts](xref:mvc/views/tag-helpers/authoring#avoid-tag-helper-conflicts) ) while you typically can't compose Web Server controls.
 
-* Etiket Yardımcıları için kapsamlı HTML öğelerinin içeriğini ve etiketi değiştirebilirsiniz ancak doğrudan bir sayfada bir şeyi değiştirmez. Web sunucusu denetimleri daha az belirli bir kapsama sahip ve diğer sayfanızı bölümlerini etkileyen eylemler gerçekleştirebilir; istenmeyen yan etkileri etkinleştiriliyor.
+* Tag Helpers can modify the tag and content of HTML elements that they're scoped to, but don't directly modify anything else on a page. Web Server controls have a less specific scope and can perform actions that affect other parts of your page; enabling unintended side effects.
 
-* Web sunucusu denetimleri, dizeleri nesnelerine dönüştürmek için tür dönüştürücüleri kullanın. Tür dönüştürme yapmak zorunda kalmazsınız etiket Yardımcıları ile yerel olarak C# ile çalışırsınız.
+* Web Server controls use type converters to convert strings into objects. With Tag Helpers, you work natively in C#, so you don't need to do type conversion.
 
-* Web sunucusu denetimleri kullanın [System.ComponentModel](/dotnet/api/system.componentmodel) bileşenlerin ve denetimlerin çalışma zamanı ve tasarım zamanı davranışını uygulamak için. `System.ComponentModel` temel sınıflar ve öznitelikler ve tür dönüştürücüleri uygulama, veri kaynaklarını bağlama ve bileşenleri lisanslama arabirimleri içerir. Genellikle türetilmesi etiket Yardımcıları için Karşıtlık `TagHelper`ve `TagHelper` temel sınıfı yalnızca iki yöntem sunar `Process` ve `ProcessAsync`.
+* Web Server controls use [System.ComponentModel](/dotnet/api/system.componentmodel) to implement the run-time and design-time behavior of components and controls. `System.ComponentModel` includes the base classes and interfaces for implementing attributes and type converters, binding to data sources, and licensing components. Contrast that to Tag Helpers, which typically derive from `TagHelper`, and the `TagHelper` base class exposes only two methods, `Process` and `ProcessAsync`.
 
-## <a name="customizing-the-tag-helper-element-font"></a>Etiket Yardımcısı öğesi yazı tipi özelleştirme
+## <a name="customizing-the-tag-helper-element-font"></a>Customizing the Tag Helper element font
 
-Gelen renklendirme ve yazı tipini özelleştirebilirsiniz **Araçları** > **seçenekleri** > **ortam** > **yazı tipleri ve renkler**:
+You can customize the font and colorization from **Tools** > **Options** > **Environment** > **Fonts and Colors**:
 
 ![görüntü](intro/_static/fontoptions2.png)
 
@@ -253,6 +269,6 @@ Gelen renklendirme ve yazı tipini özelleştirebilirsiniz **Araçları** > **se
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-* [Yazma etiketi Yardımcıları](xref:mvc/views/tag-helpers/authoring)
+* [Author Tag Helpers](xref:mvc/views/tag-helpers/authoring)
 * [Formlarla Çalışma](xref:mvc/views/working-with-forms)
-* [GitHub üzerinde TagHelperSamples](https://github.com/dpaquette/TagHelperSamples) ile çalışmak için etiket Yardımcısı örnekler içeren [önyükleme](https://getbootstrap.com/).
+* [TagHelperSamples on GitHub](https://github.com/dpaquette/TagHelperSamples) contains Tag Helper samples for working with [Bootstrap](https://getbootstrap.com/).

@@ -9,12 +9,12 @@ ms.date: 10/15/2019
 no-loc:
 - Blazor
 uid: blazor/state-management
-ms.openlocfilehash: 408d44a3f2e81a165e8b786c6d2efc9329082e30
-ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
+ms.openlocfilehash: 38ee5fccdf476f08c9f39d01b53c81b48eea04bf
+ms.sourcegitcommit: 3e503ef510008e77be6dd82ee79213c9f7b97607
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73962819"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74317178"
 ---
 # <a name="aspnet-core-opno-locblazor-state-management"></a>ASP.NET Core Blazor durum yönetimi
 
@@ -56,8 +56,8 @@ Tek bir devrenin ötesinde durumu korumak için, *verileri yalnızca sunucunun b
 
 Veri kalıcılığı genellikle yalnızca kullanıcıların oluşturma çabasında olduğu yüksek değerli durum için gereklidir. Aşağıdaki örneklerde, kalıcı durum ticari etkinliklerdeki zaman veya yardımlarını kaydeder:
 
-* Çok adımlı WebForm &ndash;, bir kullanıcının durumları kaybedilmişse, çok adımlı bir işlemin birkaç tamamlanmış adımı için verileri yeniden girmesi için zaman alır. Kullanıcı, çok adımlı formdan uzaklaştıklarında ve daha sonra forma geri döndüğünüzde bu senaryodaki durumu kaybeder.
-* Alışveriş sepeti &ndash; potansiyel geliri temsil eden bir uygulamanın ticari olarak önemli bir bileşeni korunabilir. Durumlarını kaybettikleri bir Kullanıcı ve bu nedenle alışveriş sepeti, siteye daha sonra geri döntiklerinde daha az ürün veya hizmet satın alabilir.
+* Çok adımlı WebForm &ndash;, bir kullanıcının, durumları kaybedilmişse, çok adımlı bir işlemin birkaç tamamlanmış adımı için verileri yeniden girmesi için zaman alan bir işlemdir. Kullanıcı, çok adımlı formdan uzaklaştıklarında ve daha sonra forma geri döndüğünüzde bu senaryodaki durumu kaybeder.
+* Alışveriş sepeti, olası geliri temsil eden bir uygulamanın ticari olarak önemli bir bileşeni &ndash;. Durumlarını kaybettikleri bir Kullanıcı ve bu nedenle alışveriş sepeti, siteye daha sonra geri döntiklerinde daha az ürün veya hizmet satın alabilir.
 
 Genellikle, gönderilmemiş bir oturum açma iletişim kutusuna girilen Kullanıcı adı gibi, kolayca yeniden oluşturulmuş durumu korumak gerekli değildir.
 
@@ -69,12 +69,12 @@ Genellikle, gönderilmemiş bir oturum açma iletişim kutusuna girilen Kullanı
 Blazor sunucu uygulamasındaki kalıcı durum için üç ortak konum vardır. Her yaklaşım farklı senaryolara en iyi şekilde uygundur ve farklı uyarılar içerir:
 
 * [Veritabanında sunucu tarafı](#server-side-in-a-database)
-* ['DEKI](#url)
+* [URL](#url)
 * [Tarayıcıda istemci tarafı](#client-side-in-the-browser)
 
 ### <a name="server-side-in-a-database"></a>Veritabanında sunucu tarafı
 
-Kalıcı veri kalıcılığı veya birden çok kullanıcı veya cihaza yayılması gereken veriler için, bağımsız bir sunucu tarafı veritabanı neredeyse en iyi seçenektir. Seçenekler şunlardır:
+Kalıcı veri kalıcılığı veya birden çok kullanıcı veya cihaza yayılması gereken veriler için, bağımsız bir sunucu tarafı veritabanı neredeyse en iyi seçenektir. Şu seçenekler mevcuttur:
 
 * İlişkisel SQL veritabanı
 * Anahtar-değer deposu
@@ -101,22 +101,22 @@ Tarayıcının adres çubuğunun içeriği korunur:
 
 ### <a name="client-side-in-the-browser"></a>Tarayıcıda istemci tarafı
 
-Kullanıcının etkin şekilde oluşturmakta olduğu geçici veriler için, ortak bir yedekleme deposu tarayıcının `localStorage` ve `sessionStorage` koleksiyonlarıdır. Devre dışı bırakılırsa, sunucu tarafı depolama alanının avantajlarından yararlanan uygulama, saklı durumu yönetmek veya temizlemek için gerekli değildir.
+Kullanıcının etkin şekilde oluşturmakta olduğu geçici veriler için, yaygın bir yedekleme deposu tarayıcının `localStorage` ve `sessionStorage` koleksiyonlarıdır. Devre dışı bırakılırsa, sunucu tarafı depolama alanının avantajlarından yararlanan uygulama, saklı durumu yönetmek veya temizlemek için gerekli değildir.
 
 > [!NOTE]
 > Bu bölümdeki "istemci tarafı", [Blazor WebAssembly barındırma modeliyle](xref:blazor/hosting-models#blazor-webassembly)değil, tarayıcıdaki istemci tarafı senaryolarına başvurur. `localStorage` ve `sessionStorage` Blazor WebAssembly uygulamalarında kullanılabilir, ancak yalnızca özel kod yazarak veya 3. taraf paketini kullanarak kullanılabilir.
 
 `localStorage` ve `sessionStorage` aşağıdaki gibi farklılık gösterir:
 
-* `localStorage`, kullanıcının tarayıcısına kapsamlandırılır. Kullanıcı sayfayı yeniden yüklediğinde veya tarayıcıyı kapatıp yeniden açarsa durum devam ettirir. Kullanıcı birden çok tarayıcı sekmesi açarsa, durum sekmeler arasında paylaşılır. Veriler açık olarak temizlenene kadar `localStorage` ' da devam ediyor.
-* `sessionStorage`, kullanıcının tarayıcı sekmesi kapsamına alınır. Kullanıcı sekmeyi yeniden yüklediğinde durum devam ettirir. Kullanıcı sekmeyi veya tarayıcıyı kapatırsa durum kaybedilir. Kullanıcı birden çok tarayıcı sekmesi açarsa, her sekmenin kendi bağımsız bir veri sürümü vardır.
+* `localStorage` kullanıcının tarayıcısına kapsamlandırılır. Kullanıcı sayfayı yeniden yüklediğinde veya tarayıcıyı kapatıp yeniden açarsa durum devam ettirir. Kullanıcı birden çok tarayıcı sekmesi açarsa, durum sekmeler arasında paylaşılır. Veriler açık olarak temizlenene kadar `localStorage` devam ettirir.
+* `sessionStorage`, kullanıcının tarayıcı sekmesinin kapsamına alınır. Kullanıcı sekmeyi yeniden yüklediğinde durum devam ettirir. Kullanıcı sekmeyi veya tarayıcıyı kapatırsa durum kaybedilir. Kullanıcı birden çok tarayıcı sekmesi açarsa, her sekmenin kendi bağımsız bir veri sürümü vardır.
 
-Genellikle, `sessionStorage` kullanımı daha güvenlidir. `sessionStorage`, bir kullanıcının birden çok sekme açmasını ve aşağıdaki gibi karşılaştığı riskleri önler:
+Genellikle, `sessionStorage` kullanımı daha güvenlidir. `sessionStorage`, kullanıcının birden çok sekme açmasını ve aşağıdaki gibi karşılaştığı riskleri önler:
 
 * Sekmelerde durum depolamadaki hatalar.
 * Sekme diğer sekmelerin durumunun üzerine yazdığınızda kafa karıştırıcı davranışı.
 
-`localStorage`, uygulamanın kapatma ve tarayıcıyı yeniden açma genelinde durumu kalıcı hale getirilmesi gerekiyorsa daha iyi bir seçenektir.
+`localStorage`, uygulamanın kapatma ve tarayıcıyı yeniden açma genelinde durumu kalıcı olması gerekiyorsa daha iyi bir seçenektir.
 
 Tarayıcı depolamayı kullanmaya yönelik uyarılar:
 
@@ -127,7 +127,7 @@ Tarayıcı depolamayı kullanmaya yönelik uyarılar:
 
 ## <a name="third-party-browser-storage-solutions"></a>Üçüncü taraf tarayıcı depolama çözümleri
 
-Üçüncü taraf NuGet paketleri `localStorage` ve `sessionStorage` ile çalışmaya yönelik API 'Ler sağlar.
+Üçüncü taraf NuGet paketleri `localStorage` ve `sessionStorage`çalışmaya yönelik API 'Ler sağlar.
 
 ASP.NET Core [veri korumasını](xref:security/data-protection/introduction)saydam olarak kullanan bir paket seçmeyi düşünülüyor. ASP.NET Core veri koruma, depolanan verileri şifreler ve depolanan verilerle yapılan değişikliklere karşı olası riskleri azaltır. JSON seri hale getirilmiş veriler düz metin halinde depolanıyorsa, kullanıcılar tarayıcı geliştirici araçlarını kullanarak verileri görebilir ve depolanan verileri de değiştirebilir. Verilerin güvenliğini sağlamak her zaman bir sorun değildir çünkü veriler önemsiz olarak olabilir. Örneğin, bir kullanıcı ARABIRIMI öğesinin saklı rengini okumak veya değiştirmek, Kullanıcı veya kuruluş için önemli bir güvenlik riski değildir. Kullanıcıların *hassas verileri*incelemesine veya değiştirmesine izin vermeyi önleyin.
 
@@ -157,12 +157,12 @@ ASP.NET Core [veri korumasını](xref:security/data-protection/introduction)sayd
 
 ### <a name="save-and-load-data-within-a-component"></a>Bir bileşen içindeki verileri kaydetme ve yükleme
 
-Tarayıcı depolamaya veri yüklemeyi veya kaydetmeyi gerektiren herhangi bir bileşende, aşağıdakilerden birinin bir örneğini eklemek için [@inject](xref:blazor/dependency-injection#request-a-service-in-a-component) ' i kullanın:
+Tarayıcı depolamaya veri yüklemeyi veya kaydetmeyi gerektiren herhangi bir bileşende, aşağıdakilerden birinin bir örneğini eklemek için [@inject](xref:blazor/dependency-injection#request-a-service-in-a-component) kullanın:
 
 * `ProtectedLocalStorage`
 * `ProtectedSessionStorage`
 
-Seçim, hangi yedekleme deposunu kullanmak istediğinize bağlıdır. Aşağıdaki örnekte, `sessionStorage` kullanılır:
+Seçim, hangi yedekleme deposunu kullanmak istediğinize bağlıdır. Aşağıdaki örnekte `sessionStorage` kullanılır:
 
 ```cshtml
 @using Microsoft.AspNetCore.ProtectedBrowserStorage
@@ -171,7 +171,7 @@ Seçim, hangi yedekleme deposunu kullanmak istediğinize bağlıdır. Aşağıda
 
 `@using` deyimin bileşen yerine bir *_Imports. Razor* dosyasına yerleştirilmesi olabilir. *_Imports. Razor* dosyası kullanımı, ad alanını uygulamanın daha büyük kesimlerine veya uygulamanın tamamına kullanılabilir hale getirir.
 
-Proje şablonunun `Counter` bileşeninde `currentCount` değerini kalıcı hale getirmek için `IncrementCount` yöntemini `ProtectedSessionStore.SetAsync` ' ü kullanacak şekilde değiştirin:
+Proje şablonunun `Counter` bileşenindeki `currentCount` değerini kalıcı hale getirmek için `IncrementCount` yöntemini `ProtectedSessionStore.SetAsync`kullanılacak şekilde değiştirin:
 
 ```csharp
 private async Task IncrementCount()
@@ -185,7 +185,7 @@ Daha büyük, daha gerçekçi uygulamalar, tek tek alanların depolanması ise o
 
 Yukarıdaki kod örneğinde, `currentCount` verileri kullanıcının tarayıcısında `sessionStorage['count']` olarak depolanır. Veriler düz metin biçiminde depolanmaz, bunun yerine ASP.NET Core [veri koruma](xref:security/data-protection/introduction)kullanılarak korunur. Şifrelenmiş veriler, `sessionStorage['count']` tarayıcının geliştirici konsolunda değerlendirildiğinde görülebilir.
 
-Kullanıcı `Counter` bileşenine daha sonra geri dönerse `currentCount` verisini kurtarmak için (tamamen yeni bir devreye açık olanlar dahil), `ProtectedSessionStore.GetAsync` kullanın:
+Kullanıcı `Counter` bileşene daha sonra geri dönerse `currentCount` verileri kurtarmak için (tamamen yeni bir devreye açık olanlar dahil), `ProtectedSessionStore.GetAsync`kullanın:
 
 ```csharp
 protected override async Task OnInitializedAsync()
@@ -194,7 +194,7 @@ protected override async Task OnInitializedAsync()
 }
 ```
 
-Bileşenin parametreleri gezinti durumu içeriyorsa, `ProtectedSessionStore.GetAsync` ' ı çağırın ve sonucu `OnInitializedAsync` değil `OnParametersSetAsync` ' de atayın. `OnInitializedAsync` yalnızca bileşenin ilk örneği oluşturulduğunda bir kez çağırılır. `OnInitializedAsync` daha sonra, Kullanıcı aynı sayfada kaldığında farklı bir URL 'ye gittiğinde daha sonra yeniden çağrılmaz.
+Bileşenin parametreleri gezinti durumu içeriyorsa, `ProtectedSessionStore.GetAsync` çağırın ve sonucu `OnInitializedAsync`değil `OnParametersSetAsync`atayın. `OnInitializedAsync`, bileşen ilk kez oluşturulduğunda yalnızca bir kez çağırılır. `OnInitializedAsync`, Kullanıcı aynı sayfada kaldığında farklı bir URL 'ye gittiğinde daha sonra yeniden çağrılmaz.
 
 > [!WARNING]
 > Bu bölümdeki örnekler yalnızca sunucuda prerendering etkinleştirilmemişse çalışır. Prerendering etkinken şuna benzer bir hata oluşturulur:
@@ -207,7 +207,7 @@ Bileşenin parametreleri gezinti durumu içeriyorsa, `ProtectedSessionStore.GetA
 
 Tarayıcı depolaması zaman uyumsuz olduğundan (bir ağ bağlantısı üzerinden erişilir), veriler yüklenmeden ve bir bileşen tarafından kullanıma sunulmadan önce her zaman bir zaman dilimi vardır. En iyi sonuçlar için, yükleme sırasında, boş veya varsayılan verileri görüntülemek yerine bir yükleme durumu iletisi işleme devam ediyor.
 
-Bir yaklaşım, verilerin `null` (hala yükleme) olup olmadığını izlemedir. Varsayılan `Counter` bileşeninde, sayı bir `int` ' de tutulur. Türe bir soru işareti (`?`) ekleyerek `currentCount` Nullable yapın (`int`):
+Bir yaklaşım, verilerin `null` (hala yükleme) olup olmadığını izlemedir. Varsayılan `Counter` bileşende, sayı bir `int`tutulur. Türe bir soru işareti (`?`) ekleyerek `currentCount` null yapılabilir yapın (`int`):
 
 ```csharp
 private int? currentCount;
@@ -239,11 +239,21 @@ Prerendering sırasında:
 
 > JavaScript birlikte çalışabilirlik çağrıları şu an için verilemez. Bunun nedeni, bileşenin ön işlenmiş olmasından kaynaklanır.
 
-Hatayı çözmek için bir yol prerendering devre dışı bırakılır. Bu genellikle uygulama tarayıcı tabanlı depolamanın yoğun bir şekilde kullanımını yapıyorsa en iyi seçenektir. Prerendering, karmaşıklık ekliyor ve uygulamaya yönelik değildir çünkü `localStorage` veya `sessionStorage` kullanılabilir olana kadar uygulama yararlı bir içeriğe gidemez.
+Hatayı çözmek için bir yol prerendering devre dışı bırakılır. Bu genellikle uygulama tarayıcı tabanlı depolamanın yoğun bir şekilde kullanımını yapıyorsa en iyi seçenektir. Prerendering karmaşıklık ekler ve `localStorage` veya `sessionStorage` kullanılabilir olana kadar uygulama yararlı bir içeriğe gidemez.
+
+::: moniker range=">= aspnetcore-3.1"
+
+Prerendering 'yi devre dışı bırakmak için, *Pages/_Host. cshtml* dosyasını açın ve `Component` etiketi Yardımcısı `render-mode` çağrısını `Server`olarak değiştirin.
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.1"
 
 Prerendering 'yi devre dışı bırakmak için, *Pages/_Host. cshtml* dosyasını açın ve `Html.RenderComponentAsync<App>(RenderMode.Server)`çağrısını değiştirin.
 
-Prerendering, `localStorage` veya `sessionStorage` kullanmayan diğer sayfalar için yararlı olabilir. Prerendering etkin tutmak için, tarayıcı devreye bağlanana kadar yükleme işlemini erteleyin. Aşağıda, bir sayaç değeri depolamak için bir örnek verilmiştir:
+::: moniker-end
+
+Prerendering, `localStorage` veya `sessionStorage`kullanmayan diğer sayfalar için yararlı olabilir. Prerendering etkin tutmak için, tarayıcı devreye bağlanana kadar yükleme işlemini erteleyin. Aşağıda, bir sayaç değeri depolamak için bir örnek verilmiştir:
 
 ```cshtml
 @using Microsoft.AspNetCore.ProtectedBrowserStorage
@@ -355,7 +365,7 @@ Sarmalanan bileşenler, kalıcı sayaç durumunu alır ve değiştirebilir. Aşa
 }
 ```
 
-Yukarıdaki bileşen `ProtectedBrowserStorage` ile etkileşim kurmak için gerekli değildir veya bir "yükleme" aşaması ile uğraşmaz.
+Yukarıdaki bileşen `ProtectedBrowserStorage`etkileşimde bulunmak veya bir "yükleme" aşaması ile uğraşmak için gerekli değildir.
 
 Daha önce açıklandığı gibi prerendering ile başa çıkmak için `CounterStateProvider`, sayaç verilerini kullanan tüm bileşenlerin prerendering ile otomatik olarak çalışmasını sağlayacak şekilde değiştirilebilir. Ayrıntılar için bkz. [Handle prerendering](#handle-prerendering) bölümü.
 

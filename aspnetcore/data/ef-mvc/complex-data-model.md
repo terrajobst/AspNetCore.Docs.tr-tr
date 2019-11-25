@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.date: 03/27/2019
 ms.topic: tutorial
 uid: data/ef-mvc/complex-data-model
-ms.openlocfilehash: 313d951ccdd45ae1209ffd9612d24738822fbed8
-ms.sourcegitcommit: 7d3c6565dda6241eb13f9a8e1e1fd89b1cfe4d18
+ms.openlocfilehash: b8b1ade4c8c29d34200bf8c0944cff6adec0bb95
+ms.sourcegitcommit: f40c9311058c9b1add4ec043ddc5629384af6c56
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72259600"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74288962"
 ---
 # <a name="tutorial-create-a-complex-data-model---aspnet-mvc-with-ef-core"></a>Öğretici: EF Core ile karmaşık veri modeli oluşturma-ASP.NET MVC
 
@@ -50,29 +50,29 @@ Bu bölümde, biçimlendirme, doğrulama ve veritabanı eşleme kurallarını be
 
 Öğrenci kayıt tarihleri için tüm Web sayfaları Şu anda tarihle birlikte görüntülenir, ancak bu alan için tüm önemli bir tarih olması gerekir. Veri ek açıklaması özniteliklerini kullanarak, verileri gösteren her görünümde görüntü biçimini giderecek bir kod değişikliği yapabilirsiniz. Bunun nasıl yapılacağını gösteren bir örnek görmek için, `Student` sınıfındaki `EnrollmentDate` özelliğine bir öznitelik ekleyeceksiniz.
 
-*Modeller/öğrenci. cs*' de, `System.ComponentModel.DataAnnotations` ad alanı için `using` ifadesini ekleyin ve aşağıdaki örnekte gösterildiği gibi `EnrollmentDate` özelliğine `DataType` ve `DisplayFormat` öznitelikleri ekleyin:
+*Modeller/öğrenci. cs*' de, `System.ComponentModel.DataAnnotations` ad alanı için `using` bir ifade ekleyin ve aşağıdaki örnekte gösterildiği gibi `EnrollmentDate` özelliğine `DataType` ve `DisplayFormat` özniteliklerini ekleyin:
 
 [!code-csharp[](intro/samples/cu/Models/Student.cs?name=snippet_DataType&highlight=3,12-13)]
 
-@No__t-0 özniteliği, veritabanı iç türünden daha belirgin bir veri türü belirtmek için kullanılır. Bu durumda, tarihi ve saati değil yalnızca tarihi izlemek istiyoruz. @No__t-0 numaralandırması, tarih, saat, PhoneNumber, para birimi, Emaadresi ve daha fazlası gibi birçok veri türü sağlar. @No__t-0 özniteliği Ayrıca uygulamanın türe özgü özellikleri otomatik olarak sağlamasını da sağlayabilir. Örneğin, `DataType.EmailAddress` için `mailto:` bağlantısı oluşturulabilir ve HTML5 'i destekleyen tarayıcılarda `DataType.Date` için bir tarih seçici sağlaneklenebilir. @No__t-0 özniteliği HTML 5 tarayıcıların anlayabilmesi için HTML 5 `data-` (bir veri Dash) öznitelikleri yayar. @No__t-0 öznitelikleri herhangi bir doğrulama sağlamaz.
+`DataType` özniteliği, veritabanı iç türünden daha özel bir veri türü belirtmek için kullanılır. Bu durumda, tarihi ve saati değil yalnızca tarihi izlemek istiyoruz. `DataType` numaralandırması, tarih, saat, PhoneNumber, para birimi, Emaadresi ve daha fazlası gibi birçok veri türü sağlar. `DataType` özniteliği Ayrıca uygulamanın türe özgü özellikleri otomatik olarak sağlamasını da sağlayabilir. Örneğin, `DataType.EmailAddress`için `mailto:` bir bağlantı oluşturulabilir ve HTML5 'i destekleyen tarayıcılarda `DataType.Date` için bir tarih seçici sağlaneklenebilir. `DataType` özniteliği HTML 5 tarayıcıların anlayabilmesi için HTML 5 `data-` (bir veri Dash) öznitelikleri yayar. `DataType` öznitelikleri herhangi bir doğrulama sağlamaz.
 
-`DataType.Date`, görüntülenen tarihin biçimini belirtmiyor. Varsayılan olarak, veri alanı sunucunun CultureInfo öğesine göre varsayılan biçimlere göre görüntülenir.
+`DataType.Date` görüntülenen tarihin biçimini belirtmiyor. Varsayılan olarak, veri alanı sunucunun CultureInfo öğesine göre varsayılan biçimlere göre görüntülenir.
 
-@No__t-0 özniteliği, açıkça tarih biçimini belirtmek için kullanılır:
+`DisplayFormat` özniteliği, açıkça tarih biçimini belirtmek için kullanılır:
 
 ```csharp
 [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
 ```
 
-@No__t-0 ayarı, bir metin kutusunda değer görüntülenmek üzere görüntülendiğinde biçimlendirmenin de uygulanacağını belirtir. (Bazı alanlar için bunu istemiyor olabilirsiniz; örneğin, para birimi değerleri için metin kutusundaki para birimi sembolünü düzenlemenin değiştirilmesini istemeyebilirsiniz.)
+`ApplyFormatInEditMode` ayarı, bir metin kutusunda değer görüntülenmek üzere görüntülendiğinde biçimlendirmenin de uygulanacağını belirtir. (Bazı alanlar için bunu istemiyor olabilirsiniz; örneğin, para birimi değerleri için metin kutusundaki para birimi sembolünü düzenlemenin değiştirilmesini istemeyebilirsiniz.)
 
-@No__t-0 özniteliğini kendisi kullanabilirsiniz, ancak `DataType` özniteliğini de kullanmak genellikle iyi bir fikirdir. @No__t-0 özniteliği, verilerin semantiğini bir ekranda nasıl işleneceğini değil ve `DisplayFormat` ile elde olmadığınız avantajları sağlar:
+`DisplayFormat` özniteliğini kendisi kullanabilirsiniz, ancak `DataType` özniteliğini de kullanmak genellikle iyi bir fikirdir. `DataType` özniteliği, verilerin semantiğini bir ekranda nasıl işleneceğini değil, `DisplayFormat`ile elde olmadığınız avantajları sağlar:
 
 * Tarayıcı HTML5 özelliklerini etkinleştirebilir (örneğin, bir Takvim denetimini, yerel ayara uygun para birimi sembolünü, e-posta bağlantılarını, bazı istemci tarafı giriş doğrulamasını vb. göstermek için).
 
 * Varsayılan olarak tarayıcı, verileri yerel ayarınızı temel alarak doğru biçimi kullanarak işleyebilir.
 
-Daha fazla bilgi için [\<Giriş > etiketi Yardımcısı belgelerine](../../mvc/views/working-with-forms.md#the-input-tag-helper)bakın.
+Daha fazla bilgi için bkz. [giriş > etiketi Yardımcısı belgeleri\<](../../mvc/views/working-with-forms.md#the-input-tag-helper).
 
 Uygulamayı çalıştırın, öğrenciler dizin sayfasına gidin ve kayıt tarihleri için saatlerin artık gösterilmediğine dikkat edin. Aynı değer öğrenci modelini kullanan herhangi bir görünüm için de geçerli olacaktır.
 
@@ -80,19 +80,19 @@ Uygulamayı çalıştırın, öğrenciler dizin sayfasına gidin ve kayıt tarih
 
 ### <a name="the-stringlength-attribute"></a>StringLength özniteliği
 
-Ayrıca, öznitelikleri kullanarak veri doğrulama kuralları ve doğrulama hata iletileri de belirtebilirsiniz. @No__t-0 özniteliği, veritabanında en fazla uzunluğu ayarlar ve ASP.NET Core MVC için istemci tarafı ve sunucu tarafı doğrulaması sağlar. Bu öznitelikte en küçük dize uzunluğunu da belirtebilirsiniz, ancak en küçük değerin veritabanı şemasında hiçbir etkisi yoktur.
+Ayrıca, öznitelikleri kullanarak veri doğrulama kuralları ve doğrulama hata iletileri de belirtebilirsiniz. `StringLength` özniteliği, veritabanında en fazla uzunluğu ayarlar ve ASP.NET Core MVC için istemci tarafı ve sunucu tarafı doğrulaması sağlar. Bu öznitelikte en küçük dize uzunluğunu da belirtebilirsiniz, ancak en küçük değerin veritabanı şemasında hiçbir etkisi yoktur.
 
 Kullanıcıların bir ad için 50 ' den fazla karakter girmemesini istediğinizi varsayalım. Bu kısıtlamayı eklemek için, aşağıdaki örnekte gösterildiği gibi, `LastName` ve `FirstMidName` özelliklerine `StringLength` öznitelikleri ekleyin:
 
 [!code-csharp[](intro/samples/cu/Models/Student.cs?name=snippet_StringLength&highlight=10,12)]
 
-@No__t-0 özniteliği bir kullanıcının ad için boşluk girmesini engellemez. Girişe kısıtlama uygulamak için `RegularExpression` özniteliğini kullanabilirsiniz. Örneğin, aşağıdaki kod ilk karakterin büyük küçük harf olmasını ve geri kalan karakterlerin alfabetik olmasını gerektirir:
+`StringLength` özniteliği bir kullanıcının ad için boşluk girmesini engellemez. Girişe kısıtlama uygulamak için `RegularExpression` özniteliğini kullanabilirsiniz. Örneğin, aşağıdaki kod ilk karakterin büyük küçük harf olmasını ve geri kalan karakterlerin alfabetik olmasını gerektirir:
 
 ```csharp
 [RegularExpression(@"^[A-Z]+[a-zA-Z""'\s-]*$")]
 ```
 
-@No__t-0 özniteliği, `StringLength` özniteliğine benzer işlevler sağlar, ancak istemci tarafı doğrulaması sağlamaz.
+`MaxLength` özniteliği, `StringLength` özniteliğe benzer ancak istemci tarafı doğrulaması sağlamayan işlevselliği sağlar.
 
 Veritabanı modeli, veritabanı şemasında değişiklik yapılmasını gerektiren bir şekilde değiştirildi. Uygulama kullanıcı arabirimini kullanarak, veritabanına eklemiş olduğunuz herhangi bir veriyi kaybetmeden Şemayı güncelleştirmek için geçişleri kullanacaksınız.
 
@@ -106,7 +106,7 @@ dotnet ef migrations add MaxLengthOnNames
 dotnet ef database update
 ```
 
-@No__t-0 komutu, bu değişiklik, iki sütun için en fazla uzunluğu daha kısa hale yaptığından, veri kaybının gerçekleşebileceğini uyarır.  Geçişler *\<zaman damgası > _MaxLengthOnNames. cs*adlı bir dosya oluşturur. Bu dosya, veritabanını geçerli veri modeliyle eşleşecek şekilde güncelleştirecek `Up` yönteminde kod içerir. @No__t-0 komutu bu kodu çalıştırdı.
+`migrations add` komutu, bu değişiklik, iki sütun için en fazla uzunluğu daha kısa hale yaptığından, veri kaybının gerçekleşebileceğini uyarır.  Geçişler *_MaxLengthOnNames. cs >\<zaman damgası*adlı bir dosya oluşturur. Bu dosya, veritabanını geçerli veri modeliyle eşleşecek şekilde güncelleştirecek `Up` yönteminde kod içerir. `database update` komutu bu kodu çalıştırdı.
 
 Geçiş dosyası adının ön eki olan zaman damgası, geçişleri sıralamak için Entity Framework tarafından kullanılır. Update-database komutunu çalıştırmadan önce birden çok geçiş oluşturabilirsiniz ve sonra tüm geçişler oluşturuldukları sırada uygulanır.
 
@@ -114,15 +114,15 @@ Uygulamayı çalıştırın, **öğrenciler** sekmesini seçin, **Yeni oluştur*
 
 ### <a name="the-column-attribute"></a>Column özniteliği
 
-Ayrıca, sınıflarınızın ve özelliklerinin veritabanına nasıl eşlenildiğini denetlemek için özniteliklerini de kullanabilirsiniz. Ad alanı için `FirstMidName` adını kullandığınızı varsayın, çünkü alan de bir orta ad içerebilir. Ancak veritabanına karşı geçici sorgular yazmayacak olan kullanıcılar bu ada alışkın olduğundan, veritabanı sütununun `FirstName` olarak adlandırılması istiyorsunuz. Bu eşlemeyi yapmak için `Column` özniteliğini kullanabilirsiniz.
+Ayrıca, sınıflarınızın ve özelliklerinin veritabanına nasıl eşlenildiğini denetlemek için özniteliklerini de kullanabilirsiniz. Alan aynı zamanda bir orta ad içerebileceğinden, ilk ad alanı için `FirstMidName` adı kullandığınızı varsayalım. Ancak veritabanına karşı geçici sorgular yazmayacak olan kullanıcılar bu ada alışkın olduğundan, veritabanı sütununun `FirstName`adlandırılmış olmasını isteyebilirsiniz. Bu eşlemeyi yapmak için, `Column` özniteliğini kullanabilirsiniz.
 
-@No__t-0 özniteliği, veritabanının oluşturulduğu zaman, `FirstMidName` özelliğine eşlenen `Student` tablosunun sütununun `FirstName` olarak adlandırılacağını belirtir. Diğer bir deyişle, kodunuz `Student.FirstMidName` ' a başvurduğunda, veriler `Student` tablosunun `FirstName` sütununda görüntülenir veya güncelleştirilir. Sütun adları belirtmezseniz, bunlar Özellik adı ile aynı ada verilir.
+`Column` özniteliği, veritabanı oluşturulduğunda, `FirstMidName` özelliğine eşlenen `Student` tablosunun sütununun `FirstName`adlandırılacağını belirtir. Diğer bir deyişle, kodunuz `Student.FirstMidName`başvurduğunda, veriler `Student` tablosunun `FirstName` sütununda gönderilir veya güncelleştirilir. Sütun adları belirtmezseniz, bunlar Özellik adı ile aynı ada verilir.
 
-*Student.cs* dosyasında, `System.ComponentModel.DataAnnotations.Schema` için `using` ifadesini ekleyin ve sütun adı özniteliğini aşağıdaki vurgulanmış kodda gösterildiği gibi `FirstMidName` özelliğine ekleyin:
+*Student.cs* dosyasında, `System.ComponentModel.DataAnnotations.Schema` için `using` bir ifade ekleyin ve sütun adı özniteliğini aşağıdaki vurgulanmış kodda gösterildiği gibi `FirstMidName` özelliğine ekleyin:
 
 [!code-csharp[](intro/samples/cu/Models/Student.cs?name=snippet_Column&highlight=4,14)]
 
-@No__t-0 özniteliği ekleme modeli, `SchoolContext` ' i yedekleyen bir şekilde değiştirir, bu nedenle veritabanıyla eşleşmez.
+`Column` özniteliği ekleme modeli, `SchoolContext`yedekleyen, bu nedenle veritabanıyla eşleşmez.
 
 Değişikliklerinizi kaydedin ve projeyi derleyin. Ardından proje klasöründe komut penceresini açın ve başka bir geçiş oluşturmak için aşağıdaki komutları girin:
 
@@ -153,19 +153,20 @@ dotnet ef database update
 
 ### <a name="the-required-attribute"></a>Gerekli öznitelik
 
-@No__t-0 özniteliği, ad özellikleri gereken alanları sağlar. Değer türleri (DateTime, int, Double, float, vb.) gibi null yapılamayan türler için `Required` özniteliği gerekli değildir. Null olmayan türler otomatik olarak gerekli alanlar olarak değerlendirilir.
+`Required` özniteliği, ad özellikleri gereken alanları sağlar. Değer türleri (DateTime, int, Double, float, vb.) gibi null yapılamayan türler için `Required` özniteliği gerekli değildir. Null olmayan türler otomatik olarak gerekli alanlar olarak değerlendirilir.
 
-@No__t-0 özniteliğini kaldırabilir ve `StringLength` özniteliği için minimum length parametresiyle değiştirebilirsiniz:
+`MinimumLength` zorlanmak için `Required` özniteliği `MinimumLength` ile birlikte kullanılmalıdır.
 
 ```csharp
 [Display(Name = "Last Name")]
-[StringLength(50, MinimumLength=1)]
+[Required]
+[StringLength(50, MinimumLength=2)]
 public string LastName { get; set; }
 ```
 
 ### <a name="the-display-attribute"></a>Display özniteliği
 
-@No__t-0 özniteliği, metin kutularının açıklamalı alt yazısının her örnekteki Özellik adı yerine "Ilk ad", "soyadı", "tam ad" ve "kayıt tarihi" olması gerektiğini belirtir (kelimeleri bir boşluk yoktur).
+`Display` özniteliği, metin kutularının açıklamalı alt yazısının her örnekteki Özellik adı yerine "Ilk ad", "soyadı", "tam ad" ve "kayıt tarihi" olması gerektiğini belirtir (kelimeleri bir boşluk yoktur).
 
 ### <a name="the-fullname-calculated-property"></a>FullName hesaplanmış özelliği
 
@@ -189,7 +190,7 @@ Birden çok özniteliği tek bir satıra koyabilirsiniz, bu nedenle `HireDate` �
 
 ### <a name="the-courseassignments-and-officeassignment-navigation-properties"></a>Courseatamalar ve OfficeAssignment gezinti özellikleri
 
-@No__t-0 ve `OfficeAssignment` özellikleri gezinti özellikleridir.
+`CourseAssignments` ve `OfficeAssignment` özellikleri gezinti özellikleridir.
 
 Bir eğitmen herhangi bir sayıda kurs öğretebilir, bu nedenle `CourseAssignments` bir koleksiyon olarak tanımlanır.
 
@@ -197,9 +198,9 @@ Bir eğitmen herhangi bir sayıda kurs öğretebilir, bu nedenle `CourseAssignme
 public ICollection<CourseAssignment> CourseAssignments { get; set; }
 ```
 
-Bir gezinti özelliği birden çok varlık tukiyorsa, türü girişlerin eklenebileceği, silinebileceği ve güncelleştirilemeyebilir bir liste olmalıdır.  @No__t-0 veya `List<T>` veya `HashSet<T>` gibi bir tür belirtebilirsiniz. @No__t-0 belirtirseniz, EF varsayılan olarak bir `HashSet<T>` koleksiyonu oluşturur.
+Bir gezinti özelliği birden çok varlık tukiyorsa, türü girişlerin eklenebileceği, silinebileceği ve güncelleştirilemeyebilir bir liste olmalıdır.  `ICollection<T>` veya `List<T>` veya `HashSet<T>`gibi bir tür belirtebilirsiniz. `ICollection<T>`belirtirseniz, EF varsayılan olarak bir `HashSet<T>` koleksiyonu oluşturur.
 
-Bunların `CourseAssignment` varlıklar olmasının nedeni, çoktan çoğa ilişkiler hakkında bölümünde aşağıda açıklanmıştır.
+Bunların `CourseAssignment` varlıkların nedenleri, çoktan çoğa ilişkiler hakkında bölümünde aşağıda açıklanmıştır.
 
 Contoso Üniversitesi iş kuralları, bir eğitmenin yalnızca en fazla bir ofise sahip olabileceğini, bu nedenle `OfficeAssignment` özelliği tek bir OfficeAssignment varlığı (Office atanmamışsa null olabilir) bulundurmasıdır.
 
@@ -224,15 +225,15 @@ Eğitmen ve OfficeAssignment varlıkları arasında bire sıfır veya-bir ilişk
 public int InstructorID { get; set; }
 ```
 
-Varlık kendi birincil anahtarına sahip olsa da, özelliği Classnameıd veya ID dışında bir şey olarak adlandırmak istiyorsanız `Key` özniteliğini de kullanabilirsiniz.
+Varlık kendi birincil anahtarına sahip olsa da, özelliği Classnameıd veya ID dışında bir şekilde adlandırmak istiyorsanız `Key` özniteliğini de kullanabilirsiniz.
 
 Varsayılan olarak, tam olarak, sütun tanımlayıcı bir ilişki için olduğundan EF, anahtarı veritabanı olmayan bir şekilde değerlendirir.
 
 ### <a name="the-instructor-navigation-property"></a>Eğitmen gezintisi özelliği
 
-Eğitmen varlığı, null yapılabilir bir `OfficeAssignment` gezinti özelliğine sahiptir (bir eğitmenin bir Office ataması olmayabilir) ve OfficeAssignment varlığı null atanamaz bir `Instructor` gezinti özelliğine sahiptir (çünkü bir Office ataması, bir olmadan eğitmen--`InstructorID` null atanamaz). Bir eğitmen varlığı ilgili bir OfficeAssignment varlığına sahip olduğunda, her varlığın gezinti özelliğinde diğer birine bir başvurusu olur.
+Eğitmen varlığı, null yapılabilir bir `OfficeAssignment` gezinti özelliğine sahiptir (bir eğitmenin bir Office ataması olmayabilir) ve OfficeAssignment varlığı null atanamaz `Instructor` bir gezinti özelliğine sahiptir (bir Office ataması bir eğitmen olmadan mevcut olamaz--`InstructorID` null değer atanamaz). Bir eğitmen varlığı ilgili bir OfficeAssignment varlığına sahip olduğunda, her varlığın gezinti özelliğinde diğer birine bir başvurusu olur.
 
-İlgili bir eğitmen olması gerektiğini belirtmek için, eğitmen gezinti özelliğine bir `[Required]` özniteliği koyabilirsiniz, ancak bunu yapmak zorunda kalmazsınız çünkü bu, `InstructorID` yabancı anahtarı (aynı zamanda bu tablonun anahtarı) null değer atanamaz.
+İlgili bir eğitmen olması gerektiğini belirtmek için, eğitmen gezinti özelliğine bir `[Required]` özniteliği koyabilirsiniz, ancak bunu yapmak zorunda kalmazsınız çünkü bu, `InstructorID` yabancı anahtar (aynı zamanda bu tablodaki anahtar) null atanamaz.
 
 ## <a name="modify-course-entity"></a>Kurs varlığını değiştirme
 
@@ -242,13 +243,13 @@ Eğitmen varlığı, null yapılabilir bir `OfficeAssignment` gezinti özelliği
 
 [!code-csharp[](intro/samples/cu/Models/Course.cs?name=snippet_Final&highlight=2,10,13,16,19,21,23)]
 
-Kurs varlığı, ilişkili departman varlığına işaret eden ve bir `Department` gezinti özelliğine sahip olan `DepartmentID` yabancı anahtar özelliğine sahiptir.
+Kurs varlığının, ilgili departman varlığına işaret eden ve `Department` bir gezinti özelliği olan `DepartmentID` yabancı anahtar özelliği vardır.
 
-Entity Framework, ilgili varlık için bir gezinti özelliği olduğunda, veri modelinize yabancı anahtar özelliği eklemenizi gerektirmez.  EF, gerektiğinde otomatik olarak yabancı anahtarlar oluşturur ve bunlar için [gölge Özellikler](/ef/core/modeling/shadow-properties) oluşturur. Ancak veri modelinde yabancı anahtar olması, güncelleştirmeleri daha basit ve daha verimli hale getirir. Örneğin, düzenlemek üzere bir kurs varlığı aldığınızda, bunu yüklemezseniz departman varlığı null olur, bu nedenle kurs varlığını güncelleştirdiğinizde öncelikle departman varlığını almanız gerekir. @No__t-0 yabancı anahtar özelliği veri modeline dahil edildiğinde, güncelleştirmeden önce bölüm varlığını almanız gerekmez.
+Entity Framework, ilgili varlık için bir gezinti özelliği olduğunda, veri modelinize yabancı anahtar özelliği eklemenizi gerektirmez.  EF, gerektiğinde otomatik olarak yabancı anahtarlar oluşturur ve bunlar için [gölge Özellikler](/ef/core/modeling/shadow-properties) oluşturur. Ancak veri modelinde yabancı anahtar olması, güncelleştirmeleri daha basit ve daha verimli hale getirir. Örneğin, düzenlemek üzere bir kurs varlığı aldığınızda, bunu yüklemezseniz departman varlığı null olur, bu nedenle kurs varlığını güncelleştirdiğinizde öncelikle departman varlığını almanız gerekir. Yabancı anahtar özelliği `DepartmentID` veri modeline dahil edildiğinde, güncelleştirmeden önce bölüm varlığını almanız gerekmez.
 
 ### <a name="the-databasegenerated-attribute"></a>DatabaseGenerated özniteliği
 
-@No__t-2 özelliğindeki `None` parametresine sahip `DatabaseGenerated` özniteliği, birincil anahtar değerlerinin veritabanı tarafından oluşturulması yerine Kullanıcı tarafından sağlandığını belirtir.
+`CourseID` özelliğindeki `None` parametresine sahip `DatabaseGenerated` özniteliği, birincil anahtar değerlerinin veritabanı tarafından oluşturulması yerine Kullanıcı tarafından sağlandığını belirtir.
 
 ```csharp
 [DatabaseGenerated(DatabaseGeneratedOption.None)]
@@ -258,13 +259,13 @@ public int CourseID { get; set; }
 
 Varsayılan olarak, Entity Framework birincil anahtar değerlerinin veritabanı tarafından oluşturulduğunu varsayar. Bu, Çoğu senaryoda istediğiniz şeydir. Ancak, kurs varlıkları için bir departman için 1000 serisi, başka bir departman için 2000 serisi vb. gibi kullanıcı tarafından belirtilen bir kurs numarası kullanırsınız.
 
-@No__t-0 özniteliği, bir satırın oluşturulduğu veya güncelleştirildiği tarihi kaydetmek için kullanılan veritabanı sütunları durumunda olduğu gibi varsayılan değerleri oluşturmak için de kullanılabilir.  Daha fazla bilgi için bkz. [üretilen Özellikler](/ef/core/modeling/generated-properties).
+`DatabaseGenerated` özniteliği, bir satırın oluşturulduğu veya güncelleştirildiği tarihi kaydetmek için kullanılan veritabanı sütunları durumunda olduğu gibi varsayılan değerleri oluşturmak için de kullanılabilir.  Daha fazla bilgi için bkz. [üretilen Özellikler](/ef/core/modeling/generated-properties).
 
 ### <a name="foreign-key-and-navigation-properties"></a>Yabancı anahtar ve gezinti özellikleri
 
 Kurs varlığındaki yabancı anahtar özellikleri ve gezinti özellikleri aşağıdaki ilişkileri yansıtır:
 
-Bir kurs bir departmana atanır, bu nedenle yukarıda bahsedilen nedenlerle `DepartmentID` yabancı anahtar ve `Department` gezinme özelliği vardır.
+Bir kurs bir departmana atanır, bu nedenle yukarıda bahsedilen nedenlerle `DepartmentID` yabancı anahtar ve `Department` gezinti özelliği vardır.
 
 ```csharp
 public int DepartmentID { get; set; }
@@ -277,7 +278,7 @@ Bir kurs, kayıtlı sayıda öğrenciye sahip olabilir, bu nedenle `Enrollments`
 public ICollection<Enrollment> Enrollments { get; set; }
 ```
 
-Bir kurs birden fazla eğitmen tarafından tada olabilir, bu nedenle `CourseAssignments` gezinti özelliği bir koleksiyon (`CourseAssignment` türü [daha sonra](#many-to-many-relationships)açıklanmaktadır):
+Bir kurs birden fazla eğitmen tarafından tada olabilir, bu nedenle `CourseAssignments` gezinti özelliği bir koleksiyon olur (`CourseAssignment` türü [daha sonra](#many-to-many-relationships)açıklanmıştır):
 
 ```csharp
 public ICollection<CourseAssignment> CourseAssignments { get; set; }
@@ -293,7 +294,7 @@ Aşağıdaki kodla *modeller/departman. cs* oluşturun:
 
 ### <a name="the-column-attribute"></a>Column özniteliği
 
-Daha önce sütun adı eşlemesini değiştirmek için `Column` özniteliğini kullandınız. Bölüm varlığının kodunda, sütunun veritabanındaki SQL Server para türü kullanılarak tanımlanması için SQL veri türü eşlemesini değiştirmek üzere `Column` özniteliği kullanılır:
+Daha önce, sütun adı eşlemesini değiştirmek için `Column` özniteliğini kullandınız. Bölüm varlığının kodunda, sütunun veritabanındaki SQL Server para türü kullanılarak tanımlanması için SQL veri türü eşlemesini değiştirmek üzere `Column` özniteliği kullanılır:
 
 ```csharp
 [Column(TypeName="money")]
@@ -306,7 +307,7 @@ Entity Framework, özellik için tanımladığınız CLR türüne göre uygun SQ
 
 Yabancı anahtar ve gezinti özellikleri aşağıdaki ilişkileri yansıtır:
 
-Bir departman yönetici olabilir veya olmayabilir ve yönetici her zaman bir eğitmendir. Bu nedenle `InstructorID` özelliği, eğitmen varlığına yabancı anahtar olarak dahil edilir ve özelliği null yapılabilir olarak işaretlemek için `int` tür atamadan sonra bir soru işareti eklenir. Gezinti özelliği `Administrator` olarak adlandırılmıştır, ancak bir eğitmen varlığı tutar:
+Bir departman yönetici olabilir veya olmayabilir ve yönetici her zaman bir eğitmendir. Bu nedenle `InstructorID` özelliği, eğitmen varlığına yabancı anahtar olarak dahil edilir ve özelliği null yapılabilir olarak işaretlemek için `int` tür atamadan sonra bir soru işareti eklenir. Gezinti özelliği `Administrator` olarak adlandırılır ancak bir eğitmen varlığı tutar:
 
 ```csharp
 public int? InstructorID { get; set; }
@@ -320,7 +321,7 @@ public ICollection<Course> Courses { get; set; }
 ```
 
 > [!NOTE]
-> Kurala göre Entity Framework, null olamayan yabancı anahtarlar ve çoktan çoğa ilişkiler için art arda silme imkanı sağlar. Bu, bir geçiş eklemeye çalıştığınızda bir özel duruma neden olacak dairesel basamaklı silme kurallarına neden olabilir. Örneğin, Department. Komutctorıd özelliğini null yapılabilir olarak tanımlamadıysanız, bu, bir basamak silme kuralını, eğitmeni sildiğinizde, ne yapmak istediğinize ilişkin olmayan bir şeyi silmek için yapılandırır. İş kurallarınız `InstructorID` özelliğini null değer atanamaz olarak gerektiriyorsa, ilişkide Cascade silmeyi devre dışı bırakmak için aşağıdaki Fluent API ifadesini kullanmanız gerekir:
+> Kurala göre Entity Framework, null olamayan yabancı anahtarlar ve çoktan çoğa ilişkiler için art arda silme imkanı sağlar. Bu, bir geçiş eklemeye çalıştığınızda bir özel duruma neden olacak dairesel basamaklı silme kurallarına neden olabilir. Örneğin, Department. Komutctorıd özelliğini null yapılabilir olarak tanımlamadıysanız, bu, bir basamak silme kuralını, eğitmeni sildiğinizde, ne yapmak istediğinize ilişkin olmayan bir şeyi silmek için yapılandırır. İş kurallarınız `InstructorID` özelliğini null atanamaz olarak gerektiriyorsa, ilişkide basamaklı silmeyi devre dışı bırakmak için aşağıdaki Fluent API ifadesini kullanmanız gerekir:
 >
 > ```csharp
 > modelBuilder.Entity<Department>()
@@ -341,7 +342,7 @@ public ICollection<Course> Courses { get; set; }
 
 Yabancı anahtar özellikleri ve gezinti özellikleri aşağıdaki ilişkileri yansıtır:
 
-Kayıt kaydı tek bir kurs için olduğundan @no__t 0 yabancı anahtar özelliği ve `Course` gezinti özelliği vardır:
+Kayıt kaydı tek bir kurs için olduğundan `CourseID` yabancı anahtar özelliği ve `Course` gezinti özelliği vardır:
 
 ```csharp
 public int CourseID { get; set; }
@@ -363,7 +364,7 @@ Aşağıdaki çizimde bu ilişkilerin bir varlık diyagramında nasıl göründ�
 
 ![Öğrenci-çok fazla ilişki](complex-data-model/_static/student-course.png)
 
-Her ilişki satırında 1 bir sonda ve diğeri de bir yıldız işareti (*) bulunur. Bu, bire çok ilişkiyi belirtir.
+Her ilişki ucu ve bir yıldız işareti (*) 1 diğer sırasında bir-çok ilişkisi belirten bulunur.
 
 Kayıt tablosu, sınıf bilgilerini içermiyorsa, yalnızca iki yabancı anahtar olan CourseID ve Studentitıd 'yi içermelidir. Bu durumda, veritabanına yük (veya saf bir JOIN tablosu) olmadan çok-çok arasında bir JOIN tablosu olacaktır. Eğitmen ve kurs varlıklarının bu tür çok-çok ilişkisi vardır ve bir sonraki adımınız, yük olmadan bir JOIN tablosu olarak çalışacak bir varlık sınıfı oluşturmaktır.
 
@@ -379,13 +380,13 @@ Aşağıdaki kodla *modeller/Courseatama. cs* oluşturun:
 
 ### <a name="join-entity-names"></a>Varlık adlarını Birleştir
 
-Eğitim--çok ilişkisi için veritabanında bir JOIN tablosu gereklidir ve bir varlık kümesi tarafından temsil edilir. @No__t-0 ' a bir JOIN varlığının adı, bu örnekte `CourseInstructor` olacak. Ancak, ilişkiyi açıklayan bir ad seçmenizi öneririz. Veri modelleri, daha sonra yükleri daha sonra almak için, yük olmayan birleşimler olmadan basit ve büyümeye başlar. Açıklayıcı bir varlık adıyla başladıysanız, daha sonra adı değiştirmeniz gerekmez. İdeal olarak, JOIN varlığının iş etki alanında kendi doğal (muhtemelen tek bir kelime) adına sahip olması gerekir. Örneğin, kitaplar ve müşteriler derecelendirmeler aracılığıyla bağlanabilir. Bu ilişki için `CourseAssignment` `CourseInstructor` ' den daha iyi bir seçimdir.
+Eğitim--çok ilişkisi için veritabanında bir JOIN tablosu gereklidir ve bir varlık kümesi tarafından temsil edilir. Bu örnekte `CourseInstructor``EntityName1EntityName2`bir JOIN varlığının adı yaygın olarak kullanılır. Ancak, ilişkiyi açıklayan bir ad seçmenizi öneririz. Veri modelleri, daha sonra yükleri daha sonra almak için, yük olmayan birleşimler olmadan basit ve büyümeye başlar. Açıklayıcı bir varlık adıyla başladıysanız, daha sonra adı değiştirmeniz gerekmez. İdeal olarak, JOIN varlığının iş etki alanında kendi doğal (muhtemelen tek bir kelime) adına sahip olması gerekir. Örneğin, kitaplar ve müşteriler derecelendirmeler aracılığıyla bağlanabilir. Bu ilişki için `CourseAssignment` `CourseInstructor`daha iyi bir seçenektir.
 
 ### <a name="composite-key"></a>Bileşik anahtar
 
 Yabancı anahtarlar null değer atanmadığından ve tablodaki her satırı benzersiz bir şekilde tanımladığından, ayrı bir birincil anahtar gerekmez. *Komutctorıd* ve *CourseID* özellikleri bir bileşik birincil anahtar olarak çalışır. EF için bileşik birincil anahtarları tanımlamanın tek yolu *Fluent API* kullanmaktır (öznitelikleri kullanılarak gerçekleştirilemez). Bir sonraki bölümde bileşik birincil anahtarı nasıl yapılandıracağınızı göreceksiniz.
 
-Bileşik anahtar, tek bir kurs için birden çok satır ve bir eğitmen için birden fazla satır, aynı eğitmen ve kurs için birden çok satıra sahip olmanızı sağlar. @No__t-0 JOIN varlığı kendi birincil anahtarını tanımlar, bu nedenle bu sıralamanın yinelemeleri mümkündür. Bu tür yinelemeleri engellemek için yabancı anahtar alanlarına benzersiz bir dizin ekleyebilir veya `Enrollment` ' ı `CourseAssignment` ' e benzer bir birincil bileşik anahtarla yapılandırabilirsiniz. Daha fazla bilgi için bkz. [dizinler](/ef/core/modeling/indexes).
+Bileşik anahtar, tek bir kurs için birden çok satır ve bir eğitmen için birden fazla satır, aynı eğitmen ve kurs için birden çok satıra sahip olmanızı sağlar. `Enrollment` JOIN varlığı kendi birincil anahtarını tanımlar, bu nedenle bu sıralamanın yinelemeleri mümkündür. Bu tür yinelemeleri engellemek için yabancı anahtar alanlarına benzersiz bir dizin ekleyebilir veya `CourseAssignment`benzer bir birincil bileşik anahtarla `Enrollment` yapılandırabilirsiniz. Daha fazla bilgi için bkz. [dizinler](/ef/core/modeling/indexes).
 
 ## <a name="update-the-database-context"></a>Veritabanı bağlamını güncelleştirme
 
@@ -397,7 +398,7 @@ Bu kod yeni varlıkları ekler ve Courseatama varlığının bileşik birincil a
 
 ## <a name="about-a-fluent-api-alternative"></a>Fluent API alternatifi hakkında
 
-@No__t-1 sınıfının `OnModelCreating` yöntemindeki kod, EF davranışını yapılandırmak için *Fluent API* kullanır. Bu örnekte, [EF Core belgelerinden](/ef/core/modeling/#use-fluent-api-to-configure-a-model)farklı olarak, bir dizi yöntemi çağıran tek bir bildirimde dize tarafından KULLANıLDıĞıNDAN, API "floent" olarak adlandırılır:
+`DbContext` sınıfının `OnModelCreating` yöntemindeki kod, EF davranışını yapılandırmak için *Fluent API* kullanır. Bu örnekte, [EF Core belgelerinden](/ef/core/modeling/#use-fluent-api-to-configure-a-model)farklı olarak, bir dizi yöntemi çağıran tek bir bildirimde dize tarafından KULLANıLDıĞıNDAN, API "floent" olarak adlandırılır:
 
 ```csharp
 protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -408,7 +409,7 @@ protected override void OnModelCreating(ModelBuilder modelBuilder)
 }
 ```
 
-Bu öğreticide, yalnızca öznitelikleri ile yapaamıyoruz veritabanı eşlemesi için Fluent API kullanıyorsunuz. Ancak, özniteliklerini kullanarak yapabileceğiniz biçimlendirme, doğrulama ve eşleme kurallarının çoğunu belirtmek için Fluent API de kullanabilirsiniz. @No__t-0 gibi bazı öznitelikler Fluent API uygulanamaz. Daha önce belirtildiği gibi, `MinimumLength` şemayı değiştirmez, yalnızca bir istemci ve sunucu tarafı doğrulama kuralı uygular.
+Bu öğreticide, yalnızca öznitelikleri ile yapaamıyoruz veritabanı eşlemesi için Fluent API kullanıyorsunuz. Ancak, özniteliklerini kullanarak yapabileceğiniz biçimlendirme, doğrulama ve eşleme kurallarının çoğunu belirtmek için Fluent API de kullanabilirsiniz. `MinimumLength` gibi bazı öznitelikler Fluent API uygulanamaz. Daha önce belirtildiği gibi, `MinimumLength` şemayı değiştirmez, yalnızca bir istemci ve sunucu tarafı doğrulama kuralı uygular.
 
 Bazı geliştiriciler, varlık sınıflarının "temiz" olmasını sağlamak için Fluent API özel olarak kullanmayı tercih eder. İsterseniz öznitelikleri ve Fluent API karıştırabilir ve yalnızca Fluent API kullanılarak gerçekleştirilebilecek bazı özelleştirmeler de vardır ancak genel olarak önerilen uygulama, bu iki yaklaşımdan birini seçmek ve bunları mümkün olduğunca tutarlı bir şekilde kullanmaktır. Her ikisini de kullanırsanız, bir çakışma olduğunda, akıcı API 'nin öznitelikleri geçersiz kıldığını unutmayın.
 
@@ -420,7 +421,7 @@ Aşağıdaki çizimde, Entity Framework Power Tools 'un tamamlanmış okul model
 
 ![Varlık diyagramı](complex-data-model/_static/diagram.png)
 
-Bire çok ilişki çizgilerinin yanı sıra (1 ila \*), burada, eğitmen ve OfficeAssignment varlıkları ile sıfır veya-bire çok ilişki satırı (1 ila 0.. 1) arasında bir ilişki satırını (0.. 1 ile *) Eğitmen ve departman varlıkları.
+Bire çok ilişki çizgilerinin yanı sıra (1 ' den \*), eğitmen ve OfficeAssignment varlıkları arasında (1 ila 0.. 1) ve eğitmen ve departman varlıkları arasında sıfır veya-bire çok ilişki satırı (0.. 1 ile *) arasında bir tek-sıfır veya-bir ilişki satırını görebilirsiniz.
 
 ## <a name="seed-database-with-test-data"></a>Test verileriyle çekirdek veritabanı
 
@@ -428,7 +429,7 @@ Bire çok ilişki çizgilerinin yanı sıra (1 ila \*), burada, eğitmen ve Offi
 
 [!code-csharp[](intro/samples/cu/Data/DbInitializer.cs?name=snippet_Final)]
 
-İlk öğreticide gördüğünüz gibi, bu kodun çoğu yalnızca yeni varlık nesneleri oluşturur ve test için gereken şekilde, örnek verileri özelliklere yükler. Çoktan çoğa ilişkilerin nasıl işlendiği hakkında dikkat edin: kod, `Enrollments` ve `CourseAssignment` ' i birleştirmek varlık kümelerinde varlık oluşturarak ilişkiler oluşturur.
+İlk öğreticide gördüğünüz gibi, bu kodun çoğu yalnızca yeni varlık nesneleri oluşturur ve test için gereken şekilde, örnek verileri özelliklere yükler. Çoktan çoğa ilişkilerin nasıl işlendiği hakkında dikkat edin: kod, `Enrollments` varlıklar oluşturup `CourseAssignment` varlık kümelerine katmak yoluyla ilişkiler oluşturur.
 
 ## <a name="add-a-migration"></a>Geçiş Ekle
 
@@ -445,13 +446,13 @@ An operation was scaffolded that may result in the loss of data. Please review t
 Done. To undo this action, use 'ef migrations remove'
 ```
 
-Bu noktada `database update` komutunu çalıştırmayı denediyseniz (henüz yapmayın), şu hatayı alırsınız:
+`database update` komutunu bu noktada çalıştırmayı denediyseniz (henüz yapmayın), şu hatayı alırsınız:
 
-> ALTER TABLE ifadesi, "FK_dbo" adlı yabancı anahtar kısıtlaması ile çakışıyor. Course_dbo. Department_DepartmentID". "ContosoUniversity" veritabanında, "dbo" tablosunda çakışma oluştu. Bölüm ", sütun ' DepartmentID '.
+> ALTER TABLE ifadesi, "FK_dbo yabancı anahtar kısıtlaması ile çakışıyor. Course_dbo. Department_DepartmentID ". "ContosoUniversity" veritabanında, "dbo" tablosunda çakışma oluştu. Bölüm ", sütun ' DepartmentID '.
 
-Bazı durumlarda, mevcut verilerle geçişleri yürüttüğünüzde, yabancı anahtar kısıtlamalarını karşılamak için saplama verilerini veritabanına eklemeniz gerekir. @No__t-0 yönteminde oluşturulan kod, kurs tablosuna null yapılamayan bir DepartmentID yabancı anahtarı ekler. Kurs tablosunda kod çalıştırıldığında zaten satırlar varsa, SQL Server null olmayan sütuna hangi değerin yerleştirileceğini bilmediği için `AddColumn` işlemi başarısız olur. Bu öğreticide, geçişi yeni bir veritabanında çalıştıracaksınız, ancak bir üretim uygulamasında geçiş, mevcut verileri işleyeceğinizden, bu sayede bunun nasıl yapılacağını gösteren bir örnek gösterilmektedir.
+Bazı durumlarda, mevcut verilerle geçişleri yürüttüğünüzde, yabancı anahtar kısıtlamalarını karşılamak için saplama verilerini veritabanına eklemeniz gerekir. `Up` yönteminde oluşturulan kod, kurs tablosuna null yapılamayan bir DepartmentID yabancı anahtarı ekler. Kurs tablosunda kod çalıştırıldığında zaten satırlar varsa, SQL Server null olmayan sütuna hangi değerin yerleştirileceğini bilmediği için `AddColumn` işlemi başarısız olur. Bu öğreticide, geçişi yeni bir veritabanında çalıştıracaksınız, ancak bir üretim uygulamasında geçiş, mevcut verileri işleyeceğinizden, bu sayede bunun nasıl yapılacağını gösteren bir örnek gösterilmektedir.
 
-Bu geçişi mevcut verilerle birlikte çalışarak, yeni sütuna varsayılan bir değer vermek için kodu değiştirmeniz ve varsayılan departman görevi gören "Temp" adlı bir saplama departmanı oluşturmanız gerekir. Sonuç olarak, `Up` yöntemi çalıştıktan sonra, mevcut kurs satırları "geçici" departmanla ilgili olacaktır.
+Bu geçişi mevcut verilerle birlikte çalışarak, yeni sütuna varsayılan bir değer vermek için kodu değiştirmeniz ve varsayılan departman görevi gören "Temp" adlı bir saplama departmanı oluşturmanız gerekir. Sonuç olarak, mevcut kurs satırları `Up` yöntemi çalıştıktan sonra "geçici" departmanla ilgili olacaktır.
 
 * *{Timestamp} _ComplexDataModel. cs* dosyasını açın.
 
@@ -469,7 +470,7 @@ Değişikliklerinizi kaydedin ve projeyi derleyin.
 
 ## <a name="change-the-connection-string"></a>Bağlantı dizesini değiştirme
 
-Artık `DbInitializer` sınıfında, yeni varlıklar için çekirdek verileri boş bir veritabanına ekleyen yeni kodunuz var. EF 'in yeni boş bir veritabanı oluşturmasını sağlamak için *appSettings. JSON* içindeki bağlantı dizesinde veritabanının adını ContosoUniversity3 veya kullandığınız bilgisayarda kullanmadığınız başka bir adla değiştirin.
+Artık, yeni varlıkların temel verilerini boş bir veritabanına ekleyen `DbInitializer` sınıfında yeni kodunuz var. EF 'in yeni boş bir veritabanı oluşturmasını sağlamak için *appSettings. JSON* içindeki bağlantı dizesinde veritabanının adını ContosoUniversity3 veya kullandığınız bilgisayarda kullanmadığınız başka bir adla değiştirin.
 
 ```json
 {
@@ -495,7 +496,7 @@ Veritabanı adını değiştirdikten veya veritabanını sildikten sonra, geçi�
 dotnet ef database update
 ```
 
-@No__t-0 yönteminin çalışmasına ve yeni veritabanını doldurmasına neden olacak şekilde uygulamayı çalıştırın.
+`DbInitializer.Initialize` yönteminin çalışmasına ve yeni veritabanını doldurmasına neden olmak için uygulamayı çalıştırın.
 
 Veritabanını daha önce yaptığınız gibi SSOX içinde açın ve tabloların tümünün oluşturulduğunu görmek için **Tables** düğümünü genişletin. (Yine de bir daha önceki zamanda SSOX açıksa **Yenile** düğmesine tıklayın.)
 
@@ -507,7 +508,7 @@ Veritabanını gösteren Başlatıcı kodunu tetiklemek için uygulamayı çalı
 
 ![SSOX 'te Courseatama verileri](complex-data-model/_static/ssox-ci-data.png)
 
-## <a name="get-the-code"></a>Kodu edinin
+## <a name="get-the-code"></a>Kodu alın
 
 [Tamamlanmış uygulamayı indirin veya görüntüleyin.](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final)
 

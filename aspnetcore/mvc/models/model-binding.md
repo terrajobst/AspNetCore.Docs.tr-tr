@@ -4,14 +4,14 @@ author: rick-anderson
 description: ASP.NET Core model bağlamasının nasıl çalıştığını ve davranışını nasıl özelleştireceğinizi öğrenin.
 ms.assetid: 0be164aa-1d72-4192-bd6b-192c9c301164
 ms.author: riande
-ms.date: 05/31/2019
+ms.date: 11/15/2019
 uid: mvc/models/model-binding
-ms.openlocfilehash: aeb2da7e11df1eab5a17e2ae0a3971420c9383b4
-ms.sourcegitcommit: 032113208bb55ecfb2faeb6d3e9ea44eea827950
+ms.openlocfilehash: a025419a5b4d2c2e3e5c5a7850df281ddd3164ea
+ms.sourcegitcommit: f91d322f790123d41ec3271fa084ae20ed9f89a6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73190600"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74155046"
 ---
 # <a name="model-binding-in-aspnet-core"></a>ASP.NET Core 'de model bağlama
 
@@ -40,7 +40,7 @@ Ve uygulama şu URL ile bir istek alıyor:
 http://contoso.com/api/pets/2?DogsOnly=true
 ```
 
-Model bağlama, yönlendirme sistemi eylem yöntemini seçtikten sonra aşağıdaki adımlarla geçer:
+Model bağlama, yönlendirme sistemi eylem yöntemini seçtikten sonra aşağıdaki adımlardan geçer:
 
 * `id`adlı bir tamsayı olan `GetByID`ilk parametresini bulur.
 * HTTP isteğindeki kullanılabilir kaynakları arar ve yönlendirme verilerinde `id` = "2" bulur.
@@ -185,7 +185,7 @@ Model cildin kaynak dizeleri dönüştürebileceğiniz basit türler aşağıdak
 
 Karmaşık bir türün bağlanması için ortak bir varsayılan Oluşturucusu ve ortak yazılabilir özellikleri olmalıdır. Model bağlama gerçekleştiğinde, sınıf ortak varsayılan Oluşturucu kullanılarak oluşturulur. 
 
-Karmaşık türün her özelliği için model bağlama, ad modeli *öneki. property_name*için kaynakları arar. Hiçbir şey bulunamazsa, ön ek olmadan yalnızca *property_name* arar.
+Karmaşık türün her özelliği için model bağlama, ad modeli ön eki için kaynakları arar *. property_name*. Hiçbir şey bulunamazsa, ön ek olmadan yalnızca *property_name* arar.
 
 Bir parametreye bağlama için, önek parametre adıdır. `PageModel` public özelliğine bağlama için, önek ortak özellik adıdır. Bazı özniteliklerin, parametre veya özellik adının varsayılan kullanımını geçersiz kılabilmenizi sağlayan `Prefix` bir özelliği vardır.
 
@@ -324,7 +324,7 @@ Basit türlerin koleksiyonları olan hedefler için model bağlama, *parameter_n
 
 ## <a name="dictionaries"></a>sözlüğü
 
-`Dictionary` hedefler için, model bağlama *parameter_name* veya *property_name*ile eşleşmeleri arar. Eşleşme bulunmazsa, ön ek olmadan desteklenen biçimlerden birini arar. Örneğin:
+`Dictionary` hedefler için, model bağlama *parameter_name* veya *property_name*eşleşmelerini arar. Eşleşme bulunmazsa, ön ek olmadan desteklenen biçimlerden birini arar. Örneğin:
 
 * Hedef parametrenin `selectedCourses`adlı bir `Dictionary<int, string>` olduğunu varsayalım:
 

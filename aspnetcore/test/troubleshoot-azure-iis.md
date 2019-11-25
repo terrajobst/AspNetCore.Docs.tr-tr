@@ -1,129 +1,129 @@
 ---
-title: Azure App Service ve IIS 'de ASP.NET Core sorunlarını giderme
+title: Troubleshoot ASP.NET Core on Azure App Service and IIS
 author: guardrex
-description: ASP.NET Core uygulamalarının Azure App Service ve Internet Information Services (IIS) dağıtımlarıyla ilgili sorunları tanılamayı öğrenin.
+description: Learn how to diagnose problems with Azure App Service and Internet Information Services (IIS) deployments of ASP.NET Core apps.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 07/18/2019
+ms.date: 11/20/2019
 uid: test/troubleshoot-azure-iis
-ms.openlocfilehash: 384ae6645ce083fba76a430dfc3bec3a59d3870e
-ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
+ms.openlocfilehash: 49a0f59fb6930235de10c726f3695f2a5352efb2
+ms.sourcegitcommit: 8157e5a351f49aeef3769f7d38b787b4386aad5f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71081532"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74251971"
 ---
-# <a name="troubleshoot-aspnet-core-on-azure-app-service-and-iis"></a>Azure App Service ve IIS 'de ASP.NET Core sorunlarını giderme
+# <a name="troubleshoot-aspnet-core-on-azure-app-service-and-iis"></a>Troubleshoot ASP.NET Core on Azure App Service and IIS
 
-, [Luke Latham](https://github.com/guardrex) ve, [kotalik](https://github.com/jkotalik) tarafından
+By [Luke Latham](https://github.com/guardrex) and [Justin Kotalik](https://github.com/jkotalik)
 
-Bu makalede, bir uygulama Azure App Service veya IIS 'ye dağıtıldığında hataların nasıl tanılanacağı hakkında genel uygulama başlatma hataları ve yönergeleri hakkında bilgi verilmektedir:
+This article provides information on common app startup errors and instructions on how to diagnose errors when an app is deployed to Azure App Service or IIS:
 
-[Uygulama başlatma hataları](#app-startup-errors)  
-Ortak Başlangıç HTTP durum kodu senaryolarını açıklar.
+[App startup errors](#app-startup-errors)  
+Explains common startup HTTP status code scenarios.
 
-[Azure App Service sorunlarını giderme](#troubleshoot-on-azure-app-service)  
-Azure App Service dağıtılan uygulamalar için sorun giderme önerisi sağlar.
+[Troubleshoot on Azure App Service](#troubleshoot-on-azure-app-service)  
+Provides troubleshooting advice for apps deployed to Azure App Service.
 
 [IIS üzerinde sorun giderme](#troubleshoot-on-iis)  
-IIS 'ye dağıtılan veya IIS Express yerel olarak çalışan uygulamalar için sorun giderme önerisi sağlar. Bu kılavuz hem Windows Server hem de Windows masaüstü dağıtımları için geçerlidir.
+Provides troubleshooting advice for apps deployed to IIS or running on IIS Express locally. The guidance applies to both Windows Server and Windows desktop deployments.
 
-[Paket önbelleklerini temizle](#clear-package-caches)  
-Önemli güncelleştirmeler gerçekleştirirken veya paket sürümlerini değiştirirken ne yapmanız gerektiğini açıklar.
+[Clear package caches](#clear-package-caches)  
+Explains what to do when incoherent packages break an app when performing major upgrades or changing package versions.
 
-[Ek kaynaklar](#additional-resources)  
-Ek sorun giderme konularını listeler.
+[Additional resources](#additional-resources)  
+Lists additional troubleshooting topics.
 
-## <a name="app-startup-errors"></a>Uygulama başlatma hataları
+## <a name="app-startup-errors"></a>App startup errors
 
 ::: moniker range=">= aspnetcore-2.2"
 
-Visual Studio'da varsayılan olarak bir ASP.NET Core projesi [IIS Express](/iis/extensions/introduction-to-iis-express/iis-express-overview) hata ayıklama sırasında barındırma. *502,5-Işlem hatası* veya yerel olarak hata ayıklarken oluşan *500,30-başlatma hatası* , bu konudaki öneri kullanılarak tanılanabilir.
+In Visual Studio, an ASP.NET Core project defaults to [IIS Express](/iis/extensions/introduction-to-iis-express/iis-express-overview) hosting during debugging. A *502.5 - Process Failure* or a *500.30 - Start Failure* that occurs when debugging locally can be diagnosed using the advice in this topic.
 
 ::: moniker-end
 
 ::: moniker range="< aspnetcore-2.2"
 
-Visual Studio'da varsayılan olarak bir ASP.NET Core projesi [IIS Express](/iis/extensions/introduction-to-iis-express/iis-express-overview) hata ayıklama sırasında barındırma. Yerel olarak hata ayıklamada oluşan *502,5 Işlem hatası* , bu konudaki öneri kullanılarak tanılanabilir.
+In Visual Studio, an ASP.NET Core project defaults to [IIS Express](/iis/extensions/introduction-to-iis-express/iis-express-overview) hosting during debugging. A *502.5 Process Failure* that occurs when debugging locally can be diagnosed using the advice in this topic.
 
 ::: moniker-end
 
-### <a name="40314-forbidden"></a>403,14 yasak
+### <a name="40314-forbidden"></a>403.14 Forbidden
 
-Uygulama başlatılamıyor. Aşağıdaki hata günlüğe kaydedilir:
+The app fails to start. The following error is logged:
 
 ```
 The Web server is configured to not list the contents of this directory.
 ```
 
-Hata genellikle barındırma sisteminde, aşağıdaki senaryolardan birini içeren bozuk bir dağıtım nedeniyle oluşur:
+The error is usually caused by a broken deployment on the hosting system, which includes any of the following scenarios:
 
-* Uygulama, barındırma sisteminde yanlış klasöre dağıtılır.
-* Dağıtım işlemi, uygulamanın tüm dosyalarını ve klasörlerini barındırma sistemindeki dağıtım klasörüne taşıyamadı.
-* *Web. config* dosyası dağıtımda yok veya *Web. config* dosyası içerikleri hatalı biçimlendirilmiş.
+* The app is deployed to the wrong folder on the hosting system.
+* The deployment process failed to move all of the app's files and folders to the deployment folder on the hosting system.
+* The *web.config* file is missing from the deployment, or the *web.config* file contents are malformed.
 
-Aşağıdaki adımları uygulayın:
+Perform the following steps:
 
-1. Tüm dosya ve klasörleri barındırma sistemindeki dağıtım klasöründen silin.
-1. Visual Studio, PowerShell veya el ile dağıtım gibi normal dağıtım yönteminizi kullanarak, uygulamanın *Yayımlama* klasörünün içeriğini barındırma sistemine yeniden dağıtın:
-   * *Web. config* dosyasının dağıtımda mevcut olduğunu ve içeriğinin doğru olduğunu doğrulayın.
-   * Azure App Service barındırırken, uygulamanın `D:\home\site\wwwroot` klasöre dağıtıldığını doğrulayın.
-   * Uygulama IIS tarafından barındırılıyorsa, uygulamanın **IIS yöneticisinin** **temel ayarlarında**gösterilen IIS **fiziksel yoluna** dağıtıldığını doğrulayın.
-1. Barındırma sistemindeki dağıtımı projenin *Yayımla* klasörünün içeriğiyle karşılaştırarak uygulamanın tüm dosya ve klasörlerinin dağıtıldığını doğrulayın.
+1. Delete all of the files and folders from the deployment folder on the hosting system.
+1. Redeploy the contents of the app's *publish* folder to the hosting system using your normal method of deployment, such as Visual Studio, PowerShell, or manual deployment:
+   * Confirm that the *web.config* file is present in the deployment and that its contents are correct.
+   * When hosting on Azure App Service, confirm that the app is deployed to the `D:\home\site\wwwroot` folder.
+   * When the app is hosted by IIS, confirm that the app is deployed to the IIS **Physical path** shown in **IIS Manager**'s **Basic Settings**.
+1. Confirm that all of the app's files and folders are deployed by comparing the deployment on the hosting system to the contents of the project's *publish* folder.
 
-Yayımlanan ASP.NET Core uygulamasının düzeni hakkında daha fazla bilgi için bkz <xref:host-and-deploy/directory-structure>. *Web. config* dosyası hakkında daha fazla bilgi için bkz <xref:host-and-deploy/aspnet-core-module#configuration-with-webconfig>.
+For more information on the layout of a published ASP.NET Core app, see <xref:host-and-deploy/directory-structure>. For more information on the *web.config* file, see <xref:host-and-deploy/aspnet-core-module#configuration-with-webconfig>.
 
-### <a name="500-internal-server-error"></a>500 İç sunucu hatası
+### <a name="500-internal-server-error"></a>500 Internal Server Error
 
-Uygulamayı başlatır, ancak bir hata sunucu isteği yerine getirmesini önler.
+The app starts, but an error prevents the server from fulfilling the request.
 
-Bu hata, başlatma sırasında veya bir yanıt oluşturulurken uygulamanın kod içinde oluşur. Yanıtın içerik içerebilir veya yanıt olarak görünebilir bir *500 İç sunucu hatası* tarayıcıda. Uygulama olay günlüğü, genellikle uygulama normal şekilde çalışmaya belirtir. Sunucunun açısından bakıldığında, doğru olmasıdır. Uygulama başladı, ancak geçerli bir yanıt oluşturulamıyor. Uygulamayı sunucuda bir komut isteminde çalıştırın veya sorunu gidermek için ASP.NET Core modülü stdout günlüğünü etkinleştirin.
+This error occurs within the app's code during startup or while creating a response. The response may contain no content, or the response may appear as a *500 Internal Server Error* in the browser. The Application Event Log usually states that the app started normally. From the server's perspective, that's correct. The app did start, but it can't generate a valid response. Run the app at a command prompt on the server or enable the ASP.NET Core Module stdout log to troubleshoot the problem.
 
 ::: moniker range="= aspnetcore-2.2"
 
-### <a name="5000-in-process-handler-load-failure"></a>500.0 işlem içi işleyici yükleme hatası
+### <a name="5000-in-process-handler-load-failure"></a>500.0 In-Process Handler Load Failure
 
-Çalışan işlemi başarısız olur. Uygulama başlamaz.
+The worker process fails. The app doesn't start.
 
-[ASP.NET Core modülü](xref:host-and-deploy/aspnet-core-module) .NET Core CLR 'yi bulamıyor ve işlem içi istek işleyicisini (*aspnetcorev2_inprocess. dll*) bulamıyor. Kontrol edin:
+The [ASP.NET Core Module](xref:host-and-deploy/aspnet-core-module) fails to find the .NET Core CLR and find the in-process request handler (*aspnetcorev2_inprocess.dll*). Check that:
 
-* Uygulamayı ya da hedeflediğinden [Microsoft.AspNetCore.Server.IIS](https://www.nuget.org/packages/Microsoft.AspNetCore.Server.IIS) NuGet paketini veya [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app).
-* ASP.NET Core paylaşılan framework'ün hedefliyorsa hedef makinede yüklü sürümü.
+* The app targets either the [Microsoft.AspNetCore.Server.IIS](https://www.nuget.org/packages/Microsoft.AspNetCore.Server.IIS) NuGet package or the [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app).
+* The version of the ASP.NET Core shared framework that the app targets is installed on the target machine.
 
-### <a name="5000-out-of-process-handler-load-failure"></a>500.0 giden işlem işleyicisi yükleme hatası
+### <a name="5000-out-of-process-handler-load-failure"></a>500.0 Out-Of-Process Handler Load Failure
 
-Çalışan işlemi başarısız olur. Uygulama başlamaz.
+The worker process fails. The app doesn't start.
 
-[ASP.NET Core modülü](xref:host-and-deploy/aspnet-core-module) işlem dışı barındırma isteği işleyicisini bulamıyor. Emin *aspnetcorev2_outofprocess.dll* yanında bir alt klasöründe yoksa *aspnetcorev2.dll*.
+The [ASP.NET Core Module](xref:host-and-deploy/aspnet-core-module) fails to find the out-of-process hosting request handler. Make sure the *aspnetcorev2_outofprocess.dll* is present in a subfolder next to *aspnetcorev2.dll*.
 
 ::: moniker-end
 
 ::: moniker range=">= aspnetcore-3.0"
 
-### <a name="5000-in-process-handler-load-failure"></a>500.0 işlem içi işleyici yükleme hatası
+### <a name="5000-in-process-handler-load-failure"></a>500.0 In-Process Handler Load Failure
 
-Çalışan işlemi başarısız olur. Uygulama başlamaz.
+The worker process fails. The app doesn't start.
 
-[ASP.NET Core Module](xref:host-and-deploy/aspnet-core-module) bileşenleri yüklenirken bilinmeyen bir hata oluştu. Aşağıdaki eylemlerden birini gerçekleştirin:
+An unknown error occurred loading [ASP.NET Core Module](xref:host-and-deploy/aspnet-core-module) components. Take one of the following actions:
 
-* [Microsoft desteği](https://support.microsoft.com/oas/default.aspx?prid=15832) iletişim kurun ( **Geliştirici Araçları** ve **ASP.NET Core**' i seçin).
-* Stack Overflow soru sorun.
-* [GitHub deponuzda](https://github.com/aspnet/AspNetCore)bir sorun yapın.
+* Contact [Microsoft Support](https://support.microsoft.com/oas/default.aspx?prid=15832) (select **Developer Tools** then **ASP.NET Core**).
+* Ask a question on Stack Overflow.
+* File an issue on our [GitHub repository](https://github.com/aspnet/AspNetCore).
 
-### <a name="50030-in-process-startup-failure"></a>500.30 işlemdeki başlatma hatası
+### <a name="50030-in-process-startup-failure"></a>500.30 In-Process Startup Failure
 
-Çalışan işlemi başarısız olur. Uygulama başlamaz.
+The worker process fails. The app doesn't start.
 
-[ASP.NET Core modülü](xref:host-and-deploy/aspnet-core-module) .NET Core CLR 'yi işlem içi başlatmaya çalışır, ancak başlatılamıyor. İşlem başlatma hatasının nedeni genellikle uygulama olay günlüğündeki girişlerden ve ASP.NET Core modülü stdout günlüğünde belirlenebilir.
+The [ASP.NET Core Module](xref:host-and-deploy/aspnet-core-module) attempts to start the .NET Core CLR in-process, but it fails to start. The cause of a process startup failure can usually be determined from entries in the Application Event Log and the ASP.NET Core Module stdout log.
 
-Ortak bir hata durumu, uygulamanın mevcut olmayan ASP.NET Core paylaşılan framework sürümü hedefleme nedeniyle yanlış yapılandırılmış ' dir. Hangi sürümlerinin bir ASP.NET Core paylaşılan çerçeve hedef makinede yüklü olduğunu denetleyin.
+A common failure condition is the app is misconfigured due to targeting a version of the ASP.NET Core shared framework that isn't present. Check which versions of the ASP.NET Core shared framework are installed on the target machine.
 
-### <a name="50031-ancm-failed-to-find-native-dependencies"></a>500,31 ANCM yerel bağımlılıklar bulunamadı
+### <a name="50031-ancm-failed-to-find-native-dependencies"></a>500.31 ANCM Failed to Find Native Dependencies
 
-Çalışan işlemi başarısız olur. Uygulama başlamaz.
+The worker process fails. The app doesn't start.
 
-[ASP.NET Core modülü](xref:host-and-deploy/aspnet-core-module) , .NET Core çalışma zamanını işlem içinde başlatmaya çalışır, ancak başlatılamıyor. Bu başlatma hatasının en yaygın nedeni, `Microsoft.NETCore.App` veya `Microsoft.AspNetCore.App` çalışma zamanının yüklenmemesine neden olur. Uygulama, hedef ASP.NET Core 3,0 ' ye dağıtılmışsa ve bu sürüm makinede yoksa, bu hata oluşur. Örnek bir hata iletisi aşağıda verilmiştir:
+The [ASP.NET Core Module](xref:host-and-deploy/aspnet-core-module) attempts to start the .NET Core runtime in-process, but it fails to start. The most common cause of this startup failure is when the `Microsoft.NETCore.App` or `Microsoft.AspNetCore.App` runtime isn't installed. If the app is deployed to target ASP.NET Core 3.0 and that version doesn't exist on the machine, this error occurs. An example error message follows:
 
 ```
 The specified framework 'Microsoft.NETCore.App', version '3.0.0' was not found.
@@ -135,70 +135,70 @@ The specified framework 'Microsoft.NETCore.App', version '3.0.0' was not found.
       3.0.0-preview6-27723-08 at [C:\Program Files\dotnet\x64\shared\Microsoft.NETCore.App]
 ```
 
-Hata iletisi, yüklü tüm .NET Core sürümlerini ve uygulama tarafından istenen sürümü listeler. Bu hatayı onarmak için aşağıdakilerden birini yapın:
+The error message lists all the installed .NET Core versions and the version requested by the app. To fix this error, either:
 
-* Uygun .NET Core sürümünü makineye yükler.
-* Uygulamayı, makinede bulunan .NET Core 'un bir sürümünü hedefleyecek şekilde değiştirin.
-* Uygulamayı [kendi kendine kapsanan bir dağıtım](/dotnet/core/deploying/#self-contained-deployments-scd)olarak yayımlayın.
+* Install the appropriate version of .NET Core on the machine.
+* Change the app to target a version of .NET Core that's present on the machine.
+* Publish the app as a [self-contained deployment](/dotnet/core/deploying/#self-contained-deployments-scd).
 
-Geliştirme aşamasında çalışırken ( `ASPNETCORE_ENVIRONMENT` ortam değişkeni olarak `Development`ayarlandığında), özel hata HTTP yanıtına yazılır. İşlem başlatma hatasının nedeni uygulama olay günlüğünde de bulunur.
+When running in development (the `ASPNETCORE_ENVIRONMENT` environment variable is set to `Development`), the specific error is written to the HTTP response. The cause of a process startup failure is also found in the Application Event Log.
 
-### <a name="50032-ancm-failed-to-load-dll"></a>500,32 ANCM dll yüklenemedi
+### <a name="50032-ancm-failed-to-load-dll"></a>500.32 ANCM Failed to Load dll
 
-Çalışan işlemi başarısız olur. Uygulama başlamaz.
+The worker process fails. The app doesn't start.
 
-Bu hatanın en yaygın nedeni, uygulamanın uyumsuz bir işlemci mimarisi için yayımlanmakta olması olabilir. Çalışan işlemi 32 bitlik bir uygulama olarak çalışıyorsa ve uygulama 64 bit hedef için yayımlandıysa, bu hata oluşur.
+The most common cause for this error is that the app is published for an incompatible processor architecture. If the worker process is running as a 32-bit app and the app was published to target 64-bit, this error occurs.
 
-Bu hatayı onarmak için aşağıdakilerden birini yapın:
+To fix this error, either:
 
-* Çalışan işlemle aynı işlemci mimarisi için uygulamayı yeniden yayımlayın.
-* Uygulamayı [çerçeveye bağlı bir dağıtım](/dotnet/core/deploying/#framework-dependent-executables-fde)olarak yayımlayın.
+* Republish the app for the same processor architecture as the worker process.
+* Publish the app as a [framework-dependent deployment](/dotnet/core/deploying/#framework-dependent-executables-fde).
 
-### <a name="50033-ancm-request-handler-load-failure"></a>500,33 ANCM Istek Işleyicisi yükleme hatası
+### <a name="50033-ancm-request-handler-load-failure"></a>500.33 ANCM Request Handler Load Failure
 
-Çalışan işlemi başarısız olur. Uygulama başlamaz.
+The worker process fails. The app doesn't start.
 
-Uygulama `Microsoft.AspNetCore.App` çerçeveye başvurmadı. Yalnızca `Microsoft.AspNetCore.App` çerçeveyi hedefleyen uygulamalar [ASP.NET Core modülü](xref:host-and-deploy/aspnet-core-module)tarafından barındırılabilir.
+The app didn't reference the `Microsoft.AspNetCore.App` framework. Only apps targeting the `Microsoft.AspNetCore.App` framework can be hosted by the [ASP.NET Core Module](xref:host-and-deploy/aspnet-core-module).
 
-Bu hatayı düzeltemedi, uygulamanın `Microsoft.AspNetCore.App` çerçeveyi hedeflediğinden emin olun. Uygulamanın hedeflediği çerçeveyi doğrulamak için'iişaretleyin.`.runtimeconfig.json`
+To fix this error, confirm that the app is targeting the `Microsoft.AspNetCore.App` framework. Check the `.runtimeconfig.json` to verify the framework targeted by the app.
 
-### <a name="50034-ancm-mixed-hosting-models-not-supported"></a>500,34 ANCM karışık barındırma modelleri desteklenmez
+### <a name="50034-ancm-mixed-hosting-models-not-supported"></a>500.34 ANCM Mixed Hosting Models Not Supported
 
-Çalışan işlem, aynı işlemde hem işlem içi uygulama hem de işlem dışı bir uygulama çalıştırılamaz.
+The worker process can't run both an in-process app and an out-of-process app in the same process.
 
-Bu hatayı onarmak için uygulamaları ayrı IIS uygulama havuzlarında çalıştırın.
+To fix this error, run apps in separate IIS application pools.
 
-### <a name="50035-ancm-multiple-in-process-applications-in-same-process"></a>500,35 ANCM birden çok işlem Içi uygulama aynı Işlemde
+### <a name="50035-ancm-multiple-in-process-applications-in-same-process"></a>500.35 ANCM Multiple In-Process Applications in same Process
 
-Çalışan işlem, aynı işlemde hem işlem içi uygulama hem de işlem dışı bir uygulama çalıştırılamaz.
+The worker process can't run multiple in-process apps in the same process.
 
-Bu hatayı onarmak için uygulamaları ayrı IIS uygulama havuzlarında çalıştırın.
+To fix this error, run apps in separate IIS application pools.
 
-### <a name="50036-ancm-out-of-process-handler-load-failure"></a>500,36 ANCM Işlem dışı Işleyici yükleme hatası
+### <a name="50036-ancm-out-of-process-handler-load-failure"></a>500.36 ANCM Out-Of-Process Handler Load Failure
 
-İşlem dışı istek işleyicisi, *aspnetcorev2_outofprocess. dll*, *aspnetcorev2. dll* dosyasının yanında değildir. Bu, [ASP.NET Core modülünün](xref:host-and-deploy/aspnet-core-module)bozuk bir yüklemesini gösterir.
+The out-of-process request handler, *aspnetcorev2_outofprocess.dll*, isn't next to the *aspnetcorev2.dll* file. This indicates a corrupted installation of the [ASP.NET Core Module](xref:host-and-deploy/aspnet-core-module).
 
-Bu hatayı gidermek için [.NET Core barındırma paketi](xref:host-and-deploy/iis/index#install-the-net-core-hosting-bundle) (IIS için) veya Visual Studio (IIS Express için) yüklemesini onarın.
+To fix this error, repair the installation of the [.NET Core Hosting Bundle](xref:host-and-deploy/iis/index#install-the-net-core-hosting-bundle) (for IIS) or Visual Studio (for IIS Express).
 
-### <a name="50037-ancm-failed-to-start-within-startup-time-limit"></a>500,37 ANCM başlangıç zamanı sınırı Içinde başlatılamadı
+### <a name="50037-ancm-failed-to-start-within-startup-time-limit"></a>500.37 ANCM Failed to Start Within Startup Time Limit
 
-ANCM, kısımları başlangıç süresi sınırı içinde başlatılamadı. Varsayılan olarak, zaman aşımı 120 saniyedir.
+ANCM failed to start within the provied startup time limit. By default, the timeout is 120 seconds.
 
-Aynı makinede çok sayıda uygulama başlatılırken bu hata oluşabilir. Başlangıç sırasında sunucuda CPU/bellek kullanımı artışlarını denetleyin. Birden çok uygulamanın başlatma işlemini şaşırtmayı yapmanız gerekebilir.
+This error can occur when starting a large number of apps on the same machine. Check for CPU/Memory usage spikes on the server during startup. You may need to stagger the startup process of multiple apps.
 
 ::: moniker-end
 
-### <a name="5025-process-failure"></a>502.5 işlem hatası
+### <a name="5025-process-failure"></a>502.5 Process Failure
 
-Çalışan işlemi başarısız olur. Uygulama başlamaz.
+The worker process fails. The app doesn't start.
 
-[ASP.NET Core modülü](xref:host-and-deploy/aspnet-core-module) çalışan işlemini başlatmaya çalışır, ancak başlatılamıyor. İşlem başlatma hatasının nedeni genellikle uygulama olay günlüğündeki girişlerden ve ASP.NET Core modülü stdout günlüğünde belirlenebilir.
+The [ASP.NET Core Module](xref:host-and-deploy/aspnet-core-module) attempts to start the worker process but it fails to start. The cause of a process startup failure can usually be determined from entries in the Application Event Log and the ASP.NET Core Module stdout log.
 
-Ortak bir hata durumu, uygulamanın mevcut olmayan ASP.NET Core paylaşılan framework sürümü hedefleme nedeniyle yanlış yapılandırılmış ' dir. Hangi sürümlerinin bir ASP.NET Core paylaşılan çerçeve hedef makinede yüklü olduğunu denetleyin. *Paylaşılan çerçeve* , makinede yüklü olan ve bir `Microsoft.AspNetCore.App`metapackage tarafından başvurulan derleme ( *. dll* dosyaları) kümesidir. Metapackage başvurusu, gerekli en düşük sürümü belirtebilir. Daha fazla bilgi için bkz. [paylaşılan çerçeve](https://natemcmaster.com/blog/2018/08/29/netcore-primitives-2/).
+A common failure condition is the app is misconfigured due to targeting a version of the ASP.NET Core shared framework that isn't present. Check which versions of the ASP.NET Core shared framework are installed on the target machine. The *shared framework* is the set of assemblies ( *.dll* files) that are installed on the machine and referenced by a metapackage such as `Microsoft.AspNetCore.App`. The metapackage reference can specify a minimum required version. For more information, see [The shared framework](https://natemcmaster.com/blog/2018/08/29/netcore-primitives-2/).
 
-*502.5 işlem hatası* hata sayfası, barındırma veya uygulama yanlış yapılandırma çalışan işlemin başarısız olmasına neden olduğunda döndürülür:
+The *502.5 Process Failure* error page is returned when a hosting or app misconfiguration causes the worker process to fail:
 
-### <a name="failed-to-start-application-errorcode-0x800700c1"></a>Uygulama (hata kodu: '0x800700c1') başlatılamadı.
+### <a name="failed-to-start-application-errorcode-0x800700c1"></a>Failed to start application (ErrorCode '0x800700c1')
 
 ```
 EventID: 1010
@@ -206,289 +206,289 @@ Source: IIS AspNetCore Module V2
 Failed to start application '/LM/W3SVC/6/ROOT/', ErrorCode '0x800700c1'.
 ```
 
-Uygulama başlatılamadı uygulamanın derleme ( *.dll*) yüklenmesi tamamlanamadı.
+The app failed to start because the app's assembly ( *.dll*) couldn't be loaded.
 
-W3wp/ıısexpress işlemi ile yayımlanan uygulama arasındaki bir bit genişliği uyuşmazlığı olduğunda bu hata oluşur.
+This error occurs when there's a bitness mismatch between the published app and the w3wp/iisexpress process.
 
-Uygulama havuzunun 32-bit ayarının doğru olduğundan emin olun:
+Confirm that the app pool's 32-bit setting is correct:
 
-1. IIS Yöneticisi'nin uygulama havuzunu seçin **uygulama havuzları**.
-1. Seçin **Gelişmiş ayarlar** altında **uygulama havuzunu Düzenle** içinde **eylemleri** paneli.
-1. Ayarlama **32-Bit uygulamaları etkinleştir**:
-   * Bir 32-bit (x86) dağıtma, uygulama ayarlarsanız değer `True`.
-   * Bir 64-bit (x64) dağıtma, uygulama ayarlarsanız değer `False`.
+1. Select the app pool in IIS Manager's **Application Pools**.
+1. Select **Advanced Settings** under **Edit Application Pool** in the **Actions** panel.
+1. Set **Enable 32-Bit Applications**:
+   * If deploying a 32-bit (x86) app, set the value to `True`.
+   * If deploying a 64-bit (x64) app, set the value to `False`.
 
-Proje dosyasındaki bir `<Platform>` MSBuild özelliği ve uygulamanın yayınlanan bit durumu arasında bir çakışma olmadığını doğrulayın.
+Confirm that there isn't a conflict between a `<Platform>` MSBuild property in the project file and the published bitness of the app.
 
-### <a name="connection-reset"></a>Bağlantı sıfırlama
+### <a name="connection-reset"></a>Connection reset
 
-Üst bilgileri gönderildiğinde sonra bir hata oluşursa, sunucunun göndermek çok geç bir **500 İç sunucu hatası** bir hata oluştuğunda. Bu durum, genellikle bir yanıt için karmaşık nesne serileştirme sırasında bir hata oluştuğunda gerçekleşir. Bu tür olarak görünür bir *bağlantı sıfırlama* istemci üzerinde hata. [Uygulama günlüğü](xref:fundamentals/logging/index) bu tür hataları gidermeye yardımcı olabilir.
+If an error occurs after the headers are sent, it's too late for the server to send a **500 Internal Server Error** when an error occurs. This often happens when an error occurs during the serialization of complex objects for a response. This type of error appears as a *connection reset* error on the client. [Application logging](xref:fundamentals/logging/index) can help troubleshoot these types of errors.
 
-### <a name="default-startup-limits"></a>Varsayılan başlangıç sınırları
+### <a name="default-startup-limits"></a>Default startup limits
 
-[ASP.NET Core modülü](xref:host-and-deploy/aspnet-core-module) varsayılan bir *StartupTimeLimit* 120 saniye ile yapılandırılır. Varsayılan değer olarak sol uygulama modülü bir işlem hatası oturum önce başlatmak için iki dakika sürebilir. Modül yapılandırma hakkında daha fazla bilgi için bkz. [aspNetCore öğenin öznitelikleri](xref:host-and-deploy/aspnet-core-module#attributes-of-the-aspnetcore-element).
+The [ASP.NET Core Module](xref:host-and-deploy/aspnet-core-module) is configured with a default *startupTimeLimit* of 120 seconds. When left at the default value, an app may take up to two minutes to start before the module logs a process failure. For information on configuring the module, see [Attributes of the aspNetCore element](xref:host-and-deploy/aspnet-core-module#attributes-of-the-aspnetcore-element).
 
-## <a name="troubleshoot-on-azure-app-service"></a>Azure App Service sorunlarını giderme
+## <a name="troubleshoot-on-azure-app-service"></a>Troubleshoot on Azure App Service
 
 [!INCLUDE [Azure App Service Preview Notice](~/includes/azure-apps-preview-notice.md)]
 
-### <a name="application-event-log-azure-app-service"></a>Uygulama olay günlüğü (Azure App Service)
+### <a name="application-event-log-azure-app-service"></a>Application Event Log (Azure App Service)
 
-Uygulama olay günlüğüne erişmek için Azure portal **sorunları Tanıla ve çöz** dikey penceresini kullanın:
+To access the Application Event Log, use the **Diagnose and solve problems** blade in the Azure portal:
 
-1. Azure portal uygulama **Hizmetleri**' nde uygulamayı açın.
-1. **Tanıla ve sorunları çöz '** ü seçin.
-1. **Tanılama araçları** başlığını seçin.
-1. **Destek Araçları**' nın altında, **uygulama olayları** düğmesini seçin.
-1. **Kaynak** sütununda *IIS AspNetCoreModule* veya *IIS Aspnetcoremodule v2* girişi tarafından belirtilen en son hatayı inceleyin.
+1. In the Azure portal, open the app in **App Services**.
+1. Select **Diagnose and solve problems**.
+1. Select the **Diagnostic Tools** heading.
+1. Under **Support Tools**, select the **Application Events** button.
+1. Examine the latest error provided by the *IIS AspNetCoreModule* or *IIS AspNetCoreModule V2* entry in the **Source** column.
 
-**Sorunları Tanıla ve çöz** dikey penceresini kullanmanın bir alternatifi, uygulama olay günlüğü dosyasını doğrudan [kudu](https://github.com/projectkudu/kudu/wiki)kullanarak incelemektir:
+An alternative to using the **Diagnose and solve problems** blade is to examine the Application Event Log file directly using [Kudu](https://github.com/projectkudu/kudu/wiki):
 
-1. **Gelişmiş araçları** **geliştirme araçları** alanında açın. **Git&rarr;**  düğmesini seçin. Kudu konsolu yeni bir tarayıcı sekmesi veya penceresinde açılır.
-1. Sayfanın üst kısmındaki gezinti çubuğunu kullanarak **hata ayıklama konsolu 'nu** açın ve **cmd**' yi seçin.
-1. **LogFiles** klasörünü açın.
-1. *EventLog. xml* dosyasının yanındaki kurşun kalem simgesini seçin.
-1. Günlüğü inceleyin. En son olayları görmek için günlüğün en altına gidin.
+1. Open **Advanced Tools** in the **Development Tools** area. Select the **Go&rarr;** button. The Kudu console opens in a new browser tab or window.
+1. Using the navigation bar at the top of the page, open **Debug console** and select **CMD**.
+1. Open the **LogFiles** folder.
+1. Select the pencil icon next to the *eventlog.xml* file.
+1. Examine the log. Scroll to the bottom of the log to see the most recent events.
 
-### <a name="run-the-app-in-the-kudu-console"></a>Uygulamayı kudu konsolunda çalıştırma
+### <a name="run-the-app-in-the-kudu-console"></a>Run the app in the Kudu console
 
-Başlatma hataları birçok yararlı bilgiler uygulama olay günlüğü'ndeki üretmediği. Bu hatayı saptamak için, uygulamayı [kudu](https://github.com/projectkudu/kudu/wiki) uzaktan yürütme konsolu 'nda çalıştırabilirsiniz:
+Many startup errors don't produce useful information in the Application Event Log. You can run the app in the [Kudu](https://github.com/projectkudu/kudu/wiki) Remote Execution Console to discover the error:
 
-1. **Gelişmiş araçları** **geliştirme araçları** alanında açın. **Git&rarr;**  düğmesini seçin. Kudu konsolu yeni bir tarayıcı sekmesi veya penceresinde açılır.
-1. Sayfanın üst kısmındaki gezinti çubuğunu kullanarak **hata ayıklama konsolu 'nu** açın ve **cmd**' yi seçin.
+1. Open **Advanced Tools** in the **Development Tools** area. Select the **Go&rarr;** button. The Kudu console opens in a new browser tab or window.
+1. Using the navigation bar at the top of the page, open **Debug console** and select **CMD**.
 
-#### <a name="test-a-32-bit-x86-app"></a>32 bit (x86) uygulamayı test etme
+#### <a name="test-a-32-bit-x86-app"></a>Test a 32-bit (x86) app
 
-**Geçerli yayın**
+**Current release**
 
 1. `cd d:\home\site\wwwroot`
-1. Uygulamayı çalıştırın:
-   * Uygulama ise bir [framework bağımlı dağıtım](/dotnet/core/deploying/#framework-dependent-deployments-fdd):
+1. Run the app:
+   * If the app is a [framework-dependent deployment](/dotnet/core/deploying/#framework-dependent-deployments-fdd):
 
      ```dotnetcli
      dotnet .\{ASSEMBLY NAME}.dll
      ```
 
-   * Uygulama ise bir [müstakil dağıtım](/dotnet/core/deploying/#self-contained-deployments-scd):
+   * If the app is a [self-contained deployment](/dotnet/core/deploying/#self-contained-deployments-scd):
 
      ```console
      {ASSEMBLY NAME}.exe
      ```
 
-Uygulamadan alınan konsol çıktısı, tüm hataları gösteren kudu konsoluna gönderilir.
+The console output from the app, showing any errors, is piped to the Kudu console.
 
-**Önizleme sürümünde çalışan çerçeveye bağımlı dağıtım**
+**Framework-dependent deployment running on a preview release**
 
-*ASP.NET Core {VERSION} (x86) çalışma zamanı site uzantısının yüklenmesini gerektirir.*
+*Requires installing the ASP.NET Core {VERSION} (x86) Runtime site extension.*
 
-1. `cd D:\home\SiteExtensions\AspNetCoreRuntime.{X.Y}.x32`(`{X.Y}` çalışma zamanı sürümüdür)
-1. Uygulamayı çalıştırın:`dotnet \home\site\wwwroot\{ASSEMBLY NAME}.dll`
+1. `cd D:\home\SiteExtensions\AspNetCoreRuntime.{X.Y}.x32` (`{X.Y}` is the runtime version)
+1. Run the app: `dotnet \home\site\wwwroot\{ASSEMBLY NAME}.dll`
 
-Uygulamadan alınan konsol çıktısı, tüm hataları gösteren kudu konsoluna gönderilir.
+The console output from the app, showing any errors, is piped to the Kudu console.
 
-#### <a name="test-a-64-bit-x64-app"></a>64 bit (x64) uygulamayı test etme
+#### <a name="test-a-64-bit-x64-app"></a>Test a 64-bit (x64) app
 
-**Geçerli yayın**
+**Current release**
 
-* Uygulama 64 bit (x64) [çerçeveye bağımlı bir dağıtım](/dotnet/core/deploying/#framework-dependent-deployments-fdd)ise:
+* If the app is a 64-bit (x64) [framework-dependent deployment](/dotnet/core/deploying/#framework-dependent-deployments-fdd):
   1. `cd D:\Program Files\dotnet`
-  1. Uygulamayı çalıştırın:`dotnet \home\site\wwwroot\{ASSEMBLY NAME}.dll`
-* Uygulama ise bir [müstakil dağıtım](/dotnet/core/deploying/#self-contained-deployments-scd):
+  1. Run the app: `dotnet \home\site\wwwroot\{ASSEMBLY NAME}.dll`
+* If the app is a [self-contained deployment](/dotnet/core/deploying/#self-contained-deployments-scd):
   1. `cd D:\home\site\wwwroot`
-  1. Uygulamayı çalıştırın:`{ASSEMBLY NAME}.exe`
+  1. Run the app: `{ASSEMBLY NAME}.exe`
 
-Uygulamadan alınan konsol çıktısı, tüm hataları gösteren kudu konsoluna gönderilir.
+The console output from the app, showing any errors, is piped to the Kudu console.
 
-**Önizleme sürümünde çalışan çerçeveye bağımlı dağıtım**
+**Framework-dependent deployment running on a preview release**
 
-*ASP.NET Core {VERSION} (x64) çalışma zamanı site uzantısını yüklemeyi gerektirir.*
+*Requires installing the ASP.NET Core {VERSION} (x64) Runtime site extension.*
 
-1. `cd D:\home\SiteExtensions\AspNetCoreRuntime.{X.Y}.x64`(`{X.Y}` çalışma zamanı sürümüdür)
-1. Uygulamayı çalıştırın:`dotnet \home\site\wwwroot\{ASSEMBLY NAME}.dll`
+1. `cd D:\home\SiteExtensions\AspNetCoreRuntime.{X.Y}.x64` (`{X.Y}` is the runtime version)
+1. Run the app: `dotnet \home\site\wwwroot\{ASSEMBLY NAME}.dll`
 
-Uygulamadan alınan konsol çıktısı, tüm hataları gösteren kudu konsoluna gönderilir.
+The console output from the app, showing any errors, is piped to the Kudu console.
 
-### <a name="aspnet-core-module-stdout-log-azure-app-service"></a>ASP.NET Core modülü stdout günlüğü (Azure App Service)
+### <a name="aspnet-core-module-stdout-log-azure-app-service"></a>ASP.NET Core Module stdout log (Azure App Service)
 
-ASP.NET Core Module stdout günlüğü genellikle uygulama olay günlüğünde bulunmayan yararlı hata iletilerini kaydeder. Stdout günlükleri görüntülemek ve etkinleştirmek için:
+The ASP.NET Core Module stdout log often records useful error messages not found in the Application Event Log. To enable and view stdout logs:
 
-1. Azure portal **sorunları Tanıla ve çöz** dikey penceresine gidin.
-1. **Sorun kategorisini seçin**altında **Web uygulaması aşağı** düğmesini seçin.
-1. **Önerilen çözümler** > **stdout günlük yeniden yönlendirmeyi etkinleştirmek**için, **Web. config dosyasını düzenlemek üzere kudu konsolunu açmak**için düğmeyi seçin.
-1. Kudu **Tanılama konsolunda**, klasör**Wwwroot** **yolunu** > açın. Listenin altındaki *Web. config* dosyasını açığa çıkarmak için aşağı kaydırın.
-1. *Web. config* dosyasının yanındaki kurşun kalem simgesine tıklayın.
-1. **StdoutLogEnabled** `true` olarak ayarlayın ve **stdoutLogFile** yolunu şu şekilde değiştirin: `\\?\%home%\LogFiles\stdout`.
-1. Güncelleştirilmiş *Web. config* dosyasını kaydetmek için **Kaydet** ' i seçin.
-1. Uygulamaya bir istek oluşturun.
-1. Azure portal dönün. **GELIŞTIRME araçları** alanında **Gelişmiş Araçlar** dikey penceresini seçin. **Git&rarr;**  düğmesini seçin. Kudu konsolu yeni bir tarayıcı sekmesi veya penceresinde açılır.
-1. Sayfanın üst kısmındaki gezinti çubuğunu kullanarak **hata ayıklama konsolu 'nu** açın ve **cmd**' yi seçin.
-1. **LogFiles** klasörünü seçin.
-1. **Değiştirilen** sütunu inceleyin ve son değiştirilme tarihiyle stdout günlüğünü düzenlemek için kalem simgesini seçin.
-1. Günlük dosyası açıldığında hata görüntülenir.
+1. Navigate to the **Diagnose and solve problems** blade in the Azure portal.
+1. Under **SELECT PROBLEM CATEGORY**, select the **Web App Down** button.
+1. Under **Suggested Solutions** > **Enable Stdout Log Redirection**, select the button to **Open Kudu Console to edit Web.Config**.
+1. In the Kudu **Diagnostic Console**, open the folders to the path **site** > **wwwroot**. Scroll down to reveal the *web.config* file at the bottom of the list.
+1. Click the pencil icon next to the *web.config* file.
+1. Set **stdoutLogEnabled** to `true` and change the **stdoutLogFile** path to: `\\?\%home%\LogFiles\stdout`.
+1. Select **Save** to save the updated *web.config* file.
+1. Make a request to the app.
+1. Return to the Azure portal. Select the **Advanced Tools** blade in the **DEVELOPMENT TOOLS** area. Select the **Go&rarr;** button. The Kudu console opens in a new browser tab or window.
+1. Using the navigation bar at the top of the page, open **Debug console** and select **CMD**.
+1. Select the **LogFiles** folder.
+1. Inspect the **Modified** column and select the pencil icon to edit the stdout log with the latest modification date.
+1. When the log file opens, the error is displayed.
 
-Sorun giderme tamamlandığında stdout günlüğünü devre dışı bırak:
+Disable stdout logging when troubleshooting is complete:
 
-1. Kudu **Tanılama konsolunda**, *Web. config* dosyasını açığa çıkarmak için**Wwwroot** yolu **sitesine** > dönün. Kalem simgesini seçerek **Web. config** dosyasını tekrar açın.
-1. Ayarlama **stdoutLogEnabled** için `false`.
-1. Dosyayı kaydetmek için **Kaydet** ' i seçin.
+1. In the Kudu **Diagnostic Console**, return to the path **site** > **wwwroot** to reveal the *web.config* file. Open the **web.config** file again by selecting the pencil icon.
+1. Set **stdoutLogEnabled** to `false`.
+1. Select **Save** to save the file.
 
 Daha fazla bilgi için bkz. <xref:host-and-deploy/aspnet-core-module#log-creation-and-redirection>.
 
 > [!WARNING]
-> Uygulama veya sunucu başarısızlığı için hata stdout günlüğünü devre dışı bırakmak için yol açabilir. Günlük dosyası boyutunu sınırlama yok veya oluşturulan günlük dosyası sayısı yoktur. Yalnızca uygulama başlatma sorunlarını gidermek için stdout günlüğünü kullanın.
+> Failure to disable the stdout log can lead to app or server failure. There's no limit on log file size or the number of log files created. Only use stdout logging to troubleshoot app startup problems.
 >
-> Başlangıçtan sonra ASP.NET Core bir uygulamada genel günlüğe kaydetme için, günlük dosyası boyutunu sınırlayan ve günlükleri döndüren bir günlüğe kaydetme kitaplığı kullanın. Daha fazla bilgi için [üçüncü taraf günlük sağlayıcıları](xref:fundamentals/logging/index#third-party-logging-providers).
+> For general logging in an ASP.NET Core app after startup, use a logging library that limits log file size and rotates logs. For more information, see [third-party logging providers](xref:fundamentals/logging/index#third-party-logging-providers).
 
 ::: moniker range=">= aspnetcore-2.2"
 
-### <a name="aspnet-core-module-debug-log-azure-app-service"></a>ASP.NET Core modülü hata ayıklama günlüğü (Azure App Service)
+### <a name="aspnet-core-module-debug-log-azure-app-service"></a>ASP.NET Core Module debug log (Azure App Service)
 
-ASP.NET Core Module hata ayıklama günlüğü, ASP.NET Core modülünden daha ayrıntılı günlük kaydı sağlar. Stdout günlükleri görüntülemek ve etkinleştirmek için:
+The ASP.NET Core Module debug log provides additional, deeper logging from the ASP.NET Core Module. To enable and view stdout logs:
 
-1. Gelişmiş tanılama günlüğünü etkinleştirmek için aşağıdakilerden birini yapın:
-   * Uygulamayı gelişmiş tanılama günlüğü için yapılandırmak üzere [Gelişmiş tanılama günlükleri](xref:host-and-deploy/aspnet-core-module#enhanced-diagnostic-logs) bölümündeki yönergeleri izleyin. Uygulamayı yeniden dağıtın.
-   * `<handlerSettings>` [Gelişmiş tanılama günlüklerini](xref:host-and-deploy/aspnet-core-module#enhanced-diagnostic-logs) gösterilen, kudu konsolunu kullanarak canlı uygulamanın *Web. config* dosyasına ekleyin:
-     1. **Gelişmiş araçları** **geliştirme araçları** alanında açın. **Git&rarr;**  düğmesini seçin. Kudu konsolu yeni bir tarayıcı sekmesi veya penceresinde açılır.
-     1. Sayfanın üst kısmındaki gezinti çubuğunu kullanarak **hata ayıklama konsolu 'nu** açın ve **cmd**' yi seçin.
-     1. Klasörü**Wwwroot** **yoluna** > açın. *Web. config* dosyasını, kurşun kalem düğmesini seçerek düzenleyin. Bölümü, `<handlerSettings>` [Gelişmiş tanılama günlüklerinde](xref:host-and-deploy/aspnet-core-module#enhanced-diagnostic-logs)gösterildiği gibi ekleyin. **Kaydet** düğmesini seçin.
-1. **Gelişmiş araçları** **geliştirme araçları** alanında açın. **Git&rarr;**  düğmesini seçin. Kudu konsolu yeni bir tarayıcı sekmesi veya penceresinde açılır.
-1. Sayfanın üst kısmındaki gezinti çubuğunu kullanarak **hata ayıklama konsolu 'nu** açın ve **cmd**' yi seçin.
-1. Klasörü**Wwwroot** **yoluna** > açın. *Aspnetcore-Debug. log* dosyası için bir yol sağlamadıysanız dosya listede görüntülenir. Bir yol sağladıysanız, günlük dosyasının konumuna gidin.
-1. Dosya adının yanındaki kurşun kalem düğmesiyle günlük dosyasını açın.
+1. To enable the enhanced diagnostic log, perform either of the following:
+   * Follow the instructions in [Enhanced diagnostic logs](xref:host-and-deploy/aspnet-core-module#enhanced-diagnostic-logs) to configure the app for an enhanced diagnostic logging. Redeploy the app.
+   * Add the `<handlerSettings>` shown in [Enhanced diagnostic logs](xref:host-and-deploy/aspnet-core-module#enhanced-diagnostic-logs) to the live app's *web.config* file using the Kudu console:
+     1. Open **Advanced Tools** in the **Development Tools** area. Select the **Go&rarr;** button. The Kudu console opens in a new browser tab or window.
+     1. Using the navigation bar at the top of the page, open **Debug console** and select **CMD**.
+     1. Open the folders to the path **site** > **wwwroot**. Edit the *web.config* file by selecting the pencil button. Add the `<handlerSettings>` section as shown in [Enhanced diagnostic logs](xref:host-and-deploy/aspnet-core-module#enhanced-diagnostic-logs). Select the **Save** button.
+1. Open **Advanced Tools** in the **Development Tools** area. Select the **Go&rarr;** button. The Kudu console opens in a new browser tab or window.
+1. Using the navigation bar at the top of the page, open **Debug console** and select **CMD**.
+1. Open the folders to the path **site** > **wwwroot**. If you didn't supply a path for the *aspnetcore-debug.log* file, the file appears in the list. If you supplied a path, navigate to the location of the log file.
+1. Open the log file with the pencil button next to the file name.
 
-Sorun giderme tamamlandığında hata ayıklama günlüğünü devre dışı bırak:
+Disable debug logging when troubleshooting is complete:
 
-Gelişmiş hata ayıklama günlüğünü devre dışı bırakmak için aşağıdakilerden birini yapın:
+To disable the enhanced debug log, perform either of the following:
 
-* *Web. config* dosyasından yerel olarak kaldırın ve uygulamayı yeniden dağıtın. `<handlerSettings>`
-* *Web. config* dosyasını düzenlemek ve `<handlerSettings>` bölümünü kaldırmak için kudu konsolunu kullanın. Dosyayı kaydedin.
+* Remove the `<handlerSettings>` from the *web.config* file locally and redeploy the app.
+* Use the Kudu console to edit the *web.config* file and remove the `<handlerSettings>` section. Dosyayı kaydedin.
 
 Daha fazla bilgi için bkz. <xref:host-and-deploy/aspnet-core-module#enhanced-diagnostic-logs>.
 
 > [!WARNING]
-> Hata ayıklama günlüğünü devre dışı bırakma hatası, uygulama veya sunucu hatasına yol açabilir. Günlük dosyası boyutunda sınır yoktur. Yalnızca uygulama başlatma sorunlarını gidermek için hata ayıklama günlüğünü kullanın.
+> Failure to disable the debug log can lead to app or server failure. There's no limit on log file size. Only use debug logging to troubleshoot app startup problems.
 >
-> Başlangıçtan sonra ASP.NET Core bir uygulamada genel günlüğe kaydetme için, günlük dosyası boyutunu sınırlayan ve günlükleri döndüren bir günlüğe kaydetme kitaplığı kullanın. Daha fazla bilgi için [üçüncü taraf günlük sağlayıcıları](xref:fundamentals/logging/index#third-party-logging-providers).
+> For general logging in an ASP.NET Core app after startup, use a logging library that limits log file size and rotates logs. For more information, see [third-party logging providers](xref:fundamentals/logging/index#third-party-logging-providers).
 
 ::: moniker-end
 
-### <a name="slow-or-hanging-app-azure-app-service"></a>Yavaş veya askıda olan uygulama (Azure App Service)
+### <a name="slow-or-hanging-app-azure-app-service"></a>Slow or hanging app (Azure App Service)
 
-Bir uygulama bir istek üzerinde yavaş bir şekilde yanıt verdiğinde veya Kilitlenmelerinde, aşağıdaki makalelere bakın:
+When an app responds slowly or hangs on a request, see the following articles:
 
-* [Azure App Service 'de yavaş Web uygulaması performans sorunlarını giderme](/azure/app-service/app-service-web-troubleshoot-performance-degradation)
-* [Azure Web uygulamasında aralıklı özel durum sorunları veya performans sorunları için döküm yakalamak üzere kilitlenme tanılayıcı site uzantısı 'nı kullanın](https://blogs.msdn.microsoft.com/asiatech/2015/12/28/use-crash-diagnoser-site-extension-to-capture-dump-for-intermittent-exception-issues-or-performance-issues-on-azure-web-app/)
+* [Troubleshoot slow web app performance issues in Azure App Service](/azure/app-service/app-service-web-troubleshoot-performance-degradation)
+* [Use Crash Diagnoser Site Extension to Capture Dump for Intermittent Exception issues or performance issues on Azure Web App](https://blogs.msdn.microsoft.com/asiatech/2015/12/28/use-crash-diagnoser-site-extension-to-capture-dump-for-intermittent-exception-issues-or-performance-issues-on-azure-web-app/)
 
-### <a name="monitoring-blades"></a>İzleme kanatları
+### <a name="monitoring-blades"></a>Monitoring blades
 
-İzleme dikey pencereleri, konusunda daha önce açıklanan yöntemlere alternatif bir sorun giderme deneyimi sağlar. Bu kanatlar 500 serisi hataları tanılamak için kullanılabilir.
+Monitoring blades provide an alternative troubleshooting experience to the methods described earlier in the topic. These blades can be used to diagnose 500-series errors.
 
-ASP.NET Core uzantılarının yüklü olduğunu doğrulayın. Uzantılar yüklü değilse, bunları el ile yükleyebilirsiniz:
+Confirm that the ASP.NET Core Extensions are installed. If the extensions aren't installed, install them manually:
 
-1. **GELIŞTIRME araçları** dikey penceresinde **Uzantılar** dikey penceresini seçin.
-1. **ASP.NET Core uzantıları** listede görünmelidir.
-1. Uzantılar yüklü değilse, **Ekle** düğmesini seçin.
-1. Listeden **ASP.NET Core uzantılarını** seçin.
-1. Yasal koşulları kabul etmek için **Tamam ' ı** seçin.
-1. **Uzantı Ekle** dikey penceresinde **Tamam ' ı** seçin.
-1. Bilgilendirici bir açılan ileti, uzantıların başarıyla yüklenip yüklenmediğini gösterir.
+1. In the **DEVELOPMENT TOOLS** blade section, select the **Extensions** blade.
+1. The **ASP.NET Core Extensions** should appear in the list.
+1. If the extensions aren't installed, select the **Add** button.
+1. Choose the **ASP.NET Core Extensions** from the list.
+1. Select **OK** to accept the legal terms.
+1. Select **OK** on the **Add extension** blade.
+1. An informational pop-up message indicates when the extensions are successfully installed.
 
-Stdout günlüğü etkinleştirilmemişse, şu adımları izleyin:
+If stdout logging isn't enabled, follow these steps:
 
-1. Azure portal, **GELIŞTIRME araçları** alanındaki **Gelişmiş Araçlar** dikey penceresini seçin. **Git&rarr;**  düğmesini seçin. Kudu konsolu yeni bir tarayıcı sekmesi veya penceresinde açılır.
-1. Sayfanın üst kısmındaki gezinti çubuğunu kullanarak **hata ayıklama konsolu 'nu** açın ve **cmd**' yi seçin.
-1. Klasörü**Wwwroot** **yoluna** > açın ve listenin altındaki *Web. config* dosyasını açığa çıkarmak için aşağı kaydırın.
-1. *Web. config* dosyasının yanındaki kurşun kalem simgesine tıklayın.
-1. **StdoutLogEnabled** `true` olarak ayarlayın ve **stdoutLogFile** yolunu şu şekilde değiştirin: `\\?\%home%\LogFiles\stdout`.
-1. Güncelleştirilmiş *Web. config* dosyasını kaydetmek için **Kaydet** ' i seçin.
+1. In the Azure portal, select the **Advanced Tools** blade in the **DEVELOPMENT TOOLS** area. Select the **Go&rarr;** button. The Kudu console opens in a new browser tab or window.
+1. Using the navigation bar at the top of the page, open **Debug console** and select **CMD**.
+1. Open the folders to the path **site** > **wwwroot** and scroll down to reveal the *web.config* file at the bottom of the list.
+1. Click the pencil icon next to the *web.config* file.
+1. Set **stdoutLogEnabled** to `true` and change the **stdoutLogFile** path to: `\\?\%home%\LogFiles\stdout`.
+1. Select **Save** to save the updated *web.config* file.
 
-Tanılama günlüğünü etkinleştirmek için ilerleyin:
+Proceed to activate diagnostic logging:
 
-1. Azure portal **tanılama günlükleri** dikey penceresini seçin.
-1. **Uygulama günlüğü (dosya sistemi)** ve **ayrıntılı hata iletileri**için **bir anahtar seçin** . Dikey pencerenin üst kısmındaki **Kaydet** düğmesini seçin.
-1. Başarısız istek izlemeyi, başarısız Istek olayı arabelleğe alma (FREB) günlüğü olarak da bilinen bir şekilde eklemek için, **başarısız istek izleme** **anahtarını seçin** .
-1. Portalda **tanılama günlükleri** dikey penceresinde hemen listelenen **günlük akışı** dikey penceresini seçin.
-1. Uygulamaya bir istek oluşturun.
-1. Günlük akışı verileri içinde hatanın nedeni belirtilir.
+1. In the Azure portal, select the **Diagnostics logs** blade.
+1. Select the **On** switch for **Application Logging (Filesystem)** and **Detailed error messages**. Select the **Save** button at the top of the blade.
+1. To include failed request tracing, also known as Failed Request Event Buffering (FREB) logging, select the **On** switch for **Failed request tracing**.
+1. Select the **Log stream** blade, which is listed immediately under the **Diagnostics logs** blade in the portal.
+1. Make a request to the app.
+1. Within the log stream data, the cause of the error is indicated.
 
-Sorun giderme tamamlandığında stdout günlüğünü devre dışı bıraktığınızdan emin olun.
+Be sure to disable stdout logging when troubleshooting is complete.
 
-Başarısız istek izleme günlüklerini görüntülemek için (FREB günlükleri):
+To view the failed request tracing logs (FREB logs):
 
-1. Azure portal **sorunları Tanıla ve çöz** dikey penceresine gidin.
-1. Kenar çubuğunun **Destek Araçları** alanından **başarısız istek izleme günlüklerini** seçin.
+1. Navigate to the **Diagnose and solve problems** blade in the Azure portal.
+1. Select **Failed Request Tracing Logs** from the **SUPPORT TOOLS** area of the sidebar.
 
-[Azure App Service konusundaki Web uygulamaları için tanılama günlüğünü etkinleştirme](/azure/app-service/web-sites-enable-diagnostic-log#failed-request-traces) ve [Azure 'daki Web Apps uygulama performansı SSS ' nin başarısız istek izlemeleri bölümüne bakın: Başarısız istek izlemeyi açmak Nasıl yaparım? mı? ](/azure/app-service/app-service-web-availability-performance-application-issues-faq#how-do-i-turn-on-failed-request-tracing) daha fazla bilgi için.
+See [Failed request traces section of the Enable diagnostics logging for web apps in Azure App Service topic](/azure/app-service/web-sites-enable-diagnostic-log#failed-request-traces) and the [Application performance FAQs for Web Apps in Azure: How do I turn on failed request tracing?](/azure/app-service/app-service-web-availability-performance-application-issues-faq#how-do-i-turn-on-failed-request-tracing) for more information.
 
-Daha fazla bilgi için bkz. [Azure App Service Web Apps için tanılama günlüğünü etkinleştirme](/azure/app-service/web-sites-enable-diagnostic-log).
+For more information, see [Enable diagnostics logging for web apps in Azure App Service](/azure/app-service/web-sites-enable-diagnostic-log).
 
 > [!WARNING]
-> Uygulama veya sunucu başarısızlığı için hata stdout günlüğünü devre dışı bırakmak için yol açabilir. Günlük dosyası boyutunu sınırlama yok veya oluşturulan günlük dosyası sayısı yoktur.
+> Failure to disable the stdout log can lead to app or server failure. There's no limit on log file size or the number of log files created.
 >
-> ASP.NET Core uygulamanızı rutin günlüğü için günlük dosyası boyutunu sınırlar ve günlükleri döndürür bir günlük kitaplığını kullanın. Daha fazla bilgi için [üçüncü taraf günlük sağlayıcıları](xref:fundamentals/logging/index#third-party-logging-providers).
+> For routine logging in an ASP.NET Core app, use a logging library that limits log file size and rotates logs. For more information, see [third-party logging providers](xref:fundamentals/logging/index#third-party-logging-providers).
 
-## <a name="troubleshoot-on-iis"></a>IIS 'de sorun giderme
+## <a name="troubleshoot-on-iis"></a>Troubleshoot on IIS
 
-### <a name="application-event-log-iis"></a>Uygulama olay günlüğü (IIS)
+### <a name="application-event-log-iis"></a>Application Event Log (IIS)
 
-Uygulama olay günlüğüne erişemedi:
+Access the Application Event Log:
 
-1. Başlat menüsünü açın, arama **Olay Görüntüleyicisi'ni**ve ardından **Olay Görüntüleyicisi'ni** uygulama.
-1. İçinde **Olay Görüntüleyicisi'ni**açın **Windows Günlükleri** düğümü.
-1. Seçin **uygulama** uygulama olay günlüğünü açın.
-1. Başarısız olan uygulama ile ilişkili hataları arayın. Hata içeren bir değeri *IIS AspNetCore Modülü* veya *IIS Express AspNetCore Modülü* içinde *kaynak* sütun.
+1. Open the Start menu, search for **Event Viewer**, and then select the **Event Viewer** app.
+1. In **Event Viewer**, open the **Windows Logs** node.
+1. Select **Application** to open the Application Event Log.
+1. Search for errors associated with the failing app. Errors have a value of *IIS AspNetCore Module* or *IIS Express AspNetCore Module* in the *Source* column.
 
-### <a name="run-the-app-at-a-command-prompt"></a>Uygulamayı bir komut isteminde aşağıdakini çalıştırın
+### <a name="run-the-app-at-a-command-prompt"></a>Run the app at a command prompt
 
-Başlatma hataları birçok yararlı bilgiler uygulama olay günlüğü'ndeki üretmediği. Bazı hataların nedeni, barındıran sistemde bir komut isteminde uygulamayı çalıştırarak bulabilirsiniz.
+Many startup errors don't produce useful information in the Application Event Log. You can find the cause of some errors by running the app at a command prompt on the hosting system.
 
-#### <a name="framework-dependent-deployment"></a>Framework bağımlı dağıtım
+#### <a name="framework-dependent-deployment"></a>Framework-dependent deployment
 
-Uygulama ise bir [framework bağımlı dağıtım](/dotnet/core/deploying/#framework-dependent-deployments-fdd):
+If the app is a [framework-dependent deployment](/dotnet/core/deploying/#framework-dependent-deployments-fdd):
 
-1. Bir komut isteminde, dağıtım klasörüne gidin ve uygulama ile uygulamanın derleme yürüterek çalıştırma *dotnet.exe*. Aşağıdaki komutta için uygulamanın derleme adı yerine \<assembly_name >: `dotnet .\<assembly_name>.dll`.
-1. Konsol çıkışını herhangi bir hata gösteren uygulamadan konsol penceresine yazılır.
-1. Uygulamaya bir istek yaparken, hataları meydana gelirse, burada Kestrel dinlediği bağlantı noktası ve ana bilgisayar için istekte bulunmak. Post ve varsayılan ana bilgisayar kullanarak, istek yaptığınız `http://localhost:5000/`. Uygulamayı, normalde Kestrel uç nokta adresindeki yanıt verirse, sorun barındırma yapılandırmasında ve büyük olasılıkla daha az uygulama içinde ilgili daha yüksektir.
+1. At a command prompt, navigate to the deployment folder and run the app by executing the app's assembly with *dotnet.exe*. In the following command, substitute the name of the app's assembly for \<assembly_name>: `dotnet .\<assembly_name>.dll`.
+1. The console output from the app, showing any errors, is written to the console window.
+1. If the errors occur when making a request to the app, make a request to the host and port where Kestrel listens. Using the default host and post, make a request to `http://localhost:5000/`. If the app responds normally at the Kestrel endpoint address, the problem is more likely related to the hosting configuration and less likely within the app.
 
-#### <a name="self-contained-deployment"></a>Kendi içinde dağıtım
+#### <a name="self-contained-deployment"></a>Self-contained deployment
 
-Uygulama ise bir [müstakil dağıtım](/dotnet/core/deploying/#self-contained-deployments-scd):
+If the app is a [self-contained deployment](/dotnet/core/deploying/#self-contained-deployments-scd):
 
-1. Bir komut isteminde dağıtım klasörüne gidin ve uygulamanın yürütülebilir dosyayı çalıştırın. Aşağıdaki komutta için uygulamanın derleme adı yerine \<assembly_name >: `<assembly_name>.exe`.
-1. Konsol çıkışını herhangi bir hata gösteren uygulamadan konsol penceresine yazılır.
-1. Uygulamaya bir istek yaparken, hataları meydana gelirse, burada Kestrel dinlediği bağlantı noktası ve ana bilgisayar için istekte bulunmak. Post ve varsayılan ana bilgisayar kullanarak, istek yaptığınız `http://localhost:5000/`. Uygulamayı, normalde Kestrel uç nokta adresindeki yanıt verirse, sorun barındırma yapılandırmasında ve büyük olasılıkla daha az uygulama içinde ilgili daha yüksektir.
+1. At a command prompt, navigate to the deployment folder and run the app's executable. In the following command, substitute the name of the app's assembly for \<assembly_name>: `<assembly_name>.exe`.
+1. The console output from the app, showing any errors, is written to the console window.
+1. If the errors occur when making a request to the app, make a request to the host and port where Kestrel listens. Using the default host and post, make a request to `http://localhost:5000/`. If the app responds normally at the Kestrel endpoint address, the problem is more likely related to the hosting configuration and less likely within the app.
 
-### <a name="aspnet-core-module-stdout-log-iis"></a>ASP.NET Core Module stdout günlüğü (IIS)
+### <a name="aspnet-core-module-stdout-log-iis"></a>ASP.NET Core Module stdout log (IIS)
 
-Stdout günlükleri görüntülemek ve etkinleştirmek için:
+To enable and view stdout logs:
 
-1. Barındıran sistemde sitenin dağıtım klasörüne gidin.
-1. Varsa *günlükleri* klasör mevcut değilse, bir klasör oluşturun. Oluşturmak MSBuild'ı etkinleştirme hakkında yönergeler için *günlükleri* otomatik olarak dağıtım klasörüne bakın [dizin yapısı](xref:host-and-deploy/directory-structure) konu.
-1. Düzen *web.config* dosya. Ayarlama **stdoutLogEnabled** için `true` değiştirip **stdoutLogFile** yolu işaret edecek şekilde *günlükleri* klasör (örneğin, `.\logs\stdout`). `stdout` Günlük dosyası adı ön eki içinde yoludur. Oturum oluşturulduğunda bir zaman damgası, işlem kimliği ve dosya uzantısı otomatik olarak eklenir. Kullanarak `stdout` dosya adı ön eki genel günlük dosyası adında *stdout_20180205184032_5412.log*.
-1. Uygulama havuzunun kimliği için yazma izinlerine sahip olduğundan emin olun *günlükleri* klasör.
-1. Güncelleştirilmiş Kaydet *web.config* dosya.
-1. Uygulamaya bir istek oluşturun.
-1. Gidin *günlükleri* klasör. Bulun ve en son stdout günlüğü'nü açın.
-1. Hatalar için günlüğü inceleyin.
+1. Navigate to the site's deployment folder on the hosting system.
+1. If the *logs* folder isn't present, create the folder. For instructions on how to enable MSBuild to create the *logs* folder in the deployment automatically, see the [Directory structure](xref:host-and-deploy/directory-structure) topic.
+1. Edit the *web.config* file. Set **stdoutLogEnabled** to `true` and change the **stdoutLogFile** path to point to the *logs* folder (for example, `.\logs\stdout`). `stdout` in the path is the log file name prefix. A timestamp, process id, and file extension are added automatically when the log is created. Using `stdout` as the file name prefix, a typical log file is named *stdout_20180205184032_5412.log*.
+1. Ensure your application pool's identity has write permissions to the *logs* folder.
+1. Save the updated *web.config* file.
+1. Make a request to the app.
+1. Navigate to the *logs* folder. Find and open the most recent stdout log.
+1. Study the log for errors.
 
-Sorun giderme tamamlandığında stdout günlüğünü devre dışı bırak:
+Disable stdout logging when troubleshooting is complete:
 
-1. Düzen *web.config* dosya.
-1. Ayarlama **stdoutLogEnabled** için `false`.
+1. Edit the *web.config* file.
+1. Set **stdoutLogEnabled** to `false`.
 1. Dosyayı kaydedin.
 
 Daha fazla bilgi için bkz. <xref:host-and-deploy/aspnet-core-module#log-creation-and-redirection>.
 
 > [!WARNING]
-> Uygulama veya sunucu başarısızlığı için hata stdout günlüğünü devre dışı bırakmak için yol açabilir. Günlük dosyası boyutunu sınırlama yok veya oluşturulan günlük dosyası sayısı yoktur.
+> Failure to disable the stdout log can lead to app or server failure. There's no limit on log file size or the number of log files created.
 >
-> ASP.NET Core uygulamanızı rutin günlüğü için günlük dosyası boyutunu sınırlar ve günlükleri döndürür bir günlük kitaplığını kullanın. Daha fazla bilgi için [üçüncü taraf günlük sağlayıcıları](xref:fundamentals/logging/index#third-party-logging-providers).
+> For routine logging in an ASP.NET Core app, use a logging library that limits log file size and rotates logs. For more information, see [third-party logging providers](xref:fundamentals/logging/index#third-party-logging-providers).
 
 ::: moniker range=">= aspnetcore-2.2"
 
-### <a name="aspnet-core-module-debug-log-iis"></a>ASP.NET Core modülü hata ayıklama günlüğü (IIS)
+### <a name="aspnet-core-module-debug-log-iis"></a>ASP.NET Core Module debug log (IIS)
 
-ASP.NET Core modülü hata ayıklama günlüğünü etkinleştirmek için aşağıdaki işleyici ayarlarını uygulamanın *Web. config* dosyasına ekleyin:
+Add the following handler settings to the app's *web.config* file to enable ASP.NET Core Module debug log:
 
 ```xml
 <aspNetCore ...>
@@ -499,15 +499,15 @@ ASP.NET Core modülü hata ayıklama günlüğünü etkinleştirmek için aşağ
 </aspNetCore>
 ```
 
-Günlüğü için belirtilen yolun var olduğundan ve uygulama havuzu kimliğinin konumuna yazma izinlerine sahip olduğunu doğrulayın.
+Confirm that the path specified for the log exists and that the app pool's identity has write permissions to the location.
 
 Daha fazla bilgi için bkz. <xref:host-and-deploy/aspnet-core-module#enhanced-diagnostic-logs>.
 
 ::: moniker-end
 
-### <a name="enable-the-developer-exception-page"></a>Geliştirici özel durumu sayfasını etkinleştir
+### <a name="enable-the-developer-exception-page"></a>Enable the Developer Exception Page
 
-`ASPNETCORE_ENVIRONMENT` [Ortam değişkeni web.config dosyasına eklenebilir](xref:host-and-deploy/aspnet-core-module#setting-environment-variables) uygulama geliştirme ortamında çalıştırmak için. Ortama göre uygulama başlangıç kılmadığınız sürece `UseEnvironment` konak Oluşturucusu'ortam değişkenini ayarlayarak sağlar [Geliştirici özel durum sayfasında](xref:fundamentals/error-handling) görünmesini zaman uygulamayı çalıştırın.
+The `ASPNETCORE_ENVIRONMENT` [environment variable can be added to web.config](xref:host-and-deploy/aspnet-core-module#setting-environment-variables) to run the app in the Development environment. As long as the environment isn't overridden in app startup by `UseEnvironment` on the host builder, setting the environment variable allows the [Developer Exception Page](xref:fundamentals/error-handling) to appear when the app is run.
 
 ::: moniker range=">= aspnetcore-2.2"
 
@@ -540,72 +540,72 @@ Daha fazla bilgi için bkz. <xref:host-and-deploy/aspnet-core-module#enhanced-di
 
 ::: moniker-end
 
-İçin ortam değişkenini ayarlayarak `ASPNETCORE_ENVIRONMENT` yalnızca Internet'e açık olmayan sunucuları test ve hazırlık kullanılması önerilir. Ortam değişkeninden kaldırmak *web.config* sorun giderme sonra dosya. Ortam değişkenlerini ayarlama hakkında bilgi *web.config*, bkz: [aspNetCore environmentVariables alt öğesi](xref:host-and-deploy/aspnet-core-module#setting-environment-variables).
+Setting the environment variable for `ASPNETCORE_ENVIRONMENT` is only recommended for use on staging and testing servers that aren't exposed to the Internet. Remove the environment variable from the *web.config* file after troubleshooting. For information on setting environment variables in *web.config*, see [environmentVariables child element of aspNetCore](xref:host-and-deploy/aspnet-core-module#setting-environment-variables).
 
-### <a name="obtain-data-from-an-app"></a>Bir uygulamadan veri alın
+### <a name="obtain-data-from-an-app"></a>Obtain data from an app
 
-Bir uygulama isteklerini yanıtlayabileceği ise, istek, bağlantı ve ek veri terminal satır içi ara yazılımın kullanılması uygulamayı edinin. Daha fazla bilgi ve örnek kod için bkz. <xref:test/troubleshoot#obtain-data-from-an-app>.
+If an app is capable of responding to requests, obtain request, connection, and additional data from the app using terminal inline middleware. For more information and sample code, see <xref:test/troubleshoot#obtain-data-from-an-app>.
 
-### <a name="slow-or-hanging-app-iis"></a>Yavaş veya askıda olan uygulama (IIS)
+### <a name="slow-or-hanging-app-iis"></a>Slow or hanging app (IIS)
 
-*Kilitlenme dökümü* , sistem belleğinin bir anlık görüntüsüdür ve uygulama kilitlenmesinin, başlatma hatasının veya yavaş uygulamanın nedenini belirlemenize yardımcı olabilir.
+A *crash dump* is a snapshot of the system's memory and can help determine the cause of an app crash, startup failure, or slow app.
 
-#### <a name="app-crashes-or-encounters-an-exception"></a>Uygulama kilitleniyor veya bir özel durumla karşılaşırsa
+#### <a name="app-crashes-or-encounters-an-exception"></a>App crashes or encounters an exception
 
-Windows Hata Bildirimi bir döküm edinin ve çözümleyin [(WER)](/windows/desktop/wer/windows-error-reporting):
+Obtain and analyze a dump from [Windows Error Reporting (WER)](/windows/desktop/wer/windows-error-reporting):
 
-1. Kilitlenme dökümü dosyalarını `c:\dumps`tutmak için bir klasör oluşturun. Uygulama havuzunun klasöre yazma erişimi olmalıdır.
-1. [Enabledökümler PowerShell betiğini](https://github.com/aspnet/AspNetCore.Docs/blob/master/aspnetcore/test/troubleshoot-azure-iis/scripts/EnableDumps.ps1)çalıştırın:
-   * Uygulama, [işlem içi barındırma modelini](xref:host-and-deploy/iis/index#in-process-hosting-model)kullanıyorsa, *W3wp. exe*için betiği çalıştırın:
+1. Create a folder to hold crash dump files at `c:\dumps`. The app pool must have write access to the folder.
+1. Run the [EnableDumps PowerShell script](https://github.com/aspnet/AspNetCore.Docs/blob/master/aspnetcore/test/troubleshoot-azure-iis/scripts/EnableDumps.ps1):
+   * If the app uses the [in-process hosting model](xref:host-and-deploy/iis/index#in-process-hosting-model), run the script for *w3wp.exe*:
 
      ```console
      .\EnableDumps w3wp.exe c:\dumps
      ```
 
-   * Uygulama [işlem dışı barındırma modelini](xref:host-and-deploy/iis/index#out-of-process-hosting-model)kullanıyorsa, *DotNet. exe*için betiği çalıştırın:
+   * If the app uses the [out-of-process hosting model](xref:host-and-deploy/iis/index#out-of-process-hosting-model), run the script for *dotnet.exe*:
 
      ```console
      .\EnableDumps dotnet.exe c:\dumps
      ```
 
-1. Uygulamayı kilitlenmenin oluşmasına neden olan koşullar altında çalıştırın.
-1. Kilitlenme gerçekleştirildikten sonra, [Disabledökümler PowerShell betiğini](https://github.com/aspnet/AspNetCore.Docs/blob/master/aspnetcore/test/troubleshoot-azure-iis/scripts/DisableDumps.ps1)çalıştırın:
-   * Uygulama, [işlem içi barındırma modelini](xref:host-and-deploy/iis/index#in-process-hosting-model)kullanıyorsa, *W3wp. exe*için betiği çalıştırın:
+1. Run the app under the conditions that cause the crash to occur.
+1. After the crash has occurred, run the [DisableDumps PowerShell script](https://github.com/aspnet/AspNetCore.Docs/blob/master/aspnetcore/test/troubleshoot-azure-iis/scripts/DisableDumps.ps1):
+   * If the app uses the [in-process hosting model](xref:host-and-deploy/iis/index#in-process-hosting-model), run the script for *w3wp.exe*:
 
      ```console
      .\DisableDumps w3wp.exe
      ```
 
-   * Uygulama [işlem dışı barındırma modelini](xref:host-and-deploy/iis/index#out-of-process-hosting-model)kullanıyorsa, *DotNet. exe*için betiği çalıştırın:
+   * If the app uses the [out-of-process hosting model](xref:host-and-deploy/iis/index#out-of-process-hosting-model), run the script for *dotnet.exe*:
 
      ```console
      .\DisableDumps dotnet.exe
      ```
 
-Uygulama kilitlenmeleri ve döküm koleksiyonu tamamlandıktan sonra, uygulamanın normal olarak sonlandırılmasına izin verilir. PowerShell betiği, WER 'i uygulama başına en fazla beş döküm toplayacak şekilde yapılandırır.
+After an app crashes and dump collection is complete, the app is allowed to terminate normally. The PowerShell script configures WER to collect up to five dumps per app.
 
 > [!WARNING]
-> Kilitlenme dökümleri büyük miktarda disk alanı kaplar (her birine kadar çok gigabayt kadar).
+> Crash dumps might take up a large amount of disk space (up to several gigabytes each).
 
-#### <a name="app-hangs-fails-during-startup-or-runs-normally"></a>Uygulama askıda kalıyor, başlatma sırasında başarısız oluyor veya normal şekilde çalışıyor
+#### <a name="app-hangs-fails-during-startup-or-runs-normally"></a>App hangs, fails during startup, or runs normally
 
-Bir uygulama *askıda* kaldığında (yanıt vermeyi keser ancak kilitlenmez), başlatma sırasında başarısız olur veya normal şekilde çalışır [, bkz. Kullanıcı modu döküm dosyaları: Döküm oluşturmak için uygun](/windows-hardware/drivers/debugger/user-mode-dump-files#choosing-the-best-tool) bir aracı seçmek üzere en iyi aracı seçme.
+When an app *hangs* (stops responding but doesn't crash), fails during startup, or runs normally, see [User-Mode Dump Files: Choosing the Best Tool](/windows-hardware/drivers/debugger/user-mode-dump-files#choosing-the-best-tool) to select an appropriate tool to produce the dump.
 
-#### <a name="analyze-the-dump"></a>Dökümü çözümle
+#### <a name="analyze-the-dump"></a>Analyze the dump
 
-Bir döküm çeşitli yaklaşımlar kullanılarak analiz edilebilir. Daha fazla bilgi için bkz. [Kullanıcı modu döküm dosyasını çözümleme](/windows-hardware/drivers/debugger/analyzing-a-user-mode-dump-file).
+A dump can be analyzed using several approaches. For more information, see [Analyzing a User-Mode Dump File](/windows-hardware/drivers/debugger/analyzing-a-user-mode-dump-file).
 
-## <a name="clear-package-caches"></a>Paket önbelleklerini temizle
+## <a name="clear-package-caches"></a>Clear package caches
 
-Bazen, geliştirme makinesindeki .NET Core SDK yükseltmeden ya da uygulamadaki paket sürümlerini değiştirirken çalışan bir uygulama hemen başarısız olur. Bazı durumlarda, ana yükseltme yaparken, bir uygulama tutarsız paketleri kesilebilir. Bu sorunların çoğu, bu yönergeleri izleyerek düzeltilebilir:
+Sometimes a functioning app fails immediately after upgrading either the .NET Core SDK on the development machine or changing package versions within the app. In some cases, incoherent packages may break an app when performing major upgrades. Most of these issues can be fixed by following these instructions:
 
-1. Silme *bin* ve *obj* klasörleri.
-1. Bir komut kabuğundan yürüterek `dotnet nuget locals all --clear` paket önbelleklerini temizleyin.
+1. Delete the *bin* and *obj* folders.
+1. Clear the package caches by executing `dotnet nuget locals all --clear` from a command shell.
 
-   Paket önbelleklerini Temizleme, [NuGet. exe](https://www.nuget.org/downloads) aracı ile de gerçekleştirilebilir ve komut `nuget locals all -clear`yürütülebilir. *nuget.exe* Windows masaüstü işletim sistemi ile birlikte gelen bir yükleme değildir ve gelen ayrı olarak edinilmelidir [NuGet Web sitesi](https://www.nuget.org/downloads).
+   Clearing package caches can also be accomplished with the [nuget.exe](https://www.nuget.org/downloads) tool and executing the command `nuget locals all -clear`. *nuget.exe* isn't a bundled install with the Windows desktop operating system and must be obtained separately from the [NuGet website](https://www.nuget.org/downloads).
 
-1. Geri yükle ve projeyi yeniden derleyin.
-1. Uygulamayı yeniden dağıtmadan önce sunucusundaki dağıtım klasöründeki tüm dosyaları silin.
+1. Restore and rebuild the project.
+1. Delete all of the files in the deployment folder on the server prior to redeploying the app.
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
@@ -614,25 +614,25 @@ Bazen, geliştirme makinesindeki .NET Core SDK yükseltmeden ya da uygulamadaki 
 * <xref:fundamentals/error-handling>
 * <xref:host-and-deploy/aspnet-core-module>
 
-### <a name="azure-documentation"></a>Azure belgeleri
+### <a name="azure-documentation"></a>Azure documentation
 
-* [ASP.NET Core için Application Insights](/azure/application-insights/app-insights-asp-net-core)
-* [Visual Studio 'Yu kullanarak Azure App Service Web uygulamasının sorunlarını giderme bölümünde uzaktan hata ayıklama Web Apps bölümü](/azure/app-service/web-sites-dotnet-troubleshoot-visual-studio#remotedebug)
-* [Azure App Service tanılamada genel bakış](/azure/app-service/app-service-diagnostics)
-* [Nasıl yapılır: Azure App Service uygulamaları izleme](/azure/app-service/web-sites-monitor)
-* [Visual Studio kullanarak Azure App Service'te bir web uygulaması sorunlarını giderme](/azure/app-service/web-sites-dotnet-troubleshoot-visual-studio)
-* [Azure Web uygulamalarınızda "502 hatalı Ağ Geçidi" ve "503 hizmeti kullanılamıyor" HTTP hatalarında sorun giderme](/azure/app-service/app-service-web-troubleshoot-http-502-http-503)
-* [Azure App Service 'de yavaş Web uygulaması performans sorunlarını giderme](/azure/app-service/app-service-web-troubleshoot-performance-degradation)
-* [Azure 'da Web Apps için uygulama performansı SSS](/azure/app-service/app-service-web-availability-performance-application-issues-faq)
-* [Azure Web uygulaması korumalı alanı (App Service çalışma zamanı yürütme sınırlamaları)](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox)
-* [Azure Cuma: Azure App Service tanılama ve sorun giderme deneyimi (12 dakikalık video)](https://channel9.msdn.com/Shows/Azure-Friday/Azure-App-Service-Diagnostic-and-Troubleshooting-Experience)
+* [Application Insights for ASP.NET Core](/azure/application-insights/app-insights-asp-net-core)
+* [Remote debugging web apps section of Troubleshoot a web app in Azure App Service using Visual Studio](/azure/app-service/web-sites-dotnet-troubleshoot-visual-studio#remotedebug)
+* [Azure App Service diagnostics overview](/azure/app-service/app-service-diagnostics)
+* [How to: Monitor Apps in Azure App Service](/azure/app-service/web-sites-monitor)
+* [Troubleshoot a web app in Azure App Service using Visual Studio](/azure/app-service/web-sites-dotnet-troubleshoot-visual-studio)
+* [Troubleshoot HTTP errors of "502 bad gateway" and "503 service unavailable" in your Azure web apps](/azure/app-service/app-service-web-troubleshoot-http-502-http-503)
+* [Troubleshoot slow web app performance issues in Azure App Service](/azure/app-service/app-service-web-troubleshoot-performance-degradation)
+* [Application performance FAQs for Web Apps in Azure](/azure/app-service/app-service-web-availability-performance-application-issues-faq)
+* [Azure Web App sandbox (App Service runtime execution limitations)](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox)
+* [Azure Friday: Azure App Service Diagnostic and Troubleshooting Experience (12-minute video)](https://channel9.msdn.com/Shows/Azure-Friday/Azure-App-Service-Diagnostic-and-Troubleshooting-Experience)
 
 ### <a name="visual-studio-documentation"></a>Visual Studio belgeleri
 
-* [Visual Studio 2017 ' de Azure 'da IIS 'de uzaktan hata ayıklama ASP.NET Core](/visualstudio/debugger/remote-debugging-azure)
-* [Visual Studio 2017 ' de uzak IIS bilgisayarında uzaktan hata ayıklama ASP.NET Core](/visualstudio/debugger/remote-debugging-aspnet-on-a-remote-iis-computer)
+* [Remote Debug ASP.NET Core on IIS in Azure in Visual Studio 2017](/visualstudio/debugger/remote-debugging-azure)
+* [Remote Debug ASP.NET Core on a Remote IIS Computer in Visual Studio 2017](/visualstudio/debugger/remote-debugging-aspnet-on-a-remote-iis-computer)
 * [Visual Studio kullanarak hata ayıklamayı öğrenin](/visualstudio/debugger/getting-started-with-the-debugger)
 
-### <a name="visual-studio-code-documentation"></a>Visual Studio Code belgeleri
+### <a name="visual-studio-code-documentation"></a>Visual Studio Code documentation
 
-* [Visual Studio kodu ile hata ayıklama](https://code.visualstudio.com/docs/editor/debugging)
+* [Debugging with Visual Studio Code](https://code.visualstudio.com/docs/editor/debugging)

@@ -1,85 +1,96 @@
 ---
-title: ASP.NET Core ara yazılımı
+title: ASP.NET Core Middleware
 author: rick-anderson
-description: ASP.NET Core ara yazılımı ve istek işlem hattı hakkında bilgi edinin.
+description: Learn about ASP.NET Core middleware and the request pipeline.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
 ms.date: 10/08/2019
 uid: fundamentals/middleware/index
-ms.openlocfilehash: 8f5c3aabf17e78ae9675048602317c54f08e82a7
-ms.sourcegitcommit: 7d3c6565dda6241eb13f9a8e1e1fd89b1cfe4d18
+ms.openlocfilehash: d678f3d1f6ca10e486543a2965506236e4e61b82
+ms.sourcegitcommit: 8157e5a351f49aeef3769f7d38b787b4386aad5f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72259820"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74239843"
 ---
-# <a name="aspnet-core-middleware"></a>ASP.NET Core ara yazılımı
+# <a name="aspnet-core-middleware"></a>ASP.NET Core Middleware
 
-By [Rick Anderson](https://twitter.com/RickAndMSFT) ve [Steve Smith](https://ardalis.com/)
+By [Rick Anderson](https://twitter.com/RickAndMSFT) and [Steve Smith](https://ardalis.com/)
 
-Ara yazılım, istekleri ve yanıtları işlemek için bir uygulama ardışık düzenine çevrilmiş yazılımdır. Her bileşen:
+Middleware is software that's assembled into an app pipeline to handle requests and responses. Each component:
 
-* İsteğin işlem hattında sonraki bileşene geçirilip geçemeyeceğini seçer.
-* İşlem hattındaki sonraki bileşenden önce ve sonra iş gerçekleştirebilir.
+* Chooses whether to pass the request to the next component in the pipeline.
+* Can perform work before and after the next component in the pipeline.
 
-İstek işlem hattını oluşturmak için istek temsilcileri kullanılır. İstek temsilcileri her HTTP isteğini işler.
+Request delegates are used to build the request pipeline. The request delegates handle each HTTP request.
 
-İstek temsilcileri <xref:Microsoft.AspNetCore.Builder.RunExtensions.Run*>, <xref:Microsoft.AspNetCore.Builder.MapExtensions.Map*> ve <xref:Microsoft.AspNetCore.Builder.UseExtensions.Use*> uzantı yöntemleri kullanılarak yapılandırılır. Tek bir istek temsilcisi, bir anonim Yöntem (çevrimiçi ara yazılım olarak adlandırılır) olarak satır içinde belirtilebilir veya yeniden kullanılabilir bir sınıfta tanımlanabilir. Bu yeniden kullanılabilir sınıflar ve satır içi anonim yöntemler, *Ara yazılım bileşenleri*olarak da adlandırılan *ara yazılımlar*. İstek ardışık düzeninde bulunan her bir ara yazılım bileşeni, işlem hattındaki bir sonraki bileşeni çağırmaktan veya işlem hattının kısa süreli olarak sağlanmasından sorumludur. Bir ara yazılım kısa devre dışı bırakıldığında, bu, diğer ara yazılımların isteği işlemesini önlediği için *Terminal ara yazılımı* olarak adlandırılır.
+Request delegates are configured using <xref:Microsoft.AspNetCore.Builder.RunExtensions.Run*>, <xref:Microsoft.AspNetCore.Builder.MapExtensions.Map*>, and <xref:Microsoft.AspNetCore.Builder.UseExtensions.Use*> extension methods. An individual request delegate can be specified in-line as an anonymous method (called in-line middleware), or it can be defined in a reusable class. These reusable classes and in-line anonymous methods are *middleware*, also called *middleware components*. Each middleware component in the request pipeline is responsible for invoking the next component in the pipeline or short-circuiting the pipeline. When a middleware short-circuits, it's called a *terminal middleware* because it prevents further middleware from processing the request.
 
-<xref:migration/http-modules>, ASP.NET Core ve ASP.NET 4. x içindeki istek işlem hatları arasındaki farkı açıklar ve ek ara yazılım örnekleri sağlar.
+<xref:migration/http-modules> explains the difference between request pipelines in ASP.NET Core and ASP.NET 4.x and provides additional middleware samples.
 
-## <a name="create-a-middleware-pipeline-with-iapplicationbuilder"></a>IApplicationBuilder ile bir ara yazılım işlem hattı oluşturma
+## <a name="create-a-middleware-pipeline-with-iapplicationbuilder"></a>Create a middleware pipeline with IApplicationBuilder
 
-ASP.NET Core isteği ardışık düzeni, bir dizi istekten oluşur ve bunlardan sonra çağırılır. Aşağıdaki diyagramda kavram gösterilmektedir. Yürütmenin iş parçacığı siyah okları izler.
+The ASP.NET Core request pipeline consists of a sequence of request delegates, called one after the other. The following diagram demonstrates the concept. The thread of execution follows the black arrows.
 
-![İsteğin geliş, üç middlewares üzerinden işleme ve uygulamayı bırakma yanıtı gösteren istek işleme deseninin. Her bir ara yazılım mantığını çalıştırır ve sonraki () deyimindeki bir sonraki ara yazılım için isteği kapatır. Üçüncü ara yazılım isteği işledikten sonra, istek bir sonraki iki middlewares üzerinden geri geçirilir ve sonra, uygulamayı istemciye yanıt olarak bırakmadan önce Next () deyimlerinden sonra ek işleme için ters sırada geri geçirilir.](index/_static/request-delegate-pipeline.png)
+![Request processing pattern showing a request arriving, processing through three middlewares, and the response leaving the app. Each middleware runs its logic and hands off the request to the next middleware at the next() statement. After the third middleware processes the request, the request passes back through the prior two middlewares in reverse order for additional processing after their next() statements before leaving the app as a response to the client.](index/_static/request-delegate-pipeline.png)
 
-Her temsilci bir sonraki temsilciden önce ve sonra işlemleri gerçekleştirebilir. Özel durum işleme temsilcileri işlem hattında erken çağrılmalıdır, bu sayede işlem hattının sonraki aşamalarında oluşan özel durumları yakalayabilirler.
+Each delegate can perform operations before and after the next delegate. Exception-handling delegates should be called early in the pipeline, so they can catch exceptions that occur in later stages of the pipeline.
 
-Mümkün olan en basit ASP.NET Core uygulaması, tüm istekleri işleyen tek bir istek temsilcisi kurar. Bu durum gerçek bir istek işlem hattı içermez. Bunun yerine, her HTTP isteğine yanıt olarak tek bir anonim işlev çağırılır.
+The simplest possible ASP.NET Core app sets up a single request delegate that handles all requests. This case doesn't include an actual request pipeline. Instead, a single anonymous function is called in response to every HTTP request.
 
 [!code-csharp[](index/snapshot/Middleware/Startup.cs)]
 
-İlk <xref:Microsoft.AspNetCore.Builder.RunExtensions.Run*> temsilcisi ardışık düzeni sonlandırır.
+The first <xref:Microsoft.AspNetCore.Builder.RunExtensions.Run*> delegate terminates the pipeline.
 
-Birden çok istek temsilciyi <xref:Microsoft.AspNetCore.Builder.UseExtensions.Use*> ile birlikte zinciri. @No__t-0 parametresi, ardışık düzendeki bir sonraki temsilciyi temsil eder. Ardışık düzen, *sonraki* *parametreyi çağırarak işlem* hattı için kısa devre dışı bırakabilirsiniz. Aşağıdaki örnekte gösterildiği gibi genellikle sonraki temsilciden önce ve sonra eylemler gerçekleştirebilirsiniz:
+Chain multiple request delegates together with <xref:Microsoft.AspNetCore.Builder.UseExtensions.Use*>. The `next` parameter represents the next delegate in the pipeline. You can short-circuit the pipeline by *not* calling the *next* parameter. You can typically perform actions both before and after the next delegate, as the following example demonstrates:
 
 [!code-csharp[](index/snapshot/Chain/Startup.cs)]
 
-Bir temsilci bir sonraki temsilciye bir istek iletmezse, *istek ardışık düzenini, kısa*devre olarak gerçekleştirmektir. Gereksiz çalışmayı önlediği için kısa devre, genellikle tercih edilir. Örneğin, [statik dosya ara yazılımı](xref:fundamentals/static-files) , bir statik dosya için bir isteği işleyerek ve işlem hattının geri kalanını gerçekleştirerek bir *Terminal ara yazılımı* görevi görebilir. Daha fazla işlemeyi sonlandıran ara yazılım, `next.Invoke` deyimlerinden sonra kodu işlerken işlem hattına eklenen ara yazılımlar. Ancak, zaten gönderilmiş bir yanıta yazma girişimi hakkında aşağıdaki uyarıya bakın.
+When a delegate doesn't pass a request to the next delegate, it's called *short-circuiting the request pipeline*. Short-circuiting is often desirable because it avoids unnecessary work. For example, [Static File Middleware](xref:fundamentals/static-files) can act as a *terminal middleware* by processing a request for a static file and short-circuiting the rest of the pipeline. Middleware added to the pipeline before the middleware that terminates further processing still processes code after their `next.Invoke` statements. However, see the following warning about attempting to write to a response that has already been sent.
 
 > [!WARNING]
-> İstemciye yanıt gönderildikten sonra `next.Invoke` çağrısı yapmayın. Yanıt başladıktan sonra <xref:Microsoft.AspNetCore.Http.HttpResponse> ' a yapılan değişiklikler özel durum oluşturur. Örneğin, üstbilgileri ayarlama ve durum kodu gibi değişiklikler özel durum oluşturur. @No__t çağrıldıktan sonra yanıt gövdesine yazma-0:
+> Don't call `next.Invoke` after the response has been sent to the client. Changes to <xref:Microsoft.AspNetCore.Http.HttpResponse> after the response has started throw an exception. For example, changes such as setting headers and a status code throw an exception. Writing to the response body after calling `next`:
 >
-> * Protokol ihlaline neden olabilir. Örneğin, belirtilen @no__t daha fazla yazma-0.
-> * Gövde biçimi bozulabilir. Örneğin, bir CSS dosyasına bir HTML altbilgisi yazma.
+> * May cause a protocol violation. For example, writing more than the stated `Content-Length`.
+> * May corrupt the body format. For example, writing an HTML footer to a CSS file.
 >
-> <xref:Microsoft.AspNetCore.Http.HttpResponse.HasStarted*>, üstbilgilerin gönderilip gönderilmediğini veya gövdenin yazıldığını göstermek için faydalı bir ipucu.
+> <xref:Microsoft.AspNetCore.Http.HttpResponse.HasStarted*> is a useful hint to indicate if headers have been sent or the body has been written to.
 
-## <a name="order"></a>Sipariş
+<a name="order"></a>
 
-Ara yazılım bileşenlerinin `Startup.Configure` yönteminde eklendiği sıra, ara yazılım bileşenlerinin isteklerde çağrıldığı sırayı ve yanıtın ters sırasını tanımlar. Sıra, güvenlik, performans ve işlevsellik açısından önemlidir.
+## <a name="middleware-order"></a>Middleware order
 
-Aşağıdaki `Startup.Configure` yöntemi, genel uygulama senaryoları için ara yazılım bileşenleri ekler:
+The order that middleware components are added in the `Startup.Configure` method defines the order in which the middleware components are invoked on requests and the reverse order for the response. The order is **critical** for security, performance, and functionality.
+
+The following `Startup.Configure` method adds security related middleware components in the recommended order:
 
 ::: moniker range=">= aspnetcore-3.0"
 
-1. Özel durum/hata işleme
-   * Uygulama geliştirme ortamında çalıştığında:
-     * Geliştirici özel durum sayfası ara yazılımı (<xref:Microsoft.AspNetCore.Builder.DeveloperExceptionPageExtensions.UseDeveloperExceptionPage*>), uygulama çalışma zamanı hatalarını raporlar.
-     * Veritabanı hata sayfası ara yazılımı veritabanı çalışma zamanı hatalarını raporlar.
-   * Uygulama, üretim ortamında çalıştığında:
-     * Özel durum Işleyici ara yazılımı (<xref:Microsoft.AspNetCore.Builder.ExceptionHandlerExtensions.UseExceptionHandler*>) aşağıdaki middlewares oluşturulan özel durumları yakalar.
-     * HTTP katı aktarım güvenliği Protokolü (HSTS) ara yazılımı (<xref:Microsoft.AspNetCore.Builder.HstsBuilderExtensions.UseHsts*>) `Strict-Transport-Security` üstbilgisini ekler.
-1. HTTPS yeniden yönlendirme ara yazılımı (<xref:Microsoft.AspNetCore.Builder.HttpsPolicyBuilderExtensions.UseHttpsRedirection*>) HTTP isteklerini HTTPS 'ye yönlendirir.
-1. Statik dosya ara yazılımı (<xref:Microsoft.AspNetCore.Builder.StaticFileExtensions.UseStaticFiles*>) statik dosyalar ve kısa devre istekleri daha fazla istek işleme döndürür.
-1. Tanımlama bilgisi Ilkesi ara yazılımı (<xref:Microsoft.AspNetCore.Builder.CookiePolicyAppBuilderExtensions.UseCookiePolicy*>), uygulamayı AB Genel Veri Koruma Yönetmeliği (GDPR) düzenlemelerine uyar.
-1. İstekleri yönlendirmek için ara yazılım (`UseRouting`).
-1. Kimlik doğrulama ara yazılımı (<xref:Microsoft.AspNetCore.Builder.AuthAppBuilderExtensions.UseAuthentication*>), güvenli kaynaklara erişim izni vermeden önce kullanıcının kimliğini doğrulamaya çalışır.
-1. Yetkilendirme ara yazılımı (`UseAuthorization`), bir kullanıcıya güvenli kaynaklara erişim yetkisi verir.
-1. Oturum ara yazılımı (<xref:Microsoft.AspNetCore.Builder.SessionMiddlewareExtensions.UseSession*>) oturum durumunu oluşturur ve korur. Uygulama oturum durumunu kullanıyorsa, tanımlama bilgisi Ilkesi ara yazılımı ve MVC ara yazılımı öncesinde oturum ara yazılımını çağırın.
-1. İstek ardışık düzenine Razor Pages uç noktaları eklemek için uç nokta yönlendirme ara yazılımı (`MapRazorPages` ile `UseEndpoints`).
+[!code-csharp[](index/snapshot/StartupAll3.cs?name=snippet)]
+
+In the preceding code:
+
+* Middleware that is not added when creating a new web app with [individual users accounts](xref:security/authentication/identity) is commented out.
+* Not every middleware needs to go in this exact order, but many do. For example, `UseCors`, `UseAuthentication`, and `UseAuthorization` must go in the order shown.
+
+The following `Startup.Configure` method adds middleware components for common app scenarios:
+
+1. Exception/error handling
+   * When the app runs in the Development environment:
+     * Developer Exception Page Middleware (<xref:Microsoft.AspNetCore.Builder.DeveloperExceptionPageExtensions.UseDeveloperExceptionPage*>) reports app runtime errors.
+     * Database Error Page Middleware reports database runtime errors.
+   * When the app runs in the Production environment:
+     * Exception Handler Middleware (<xref:Microsoft.AspNetCore.Builder.ExceptionHandlerExtensions.UseExceptionHandler*>) catches exceptions thrown in the following middlewares.
+     * HTTP Strict Transport Security Protocol (HSTS) Middleware (<xref:Microsoft.AspNetCore.Builder.HstsBuilderExtensions.UseHsts*>) adds the `Strict-Transport-Security` header.
+1. HTTPS Redirection Middleware (<xref:Microsoft.AspNetCore.Builder.HttpsPolicyBuilderExtensions.UseHttpsRedirection*>) redirects HTTP requests to HTTPS.
+1. Static File Middleware (<xref:Microsoft.AspNetCore.Builder.StaticFileExtensions.UseStaticFiles*>) returns static files and short-circuits further request processing.
+1. Cookie Policy Middleware (<xref:Microsoft.AspNetCore.Builder.CookiePolicyAppBuilderExtensions.UseCookiePolicy*>) conforms the app to the EU General Data Protection Regulation (GDPR) regulations.
+1. Routing Middleware (`UseRouting`) to route requests.
+1. Authentication Middleware (<xref:Microsoft.AspNetCore.Builder.AuthAppBuilderExtensions.UseAuthentication*>) attempts to authenticate the user before they're allowed access to secure resources.
+1. Authorization Middleware (`UseAuthorization`) authorizes a user to access secure resources.
+1. Session Middleware (<xref:Microsoft.AspNetCore.Builder.SessionMiddlewareExtensions.UseSession*>) establishes and maintains session state. If the app uses session state, call Session Middleware after Cookie Policy Middleware and before MVC Middleware.
+1. Endpoint Routing Middleware (`UseEndpoints` with `MapRazorPages`) to add Razor Pages endpoints to the request pipeline.
 
 <!--
 
@@ -122,15 +133,15 @@ public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
 }
 ```
 
-Yukarıdaki örnek kodda, her bir ara yazılım uzantısı yöntemi <xref:Microsoft.AspNetCore.Builder?displayProperty=fullName> ad alanı aracılığıyla <xref:Microsoft.AspNetCore.Builder.IApplicationBuilder> ' da gösterilir.
+In the preceding example code, each middleware extension method is exposed on <xref:Microsoft.AspNetCore.Builder.IApplicationBuilder> through the <xref:Microsoft.AspNetCore.Builder?displayProperty=fullName> namespace.
 
-<xref:Microsoft.AspNetCore.Builder.ExceptionHandlerExtensions.UseExceptionHandler*>, işlem hattına eklenen ilk ara yazılım bileşenidir. Bu nedenle, özel durum Işleyicisi ara yazılımı sonraki çağrılarında oluşan tüm özel durumları yakalar.
+<xref:Microsoft.AspNetCore.Builder.ExceptionHandlerExtensions.UseExceptionHandler*> is the first middleware component added to the pipeline. Therefore, the Exception Handler Middleware catches any exceptions that occur in later calls.
 
-Statik dosya ara yazılımı, geri kalan bileşenlere geçmeden istekleri ve kısa devre dışı bırakabilirsiniz. bu sayede işlem hattının başlarında çağrılır. Statik dosya ara **yazılımı yetkilendirme denetimleri sağlamaz.** *Wwwroot*altındakiler de dahil olmak üzere statik dosya ara yazılımı tarafından sunulan tüm dosyalar herkese açık bir şekilde sunulur. Statik dosyaların güvenliğini sağlamaya yönelik bir yaklaşım için bkz. <xref:fundamentals/static-files>.
+Static File Middleware is called early in the pipeline so that it can handle requests and short-circuit without going through the remaining components. The Static File Middleware provides **no** authorization checks. Any files served by Static File Middleware, including those under *wwwroot*, are publicly available. For an approach to secure static files, see <xref:fundamentals/static-files>.
 
-İstek statik dosya ara yazılımı tarafından işlenmemişse, kimlik doğrulaması yapan kimlik doğrulama ara yazılım (<xref:Microsoft.AspNetCore.Builder.AuthAppBuilderExtensions.UseAuthentication*>) üzerinden geçirilir. Kimlik doğrulaması kısa devre dışı kimliği doğrulanmamış istekler değildir. Kimlik doğrulama ara yazılımı isteklerin kimliğini doğrulayabilse de, yetkilendirme (ve reddetme) yalnızca MVC, belirli bir Razor sayfası veya MVC denetleyicisi ve eylemi seçerse oluşur.
+If the request isn't handled by the Static File Middleware, it's passed on to the Authentication Middleware (<xref:Microsoft.AspNetCore.Builder.AuthAppBuilderExtensions.UseAuthentication*>), which performs authentication. Authentication doesn't short-circuit unauthenticated requests. Although Authentication Middleware authenticates requests, authorization (and rejection) occurs only after MVC selects a specific Razor Page or MVC controller and action.
 
-Aşağıdaki örnek, yanıt sıkıştırma ara yazılımı ile önce statik dosya isteklerinin statik dosya ara yazılımı tarafından işlendiği bir ara yazılım sırasını gösterir. Statik dosyalar bu ara yazılım sırasıyla sıkıştırılmaz. Razor Pages yanıtları sıkıştırılabilirler.
+The following example demonstrates a middleware order where requests for static files are handled by Static File Middleware before Response Compression Middleware. Static files aren't compressed with this middleware order. The Razor Pages responses can be compressed.
 
 ```csharp
 public void Configure(IApplicationBuilder app)
@@ -151,19 +162,28 @@ public void Configure(IApplicationBuilder app)
 
 ::: moniker range="< aspnetcore-3.0"
 
-1. Özel durum/hata işleme
-   * Uygulama geliştirme ortamında çalıştığında:
-     * Geliştirici özel durum sayfası ara yazılımı (<xref:Microsoft.AspNetCore.Builder.DeveloperExceptionPageExtensions.UseDeveloperExceptionPage*>), uygulama çalışma zamanı hatalarını raporlar.
-     * Veritabanı hata sayfası ara yazılımı (`Microsoft.AspNetCore.Builder.DatabaseErrorPageExtensions.UseDatabaseErrorPage`) veritabanı çalışma zamanı hatalarını raporlar.
-   * Uygulama, üretim ortamında çalıştığında:
-     * Özel durum Işleyici ara yazılımı (<xref:Microsoft.AspNetCore.Builder.ExceptionHandlerExtensions.UseExceptionHandler*>) aşağıdaki middlewares oluşturulan özel durumları yakalar.
-     * HTTP katı aktarım güvenliği Protokolü (HSTS) ara yazılımı (<xref:Microsoft.AspNetCore.Builder.HstsBuilderExtensions.UseHsts*>) `Strict-Transport-Security` üstbilgisini ekler.
-1. HTTPS yeniden yönlendirme ara yazılımı (<xref:Microsoft.AspNetCore.Builder.HttpsPolicyBuilderExtensions.UseHttpsRedirection*>) HTTP isteklerini HTTPS 'ye yönlendirir.
-1. Statik dosya ara yazılımı (<xref:Microsoft.AspNetCore.Builder.StaticFileExtensions.UseStaticFiles*>) statik dosyalar ve kısa devre istekleri daha fazla istek işleme döndürür.
-1. Tanımlama bilgisi Ilkesi ara yazılımı (<xref:Microsoft.AspNetCore.Builder.CookiePolicyAppBuilderExtensions.UseCookiePolicy*>), uygulamayı AB Genel Veri Koruma Yönetmeliği (GDPR) düzenlemelerine uyar.
-1. Kimlik doğrulama ara yazılımı (<xref:Microsoft.AspNetCore.Builder.AuthAppBuilderExtensions.UseAuthentication*>), güvenli kaynaklara erişim izni vermeden önce kullanıcının kimliğini doğrulamaya çalışır.
-1. Oturum ara yazılımı (<xref:Microsoft.AspNetCore.Builder.SessionMiddlewareExtensions.UseSession*>) oturum durumunu oluşturur ve korur. Uygulama oturum durumunu kullanıyorsa, tanımlama bilgisi Ilkesi ara yazılımı ve MVC ara yazılımı öncesinde oturum ara yazılımını çağırın.
-1. İstek ardışık düzenine MVC eklemek için MVC (<xref:Microsoft.AspNetCore.Builder.MvcApplicationBuilderExtensions.UseMvc*>).
+[!code-csharp[](index/snapshot/Startup22.cs?name=snippet)]
+
+In the preceding code:
+
+* Middleware that is not added when creating a new web app with [individual users accounts](xref:security/authentication/identity) is commented out.
+* Not every middleware needs to go in this exact order, but many do. For example, `UseCors` and `UseAuthentication` must go in the order shown.
+
+The following `Startup.Configure` method adds middleware components for common app scenarios:
+
+1. Exception/error handling
+   * When the app runs in the Development environment:
+     * Developer Exception Page Middleware (<xref:Microsoft.AspNetCore.Builder.DeveloperExceptionPageExtensions.UseDeveloperExceptionPage*>) reports app runtime errors.
+     * Database Error Page Middleware (`Microsoft.AspNetCore.Builder.DatabaseErrorPageExtensions.UseDatabaseErrorPage`) reports database runtime errors.
+   * When the app runs in the Production environment:
+     * Exception Handler Middleware (<xref:Microsoft.AspNetCore.Builder.ExceptionHandlerExtensions.UseExceptionHandler*>) catches exceptions thrown in the following middlewares.
+     * HTTP Strict Transport Security Protocol (HSTS) Middleware (<xref:Microsoft.AspNetCore.Builder.HstsBuilderExtensions.UseHsts*>) adds the `Strict-Transport-Security` header.
+1. HTTPS Redirection Middleware (<xref:Microsoft.AspNetCore.Builder.HttpsPolicyBuilderExtensions.UseHttpsRedirection*>) redirects HTTP requests to HTTPS.
+1. Static File Middleware (<xref:Microsoft.AspNetCore.Builder.StaticFileExtensions.UseStaticFiles*>) returns static files and short-circuits further request processing.
+1. Cookie Policy Middleware (<xref:Microsoft.AspNetCore.Builder.CookiePolicyAppBuilderExtensions.UseCookiePolicy*>) conforms the app to the EU General Data Protection Regulation (GDPR) regulations.
+1. Authentication Middleware (<xref:Microsoft.AspNetCore.Builder.AuthAppBuilderExtensions.UseAuthentication*>) attempts to authenticate the user before they're allowed access to secure resources.
+1. Session Middleware (<xref:Microsoft.AspNetCore.Builder.SessionMiddlewareExtensions.UseSession*>) establishes and maintains session state. If the app uses session state, call Session Middleware after Cookie Policy Middleware and before MVC Middleware.
+1. MVC (<xref:Microsoft.AspNetCore.Builder.MvcApplicationBuilderExtensions.UseMvc*>) to add MVC to the request pipeline.
 
 ```csharp
 public void Configure(IApplicationBuilder app, IHostingEnvironment env)
@@ -188,15 +208,15 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 }
 ```
 
-Yukarıdaki örnek kodda, her bir ara yazılım uzantısı yöntemi <xref:Microsoft.AspNetCore.Builder?displayProperty=fullName> ad alanı aracılığıyla <xref:Microsoft.AspNetCore.Builder.IApplicationBuilder> ' da gösterilir.
+In the preceding example code, each middleware extension method is exposed on <xref:Microsoft.AspNetCore.Builder.IApplicationBuilder> through the <xref:Microsoft.AspNetCore.Builder?displayProperty=fullName> namespace.
 
-<xref:Microsoft.AspNetCore.Builder.ExceptionHandlerExtensions.UseExceptionHandler*>, işlem hattına eklenen ilk ara yazılım bileşenidir. Bu nedenle, özel durum Işleyicisi ara yazılımı sonraki çağrılarında oluşan tüm özel durumları yakalar.
+<xref:Microsoft.AspNetCore.Builder.ExceptionHandlerExtensions.UseExceptionHandler*> is the first middleware component added to the pipeline. Therefore, the Exception Handler Middleware catches any exceptions that occur in later calls.
 
-Statik dosya ara yazılımı, geri kalan bileşenlere geçmeden istekleri ve kısa devre dışı bırakabilirsiniz. bu sayede işlem hattının başlarında çağrılır. Statik dosya ara **yazılımı yetkilendirme denetimleri sağlamaz.** *Wwwroot*altındakiler de dahil olmak üzere statik dosya ara yazılımı tarafından sunulan tüm dosyalar herkese açık bir şekilde sunulur. Statik dosyaların güvenliğini sağlamaya yönelik bir yaklaşım için bkz. <xref:fundamentals/static-files>.
+Static File Middleware is called early in the pipeline so that it can handle requests and short-circuit without going through the remaining components. The Static File Middleware provides **no** authorization checks. Any files served by Static File Middleware, including those under *wwwroot*, are publicly available. For an approach to secure static files, see <xref:fundamentals/static-files>.
 
-İstek statik dosya ara yazılımı tarafından işlenmemişse, kimlik doğrulaması yapan kimlik doğrulama ara yazılım (<xref:Microsoft.AspNetCore.Builder.AuthAppBuilderExtensions.UseAuthentication*>) üzerinden geçirilir. Kimlik doğrulaması kısa devre dışı kimliği doğrulanmamış istekler değildir. Kimlik doğrulama ara yazılımı isteklerin kimliğini doğrulayabilse de, yetkilendirme (ve reddetme) yalnızca MVC, belirli bir Razor sayfası veya MVC denetleyicisi ve eylemi seçerse oluşur.
+If the request isn't handled by the Static File Middleware, it's passed on to the Authentication Middleware (<xref:Microsoft.AspNetCore.Builder.AuthAppBuilderExtensions.UseAuthentication*>), which performs authentication. Authentication doesn't short-circuit unauthenticated requests. Although Authentication Middleware authenticates requests, authorization (and rejection) occurs only after MVC selects a specific Razor Page or MVC controller and action.
 
-Aşağıdaki örnek, yanıt sıkıştırma ara yazılımı ile önce statik dosya isteklerinin statik dosya ara yazılımı tarafından işlendiği bir ara yazılım sırasını gösterir. Statik dosyalar bu ara yazılım sırasıyla sıkıştırılmaz. @No__t-0 ' dan MVC yanıtları sıkıştırılabilir.
+The following example demonstrates a middleware order where requests for static files are handled by Static File Middleware before Response Compression Middleware. Static files aren't compressed with this middleware order. The MVC responses from <xref:Microsoft.AspNetCore.Builder.MvcApplicationBuilderExtensions.UseMvcWithDefaultRoute*> can be compressed.
 
 ```csharp
 public void Configure(IApplicationBuilder app)
@@ -212,37 +232,37 @@ public void Configure(IApplicationBuilder app)
 
 ::: moniker-end
 
-## <a name="use-run-and-map"></a>Kullanın, çalıştırın ve eşleyin
+## <a name="use-run-and-map"></a>Use, Run, and Map
 
-@No__t-0, <xref:Microsoft.AspNetCore.Builder.RunExtensions.Run*> ve <xref:Microsoft.AspNetCore.Builder.MapExtensions.Map*> kullanarak HTTP işlem hattını yapılandırın. @No__t-0 yöntemi, işlem hattı kısa devre dışı olabilir (yani, bir `next` istek temsilcisi çağırmazsa). `Run` bir kuraldır ve bazı ara yazılım bileşenleri, işlem hattının sonunda çalışan `Run[Middleware]` Yöntemler sunabilir.
+Configure the HTTP pipeline using <xref:Microsoft.AspNetCore.Builder.UseExtensions.Use*>, <xref:Microsoft.AspNetCore.Builder.RunExtensions.Run*>, and <xref:Microsoft.AspNetCore.Builder.MapExtensions.Map*>. The `Use` method can short-circuit the pipeline (that is, if it doesn't call a `next` request delegate). `Run` is a convention, and some middleware components may expose `Run[Middleware]` methods that run at the end of the pipeline.
 
-<xref:Microsoft.AspNetCore.Builder.MapExtensions.Map*> uzantıları, işlem hattının dallanması için bir kural olarak kullanılır. `Map`, istek ardışık düzenini verilen istek yolunun eşleşmelerini temel alarak dallandırır. İstek yolu verilen yol ile başlıyorsa, dal yürütülür.
+<xref:Microsoft.AspNetCore.Builder.MapExtensions.Map*> extensions are used as a convention for branching the pipeline. `Map` branches the request pipeline based on matches of the given request path. If the request path starts with the given path, the branch is executed.
 
 [!code-csharp[](index/snapshot/Chain/StartupMap.cs)]
 
-Aşağıdaki tablo, önceki kodu kullanarak `http://localhost:1234` ' dan gelen istekleri ve yanıtları gösterir.
+The following table shows the requests and responses from `http://localhost:1234` using the previous code.
 
-| İste             | Yanıt                     |
+| İstek             | Response                     |
 | ------------------- | ---------------------------- |
-| localhost: 1234      | Eşleme olmayan temsilciden Merhaba. |
-| localhost: 1234/Map1 | Eşleme testi 1                   |
-| localhost: 1234/MAP2 | Eşleme testi 2                   |
-| localhost: 1234/map3 | Eşleme olmayan temsilciden Merhaba. |
+| localhost:1234      | Hello from non-Map delegate. |
+| localhost:1234/map1 | Map Test 1                   |
+| localhost:1234/map2 | Map Test 2                   |
+| localhost:1234/map3 | Hello from non-Map delegate. |
 
-@No__t-0 kullanıldığında, eşleşen yol kesimleri `HttpRequest.Path` ' den kaldırılır ve her istek için `HttpRequest.PathBase` ' ye eklenir.
+When `Map` is used, the matched path segments are removed from `HttpRequest.Path` and appended to `HttpRequest.PathBase` for each request.
 
-<xref:Microsoft.AspNetCore.Builder.MapWhenExtensions.MapWhen*>, belirtilen koşulun sonucuna göre istek ardışık düzenini dallandırır. @No__t-0 türündeki herhangi bir koşul, istekleri işlem hattının yeni bir dalına eşlemek için kullanılabilir. Aşağıdaki örnekte, bir sorgu dizesi değişkeninin varlığını algılamak için bir koşul kullanılır `branch`:
+<xref:Microsoft.AspNetCore.Builder.MapWhenExtensions.MapWhen*> branches the request pipeline based on the result of the given predicate. Any predicate of type `Func<HttpContext, bool>` can be used to map requests to a new branch of the pipeline. In the following example, a predicate is used to detect the presence of a query string variable `branch`:
 
 [!code-csharp[](index/snapshot/Chain/StartupMapWhen.cs)]
 
-Aşağıdaki tablo, önceki kodu kullanarak `http://localhost:1234` ' dan gelen istekleri ve yanıtları gösterir.
+The following table shows the requests and responses from `http://localhost:1234` using the previous code.
 
-| İste                       | Yanıt                     |
+| İstek                       | Response                     |
 | ----------------------------- | ---------------------------- |
-| localhost: 1234                | Eşleme olmayan temsilciden Merhaba. |
-| localhost: 1234/? dalı = ana | Kullanılan dal = ana         |
+| localhost:1234                | Hello from non-Map delegate. |
+| localhost:1234/?branch=master | Branch used = master         |
 
-`Map` iç içe geçirmeyi destekler, örneğin:
+`Map` supports nesting, for example:
 
 ```csharp
 app.Map("/level1", level1App => {
@@ -255,35 +275,35 @@ app.Map("/level1", level1App => {
 });
 ```
 
-`Map` aynı zamanda birden çok kesimde aynı anda aynı olabilir:
+`Map` can also match multiple segments at once:
 
 [!code-csharp[](index/snapshot/Chain/StartupMultiSeg.cs?highlight=13)]
 
-## <a name="built-in-middleware"></a>Yerleşik ara yazılım
+## <a name="built-in-middleware"></a>Built-in middleware
 
-ASP.NET Core aşağıdaki ara yazılım bileşenleriyle birlikte gönderilir. *Order* sütunu, istek işleme ardışık düzeninde ara yazılım yerleştirme ve ara yazılımın istek işlemeyi sonlandırabilecekleri koşullar bölümünde notlar sağlar. Bir ara yazılım, istek işlem hattının ne kadar kısa süreli olduğunu ve daha fazla aşağı akış ara yazılımı bir isteği işlemesini engelliyorsa, bu, *Terminal ara yazılımı*olarak adlandırılır. Kısa devre oluşturma hakkında daha fazla bilgi için, [IApplicationBuilder ile bir ara yazılım işlem hattı oluşturma](#create-a-middleware-pipeline-with-iapplicationbuilder) bölümüne bakın.
+ASP.NET Core ships with the following middleware components. The *Order* column provides notes on middleware placement in the request processing pipeline and under what conditions the middleware may terminate request processing. When a middleware short-circuits the request processing pipeline and prevents further downstream middleware from processing a request, it's called a *terminal middleware*. For more information on short-circuiting, see the [Create a middleware pipeline with IApplicationBuilder](#create-a-middleware-pipeline-with-iapplicationbuilder) section.
 
-| Yazılımlar | Açıklama | Sipariş |
+| Ara yazılım | Açıklama | Order |
 | ---------- | ----------- | ----- |
-| [Kimlik doğrulaması](xref:security/authentication/identity) | Kimlik doğrulama desteği sağlar. | @No__t-0 gerekir. OAuth geri çağırmaları için Terminal. |
-| [Tanımlama bilgisi Ilkesi](xref:security/gdpr) | Kişisel bilgileri depolamak için kullanıcılardan onay izler ve `secure` ve `SameSite` gibi tanımlama bilgisi alanları için en düşük standartları uygular. | Tanımlama bilgilerini veren ara yazılım öncesi. Örnekler: Authentication, Session, MVC (TempData). |
-| [CORS](xref:security/cors) | Çıkış noktaları arası kaynak paylaşımını yapılandırır. | CORS kullanan bileşenlerden önce. |
-| [Tanılama](xref:fundamentals/error-handling) | Geliştirici özel durum sayfası, özel durum işleme, durum kodu sayfaları ve yeni uygulamalar için varsayılan Web sayfası sağlayan çeşitli ayrı middlewares. | Hata oluşturan bileşenlerden önce. Özel durumlar için Terminal veya yeni uygulamalar için varsayılan Web sayfasına hizmet sunma. |
-| [İletilen üstbilgiler](xref:host-and-deploy/proxy-load-balancer) | Proxy üst bilgilerini geçerli istek üzerine iletir. | Güncelleştirilmiş alanları kullanan bileşenlerden önce. Örnekler: Scheme, Host, istemci IP, yöntem. |
-| [Sistem durumu denetimi](xref:host-and-deploy/health-checks) | ASP.NET Core uygulamasının sistem durumunu ve bağımlılıklarını denetler (örneğin, veritabanı kullanılabilirliğini denetleme). | Bir istek bir sistem durumu denetimi uç noktasıyla eşleşiyorsa Terminal. |
-| [HTTP yöntemini geçersiz kılma](xref:Microsoft.AspNetCore.Builder.HttpMethodOverrideExtensions) | Gelen POST isteğinin yöntemi geçersiz kılmasına izin verir. | Güncelleştirilmiş yöntemini kullanan bileşenlerden önce. |
-| [HTTPS yönlendirmesi](xref:security/enforcing-ssl#require-https) | Tüm HTTP isteklerini HTTPS 'ye yeniden yönlendirin. | URL 'YI kullanan bileşenlerden önce. |
-| [HTTP katı taşıma güvenliği (HSTS)](xref:security/enforcing-ssl#http-strict-transport-security-protocol-hsts) | Özel bir yanıt üst bilgisi ekleyen güvenlik geliştirme ara yazılımı. | Yanıtlar gönderilmeden önce ve istekleri değiştiren bileşenler. Örnekler: Iletilen üstbilgiler, URL yeniden yazma. |
-| [MVC](xref:mvc/overview) | MVC/Razor Pages ile istekleri işler. | Bir istek bir rota ile eşleşiyorsa Terminal. |
-| [OWıN](xref:fundamentals/owin) | OWIN tabanlı uygulamalar, sunucular ve ara yazılım ile birlikte çalışma. | OWıN ara yazılımı isteği tam olarak işliyorsa Terminal. |
-| [Yanıt önbelleğe alma](xref:performance/caching/middleware) | Yanıtları önbelleğe almak için destek sağlar. | Önbelleğe alma gerektiren bileşenlerden önce. |
-| [Yanıt sıkıştırması](xref:performance/response-compression) | Yanıtları sıkıştırmak için destek sağlar. | Sıkıştırma gerektiren bileşenlerden önce. |
-| [Yerelleştirme iste](xref:fundamentals/localization) | Yerelleştirme desteği sağlar. | Yerelleştirmenin önemli bileşenlerinden önce. |
-| [Uç nokta yönlendirme](xref:fundamentals/routing) | İstek yollarını tanımlar ve kısıtlar. | Eşleşen yolların terminali. |
-| [Oturumuna](xref:fundamentals/app-state) | Kullanıcı oturumlarını yönetmek için destek sağlar. | Oturum gerektiren bileşenlerden önce. |
-| [Statik dosyalar](xref:fundamentals/static-files) | Statik dosyaları ve dizin taramayı sunma desteği sağlar. | Bir istek bir dosyayla eşleşiyorsa Terminal. |
-| [URL yeniden yazma](xref:fundamentals/url-rewriting) | URL 'Leri yeniden yazma ve istekleri yeniden yönlendirme desteği sağlar. | URL 'YI kullanan bileşenlerden önce. |
-| [WebSockets](xref:fundamentals/websockets) | WebSockets protokolünü etkinleştirilir. | WebSocket isteklerini kabul etmek için gereken bileşenlerden önce. |
+| [Kimlik Doğrulaması](xref:security/authentication/identity) | Provides authentication support. | Before `HttpContext.User` is needed. Terminal for OAuth callbacks. |
+| [Cookie Policy](xref:security/gdpr) | Tracks consent from users for storing personal information and enforces minimum standards for cookie fields, such as `secure` and `SameSite`. | Before middleware that issues cookies. Examples: Authentication, Session, MVC (TempData). |
+| [CORS](xref:security/cors) | Configures Cross-Origin Resource Sharing. | Before components that use CORS. |
+| [Tanılama](xref:fundamentals/error-handling) | Several separate middlewares that provide a developer exception page, exception handling, status code pages, and the default web page for new apps. | Before components that generate errors. Terminal for exceptions or serving the default web page for new apps. |
+| [Forwarded Headers](xref:host-and-deploy/proxy-load-balancer) | Forwards proxied headers onto the current request. | Before components that consume the updated fields. Examples: scheme, host, client IP, method. |
+| [Health Check](xref:host-and-deploy/health-checks) | Checks the health of an ASP.NET Core app and its dependencies, such as checking database availability. | Terminal if a request matches a health check endpoint. |
+| [HTTP Method Override](xref:Microsoft.AspNetCore.Builder.HttpMethodOverrideExtensions) | Allows an incoming POST request to override the method. | Before components that consume the updated method. |
+| [HTTPS Redirection](xref:security/enforcing-ssl#require-https) | Redirect all HTTP requests to HTTPS. | Before components that consume the URL. |
+| [HTTP Strict Transport Security (HSTS)](xref:security/enforcing-ssl#http-strict-transport-security-protocol-hsts) | Security enhancement middleware that adds a special response header. | Before responses are sent and after components that modify requests. Examples: Forwarded Headers, URL Rewriting. |
+| [MVC](xref:mvc/overview) | Processes requests with MVC/Razor Pages. | Terminal if a request matches a route. |
+| [OWIN](xref:fundamentals/owin) | Interop with OWIN-based apps, servers, and middleware. | Terminal if the OWIN Middleware fully processes the request. |
+| [Yanıtları Önbelleğe Alma](xref:performance/caching/middleware) | Provides support for caching responses. | Before components that require caching. |
+| [Response Compression](xref:performance/response-compression) | Provides support for compressing responses. | Before components that require compression. |
+| [Request Localization](xref:fundamentals/localization) | Provides localization support. | Before localization sensitive components. |
+| [Endpoint Routing](xref:fundamentals/routing) | Defines and constrains request routes. | Terminal for matching routes. |
+| [Oturum](xref:fundamentals/app-state) | Provides support for managing user sessions. | Before components that require Session. |
+| [Static Files](xref:fundamentals/static-files) | Provides support for serving static files and directory browsing. | Terminal if a request matches a file. |
+| [URL Rewrite](xref:fundamentals/url-rewriting) | Provides support for rewriting URLs and redirecting requests. | Before components that consume the URL. |
+| [WebSockets](xref:fundamentals/websockets) | Enables the WebSockets protocol. | Before components that are required to accept WebSocket requests. |
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 

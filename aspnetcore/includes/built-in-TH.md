@@ -8,8 +8,6 @@
 
 **[Ortam etiketi Yardımcısı](xref:mvc/views/tag-helpers/builtin-th/environment-tag-helper)**
 
-**[FormActionTagHelper](xref:mvc/views/working-with-forms#the-form-action-tag-helper)**
-
 **[Form etiketi Yardımcısı](xref:mvc/views/working-with-forms#the-form-tag-helper)**
 
 **[Form eylemi etiketi Yardımcısı](xref:mvc/views/working-with-forms#the-form-action-tag-helper)**
@@ -20,13 +18,11 @@
 
 **[Etiket etiketi Yardımcısı](xref:mvc/views/working-with-forms#the-label-tag-helper)**
 
-**[Lini Ghelper](xref:mvc/views/tag-helpers/builtin-th/link-tag-helper)**
-
-[comment]: **[OptionTagHelper](xref:mvc/views/tag-helpers/builtin-th/option-tag-helper)**
-
-**[ScriptTagHelper](xref:mvc/views/tag-helpers/builtin-th/script-tag-helper)**
+**[Bağlantı etiketi Yardımcısı](xref:mvc/views/tag-helpers/builtin-th/link-tag-helper)**
 
 **[Kısmi etiket Yardımcısı](xref:mvc/views/tag-helpers/builtin-th/partial-tag-helper)**
+
+**[Betik etiketi Yardımcısı](xref:mvc/views/tag-helpers/builtin-th/script-tag-helper)**
 
 **[Etiket yardımcısını seçin](xref:mvc/views/working-with-forms#the-select-tag-helper)**
 

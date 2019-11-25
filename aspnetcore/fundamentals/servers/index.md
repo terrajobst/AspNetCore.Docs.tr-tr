@@ -7,22 +7,22 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 11/07/2019
 uid: fundamentals/servers/index
-ms.openlocfilehash: e542dd4506eb77f949c0c87bea3044397bbb1b8f
-ms.sourcegitcommit: 67116718dc33a7a01696d41af38590fdbb58e014
+ms.openlocfilehash: d46793ef54c99fe609b5983c5a658fb7b20032fa
+ms.sourcegitcommit: f40c9311058c9b1add4ec043ddc5629384af6c56
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73799398"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74289058"
 ---
 # <a name="web-server-implementations-in-aspnet-core"></a>ASP.NET Core Web sunucusu uygulamaları
 
 [Tom Dykstra](https://github.com/tdykstra), [Steve Smith](https://ardalis.com/), [Stephen halter](https://twitter.com/halter73)ve [Chris](https://github.com/Tratcher) 'e göre
 
-ASP.NET Core bir uygulama, işlem içi HTTP sunucu uygulamasıyla çalışır. Sunucu uygulaması, HTTP isteklerini dinler ve bir <xref:Microsoft.AspNetCore.Http.HttpContext> ' e oluşturulan [istek özellikleri](xref:fundamentals/request-features) kümesi olarak bunları uygulamaya sunar.
+ASP.NET Core bir uygulama, işlem içi HTTP sunucu uygulamasıyla çalışır. Sunucu uygulaması, HTTP isteklerini dinler ve bir <xref:Microsoft.AspNetCore.Http.HttpContext>oluşan [istek özellikleri](xref:fundamentals/request-features) kümesi olarak bunları uygulamaya sunar.
 
 ## <a name="kestrel"></a>Kestrel
 
-Kestrel, ASP.NET Core projesi şablonlarına eklenen varsayılan Web sunucusudur.
+Kestrel, ASP.NET Core projesi şablonları tarafından belirtilen varsayılan Web sunucusudur.
 
 Kestrel kullanın:
 
@@ -70,7 +70,7 @@ Daha fazla bilgi ve yapılandırma kılavuzu için aşağıdaki konulara bakın:
 
 ASP.NET Core, varsayılan, platformlar arası HTTP sunucusu olan [Kestrel Server](xref:fundamentals/servers/kestrel)ile birlikte gönderilir.
 
-# <a name="linuxtablinux"></a>['Un](#tab/linux)
+# <a name="linuxtablinux"></a>[Linux](#tab/linux)
 
 ASP.NET Core, varsayılan, platformlar arası HTTP sunucusu olan [Kestrel Server](xref:fundamentals/servers/kestrel)ile birlikte gönderilir.
 
@@ -97,9 +97,9 @@ Aşağıdaki diyagramda IIS, ASP.NET Core modülü ve işlem dışı barındır�
 
 İstekler Web 'den çekirdek modu HTTP. sys sürücüsüne ulaşır. Sürücü, istekleri Web sitesinin yapılandırılmış bağlantı noktasında IIS 'ye yönlendirir, genellikle 80 (HTTP) veya 443 (HTTPS). Modül, 80 veya 443 numaralı bağlantı noktası olmayan uygulama için rastgele bir bağlantı noktasında istekleri Kestrel 'e iletir.
 
-Modül, başlangıç sırasında bir ortam değişkeni aracılığıyla bağlantı noktasını belirtir ve [IIS tümleştirme ara](xref:host-and-deploy/iis/index#enable-the-iisintegration-components) sunucusu, `http://localhost:{port}` ' i dinlemek için sunucuyu yapılandırır. Ek denetimler gerçekleştirilir ve modülünden kaynaklanmayan istekler reddedilir. Modül HTTPS iletmeyi desteklemez, bu nedenle istekler HTTPS üzerinden IIS tarafından alınsa bile HTTP üzerinden iletilir.
+Modül, başlangıç sırasında bir ortam değişkeni aracılığıyla bağlantı noktasını belirtir ve [IIS tümleştirme ara yazılımı](xref:host-and-deploy/iis/index#enable-the-iisintegration-components) sunucuyu `http://localhost:{port}`dinlemek üzere yapılandırır. Ek denetimler gerçekleştirilir ve modülünden kaynaklanmayan istekler reddedilir. Modül HTTPS iletmeyi desteklemez, bu nedenle istekler HTTPS üzerinden IIS tarafından alınsa bile HTTP üzerinden iletilir.
 
-Kestrel, isteği modülden başlattıktan sonra, istek ASP.NET Core ara yazılım ardışık düzenine gönderilir. Ara yazılım ardışık düzeni isteği işler ve uygulamanın mantığına `HttpContext` örneği olarak geçirir. IIS tümleştirmesi tarafından eklenen ara yazılım, isteği Kestrel iletmek için düzen, uzak IP ve pathbase 'i hesaba göre güncelleştirir. Uygulamanın yanıtı IIS 'e geri geçirilir ve bu, isteği başlatan HTTP istemcisine geri gönderilir.
+Kestrel, isteği modülden başlattıktan sonra, istek ASP.NET Core ara yazılım ardışık düzenine gönderilir. Ara yazılım ardışık düzeni isteği işler ve uygulamanın mantığına bir `HttpContext` örneği olarak geçirir. IIS tümleştirmesi tarafından eklenen ara yazılım, isteği Kestrel iletmek için düzen, uzak IP ve pathbase 'i hesaba göre güncelleştirir. Uygulamanın yanıtı IIS 'e geri geçirilir ve bu, isteği başlatan HTTP istemcisine geri gönderilir.
 
 IIS ve ASP.NET Core modülü yapılandırma kılavuzu için aşağıdaki konulara bakın:
 
@@ -110,7 +110,7 @@ IIS ve ASP.NET Core modülü yapılandırma kılavuzu için aşağıdaki konular
 
 ASP.NET Core, varsayılan, platformlar arası HTTP sunucusu olan [Kestrel Server](xref:fundamentals/servers/kestrel)ile birlikte gönderilir.
 
-# <a name="linuxtablinux"></a>['Un](#tab/linux)
+# <a name="linuxtablinux"></a>[Linux](#tab/linux)
 
 ASP.NET Core, varsayılan, platformlar arası HTTP sunucusu olan [Kestrel Server](xref:fundamentals/servers/kestrel)ile birlikte gönderilir.
 
@@ -140,25 +140,25 @@ HTTP. sys yapılandırma kılavuzu için bkz. <xref:fundamentals/servers/httpsys
 
 ## <a name="aspnet-core-server-infrastructure"></a>ASP.NET Core Server altyapısı
 
-`Startup.Configure` yönteminde kullanılabilen <xref:Microsoft.AspNetCore.Builder.IApplicationBuilder> <xref:Microsoft.AspNetCore.Http.Features.IFeatureCollection>türü <xref:Microsoft.AspNetCore.Builder.IApplicationBuilder.ServerFeatures> özelliğini kullanıma sunar. Kestrel ve HTTP. sys, her biri <xref:Microsoft.AspNetCore.Hosting.Server.Features.IServerAddressesFeature> olan tek bir özelliği kullanıma sunar, ancak farklı sunucu uygulamaları ek işlevsellik sergilede sunabilir.
+`Startup.Configure` yönteminde kullanılabilen <xref:Microsoft.AspNetCore.Builder.IApplicationBuilder> <xref:Microsoft.AspNetCore.Http.Features.IFeatureCollection>türü <xref:Microsoft.AspNetCore.Builder.IApplicationBuilder.ServerFeatures> özelliğini kullanıma sunar. Kestrel ve HTTP. sys, her biri <xref:Microsoft.AspNetCore.Hosting.Server.Features.IServerAddressesFeature>tek bir özelliği kullanıma sunar, ancak farklı sunucu uygulamaları ek işlevsellik sergilede gösterebilir.
 
 `IServerAddressesFeature`, sunucu uygulamasının çalışma zamanında hangi bağlantı noktasını bağladığına ilişkin bilgi edinmek için kullanılabilir.
 
 ## <a name="custom-servers"></a>Özel sunucular
 
-Yerleşik sunucular uygulamanın gereksinimlerini karşılamıyorsa, özel bir sunucu uygulaması oluşturulabilir. [.Net Için açık Web arabirimi (OWıN) Kılavuzu](xref:fundamentals/owin) , [nowin](https://github.com/Bobris/Nowin)tabanlı <xref:Microsoft.AspNetCore.Hosting.Server.IServer> uygulamasının nasıl yazılacağını gösterir. Yalnızca uygulamanın kullandığı Özellik arabirimleri uygulama gerektirir, ancak en az <xref:Microsoft.AspNetCore.Http.Features.IHttpRequestFeature> ve <xref:Microsoft.AspNetCore.Http.Features.IHttpResponseFeature> desteklenmelidir.
+Yerleşik sunucular uygulamanın gereksinimlerini karşılamıyorsa, özel bir sunucu uygulaması oluşturulabilir. [.Net Için açık Web arabirimi (OWıN) Kılavuzu](xref:fundamentals/owin) , [nowin](https://github.com/Bobris/Nowin)tabanlı <xref:Microsoft.AspNetCore.Hosting.Server.IServer> uygulamasının nasıl yazılacağını gösterir. Yalnızca uygulamanın kullandığı Özellik arabirimleri uygulama gerektirir, ancak en az bir <xref:Microsoft.AspNetCore.Http.Features.IHttpRequestFeature> ve <xref:Microsoft.AspNetCore.Http.Features.IHttpResponseFeature> desteklenmelidir.
 
 ## <a name="server-startup"></a>Sunucu başlatma
 
 Tümleşik geliştirme ortamı (IDE) veya düzenleyici uygulamayı başlattığında sunucu başlatılır:
 
-* [Visual Studio](https://visualstudio.microsoft.com) &ndash; başlatma profilleri, uygulamayı ve sunucuyu [IIS Express](/iis/extensions/introduction-to-iis-express/iis-express-overview)/[ASP.NET Core modülü](xref:host-and-deploy/aspnet-core-module) ya da konsolu ile başlatmak için kullanılabilir.
-* [Visual Studio Code](https://code.visualstudio.com/) &ndash; uygulama ve sunucu [Omnisharp](https://github.com/OmniSharp/omnisharp-vscode)tarafından başlatılır ve bu, CoreCLR hata ayıklayıcısını etkinleştirir.
+* [Visual Studio](https://visualstudio.microsoft.com) &ndash; başlatma profilleri, uygulamayı ve sunucuyu [IIS Express](/iis/extensions/introduction-to-iis-express/iis-express-overview)/[ASP.NET Core modülü](xref:host-and-deploy/aspnet-core-module) veya konsolu ile başlatmak için kullanılabilir.
+* [Visual Studio Code](https://code.visualstudio.com/) &ndash; uygulama ve sunucu, CoreCLR hata ayıklayıcısını etkinleştiren [Omnisharp](https://github.com/OmniSharp/omnisharp-vscode)tarafından başlatılır.
 * [Mac için Visual Studio](https://visualstudio.microsoft.com/vs/mac/) &ndash; uygulama ve sunucu [mono geçici modda hata ayıklayıcı](https://www.mono-project.com/docs/advanced/runtime/docs/soft-debugger/)tarafından başlatılır.
 
-Uygulamanın, projenin klasöründeki bir komut isteminden başlatılması sırasında [DotNet Run](/dotnet/core/tools/dotnet-run) uygulamayı ve sunucuyu (yalnızca Kestrel ve http. sys) başlatır. Yapılandırma, `Debug` (varsayılan) veya `Release` olarak ayarlanan `-c|--configuration` seçeneği ile belirtilir.
+Uygulamanın, projenin klasöründeki bir komut isteminden başlatılması sırasında [DotNet Run](/dotnet/core/tools/dotnet-run) uygulamayı ve sunucuyu (yalnızca Kestrel ve http. sys) başlatır. Yapılandırma, `Debug` (varsayılan) veya `Release`olarak ayarlanan `-c|--configuration` seçeneği tarafından belirtilir.
 
-*Launchsettings. JSON* dosyası, `dotnet run` Ile veya Visual Studio gibi araç halinde yerleşik bir hata ayıklayıcı ile bir uygulama başlatırken yapılandırma sağlar. Başlatma profilleri bir *Launchsettings. JSON* dosyasında varsa,`dotnet run` komutuyla `--launch-profile {PROFILE NAME}` seçeneğini kullanın veya Visual Studio 'da profili seçin. Daha fazla bilgi için bkz. [DotNet Run](/dotnet/core/tools/dotnet-run) ve [.NET Core Distribution paketleme](/dotnet/core/build/distribution-packaging).
+*Launchsettings. JSON* dosyası, `dotnet run` Ile veya Visual Studio gibi araç halinde yerleşik bir hata ayıklayıcı ile bir uygulama başlatırken yapılandırma sağlar. Başlatma profilleri bir *Launchsettings. JSON* dosyasında varsa, `dotnet run` komutuyla `--launch-profile {PROFILE NAME}` seçeneğini kullanın veya Visual Studio 'da profili seçin. Daha fazla bilgi için bkz. [DotNet Run](/dotnet/core/tools/dotnet-run) ve [.NET Core Distribution paketleme](/dotnet/core/build/distribution-packaging).
 
 ## <a name="http2-support"></a>HTTP/2 desteği
 

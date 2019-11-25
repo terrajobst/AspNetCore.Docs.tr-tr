@@ -1,61 +1,61 @@
 ---
-title: ASP.NET Core içinde barındırılan hizmetlerle arka plan görevleri
+title: Background tasks with hosted services in ASP.NET Core
 author: guardrex
-description: ASP.NET Core içinde barındırılan hizmetlerle arka plan görevlerinin nasıl uygulanacağını öğrenin.
+description: Learn how to implement background tasks with hosted services in ASP.NET Core.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/14/2019
+ms.date: 11/19/2019
 uid: fundamentals/host/hosted-services
-ms.openlocfilehash: 0fdf503e4a5f6f73d5488261707180cfb5967492
-ms.sourcegitcommit: 231780c8d7848943e5e9fd55e93f437f7e5a371d
+ms.openlocfilehash: da3c2679005714a3d82de94cf3bc3c809aa3500d
+ms.sourcegitcommit: 8157e5a351f49aeef3769f7d38b787b4386aad5f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74115948"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74239729"
 ---
-# <a name="background-tasks-with-hosted-services-in-aspnet-core"></a>ASP.NET Core içinde barındırılan hizmetlerle arka plan görevleri
+# <a name="background-tasks-with-hosted-services-in-aspnet-core"></a>Background tasks with hosted services in ASP.NET Core
 
-, [Luke Latham](https://github.com/guardrex) ve [Jeow li Hua](https://github.com/huan086) tarafından
+By [Luke Latham](https://github.com/guardrex) and [Jeow Li Huan](https://github.com/huan086)
 
 ::: moniker range=">= aspnetcore-3.0"
 
-ASP.NET Core, arka plan görevleri *barındırılan hizmetler*olarak uygulanabilir. Barındırılan hizmet, <xref:Microsoft.Extensions.Hosting.IHostedService> arabirimini uygulayan bir arka plan görevi mantığı içeren bir sınıftır. Bu konuda üç barındırılan hizmet örneği sunulmaktadır:
+In ASP.NET Core, background tasks can be implemented as *hosted services*. A hosted service is a class with background task logic that implements the <xref:Microsoft.Extensions.Hosting.IHostedService> interface. This topic provides three hosted service examples:
 
-* Bir Zamanlayıcı üzerinde çalışan arka plan görevi.
-* [Kapsamlı bir hizmeti](xref:fundamentals/dependency-injection#service-lifetimes)etkinleştiren barındırılan hizmet. Kapsamlı hizmet [bağımlılık ekleme (dı)](xref:fundamentals/dependency-injection)kullanabilir.
-* Sıralı olarak çalışan sıraya alınmış arka plan görevleri.
+* Background task that runs on a timer.
+* Hosted service that activates a [scoped service](xref:fundamentals/dependency-injection#service-lifetimes). The scoped service can use [dependency injection (DI)](xref:fundamentals/dependency-injection).
+* Queued background tasks that run sequentially.
 
-[Örnek kodu görüntüleme veya indirme](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/host/hosted-services/samples/) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
+[View or download sample code](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/host/hosted-services/samples/) ([how to download](xref:index#how-to-download-a-sample))
 
-## <a name="worker-service-template"></a>Çalışan hizmeti şablonu
+## <a name="worker-service-template"></a>Worker Service template
 
-ASP.NET Core Worker hizmeti şablonu, uzun süre çalışan hizmet uygulamalarını yazmak için bir başlangıç noktası sağlar. Çalışan hizmeti şablonundan oluşturulan bir uygulama, çalışan SDK 'sını proje dosyasında belirtir:
+The ASP.NET Core Worker Service template provides a starting point for writing long running service apps. An app created from the Worker Service template specifies the Worker SDK in its project file:
 
 ```xml
 <Project Sdk="Microsoft.NET.Sdk.Worker">
 ```
 
-Şablonu bir barındırılan hizmetler uygulamasının temeli olarak kullanmak için:
+To use the template as a basis for a hosted services app:
 
 [!INCLUDE[](~/includes/worker-template-instructions.md)]
 
 ## <a name="package"></a>Paket
 
-Çalışan hizmeti şablonunu temel alan bir uygulama `Microsoft.NET.Sdk.Worker` SDK kullanır ve [Microsoft. Extensions. Hosting](https://www.nuget.org/packages/Microsoft.Extensions.Hosting) paketine açık bir paket başvurusu içerir. Örneğin, örnek uygulamanın proje dosyasına (*Backgroundtaskssample. csproj*) bakın.
+An app based on the Worker Service template uses the `Microsoft.NET.Sdk.Worker` SDK and has an explicit package reference to the [Microsoft.Extensions.Hosting](https://www.nuget.org/packages/Microsoft.Extensions.Hosting) package. For example, see the sample app's project file (*BackgroundTasksSample.csproj*).
 
-`Microsoft.NET.Sdk.Web` SDK kullanan Web uygulamaları için, [Microsoft. Extensions. Hosting](https://www.nuget.org/packages/Microsoft.Extensions.Hosting) paketine, paylaşılan çerçeveden dolaylı olarak başvurulur. Uygulamanın proje dosyasındaki açık bir paket başvurusu gerekli değildir.
+For web apps that use the `Microsoft.NET.Sdk.Web` SDK, the [Microsoft.Extensions.Hosting](https://www.nuget.org/packages/Microsoft.Extensions.Hosting) package is referenced implicitly from the shared framework. An explicit package reference in the app's project file isn't required.
 
-## <a name="ihostedservice-interface"></a>Ihostedservice arabirimi
+## <a name="ihostedservice-interface"></a>IHostedService interface
 
-<xref:Microsoft.Extensions.Hosting.IHostedService> arabirimi, konak tarafından yönetilen nesneler için iki yöntem tanımlar:
+The <xref:Microsoft.Extensions.Hosting.IHostedService> interface defines two methods for objects that are managed by the host:
 
-* [Startasync (CancellationToken)](xref:Microsoft.Extensions.Hosting.IHostedService.StartAsync*) &ndash; `StartAsync` arka plan görevinin başlatılacağı mantığı içerir. `StartAsync` şu kadar *çağrılır:*
+* [StartAsync(CancellationToken)](xref:Microsoft.Extensions.Hosting.IHostedService.StartAsync*) &ndash; `StartAsync` contains the logic to start the background task. `StartAsync` is called *before*:
 
-  * Uygulamanın istek işleme işlem hattı yapılandırıldı (`Startup.Configure`).
-  * Sunucu başlatıldı ve [ıapplicationlifetime. ApplicationStarted](xref:Microsoft.AspNetCore.Hosting.IApplicationLifetime.ApplicationStarted*) tetiklenir.
+  * The app's request processing pipeline is configured (`Startup.Configure`).
+  * The server is started and [IApplicationLifetime.ApplicationStarted](xref:Microsoft.AspNetCore.Hosting.IApplicationLifetime.ApplicationStarted*) is triggered.
 
-  Varsayılan davranış, barındırılan hizmetin `StartAsync`, uygulamanın işlem hattı yapılandırıldıktan ve `ApplicationStarted` çağrıldıktan sonra çalışması için değiştirilebilir. Varsayılan davranışı değiştirmek için, `ConfigureWebHostDefaults`çağrıldıktan sonra barındırılan hizmeti (aşağıdaki örnekte`VideosWatcher`) ekleyin:
+  The default behavior can be changed so that the hosted service's `StartAsync` runs after the app's pipeline has been configured and `ApplicationStarted` is called. To change the default behavior, add the hosted service (`VideosWatcher` in the following example) after calling `ConfigureWebHostDefaults`:
 
   ```csharp
   using Microsoft.AspNetCore.Hosting;
@@ -82,87 +82,86 @@ ASP.NET Core Worker hizmeti şablonu, uzun süre çalışan hizmet uygulamaları
   }
   ```
 
-* [StopAsync (CancellationToken)](xref:Microsoft.Extensions.Hosting.IHostedService.StopAsync*) &ndash;, ana bilgisayar düzgün bir şekilde kapanma gerçekleştirirken tetiklenir. `StopAsync` arka plan görevinin sonundaki mantığı içerir. Yönetilmeyen kaynakların atılmaya yönelik <xref:System.IDisposable> ve [sonlandırıcılar (Yıkıcılar)](/dotnet/csharp/programming-guide/classes-and-structs/destructors) uygulayın.
+* [StopAsync(CancellationToken)](xref:Microsoft.Extensions.Hosting.IHostedService.StopAsync*) &ndash; Triggered when the host is performing a graceful shutdown. `StopAsync` contains the logic to end the background task. Implement <xref:System.IDisposable> and [finalizers (destructors)](/dotnet/csharp/programming-guide/classes-and-structs/destructors) to dispose of any unmanaged resources.
 
-  İptal belirtecinin, kapanma işleminin artık düzgün şekilde olmaması gerektiğini göstermek için varsayılan beş saniyelik bir zaman aşımı vardır. Belirteç üzerinde iptal istendiğinde:
+  The cancellation token has a default five second timeout to indicate that the shutdown process should no longer be graceful. When cancellation is requested on the token:
 
-  * Uygulamanın gerçekleştirdiği diğer arka plan işlemleri iptal edilmelidir.
-  * `StopAsync` içinde çağrılan yöntemler hemen döndürmelidir.
+  * Any remaining background operations that the app is performing should be aborted.
+  * Any methods called in `StopAsync` should return promptly.
 
-  Ancak,&mdash;istek iptal edildikten sonra, çağıran tüm görevlerin tamamlanmasını bekler.
+  However, tasks aren't abandoned after cancellation is requested&mdash;the caller awaits all tasks to complete.
 
-  Uygulama beklenmedik şekilde kapanıyorsa (örneğin, uygulamanın işlemi başarısız olursa) `StopAsync` çağrımayabilir. Bu nedenle, `StopAsync` veya içinde gerçekleştirilen işlemler tarafından çağrılan yöntemler gerçekleşmeyebilir.
+  If the app shuts down unexpectedly (for example, the app's process fails), `StopAsync` might not be called. Therefore, any methods called or operations conducted in `StopAsync` might not occur.
 
-  Varsayılan beş saniyelik kapatılma zaman aşımını uzatmak için, şunu ayarlayın:
+  To extend the default five second shutdown timeout, set:
 
-  * Genel ana bilgisayar kullanılırken <xref:Microsoft.Extensions.Hosting.HostOptions.ShutdownTimeout*>. Daha fazla bilgi için bkz. <xref:fundamentals/host/generic-host#shutdown-timeout>.
-  * Web ana bilgisayarı kullanılırken, kapatılma zaman aşımı konak yapılandırma ayarı. Daha fazla bilgi için bkz. <xref:fundamentals/host/web-host#shutdown-timeout>.
+  * <xref:Microsoft.Extensions.Hosting.HostOptions.ShutdownTimeout*> when using Generic Host. Daha fazla bilgi için bkz. <xref:fundamentals/host/generic-host#shutdown-timeout>.
+  * Shutdown timeout host configuration setting when using Web Host. Daha fazla bilgi için bkz. <xref:fundamentals/host/web-host#shutdown-timeout>.
 
-Barındırılan hizmet, uygulama başlangıcında bir kez etkinleştirilir ve uygulama kapatılırken düzgün şekilde kapanır. Arka plan görevinin yürütülmesi sırasında bir hata oluşturulursa, `StopAsync` çağrılmasa bile `Dispose` çağrılmalıdır.
+The hosted service is activated once at app startup and gracefully shut down at app shutdown. If an error is thrown during background task execution, `Dispose` should be called even if `StopAsync` isn't called.
 
-## <a name="backgroundservice"></a>BackgroundService
+## <a name="backgroundservice-base-class"></a>BackgroundService base class
 
-`BackgroundService`, uzun süre çalışan bir <xref:Microsoft.Extensions.Hosting.IHostedService>uygulamaya yönelik temel bir sınıftır. `BackgroundService`, hizmetin mantığını içerecek `ExecuteAsync(CancellationToken stoppingToken)` soyut yöntemi sağlar. `stoppingToken`, [ıhostedservice. StopAsync](xref:Microsoft.Extensions.Hosting.IHostedService.StopAsync*) çağrıldığında tetiklenir. Bu yöntemin uygulanması, arka plan hizmetinin tüm ömrünü temsil eden bir `Task` döndürür.
+<xref:Microsoft.Extensions.Hosting.BackgroundService> is a base class for implementing a long running <xref:Microsoft.Extensions.Hosting.IHostedService>.
 
-Ayrıca, *isteğe bağlı* olarak, hizmetiniz için başlatma ve kapatılma kodunu çalıştırmak üzere `IHostedService` tanımlı yöntemleri geçersiz kılın:
+[ExecuteAsync(CancellationToken)](xref:Microsoft.Extensions.Hosting.BackgroundService.ExecuteAsync*) is called to run the background service. The implementation returns a <xref:System.Threading.Tasks.Task> that represents the entire lifetime of the background service. No further services are started until [ExecuteAsync becomes asynchronous](https://github.com/aspnet/Extensions/issues/2149), such as by calling `await`. Avoid performing long, blocking initialization work in `ExecuteAsync`. The host blocks in [StopAsync(CancellationToken)](xref:Microsoft.Extensions.Hosting.BackgroundService.StopAsync*) waiting for `ExecuteAsync` to complete.
 
-* Uygulama ana bilgisayarı düzgün kapanma yaparken `StopAsync(CancellationToken cancellationToken)` &ndash; `StopAsync` çağrılır. `cancellationToken`, ana bilgisayar hizmeti zorla sonlandırmak için karar verdiğinde çağrılır. Bu yöntem geçersiz kılınırsa, hizmetin düzgün kapatılmasını sağlamak için temel sınıf yöntemini çağırmanız (ve `await`) **gerekir** .
-* arka plan hizmetini başlatmak için `StartAsync(CancellationToken cancellationToken)` &ndash; `StartAsync` çağırılır. Başlangıç işlemi kesintiye uğrarsa `cancellationToken` çağrılır. Uygulama, hizmetin başlatma sürecini temsil eden bir `Task` döndürür. Bu `Task` tamamlanana kadar başka hizmet başlatılamaz. Bu yöntem geçersiz kılınırsa, hizmetin düzgün şekilde başlamasını sağlamak için temel sınıf yöntemini çağırmanız (ve `await`) **gerekir** .
+The cancellation token is triggered when [IHostedService.StopAsync](xref:Microsoft.Extensions.Hosting.IHostedService.StopAsync*) is called. Your implementation of `ExecuteAsync` should finish promptly when the cancellation token is fired in order to gracefully shut down the service. Otherwise, the service ungracefully shuts down at the shutdown timeout. For more information, see the [IHostedService interface](#ihostedservice-interface) section.
 
-## <a name="timed-background-tasks"></a>Zamanlanmış arka plan görevleri
+## <a name="timed-background-tasks"></a>Timed background tasks
 
-Zamanlanmış bir arka plan görevi, [System. Threading. Timer](xref:System.Threading.Timer) sınıfından kullanımını sağlar. Zamanlayıcı, görevin `DoWork` yöntemini tetikler. Zamanlayıcı `StopAsync` devre dışı bırakılır ve hizmet kapsayıcısı `Dispose`bırakıldığında atıldı:
+A timed background task makes use of the [System.Threading.Timer](xref:System.Threading.Timer) class. The timer triggers the task's `DoWork` method. The timer is disabled on `StopAsync` and disposed when the service container is disposed on `Dispose`:
 
 [!code-csharp[](hosted-services/samples/3.x/BackgroundTasksSample/Services/TimedHostedService.cs?name=snippet1&highlight=16-18,34,41)]
 
-Hizmet, `AddHostedService` uzantısı yöntemiyle `IHostBuilder.ConfigureServices` (*program.cs*) kaydedilir:
+The service is registered in `IHostBuilder.ConfigureServices` (*Program.cs*) with the `AddHostedService` extension method:
 
 [!code-csharp[](hosted-services/samples/3.x/BackgroundTasksSample/Program.cs?name=snippet1)]
 
-## <a name="consuming-a-scoped-service-in-a-background-task"></a>Bir arka plan görevinde kapsamlı bir hizmeti kullanma
+## <a name="consuming-a-scoped-service-in-a-background-task"></a>Consuming a scoped service in a background task
 
-[Kapsamlı hizmetleri](xref:fundamentals/dependency-injection#service-lifetimes) bir `BackgroundService`içinde kullanmak için bir kapsam oluşturun. Barındırılan hizmet için varsayılan olarak kapsam oluşturulmaz.
+To use [scoped services](xref:fundamentals/dependency-injection#service-lifetimes) within a [BackgroundService](#backgroundservice-base-class), create a scope. No scope is created for a hosted service by default.
 
-Kapsamlı arka plan görev hizmeti, arka plan görevinin mantığını içerir. Aşağıdaki örnekte:
+The scoped background task service contains the background task's logic. In the following example:
 
-* Hizmet zaman uyumsuz. `DoWork` yöntemi bir `Task`döndürür. Tanıtım amacıyla, `DoWork` yönteminde on saniyelik bir gecikme beklenir.
-* Hizmete bir <xref:Microsoft.Extensions.Logging.ILogger> eklenir.
+* The service is asynchronous. The `DoWork` method returns a `Task`. For demonstration purposes, a delay of ten seconds is awaited in the `DoWork` method.
+* An <xref:Microsoft.Extensions.Logging.ILogger> is injected into the service.
 
 [!code-csharp[](hosted-services/samples/3.x/BackgroundTasksSample/Services/ScopedProcessingService.cs?name=snippet1)]
 
-Barındırılan hizmet, `DoWork` yöntemini çağırmak için kapsamlı arka plan görev hizmetini çözümlemek üzere bir kapsam oluşturur. `DoWork`, `ExecuteAsync`beklemiş olan bir `Task`döndürür:
+The hosted service creates a scope to resolve the scoped background task service to call its `DoWork` method. `DoWork` returns a `Task`, which is awaited in `ExecuteAsync`:
 
 [!code-csharp[](hosted-services/samples/3.x/BackgroundTasksSample/Services/ConsumeScopedServiceHostedService.cs?name=snippet1&highlight=19,22-35)]
 
-Hizmetler `IHostBuilder.ConfigureServices` kaydedilir (*program.cs*). Barındırılan hizmet `AddHostedService` uzantısı yöntemiyle kaydedilir:
+The services are registered in `IHostBuilder.ConfigureServices` (*Program.cs*). The hosted service is registered with the `AddHostedService` extension method:
 
 [!code-csharp[](hosted-services/samples/3.x/BackgroundTasksSample/Program.cs?name=snippet2)]
 
-## <a name="queued-background-tasks"></a>Sıraya alınan arka plan görevleri
+## <a name="queued-background-tasks"></a>Queued background tasks
 
-Arka plan görev kuyruğu, .NET 4. x <xref:System.Web.Hosting.HostingEnvironment.QueueBackgroundWorkItem*> temel alır ([ASP.NET Core için yerleşik](https://github.com/aspnet/Hosting/issues/1280)olarak, kesin olarak zamanlandı):
+A background task queue is based on the .NET 4.x <xref:System.Web.Hosting.HostingEnvironment.QueueBackgroundWorkItem*> ([tentatively scheduled to be built-in for ASP.NET Core](https://github.com/aspnet/Hosting/issues/1280)):
 
 [!code-csharp[](hosted-services/samples/3.x/BackgroundTasksSample/Services/BackgroundTaskQueue.cs?name=snippet1)]
 
-Aşağıdaki `QueueHostedService` örnekte:
+In the following `QueueHostedService` example:
 
-* `BackgroundProcessing` yöntemi, `ExecuteAsync`beklemiş olan bir `Task`döndürür.
-* Kuyruktaki arka plan görevleri, `BackgroundProcessing`sırada kuyruğa alınır ve yürütülür.
-* İş öğeleri, hizmet `StopAsync`' de durdurulmadan önce bekletildi.
+* The `BackgroundProcessing` method returns a `Task`, which is awaited in `ExecuteAsync`.
+* Background tasks in the queue are dequeued and executed in `BackgroundProcessing`.
+* Work items are awaited before the service stops in `StopAsync`.
 
 [!code-csharp[](hosted-services/samples/3.x/BackgroundTasksSample/Services/QueuedHostedService.cs?name=snippet1&highlight=28-29,33)]
 
-Bir `MonitorLoop` hizmeti, giriş cihazında `w` anahtarı seçildiğinde barındırılan hizmet için görevleri sıraya alır:
+A `MonitorLoop` service handles enqueuing tasks for the hosted service whenever the `w` key is selected on an input device:
 
-* `IBackgroundTaskQueue`, `MonitorLoop` hizmetine eklenir.
-* `IBackgroundTaskQueue.QueueBackgroundWorkItem` bir iş öğesini kuyruğa almak için çağrılır.
-* Çalışma öğesi uzun süre çalışan bir arka plan görevinin benzetimini yapar:
-  * Üç 5-ikinci gecikme yürütülür (`Task.Delay`).
-  * `try-catch` bir ifade, görev iptal edildiğinde <xref:System.OperationCanceledException> yakalar.
+* The `IBackgroundTaskQueue` is injected into the `MonitorLoop` service.
+* `IBackgroundTaskQueue.QueueBackgroundWorkItem` is called to enqueue a work item.
+* The work item simulates a long-running background task:
+  * Three 5-second delays are executed (`Task.Delay`).
+  * A `try-catch` statement traps <xref:System.OperationCanceledException> if the task is cancelled.
 
 [!code-csharp[](hosted-services/samples/3.x/BackgroundTasksSample/Services/MonitorLoop.cs?name=snippet_Monitor&highlight=7,33)]
 
-Hizmetler `IHostBuilder.ConfigureServices` kaydedilir (*program.cs*). Barındırılan hizmet `AddHostedService` uzantısı yöntemiyle kaydedilir:
+The services are registered in `IHostBuilder.ConfigureServices` (*Program.cs*). The hosted service is registered with the `AddHostedService` extension method:
 
 [!code-csharp[](hosted-services/samples/3.x/BackgroundTasksSample/Program.cs?name=snippet3)]
 
@@ -170,90 +169,90 @@ Hizmetler `IHostBuilder.ConfigureServices` kaydedilir (*program.cs*). Barındır
 
 ::: moniker range="< aspnetcore-3.0"
 
-ASP.NET Core, arka plan görevleri *barındırılan hizmetler*olarak uygulanabilir. Barındırılan hizmet, <xref:Microsoft.Extensions.Hosting.IHostedService> arabirimini uygulayan bir arka plan görevi mantığı içeren bir sınıftır. Bu konuda üç barındırılan hizmet örneği sunulmaktadır:
+In ASP.NET Core, background tasks can be implemented as *hosted services*. A hosted service is a class with background task logic that implements the <xref:Microsoft.Extensions.Hosting.IHostedService> interface. This topic provides three hosted service examples:
 
-* Bir Zamanlayıcı üzerinde çalışan arka plan görevi.
-* [Kapsamlı bir hizmeti](xref:fundamentals/dependency-injection#service-lifetimes)etkinleştiren barındırılan hizmet. Kapsamlı hizmet [bağımlılık ekleme (dı)](xref:fundamentals/dependency-injection) kullanabilir
-* Sıralı olarak çalışan sıraya alınmış arka plan görevleri.
+* Background task that runs on a timer.
+* Hosted service that activates a [scoped service](xref:fundamentals/dependency-injection#service-lifetimes). The scoped service can use [dependency injection (DI)](xref:fundamentals/dependency-injection)
+* Queued background tasks that run sequentially.
 
-[Örnek kodu görüntüleme veya indirme](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/host/hosted-services/samples/) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
+[View or download sample code](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/host/hosted-services/samples/) ([how to download](xref:index#how-to-download-a-sample))
 
 ## <a name="package"></a>Paket
 
-Microsoft. [AspNetCore. app metapackage](xref:fundamentals/metapackage-app) 'e başvurun veya [Microsoft. Extensions. Hosting](https://www.nuget.org/packages/Microsoft.Extensions.Hosting) paketine bir paket başvurusu ekleyin.
+Reference the [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app) or add a package reference to the [Microsoft.Extensions.Hosting](https://www.nuget.org/packages/Microsoft.Extensions.Hosting) package.
 
-## <a name="ihostedservice-interface"></a>Ihostedservice arabirimi
+## <a name="ihostedservice-interface"></a>IHostedService interface
 
-Barındırılan hizmetler <xref:Microsoft.Extensions.Hosting.IHostedService> arabirimini uygular. Arabirim, konak tarafından yönetilen nesneler için iki yöntem tanımlar:
+Hosted services implement the <xref:Microsoft.Extensions.Hosting.IHostedService> interface. The interface defines two methods for objects that are managed by the host:
 
-* [Startasync (CancellationToken)](xref:Microsoft.Extensions.Hosting.IHostedService.StartAsync*) &ndash; `StartAsync` arka plan görevinin başlatılacağı mantığı içerir. [Web ana bilgisayarı](xref:fundamentals/host/web-host)kullanılırken, sunucu başlatıldıktan ve ıapplicationlifetime 'dan sonra `StartAsync` çağrılır [. applicationstarted](xref:Microsoft.AspNetCore.Hosting.IApplicationLifetime.ApplicationStarted*) tetiklenir. [Genel ana bilgisayar](xref:fundamentals/host/generic-host)kullanılırken, `ApplicationStarted` tetiklenene kadar `StartAsync` çağrılır.
+* [StartAsync(CancellationToken)](xref:Microsoft.Extensions.Hosting.IHostedService.StartAsync*) &ndash; `StartAsync` contains the logic to start the background task. When using the [Web Host](xref:fundamentals/host/web-host), `StartAsync` is called after the server has started and [IApplicationLifetime.ApplicationStarted](xref:Microsoft.AspNetCore.Hosting.IApplicationLifetime.ApplicationStarted*) is triggered. When using the [Generic Host](xref:fundamentals/host/generic-host), `StartAsync` is called before `ApplicationStarted` is triggered.
 
-* [StopAsync (CancellationToken)](xref:Microsoft.Extensions.Hosting.IHostedService.StopAsync*) &ndash;, ana bilgisayar düzgün bir şekilde kapanma gerçekleştirirken tetiklenir. `StopAsync` arka plan görevinin sonundaki mantığı içerir. Yönetilmeyen kaynakların atılmaya yönelik <xref:System.IDisposable> ve [sonlandırıcılar (Yıkıcılar)](/dotnet/csharp/programming-guide/classes-and-structs/destructors) uygulayın.
+* [StopAsync(CancellationToken)](xref:Microsoft.Extensions.Hosting.IHostedService.StopAsync*) &ndash; Triggered when the host is performing a graceful shutdown. `StopAsync` contains the logic to end the background task. Implement <xref:System.IDisposable> and [finalizers (destructors)](/dotnet/csharp/programming-guide/classes-and-structs/destructors) to dispose of any unmanaged resources.
 
-  İptal belirtecinin, kapanma işleminin artık düzgün şekilde olmaması gerektiğini göstermek için varsayılan beş saniyelik bir zaman aşımı vardır. Belirteç üzerinde iptal istendiğinde:
+  The cancellation token has a default five second timeout to indicate that the shutdown process should no longer be graceful. When cancellation is requested on the token:
 
-  * Uygulamanın gerçekleştirdiği diğer arka plan işlemleri iptal edilmelidir.
-  * `StopAsync` içinde çağrılan yöntemler hemen döndürmelidir.
+  * Any remaining background operations that the app is performing should be aborted.
+  * Any methods called in `StopAsync` should return promptly.
 
-  Ancak,&mdash;istek iptal edildikten sonra, çağıran tüm görevlerin tamamlanmasını bekler.
+  However, tasks aren't abandoned after cancellation is requested&mdash;the caller awaits all tasks to complete.
 
-  Uygulama beklenmedik şekilde kapanıyorsa (örneğin, uygulamanın işlemi başarısız olursa) `StopAsync` çağrımayabilir. Bu nedenle, `StopAsync` veya içinde gerçekleştirilen işlemler tarafından çağrılan yöntemler gerçekleşmeyebilir.
+  If the app shuts down unexpectedly (for example, the app's process fails), `StopAsync` might not be called. Therefore, any methods called or operations conducted in `StopAsync` might not occur.
 
-  Varsayılan beş saniyelik kapatılma zaman aşımını uzatmak için, şunu ayarlayın:
+  To extend the default five second shutdown timeout, set:
 
-  * Genel ana bilgisayar kullanılırken <xref:Microsoft.Extensions.Hosting.HostOptions.ShutdownTimeout*>. Daha fazla bilgi için bkz. <xref:fundamentals/host/generic-host#shutdown-timeout>.
-  * Web ana bilgisayarı kullanılırken, kapatılma zaman aşımı konak yapılandırma ayarı. Daha fazla bilgi için bkz. <xref:fundamentals/host/web-host#shutdown-timeout>.
+  * <xref:Microsoft.Extensions.Hosting.HostOptions.ShutdownTimeout*> when using Generic Host. Daha fazla bilgi için bkz. <xref:fundamentals/host/generic-host#shutdown-timeout>.
+  * Shutdown timeout host configuration setting when using Web Host. Daha fazla bilgi için bkz. <xref:fundamentals/host/web-host#shutdown-timeout>.
 
-Barındırılan hizmet, uygulama başlangıcında bir kez etkinleştirilir ve uygulama kapatılırken düzgün şekilde kapanır. Arka plan görevinin yürütülmesi sırasında bir hata oluşturulursa, `StopAsync` çağrılmasa bile `Dispose` çağrılmalıdır.
+The hosted service is activated once at app startup and gracefully shut down at app shutdown. If an error is thrown during background task execution, `Dispose` should be called even if `StopAsync` isn't called.
 
-## <a name="timed-background-tasks"></a>Zamanlanmış arka plan görevleri
+## <a name="timed-background-tasks"></a>Timed background tasks
 
-Zamanlanmış bir arka plan görevi, [System. Threading. Timer](xref:System.Threading.Timer) sınıfından kullanımını sağlar. Zamanlayıcı, görevin `DoWork` yöntemini tetikler. Zamanlayıcı `StopAsync` devre dışı bırakılır ve hizmet kapsayıcısı `Dispose`bırakıldığında atıldı:
+A timed background task makes use of the [System.Threading.Timer](xref:System.Threading.Timer) class. The timer triggers the task's `DoWork` method. The timer is disabled on `StopAsync` and disposed when the service container is disposed on `Dispose`:
 
 [!code-csharp[](hosted-services/samples/2.x/BackgroundTasksSample/Services/TimedHostedService.cs?name=snippet1&highlight=15-16,30,37)]
 
-Hizmet, `AddHostedService` uzantısı yöntemiyle `Startup.ConfigureServices` kaydedilir:
+The service is registered in `Startup.ConfigureServices` with the `AddHostedService` extension method:
 
 [!code-csharp[](hosted-services/samples/2.x/BackgroundTasksSample/Startup.cs?name=snippet1)]
 
-## <a name="consuming-a-scoped-service-in-a-background-task"></a>Bir arka plan görevinde kapsamlı bir hizmeti kullanma
+## <a name="consuming-a-scoped-service-in-a-background-task"></a>Consuming a scoped service in a background task
 
-[Kapsamlı hizmetleri](xref:fundamentals/dependency-injection#service-lifetimes) bir `IHostedService`içinde kullanmak için bir kapsam oluşturun. Barındırılan hizmet için varsayılan olarak kapsam oluşturulmaz.
+To use [scoped services](xref:fundamentals/dependency-injection#service-lifetimes) within an `IHostedService`, create a scope. No scope is created for a hosted service by default.
 
-Kapsamlı arka plan görev hizmeti, arka plan görevinin mantığını içerir. Aşağıdaki örnekte, hizmetine bir <xref:Microsoft.Extensions.Logging.ILogger> eklenmiş olur:
+The scoped background task service contains the background task's logic. In the following example, an <xref:Microsoft.Extensions.Logging.ILogger> is injected into the service:
 
 [!code-csharp[](hosted-services/samples/2.x/BackgroundTasksSample/Services/ScopedProcessingService.cs?name=snippet1)]
 
-Barındırılan hizmet, `DoWork` yöntemini çağırmak için kapsamlı arka plan görev hizmetini çözümlemek üzere bir kapsam oluşturur:
+The hosted service creates a scope to resolve the scoped background task service to call its `DoWork` method:
 
 [!code-csharp[](hosted-services/samples/2.x/BackgroundTasksSample/Services/ConsumeScopedServiceHostedService.cs?name=snippet1&highlight=29-36)]
 
-Hizmetler `Startup.ConfigureServices`kaydedilir. `IHostedService` uygulama `AddHostedService` uzantısı yöntemiyle kaydedilir:
+The services are registered in `Startup.ConfigureServices`. The `IHostedService` implementation is registered with the `AddHostedService` extension method:
 
 [!code-csharp[](hosted-services/samples/2.x/BackgroundTasksSample/Startup.cs?name=snippet2)]
 
-## <a name="queued-background-tasks"></a>Sıraya alınan arka plan görevleri
+## <a name="queued-background-tasks"></a>Queued background tasks
 
-Arka plan görev kuyruğu .NET Framework 4. x <xref:System.Web.Hosting.HostingEnvironment.QueueBackgroundWorkItem*> temel alır ([ASP.NET Core için kesin olarak zamanlandı](https://github.com/aspnet/Hosting/issues/1280)):
+A background task queue is based on the .NET Framework 4.x <xref:System.Web.Hosting.HostingEnvironment.QueueBackgroundWorkItem*> ([tentatively scheduled to be built-in for ASP.NET Core](https://github.com/aspnet/Hosting/issues/1280)):
 
 [!code-csharp[](hosted-services/samples/2.x/BackgroundTasksSample/Services/BackgroundTaskQueue.cs?name=snippet1)]
 
-`QueueHostedService`, kuyruktaki arka plan görevleri, uzun süre çalışan bir `IHostedService`uygulamak için temel bir sınıf olan bir <xref:Microsoft.Extensions.Hosting.BackgroundService>olarak kuyruğa alınır ve yürütülür:
+In `QueueHostedService`, background tasks in the queue are dequeued and executed as a [BackgroundService](#backgroundservice-base-class), which is a base class for implementing a long running `IHostedService`:
 
 [!code-csharp[](hosted-services/samples/2.x/BackgroundTasksSample/Services/QueuedHostedService.cs?name=snippet1&highlight=21,25)]
 
-Hizmetler `Startup.ConfigureServices`kaydedilir. `IHostedService` uygulama `AddHostedService` uzantısı yöntemiyle kaydedilir:
+The services are registered in `Startup.ConfigureServices`. The `IHostedService` implementation is registered with the `AddHostedService` extension method:
 
 [!code-csharp[](hosted-services/samples/2.x/BackgroundTasksSample/Startup.cs?name=snippet3)]
 
-Dizin sayfası model sınıfında:
+In the Index page model class:
 
-* `IBackgroundTaskQueue` oluşturucuya eklenir ve `Queue`atanır.
-* <xref:Microsoft.Extensions.DependencyInjection.IServiceScopeFactory> eklenen ve `_serviceScopeFactory`atanmış. Fabrika, bir kapsam içinde hizmet oluşturmak için kullanılan <xref:Microsoft.Extensions.DependencyInjection.IServiceScope>örnekleri oluşturmak için kullanılır. Bir kapsam, veritabanı kayıtlarını `IBackgroundTaskQueue` (bir tek hizmet) yazmak için uygulamanın `AppDbContext` ( [kapsamlı bir hizmet](xref:fundamentals/dependency-injection#service-lifetimes)) kullanmak üzere oluşturulur.
+* The `IBackgroundTaskQueue` is injected into the constructor and assigned to `Queue`.
+* An <xref:Microsoft.Extensions.DependencyInjection.IServiceScopeFactory> is injected and assigned to `_serviceScopeFactory`. The factory is used to create instances of <xref:Microsoft.Extensions.DependencyInjection.IServiceScope>, which is used to create services within a scope. A scope is created in order to use the app's `AppDbContext` (a [scoped service](xref:fundamentals/dependency-injection#service-lifetimes)) to write database records in the `IBackgroundTaskQueue` (a singleton service).
 
 [!code-csharp[](hosted-services/samples/2.x/BackgroundTasksSample/Pages/Index.cshtml.cs?name=snippet1)]
 
-Dizin sayfasında **Görev Ekle** düğmesi seçildiğinde `OnPostAddTask` yöntemi yürütülür. `QueueBackgroundWorkItem` bir iş öğesini kuyruğa almak için çağrılır:
+When the **Add Task** button is selected on the Index page, the `OnPostAddTask` method is executed. `QueueBackgroundWorkItem` is called to enqueue a work item:
 
 [!code-csharp[](hosted-services/samples/2.x/BackgroundTasksSample/Pages/Index.cshtml.cs?name=snippet2)]
 
@@ -261,5 +260,5 @@ Dizin sayfasında **Görev Ekle** düğmesi seçildiğinde `OnPostAddTask` yönt
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-* [Ihostedservice ve BackgroundService sınıfıyla mikro hizmetlerde arka plan görevleri uygulama](/dotnet/standard/microservices-architecture/multi-container-microservice-net-applications/background-tasks-with-ihostedservice)
+* [Implement background tasks in microservices with IHostedService and the BackgroundService class](/dotnet/standard/microservices-architecture/multi-container-microservice-net-applications/background-tasks-with-ihostedservice)
 * <xref:System.Threading.Timer>
