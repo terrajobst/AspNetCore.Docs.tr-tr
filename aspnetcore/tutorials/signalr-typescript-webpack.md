@@ -21,7 +21,7 @@ ms.locfileid: "74317482"
 
 [WebPack](https://webpack.js.org/) , geliştiricilerin bir Web uygulamasının istemci tarafı kaynaklarını paketleyip oluşturmalarına olanak sağlar. Bu öğretici, istemcisinin [TypeScript](https://www.typescriptlang.org/)'te yazıldığı bir ASP.NET Core SignalR Web uygulamasında WebPack 'in kullanımını gösterir.
 
-Bu öğreticide şunların nasıl yapıladığını öğreneceksiniz:
+Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 > [!div class="checklist"]
 > * Bir başlatıcı ASP.NET Core SignalR uygulama için yapı iskelesi
@@ -30,7 +30,7 @@ Bu öğreticide şunların nasıl yapıladığını öğreneceksiniz:
 > * SignalR sunucusunu yapılandırma
 > * İstemci ve sunucu arasındaki iletişimi etkinleştir
 
-[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/tutorials/signalr-typescript-webpack/sample) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
+[Örnek kodu görüntüleme veya indirme](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/tutorials/signalr-typescript-webpack/sample) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
 
 ::: moniker range=">= aspnetcore-3.0"
 
@@ -274,13 +274,13 @@ Uygulamanın aşağıdaki adımlarla çalıştığından emin olun.
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * **ASP.net ve Web geliştirme** iş yüküyle [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=inline+link&utm_content=download+vs2019)
-* [.NET core SDK 2.2 veya üzeri](https://www.microsoft.com/net/download/all)
+* [.NET Core SDK 2,2 veya üzeri](https://www.microsoft.com/net/download/all)
 * [NPM](https://www.npmjs.com/) ile [Node. js](https://nodejs.org/)
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 * [Visual Studio Code](https://code.visualstudio.com/download)
-* [.NET core SDK 2.2 veya üzeri](https://www.microsoft.com/net/download/all)
+* [.NET Core SDK 2,2 veya üzeri](https://www.microsoft.com/net/download/all)
 * [C#Visual Studio Code sürüm 1.17.1 veya üzeri için](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)
 * [NPM](https://www.npmjs.com/) ile [Node. js](https://nodejs.org/)
 

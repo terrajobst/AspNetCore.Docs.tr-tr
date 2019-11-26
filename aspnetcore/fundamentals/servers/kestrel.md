@@ -33,7 +33,7 @@ Kestrel aşağıdaki senaryoları destekler:
 
 Kestrel, .NET Core 'un desteklediği tüm platformlarda ve sürümlerde desteklenir.
 
-[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/servers/kestrel/samples) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
+[Örnek kodu görüntüleme veya indirme](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/servers/kestrel/samples) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
 
 ## <a name="http2-support"></a>HTTP/2 desteği
 
@@ -49,7 +49,7 @@ Aşağıdaki temel gereksinimler karşılanıyorsa, [http/2](https://httpwg.org/
 &dagger;HTTP/2, gelecek sürümlerde macOS 'ta desteklenecektir.
 &Dagger;Kestrel Windows Server 2012 R2 ve Windows 8.1 üzerinde HTTP/2 için sınırlı destek içerir. Bu işletim sistemlerinde kullanılabilir olan desteklenen TLS şifre paketlerinin listesi sınırlı olduğundan destek sınırlıdır. TLS bağlantılarının güvenliğini sağlamak için Eliptik Eğri dijital Imza algoritması (ECDSA) kullanılarak oluşturulan bir sertifika gerekli olabilir.
 
-Bir HTTP/2 bağlantı kurulur, [HttpRequest.Protocol](xref:Microsoft.AspNetCore.Http.HttpRequest.Protocol*) raporları `HTTP/2`.
+Bir HTTP/2 bağlantısı kurulduysa, [HttpRequest. Protocol](xref:Microsoft.AspNetCore.Http.HttpRequest.Protocol*) Reports `HTTP/2`.
 
 HTTP/2 varsayılan olarak devre dışıdır. Yapılandırma hakkında daha fazla bilgi için [Kestrel Options](#kestrel-options) ve [Listenoptions. Protocols](#listenoptionsprotocols) bölümlerine bakın.
 
@@ -352,7 +352,7 @@ Varsayılan olarak, ASP.NET Core bağlar:
 
 Kullanarak URL 'Leri belirtin:
 
-* `ASPNETCORE_URLS` ortam değişkeni.
+* ortam değişkeni `ASPNETCORE_URLS`.
 * `--urls` komut satırı bağımsız değişkeni.
 * `urls` ana bilgisayar yapılandırma anahtarı.
 * `UseUrls` genişletme yöntemi.
@@ -969,7 +969,7 @@ Kestrel aşağıdaki senaryoları destekler:
 
 Kestrel, .NET Core 'un desteklediği tüm platformlarda ve sürümlerde desteklenir.
 
-[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/servers/kestrel/samples) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
+[Örnek kodu görüntüleme veya indirme](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/servers/kestrel/samples) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
 
 ## <a name="http2-support"></a>HTTP/2 desteği
 
@@ -985,7 +985,7 @@ Aşağıdaki temel gereksinimler karşılanıyorsa, [http/2](https://httpwg.org/
 &dagger;HTTP/2, gelecek sürümlerde macOS 'ta desteklenecektir.
 &Dagger;Kestrel Windows Server 2012 R2 ve Windows 8.1 üzerinde HTTP/2 için sınırlı destek içerir. Bu işletim sistemlerinde kullanılabilir olan desteklenen TLS şifre paketlerinin listesi sınırlı olduğundan destek sınırlıdır. TLS bağlantılarının güvenliğini sağlamak için Eliptik Eğri dijital Imza algoritması (ECDSA) kullanılarak oluşturulan bir sertifika gerekli olabilir.
 
-Bir HTTP/2 bağlantı kurulur, [HttpRequest.Protocol](xref:Microsoft.AspNetCore.Http.HttpRequest.Protocol*) raporları `HTTP/2`.
+Bir HTTP/2 bağlantısı kurulduysa, [HttpRequest. Protocol](xref:Microsoft.AspNetCore.Http.HttpRequest.Protocol*) Reports `HTTP/2`.
 
 HTTP/2 varsayılan olarak devre dışıdır. Yapılandırma hakkında daha fazla bilgi için [Kestrel Options](#kestrel-options) ve [Listenoptions. Protocols](#listenoptionsprotocols) bölümlerine bakın.
 
@@ -1319,7 +1319,7 @@ Varsayılan olarak, ASP.NET Core bağlar:
 
 Kullanarak URL 'Leri belirtin:
 
-* `ASPNETCORE_URLS` ortam değişkeni.
+* ortam değişkeni `ASPNETCORE_URLS`.
 * `--urls` komut satırı bağımsız değişkeni.
 * `urls` ana bilgisayar yapılandırma anahtarı.
 * `UseUrls` genişletme yöntemi.
@@ -1899,7 +1899,7 @@ Kestrel aşağıdaki senaryoları destekler:
 
 Kestrel, .NET Core 'un desteklediği tüm platformlarda ve sürümlerde desteklenir.
 
-[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/servers/kestrel/samples) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
+[Örnek kodu görüntüleme veya indirme](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/servers/kestrel/samples) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
 
 ## <a name="when-to-use-kestrel-with-a-reverse-proxy"></a>Ters ara sunucu ile Kestrel ne zaman kullanılır?
 
@@ -2166,7 +2166,7 @@ Varsayılan olarak, ASP.NET Core bağlar:
 
 Kullanarak URL 'Leri belirtin:
 
-* `ASPNETCORE_URLS` ortam değişkeni.
+* ortam değişkeni `ASPNETCORE_URLS`.
 * `--urls` komut satırı bağımsız değişkeni.
 * `urls` ana bilgisayar yapılandırma anahtarı.
 * `UseUrls` genişletme yöntemi.

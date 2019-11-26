@@ -69,7 +69,7 @@ Genellikle, gönderilmemiş bir oturum açma iletişim kutusuna girilen Kullanı
 Blazor sunucu uygulamasındaki kalıcı durum için üç ortak konum vardır. Her yaklaşım farklı senaryolara en iyi şekilde uygundur ve farklı uyarılar içerir:
 
 * [Veritabanında sunucu tarafı](#server-side-in-a-database)
-* [URL](#url)
+* ['DEKI](#url)
 * [Tarayıcıda istemci tarafı](#client-side-in-the-browser)
 
 ### <a name="server-side-in-a-database"></a>Veritabanında sunucu tarafı

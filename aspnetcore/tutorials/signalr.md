@@ -19,7 +19,7 @@ ms.locfileid: "74317495"
 
 ::: moniker range=">= aspnetcore-3.0"
 
-Bu öğreticide SignalRkullanarak gerçek zamanlı bir uygulama oluşturmanın temelleri öğretilir. Aşağıdakilerin nasıl yapıldığını öğreneceksiniz:
+Bu öğreticide SignalRkullanarak gerçek zamanlı bir uygulama oluşturmanın temelleri öğretilir. Aşağıdakileri nasıl yapacağınızı öğrenirsiniz:
 
 > [!div class="checklist"]
 > * Web projesi oluşturun.
@@ -253,7 +253,7 @@ SignalR sunucusu, SignalRSignalR istekleri geçirilecek şekilde yapılandırıl
 
 ::: moniker range="< aspnetcore-3.0"
 
-Bu öğreticide SignalRkullanarak gerçek zamanlı bir uygulama oluşturmanın temelleri öğretilir. Aşağıdakilerin nasıl yapıldığını öğreneceksiniz: 
+Bu öğreticide SignalRkullanarak gerçek zamanlı bir uygulama oluşturmanın temelleri öğretilir. Aşağıdakileri nasıl yapacağınızı öğrenirsiniz: 
 
 > [!div class="checklist"]  
 > * Web projesi oluşturun.   
@@ -312,7 +312,7 @@ Sonunda, çalışan bir sohbet uygulamasına sahipsiniz: ![[! Üs. NO-LOC (Signa
 
 * **.NET Core > App > ASP.NET Core Web uygulaması** ' nı ( **ASP.NET Core Web uygulaması (MVC)** seçmeyin) seçin.  
 
-* **İleri**’yi seçin.  
+* **İleri ' yi**seçin.  
 
 * Projeyi *Signalrchat*olarak adlandırın ve **Oluştur**' u seçin.   
 

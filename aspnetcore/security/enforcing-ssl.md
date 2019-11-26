@@ -15,7 +15,7 @@ ms.locfileid: "74317363"
 ---
 # <a name="enforce-https-in-aspnet-core"></a>ASP.NET Core 'de HTTPS 'yi zorla
 
-Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
+[Rick Anderson](https://twitter.com/RickAndMSFT) tarafından
 
 Bu belgede nasıl yapılacağı gösterilmektedir:
 
@@ -383,7 +383,7 @@ Yukarıdaki komutlar çoğu tarayıcı güveni sorununu çözüyor. Tarayıcı y
 ### <a name="docker---certificate-not-trusted"></a>Docker-Sertifikaya güvenilmiyor
 
 * *C:\Users\{User} \AppData\Roaming\ASP.NET\Https* klasörünü silin.
-* Çözümü temizleyin. Silme *bin* ve *obj* klasörleri.
+* Çözümü temizleyin. *Bin* ve *obj* klasörlerini silin.
 * Geliştirme aracını yeniden başlatın. Örneğin, Visual Studio, Visual Studio Code veya Mac için Visual Studio.
 
 ### <a name="windows---certificate-not-trusted"></a>Windows-Sertifikaya güvenilmiyor

@@ -18,7 +18,7 @@ ms.locfileid: "74317284"
 ---
 # <a name="configure-the-linker-for-aspnet-core-opno-locblazor"></a>ASP.NET Core Blazor için bağlayıcı yapılandırma
 
-Tarafından [Luke Latham](https://github.com/guardrex)
+[Luke Latham](https://github.com/guardrex) tarafından
 
 [!INCLUDE[](~/includes/blazorwasm-preview-notice.md)]
 

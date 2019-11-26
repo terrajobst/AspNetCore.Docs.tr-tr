@@ -28,7 +28,7 @@ Genel ana bilgisayarı olmayan uygulamalar için günlük kodu, [sağlayıcılar
 
 ::: moniker-end
 
-[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/logging/index/samples) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
+[Örnek kodu görüntüleme veya indirme](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/logging/index/samples) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
 
 ## <a name="add-providers"></a>Sağlayıcı Ekle
 
@@ -483,7 +483,7 @@ Aşağıdaki kod `Information` ve `Warning` günlüklerini oluşturur:
 
 ::: moniker-end
 
-Önceki kodda, ilk parametredir [oturum öğesini belirten Olay No.](#log-event-id) İkinci parametre, kalan Yöntem parametreleri tarafından belirtilen bağımsız değişken değerleri için yer tutucuları olan bir ileti şablonudur. Yöntem parametreleri bu makalenin ilerleyen kısımlarında bulunan [ileti şablonu bölümünde](#log-message-template) açıklanmaktadır.
+Yukarıdaki kodda, ilk parametre [günlük olay kimliğidir](#log-event-id). İkinci parametre, kalan Yöntem parametreleri tarafından belirtilen bağımsız değişken değerleri için yer tutucuları olan bir ileti şablonudur. Yöntem parametreleri bu makalenin ilerleyen kısımlarında bulunan [ileti şablonu bölümünde](#log-message-template) açıklanmaktadır.
 
 Yöntem adındaki düzeyi (örneğin, `LogInformation` ve `LogWarning`) içeren günlük yöntemleri, [ILogger için uzantı yöntemleridir](xref:Microsoft.Extensions.Logging.LoggerExtensions). Bu yöntemler bir `LogLevel` parametresi alan `Log` yöntemini çağırır. Bu uzantı yöntemlerinden biri yerine doğrudan `Log` yöntemi çağırabilirsiniz, ancak söz dizimi görece karmaşıktır. Daha fazla bilgi için bkz. <xref:Microsoft.Extensions.Logging.ILogger> ve [günlükçü uzantıları kaynak kodu](https://github.com/aspnet/Extensions/blob/release/2.2/src/Logging/Logging.Abstractions/src/LoggerExtensions.cs).
 
@@ -604,7 +604,7 @@ info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
 
 ## <a name="log-event-id"></a>Günlüğe olay KIMLIĞI
 
-Her günlük belirtebilirsiniz bir *öğesini belirten Olay No*. Örnek uygulama bunu yerel olarak tanımlanmış bir `LoggingEvents` sınıfını kullanarak yapar:
+Her günlük bir *olay kimliği*belirtebilir. Örnek uygulama bunu yerel olarak tanımlanmış bir `LoggingEvents` sınıfını kullanarak yapar:
 
 ::: moniker range=">= aspnetcore-3.0"
 
@@ -889,7 +889,7 @@ warn: TodoApiSample.Controllers.TodoController[4000]
 ASP.NET Core aşağıdaki sağlayıcıları sevk eder:
 
 * [Console](#console-provider)
-* [Hata ayıklama](#debug-provider)
+* [H](#debug-provider)
 * [EventSource](#event-source-provider)
 * [EventLog](#windows-eventlog-provider)
 * [TraceSource](#tracesource-provider)
