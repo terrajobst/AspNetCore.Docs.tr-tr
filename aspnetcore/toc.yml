@@ -587,8 +587,6 @@
       uid: grpc/troubleshoot
 - name: 'Test etme, hata ayıklama ve sorun giderme'
   items:
-    - name: Birim testi
-      href: /dotnet/core/testing/unit-testing-with-dotnet-test?toc=/aspnet/core/toc.json&bc=/aspnet/core/breadcrumb/toc.json
     - name: Razor Pages birim testleri
       uid: test/razor-pages-tests
     - name: Test denetleyicileri
