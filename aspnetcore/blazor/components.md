@@ -5,16 +5,16 @@ description: Veri bağlama, olayları işleme ve bileşen yaşam döngülerini y
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/21/2019
+ms.date: 11/23/2019
 no-loc:
 - Blazor
 uid: blazor/components
-ms.openlocfilehash: 267a6f5aa96feeecc280238abbef86949750b07e
-ms.sourcegitcommit: 3e503ef510008e77be6dd82ee79213c9f7b97607
+ms.openlocfilehash: 89c92fbd5a3939cd2b4a34c39163767bcdf73bb8
+ms.sourcegitcommit: 918d7000b48a2892750264b852bad9e96a1165a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74317207"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74550315"
 ---
 # <a name="create-and-use-aspnet-core-razor-components"></a>ASP.NET Core Razor bileşenleri oluşturma ve kullanma
 
@@ -548,7 +548,7 @@ Desteklenen `EventArgs` aşağıdaki tabloda gösterilmiştir.
 | Olay            | Sınıf                | DOM olayları ve notları |
 | ---------------- | -------------------- | -------------------- |
 | Pano        | `ClipboardEventArgs` | `oncut`, `oncopy`, `onpaste` |
-| Sürükle             | `DragEventArgs`      | `ondrag`, `ondragstart`, `ondragenter`, `ondragleave`, `ondragover`, `ondrop`, `ondragend`<br><br>`DataTransfer` ve `DataTransferItem` öğe verilerini sürüklemiş tutun. |
+| Sürükleyin             | `DragEventArgs`      | `ondrag`, `ondragstart`, `ondragenter`, `ondragleave`, `ondragover`, `ondrop`, `ondragend`<br><br>`DataTransfer` ve `DataTransferItem` öğe verilerini sürüklemiş tutun. |
 | Hata            | `ErrorEventArgs`     | `onerror` |
 | Olay            | `EventArgs`          | *Genel*<br>`onactivate`, `onbeforeactivate`, `onbeforedeactivate`, `ondeactivate`, `onended`, `onfullscreenchange`, `onfullscreenerror`, `onloadeddata`, `onloadedmetadata`, `onpointerlockchange`, `onpointerlockerror`, `onreadystatechange`, `onscroll`<br><br>*Pano*<br>`onbeforecut`, `onbeforecopy`, `onbeforepaste`<br><br>*Giriş*<br>`oninvalid`, `onreset`, `onselect`, `onselectionchange`, `onselectstart`, `onsubmit`<br><br>*Medyasını*<br>`oncanplay`, `oncanplaythrough`, `oncuechange`, `ondurationchange`, `onemptied`, `onpause`, `onplay`, `onplaying`, `onratechange`, `onseeked`, `onseeking`, `onstalled`, `onstop`, `onsuspend`, `ontimeupdate`, `onvolumechange`, `onwaiting` |
 | Çı            | `FocusEventArgs`     | `onfocus`, `onblur`, `onfocusin`, `onfocusout`<br><br>`relatedTarget`için destek içermez. |
@@ -922,7 +922,7 @@ Yukarıdaki örnekte `NotifierService` bileşenin `OnNotify` yöntemini Blazor`S
 
 Bir öğe veya bileşen listesi işlendiğinde ve öğeler ya da bileşenler daha sonra değiştiğinde, Blazoryayılma algoritması, önceki öğelerin veya bileşenlerin ne zaman tutulacağına ve model nesnelerinin bunlara nasıl eşleneceğine karar vermelidir. Normalde, bu işlem otomatiktir ve yoksayılabilir, ancak işlemi denetlemek isteyebileceğiniz durumlar vardır.
 
-Aşağıdaki örnek göz önünde bulundurun:
+Aşağıdaki örneği göz önünde bulundurun:
 
 ```csharp
 @foreach (var person in People)
@@ -1144,6 +1144,8 @@ Bileşenler, `@page` yönergesinde belirtilen yol şablonundan yol parametreleri
 [!code-cshtml[](common/samples/3.x/BlazorWebAssemblySample/Pages/RouteParameter.razor?name=snippet_RouteParameter)]
 
 İsteğe bağlı parametreler desteklenmez, bu nedenle yukarıdaki örnekte iki `@page` yönergesi uygulanır. İlki, bir parametre olmadan bileşene gezinmesine izin verir. İkinci `@page` yönergesi `{text}` Route parametresini alır ve değeri `Text` özelliğine atar.
+
+*Catch-all* parametre sözdizimi (`*`/`**`), birden çok klasör sınırları genelinde yolu yakalayan Razor bileşenlerinde ( *. Razor* **) desteklenmez.**
 
 ::: moniker range=">= aspnetcore-3.1"
 
@@ -1688,14 +1690,14 @@ builder.AddContent(1, "Second");
 
 Kod ilk kez yürütüldüğünde, `someFlag` `true`, Oluşturucu şunları alır:
 
-| Dizisi | Type      | Veriler   |
+| Sequence | Tür      | Veri   |
 | :------: | --------- | :----: |
 | 0        | Metin düğümü | adı  |
 | 1\.        | Metin düğümü | Saniye |
 
 `someFlag` `false`hale geldiğini ve biçimlendirmenin yeniden işleneceğini varsayın. Bu kez, Oluşturucu şunları alır:
 
-| Dizisi | Type       | Veriler   |
+| Sequence | Tür       | Veri   |
 | :------: | ---------- | :----: |
 | 1\.        | Metin düğümü  | Saniye |
 
@@ -1720,14 +1722,14 @@ builder.AddContent(seq++, "Second");
 
 Şimdi ilk çıktı:
 
-| Dizisi | Type      | Veriler   |
+| Sequence | Tür      | Veri   |
 | :------: | --------- | :----: |
 | 0        | Metin düğümü | adı  |
 | 1\.        | Metin düğümü | Saniye |
 
 Bu sonuç önceki bir durum ile aynıdır, bu nedenle olumsuz bir sorun yoktur. `someFlag` ikinci işleme `false` ve çıktı:
 
-| Dizisi | Type      | Veriler   |
+| Sequence | Tür      | Veri   |
 | :------: | --------- | ------ |
 | 0        | Metin düğümü | Saniye |
 

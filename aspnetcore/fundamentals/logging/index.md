@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 11/19/2019
 uid: fundamentals/logging/index
-ms.openlocfilehash: b23e64077290f0f613e904651e4bb640fcbba95d
-ms.sourcegitcommit: f40c9311058c9b1add4ec043ddc5629384af6c56
+ms.openlocfilehash: 23ce2d09d2ce9f415ce71bcd7c21c29cb2a040fc
+ms.sourcegitcommit: 918d7000b48a2892750264b852bad9e96a1165a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74289085"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74550356"
 ---
 # <a name="logging-in-net-core-and-aspnet-core"></a>.NET Core ve ASP.NET Core oturum açma
 
@@ -48,7 +48,7 @@ Konak olmayan bir konsol uygulamasında, bir `LoggerFactory`oluştururken sağla
 
 Varsayılan ASP.NET Core proje şablonları, aşağıdaki günlük sağlayıcılarını ekleyen <xref:Microsoft.Extensions.Hosting.Host.CreateDefaultBuilder%2A>çağırır:
 
-* Konsol
+* Konsolu
 * Hata ayıklama
 * EventSource
 * Olay günlüğü (yalnızca Windows üzerinde çalışırken)
@@ -69,7 +69,7 @@ Yukarıdaki kod `Microsoft.Extensions.Logging` ve `Microsoft.Extensions.Configur
 
 Varsayılan proje şablonu, aşağıdaki günlük sağlayıcılarını ekleyen <xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder%2A>çağırır:
 
-* Konsol
+* Konsolu
 * Hata ayıklama
 * EventSource (ASP.NET Core 2,2 ' den başlayarak)
 
@@ -295,7 +295,7 @@ public class Program
 
 ### <a name="no-asynchronous-logger-methods"></a>Zaman uyumsuz günlükçü yöntemi yok
 
-Günlüğe kaydetme, zaman uyumsuz kodun performans maliyetine değer olmaması kadar hızlı olmalıdır. Günlüğe kaydetme veri depoluizin yavaşsa, doğrudan buna yazmayın. Başlangıç olarak günlük iletilerini hızlı bir mağazaya yazmayı ve sonra yavaş depoya daha sonra taşımayı düşünün. Örneğin, SQL Server için günlük kaydı yapıyorsanız, `Log` Yöntemler zaman uyumlu olduğundan bunu doğrudan bir `Log` yönteminde yapmak istemezsiniz. Bunun yerine, günlük iletilerini bir bellek içi kuyruğa eşzamanlı olarak ekleyin ve bir arka plan çalışanı, SQL Server veri gönderme zaman uyumsuz çalışmasını sağlamak için iletileri kuyruktan çekin.
+Günlüğe kaydetme, zaman uyumsuz kodun performans maliyetine değer olmaması kadar hızlı olmalıdır. Günlüğe kaydetme veri depoluizin yavaşsa, doğrudan buna yazmayın. Başlangıç olarak günlük iletilerini hızlı bir mağazaya yazmayı ve sonra yavaş depoya daha sonra taşımayı düşünün. Örneğin, SQL Server için günlük kaydı yapıyorsanız, `Log` Yöntemler zaman uyumlu olduğundan bunu doğrudan bir `Log` yönteminde yapmak istemezsiniz. Bunun yerine, günlük iletilerini bir bellek içi kuyruğa eşzamanlı olarak ekleyin ve bir arka plan çalışanı, SQL Server veri gönderme zaman uyumsuz çalışmasını sağlamak için iletileri kuyruktan çekin. Daha fazla bilgi için [Bu](https://github.com/aspnet/AspNetCore.Docs/issues/11801) GitHub sorununa bakın.
 
 ## <a name="configuration"></a>Yapılandırma
 
@@ -746,11 +746,11 @@ Yapılandırma verileri ve önceki örneklerde gösterilen `AddFilter` kodu, aş
 
 | Sayı | Sağlayıcı      | Şununla başlayan Kategoriler...          | En düşük günlük düzeyi |
 | :----: | ------------- | --------------------------------------- | ----------------- |
-| 1\.      | Hata ayıklama         | Tüm Kategoriler                          | Bilgiler       |
-| 2      | Konsol       | Microsoft.AspNetCore.Mvc.Razor.Internal | Uyarı           |
-| 3      | Konsol       | Microsoft.AspNetCore.Mvc.Razor.Razor    | Hata ayıklama             |
-| 4      | Konsol       | Microsoft.AspNetCore.Mvc.Razor          | Hata             |
-| 5      | Konsol       | Tüm Kategoriler                          | Bilgiler       |
+| 1\.      | Hata ayıklama         | Tüm Kategoriler                          | Bilgisi       |
+| 2      | Konsolu       | Microsoft. AspNetCore. Mvc. Razor. Internal | Uyarı           |
+| 3      | Konsolu       | Microsoft. AspNetCore. Mvc. Razor. Razor    | Hata ayıklama             |
+| 4      | Konsolu       | Microsoft. AspNetCore. Mvc. Razor          | Hata             |
+| 5      | Konsolu       | Tüm Kategoriler                          | Bilgisi       |
 | 6      | Tüm sağlayıcılar | Tüm Kategoriler                          | Hata ayıklama             |
 | 7      | Tüm sağlayıcılar | Sistem                                  | Hata ayıklama             |
 | 8      | Hata ayıklama         | Microsoft                               | izlemesinin             |
@@ -775,7 +775,7 @@ Elde edilen `ILogger` örneği, hata ayıklama sağlayıcısına `Trace` düzeyi
 
 Her sağlayıcı, tam nitelikli tür adı yerine yapılandırmada kullanılabilecek bir *diğer ad* tanımlar.  Yerleşik sağlayıcılar için aşağıdaki diğer adları kullanın:
 
-* Konsol
+* Konsolu
 * Hata ayıklama
 * EventSource
 * EventLog
@@ -989,7 +989,7 @@ Bir uygulamadan izleme toplamak için DotNet Trace araçları kullanın:
 
    Windows dışı platformlarda, çıkış izleme dosyasının biçimini `speedscope`olarak değiştirmek için `-f speedscope` seçeneğini ekleyin.
 
-   | Anahtar sözcüğü | Açıklama |
+   | sözcükle | Açıklama |
    | :-----: | ----------- |
    | 1\.       | `LoggingEventSource`ilgili meta olayları günlüğe kaydedin. Olayları `ILogger`) günlüğe kaydetmez. |
    | 2       | `ILogger.Log()` çağrıldığında `Message` olayı açar. Programlı (biçimlendirilmedi) bir şekilde bilgi sağlar. |
@@ -1024,7 +1024,7 @@ Bir uygulamadan izleme toplamak için DotNet Trace araçları kullanın:
 
 1. Trace 'i [PerfView](#perfview)ile açın. *Trace. NetTrace* dosyasını açın ve izleme olaylarını araştırın.
 
-Daha fazla bilgi için bkz.:
+Daha fazla bilgi için bkz.
 
 * [Performans Analizi yardımcı programı Için izleme (DotNet-Trace)](/dotnet/core/diagnostics/dotnet-trace) (.NET Core belgeleri)
 * [Performans Analizi yardımcı programı (DotNet-Trace) Için izleme](https://github.com/dotnet/diagnostics/blob/master/documentation/dotnet-trace-instructions.md) (DotNet/Diagnostics GitHub deposu belgeleri)
