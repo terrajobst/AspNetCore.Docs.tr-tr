@@ -282,6 +282,8 @@
           uid: blazor/hosting-models
         - name: İlk uygulamanızı oluşturma
           uid: tutorials/first-blazor-app
+        - name: Şablonlar
+          uid: blazor/templates
         - name: Bileşenler
           uid: blazor/components
         - name: Formlar ve doğrulama
@@ -1100,6 +1102,9 @@
       uid: fundamentals/middleware/extensibility-third-party-container
 - name: Geçiş
   items:
+    - name: 3.0’dan 3.1’e
+      displayName: 'migrate, migration'
+      uid: migration/30-to-31
     - name: 2.2’den 3.0’a
       displayName: 'migrate, migration'
       uid: migration/22-to-30
