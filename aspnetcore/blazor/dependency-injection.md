@@ -5,16 +5,16 @@ description: Blazor uygulamalarının bileşenlere nasıl hizmet ekleyebilmesi i
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/15/2019
+ms.date: 11/27/2019
 no-loc:
 - Blazor
 uid: blazor/dependency-injection
-ms.openlocfilehash: a39d913636afc55ac9d831de923ba7ae8db1216b
-ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
+ms.openlocfilehash: 165cfa7a98cdd523c25d5c4bfc8e2c9d0ef1ad22
+ms.sourcegitcommit: 169ea5116de729c803685725d96450a270bc55b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73963073"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74733823"
 ---
 # <a name="aspnet-core-opno-locblazor-dependency-injection"></a>ASP.NET Core Blazor bağımlılığı ekleme
 
@@ -27,7 +27,7 @@ Blazor [bağımlılık ekleme (dı)](xref:fundamentals/dependency-injection)işl
 DI, merkezi bir konumda yapılandırılmış hizmetlere erişmek için bir tekniktir. Bu, Blazor uygulamalarda şu şekilde yararlı olabilir:
 
 * Hizmet sınıfının tek bir *örneğini tek bir hizmet olarak* bilinen birçok bileşen arasında paylaşabilirsiniz.
-* Başvuru soyutlamalarını kullanarak somut hizmet sınıflarından bileşenleri ayırın. Örneğin, uygulamadaki verilere erişmek için bir arabirim `IDataAccess` düşünün. Arabirim somut bir `DataAccess` sınıfı tarafından uygulanır ve uygulamanın hizmet kapsayıcısında bir hizmet olarak kaydedilir. Bir bileşen `IDataAccess` uygulamasını almak için DI kullandığında, bileşen somut tür ile eşleştirilmez. Uygulama, büyük olasılıkla birim testlerinde bir sahte uygulama için değiştirilebilir.
+* Başvuru soyutlamalarını kullanarak somut hizmet sınıflarından bileşenleri ayırın. Örneğin, uygulamadaki verilere erişmek için bir arabirim `IDataAccess` düşünün. Arabirim somut bir `DataAccess` sınıfı tarafından uygulanır ve uygulamanın hizmet kapsayıcısında bir hizmet olarak kaydedilir. Bir bileşen bir `IDataAccess` uygulamasını almak için DI kullandığında, bileşen somut tür ile eşleştirilmez. Uygulama, büyük olasılıkla birim testlerinde bir sahte uygulama için değiştirilebilir.
 
 ## <a name="default-services"></a>Varsayılan hizmetler
 
@@ -35,7 +35,7 @@ Varsayılan hizmetler, uygulamanın hizmet koleksiyonuna otomatik olarak eklenir
 
 | Hizmet | Ömür | Açıklama |
 | ------- | -------- | ----------- |
-| <xref:System.Net.Http.HttpClient> | Adet | HTTP istekleri göndermek ve bir URI tarafından tanımlanan bir kaynaktan HTTP yanıtlarını almak için yöntemler sağlar. Bu `HttpClient` örneğinin arka planda HTTP trafiğini işlemek için tarayıcıyı kullandığını unutmayın. [HttpClient. BaseAddress](xref:System.Net.Http.HttpClient.BaseAddress) , UYGULAMANıN temel URI ön ekine otomatik olarak ayarlanır. Daha fazla bilgi için bkz. <xref:blazor/call-web-api>. |
+| <xref:System.Net.Http.HttpClient> | Adet | HTTP istekleri göndermek ve bir URI tarafından tanımlanan bir kaynaktan HTTP yanıtlarını almak için yöntemler sağlar.<br><br>Bir Blazor WebAssembly uygulamasındaki `HttpClient` örneği, arka planda HTTP trafiğini işlemek için tarayıcıyı kullanır.<br><br>Blazor Server uygulamaları, varsayılan olarak hizmet olarak yapılandırılmış bir `HttpClient` içermez. Blazor sunucusu uygulamasına bir `HttpClient` sağlayın.<br><br>Daha fazla bilgi için bkz. <xref:blazor/call-web-api>. |
 | `IJSRuntime` | Adet | JavaScript çağrılarının dağıtıldığı bir JavaScript çalışma zamanının örneğini temsil eder. Daha fazla bilgi için bkz. <xref:blazor/javascript-interop>. |
 | `NavigationManager` | Adet | URI 'Ler ve gezinme durumu ile çalışmaya yönelik yardımcıları içerir. Daha fazla bilgi için bkz. [URI ve gezinti durumu yardımcıları](xref:blazor/routing#uri-and-navigation-state-helpers). |
 
@@ -52,7 +52,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-`ConfigureServices` yöntemi, hizmet açıklayıcı nesnelerinin bir listesi olan bir <xref:Microsoft.Extensions.DependencyInjection.IServiceCollection>geçirilir (<xref:Microsoft.Extensions.DependencyInjection.ServiceDescriptor>). Hizmetler, hizmet koleksiyonuna hizmet tanımlayıcıları sağlayarak eklenir. Aşağıdaki örnek, `IDataAccess` arabirimiyle kavramı ve somut uygulama `DataAccess` ' i gösterir:
+`ConfigureServices` yöntemi, hizmet açıklayıcı nesnelerinin bir listesi olan bir <xref:Microsoft.Extensions.DependencyInjection.IServiceCollection>geçirilir (<xref:Microsoft.Extensions.DependencyInjection.ServiceDescriptor>). Hizmetler, hizmet koleksiyonuna hizmet tanımlayıcıları sağlayarak eklenir. Aşağıdaki örnek, `IDataAccess` arabirimiyle kavramı ve somut uygulama `DataAccess`gösterir:
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -73,20 +73,20 @@ Dı sistemi ASP.NET Core içindeki DI sistemini temel alır. Daha fazla bilgi i�
 
 ## <a name="request-a-service-in-a-component"></a>Bir bileşende hizmet isteme
 
-Hizmetler hizmet koleksiyonuna eklendikten sonra, [\@ekleme](xref:mvc/views/razor#inject) Razor yönergesini kullanarak hizmetleri bileşenlere ekleyin. `@inject` iki parametreye sahiptir:
+Hizmetler hizmet koleksiyonuna eklendikten sonra, [\@Ekle](xref:mvc/views/razor#inject) Razor yönergesini kullanarak hizmetleri bileşenlere ekleyin. `@inject` iki parametreye sahiptir:
 
-* Eklenecek hizmetin türü &ndash; yazın.
-* Özellik &ndash; eklenen App Service 'i alan özelliğin adı. Özelliği el ile oluşturma gerektirmez. Derleyici özelliği oluşturur.
+* Eklenecek hizmetin türünü &ndash; yazın.
+* Özelliği, eklenen App Service 'i alan özelliğin adını &ndash;. Özelliği el ile oluşturma gerektirmez. Derleyici özelliği oluşturur.
 
 Daha fazla bilgi için bkz. <xref:mvc/views/dependency-injection>.
 
 Farklı hizmetler eklemek için birden çok `@inject` deyimi kullanın.
 
-Aşağıdaki örnek `@inject` ' nın nasıl kullanılacağını gösterir. `Services.IDataAccess` uygulayan hizmet bileşenin Özellik `DataRepository`eklenir. Kodun yalnızca `IDataAccess` soyutlamasını nasıl kullandığını Note:
+Aşağıdaki örnek `@inject`nasıl kullanacağınızı gösterir. `Services.IDataAccess` uygulayan hizmet bileşenin Özellik `DataRepository`eklenir. Kodun yalnızca `IDataAccess` soyutlamasını nasıl kullandığını aklınızda yapın:
 
 [!code-cshtml[](dependency-injection/samples_snapshot/3.x/CustomerList.razor?highlight=2-3,23)]
 
-Dahili olarak, oluşturulan Özellik (`DataRepository`) `InjectAttribute` özniteliğiyle birlikte tasarlanmalıdır. Genellikle, bu öznitelik doğrudan kullanılmaz. Bileşenler için bir temel sınıf gerekliyse ve temel sınıf için eklenen özellikler de gerekliyse, `InjectAttribute` ' ı el ile ekleyin:
+Dahili olarak, oluşturulan Özellik (`DataRepository`) `InjectAttribute` özniteliğiyle birlikte tasarlanmalıdır. Genellikle, bu öznitelik doğrudan kullanılmaz. Bileşenler için bir temel sınıf gerekliyse ve temel sınıf için eklenen özellikler de gerekliyse, `InjectAttribute`el ile ekleyin:
 
 ```csharp
 public class ComponentBase : IComponent
@@ -98,7 +98,7 @@ public class ComponentBase : IComponent
 }
 ```
 
-Temel sınıftan türetilmiş bileşenlerde `@inject` yönergesi gerekli değildir. Temel sınıfın `InjectAttribute` ' i yeterlidir:
+Temel sınıftan türetilmiş bileşenlerde `@inject` yönergesi gerekli değildir. Temel sınıfın `InjectAttribute` yeterlidir:
 
 ```cshtml
 @page "/demo"
@@ -133,7 +133,7 @@ Oluşturucu Ekleme önkoşulları:
 
 ASP.NET Core uygulamalarda, kapsamlı hizmetler genellikle geçerli isteğin kapsamlandırılır. İstek tamamlandıktan sonra, tüm kapsamlı veya geçici hizmetler dı sistemi tarafından silinir. Blazor Server uygulamalarında istek kapsamı, istemci bağlantısı süresince sürer ve bu da geçici ve kapsamlı hizmetlerin beklenenden çok daha uzun sürebileceği anlamına gelir.
 
-Hizmetlerin bir bileşenin kullanım ömrüne göre kapsamını atamak için `OwningComponentBase` ve `OwningComponentBase<TService>` temel sınıflarını kullanabilir. Bu temel sınıflar, bileşenin kullanım ömrü kapsamındaki Hizmetleri çözümlemek için `IServiceProvider` türünde `ScopedServices` özelliği sunar. Razor içindeki bir taban sınıftan devralan bir bileşeni yazmak için `@inherits` yönergesini kullanın.
+Hizmetlerin bir bileşenin kullanım ömrüne göre kapsamını atamak için `OwningComponentBase` ve `OwningComponentBase<TService>` temel sınıfları kullanabilir. Bu temel sınıflar, bileşenin kullanım ömrü kapsamındaki Hizmetleri çözümlemek `IServiceProvider` türünde bir `ScopedServices` özelliğini kullanıma sunar. Razor 'teki bir taban sınıftan devralan bir bileşeni yazmak için `@inherits` yönergesini kullanın.
 
 ```cshtml
 @page "/users"

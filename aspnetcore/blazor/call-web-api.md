@@ -5,16 +5,16 @@ description: Çıkış noktaları arası kaynak paylaşımı (CORS) istekleri ya
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/23/2019
+ms.date: 12/03/2019
 no-loc:
 - Blazor
 uid: blazor/call-web-api
-ms.openlocfilehash: ffc9904c5746fbf0fafa10cf054666608942650c
-ms.sourcegitcommit: 0dd224b2b7efca1fda0041b5c3f45080327033f6
+ms.openlocfilehash: d4c69e8be2d4f6295c7177bf5d00aed596d0ead2
+ms.sourcegitcommit: 169ea5116de729c803685725d96450a270bc55b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74680908"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74733862"
 ---
 # <a name="call-a-web-api-from-aspnet-core-opno-locblazor"></a>ASP.NET Core Blazor bir Web API 'SI çağırma
 
@@ -22,20 +22,30 @@ ms.locfileid: "74680908"
 
 [!INCLUDE[](~/includes/blazorwasm-preview-notice.md)]
 
-Blazor WebAssembly Apps, önceden yapılandırılmış bir `HttpClient` hizmetini kullanarak Web API 'Lerini çağırır. Blazor JSON yardımcıları veya <xref:System.Net.Http.HttpRequestMessage>kullanarak JavaScript [getirme API 'si](https://developer.mozilla.org/docs/Web/API/Fetch_API) seçeneklerini içerebilen oluşturma istekleri.
+[Blazor WebAssembly](xref:blazor/hosting-models#blazor-webassembly) Apps, önceden yapılandırılmış bir `HttpClient` hizmetini kullanarak Web API 'lerini çağırır. Blazor JSON yardımcıları veya <xref:System.Net.Http.HttpRequestMessage>kullanarak JavaScript [getirme API 'si](https://developer.mozilla.org/docs/Web/API/Fetch_API) seçeneklerini içerebilen oluşturma istekleri.
 
-Blazor Server Apps, genellikle <xref:System.Net.Http.IHttpClientFactory>kullanılarak oluşturulan <xref:System.Net.Http.HttpClient> örneklerini kullanarak Web API 'Lerini çağırır. Daha fazla bilgi için bkz. <xref:fundamentals/http-requests>.
+[Blazor Server](xref:blazor/hosting-models#blazor-server) Apps, genellikle <xref:System.Net.Http.IHttpClientFactory>kullanılarak oluşturulan <xref:System.Net.Http.HttpClient> örneklerini kullanarak Web API 'lerini çağırır. Daha fazla bilgi için bkz. <xref:fundamentals/http-requests>.
 
-[Örnek kodu görüntüleme veya indirme](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/blazor/common/samples/) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
+[Örnek kodu görüntüleyin veya indirin](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/blazor/common/samples/) ([nasıl Indirilir](xref:index#how-to-download-a-sample)) &ndash; *BlazorWebAssemblySample* uygulamasını seçin.
 
-Blazor WebAssembly örnekleri için örnek uygulamada aşağıdaki bileşenlere bakın:
+*BlazorWebAssemblySample* örnek uygulamasında aşağıdaki bileşenlere bakın:
 
 * Web API çağrısı (*Pages/CallWebAPI. Razor*)
 * HTTP Isteği Sınayıcısı (*Bileşenler/HTTPRequestTester. Razor*)
 
+## <a name="packages"></a>Paketler
+
+*Deneysel* [Microsoft. aspnetcore.Blazorbaşvurun. Proje dosyasındaki HttpClient](https://www.nuget.org/packages/Microsoft.AspNetCore.Blazor.HttpClient/) NuGet paketi. `Microsoft.AspNetCore.Blazor.HttpClient`, `HttpClient` ve [System. Text. JSON](https://www.nuget.org/packages/System.Text.Json/)tabanlıdır.
+
+Kararlı bir API kullanmak için, [Newtonsoft. Json](https://www.nuget.org/packages/Newtonsoft.Json/)/[JSON.net](https://www.newtonsoft.com/json/help/html/Introduction.htm)kullanan [Microsoft. Aspnet. WebApi. Client](https://www.nuget.org/packages/Microsoft.AspNet.WebApi.Client/) paketini kullanın. `Microsoft.AspNet.WebApi.Client` ' de kararlı API kullanmak, bu konu başlığı altında açıklanan, deneysel `Microsoft.AspNetCore.Blazor.HttpClient` paketine özgü olan JSON yardımcıları sağlamaz.
+
 ## <a name="httpclient-and-json-helpers"></a>HttpClient ve JSON yardımcıları
 
-Blazor WebAssembly uygulamalarında, [HttpClient](xref:fundamentals/http-requests) , istekleri kaynak sunucuya geri getirmek için önceden yapılandırılmış bir hizmet olarak sunulmaktadır. `HttpClient` JSON yardımcıları kullanmak için `Microsoft.AspNetCore.Blazor.HttpClient`bir paket başvurusu ekleyin. `HttpClient` ve JSON yardımcıları, üçüncü taraf Web API uç noktalarını çağırmak için de kullanılır. `HttpClient`, tarayıcı [getirme API 'si](https://developer.mozilla.org/docs/Web/API/Fetch_API) kullanılarak uygulanır ve aynı kaynak ilkesini zorlama dahil olmak üzere sınırlamalarına tabidir.
+Blazor WebAssembly uygulamasında, [HttpClient](xref:fundamentals/http-requests) , istekleri kaynak sunucuya geri getirmek için önceden yapılandırılmış bir hizmet olarak kullanılabilir.
+
+Blazor sunucusu uygulaması, varsayılan olarak bir `HttpClient` hizmeti içermez. [HttpClient Factory altyapısını](xref:fundamentals/http-requests)kullanarak uygulamaya `HttpClient` sağlayın.
+
+`HttpClient` ve JSON yardımcıları, üçüncü taraf Web API uç noktalarını çağırmak için de kullanılır. `HttpClient`, tarayıcı [getirme API 'si](https://developer.mozilla.org/docs/Web/API/Fetch_API) kullanılarak uygulanır ve aynı kaynak ilkesini zorlama dahil olmak üzere sınırlamalarına tabidir.
 
 İstemcinin temel adresi, kaynak sunucunun adresine ayarlanır. `@inject` yönergesini kullanarak bir `HttpClient` örneği ekleme:
 
@@ -149,19 +159,13 @@ Aşağıdaki kodda, DELETE `<button>` öğesi `DeleteItem` yöntemini çağırı
 
 Tarayıcı güvenliği, bir Web sayfasının, Web sayfasını sunduğundan farklı bir etki alanına istek yapmasını engeller. Bu kısıtlamaya *aynı-Origin ilkesi*adı verilir. Aynı-kaynak ilkesi, kötü niyetli bir sitenin gizli verileri başka bir siteden okumasını engeller. Tarayıcıdan farklı bir kaynağa sahip bir uç noktaya istek yapmak için *uç noktanın* , [çıkış noktaları arası kaynak PAYLAŞıMı 'nı (CORS)](https://www.w3.org/TR/cors/)etkinleştirmesi gerekir.
 
-Örnek uygulama, Web API bileşeninde CORS 'nin kullanımını gösterir (*Pages/CallWebAPI. Razor*).
+[Blazor WebAssembly örnek uygulaması (BlazorWebAssemblySample)](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/blazor/common/samples/) , Web API bileşeninde CORS 'nin kullanımını gösterir (*Pages/callwebapi. Razor*).
 
 Diğer sitelerin uygulamanıza çıkış noktaları arası kaynak paylaşımı (CORS) istekleri yapmasına izin vermek için bkz. <xref:security/cors>.
 
 ## <a name="httpclient-and-httprequestmessage-with-fetch-api-request-options"></a>API istek seçeneklerini getiren HttpClient ve HttpRequestMessage
 
 Blazor WebAssembly uygulamasında WebAssembly üzerinde çalışırken, istekleri özelleştirmek için [HttpClient](xref:fundamentals/http-requests) ve <xref:System.Net.Http.HttpRequestMessage> kullanın. Örneğin, istek URI 'SI, HTTP yöntemi ve istenen istek üst bilgilerini belirtebilirsiniz.
-
-İstek üzerinde `WebAssemblyHttpMessageHandler.FetchArgs` özelliğini kullanarak temel alınan JavaScript [GETIRME API](https://developer.mozilla.org/docs/Web/API/Fetch_API) 'sine istek seçenekleri sağlayın. Aşağıdaki örnekte gösterildiği gibi, `credentials` özelliği aşağıdaki değerlerden herhangi birine ayarlanır:
-
-* `FetchCredentialsOption.Include` ("include") &ndash;, çapraz kaynak istekleri için bile kimlik bilgilerini (tanımlama bilgileri veya HTTP kimlik doğrulama üstbilgileri gibi) göndermek üzere tarayıcıya yöneliktir. Yalnızca CORS ilkesi kimlik bilgilerine izin verecek şekilde yapılandırıldığında izin verilir.
-* `FetchCredentialsOption.Omit` ("atla") &ndash;, tarayıcıya kimlik bilgileri (örneğin, tanımlama bilgileri veya HTTP kimlik doğrulama üstbilgileri) göndermez.
-* `FetchCredentialsOption.SameOrigin` ("aynı kaynak") &ndash;, yalnızca hedef URL, çağıran uygulamayla aynı kaynak üzerinde olduğunda kimlik bilgilerini (tanımlama bilgileri veya HTTP kimlik doğrulama üstbilgileri gibi) göndermek için tarayıcıya yönelik olur.
 
 ```cshtml
 @using System.Net.Http
@@ -189,11 +193,6 @@ Blazor WebAssembly uygulamasında WebAssembly üzerinde çalışırken, istekler
 
         requestMessage.Content.Headers.TryAddWithoutValidation(
             "x-custom-header", "value");
-        
-        requestMessage.Properties[WebAssemblyHttpMessageHandler.FetchArgs] = new
-        { 
-            credentials = FetchCredentialsOption.Include
-        };
 
         var response = await Http.SendAsync(requestMessage);
         var responseStatusCode = response.StatusCode;

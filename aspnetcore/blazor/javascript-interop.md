@@ -5,16 +5,16 @@ description: Blazor uygulamalarında JavaScript 'ten .NET ve .NET yöntemlerinde
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/23/2019
+ms.date: 12/02/2019
 no-loc:
 - Blazor
 uid: blazor/javascript-interop
-ms.openlocfilehash: 79555ca6c987e2ca57e0cfab9779024498fdd58b
-ms.sourcegitcommit: 0dd224b2b7efca1fda0041b5c3f45080327033f6
+ms.openlocfilehash: 108fdac8667f407adba3470de4eb8e35883cefbf
+ms.sourcegitcommit: 169ea5116de729c803685725d96450a270bc55b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74681037"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74733836"
 ---
 # <a name="aspnet-core-opno-locblazor-javascript-interop"></a>ASP.NET Core Blazor JavaScript birlikte çalışabilirliği
 
@@ -30,7 +30,7 @@ Blazor bir uygulama, JavaScript kodundan .NET ve .NET yöntemlerinden JavaScript
 
 Bir JavaScript işlevini çağırmak için .NET kodunun gerekli olduğu durumlar vardır. Örneğin, JavaScript çağrısı, tarayıcı özelliklerini veya bir JavaScript kitaplığından uygulamaya yönelik işlevselliği sunabilir. Bu senaryoya *JavaScript birlikte çalışabilirliği* (*js birlikte çalışma*) denir.
 
-.NET 'ten JavaScript 'i çağırmak için `IJSRuntime` soyutlamasını kullanın. `InvokeAsync<T>` yöntemi, herhangi bir sayıda JSON seri hale getirilebilir bağımsız değişkenle birlikte çağırmak istediğiniz JavaScript işlevi için bir tanımlayıcı alır. İşlev tanımlayıcısı, genel kapsama (`window`) göredir. `window.someScope.someFunction`çağırmak isterseniz, tanımlayıcı `someScope.someFunction`. Çağrılmadan önce işlevi kaydetmeniz gerekmez. Dönüş türü `T` ayrıca seri hale getirilebilir JSON olmalıdır.
+.NET 'ten JavaScript 'i çağırmak için `IJSRuntime` soyutlamasını kullanın. `InvokeAsync<T>` yöntemi, herhangi bir sayıda JSON seri hale getirilebilir bağımsız değişkenle birlikte çağırmak istediğiniz JavaScript işlevi için bir tanımlayıcı alır. İşlev tanımlayıcısı, genel kapsama (`window`) göredir. `window.someScope.someFunction`çağırmak isterseniz, tanımlayıcı `someScope.someFunction`. Çağrılmadan önce işlevi kaydetmeniz gerekmez. Dönüş türü `T` ayrıca seri hale getirilebilir JSON olmalıdır. `T`, döndürülen JSON türüyle en iyi eşleşen .NET türüyle eşleşmelidir.
 
 Blazor Server uygulamaları için:
 
@@ -180,26 +180,41 @@ window.exampleJsFunctions = {
 }
 ```
 
-`IJSRuntime.InvokeAsync<T>` kullanın ve bir öğeyi odaklanmak için bir `ElementReference` `exampleJsFunctions.focusElement` çağırın:
+Değer döndürmeyen bir JavaScript işlevini çağırmak için `IJSRuntime.InvokeVoidAsync`kullanın. Aşağıdaki kod, yakalanan `ElementReference`önceki JavaScript işlevini çağırarak Kullanıcı adı girişi üzerinde odağı ayarlar:
 
 [!code-cshtml[](javascript-interop/samples_snapshot/component1.razor?highlight=1,3,11-12)]
 
-Bir öğeyi odaklamak için bir genişletme yöntemi kullanmak için, `IJSRuntime` örneğini alan bir statik genişletme yöntemi oluşturun:
+Bir genişletme yöntemi kullanmak için `IJSRuntime` örneğini alan bir statik genişletme yöntemi oluşturun:
 
 ```csharp
-public static Task Focus(this ElementReference elementRef, IJSRuntime jsRuntime)
+public static async Task Focus(this ElementReference elementRef, IJSRuntime jsRuntime)
 {
-    return jsRuntime.InvokeAsync<object>(
+    await jsRuntime.InvokeVoidAsync(
         "exampleJsFunctions.focusElement", elementRef);
 }
 ```
 
-Yöntemi doğrudan nesnesi üzerinde çağrılır. Aşağıdaki örnek, statik `Focus` yönteminin `JsInteropClasses` ad alanından kullanılabildiğini varsayar:
+`Focus` yöntemi doğrudan nesne üzerinde çağrılır. Aşağıdaki örnek, `Focus` yönteminin `JsInteropClasses` ad alanından kullanılabildiğini varsayar:
 
-[!code-cshtml[](javascript-interop/samples_snapshot/component2.razor?highlight=1,4,12)]
+[!code-cshtml[](javascript-interop/samples_snapshot/component2.razor?highlight=1-4,12)]
 
 > [!IMPORTANT]
 > `username` değişkeni yalnızca bileşen işlendikten sonra doldurulur. Doldurulmamış bir `ElementReference` JavaScript koduna geçirilirse, JavaScript kodu bir `null`değeri alır. Bileşen işlemeyi tamamladıktan sonra öğe başvurularını değiştirmek için (bir öğe üzerinde ilk odağı ayarlamak için) [Onafterrenderasync veya OnAfterRender bileşen yaşam döngüsü yöntemlerini](xref:blazor/lifecycle#after-component-render)kullanın.
+
+Genel türlerle çalışırken ve bir değer döndürürken, [Valuetask\<t >](xref:System.Threading.Tasks.ValueTask`1)kullanın:
+
+```csharp
+public static ValueTask<T> GenericMethod<T>(this ElementReference elementRef, 
+    IJSRuntime jsRuntime)
+{
+    return jsRuntime.InvokeAsync<T>(
+        "exampleJsFunctions.doSomethingGeneric", elementRef);
+}
+```
+
+`GenericMethod` doğrudan nesne üzerinde bir tür ile çağırılır. Aşağıdaki örnek, `GenericMethod` `JsInteropClasses` ad alanından kullanılabilir olduğunu varsayar:
+
+[!code-cshtml[](javascript-interop/samples_snapshot/component3.razor?highlight=17)]
 
 ## <a name="invoke-net-methods-from-javascript-functions"></a>JavaScript işlevlerinden .NET yöntemlerini çağır
 
@@ -296,3 +311,7 @@ JS birlikte çalışması, ağ hataları nedeniyle başarısız olabilir ve güv
   ```
 
 Kaynak tükenmesi hakkında daha fazla bilgi için bkz. <xref:security/blazor/server>.
+
+## <a name="additional-resources"></a>Ek kaynaklar
+
+* [InteropComponent. Razor örneği (ASPNET/AspNetCore GitHub deposu, 3,0 yayın dalı)](https://github.com/aspnet/AspNetCore/blob/release/3.0/src/Components/test/testassets/BasicTestApp/InteropComponent.razor)
