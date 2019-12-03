@@ -5,12 +5,12 @@ description: ASP.NET Core farklı diller ve kültürlere içerik yerelleştirilm
 ms.author: riande
 ms.date: 11/30/2019
 uid: fundamentals/localization
-ms.openlocfilehash: 391786498dc7088f3a06915128f23b2c0e734656
-ms.sourcegitcommit: 0dd224b2b7efca1fda0041b5c3f45080327033f6
+ms.openlocfilehash: 645f680436336acbe1d5c2854a242527c9b4b9cb
+ms.sourcegitcommit: 3b6b0a54b20dc99b0c8c5978400c60adf431072f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74681116"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74717409"
 ---
 # <a name="globalization-and-localization-in-aspnet-core"></a>ASP.NET Core Genelleştirme ve yerelleştirme
 
@@ -372,6 +372,10 @@ Yerelleştirme sağlayıcıları eklemek veya kaldırmak için `RequestLocalizat
 [!code-csharp[](localization/sample/Localization/Controllers/HomeController.cs?range=57-67)]
 
 Bu proje için örnek koda *_SelectLanguagePartial. cshtml* 'yi ekleyemezsiniz. [GitHub](https://github.com/aspnet/entropy) 'daki **Yerelleştirme. starterweb** projesi, [bağımlılığı ekleme](dependency-injection.md) kapsayıcısı aracılığıyla `RequestLocalizationOptions` Razor kısmi 'e Flow koduna sahiptir.
+
+## <a name="model-binding-route-data-and-query-strings"></a>Model bağlama yolu verileri ve sorgu dizeleri
+
+[Model bağlama yolu verilerinin ve sorgu dizelerinin Genelleştirme davranışını](xref:mvc/models/model-binding#glob)inceleyin.
 
 ## <a name="globalization-and-localization-terms"></a>Genelleştirme ve yerelleştirme koşulları
 

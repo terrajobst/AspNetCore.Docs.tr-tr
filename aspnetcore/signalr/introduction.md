@@ -5,16 +5,16 @@ description: ASP.NET Core SignalR kitaplığının uygulamalara gerçek zamanlı
 monikerRange: '>= aspnetcore-2.1'
 ms.author: bradyg
 ms.custom: mvc
-ms.date: 11/12/2019
+ms.date: 11/27/2019
 no-loc:
 - SignalR
 uid: signalr/introduction
-ms.openlocfilehash: 7108d9f223db78937dd1203a1cb4b890006b20ec
-ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
+ms.openlocfilehash: e84dd0d086cbfc80a80bc10baa33979da9b5d137
+ms.sourcegitcommit: 3b6b0a54b20dc99b0c8c5978400c60adf431072f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73963947"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74717240"
 ---
 # <a name="introduction-to-aspnet-core-opno-locsignalr"></a>ASP.NET Core SignalR giriş
 
@@ -42,7 +42,7 @@ Kaynak, [GitHub 'daki birSignalR deposunda](https://github.com/aspnet/AspNetCore
 
 ## <a name="transports"></a>Taşımalar
 
-SignalR gerçek zamanlı iletişimleri işlemeye yönelik çeşitli teknikleri destekler:
+SignalR gerçek zamanlı iletişimi (düzgün geri dönüş sırasıyla) işlemek için aşağıdaki teknikleri destekler:
 
 * [WebSockets](https://tools.ietf.org/html/rfc7118)
 * Sunucu tarafından gönderilen olaylar

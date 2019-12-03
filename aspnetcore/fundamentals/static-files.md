@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/07/2019
 uid: fundamentals/static-files
-ms.openlocfilehash: b989b90100318ac874dc399daf65ef7d21c5549f
-ms.sourcegitcommit: 67116718dc33a7a01696d41af38590fdbb58e014
+ms.openlocfilehash: 00bab51cb411552c884f85fa63d42d0691b401b1
+ms.sourcegitcommit: 3b6b0a54b20dc99b0c8c5978400c60adf431072f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73799475"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74717279"
 ---
 # <a name="static-files-in-aspnet-core"></a>ASP.NET Core statik dosyalar
 
@@ -50,7 +50,7 @@ Statik dosyalara, [Web köküne](xref:fundamentals/index#web-root)göre bir yol 
   * **yansımasını**
   * **JS**
 
-*Images* alt klasöründeki bir dosyaya erışmek için URI biçimi, *http://\<server_address >/images/\<image_file_name >* . Örneğin, *http://localhost:9189/images/banner3.svg* .
+*Görüntüler* alt klasöründeki bir dosyaya erışmek için URI biçimi, *http://\<server_address >/images/\<image_file_name >* . Örneğin, *http://localhost:9189/images/banner3.svg* .
 
 ::: moniker range=">= aspnetcore-2.1"
 
@@ -137,7 +137,7 @@ Dizin tarama, Web uygulamanızın kullanıcılarına belirtilen bir dizin içind
 
 [!code-csharp[](static-files/samples/1x/StartupBrowse.cs?name=snippet_ConfigureServicesMethod&highlight=3)]
 
-Yukarıdaki kod, her dosya ve klasörün bağlantılarıyla birlikte *http://\<server_address >/myImages*URL 'sini kullanarak *Wwwroot/görüntüler* klasöründe Dizin taramasına izin verir:
+Yukarıdaki kod, her bir dosya ve klasörün bağlantılarıyla birlikte *http://\<server_address >/myImages*URL 'sini kullanarak *Wwwroot/görüntüler* klasöründe Dizin taramasına izin verir:
 
 ![Dizin tarama](static-files/_static/dir-browse.png)
 
@@ -206,12 +206,12 @@ Aşağıdaki kod, `MyStaticFiles`statik dosyaları, varsayılan dosyaları ve di
 
 Dosya hiyerarşisini ve önceki kodu kullanarak, URL 'Ler aşağıdaki şekilde çözümlenir:
 
-| URI            |                             Yanıtıyla  |
+| {1&gt;URI&lt;1}            |                             Yanıtıyla  |
 | ------- | ------|
 | *http://\<server_address >/StaticFiles/images/banner1.svg*    |      MyStaticFiles/Images/banner1. SVG |
 | *http://\<server_address >/StaticFiles*             |     MyStaticFiles/default.html |
 
-*Mystaticfiles* dizininde varsayılan adlı dosya yoksa, *http://\<server_address >/staticfiles* , tıklatılabilir bağlantılarla dizin listesini döndürür:
+*Mystaticfiles* dizininde varsayılan adlı dosya yoksa, *http://\<server_address >/staticfiles* , tıklanabilir bağlantılarla dizin listesini döndürür:
 
 ![Statik dosyalar listesi](static-files/_static/db2.png)
 
@@ -238,6 +238,10 @@ Yukarıdaki kodla, bilinmeyen içerik türüne sahip bir dosya isteği görünt�
 
 > [!WARNING]
 > [ServeUnknownFileTypes](/dotnet/api/microsoft.aspnetcore.builder.staticfileoptions.serveunknownfiletypes#Microsoft_AspNetCore_Builder_StaticFileOptions_ServeUnknownFileTypes) etkinleştirme bir güvenlik riskidir. Varsayılan olarak devre dışıdır ve kullanımı önerilmez. [Fileextensioncontenttypeprovider](#fileextensioncontenttypeprovider) standart olmayan uzantılara sahip dosyalara hizmet vermeye yönelik daha güvenli bir alternatif sağlar.
+
+## <a name="serve-files-from-multiple-locations"></a>Birden çok konumdan dosyaları sunma
+
+`UseStaticFiles` ve `UseFileServer`, *Wwwroot*' a işaret eden dosya sağlayıcısına varsayılan olarak sahiptir. Diğer konumlardan dosya sunmak için diğer dosya sağlayıcılarıyla `UseStaticFiles` ve `UseFileServer` ek örnekleri sağlayabilirsiniz. Daha fazla bilgi için [Bu GitHub sorununa](https://github.com/aspnet/AspNetCore.Docs/issues/15578)bakın.
 
 ### <a name="considerations"></a>Dikkat Edilecekler
 

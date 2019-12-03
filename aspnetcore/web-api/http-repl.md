@@ -5,14 +5,14 @@ description: HTTP REPL .NET Core küresel aracının bir ASP.NET Core Web API 's
 monikerRange: '>= aspnetcore-2.1'
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 10/07/2019
+ms.date: 12/02/2019
 uid: web-api/http-repl
-ms.openlocfilehash: bb3757f51487a307ebfb97452b80995f84e95e4b
-ms.sourcegitcommit: 73a451e9a58ac7102f90b608d661d8c23dd9bbaf
+ms.openlocfilehash: c6e3ab5685b5bd0b154d20585fb0d187f81da641
+ms.sourcegitcommit: 3b6b0a54b20dc99b0c8c5978400c60adf431072f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72037715"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74717171"
 ---
 # <a name="test-web-apis-with-the-http-repl"></a>HTTP REPL ile Web API 'Lerini test etme
 
@@ -27,16 +27,16 @@ HTTP okuma-değerlendirme-yazdırma döngüsü (REPL):
 Aşağıdaki [http fiilleri](https://github.com/microsoft/api-guidelines/blob/vNext/Guidelines.md#74-supported-methods) desteklenir:
 
 * [SILMELI](#test-http-delete-requests)
-* [GET](#test-http-get-requests)
+* [Al](#test-http-get-requests)
 * [BAŞLı](#test-http-head-requests)
 * [Seçenekler](#test-http-options-requests)
 * [DÜZELTMESI](#test-http-patch-requests)
-* [POST](#test-http-post-requests)
+* [Yayınla](#test-http-post-requests)
 * [KONUR](#test-http-put-requests)
 
 Takip etmek için, [örnek ASP.NET Core Web API](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/web-api/http-repl/samples) 'sini ([indirme](xref:index#how-to-download-a-sample)) görüntüleyin veya indirin.
 
-## <a name="prerequisites"></a>Önkoşullar
+## <a name="prerequisites"></a>Prerequisites
 
 * [!INCLUDE [2.1-SDK](~/includes/2.1-SDK.md)]
 
@@ -225,7 +225,7 @@ https://localhost:5001/people~
 
 HTTP REPL 'un varsayılan [renkleri](#set-color-preferences) özelleştirilebilir. Ayrıca, [varsayılan bir metin Düzenleyicisi](#set-the-default-text-editor) tanımlanabilir. HTTP REPL tercihleri geçerli oturum genelinde kalıcı hale getirilir ve gelecekteki oturumlarda kabul edilir. Değiştirildikten sonra, Tercihler aşağıdaki dosyada depolanır:
 
-# <a name="linuxtablinux"></a>[Linux](#tab/linux)
+# <a name="linuxtablinux"></a>['Un](#tab/linux)
 
 *% GIRIŞ%/. httpreplprefs*
 
@@ -270,7 +270,7 @@ Yanıt renklendirme Şu anda yalnızca JSON için destekleniyor. Varsayılan HTT
 https://localhost:5001/people~ pref set colors.json White
 ```
 
-Yalnızca [izin verilen renkler](https://github.com/aspnet/HttpRepl/blob/01d5c3c3373e98fe566ff5ef8a17c571de880293/src/Microsoft.Repl/ConsoleHandling/AllowedColors.cs) kullanılabilir. Sonraki HTTP istekleri, yeni renklendirmesi ile çıktıyı görüntüler.
+Yalnızca [izin verilen renkler](https://github.com/dotnet/HttpRepl/blob/01d5c3c3373e98fe566ff5ef8a17c571de880293/src/Microsoft.Repl/ConsoleHandling/AllowedColors.cs) kullanılabilir. Sonraki HTTP istekleri, yeni renklendirmesi ile çıktıyı görüntüler.
 
 Belirli renk anahtarları ayarlanmamışsa, daha genel anahtarlar kabul edilir. Bu geri dönüş davranışını göstermek için aşağıdaki örneği göz önünde bulundurun:
 
@@ -335,7 +335,7 @@ pref set editor.command.default "<EXECUTABLE>"
 
 Yukarıdaki komutta, `<EXECUTABLE>` metin düzenleyicisinin yürütülebilir dosyasının tam yoludur. Örneğin, Visual Studio Code varsayılan metin düzenleyicisi olarak ayarlamak için aşağıdaki komutu çalıştırın:
 
-# <a name="linuxtablinux"></a>[Linux](#tab/linux)
+# <a name="linuxtablinux"></a>['Un](#tab/linux)
 
 ```console
 pref set editor.command.default "/usr/bin/code"
@@ -950,7 +950,7 @@ https://localhost:5001/people~ echo off
 Request echoing is off
 ```
 
-## <a name="run-a-script"></a>Betik çalıştırma
+## <a name="run-a-script"></a>Betik çalıştır
 
 Aynı HTTP REPL komutları kümesini sıklıkla yürütüyorsanız bunları bir metin dosyasında depolamayı göz önünde bulundurun. Dosyadaki komutlar, komut satırında el ile çalıştıranlarla aynı formu alır. Komutlar, `run` komutu kullanılarak toplanmış bir biçimde yürütülebilir. Örneğin:
 
@@ -1037,4 +1037,4 @@ https://localhost:5001/~
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [REST API istekleri](https://github.com/microsoft/api-guidelines/blob/vNext/Guidelines.md#74-supported-methods)
-* [HTTP REPL GitHub deposu](https://github.com/aspnet/HttpRepl)
+* [HTTP REPL GitHub deposu](https://github.com/dotnet/HttpRepl)

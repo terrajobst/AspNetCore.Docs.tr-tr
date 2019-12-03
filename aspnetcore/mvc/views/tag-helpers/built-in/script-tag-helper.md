@@ -4,14 +4,14 @@ author: rick-anderson
 ms.author: riande
 description: ASP.NET Core betik etiketi yardımcı özniteliklerini ve her bir özniteliğin, HTML komut dosyası etiketinin genişletme davranışında oynadığı rolü bulur.
 ms.custom: mvc
-ms.date: 12/18/2018
+ms.date: 12/02/2019
 uid: mvc/views/tag-helpers/builtin-th/script-tag-helper
-ms.openlocfilehash: c3d9148bd62dcc045873cc3a72884ae458349d70
-ms.sourcegitcommit: 3e503ef510008e77be6dd82ee79213c9f7b97607
+ms.openlocfilehash: 8a90eb5a74ff3f8178a47c59ad7ba1b6a389ab87
+ms.sourcegitcommit: 3b6b0a54b20dc99b0c8c5978400c60adf431072f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74317115"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74717383"
 ---
 # <a name="script-tag-helper-in-aspnet-core"></a>ASP.NET Core 'de betik etiketi Yardımcısı
 
@@ -33,6 +33,8 @@ Aşağıdaki Razor biçimlendirmesinde geri dönüş içeren bir `script` öğes
         integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT">
 </script>
 ```
+
+CDN betiğini yüklemeyi ertelemek için `<script>` öğenin [erteleme](https://developer.mozilla.org/docs/Web/HTML/Element/script) özniteliğini kullanmayın. Komut dosyası etiketi Yardımcısı, [ASP-Fallback-test](#asp-fallback-test) ifadesini hemen yürüten JavaScript 'i işler. CDN betiği yükleme ertelenir ise ifade başarısız olur.
 
 ## <a name="commonly-used-script-tag-helper-attributes"></a>Yaygın olarak kullanılan betik etiketi Yardımcısı öznitelikleri
 

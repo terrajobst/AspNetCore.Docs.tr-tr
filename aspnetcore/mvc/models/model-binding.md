@@ -6,12 +6,12 @@ ms.assetid: 0be164aa-1d72-4192-bd6b-192c9c301164
 ms.author: riande
 ms.date: 11/21/2019
 uid: mvc/models/model-binding
-ms.openlocfilehash: 823d92c279454fc6c744eebbecf4268412774eba
-ms.sourcegitcommit: a104ba258ae7c0b3ee7c6fa7eaea1ddeb8b6eb73
+ms.openlocfilehash: a49fec38a6d38bbd33e9461cbcceb39bfe810f5c
+ms.sourcegitcommit: 3b6b0a54b20dc99b0c8c5978400c60adf431072f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74478715"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74717292"
 ---
 # <a name="model-binding-in-aspnet-core"></a>ASP.NET Core 'de model bağlama
 
@@ -380,6 +380,27 @@ Basit türlerin koleksiyonları olan hedefler için model bağlama, *parameter_n
 
   * Selectedkurslar ["1050"] = "Chemistry"
   * Selectedkurslar ["2000"] = "Ekonomiks"
+
+<a name="glob"></a>
+
+## <a name="globalization-behavior-of-model-binding-route-data-and-query-strings"></a>Model bağlama yolu verileri ve sorgu dizeleri için Genelleştirme davranışı
+
+ASP.NET Core yol değeri sağlayıcısı ve sorgu dizesi değer sağlayıcısı:
+
+* Değerleri sabit kültür olarak değerlendirin.
+* URL 'Lerin kültür sabiti olmasını bekler.
+
+Buna karşılık, form verilerinden gelen değerler kültüre duyarlı bir dönüştürmeye gider. Bu, URL 'Lerin yerel ayarlarda paylaşılabilir olması için tasarımdır.
+
+ASP.NET Core yol değeri sağlayıcısını ve sorgu dizesi değeri sağlayıcısını, kültüre duyarlı bir dönüşüme dönüştürmek için:
+
+* <xref:Microsoft.AspNetCore.Mvc.ModelBinding.IValueProviderFactory> 'den devralma
+* [QueryStringValueProviderFactory](https://github.com/aspnet/AspNetCore/blob/master/src/Mvc/Mvc.Core/src/ModelBinding/QueryStringValueProviderFactory.cs) veya [RouteValueValueProviderFactory](https://github.com/aspnet/AspNetCore/blob/master/src/Mvc/Mvc.Core/src/ModelBinding/RouteValueProviderFactory.cs) adresinden kodu kopyalayın
+* Değer sağlayıcısı oluşturucusuna geçirilen [kültür değerini](https://github.com/aspnet/AspNetCore/blob/e625fe29b049c60242e8048b4ea743cca65aa7b5/src/Mvc/Mvc.Core/src/ModelBinding/QueryStringValueProviderFactory.cs#L30) [CultureInfo. CurrentCulture](xref:System.Globalization.CultureInfo.CurrentCulture) ile değiştirin
+* MVC seçeneklerinde varsayılan değer sağlayıcı fabrikasını yeni bir değerle değiştirin:
+
+[!code-csharp[](model-binding/samples/StartupMB.cs?name=snippet)]
+[!code-csharp[](model-binding/samples/StartupMB.cs?name=snippet1)]
 
 ## <a name="special-data-types"></a>Özel veri türleri
 
