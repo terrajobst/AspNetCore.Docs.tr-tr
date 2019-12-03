@@ -5,17 +5,17 @@ description: Blazor WebAssembly ve Blazor sunucusu barındırma modellerini anla
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/21/2019
+ms.date: 11/23/2019
 no-loc:
 - Blazor
 - SignalR
 uid: blazor/hosting-models
-ms.openlocfilehash: a017737eacd93ac776afe7ee8024eed602d7edcc
-ms.sourcegitcommit: 3e503ef510008e77be6dd82ee79213c9f7b97607
+ms.openlocfilehash: 38db9804c9cdd1aa31ca48af2dd9ec2e85175156
+ms.sourcegitcommit: 0dd224b2b7efca1fda0041b5c3f45080327033f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74317220"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74681051"
 ---
 # <a name="aspnet-core-opno-locblazor-hosting-models"></a>Blazor barındırma modellerini ASP.NET Core
 
@@ -222,7 +222,7 @@ sunucu bağlantısı kurumadan önce sunucu üzerindeki kullanıcı arabirimine 
 
 Statik HTML sayfasından sunucu bileşenleri işleme desteklenmiyor.
 
-`RenderMode` `ServerPrerendered`, bileşen başlangıçta sayfanın bir parçası olarak statik olarak işlenir. Tarayıcı sunucuya geri bir bağlantı kurduğunda, bileşen *yeniden*işlenir ve bileşen artık etkileşimli olur. Bileşeni başlatmak için bir [yaşam döngüsü yöntemi](xref:blazor/components#lifecycle-methods) varsa (`OnInitialized{Async}`), yöntemi *iki kez*yürütülür:
+`RenderMode` `ServerPrerendered`, bileşen başlangıçta sayfanın bir parçası olarak statik olarak işlenir. Tarayıcı sunucuya geri bir bağlantı kurduğunda, bileşen *yeniden*işlenir ve bileşen artık etkileşimli olur. Bileşeni başlatmak için [Onbaşlatılmış {Async}](xref:blazor/lifecycle#component-initialization-methods) yaşam döngüsü yöntemi varsa, yöntem *iki kez*yürütülür:
 
 * Bileşen statik olarak önceden kullanılırken.
 * Sunucu bağlantısı kurulduktan sonra.

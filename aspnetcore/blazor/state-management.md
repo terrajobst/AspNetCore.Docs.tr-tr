@@ -5,16 +5,16 @@ description: Blazor Server uygulamalarında durumu kalıcı hale getirme hakkın
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/15/2019
+ms.date: 11/23/2019
 no-loc:
 - Blazor
 uid: blazor/state-management
-ms.openlocfilehash: 38ee5fccdf476f08c9f39d01b53c81b48eea04bf
-ms.sourcegitcommit: 3e503ef510008e77be6dd82ee79213c9f7b97607
+ms.openlocfilehash: facd6c2747bb0b31404c3c4fce25b76cd141932e
+ms.sourcegitcommit: 0dd224b2b7efca1fda0041b5c3f45080327033f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74317178"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74680986"
 ---
 # <a name="aspnet-core-opno-locblazor-state-management"></a>ASP.NET Core Blazor durum yönetimi
 
@@ -85,7 +85,7 @@ Veriler veritabanına kaydedildikten sonra, bir kullanıcı tarafından herhangi
 
 Azure veri depolama seçenekleri hakkında daha fazla bilgi için bkz. [Azure depolama belgeleri](/azure/storage/) ve [Azure veritabanları](https://azure.microsoft.com/product-categories/databases/).
 
-### <a name="url"></a>URL
+### <a name="url"></a>{1&gt;URL&lt;1}
 
 Gezinti durumunu temsil eden geçici veriler için, verileri URL 'nin bir parçası olarak modelleyin. URL 'de modellenen durum örnekleri şunları içerir:
 
@@ -194,7 +194,7 @@ protected override async Task OnInitializedAsync()
 }
 ```
 
-Bileşenin parametreleri gezinti durumu içeriyorsa, `ProtectedSessionStore.GetAsync` çağırın ve sonucu `OnInitializedAsync`değil `OnParametersSetAsync`atayın. `OnInitializedAsync`, bileşen ilk kez oluşturulduğunda yalnızca bir kez çağırılır. `OnInitializedAsync`, Kullanıcı aynı sayfada kaldığında farklı bir URL 'ye gittiğinde daha sonra yeniden çağrılmaz.
+Bileşenin parametreleri gezinti durumu içeriyorsa, `ProtectedSessionStore.GetAsync` çağırın ve sonucu `OnInitializedAsync`değil `OnParametersSetAsync`atayın. `OnInitializedAsync`, bileşen ilk kez oluşturulduğunda yalnızca bir kez çağırılır. `OnInitializedAsync`, Kullanıcı aynı sayfada kaldığında farklı bir URL 'ye gittiğinde daha sonra yeniden çağrılmaz. Daha fazla bilgi için bkz. <xref:blazor/lifecycle>.
 
 > [!WARNING]
 > Bu bölümdeki örnekler yalnızca sunucuda prerendering etkinleştirilmemişse çalışır. Prerendering etkinken şuna benzer bir hata oluşturulur:

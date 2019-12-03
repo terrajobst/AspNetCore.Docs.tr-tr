@@ -1,44 +1,69 @@
 ---
-title: Ekleme, indirmek ve bir ASP.NET Core projesi kimliği için kullanıcı verilerini silme
+title: ASP.NET Core projesindeki Kullanıcı verilerini kimliğe ekleme, indirme ve silme
 author: rick-anderson
-description: Bir ASP.NET Core projesi içinde kimlik için özel kullanıcı veri eklemeyi öğrenin. GDPR başına verileri silin.
+description: ASP.NET Core projesindeki kimliğe özel kullanıcı verileri eklemeyi öğrenin. GDPR başına verileri silme.
 ms.author: riande
 ms.date: 06/18/2019
 ms.custom: mvc, seodec18
 uid: security/authentication/add-user-data
-ms.openlocfilehash: f5a47ffd2e068414268ed9037d4376bfd21ba1bb
-ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
+ms.openlocfilehash: 6daca5776930f80eec8d81132b5a5c4d4d5c13ad
+ms.sourcegitcommit: 0dd224b2b7efca1fda0041b5c3f45080327033f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71080805"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74681168"
 ---
-# <a name="add-download-and-delete-custom-user-data-to-identity-in-an-aspnet-core-project"></a>Ekleme, indirmek ve kimlik için bir ASP.NET Core projesi özel kullanıcı verilerini silme
+# <a name="add-download-and-delete-custom-user-data-to-identity-in-an-aspnet-core-project"></a>ASP.NET Core projesindeki özel kullanıcı verilerini kimliğe ekleme, indirme ve silme
 
-Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
+[Rick Anderson](https://twitter.com/RickAndMSFT) tarafından
 
-Bu makale nasıl yapılır:
+Bu makalede nasıl yapılacağı gösterilmektedir:
 
-* ASP.NET Core web uygulaması için özel kullanıcı verilerini ekleyin.
-* Özel Kullanıcı veri modelini <xref:Microsoft.AspNetCore.Identity.PersonalDataAttribute> özniteliği ile süsleyin, bu nedenle otomatik olarak indirilebilir ve silinmek üzere kullanılabilir. Verileri silinir ve indirilen mümkün hale yardımcı karşılamak [GDPR](xref:security/gdpr) gereksinimleri.
+* ASP.NET Core Web uygulamasına özel kullanıcı verileri ekleyin.
+* Özel Kullanıcı veri modelini <xref:Microsoft.AspNetCore.Identity.PersonalDataAttribute> özniteliğiyle süsleyin, bu nedenle otomatik olarak indirilebilir ve silinmek üzere kullanılabilir. Verilerin indirilip silinebilmesini sağlamak, [GDPR](xref:security/gdpr) gereksinimlerini karşılamaya yardımcı olur.
 
-Bir Razor sayfaları web uygulaması proje örneği oluşturulur, ancak yönergeleri ASP.NET Core MVC web uygulaması için benzerdir.
+Proje örneği bir Razor Pages Web uygulamasından oluşturulur, ancak yönergeler bir ASP.NET Core MVC web uygulaması için benzerdir.
 
-[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/authentication/add-user-data) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
+[Örnek kodu görüntüleme veya indirme](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/authentication/add-user-data) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
 
-## <a name="prerequisites"></a>Önkoşullar
+## <a name="prerequisites"></a>Prerequisites
+
+::: moniker range=">= aspnetcore-3.0"
+
+[!INCLUDE [](~/includes/3.0-SDK.md)]
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
 
 [!INCLUDE [](~/includes/2.2-SDK.md)]
 
-## <a name="create-a-razor-web-app"></a>Razor web uygulaması oluşturma
+::: moniker-end
+
+## <a name="create-a-razor-web-app"></a>Razor Web uygulaması oluşturma
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-* Visual Studio'dan **dosya** menüsünde **yeni** > **proje**. Projeyi adlandırın **WebApp1** için istiyorsanız ad alanı eşleşen [örneği indirin](https://github.com/aspnet/AspNetCore.Docs/tree/live/aspnetcore/security/authentication/add-user-data) kod.
-* Seçin **ASP.NET Core Web uygulaması** > **Tamam**
+::: moniker range=">= aspnetcore-3.0"
+
+* Visual Studio **Dosya** menüsünden **Yeni** > **projesi**' ni seçin. [İndirme örnek](https://github.com/aspnet/AspNetCore.Docs/tree/live/aspnetcore/security/authentication/add-user-data) kodunun ad alanıyla eşleştirmek Istiyorsanız projeyi **WebApp1** olarak adlandırın.
+* **ASP.NET Core Web uygulaması** > **Tamam 'ı** seçin
+* Açılan listede **ASP.NET Core 3,0** ' i seçin
+* **Web uygulaması** > **Tamam 'ı** seçin
+* Projeyi derleyin ve çalıştırın.
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
+
+* Visual Studio **Dosya** menüsünden **Yeni** > **projesi**' ni seçin. [İndirme örnek](https://github.com/aspnet/AspNetCore.Docs/tree/live/aspnetcore/security/authentication/add-user-data) kodunun ad alanıyla eşleştirmek Istiyorsanız projeyi **WebApp1** olarak adlandırın.
+* **ASP.NET Core Web uygulaması** > **Tamam 'ı** seçin
 * Açılan listede **ASP.NET Core 2,2** ' i seçin
-* Seçin **Web uygulaması**  > **Tamam**
-* Derleme ve projeyi çalıştırın.
+* **Web uygulaması** > **Tamam 'ı** seçin
+* Projeyi derleyin ve çalıştırın.
+
+::: moniker-end
+
 
 # <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
 
@@ -48,43 +73,43 @@ dotnet new webapp -o WebApp1
 
 ---
 
-## <a name="run-the-identity-scaffolder"></a>Kimlik iskele kurucu çalıştırın
+## <a name="run-the-identity-scaffolder"></a>Identity desteği 'ı çalıştırın
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-* Gelen **Çözüm Gezgini**, projeye sağ tıklayın > **Ekle** > **yeni iskele kurulmuş öğe**.
-* Sol bölmeden **İskele Ekle** iletişim kutusunda **kimlik** > **ekleme**.
-* İçinde **ADD kimliğini** iletişim kutusunda, aşağıdaki seçenekleri:
-  * Varolan bir düzen dosyası seçin *~/Pages/Shared/_Layout.cshtml*
-  * Aşağıdaki dosyalar geçersiz kılmak için seçin:
-    * **Hesabı/kaydı**
-    * **Hesabı/yönetmek/dizin**
-  * Seçin **+** yeni bir düğme **veri bağlamı sınıfının**. Tür kabul et (**WebApp1.Models.WebApp1Context** proje adlandırılmışsa **WebApp1**).
-  * Seçin **+** yeni bir düğme **kullanıcı sınıfı**. Tür kabul et (**WebApp1User** proje adlandırılmışsa **WebApp1**) > **Ekle**.
-* Seçin **ekleme**.
+* **Çözüm Gezgini**, projeye sağ tıklayıp **Yeni > Iskli öğe** **ekleyin** >.
+* **Yapı Iskelesi Ekle** iletişim kutusunun sol bölmesinde **kimlik** > **Ekle**' yi seçin.
+* **Kimlik Ekle** iletişim kutusunda aşağıdaki seçenekler:
+  * Var olan düzen dosyasını seçin *~/Pages/Shared/_Layout. cshtml*
+  * Geçersiz kılmak için aşağıdaki dosyaları seçin:
+    * **Hesap/kayıt**
+    * **Hesap/yönet/Dizin**
+  * Yeni bir **veri bağlamı sınıfı**oluşturmak için **+** düğmesini seçin. Proje **WebApp1**olarak adlandırılmışsa türü (**WebApp1. modeller. WebApp1Context** ) kabul edin.
+  * Yeni bir **Kullanıcı sınıfı**oluşturmak için **+** düğmesini seçin. **Ekle**> ( **projenin adı** **WebApp1User** ) öğesini kabul edin.
+* **Ekle**' yi seçin.
 
 # <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
 
-ASP.NET Core iskele kurucu daha önce yüklemediyseniz şimdi yükleyin:
+ASP.NET Core scaffolder ' ı daha önce yüklemediyseniz, şimdi yükleyebilirsiniz:
 
 ```dotnetcli
 dotnet tool install -g dotnet-aspnet-codegenerator
 ```
 
-Paket başvurusu ekleme [Microsoft.VisualStudio.Web.CodeGeneration.Design](https://www.nuget.org/packages/Microsoft.VisualStudio.Web.CodeGeneration.Design/) proje (.csproj) dosyasına. Proje dizininde aşağıdaki komutu çalıştırın:
+Proje (. csproj) dosyasına [Microsoft. VisualStudio. Web. CodeGeneration. Design](https://www.nuget.org/packages/Microsoft.VisualStudio.Web.CodeGeneration.Design/) öğesine bir paket başvurusu ekleyin. Proje dizininde aşağıdaki komutu çalıştırın:
 
 ```dotnetcli
 dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design
 dotnet restore
 ```
 
-Kimlik destek seçeneklerini listelemek için aşağıdaki komutu çalıştırın:
+Identity desteği seçeneklerini listelemek için aşağıdaki komutu çalıştırın:
 
 ```dotnetcli
 dotnet aspnet-codegenerator identity -h
 ```
 
-Proje klasöründe kimlik iskele kurucu çalıştırın:
+Proje klasöründe, kimlik scaffolder ' ı çalıştırın:
 
 ```dotnetcli
 dotnet aspnet-codegenerator identity -u WebApp1User -fi Account.Register;Account.Manage.Index
@@ -92,56 +117,95 @@ dotnet aspnet-codegenerator identity -u WebApp1User -fi Account.Register;Account
 
 ---
 
-Verilen yönergeleri izleyin [düzeni geçişleri ve UseAuthentication](xref:security/authentication/scaffold-identity#efm) aşağıdaki adımları gerçekleştirmek için:
+Aşağıdaki adımları gerçekleştirmek için [geçişler, UseAuthentication ve düzen](xref:security/authentication/scaffold-identity#efm) bölümündeki yönergeleri izleyin:
 
-* Bir geçiş oluşturmak ve veritabanı güncelleştirin.
+* Bir geçiş oluşturun ve veritabanını güncelleştirin.
 * Add `UseAuthentication` to `Startup.Configure`.
-* Ekleme `<partial name="_LoginPartial" />` Düzen dosyası için.
-* Uygulamayı test edin:
-  * Bir kullanıcı kaydı
-  * Yeni kullanıcı adını seçin (yanındaki **oturum kapatma** bağlantı). Penceresini genişletin veya kullanıcı adı ve diğer bağlantıları göstermek için gezinti çubuğu simgesini gerekebilir.
-  * Seçin **kişisel verileri** sekmesi.
-  * Seçin **indirme** düğmesine tıklayın ve denetlenen *PersonalData.json* dosya.
-  * Test **Sil** düğmesi, oturum açmış kullanıcıyı siler.
+* Düzen dosyasına `<partial name="_LoginPartial" />` ekleyin.
+* Uygulamayı test etme:
+  * Kullanıcı kaydetme
+  * Yeni Kullanıcı adını ( **oturum kapatma** bağlantısının yanında) seçin. Kullanıcı adını ve diğer bağlantıları göstermek için pencereyi genişletmeniz veya gezinti çubuğu simgesini seçmeniz gerekebilir.
+  * **Kişisel veri** sekmesini seçin.
+  * **İndir** düğmesini seçin ve *persondata. JSON* dosyasını inceledi.
+  * Oturum açan kullanıcıyı silen **Sil** düğmesini test edin.
 
-## <a name="add-custom-user-data-to-the-identity-db"></a>Özel kullanıcı verilerini kimlik Veritabanına Ekle
+## <a name="add-custom-user-data-to-the-identity-db"></a>Identity DB 'ye özel kullanıcı verileri ekleme
 
-Güncelleştirme `IdentityUser` türetilmiş sınıf özel özelliklere sahip. ' % S'proje WebApp1 adlı, dosyanın nasıl adlandırıldığı *Areas/Identity/Data/WebApp1User.cs*. Dosya, aşağıdaki kod ile güncelleştirin:
+`IdentityUser` türetilmiş sınıfı özel özelliklerle güncelleştirin. Projeyi WebApp1 olarak adlandırdıysanız, dosya *Areas/Identity/Data/WebApp1User. cs*olarak adlandırılır. Dosyayı aşağıdaki kodla güncelleştirin:
 
-[!code-csharp[Main](add-user-data/sample-2.2/Areas/Identity/Data/WebApp1User.cs)]
+::: moniker range=">= aspnetcore-3.0"
 
-Düzenlenmiş özellikler ile [PersonalData](/dotnet/api/microsoft.aspnetcore.identity.personaldataattribute?view=aspnetcore-2.1) öznitelik şunlardır:
+[!code-csharp[](add-user-data/samples/3.x/SampleApp/Areas/Identity/Data/WebApp1User.cs)]
 
-* Ne zaman silinmiş *Areas/Identity/Pages/Account/Manage/DeletePersonalData.cshtml* Razor sayfası çağırır `UserManager.Delete`.
-* Tarafından yüklenen veriler dahil *Areas/Identity/Pages/Account/Manage/DownloadPersonalData.cshtml* Razor sayfası.
+::: moniker-end
 
-### <a name="update-the-accountmanageindexcshtml-page"></a>Account/Manage/Index.cshtml sayfası
+::: moniker range="< aspnetcore-3.0"
 
-Güncelleştirme `InputModel` içinde *Areas/Identity/Pages/Account/Manage/Index.cshtml.cs* aşağıdaki vurgulanmış kodu:
+[!code-csharp[](add-user-data/samples/2.x/SampleApp/Areas/Identity/Data/WebApp1User.cs)]
 
-[!code-csharp[Main](add-user-data/sample-2.2/Areas/Identity/Pages/Account/Manage/Index.cshtml.cs?name=snippet&highlight=28-36,63-64,98-106,119)]
+::: moniker-end
 
-Güncelleştirme *Areas/Identity/Pages/Account/Manage/Index.cshtml* aşağıdaki vurgulanmış biçimlendirmeye sahip:
+[Kişiselleştirme verisi](/dotnet/api/microsoft.aspnetcore.identity.personaldataattribute) özniteliğiyle düzenlenmiş özellikler şunlardır:
 
-[!code-html[Main](add-user-data/sample-2.2/Areas/Identity/Pages/Account/Manage/Index.cshtml?highlight=35-42)]
+* *Areas/Identity/Pages/Account/Manage/Deletepersonal Data. cshtml* Razor sayfası `UserManager.Delete`çağırdığında silinir.
+* *Alan/kimlik/sayfa/hesap/Yönet/Downloadpersonal Data. cshtml* Razor sayfasında indirilen verilere dahildir.
 
-### <a name="update-the-accountregistercshtml-page"></a>Account/Register.cshtml sayfası
+### <a name="update-the-accountmanageindexcshtml-page"></a>Hesap/yönet/Index. cshtml sayfasını Güncelleştir
 
-Güncelleştirme `InputModel` içinde *Areas/Identity/Pages/Account/Register.cshtml.cs* aşağıdaki vurgulanmış kodu:
+*Areas/kimlik/sayfa/hesap/Manage/Index. cshtml. cs* içindeki `InputModel` şu vurgulanmış kodla güncelleştirin:
 
-[!code-csharp[Main](add-user-data/sample-2.2/Areas/Identity/Pages/Account/Register.cshtml.cs?name=snippet&highlight=28-36,67,66)]
+::: moniker range=">= aspnetcore-3.0"
 
-Güncelleştirme *Areas/Identity/Pages/Account/Register.cshtml* aşağıdaki vurgulanmış biçimlendirmeye sahip:
+[!code-csharp[](add-user-data/samples/3.x/SampleApp/Areas/Identity/Pages/Account/Manage/Index.cshtml.cs?name=snippet&highlight=24-32,48-49,96-104,106)]
 
-[!code-html[Main](add-user-data/sample-2.2/Areas/Identity/Pages/Account/Register.cshtml?highlight=16-25)]
+*Bölgeleri/kimliği/sayfaları/hesabı/Yönet/Index. cshtml* 'yi aşağıdaki vurgulanmış işaretlerle güncelleştirin:
+
+[!code-cshtml[](add-user-data/samples/3.x/SampleApp/Areas/Identity/Pages/Account/Manage/Index.cshtml?highlight=18-25)]
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
+
+[!code-csharp[](add-user-data/samples/2.x/SampleApp/Areas/Identity/Pages/Account/Manage/Index.cshtml.cs?name=snippet&highlight=28-36,63-64,98-106,119)]
+
+*Bölgeleri/kimliği/sayfaları/hesabı/Yönet/Index. cshtml* 'yi aşağıdaki vurgulanmış işaretlerle güncelleştirin:
+
+[!code-chtml[](add-user-data/samples/2.x/SampleApp/Areas/Identity/Pages/Account/Manage/Index.cshtml?highlight=35-42)]
+
+::: moniker-end
+
+### <a name="update-the-accountregistercshtml-page"></a>Account/Register. cshtml sayfasını Güncelleştir
+
+*Areas/kimlik/sayfa/hesap/kayıt. cshtml. cs* ' deki `InputModel` aşağıdaki vurgulanmış kodla güncelleştirin:
+
+::: moniker range=">= aspnetcore-3.0"
+
+[!code-csharp[](add-user-data/samples/3.x/SampleApp/Areas/Identity/Pages/Account/Register.cshtml.cs?name=snippet&highlight=30-38,70-71)]
+
+*Areas/Identity/Pages/Account/Register. cshtml* ' i aşağıdaki vurgulanmış işaretlerle güncelleştirin:
+
+[!code-cshtml[](add-user-data/samples/3.x/SampleApp/Areas/Identity/Pages/Account/Register.cshtml?highlight=16-25)]
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
+
+[!code-csharp[](add-user-data/samples/2.x/SampleApp/Areas/Identity/Pages/Account/Register.cshtml.cs?name=snippet&highlight=28-36,67,66)]
+
+*Areas/Identity/Pages/Account/Register. cshtml* ' i aşağıdaki vurgulanmış işaretlerle güncelleştirin:
+
+[!code-chtml[](add-user-data/samples/2.x/SampleApp/Areas/Identity/Pages/Account/Register.cshtml?highlight=16-25)]
+
+::: moniker-end
+
 
 Projeyi oluşturun.
 
-### <a name="add-a-migration-for-the-custom-user-data"></a>Özel kullanıcı verileri için bir geçiş ekleyin
+### <a name="add-a-migration-for-the-custom-user-data"></a>Özel Kullanıcı verileri için bir geçiş ekleyin
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-Visual Studio **Paket Yöneticisi Konsolu**:
+Visual Studio **Paket Yöneticisi konsolunda**:
 
 ```powershell
 Add-Migration CustomUserData
@@ -157,10 +221,10 @@ dotnet ef database update
 
 ---
 
-## <a name="test-create-view-download-delete-custom-user-data"></a>Test oluşturun, görüntüleyin, indirin, özel kullanıcı verilerini sil
+## <a name="test-create-view-download-delete-custom-user-data"></a>Test oluşturma, görüntüleme, indirme, özel kullanıcı verilerini silme
 
-Uygulamayı test edin:
+Uygulamayı test etme:
 
-* Yeni bir kullanıcı kaydedin.
-* Özel kullanıcı veri görünümünde `/Identity/Account/Manage` sayfası.
-* İndirme ve görüntüleme kullanıcıların kişisel verilerden `/Identity/Account/Manage/PersonalData` sayfası.
+* Yeni bir Kullanıcı kaydedin.
+* `/Identity/Account/Manage` sayfasındaki özel kullanıcı verilerini görüntüleyin.
+* Kullanıcıların kişisel verilerini `/Identity/Account/Manage/PersonalData` sayfasından indirip görüntüleyin.

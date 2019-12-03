@@ -3,14 +3,14 @@ title: ASP.NET Core Genelleştirme ve yerelleştirme
 author: rick-anderson
 description: ASP.NET Core farklı diller ve kültürlere içerik yerelleştirilmesi için nasıl hizmet ve ara yazılım sağladığını öğrenin.
 ms.author: riande
-ms.date: 01/14/2017
+ms.date: 11/30/2019
 uid: fundamentals/localization
-ms.openlocfilehash: 36235e305037c0bbf20093327e2a0ff21b3de809
-ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
+ms.openlocfilehash: 391786498dc7088f3a06915128f23b2c0e734656
+ms.sourcegitcommit: 0dd224b2b7efca1fda0041b5c3f45080327033f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73963674"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74681116"
 ---
 # <a name="globalization-and-localization-in-aspnet-core"></a>ASP.NET Core Genelleştirme ve yerelleştirme
 
@@ -266,7 +266,7 @@ Kültür bilgisi ve UI kültürünün yalnızca birini belirtirseniz, belirtilen
 
 2. **Diller**' e dokunun.
 
-    ![Internet seçenekleri](localization/_static/lang.png)
+    ![İnternet Seçenekleri](localization/_static/lang.png)
 
 3. **Dil tercihlerini ayarla**' ya dokunun.
 
@@ -276,7 +276,7 @@ Kültür bilgisi ve UI kültürünün yalnızca birini belirtirseniz, belirtilen
 
 6. Dile dokunun ve ardından **Yukarı taşı**' ya dokunun.
 
-::: moniker range=">= aspnetcore-3.0"
+::: moniker range=">= aspnetcore-3.1"
 ### <a name="the-content-language-http-header"></a>Content-Language HTTP üst bilgisi
 
 [Content-Language](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Language) varlık üst bilgisi:
@@ -286,12 +286,12 @@ Kültür bilgisi ve UI kültürünün yalnızca birini belirtirseniz, belirtilen
 
 Varlık üstbilgileri hem HTTP isteklerinde hem de yanıtlarda kullanılır.
 
-ASP.NET Core 3,0 ' de `Content-Language` üstbilgisi `ApplyCurrentCultureToResponseHeaders` özelliği ayarlanarak eklenebilir.
+`Content-Language` üst bilgisi, özellik `ApplyCurrentCultureToResponseHeaders`ayarlanarak eklenebilir.
 
 `Content-Language` üst bilgisi ekleniyor:
 
- - Requestlocalizationara yazılım `Content-Language` üst bilgisini `CurrentUICulture` ile ayarlamasına izin verir.
- - Yanıt üst bilgisini açıkça `Content-Language` olarak ayarlama gereksinimini ortadan kaldırır.
+ - Requestlocalizationara yazılım `Content-Language` üst bilgisini `CurrentUICulture`ayarlamaya izin verir.
+ - Yanıt üst bilgisini açıkça `Content-Language` ayarlama gereksinimini ortadan kaldırır.
 
 ```csharp
 app.UseRequestLocalization(new RequestLocalizationOptions
@@ -407,5 +407,4 @@ Larındaki
 * [.NET uygulamalarını genelleştirmek ve yerelleştirme](/dotnet/standard/globalization-localization/index)
 * [. Resx dosyalarındaki kaynaklar](/dotnet/framework/resources/working-with-resx-files-programmatically)
 * [Microsoft çok dilli uygulama araç seti](https://marketplace.visualstudio.com/items?itemName=MultilingualAppToolkit.MultilingualAppToolkit-18308)
-* [Yerelleştirme & genel türler](https://github.com/hishamco/hishambinateya.com/blob/master/Posts/localization-and-generics.md)
-* [ASP.NET Core 3,0 ' de Yerelleştirmede yenilikler](http://hishambinateya.com/what-is-new-in-localization-in-asp.net-core-3.0)
+* [Yerelleştirme & genel türler](http://hishambinateya.com/localization-and-generics)

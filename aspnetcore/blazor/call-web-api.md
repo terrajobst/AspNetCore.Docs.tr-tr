@@ -5,16 +5,16 @@ description: Çıkış noktaları arası kaynak paylaşımı (CORS) istekleri ya
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/15/2019
+ms.date: 11/23/2019
 no-loc:
 - Blazor
 uid: blazor/call-web-api
-ms.openlocfilehash: b5c57317005d0072410542bad322458b1cb3f5ee
-ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
+ms.openlocfilehash: ffc9904c5746fbf0fafa10cf054666608942650c
+ms.sourcegitcommit: 0dd224b2b7efca1fda0041b5c3f45080327033f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73962720"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74680908"
 ---
 # <a name="call-a-web-api-from-aspnet-core-opno-locblazor"></a>ASP.NET Core Blazor bir Web API 'SI çağırma
 
@@ -35,7 +35,7 @@ Blazor WebAssembly örnekleri için örnek uygulamada aşağıdaki bileşenlere 
 
 ## <a name="httpclient-and-json-helpers"></a>HttpClient ve JSON yardımcıları
 
-Blazor WebAssembly uygulamalarında, [HttpClient](xref:fundamentals/http-requests) , istekleri kaynak sunucuya geri getirmek için önceden yapılandırılmış bir hizmet olarak sunulmaktadır. `HttpClient` JSON yardımcıları kullanmak için `Microsoft.AspNetCore.Blazor.HttpClient`bir paket başvurusu ekleyin. `HttpClient` ve JSON yardımcıları, üçüncü taraf Web API uç noktalarını çağırmak için de kullanılır. `HttpClient` tarayıcı [getirme API 'si](https://developer.mozilla.org/docs/Web/API/Fetch_API) kullanılarak uygulanır ve aynı kaynak ilkesini zorlama dahil olmak üzere sınırlamalarına tabidir.
+Blazor WebAssembly uygulamalarında, [HttpClient](xref:fundamentals/http-requests) , istekleri kaynak sunucuya geri getirmek için önceden yapılandırılmış bir hizmet olarak sunulmaktadır. `HttpClient` JSON yardımcıları kullanmak için `Microsoft.AspNetCore.Blazor.HttpClient`bir paket başvurusu ekleyin. `HttpClient` ve JSON yardımcıları, üçüncü taraf Web API uç noktalarını çağırmak için de kullanılır. `HttpClient`, tarayıcı [getirme API 'si](https://developer.mozilla.org/docs/Web/API/Fetch_API) kullanılarak uygulanır ve aynı kaynak ilkesini zorlama dahil olmak üzere sınırlamalarına tabidir.
 
 İstemcinin temel adresi, kaynak sunucunun adresine ayarlanır. `@inject` yönergesini kullanarak bir `HttpClient` örneği ekleme:
 
@@ -44,11 +44,11 @@ Blazor WebAssembly uygulamalarında, [HttpClient](xref:fundamentals/http-request
 @inject HttpClient Http
 ```
 
-Aşağıdaki örneklerde, bir Todo Web API 'SI oluşturma, okuma, güncelleştirme ve silme (CRUD) işlemlerini işler. Örnekler, şunu depolayan bir `TodoItem` sınıfına dayalıdır:
+Aşağıdaki örneklerde, bir Todo Web API 'SI oluşturma, okuma, güncelleştirme ve silme (CRUD) işlemlerini işler. Örnekler, aşağıdakileri depolayan bir `TodoItem` sınıfına dayalıdır:
 
-* KIMLIK (`Id`, `long`) &ndash; öğenin benzersiz KIMLIĞI.
-* Ad (`Name`, `string`) öğenin &ndash; adı.
-* Durum (`IsComplete`, `bool`) &ndash; göstergesi, Todo öğesi bitmiştir.
+* Öğenin benzersiz KIMLIĞI &ndash; KIMLIK (`Id`, `long`).
+* Öğenin adı (`Name``string`) &ndash; adı.
+* Durum (`IsComplete`, `bool`) Todo öğesi tamamlandığında gösterge &ndash;.
 
 ```csharp
 private class TodoItem
@@ -63,7 +63,7 @@ JSON yardımcı yöntemleri bir URI 'ye (aşağıdaki örneklerde bir Web API 's
 
 * `GetJsonAsync` &ndash; bir HTTP GET isteği gönderir ve bir nesne oluşturmak için JSON yanıt gövdesini ayrıştırır.
 
-  Aşağıdaki kodda `_todoItems` bileşen tarafından görüntülenir. `GetTodoItems` yöntemi, bileşen işlemeyi tamamladığında tetiklenir ([Onınitializedadsync](xref:blazor/components#lifecycle-methods)). Örnek uygulamaya bkz. örnek uygulama.
+  Aşağıdaki kodda `_todoItems` bileşen tarafından görüntülenir. `GetTodoItems` yöntemi, bileşen işlemeyi tamamladığında tetiklenir ([Onınitializedadsync](xref:blazor/lifecycle#component-initialization-methods)). Örnek uygulamaya bkz. örnek uygulama.
 
   ```cshtml
   @using System.Net.Http
@@ -77,7 +77,7 @@ JSON yardımcı yöntemleri bir URI 'ye (aşağıdaki örneklerde bir Web API 's
   }
   ```
 
-* `PostJsonAsync` &ndash; JSON kodlu içerik dahil bir HTTP POST isteği gönderir ve bir nesne oluşturmak için JSON yanıt gövdesini ayrıştırır.
+* `PostJsonAsync` &ndash;, JSON kodlu içerik dahil olmak üzere bir HTTP POST isteği gönderir ve bir nesne oluşturmak için JSON yanıt gövdesini ayrıştırır.
 
   Aşağıdaki kodda, `_newItemName` bileşenin bağlantılı bir öğesi tarafından sağlanır. `AddItem` yöntemi bir `<button>` öğesi seçilerek tetiklenir. Örnek uygulamaya bkz. örnek uygulama.
 
@@ -99,9 +99,9 @@ JSON yardımcı yöntemleri bir URI 'ye (aşağıdaki örneklerde bir Web API 's
   }
   ```
 
-* `PutJsonAsync` &ndash; JSON kodlu içerik dahil bir HTTP PUT isteği gönderir.
+* `PutJsonAsync` &ndash;, JSON kodlu içerik dahil olmak üzere bir HTTP PUT isteği gönderir.
 
-  Aşağıdaki kodda, `Name` ve `IsCompleted` değerlerinin `_editItem`, bileşenin bağlantılı öğeleri tarafından sağlanır. Öğe `Id`, öğe Kullanıcı arabiriminin başka bir bölümünde seçildiğinde ayarlanır ve `EditItem` çağırılır. `SaveItem` yöntemi, Kaydet `<button>` öğesi seçilerek tetiklenir. Örnek uygulamaya bkz. örnek uygulama.
+  Aşağıdaki kodda, `Name` ve `IsCompleted` değerlerinin `_editItem`, bileşenin bağlantılı öğeleri tarafından sağlanır. Öğenin `Id`, öğe Kullanıcı arabiriminin başka bir bölümünde seçildiğinde ve `EditItem` çağrıldığında ayarlanır. `SaveItem` yöntemi, Kaydet `<button>` öğesi seçilerek tetiklenir. Örnek uygulamaya bkz. örnek uygulama.
 
   ```cshtml
   @using System.Net.Http
@@ -151,7 +151,7 @@ Tarayıcı güvenliği, bir Web sayfasının, Web sayfasını sunduğundan farkl
 
 Örnek uygulama, Web API bileşeninde CORS 'nin kullanımını gösterir (*Pages/CallWebAPI. Razor*).
 
-Diğer sitelerin uygulamanıza çıkış noktaları arası kaynak paylaşımı (CORS) istekleri yapmasına izin vermek için <xref:security/cors> ' a bakın.
+Diğer sitelerin uygulamanıza çıkış noktaları arası kaynak paylaşımı (CORS) istekleri yapmasına izin vermek için bkz. <xref:security/cors>.
 
 ## <a name="httpclient-and-httprequestmessage-with-fetch-api-request-options"></a>API istek seçeneklerini getiren HttpClient ve HttpRequestMessage
 
@@ -159,9 +159,9 @@ Blazor WebAssembly uygulamasında WebAssembly üzerinde çalışırken, istekler
 
 İstek üzerinde `WebAssemblyHttpMessageHandler.FetchArgs` özelliğini kullanarak temel alınan JavaScript [GETIRME API](https://developer.mozilla.org/docs/Web/API/Fetch_API) 'sine istek seçenekleri sağlayın. Aşağıdaki örnekte gösterildiği gibi, `credentials` özelliği aşağıdaki değerlerden herhangi birine ayarlanır:
 
-* `FetchCredentialsOption.Include` ("include") &ndash;, tarayıcıya olan kimlik bilgilerini (örneğin, tanımlama bilgileri veya HTTP kimlik doğrulama üstbilgileri), çapraz kaynak istekleri için de gönderir. Yalnızca CORS ilkesi kimlik bilgilerine izin verecek şekilde yapılandırıldığında izin verilir.
-* `FetchCredentialsOption.Omit` ("atla") &ndash;, tarayıcıya kimlik bilgileri (örneğin, tanımlama bilgileri veya HTTP kimlik doğrulama üstbilgileri) göndermemeyi önerir.
-* `FetchCredentialsOption.SameOrigin` ("aynı-Origin") &ndash;, yalnızca hedef URL, çağıran uygulamayla aynı kaynak üzerinde olduğunda kimlik bilgilerini (tanımlama bilgileri veya HTTP kimlik doğrulama üstbilgileri gibi) göndermek için tarayıcıya sahip olur.
+* `FetchCredentialsOption.Include` ("include") &ndash;, çapraz kaynak istekleri için bile kimlik bilgilerini (tanımlama bilgileri veya HTTP kimlik doğrulama üstbilgileri gibi) göndermek üzere tarayıcıya yöneliktir. Yalnızca CORS ilkesi kimlik bilgilerine izin verecek şekilde yapılandırıldığında izin verilir.
+* `FetchCredentialsOption.Omit` ("atla") &ndash;, tarayıcıya kimlik bilgileri (örneğin, tanımlama bilgileri veya HTTP kimlik doğrulama üstbilgileri) göndermez.
+* `FetchCredentialsOption.SameOrigin` ("aynı kaynak") &ndash;, yalnızca hedef URL, çağıran uygulamayla aynı kaynak üzerinde olduğunda kimlik bilgilerini (tanımlama bilgileri veya HTTP kimlik doğrulama üstbilgileri gibi) göndermek için tarayıcıya yönelik olur.
 
 ```cshtml
 @using System.Net.Http
@@ -204,14 +204,14 @@ Blazor WebAssembly uygulamasında WebAssembly üzerinde çalışırken, istekler
 
 API seçenekleri getirme hakkında daha fazla bilgi için bkz. [MDN Web belgeleri: WindowOrWorkerGlobalScope. Fetch ():P arameters](https://developer.mozilla.org/docs/Web/API/WindowOrWorkerGlobalScope/fetch#Parameters).
 
-CORS isteklerindeki kimlik bilgileri (yetkilendirme tanımlama bilgileri/üstbilgileri) gönderilirken, CORS ilkesi tarafından `Authorization` üst bilgisine izin verilmelidir.
+CORS isteklerinde kimlik bilgileri (yetkilendirme tanımlama bilgileri/üstbilgileri) gönderilirken, CORS ilkesi tarafından `Authorization` üst bilgisine izin verilmelidir.
 
 Aşağıdaki ilke için yapılandırma içerir:
 
 * İstek kaynakları (`http://localhost:5000`, `https://localhost:5001`).
 * Any yöntemi (fiil).
-* `Content-Type` ve `Authorization` üst bilgileri. Özel bir üstbilgiye (örneğin, `x-custom-header`) izin vermek için, <xref:Microsoft.AspNetCore.Cors.Infrastructure.CorsPolicyBuilder.WithHeaders*> çağrılırken üstbilgiyi listeleyin.
-* İstemci tarafı JavaScript kodu tarafından ayarlanan kimlik bilgileri (`credentials` özelliği `include` olarak ayarlanır).
+* `Content-Type` ve `Authorization` üst bilgileri. Özel bir üstbilgiye (örneğin, `x-custom-header`) izin vermek için, <xref:Microsoft.AspNetCore.Cors.Infrastructure.CorsPolicyBuilder.WithHeaders*>çağrılırken üstbilgiyi listeleyin.
+* İstemci tarafı JavaScript kodu tarafından ayarlanan kimlik bilgileri (`credentials` Özellik `include`olarak ayarlanır).
 
 ```csharp
 app.UseCors(policy => 

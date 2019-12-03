@@ -5,17 +5,17 @@ description: Blazor işlenmemiş özel durumları nasıl yönettiğini ve hatala
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/21/2019
+ms.date: 11/23/2019
 no-loc:
 - Blazor
 - SignalR
 uid: blazor/handle-errors
-ms.openlocfilehash: f2fa59259f1dd36f50e81256bddea265e347554b
-ms.sourcegitcommit: 3e503ef510008e77be6dd82ee79213c9f7b97607
+ms.openlocfilehash: 9784b357c2cdeb7422bbe40a39f881c97f6d716a
+ms.sourcegitcommit: 0dd224b2b7efca1fda0041b5c3f45080327033f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74317161"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74680999"
 ---
 # <a name="handle-errors-in-aspnet-core-opno-locblazor-apps"></a>ASP.NET Core Blazor uygulamalarda hataları işleme
 
@@ -122,7 +122,7 @@ Herhangi bir `[Inject]` özelliği için yürütülen bir Oluşturucu veya ayarl
 
 ### <a name="lifecycle-methods"></a>Yaşam döngüsü yöntemleri
 
-Bir bileşenin ömrü boyunca Blazor yaşam döngüsü yöntemlerini çağırır:
+Bir bileşenin ömrü boyunca Blazor [yaşam döngüsü yöntemlerini](xref:blazor/lifecycle)çağırır:
 
 * `OnInitialized` / `OnInitializedAsync`
 * `OnParametersSet` / `OnParametersSetAsync`
@@ -173,7 +173,7 @@ Kullanıcı kodu yakalanmazsa ve özel durumu işlemezse çerçeve özel durumu 
 
 Bileşenin `Dispose` yöntemi işlenmeyen bir özel durum oluşturursa, bu özel durum devre dışı olarak önemli olur. Çıkarma mantığı özel durumlar oluşturmayabilir, uygulama hata işleme ve günlüğe kaydetme ile [try-catch](/dotnet/csharp/language-reference/keywords/try-catch) ifadesini kullanarak özel durumları yakalemelidir.
 
-Bileşen aktiften çıkarma hakkında daha fazla bilgi için bkz. <xref:blazor/components#component-disposal-with-idisposable>.
+Bileşen aktiften çıkarma hakkında daha fazla bilgi için bkz. <xref:blazor/lifecycle#component-disposal-with-idisposable>.
 
 ### <a name="javascript-interop"></a>JavaScript ile birlikte çalışma
 
