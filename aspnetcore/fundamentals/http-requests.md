@@ -6,12 +6,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 11/27/2019
 uid: fundamentals/http-requests
-ms.openlocfilehash: 7a5b5c84775ea2482034ef9f3e8a2376036e66cb
-ms.sourcegitcommit: a104ba258ae7c0b3ee7c6fa7eaea1ddeb8b6eb73
+ms.openlocfilehash: 746604bc92775a6fac124ee8bfcf37635786fe41
+ms.sourcegitcommit: 3b6b0a54b20dc99b0c8c5978400c60adf431072f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74478733"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74717015"
 ---
 # <a name="make-http-requests-using-ihttpclientfactory-in-aspnet-core"></a>ASP.NET Core 'de ıhttpclientfactory kullanarak HTTP istekleri yapın
 
@@ -293,7 +293,7 @@ Tek bir `HttpClient` örneğinin uzun süre canlı tutulması, `IHttpClientFacto
 Dı özellikli bir uygulamada `IHttpClientFactory` kullanmak şunları önler:
 
 * `HttpMessageHandler` örnekleri havuza alarak kaynak tükenmesi sorunları.
-* Normal örneklerde `HttpMessageHandler` örnekleri geçirerek eski DNS sorunları.
+* Düzenli aralıklarla `HttpMessageHandler` örnekleri arasında geçiş yaparak eski DNS sorunları.
 
 Uzun süreli <xref:System.Net.Http.SocketsHttpHandler> örneği kullanarak önceki sorunları çözmenin alternatif yolları vardır.
 
@@ -304,7 +304,7 @@ Uzun süreli <xref:System.Net.Http.SocketsHttpHandler> örneği kullanarak önce
 Yukarıdaki yaklaşımlar `IHttpClientFactory` benzer bir şekilde çözdüğü kaynak yönetimi sorunlarını çözer.
 
 - `SocketsHttpHandler`, `HttpClient` örnekleri arasında bağlantıları paylaşır. Bu paylaşım, yuva azalmasına engel olur.
-- `SocketsHttpHandler `, durum DNS sorunlarından kaçınmak için bağlantıları `PooledConnectionLifetime` göre döngüler.
+- `SocketsHttpHandler`, eski DNS sorunlarından kaçınmak için bağlantıları `PooledConnectionLifetime` göre döngüler.
 
 ### <a name="cookies"></a>Özgü
 
@@ -317,7 +317,7 @@ Otomatik tanımlama bilgisi işlemeyi devre dışı bırakmak için <xref:Micros
 
 [!code-csharp[](http-requests/samples/2.x/HttpClientFactorySample/Startup.cs?name=snippet13)]
 
-## <a name="logging"></a>Günlüğe kaydetme
+## <a name="logging"></a>Günlüğe Kaydetme
 
 Tüm istekler için `IHttpClientFactory` kayıt günlüğü iletileri aracılığıyla oluşturulan istemciler. Varsayılan günlük iletilerini görmek için günlük yapılandırmasında uygun bilgi düzeyini etkinleştirin. İstek üst bilgilerinin günlüğe kaydedilmesi gibi ek Günlükler yalnızca izleme düzeyinde yer alır.
 
@@ -594,7 +594,7 @@ Tek bir `HttpClient` örneğinin uzun süre canlı tutulması, `IHttpClientFacto
 Dı özellikli bir uygulamada `IHttpClientFactory` kullanmak şunları önler:
 
 * `HttpMessageHandler` örnekleri havuza alarak kaynak tükenmesi sorunları.
-* Normal örneklerde `HttpMessageHandler` örnekleri geçirerek eski DNS sorunları.
+* Düzenli aralıklarla `HttpMessageHandler` örnekleri arasında geçiş yaparak eski DNS sorunları.
 
 Uzun süreli <xref:System.Net.Http.SocketsHttpHandler> örneği kullanarak önceki sorunları çözmenin alternatif yolları vardır.
 
@@ -605,7 +605,7 @@ Uzun süreli <xref:System.Net.Http.SocketsHttpHandler> örneği kullanarak önce
 Yukarıdaki yaklaşımlar `IHttpClientFactory` benzer bir şekilde çözdüğü kaynak yönetimi sorunlarını çözer.
 
 - `SocketsHttpHandler`, `HttpClient` örnekleri arasında bağlantıları paylaşır. Bu paylaşım, yuva azalmasına engel olur.
-- `SocketsHttpHandler `, durum DNS sorunlarından kaçınmak için bağlantıları `PooledConnectionLifetime` göre döngüler.
+- `SocketsHttpHandler`, eski DNS sorunlarından kaçınmak için bağlantıları `PooledConnectionLifetime` göre döngüler.
 
 ### <a name="cookies"></a>Özgü
 
@@ -618,7 +618,7 @@ Otomatik tanımlama bilgisi işlemeyi devre dışı bırakmak için <xref:Micros
 
 [!code-csharp[](http-requests/samples/2.x/HttpClientFactorySample/Startup.cs?name=snippet13)]
 
-## <a name="logging"></a>Günlüğe kaydetme
+## <a name="logging"></a>Günlüğe Kaydetme
 
 Tüm istekler için `IHttpClientFactory` kayıt günlüğü iletileri aracılığıyla oluşturulan istemciler. Varsayılan günlük iletilerini görmek için günlük yapılandırmanızda uygun bilgi düzeyini etkinleştirin. İstek üst bilgilerinin günlüğe kaydedilmesi gibi ek Günlükler yalnızca izleme düzeyinde yer alır.
 
@@ -674,7 +674,7 @@ Bir <xref:System.Net.Http.IHttpClientFactory>, bir uygulamadaki <xref:System.Net
 
 [Örnek kodu görüntüleme veya indirme](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/http-requests/samples) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
 
-## <a name="prerequisites"></a>Önkoşullar
+## <a name="prerequisites"></a>Prerequisites
 
 .NET Framework hedefleyen projeler [Microsoft. Extensions. http](https://www.nuget.org/packages/Microsoft.Extensions.Http/) NuGet paketinin yüklenmesini gerektirir. .NET Core ile hedeflenen ve [Microsoft. AspNetCore. app metapackage](xref:fundamentals/metapackage-app) 'e başvuran projeler zaten `Microsoft.Extensions.Http` paketini içerir.
 
@@ -902,7 +902,7 @@ Tek bir `HttpClient` örneğinin uzun süre canlı tutulması, `IHttpClientFacto
 Dı özellikli bir uygulamada `IHttpClientFactory` kullanmak şunları önler:
 
 * `HttpMessageHandler` örnekleri havuza alarak kaynak tükenmesi sorunları.
-* Normal örneklerde `HttpMessageHandler` örnekleri geçirerek eski DNS sorunları.
+* Düzenli aralıklarla `HttpMessageHandler` örnekleri arasında geçiş yaparak eski DNS sorunları.
 
 Uzun süreli <xref:System.Net.Http.SocketsHttpHandler> örneği kullanarak önceki sorunları çözmenin alternatif yolları vardır.
 
@@ -913,7 +913,7 @@ Uzun süreli <xref:System.Net.Http.SocketsHttpHandler> örneği kullanarak önce
 Yukarıdaki yaklaşımlar `IHttpClientFactory` benzer bir şekilde çözdüğü kaynak yönetimi sorunlarını çözer.
 
 - `SocketsHttpHandler`, `HttpClient` örnekleri arasında bağlantıları paylaşır. Bu paylaşım, yuva azalmasına engel olur.
-- `SocketsHttpHandler `, durum DNS sorunlarından kaçınmak için bağlantıları `PooledConnectionLifetime` göre döngüler.
+- `SocketsHttpHandler`, eski DNS sorunlarından kaçınmak için bağlantıları `PooledConnectionLifetime` göre döngüler.
 
 ### <a name="cookies"></a>Özgü
 
@@ -926,7 +926,7 @@ Otomatik tanımlama bilgisi işlemeyi devre dışı bırakmak için <xref:Micros
 
 [!code-csharp[](http-requests/samples/2.x/HttpClientFactorySample/Startup.cs?name=snippet13)]
 
-## <a name="logging"></a>Günlüğe kaydetme
+## <a name="logging"></a>Günlüğe Kaydetme
 
 Tüm istekler için `IHttpClientFactory` kayıt günlüğü iletileri aracılığıyla oluşturulan istemciler. Varsayılan günlük iletilerini görmek için günlük yapılandırmanızda uygun bilgi düzeyini etkinleştirin. İstek üst bilgilerinin günlüğe kaydedilmesi gibi ek Günlükler yalnızca izleme düzeyinde yer alır.
 
