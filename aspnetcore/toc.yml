@@ -286,6 +286,8 @@
           uid: blazor/templates
         - name: Bileşenler
           uid: blazor/components
+        - name: Yaşam döngüsü
+          uid: blazor/lifecycle
         - name: Formlar ve doğrulama
           uid: blazor/forms-validation
         - name: Bileşen kitaplıkları
@@ -819,6 +821,8 @@
       uid: security/index
     - name: Kimlik doğrulaması
       items:
+        - name: Genel Bakış
+          uid: security/authentication/index
         - name: Kimliğe giriş
           uid: security/authentication/identity
         - name: SPA ile kimlik
