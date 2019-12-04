@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 11/07/2019
 uid: host-and-deploy/index
-ms.openlocfilehash: aa6e3da5f40211535037c671de913ab3219f063a
-ms.sourcegitcommit: 67116718dc33a7a01696d41af38590fdbb58e014
+ms.openlocfilehash: 8c7c131ca328f3118c45e822d6d5c86f0d44001f
+ms.sourcegitcommit: b3e1e31e5d8bdd94096cf27444594d4a7b065525
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73799329"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74803272"
 ---
 # <a name="host-and-deploy-aspnet-core"></a>ASP.NET Core barındırma ve dağıtma
 
@@ -42,8 +42,8 @@ ASP.NET Core uygulaması, bir sunucu önyüklendiğinde ve kilitlenirse yeniden 
   * [NGINX](xref:host-and-deploy/linux-nginx)
   * [Apache](xref:host-and-deploy/linux-apache)
 * Windows
-  * [ISS](xref:host-and-deploy/iis/index)
-  * [Windows hizmeti](xref:host-and-deploy/windows-service)
+  * [IIS](xref:host-and-deploy/iis/index)
+  * [Windows Hizmeti](xref:host-and-deploy/windows-service)
 
 ## <a name="set-up-a-reverse-proxy"></a>Ters proxy ayarlama
 
@@ -51,9 +51,9 @@ Uygulama [Kestrel](xref:fundamentals/servers/kestrel) sunucusunu kullanıyorsa, 
 
 Ters proxy sunucu&mdash;sahip veya olmayan yapılandırma&mdash;, desteklenen bir barındırma yapılandırması. Daha fazla bilgi için bkz. [Kestrel to Use a ters proxy](xref:fundamentals/servers/kestrel#when-to-use-kestrel-with-a-reverse-proxy).
 
-## <a name="proxy-server-and-load-balancer-scenarios"></a>Proxy sunucusu ve yük dengeleyici senaryoları
+## <a name="proxy-server-and-load-balancer-scenarios"></a>Ara sunucu ve yük dengeleyici senaryoları
 
-Proxy sunucularının ve yük dengeleyiciler arkasında barındırılan uygulamalar için ek yapılandırma gerekebilir. Ek yapılandırma olmadan, bir uygulamanın, bir isteğin kaynaklandığı uzak IP adresine (HTTP/HTTPS) ve bu şemaya erişimi olmayabilir. Daha fazla bilgi için bkz. [proxy sunucularıyla ve yük dengeleyicilerle çalışacak ASP.NET Core yapılandırma](xref:host-and-deploy/proxy-load-balancer).
+Proxy sunucularının ve yük dengeleyiciler arkasında barındırılan uygulamalar için ek yapılandırma gerekebilir. Ek yapılandırma olmadan, bir uygulamanın, bir isteğin kaynaklandığı uzak IP adresine (HTTP/HTTPS) ve bu şemaya erişimi olmayabilir. Daha fazla bilgi için [proxy sunucuları ile çalışma ve yük Dengeleyiciler için ASP.NET Core yapılandırma](xref:host-and-deploy/proxy-load-balancer).
 
 ## <a name="use-visual-studio-and-msbuild-to-automate-deployments"></a>Dağıtımları otomatik hale getirmek için Visual Studio ve MSBuild 'i kullanma
 
@@ -89,3 +89,5 @@ Bir uygulamada ve bağımlılıklarında sistem durumu denetimleri gerçekleşti
 
 * <xref:host-and-deploy/docker/index>
 * <xref:test/troubleshoot>
+* [ASP.NET barındırma](https://dotnet.microsoft.com/apps/aspnet/hosting)
+
