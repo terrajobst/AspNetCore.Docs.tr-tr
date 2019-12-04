@@ -12,6 +12,8 @@
   uid: getting-started
 - name: Yenilikler
   items:
+    - name: 3.1 sürümündeki yenilikler
+      uid: aspnetcore-3.1
     - name: 3.0 sürümündeki yenilikler
       uid: aspnetcore-3.0
     - name: 2.2 sürümündeki yenilikler
@@ -1016,6 +1018,8 @@
       uid: security/cors
     - name: Uygulamalar arasında tanımlama bilgilerini paylaşma
       uid: security/cookie-sharing
+    - name: SameSite tanımlama bilgileri
+      uid: security/samesite
     - name: IP güvenli listesi
       uid: security/ip-safelist
     - name: Uygulama güvenliği - OWASP
