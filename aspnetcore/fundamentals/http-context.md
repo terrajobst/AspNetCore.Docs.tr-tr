@@ -2,26 +2,25 @@
 title: ASP.NET Core 'de HttpContext 'e erişme
 author: coderandhiker
 description: ASP.NET Core ' de HttpContext 'e erişme hakkında bilgi edinin.
+monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/11/2018
+ms.date: 12/03/2019
 uid: fundamentals/httpcontext
-ms.openlocfilehash: 0bf40f9cd2554f5ba01ccc06001fa4f1940d51a5
-ms.sourcegitcommit: f40c9311058c9b1add4ec043ddc5629384af6c56
+ms.openlocfilehash: 8a7ee180380c42ea745c91b8e6a18c1baa820220
+ms.sourcegitcommit: 5974e3e66dab3398ecf2324fbb82a9c5636f70de
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74289045"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74778745"
 ---
 # <a name="access-httpcontext-in-aspnet-core"></a>ASP.NET Core 'de HttpContext 'e erişme
 
-ASP.NET Core uygulamalar, [ıhttpcontextaccessor](/dotnet/api/microsoft.aspnetcore.http.ihttpcontextaccessor) arabirimi ve varsayılan uygulaması olan [httpcontextaccessor](/dotnet/api/microsoft.aspnetcore.http.httpcontextaccessor)aracılığıyla `HttpContext` erişir. Yalnızca bir hizmet içindeki `HttpContext` erişmeniz gerektiğinde `IHttpContextAccessor` kullanılması gerekir.
-
-::: moniker range=">= aspnetcore-2.0"
+<xref:Microsoft.AspNetCore.Http.IHttpContextAccessor> arabirimi ve varsayılan uygulama <xref:Microsoft.AspNetCore.Http.HttpContextAccessor>ASP.NET Core uygulamalara erişim `HttpContext`. Yalnızca bir hizmet içindeki `HttpContext` erişmeniz gerektiğinde `IHttpContextAccessor` kullanılması gerekir.
 
 ## <a name="use-httpcontext-from-razor-pages"></a>Razor Pages HttpContext kullanın
 
-Razor Pages [Pagemodel](/dotnet/api/microsoft.aspnetcore.mvc.razorpages.pagemodel) [HttpContext](/dotnet/api/microsoft.aspnetcore.mvc.razorpages.pagemodel.httpcontext) özelliğini kullanıma sunar:
+Razor Pages <xref:Microsoft.AspNetCore.Mvc.RazorPages.PageModel> <xref:Microsoft.AspNetCore.Mvc.RazorPages.PageModel.HttpContext> özelliğini kullanıma sunar:
 
 ```csharp
 public class AboutModel : PageModel
@@ -35,21 +34,21 @@ public class AboutModel : PageModel
 }
 ```
 
-::: moniker-end
-
 ## <a name="use-httpcontext-from-a-razor-view"></a>Razor görünümünden HttpContext kullanma
 
-Razor görünümleri görünümdeki bir [RazorPage. Context](/dotnet/api/microsoft.aspnetcore.mvc.razor.razorpage.context#Microsoft_AspNetCore_Mvc_Razor_RazorPage_Context) özelliği aracılığıyla `HttpContext` doğrudan kullanıma sunar. Aşağıdaki örnek, Windows kimlik doğrulamasını kullanarak bir Intranet uygulamasındaki geçerli kullanıcı adını alır:
+Razor görünümleri görünümdeki bir [RazorPage. Context](xref:Microsoft.AspNetCore.Mvc.Razor.RazorPage.Context) özelliği aracılığıyla `HttpContext` doğrudan kullanıma sunar. Aşağıdaki örnek, Windows kimlik doğrulamasını kullanarak bir intranet uygulamasındaki geçerli kullanıcı adını alır:
 
 ```cshtml
 @{
     var username = Context.User.Identity.Name;
+    
+    ...
 }
 ```
 
 ## <a name="use-httpcontext-from-a-controller"></a>Bir denetleyiciden HttpContext kullanma
 
-Denetleyiciler [ControllerBase. HttpContext](/dotnet/api/microsoft.aspnetcore.mvc.controllerbase.httpcontext) özelliğini kullanıma sunar:
+Denetleyiciler [ControllerBase. HttpContext](xref:Microsoft.AspNetCore.Mvc.ControllerBase.HttpContext) özelliğini kullanıma sunar:
 
 ```csharp
 public class HomeController : Controller
@@ -57,7 +56,8 @@ public class HomeController : Controller
     public IActionResult About()
     {
         var pathBase = HttpContext.Request.PathBase;
-        // Do something with the PathBase.
+
+        ...
 
         return View();
     }
@@ -73,22 +73,21 @@ public class MyCustomMiddleware
 {
     public Task InvokeAsync(HttpContext context)
     {
-        // Middleware initialization optionally using HttpContext
+        ...
     }
 }
 ```
 
 ## <a name="use-httpcontext-from-custom-components"></a>Özel bileşenlerden HttpContext kullanın
 
-`HttpContext`erişmesi gereken diğer Framework ve özel bileşenler için önerilen yaklaşım, yerleşik [bağımlılık ekleme](xref:fundamentals/dependency-injection) kapsayıcısını kullanarak bir bağımlılığı kaydetmesidir. Bağımlılık ekleme kapsayıcısı, `IHttpContextAccessor` oluşturucularına bağımlılık olarak bildiren her sınıfa sağlar.
+`HttpContext`erişmesi gereken diğer Framework ve özel bileşenler için önerilen yaklaşım, yerleşik [bağımlılık ekleme](xref:fundamentals/dependency-injection) kapsayıcısını kullanarak bir bağımlılığı kaydetmesidir. Bağımlılık ekleme kapsayıcısı, `IHttpContextAccessor` oluşturuculara bir bağımlılık olarak bildiren tüm sınıflara sağlar:
 
-::: moniker range=">= aspnetcore-2.1"
+::: moniker range=">= aspnetcore-3.0"
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
 {
-     services.AddMvc()
-         .SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+     services.AddControllersWithViews();
      services.AddHttpContextAccessor();
      services.AddTransient<IUserRepository, UserRepository>();
 }
@@ -96,13 +95,14 @@ public void ConfigureServices(IServiceCollection services)
 
 ::: moniker-end
 
-::: moniker range="<= aspnetcore-2.0"
+::: moniker range="< aspnetcore-3.0"
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
 {
-     services.AddMvc();
-     services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+     services.AddMvc()
+         .SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+     services.AddHttpContextAccessor();
      services.AddTransient<IUserRepository, UserRepository>();
 }
 ```
@@ -134,17 +134,17 @@ public class UserRepository : IUserRepository
 
 ## <a name="httpcontext-access-from-a-background-thread"></a>Arka plan iş parçacığından HttpContext erişimi
 
-`HttpContext`, iş parçacığı açısından güvenli değildir. `HttpContext` bir isteği işlemenin dışında okuma veya yazma özellikleri `NullReferenceException`sonuçlanabilir.
+`HttpContext` iş parçacığı açısından güvenli değildir. `HttpContext` bir isteği işlemenin dışında okuma veya yazma özellikleri <xref:System.NullReferenceException>sonuçlanabilir.
 
 > [!NOTE]
-> Bir isteği işlemenin dışında `HttpContext` kullanmak genellikle `NullReferenceException`sonuçlanır. Uygulamanız tek tek `NullReferenceException`s oluşturursa, arka plan işlemesini başlatan veya bir istek tamamlandıktan sonra işlemeye devam eden kodun bölümlerini gözden geçirin. `async void`olarak bir denetleyici yöntemi tanımlama gibi hataları arayın.
+> Uygulamanız tek tek `NullReferenceException` hatalar oluşturursa, arka plan işlemeyi başlatan veya bir istek tamamlandıktan sonra işlemeye devam eden kodun bölümlerini gözden geçirin. `async void`olarak bir denetleyici yöntemi tanımlama gibi hataları arayın.
 
 `HttpContext` verilerle arka plan çalışmasını güvenle gerçekleştirmek için:
 
 * İstek işleme sırasında gerekli verileri kopyalayın.
 * Kopyalanmış verileri bir arka plan görevine geçirin.
 
-Güvenli olmayan koddan kaçınmak için `HttpContext`, arka plan işi yapan bir yönteme hiçbir şekilde iletmeyin, bunun yerine ihtiyacınız olan verileri geçirin.
+Güvenli olmayan koddan kaçınmak için `HttpContext`, arka plan çalışması gerçekleştiren bir yönteme hiçbir şekilde iletmeyin. Bunun yerine gerekli verileri geçirin. Aşağıdaki örnekte, bir e-posta göndermeye başlamak için `SendEmailCore` çağırılır. `correlationId`, `HttpContext`değil `SendEmailCore`geçirilir. Kod yürütme `SendEmailCore` tamamlanmasını beklemez:
 
 ```csharp
 public class EmailController : Controller
@@ -153,13 +153,13 @@ public class EmailController : Controller
     {
         var correlationId = HttpContext.Request.Headers["x-correlation-id"].ToString();
 
-        // Starts sending an email, but doesn't wait for it to complete
         _ = SendEmailCore(correlationId);
+
         return View();
     }
 
     private async Task SendEmailCore(string correlationId)
     {
-        // send the email
+        ...
     }
 }

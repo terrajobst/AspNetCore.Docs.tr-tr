@@ -9,12 +9,12 @@ no-loc:
 - Blazor
 - SignalR
 uid: aspnetcore-3.1
-ms.openlocfilehash: 4737747f84a59780fe70f63195f7580bd812e4de
-ms.sourcegitcommit: 169ea5116de729c803685725d96450a270bc55b7
-ms.translationtype: HT
+ms.openlocfilehash: 634c6937089a0a0fe1f862a83771aff65a1f8418
+ms.sourcegitcommit: 5974e3e66dab3398ecf2324fbb82a9c5636f70de
+ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/03/2019
-ms.locfileid: "74734028"
+ms.locfileid: "74778849"
 ---
 # <a name="whats-new-in-aspnet-core-31"></a>ASP.NET Core 3,1 ' deki yenilikler
 
@@ -51,9 +51,9 @@ Daha fazla bilgi için bkz. [bileşenleri Razor Pages ve MVC uygulamalarıyla t�
 
 [!code-csharp[](sample/Program.cs?name=snippet)]
 
-<!-- TODO
-## Breaking changes for SameSite cookies
--->
+## <a name="breaking-changes-for-samesite-cookies"></a>SameSite tanımlama bilgilerine yönelik son değişiklikler
+
+SameSite tanımlama bilgilerinin davranışı yaklaşan tarayıcı değişikliklerini yansıtacak şekilde değiştirilmiştir. Bu, AzureAd, Openıdconnect veya WsFederation gibi kimlik doğrulama senaryolarını etkileyebilir. Daha fazla bilgi için bkz. <xref:security/samesite>.
 
 ## <a name="prevent-default-actions-for-events-in-opno-locblazor-apps"></a>Blazor uygulamalardaki olaylara yönelik varsayılan eylemleri engelleyin
 
