@@ -5,16 +5,16 @@ description: Veri bağlama, olayları işleme ve bileşen yaşam döngülerini y
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/23/2019
+ms.date: 11/27/2019
 no-loc:
 - Blazor
 uid: blazor/components
-ms.openlocfilehash: 764e5e7db995b2dcadccf6d93c826ccf32c9ba04
-ms.sourcegitcommit: 0dd224b2b7efca1fda0041b5c3f45080327033f6
+ms.openlocfilehash: 19636b0f10e71133eddece918b1bb9e2bc25a226
+ms.sourcegitcommit: 169ea5116de729c803685725d96450a270bc55b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74681012"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74733849"
 ---
 # <a name="create-and-use-aspnet-core-razor-components"></a>ASP.NET Core Razor bileşenleri oluşturma ve kullanma
 
@@ -71,6 +71,8 @@ Bir sayfadan veya görünümden bir bileşeni işlemek için `Component` etiketi
 <component type="typeof(Counter)" render-mode="ServerPrerendered" 
     param-IncrementAmount="10" />
 ```
+
+Parametreleri geçirme (örneğin, önceki örnekteki `IncrementAmount`) desteklenir.
 
 `RenderMode`, bileşenin şunları yapıp kullanmadığını yapılandırır:
 
@@ -402,7 +404,11 @@ Yukarıdaki kodda `<input>` öğenin alan türü (`type`), `text`varsayılan ola
 
 `@bind:format` özniteliği, `<input>` öğesinin `value` uygulanacak tarih biçimini belirtir. Biçim Ayrıca, `onchange` bir olay gerçekleştiğinde değeri ayrıştırmak için de kullanılır.
 
-Blazor, tarihleri biçimlendirmek için yerleşik destek içerdiğinden `date` alanı türü için bir biçim belirtilmesi önerilmez.
+Blazor, tarihleri biçimlendirmek için yerleşik destek içerdiğinden `date` alanı türü için bir biçim belirtilmesi önerilmez. Önerinin artma, `yyyy-MM-dd` tarih biçimini yalnızca `date` alan türüyle bir biçim sağlanırsa doğru şekilde çalışacak şekilde kullanın:
+
+```razor
+<input type="date" @bind="StartDate" @bind:format="yyyy-MM-dd">
+```
 
 **Bileşen parametreleri**
 
