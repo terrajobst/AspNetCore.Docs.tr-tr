@@ -4,14 +4,14 @@ author: rick-anderson
 description: ASP.NET Core uygulamasının geliştirilmesi sırasında gizli bilgileri uygulama gizli dizileri olarak depolamayı ve almayı öğrenin.
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 03/13/2019
+ms.date: 12/05/2019
 uid: security/app-secrets
-ms.openlocfilehash: 0203a5737caf1af809b739d9e266a6971cd1523b
-ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
+ms.openlocfilehash: 3323b7b614b7e8bc711b2c5acfb501b65b3d783b
+ms.sourcegitcommit: 76d7fff62014c3db02564191ab768acea00f1b26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71080711"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74852694"
 ---
 # <a name="safe-storage-of-app-secrets-in-development-in-aspnet-core"></a>ASP.NET Core sürümünde geliştirme sırasında uygulama gizli dizileri güvenli depolama
 
@@ -19,7 +19,7 @@ By [Rick Anderson](https://twitter.com/RickAndMSFT), [Daniel Roth](https://githu
 
 [Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/app-secrets/samples) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
 
-Bu belgede, bir ASP.NET Core uygulamasının geliştirilmesi sırasında hassas verilerin depolanması ve alınması için teknikler açıklanmaktadır. Kaynak kodunda parolaları veya diğer hassas verileri hiçbir şekilde depolamayin. Üretim gizli dizileri geliştirme veya test için kullanılmamalıdır. [Azure Key Vault yapılandırma sağlayıcısıyla](xref:security/key-vault-configuration)Azure test ve üretim gizli dizilerini saklayabilir ve koruyabilirsiniz.
+Bu belgede, bir ASP.NET Core uygulamasının geliştirilmesi sırasında hassas verilerin depolanması ve alınması için teknikler açıklanmaktadır. Kaynak kodunda parolaları veya diğer hassas verileri hiçbir şekilde depolamayin. Üretim gizli dizileri geliştirme veya test için kullanılmamalıdır. Gizli dizileri uygulamayla birlikte dağıtılmamalıdır. Bunun yerine, ortamlar, ortam değişkenleri, Azure Key Vault vb. gibi denetimli bir yöntemle üretim ortamında kullanılabilir hale gelmelidir. [Azure Key Vault yapılandırma sağlayıcısıyla](xref:security/key-vault-configuration)Azure test ve üretim gizli dizilerini saklayabilir ve koruyabilirsiniz.
 
 ## <a name="environment-variables"></a>Ortam değişkenleri
 
@@ -27,13 +27,13 @@ Ortam değişkenleri, kodda veya yerel yapılandırma dosyalarında uygulama giz
 
 ::: moniker range="<= aspnetcore-1.1"
 
-Oluşturucuyu`Startup` çağırarak <xref:Microsoft.Extensions.Configuration.EnvironmentVariablesExtensions.AddEnvironmentVariables*> ortam değişkeni değerlerinin okunmasını yapılandırın:
+`Startup` oluşturucusunda <xref:Microsoft.Extensions.Configuration.EnvironmentVariablesExtensions.AddEnvironmentVariables*> çağırarak ortam değişkeni değerlerinin okunmasını yapılandırın:
 
 [!code-csharp[](app-secrets/samples/1.x/UserSecrets/Startup.cs?name=snippet_StartupConstructor&highlight=8)]
 
 ::: moniker-end
 
-**Bireysel kullanıcı hesapları** güvenliğinin etkinleştirildiği bir ASP.NET Core Web uygulaması düşünün. Varsayılan bir veritabanı bağlantı dizesi, anahtarına `DefaultConnection`sahip projenin *appSettings. JSON* dosyasına dahildir. Varsayılan bağlantı dizesi, kullanıcı modunda çalışan ve parola gerektirmeyen LocalDB içindir. Uygulama dağıtımı sırasında, `DefaultConnection` anahtar değeri bir ortam değişkeninin değeri ile geçersiz kılınabilir. Ortam değişkeni, tüm bağlantı dizesini hassas kimlik bilgileriyle saklayabilir.
+**Bireysel kullanıcı hesapları** güvenliğinin etkinleştirildiği bir ASP.NET Core Web uygulaması düşünün. Varsayılan bir veritabanı bağlantı dizesi, projenin *appSettings. JSON* dosyasına anahtar `DefaultConnection`dahildir. Varsayılan bağlantı dizesi, kullanıcı modunda çalışan ve parola gerektirmeyen LocalDB içindir. Uygulama dağıtımı sırasında, `DefaultConnection` anahtar değeri bir ortam değişkeninin değeri ile geçersiz kılınabilir. Ortam değişkeni, tüm bağlantı dizesini hassas kimlik bilgileriyle saklayabilir.
 
 > [!WARNING]
 > Ortam değişkenleri genellikle düz, şifresiz metin olarak depolanır. Makinenin veya işlemin güvenliği tehlikeye atılırsa, ortam değişkenlerine güvenilmeyen taraflar tarafından erişilebilir. Kullanıcı gizliliklerinin açıklanmasını önlemeye yönelik ek ölçüler gerekebilir.
@@ -65,7 +65,7 @@ Dosya sistemi yolu:
 
 ---
 
-Yukarıdaki dosya yollarında, *. csproj* dosyasında `<user_secrets_id>` belirtilen `UserSecretsId` değerle değiştirin.
+Yukarıdaki dosya yollarında `<user_secrets_id>`, *. csproj* dosyasında belirtilen `UserSecretsId` değeri ile değiştirin.
 
 Gizli dizi yöneticisi aracıyla kaydedilen verilerin konumuna veya biçimine bağlı olarak kod yazma. Bu uygulama ayrıntıları değişebilir. Örneğin, gizli değerler şifrelenmez, ancak gelecekte olabilir.
 
@@ -76,7 +76,7 @@ Gizli dizi yöneticisi aracıyla kaydedilen verilerin konumuna veya biçimine ba
 Gizli dizi Yöneticisi Aracı, .NET Core SDK 2.1.300 veya sonraki sürümlerde .NET Core CLI paketlenmiştir. 2\.1.300 önceki .NET Core SDK sürümler için araç yüklemesi gereklidir.
 
 > [!TIP]
-> Yüklü `dotnet --version` .NET Core SDK sürüm numarasını görmek için bir komut kabuğu 'ndan çalıştırın.
+> Yüklü .NET Core SDK sürüm numarasını görmek için bir komut kabuğundan `dotnet --version` çalıştırın.
 
 Kullanılan .NET Core SDK araç içeriyorsa bir uyarı görüntülenir:
 
@@ -127,19 +127,19 @@ Gizli dizi Yöneticisi Aracı, Kullanıcı profilinizde depolanan projeye özgü
 
 ::: moniker range=">= aspnetcore-3.0"
 
-Gizli dizi Yöneticisi Aracı, .NET Core SDK `init` 3.0.100 veya sonraki sürümlerde bir komut içerir. Kullanıcı gizli dizilerini kullanmak için, proje dizininde aşağıdaki komutu çalıştırın:
+Gizli dizi Yöneticisi Aracı, .NET Core SDK 3.0.100 veya sonraki sürümlerde bir `init` komutu içerir. Kullanıcı gizli dizilerini kullanmak için, proje dizininde aşağıdaki komutu çalıştırın:
 
 ```dotnetcli
 dotnet user-secrets init
 ```
 
-Önceki komut, `UserSecretsId` *. csproj* dosyasının içindeki bir `PropertyGroup` öğesi ekler. Varsayılan olarak, iç metni `UserSecretsId` bir GUID 'dir. İç metin rastgele, ancak proje için benzersizdir.
+Önceki komut, *. csproj* dosyasının `PropertyGroup` içinde `UserSecretsId` öğesi ekler. Varsayılan olarak, `UserSecretsId` iç metni bir GUID 'dir. İç metin rastgele, ancak proje için benzersizdir.
 
 ::: moniker-end
 
 ::: moniker range="<= aspnetcore-2.2"
 
-Kullanıcı gizli dizilerini kullanmak için `UserSecretsId` *. csproj* dosyasının `PropertyGroup` içindeki bir öğesi tanımlayın. İç metni `UserSecretsId` rastgele, ancak proje için benzersizdir. Geliştiriciler, `UserSecretsId`genellıkle için bir GUID oluşturur.
+Kullanıcı gizli dizilerini kullanmak için, *. csproj* dosyasının bir `PropertyGroup` içinde `UserSecretsId` öğesi tanımlayın. `UserSecretsId` iç metni rastgele, ancak proje için benzersizdir. Geliştiriciler genellikle `UserSecretsId`için bir GUID oluşturur.
 
 ::: moniker-end
 
@@ -156,19 +156,19 @@ Kullanıcı gizli dizilerini kullanmak için `UserSecretsId` *. csproj* dosyası
 ::: moniker-end
 
 > [!TIP]
-> Visual Studio 'da Çözüm Gezgini projeye sağ tıklayın ve bağlam menüsünden **Kullanıcı gizli dizilerini Yönet** ' i seçin. Bu hareket, `UserSecretsId` *. csproj* dosyasına bir GUID ile doldurulmuş bir öğe ekler.
+> Visual Studio 'da Çözüm Gezgini projeye sağ tıklayın ve bağlam menüsünden **Kullanıcı gizli dizilerini Yönet** ' i seçin. Bu hareket, *. csproj* DOSYASıNA bir GUID ile doldurulmuş bir `UserSecretsId` öğesi ekler.
 
 ## <a name="set-a-secret"></a>Gizli dizi ayarla
 
-Anahtar ve değerini içeren bir uygulama gizli anahtarı tanımlayın. Gizli dizi, projenin `UserSecretsId` değeri ile ilişkilendirilir. Örneğin, *. csproj* dosyasının bulunduğu dizinden aşağıdaki komutu çalıştırın:
+Anahtar ve değerini içeren bir uygulama gizli anahtarı tanımlayın. Gizli dizi, projenin `UserSecretsId` değeriyle ilişkilendirilir. Örneğin, *. csproj* dosyasının bulunduğu dizinden aşağıdaki komutu çalıştırın:
 
 ```dotnetcli
 dotnet user-secrets set "Movies:ServiceApiKey" "12345"
 ```
 
-Yukarıdaki örnekte, iki nokta üst üste bir `Movies` `ServiceApiKey` özelliği olan bir nesne sabit değeri olduğunu gösterir.
+Yukarıdaki örnekte, iki nokta üst üste `Movies` bir `ServiceApiKey` özelliğine sahip bir nesne sabit değeri olduğunu gösterir.
 
-Gizli dizi Yöneticisi Aracı diğer dizinlerden de kullanılabilir. *. Csproj* dosyasının bulunduğu dosya sistemi yolunu sağlamak için seçeneğinikullanın.`--project` Örneğin:
+Gizli dizi Yöneticisi Aracı diğer dizinlerden de kullanılabilir. *. Csproj* dosyasının bulunduğu dosya sistemi yolunu sağlamak için `--project` seçeneğini kullanın. Örneğin:
 
 ```dotnetcli
 dotnet user-secrets set "Movies:ServiceApiKey" "12345" --project "C:\apps\WebApp1\src\WebApp1"
@@ -187,7 +187,7 @@ Visual Studio 'nun **Kullanıcı gizli dizilerini Yönet** hareketi metin düzen
 }
 ```
 
-JSON yapısı, veya `dotnet user-secrets remove` `dotnet user-secrets set`ile yapılan değişikliklerden sonra düzleştirilir. Örneğin, çalışıyor `dotnet user-secrets remove "Movies:ConnectionString"` `Movies` nesne değişmez değerini daraltır. Değiştirilen dosya şuna benzer:
+JSON yapısı, `dotnet user-secrets remove` veya `dotnet user-secrets set`aracılığıyla yapılan değişikliklerden sonra düzleştirilir. Örneğin, `dotnet user-secrets remove "Movies:ConnectionString"` çalıştırmak `Movies` nesnesinin değişmez değerini daraltır. Değiştirilen dosya şuna benzer:
 
 ```json
 {
@@ -197,7 +197,7 @@ JSON yapısı, veya `dotnet user-secrets remove` `dotnet user-secrets set`ile ya
 
 ## <a name="set-multiple-secrets"></a>Birden çok gizli dizi ayarla
 
-Bir dizi gizli dizi, `set` JSON ile komutuna ayırarak ayarlanabilir. Aşağıdaki örnekte, *input. JSON* dosyasının içeriği `set` komutuna yöneldir.
+Bir toplu işlem, JSON tarafından `set` komutuna boru tarafından ayarlanabilir. Aşağıdaki örnekte, *input. JSON* dosyasının içeriği `set` komutuna yöneldir.
 
 # <a name="windowstabwindows"></a>[Windows](#tab/windows)
 
@@ -229,11 +229,11 @@ Projeniz .NET Framework hedefliyorsa [Microsoft. Extensions. Configuration. User
 
 ::: moniker range=">= aspnetcore-2.0"
 
-ASP.NET Core 2,0 veya sonraki bir sürümde, proje önceden yapılandırılmış varsayılanlar ile konağın yeni bir örneğini başlatmak için çağırdığında <xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder*> , Kullanıcı gizli dizileri yapılandırma kaynağı geliştirme moduna otomatik olarak eklenir. `CreateDefaultBuilder`Şu<xref:Microsoft.AspNetCore.Hosting.IHostingEnvironment.EnvironmentName> <xref:Microsoft.Extensions.Configuration.UserSecretsConfigurationExtensions.AddUserSecrets*> olduğundaçağırır<xref:Microsoft.AspNetCore.Hosting.EnvironmentName.Development>:
+ASP.NET Core 2,0 veya sonraki sürümlerde Kullanıcı gizli dizileri yapılandırma kaynağı, önceden yapılandırılmış varsayılanlar ile konağın yeni bir örneğini başlatmak için <xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder*> çağırdığında geliştirme moduna otomatik olarak eklenir. `CreateDefaultBuilder`, <xref:Microsoft.AspNetCore.Hosting.IHostingEnvironment.EnvironmentName> <xref:Microsoft.AspNetCore.Hosting.EnvironmentName.Development>olduğunda <xref:Microsoft.Extensions.Configuration.UserSecretsConfigurationExtensions.AddUserSecrets*> çağırır:
 
 [!code-csharp[](app-secrets/samples/2.x/UserSecrets/Program.cs?name=snippet_CreateWebHostBuilder&highlight=2)]
 
-Çağrılmıyorsa, `Startup` oluşturucuda çağırarak <xref:Microsoft.Extensions.Configuration.UserSecretsConfigurationExtensions.AddUserSecrets*> Kullanıcı gizli dizi yapılandırma kaynağını açıkça ekleyin. `CreateDefaultBuilder` Aşağıdaki `AddUserSecrets` örnekte gösterildiği gibi, yalnızca uygulama geliştirme ortamında çalıştırıldığında çağırın:
+`CreateDefaultBuilder` çağrılmıyorsa, `Startup` oluşturucusunda <xref:Microsoft.Extensions.Configuration.UserSecretsConfigurationExtensions.AddUserSecrets*> çağırarak Kullanıcı gizli dizi yapılandırma kaynağını açıkça ekleyin. Aşağıdaki örnekte gösterildiği gibi, uygulama geliştirme ortamında çalıştırıldığında `AddUserSecrets` çağırın:
 
 [!code-csharp[](app-secrets/samples/1.x/UserSecrets/Startup.cs?name=snippet_StartupConstructor&highlight=12)]
 
@@ -243,13 +243,13 @@ ASP.NET Core 2,0 veya sonraki bir sürümde, proje önceden yapılandırılmış
 
 [Microsoft. Extensions. Configuration. Usergizlilikler](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.UserSecrets) NuGet paketini yükler.
 
-Kullanıcı gizli dizileri yapılandırma kaynağını <xref:Microsoft.Extensions.Configuration.UserSecretsConfigurationExtensions.AddUserSecrets*> `Startup` oluşturucuya bir çağrısıyla ekleyin:
+`Startup` oluşturucusunda <xref:Microsoft.Extensions.Configuration.UserSecretsConfigurationExtensions.AddUserSecrets*> çağrısıyla Kullanıcı gizli dizi yapılandırma kaynağını ekleyin:
 
 [!code-csharp[](app-secrets/samples/1.x/UserSecrets/Startup.cs?name=snippet_StartupConstructor&highlight=12)]
 
 ::: moniker-end
 
-Kullanıcı gizli dizileri `Configuration` API aracılığıyla alınabilir:
+Kullanıcı gizli dizileri `Configuration` API 'SI aracılığıyla alınabilir:
 
 ::: moniker range=">= aspnetcore-2.0"
 
@@ -269,7 +269,7 @@ Bir nesne sabit değerinin tamamını bir POCO 'ya eşleme (özelliklerle basit 
 
 [!INCLUDE[secrets.json file](~/includes/app-secrets/secrets-json-file-and-text.md)]
 
-Önceki gizli dizileri bir poco 'ya eşlemek için, `Configuration` API 'nin [nesne grafiği bağlama](xref:fundamentals/configuration/index#bind-to-an-object-graph) özelliğini kullanın. Aşağıdaki kod, özel `MovieSettings` bir poco 'a bağlanır ve `ServiceApiKey` özellik değerine erişir:
+Önceki gizli dizileri bir POCO 'ya eşlemek için `Configuration` API 'sinin [nesne grafiği bağlama](xref:fundamentals/configuration/index#bind-to-an-object-graph) özelliğini kullanın. Aşağıdaki kod, özel bir `MovieSettings` POCO 'a bağlanır ve `ServiceApiKey` özellik değerine erişir:
 
 ::: moniker range=">= aspnetcore-1.1"
 
@@ -283,7 +283,7 @@ Bir nesne sabit değerinin tamamını bir POCO 'ya eşleme (özelliklerle basit 
 
 ::: moniker-end
 
-`MovieSettings`Ve `Movies:ConnectionString` gizlidizileri,içindekiilgiliözelliklerleeşlenir`Movies:ServiceApiKey` :
+`Movies:ConnectionString` ve `Movies:ServiceApiKey` gizli dizileri `MovieSettings`ilgili özelliklerle eşlenir:
 
 [!code-csharp[](app-secrets/samples/2.x/UserSecrets/Models/MovieSettings.cs?name=snippet_MovieSettingsClass)]
 
@@ -299,11 +299,11 @@ Daha güvenli bir yaklaşım, parolayı gizli olarak depolanmalıdır. Örneğin
 dotnet user-secrets set "DbPassword" "pass123"
 ```
 
-Anahtar-değer çiftini *appSettings. JSON*içindeki bağlantı dizesinden kaldırın. `Password` Örneğin:
+`Password` anahtar-değer çiftini *appSettings. JSON*içindeki bağlantı dizesinden kaldırın. Örneğin:
 
 [!code-json[](app-secrets/samples/2.x/UserSecrets/appsettings.json?highlight=3)]
 
-Gizli dizi değeri, bağlantı dizesinin tamamlanabilmesi için bir <xref:System.Data.SqlClient.SqlConnectionStringBuilder> <xref:System.Data.SqlClient.SqlConnectionStringBuilder.Password*> nesnenin özelliğinde ayarlanabilir:
+Gizli dizi değeri, bağlantı dizesinin tamamlanabilmesi için <xref:System.Data.SqlClient.SqlConnectionStringBuilder> nesnenin <xref:System.Data.SqlClient.SqlConnectionStringBuilder.Password*> özelliğinde ayarlanabilir:
 
 ::: moniker range=">= aspnetcore-2.0"
 
@@ -327,7 +327,7 @@ Gizli dizi değeri, bağlantı dizesinin tamamlanabilmesi için bir <xref:System
 dotnet user-secrets list
 ```
 
-Aşağıdaki çıktı görüntülenir:
+Şu çıktı görünür:
 
 ```console
 Movies:ConnectionString = Server=(localdb)\mssqllocaldb;Database=Movie-1;Trusted_Connection=True;MultipleActiveResultSets=true
@@ -346,7 +346,7 @@ Yukarıdaki örnekte, anahtar adlarındaki bir iki nokta üst üste *gizli dizi.
 dotnet user-secrets remove "Movies:ConnectionString"
 ```
 
-Bu `MoviesConnectionString` anahtarla ilişkili anahtar-değer çiftini kaldırmak için uygulamanın *gizli dizi. JSON* dosyası değiştirildi:
+Uygulamanın *gizlilikler. JSON* dosyası, `MoviesConnectionString` anahtarıyla ilişkili anahtar-değer çiftini kaldırmak için değiştirilmiştir:
 
 ```json
 {
@@ -356,7 +356,7 @@ Bu `MoviesConnectionString` anahtarla ilişkili anahtar-değer çiftini kaldırm
 }
 ```
 
-Çalıştıran `dotnet user-secrets list` aşağıdaki iletiyi görüntüler:
+`dotnet user-secrets list` çalıştırmak aşağıdaki iletiyi görüntüler:
 
 ```console
 Movies:ServiceApiKey = 12345
@@ -378,7 +378,7 @@ Uygulamanın tüm Kullanıcı gizli dizileri, *gizlilikler. JSON* dosyasından s
 {}
 ```
 
-Çalıştıran `dotnet user-secrets list` aşağıdaki iletiyi görüntüler:
+`dotnet user-secrets list` çalıştırmak aşağıdaki iletiyi görüntüler:
 
 ```console
 No secrets configured for this application.

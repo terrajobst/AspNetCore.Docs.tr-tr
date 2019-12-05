@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/04/2019
 uid: security/authentication/index
-ms.openlocfilehash: 324b2669d3b69e4757a284e4ae7e1de5f4e87e5a
-ms.sourcegitcommit: 05ca05a5c8f6ae556aaad66ad9e4ec1e6b643c77
+ms.openlocfilehash: 40b2fb59b96486435a2ec0a7d69bee5ab4a814d2
+ms.sourcegitcommit: 76d7fff62014c3db02564191ab768acea00f1b26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74810244"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74852720"
 ---
 # <a name="overview-of-aspnet-core-authentication"></a>ASP.NET Core kimlik doğrulamasına genel bakış
 
@@ -41,7 +41,7 @@ services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 
 Birden çok düzen kullanılırsa, yetkilendirme ilkeleri (veya yetkilendirme öznitelikleri) kullanıcının kimliğini doğrulamak için bağımlı oldukları [kimlik doğrulama düzenini (veya düzenleri) belirtebilir](xref:security/authorization/limitingidentitybyscheme) . Yukarıdaki örnekte, tanımlama bilgisi kimlik doğrulama düzeni adı belirtilerek kullanılabilir (varsayılan olarak`CookieAuthenticationDefaults.AuthenticationScheme`, ancak `AddCookie`çağrılırken farklı bir ad sağlandıysa).
 
-Bazı durumlarda `AddAuthentication` çağrısı diğer uzantı yöntemleri tarafından otomatik olarak yapılır. Örneğin, [ASP.NET Core kimliği](xref:security/authentication/identity)kullanılırken,`AddAuthentication` dahili olarak çağrılır.
+Bazı durumlarda `AddAuthentication` çağrısı diğer uzantı yöntemleri tarafından otomatik olarak yapılır. Örneğin, [ASP.NET Core kimliği](xref:security/authentication/identity)kullanılırken, `AddAuthentication` dahili olarak çağrılır.
 
 Kimlik doğrulama ara yazılımı, uygulamanın `IApplicationBuilder`<xref:Microsoft.AspNetCore.Builder.AuthAppBuilderExtensions.UseAuthentication*> uzantısı yöntemi çağırarak `Startup.Configure` eklenir. `UseAuthentication` çağırmak, daha önce kayıtlı kimlik doğrulama düzenlerini kullanan ara yazılımı kaydeder. Kimliği doğrulanan kullanıcılara bağlı olan tüm ara yazılımlar için `UseAuthentication` çağırın. Endpoint Routing kullanılırken, `UseAuthentication` çağrısı şu şekilde olmalıdır:
 
@@ -80,14 +80,14 @@ Kimlik doğrulama düzeninin yapılandırmasına ve gelen istek bağlamına gör
 
 ### <a name="authenticate"></a>Kimlik doğrulama
 
-Kimlik doğrulama düzeninin kimlik doğrulama eylemi, kullanıcının kimliğini istek bağlamına göre oluşturmaktan sorumludur. Kimlik doğrulamanın başarılı olup olmadığını ve bu durumda kullanıcının kimlik doğrulama biletinde kimliğini belirten bir <xref:Microsoft.AspNetCore.Authentication.AuthenticateResult> döndürür. Bkz. HttpContext. doğrubir ekip eşitleme. Kimlik doğrulama örnekleri şunları içerir:
+Kimlik doğrulama düzeninin kimlik doğrulama eylemi, kullanıcının kimliğini istek bağlamına göre oluşturmaktan sorumludur. Kimlik doğrulamanın başarılı olup olmadığını ve bu durumda kullanıcının kimlik doğrulama biletinde kimliğini belirten bir <xref:Microsoft.AspNetCore.Authentication.AuthenticateResult> döndürür. Bkz. `HttpContext.AuthenticateAsync`. Kimlik doğrulama örnekleri şunları içerir:
 
 * Tanımlama bilgisi kimlik doğrulama şeması kullanıcının kimlik bilgilerinden kimliğini oluşturan.
 * Bir JWT taşıyıcı şeması, kullanıcının kimliğini oluşturmak için bir JWT taşıyıcı belirtecini seri durumdan çıkarma ve doğrulama.
 
 ### <a name="challenge"></a>Sınama
 
-Kimliği doğrulanmamış bir kullanıcı kimlik doğrulaması gerektiren bir uç nokta istediğinde yetkilendirme ile kimlik doğrulama sınaması çağrılır. Örneğin, anonim bir Kullanıcı kısıtlı bir kaynak istediğinde veya bir oturum açma bağlantısına tıkladığı zaman bir kimlik doğrulama sınaması verilir. Yetkilendirme, belirtilen kimlik doğrulama düzenlerini kullanarak bir zorluk çağırır ya da hiçbiri belirtilmemişse varsayılan değer. Bkz. HttpContext. bir Geasync. Kimlik doğrulama sınaması örnekleri şunları içerir:
+Kimliği doğrulanmamış bir kullanıcı kimlik doğrulaması gerektiren bir uç nokta istediğinde yetkilendirme ile kimlik doğrulama sınaması çağrılır. Örneğin, anonim bir Kullanıcı kısıtlı bir kaynak istediğinde veya bir oturum açma bağlantısına tıkladığı zaman bir kimlik doğrulama sınaması verilir. Yetkilendirme, belirtilen kimlik doğrulama düzenlerini kullanarak bir zorluk çağırır ya da hiçbiri belirtilmemişse varsayılan değer. Bkz. `HttpContext.ChallengeAsync`. Kimlik doğrulama sınaması örnekleri şunları içerir:
 
 * Bir tanımlama bilgisi kimlik doğrulama şeması kullanıcıyı bir oturum açma sayfasına yönlendiriyor.
 * Bir `www-authenticate: bearer` üst bilgisiyle 401 sonucu döndüren JWT taşıyıcı şeması.
@@ -96,7 +96,7 @@ Bir sınama eylemi, kullanıcının istenen kaynağa erişmek için hangi kimlik
 
 ### <a name="forbid"></a>Yasaklamaz
 
-Kimliği doğrulanmış bir kullanıcı erişimine izin verilmeyen bir kaynağa erişmeyi denediğinde kimlik doğrulama düzeninin fordeklarasyon eylemi yetkilendirme tarafından çağrılır. Bkz. HttpContext. ForbidAsync. Kimlik doğrulama fordeklarasyon örnekleri şunları içerir:
+Kimliği doğrulanmış bir kullanıcı erişimine izin verilmeyen bir kaynağa erişmeyi denediğinde kimlik doğrulama düzeninin fordeklarasyon eylemi yetkilendirme tarafından çağrılır. Bkz. `HttpContext.ForbidAsync`. Kimlik doğrulama fordeklarasyon örnekleri şunları içerir:
 * Bir tanımlama bilgisi kimlik doğrulama şeması, kullanıcıyı erişim yasak bir sayfaya yönlendirdi.
 * 403 sonucunu döndüren bir JWT taşıyıcı şeması.
 * Özel bir kimlik doğrulama şeması, kullanıcının kaynağa erişim isteyebileceği bir sayfaya yeniden yönlendiriliyor.
