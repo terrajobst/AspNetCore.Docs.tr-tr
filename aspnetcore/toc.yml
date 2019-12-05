@@ -555,6 +555,13 @@
     - name: Günlüğe kaydetme ve tanılama
       displayName: signalr
       uid: signalr/diagnostics
+    - name: Belirtimler
+      displayName: 'signalr, specs'
+      items:
+        - name: Merkez protokolü
+          href: 'https://github.com/aspnet/AspNetCore/blob/master/src/SignalR/docs/specs/HubProtocol.md'
+        - name: Aktarım protokolleri
+          href: 'https://github.com/aspnet/AspNetCore/blob/master/src/SignalR/docs/specs/TransportProtocols.md'
 - name: Uzaktan Yordam Çağrısı uygulamaları
   items:
     - name: gRPC hizmetlerine giriş
