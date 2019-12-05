@@ -5,14 +5,14 @@ description: Microsoft. Extensions. Logging NuGet paketi tarafından sunulan gü
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/19/2019
+ms.date: 12/04/2019
 uid: fundamentals/logging/index
-ms.openlocfilehash: 23ce2d09d2ce9f415ce71bcd7c21c29cb2a040fc
-ms.sourcegitcommit: 918d7000b48a2892750264b852bad9e96a1165a7
+ms.openlocfilehash: 49d598330948c5f4a137c534094e14ed5e01e27c
+ms.sourcegitcommit: f4cd3828e26e6d549ba8d0c36a17be35ad9e5a51
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74550356"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74825483"
 ---
 # <a name="logging-in-net-core-and-aspnet-core"></a>.NET Core ve ASP.NET Core oturum açma
 
@@ -28,7 +28,7 @@ Genel ana bilgisayarı olmayan uygulamalar için günlük kodu, [sağlayıcılar
 
 ::: moniker-end
 
-[Örnek kodu görüntüleme veya indirme](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/logging/index/samples) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
+[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/logging/index/samples) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
 
 ## <a name="add-providers"></a>Sağlayıcı Ekle
 
@@ -48,10 +48,10 @@ Konak olmayan bir konsol uygulamasında, bir `LoggerFactory`oluştururken sağla
 
 Varsayılan ASP.NET Core proje şablonları, aşağıdaki günlük sağlayıcılarını ekleyen <xref:Microsoft.Extensions.Hosting.Host.CreateDefaultBuilder%2A>çağırır:
 
-* Konsolu
-* Hata ayıklama
-* EventSource
-* Olay günlüğü (yalnızca Windows üzerinde çalışırken)
+* [Console](#console-provider)
+* [Hata ayıklama](#debug-provider)
+* [EventSource](#event-source-provider)
+* [Olay günlüğü](#windows-eventlog-provider) (yalnızca Windows üzerinde çalışırken)
 
 Varsayılan sağlayıcıları kendi seçimlerinizle değiştirebilirsiniz. <xref:Microsoft.Extensions.Logging.LoggingBuilderExtensions.ClearProviders%2A>çağırın ve istediğiniz sağlayıcıları ekleyin.
 
@@ -129,7 +129,7 @@ Aşağıdaki ASP.NET Core ve konsol uygulaması örneklerinde, günlükçü, dü
 
 ASP.NET Core uygulamasının `Program` sınıfında Günlükler yazmak için, konak oluşturulduktan sonra bir `ILogger` örneği alın:
 
-[!code-csharp[](index/samples/3.x/TodoApiSample/Program.cs?name=snippet_LogFromMain&highlight=9,10)]
+[!code-csharp[](index/samples_snapshot/3.x/TodoApiSample/Program.cs?highlight=9,10)]
 
 Ana bilgisayar oluşturma sırasında günlüğe kaydetme doğrudan desteklenmez. Ancak, ayrı bir günlükçü kullanılabilir. Aşağıdaki örnekte, `CreateHostBuilder`oturum açmak için bir [Serilog](https://serilog.net/) günlükçü kullanılır. `AddSerilog`, `Log.Logger`belirtilen statik yapılandırmayı kullanır:
 
@@ -483,7 +483,7 @@ Aşağıdaki kod `Information` ve `Warning` günlüklerini oluşturur:
 
 ::: moniker-end
 
-Yukarıdaki kodda, ilk parametre [günlük olay kimliğidir](#log-event-id). İkinci parametre, kalan Yöntem parametreleri tarafından belirtilen bağımsız değişken değerleri için yer tutucuları olan bir ileti şablonudur. Yöntem parametreleri bu makalenin ilerleyen kısımlarında bulunan [ileti şablonu bölümünde](#log-message-template) açıklanmaktadır.
+Önceki kodda, ilk parametredir [oturum öğesini belirten Olay No.](#log-event-id) İkinci parametre, kalan Yöntem parametreleri tarafından belirtilen bağımsız değişken değerleri için yer tutucuları olan bir ileti şablonudur. Yöntem parametreleri bu makalenin ilerleyen kısımlarında bulunan [ileti şablonu bölümünde](#log-message-template) açıklanmaktadır.
 
 Yöntem adındaki düzeyi (örneğin, `LogInformation` ve `LogWarning`) içeren günlük yöntemleri, [ILogger için uzantı yöntemleridir](xref:Microsoft.Extensions.Logging.LoggerExtensions). Bu yöntemler bir `LogLevel` parametresi alan `Log` yöntemini çağırır. Bu uzantı yöntemlerinden biri yerine doğrudan `Log` yöntemi çağırabilirsiniz, ancak söz dizimi görece karmaşıktır. Daha fazla bilgi için bkz. <xref:Microsoft.Extensions.Logging.ILogger> ve [günlükçü uzantıları kaynak kodu](https://github.com/aspnet/Extensions/blob/release/2.2/src/Logging/Logging.Abstractions/src/LoggerExtensions.cs).
 
@@ -604,7 +604,7 @@ info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
 
 ## <a name="log-event-id"></a>Günlüğe olay KIMLIĞI
 
-Her günlük bir *olay kimliği*belirtebilir. Örnek uygulama bunu yerel olarak tanımlanmış bir `LoggingEvents` sınıfını kullanarak yapar:
+Her günlük belirtebilirsiniz bir *öğesini belirten Olay No*. Örnek uygulama bunu yerel olarak tanımlanmış bir `LoggingEvents` sınıfını kullanarak yapar:
 
 ::: moniker range=">= aspnetcore-3.0"
 
@@ -746,14 +746,14 @@ Yapılandırma verileri ve önceki örneklerde gösterilen `AddFilter` kodu, aş
 
 | Sayı | Sağlayıcı      | Şununla başlayan Kategoriler...          | En düşük günlük düzeyi |
 | :----: | ------------- | --------------------------------------- | ----------------- |
-| 1\.      | Hata ayıklama         | Tüm Kategoriler                          | Bilgisi       |
-| 2      | Konsolu       | Microsoft. AspNetCore. Mvc. Razor. Internal | Uyarı           |
-| 3      | Konsolu       | Microsoft. AspNetCore. Mvc. Razor. Razor    | Hata ayıklama             |
-| 4      | Konsolu       | Microsoft. AspNetCore. Mvc. Razor          | Hata             |
-| 5      | Konsolu       | Tüm Kategoriler                          | Bilgisi       |
-| 6      | Tüm sağlayıcılar | Tüm Kategoriler                          | Hata ayıklama             |
+| 1\.      | Hata ayıklama         | Tüm kategoriler                          | Bilgisi       |
+| 2      | Konsolu       | Microsoft.AspNetCore.Mvc.Razor.Internal | Uyarı           |
+| 3      | Konsolu       | Microsoft.AspNetCore.Mvc.Razor.Razor    | Hata ayıklama             |
+| 4      | Konsolu       | Microsoft.AspNetCore.Mvc.Razor          | Hata             |
+| 5      | Konsolu       | Tüm kategoriler                          | Bilgisi       |
+| 6      | Tüm sağlayıcılar | Tüm kategoriler                          | Hata ayıklama             |
 | 7      | Tüm sağlayıcılar | Sistem                                  | Hata ayıklama             |
-| 8      | Hata ayıklama         | Microsoft                               | izlemesinin             |
+| 8      | Hata ayıklama         | Microsoft                               | İzleme             |
 
 Bir `ILogger` nesnesi oluşturulduğunda, `ILoggerFactory` nesnesi, bu günlükçü için uygulanacak her sağlayıcı için tek bir kural seçer. Bir `ILogger` örneği tarafından yazılan tüm iletiler, seçilen kurallara göre filtrelenmiştir. Her sağlayıcı ve kategori çifti için mümkün olan en özel kural kullanılabilir kurallardan seçilir.
 
@@ -889,7 +889,7 @@ warn: TodoApiSample.Controllers.TodoController[4000]
 ASP.NET Core aşağıdaki sağlayıcıları sevk eder:
 
 * [Console](#console-provider)
-* [H](#debug-provider)
+* [Hata ayıklama](#debug-provider)
 * [EventSource](#event-source-provider)
 * [EventLog](#windows-eventlog-provider)
 * [TraceSource](#tracesource-provider)
@@ -989,14 +989,14 @@ Bir uygulamadan izleme toplamak için DotNet Trace araçları kullanın:
 
    Windows dışı platformlarda, çıkış izleme dosyasının biçimini `speedscope`olarak değiştirmek için `-f speedscope` seçeneğini ekleyin.
 
-   | sözcükle | Açıklama |
+   | Anahtar sözcüğü | Açıklama |
    | :-----: | ----------- |
    | 1\.       | `LoggingEventSource`ilgili meta olayları günlüğe kaydedin. Olayları `ILogger`) günlüğe kaydetmez. |
    | 2       | `ILogger.Log()` çağrıldığında `Message` olayı açar. Programlı (biçimlendirilmedi) bir şekilde bilgi sağlar. |
    | 4       | `ILogger.Log()` çağrıldığında `FormatMessage` olayı açar. , Bilgilerin biçimlendirilen dize sürümünü sağlar. |
    | 8       | `ILogger.Log()` çağrıldığında `MessageJson` olayı açar. Bağımsız değişkenlerin JSON gösterimini sağlar. |
 
-   | Olay düzeyi | Açıklama     |
+   | Olay Düzeyi | Açıklama     |
    | :---------: | --------------- |
    | 0           | `LogAlways`     |
    | 1\.           | `Critical`      |
@@ -1051,7 +1051,11 @@ Bu sağlayıcı tarafından günlüğe kaydedilen olayları toplamak için PerfV
 logging.AddEventLog();
 ```
 
-[AddEventLog aşırı yüklemeler](xref:Microsoft.Extensions.Logging.EventLoggerFactoryExtensions) <xref:Microsoft.Extensions.Logging.EventLog.EventLogSettings>iletmenizi sağlar.
+[AddEventLog aşırı yüklemeler](xref:Microsoft.Extensions.Logging.EventLoggerFactoryExtensions) <xref:Microsoft.Extensions.Logging.EventLog.EventLogSettings>iletmenizi sağlar. `null` veya belirtilmemişse, aşağıdaki varsayılan ayarlar kullanılır:
+
+* "uygulama" `LogName` &ndash;
+* `SourceName` &ndash; ".NET Runtime"
+* `MachineName` &ndash; yerel makine
 
 ### <a name="tracesource-provider"></a>TraceSource sağlayıcısı
 
