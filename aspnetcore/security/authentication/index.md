@@ -4,14 +4,14 @@ author: mjrousos
 description: ASP.NET Core kimlik doğrulaması hakkında bilgi edinin.
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/22/2019
+ms.date: 12/04/2019
 uid: security/authentication/index
-ms.openlocfilehash: 5e6c875188831c468bc6ca52ce71c5961b43573c
-ms.sourcegitcommit: 0dd224b2b7efca1fda0041b5c3f45080327033f6
+ms.openlocfilehash: 324b2669d3b69e4757a284e4ae7e1de5f4e87e5a
+ms.sourcegitcommit: 05ca05a5c8f6ae556aaad66ad9e4ec1e6b643c77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74681457"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74810244"
 ---
 # <a name="overview-of-aspnet-core-authentication"></a>ASP.NET Core kimlik doğrulamasına genel bakış
 
@@ -57,7 +57,7 @@ Kimlik doğrulama düzeni, öğesine karşılık gelen bir addır:
 * Bir kimlik doğrulama işleyicisi.
 * İşleyicinin belirli bir örneğini yapılandırma seçenekleri.
 
-Şemaları, ilişkili işleyicinin kimlik doğrulama, sınama ve fordeklarasyonu davranışlarına başvurma mekanizması olarak faydalıdır. Örneğin, bir yetkilendirme ilkesi, kullanıcının kimliğini doğrulamak için hangi yetkilendirme düzeninin (veya düzenlerinin) kullanılması gerektiğini ada göre belirtebilir. Kimlik doğrulamasını yapılandırırken, varsayılan kimlik doğrulama düzenini belirlemek yaygın bir hale gelir. Varsayılan şema, bir kaynak belirli bir düzeni istemediği takdirde kullanılır. Şunları da mümkündür:
+Şemaları, ilişkili işleyicinin kimlik doğrulama, sınama ve fordeklarasyonu davranışlarına başvurma mekanizması olarak faydalıdır. Örneğin, bir yetkilendirme ilkesi, kullanıcının kimliğini doğrulamak için hangi kimlik doğrulama şemasının (veya düzenlerinin) kullanılması gerektiğini belirtmek için şema adlarını kullanabilir. Kimlik doğrulamasını yapılandırırken, varsayılan kimlik doğrulama düzenini belirlemek yaygın bir hale gelir. Varsayılan şema, bir kaynak belirli bir düzeni istemediği takdirde kullanılır. Şunları da mümkündür:
 
 * Kimlik doğrulama, sınama ve fordeklarasyon eylemleri için kullanılacak farklı varsayılan şemaları belirtin.
 * Birden çok düzeni [ilke düzenlerini](xref:security/authentication/policyschemes)kullanarak bir tek birleştirme.
@@ -78,14 +78,14 @@ Kimlik doğrulama düzeninin yapılandırmasına ve gelen istek bağlamına gör
   * Bunlara erişim yetkisi yoktur (fordeklarasyon).
   * Kimliği doğrulanmamış olduğunda (zorluk).
 
-### <a name="authenticate"></a>Denetimini
+### <a name="authenticate"></a>Kimlik doğrulama
 
 Kimlik doğrulama düzeninin kimlik doğrulama eylemi, kullanıcının kimliğini istek bağlamına göre oluşturmaktan sorumludur. Kimlik doğrulamanın başarılı olup olmadığını ve bu durumda kullanıcının kimlik doğrulama biletinde kimliğini belirten bir <xref:Microsoft.AspNetCore.Authentication.AuthenticateResult> döndürür. Bkz. HttpContext. doğrubir ekip eşitleme. Kimlik doğrulama örnekleri şunları içerir:
 
 * Tanımlama bilgisi kimlik doğrulama şeması kullanıcının kimlik bilgilerinden kimliğini oluşturan.
 * Bir JWT taşıyıcı şeması, kullanıcının kimliğini oluşturmak için bir JWT taşıyıcı belirtecini seri durumdan çıkarma ve doğrulama.
 
-### <a name="challenge"></a>Sına
+### <a name="challenge"></a>Sınama
 
 Kimliği doğrulanmamış bir kullanıcı kimlik doğrulaması gerektiren bir uç nokta istediğinde yetkilendirme ile kimlik doğrulama sınaması çağrılır. Örneğin, anonim bir Kullanıcı kısıtlı bir kaynak istediğinde veya bir oturum açma bağlantısına tıkladığı zaman bir kimlik doğrulama sınaması verilir. Yetkilendirme, belirtilen kimlik doğrulama düzenlerini kullanarak bir zorluk çağırır ya da hiçbiri belirtilmemişse varsayılan değer. Bkz. HttpContext. bir Geasync. Kimlik doğrulama sınaması örnekleri şunları içerir:
 
