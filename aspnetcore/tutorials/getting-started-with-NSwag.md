@@ -4,14 +4,14 @@ author: zuckerthoben
 description: ASP.NET Core Web API 'SI için belge ve yardım sayfaları oluşturmak üzere NSwag 'yi nasıl kullanacağınızı öğrenin.
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 06/21/2019
+ms.date: 12/05/2019
 uid: tutorials/get-started-with-nswag
-ms.openlocfilehash: 23927e6ce0a7b29ce3f32d4e7f7d3f234257ca9b
-ms.sourcegitcommit: eb2fe5ad2e82fab86ca952463af8d017ba659b25
+ms.openlocfilehash: 676e911a14bd128998c987b3f955c40e19af98d1
+ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2019
-ms.locfileid: "73416165"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74881301"
 ---
 # <a name="get-started-with-nswag-and-aspnet-core"></a>NSwag ve ASP.NET Core kullanmaya başlayın
 
@@ -19,13 +19,13 @@ ms.locfileid: "73416165"
 
 ::: moniker range=">= aspnetcore-2.1"
 
-[Örnek kodu görüntüleme veya indirme](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/tutorials/web-api-help-pages-using-swagger/samples/2.1/TodoApi.NSwag) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
+[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/tutorials/web-api-help-pages-using-swagger/samples/2.1/TodoApi.NSwag) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
 
 ::: moniker-end
 
 ::: moniker range="<= aspnetcore-2.0"
 
-[Örnek kodu görüntüleme veya indirme](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/tutorials/web-api-help-pages-using-swagger/samples/2.0/TodoApi.NSwag) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
+[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/tutorials/web-api-help-pages-using-swagger/samples/2.0/TodoApi.NSwag) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
 
 ::: moniker-end
 
@@ -59,7 +59,7 @@ NSwag NuGet paketini yüklemek için aşağıdaki yaklaşımlardan birini kullan
     ```
 
 * **NuGet Paketlerini Yönet** iletişim kutusunda:
-  * **Çözüm Gezgini** >  ' de projeye sağ tıklayıp**NuGet Paketlerini Yönet**
+  * **NuGet paketlerini yönetmek** > **Çözüm Gezgini** ' de projeye sağ tıklayın
   * **Paket kaynağını** "NuGet.org" olarak ayarlayın
   * Arama kutusuna "NSwag. AspNetCore" yazın
   * **Araştır** sekmesinden "NSwag. aspnetcore" paketini seçin ve sonra da **yüklensin** ' e tıklayın.
@@ -93,7 +93,7 @@ Aşağıdaki adımları gerçekleştirerek ASP.NET Core uygulamanızda Swagger e
 
 [!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/2.0/TodoApi.NSwag/Startup.cs?name=snippet_Configure&highlight=6-7)]
 
-* Uygulamayı başlatın. Şuraya gidin:
+* Uygulamayı başlatma. Şuraya gidin:
   * Swagger Kullanıcı arabirimini görüntülemek için `http://localhost:<port>/swagger`.
   * Swagger belirtimini görüntülemek için `http://localhost:<port>/swagger/v1/swagger.json`.
 
@@ -197,7 +197,7 @@ XML açıklamalarını etkinleştirmek için aşağıdaki adımları uygulayın:
 
 ::: moniker range=">= aspnetcore-2.0"
 
-* **Çözüm Gezgini** projeye sağ tıklayın ve **düzenle < Project_Name >. csproj**' yı seçin.
+* **Çözüm Gezgini** projeye sağ tıklayın ve **>. csproj Project_Name < Düzenle**' yi seçin.
 * Vurgulanan satırları *. csproj* dosyasına el ile ekleyin:
 
 [!code-xml[](../tutorials/web-api-help-pages-using-swagger/samples/2.1/TodoApi.NSwag/TodoApi.csproj?name=snippet_DocumentationFileElement&highlight=1-2,4)]
@@ -253,11 +253,11 @@ Vurgulanan satırları *. csproj* dosyasına el ile ekleyin:
 
 NSwag [yansıma](/dotnet/csharp/programming-guide/concepts/reflection)kullandığından ve Web API 'si eylemleri için önerilen dönüş türü [ıactionresult](xref:Microsoft.AspNetCore.Mvc.IActionResult)olduğundan, eyleminiz ne yaptığını ve döndürdüğü şeyi çıkarmaz.
 
-Aşağıdaki örneği göz önünde bulundurun:
+Aşağıdaki örnek göz önünde bulundurun:
 
 [!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/2.0/TodoApi.NSwag/Controllers/TodoController.cs?name=snippet_CreateAction)]
 
-Önceki eylem `IActionResult`döndürüyor, ancak eylemin içinde [Createdatroute](xref:System.Web.Http.ApiController.CreatedAtRoute*) veya [BadRequest](xref:System.Web.Http.ApiController.BadRequest*)döndürüyor. İstemcilere bu eylemin hangi HTTP durum kodlarına geri dönebileceği bilinmektedir olduğunu bildirmek için veri açıklamalarını kullanın. Aşağıdaki özniteliklerle eylemi süslemek:
+Önceki eylem `IActionResult`döndürüyor, ancak eylemin içinde [Createdatroute](xref:System.Web.Http.ApiController.CreatedAtRoute*) veya [BadRequest](xref:System.Web.Http.ApiController.BadRequest*)döndürüyor. İstemcilere bu eylemin hangi HTTP durum kodlarına geri dönebileceği bilinmektedir olduğunu bildirmek için veri açıklamalarını kullanın. Eylemi aşağıdaki özniteliklerle işaretleyin:
 
 [!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/2.0/TodoApi.NSwag/Controllers/TodoController.cs?name=snippet_CreateActionAttributes)]
 
@@ -267,11 +267,11 @@ Aşağıdaki örneği göz önünde bulundurun:
 
 NSwag [yansıma](/dotnet/csharp/programming-guide/concepts/reflection)kullandığından ve Web API eylemleri için önerilen dönüş türü [ActionResult\<t >](xref:Microsoft.AspNetCore.Mvc.ActionResult%601)olduğundan, yalnızca `T`tarafından tanımlanan dönüş türünü çıkarabilir. Diğer olası dönüş türlerini otomatik olarak çıkarsanamıyor.
 
-Aşağıdaki örneği göz önünde bulundurun:
+Aşağıdaki örnek göz önünde bulundurun:
 
 [!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/2.1/TodoApi.NSwag/Controllers/TodoController.cs?name=snippet_CreateAction)]
 
-Önceki eylem `ActionResult<T>`döndürür. Eylemin içinde, [Createdatroute](xref:System.Web.Http.ApiController.CreatedAtRoute*)döndürüyor. Denetleyici [[Apicontroller]](xref:Microsoft.AspNetCore.Mvc.ApiControllerAttribute) özniteliğiyle donatılmış olduğundan, bir [rozet istek](xref:System.Web.Http.ApiController.BadRequest*) yanıtı da mümkündür. Daha fazla bilgi için bkz. [OTOMATIK HTTP 400 yanıtları](xref:web-api/index#automatic-http-400-responses). İstemcilere bu eylemin hangi HTTP durum kodlarına geri dönebileceği bilinmektedir olduğunu bildirmek için veri açıklamalarını kullanın. Aşağıdaki özniteliklerle eylemi süslemek:
+Önceki eylem `ActionResult<T>`döndürür. Eylemin içinde, [Createdatroute](xref:System.Web.Http.ApiController.CreatedAtRoute*)döndürüyor. Denetleyicinin [`[ApiController]`](xref:Microsoft.AspNetCore.Mvc.ApiControllerAttribute) özniteliği olduğundan, bir [BadRequest](xref:System.Web.Http.ApiController.BadRequest*) yanıtı da mümkündür. Daha fazla bilgi için bkz. [OTOMATIK HTTP 400 yanıtları](xref:web-api/index#automatic-http-400-responses). İstemcilere bu eylemin hangi HTTP durum kodlarına geri dönebileceği bilinmektedir olduğunu bildirmek için veri açıklamalarını kullanın. Eylemi aşağıdaki özniteliklerle işaretleyin:
 
 [!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/2.1/TodoApi.NSwag/Controllers/TodoController.cs?name=snippet_CreateActionAttributes)]
 
@@ -279,6 +279,6 @@ ASP.NET Core 2,2 veya üzeri sürümlerde, tek tek eylemleri `[ProducesResponseT
 
 ::: moniker-end
 
-Swagger Oluşturucusu artık bu eylemi doğru bir şekilde tanımlayabilir ve üretilen istemciler, uç noktayı çağırırken ne elde ettikleri hakkında bilgi alabilir. Öneri olarak, tüm eylemleri bu özniteliklerle süsle.
+Swagger Oluşturucusu artık bu eylemi doğru bir şekilde tanımlayabilir ve üretilen istemciler, uç noktayı çağırırken ne elde ettikleri hakkında bilgi alabilir. Öneri olarak tüm eylemleri bu özniteliklerle işaretleyin.
 
 API eylemlerinizin dönmesi gereken HTTP yanıtlarının hakkında yönergeler için bkz. [RFC 7231 belirtimi](https://tools.ietf.org/html/rfc7231#section-4.3).

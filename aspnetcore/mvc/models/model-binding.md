@@ -6,12 +6,12 @@ ms.assetid: 0be164aa-1d72-4192-bd6b-192c9c301164
 ms.author: riande
 ms.date: 11/21/2019
 uid: mvc/models/model-binding
-ms.openlocfilehash: a49fec38a6d38bbd33e9461cbcceb39bfe810f5c
-ms.sourcegitcommit: 3b6b0a54b20dc99b0c8c5978400c60adf431072f
+ms.openlocfilehash: 705044804b6ecc980baa88a624863ce5ac72a694
+ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74717292"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74881046"
 ---
 # <a name="model-binding-in-aspnet-core"></a>ASP.NET Core 'de model bağlama
 
@@ -79,13 +79,13 @@ Varsayılan olarak, Özellikler HTTP GET istekleri için bağlantılı değildir
 
 [!code-csharp[](model-binding/samples/2.x/Pages/Instructors/Index.cshtml.cs?name=snippet_SupportsGet)]
 
-## <a name="sources"></a>Ğına
+## <a name="sources"></a>Kaynaklar
 
 Varsayılan olarak, model bağlama, bir HTTP isteğindeki aşağıdaki kaynaklardan gelen anahtar-değer çiftleri biçimindeki verileri alır:
 
 1. Form alanları
 1. İstek gövdesi ( [[ApiController] özniteliğine sahip denetleyiciler](xref:web-api/index#binding-source-parameter-inference)için.)
-1. Verileri yönlendirme
+1. Veri yönlendirme
 1. Sorgu dizesi parametreleri
 1. Karşıya yüklenen dosyalar
 
@@ -96,11 +96,11 @@ Her hedef parametresi veya özelliği için kaynaklar, önceki listede belirtile
 
 Varsayılan kaynak doğru değilse, kaynağı belirtmek için aşağıdaki özniteliklerden birini kullanın:
 
-* [[Fromquery]](xref:Microsoft.AspNetCore.Mvc.FromQueryAttribute) -sorgu dizesinden değerleri alır. 
-* [[FromRoute]](xref:Microsoft.AspNetCore.Mvc.FromRouteAttribute) -rota verilerinden değerleri alır.
-* [[FromForm]](xref:Microsoft.AspNetCore.Mvc.FromFormAttribute) -postalanan Form alanlarındaki değerleri alır.
-* [[Frombody]](xref:Microsoft.AspNetCore.Mvc.FromBodyAttribute) -istek gövdesinden değerleri alır.
-* [[Fromheader]](xref:Microsoft.AspNetCore.Mvc.FromHeaderAttribute) -http başlıklarından değerleri alır.
+* [`[FromQuery]`](xref:Microsoft.AspNetCore.Mvc.FromQueryAttribute) -sorgu dizesinden değerleri alır. 
+* [`[FromRoute]`](xref:Microsoft.AspNetCore.Mvc.FromRouteAttribute) -rota verilerinden değerleri alır.
+* [`[FromForm]`](xref:Microsoft.AspNetCore.Mvc.FromFormAttribute) -postalanan Form alanlarındaki değerleri alır.
+* [`[FromBody]`](xref:Microsoft.AspNetCore.Mvc.FromBodyAttribute) -istek gövdesinden değerleri alır.
+* [`[FromHeader]`](xref:Microsoft.AspNetCore.Mvc.FromHeaderAttribute) -http başlıklarındaki değerleri alır.
 
 Bu öznitelikler:
 
@@ -166,7 +166,7 @@ Varsayılan olarak, model özelliği için bir değer bulunmazsa model durumu ha
 * Karmaşık türler için model bağlama, özellikleri ayarlamadan varsayılan oluşturucuyu kullanarak bir örnek oluşturur.
 * Diziler, `byte[]` dizilerinin `null`olarak ayarlandığı durumlar dışında `Array.Empty<T>()`olarak ayarlanır.
 
-Model özelliği için form alanlarında hiçbir şey bulunamadığında model durumunun geçersiz kılınmalıdır, [[Bindrequired] özniteliğini](#bindrequired-attribute)kullanın.
+Model özelliği için form alanlarında hiçbir şey bulunamadığında model durumunun geçersiz kılınmalıdır, [`[BindRequired]`](#bindrequired-attribute) özniteliğini kullanın.
 
 Bu `[BindRequired]` davranışının, bir istek gövdesinde JSON veya XML verilerine değil, postalanan form verilerinden model bağlama için geçerli olduğunu unutmayın. İstek gövdesi verileri, [giriş formatlayıcıları](#input-formatters)tarafından işlenir.
 
@@ -190,7 +190,7 @@ Tür dönüştürme hatalarının model durumu hatalarına neden olmasını iste
 
 Model cildin kaynak dizeleri dönüştürebileceğiniz basit türler aşağıdakileri içerir:
 
-* [Boolean](xref:System.ComponentModel.BooleanConverter)
+* [Boole değeri](xref:System.ComponentModel.BooleanConverter)
 * [Byte](xref:System.ComponentModel.ByteConverter), [SByte](xref:System.ComponentModel.SByteConverter)
 * [Char](xref:System.ComponentModel.CharConverter)
 * [Hem](xref:System.ComponentModel.DateTimeConverter)
@@ -203,7 +203,7 @@ Model cildin kaynak dizeleri dönüştürebileceğiniz basit türler aşağıdak
 * [Sunuculu](xref:System.ComponentModel.SingleConverter)
 * [TimeSpan](xref:System.ComponentModel.TimeSpanConverter)
 * [UInt16](xref:System.ComponentModel.UInt16Converter), [UInt32](xref:System.ComponentModel.UInt32Converter), [UInt64](xref:System.ComponentModel.UInt64Converter)
-* [Kullanılmamışsa](xref:System.UriTypeConverter)
+* [Uri](xref:System.UriTypeConverter)
 * [Sürüm](xref:System.ComponentModel.VersionConverter)
 
 ## <a name="complex-types"></a>Karmaşık türler
@@ -347,7 +347,7 @@ Basit türlerin koleksiyonları olan hedefler için model bağlama, *parameter_n
 
   Alt simge numaralarını kullanan veri biçimleri (... [0]... [1]...) sıfırdan başlayarak sıralı olarak numaralandırıldıklarından emin olmalıdır. Alt simge numaralandırmasında boşluk varsa, boşluklardan sonraki tüm öğeler yoksayılır. Örneğin, alt simgeler 0 ve 1 yerine 0 ve 2 ise ikinci öğe yok sayılır.
 
-## <a name="dictionaries"></a>Sözlüğü
+## <a name="dictionaries"></a>Sözlükler
 
 `Dictionary` hedefler için, model bağlama *parameter_name* veya *property_name*eşleşmelerini arar. Eşleşme bulunmazsa, ön ek olmadan desteklenen biçimlerden birini arar. Örneğin:
 

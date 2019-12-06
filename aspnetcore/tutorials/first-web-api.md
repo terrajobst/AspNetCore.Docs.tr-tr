@@ -4,20 +4,20 @@ author: rick-anderson
 description: ASP.NET Core ile Web API 'SI oluşturmayı öğrenin.
 ms.author: riande
 ms.custom: mvc
-ms.date: 09/29/2019
+ms.date: 12/05/2019
 uid: tutorials/first-web-api
-ms.openlocfilehash: abb55ea12583374639f28945037cb6aa41a5a32d
-ms.sourcegitcommit: 77c8be22d5e88dd710f42c739748869f198865dd
+ms.openlocfilehash: 96b4c030c1d91f97725d1f3623c7b4023ad99ff3
+ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2019
-ms.locfileid: "73427046"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74880631"
 ---
 # <a name="tutorial-create-a-web-api-with-aspnet-core"></a>Öğretici: ASP.NET Core bir Web API 'SI oluşturma
 
-Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT) ve [Mike te son](https://github.com/mikewasson)
+Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT) ve [Mike Wasson](https://github.com/mikewasson)
 
-Bu öğreticide, ASP.NET Core ile Web API 'SI oluşturmanın temelleri öğretilir.
+Bu öğretici, bir web API ASP.NET Core ile oluşturmaya ilişkin temel bilgileri öğretir.
 
 ::: moniker range=">= aspnetcore-3.0"
 
@@ -28,25 +28,25 @@ Bu öğreticide şunların nasıl yapıladığını öğreneceksiniz:
 > * Bir model sınıfı ve bir veritabanı bağlamı ekleyin.
 > * CRUD yöntemleriyle bir denetleyiciyi dolandırın.
 > * Yönlendirmeyi, URL yollarını ve dönüş değerlerini yapılandırın.
-> * Postman ile Web API 'sini çağırın.
+> * Web API'si Postman ile çağırın.
 
 Sonunda, bir veritabanında depolanan "yapılacaklar" öğelerini yönetebilmek için bir Web API 'SI vardır.
 
 ## <a name="overview"></a>Genel bakış
 
-Bu öğretici aşağıdaki API 'YI oluşturur:
+Bu öğretici yandaki API oluşturur:
 
 |API | Açıklama | İstek gövdesi | Yanıt gövdesi |
 |--- | ---- | ---- | ---- |
-|/Api/TodoItems al | Tüm yapılacaklar öğelerini Al | Yok. | Yapılacaklar öğeleri dizisi|
-|/Api/TodoItems/{id} al | KIMLIĞE göre öğe al | Yok. | Yapılacaklar öğesi|
-|POST/api/TodoItems | Yeni öğe Ekle | Yapılacaklar öğesi | Yapılacaklar öğesi |
-|/Api/TodoItems/{id} koy | Mevcut bir öğeyi güncelleştirin &nbsp; | Yapılacaklar öğesi | Yok. |
-|/Api/TodoItems/{id} &nbsp; SIL &nbsp; | Öğe &nbsp; &nbsp; silme | Yok. | Yok.|
+|/Api/TodoItems al | Tüm yapılacak iş öğeleri al | Yok. | Yapılacaklar öğelerinin bir dizisi|
+|/Api/TodoItems/{id} al | Bir öğeyi Kimliğine göre Al | Yok. | Yapılacak iş öğesi|
+|POST/api/TodoItems | Yeni Öğe Ekle | Yapılacak iş öğesi | Yapılacak iş öğesi |
+|/Api/TodoItems/{id} koy | Mevcut öğeyi güncelleştirin &nbsp; | Yapılacak iş öğesi | Yok. |
+|/Api/TodoItems/{id} &nbsp; SIL &nbsp; | Öğeyi Sil &nbsp; &nbsp; | Yok. | Yok.|
 
-Aşağıdaki diyagramda uygulamanın tasarımı gösterilmektedir.
+Aşağıdaki diyagramda, bu uygulamanın tasarımını gösterir.
 
-![İstemci, sol taraftaki bir kutu ile temsil edilir. Bir istek gönderir ve sağ tarafta çizilmiş bir kutu olan uygulamadan bir yanıt alır. Uygulama kutusu içinde, üç kutu denetleyiciyi, modeli ve veri erişim katmanını temsil eder. İstek uygulamanın denetleyicisine gelir ve denetleyici ile veri erişim katmanı arasında okuma/yazma işlemleri gerçekleştirilir. Model serileştirilir ve yanıtta istemciye döndürülür.](first-web-api/_static/architecture.png)
+![İstemci, sol taraftaki bir kutu ile temsil edilir. Bir istek gönderir ve sağ tarafta çizilmiş bir kutu olan uygulamadan bir yanıt alır. Uygulama kutusu içinde üç kutular, denetleyici, modeli ve veri erişim katmanı temsil eder. İstek uygulamanın denetleyicisi ile gelir ve okuma/yazma işlemleri, denetleyici ve veri erişim katmanı arasında oluşur. Model serileştirilmiş ve istemciye yanıt döndürdü.](first-web-api/_static/architecture.png)
 
 ## <a name="prerequisites"></a>Prerequisites
 
@@ -64,7 +64,7 @@ Aşağıdaki diyagramda uygulamanın tasarımı gösterilmektedir.
 
 ---
 
-## <a name="create-a-web-project"></a>Web projesi oluşturma
+## <a name="create-a-web-project"></a>Bir web projesi oluşturma
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
@@ -73,11 +73,11 @@ Aşağıdaki diyagramda uygulamanın tasarımı gösterilmektedir.
 * Projeyi *TodoApi* olarak adlandırın ve **Oluştur**' a tıklayın.
 * **Yeni bir ASP.NET Core Web uygulaması oluştur** iletişim kutusunda, **.net Core** ve **ASP.NET Core 3,0** ' un seçili olduğunu doğrulayın. **API** şablonunu seçin ve **Oluştur**' a tıklayın.
 
-![VS Yeni proje iletişim kutusu](first-web-api/_static/vs3.png)
+![VS yeni proje iletişim kutusu](first-web-api/_static/vs3.png)
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
-* [Tümleşik terminali](https://code.visualstudio.com/docs/editor/integrated-terminal)açın.
+* Açık [tümleşik Terminalini](https://code.visualstudio.com/docs/editor/integrated-terminal).
 * Dizinleri (`cd`) proje klasörünü içerecek olan klasöre değiştirin.
 * Aşağıdaki komutları çalıştırın:
 
@@ -91,16 +91,16 @@ Aşağıdaki diyagramda uygulamanın tasarımı gösterilmektedir.
 
 * Bir iletişim kutusu projeye gerekli varlıkları eklemek isteyip istemediğinizi sorduğunda **Evet**' i seçin.
 
-  Önceki komutlar:
+  Yukarıdaki komutlar:
 
   * Yeni bir Web API projesi oluşturur ve Visual Studio Code açar.
   * Sonraki bölümde gerekli olan NuGet paketlerini ekler.
 
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Mac için Visual Studio](#tab/visual-studio-mac)
 
-* **Dosya** > **yeni çözüm**seçin.
+* **Yeni çözüm**> **Dosya** ' yı seçin.
 
-  ![macOS yeni çözüm](first-web-api-mac/_static/sln.png)
+  ![Yeni çözüm macOS](first-web-api-mac/_static/sln.png)
 
 * **.NET Core** > **App** > **API** > ' **yi**seçin.
 
@@ -108,9 +108,9 @@ Aşağıdaki diyagramda uygulamanın tasarımı gösterilmektedir.
   
 * **Yeni ASP.NET Core Web API 'Nizi yapılandırın** iletişim kutusunda, **hedef Framework** * *.NET Core 3,0*' i seçin.
 
-* **Proje adı** için *TodoApi* girin ve ardından **Oluştur**' u seçin.
+* Girin *TodoApi* için **proje adı** seçip **Oluştur**.
 
-  ![yapılandırma iletişim kutusu](first-web-api-mac/_static/2.png)
+  ![Yapılandırma iletişim kutusu](first-web-api-mac/_static/2.png)
 
 [!INCLUDE[](~/includes/mac-terminal-access.md)]
 
@@ -123,23 +123,23 @@ Proje klasöründe bir komut terminali açın ve aşağıdaki komutları çalı�
 
 ---
 
-### <a name="test-the-api"></a>API 'YI test etme
+### <a name="test-the-api"></a>API'yi test etme
 
-Proje şablonu bir `WeatherForecast` API 'SI oluşturur. Uygulamayı test etmek için bir tarayıcıdan `Get` yöntemini çağırın.
+Proje şablonu oluşturur bir `WeatherForecast` API. Çağrı `Get` uygulamayı test etmek için bir tarayıcıdan yöntemi.
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-Uygulamayı çalıştırmak için CTRL + F5 tuşlarına basın. Visual Studio bir tarayıcı başlatır ve `<port>` rastgele seçilmiş bir bağlantı noktası numarası olduğu `https://localhost:<port>/WeatherForecast` gider.
+Uygulamayı çalıştırmak için CTRL + F5 tuşlarına basın. Visual Studio bir tarayıcı ile başlatarak `https://localhost:<port>/WeatherForecast`burada `<port>` bir rastgele seçilen bağlantı noktası numarasıdır.
 
-IIS Express sertifikaya güvenip güvenmemeyi soran bir iletişim kutusu alırsanız **Evet**' i seçin. Sonraki görüntülenen **güvenlik uyarısı** Iletişim kutusunda **Evet**' i seçin.
+IIS Express sertifika güven varsa soran bir iletişim kutusu alırsanız seçin **Evet**. İçinde **Güvenlik Uyarısı** ardından, görüntülenen iletişim seçin **Evet**.
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
-Uygulamayı çalıştırmak için CTRL + F5 tuşlarına basın. Bir tarayıcıda aşağıdaki URL 'ye gidin: [https://localhost:5001/WeatherForecast](https://localhost:5001/WeatherForecast).
+Uygulamayı çalıştırmak için CTRL + F5 tuşlarına basın. Bir tarayıcıda aşağıdaki URL'ye gidin: [ https://localhost:5001/WeatherForecast ](https://localhost:5001/WeatherForecast).
 
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Mac için Visual Studio](#tab/visual-studio-mac)
 
-Uygulamayı başlatmak için**hata ayıklamayı başlat**  >  **Çalıştır** ' ı seçin. Mac için Visual Studio bir tarayıcı başlatır ve `<port>` rastgele seçilmiş bir bağlantı noktası numarası olduğu `https://localhost:<port>` ' a gider. HTTP 404 (bulunamadı) hatası döndürüldü. URL 'ye `/WeatherForecast` ekleyin (URL 'yi `https://localhost:<port>/WeatherForecast` olarak değiştirin).
+Uygulamayı başlatmak için **hata ayıklamayı başlat** > **Çalıştır** ' ı seçin. Mac için Visual Studio bir tarayıcı ile başlatarak `https://localhost:<port>`burada `<port>` bir rastgele seçilen bağlantı noktası numarasıdır. HTTP 404 (bulunamadı) hatası döndürülür. Append `/WeatherForecast` URL'sine (URL'yi `https://localhost:<port>/WeatherForecast`).
 
 ---
 
@@ -180,47 +180,47 @@ Aşağıdakine benzer bir JSON döndürülür:
 ]
 ```
 
-## <a name="add-a-model-class"></a>Model sınıfı ekleme
+## <a name="add-a-model-class"></a>Bir model sınıfı ekleme
 
-*Model* , uygulamanın yönettiği verileri temsil eden bir sınıf kümesidir. Bu uygulamanın modeli, tek bir `TodoItem` sınıfıdır.
+A *modeli* uygulamayı yöneten verilerini temsil eden sınıflar kümesidir. Tek bir modeldir bu uygulama için `TodoItem` sınıfı.
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-* **Çözüm Gezgini**, projeye sağ tıklayın. **Yeni  >  klasör** **Ekle** ' yi seçin. Klasör *modellerini*adlandırın.
+* İçinde **Çözüm Gezgini**, projeye sağ tıklayın. Seçin **ekleme** > **yeni klasör**. Klasör adı *modelleri*.
 
-* *Modeller* klasörüne sağ tıklayın ve  > **sınıfı** **Ekle** ' yi seçin. Sınıfı *TodoItem* olarak adlandırın ve **Ekle**' yi seçin.
+* Sağ *modelleri* klasörü ve select **Ekle** > **sınıfı**. Sınıf adı *Todoıtem* seçip **Ekle**.
 
-* Şablon kodunu şu kodla değiştirin:
+* Şablon kodunu aşağıdaki kodla değiştirin:
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
-* *Modeller*adlı bir klasör ekleyin.
+* Adlı bir klasör ekleme *modelleri*.
 
-* *Modeller* klasörüne aşağıdaki kodla bir `TodoItem` sınıfı ekleyin:
+* Ekleme bir `TodoItem` sınıfının *modelleri* aşağıdaki kodla klasörü:
 
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Mac için Visual Studio](#tab/visual-studio-mac)
 
-* Projeye sağ tıklayın. **Yeni  >  klasör** **Ekle** ' yi seçin. Klasör *modellerini*adlandırın.
+* Projeye sağ tıklayın. Seçin **ekleme** > **yeni klasör**. Klasör adı *modelleri*.
 
   ![Yeni klasör](first-web-api-mac/_static/folder.png)
 
 * *Modeller* klasörüne sağ tıklayın ve > **yeni dosya** **ekle** ' yi > **genel** > **boş sınıf**' ı seçin.
 
-* Sınıfı *TodoItem*olarak adlandırın ve ardından **Yeni**' ye tıklayın.
+* Sınıf adı *Todoıtem*ve ardından **yeni**.
 
-* Şablon kodunu şu kodla değiştirin:
+* Şablon kodunu aşağıdaki kodla değiştirin:
 
 ---
 
   [!code-csharp[](first-web-api/samples/3.0/TodoApi/Models/TodoItem.cs)]
 
-`Id` özelliği, ilişkisel bir veritabanındaki benzersiz anahtar olarak çalışır.
+`Id` Özelliği işlevlerinin bir ilişkisel veritabanında benzersiz anahtar.
 
-Model sınıfları projede herhangi bir yere gidebilir, ancak *modeller* klasörü kural tarafından kullanılır.
+Model sınıfları herhangi bir projede gidip ancak *modelleri* klasörü, kural olarak kullanılır.
 
-## <a name="add-a-database-context"></a>Veritabanı bağlamı ekleme
+## <a name="add-a-database-context"></a>Veritabanı bağlamı Ekle
 
-*Veritabanı bağlamı* , bir veri modeli için Entity Framework işlevselliği koordine eden ana sınıftır. Bu sınıf, `Microsoft.EntityFrameworkCore.DbContext` sınıfından türeterek oluşturulur.
+*Veritabanı bağlamı* koordine eden bir veri modeli için Entity Framework işlevsellik ana sınıftır. Bu sınıf türetme tarafından oluşturulan `Microsoft.EntityFrameworkCore.DbContext` sınıfı.
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
@@ -236,11 +236,11 @@ Model sınıfları projede herhangi bir yere gidebilir, ancak *modeller* klasör
 
 ## <a name="add-the-todocontext-database-context"></a>TodoContext veritabanı bağlamını ekleme
 
-* *Modeller* klasörüne sağ tıklayın ve  > **sınıfı** **Ekle** ' yi seçin. Sınıfı *TodoContext* olarak adlandırın ve **Ekle**' ye tıklayın.
+* Sağ *modelleri* klasörü ve select **Ekle** > **sınıfı**. Sınıf adı *TodoContext* tıklatıp **Ekle**.
 
 # <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Visual Studio Code/Mac için Visual Studio](#tab/visual-studio-code+visual-studio-mac)
 
-* *Modeller* klasörüne bir `TodoContext` sınıfı ekleyin.
+* Ekleme bir `TodoContext` sınıfının *modelleri* klasör.
 
 ---
 
@@ -248,32 +248,32 @@ Model sınıfları projede herhangi bir yere gidebilir, ancak *modeller* klasör
 
   [!code-csharp[](first-web-api/samples/3.0/TodoApi/Models/TodoContext.cs)]
 
-## <a name="register-the-database-context"></a>Veritabanı bağlamını kaydetme
+## <a name="register-the-database-context"></a>Veritabanı bağlamı Kaydet
 
-ASP.NET Core, VERITABANı bağlamı gibi hizmetlerin [bağımlılık ekleme (dı)](xref:fundamentals/dependency-injection) kapsayıcısına kayıtlı olması gerekir. Kapsayıcı hizmeti denetleyicilere sağlar.
+ASP.NET Core DB bağlamı gibi hizmetler ile kaydedilmelidir [bağımlılık ekleme (dı)](xref:fundamentals/dependency-injection) kapsayıcı. Kapsayıcı hizmeti denetleyicilerine sağlar.
 
-Aşağıdaki Vurgulanan kodla *Startup.cs* güncelleştirin:
+Güncelleştirme *Startup.cs* aşağıdaki vurgulanmış kodu:
 
 [!code-csharp[](first-web-api/samples/3.0/TodoApi/Startup.cs?highlight=7-8,23-24&name=snippet_all)]
 
-Önceki kod:
+Yukarıdaki kod:
 
-* Kullanılmayan `using` bildirimlerini kaldırır.
-* Veritabanı bağlamını dı kapsayıcısına ekler.
-* Veritabanı bağlamının bellek içi bir veritabanını kullanacağı belirtir.
+* Kullanılmayan kaldırır `using` bildirimleri.
+* Veritabanı bağlamı DI kapsayıcıya ekler.
+* Veritabanı bağlamı bir bellek içi veritabanına kullanacağını belirtir.
 
 ## <a name="scaffold-a-controller"></a>Denetleyiciyi bir denetleyiciye katlama
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-* *Denetleyiciler* klasörüne sağ tıklayın.
+* Sağ *denetleyicileri* klasör.
 * > **yeni yapı Iskelesi öğesi** **Ekle** ' yi seçin.
 * **Entity Framework kullanarak ve eylemler Içeren API denetleyicisi**' ni seçin ve ardından **Ekle**' yi seçin.
 * **API denetleyiciyi eylemler Ile Ekle ' de Entity Framework** iletişim kutusunu kullanarak:
 
   * **Model sınıfında** **TodoItem (TodoApi. modeller)** öğesini seçin.
   * **Veri bağlamı sınıfında** **TodoContext (TodoApi. modeller)** öğesini seçin.
-  * **Ekle**' yi seçin.
+  * **Add (Ekle)** seçeneğini belirleyin.
 
 # <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Visual Studio Code/Mac için Visual Studio](#tab/visual-studio-code+visual-studio-mac)
 
@@ -286,7 +286,7 @@ dotnet tool install --global dotnet-aspnet-codegenerator
 dotnet aspnet-codegenerator controller -name TodoItemsController -async -api -m TodoItem -dc TodoContext -outDir Controllers
 ```
 
-Önceki komutlar:
+Yukarıdaki komutlar:
 
 * Yapı iskelesi için gereken NuGet paketlerini ekleyin.
 * Scafkatlama altyapısını (`dotnet-aspnet-codegenerator`) kurar.
@@ -296,9 +296,9 @@ dotnet aspnet-codegenerator controller -name TodoItemsController -async -api -m 
 
 Oluşturulan kod:
 
-* Yöntemler olmadan bir API denetleyici sınıfı tanımlar.
-* Sınıfı [[Apicontroller]](/dotnet/api/microsoft.aspnetcore.mvc.apicontrollerattribute) özniteliğiyle süsler. Bu öznitelik, denetleyicinin Web API isteklerine yanıt verdiğini belirtir. Özniteliğin izin aldığı belirli davranışlar hakkında daha fazla bilgi için bkz. <xref:web-api/index>.
-* Veritabanı bağlamını (`TodoContext`) denetleyiciye eklemek için DI kullanır. Veritabanı bağlamı, denetleyicideki [CRUD](https://wikipedia.org/wiki/Create,_read,_update_and_delete) yöntemlerinde her birinde kullanılır.
+* Bir API denetleyicisi sınıfı yöntemleri olmadan tanımlar.
+* Sınıfı [`[ApiController]`](/dotnet/api/microsoft.aspnetcore.mvc.apicontrollerattribute) özniteliğiyle işaretler. Bu öznitelik, denetleyicinin web API'si isteklerine yanıt verdiğini gösterir. Özniteliğin izin aldığı belirli davranışlar hakkında daha fazla bilgi için bkz. <xref:web-api/index>.
+* Veritabanı bağlamı eklemesine DI kullanır (`TodoContext`) içine denetleyici. Her bir veritabanı bağlamı kullanılan [CRUD](https://wikipedia.org/wiki/Create,_read,_update_and_delete) denetleyici yöntemleri.
 
 ## <a name="examine-the-posttodoitem-create-method"></a>PostTodoItem Create metodunu inceleyin
 
@@ -306,36 +306,36 @@ Oluşturulan kod:
 
 [!code-csharp[](first-web-api/samples/3.0/TodoApi/Controllers/TodoItemsController.cs?name=snippet_Create)]
 
-Yukarıdaki kod, [[HttpPost]](/dotnet/api/microsoft.aspnetcore.mvc.httppostattribute) özniteliğiyle gösterildiği gıbı bır http post yöntemidir. Yöntemi, HTTP isteğinin gövdesinden Yapılacaklar öğesinin değerini alır.
+Yukarıdaki kod, [`[HttpPost]`](/dotnet/api/microsoft.aspnetcore.mvc.httppostattribute) özniteliğiyle gösterildiği gıbı bır http post yöntemidir. Yöntemi, HTTP isteği gövdesinden Yapılacaklar öğenin değerini alır.
 
-<xref:Microsoft.AspNetCore.Mvc.ControllerBase.CreatedAtAction*> yöntemi:
+<xref:Microsoft.AspNetCore.Mvc.ControllerBase.CreatedAtAction*> Yöntemi:
 
-* Başarılı olursa bir HTTP 201 durum kodu döndürür. HTTP 201, sunucuda yeni bir kaynak oluşturan HTTP POST yöntemi için standart yanıttır.
-* Yanıta bir [konum](https://developer.mozilla.org/docs/Web/HTTP/Headers/Location) üst bilgisi ekler. `Location` üstbilgisi, yeni oluşturulan Yapılacaklar öğesinin [URI](https://developer.mozilla.org/docs/Glossary/URI) 'sini belirtir. Daha fazla bilgi için bkz. [10.2.2 201 oluşturma](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html).
+* Başarılı olursa bir HTTP 201 durum kodu döndürür. HTTP 201 sunucuda yeni bir kaynak oluşturan bir HTTP POST yöntemi için standart yanıttır.
+* Yanıta bir [konum](https://developer.mozilla.org/docs/Web/HTTP/Headers/Location) üst bilgisi ekler. `Location` üstbilgisi, yeni oluşturulan Yapılacaklar öğesinin [URI](https://developer.mozilla.org/docs/Glossary/URI) 'sini belirtir. Daha fazla bilgi için [10.2.2 201 oluşturuldu](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html).
 * `Location` üst bilgisinin URI 'sini oluşturmak için `GetTodoItem` eyleme başvurur. C# `nameof` anahtar sözcüğü, `CreatedAtAction` çağrısında eylem adının sabit kodlanmasını önlemek için kullanılır.
 
 ### <a name="install-postman"></a>Postman yükleme
 
-Bu öğretici, Web API 'sini test etmek için Postman kullanır.
+Bu öğreticide Postman web API'si test etmek için kullanılır.
 
-* [Postman](https://www.getpostman.com/downloads/) yükleme
-* Web uygulamasını başlatın.
-* Postman 'ı başlatın.
-* **SSL sertifikası doğrulamasını** devre dışı bırak
+* Yükleme [Postman](https://www.getpostman.com/downloads/)
+* Web uygulaması başlatın.
+* Postman'i başlatın.
+* Devre dışı **SSL sertifika doğrulama**
 * **Dosya** > **ayarları** ' ndan (**genel** sekmesinden) **SSL sertifikası doğrulamasını**devre dışı bırakın.
     > [!WARNING]
-    > Denetleyiciyi test ettikten sonra SSL sertifikası doğrulamasını yeniden etkinleştirin.
+    > Test denetleyicisi sonra SSL sertifika doğrulamasını yeniden etkinleştirin.
 
 <a name="post"></a>
 
 ### <a name="test-posttodoitem-with-postman"></a>Postman ile test PostTodoItem
 
 * Yeni bir istek oluşturun.
-* HTTP yöntemini `POST` olarak ayarlayın.
-* **Gövde** sekmesini seçin.
-* **Ham** radyo düğmesini seçin.
-* Türü **JSON (Application/JSON)** olarak ayarlayın.
-* İstek gövdesinde, bir yapılacaklar öğesi için JSON girin:
+* HTTP yöntemini `POST`olarak ayarlayın.
+* Seçin **gövdesi** sekmesi.
+* Seçin **ham** radyo düğmesi.
+* Tür kümesine **JSON (application/json)** .
+* İstek gövdesinde bir yapılacak iş öğesi için JSON girin:
 
     ```json
     {
@@ -344,24 +344,24 @@ Bu öğretici, Web API 'sini test etmek için Postman kullanır.
     }
     ```
 
-* **Gönder**' i seçin.
+* **Gönder**’i seçin.
 
-  ![Oluşturma isteğiyle Postman](first-web-api/_static/3/create.png)
+  ![Postman ile isteği oluştur](first-web-api/_static/3/create.png)
 
-### <a name="test-the-location-header-uri"></a>Konum üst bilgisi URI 'sini test etme
+### <a name="test-the-location-header-uri"></a>Konum üst bilgisi URI test
 
-* **Yanıt** bölmesinde **üstbilgiler** sekmesini seçin.
-* **Konum** üst bilgisi değerini kopyalayın:
+* Seçin **üstbilgileri** sekmesinde **yanıt** bölmesi.
+* Kopyalama **konumu** üst bilgi değeri:
 
-  ![Postman konsolunun üstbilgiler sekmesi](first-web-api/_static/3/create.png)
+  ![Postman konsolunun üst bilgiler sekmesi](first-web-api/_static/3/create.png)
 
-* ALıNACAK yöntemi ayarlayın.
+* Yöntemini GET öğesine Ayarla.
 * URI 'yi yapıştırın (örneğin, `https://localhost:5001/api/TodoItems/1`).
-* **Gönder**' i seçin.
+* **Gönder**’i seçin.
 
 ## <a name="examine-the-get-methods"></a>GET yöntemlerini inceleyin
 
-Bu yöntemler iki al uç noktası uygular:
+İki GET uç noktası bu yöntemleri uygulayın:
 
 * `GET /api/TodoItems`
 * `GET /api/TodoItems/{id}`
@@ -371,7 +371,7 @@ Tarayıcıdan veya Postman 'dan iki uç noktayı çağırarak uygulamayı test e
 * [https://localhost:5001/api/TodoItems](https://localhost:5001/api/TodoItems)
 * [https://localhost:5001/api/TodoItems/1](https://localhost:5001/api/TodoItems/1)
 
-Aşağıdakine benzer bir yanıt, `GetTodoItems` çağrısı tarafından üretilir:
+Aşağıdakine benzer bir yanıt, `GetTodoItems`çağrısı tarafından üretilir:
 
 ```json
 [
@@ -386,36 +386,36 @@ Aşağıdakine benzer bir yanıt, `GetTodoItems` çağrısı tarafından üretil
 ### <a name="test-get-with-postman"></a>Postman ile test al
 
 * Yeni bir istek oluşturun.
-* **Almak**için http yöntemini ayarlayın.
-* İstek URL 'sini `https://localhost:<port>/api/TodoItems` olarak ayarlayın. Örneğin, `https://localhost:5001/api/TodoItems`.
-* Postman 'da **iki bölme görünümü** ayarlayın.
-* **Gönder**' i seçin.
+* HTTP yöntemi kümesine **alma**.
+* İstek URL'si kümesine `https://localhost:<port>/api/TodoItems`. Örneğin: `https://localhost:5001/api/TodoItems`.
+* Ayarlama **iki bölme görünümü** postman'deki.
+* **Gönder**’i seçin.
 
 Bu uygulama, bellek içi bir veritabanını kullanır. Uygulama durdurulup başlatılırsa, önceki GET isteği herhangi bir veri döndürmez. Hiçbir veri döndürülmezse, verileri uygulamaya [gönderin](#post) .
 
-## <a name="routing-and-url-paths"></a>Yönlendirme ve URL yolları
+## <a name="routing-and-url-paths"></a>URL Yönlendirme ve yolları
 
-[`[HttpGet]`](/dotnet/api/microsoft.aspnetcore.mvc.httpgetattribute) ÖZNITELIĞI BIR HTTP GET isteğine yanıt veren bir yöntemi gösterir. Her yöntemin URL yolu şu şekilde oluşturulur:
+[ `[HttpGet]` ](/dotnet/api/microsoft.aspnetcore.mvc.httpgetattribute) Özniteliği bir HTTP GET isteğine yanıt vermeden bir yöntemi gösterir. Her yöntem için URL yolu şu şekilde oluşturulur:
 
-* Denetleyicinin `Route` özniteliğinde şablon dizesiyle başlayın:
+* Denetleyicinin şablonu dizesi ile başlayıp `Route` özniteliği:
 
   [!code-csharp[](first-web-api/samples/3.0/TodoApi/Controllers/TodoItemsController.cs?name=TodoController&highlight=1)]
 
-* `[controller]`, denetleyicinin adıyla değiştirin, bu kural, denetleyici sınıf adı "denetleyici" sonekidir. Bu örnek için denetleyici sınıfı adı **todoıtems**denetleyicisidir, bu nedenle denetleyicinin adı "todoıtems" olur. ASP.NET Core [yönlendirme](xref:mvc/controllers/routing) büyük/küçük harfe duyarlıdır.
-* `[HttpGet]` özniteliğinin bir yol şablonu varsa (örneğin, `[HttpGet("products")]`), yola ekleyin. Bu örnek, bir şablon kullanmaz. Daha fazla bilgi için bkz. [http [fiil] öznitelikleriyle öznitelik yönlendirme](xref:mvc/controllers/routing#attribute-routing-with-httpverb-attributes).
+* Değiştirin `[controller]` denetleyicinin adı ile kural tarafından olduğu "Controller" soneki eksi denetleyici sınıfı adı. Bu örnek için denetleyici sınıfı adı **todoıtems**denetleyicisidir, bu nedenle denetleyicinin adı "todoıtems" olur. ASP.NET Core [yönlendirme](xref:mvc/controllers/routing) büyük/küçük harfe duyarlıdır.
+* `[HttpGet]` özniteliğinin bir yol şablonu varsa (örneğin, `[HttpGet("products")]`), yola ekleyin. Bu örnek, bir şablon kullanmaz. Daha fazla bilgi için [özniteliği Http [eylem] özniteliği ile yönlendirme](xref:mvc/controllers/routing#attribute-routing-with-httpverb-attributes).
 
-Aşağıdaki `GetTodoItem` yönteminde, `"{id}"` Yapılacaklar öğesinin benzersiz tanımlayıcısı için bir yer tutucu değişkenidir. `GetTodoItem` çağrıldığında, URL 'deki `"{id}"` değeri `id` parametresindeki yöntemine sağlanır.
+Aşağıdaki `GetTodoItem` yöntemi `"{id}"` yapılacak iş öğesi benzersiz tanımlayıcısı için bir yer tutucu değişkendir. `GetTodoItem` çağrıldığında, URL 'deki `"{id}"` değeri `id` parametresindeki yöntemine sağlanır.
 
 [!code-csharp[](first-web-api/samples/3.0/TodoApi/Controllers/TodoItemsController.cs?name=snippet_GetByID&highlight=1-2)]
 
 ## <a name="return-values"></a>Döndürülen değerler
 
-`GetTodoItems` ve `GetTodoItem` yöntemlerinin dönüş türü [actionresult\<t > türüdür](xref:web-api/action-return-types#actionresultt-type). ASP.NET Core nesneyi [JSON](https://www.json.org/) 'a otomatik olarak serileştirir ve yanıt ILETISININ gövdesine JSON yazar. Bu dönüş türü için yanıt kodu, işlenmemiş özel durum olmadığı varsayılarak 200 ' dir. İşlenmemiş özel durumlar 5 xx hataya çevrilir.
+Dönüş türünü `GetTodoItems` ve `GetTodoItem` yöntemler [actionresult öğesini\<T > türü](xref:web-api/action-return-types#actionresultt-type). ASP.NET Core, nesneyi otomatik olarak serileştiren [JSON](https://www.json.org/) ve yanıt iletisinin gövdesine JSON yazar. Yanıt kodu 200 bu dönüş türü için olduğu varsayılırsa işlenmeyen özel durumlar vardır. İşlenmeyen özel durumları 5xx hatalarla karşılaşırsanız çevrilir.
 
-`ActionResult` dönüş türleri, çok çeşitli HTTP durum kodlarını temsil edebilir. Örneğin, `GetTodoItem` iki farklı durum değeri döndürebilir:
+`ActionResult` dönüş türleri, geniş HTTP durum kodları temsil edebilir. Örneğin, `GetTodoItem` iki farklı durum değerleri döndürebilir:
 
-* İstenen KIMLIKLE eşleşen hiçbir öğe yoksa, yöntem 404 [NotFound](/dotnet/api/microsoft.aspnetcore.mvc.controllerbase.notfound) hata kodu döndürür.
-* Aksi takdirde, yöntemi bir JSON yanıt gövdesi ile 200 döndürür. `item` sonuçları bir HTTP 200 yanıtına döndürülüyor.
+* Öğe istenen kimliği eşleşirse, yöntem bir 404 döndürür [NotFound](/dotnet/api/microsoft.aspnetcore.mvc.controllerbase.notfound) hata kodu.
+* Aksi takdirde yöntem bir JSON yanıt gövdesine 200 döndürür. Döndüren `item` sonuçları bir HTTP 200 yanıtı.
 
 ## <a name="the-puttodoitem-method"></a>PutTodoItem yöntemi
 
@@ -423,11 +423,11 @@ Aşağıdaki `GetTodoItem` yönteminde, `"{id}"` Yapılacaklar öğesinin benzer
 
 [!code-csharp[](first-web-api/samples/3.0/TodoApi/Controllers/TodoItemsController.cs?name=snippet_Update)]
 
-`PutTodoItem`, HTTP PUT kullanması dışında `PostTodoItem` benzerdir. Yanıt 204 ' dir [(Içerik yok)](https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html). HTTP belirtimine göre bir PUT isteği, istemcinin yalnızca değişiklikleri değil, tüm güncelleştirilmiş varlığı göndermesini gerektirir. Kısmi güncelleştirmeleri desteklemek için [http Patch](xref:Microsoft.AspNetCore.Mvc.HttpPatchAttribute)kullanın.
+`PutTodoItem` benzer `PostTodoItem`, HTTP PUT kullanır. Yanıt [204 (içerik yok)](https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html). HTTP belirtimine göre bir PUT İsteği tüm güncelleştirilmiş varlık yalnızca değişiklikler değil göndermek istemci gerektirir. Kısmi güncelleştirmeleri desteklemek için kullanma [HTTP PATCH](xref:Microsoft.AspNetCore.Mvc.HttpPatchAttribute).
 
 `PutTodoItem`çağırırken bir hata alırsanız, veritabanında bir öğe olduğundan emin olmak için `GET` çağırın.
 
-### <a name="test-the-puttodoitem-method"></a>PutTodoItem yöntemini test etme
+### <a name="test-the-puttodoitem-method"></a>Test PutTodoItem yöntemi
 
 Bu örnek, uygulama her başlatıldığında başlatılmış olması gereken bellek içi bir veritabanını kullanır. Bir PUT çağrısı yapmadan önce veritabanında bir öğe olmalıdır. PUT çağrısı yapmadan önce veritabanında bir öğe olduğundan emin olmak için GET çağrısı yapın.
 
@@ -441,9 +441,9 @@ ID = 1 olan Yapılacaklar öğesini güncelleştirin ve adını "Feed balık" ol
   }
 ```
 
-Aşağıdaki görüntüde Postman güncelleştirmesi gösterilmektedir:
+Aşağıdaki görüntüde, Postman güncelleştirme gösterilmektedir:
 
-![204 (Içerik yok) yanıtı gösteren Postman konsolu](first-web-api/_static/3/pmcput.png)
+![204 (içerik yok) yanıtı gösteren postman konsol](first-web-api/_static/3/pmcput.png)
 
 ## <a name="the-deletetodoitem-method"></a>DeleteTodoItem yöntemi
 
@@ -451,15 +451,15 @@ Aşağıdaki görüntüde Postman güncelleştirmesi gösterilmektedir:
 
 [!code-csharp[](first-web-api/samples/3.0/TodoApi/Controllers/TodoItemsController.cs?name=snippet_Delete)]
 
-`DeleteTodoItem` yanıtı 204 ' dir [(Içerik yok)](https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html).
+`DeleteTodoItem` Yanıt [204 (içerik yok)](https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html).
 
-### <a name="test-the-deletetodoitem-method"></a>DeleteTodoItem yöntemini test etme
+### <a name="test-the-deletetodoitem-method"></a>Test DeleteTodoItem yöntemi
 
-Bir yapılacaklar öğesini silmek için Postman kullanın:
+Postman bir yapılacak iş öğesini silmek için kullanın:
 
-* Yöntemini `DELETE` olarak ayarlayın.
+* Yöntem kümesine `DELETE`.
 * Silinecek nesnenin URI 'sini ayarlayın (örneğin `https://localhost:5001/api/TodoItems/1`).
-* **Gönder**' i seçin.
+* **Gönder**’i seçin.
 
 ## <a name="call-the-web-api-with-javascript"></a>JavaScript ile Web API 'sini çağırma
 
@@ -474,30 +474,30 @@ Bu öğreticide şunların nasıl yapıladığını öğreneceksiniz:
 > [!div class="checklist"]
 > * Bir Web API projesi oluşturun.
 > * Bir model sınıfı ve bir veritabanı bağlamı ekleyin.
-> * Denetleyici ekleyin.
+> * Bir denetleyici ekleyeceksiniz.
 > * CRUD yöntemleri ekleyin.
-> * Yönlendirme ve URL yollarını yapılandırın.
-> * Dönüş değerlerini belirtin.
-> * Postman ile Web API 'sini çağırın.
+> * Yönlendirmeyi Yapılandırma ve URL yolu.
+> * Dönüş değerleri belirtin.
+> * Web API'si Postman ile çağırın.
 > * JavaScript ile Web API 'sini çağırın.
 
-Sonunda, ilişkisel bir veritabanında depolanan "yapılacaklar" öğelerini yönetebilmek için bir Web API 'SI vardır.
+Sonunda, web API'si "Yapılacaklar" öğelerini ilişkisel bir veritabanında depolanan yönetebileceği sahip.
 
 ## <a name="overview"></a>Genel bakış
 
-Bu öğretici aşağıdaki API 'YI oluşturur:
+Bu öğretici yandaki API oluşturur:
 
 |API | Açıklama | İstek gövdesi | Yanıt gövdesi |
 |--- | ---- | ---- | ---- |
-|/Api/TodoItems al | Tüm yapılacaklar öğelerini Al | Yok. | Yapılacaklar öğeleri dizisi|
-|/Api/TodoItems/{id} al | KIMLIĞE göre öğe al | Yok. | Yapılacaklar öğesi|
-|POST/api/TodoItems | Yeni öğe Ekle | Yapılacaklar öğesi | Yapılacaklar öğesi |
-|/Api/TodoItems/{id} koy | Mevcut bir öğeyi güncelleştirin &nbsp; | Yapılacaklar öğesi | Yok. |
-|/Api/TodoItems/{id} &nbsp; SIL &nbsp; | Öğe &nbsp; &nbsp; silme | Yok. | Yok.|
+|/Api/TodoItems al | Tüm yapılacak iş öğeleri al | Yok. | Yapılacaklar öğelerinin bir dizisi|
+|/Api/TodoItems/{id} al | Bir öğeyi Kimliğine göre Al | Yok. | Yapılacak iş öğesi|
+|POST/api/TodoItems | Yeni Öğe Ekle | Yapılacak iş öğesi | Yapılacak iş öğesi |
+|/Api/TodoItems/{id} koy | Mevcut öğeyi güncelleştirin &nbsp; | Yapılacak iş öğesi | Yok. |
+|/Api/TodoItems/{id} &nbsp; SIL &nbsp; | Öğeyi Sil &nbsp; &nbsp; | Yok. | Yok.|
 
-Aşağıdaki diyagramda uygulamanın tasarımı gösterilmektedir.
+Aşağıdaki diyagramda, bu uygulamanın tasarımını gösterir.
 
-![İstemci, sol taraftaki bir kutu ile temsil edilir. Bir istek gönderir ve sağ tarafta çizilmiş bir kutu olan uygulamadan bir yanıt alır. Uygulama kutusu içinde, üç kutu denetleyiciyi, modeli ve veri erişim katmanını temsil eder. İstek uygulamanın denetleyicisine gelir ve denetleyici ile veri erişim katmanı arasında okuma/yazma işlemleri gerçekleştirilir. Model serileştirilir ve yanıtta istemciye döndürülür.](first-web-api/_static/architecture.png)
+![İstemci, sol taraftaki bir kutu ile temsil edilir. Bir istek gönderir ve sağ tarafta çizilmiş bir kutu olan uygulamadan bir yanıt alır. Uygulama kutusu içinde üç kutular, denetleyici, modeli ve veri erişim katmanı temsil eder. İstek uygulamanın denetleyicisi ile gelir ve okuma/yazma işlemleri, denetleyici ve veri erişim katmanı arasında oluşur. Model serileştirilmiş ve istemciye yanıt döndürdü.](first-web-api/_static/architecture.png)
 
 ## <a name="prerequisites"></a>Prerequisites
 
@@ -515,7 +515,7 @@ Aşağıdaki diyagramda uygulamanın tasarımı gösterilmektedir.
 
 ---
 
-## <a name="create-a-web-project"></a>Web projesi oluşturma
+## <a name="create-a-web-project"></a>Bir web projesi oluşturma
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
@@ -524,11 +524,11 @@ Aşağıdaki diyagramda uygulamanın tasarımı gösterilmektedir.
 * Projeyi *TodoApi* olarak adlandırın ve **Oluştur**' a tıklayın.
 * **Yeni bir ASP.NET Core Web uygulaması oluştur** iletişim kutusunda, **.net Core** ve **ASP.NET Core 2,2** ' un seçili olduğunu doğrulayın. **API** şablonunu seçin ve **Oluştur**' a tıklayın. **Docker desteğini etkinleştir** **' i seçmeyin** .
 
-![VS Yeni proje iletişim kutusu](first-web-api/_static/vs.png)
+![VS yeni proje iletişim kutusu](first-web-api/_static/vs.png)
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
-* [Tümleşik terminali](https://code.visualstudio.com/docs/editor/integrated-terminal)açın.
+* Açık [tümleşik Terminalini](https://code.visualstudio.com/docs/editor/integrated-terminal).
 * Dizinleri (`cd`) proje klasörünü içerecek olan klasöre değiştirin.
 * Aşağıdaki komutları çalıştırın:
 
@@ -543,39 +543,39 @@ Aşağıdaki diyagramda uygulamanın tasarımı gösterilmektedir.
 
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Mac için Visual Studio](#tab/visual-studio-mac)
 
-* **Dosya** > **yeni çözüm**seçin.
+* **Yeni çözüm**> **Dosya** ' yı seçin.
 
-  ![macOS yeni çözüm](first-web-api-mac/_static/sln.png)
+  ![Yeni çözüm macOS](first-web-api-mac/_static/sln.png)
 
 * **.NET Core** > **App** > **API** > ' **yi**seçin.
 
   ![macOS yeni proje iletişim kutusu](first-web-api-mac/_static/1.png)
   
-* **Yeni ASP.NET Core Web API 'Nizi yapılandırın** iletişim kutusunda, * *.NET Core 2,2*' un varsayılan **hedef çerçevesini** kabul edin.
+* İçinde **, yeni ASP.NET Core Web API'sini yapılandırma** iletişim kutusunda varsayılan değerleri kabul **hedef Framework'ü** , * *.NET Core 2.2*.
 
-* **Proje adı** için *TodoApi* girin ve ardından **Oluştur**' u seçin.
+* Girin *TodoApi* için **proje adı** seçip **Oluştur**.
 
-  ![yapılandırma iletişim kutusu](first-web-api-mac/_static/2.png)
+  ![Yapılandırma iletişim kutusu](first-web-api-mac/_static/2.png)
 
 ---
 
-### <a name="test-the-api"></a>API 'YI test etme
+### <a name="test-the-api"></a>API'yi test etme
 
-Proje şablonu bir `values` API 'SI oluşturur. Uygulamayı test etmek için bir tarayıcıdan `Get` yöntemini çağırın.
+Proje şablonu oluşturur bir `values` API. Çağrı `Get` uygulamayı test etmek için bir tarayıcıdan yöntemi.
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-Uygulamayı çalıştırmak için CTRL + F5 tuşlarına basın. Visual Studio bir tarayıcı başlatır ve `<port>` rastgele seçilmiş bir bağlantı noktası numarası olduğu `https://localhost:<port>/api/values` gider.
+Uygulamayı çalıştırmak için CTRL + F5 tuşlarına basın. Visual Studio bir tarayıcı ile başlatarak `https://localhost:<port>/api/values`burada `<port>` bir rastgele seçilen bağlantı noktası numarasıdır.
 
-IIS Express sertifikaya güvenip güvenmemeyi soran bir iletişim kutusu alırsanız **Evet**' i seçin. Sonraki görüntülenen **güvenlik uyarısı** Iletişim kutusunda **Evet**' i seçin.
+IIS Express sertifika güven varsa soran bir iletişim kutusu alırsanız seçin **Evet**. İçinde **Güvenlik Uyarısı** ardından, görüntülenen iletişim seçin **Evet**.
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
-Uygulamayı çalıştırmak için CTRL + F5 tuşlarına basın. Bir tarayıcıda aşağıdaki URL 'ye gidin: [https://localhost:5001/api/values](https://localhost:5001/api/values).
+Uygulamayı çalıştırmak için CTRL + F5 tuşlarına basın. Bir tarayıcıda aşağıdaki URL'ye gidin: [ https://localhost:5001/api/values ](https://localhost:5001/api/values).
 
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Mac için Visual Studio](#tab/visual-studio-mac)
 
-Uygulamayı başlatmak için**hata ayıklamayı başlat**  >  **Çalıştır** ' ı seçin. Mac için Visual Studio bir tarayıcı başlatır ve `<port>` rastgele seçilmiş bir bağlantı noktası numarası olduğu `https://localhost:<port>` ' a gider. HTTP 404 (bulunamadı) hatası döndürüldü. URL 'ye `/api/values` ekleyin (URL 'yi `https://localhost:<port>/api/values` olarak değiştirin).
+Uygulamayı başlatmak için **hata ayıklamayı başlat** > **Çalıştır** ' ı seçin. Mac için Visual Studio bir tarayıcı ile başlatarak `https://localhost:<port>`burada `<port>` bir rastgele seçilen bağlantı noktası numarasıdır. HTTP 404 (bulunamadı) hatası döndürülür. Append `/api/values` URL'sine (URL'yi `https://localhost:<port>/api/values`).
 
 ---
 
@@ -585,123 +585,123 @@ Aşağıdaki JSON döndürülür:
 ["value1","value2"]
 ```
 
-## <a name="add-a-model-class"></a>Model sınıfı ekleme
+## <a name="add-a-model-class"></a>Bir model sınıfı ekleme
 
-*Model* , uygulamanın yönettiği verileri temsil eden bir sınıf kümesidir. Bu uygulamanın modeli, tek bir `TodoItem` sınıfıdır.
+A *modeli* uygulamayı yöneten verilerini temsil eden sınıflar kümesidir. Tek bir modeldir bu uygulama için `TodoItem` sınıfı.
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-* **Çözüm Gezgini**, projeye sağ tıklayın. **Yeni  >  klasör** **Ekle** ' yi seçin. Klasör *modellerini*adlandırın.
+* İçinde **Çözüm Gezgini**, projeye sağ tıklayın. Seçin **ekleme** > **yeni klasör**. Klasör adı *modelleri*.
 
-* *Modeller* klasörüne sağ tıklayın ve  > **sınıfı** **Ekle** ' yi seçin. Sınıfı *TodoItem* olarak adlandırın ve **Ekle**' yi seçin.
+* Sağ *modelleri* klasörü ve select **Ekle** > **sınıfı**. Sınıf adı *Todoıtem* seçip **Ekle**.
 
-* Şablon kodunu şu kodla değiştirin:
+* Şablon kodunu aşağıdaki kodla değiştirin:
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
-* *Modeller*adlı bir klasör ekleyin.
+* Adlı bir klasör ekleme *modelleri*.
 
-* *Modeller* klasörüne aşağıdaki kodla bir `TodoItem` sınıfı ekleyin:
+* Ekleme bir `TodoItem` sınıfının *modelleri* aşağıdaki kodla klasörü:
 
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Mac için Visual Studio](#tab/visual-studio-mac)
 
-* Projeye sağ tıklayın. **Yeni  >  klasör** **Ekle** ' yi seçin. Klasör *modellerini*adlandırın.
+* Projeye sağ tıklayın. Seçin **ekleme** > **yeni klasör**. Klasör adı *modelleri*.
 
   ![Yeni klasör](first-web-api-mac/_static/folder.png)
 
 * *Modeller* klasörüne sağ tıklayın ve > **yeni dosya** **ekle** ' yi > **genel** > **boş sınıf**' ı seçin.
 
-* Sınıfı *TodoItem*olarak adlandırın ve ardından **Yeni**' ye tıklayın.
+* Sınıf adı *Todoıtem*ve ardından **yeni**.
 
-* Şablon kodunu şu kodla değiştirin:
+* Şablon kodunu aşağıdaki kodla değiştirin:
 
 ---
 
   [!code-csharp[](first-web-api/samples/2.2/TodoApi/Models/TodoItem.cs)]
 
-`Id` özelliği, ilişkisel bir veritabanındaki benzersiz anahtar olarak çalışır.
+`Id` Özelliği işlevlerinin bir ilişkisel veritabanında benzersiz anahtar.
 
-Model sınıfları projede herhangi bir yere gidebilir, ancak *modeller* klasörü kural tarafından kullanılır.
+Model sınıfları herhangi bir projede gidip ancak *modelleri* klasörü, kural olarak kullanılır.
 
-## <a name="add-a-database-context"></a>Veritabanı bağlamı ekleme
+## <a name="add-a-database-context"></a>Veritabanı bağlamı Ekle
 
-*Veritabanı bağlamı* , bir veri modeli için Entity Framework işlevselliği koordine eden ana sınıftır. Bu sınıf, `Microsoft.EntityFrameworkCore.DbContext` sınıfından türeterek oluşturulur.
+*Veritabanı bağlamı* koordine eden bir veri modeli için Entity Framework işlevsellik ana sınıftır. Bu sınıf türetme tarafından oluşturulan `Microsoft.EntityFrameworkCore.DbContext` sınıfı.
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-* *Modeller* klasörüne sağ tıklayın ve  > **sınıfı** **Ekle** ' yi seçin. Sınıfı *TodoContext* olarak adlandırın ve **Ekle**' ye tıklayın.
+* Sağ *modelleri* klasörü ve select **Ekle** > **sınıfı**. Sınıf adı *TodoContext* tıklatıp **Ekle**.
 
 # <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Visual Studio Code/Mac için Visual Studio](#tab/visual-studio-code+visual-studio-mac)
 
-* *Modeller* klasörüne bir `TodoContext` sınıfı ekleyin.
+* Ekleme bir `TodoContext` sınıfının *modelleri* klasör.
 
 ---
 
-* Şablon kodunu şu kodla değiştirin:
+* Şablon kodunu aşağıdaki kodla değiştirin:
 
   [!code-csharp[](first-web-api/samples/2.2/TodoApi/Models/TodoContext.cs)]
 
-## <a name="register-the-database-context"></a>Veritabanı bağlamını kaydetme
+## <a name="register-the-database-context"></a>Veritabanı bağlamı Kaydet
 
-ASP.NET Core, VERITABANı bağlamı gibi hizmetlerin [bağımlılık ekleme (dı)](xref:fundamentals/dependency-injection) kapsayıcısına kayıtlı olması gerekir. Kapsayıcı hizmeti denetleyicilere sağlar.
+ASP.NET Core DB bağlamı gibi hizmetler ile kaydedilmelidir [bağımlılık ekleme (dı)](xref:fundamentals/dependency-injection) kapsayıcı. Kapsayıcı hizmeti denetleyicilerine sağlar.
 
-Aşağıdaki Vurgulanan kodla *Startup.cs* güncelleştirin:
+Güncelleştirme *Startup.cs* aşağıdaki vurgulanmış kodu:
 
 [!code-csharp[](first-web-api/samples/2.2/TodoApi/Startup1.cs?highlight=5,8,25-26&name=snippet_all)]
 
-Önceki kod:
+Yukarıdaki kod:
 
-* Kullanılmayan `using` bildirimlerini kaldırır.
-* Veritabanı bağlamını dı kapsayıcısına ekler.
-* Veritabanı bağlamının bellek içi bir veritabanını kullanacağı belirtir.
+* Kullanılmayan kaldırır `using` bildirimleri.
+* Veritabanı bağlamı DI kapsayıcıya ekler.
+* Veritabanı bağlamı bir bellek içi veritabanına kullanacağını belirtir.
 
 ## <a name="add-a-controller"></a>Denetleyici ekleme
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-* *Denetleyiciler* klasörüne sağ tıklayın.
+* Sağ *denetleyicileri* klasör.
 * > **Yeni öğe** **Ekle** ' yi seçin.
-* **Yeni öğe Ekle** iletişim kutusunda, **API denetleyici sınıfı** şablonunu seçin.
-* Sınıfı *TodoController*olarak adlandırın ve **Ekle**' yi seçin.
+* İçinde **Yeni Öğe Ekle** iletişim kutusunda **API denetleyici sınıfı** şablonu.
+* Sınıf adı *TodoController*seçip **Ekle**.
 
-  ![Arama kutusu ve Web API denetleyicisi seçiliyken denetleyiciyi içeren yeni öğe iletişim kutusu Ekle](first-web-api/_static/new_controller.png)
+  ![Yeni öğe iletişim denetleyicisiyle seçilen arama kutusu ve web API denetleyicisi Ekle](first-web-api/_static/new_controller.png)
 
 # <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Visual Studio Code/Mac için Visual Studio](#tab/visual-studio-code+visual-studio-mac)
 
-* *Denetleyiciler* klasöründe `TodoController` adlı bir sınıf oluşturun.
+* İçinde *denetleyicileri* klasör adında bir sınıf oluşturma `TodoController`.
 
 ---
 
-* Şablon kodunu şu kodla değiştirin:
+* Şablon kodunu aşağıdaki kodla değiştirin:
 
   [!code-csharp[](first-web-api/samples/2.2/TodoApi/Controllers/TodoController2.cs?name=snippet_todo1)]
 
-Önceki kod:
+Yukarıdaki kod:
 
-* Yöntemler olmadan bir API denetleyici sınıfı tanımlar.
-* Sınıfı [[Apicontroller]](/dotnet/api/microsoft.aspnetcore.mvc.apicontrollerattribute) özniteliğiyle süsler. Bu öznitelik, denetleyicinin Web API isteklerine yanıt verdiğini belirtir. Özniteliğin izin aldığı belirli davranışlar hakkında daha fazla bilgi için bkz. <xref:web-api/index>.
-* Veritabanı bağlamını (`TodoContext`) denetleyiciye eklemek için DI kullanır. Veritabanı bağlamı, denetleyicideki [CRUD](https://wikipedia.org/wiki/Create,_read,_update_and_delete) yöntemlerinde her birinde kullanılır.
-* Veritabanı boşsa, veritabanına `Item1` adlı bir öğe ekler. Bu kod oluşturucuda yer aldığı için, her yeni HTTP isteği olduğunda çalışır. Tüm öğeleri silerseniz, bir API yönteminin bir sonraki çağrılışında Oluşturucu `Item1` yeniden oluşturur. Bu nedenle, aslında çalışırken silme işe yaramadı gibi görünebilir.
+* Bir API denetleyicisi sınıfı yöntemleri olmadan tanımlar.
+* Sınıfı [`[ApiController]`](/dotnet/api/microsoft.aspnetcore.mvc.apicontrollerattribute) özniteliğiyle işaretler. Bu öznitelik, denetleyicinin web API'si isteklerine yanıt verdiğini gösterir. Özniteliğin izin aldığı belirli davranışlar hakkında daha fazla bilgi için bkz. <xref:web-api/index>.
+* Veritabanı bağlamı eklemesine DI kullanır (`TodoContext`) içine denetleyici. Her bir veritabanı bağlamı kullanılan [CRUD](https://wikipedia.org/wiki/Create,_read,_update_and_delete) denetleyici yöntemleri.
+* Adlı bir öğe ekler `Item1` veritabanı boşsa veritabanı. Her çalıştığında bu kod oluşturucusunun içinde yeni bir HTTP isteği olduğundan. Tüm öğeleri silerseniz, oluşturucu oluşturur `Item1` API yöntemi çağrıldığında tekrar başlattığınızda. Bu nedenle, gerçekten işe yaradı silme işlemi işe yaramadı gibi görünebilir.
 
-## <a name="add-get-methods"></a>Get yöntemleri ekleme
+## <a name="add-get-methods"></a>Get yöntemleri ekleyin
 
-Yapılacaklar öğelerini alan bir API sağlamak için, `TodoController` sınıfına aşağıdaki yöntemleri ekleyin:
+Yapılacak iş öğeleri alır bir API sağlamak için aşağıdaki yöntemi ekleyin. `TodoController` sınıfı:
 
 [!code-csharp[](first-web-api/samples/2.2/TodoApi/Controllers/TodoController.cs?name=snippet_GetAll)]
 
-Bu yöntemler iki al uç noktası uygular:
+İki GET uç noktası bu yöntemleri uygulayın:
 
 * `GET /api/todo`
 * `GET /api/todo/{id}`
 
 Hala çalışıyorsa uygulamayı durdurun. Ardından, en son değişiklikleri dahil etmek için yeniden çalıştırın.
 
-Bir tarayıcıdan iki uç noktayı çağırarak uygulamayı test edin. Örneğin:
+Bir tarayıcıdan iki uç nokta çağırarak uygulamayı test edin. Örneğin:
 
 * `https://localhost:<port>/api/todo`
 * `https://localhost:<port>/api/todo/1`
 
-Aşağıdaki HTTP yanıtı `GetTodoItems` çağrısı tarafından üretilir:
+Şu HTTP yanıtı çağrısı tarafından üretilen `GetTodoItems`:
 
 ```json
 [
@@ -713,37 +713,37 @@ Aşağıdaki HTTP yanıtı `GetTodoItems` çağrısı tarafından üretilir:
 ]
 ```
 
-## <a name="routing-and-url-paths"></a>Yönlendirme ve URL yolları
+## <a name="routing-and-url-paths"></a>URL Yönlendirme ve yolları
 
-[`[HttpGet]`](/dotnet/api/microsoft.aspnetcore.mvc.httpgetattribute) ÖZNITELIĞI BIR HTTP GET isteğine yanıt veren bir yöntemi gösterir. Her yöntemin URL yolu şu şekilde oluşturulur:
+[ `[HttpGet]` ](/dotnet/api/microsoft.aspnetcore.mvc.httpgetattribute) Özniteliği bir HTTP GET isteğine yanıt vermeden bir yöntemi gösterir. Her yöntem için URL yolu şu şekilde oluşturulur:
 
-* Denetleyicinin `Route` özniteliğinde şablon dizesiyle başlayın:
+* Denetleyicinin şablonu dizesi ile başlayıp `Route` özniteliği:
 
   [!code-csharp[](first-web-api/samples/2.2/TodoApi/Controllers/TodoController.cs?name=TodoController&highlight=3)]
 
-* `[controller]`, denetleyicinin adıyla değiştirin, bu kural, denetleyici sınıf adı "denetleyici" sonekidir. Bu örnek için denetleyici sınıf adı **Todo**Controller olduğundan, denetleyici adı "Todo" olur. ASP.NET Core [yönlendirme](xref:mvc/controllers/routing) büyük/küçük harfe duyarlıdır.
-* `[HttpGet]` özniteliğinin bir yol şablonu varsa (örneğin, `[HttpGet("products")]`), yola ekleyin. Bu örnek, bir şablon kullanmaz. Daha fazla bilgi için bkz. [http [fiil] öznitelikleriyle öznitelik yönlendirme](xref:mvc/controllers/routing#attribute-routing-with-httpverb-attributes).
+* Değiştirin `[controller]` denetleyicinin adı ile kural tarafından olduğu "Controller" soneki eksi denetleyici sınıfı adı. Bu örnek, denetleyici sınıfı adı olan **Todo**Denetleyici adı "todo" Bu nedenle denetleyicisi. ASP.NET Core [yönlendirme](xref:mvc/controllers/routing) büyük/küçük harfe duyarlıdır.
+* `[HttpGet]` özniteliğinin bir yol şablonu varsa (örneğin, `[HttpGet("products")]`), yola ekleyin. Bu örnek, bir şablon kullanmaz. Daha fazla bilgi için [özniteliği Http [eylem] özniteliği ile yönlendirme](xref:mvc/controllers/routing#attribute-routing-with-httpverb-attributes).
 
-Aşağıdaki `GetTodoItem` yönteminde, `"{id}"` Yapılacaklar öğesinin benzersiz tanımlayıcısı için bir yer tutucu değişkenidir. `GetTodoItem` çağrıldığında, URL 'deki `"{id}"` değeri`id` parametresindeki yöntemine sağlanır.
+Aşağıdaki `GetTodoItem` yöntemi `"{id}"` yapılacak iş öğesi benzersiz tanımlayıcısı için bir yer tutucu değişkendir. Zaman `GetTodoItem` çağrılır, değerini `"{id}"` yöntemine URL'de sağlanan kendi`id` parametresi.
 
 [!code-csharp[](first-web-api/samples/2.2/TodoApi/Controllers/TodoController.cs?name=snippet_GetByID&highlight=1-2)]
 
 ## <a name="return-values"></a>Döndürülen değerler
 
-`GetTodoItems` ve `GetTodoItem` yöntemlerinin dönüş türü [actionresult\<t > türüdür](xref:web-api/action-return-types#actionresultt-type). ASP.NET Core nesneyi [JSON](https://www.json.org/) 'a otomatik olarak serileştirir ve yanıt ILETISININ gövdesine JSON yazar. Bu dönüş türü için yanıt kodu, işlenmemiş özel durum olmadığı varsayılarak 200 ' dir. İşlenmemiş özel durumlar 5 xx hataya çevrilir.
+Dönüş türünü `GetTodoItems` ve `GetTodoItem` yöntemler [actionresult öğesini\<T > türü](xref:web-api/action-return-types#actionresultt-type). ASP.NET Core, nesneyi otomatik olarak serileştiren [JSON](https://www.json.org/) ve yanıt iletisinin gövdesine JSON yazar. Yanıt kodu 200 bu dönüş türü için olduğu varsayılırsa işlenmeyen özel durumlar vardır. İşlenmeyen özel durumları 5xx hatalarla karşılaşırsanız çevrilir.
 
-`ActionResult` dönüş türleri, çok çeşitli HTTP durum kodlarını temsil edebilir. Örneğin, `GetTodoItem` iki farklı durum değeri döndürebilir:
+`ActionResult` dönüş türleri, geniş HTTP durum kodları temsil edebilir. Örneğin, `GetTodoItem` iki farklı durum değerleri döndürebilir:
 
-* İstenen KIMLIKLE eşleşen hiçbir öğe yoksa, yöntem 404 [NotFound](/dotnet/api/microsoft.aspnetcore.mvc.controllerbase.notfound) hata kodu döndürür.
-* Aksi takdirde, yöntemi bir JSON yanıt gövdesi ile 200 döndürür. `item` sonuçları bir HTTP 200 yanıtına döndürülüyor.
+* Öğe istenen kimliği eşleşirse, yöntem bir 404 döndürür [NotFound](/dotnet/api/microsoft.aspnetcore.mvc.controllerbase.notfound) hata kodu.
+* Aksi takdirde yöntem bir JSON yanıt gövdesine 200 döndürür. Döndüren `item` sonuçları bir HTTP 200 yanıtı.
 
-## <a name="test-the-gettodoitems-method"></a>GetTodoItems yöntemini test etme
+## <a name="test-the-gettodoitems-method"></a>Test GetTodoItems yöntemi
 
-Bu öğretici, Web API 'sini test etmek için Postman kullanır.
+Bu öğreticide Postman web API'si test etmek için kullanılır.
 
 * [Postman](https://www.getpostman.com/downloads/)'yi yükleme.
-* Web uygulamasını başlatın.
-* Postman 'ı başlatın.
+* Web uygulaması başlatın.
+* Postman'i başlatın.
 * **SSL sertifikası doğrulamasını**devre dışı bırakın.
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
@@ -752,45 +752,45 @@ Bu öğretici, Web API 'sini test etmek için Postman kullanır.
 
 # <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Visual Studio Code/Mac için Visual Studio](#tab/visual-studio-code+visual-studio-mac)
 
-* **Postman**  > **tercihleri** ' nden (**genel** sekmesinden) **SSL sertifikası doğrulamasını**devre dışı bırakın. Alternatif olarak, wranı seçin ve **Ayarlar**' ı seçip SSL sertifikası doğrulamasını devre dışı bırakın.
+* **Postman** > **tercihleri** ' nden (**genel** sekmesinden) **SSL sertifikası doğrulamasını**devre dışı bırakın. Alternatif olarak, wranı seçin ve **Ayarlar**' ı seçip SSL sertifikası doğrulamasını devre dışı bırakın.
 
 ---
   
 > [!WARNING]
-> Denetleyiciyi test ettikten sonra SSL sertifikası doğrulamasını yeniden etkinleştirin.
+> Test denetleyicisi sonra SSL sertifika doğrulamasını yeniden etkinleştirin.
 
 * Yeni bir istek oluşturun.
-  * **Almak**için http yöntemini ayarlayın.
-  * İstek URL 'sini `https://localhost:<port>/api/todo` olarak ayarlayın. Örneğin, `https://localhost:5001/api/todo`.
-* Postman 'da **iki bölme görünümü** ayarlayın.
-* **Gönder**' i seçin.
+  * HTTP yöntemi kümesine **alma**.
+  * İstek URL'si kümesine `https://localhost:<port>/api/todo`. Örneğin: `https://localhost:5001/api/todo`.
+* Ayarlama **iki bölme görünümü** postman'deki.
+* **Gönder**’i seçin.
 
-![Get isteği ile Postman](first-web-api/_static/2pv.png)
+![Get isteğiyle postman](first-web-api/_static/2pv.png)
 
-## <a name="add-a-create-method"></a>Create yöntemi ekle
+## <a name="add-a-create-method"></a>Create yöntemi ekleme
 
 Aşağıdaki `PostTodoItem` yöntemini *Controllers/TodoController. cs*içine ekleyin: 
 
 [!code-csharp[](first-web-api/samples/2.2/TodoApi/Controllers/TodoController.cs?name=snippet_Create)]
 
-Yukarıdaki kod, [[HttpPost]](/dotnet/api/microsoft.aspnetcore.mvc.httppostattribute) özniteliğiyle gösterildiği gıbı bır http post yöntemidir. Yöntemi, HTTP isteğinin gövdesinden Yapılacaklar öğesinin değerini alır.
+Yukarıdaki kod, [`[HttpPost]`](/dotnet/api/microsoft.aspnetcore.mvc.httppostattribute) özniteliğiyle gösterildiği gıbı bır http post yöntemidir. Yöntemi, HTTP isteği gövdesinden Yapılacaklar öğenin değerini alır.
 
-`CreatedAtAction` yöntemi:
+`CreatedAtAction` Yöntemi:
 
-* Başarılı olursa bir HTTP 201 durum kodu döndürür. HTTP 201, sunucuda yeni bir kaynak oluşturan HTTP POST yöntemi için standart yanıttır.
-* Yanıta bir `Location` üst bilgisi ekler. `Location` üstbilgisi, yeni oluşturulan Yapılacaklar öğesinin URI 'sini belirtir. Daha fazla bilgi için bkz. [10.2.2 201 oluşturma](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html).
+* Başarılı olursa bir HTTP 201 durum kodu döndürür. HTTP 201 sunucuda yeni bir kaynak oluşturan bir HTTP POST yöntemi için standart yanıttır.
+* Yanıta bir `Location` üst bilgisi ekler. `Location` üstbilgisi, yeni oluşturulan Yapılacaklar öğesinin URI 'sini belirtir. Daha fazla bilgi için [10.2.2 201 oluşturuldu](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html).
 * `Location` üst bilgisinin URI 'sini oluşturmak için `GetTodoItem` eyleme başvurur. C# `nameof` anahtar sözcüğü, `CreatedAtAction` çağrısında eylem adının sabit kodlanmasını önlemek için kullanılır.
 
   [!code-csharp[](first-web-api/samples/2.2/TodoApi/Controllers/TodoController.cs?name=snippet_GetByID&highlight=1-2)]
 
-### <a name="test-the-posttodoitem-method"></a>PostTodoItem yöntemini test etme
+### <a name="test-the-posttodoitem-method"></a>Test PostTodoItem yöntemi
 
 * Projeyi oluşturun.
-* Postman 'da HTTP yöntemini `POST` olarak ayarlayın.
-* **Gövde** sekmesini seçin.
-* **Ham** radyo düğmesini seçin.
-* Türü **JSON (Application/JSON)** olarak ayarlayın.
-* İstek gövdesinde, bir yapılacaklar öğesi için JSON girin:
+* Postman HTTP yöntemi kümesine `POST`.
+* Seçin **gövdesi** sekmesi.
+* Seçin **ham** radyo düğmesi.
+* Tür kümesine **JSON (application/json)** .
+* İstek gövdesinde bir yapılacak iş öğesi için JSON girin:
 
     ```json
     {
@@ -799,38 +799,38 @@ Yukarıdaki kod, [[HttpPost]](/dotnet/api/microsoft.aspnetcore.mvc.httppostattri
     }
     ```
 
-* **Gönder**' i seçin.
+* **Gönder**’i seçin.
 
-  ![Oluşturma isteğiyle Postman](first-web-api/_static/create.png)
+  ![Postman ile isteği oluştur](first-web-api/_static/create.png)
 
   Bir 405 yöntemine Izin verilmiyor hatası alırsanız, `PostTodoItem` yöntemi eklendikten sonra projenin derlenmesinin sonucu büyük olasılıkla oluşur.
 
-### <a name="test-the-location-header-uri"></a>Konum üst bilgisi URI 'sini test etme
+### <a name="test-the-location-header-uri"></a>Konum üst bilgisi URI test
 
-* **Yanıt** bölmesinde **üstbilgiler** sekmesini seçin.
-* **Konum** üst bilgisi değerini kopyalayın:
+* Seçin **üstbilgileri** sekmesinde **yanıt** bölmesi.
+* Kopyalama **konumu** üst bilgi değeri:
 
-  ![Postman konsolunun üstbilgiler sekmesi](first-web-api/_static/pmc2.png)
+  ![Postman konsolunun üst bilgiler sekmesi](first-web-api/_static/pmc2.png)
 
-* ALıNACAK yöntemi ayarlayın.
+* Yöntemini GET öğesine Ayarla.
 * URI 'yi yapıştırın (örneğin, `https://localhost:5001/api/Todo/2`).
-* **Gönder**' i seçin.
+* **Gönder**’i seçin.
 
 ## <a name="add-a-puttodoitem-method"></a>PutTodoItem yöntemi ekleme
 
-Aşağıdaki `PutTodoItem` yöntemi ekleyin:
+Aşağıdaki `PutTodoItem` yöntemi:
 
 [!code-csharp[](first-web-api/samples/2.2/TodoApi/Controllers/TodoController.cs?name=snippet_Update)]
 
-`PutTodoItem`, HTTP PUT kullanması dışında `PostTodoItem` benzerdir. Yanıt 204 ' dir [(Içerik yok)](https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html). HTTP belirtimine göre bir PUT isteği, istemcinin yalnızca değişiklikleri değil, tüm güncelleştirilmiş varlığı göndermesini gerektirir. Kısmi güncelleştirmeleri desteklemek için [http Patch](xref:Microsoft.AspNetCore.Mvc.HttpPatchAttribute)kullanın.
+`PutTodoItem` benzer `PostTodoItem`, HTTP PUT kullanır. Yanıt [204 (içerik yok)](https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html). HTTP belirtimine göre bir PUT İsteği tüm güncelleştirilmiş varlık yalnızca değişiklikler değil göndermek istemci gerektirir. Kısmi güncelleştirmeleri desteklemek için kullanma [HTTP PATCH](xref:Microsoft.AspNetCore.Mvc.HttpPatchAttribute).
 
 `PutTodoItem`çağırırken bir hata alırsanız, veritabanında bir öğe olduğundan emin olmak için `GET` çağırın.
 
-### <a name="test-the-puttodoitem-method"></a>PutTodoItem yöntemini test etme
+### <a name="test-the-puttodoitem-method"></a>Test PutTodoItem yöntemi
 
 Bu örnek, uygulama her başlatıldığında başlatılmış olması gereken bellek içi bir veritabanını kullanır. Bir PUT çağrısı yapmadan önce veritabanında bir öğe olmalıdır. PUT çağrısı yapmadan önce veritabanında bir öğe olduğundan emin olmak için GET çağrısı yapın.
 
-ID = 1 olan Yapılacaklar öğesini güncelleştirin ve adını "Feed balık" olarak ayarlayın:
+Kimliğine sahip bir yapılacak iş öğesi güncelleştirme = 1 ve "balık akış için" adını girin:
 
 ```json
   {
@@ -840,25 +840,25 @@ ID = 1 olan Yapılacaklar öğesini güncelleştirin ve adını "Feed balık" ol
   }
 ```
 
-Aşağıdaki görüntüde Postman güncelleştirmesi gösterilmektedir:
+Aşağıdaki görüntüde, Postman güncelleştirme gösterilmektedir:
 
-![204 (Içerik yok) yanıtı gösteren Postman konsolu](first-web-api/_static/pmcput.png)
+![204 (içerik yok) yanıtı gösteren postman konsol](first-web-api/_static/pmcput.png)
 
 ## <a name="add-a-deletetodoitem-method"></a>DeleteTodoItem yöntemi ekleme
 
-Aşağıdaki `DeleteTodoItem` yöntemi ekleyin:
+Aşağıdaki `DeleteTodoItem` yöntemi:
 
 [!code-csharp[](first-web-api/samples/2.2/TodoApi/Controllers/TodoController.cs?name=snippet_Delete)]
 
-`DeleteTodoItem` yanıtı 204 ' dir [(Içerik yok)](https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html).
+`DeleteTodoItem` Yanıt [204 (içerik yok)](https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html).
 
-### <a name="test-the-deletetodoitem-method"></a>DeleteTodoItem yöntemini test etme
+### <a name="test-the-deletetodoitem-method"></a>Test DeleteTodoItem yöntemi
 
-Bir yapılacaklar öğesini silmek için Postman kullanın:
+Postman bir yapılacak iş öğesini silmek için kullanın:
 
-* Yöntemini `DELETE` olarak ayarlayın.
+* Yöntem kümesine `DELETE`.
 * Silinecek nesnenin URI 'sini ayarlayın (örneğin `https://localhost:5001/api/todo/1`).
-* **Gönder**' i seçin.
+* **Gönder**’i seçin.
 
 Örnek uygulama, tüm öğeleri silmenizi sağlar. Ancak, son öğe silindiğinde, API 'nin bir sonraki çağrılışında model sınıfı Oluşturucu tarafından yeni bir tane oluşturulur.
 
@@ -870,44 +870,44 @@ Uygulamayı [statik dosyalara sunacak](/dotnet/api/microsoft.aspnetcore.builder.
 
 [!code-csharp[](first-web-api/samples/2.2/TodoApi/Startup.cs?highlight=14-15&name=snippet_configure)]
 
-Proje dizininde bir *Wwwroot* klasörü oluşturun.
+Oluşturma bir *wwwroot* proje dizininde klasör.
 
-*Wwwroot* dizinine *index. HTML* adlı bir HTML dosyası ekleyin. İçeriğini aşağıdaki biçimlendirmeyle değiştirin:
+Adlı bir HTML dosyası ekleyin *index.html* için *wwwroot* dizin. Dosyanın içeriğini aşağıdaki biçimlendirme ile değiştirin:
 
 [!code-html[](first-web-api/samples/2.2/TodoApi/wwwroot/index.html)]
 
-*Wwwroot* dizinine *site. js* adlı bir JavaScript dosyası ekleyin. İçeriğini şu kodla değiştirin:
+Adlı bir JavaScript dosyası ekleyin *site.js* için *wwwroot* dizin. Dosyanın içeriğini aşağıdaki kodla değiştirin:
 
 [!code-javascript[](first-web-api/samples/2.2/TodoApi/wwwroot/site.js?name=snippet_SiteJs)]
 
-HTML sayfasını yerel olarak test etmek için ASP.NET Core projesinin başlatma ayarlarındaki bir değişikliğin yapılması gerekebilir:
+ASP.NET Core proje başlatma ayarlarında bir değişiklik HTML sayfasını yerel olarak test etmek için gerekli:
 
-* *Properties\launchSettings.JSON*'i açın.
-* Uygulamanın *index. html* &mdash;the projenin varsayılan dosyasında açılmasını zorlamak için `launchUrl` özelliğini kaldırın.
+* Açık *Properties\launchSettings.json*.
+* Kaldırma `launchUrl` , açmak için uygulamayı zorlamak için özellik *index.html*&mdash;projenin varsayılan dosya.
 
-Bu örnek, Web API 'sinin tüm CRUD yöntemlerini çağırır. API çağrılarının açıklamaları aşağıda verilmiştir.
+Bu örnek, Web API 'sinin tüm CRUD yöntemlerini çağırır. API çağrıları açıklamaları aşağıda verilmiştir.
 
 ### <a name="get-a-list-of-to-do-items"></a>Yapılacaklar öğelerinin bir listesini alın
 
-jQuery, bir to-do öğesi dizisini temsil eden JSON döndüren Web API 'sine bir HTTP GET isteği gönderir. `success` geri çağırma işlevi, istek başarılı olursa çağrılır. Geri aramada, DOM, yapılacaklar bilgileriyle güncelleştirilir.
+jQuery, bir to-do öğesi dizisini temsil eden JSON döndüren Web API 'sine bir HTTP GET isteği gönderir. `success` İstek başarılı olursa geri çağırma işlevi çağrılır. Geri çağırma içinde DOM Yapılacaklar bilgilerle güncelleştirilir.
 
 [!code-javascript[](first-web-api/samples/2.2/TodoApi/wwwroot/site.js?name=snippet_GetData)]
 
-### <a name="add-a-to-do-item"></a>Yapılacaklar öğesi ekleme
+### <a name="add-a-to-do-item"></a>Yapılacak İş Öğesi Ekle
 
-jQuery, istek gövdesinde Yapılacaklar öğesiyle bir HTTP POST isteği gönderir. `accepts` ve `contentType` seçenekleri, alınan ve gönderilen medya türünü belirtmek için `application/json` olarak ayarlanır. Yapılacaklar öğesi [JSON. stringbelirt](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify)kullanılarak JSON 'a dönüştürülür. API başarılı bir durum kodu döndürdüğünde, `getData` işlevi HTML tablosunu güncelleştirmek için çağrılır.
+jQuery, istek gövdesinde Yapılacaklar öğesiyle bir HTTP POST isteği gönderir. `accepts` Ve `contentType` seçeneklerini ayarlamak `application/json` gönderilen ve alınan medya türü belirtmek için. Yapılacak iş öğesi kullanarak JSON'a dönüştürülür [JSON.stringify](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify). API'yi bir başarılı durum kodu döndürdüğünde `getData` işlevi HTML tablosu güncelleştirmek için çağrılır.
 
 [!code-javascript[](first-web-api/samples/2.2/TodoApi/wwwroot/site.js?name=snippet_AddItem)]
 
-### <a name="update-a-to-do-item"></a>Yapılacaklar öğesini güncelleştirme
+### <a name="update-a-to-do-item"></a>Yapılacak iş öğesini güncelleştirme
 
-Bir yapılacaklar öğesinin güncelleştirilmesi, bir tane eklemeye benzer. `url` öğenin benzersiz tanımlayıcısını eklemek için değişir ve `type` `PUT`.
+Yapılacak iş öğesi güncelleştirilirken bir eklemeye benzerdir. `url` Öğenin benzersiz tanıtıcısı eklemek için değişiklikleri ve `type` olduğu `PUT`.
 
 [!code-javascript[](first-web-api/samples/2.2/TodoApi/wwwroot/site.js?name=snippet_AjaxPut)]
 
-### <a name="delete-a-to-do-item"></a>Bir yapılacaklar öğesini silme
+### <a name="delete-a-to-do-item"></a>Yapılacak iş öğesi silme
 
-Bir yapılacaklar öğesinin silinmesi, AJAX çağrısının `DELETE` `type` ayarlanarak ve öğenin URL 'sindeki benzersiz tanımlayıcısını belirterek gerçekleştirilir.
+Yapılacak iş öğesi silme gerçekleştirilir ayarlayarak `type` AJAX çağrısı hedefi üzerinde `DELETE` ve öğenin benzersiz tanıtıcısı URL'yi belirterek.
 
 [!code-javascript[](first-web-api/samples/2.2/TodoApi/wwwroot/site.js?name=snippet_AjaxDelete)]
 
@@ -921,7 +921,7 @@ Bir yapılacaklar öğesinin silinmesi, AJAX çağrısının `DELETE` `type` aya
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-[Bu öğretici için örnek kodu görüntüleyin veya indirin](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/tutorials/first-web-api/samples). Bkz. [indirme](xref:index#how-to-download-a-sample).
+[Görüntülemek veya Bu öğretici için örnek kodu indirdikten](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/tutorials/first-web-api/samples). Bkz: [nasıl indirileceğini](xref:index#how-to-download-a-sample).
 
 Daha fazla bilgi için aşağıdaki kaynaklara bakın:
 

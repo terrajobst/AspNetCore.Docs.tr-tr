@@ -4,16 +4,16 @@ author: jamesnk
 description: GRPC 'nin HTTP API 'Leri ile nasıl Karşılaştırıldığı ve bu senaryonun önerdiğimiz ne olduğunu öğrenin.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: jamesnk
-ms.date: 11/12/2019
+ms.date: 12/05/2019
 no-loc:
 - SignalR
 uid: grpc/comparison
-ms.openlocfilehash: ceb24d656827548492a6fa326681922297fc481b
-ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
+ms.openlocfilehash: 8935e665dfd5d8f9afa002f475c202ec0f0ee657
+ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73963652"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74880677"
 ---
 # <a name="compare-grpc-services-with-http-apis"></a>gRPC hizmetlerini HTTP API’leriyle karşılaştırma
 
@@ -34,7 +34,7 @@ Aşağıdaki tabloda, gRPC ve HTTP API 'Leri arasında JSON ile yüksek düzeyde
 | Akış        | [İstemci, sunucu, iki yönlü](#streaming)       | İstemci, sunucu                |
 | Tarayıcı desteği  | [Hayır (GRPC-Web gerektirir)](#limited-browser-support) | Evet                           |
 | Güvenlik         | Taşıma (TLS)                                    | Taşıma (TLS)               |
-| İstemci kod oluşturma | [Yes](#code-generation)                      | Openapı + üçüncü taraf araçları |
+| İstemci kod oluşturma | [Evet](#code-generation)                      | Openapı + üçüncü taraf araçları |
 
 ## <a name="grpc-strengths"></a>gRPC güçleri
 
@@ -49,7 +49,7 @@ gRPC, http 1. x üzerinden önemli performans avantajları sağlayan büyük bir
 
 ### <a name="code-generation"></a>Kod oluşturma
 
-Tüm gRPC çerçeveleri, kod oluşturma için birinci sınıf destek sağlar. GRPC geliştirmeye yönelik bir çekirdek dosya, gRPC Hizmetleri ve iletilerinin sözleşmesini tanımlayan [ *. proto* dosyasıdır](https://developers.google.com/protocol-buffers/docs/proto3). Bu dosya gRPC çerçevelerinden kod, bir hizmet temel sınıfı, iletiler ve tüm istemci oluşturur.
+Tüm gRPC çerçeveleri, kod oluşturma için birinci sınıf destek sağlar. GRPC geliştirmeye yönelik bir çekirdek dosya, gRPC Hizmetleri ve iletilerinin sözleşmesini tanımlayan [. proto dosyasıdır](https://developers.google.com/protocol-buffers/docs/proto3). Bu dosya gRPC çerçevelerinden kod, bir hizmet temel sınıfı, iletiler ve tüm istemci oluşturur.
 
 Sunucu ile istemci arasında *. proto* dosyasını paylaşarak iletiler ve istemci kodu uçtan uca oluşturulabilir. İstemcinin kod üretimi, istemci ve sunucudaki iletilerin çoğaltılmasını ortadan kaldırır ve sizin için kesin olarak belirlenmiş bir istemci oluşturur. İstemci yazmak gerekmez, birçok hizmet içeren uygulamalarda önemli geliştirme süresini kaydeder.
 

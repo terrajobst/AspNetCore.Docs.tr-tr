@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 11/04/2019
 uid: mvc/models/file-uploads
-ms.openlocfilehash: b57ad4fe62de38085c11d7026d278cc6e0c565ce
-ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
+ms.openlocfilehash: 20e58660185a3055e06e92d9136e80e2394a470d
+ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73963151"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74881066"
 ---
 # <a name="upload-files-in-aspnet-core"></a>ASP.NET Core dosyaları karşıya yükleme
 
@@ -22,7 +22,7 @@ ms.locfileid: "73963151"
 
 ASP.NET Core, daha küçük dosyalar için arabellekli model bağlama ve daha büyük dosyalar için arabelleğe alınmamış akış kullanarak bir veya daha fazla dosyanın yüklenmesini destekler
 
-[Örnek kodu görüntüleme veya indirme](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/models/file-uploads/samples/) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
+[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/models/file-uploads/samples/) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
 
 ## <a name="security-considerations"></a>Güvenlik konuları
 
@@ -46,17 +46,17 @@ Başarılı bir saldırının olasılığını azaltan güvenlik adımları şun
 örnek uygulama &dagger;ölçütleri karşılayan bir yaklaşımı gösterir.
 
 > [!WARNING]
-> Kötü amaçlı kodun bir sisteme yüklenmesi genellikle şu şekilde kod yürütmenin ilk adımıdır:
+> Kötü amaçlı bir kodun bir sisteme karşıya yükleme için kod yürütme için ilk adımı sık şöyledir:
 >
 > * Sistemin denetimini tamamen elde edin.
 > * Sistemin kilitlenme sonucuyla bir sistemi aşırı yükleme.
-> * Kullanıcı veya Sistem verilerinin güvenliğini tehlikeye atabilir.
+> * Kullanıcı veya sistem verilerini tehlikeye.
 > * Genel Kullanıcı arabirimine Graffiti uygulayın.
 >
-> Kullanıcılardan dosya kabul edilirken saldırı yüzeyi alanını azaltma hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın:
+> Kullanıcıların dosyaları kabul ederken saldırı yüzey alanı azaltma hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın:
 >
-> * [Kısıtlanmamış dosya yükleme](https://www.owasp.org/index.php/Unrestricted_File_Upload)
-> * [Azure güvenliği: kullanıcılardan dosya kabul edilirken uygun denetimlerin yerinde olduğundan emin olun](/azure/security/azure-security-threat-modeling-tool-input-validation#controls-users)
+> * [Sınırsız dosya karşıya yükleme](https://www.owasp.org/index.php/Unrestricted_File_Upload)
+> * [Azure güvenlik: uygun denetimleri kullanıcıların dosyaları kabul ederken karşılandığından emin](/azure/security/azure-security-threat-modeling-tool-input-validation#controls-users)
 
 Örnek uygulamadaki örnekler de dahil olmak üzere güvenlik önlemlerini uygulama hakkında daha fazla bilgi için [doğrulama](#validation) bölümüne bakın.
 
@@ -101,7 +101,7 @@ Dosya karşıya yüklemeleri tarafından kullanılan kaynaklar (disk, bellek), e
 Dosya arabelleğe alma, bu konunun aşağıdaki bölümlerinde ele alınmıştır:
 
 * [Fiziksel depolama alanı](#upload-small-files-with-buffered-model-binding-to-physical-storage)
-* [Veritabanınızı](#upload-small-files-with-buffered-model-binding-to-a-database)
+* [Veritabanı](#upload-small-files-with-buffered-model-binding-to-a-database)
 
 **Akış**
 
@@ -686,7 +686,7 @@ public class BufferedSingleFileUploadPhysicalModel : PageModel
 }
 ```
 
-`RequestSizeLimitAttribute`, [@attribute](xref:mvc/views/razor#attribute) Razor yönergesi kullanılarak da uygulanabilir:
+`RequestSizeLimitAttribute`, [`@attribute`](xref:mvc/views/razor#attribute) Razor yönergesi kullanılarak da uygulanabilir:
 
 ```cshtml
 @attribute [RequestSizeLimitAttribute(52428800)]
@@ -718,7 +718,7 @@ Bu ayar yalnızca IIS için geçerlidir. Kestrel üzerinde barındırırken davr
 
 ASP.NET Core modülündeki sınırlamalar veya IIS Istek filtreleme modülünün varlığı, karşıya yüklemeleri 2 veya 4 GB ile sınırlandırabilir. Daha fazla bilgi için bkz. [2 GB 'tan büyük dosya karşıya yüklenemiyor (ASPNET/AspNetCore #2711)](https://github.com/aspnet/AspNetCore/issues/2711).
 
-## <a name="troubleshoot"></a>Sorun giderme
+## <a name="troubleshoot"></a>Sorunları Gider
 
 Dosyaları karşıya yükleme ve olası çözümleri ile çalışırken karşılaşılan bazı yaygın sorunlar aşağıda verilmiştir.
 
@@ -751,7 +751,7 @@ Bu konudaki örneklerde karşıya yüklenen dosyanın içeriğini tutmak için <
 
 ASP.NET Core, daha küçük dosyalar için arabellekli model bağlama ve daha büyük dosyalar için arabelleğe alınmamış akış kullanarak bir veya daha fazla dosyanın yüklenmesini destekler
 
-[Örnek kodu görüntüleme veya indirme](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/models/file-uploads/samples/) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
+[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/models/file-uploads/samples/) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
 
 ## <a name="security-considerations"></a>Güvenlik konuları
 
@@ -775,17 +775,17 @@ Başarılı bir saldırının olasılığını azaltan güvenlik adımları şun
 örnek uygulama &dagger;ölçütleri karşılayan bir yaklaşımı gösterir.
 
 > [!WARNING]
-> Kötü amaçlı kodun bir sisteme yüklenmesi genellikle şu şekilde kod yürütmenin ilk adımıdır:
+> Kötü amaçlı bir kodun bir sisteme karşıya yükleme için kod yürütme için ilk adımı sık şöyledir:
 >
 > * Sistemin denetimini tamamen elde edin.
 > * Sistemin kilitlenme sonucuyla bir sistemi aşırı yükleme.
-> * Kullanıcı veya Sistem verilerinin güvenliğini tehlikeye atabilir.
+> * Kullanıcı veya sistem verilerini tehlikeye.
 > * Genel Kullanıcı arabirimine Graffiti uygulayın.
 >
-> Kullanıcılardan dosya kabul edilirken saldırı yüzeyi alanını azaltma hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın:
+> Kullanıcıların dosyaları kabul ederken saldırı yüzey alanı azaltma hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın:
 >
-> * [Kısıtlanmamış dosya yükleme](https://www.owasp.org/index.php/Unrestricted_File_Upload)
-> * [Azure güvenliği: kullanıcılardan dosya kabul edilirken uygun denetimlerin yerinde olduğundan emin olun](/azure/security/azure-security-threat-modeling-tool-input-validation#controls-users)
+> * [Sınırsız dosya karşıya yükleme](https://www.owasp.org/index.php/Unrestricted_File_Upload)
+> * [Azure güvenlik: uygun denetimleri kullanıcıların dosyaları kabul ederken karşılandığından emin](/azure/security/azure-security-threat-modeling-tool-input-validation#controls-users)
 
 Örnek uygulamadaki örnekler de dahil olmak üzere güvenlik önlemlerini uygulama hakkında daha fazla bilgi için [doğrulama](#validation) bölümüne bakın.
 
@@ -830,7 +830,7 @@ Dosya karşıya yüklemeleri tarafından kullanılan kaynaklar (disk, bellek), e
 Dosya arabelleğe alma, bu konunun aşağıdaki bölümlerinde ele alınmıştır:
 
 * [Fiziksel depolama alanı](#upload-small-files-with-buffered-model-binding-to-physical-storage)
-* [Veritabanınızı](#upload-small-files-with-buffered-model-binding-to-a-database)
+* [Veritabanı](#upload-small-files-with-buffered-model-binding-to-a-database)
 
 **Akış**
 
@@ -1440,7 +1440,7 @@ Bu ayar yalnızca IIS için geçerlidir. Kestrel üzerinde barındırırken davr
 
 ASP.NET Core modülündeki sınırlamalar veya IIS Istek filtreleme modülünün varlığı, karşıya yüklemeleri 2 veya 4 GB ile sınırlandırabilir. Daha fazla bilgi için bkz. [2 GB 'tan büyük dosya karşıya yüklenemiyor (ASPNET/AspNetCore #2711)](https://github.com/aspnet/AspNetCore/issues/2711).
 
-## <a name="troubleshoot"></a>Sorun giderme
+## <a name="troubleshoot"></a>Sorunları Gider
 
 Dosyaları karşıya yükleme ve olası çözümleri ile çalışırken karşılaşılan bazı yaygın sorunlar aşağıda verilmiştir.
 
@@ -1472,6 +1472,6 @@ Bu konudaki örneklerde karşıya yüklenen dosyanın içeriğini tutmak için <
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-* [Kısıtlanmamış dosya yükleme](https://www.owasp.org/index.php/Unrestricted_File_Upload)
+* [Sınırsız dosya karşıya yükleme](https://www.owasp.org/index.php/Unrestricted_File_Upload)
 * [Azure güvenliği: güvenlik çerçevesi: giriş doğrulaması | Karşı](/azure/security/azure-security-threat-modeling-tool-input-validation)
 * [Azure bulut tasarım desenleri: Valet anahtar düzeni](/azure/architecture/patterns/valet-key)

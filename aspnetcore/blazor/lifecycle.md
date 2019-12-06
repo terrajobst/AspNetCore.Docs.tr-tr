@@ -5,16 +5,16 @@ description: ASP.NET Core Blazor uygulamalarında Razor bileşeni yaşam döngü
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/26/2019
+ms.date: 12/05/2019
 no-loc:
 - Blazor
 uid: blazor/lifecycle
-ms.openlocfilehash: 1482f6b2147c74b11836e8029401bb8bcb3cdb2d
-ms.sourcegitcommit: 0dd224b2b7efca1fda0041b5c3f45080327033f6
+ms.openlocfilehash: 280ea832f492852e425e3e15c61cac54fd1e39d6
+ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74681415"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74879678"
 ---
 # <a name="aspnet-core-opno-locblazor-lifecycle"></a>ASP.NET Core Blazor yaşam döngüsü
 
@@ -64,7 +64,7 @@ public override async Task SetParametersAsync(ParameterView parameters)
 
 <xref:Microsoft.AspNetCore.Components.ParameterView>, `SetParametersAsync` her çağrıldığında parametre değerleri kümesinin tamamını içerir.
 
-`SetParametersAsync` varsayılan uygulama, `ParameterView`karşılık gelen bir değere sahip `[Parameter]` veya `[CascadingParameter]` özniteliğiyle donatılmış her bir özelliğin değerini ayarlar. `ParameterView` karşılık gelen bir değere sahip olmayan parametreler değiştirilmeden bırakılır.
+`SetParametersAsync` varsayılan uygulanması her bir özelliğin değerini, `ParameterView`karşılık gelen bir değere sahip `[Parameter]` veya `[CascadingParameter]` özniteliğiyle ayarlar. `ParameterView` karşılık gelen bir değere sahip olmayan parametreler değiştirilmeden bırakılır.
 
 `base.SetParametersAync` çağrılmazsa, özel kod gelen parametreler değerini gerekli herhangi bir şekilde yorumlayabilir. Örneğin, sınıftaki özelliklere gelen parametreleri atama gereksinimi yoktur.
 

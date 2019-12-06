@@ -4,16 +4,16 @@ author: mjrousos
 description: ASP.NET Core uygulamalarında performansı artırma ve sık karşılaşılan performans sorunlarından kaçınmaya yönelik ipuçları.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
-ms.date: 11/12/2019
+ms.date: 12/05/2019
 no-loc:
 - SignalR
 uid: performance/performance-best-practices
-ms.openlocfilehash: 64d231ca435ccbfe9bfcd839a2b67fcee68c0cc6
-ms.sourcegitcommit: 8157e5a351f49aeef3769f7d38b787b4386aad5f
+ms.openlocfilehash: bd30776d527b4ac9f44005e9f5d03fec7cfda2e6
+ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74239887"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74880925"
 ---
 # <a name="aspnet-core-performance-best-practices"></a>ASP.NET Core performans En Iyi yöntemleri
 
@@ -56,7 +56,7 @@ ASP.NET Core uygulamalarda yaygın bir performans sorunu, zaman uyumsuz olabilec
 Öneri
 
 * Sık kullanılan büyük nesneleri önbelleğe **almayı düşünün.** Büyük nesnelerin önbelleğe alınması pahalı ayırmaları önler.
-* Büyük dizileri depolamak için bir [`ArrayPool<T>`](/dotnet/api/system.buffers.arraypool-1) kullanarak havuz arabellekleri **yapın** .
+* Büyük dizileri depolamak için [\<t > arraypool](/dotnet/api/system.buffers.arraypool-1) kullanarak havuz arabellekleri **yapın** .
 * [Sık erişimli kod yollarında](#understand-hot-code-paths)çok sayıda, kısa süreli büyük **nesneler ayırmayın** .
 
 Yukarıdaki gibi bellek sorunları, [PerfView](https://github.com/Microsoft/perfview) ve İnceleme içindeki çöp toplama (GC) istatistiklerini inceleyerek tanılanabilir:
@@ -140,7 +140,7 @@ Karmaşık ön uçları olan ASP.NET Core uygulamalar sıklıkla birçok JavaScr
 
 ## <a name="use-the-latest-aspnet-core-release"></a>En son ASP.NET Core sürümü kullan
 
-ASP.NET Core her yeni sürümü performans iyileştirmeleri içerir. .NET Core ve ASP.NET Core iyileştirmeler, daha yeni sürümlerin genellikle eski sürümlerin genel olarak gerçekleştirdiği anlamına gelir. Örneğin, .NET Core 2,1, derlenmiş normal ifadeler ve [`Span<T>`](https://msdn.microsoft.com/magazine/mt814808.aspx)'den benefitted için destek eklendi. ASP.NET Core 2,2 HTTP/2 desteği eklendi. ASP.NET Core 3,0, bellek kullanımını azaltan ve üretilen işi geliştiren [birçok geliştirme ekler](xref:aspnetcore-3.0) . Performans bir önceliktir, ASP.NET Core güncel sürümüne yükseltmeyi göz önünde bulundurun.
+ASP.NET Core her yeni sürümü performans iyileştirmeleri içerir. .NET Core ve ASP.NET Core iyileştirmeler, daha yeni sürümlerin genellikle eski sürümlerin genel olarak gerçekleştirdiği anlamına gelir. Örneğin, .NET Core 2,1, derlenmiş normal ifadeler ve benefitted [\<t > ' den yayılmasına](https://msdn.microsoft.com/magazine/mt814808.aspx)yönelik destek eklendi. ASP.NET Core 2,2 HTTP/2 desteği eklendi. ASP.NET Core 3,0, bellek kullanımını azaltan ve üretilen işi geliştiren [birçok geliştirme ekler](xref:aspnetcore-3.0) . Performans bir önceliktir, ASP.NET Core güncel sürümüne yükseltmeyi göz önünde bulundurun.
 
 ## <a name="minimize-exceptions"></a>Özel durumları Küçült
 
@@ -186,7 +186,7 @@ Yukarıdaki kod, istek gövdesini bir C# nesneye zaman uyumsuz olarak serileşti
 
 ## <a name="prefer-readformasync-over-requestform"></a>Istek üzerinde ReadFormAsync tercih et. form
 
-`HttpContext.Request.Form`yerine `HttpContext.Request.ReadFormAsync` kullanın.
+Kullanım `HttpContext.Request.ReadFormAsync` yerine `HttpContext.Request.Form`.
 `HttpContext.Request.Form`, yalnızca aşağıdaki koşullara göre güvenle okunabilir:
 
 * Form, `ReadFormAsync`çağrısıyla okundu ve

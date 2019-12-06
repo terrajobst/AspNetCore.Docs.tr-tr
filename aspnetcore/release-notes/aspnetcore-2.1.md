@@ -4,16 +4,16 @@ author: isaac2004
 description: ASP.NET Core 2,1 ' deki yeni özellikler hakkında bilgi edinin.
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/12/2019
+ms.date: 12/05/2019
 no-loc:
 - SignalR
 uid: aspnetcore-2.1
-ms.openlocfilehash: a45ba44fb7911a21927a4a996c0d6fa9eb776357
-ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
+ms.openlocfilehash: d969b4caab44e3e50b3a0202b25864921d6d01dc
+ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73963188"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74880852"
 ---
 # <a name="whats-new-in-aspnet-core-21"></a>ASP.NET Core 2,1 ' deki yenilikler
 
@@ -147,7 +147,7 @@ Redux ile ilgili angular, tepki verme ve tepki verme için tek sayfalı uygulama
 
 Angular şablonu angular CLı 'yı temel alır ve yanıt verme şablonları Create-tepki-App ' i temel alır.
 
-Daha fazla bilgi için bkz.:
+Daha fazla bilgi için bkz.
 
 * <xref:spa/angular>
 * <xref:spa/react>

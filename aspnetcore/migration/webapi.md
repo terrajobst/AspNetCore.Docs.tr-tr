@@ -1,144 +1,144 @@
 ---
-title: ASP.NET Web API ASP.NET Core için geçirme
+title: ASP.NET Web API 'sinden ASP.NET Core 'e geçiş
 author: ardalis
-description: Bir web API uygulaması için ASP.NET Core MVC ASP.NET 4.x Web API'si geçirmeyi öğrenin.
+description: ASP.NET 4. x Web API 'sinden bir Web API uygulamasını ASP.NET Core MVC 'ye geçirmeyi öğrenin.
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 12/10/2018
+ms.date: 12/05/2019
 uid: migration/webapi
-ms.openlocfilehash: 74c7730a667ebc979241489733cdace149cacdf2
-ms.sourcegitcommit: d6e51c60439f03a8992bda70cc982ddb15d3f100
+ms.openlocfilehash: c68cf83f427f53b110075168c6d5e4d021808782
+ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67555747"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74881142"
 ---
-# <a name="migrate-from-aspnet-web-api-to-aspnet-core"></a>ASP.NET Web API ASP.NET Core için geçirme
+# <a name="migrate-from-aspnet-web-api-to-aspnet-core"></a>ASP.NET Web API 'sinden ASP.NET Core 'e geçiş
 
-Tarafından [Scott Addie](https://twitter.com/scott_addie) ve [Steve Smith](https://ardalis.com/)
+[Scott Ade](https://twitter.com/scott_addie) ve [Steve Smith](https://ardalis.com/) tarafından
 
-ASP.NET 4.x Web API'si, istemciler, tarayıcılar ve mobil cihazlar dahil olmak üzere geniş bir yelpazede ulaştığında bir HTTP hizmetidir. ASP.NET Core, ASP.NET 4.x'ın MVC birleştirir ve ASP.NET Core MVC bilinen basit bir programlama modeli içinde Web API uygulaması modeller. Bu makalede, ASP.NET 4.x Web API'si için ASP.NET Core MVC geçirmek için gereken adımları gösterilmektedir.
+ASP.NET 4. x Web API 'SI, tarayıcılar ve mobil cihazlar dahil olmak üzere çok çeşitli istemcilere ulaşan bir HTTP hizmetidir. ASP.NET Core, ASP.NET 4. x ' in MVC ve Web API uygulaması modellerini ASP.NET Core MVC olarak bilinen daha basit bir programlama modeline ayırır. Bu makalede, ASP.NET 4. x Web API 'sinden ASP.NET Core MVC 'ye geçiş yapmak için gereken adımlar gösterilmektedir.
 
 [Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/migration/webapi/sample) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
 
-## <a name="prerequisites"></a>Önkoşullar
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [prerequisites](../includes/net-core-prereqs-vs2019-2.2.md)]
 
-## <a name="review-aspnet-4x-web-api-project"></a>ASP.NET 4.x Web API projesi gözden geçirin
+## <a name="review-aspnet-4x-web-api-project"></a>ASP.NET 4. x Web API projesini inceleyin
 
-Bu makalede bir başlangıç noktası olarak kullandığı *ProductsApp* oluşturulan proje [ASP.NET Web API 2 ile çalışmaya başlama](/aspnet/web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api). Projede, basit bir ASP.NET 4.x Web API projesi şu şekilde yapılandırılmıştır.
+Başlangıç noktası olarak bu makale, [ASP.NET Web API 2 Ile çalışmaya](/aspnet/web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api)başlama bölümünde oluşturulan *productsapp* projesini kullanır. Bu projede, basit bir ASP.NET 4. x Web API projesi aşağıdaki şekilde yapılandırılır.
 
-İçinde *Global.asax.cs*, için bir çağrı yapılır `WebApiConfig.Register`:
+*Global.asax.cs*' de `WebApiConfig.Register`bir çağrı yapılır:
 
 [!code-csharp[](webapi/sample/ProductsApp/Global.asax.cs?highlight=14)]
 
-`WebApiConfig` Sınıfı içinde bulunan *App_Start* klasör ve bir statik `Register` yöntemi:
+`WebApiConfig` sınıfı *App_Start* klasöründe bulunur ve statik bir `Register` yöntemine sahiptir:
 
 [!code-csharp[](webapi/sample/ProductsApp/App_Start/WebApiConfig.cs)]
 
-Bu sınıf yapılandırır [öznitelik yönlendirme](/aspnet/web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2), ancak aslında projede kullanılıyor. Ayrıca, ASP.NET Web API'si tarafından kullanılan yönlendirme tablosunun yapılandırır. Bu durumda, biçim ile eşleşmesi için URL ASP.NET 4.x Web API bekliyor `/api/{controller}/{id}`, ile `{id}` isteğe bağlı olan.
+Bu sınıf, proje içinde gerçekten kullanılmasa da [öznitelik yönlendirmeyi](/aspnet/web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2)yapılandırır. Ayrıca, ASP.NET Web API 'SI tarafından kullanılan yönlendirme tablosunu da yapılandırır. Bu durumda, ASP.NET 4. x Web API 'SI, `{id}` isteğe bağlı olacak şekilde URL 'Lerin biçim `/api/{controller}/{id}`eşleşmesini bekler.
 
-*ProductsApp* proje bir denetleyici içerir. Denetleyici devraldığı `ApiController` ve iki eylemleri içerir:
+*Productsapp* projesi bir denetleyici içerir. Denetleyici `ApiController` devralır ve iki eylem içerir:
 
 [!code-csharp[](webapi/sample/ProductsApp/Controllers/ProductsController.cs?highlight=28,33)]
 
-`Product` Modeli tarafından kullanılan `ProductsController` basit sınıfı:
+`ProductsController` tarafından kullanılan `Product` modeli basit bir sınıftır:
 
 [!code-csharp[](webapi/sample/ProductsApp/Models/Product.cs)]
 
-Aşağıdaki bölümlerde ASP.NET Core MVC Web API projesi geçişini gösterir.
+Aşağıdaki bölümlerde, Web API projesinin ASP.NET Core MVC 'ye geçişi gösterilmektedir.
 
-## <a name="create-destination-project"></a>Hedef proje oluşturma
+## <a name="create-destination-project"></a>Hedef proje oluştur
 
-Visual Studio'da aşağıdaki adımları tamamlayın:
+Visual Studio 'da aşağıdaki adımları uygulayın:
 
-* Git **dosya** > **yeni** > **proje** > **diğer proje türleri**  >  **Visual Studio çözümleri**. Seçin **boş çözüm**ve çözüm adı *WebAPIMigration*. Tıklayın **Tamam** düğmesi.
-* Mevcut yapıtı Ekle *ProductsApp* çözüme bir proje.
-* Yeni bir **ASP.NET Core Web uygulaması** çözüme bir proje. Seçin **.NET Core** hedef framework'açılır ve seçin **API** proje şablonu. Projeyi adlandırın *ProductsCore*, tıklatıp **Tamam** düğmesi.
+* **Visual Studio çözümleri** > **diğer proje türlerini** > **Dosya** > **Yeni** > **projesi** ' ne gidin. **Boş çözüm**' i seçin ve çözümü *WebAPIMigration*olarak adlandırın. **Tamam** düğmesine tıklayın.
+* Varolan *Productsapp* projesini çözüme ekleyin.
+* Çözüme yeni bir **ASP.NET Core Web uygulaması** projesi ekleyin. Açılan listeden **.NET Core** hedef çerçevesini seçin ve **API** proje şablonunu seçin. Projeyi *Productscore*olarak adlandırın ve **Tamam** düğmesine tıklayın.
 
-Çözüm, artık iki proje içermektedir. Aşağıdaki bölümlerde, geçiş açıklanmaktadır *ProductsApp* projenin içeriğini *ProductsCore* proje.
+Çözüm artık iki proje içerir. Aşağıdaki bölümlerde *Productsapp* projesinin Içeriğinin *productscore* projesine geçirilmesi açıklanmaktadır.
 
-## <a name="migrate-configuration"></a>Yapılandırma geçişi
+## <a name="migrate-configuration"></a>Yapılandırmayı geçir
 
-ASP.NET Core kullanmaz *App_Start* klasör veya *Global.asax* dosyasını ve *web.config* dosya eklendiğinde yayımlama zamanı. *Startup.cs* ardılı olan *Global.asax* ve proje kök dizininde bulunur. `Startup` Sınıfı, tüm uygulama başlatma görevlerini işler. Daha fazla bilgi için bkz. <xref:fundamentals/startup>.
+ASP.NET Core, *App_Start* klasörünü veya *Global. asax* dosyasını kullanmaz ve *Web. config* dosyası yayımlama zamanında eklenir. *Startup.cs* , *Global. asax* 'in yerini alır ve proje kökünde bulunur. `Startup` sınıfı tüm uygulama başlangıç görevlerini işler. Daha fazla bilgi için bkz. <xref:fundamentals/startup>.
 
-ASP.NET Core MVC öznitelik yönlendirme varsayılan olarak dahil edilir olduğunda <xref:Microsoft.AspNetCore.Builder.MvcApplicationBuilderExtensions.UseMvc*> çağrılma yeri `Startup.Configure`. Aşağıdaki `UseMvc` çağrı değiştirir *ProductsApp* projenin *App_Start/WebApiConfig.cs* dosyası:
+ASP.NET Core MVC 'de, <xref:Microsoft.AspNetCore.Builder.MvcApplicationBuilderExtensions.UseMvc*> `Startup.Configure`çağrıldığında öznitelik yönlendirme varsayılan olarak dahil edilir. Aşağıdaki `UseMvc` çağrısı *Productsapp* projesinin *App_Start/webapiconfig.cs* dosyasını değiştirir:
 
 [!code-csharp[](webapi/sample/ProductsCore/Startup.cs?name=snippet_Configure&highlight=13])]
 
 ## <a name="migrate-models-and-controllers"></a>Modelleri ve denetleyicileri geçirme
 
-Kopyalayabilirsiniz *ProductApp* projenin denetleyici ve modeli kullanır. Aşağıdaki adımları uygulayın:
+*Productapp* projesinin denetleyicisi ve kullandığı model üzerine kopyalayın. Aşağıdaki adımları uygulayın:
 
-1. Kopyalama *Controllers/ProductsController.cs* özgün proje için yeni bir tane.
-1. Tamamını *modelleri* özgün proje klasörüne yeni bir tane.
-1. Yeni Proje adıyla eşleşmesi için kopyalanan dosyalar ad alanlarını değiştirmek (*ProductsCore*). Ayarlama `using ProductsApp.Models;` deyiminde *ProductsController.cs* çok.
+1. *Denetleyiciyi/ProductsController. cs* öğesini özgün projeden yeni bir kopyaya kopyalayın.
+1. Tüm *modeller* klasörünü özgün projeden yeni bir klasöre kopyalayın.
+1. Kopyalanan dosyaların ad alanlarını yeni proje adıyla (*Productscore*) eşleşecek şekilde değiştirin. *ProductsController.cs* `using ProductsApp.Models;` ifadesini de ayarlayın.
 
-Bu noktada, derleme hataları çeşitli uygulama sonuçları oluşturma. Aşağıdaki bileşenler de ASP.NET Core mevcut olmaması nedeniyle hatalar oluşur:
+Bu noktada, uygulamanın oluşturulması bir dizi derleme hatası ile sonuçlanır. Aşağıdaki bileşenler ASP.NET Core mevcut olmadığından hatalar oluşur:
 
-* `ApiController` Sınıfı
-* `System.Web.Http` Namespace
-* `IHttpActionResult` Arabirimi
+* `ApiController` sınıfı
+* `System.Web.Http` ad alanı
+* `IHttpActionResult` arabirimi
 
-Şu şekilde hataları düzeltin:
+Hataları aşağıdaki gibi düzeltir:
 
-1. Değişiklik `ApiController` için <xref:Microsoft.AspNetCore.Mvc.ControllerBase>. Ekleme `using Microsoft.AspNetCore.Mvc;` çözümlenecek `ControllerBase` başvuru.
+1. Değişiklik `ApiController` için <xref:Microsoft.AspNetCore.Mvc.ControllerBase>. `ControllerBase` başvurusunu çözümlemek için `using Microsoft.AspNetCore.Mvc;` ekleyin.
 1. `using System.Web.Http;` klasörünü silin.
-1. Değişiklik `GetProduct` eylemin dönüş türünden `IHttpActionResult` için `ActionResult<Product>`.
+1. `GetProduct` eyleminin dönüş türünü `IHttpActionResult` `ActionResult<Product>`olarak değiştirin.
 
-Basitleştirmek `GetProduct` eylemin `return` aşağıdaki deyimi:
+`GetProduct` eyleminin `return` ifadesini aşağıdaki şekilde kolaylaştırın:
 
 ```csharp
 return product;
 ```
 
-## <a name="configure-routing"></a>Yönlendirmeyi Yapılandırma
+## <a name="configure-routing"></a>Yönlendirmeyi yapılandırma
 
-Yönlendirmeyi şu şekilde yapılandırın:
+Yönlendirmeyi aşağıdaki şekilde yapılandırın:
 
-1. Süslemek `ProductsController` aşağıdaki özniteliklerle sınıfı:
+1. `ProductsController` sınıfını aşağıdaki özniteliklerle işaretleyin:
 
     ```csharp
     [Route("api/[controller]")]
     [ApiController]
     ```
 
-    Önceki [[yol]](xref:Microsoft.AspNetCore.Mvc.RouteAttribute) özniteliği, denetleyicinin öznitelik yönlendirme deseni yapılandırır. [[ApiController]](xref:Microsoft.AspNetCore.Mvc.ApiControllerAttribute) özniteliği öznitelik bu denetleyicide tüm eylemler için bir gereksinim yönlendirme sağlar.
+    Yukarıdaki [`[Route]`](xref:Microsoft.AspNetCore.Mvc.RouteAttribute) özniteliği denetleyicinin öznitelik yönlendirme modelini yapılandırır. [`[ApiController]`](xref:Microsoft.AspNetCore.Mvc.ApiControllerAttribute) özniteliği, bu denetleyicideki tüm eylemler için öznitelik yönlendirmesini zorunlu kılar.
 
-    Öznitelik yönlendirme belirteçleri destekler, gibi `[controller]` ve `[action]`. Çalışma zamanında her belirteç denetleyici veya eylemin, adıyla sırasıyla özniteliği uygulanmış değiştirilir. Belirteçler, projedeki Sihirli dize sayısını azaltın. Belirteçleri de yollar ilgili denetleyicileri ile eşitlenmiş olarak kalır ve otomatik yeniden adlandırdığınızda yeniden düzenlemeler eylemleri uygulanan emin olun.
-1. Projenin uyumluluk modu için ASP.NET Core 2.2 ayarlayın:
+    Öznitelik yönlendirme `[controller]` ve `[action]`gibi belirteçleri destekler. Çalışma zamanında, her belirteç, sırasıyla özniteliğin uygulandığı denetleyicinin veya eylemin adı ile değiştirilmiştir. Belirteçler, projedeki sihirli dize sayısını azaltır. Belirteçler Ayrıca otomatik yeniden adlandırma yeniden düzenlemeler uygulandığında, yolların karşılık gelen denetleyiciler ve eylemlerle eşitlenmiş durumda kalmasını da güvence altına aldığından emin olun.
+1. Projenin uyumluluk modunu ASP.NET Core 2,2 olarak ayarlayın:
 
     [!code-csharp[](webapi/sample/ProductsCore/Startup.cs?name=snippet_ConfigureServices&highlight=4)]
 
-    Yukarıdaki değişikliği:
+    Önceki değişiklik:
 
-    * Kullanmak için gerekli `[ApiController]` denetleyici düzeyinde özniteliği.
-    * ASP.NET Core 2.2 içinde tanıtılan davranışları bozucu olabilecek için kabul eder.
-1. HTTP Get isteklerini etkinleştirme `ProductController` eylemler:
-    * Uygulama [[HttpGet]](xref:Microsoft.AspNetCore.Mvc.HttpGetAttribute) özniteliğini `GetAllProducts` eylem.
-    * Uygulama `[HttpGet("{id}")]` özniteliğini `GetProduct` eylem.
+    * , `[ApiController]` özniteliğini denetleyici düzeyinde kullanmak için gereklidir.
+    * ASP.NET Core 2,2 ' de ortaya çıkan davranışlardan oluşan davranışa izin verebilir.
+1. `ProductController` eylemlere HTTP Get isteklerini etkinleştirin:
+    * `GetAllProducts` eylemine [`[HttpGet]`](xref:Microsoft.AspNetCore.Mvc.HttpGetAttribute) özniteliğini uygulayın.
+    * `GetProduct` eylemine `[HttpGet("{id}")]` özniteliğini uygulayın.
 
-Önceki değişiklikler ve kullanılmayan kaldırılmasını sonra `using` deyimleri *ProductsController.cs* dosya şu şekilde görünür:
+Önceki değişiklikler ve kullanılmayan `using` deyimlerinin kaldırılması sonrasında *ProductsController.cs* dosyası şuna benzer:
 
 [!code-csharp[](webapi/sample/ProductsCore/Controllers/ProductsController.cs)]
 
-Geçirilen proje çalıştırın ve göz atın `/api/products`. Üç ürün tam bir listesi görüntülenir. konumuna gözatın `/api/products/1`. İlk ürün görünür.
+Geçirilen projeyi çalıştırın ve `/api/products`gidin. Üç ürünün tam bir listesi görüntülenir. konumuna gözatın `/api/products/1`. İlk ürün görüntülenir.
 
 ## <a name="compatibility-shim"></a>Uyumluluk dolgusu
 
-[Microsoft.AspNetCore.Mvc.WebApiCompatShim](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc.WebApiCompatShim) kitaplığı, ASP.NET 4.x Web API projelerini ASP.NET Core taşımak için Uyumluluk dolgu sağlar. Uyumluluk dolgu, ASP.NET Core, ASP.NET 4.x Web API 2 kurallarından sayısını destekleyecek şekilde genişletir. Bu belgede daha önce unity'nin örnek uyumluluk dolgu gereksiz yeterince temel üyeliktir. Daha büyük projeler için Uyumluluk dolgu kullanarak ASP.NET Core ve ASP.NET 4.x Web API 2 arasındaki API açığını geçici olarak köprüleme yararlı olabilir.
+[Microsoft. AspNetCore. Mvc. WebApiCompatShim](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc.WebApiCompatShim) kitaplığı, ASP.NET 4. x Web apı projelerini ASP.NET Core 'ye taşımak için bir uyumluluk dolgusu sağlar. Uyumluluk dolgusu, ASP.NET 4. x Web API 2 ' den çok sayıda kuralı desteklemek için ASP.NET Core genişletir. Bu belgede daha önce yer alan örnek, uyumluluk dolgunun gereksiz olduğu kadar temel bir örnektir. Daha büyük projeler için, uyumluluk dolgunun kullanılması, ASP.NET Core ile ASP.NET 4. x Web API 2 arasındaki API boşluğunu geçici olarak köprülemesi için yararlı olabilir.
 
-Web API Uyumluluk dolgu geçirme büyük ASP.NET 4.x Web API projelerini ASP.NET core'a desteklemek için geçici bir önlem kullanılmak üzere tasarlanmıştır. Zaman içinde projeler üzerinde uyumluluğu dolgu güvenmek yerine, ASP.NET Core düzenlerinin kullanılacağı güncelleştirilmelidir.
+Web API 'SI uyumluluk dolgusu, büyük ASP.NET 4. x Web API projelerini ASP.NET Core geçirmeyi desteklemek için geçici bir ölçü olarak kullanılmak üzere tasarlanmıştır. Zaman içinde, projelerin uyumluluk dolgusunda güvenmek yerine ASP.NET Core desenler kullanması için güncelleştirilmeleri gerekir.
 
-Uyumluluk özellikleri dahil `Microsoft.AspNetCore.Mvc.WebApiCompatShim` içerir:
+`Microsoft.AspNetCore.Mvc.WebApiCompatShim` eklenen uyumluluk özellikleri şunlardır:
 
-* Ekler bir `ApiController` denetleyicileri temel türleri güncelleştirilmesi gerekmeyen yazın.
-* Web API stili model bağlama sağlar. ASP.NET Core MVC, model bağlama işlevlerine benzer şekilde, ASP.NET 4.x MVC 5, varsayılan olarak. Uyumluluk dolgu değişiklikleri model daha ASP.NET 4.x Web API 2 model bağlama kurallarına benzer şekilde bağlama. Örneğin, karmaşık türler gövdeden otomatik olarak bağlanır.
-* Denetleyici eylemleri türünde parametre yararlanabilmeniz model bağlama genişletir `HttpRequestMessage`.
-* İleti biçimlendiriciler eylemleri izin verme türü sonuçları döndürmek için ekler `HttpResponseMessage`.
-* Web API 2 eylemleri yanıtlar verecek kullanmış olabilirsiniz ek yanıt yöntemleri ekler:
-  * `HttpResponseMessage` oluşturucuları:
+* Denetleyicilerin temel türlerinin güncelleştirilmesine gerek kalmaması için `ApiController` bir tür ekler.
+* Web API stili model bağlamayı etkinleştirilir. ASP.NET Core MVC modeli bağlama işlevleri, varsayılan olarak ASP.NET 4. x MVC 5 ' in benzer şekilde. Uyumluluk dolgusu model bağlamasını ASP.NET 4. x Web API 2 model bağlama kurallarına benzer olacak şekilde değiştirir. Örneğin, karmaşık türler, istek gövdesinden otomatik olarak bağlanır.
+* Denetleyici eylemlerinin `HttpRequestMessage`türünde parametreler alması için model bağlamayı genişletir.
+* Eylemlerin `HttpResponseMessage`sonuçları döndürmesini sağlayan ileti biçimleri ekler.
+* Web API 2 eylemlerinin yanıtları karşılamak için kullanmış olabileceği ek yanıt yöntemleri ekler:
+  * `HttpResponseMessage` üreteçleri:
     * `CreateResponse<T>`
     * `CreateErrorResponse`
   * Eylem sonucu yöntemleri:
@@ -148,13 +148,13 @@ Uyumluluk özellikleri dahil `Microsoft.AspNetCore.Mvc.WebApiCompatShim` içerir
     * `InvalidModelStateResult`
     * `NegotiatedContentResult`
     * `ResponseMessageResult`
-* Bir örneğini ekler `IContentNegotiator` uygulamaya bağımlılık ekleme (dı) kapsayıcı kullanıcının ve içerik anlaşması ile ilgili türlerinden kullanılabilmesini [System.NET.http.Formatting](https://www.nuget.org/packages/Microsoft.AspNet.WebApi.Client/). Bu tür örnekleri, `DefaultContentNegotiator` ve `MediaTypeFormatter`.
+* Uygulamanın bağımlılık ekleme (dı) kapsayıcısına bir `IContentNegotiator` örneği ekler ve [Microsoft. Aspnet. WebApi. Client](https://www.nuget.org/packages/Microsoft.AspNet.WebApi.Client/)öğesinden içerik anlaşmasına ilişkin türleri kullanılabilir hale getirir. Bu tür türlere örnek olarak `DefaultContentNegotiator` ve `MediaTypeFormatter`verilebilir.
 
-Uyumluluk dolgu kullanmak üzere:
+Uyumluluk Shim 'yi kullanmak için:
 
-1. Yükleme [Microsoft.AspNetCore.Mvc.WebApiCompatShim](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc.WebApiCompatShim) NuGet paketi.
-1. Çağırarak uygulamanın DI kapsayıcı ile uyumluluk dolgu ait Hizmetleri kaydedin `services.AddMvc().AddWebApiConventions()` içinde `Startup.ConfigureServices`.
-1. Web API özel yolları kullanarak tanımlama `MapWebApiRoute` üzerinde `IRouteBuilder` uygulamasının `IApplicationBuilder.UseMvc` çağırın.
+1. [Microsoft. AspNetCore. Mvc. WebApiCompatShim](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc.WebApiCompatShim) NuGet paketini yükler.
+1. `Startup.ConfigureServices``services.AddMvc().AddWebApiConventions()` çağırarak, uyumluluk dolgunun hizmetlerini uygulamanın dı kapsayıcısına kaydedin.
+1. Uygulamanın `IApplicationBuilder.UseMvc` çağrısında `IRouteBuilder` `MapWebApiRoute` kullanarak Web API 'sine özgü yollar tanımlayın.
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 

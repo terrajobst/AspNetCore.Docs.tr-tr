@@ -3,14 +3,14 @@ title: ASP.NET Core 'de uygulama modeliyle çalışma
 author: ardalis
 description: MVC öğelerinin ASP.NET Core nasıl davranacağını değiştirmek için uygulama modelini okumayı ve işlemeyi öğrenin.
 ms.author: riande
-ms.date: 10/14/2016
+ms.date: 12/05/2019
 uid: mvc/controllers/application-model
-ms.openlocfilehash: 4e264dc7cc63955df42df0b9eeeb7b82ae286241
-ms.sourcegitcommit: 169ea5116de729c803685725d96450a270bc55b7
+ms.openlocfilehash: 4b6c978e5752eb320412a1c204df8e3d288fe4a1
+ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74733966"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74881086"
 ---
 # <a name="work-with-the-application-model-in-aspnet-core"></a>ASP.NET Core 'de uygulama modeliyle çalışma
 
@@ -192,11 +192,11 @@ Dolgu tarafından belirtilen kurallar yalnızca belirli özniteliklerin uygulanm
 
 `UseWebApiParameterConventionsAttribute`, `WebApiParameterConventionsApplicationModelConvention` eylem kuralını uygulamak için kullanılır. Bu kural, eylem parametreleri olarak kullanılan basit türlerin varsayılan olarak URI 'den bağlandığı, karmaşık türlerin istek gövdesinden bağlandığı bir şekilde belirtir.
 
-### <a name="routes"></a>Yolların
+### <a name="routes"></a>Rotalar
 
 `UseWebApiRoutesAttribute`, `WebApiApplicationModelConvention` denetleyicisi kuralının uygulanıp uygulanmadığını denetler. Bu kural etkinleştirildiğinde, rotadaki [alanlara](xref:mvc/controllers/areas) yönelik destek eklemek için kullanılır.
 
-Bir kural kümesine ek olarak, uyumluluk paketi, Web API 'SI tarafından sağlanarak yerine geçen bir `System.Web.Http.ApiController` taban sınıfı içerir. Bu, denetleyicilerinizin Web API 'SI için yazılmasını ve `ApiController` ASP.NET Core MVC üzerinde çalıştırılırken tasarlandıkları şekilde çalışmasını sağlar. Bu temel denetleyici sınıfı, yukarıda listelenen tüm `UseWebApi*` öznitelikleriyle donatılmış. `ApiController`, Web API 'sinde bulunan özelliklerle uyumlu özellikleri, yöntemleri ve sonuç türlerini kullanıma sunar.
+Bir kural kümesine ek olarak, uyumluluk paketi, Web API 'SI tarafından sağlanarak yerine geçen bir `System.Web.Http.ApiController` taban sınıfı içerir. Bu, denetleyicilerinizin Web API 'SI için yazılmasını ve `ApiController` ASP.NET Core MVC üzerinde çalıştırılırken tasarlandıkları şekilde çalışmasını sağlar. Daha önce listelenen tüm `UseWebApi*` öznitelikleri, temel denetleyici sınıfına uygulanır. `ApiController`, Web API 'sinde bulunan özelliklerle uyumlu özellikleri, yöntemleri ve sonuç türlerini kullanıma sunar.
 
 ## <a name="using-apiexplorer-to-document-your-app"></a>Uygulamanızı belgelemek için ApiExplorer kullanma
 

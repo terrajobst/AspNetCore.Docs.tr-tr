@@ -9,18 +9,18 @@ ms.date: 11/27/2019
 no-loc:
 - Blazor
 uid: blazor/components
-ms.openlocfilehash: 19636b0f10e71133eddece918b1bb9e2bc25a226
-ms.sourcegitcommit: 169ea5116de729c803685725d96450a270bc55b7
+ms.openlocfilehash: 9cdbae0bde8f6c44dc8b680dccbf9c8f96043c7f
+ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74733849"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74879704"
 ---
 # <a name="create-and-use-aspnet-core-razor-components"></a>ASP.NET Core Razor bileşenleri oluşturma ve kullanma
 
 , [Luke Latham](https://github.com/guardrex) ve [Daniel Roth](https://github.com/danroth27) tarafından
 
-[Örnek kodu görüntüleme veya indirme](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/blazor/common/samples/) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
+[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/blazor/common/samples/) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
 
 Blazor uygulamalar, *bileşenleri*kullanılarak oluşturulmuştur. Bir bileşen, bir sayfa, iletişim veya form gibi bir kullanıcı arabirimi (UI) öbekidir. Bir bileşen, veri eklemek veya UI olaylarına yanıt vermek için gereken HTML işaretlemesini ve işleme mantığını içerir. Bileşenler esnek ve hafif. Bunlar, iç içe geçmiş, yeniden kullanılabilir ve projeler arasında paylaşılabilir.
 
@@ -171,7 +171,7 @@ Aşağıdaki `ParentComponent`, içeriği `<ChildComponent>` etiketlerin içine 
 
 ## <a name="attribute-splatting-and-arbitrary-parameters"></a>Öznitelik döndürme ve rastgele parametreler
 
-Bileşenler, bileşen tarafından tanımlanan parametrelere ek olarak ek öznitelikler yakalayabilir ve işleyebilir. Ek öznitelikler bir sözlükte yakalanabilir ve sonra bileşen [@attributes](xref:mvc/views/razor#attributes) Razor yönergesi kullanılarak işlendiğinde bir *öğe üzerine bırakılabilir* . Bu senaryo, çeşitli özelleştirmeleri destekleyen bir işaretleme öğesi üreten bir bileşen tanımlarken yararlıdır. Örneğin, çok sayıda parametreyi destekleyen bir `<input>` öznitelikleri ayrı olarak tanımlamak sıkıcı olabilir.
+Bileşenler, bileşen tarafından tanımlanan parametrelere ek olarak ek öznitelikler yakalayabilir ve işleyebilir. Ek öznitelikler bir sözlükte yakalanabilir ve sonra bileşen [`@attributes`](xref:mvc/views/razor#attributes) Razor yönergesi kullanılarak işlendiğinde bir *öğe üzerine bırakılabilir* . Bu senaryo, çeşitli özelleştirmeleri destekleyen bir işaretleme öğesi üreten bir bileşen tanımlarken yararlıdır. Örneğin, çok sayıda parametreyi destekleyen bir `<input>` öznitelikleri ayrı olarak tanımlamak sıkıcı olabilir.
 
 Aşağıdaki örnekte, ilk `<input>` öğesi (`id="useIndividualParams"`) bağımsız bileşen parametrelerini kullanır, ancak ikinci `<input>` öğesi (`id="useAttributesDict"`) öznitelik sponu kullanır:
 
@@ -287,7 +287,7 @@ public IDictionary<string, object> AdditionalAttributes { get; set; }
 
 ## <a name="data-binding"></a>Veri bağlama
 
-Hem bileşenlere hem de DOM öğelerine veri bağlama [@bind](xref:mvc/views/razor#bind) özniteliğiyle gerçekleştirilir. Aşağıdaki örnek, bir `CurrentValue` özelliğini metin kutusu değerine bağlar:
+Hem bileşenlere hem de DOM öğelerine veri bağlama [`@bind`](xref:mvc/views/razor#bind) özniteliğiyle gerçekleştirilir. Aşağıdaki örnek, bir `CurrentValue` özelliğini metin kutusu değerine bağlar:
 
 ```cshtml
 <input @bind="CurrentValue" />
@@ -315,7 +315,7 @@ Metin kutusu kullanıcı arabiriminde, özelliğin değerini değiştirme yanıt
 
 Bileşen işlendiğinde, giriş öğesinin `value` `CurrentValue` özelliğinden gelir. Kullanıcı metin kutusuna yazdığında ve öğe odağını değiştirdiğinde, `onchange` olayı tetiklenir ve `CurrentValue` özelliği değiştirilen değere ayarlanır. `@bind`, tür dönüştürmelerin gerçekleştirildiği durumları işlediği için kod oluşturma daha karmaşıktır. Prensibi `@bind`, bir ifadenin geçerli değerini bir `value` özniteliğiyle ilişkilendirir ve kayıtlı işleyiciyi kullanarak değişiklikleri işler.
 
-`@bind` sözdizimiyle `onchange` olaylarının işlenmesine ek olarak, bir özellik veya alan, `event` parametreli bir [@bind-value](xref:mvc/views/razor#bind) özniteliği belirterek diğer olaylar kullanılarak da bağlanabilir ([@bind-value:event](xref:mvc/views/razor#bind)). Aşağıdaki örnek, `oninput` olayı için `CurrentValue` özelliğini bağlar:
+`@bind` sözdizimiyle `onchange` olaylarının işlenmesine ek olarak, bir özellik veya alan, `event` parametreli bir [`@bind-value`](xref:mvc/views/razor#bind) özniteliği belirterek diğer olaylar kullanılarak da bağlanabilir ([`@bind-value:event`](xref:mvc/views/razor#bind)). Aşağıdaki örnek, `oninput` olayı için `CurrentValue` özelliğini bağlar:
 
 ```cshtml
 <input @bind-value="CurrentValue" @bind-value:event="oninput" />
@@ -331,7 +331,7 @@ Bileşen işlendiğinde, giriş öğesinin `value` `CurrentValue` özelliğinden
 
 Bir Kullanıcı, bir veri sınırlama öğesine ayrıştırılamayan bir değer sağlıyorsa, bağlama olayı tetiklendiğinde, çözümlenemeyen değer otomatik olarak önceki değerine döndürülür.
 
-Aşağıdaki senaryoyu göz önünde bulundurun:
+Aşağıdaki senaryoyu ele alalım:
 
 * Bir `<input>` öğesi, `123`başlangıçtaki değeri olan bir `int` türüne bağlanır:
 
@@ -384,7 +384,7 @@ Kullanıcının kültürünü ayarlama hakkında daha fazla bilgi için [Yerelle
 
 **Biçim dizeleri**
 
-Veri bağlama [@bind:format](xref:mvc/views/razor#bind)kullanarak <xref:System.DateTime> biçim dizeleriyle birlikte kullanılabilir. Para birimi veya sayı biçimleri gibi diğer biçim ifadeleri şu anda kullanılamaz.
+Veri bağlama [`@bind:format`](xref:mvc/views/razor#bind)kullanarak <xref:System.DateTime> biçim dizeleriyle birlikte kullanılabilir. Para birimi veya sayı biçimleri gibi diğer biçim ifadeleri şu anda kullanılamaz.
 
 ```cshtml
 <input @bind="StartDate" @bind:format="yyyy-MM-dd" />
@@ -498,7 +498,7 @@ Genel olarak, bir özellik `@bind-property:event` özniteliği kullanılarak kar
 
 ## <a name="event-handling"></a>Olay işleme
 
-Razor bileşenleri olay işleme özellikleri sağlar. `on{EVENT}` adlı bir HTML öğesi özniteliği için (örneğin, `onclick` ve `onsubmit`), temsilci türü belirtilmiş bir değer ile, Razor bileşenleri özniteliğin değerini bir olay işleyicisi olarak değerlendirir. Özniteliğin adı her zaman [{Event}@on](xref:mvc/views/razor#onevent)biçimlendirilir.
+Razor bileşenleri olay işleme özellikleri sağlar. `on{EVENT}` adlı bir HTML öğesi özniteliği için (örneğin, `onclick` ve `onsubmit`), temsilci türü belirtilmiş bir değer ile, Razor bileşenleri özniteliğin değerini bir olay işleyicisi olarak değerlendirir. Özniteliğin adı her zaman [`@on{EVENT}`](xref:mvc/views/razor#onevent)biçimlendirilir.
 
 Aşağıdaki kod, Kullanıcı arabiriminde düğme seçildiğinde `UpdateHeading` yöntemini çağırır:
 
@@ -554,15 +554,15 @@ Desteklenen `EventArgs` aşağıdaki tabloda gösterilmiştir.
 | Olay            | Sınıf                | DOM olayları ve notları |
 | ---------------- | -------------------- | -------------------- |
 | Pano        | `ClipboardEventArgs` | `oncut`, `oncopy`, `onpaste` |
-| Sürükleyin             | `DragEventArgs`      | `ondrag`, `ondragstart`, `ondragenter`, `ondragleave`, `ondragover`, `ondrop`, `ondragend`<br><br>`DataTransfer` ve `DataTransferItem` öğe verilerini sürüklemiş tutun. |
+| Sürükle             | `DragEventArgs`      | `ondrag`, `ondragstart`, `ondragenter`, `ondragleave`, `ondragover`, `ondrop`, `ondragend`<br><br>`DataTransfer` ve `DataTransferItem` öğe verilerini sürüklemiş tutun. |
 | Hata            | `ErrorEventArgs`     | `onerror` |
 | Olay            | `EventArgs`          | *Genel*<br>`onactivate`, `onbeforeactivate`, `onbeforedeactivate`, `ondeactivate`, `onended`, `onfullscreenchange`, `onfullscreenerror`, `onloadeddata`, `onloadedmetadata`, `onpointerlockchange`, `onpointerlockerror`, `onreadystatechange`, `onscroll`<br><br>*Pano*<br>`onbeforecut`, `onbeforecopy`, `onbeforepaste`<br><br>*Giriş*<br>`oninvalid`, `onreset`, `onselect`, `onselectionchange`, `onselectstart`, `onsubmit`<br><br>*Medyasını*<br>`oncanplay`, `oncanplaythrough`, `oncuechange`, `ondurationchange`, `onemptied`, `onpause`, `onplay`, `onplaying`, `onratechange`, `onseeked`, `onseeking`, `onstalled`, `onstop`, `onsuspend`, `ontimeupdate`, `onvolumechange`, `onwaiting` |
-| Çı            | `FocusEventArgs`     | `onfocus`, `onblur`, `onfocusin`, `onfocusout`<br><br>`relatedTarget`için destek içermez. |
+| Odaklanma            | `FocusEventArgs`     | `onfocus`, `onblur`, `onfocusin`, `onfocusout`<br><br>`relatedTarget`için destek içermez. |
 | Giriş            | `ChangeEventArgs`    | `onchange`, `oninput` |
 | Klavye         | `KeyboardEventArgs`  | `onkeydown`, `onkeypress`, `onkeyup` |
-| Tığında            | `MouseEventArgs`     | `onclick`, `oncontextmenu`, `ondblclick`, `onmousedown`, `onmouseup`, `onmouseover`, `onmousemove`, `onmouseout` |
+| Fare            | `MouseEventArgs`     | `onclick`, `oncontextmenu`, `ondblclick`, `onmousedown`, `onmouseup`, `onmouseover`, `onmousemove`, `onmouseout` |
 | Fare işaretçisi    | `PointerEventArgs`   | `onpointerdown`, `onpointerup`, `onpointercancel`, `onpointermove`, `onpointerover`, `onpointerout`, `onpointerenter`, `onpointerleave`, `ongotpointercapture`, `onlostpointercapture` |
-| Fare tekerleği      | `WheelEventArgs`     | `onwheel`, `onmousewheel` |
+| Fare tekeri      | `WheelEventArgs`     | `onwheel`, `onmousewheel` |
 | İlerleme durumu         | `ProgressEventArgs`  | `onabort`, `onload`, `onloadend`, `onloadstart`, `onprogress`, `ontimeout` |
 | Dokunmatik            | `TouchEventArgs`     | `ontouchstart`, `ontouchend`, `ontouchmove`, `ontouchenter`, `ontouchleave`, `ontouchcancel`<br><br>`TouchPoint`, dokunmaya duyarlı bir cihazdaki tek bir iletişim noktasını temsil eder. |
 
@@ -651,7 +651,7 @@ Olay işleme ve bağlama bileşeni parametrelerini `EventCallback` ve `EventCall
 
 ### <a name="prevent-default-actions"></a>Varsayılan eylemleri engelle
 
-Bir olayın varsayılan eylemini engellemek için [@on{Event}:P reventdefault](xref:mvc/views/razor#oneventpreventdefault) Directive özniteliğini kullanın.
+Bir olayın varsayılan eylemini engellemek için [`@on{EVENT}:preventDefault`](xref:mvc/views/razor#oneventpreventdefault) Directive özniteliğini kullanın.
 
 Giriş cihazında bir anahtar seçildiğinde ve öğe odağı bir metin kutusunda olduğunda, bir tarayıcı normalde metin kutusunda anahtarın karakterini görüntüler. Aşağıdaki örnekte, `@onkeypress:preventDefault` Directive özniteliği belirtilerek varsayılan davranış engellenir. Sayaç artar ve **+** anahtarı `<input>` öğenin değerine yakalanmaz:
 
@@ -683,7 +683,7 @@ Varsayılan eylemi engellemek için bir olay işleyicisi gerekli değildir. Olay
 
 ### <a name="stop-event-propagation"></a>Olay yaymayı durdur
 
-Olay yaymayı durdurmak için [@on{Event}: Stopyayma](xref:mvc/views/razor#oneventstoppropagation) yönergesi özniteliğini kullanın.
+Olay yaymayı durdurmak için [`@on{EVENT}:stopPropagation`](xref:mvc/views/razor#oneventstoppropagation) Directive özniteliğini kullanın.
 
 Aşağıdaki örnekte, onay kutusunun seçilmesi ikinci alt `<div>`, üst `<div>`yaymadan sonraki olayları engeller:
 
@@ -841,7 +841,7 @@ Password:
 
 Bileşen başvuruları, bir bileşen örneğine başvurmak için bir yol sağlar, böylece bu örneğe `Show` veya `Reset`gibi komutlar verebilirsiniz. Bir bileşen başvurusunu yakalamak için:
 
-* Alt bileşene bir [@ref](xref:mvc/views/razor#ref) özniteliği ekleyin.
+* Alt bileşene bir [`@ref`](xref:mvc/views/razor#ref) özniteliği ekleyin.
 * Alt bileşenle aynı türde bir alan tanımlayın.
 
 ```cshtml
@@ -928,7 +928,7 @@ Yukarıdaki örnekte `NotifierService` bileşenin `OnNotify` yöntemini Blazor`S
 
 Bir öğe veya bileşen listesi işlendiğinde ve öğeler ya da bileşenler daha sonra değiştiğinde, Blazoryayılma algoritması, önceki öğelerin veya bileşenlerin ne zaman tutulacağına ve model nesnelerinin bunlara nasıl eşleneceğine karar vermelidir. Normalde, bu işlem otomatiktir ve yoksayılabilir, ancak işlemi denetlemek isteyebileceğiniz durumlar vardır.
 
-Aşağıdaki örneği göz önünde bulundurun:
+Aşağıdaki örnek göz önünde bulundurun:
 
 ```csharp
 @foreach (var person in People)
@@ -1026,7 +1026,7 @@ Bileşenler, `@page` yönergesinde belirtilen yol şablonundan yol parametreleri
 
 Razor bileşenleri kısmi sınıflar olarak oluşturulur. Razor bileşenleri aşağıdaki yaklaşımlardan birini kullanarak yazılır:
 
-* C#kod, tek bir dosyada HTML işaretlemesi ve Razor kodu ile bir [@code](xref:mvc/views/razor#code) bloğunda tanımlanmıştır. Blazor şablonlar, bu yaklaşımı kullanarak Razor bileşenlerini tanımlar.
+* C#kod, tek bir dosyada HTML işaretlemesi ve Razor kodu ile bir [`@code`](xref:mvc/views/razor#code) bloğunda tanımlanmıştır. Blazor şablonlar, bu yaklaşımı kullanarak Razor bileşenlerini tanımlar.
 * C#kod, kısmi sınıf olarak tanımlanan bir arka plan kod dosyasına yerleştirilir.
 
 Aşağıdaki örnek, bir Blazor şablonundan oluşturulan bir uygulamada `@code` bloğu olan varsayılan `Counter` bileşenini gösterir. HTML işaretleme, Razor kodu ve C# kod aynı dosyada:
@@ -1125,13 +1125,13 @@ Temel sınıf `ComponentBase`türetmelidir.
 
 Razor ile yazılan bir bileşenin ad alanı temel alınarak belirlenir (öncelik sırasına göre):
 
-* Razor dosyası ( *. Razor*) biçimlendirmesinde [@namespace](xref:mvc/views/razor#namespace) ataması (`@namespace BlazorSample.MyNamespace`).
+* Razor dosyası ( *. Razor*) biçimlendirmesinde [`@namespace`](xref:mvc/views/razor#namespace) ataması (`@namespace BlazorSample.MyNamespace`).
 * Projenin proje dosyasında `RootNamespace` (`<RootNamespace>BlazorSample</RootNamespace>`).
 * Proje dosyasının dosya adından ( *. csproj*) ve proje kökünden bileşen yolundan alınan proje adı. Örneğin Framework, *{Project root}/Pages/Index.Razor* (*BlazorSample. csproj*) ad alanına `BlazorSample.Pages`çözümleniyor. Bileşenler ad C# bağlama kurallarını izler. Bu örnekteki `Index` bileşeni için, kapsamdaki bileşenler tüm bileşenlerdir:
   * Aynı klasörde, *sayfalarda*.
   * Proje kökündeki, açıkça farklı bir ad alanı belirtmeyen bileşenler.
 
-Farklı bir ad alanında tanımlanan bileşenler, Razor 'nin [@using](xref:mvc/views/razor#using) yönergesi kullanılarak kapsam içine getirilir.
+Farklı bir ad alanında tanımlanan bileşenler, Razor 'nin [`@using`](xref:mvc/views/razor#using) yönergesi kullanılarak kapsam içine getirilir.
 
 *BlazorSample/Shared/* klasöründe `NavMenu.razor`başka bir bileşen varsa, bileşen aşağıdaki `@using` ifadesiyle `Index.razor` kullanılabilir:
 
@@ -1143,7 +1143,7 @@ This is the Index page.
 <NavMenu></NavMenu>
 ```
 
-Bileşenlere Ayrıca, [@using](xref:mvc/views/razor#using) yönergesini gerektirmeyen tam nitelikli adları kullanılarak başvurulabilir:
+Bileşenlere Ayrıca, [`@using`](xref:mvc/views/razor#using) yönergesini gerektirmeyen tam nitelikli adları kullanılarak başvurulabilir:
 
 ```cshtml
 This is the Index page.
@@ -1272,7 +1272,7 @@ Alternatif olarak, bileşen öğesinde `Context` özniteliğini de belirtebilirs
 
 ### <a name="generic-typed-components"></a>Genel olarak yazılmış bileşenler
 
-Şablonlu bileşenler çoğunlukla genel olarak türdedir. Örneğin, bir genel `ListViewTemplate` bileşeni `IEnumerable<T>` değerlerini işlemek için kullanılabilir. Genel bir bileşen tanımlamak için [@typeparam](xref:mvc/views/razor#typeparam) yönergesini kullanarak tür parametrelerini belirtin:
+Şablonlu bileşenler çoğunlukla genel olarak türdedir. Örneğin, bir genel `ListViewTemplate` bileşeni `IEnumerable<T>` değerlerini işlemek için kullanılabilir. Genel bir bileşen tanımlamak için [`@typeparam`](xref:mvc/views/razor#typeparam) yönergesini kullanarak tür parametrelerini belirtin:
 
 [!code-cshtml[](common/samples/3.x/BlazorWebAssemblySample/Components/ListViewTemplate.razor)]
 
@@ -1565,7 +1565,7 @@ Kod ilk kez yürütüldüğünde, `someFlag` `true`, Oluşturucu şunları alır
 
 | Sequence | Tür      | Veri   |
 | :------: | --------- | :----: |
-| 0        | Metin düğümü | adı  |
+| 0        | Metin düğümü | Birinci  |
 | 1\.        | Metin düğümü | Saniye |
 
 `someFlag` `false`hale geldiğini ve biçimlendirmenin yeniden işleneceğini varsayın. Bu kez, Oluşturucu şunları alır:
@@ -1597,7 +1597,7 @@ builder.AddContent(seq++, "Second");
 
 | Sequence | Tür      | Veri   |
 | :------: | --------- | :----: |
-| 0        | Metin düğümü | adı  |
+| 0        | Metin düğümü | Birinci  |
 | 1\.        | Metin düğümü | Saniye |
 
 Bu sonuç önceki bir durum ile aynıdır, bu nedenle olumsuz bir sorun yoktur. `someFlag` ikinci işleme `false` ve çıktı:
@@ -1638,7 +1638,7 @@ Daha fazla bilgi ve örnek için bkz. <xref:fundamentals/localization>.
 
 Varsayılan olarak, Blazor WebAssembly uygulamaları için Blazorbağlayıcı yapılandırması, açıkça istenen yerel ayarlar dışında uluslararası duruma getirme bilgilerini kaldırır. Bağlayıcının davranışını denetleme hakkında daha fazla bilgi ve yönergeler için bkz. <xref:host-and-deploy/blazor/configure-linker#configure-the-linker-for-internationalization>.
 
-### <a name="cookies"></a>Özgü
+### <a name="cookies"></a>Tanımlama bilgileri
 
 Yerelleştirme kültürü tanımlama bilgisi kullanıcının kültürünü kalıcı hale getirebilirler. Tanımlama bilgisi, uygulamanın ana bilgisayar sayfasının `OnGet` yöntemiyle oluşturulur (*Pages/Host. cshtml. cs*). Yerelleştirme ara yazılımı, sonraki isteklerde Kullanıcı kültürünü ayarlamak için tanımlama bilgilerini okur. 
 

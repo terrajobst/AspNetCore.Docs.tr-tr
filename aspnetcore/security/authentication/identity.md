@@ -3,14 +3,14 @@ title: ASP.NET Core kimliğe giriş
 author: rick-anderson
 description: ASP.NET Core bir uygulamayla kimlik kullanın. Parola gereksinimlerini (RequireDigit, RequiredLength, RequiredUniqueChars ve daha fazlasını) ayarlamayı öğrenin.
 ms.author: riande
-ms.date: 12/7/2019
+ms.date: 12/05/2019
 uid: security/authentication/identity
-ms.openlocfilehash: 331ebe36eb4bb7fa694de8daa969bcabcab1c974
-ms.sourcegitcommit: b3e1e31e5d8bdd94096cf27444594d4a7b065525
+ms.openlocfilehash: c867b73a96fd081f6e2ca17fef561ac539c0a129
+ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74803402"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74880723"
 ---
 # <a name="introduction-to-identity-on-aspnet-core"></a>ASP.NET Core kimliğe giriş
 

@@ -3,15 +3,15 @@ title: Web API ASP.NET Core, Azure Active Directory B2C ile kimlik doğrulaması
 author: camsoper
 description: ASP.NET Core Web API'si ile Azure Active Directory B2C kimlik doğrulaması kurma keşfedin. Kimliği doğrulanmış web API'si Postman ile test edin.
 ms.author: casoper
-ms.date: 09/21/2018
+ms.date: 12/05/2019
 ms.custom: mvc, seodec18
 uid: security/authentication/azure-ad-b2c-webapi
-ms.openlocfilehash: c917a5130857165716bd801ac19dad0f53a7d214
-ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
+ms.openlocfilehash: 0c7e8a1db924bdedf29468bf6b8cc17f03962c6d
+ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67815379"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74880736"
 ---
 # <a name="authentication-in-web-apis-with-azure-active-directory-b2c-in-aspnet-core"></a>Web API ASP.NET Core, Azure Active Directory B2C ile kimlik doğrulaması
 
@@ -19,7 +19,7 @@ Tarafından [Cam Soper](https://twitter.com/camsoper)
 
 [Azure Active Directory B2C](/azure/active-directory-b2c/active-directory-b2c-overview) (Azure AD B2C) olan bir bulut kimlik yönetimi çözümü, web ve mobil uygulamaları için. Hizmet, bulutta ve şirket içinde barındırılan uygulamalar için kimlik doğrulaması sağlar. Kimlik doğrulama türleri bireysel hesaplar, sosyal ağ hesabı, içerir ve kurumsal hesaplarda Federasyon. Azure AD B2C, ayrıca minimal yapılandırma ile çok faktörlü kimlik doğrulaması sağlar.
 
-Azure Active Directory (Azure AD) ve Azure AD B2C olan ayrı bir ürün teklifleri. Azure AD kiracısı, Azure AD B2C kiracısı ile bağlı olan taraf uygulamaları kullanılacak kimlikleri koleksiyonunu temsil ederken, bir kuruluşun temsil eder. Daha fazla bilgi için bkz: [Azure AD B2C: Sık sorulan sorular (SSS)](/azure/active-directory-b2c/active-directory-b2c-faqs).
+Azure Active Directory (Azure AD) ve Azure AD B2C olan ayrı bir ürün teklifleri. Azure AD kiracısı, Azure AD B2C kiracısı ile bağlı olan taraf uygulamaları kullanılacak kimlikleri koleksiyonunu temsil ederken, bir kuruluşun temsil eder. Daha fazla bilgi için bkz. [Azure AD B2C: sık sorulan sorular (SSS)](/azure/active-directory-b2c/active-directory-b2c-faqs).
 
 Kullanıcı arabirimi olmadan Web API olduğundan, kullanıcı bir güvenli belirteç hizmeti gibi Azure AD B2C'yi yeniden yönlendirmek yüklenemiyor. Bunun yerine, API, bir taşıyıcı belirteç zaten Azure AD B2C ile kullanıcı kimliğini doğrulamasından çağıran uygulama üzerinden geçirilir. API, daha sonra doğrudan kullanıcı etkileşimi olmadan belirteci doğrular.
 
@@ -32,7 +32,7 @@ Bu öğreticide, bilgi nasıl yapılır:
 > * Azure AD B2C kiracısı davranışını denetleyen ilkeler yapılandırın.
 > * Bir oturum açma iletişim sunan bir web uygulaması benzetimini yapmak için kullanım Postman bir belirteç alır ve bir web API isteği yapmak için kullanır.
 
-## <a name="prerequisites"></a>Önkoşullar
+## <a name="prerequisites"></a>Prerequisites
 
 Bu kılavuz için aşağıdakiler gereklidir:
 
@@ -65,7 +65,7 @@ Aşağıdaki değerleri kullanın:
 
 API kaydedildikten sonra Kiracı uygulamaları ve API'leri listesinde görüntülenir. Daha önce kaydedilen API'yi seçin. Seçin **kopyalama** simgesinin sağındaki **uygulama kimliği** panoya kopyalamak için alana. Seçin **yayımlanan kapsamlar** ve varsayılan doğrulama *user_impersonation* kapsam.
 
-## <a name="create-an-aspnet-core-app-in-visual-studio"></a>Visual Studio'da ASP.NET Core uygulaması oluşturma
+## <a name="create-an-aspnet-core-app-in-visual-studio"></a>Visual Studio 'da ASP.NET Core uygulaması oluşturma
 
 Visual Studio Web uygulama şablonu, kimlik doğrulaması için Azure AD B2C kiracınızı kullanacak şekilde yapılandırılabilir.
 
@@ -91,7 +91,7 @@ Visual Studio'da:
 
     Seçin **Tamam** kapatmak için **kimlik doğrulamayı Değiştir** iletişim. Seçin **Tamam** web uygulaması oluşturma.
 
-Visual Studio, web API'si adlı bir denetleyiciyle oluşturur *ValuesController.cs* GET istekleri için sabit kodlu değer döndürür. Sınıf ile donatılmış [Authorize özniteliği](xref:security/authorization/simple), tüm istekleri kimlik doğrulaması gerektirir.
+Visual Studio, web API'si adlı bir denetleyiciyle oluşturur *ValuesController.cs* GET istekleri için sabit kodlu değer döndürür. Sınıfı [Yetkilendir](xref:security/authorization/simple) özniteliğiyle işaretlenir, bu nedenle tüm istekler kimlik doğrulaması gerektirir.
 
 ## <a name="run-the-web-api"></a>Web API'sini çalıştırma
 
@@ -150,14 +150,14 @@ Gelen **Yeni Oluştur** iletişim:
 
 Web API'si kimlik doğrulaması gerektiren doğrulamak için ilk kimlik doğrulaması olmadan bir istek olun.
 
-1. İçinde **istek URL'sini girin** kutusunda, URL girin `ValuesController`. URL ile bir tarayıcıda görüntülenen aynıdır **API/değerleri** eklenir. Örneğin: `https://localhost:44375/api/values`
+1. İçinde **istek URL'sini girin** kutusunda, URL girin `ValuesController`. URL ile bir tarayıcıda görüntülenen aynıdır **API/değerleri** eklenir. Örneğin: `https://localhost:44375/api/values`.
 2. Seçin **Gönder** düğmesi.
 3. Yanıt durumu Not *401 Yetkisiz*.
 
     ![yanıt 401 Yetkisiz](./azure-ad-b2c-webapi/postman-401-status.png)
 
 > [!IMPORTANT]
-> "Herhangi bir yanıt alınamadı" bir hata alırsanız, SSL sertifika doğrulamayı devre dışı bırakmanız gerekebilir [Postman ayarları](https://learning.getpostman.com/docs/postman/launching_postman/settings).
+> "Herhangi bir yanıt alınamadı" hatası alırsanız, [Postman AYARLARıNDAKI](https://learning.getpostman.com/docs/postman/launching_postman/settings)SSL sertifikası doğrulamasını devre dışı bırakmanız gerekebilir.
 
 ### <a name="obtain-a-bearer-token"></a>Taşıyıcı belirteç edinme
 
@@ -174,14 +174,14 @@ Web API'sine kimliği doğrulanmış bir isteği yapmak için bir taşıyıcı b
    |      **Belirteç adı**       |                                          *{belirteç adı}*                                       |                                                                                                                   Belirteç için açıklayıcı bir ad girin.                                                                                                                    |
    |      **İzin verme türü**       |                                           Örtük                                            |                                                                                                                                                                                                                                                                              |
    |     **Geri çağırma URL'si**      |                                 `https://getpostman.com/postman`                              |                                                                                                                                                                                                                                                                              |
-   |       **Kimlik doğrulama URL'si**        | `https://login.microsoftonline.com/{tenant domain name}/oauth2/v2.0/authorize?p=B2C_1_SiUpIn` |  Değiştirin *{Kiracı etki alanı adı}* kiracının etki alanı adına sahip. **ÖNEMLİ**: Bu URL içinde bulunan olarak aynı etki alanı adı olmalıdır `AzureAdB2C.Instance` Web API'SİNİN *appsettings.json* dosya. Bkz. Not&dagger;.                                                  |
+   |       **Kimlik doğrulama URL'si**        | `https://login.microsoftonline.com/{tenant domain name}/oauth2/v2.0/authorize?p=B2C_1_SiUpIn` |  Değiştirin *{Kiracı etki alanı adı}* kiracının etki alanı adına sahip. **Önemli**: Bu URL içinde bulunan olarak aynı etki alanı adı olmalıdır `AzureAdB2C.Instance` Web API'SİNİN *appsettings.json* dosya. Bkz. Not&dagger;.                                                  |
    |       **İstemci kimliği**       |                *{Postman uygulamanın girin **uygulama kimliği**}*                              |                                                                                                                                                                                                                                                                              |
    |         **Kapsam**         |         `https://{tenant domain name}/{api}/user_impersonation openid offline_access`       | Değiştirin *{Kiracı etki alanı adı}* kiracının etki alanı adına sahip. Değiştirin *{API}* ilk kaydettiğinizde uygulama kimliği URI'si ile web API'si verdiğiniz (Bu durumda, `api`). URL için Desen: `https://{tenant}.onmicrosoft.com/{api-id-uri}/{scope name}`.         |
    |         **State**         |                                      *{boş bırakın}*                                          |                                                                                                                                                                                                                                                                              |
    | **İstemci kimlik doğrulaması** |                                İstemci kimlik bilgileri gövdesinde Gönder                                |                                                                                                                                                                                                                                                                              |
 
     > [!NOTE]
-    > &dagger; Azure Active Directory B2C Portalı'nda ilke ayarları iletişim iki olası URL'lerini görüntüler: Bir biçimde `https://login.microsoftonline.com/`{Kiracı etki alanı adı} / {ek yol bilgileri} ve diğer biçimde `https://{tenant name}.b2clogin.com/`{Kiracı etki alanı adı} / {ek yol bilgileri}. Sahip **kritik** etki alanı içinde bulunan `AzureAdB2C.Instance` Web API'SİNİN *appsettings.json* dosya web uygulama kullandığınızla eşleştiğinden *appsettings.json* dosya. Postman kimlik doğrulama URL'si alanında için kullanılan aynı etki alanında budur. Visual Studio portalında görüntülenen değerinden biraz daha farklı bir URL biçimi kullandığına dikkat edin. Etki alanları aynı olduğu sürece, URL çalışır.
+    > &dagger; Azure Active Directory B2C Portalı'nda ilke ayarları iletişim iki olası URL'lerini görüntüler: bir biçimde `https://login.microsoftonline.com/`{Kiracı etki alanı adı} / {ek yol bilgileri} ve diğer biçimde `https://{tenant name}.b2clogin.com/`{Kiracı etki alanı adı} / {ek yol bilgileri}. Sahip **kritik** etki alanı içinde bulunan `AzureAdB2C.Instance` Web API'SİNİN *appsettings.json* dosya web uygulama kullandığınızla eşleştiğinden *appsettings.json* dosya. Postman kimlik doğrulama URL'si alanında için kullanılan aynı etki alanında budur. Visual Studio portalında görüntülenen değerinden biraz daha farklı bir URL biçimi kullandığına dikkat edin. Etki alanları aynı olduğu sürece, URL çalışır.
 
 3. Seçin **isteği belirteci** düğmesi.
 

@@ -3,14 +3,14 @@ title: ASP.NET Core .NET Core gRPC istemcisi ve sunucusu oluşturma
 author: juntaoluo
 description: Bu öğreticide, ASP.NET Core bir gRPC hizmeti ve gRPC istemcisinin nasıl oluşturulacağı gösterilmektedir. GRPC hizmeti projesi oluşturmayı, Proto dosyasını düzenlemeyi ve çift yönlü akış araması eklemeyi öğrenin.
 ms.author: johluo
-ms.date: 11/12/2019
+ms.date: 12/05/2019
 uid: tutorials/grpc/grpc-start
-ms.openlocfilehash: e5373d9abb9a770132e756843dbd15534dbe3356
-ms.sourcegitcommit: 231780c8d7848943e5e9fd55e93f437f7e5a371d
+ms.openlocfilehash: c179dd31e6484246498c857aad797eb752f00bf5
+ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74116114"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74879644"
 ---
 # <a name="tutorial-create-a-grpc-client-and-server-in-aspnet-core"></a>Öğretici: ASP.NET Core bir gRPC istemcisi ve sunucusu oluşturma
 
@@ -22,7 +22,7 @@ Sonda, gRPC Greeter hizmeti ile iletişim kuran bir gRPC istemcisine sahip olaca
 
 [Örnek kodu görüntüleyin veya indirin](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/tutorials/grpc/grpc-start/sample) ([nasıl indirilir](xref:index#how-to-download-a-sample)).
 
-Bu öğreticide şunları yapabilirsiniz:
+Bu öğreticide şunları yaptınız:
 
 > [!div class="checklist"]
 > * GRPC sunucusu oluşturun.
@@ -52,17 +52,17 @@ Bu öğreticide şunları yapabilirsiniz:
 * Visual Studio 'Yu başlatın ve **Yeni proje oluştur**' u seçin. Alternatif olarak, Visual Studio **Dosya** menüsünden **Yeni** > **projesi**' ni seçin.
 * **Yeni proje oluştur** Iletişim kutusunda **GRPC hizmeti** ' ni seçin ve **İleri**' yi seçin:
 
-  ![\* * Yeni proje oluştur * * iletişim kutusu](~/tutorials/grpc/grpc-start/static/cnp.png)
+  ![Yeni proje iletişim kutusu oluştur](~/tutorials/grpc/grpc-start/static/cnp.png)
 
 * Projeyi **Grpcgreeter**olarak adlandırın. Kodu kopyalayıp yapıştırdığınızda ad alanlarının eşleşmesi için, proje *Grpcgreeter* adında bir ad vermek önemlidir.
-* **Oluştur**' u seçin.
+* Seçin **oluşturma**.
 * **Yeni bir gRPC hizmeti oluştur** iletişim kutusunda:
   * **GRPC hizmeti** şablonu seçilidir.
-  * **Oluştur**' u seçin.
+  * Seçin **oluşturma**.
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
-* [Tümleşik terminali](https://code.visualstudio.com/docs/editor/integrated-terminal)açın.
+* Açık [tümleşik Terminalini](https://code.visualstudio.com/docs/editor/integrated-terminal).
 * Dizinleri (`cd`), projeyi içerecek bir klasöre değiştirin.
 * Aşağıdaki komutları çalıştırın:
 
@@ -75,7 +75,7 @@ Bu öğreticide şunları yapabilirsiniz:
   * `code` komutu *Grpcgreeter* klasörünü yeni bir Visual Studio Code örneğinde açar.
 
   **Gerekli varlıkların derlenmesi ve hata ayıklaması için ' GrpcGreeter ' içinde eksik bir iletişim kutusu görüntülenir. Bunları ekleyin mi?**
-* **Evet**' i seçin.
+* **Evet**’i seçin.
 
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Mac için Visual Studio](#tab/visual-studio-mac)
 
@@ -94,7 +94,7 @@ Visual Studio 'da **dosya** > **Aç**' ı seçin ve ardından *grpcgreeter. cspr
 
 ---
 
-### <a name="run-the-service"></a>Hizmeti çalıştırın
+### <a name="run-the-service"></a>Hizmeti çalıştırma
 
   [!INCLUDE[](~/includes/run-the-app.md)]
 
@@ -134,7 +134,7 @@ info: Microsoft.Hosting.Lifetime[0]
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
-* [Tümleşik terminali](https://code.visualstudio.com/docs/editor/integrated-terminal)açın.
+* Açık [tümleşik Terminalini](https://code.visualstudio.com/docs/editor/integrated-terminal).
 * Dizinleri (`cd`), projeyi içerecek bir klasöre değiştirin.
 * Aşağıdaki komutları çalıştırın:
 
@@ -176,7 +176,7 @@ Paket Yöneticisi Konsolu (PMC) veya NuGet Paketlerini Yönet ' i kullanarak pak
 #### <a name="manage-nuget-packages-option-to-install-packages"></a>Paket yüklemek için NuGet Paketlerini Yönet seçeneği
 
 * **NuGet paketlerini yönetmek** > **Çözüm Gezgini** ' de projeye sağ tıklayın
-* **Tarayıcı** sekmesini seçin.
+* **Gözat** sekmesini seçin.
 * Arama kutusuna **GRPC .net. Client** girin.
 * **Araştır** sekmesinden **GRPC .net. Client** paketini seçin ve ardından **Install**' ı seçin.
 * `Google.Protobuf` ve `Grpc.Tools`için yineleyin.

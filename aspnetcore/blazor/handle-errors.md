@@ -10,12 +10,12 @@ no-loc:
 - Blazor
 - SignalR
 uid: blazor/handle-errors
-ms.openlocfilehash: 9f249fac331d31249f9325892e8365e3d0b4cc5a
-ms.sourcegitcommit: 3b6b0a54b20dc99b0c8c5978400c60adf431072f
+ms.openlocfilehash: e737a8a85e7eb83d95618d71e85b0307c54b0766
+ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74717067"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74879693"
 ---
 # <a name="handle-errors-in-aspnet-core-opno-locblazor-apps"></a>ASP.NET Core Blazor uygulamalarda hataları işleme
 
@@ -116,7 +116,7 @@ Hangi olayların günlüğe kaydedileceğini ve günlüğe kaydedilen olayların
 Blazor bir bileşenin örneğini oluşturduğunda:
 
 * Bileşenin Oluşturucusu çağrılır.
-* [@inject](xref:blazor/dependency-injection#request-a-service-in-a-component) yönergesi veya [[Ekle]](xref:blazor/dependency-injection#request-a-service-in-a-component) özniteliği aracılığıyla bileşen oluşturucusuna sağlanan Singleton olmayan her türlü hizmeti Oluşturucu. 
+* [`@inject`](xref:blazor/dependency-injection#request-a-service-in-a-component) yönergesi veya [`[Inject]`](xref:blazor/dependency-injection#request-a-service-in-a-component) özniteliği aracılığıyla bileşen oluşturucusuna sağlanan Singleton olmayan her türlü hizmeti Oluşturucu. 
 
 Herhangi bir `[Inject]` özelliği için yürütülen bir Oluşturucu veya ayarlayıcı işlenmeyen bir özel durum oluşturduğunda devre dışı olur. Framework bileşeni örneklemediğinden özel durum önemlidir. Oluşturucu mantığı özel durumlar oluşturmayabilir, uygulama hata işleme ve günlüğe kaydetme ile [try-catch](/dotnet/csharp/language-reference/keywords/try-catch) ifadesini kullanarak özel durumları yakalemelidir.
 
@@ -185,7 +185,7 @@ Bileşen aktiften çıkarma hakkında daha fazla bilgi için bkz. <xref:blazor/l
 * `InvokeAsync<T>` çağrısı zaman uyumsuz olarak başarısız olursa, .NET <xref:System.Threading.Tasks.Task> başarısız olur. Örneğin, JavaScript tarafı kodu bir özel durum oluşturduğundan veya `rejected`olarak tamamlanan bir `Promise` döndürdüğünden `InvokeAsync<T>` çağrısı başarısız olabilir. Geliştirici kodu özel durumu yakalamalı. [Await](/dotnet/csharp/language-reference/keywords/await) işleci kullanılıyorsa, yöntem çağrısını hata işleme ve günlüğe kaydetme ile [try-catch](/dotnet/csharp/language-reference/keywords/try-catch) ifadesinde sarmalamalı olarak düşünün. Aksi takdirde, başarısız kod, devre için önemli olan işlenmemiş bir özel durumla sonuçlanır.
 * Varsayılan olarak, `InvokeAsync<T>` çağrıları belirli bir süre içinde tamamlanmalıdır veya çağrı zaman aşımına uğrar. Varsayılan zaman aşımı süresi bir dakikadır. Zaman aşımı, kodu ağ bağlantısında veya hiçbir zaman bir tamamlanma iletisi göndermeme JavaScript kodundaki bir kaybına karşı korur. Çağrı zaman aşımına uğrarsa, elde edilen `Task` bir <xref:System.OperationCanceledException>başarısız olur. Günlüğe kaydetme ile özel durumu yakalar ve işleyin.
 
-Benzer şekilde, JavaScript kodu [[Jsinvokable] özniteliği](xref:blazor/javascript-interop#invoke-net-methods-from-javascript-functions)tarafından belirtilen .net yöntemlerine çağrı başlatabilir. Bu .NET yöntemleri işlenmeyen bir özel durum oluşturur:
+Benzer şekilde, JavaScript kodu [`[JSInvokable]`](xref:blazor/javascript-interop#invoke-net-methods-from-javascript-functions) özniteliği tarafından belirtilen .net yöntemlerine çağrı başlatabilir. Bu .NET yöntemleri işlenmeyen bir özel durum oluşturur:
 
 * Özel durum devre için önemli olarak değerlendirilmez.
 * JavaScript tarafı `Promise` reddedilir.

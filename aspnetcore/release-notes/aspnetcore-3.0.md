@@ -4,17 +4,17 @@ author: rick-anderson
 description: ASP.NET Core 3,0 ' deki yeni özellikler hakkında bilgi edinin.
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/12/2019
+ms.date: 12/05/2019
 no-loc:
 - Blazor
 - SignalR
 uid: aspnetcore-3.0
-ms.openlocfilehash: c3dde383507ec919f82b5268ddbf23911c3d24f8
-ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
+ms.openlocfilehash: 4ade13c38880c9915ec590297f2a43548ca400a8
+ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73963116"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74880834"
 ---
 # <a name="whats-new-in-aspnet-core-30"></a>ASP.NET Core 3,0 ' deki yenilikler
 
@@ -40,7 +40,7 @@ Blazor Framework desteklenen senaryolar:
 
 Daha fazla bilgi için bkz. <xref:blazor/index>.
 
-### <a name="opno-locblazor-server"></a>Blazor sunucusu
+### <a name="opno-locblazor-server"></a>Blazor Sunucusu
 
 Blazor, Kullanıcı arabirimi güncelleştirmelerinin uygulanma, bileşen işleme mantığını ayırır. Blazor Server, bir ASP.NET Core uygulamasındaki sunucuda Razor bileşenlerini barındırmak için destek sağlar. Kullanıcı Arabirimi güncelleştirmeleri SignalR bir bağlantı üzerinden işlenir. Blazor Server ASP.NET Core 3,0 ' de desteklenir.
 
@@ -67,7 +67,7 @@ Blazor bileşenleri genellikle HTML ve C#doğal bir Blend Razor söz dizimi kull
   * İkili serileştirme biçimi.
 * Şöyle özellikler sağlar:
 
-  * Kimlik doğrulaması
+  * Kimlik Doğrulama
   * Çift yönlü akış ve akış denetimi.
   * İptal ve zaman aşımları.
 
@@ -135,7 +135,7 @@ connection.onreconnected((connectionId) => {
 });
 ```
 
-SignalR 3,0 ve üzeri, bir hub yöntemi yetkilendirme gerektirdiğinde, yetkilendirme işleyicilerine özel bir kaynak sağlar. Kaynak bir `HubInvocationContext` örneğidir. `HubInvocationContext` şunları içerir:
+SignalR 3,0 ve üzeri, bir hub yöntemi yetkilendirme gerektirdiğinde, yetkilendirme işleyicilerine özel bir kaynak sağlar. Kaynak bir `HubInvocationContext`örneğidir. `HubInvocationContext` şunları içerir:
 
 * `HubCallerContext`
 * Çağrılan hub yönteminin adı.
@@ -182,7 +182,7 @@ Yukarıdaki kodda, `DomainRestrictedRequirement` özel bir `IAuthorizationRequir
 * Hub 'ın çağrıldığı bağlamı inceleyin.
 * Kullanıcının bireysel hub yöntemlerini yürütmesine izin verirken kararlar alın.
 
-Tek tek hub yöntemleri, çalışma zamanında kodun denetlediği ilkenin adı ile birlikte kullanılabilir. İstemciler tek tek hub yöntemlerini çağırmayı denediğinden `DomainRestrictedRequirement` işleyicisi çalışır ve yöntemlere erişimi denetler. `DomainRestrictedRequirement` erişimi denetim altına göre:
+Tek tek hub yöntemleri, çalışma zamanında kodun denetlediği ilkenin adıyla işaretlenebilir. İstemciler tek tek hub yöntemlerini çağırmayı denediğinden `DomainRestrictedRequirement` işleyicisi çalışır ve yöntemlere erişimi denetler. `DomainRestrictedRequirement` erişimi denetim altına göre:
 
 * Tüm oturum açmış kullanıcılar `SendMessage` yöntemini çağırabilir.
 * Yalnızca bir `@jabbr.net` e-posta adresiyle oturum açan kullanıcılar, kullanıcıların geçmişlerini görüntüleyebilir.
@@ -319,8 +319,8 @@ ASP.NET Core 3,0 ' ye Json.NET eklemek için bkz. [Newtonsoft. JSON tabanlı JSO
 
 Aşağıdaki listede yeni Razor yönergeleri yer almaktadır:
 
-* [@attribute](xref:mvc/views/razor#attribute) &ndash; `@attribute` yönergesinin verilen özniteliği oluşturulan sayfanın veya görünümün sınıfına uygular. Örneğin, `@attribute [Authorize]`.
-* [@implements](xref:mvc/views/razor#implements) &ndash; `@implements` yönergesi oluşturulan sınıf için bir arabirim uygular. Örneğin, `@implements IDisposable`.
+* [`@attribute`](xref:mvc/views/razor#attribute) &ndash; `@attribute` yönergesinin verilen özniteliği oluşturulan sayfanın veya görünümün sınıfına uygular. Örneğin: `@attribute [Authorize]`.
+* [`@implements`](xref:mvc/views/razor#implements) &ndash; `@implements` yönergesi oluşturulan sınıf için bir arabirim uygular. Örneğin: `@implements IDisposable`.
 
 ## <a name="identityserver4-supports-authentication-and-authorization-for-web-apis-and-spas"></a>Identityserver4, Web API 'Leri ve maça 'Ları için kimlik doğrulama ve yetkilendirmeyi destekler
 
@@ -480,7 +480,7 @@ Daha fazla bilgi için aşağıdaki makalelere bakın:
 
 ## <a name="pipes-on-httpcontext"></a>HttpContext üzerindeki kanallar
 
-Artık istek gövdesini okumak ve <xref:System.IO.Pipelines> API 'sini kullanarak yanıt gövdesini yazmak mümkündür. Bu <!-- <xref:Microsoft.AspNetCore.Http.HttpRequest.BodyReader> --> `HttpRequest.BodyReader` özellik, istek gövdesini okumak için kullanılabilecek bir <xref:System.IO.Pipelines.PipeReader> sağlar. Bu <!-- <xref:Microsoft.AspNetCore.Http.> --> `HttpResponse.BodyWriter` özellik, yanıt gövdesini yazmak için kullanılabilecek bir <xref:System.IO.Pipelines.PipeWriter> sağlar. `HttpRequest.BodyReader`, `HttpRequest.Body` akışının analogıdır. `HttpResponse.BodyWriter`, `HttpResponse.Body` akışının analogıdır.
+Artık istek gövdesini okumak ve <xref:System.IO.Pipelines> API 'sini kullanarak yanıt gövdesini yazmak mümkündür. Bağlamayı içeren <!-- <xref:Microsoft.AspNetCore.Http.HttpRequest.BodyReader> --> `HttpRequest.BodyReader` özellik, istek gövdesini okumak için kullanılabilecek bir <xref:System.IO.Pipelines.PipeReader> sağlar. Bağlamayı içeren <!-- <xref:Microsoft.AspNetCore.Http.> --> `HttpResponse.BodyWriter` özellik, yanıt gövdesini yazmak için kullanılabilecek bir <xref:System.IO.Pipelines.PipeWriter> sağlar. `HttpRequest.BodyReader`, `HttpRequest.Body` akışının analogıdır. `HttpResponse.BodyWriter`, `HttpResponse.Body` akışının analogıdır.
 
 <!-- indirectly related, https://github.com/dotnet/docs/pull/14414 won't be published by 9/23  -->
 
@@ -492,7 +492,7 @@ IIS 'de ASP.NET Core uygulamalar barındırırken başlatma hataları artık dah
 
 .NET Core 3,0 yeni çalışan hizmeti uygulama şablonunu tanıtır. Bu şablon, .NET Core 'da uzun süre çalışan hizmetler yazmak için bir başlangıç noktası sağlar.
 
-Daha fazla bilgi için bkz.:
+Daha fazla bilgi için bkz.
 
 * [Windows Hizmetleri olarak .NET Core çalışanları](https://devblogs.microsoft.com/aspnet/net-core-workers-as-windows-services/)
 * <xref:fundamentals/host/hosted-services>

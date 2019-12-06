@@ -4,17 +4,17 @@ author: rick-anderson
 description: ASP.NET Core 3,1 ' deki yeni özellikler hakkında bilgi edinin.
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/12/2019
+ms.date: 12/05/2019
 no-loc:
 - Blazor
 - SignalR
 uid: aspnetcore-3.1
-ms.openlocfilehash: 634c6937089a0a0fe1f862a83771aff65a1f8418
-ms.sourcegitcommit: 5974e3e66dab3398ecf2324fbb82a9c5636f70de
+ms.openlocfilehash: 5eaf14f3b9c5a5b2b83e469c4dc8119b5fc341c1
+ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74778849"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74880824"
 ---
 # <a name="whats-new-in-aspnet-core-31"></a>ASP.NET Core 3,1 ' deki yenilikler
 
@@ -47,7 +47,7 @@ Daha fazla bilgi için bkz. [bileşenleri Razor Pages ve MVC uygulamalarıyla t�
 
 ## <a name="support-for-shared-queues-in-httpsys"></a>HTTP. sys dosyasındaki paylaşılan sıralar için destek
 
-[Http. sys](xref:fundamentals/servers/httpsys) , anonim istek kuyrukları oluşturmayı destekler. ASP.NET Core 3,1 ' de, var olan bir HTTP. sys istek kuyruğunu oluşturma veya ekleme yeteneğine ekledik. Var olan adlandırılmış bir HTTP. sys istek kuyruğu oluşturma veya ekleme, HTTP 'nin bulunduğu senaryolara olanak sağlar. Kuyruğun sahibi olan sys denetleyicisi işlemi, dinleyici işleminden bağımsızdır. Bu bağımsızlık, var olan bağlantıları ve dinleyici işlemi yeniden başlatmalar arasında sıraya alınmış istekleri korumayı mümkün kılar:
+[Http. sys](xref:fundamentals/servers/httpsys) , anonim istek kuyrukları oluşturmayı destekler. ASP.NET Core 3,1 ' de, var olan bir HTTP. sys istek kuyruğunu oluşturma veya ekleme yeteneğine ekledik. Var olan adlandırılmış bir HTTP. sys istek kuyruğunu oluşturma veya iliştirme, sıranın sahibi olan HTTP. sys denetleyici işleminin dinleyici işleminden bağımsız olduğu senaryolara olanak sağlar. Bu bağımsızlık, var olan bağlantıları ve dinleyici işlemi yeniden başlatmalar arasında sıraya alınmış istekleri korumayı mümkün kılar:
 
 [!code-csharp[](sample/Program.cs?name=snippet)]
 

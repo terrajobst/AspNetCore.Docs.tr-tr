@@ -1,38 +1,38 @@
 ---
-title: ASP.NET Core ilke düzenleri
+title: ASP.NET Core 'de ilke şemaları
 author: rick-anderson
-description: Kimlik doğrulama İlkesi düzenleri tek bir mantıksal kimlik doğrulaması düzenine sahip kolaylaştırır
+description: Kimlik doğrulama ilkesi şemaları, tek bir mantıksal kimlik doğrulama şemasına sahip olmasını kolaylaştırır
 ms.author: riande
-ms.date: 02/28/2019
+ms.date: 12/05/2019
 uid: security/authentication/policyschemes
-ms.openlocfilehash: be03f349455c673b0739935ad20e596325c8cb74
-ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
+ms.openlocfilehash: f02d8e5cac20a9b60c5eddbd28253efacf682ea1
+ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67815293"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74880712"
 ---
-# <a name="policy-schemes-in-aspnet-core"></a>ASP.NET Core ilke düzenleri
+# <a name="policy-schemes-in-aspnet-core"></a>ASP.NET Core 'de ilke şemaları
 
-Kimlik doğrulama İlkesi düzenleri potansiyel olarak birden çok yaklaşımın kullanan bir mantıksal tek bir kimlik doğrulaması düzeni kolaylaştırır. Örneğin, bir ilke düzeni zorlukları için Google kimlik doğrulama ve tanımlama bilgisi kimlik doğrulamasını her şey için kullanabilirsiniz. Kimlik doğrulama İlkesi düzenleri kolaylaştırır:
+Kimlik doğrulama ilkesi şemaları, tek bir mantıksal kimlik doğrulama düzeninin birden çok yaklaşım kullanmasına daha kolay olmasını sağlar. Örneğin, bir ilke şeması, sorunlar için Google kimlik doğrulaması ve diğer her şey için tanımlama bilgisi kimlik doğrulaması kullanabilir. Kimlik doğrulama ilkesi şemaları şunları yapar:
 
-* Başka bir şema için herhangi bir kimlik doğrulama eylemi iletmek kolaylaştırır.
-* Dinamik olarak ve isteğe bağlı İleri.
+* Herhangi bir kimlik doğrulama eylemini başka bir düzene iletmek kolay.
+* İsteğe göre dinamik olarak ilet.
 
-Kullanım türetilmiş tüm kimlik doğrulama düzenleri <xref:Microsoft.AspNetCore.Authentication.AuthenticationSchemeOptions> ve ilişkili [ `AuthenticationHandler<TOptions>` ](/dotnet/api/microsoft.aspnetcore.authentication.authenticationhandler-1):
+Türetilmiş <xref:Microsoft.AspNetCore.Authentication.AuthenticationSchemeOptions> ve ilişkili [Authenticationhandler\<TOptions >](/dotnet/api/microsoft.aspnetcore.authentication.authenticationhandler-1)kullanan tüm kimlik doğrulama şemaları:
 
-* Otomatik olarak ilke düzenleri ASP.NET Core 2.1 ve üzeri olan.
-* Yapılandırma Şeması'nın seçenekleri aracılığıyla etkinleştirilebilir.
+* ASP.NET Core 2,1 ve sonraki sürümlerde otomatik olarak ilke düzenleridir.
+* Düzenin seçenekleri yapılandırılarak etkinleştirilebilir.
 
 [!code-csharp[sample](policyschemes/samples/AuthenticationSchemeOptions.cs?name=snippet)]
 
 ## <a name="examples"></a>Örnekler
 
-Aşağıdaki örnek, alt düzey şemalarını birleştiren daha yüksek düzeyli bir şeması gösterir. Google kimlik doğrulama sorunları için kullanılır ve tanımlama bilgisi kimlik doğrulamasını her şey için kullanılır:
+Aşağıdaki örnek, alt düzey şemaları birleştiren daha yüksek düzey bir düzeni gösterir. Google kimlik doğrulaması, sorunlar için kullanılır ve diğer her şey için tanımlama bilgisi kimlik doğrulaması kullanılır:
 
 [!code-csharp[sample](policyschemes/samples/Startup.cs?name=snippet1)]
 
-Aşağıdaki örnek, istek başına temelinde düzenleri dinamik seçimini etkinleştirir. Diğer bir deyişle, tanımlama bilgileri ve API kimlik doğrulamasını karıştırma nasıl:
+Aşağıdaki örnek, istek temelinde dinamik düzen seçimini mümkün bir şekilde sunar. Diğer bir deyişle, tanımlama bilgilerini ve API kimlik doğrulamasını karıştırma:
 
  <!-- REVIEW, missing If set in public Func<HttpContext, string> ForwardDefaultSelector -->
 

@@ -9,12 +9,12 @@ ms.date: 11/23/2019
 no-loc:
 - Blazor
 uid: blazor/state-management
-ms.openlocfilehash: facd6c2747bb0b31404c3c4fce25b76cd141932e
-ms.sourcegitcommit: 0dd224b2b7efca1fda0041b5c3f45080327033f6
+ms.openlocfilehash: ed203458126f3b4c97103c88a465e3eb5953a775
+ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74680986"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74879709"
 ---
 # <a name="aspnet-core-opno-locblazor-state-management"></a>ASP.NET Core Blazor durum yönetimi
 
@@ -69,7 +69,7 @@ Genellikle, gönderilmemiş bir oturum açma iletişim kutusuna girilen Kullanı
 Blazor sunucu uygulamasındaki kalıcı durum için üç ortak konum vardır. Her yaklaşım farklı senaryolara en iyi şekilde uygundur ve farklı uyarılar içerir:
 
 * [Veritabanında sunucu tarafı](#server-side-in-a-database)
-* ['DEKI](#url)
+* [URL](#url)
 * [Tarayıcıda istemci tarafı](#client-side-in-the-browser)
 
 ### <a name="server-side-in-a-database"></a>Veritabanında sunucu tarafı
@@ -77,7 +77,7 @@ Blazor sunucu uygulamasındaki kalıcı durum için üç ortak konum vardır. He
 Kalıcı veri kalıcılığı veya birden çok kullanıcı veya cihaza yayılması gereken veriler için, bağımsız bir sunucu tarafı veritabanı neredeyse en iyi seçenektir. Şu seçenekler mevcuttur:
 
 * İlişkisel SQL veritabanı
-* Anahtar-değer deposu
+* Anahtar değeri deposu
 * Blob deposu
 * Tablo deposu
 
@@ -157,7 +157,7 @@ ASP.NET Core [veri korumasını](xref:security/data-protection/introduction)sayd
 
 ### <a name="save-and-load-data-within-a-component"></a>Bir bileşen içindeki verileri kaydetme ve yükleme
 
-Tarayıcı depolamaya veri yüklemeyi veya kaydetmeyi gerektiren herhangi bir bileşende, aşağıdakilerden birinin bir örneğini eklemek için [@inject](xref:blazor/dependency-injection#request-a-service-in-a-component) kullanın:
+Tarayıcı depolamaya veri yüklemeyi veya kaydetmeyi gerektiren herhangi bir bileşende, aşağıdakilerden birinin bir örneğini eklemek için [`@inject`](xref:blazor/dependency-injection#request-a-service-in-a-component) kullanın:
 
 * `ProtectedLocalStorage`
 * `ProtectedSessionStorage`

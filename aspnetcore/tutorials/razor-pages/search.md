@@ -3,14 +3,14 @@ title: ASP.NET Core Razor Pages arama Ekle
 author: rick-anderson
 description: ASP.NET Core Razor Pages nasıl arama ekleneceğini gösterir
 ms.author: riande
-ms.date: 7/23/2019
+ms.date: 12/05/2019
 uid: tutorials/razor-pages/search
-ms.openlocfilehash: 1eeb3aa86f2a6928b6d0b368c90e4760a66a6c6e
-ms.sourcegitcommit: 07d98ada57f2a5f6d809d44bdad7a15013109549
+ms.openlocfilehash: 8228207b0f37a6923b29891ac3115dd0be115501
+ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72334059"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74881328"
 ---
 # <a name="add-search-to-aspnet-core-razor-pages"></a>ASP.NET Core Razor Pages arama Ekle
 
@@ -26,7 +26,7 @@ Aşağıdaki Vurgulanan özellikleri *sayfalara/filmlere/Index. cshtml. cs*öğe
 
 [!code-csharp[](razor-pages-start/sample/RazorPagesMovie30/Pages/Movies/Index.cshtml.cs?name=snippet_newProps&highlight=11-999)]
 
-* `SearchString`: kullanıcıların arama metin kutusuna girebileceği metni içerir. `SearchString`, [`[BindProperty]`](/dotnet/api/microsoft.aspnetcore.mvc.bindpropertyattribute) özniteliğiyle donatılmalıdır. `[BindProperty]` form değerlerini ve Sorgu dizelerini özelliğiyle aynı ada bağlar. GET isteklerinde bağlama için `(SupportsGet = true)` gereklidir.
+* `SearchString`: kullanıcıların arama metin kutusuna girebileceği metni içerir. `SearchString` [`[BindProperty]`](/dotnet/api/microsoft.aspnetcore.mvc.bindpropertyattribute) özniteliği vardır. `[BindProperty]` form değerlerini ve Sorgu dizelerini özelliğiyle aynı ada bağlar. GET isteklerinde bağlama için `(SupportsGet = true)` gereklidir.
 * `Genres`: tarzlar listesini içerir. `Genres`, kullanıcının listeden bir tarz seçmesine izin verir. `SelectList` `using Microsoft.AspNetCore.Mvc.Rendering;` gerektiriyor
 * `MovieGenre`: kullanıcının seçtiği belirli tarzı içerir (örneğin, "Batı").
 * `Genres` ve `MovieGenre` daha sonra bu öğreticide kullanılır.
@@ -129,7 +129,7 @@ Aşağıdaki Vurgulanan özellikleri *sayfalara/filmlere/Index. cshtml. cs*öğe
 
 [!code-csharp[](razor-pages-start/sample/RazorPagesMovie22/Pages/Movies/Index.cshtml.cs?name=snippet_newProps&highlight=11-999)]
 
-* `SearchString`: kullanıcıların arama metin kutusuna girebileceği metni içerir. `SearchString`, [`[BindProperty]`](/dotnet/api/microsoft.aspnetcore.mvc.bindpropertyattribute) özniteliğiyle donatılmalıdır. `[BindProperty]` form değerlerini ve Sorgu dizelerini özelliğiyle aynı ada bağlar. GET isteklerinde bağlama için `(SupportsGet = true)` gereklidir.
+* `SearchString`: kullanıcıların arama metin kutusuna girebileceği metni içerir. `SearchString` [`[BindProperty]`](/dotnet/api/microsoft.aspnetcore.mvc.bindpropertyattribute) özniteliği vardır. `[BindProperty]` form değerlerini ve Sorgu dizelerini özelliğiyle aynı ada bağlar. GET isteklerinde bağlama için `(SupportsGet = true)` gereklidir.
 * `Genres`: tarzlar listesini içerir. `Genres`, kullanıcının listeden bir tarz seçmesine izin verir. `SelectList` `using Microsoft.AspNetCore.Mvc.Rendering;` gerektiriyor
 * `MovieGenre`: kullanıcının seçtiği belirli tarzı içerir (örneğin, "Batı").
 * `Genres` ve `MovieGenre` daha sonra bu öğreticide kullanılır.

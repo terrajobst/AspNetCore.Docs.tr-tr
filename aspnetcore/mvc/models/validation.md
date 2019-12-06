@@ -4,14 +4,14 @@ author: rick-anderson
 description: ASP.NET Core MVC ve Razor Pages model doğrulaması hakkında bilgi edinin.
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/21/2019
+ms.date: 12/05/2019
 uid: mvc/models/validation
-ms.openlocfilehash: 19f71799e958e2761832c91cec6762a6d391d2b5
-ms.sourcegitcommit: 3e503ef510008e77be6dd82ee79213c9f7b97607
+ms.openlocfilehash: 7a6017141eb1016128c4a135c187479717580bb5
+ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74317435"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74881037"
 ---
 # <a name="model-validation-in-aspnet-core-mvc-and-razor-pages"></a>ASP.NET Core MVC ve Razor Pages model doğrulaması
 
@@ -55,10 +55,10 @@ Yerleşik doğrulama özniteliklerinden bazıları şunlardır:
 * `[Phone]`: özelliğin bir telefon numarası biçimi olduğunu doğrular.
 * `[Range]`: Özellik değerinin belirtilen bir aralık dahilinde olduğunu doğrular.
 * `[RegularExpression]`: Özellik değerinin belirtilen bir normal ifadeyle eşleştiğini doğrular.
-* `[Required]`: alanın null olduğunu doğrular. Bu özniteliğin davranışı hakkındaki ayrıntılar için bkz. [[Required] özniteliği](#required-attribute) .
+* `[Required]`: alanın null olduğunu doğrular. Bu özniteliğin davranışı hakkındaki ayrıntılar için bkz. [`[Required]` özniteliği](#required-attribute) .
 * `[StringLength]`: dize özellik değerinin belirtilen uzunluk sınırını aşmadığını doğrular.
 * `[Url]`: özelliğin bir URL biçimine sahip olduğunu doğrular.
-* `[Remote]`: sunucuda bir eylem yöntemi çağırarak istemcide girişi doğrular. Bu özniteliğin davranışı hakkındaki ayrıntılar için bkz. [[Remote] Attribute](#remote-attribute) .
+* `[Remote]`: sunucuda bir eylem yöntemi çağırarak istemcide girişi doğrular. Bu özniteliğin davranışı hakkındaki ayrıntılar için bkz. `[`[Remote] ' Attribute] (#remote-özniteliği).
 
 Doğrulama özniteliklerinin tüm listesi [System. ComponentModel. Dataaçıklamalarda](xref:System.ComponentModel.DataAnnotations) ad alanında bulunabilir.
 
@@ -134,7 +134,7 @@ Uzaktan doğrulamayı uygulamak için:
 
 [!code-csharp[](validation/samples/3.x/ValidationSample/Models/User.cs?name=snippet_Name&highlight=1,5)]
 
-`AdditionalFields`, `"FirstName"` ve `"LastName"`dizeler için açıkça ayarlanabilir, ancak [`nameof`](/dotnet/csharp/language-reference/keywords/nameof) işlecinin kullanılması daha sonra yeniden düzenlemeyi basitleştirir. Bu doğrulama için eylem yöntemi hem `firstName` hem de `lastName` bağımsız değişkenlerini kabul etmelidir:
+`AdditionalFields` "FirstName" ve "LastName" dizeleriyle açıkça ayarlanabilir, ancak [NameOf](/dotnet/csharp/language-reference/keywords/nameof) işlecinin kullanılması daha sonra yeniden düzenlemeyi basitleştirir. Bu doğrulama için eylem yöntemi hem `firstName` hem de `lastName` bağımsız değişkenlerini kabul etmelidir:
 
 [!code-csharp[](validation/samples/3.x/ValidationSample/Controllers/UsersController.cs?name=snippet_VerifyName)]
 
@@ -255,9 +255,13 @@ Bir form üzerinde giriş hataları olduğunda, istemci tarafı doğrulaması su
 </div>
 ```
 
-HTML çıkışındaki `data-` özniteliklerinin `Movie.ReleaseDate` özelliğinin doğrulama özniteliklerine karşılık geldiğini unutmayın. `data-val-required` özniteliği, Kullanıcı Yayın tarihi alanını doldurmazsa görüntülenecek bir hata iletisi içerir. jQuery unobtrusive doğrulaması bu değeri jQuery Validate [`required()`](https://jqueryvalidation.org/required-method/) yöntemine geçirir ve bu ileti, eşlik eden **\<span >** öğesinde görüntülenir.
+HTML çıkışındaki `data-` özniteliklerinin `Movie.ReleaseDate` özelliğinin doğrulama özniteliklerine karşılık geldiğini unutmayın. `data-val-required` özniteliği, Kullanıcı Yayın tarihi alanını doldurmazsa görüntülenecek bir hata iletisi içerir. jQuery unobtrusive doğrulaması bu değeri jQuery Validate [Required ()](https://jqueryvalidation.org/required-method/) yöntemine geçirir ve sonra bu iletiyi eşlik eden **\<span >** öğesinde görüntüler.
 
 Veri türü doğrulama, bir `[DataType]` özniteliği tarafından geçersiz kılınmadıkça, özelliğin .NET türünü temel alır. Tarayıcıların kendi varsayılan hata iletileri vardır ancak jQuery doğrulaması unobtrusive doğrulama paketi bu iletileri geçersiz kılabilir. `[EmailAddress]` gibi öznitelikleri ve alt sınıfları `[DataType]`, hata iletisini belirtmenize izin verir.
+
+## <a name="unobtrusive-validation"></a>Unobtrusive doğrulaması
+
+Obtrusive doğrulaması hakkında bilgi için [Bu GitHub sorununa](https://github.com/aspnet/AspNetCore.Docs/issues/1111)bakın.
 
 ### <a name="add-validation-to-dynamic-forms"></a>Dinamik formlara doğrulama ekleme
 
@@ -415,10 +419,10 @@ Yerleşik doğrulama öznitelikleri şunlardır:
 * `[Phone]`: özelliğin bir telefon numarası biçimi olduğunu doğrular.
 * `[Range]`: Özellik değerinin belirtilen bir aralık dahilinde olduğunu doğrular.
 * `[RegularExpression]`: Özellik değerinin belirtilen bir normal ifadeyle eşleştiğini doğrular.
-* `[Required]`: alanın null olduğunu doğrular. Bu özniteliğin davranışı hakkındaki ayrıntılar için bkz. [[Required] özniteliği](#required-attribute) .
+* `[Required]`: alanın null olduğunu doğrular. Bu özniteliğin davranışı hakkındaki ayrıntılar için bkz. [`[Required]` özniteliği](#required-attribute) .
 * `[StringLength]`: dize özellik değerinin belirtilen uzunluk sınırını aşmadığını doğrular.
 * `[Url]`: özelliğin bir URL biçimine sahip olduğunu doğrular.
-* `[Remote]`: sunucuda bir eylem yöntemi çağırarak istemcide girişi doğrular. Bu özniteliğin davranışı hakkındaki ayrıntılar için bkz. [[Remote] Attribute](#remote-attribute) .
+* `[Remote]`: sunucuda bir eylem yöntemi çağırarak istemcide girişi doğrular. Bu özniteliğin davranışı hakkındaki ayrıntılar için bkz. [`[Remote]` özniteliği](#remote-attribute) .
 
 Doğrulama özniteliklerinin tüm listesi [System. ComponentModel. Dataaçıklamalarda](xref:System.ComponentModel.DataAnnotations) ad alanında bulunabilir.
 
@@ -494,7 +498,7 @@ Uzaktan doğrulamayı uygulamak için:
 
 [!code-csharp[](validation/samples/2.x/ValidationSample/Models/User.cs?name=snippet_UserNameProperties)]
 
-`AdditionalFields`, `"FirstName"` ve `"LastName"`dizeler için açıkça ayarlanabilir, ancak [`nameof`](/dotnet/csharp/language-reference/keywords/nameof) işlecinin kullanılması daha sonra yeniden düzenlemeyi basitleştirir. Bu doğrulama için eylem yöntemi hem adı hem de soyadı bağımsız değişkenlerini kabul etmelidir:
+`AdditionalFields`, `"FirstName"` ve `"LastName"`dizeler için açıkça ayarlanabilir, ancak [NameOf](/dotnet/csharp/language-reference/keywords/nameof) işlecinin kullanılması daha sonra yeniden düzenlemeyi basitleştirir. Bu doğrulama için eylem yöntemi hem adı hem de soyadı bağımsız değişkenlerini kabul etmelidir:
 
 [!code-csharp[](validation/samples/2.x/ValidationSample/Controllers/UsersController.cs?name=snippet_VerifyName)]
 
@@ -624,7 +628,7 @@ Bir form üzerinde giriş hataları olduğunda, istemci tarafı doğrulaması su
 </form>
 ```
 
-HTML çıkışındaki `data-` özniteliklerinin `ReleaseDate` özelliğinin doğrulama özniteliklerine karşılık geldiğini unutmayın. `data-val-required` özniteliği, Kullanıcı Yayın tarihi alanını doldurmazsa görüntülenecek bir hata iletisi içerir. jQuery unobtrusive doğrulaması bu değeri jQuery Validate [`required()`](https://jqueryvalidation.org/required-method/) yöntemine geçirir ve bu ileti, eşlik eden **\<span >** öğesinde görüntülenir.
+HTML çıkışındaki `data-` özniteliklerinin `ReleaseDate` özelliğinin doğrulama özniteliklerine karşılık geldiğini unutmayın. `data-val-required` özniteliği, Kullanıcı Yayın tarihi alanını doldurmazsa görüntülenecek bir hata iletisi içerir. jQuery unobtrusive doğrulaması bu değeri jQuery Validate [Required ()](https://jqueryvalidation.org/required-method/) yöntemine geçirir ve sonra bu iletiyi eşlik eden **\<span >** öğesinde görüntüler.
 
 Veri türü doğrulama, bir `[DataType]` özniteliği tarafından geçersiz kılınmadıkça, özelliğin .NET türünü temel alır. Tarayıcıların kendi varsayılan hata iletileri vardır ancak jQuery doğrulaması unobtrusive doğrulama paketi bu iletileri geçersiz kılabilir. `[EmailAddress]` gibi öznitelikleri ve alt sınıfları `[DataType]`, hata iletisini belirtmenize izin verir.
 

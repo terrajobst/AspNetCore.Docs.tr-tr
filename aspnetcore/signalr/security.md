@@ -5,16 +5,16 @@ description: ASP.NET Core SignalRkimlik doğrulama ve yetkilendirmeyi nasıl kul
 monikerRange: '>= aspnetcore-2.1'
 ms.author: anurse
 ms.custom: mvc
-ms.date: 11/12/2019
+ms.date: 12/05/2019
 no-loc:
 - SignalR
 uid: signalr/security
-ms.openlocfilehash: c5a34ae67bdfb8f7fd92c00f18973b66b685a99c
-ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
+ms.openlocfilehash: f443fe0fbaaa1facd09edc0878c048772895ecff
+ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73963908"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74881178"
 ---
 # <a name="security-considerations-in-aspnet-core-opno-locsignalr"></a>ASP.NET Core SignalR güvenlik konuları
 
@@ -22,7 +22,7 @@ ms.locfileid: "73963908"
 
 Bu makalede SignalRgüvenliğini sağlama hakkında bilgi sağlanır.
 
-## <a name="cross-origin-resource-sharing"></a>Çıkış noktaları arası kaynak paylaşımı
+## <a name="cross-origin-resource-sharing"></a>Çıkış noktaları arası kaynak paylaşma
 
 [Çapraz kaynak kaynak paylaşımı (CORS)](https://www.w3.org/TR/cors/) , tarayıcıda çapraz kaynak SignalR bağlantılara izin vermek için kullanılabilir. JavaScript kodu SignalR uygulamasından farklı bir etki alanında barındırılıyorsa, JavaScript 'In SignalR uygulamasına bağlanmasına izin vermek için [CORS ara yazılımı](xref:security/cors) etkinleştirilmelidir. Yalnızca güvendiğiniz veya denetlediğiniz etki alanlarından çıkış noktaları arası isteklere izin verin. Örneğin:
 
@@ -117,7 +117,7 @@ Bu verileri sunucu günlüklerinize kaydetme hakkında endişeleriniz varsa, `Mi
 
 ## <a name="exceptions"></a>Özel Durumlar
 
-Özel durum iletileri genellikle bir istemciye görüntülenmemelidir gizli veriler olarak değerlendirilir. Varsayılan olarak, SignalR bir hub yöntemi tarafından oluşturulan bir özel durumun ayrıntılarını istemciye göndermez. Bunun yerine, istemci bir hata oluştuğunu belirten genel bir ileti alır. İstemciye özel durum iletisi teslimi, [`EnableDetailedErrors`](xref:signalr/configuration#configure-server-options)ile geçersiz kılınabilir (örneğin, geliştirme veya test). Özel durum iletileri, üretim uygulamalarındaki istemciye gösterilmemelidir.
+Özel durum iletileri genellikle bir istemciye görüntülenmemelidir gizli veriler olarak değerlendirilir. Varsayılan olarak, SignalR bir hub yöntemi tarafından oluşturulan bir özel durumun ayrıntılarını istemciye göndermez. Bunun yerine, istemci bir hata oluştuğunu belirten genel bir ileti alır. İstemciye özel durum iletisi teslimi, [Enabledetailederrors](xref:signalr/configuration#configure-server-options)ile geçersiz kılınabilir (örneğin, geliştirme veya test). Özel durum iletileri, üretim uygulamalarındaki istemciye gösterilmemelidir.
 
 ## <a name="buffer-management"></a>Arabellek Yönetimi
 
@@ -131,7 +131,7 @@ SignalR gelen ve giden iletileri yönetmek için bağlantı başına arabellekle
 * İstemci, sunucunun büyük bellek arabellekleri ayırmasına neden olabilir.
 * Büyük arabelleklerin sunucu ayırması, eşzamanlı bağlantı sayısını azaltabilir.
 
-Gelen ve giden iletiler için, her ikisi de `MapHub`yapılandırılan [`HttpConnectionDispatcherOptions`](xref:signalr/configuration#configure-server-options) nesnesi üzerinde yapılandırılabilir:
+Gelen ve giden iletiler için her ikisi de `MapHub`' de yapılandırılan [Httpconnectiondispatcheroptions](xref:signalr/configuration#configure-server-options) nesnesinde yapılandırılabilir:
 
 * `ApplicationMaxBufferSize`, istemciden sunucunun arabelleğe aldığı en fazla bayt sayısını temsil eder. İstemci bu sınırdan daha büyük bir ileti göndermemeyi denerse bağlantı kapatılabilir.
 * `TransportMaxBufferSize`, sunucunun gönderemediği en fazla bayt sayısını temsil eder. Sunucu, bu sınırdan daha büyük bir ileti (hub metotlarından dönüş değerleri dahil) gönderilmeye çalışırsa, bir özel durum oluşturulur.

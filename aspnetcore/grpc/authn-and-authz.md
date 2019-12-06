@@ -4,14 +4,14 @@ author: jamesnk
 description: ASP.NET Core için gRPC 'de kimlik doğrulama ve yetkilendirmeyi nasıl kullanacağınızı öğrenin.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: jamesnk
-ms.date: 08/13/2019
+ms.date: 12/05/2019
 uid: grpc/authn-and-authz
-ms.openlocfilehash: 84903ee781588ff525d1dfce6a313e3867794762
-ms.sourcegitcommit: 76d7fff62014c3db02564191ab768acea00f1b26
+ms.openlocfilehash: 258b34113f3c3d9ef2031a43295ea5806b1e22ff
+ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74852707"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74880686"
 ---
 # <a name="authentication-and-authorization-in-grpc-for-aspnet-core"></a>ASP.NET Core için gRPC 'de kimlik doğrulaması ve yetkilendirme
 
@@ -150,7 +150,7 @@ Sunucuda kimlik doğrulamasını yapılandırma hakkında daha fazla bilgi için
 
 GRPC istemcisini kimlik doğrulaması kullanacak şekilde yapılandırmak, kullanmakta olduğunuz kimlik doğrulama mekanizmasına bağlı olarak değişir. Önceki taşıyıcı belirteci ve istemci sertifikası örnekleri, GRPC istemcisinin, gRPC çağrılarına yönelik kimlik doğrulama meta verilerini gönderecek şekilde yapılandırılabilmesinin birkaç yolunu gösterir:
 
-* Türü kesin belirlenmiş gRPC istemcileri dahili olarak `HttpClient` kullanır. Kimlik doğrulaması [`HttpClientHandler`](/dotnet/api/system.net.http.httpclienthandler)veya `HttpClient`özel [`HttpMessageHandler`](/dotnet/api/system.net.http.httpmessagehandler) örnekleri ekleyerek yapılandırılabilir.
+* Türü kesin belirlenmiş gRPC istemcileri dahili olarak `HttpClient` kullanır. Kimlik doğrulaması, [HttpClientHandler](/dotnet/api/system.net.http.httpclienthandler)üzerinde veya `HttpClient`özel [HttpMessageHandler](/dotnet/api/system.net.http.httpmessagehandler) örnekleri eklenerek yapılandırılabilir.
 * Her gRPC çağrısının isteğe bağlı bir `CallOptions` bağımsız değişkeni vardır. Özel üstbilgiler, seçeneğin üstbilgiler koleksiyonu kullanılarak gönderilebilir.
 
 > [!NOTE]
@@ -158,7 +158,7 @@ GRPC istemcisini kimlik doğrulaması kullanacak şekilde yapılandırmak, kulla
 
 ## <a name="authorize-users-to-access-services-and-service-methods"></a>Kullanıcılara hizmetlere ve hizmet yöntemlerine erişim yetkisi verme
 
-Varsayılan olarak, bir hizmette tüm yöntemler kimliği doğrulanmamış kullanıcılar tarafından çağrılabilir. Kimlik doğrulaması gerektirmek için, [[Yetkilendir]](xref:Microsoft.AspNetCore.Authorization.AuthorizeAttribute) özniteliğini hizmete uygulayın:
+Varsayılan olarak, bir hizmette tüm yöntemler kimliği doğrulanmamış kullanıcılar tarafından çağrılabilir. Kimlik doğrulaması gerektirmek için [`[Authorize]`](xref:Microsoft.AspNetCore.Authorization.AuthorizeAttribute) özniteliğini hizmete uygulayın:
 
 ```csharp
 [Authorize]

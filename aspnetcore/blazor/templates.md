@@ -10,12 +10,12 @@ no-loc:
 - Blazor
 - SignalR
 uid: blazor/templates
-ms.openlocfilehash: e82f28afdac8517f72538094d97f28bdcfe46102
-ms.sourcegitcommit: 918d7000b48a2892750264b852bad9e96a1165a7
+ms.openlocfilehash: bc0ea4a777e8684a7b0925377b8a19a45c2b531c
+ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74551587"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74879664"
 ---
 # <a name="aspnet-core-opno-locblazor-templates"></a>ASP.NET Core Blazor şablonları
 
@@ -43,7 +43,7 @@ Aşağıdaki dosya ve klasörler, Blazor şablonundan oluşturulan Blazor bir uy
   * `ConfigureServices` &ndash;, uygulamanın [bağımlılık ekleme (dı)](xref:fundamentals/dependency-injection) hizmetlerini yapılandırır. Sunucu uygulamalarında Blazor, hizmetler <xref:Microsoft.Extensions.DependencyInjection.ComponentServiceCollectionExtensions.AddServerSideBlazor*>çağırarak eklenir ve `WeatherForecastService` örnek `FetchData` bileşeni tarafından kullanılmak üzere hizmet kapsayıcısına eklenir.
   * `Configure` &ndash;, uygulamanın istek işleme ardışık düzenini yapılandırır:
     * Blazor WebAssembly &ndash;, uygulamanın kök bileşeni olan `App` bileşenini (`app` DOM öğesi olarak belirtilen `AddComponent` yöntemine) ekler.
-    * Blazor sunucusu
+    * Blazor Sunucusu
       * <xref:Microsoft.AspNetCore.Builder.ComponentEndpointRouteBuilderExtensions.MapBlazorHub*>, tarayıcıya gerçek zamanlı bağlantı için bir uç nokta ayarlamak üzere çağırılır. Bağlantı, uygulamalara gerçek zamanlı Web işlevselliği eklemek için bir çerçeveden [SignalR](xref:signalr/introduction)oluşturulur.
       * [Mapfallbacktopage ("/_Host")](xref:Microsoft.AspNetCore.Builder.RazorPagesEndpointRouteBuilderExtensions.MapFallbackToPage*) , uygulamanın kök sayfasını (*Pages/_Host. cshtml*) ayarlamak ve gezinmeyi etkinleştirmek için çağırılır.
 
@@ -61,7 +61,7 @@ Aşağıdaki dosya ve klasörler, Blazor şablonundan oluşturulan Blazor bir uy
 
 * *App. razor* &ndash; <xref:Microsoft.AspNetCore.Components.Routing.Router> bileşenini kullanarak istemci tarafı yönlendirmeyi ayarlayan uygulamanın kök bileşenidir. `Router` bileşeni tarayıcı gezintisini karşılar ve istenen adresle eşleşen sayfayı işler.
 
-* *Sayfalar* klasörü &ndash; Blazor uygulamayı oluşturan yönlendirilebilir bileşenleri/sayfaları ( *. Razor*) içerir. Her sayfanın yolu [@page](xref:mvc/views/razor#page) yönergesi kullanılarak belirtilir. Şablon aşağıdaki bileşenleri içerir:
+* *Sayfalar* klasörü &ndash; Blazor uygulamayı oluşturan yönlendirilebilir bileşenleri/sayfaları ( *. Razor*) içerir. Her sayfanın yolu [`@page`](xref:mvc/views/razor#page) yönergesi kullanılarak belirtilir. Şablon aşağıdaki bileşenleri içerir:
   * `Index` (*Index. Razor*) &ndash; giriş sayfasını uygular.
   * `Counter` (*Counter. Razor*) &ndash; sayaç sayfasını uygular.
   * uygulamada işlenmeyen bir özel durum oluştuğunda `Error` (yalnızca*hata. Razor*, Blazor sunucu uygulaması) &ndash;.
@@ -71,7 +71,7 @@ Aşağıdaki dosya ve klasörler, Blazor şablonundan oluşturulan Blazor bir uy
   * `MainLayout` (*mainlayout. Razor*) uygulamanın düzen bileşeni &ndash;.
   * `NavMenu` (*Navmenu. Razor*) &ndash; kenar çubuğu gezintisini uygular. Diğer Razor bileşenlerine yönelik gezinti bağlantılarını işleyen [navlink bileşenini](xref:blazor/routing#navlink-component) (<xref:Microsoft.AspNetCore.Components.Routing.NavLink>) içerir. `NavLink` bileşeni, bileşeni yüklendiği zaman otomatik olarak seçili durumu gösterir ve bu, kullanıcının hangi bileşenin görüntülenmekte olduğunu anlamasına yardımcı olur.
 
-* *_Imports. razor* &ndash;, uygulamanın bileşenlerine ( *. Razor*) dahil edilecek, ad alanları için [@using](xref:mvc/views/razor#using) yönergeleri gibi ortak Razor yönergelerini içerir.
+* *_Imports. razor* &ndash;, uygulamanın bileşenlerine ( *. Razor*) dahil edilecek, ad alanları için [`@using`](xref:mvc/views/razor#using) yönergeleri gibi ortak Razor yönergelerini içerir.
 
 * *Veri* klasörü (Blazor sunucusu) &ndash;, uygulamanın `FetchData` bileşene örnek Hava durumu verileri sağlayan `WeatherForecastService` `WeatherForecast` sınıfını ve uygulamasını içerir.
 

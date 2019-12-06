@@ -4,20 +4,20 @@ author: rick-anderson
 description: ASP.NET Core ' de belleğin nasıl yönetildiğini ve çöp toplayıcı 'nın (GC) nasıl çalıştığını öğrenin.
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/05/2019
+ms.date: 12/05/2019
 uid: performance/memory
-ms.openlocfilehash: 4c25c069aa2a6088c0549d786ecdd487ab7b9ea5
-ms.sourcegitcommit: 4818385c3cfe0805e15138a2c1785b62deeaab90
+ms.openlocfilehash: 85e34c9faa31a1020a4200eb99003455ca435ec3
+ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73896939"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74880943"
 ---
 # <a name="memory-management-and-garbage-collection-gc-in-aspnet-core"></a>ASP.NET Core 'de bellek yönetimi ve çöp toplama (GC)
 
 [Sébastien Ros](https://github.com/sebastienros) ve [Rick Anderson](https://twitter.com/RickAndMSFT) tarafından
 
-Bellek yönetimi, .NET gibi yönetilen bir çerçevede bile karmaşıktır. Bellek sorunlarını analiz etmek ve anlamak zor olabilir. Bu makale:
+Bellek yönetimi, .NET gibi yönetilen bir çerçevede bile karmaşıktır. Bellek sorunlarını analiz etmek ve anlamak zor olabilir. Bu makalede:
 
 * , Çok fazla *bellek sızıntısı* ve *GC çalışmasız* sorunlar tarafından tetiklendi. Bu sorunların çoğu, bellek tüketiminin .NET Core 'da nasıl çalıştığını Anlamamasından veya nasıl ölçüleceğini anlayamadığında oluşur.
 * Sorunlu bellek kullanımını gösterir ve alternatif yaklaşımlar önerir.
@@ -171,7 +171,7 @@ public ActionResult<string> GetStaticString()
 }
 ```
 
-Önceki kod:
+Yukarıdaki kod:
 
 * Tipik bir bellek sızıntısı örneğidir.
 * Sık yapılan çağrılar sayesinde, işlem bir `OutOfMemory` özel durumuyla kilitlenene kadar uygulama belleğinin artmasına neden olur.
@@ -192,7 +192,7 @@ Bazı .NET Core nesneleri yerel belleğe bağımlıdır. Yerel bellek GC tarafı
 
 .NET, geliştiricilerin yerel bellek yayınlamasına izin vermek için <xref:System.IDisposable> arabirimi sağlar. <xref:System.IDisposable.Dispose*> çağrılmasa bile, [Sonlandırıcı](/dotnet/csharp/programming-guide/classes-and-structs/destructors) çalıştığında doğru uygulanmış sınıflar çağrı `Dispose`.
 
-Aşağıdaki kodu göz önünde bulundurun:
+Aşağıdaki kodu inceleyin:
 
 ```csharp
 [HttpGet("fileprovider")]
@@ -274,7 +274,7 @@ Aşağıdaki bağlantılarda, LOH sınırı altına nesneleri tutma ASP.NET Core
 - [ResponseCaching/Streams/Streammutilities. cs](https://github.com/aspnet/AspNetCore/blob/v3.0.0/src/Middleware/ResponseCaching/src/Streams/StreamUtilities.cs#L16)
 - [ResponseCaching/MemoryResponseCache. cs](https://github.com/aspnet/ResponseCaching/blob/c1cb7576a0b86e32aec990c22df29c780af29ca5/src/Microsoft.AspNetCore.ResponseCaching/Internal/MemoryResponseCache.cs#L55)
 
-Daha fazla bilgi için bkz.:
+Daha fazla bilgi için bkz.
 
 * [Büyük nesne yığını kapsanmamış](https://devblogs.microsoft.com/dotnet/large-object-heap-uncovered-from-an-old-msdn-article/)
 * [Büyük nesne yığını](/dotnet/standard/garbage-collection/large-object-heap)
@@ -373,7 +373,7 @@ Aşağıdaki grafik, önceki API 'nin orta yük ile çağrılmasını gösterir:
 
 Yukarıdaki grafikte, nesil 0 toplamaları yaklaşık olarak saniyede bir kez gerçekleşir.
 
-Yukarıdaki kod, [`ArrayPool<T>`](xref:System.Buffers.ArrayPool`1)kullanılarak `byte` arabelleği havuzlayarak iyileştirilebilir. Bir statik örnek istekler arasında yeniden kullanılır.
+Yukarıdaki kod, [Arraypool\<t >](xref:System.Buffers.ArrayPool`1)kullanarak `byte` arabelleğini havuza alarak iyileştirilebilir. Bir statik örnek istekler arasında yeniden kullanılır.
 
 Bu yaklaşımla farklı olan özellikler, havuza alınmış bir nesnenin API 'den döndürüldüğü şeydir. Bunun anlamı:
 

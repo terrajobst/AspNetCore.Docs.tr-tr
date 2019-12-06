@@ -1,143 +1,143 @@
 ---
-title: ASP.NET Core MVC görünümleri
+title: ASP.NET Core MVC 'deki görünümler
 author: ardalis
-description: Uygulamanın verilerini sunumu ve kullanıcı etkileşimine karşılık olarak ASP.NET Core MVC görünümleri nasıl işleneceğini öğrenin.
+description: Görünümlerin ASP.NET Core MVC 'de uygulamanın veri sunumunu ve kullanıcı etkileşimini nasıl işleyeceğinizi öğrenin.
 ms.author: riande
-ms.date: 04/03/2019
+ms.date: 12/05/2019
 uid: mvc/views/overview
-ms.openlocfilehash: 5e56c6bb18cb5d2389c11eb3e4aa9869228da47d
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: f636908ee36d0af6e92875876240cb8712dd2ccc
+ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64903407"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74881031"
 ---
-# <a name="views-in-aspnet-core-mvc"></a>ASP.NET Core MVC görünümleri
+# <a name="views-in-aspnet-core-mvc"></a>ASP.NET Core MVC 'deki görünümler
 
-Tarafından [Steve Smith](https://ardalis.com/) ve [Luke Latham](https://github.com/guardrex)
+[Steve Smith](https://ardalis.com/) ve [Luke Latham](https://github.com/guardrex) tarafından
 
-Bu belgede, ASP.NET Core MVC uygulamalarında kullanılan görünümler açıklanmaktadır. Razor sayfaları hakkında daha fazla bilgi için bkz: [Razor sayfaları giriş](xref:razor-pages/index).
+Bu belgede ASP.NET Core MVC uygulamalarında kullanılan görünümler açıklanmaktadır. Razor Pages hakkında bilgi için bkz. [Razor Pages giriş](xref:razor-pages/index).
 
-Model-View-Controller (MVC) düzeninde *görünümü* uygulamanın verilerini sunumu ve kullanıcı etkileşimi işler. Bir görünümü HTML şablonudur ile katıştırılmış [Razor işaretlemesi](xref:mvc/views/razor). Razor işaretlemesi istemciye gönderilen bir Web sayfası oluşturmak için bir HTML biçimlendirmesi ile etkileşime giren kodudur.
+Model-View-Controller (MVC) modelinde, *Görünüm* uygulamanın veri sunumunu ve kullanıcı etkileşimini işler. Görünüm, gömülü [Razor işaretlemesi](xref:mvc/views/razor)IÇEREN bir HTML şablonudur. Razor işaretleme, istemciye gönderilen bir Web sayfası oluşturmak için HTML işaretlemesi ile etkileşen koddur.
 
-ASP.NET Core MVC görünümleri olan *.cshtml* dosyaları kullanan [C# programlama dilinin](/dotnet/csharp/) Razor biçimlendirme. Genellikle, her uygulama için klasörleri dosyalarını görüntüle gruplanmıştır [denetleyicileri](xref:mvc/controllers/actions). Klasörleri depolanan bir *görünümleri* uygulamanın kök klasörü:
+ASP.NET Core MVC 'de, görünümler Razor biçimlendirmesinde [ C# programlama dilini](/dotnet/csharp/) kullanan *. cshtml* dosyalarıdır. Genellikle, görünüm dosyaları uygulama [denetleyicilerinin](xref:mvc/controllers/actions)her biri için adlandırılmış klasörler halinde gruplandırılır. Klasörler, uygulamanın kökündeki bir *Görünümler* klasöründe depolanır:
 
-![Visual Studio Çözüm Gezgini görünümlerini klasörü giriş klasörünün About.cshtml Contact.cshtml ve Index.cshtml dosyaları göstermek için açık açıktır](overview/_static/views_solution_explorer.png)
+![Visual Studio Çözüm Gezgini Görünüm klasörü,. cshtml, Contact. cshtml ve Index. cshtml dosyalarını göstermek için açık giriş klasörüyle açıktır](overview/_static/views_solution_explorer.png)
 
-*Giriş* denetleyici tarafından temsil edilen bir *giriş* klasörün içine *görünümleri* klasör. *Giriş* klasörde görünümleri *hakkında*, *kişi*, ve *dizin* (giriş) Web sayfaları. Bir kullanıcı istediğinde bu üç Web sayfaları, denetleyici eylemleri birini *giriş* denetleyicisini belirleyin, üç görünüm oluşturun ve kullanıcıya bir Web sayfasını döndürmek için kullanılır.
+*Ana* denetleyici, *Görünümler* klasörünün içindeki bir *giriş* klasörüyle temsil edilir. *Giriş* klasörü, *hakkında*, *iletişim*ve *Dizin* (giriş sayfası) Web sayfalarının görünümlerini içerir. Bir Kullanıcı bu üç Web sayfasından birini istediğinde, *ana* denetleyicideki denetleyici eylemleri, Kullanıcı için bir Web sayfası oluşturmak ve döndürmek için kullanılan üç görünümden hangisinin kullanıldığını tespit ediyor.
 
-Kullanım [düzenleri](xref:mvc/views/layout) tutarlı Web Bölümleri sağlamak ve kod tekrarından azaltın. Düzenleri, genellikle üst bilgi, gezinti ve menü öğeleri ve alt bilgi içerir. Genellikle üstbilgi ve altbilgi Demirbaş biçimlendirme çok sayıda meta veri öğeleri ve betik, stil ve varlıklar bağlantılar içerir. Düzenleri, bu ortak biçimlendirme, görünümlerde önlemenize yardımcı.
+Tutarlı Web sayfası bölümleri sağlamak ve kod tekrarlamayı azaltmak için [düzenleri](xref:mvc/views/layout) kullanın. Düzenler genellikle üstbilgiyi, gezinti ve menü öğelerini ve alt bilgisini içerir. Üst bilgi ve altbilgi genellikle birçok meta veri öğesi için ortak biçimlendirme ve betik ve stil varlıklarına bağlantılar içerir. Düzenler, görünümlerinizde bu ortak biçimlendirmeyi önlemenize yardımcı olur.
 
-[Kısmi görünümler](xref:mvc/views/partial) görünümleri yeniden kullanılabilir bölümlerini yöneterek kod yinelemesinden azaltın. Örneğin, kısmi görünüm, birden fazla görünümlerde bir blog Web sitesinde bir yazar biyografisi yararlıdır. Yazar biyografisi normal görünüm içeriği ve Web sayfasının içeriğini üretmek için yürütmek için kod gerekmez. Yazar biyografisi içeriği görünüm tarafından tek başına, model bağlama için kullanılabilir olduğundan kısmi bir görünümü kullanarak bu içerik türü için idealdir.
+[Kısmi görünümler](xref:mvc/views/partial) , görünümlerin yeniden kullanılabilir parçalarını yöneterek kod yinelemeyi azaltır. Örneğin, kısmi bir görünüm çeşitli görünümlerde görüntülenen bir blog web sitesinde yazar biyografı için yararlıdır. Yazar biyografları sıradan görünüm içeriğine sahiptir ve Web sayfasının içeriğini üretmek için kodun yürütülmesi gerekmez. Yazar biyografları, tek başına model bağlama tarafından kullanılabilir, bu nedenle bu içerik türü için kısmi bir görünüm kullanmak idealdir.
 
-[Görüntüleme bileşenleri](xref:mvc/views/view-components) tekrarlanan kodları azaltabilir size izin vermesi için kısmi benzer görünümleridir, ancak bunlar Web sayfasını işlemek için sunucuda çalıştırmak için kod gerektiren görünümü içeriğini uygun. Görünüm bileşenleri işlenmiş içeriği gerektiren alışveriş sepeti bir Web sitesi için veritabanı etkileşimi gibi olduğunda yararlıdır. Görünüm bileşenleri Web sayfası çıktı oluşturmak için model bağlama için sınırlı değildir.
+[Görünüm bileşenleri](xref:mvc/views/view-components) , yinelenen kodu azaltmanıza izin veren kısmi görünümlere benzerdir, ancak Web sayfasını işlemek için kodun sunucuda çalıştırılmasını gerektiren içeriği görüntüleme için uygundur. Görüntüleme bileşenleri, işlenen içerik bir Web sitesi alışveriş sepeti gibi veritabanı etkileşimi gerektirdiğinde yararlıdır. Web sayfası çıkışı oluşturmak için, görünüm bileşenlerini model bağlama ile sınırlı değildir.
 
 ## <a name="benefits-of-using-views"></a>Görünümleri kullanmanın avantajları
 
-Görünümleri yardımcı kurmak için [görev ayrımı nettir](/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#separation-of-concerns) uygulamanın diğer bölümlerden kullanıcı arabirimi biçimlendirme ayırarak bir MVC uygulaması içinde. SoC tasarım aşağıdaki uygulamanızı çeşitli avantajlar sağlayan modüler, yapar:
+Görünümler, Kullanıcı arabirimi işaretlemesini uygulamanın diğer bölümlerinden ayırarak bir MVC uygulamasında [kaygıların ayrılmasını](/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#separation-of-concerns) sağlamaya yardımcı olur. Aşağıdaki SoC tasarımı, uygulamanızın modüler olmasını sağlayarak çeşitli avantajlar sağlar:
 
-* Uygulama, daha iyi organize çünkü korumak daha kolay olur. Görünümler, genel olarak app özelliği tarafından gruplandırılır. Bu, bir özellik üzerinde çalışırken ilgili görünümleri bulmayı kolaylaştırır.
-* Uygulama bölümleri birbirine sıkı şekilde bağlı. Derleme ve iş mantığı ve verileri erişim bileşenleri ayrı olarak uygulamanın görünümleri güncelleştirin. Uygulama görünümlerini mutlaka uygulamanın diğer bölümlerini güncelleştirmek zorunda kalmadan değiştirebilirsiniz.
-* Uygulama kullanıcı arabirimi bölümlerini görünümleri ayrı birim olduğundan test etmek daha kolaydır.
-* Daha iyi düzenleme nedeniyle yanlışlıkla kullanıcı arabirimi bölümlerini tekrarlayacaksınız daha az olasıdır.
+* Daha iyi bir şekilde düzenlendiğinden, uygulamanın bakımını daha kolay hale getirir. Görünümler genellikle uygulama özelliğine göre gruplandırılır. Bu, bir özellik üzerinde çalışırken ilgili görünümleri bulmayı kolaylaştırır.
+* Uygulamanın parçaları gevşek olarak bağlanmış. Uygulamanın görünümlerini iş mantığı ve veri erişim bileşenlerinden ayrı olarak oluşturup güncelleştirebilirsiniz. Uygulamanın diğer bölümlerini güncelleştirmek zorunda kalmadan uygulamanın görünümlerini değiştirebilirsiniz.
+* Görünümler ayrı birimler olduğundan uygulamanın kullanıcı arabirimi parçalarını test etmek daha kolay.
+* Daha iyi bir kuruluş nedeniyle, Kullanıcı arabiriminin bölümlerini yanlışlıkla tekrarlamanız daha az olabilir.
 
-## <a name="creating-a-view"></a>Bir görünümü oluşturma
+## <a name="creating-a-view"></a>Görünüm oluşturma
 
-Bir denetleyiciye özgü görünümler oluşturulur *görünümler / [ControllerName]* klasör. Görünümleri ve denetleyicileri arasında paylaşılan yerleştirildiğinde *görünümler/paylaşılan* klasör. Bir görünüm oluşturmak için yeni bir dosya ekleyin ve ilişkili denetleyici eylemi ile aynı adı verin *.cshtml* dosya uzantısı. Karşılık gelen bir görünüm oluşturmak için *hakkında* eylemde *giriş* denetleyicisi oluşturma bir *About.cshtml* dosyası *görünümler/giriş*klasörü:
+Denetleyiciye özgü görünümler, *Görünümler/[ControllerName]* klasöründe oluşturulur. Denetleyiciler arasında paylaşılan görünümler *Görünümler/paylaşılan* klasörüne yerleştirilir. Bir görünüm oluşturmak için yeni bir dosya ekleyin ve *. cshtml* dosya uzantısıyla ilişkili denetleyici eylemiyle aynı adı verin. *Giriş* denetleyicisindeki *hakkında* eylemine karşılık gelen bir görünüm oluşturmak Için, *Görünümler/giriş* klasöründe bir *About. cshtml* dosyası oluşturun:
 
 [!code-cshtml[](../../common/samples/WebApplication1/Views/Home/About.cshtml)]
 
-*Razor* biçimlendirme ile başlayan `@` simgesi. C# yerleştirerek çalıştırma C# deyimleri kod içinde [Razor kod blokları](xref:mvc/views/razor#razor-code-blocks) küme ayraçları ayarlayın (`{ ... }`). Örneğin, "Hakkında" ataması için bkz: `ViewData["Title"]` yukarıda gösterilen. Değeriyle başvurarak HTML'de değerleri gösterebilen `@` simgesi. İçeriğini görmek `<h2>` ve `<h3>` yukarıdaki öğeler.
+*Razor* biçimlendirmesi `@` simgesiyle başlar. İfadeleri C# , C# [Razor kod blokları](xref:mvc/views/razor#razor-code-blocks) içine kod yerleştirerek küme ayraçları (`{ ... }`) tarafından kapalı olarak ayarlayarak çalıştırın. Örneğin, yukarıda gösterilen `ViewData["Title"]` için "hakkında" atamasını inceleyin. Yalnızca `@` simgesiyle bir değere başvurarak, HTML içindeki değerleri görüntüleyebilirsiniz. Yukarıdaki `<h2>` ve `<h3>` öğelerinin içeriğine bakın.
 
-Yukarıda gösterilen içeriği görüntüleme, kullanıcı tarafından işlenen tüm Web sayfasının yalnızca bir parçası olur. Sayfa düzeninin geri kalan ve görünüm ortak diğer yönleri diğer görünüm dosyalarında belirtilir. Daha fazla bilgi için bkz. [Düzen konu](xref:mvc/views/layout).
+Yukarıda gösterilen görünüm içeriği yalnızca kullanıcıya işlenmiş olan tüm Web sayfasının bir parçasıdır. Sayfanın düzeninin geri kalanı ve görünümün diğer yaygın yönleri diğer görünüm dosyalarında belirtilir. Daha fazla bilgi için [Düzen konusuna](xref:mvc/views/layout)bakın.
 
-## <a name="how-controllers-specify-views"></a>Denetleyicileri görünümlerin nasıl belirtin
+## <a name="how-controllers-specify-views"></a>Denetleyiciler görünümleri nasıl belirler
 
-Görünüm eylemlerine genellikle döndürülür bir [ViewResult](/dotnet/api/microsoft.aspnetcore.mvc.viewresult), bir tür olduğu [actionresult öğesini](/dotnet/api/microsoft.aspnetcore.mvc.actionresult). Eylem yönteminizi oluşturabilir ve dönüş bir `ViewResult` doğrudan, ancak değil, yaygın olarak yapılır. Çoğu denetleyicileri devralınacak beri [denetleyicisi](/dotnet/api/microsoft.aspnetcore.mvc.controller), yalnızca kullandığınız `View` döndürmek için yardımcı yöntem `ViewResult`:
+Görünümler genellikle eylemlerden bir [ActionResult](/dotnet/api/microsoft.aspnetcore.mvc.actionresult)türü olan [ViewResult](/dotnet/api/microsoft.aspnetcore.mvc.viewresult)olarak döndürülür. Eylem yönteminiz doğrudan bir `ViewResult` oluşturup döndürebilir, ancak yaygın olarak yapılmaz. Çoğu [Denetleyici denetleyicisinden](/dotnet/api/microsoft.aspnetcore.mvc.controller)devraldığı için, `ViewResult`döndürmek üzere `View` yardımcı yöntemini kullanmanız yeterlidir:
 
 *HomeController.cs*
 
 [!code-csharp[](../../common/samples/WebApplication1/Controllers/HomeController.cs?highlight=5&range=16-21)]
 
-Bu eylem geri döndüğünde, *About.cshtml* son bölümde gösterilen görünümü, aşağıdaki Web sayfası işlenir:
+Bu eylem döndüğünde, son bölümde gösterilen *hakkında. cshtml* görünümü aşağıdaki Web sayfası olarak işlenir:
 
-![Edge tarayıcısında işlenen sayfası hakkında](overview/_static/about-page.png)
+![Edge tarayıcısında işlenen sayfa hakkında](overview/_static/about-page.png)
 
-`View` Yardımcı yöntem olan çeşitli aşırı yükler. İsteğe bağlı olarak belirtebilirsiniz:
+`View` Yardımcısı yönteminde birkaç aşırı yükleme vardır. İsteğe bağlı olarak şunları belirtebilirsiniz:
 
-* Döndürülecek açık bir görünümü:
+* Döndürülecek açık bir görünüm:
 
   ```csharp
   return View("Orders");
   ```
 
-* A [modeli](xref:mvc/models/model-binding) görünüme iletmek için:
+* Görünüme geçirilecek bir [model](xref:mvc/models/model-binding) :
 
   ```csharp
   return View(Orders);
   ```
 
-* Bir görünümü ve bir model için:
+* Hem görünüm hem de model:
 
   ```csharp
   return View("Orders", Orders);
   ```
 
-### <a name="view-discovery"></a>Görünüm bulma
+### <a name="view-discovery"></a>Bulmayı görüntüle
 
-Görünüm bir eylemi geri döndüğünde, adlandırılan bir işlem *görünümü bulma* gerçekleşir. Bu işlem, hangi görünüm dosyası görünüm adını temel alarak kullanıldığını belirler. 
+Bir eylem bir görünüm döndürdüğünde, *görünüm bulma* adlı bir işlem gerçekleşir. Bu işlem, görünüm adına göre hangi görünüm dosyasının kullanıldığını belirler. 
 
-Varsayılan davranışını `View` yöntemi (`return View();`) içinden çağırıldığında eylem yöntemi olarak aynı ada sahip bir görünüm getirmektir. Örneğin, *hakkında* `ActionResult` denetleyicinin yöntemi adı adlı bir görünüm dosyayı aramak için kullanılan *About.cshtml*. İlk olarak, çalışma zamanı arar *görünümler / [ControllerName]* klasör görünümü. Eşleşen görünüm yok bulamazsa, aradığı *paylaşılan* klasör görünümü.
+`View` yönteminin varsayılan davranışı (`return View();`), çağrılan eylem yöntemiyle aynı ada sahip bir görünüm döndürmemelidir. Örneğin, denetleyicinin yaklaşık *`ActionResult` Yöntem* adı *. cshtml*adlı bir görünüm dosyasını aramak için kullanılır. İlk olarak, çalışma zamanı görünümün *Görünümler/[ControllerName]* klasörüne bakar. Burada eşleşen bir görünüm bulamazsa, görünümün *paylaşılan* klasörünü arar.
 
-Dolaylı olarak dönüş yaparsa farketmez `ViewResult` ile `return View();` veya Görünüm adına açıkça geçirebilirsiniz `View` yöntemiyle `return View("<ViewName>");`. Her iki durumda da Görünüm bulma eşleşen bir görünüm dosyası şu sırayla arar:
+`ViewResult` örtülü olarak `return View();` döndürmeniz ya da görünüm adını `return View("<ViewName>");`ile `View` yöntemine açıkça geçirmeniz önemlidir. Her iki durumda da, eşleşen bir görünüm dosyası için bulma aramalarını şu sırayla görüntüleyin:
 
-   1. *Görünümler /\[ControllerName] /\[Görünümadı] .cshtml*
-   1. *Görünümler/paylaşılan/\[Görünümadı] .cshtml*
+   1. *Görünümler/\[ControllerName]/\[ViewName]. cshtml*
+   1. *Görünümler/paylaşılan/\[ViewName]. cshtml*
 
-Bir görünümü dosya yolu yerine bir görünüm adı sağlanabilir. Uygulama kökü başlatılıyor mutlak yol kullanıyorsanız (isteğe bağlı olarak başlayarak "/" veya "~ /"), *.cshtml* uzantı belirtilmelidir:
+Görünüm adı yerine bir görünüm dosyası yolu sağlanıyor. Uygulama kökünde başlayan mutlak bir yol kullanılıyorsa (isteğe bağlı olarak "/" veya "~/" ile başlayan), *. cshtml* uzantısı belirtilmelidir:
 
 ```csharp
 return View("Views/Home/About.cshtml");
 ```
 
-Görünümler farklı dizinlerde belirtmek için göreli bir yol kullanabilirsiniz *.cshtml* uzantısı. İçinde `HomeController`, geri dönebilirsiniz *dizin* görünümünü, *Yönet* göreli yolu içeren görünümler:
+Ayrıca, *. cshtml* uzantısı olmadan farklı dizinlerdeki görünümleri belirtmek için göreli bir yol da kullanabilirsiniz. `HomeController`içinde, *Yönetim* görünümlerinizin *Dizin* görünümünü göreli bir yol ile döndürebilirsiniz:
 
 ```csharp
 return View("../Manage/Index");
 ```
 
-Benzer şekilde, geçerli denetleyici özgü dizinle belirtebilir ". /" ön eki:
+Benzer şekilde, "./" önekiyle geçerli denetleyiciye özgü dizini belirtebilirsiniz:
 
 ```csharp
 return View("./About");
 ```
 
-[Kısmi görünümler](xref:mvc/views/partial) ve [görüntülemek bileşenleri](xref:mvc/views/view-components) benzer (ancak aynı değildir) bulma mekanizmasını kullanın.
+[Kısmi görünümler](xref:mvc/views/partial) ve [Görünüm bileşenleri](xref:mvc/views/view-components) benzer (ancak aynı) bulma mekanizmalarını kullanır.
 
-Nasıl görünümleri kullanarak özel bir uygulama içinde bulunan varsayılan kural özelleştirebilirsiniz [IViewLocationExpander](/dotnet/api/microsoft.aspnetcore.mvc.razor.iviewlocationexpander).
+Özel bir [ıviewlocationgenişleticisi](/dotnet/api/microsoft.aspnetcore.mvc.razor.iviewlocationexpander)kullanarak, görünümler uygulama içinde nasıl konumlandırılabilir varsayılan kuralı özelleştirebilirsiniz.
 
-Görünüm bulma görünümü dosyaları dosya adına göre bulma üzerinde kullanır. Temeldeki dosya sistemi büyük/küçük harfe duyarlı ise, görünüm adları büyük olasılıkla büyük/küçük harfe duyarlıdır. İşletim sistemleri arasında uyumluluk için denetleyici ve eylem adları ve ilişkili görünüme klasörleri ve dosya adları arasında harf. Bulunamayan bir görünüm dosyası büyük küçük harfe duyarlı dosya sistemi ile çalışırken bir hatayla karşılaşırsanız, büyük/küçük harf gerçek görünümü dosya adı ve istenen görünüm dosyası arasında eşleştiğini doğrulayın.
+Görünüm bulma, dosya adına göre görünüm dosyalarını bulmayı kullanır. Temeldeki dosya sistemi büyük/küçük harfe duyarlı ise, görünüm adları büyük olasılıkla büyük küçük harfe duyarlıdır. İşletim sistemleri arasında uyumluluk için, denetleyici ve eylem adları ile ilişkili görünüm klasörleri ve dosya adları arasındaki büyük/küçük harfe eşleştirin. Büyük/küçük harfe duyarlı dosya sistemiyle çalışırken bir görünüm dosyasının bulunamadığını belirten bir hatayla karşılaşırsanız, istenen görünüm dosyası ile gerçek görünüm dosyası adı arasında büyük/küçük harf eşleştiğini doğrulayın.
 
-Denetleyicileri, işlemler ve Bakım ve açıklık için görünümler arasındaki ilişkiyi yansıtmak kendi görünümlerinizi dosya yapısını düzenleme en iyi izleyin.
+Görünümlerinizin dosya yapısını, bakım ve açıklık için denetleyiciler, Eylemler ve görünümler arasındaki ilişkileri yansıtacak şekilde düzenleme konusunda en iyi yöntemi izleyin.
 
-## <a name="passing-data-to-views"></a>Görünüm veri geçirme
+## <a name="passing-data-to-views"></a>Verileri görünümlere geçirme
 
-Veri çeşitli yaklaşımlar kullanılarak geçer:
+Çeşitli yaklaşımlar kullanarak verileri görünümlere geçirin:
 
-* Veri türü kesin: viewmodel
-* Zayıf sahipli türü belirtilmiş veri
+* Kesin türü belirtilmiş veri: ViewModel
+* Zayıf yazılmış veriler
   * `ViewData` (`ViewDataAttribute`)
   * `ViewBag`
 
-### <a name="strongly-typed-data-viewmodel"></a>Kesin türü belirtilmiş veri (viewmodel)
+### <a name="strongly-typed-data-viewmodel"></a>Kesin tür belirtilmiş veriler (ViewModel)
 
-Belirtmek için en güçlü yaklaşımdır bir [modeli](xref:mvc/models/model-binding) görünümünde türü. Bu model, genellikle olarak adlandırılır bir *viewmodel*. Eylem görünümü viewmodel türün bir örneğini geçirin.
+En güçlü yaklaşım, görünümde bir [model](xref:mvc/models/model-binding) türü belirtmektir. Bu model genellikle *ViewModel*olarak adlandırılır. ViewModel türünün bir örneğini eylemden görünüme geçirirsiniz.
 
-Bir görünüme veri iletmek için bir viewmodel kullanarak yararlanmak görünüm sağlayan *güçlü* tür denetimi. *Güçlü yazım, yazım* (veya *kesin tür belirtilmiş*) her değişken ve sabit açıkça tanımlanmış bir tür olduğu anlamına gelir (örneğin, `string`, `int`, veya `DateTime`). Bir görünümde kullanılan türler geçerliliğini derleme sırasında denetlenir.
+Görünümü bir görünüme aktarmak için ViewModel kullanmak, görünümün *tanımlayıcı* tür denetlemesinin avantajlarından yararlanmasını sağlar. *Kesin yazma* (veya *türü kesin belirlenmiş*), her değişken ve sabitin açıkça tanımlanmış bir tür (örneğin, `string`, `int`veya `DateTime`) olduğu anlamına gelir. Bir görünümde kullanılan türlerin geçerliliği derleme zamanında denetlenir.
 
-[Visual Studio](https://visualstudio.microsoft.com) ve [Visual Studio Code](https://code.visualstudio.com/) denilen bir özelliği kullanarak türü kesin belirlenmiş sınıf üyelerini listeleyin [IntelliSense](/visualstudio/ide/using-intellisense). Bir viewmodel özelliklerini görmek istediğinizde, bir nokta viewmodel değişken adını yazın (`.`). Bu kod, daha az hatayla daha hızlı yazmanıza yardımcı olur.
+[Visual Studio](https://visualstudio.microsoft.com) ve [Visual Studio Code](https://code.visualstudio.com/) listesi [IntelliSense](/visualstudio/ide/using-intellisense)adlı bir özellik kullanılarak türü kesin belirlenmiş sınıf üyeleridir. ViewModel özelliklerini görmek istediğinizde, ViewModel için değişken adını ve ardından bir nokta (`.`) yazın. Bu, daha az hata vererek kodu daha hızlı yazmanıza yardımcı olur.
 
-Kullanarak bir model belirtin `@model` yönergesi. Modelinizle `@Model`:
+`@model` yönergesini kullanarak bir model belirtin. Modeli `@Model`ile birlikte kullanın:
 
 ```cshtml
 @model WebApplication1.ViewModels.Address
@@ -150,7 +150,7 @@ Kullanarak bir model belirtin `@model` yönergesi. Modelinizle `@Model`:
 </address>
 ```
 
-Modeli görünüme sağlamak için denetleyici bu parametre olarak geçirir:
+Modeli görünüme sağlamak için, denetleyici bu parametreyi bir parametre olarak geçirir:
 
 ```csharp
 public IActionResult Contact()
@@ -170,7 +170,7 @@ public IActionResult Contact()
 }
 ```
 
-Bir görünüm sağlayabilir model türleri ilgili bir kısıtlama yoktur. Düz eski CLR nesnesi (POCO) viewmodel'lar tanımlanan çok az kayıpla veya hiç davranışı ile (yöntem) kullanmanızı öneririz. Genellikle, viewmodel sınıfları ya da depolanan *modelleri* klasör veya ayrı bir *Viewmodel'lar* uygulamanın kök klasör. *Adresi* yukarıdaki örnekte kullanılan viewmodel olan adındaki bir dosyada depolanan bir POCO viewmodel *Address.cs*:
+Bir görünüme sağlayabilmeniz için model türlerinde hiçbir kısıtlama yoktur. Basit eski CLR nesnesi (POCO) viewmodeller için çok az veya hiç davranış (Yöntem) tanımlanmış olarak kullanılması önerilir. Genellikle ViewModel sınıfları, uygulamanın kökündeki *modeller* klasöründe veya ayrı bir *viewmodeller* klasöründe depolanır. Yukarıdaki örnekte kullanılan *Adres* viewmodel, *Address.cs*adlı bir dosyada depolanan bir poco ViewModel modelidir:
 
 ```csharp
 namespace WebApplication1.ViewModels
@@ -186,33 +186,33 @@ namespace WebApplication1.ViewModels
 }
 ```
 
-Hiçbir şey viewmodel türleri ve iş modeli türleriniz için aynı sınıf kullanmasını önler. Ancak, ayrı modelleri kullanarak görünümlerinizde uygulamanızın bölümlerini erişim iş mantığı ve verileri bağımsız olarak değiştirmenizi sağlar. Modelleri ve viewmodel'lar ayrımı sunduğu güvenlik açısından faydalı modelleri kullandığınızda [model bağlama](xref:mvc/models/model-binding) ve [doğrulama](xref:mvc/models/validation) uygulamaya kullanıcı tarafından gönderilen veriler için.
+Hiçbir şey, hem ViewModel türleriniz hem de iş modeli türleriniz için aynı sınıfları kullanmanızı önler. Ancak, ayrı modeller kullanmak görünümlerinizin, uygulamanızın iş mantığı ve veri erişimi bölümlerinden bağımsız olarak değişiklik yapmasına izin verir. Modeller ve ViewModel ayrımı, modeller Kullanıcı tarafından uygulamaya gönderilen veriler için [model bağlama](xref:mvc/models/model-binding) ve [doğrulama](xref:mvc/models/validation) kullanırken de güvenlik avantajları sağlar.
 
 <a name="VD_VB"></a>
 
-### <a name="weakly-typed-data-viewdata-viewdata-attribute-and-viewbag"></a>Veri'zayıf yazılmış (ViewData, ViewData özniteliği ve ViewBag)
+### <a name="weakly-typed-data-viewdata-viewdata-attribute-and-viewbag"></a>Zayıf yazılmış veriler (ViewData, ViewData özniteliği ve ViewBag)
 
-`ViewBag` *Razor sayfaları içinde kullanılamaz.*
+`ViewBag` *Razor Pages kullanılamaz.*
 
-Kesin türü belirtilmiş görünümler yanı sıra görünümleri erişimi bir *zayıf yazılmış* (olarak da adlandırılan *gevşek yazılmış*) veri koleksiyonu. Tanımlayıcı türlerinin aksine *zayıf türlerine* (veya *kaybetmiş türleri*) kullandığınız veri türünü açıkça bildirmeyin anlamına gelir. Küçük miktarlarda veri denetleyicilerine ve görünümleri içine ve dışına geçirmek için zayıf sahipli türü belirtilmiş veri koleksiyonunu kullanabilirsiniz.
+Türü kesin belirlenmiş görünümlere ek olarak, görünümler, verilerin bir *zayıf türü* olan ( *gevşek olarak yazılmış*) bir veri koleksiyonu erişimi vardır. Güçlü türlerin aksine, *zayıf türler* (veya *gevşek türler*), kullanmakta olduğunuz veri türünü açıkça bildirmeyeceğiniz anlamına gelir. Denetleyicilerde ve görünümlerde küçük miktarlarda veri iletmek için zayıf yazılmış verilerin toplanmasını kullanabilirsiniz.
 
-| Arasında veri geçirme bir...                        | Örnek                                                                        |
+| Verileri bir... arasında geçirme                        | Örnek                                                                        |
 | ------------------------------------------------- | ------------------------------------------------------------------------------ |
-| Denetleyici ve bir görünüm                             | Bir açılan listedeki verilerle dolduruluyor.                                          |
-| Görünüm ve [görünümü](xref:mvc/views/layout)   | Ayarı  **\<başlığı >** düzeni görünümünde bir görünüm dosyasından öğe içeriği.  |
-| [Kısmi Görünüm](xref:mvc/views/partial) ve bir görünüm | Kullanıcının istenen Web sayfasına göre verileri görüntüleyen bir pencere öğesi.      |
+| Denetleyici ve görünüm                             | Açılan listeyi verilerle doldurma.                                          |
+| Görünüm ve [Düzen görünümü](xref:mvc/views/layout)   | **\<başlığını** bir görünüm dosyasındaki düzen görünümünde > öğe içeriğini ayarlama.  |
+| [Kısmi görünüm](xref:mvc/views/partial) ve görünüm | Kullanıcı tarafından istenen web sayfasını temel alan verileri görüntüleyen pencere öğesi.      |
 
-Bu koleksiyonu aracılığıyla başvurulabilir `ViewData` veya `ViewBag` denetleyicileri ve görünümleri özellikleri. `ViewData` Özelliktir zayıf yazılan nesnelerin bir sözlük. `ViewBag` Özelliği çevresinde bir sarmalayıcı `ViewData` Dinamik özellikler için temel sağlayan `ViewData` koleksiyonu. Not: Anahtar aramaları için hem de büyük küçük harf duyarsız `ViewData` ve `ViewBag`.
+Bu koleksiyona, denetleyiciler ve görünümlerde `ViewData` ya da `ViewBag` özellikleri aracılığıyla başvurulabilir. `ViewData` özelliği, Zayıf yazılmış nesnelerin bir sözlüğüdür. `ViewBag` özelliği, temel `ViewData` koleksiyonu için dinamik özellikler sağlayan `ViewData` çevresindeki bir sarmalayıcıdır. Note: anahtar aramaları hem `ViewData` hem de `ViewBag`için büyük/küçük harfe duyarsızdır.
 
-`ViewData` ve `ViewBag` çalışma zamanında dinamik olarak çözümlenir. Derleme zamanı tür denetimini sundukları yoksa, her ikisi de genellikle daha bir viewmodel kullanmaktan hataya olduğundan. Bu nedenle, en düşük düzeyde ya da hiç kullanmak bazı geliştiriciler tercih `ViewData` ve `ViewBag`.
+`ViewData` ve `ViewBag`, çalışma zamanında dinamik olarak çözümlenir. Derleme zamanı tür denetimi sunmadığı için, her ikisi de bir ViewModel kullanmaktan daha fazla hataya açıktır. Bu nedenle, bazı geliştiriciler `ViewData` ve `ViewBag`en düşük düzeyde bir süre önce kullanmaz veya hiç kullanmayın.
 
 <a name="VD"></a>
 
 **ViewData**
 
-`ViewData` olan bir [ViewDataDictionary](/dotnet/api/microsoft.aspnetcore.mvc.viewfeatures.viewdatadictionary) aracılığıyla erişilen nesne `string` anahtarları. Dize verileri depolanır ve bir atama gerek kalmadan doğrudan kullanılır, ancak diğer dönüştürmelisiniz `ViewData` bunları ayıkladığınızda değerleri belirli türler için nesne. Kullanabileceğiniz `ViewData` denetleyicilerinden, görünümlere ve görünümler içinde veri iletmek için [kısmi görünümler](xref:mvc/views/partial) ve [düzenleri](xref:mvc/views/layout).
+`ViewData`, `string` anahtarlar aracılığıyla erişilen bir [ViewDataDictionary](/dotnet/api/microsoft.aspnetcore.mvc.viewfeatures.viewdatadictionary) nesnesidir. Dize verileri doğrudan bir dönüştürme gerektirmeden depolanabilir ve kullanılabilir, ancak diğer `ViewData` nesne değerlerini ayıkladığınızda belirli türlere atamalısınız. `ViewData` kullanarak, [kısmen görünümler](xref:mvc/views/partial) ve [düzenler](xref:mvc/views/layout)dahil olmak üzere denetleyicilerden görünümlere ve görünümlere veri geçirebilirsiniz.
 
-Bir karşılama ve kullanarak bir adres ilişkin değerleri ayarlayan bir örnek verilmiştir `ViewData` doğan:
+Aşağıda, bir bir eylem içinde `ViewData` kullanarak bir selamlama ve adres değerlerini ayarlayan bir örnek verilmiştir:
 
 ```csharp
 public IActionResult SomeAction()
@@ -231,7 +231,7 @@ public IActionResult SomeAction()
 }
 ```
 
-Bir görünümdeki veriler ile çalışır:
+Bir görünümdeki verilerle çalışın:
 
 ```cshtml
 @{
@@ -252,9 +252,9 @@ Bir görünümdeki veriler ile çalışır:
 
 **ViewData özniteliği**
 
-Kullanan başka bir yaklaşım [ViewDataDictionary](/dotnet/api/microsoft.aspnetcore.mvc.viewfeatures.viewdatadictionary) olduğu [ViewDataAttribute](/dotnet/api/microsoft.aspnetcore.mvc.viewdataattribute). Denetleyicilerde veya modellerde Razor sayfası özelliklerini düzenlenmiş ile `[ViewData]` sözlükten yüklendi ve depolanan değerlerine sahip.
+[ViewDataDictionary](/dotnet/api/microsoft.aspnetcore.mvc.viewfeatures.viewdatadictionary) ' i kullanan başka bir yaklaşım da [viewdataattribute](/dotnet/api/microsoft.aspnetcore.mvc.viewdataattribute). `[ViewData]` özniteliğiyle işaretlenmiş denetleyiciler veya Razor sayfa modelleriyle ilgili özellikler, değerlerinin depolandığı ve sözlükten yüklendiği değerlerdir.
 
-Aşağıdaki örnekte giriş denetleyicisini içeren bir `Title` özelliği düzenlenmiş ile `[ViewData]`. `About` Yöntemi hakkında görünümü başlığını ayarlar:
+Aşağıdaki örnekte, giriş denetleyicisi `[ViewData]`işaretli bir `Title` özelliği içerir. `About` yöntemi, hakkında bilgi görünümü için başlığı ayarlar:
 
 ```csharp
 public class HomeController : Controller
@@ -272,13 +272,13 @@ public class HomeController : Controller
 }
 ```
 
-Hakkında Görünümü'nde erişim `Title` özelliği model özelliği olarak:
+Hakkında görünümünde, `Title` özelliğine model özelliği olarak erişin:
 
 ```cshtml
 <h1>@Model.Title</h1>
 ```
 
-Düzende dışında ViewData sözlükten başlığını okuyun:
+Mizanpajda, başlık ViewData sözlüğünden okundu:
 
 ```cshtml
 <!DOCTYPE html>
@@ -290,11 +290,11 @@ Düzende dışında ViewData sözlükten başlığını okuyun:
 
 ::: moniker-end
 
-**Görünüm Paketi**
+**ViewBag**
 
-`ViewBag` *Razor sayfaları içinde kullanılamaz.*
+`ViewBag` *Razor Pages kullanılamaz.*
 
-`ViewBag` olan bir [DynamicViewData](/dotnet/api/microsoft.aspnetcore.mvc.viewfeatures.internal.dynamicviewdata) depolanan nesnelere dinamik erişim sağlayan nesne `ViewData`. `ViewBag` atama gerektirmeyen bu yana birlikte çalışmak daha kullanışlı olabilir. Aşağıdaki örnek nasıl kullanılacağını gösterir `ViewBag` kullanarak aynı sonucu ile `ViewData` yukarıda:
+`ViewBag`, `ViewData`depolanan nesnelere dinamik erişim sağlayan bir [Dynamicviewdata](/dotnet/api/microsoft.aspnetcore.mvc.viewfeatures.internal.dynamicviewdata) nesnesidir. `ViewBag`, atama gerektirmediğinden, ile çalışmak daha uygun olabilir. Aşağıdaki örnek, yukarıdaki `ViewData` kullanmayla aynı sonuçla `ViewBag` nasıl kullanacağınızı gösterir:
 
 ```csharp
 public IActionResult SomeAction()
@@ -323,13 +323,13 @@ public IActionResult SomeAction()
 </address>
 ```
 
-**ViewData ve ViewBag aynı anda kullanma**
+**ViewData ve ViewBag 'i aynı anda kullanma**
 
-`ViewBag` *Razor sayfaları içinde kullanılamaz.*
+`ViewBag` *Razor Pages kullanılamaz.*
 
-Bu yana `ViewData` ve `ViewBag` aynı temel alınan bakın `ViewData` koleksiyonu, her ikisi de kullanabilirsiniz `ViewData` ve `ViewBag` karışımı ve bunlar arasında okurken ve yazarken değerleri aynı.
+`ViewData` ve `ViewBag` aynı temel `ViewData` koleksiyonuna başvurduğundan, değerleri okurken ve yazarken aralarında hem `ViewData` hem de `ViewBag` ve karıştırma ve eşleştirme kullanabilirsiniz.
 
-Başlığı kullanılarak ayarlanan `ViewBag` ve açıklaması kullanarak `ViewData` üst kısmında bir *About.cshtml* görüntüle:
+Bir *About. cshtml* görünümünün en üstündeki `ViewData` kullanarak `ViewBag` ve açıklamayı kullanarak başlığı ayarlayın:
 
 ```cshtml
 @{
@@ -339,7 +339,7 @@ Başlığı kullanılarak ayarlanan `ViewBag` ve açıklaması kullanarak `ViewD
 }
 ```
 
-Özelliklerini okumak istiyorum, ancak kullanımını ters `ViewData` ve `ViewBag`. İçinde *_Layout.cshtml* dosya, başlığı kullanılarak elde `ViewData` ve açıklaması kullanarak elde `ViewBag`:
+Özellikleri okuyun, ancak `ViewData` ve `ViewBag`kullanımını ters çevirin. *_Layout. cshtml* dosyasında, `ViewData` kullanarak başlığı alın ve `ViewBag`kullanarak açıklamayı alın:
 
 ```cshtml
 <!DOCTYPE html>
@@ -350,9 +350,9 @@ Başlığı kullanılarak ayarlanan `ViewBag` ve açıklaması kullanarak `ViewD
     ...
 ```
 
-Dizeleri için bir tür dönüştürme gerektirmeyen unutmayın `ViewData`. Kullanabileceğiniz `@ViewData["Title"]` olmadan.
+Dizelerin `ViewData`için bir dönüştürme gerektirmemenizi unutmayın. `@ViewData["Title"]`, atama olmadan kullanabilirsiniz.
 
-Her ikisini de kullanarak `ViewData` ve `ViewBag` adresindeki karıştırma ve okuma ve yazma özellikleri eşleştirme yoksa olarak aynı zaman çalışır. Aşağıdaki biçimlendirmede oluşturulur:
+Hem `ViewData` hem de `ViewBag` aynı anda kullanmak, özellikleri karıştırarak ve eşleştirirken de geçerlidir. Aşağıdaki biçimlendirme işlenir:
 
 ```html
 <!DOCTYPE html>
@@ -363,25 +363,25 @@ Her ikisini de kullanarak `ViewData` ve `ViewBag` adresindeki karıştırma ve o
     ...
 ```
 
-**ViewData ViewBag arasındaki farkları özeti**
+**ViewData ve ViewBag arasındaki farkların Özeti**
 
- `ViewBag` Razor sayfaları kullanılamaz.
+ `ViewBag` Razor Pages yok.
 
 * `ViewData`
-  * Öğesinden türetilen [ViewDataDictionary](/dotnet/api/microsoft.aspnetcore.mvc.viewfeatures.viewdatadictionary), gibi yararlı olabileceği sözlük özelliklerine sahip `ContainsKey`, `Add`, `Remove`, ve `Clear`.
-  * Sözlükteki anahtarların dizeleri olduğundan boşluğa izin. Örnek: `ViewData["Some Key With Whitespace"]`
-  * Dışında herhangi türdeki bir `string` kullanmak için görünümünde dönüştürülmelidir `ViewData`.
+  * [ViewDataDictionary](/dotnet/api/microsoft.aspnetcore.mvc.viewfeatures.viewdatadictionary)öğesinden türetilir, bu nedenle `ContainsKey`, `Add`, `Remove`ve `Clear`gibi yararlı olabilecek Sözlük özellikleri vardır.
+  * Sözlükteki anahtarlar dizelerdir, bu nedenle boşluğa izin verilir. Örnek: `ViewData["Some Key With Whitespace"]`
+  * `string` dışında herhangi bir tür `ViewData`kullanmak için görünümde tür dönüştürme yapılmalıdır.
 * `ViewBag`
-  * Öğesinden türetilen [DynamicViewData](/dotnet/api/microsoft.aspnetcore.mvc.viewfeatures.internal.dynamicviewdata), böylece noktalı gösterim kullanılarak dinamik özellikler oluşturulmasını sağlar (`@ViewBag.SomeKey = <value or object>`), ve hiçbir atama gereklidir. Söz dizimi `ViewBag` denetleyicileri ve görünümleri eklemek daha hızlı hale getirir.
-  * Null değerler için basit. Örnek: `@ViewBag.Person?.Name`
+  * [Dynamicviewdata](/dotnet/api/microsoft.aspnetcore.mvc.viewfeatures.internal.dynamicviewdata)öğesinden türetilir, bu nedenle, nokta gösterimini (`@ViewBag.SomeKey = <value or object>`) kullanarak dinamik özellikler oluşturulmasına izin verir ve hiçbir atama gerekmez. `ViewBag` söz dizimi, denetleyicilere ve görünümlere daha hızlı eklemenizi sağlar.
+  * Null değerleri denetlemek için daha basittir. Örnek: `@ViewBag.Person?.Name`
 
-**ViewData veya ViewBag ne zaman kullanılacağını**
+**ViewData veya ViewBag ne zaman kullanılır?**
 
-Her ikisi de `ViewData` ve `ViewBag` eşit olarak küçük miktarlarda veri denetleyicilerine ve görünümleri arasında geçirmek için geçerli bir yaklaşım olan. Hangisinin kullanılacağını Seçimi tercihine göre hesaplanmıştır. Karıştırın ve eşleşen `ViewData` ve `ViewBag` nesneleri, ancak kodu, okunması ve düzenlenmesi tutarlı bir şekilde kullanılan bir yaklaşım ile daha kolay. Her iki yaklaşım, çalışma zamanında dinamik olarak çözümlenen ve çalışma zamanı hatalarına neden dolayısıyla saldırıya. Bazı geliştirme ekipleri, bunların kaçının.
+Hem `ViewData` hem de `ViewBag`, denetleyiciler ve görünümler arasında küçük miktarlarda veri iletmek için eşit ölçüde geçerli yaklaşımlar. Hangisinin kullanılacağı seçimi tercihi temel alır. `ViewData` ve `ViewBag` nesneleri karıştırıp eşleştirebilirsiniz, ancak kod, sürekli olarak kullanılan tek bir yaklaşımla daha kolay okunabilir ve devam edebilir. Her iki yaklaşım da çalışma zamanında dinamik olarak çözümlenir ve bu nedenle çalışma zamanı hatalarına neden olur. Bazı geliştirme ekipleri bunlardan kaçınır.
 
-### <a name="dynamic-views"></a>Dinamik görünümler
+### <a name="dynamic-views"></a>Dinamik Görünümler
 
-Bir model bildirmeyin görünümleri türü kullanarak `@model` ancak geçirilen bir model örneği varsa (örneğin, `return View(Address);`) örneğin özellikleri dinamik olarak başvurabilirsiniz:
+`@model` kullanarak bir model türü bildirmeyen ancak bunlara bir model örneği geçirmeyen görünümler (örneğin, `return View(Address);`), örnek özelliklerine dinamik olarak başvurabilir:
 
 ```cshtml
 <address>
@@ -391,12 +391,12 @@ Bir model bildirmeyin görünümleri türü kullanarak `@model` ancak geçirilen
 </address>
 ```
 
-Bu özellik üst düzeyde esneklik sunar, ancak derleme koruma veya IntelliSense sunmaz. Web sayfası oluşturma özelliği yoksa, çalışma zamanında başarısız olur.
+Bu özellik esneklik sunar, ancak derleme koruması veya IntelliSense sunmaz. Özellik yoksa, Web sayfası oluşturma çalışma zamanında başarısız olur.
 
-## <a name="more-view-features"></a>Daha fazla özelliklerini görüntüleyin
+## <a name="more-view-features"></a>Daha fazla görünüm özelliği
 
-[Etiket Yardımcıları](xref:mvc/views/tag-helpers/intro) sunucu tarafı davranışı mevcut HTML etiket eklemek kolaylaştırır. Etiket Yardımcıları kullanarak özel kod veya kendi görünümlerinizi içinde Yardımcıları yazmak için gereksinimini ortadan kaldırır. Etiket Yardımcıları öznitelik olarak HTML öğeleri için uygulanır ve bunları işleyemiyor düzenleyiciler tarafından göz ardı edilir. Bu, düzenlemek ve Araçlar çeşitli görünümü biçimlendirmesi oluşturmak sağlar.
+[Etiket Yardımcıları](xref:mvc/views/tag-helpers/intro) , var olan HTML etiketlerine sunucu tarafı davranışı eklemenizi kolaylaştırır. Etiket yardımcılarının kullanılması, görünümleriniz içinde özel kod veya yardımcılar yazma ihtiyacını önler. Etiket Yardımcıları HTML öğelerine öznitelikler olarak uygulanır ve bunları işleyeamayan düzenleyiciler tarafından yok sayılır. Bu, çeşitli araçlarındaki görünüm işaretlemesini düzenlemenizi ve işlemeyi sağlar.
 
-Özel HTML biçimlendirme oluşturmak çok sayıda yerleşik HTML Yardımcıları ile gerçekleştirilebilir. Daha karmaşık kullanıcı arabirimi mantığı tarafından işlenebilir [görünüm bileşenleri](xref:mvc/views/view-components). Görünüm bileşenleri aynı SoC bu denetleyicileri sağlayın ve görünümler sunar. Bunlar, Eylemler ve ortak kullanıcı arabirim öğeleri tarafından kullanılan veri uğraşmanız görünümleri gereğini ortadan kaldırabilir.
+Özel HTML işaretlemesi oluşturmak birçok yerleşik HTML Yardımcıda sağlanabilir. Daha karmaşık kullanıcı arabirimi mantığı, [Görünüm bileşenleri](xref:mvc/views/view-components)tarafından işlenebilir. Görüntüleme bileşenleri, denetleyiciler ve görünümler tarafından sunulan aynı SoC öğesine sahiptir. Ortak kullanıcı arabirimi öğeleri tarafından kullanılan verilerle ilgili eylemler ve görünümler gereksinimini ortadan kaldırabilir.
 
-Çok sayıda diğer yönleri ASP.NET Core gibi görünümleri desteği [bağımlılık ekleme](xref:fundamentals/dependency-injection), hizmetler sağlayan [görünümlere eklenmiş](xref:mvc/views/dependency-injection).
+ASP.NET Core diğer birçok yönü gibi, görünümler [bağımlılık ekleme](xref:fundamentals/dependency-injection)işlemini destekler ve hizmetlerin [görünümlere](xref:mvc/views/dependency-injection)eklenmesine izin verir.

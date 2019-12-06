@@ -10,16 +10,16 @@ products:
 - vs-code
 - vs-mac
 urlFragment: getstarted-swashbuckle-aspnetcore
-ms.openlocfilehash: d48288de90626ada83f5da1759f0057f0be46f19
-ms.sourcegitcommit: f91d322f790123d41ec3271fa084ae20ed9f89a6
+ms.openlocfilehash: e02247325f430b0ce23dbb3f5bc344a60a1a164a
+ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74155151"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74879726"
 ---
 # <a name="get-started-with-swashbuckle-and-aspnet-core"></a>Swashbuckle ve ASP.NET Core kullanmaya başlayın
 
-Bir Web API 'sini kullanırken, çeşitli yöntemlerini anlamak bir geliştirici için zor olabilir. [Openapı](https://www.openapis.org/)olarak da bilinen [Swagger](https://swagger.io/), Web API 'leri için faydalı belge ve yardım sayfaları oluşturma sorununu çözer. Etkileşimli belgeler, istemci SDK 'Sı oluşturma ve API bulunabilirliği gibi avantajlar sağlar.
+Bir Web API'si kullanılırken, çeşitli metotlarını anlama bir geliştirici için zor olabilir. [Swagger](https://swagger.io/)olarak da bilinen [Openapı](https://www.openapis.org/), Web API'leri için kullanışlı belgeler ve Yardım sayfaları oluşturma sorununu çözer. Bu, etkileşimli belgeleri, istemci SDK oluşturma ve API keşfedilebilirliğini gibi avantajlar sağlar.
 
 Bu örnekte, [swashbuckle. AspNetCore](https://github.com/domaindrivendev/Swashbuckle.AspNetCore) .NET uygulamasını gösteriliyor.
 
@@ -80,7 +80,7 @@ Swagger Kullanıcı arabirimi `http://localhost:<port>/swagger`' de bulunabilir.
 >});
 >```
 
-IIS veya ters proxy ile dizin kullanıyorsanız, Swagger uç noktasını `./` önekini kullanarak göreli bir yol olarak ayarlayın. Örneğin, `./swagger/v1/swagger.json`. `/swagger/v1/swagger.json` kullanmak, uygulamayı URL 'nin gerçek kökünde (artı kullanılıyorsa rota öneki), JSON dosyasını aramasını söyler. Örneğin, `http://localhost:<port>/<virtual_directory>/<route_prefix>/swagger/v1/swagger.json`yerine `http://localhost:<port>/<route_prefix>/swagger/v1/swagger.json` kullanın.
+IIS veya ters proxy ile dizin kullanıyorsanız, Swagger uç noktasını `./` önekini kullanarak göreli bir yol olarak ayarlayın. Örneğin: `./swagger/v1/swagger.json`. `/swagger/v1/swagger.json` kullanmak, uygulamayı URL 'nin gerçek kökünde (artı kullanılıyorsa rota öneki), JSON dosyasını aramasını söyler. Örneğin, `http://localhost:<port>/<virtual_directory>/<route_prefix>/swagger/v1/swagger.json`yerine `http://localhost:<port>/<route_prefix>/swagger/v1/swagger.json` kullanın.
 
 ## <a name="customize-and-extend"></a>Özelleştirme ve genişletme
 
@@ -241,7 +241,7 @@ public void ConfigureServices(IServiceCollection services)
 
 Yukarıdaki kodda, [yansıma](/dotnet/csharp/programming-guide/concepts/reflection) , Web API projesi ile eşleşen bir XML dosya adı oluşturmak için kullanılır. [AppContext. BaseDirectory](/dotnet/api/system.appcontext.basedirectory) ÖZELLIĞI, XML dosyasının yolunu oluşturmak için kullanılır. Bazı Swagger özellikleri (örneğin, bir XML belge dosyası kullanılmadan, giriş parametrelerinin veya HTTP yöntemlerinin ve yanıt kodlarının) bir bölümü çalışır. Çoğu özellik için, yöntem özetleri ve parametrelerin ve yanıt kodlarının açıklamaları, bir XML dosyası kullanımı zorunludur.
 
-Bir eyleme Üçlü eğik çizgi açıklamaları eklemek, Bölüm üstbilgisine açıklama ekleyerek Swagger Kullanıcı arabirimini geliştirir. `Delete` eyleminin üstüne bir [\<summary >](/dotnet/csharp/programming-guide/xmldoc/summary) öğesi ekleyin:
+Bir eyleme üç eğik çizgiyle açıklama eklediğinizde bölüm üst bilgisine açıklama eklenir ve Swagger UI geliştirilir. `Delete` eyleminin üstüne bir [\<summary >](/dotnet/csharp/programming-guide/xmldoc/summary) öğesi ekleyin:
 
 ```csharp
 /// <summary>
@@ -334,7 +334,7 @@ Bu ek açıklamalarla UI geliştirmelerini göz unutmayın:
 
 ### <a name="data-annotations"></a>Veri açıklamaları
 
-[System. ComponentModel. datanot](/dotnet/api/system.componentmodel.dataannotations) ad alanında bulunan ve bu modeli, Swagger Kullanıcı Arabirimi bileşenlerini kullanmanıza yardımcı olacak şekilde görüntüler.
+Swagger Kullanıcı Arabirimi bileşenlerini sağlamaya yardımcı olmak için [System. ComponentModel. Dataaçıklamalarda](/dotnet/api/system.componentmodel.dataannotations) ad alanında bulunan öznitelikleri olan modeli işaretleyin.
 
 `TodoItem` sınıfının `Name` özelliğine `[Required]` özniteliğini ekleyin:
 

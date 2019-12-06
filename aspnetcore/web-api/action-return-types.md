@@ -6,18 +6,18 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 09/09/2019
 uid: web-api/action-return-types
-ms.openlocfilehash: c409170a24225e160c1c53e7294590589e114f7f
-ms.sourcegitcommit: 231780c8d7848943e5e9fd55e93f437f7e5a371d
+ms.openlocfilehash: fe665026fdced22ccf4b4f1ba655e858a7acf016
+ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74116092"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74879735"
 ---
 # <a name="controller-action-return-types-in-aspnet-core-web-api"></a>ASP.NET Core Web API 'sindeki denetleyici eylemi dönüş türleri
 
 [Scott Ade](https://github.com/scottaddie) tarafından
 
-[Örnek kodu görüntüleme veya indirme](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/web-api/action-return-types/samples) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
+[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/web-api/action-return-types/samples) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
 
 ASP.NET Core Web API denetleyicisi eylem dönüş türleri için aşağıdaki seçenekleri sunar:
 
@@ -92,7 +92,7 @@ Yukarıdaki eylemlerin her ikisi de ASP.NET Core 3,0 itibariyle engellenmeyen bi
 
 <xref:Microsoft.AspNetCore.Mvc.IActionResult> dönüş türü, bir eylemde birden çok `ActionResult` dönüş türü mümkün olduğunda uygundur. `ActionResult` türleri çeşitli HTTP durum kodlarını temsil eder. `ActionResult` türetilen Özet olmayan herhangi bir sınıf, geçerli bir dönüş türü olarak nitelendirir. Bu kategorideki bazı yaygın dönüş türleri <xref:Microsoft.AspNetCore.Mvc.BadRequestResult> (400), <xref:Microsoft.AspNetCore.Mvc.NotFoundResult> (404) ve <xref:Microsoft.AspNetCore.Mvc.OkObjectResult> (200). Alternatif olarak, <xref:Microsoft.AspNetCore.Mvc.ControllerBase> sınıfındaki kullanışlı yöntemler bir eylemden `ActionResult` türlerini döndürmek için kullanılabilir. Örneğin, `return BadRequest();` `return new BadRequestResult();`toplu bir biçimidir.
 
-Bu tür bir eylemde birden çok dönüş türü ve yolu olduğundan, [[ProducesResponseType]](xref:Microsoft.AspNetCore.Mvc.ProducesResponseTypeAttribute) özniteliğinin serbest bir şekilde kullanılması gerekir. Bu öznitelik, [Swagger](xref:tutorials/web-api-help-pages-using-swagger)gibi araçlar tarafından oluşturulan Web API Yardım sayfaları için daha açıklayıcı yanıt ayrıntıları üretir. `[ProducesResponseType]`, eylem tarafından döndürülecek bilinen türleri ve HTTP durum kodlarını gösterir.
+Bu tür bir eylemde birden çok dönüş türü ve yolu olduğundan, [`[ProducesResponseType]`](xref:Microsoft.AspNetCore.Mvc.ProducesResponseTypeAttribute) özniteliğin serbest kullanımı gereklidir. Bu öznitelik, [Swagger](xref:tutorials/web-api-help-pages-using-swagger)gibi araçlar tarafından oluşturulan Web API Yardım sayfaları için daha açıklayıcı yanıt ayrıntıları üretir. `[ProducesResponseType]`, eylem tarafından döndürülecek bilinen türleri ve HTTP durum kodlarını gösterir.
 
 ### <a name="synchronous-action"></a>Zaman uyumlu eylem
 
@@ -142,13 +142,13 @@ Bu tür bir eylemde birden çok dönüş türü ve yolu olduğundan, [[ProducesR
 
 ::: moniker range=">= aspnetcore-2.1"
 
-ASP.NET Core 2,1 veya sonraki bir sürümde [[Apicontroller]](xref:Microsoft.AspNetCore.Mvc.ApiControllerAttribute) özniteliği uygulanmışsa, model doğrulama hataları 400 durum koduna neden olur. Daha fazla bilgi için bkz. [OTOMATIK HTTP 400 yanıtları](xref:web-api/index#automatic-http-400-responses).
+ASP.NET Core 2,1 veya sonraki bir sürümde [`[ApiController]`](xref:Microsoft.AspNetCore.Mvc.ApiControllerAttribute) özniteliği uygulanırsa, model doğrulama hataları 400 durum koduna neden olur. Daha fazla bilgi için bkz. [OTOMATIK HTTP 400 yanıtları](xref:web-api/index#automatic-http-400-responses).
 
 ## <a name="actionresultt-type"></a>ActionResult\<T > türü
 
 ASP.NET Core 2,1, Web API denetleyicisi eylemleri için [\<t >](xref:Microsoft.AspNetCore.Mvc.ActionResult`1) geri dönüş türünü sunmuştur. <xref:Microsoft.AspNetCore.Mvc.ActionResult> türettikten veya [belirli bir tür](#specific-type)döndürmenize olanak sağlar. `ActionResult<T>`, [ıactionresult türü](#iactionresult-type)üzerinde aşağıdaki avantajları sunmaktadır:
 
-* [[ProducesResponseType]](xref:Microsoft.AspNetCore.Mvc.ProducesResponseTypeAttribute) özniteliğinin `Type` özelliği dışarıda bırakılabilirler. Örneğin, `[ProducesResponseType(200, Type = typeof(Product))]` `[ProducesResponseType(200)]`basitleştirilmiştir. Eylemin beklenen dönüş türü, `ActionResult<T>``T` çıkarsandı.
+* [`[ProducesResponseType]`](xref:Microsoft.AspNetCore.Mvc.ProducesResponseTypeAttribute) özniteliğin `Type` özelliği dışarıda bırakılabilirler. Örneğin, `[ProducesResponseType(200, Type = typeof(Product))]` `[ProducesResponseType(200)]`basitleştirilmiştir. Eylemin beklenen dönüş türü, `ActionResult<T>``T` çıkarsandı.
 * [Örtük atama işleçleri](/dotnet/csharp/language-reference/keywords/implicit) hem `T` hem de `ActionResult<T>``ActionResult` dönüştürmeyi destekler. `T` <xref:Microsoft.AspNetCore.Mvc.ObjectResult>dönüştürür, bu, `return new ObjectResult(T);` `return T;`olarak basitleşdüğü anlamına gelir.
 
 C#arabirimlerde örtük atama işleçlerini desteklemez. Sonuç olarak, `ActionResult<T>`kullanmak için arabirimin somut bir türe dönüştürülmesi gerekir. Örneğin, aşağıdaki örnekte `IEnumerable` kullanımı çalışmaz:
@@ -183,7 +183,7 @@ public ActionResult<IEnumerable<Product>> Get() =>
 Önceki eylemde:
 
 * Bir 400 durum kodu (<xref:Microsoft.AspNetCore.Mvc.ControllerBase.BadRequest*>), şu durumlarda ASP.NET Core çalışma zamanı tarafından döndürülür:
-  * [[Apicontroller]](xref:Microsoft.AspNetCore.Mvc.ApiControllerAttribute) özniteliği uygulandı ve model doğrulaması başarısız oluyor.
+  * [`[ApiController]`](xref:Microsoft.AspNetCore.Mvc.ApiControllerAttribute) özniteliği uygulandı ve model doğrulaması başarısız oluyor.
   * Ürün açıklaması "XYZ pencere öğesi" içerir.
 * Bir ürün oluşturulduğunda <xref:Microsoft.AspNetCore.Mvc.ControllerBase.CreatedAtAction*> yöntemi tarafından 201 durum kodu oluşturulur. Bu kod yolunda, `Product` nesnesi yanıt gövdesinde sağlanır. Yeni oluşturulan ürünün URL 'sini içeren `Location` bir yanıt üst bilgisi sağlanır.
 
