@@ -4,16 +4,16 @@ author: rick-anderson
 description: ASP.NET Core 2,2 ' deki yeni özellikler hakkında bilgi edinin.
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/12/2019
+ms.date: 12/05/2019
 no-loc:
 - SignalR
 uid: aspnetcore-2.2
-ms.openlocfilehash: fca653158c95e7c1a11f25f4076830fe3e7e93ae
-ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
+ms.openlocfilehash: 8995a514ea2e5016da85952d0f0beaf396a5d639
+ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73963131"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74880842"
 ---
 # <a name="whats-new-in-aspnet-core-22"></a>ASP.NET Core 2,2 ' deki yenilikler
 
@@ -57,7 +57,12 @@ Daha fazla bilgi için bkz. [ASP.NET Core durum denetimleri](xref:host-and-deplo
 
 ASP.NET Core 2,2, HTTP/2 desteği ekliyor.
 
-HTTP/2, HTTP protokolünün önemli bir düzeltmesidir. HTTP/2 ' nin bazı önemli özellikleri, üst bilgi sıkıştırması ve tek bir bağlantı üzerinden tamamen çoğullanmış akışlar için destek sunar. Http/2 HTTP 'nin semantiğini (HTTP üst bilgileri, yöntemler vb.) korur, ancak bu verilerin nasıl çerçeveli ve tel olarak gönderildiği HTTP/1. x ' den önemli bir değişiklik olur.
+HTTP/2, HTTP protokolünün önemli bir düzeltmesidir. HTTP/2 ' nin önemli özellikleri şunlardır:
+
+* Üst bilgi sıkıştırma desteği.
+* Tek bir bağlantı üzerinden tamamen çoğullanmış akışlar.
+
+Http/2, HTTP 'nin semantiğini (örneğin, HTTP üst bilgileri ve yöntemleri) korur, ancak istemci ve sunucu arasında verilerin nasıl çerçeveli ve gönderilir olduğunu HTTP/1. x ' den önemli bir değişiklik olur.
 
 Çerçeveleme içindeki bu değişikliğin bir sonucu olarak, sunucuların ve istemcilerin kullanılan protokol sürümünü anlaşması gerekir. Uygulama katmanı protokol anlaşması (ALPN), sunucunun ve istemcisinin TLS el sıkışmasının bir parçası olarak kullanılan protokol sürümünü anlaşmasına izin veren bir TLS uzantısıdır. Sunucu ve protokoldeki istemci arasında bir önceki bilgi sahibi olmak mümkün olsa da, tüm büyük tarayıcılarda bir HTTP/2 bağlantısı kurmak için tek yol olarak tüm büyük tarayıcılar desteklenir.
 
