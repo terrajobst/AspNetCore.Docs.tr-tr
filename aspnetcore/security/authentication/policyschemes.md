@@ -1,38 +1,38 @@
 ---
-title: ASP.NET Core ilke düzenleri
+title: ASP.NET Core 'de ilke şemaları
 author: rick-anderson
-description: Kimlik doğrulama İlkesi düzenleri tek bir mantıksal kimlik doğrulaması düzenine sahip kolaylaştırır
+description: Kimlik doğrulama ilkesi şemaları, tek bir mantıksal kimlik doğrulama şemasına sahip olmasını kolaylaştırır
 ms.author: riande
-ms.date: 02/28/2019
+ms.date: 12/05/2019
 uid: security/authentication/policyschemes
-ms.openlocfilehash: be03f349455c673b0739935ad20e596325c8cb74
-ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
+ms.openlocfilehash: f02d8e5cac20a9b60c5eddbd28253efacf682ea1
+ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67815293"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74880712"
 ---
-# <a name="policy-schemes-in-aspnet-core"></a><span data-ttu-id="3ea09-103">ASP.NET Core ilke düzenleri</span><span class="sxs-lookup"><span data-stu-id="3ea09-103">Policy schemes in ASP.NET Core</span></span>
+# <a name="policy-schemes-in-aspnet-core"></a><span data-ttu-id="bd443-103">ASP.NET Core 'de ilke şemaları</span><span class="sxs-lookup"><span data-stu-id="bd443-103">Policy schemes in ASP.NET Core</span></span>
 
-<span data-ttu-id="3ea09-104">Kimlik doğrulama İlkesi düzenleri potansiyel olarak birden çok yaklaşımın kullanan bir mantıksal tek bir kimlik doğrulaması düzeni kolaylaştırır.</span><span class="sxs-lookup"><span data-stu-id="3ea09-104">Authentication policy schemes make it easier to have a single logical authentication scheme potentially use multiple approaches.</span></span> <span data-ttu-id="3ea09-105">Örneğin, bir ilke düzeni zorlukları için Google kimlik doğrulama ve tanımlama bilgisi kimlik doğrulamasını her şey için kullanabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="3ea09-105">For example, a policy scheme might use Google authentication for challenges, and cookie authentication for everything else.</span></span> <span data-ttu-id="3ea09-106">Kimlik doğrulama İlkesi düzenleri kolaylaştırır:</span><span class="sxs-lookup"><span data-stu-id="3ea09-106">Authentication policy schemes make it:</span></span>
+<span data-ttu-id="bd443-104">Kimlik doğrulama ilkesi şemaları, tek bir mantıksal kimlik doğrulama düzeninin birden çok yaklaşım kullanmasına daha kolay olmasını sağlar.</span><span class="sxs-lookup"><span data-stu-id="bd443-104">Authentication policy schemes make it easier to have a single logical authentication scheme potentially use multiple approaches.</span></span> <span data-ttu-id="bd443-105">Örneğin, bir ilke şeması, sorunlar için Google kimlik doğrulaması ve diğer her şey için tanımlama bilgisi kimlik doğrulaması kullanabilir.</span><span class="sxs-lookup"><span data-stu-id="bd443-105">For example, a policy scheme might use Google authentication for challenges, and cookie authentication for everything else.</span></span> <span data-ttu-id="bd443-106">Kimlik doğrulama ilkesi şemaları şunları yapar:</span><span class="sxs-lookup"><span data-stu-id="bd443-106">Authentication policy schemes make it:</span></span>
 
-* <span data-ttu-id="3ea09-107">Başka bir şema için herhangi bir kimlik doğrulama eylemi iletmek kolaylaştırır.</span><span class="sxs-lookup"><span data-stu-id="3ea09-107">Easy to forward any authentication action to another scheme.</span></span>
-* <span data-ttu-id="3ea09-108">Dinamik olarak ve isteğe bağlı İleri.</span><span class="sxs-lookup"><span data-stu-id="3ea09-108">Forward dynamically based on the request.</span></span>
+* <span data-ttu-id="bd443-107">Herhangi bir kimlik doğrulama eylemini başka bir düzene iletmek kolay.</span><span class="sxs-lookup"><span data-stu-id="bd443-107">Easy to forward any authentication action to another scheme.</span></span>
+* <span data-ttu-id="bd443-108">İsteğe göre dinamik olarak ilet.</span><span class="sxs-lookup"><span data-stu-id="bd443-108">Forward dynamically based on the request.</span></span>
 
-<span data-ttu-id="3ea09-109">Kullanım türetilmiş tüm kimlik doğrulama düzenleri <xref:Microsoft.AspNetCore.Authentication.AuthenticationSchemeOptions> ve ilişkili [ `AuthenticationHandler<TOptions>` ](/dotnet/api/microsoft.aspnetcore.authentication.authenticationhandler-1):</span><span class="sxs-lookup"><span data-stu-id="3ea09-109">All authentication schemes that use derived <xref:Microsoft.AspNetCore.Authentication.AuthenticationSchemeOptions> and the associated [`AuthenticationHandler<TOptions>`](/dotnet/api/microsoft.aspnetcore.authentication.authenticationhandler-1):</span></span>
+<span data-ttu-id="bd443-109">Türetilmiş <xref:Microsoft.AspNetCore.Authentication.AuthenticationSchemeOptions> ve ilişkili [Authenticationhandler\<TOptions >](/dotnet/api/microsoft.aspnetcore.authentication.authenticationhandler-1)kullanan tüm kimlik doğrulama şemaları:</span><span class="sxs-lookup"><span data-stu-id="bd443-109">All authentication schemes that use derived <xref:Microsoft.AspNetCore.Authentication.AuthenticationSchemeOptions> and the associated [AuthenticationHandler\<TOptions>](/dotnet/api/microsoft.aspnetcore.authentication.authenticationhandler-1):</span></span>
 
-* <span data-ttu-id="3ea09-110">Otomatik olarak ilke düzenleri ASP.NET Core 2.1 ve üzeri olan.</span><span class="sxs-lookup"><span data-stu-id="3ea09-110">Are automatically policy schemes in ASP.NET Core 2.1 and later.</span></span>
-* <span data-ttu-id="3ea09-111">Yapılandırma Şeması'nın seçenekleri aracılığıyla etkinleştirilebilir.</span><span class="sxs-lookup"><span data-stu-id="3ea09-111">Can be enabled via configuring the scheme's options.</span></span>
+* <span data-ttu-id="bd443-110">ASP.NET Core 2,1 ve sonraki sürümlerde otomatik olarak ilke düzenleridir.</span><span class="sxs-lookup"><span data-stu-id="bd443-110">Are automatically policy schemes in ASP.NET Core 2.1 and later.</span></span>
+* <span data-ttu-id="bd443-111">Düzenin seçenekleri yapılandırılarak etkinleştirilebilir.</span><span class="sxs-lookup"><span data-stu-id="bd443-111">Can be enabled via configuring the scheme's options.</span></span>
 
 [!code-csharp[sample](policyschemes/samples/AuthenticationSchemeOptions.cs?name=snippet)]
 
-## <a name="examples"></a><span data-ttu-id="3ea09-112">Örnekler</span><span class="sxs-lookup"><span data-stu-id="3ea09-112">Examples</span></span>
+## <a name="examples"></a><span data-ttu-id="bd443-112">Örnekler</span><span class="sxs-lookup"><span data-stu-id="bd443-112">Examples</span></span>
 
-<span data-ttu-id="3ea09-113">Aşağıdaki örnek, alt düzey şemalarını birleştiren daha yüksek düzeyli bir şeması gösterir.</span><span class="sxs-lookup"><span data-stu-id="3ea09-113">The following example shows a higher level scheme that combines lower level schemes.</span></span> <span data-ttu-id="3ea09-114">Google kimlik doğrulama sorunları için kullanılır ve tanımlama bilgisi kimlik doğrulamasını her şey için kullanılır:</span><span class="sxs-lookup"><span data-stu-id="3ea09-114">Google authentication is used for challenges, and cookie authentication is used for everything else:</span></span>
+<span data-ttu-id="bd443-113">Aşağıdaki örnek, alt düzey şemaları birleştiren daha yüksek düzey bir düzeni gösterir.</span><span class="sxs-lookup"><span data-stu-id="bd443-113">The following example shows a higher level scheme that combines lower level schemes.</span></span> <span data-ttu-id="bd443-114">Google kimlik doğrulaması, sorunlar için kullanılır ve diğer her şey için tanımlama bilgisi kimlik doğrulaması kullanılır:</span><span class="sxs-lookup"><span data-stu-id="bd443-114">Google authentication is used for challenges, and cookie authentication is used for everything else:</span></span>
 
 [!code-csharp[sample](policyschemes/samples/Startup.cs?name=snippet1)]
 
-<span data-ttu-id="3ea09-115">Aşağıdaki örnek, istek başına temelinde düzenleri dinamik seçimini etkinleştirir.</span><span class="sxs-lookup"><span data-stu-id="3ea09-115">The following example enables dynamic selection of schemes on a per request basis.</span></span> <span data-ttu-id="3ea09-116">Diğer bir deyişle, tanımlama bilgileri ve API kimlik doğrulamasını karıştırma nasıl:</span><span class="sxs-lookup"><span data-stu-id="3ea09-116">That is, how to mix cookies and API authentication:</span></span>
+<span data-ttu-id="bd443-115">Aşağıdaki örnek, istek temelinde dinamik düzen seçimini mümkün bir şekilde sunar.</span><span class="sxs-lookup"><span data-stu-id="bd443-115">The following example enables dynamic selection of schemes on a per request basis.</span></span> <span data-ttu-id="bd443-116">Diğer bir deyişle, tanımlama bilgilerini ve API kimlik doğrulamasını karıştırma:</span><span class="sxs-lookup"><span data-stu-id="bd443-116">That is, how to mix cookies and API authentication:</span></span>
 
  <!-- REVIEW, missing If set in public Func<HttpContext, string> ForwardDefaultSelector -->
 
