@@ -6,12 +6,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 12/05/2019
 uid: security/app-secrets
-ms.openlocfilehash: 3323b7b614b7e8bc711b2c5acfb501b65b3d783b
-ms.sourcegitcommit: 76d7fff62014c3db02564191ab768acea00f1b26
+ms.openlocfilehash: 0bbd6af01ce3a29d3931faa2853a50dc895490cc
+ms.sourcegitcommit: fd2483f0a384b1c479c5b4af025ee46917db1919
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/05/2019
-ms.locfileid: "74852694"
+ms.locfileid: "74868036"
 ---
 # <a name="safe-storage-of-app-secrets-in-development-in-aspnet-core"></a>ASP.NET Core sürümünde geliştirme sırasında uygulama gizli dizileri güvenli depolama
 
@@ -27,7 +27,7 @@ Ortam değişkenleri, kodda veya yerel yapılandırma dosyalarında uygulama giz
 
 ::: moniker range="<= aspnetcore-1.1"
 
-`Startup` oluşturucusunda <xref:Microsoft.Extensions.Configuration.EnvironmentVariablesExtensions.AddEnvironmentVariables*> çağırarak ortam değişkeni değerlerinin okunmasını yapılandırın:
+`Startup` oluşturucusunda <xref:Microsoft.Extensions.Configuration.EnvironmentVariablesExtensions.AddEnvironmentVariables%2A> çağırarak ortam değişkeni değerlerinin okunmasını yapılandırın:
 
 [!code-csharp[](app-secrets/samples/1.x/UserSecrets/Startup.cs?name=snippet_StartupConstructor&highlight=8)]
 
@@ -229,11 +229,11 @@ Projeniz .NET Framework hedefliyorsa [Microsoft. Extensions. Configuration. User
 
 ::: moniker range=">= aspnetcore-2.0"
 
-ASP.NET Core 2,0 veya sonraki sürümlerde Kullanıcı gizli dizileri yapılandırma kaynağı, önceden yapılandırılmış varsayılanlar ile konağın yeni bir örneğini başlatmak için <xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder*> çağırdığında geliştirme moduna otomatik olarak eklenir. `CreateDefaultBuilder`, <xref:Microsoft.AspNetCore.Hosting.IHostingEnvironment.EnvironmentName> <xref:Microsoft.AspNetCore.Hosting.EnvironmentName.Development>olduğunda <xref:Microsoft.Extensions.Configuration.UserSecretsConfigurationExtensions.AddUserSecrets*> çağırır:
+ASP.NET Core 2,0 veya sonraki sürümlerde Kullanıcı gizli dizileri yapılandırma kaynağı, önceden yapılandırılmış varsayılanlar ile konağın yeni bir örneğini başlatmak için <xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder%2A> çağırdığında geliştirme moduna otomatik olarak eklenir. `CreateDefaultBuilder`, <xref:Microsoft.AspNetCore.Hosting.IHostingEnvironment.EnvironmentName> <xref:Microsoft.AspNetCore.Hosting.EnvironmentName.Development>olduğunda <xref:Microsoft.Extensions.Configuration.UserSecretsConfigurationExtensions.AddUserSecrets%2A> çağırır:
 
 [!code-csharp[](app-secrets/samples/2.x/UserSecrets/Program.cs?name=snippet_CreateWebHostBuilder&highlight=2)]
 
-`CreateDefaultBuilder` çağrılmıyorsa, `Startup` oluşturucusunda <xref:Microsoft.Extensions.Configuration.UserSecretsConfigurationExtensions.AddUserSecrets*> çağırarak Kullanıcı gizli dizi yapılandırma kaynağını açıkça ekleyin. Aşağıdaki örnekte gösterildiği gibi, uygulama geliştirme ortamında çalıştırıldığında `AddUserSecrets` çağırın:
+`CreateDefaultBuilder` çağrılmıyorsa, `Startup` oluşturucusunda <xref:Microsoft.Extensions.Configuration.UserSecretsConfigurationExtensions.AddUserSecrets%2A> çağırarak Kullanıcı gizli dizi yapılandırma kaynağını açıkça ekleyin. Aşağıdaki örnekte gösterildiği gibi, uygulama geliştirme ortamında çalıştırıldığında `AddUserSecrets` çağırın:
 
 [!code-csharp[](app-secrets/samples/1.x/UserSecrets/Startup.cs?name=snippet_StartupConstructor&highlight=12)]
 
@@ -243,7 +243,7 @@ ASP.NET Core 2,0 veya sonraki sürümlerde Kullanıcı gizli dizileri yapıland�
 
 [Microsoft. Extensions. Configuration. Usergizlilikler](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.UserSecrets) NuGet paketini yükler.
 
-`Startup` oluşturucusunda <xref:Microsoft.Extensions.Configuration.UserSecretsConfigurationExtensions.AddUserSecrets*> çağrısıyla Kullanıcı gizli dizi yapılandırma kaynağını ekleyin:
+`Startup` oluşturucusunda <xref:Microsoft.Extensions.Configuration.UserSecretsConfigurationExtensions.AddUserSecrets%2A> çağrısıyla Kullanıcı gizli dizi yapılandırma kaynağını ekleyin:
 
 [!code-csharp[](app-secrets/samples/1.x/UserSecrets/Startup.cs?name=snippet_StartupConstructor&highlight=12)]
 
@@ -303,7 +303,7 @@ dotnet user-secrets set "DbPassword" "pass123"
 
 [!code-json[](app-secrets/samples/2.x/UserSecrets/appsettings.json?highlight=3)]
 
-Gizli dizi değeri, bağlantı dizesinin tamamlanabilmesi için <xref:System.Data.SqlClient.SqlConnectionStringBuilder> nesnenin <xref:System.Data.SqlClient.SqlConnectionStringBuilder.Password*> özelliğinde ayarlanabilir:
+Gizli dizi değeri, bağlantı dizesinin tamamlanabilmesi için <xref:System.Data.SqlClient.SqlConnectionStringBuilder> nesnenin <xref:System.Data.SqlClient.SqlConnectionStringBuilder.Password%2A> özelliğinde ayarlanabilir:
 
 ::: moniker range=">= aspnetcore-2.0"
 
