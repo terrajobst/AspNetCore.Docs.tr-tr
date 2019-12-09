@@ -5,16 +5,16 @@ description: Bileşenlerin bir dış bileşen kitaplığından Blazor uygulamala
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 09/23/2019
+ms.date: 12/05/2019
 no-loc:
 - Blazor
 uid: blazor/class-libraries
-ms.openlocfilehash: d4cc4124c9dc28ed6da0923b919919df4965f89f
-ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
+ms.openlocfilehash: 6bac007e3e1d046d6b16a3a0be6dc5976b99b766
+ms.sourcegitcommit: 851b921080fe8d719f54871770ccf6f78052584e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73962704"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74943881"
 ---
 # <a name="aspnet-core-razor-components-class-libraries"></a>ASP.NET Core Razor bileşenleri sınıf kitaplıkları
 
@@ -35,16 +35,16 @@ Ortamınızı Blazoriçin yapılandırmak üzere <xref:blazor/get-started> makal
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 1. Yeni bir proje oluşturun.
-1. **Razor sınıfı kitaplığı**' nı seçin. **İleri ' yi**seçin.
+1. **Razor sınıfı kitaplığı**' nı seçin. **İleri**’yi seçin.
 1. **Yeni bir Razor sınıf kitaplığı oluştur** Iletişim kutusunda **Oluştur**' u seçin.
-1. **Proje adı** alanında bir proje adı girin veya varsayılan proje adını kabul edin. Bu konudaki örneklerde `MyComponentLib1`proje adı kullanılır. **Oluştur**' u seçin.
+1. **Proje adı** alanında bir proje adı girin veya varsayılan proje adını kabul edin. Bu konudaki örneklerde `MyComponentLib1`proje adı kullanılır. Seçin **oluşturma**.
 1. RCL 'yi bir çözüme ekleyin:
    1. Çözüme sağ tıklayın.  > **var olan projeyi** **Ekle** ' yi seçin.
    1. RCL 'nin proje dosyasına gidin.
    1. RCL 'nin proje dosyasını ( *. csproj*) seçin.
 1. Uygulamadan RCL 'ye bir başvuru ekleyin:
    1. Uygulama projesine sağ tıklayın.  > **başvuru** **Ekle** ' yi seçin.
-   1. RCL projesini seçin. **Tamam ' ı**seçin.
+   1. RCL projesini seçin. Seçin **Tamam**.
 
 # <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
 
@@ -73,7 +73,7 @@ Aşağıdaki örneklerde `MyComponentLib1`, bir `SalesReport` bileşeni içeren 
 
 `SalesReport` bileşene, ad alanı ile tam tür adı kullanılarak başvurulabilir:
 
-```cshtml
+```razor
 <h1>Hello, world!</h1>
 
 Welcome to your new app.
@@ -83,7 +83,7 @@ Welcome to your new app.
 
 Ayrıca, kitaplık bir `@using` yönergesi ile kapsama alınırsa bileşene de başvurulabilir:
 
-```cshtml
+```razor
 @using MyComponentLib1
 
 <h1>Hello, world!</h1>

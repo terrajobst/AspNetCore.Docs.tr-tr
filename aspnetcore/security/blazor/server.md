@@ -5,17 +5,17 @@ description: Sunucu uygulamalarına Blazor yönelik güvenlik tehditlerini nası
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/12/2019
+ms.date: 12/05/2019
 no-loc:
 - Blazor
 - SignalR
 uid: security/blazor/server
-ms.openlocfilehash: 5cf83a4dd255959e8840fca3a8194b5b4e2ad0a8
-ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
+ms.openlocfilehash: 2d644b84b304a31ad0debc16164ad155c7f7da65
+ms.sourcegitcommit: 851b921080fe8d719f54871770ccf6f78052584e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73963871"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74944288"
 ---
 # <a name="secure-aspnet-core-opno-locblazor-server-apps"></a>Güvenli ASP.NET Core Blazor Server uygulamaları
 
@@ -36,7 +36,7 @@ JS birlikte çalışması Internet üzerinden yapıldığından ve istemci uzak 
 
 İstemci sunucuyla etkileşime geçtiğinde kaynak tükenmesi gerçekleşebilir ve sunucunun aşırı kaynak kullanmasına neden olur. Aşırı kaynak tüketimi öncelikle şunları etkiler:
 
-* ['SUNA](#cpu)
+* [CPU](#cpu)
 * [Bellek](#memory)
 * [İstemci bağlantıları](#client-connections)
 
@@ -159,7 +159,7 @@ Blazor sunucu olayları zaman uyumsuzdur, bu nedenle uygulamanın yeni bir işle
 
 Bir kullanıcının bir sayacı en fazla üç kez artmasını sağlayan bir sayaç bileşeni düşünün. Sayacı artırma düğmesi, `count`değerine göre koşullu olarak belirlenir:
 
-```cshtml
+```razor
 <p>Count: @count<p>
 
 @if (count < 3)
@@ -180,7 +180,7 @@ Bir kullanıcının bir sayacı en fazla üç kez artmasını sağlayan bir saya
 
 Bir istemci, çerçeve bu bileşenin yeni bir işlemesini oluşturmadan önce bir veya daha fazla artış olayı gönderebilir. Bu, düğme kullanıcı ARABIRIMI tarafından yeterince hızlı bir şekilde kaldırılmadığı için `count`, Kullanıcı tarafından *üç kez* artılabildiğinden oluşur. Üç `count` artımlarının sınırına ulaşmak için doğru yol aşağıdaki örnekte gösterilmiştir:
 
-```cshtml
+```razor
 <p>Count: @count<p>
 
 @if (count < 3)
@@ -208,7 +208,7 @@ Bir istemci, çerçeve bu bileşenin yeni bir işlemesini oluşturmadan önce bi
 
 Bir olay geri çağırması, bir dış hizmetten veya veritabanından veri getirme gibi uzun süren bir işlemi çağıralıyorsa, bir koruyucu kullanmayı düşünün. Koruyucu, bir işlem görsel geri bildirimde çalışırken, kullanıcının birden çok işlemi sıraya almasını önleyebilir. Aşağıdaki bileşen kodu, `GetForecastAsync` verileri sunucudan alırken `true` `isLoading` ayarlar. `isLoading` `true`, bu düğme Kullanıcı arabiriminde devre dışı bırakılır:
 
-```cshtml
+```razor
 @page "/fetchdata"
 @using BlazorServerSample.Data
 @inject WeatherForecastService ForecastService
@@ -235,7 +235,7 @@ Bir olay geri çağırması, bir dış hizmetten veya veritabanından veri getir
 
 [Birden çok gönderenlere karşı koruma](#guard-against-multiple-dispatches) bölümünde açıklandığı gibi bir koruyucu kullanmanın yanı sıra, bileşen bırakıldığında uzun süreli işlemleri iptal etmek için bir <xref:System.Threading.CancellationToken> kullanmayı düşünün. Bu yaklaşımda, bileşenlerden *sonra kullanım-sonrasında Dispose özelliğinden kaçınmanın* sağladığı avantaj vardır:
 
-```cshtml
+```razor
 @implements IDisposable
 
 ...

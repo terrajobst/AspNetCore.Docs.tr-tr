@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 11/07/2019
 uid: fundamentals/file-providers
-ms.openlocfilehash: 531f7acd7a704a74e6142d201f613f05288deecb
-ms.sourcegitcommit: 4818385c3cfe0805e15138a2c1785b62deeaab90
+ms.openlocfilehash: a454ca394546184968222ca2ca44d7159b19a12a
+ms.sourcegitcommit: 851b921080fe8d719f54871770ccf6f78052584e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73896848"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74944314"
 ---
 # <a name="file-providers-in-aspnet-core"></a>ASP.NET Core dosya sağlayıcıları
 
@@ -27,7 +27,7 @@ ASP.NET Core dosya sistemi erişimini dosya sağlayıcılarının kullanımı ü
 * [Razor](xref:mvc/views/razor) , sayfa ve görünümleri bulmak Için dosya sağlayıcılarını kullanır.
 * .NET Core araçları, hangi dosyaların yayımlanacak olduğunu belirlemek için dosya sağlayıcılarını ve glob düzenlerini kullanır.
 
-[Örnek kodu görüntüleme veya indirme](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/file-providers/samples) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
+[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/file-providers/samples) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
 
 ## <a name="file-provider-interfaces"></a>Dosya sağlayıcısı arabirimleri
 
@@ -95,7 +95,7 @@ var physicalProvider = _env.ContentRootFileProvider;
 
 Katıştırılmış dosyaların bir bildirimini oluşturmak için `<GenerateEmbeddedFilesManifest>` özelliğini `true`olarak ayarlayın. [\<EmbeddedResource >](/dotnet/core/tools/csproj#default-compilation-includes-in-net-core-projects)eklemek için dosyaları belirtin:
 
-[!code-csharp[](file-providers/samples/3.x/FileProviderSample/FileProviderSample.csproj?highlight=6,14)]
+[!code-csharp[](file-providers/samples/3.x/FileProviderSample/FileProviderSample.csproj?highlight=5,13)]
 
 Derlemeye eklemek üzere bir veya daha fazla dosya belirtmek için [Glob desenlerini](#glob-patterns) kullanın.
 
@@ -114,7 +114,7 @@ Ek aşırı yüklemeler şunları yapmanıza olanak sağlar:
 * Dosya kapsamını son değiştirilme tarihine kadar.
 * Katıştırılmış dosya bildirimini içeren gömülü kaynağı adlandırın.
 
-| Yüklemek | Açıklama |
+| Aşırı yükleme | Açıklama |
 | -------- | ----------- |
 | `ManifestEmbeddedFileProvider(Assembly, String)` | İsteğe bağlı `root` göreli yol parametresini kabul eder. Belirtilen yol altında bu kaynaklara <xref:Microsoft.Extensions.FileProviders.IFileProvider.GetDirectoryContents*> yapılan çağrıların kapsamını belirlemek için `root` belirtin. |
 | `ManifestEmbeddedFileProvider(Assembly, String, DateTimeOffset)` | İsteğe bağlı `root` göreli yol parametresini ve `lastModified` Tarih (<xref:System.DateTimeOffset>) parametresini kabul eder. `lastModified` tarihi, <xref:Microsoft.Extensions.FileProviders.IFileProvider>tarafından döndürülen <xref:Microsoft.Extensions.FileProviders.IFileInfo> örneklerinin son değiştirilme tarihini kapsamlar. |
@@ -176,7 +176,7 @@ ASP.NET Core dosya sistemi erişimini dosya sağlayıcılarının kullanımı ü
 * [Razor](xref:mvc/views/razor) , sayfa ve görünümleri bulmak Için dosya sağlayıcılarını kullanır.
 * .NET Core araçları, hangi dosyaların yayımlanacak olduğunu belirlemek için dosya sağlayıcılarını ve glob düzenlerini kullanır.
 
-[Örnek kodu görüntüleme veya indirme](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/file-providers/samples) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
+[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/file-providers/samples) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
 
 ## <a name="file-provider-interfaces"></a>Dosya sağlayıcısı arabirimleri
 
@@ -261,7 +261,7 @@ Ek aşırı yüklemeler şunları yapmanıza olanak sağlar:
 * Dosya kapsamını son değiştirilme tarihine kadar.
 * Katıştırılmış dosya bildirimini içeren gömülü kaynağı adlandırın.
 
-| Yüklemek | Açıklama |
+| Aşırı yükleme | Açıklama |
 | -------- | ----------- |
 | `ManifestEmbeddedFileProvider(Assembly, String)` | İsteğe bağlı `root` göreli yol parametresini kabul eder. Belirtilen yol altında bu kaynaklara <xref:Microsoft.Extensions.FileProviders.IFileProvider.GetDirectoryContents*> yapılan çağrıların kapsamını belirlemek için `root` belirtin. |
 | `ManifestEmbeddedFileProvider(Assembly, String, DateTimeOffset)` | İsteğe bağlı `root` göreli yol parametresini ve `lastModified` Tarih (<xref:System.DateTimeOffset>) parametresini kabul eder. `lastModified` tarihi, <xref:Microsoft.Extensions.FileProviders.IFileProvider>tarafından döndürülen <xref:Microsoft.Extensions.FileProviders.IFileInfo> örneklerinin son değiştirilme tarihini kapsamlar. |

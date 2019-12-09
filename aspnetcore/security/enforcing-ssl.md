@@ -4,18 +4,18 @@ author: rick-anderson
 description: ASP.NET Core Web uygulamasında HTTPS/TLS isteme hakkında bilgi edinin.
 ms.author: riande
 ms.custom: mvc
-ms.date: 09/14/2019
+ms.date: 12/06/2019
 uid: security/enforcing-ssl
-ms.openlocfilehash: 82cd2e52f3bd929682b9eae24611ad04fd9f8682
-ms.sourcegitcommit: 3e503ef510008e77be6dd82ee79213c9f7b97607
+ms.openlocfilehash: 032105c67e15ab94635ae6fadea103450c7eb0fb
+ms.sourcegitcommit: 851b921080fe8d719f54871770ccf6f78052584e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74317363"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74944245"
 ---
 # <a name="enforce-https-in-aspnet-core"></a>ASP.NET Core 'de HTTPS 'yi zorla
 
-[Rick Anderson](https://twitter.com/RickAndMSFT) tarafından
+Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 Bu belgede nasıl yapılacağı gösterilmektedir:
 
@@ -173,7 +173,7 @@ Aşağıdaki vurgulanan kod, ara yazılım seçeneklerini yapılandırmak için 
 Vurgulanan önceki kod:
 
 * [Httpsredirectionoptions. RedirectStatusCode](xref:Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionOptions.RedirectStatusCode*) değerini, varsayılan değer olan <xref:Microsoft.AspNetCore.Http.StatusCodes.Status307TemporaryRedirect>belirler. `RedirectStatusCode`atamaları için <xref:Microsoft.AspNetCore.Http.StatusCodes> sınıfının alanlarını kullanın.
-* HTTPS bağlantı noktasını 5001 olarak ayarlar. Varsayılan değer 443 ' dir.
+* HTTPS bağlantı noktasını 5001 olarak ayarlar.
 
 #### <a name="configure-permanent-redirects-in-production"></a>Üretimde kalıcı yeniden yönlendirmeleri yapılandırma
 
@@ -277,7 +277,7 @@ Aşağıdaki kod:
 ::: moniker-end
 
 
-* Strict-Transport-Security üstbilgisinin preload parametresini ayarlar. Önyükleme, [RFC HSTS belirtiminin](https://tools.ietf.org/html/rfc6797)bir parçası değildir, ancak Web tarayıcıları tarafından Yeni yüklemede HSTS sitelerini önceden yüklemek için desteklenir. Daha fazla bilgi için bkz. [https://hstspreload.org/](https://hstspreload.org/) .
+* Strict-Transport-Security üstbilgisinin preload parametresini ayarlar. Önyükleme, [RFC HSTS belirtiminin](https://tools.ietf.org/html/rfc6797)bir parçası değildir, ancak Web tarayıcıları tarafından Yeni yüklemede HSTS sitelerini önceden yüklemek için desteklenir. Daha fazla bilgi için bkz. [https://hstspreload.org/](https://hstspreload.org/)
 * SSTS ilkesini konak alt etki alanlarını barındıracak şekilde uygulayan [ıncludealt etki alanını](https://tools.ietf.org/html/rfc6797#section-6.1.2)sağlar.
 * Strict-Transport-Security üstbilgisinin Max-Age parametresini açıkça 60 gün olarak ayarlar. Ayarlanmazsa, varsayılan olarak 30 gün olur. Daha fazla bilgi için bkz. [Maksimum yaş yönergesi](https://tools.ietf.org/html/rfc6797#section-6.1.1) .
 * Dışlanacak konaklar listesine `example.com` ekler.
@@ -383,7 +383,7 @@ Yukarıdaki komutlar çoğu tarayıcı güveni sorununu çözüyor. Tarayıcı y
 ### <a name="docker---certificate-not-trusted"></a>Docker-Sertifikaya güvenilmiyor
 
 * *C:\Users\{User} \AppData\Roaming\ASP.NET\Https* klasörünü silin.
-* Çözümü temizleyin. *Bin* ve *obj* klasörlerini silin.
+* Çözümü temizleyin. Silme *bin* ve *obj* klasörleri.
 * Geliştirme aracını yeniden başlatın. Örneğin, Visual Studio, Visual Studio Code veya Mac için Visual Studio.
 
 ### <a name="windows---certificate-not-trusted"></a>Windows-Sertifikaya güvenilmiyor

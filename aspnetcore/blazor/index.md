@@ -5,17 +5,17 @@ description: ASP.NET Core uygulamasında .NET ile etkileşimli istemci tarafı W
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc, seoapril2019
-ms.date: 11/12/2019
+ms.date: 12/05/2019
 no-loc:
 - Blazor
 - SignalR
 uid: blazor/index
-ms.openlocfilehash: 8b656a7461c78475432722540ad628258cfe19c4
-ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
+ms.openlocfilehash: 4ab6af649afe66d92fb2ea07d3abed057f321bce
+ms.sourcegitcommit: 851b921080fe8d719f54871770ccf6f78052584e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73962919"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74943725"
 ---
 # <a name="introduction-to-aspnet-core-opno-locblazor"></a>ASP.NET Core Blazor giriş
 
@@ -53,7 +53,7 @@ Bileşen sınıfı genellikle *. Razor* dosya uzantısına sahip bir [Razor](xre
 
 Aşağıdaki Razor biçimlendirmesi, başka bir bileşen içinde iç içe kullanılabilecek bir bileşeni (*Iletişim kutusu. Razor*) gösterir:
 
-```cshtml
+```razor
 <div>
     <h1>@Title</h1>
 
@@ -76,15 +76,15 @@ Aşağıdaki Razor biçimlendirmesi, başka bir bileşen içinde iç içe kullan
 }
 ```
 
-İletişim kutusunun gövde içeriği (`ChildContent`) ve başlığı (`Title`), Kullanıcı arabiriminde bu bileşeni kullanan bileşen tarafından sağlanır. `OnYes`, düğmenin C# `onclick` olayı tarafından tetiklenen bir yöntemdir.
+İletişim kutusunun gövde içeriği (`ChildContent`) ve başlığı (`Title`), bu bileşeni Kullanıcı arabiriminde kullanan bileşen tarafından sağlanır. `OnYes` düğmenin `onclick` C# olayı tarafından tetiklenen bir yöntemdir.
 
 Blazor, UI bileşimi için doğal HTML etiketleri kullanır. HTML öğeleri, bileşenleri belirtir ve bir etiketin öznitelikleri değerleri bir bileşenin özelliklerine iletir.
 
-Aşağıdaki örnekte `Index` bileşeni `Dialog` bileşenini kullanır. `ChildContent` ve `Title` `<Dialog>` öğesinin öznitelikleri ve içeriği tarafından ayarlanır.
+Aşağıdaki örnekte `Index` bileşeni `Dialog` bileşenini kullanır. `ChildContent` ve `Title`, `<Dialog>` öğesinin özniteliklerine ve içeriğine göre ayarlanır.
 
 *Index. Razor*:
 
-```cshtml
+```razor
 @page "/"
 
 <h1>Hello, world!</h1>
@@ -128,7 +128,7 @@ Yayınlanan uygulamanın boyutu, *Yük boyutu*, uygulamanın useyeteneğinin ön
 * HTTP yanıtları sıkıştırılır.
 * .NET çalışma zamanı ve derlemeler tarayıcıda önbelleğe alınır.
 
-## <a name="opno-locblazor-server"></a>Blazor sunucusu
+## <a name="opno-locblazor-server"></a>Blazor Sunucusu
 
 Blazor, Kullanıcı arabirimi güncelleştirmelerinin uygulanma, bileşen işleme mantığını ayırır. Blazor Server, bir ASP.NET Core uygulamasındaki sunucuda Razor bileşenlerini barındırmak için destek sağlar. Kullanıcı Arabirimi güncelleştirmeleri [SignalR](xref:signalr/introduction) bir bağlantı üzerinden işlenir.
 
@@ -146,7 +146,7 @@ Blazor sunucusu tarafından tarayıcıyla iletişim kurmak için kullanılan ba�
 
 Blazor, [.NET Standard 2,0](/dotnet/standard/net-standard)uygular. .NET Standard, .NET uygulamaları genelinde ortak olan .NET API 'lerinin resmi bir belirtimidir. .NET Standard sınıf kitaplıkları, Blazor, .NET Framework, .NET Core, Xamarin, mono ve Unity gibi farklı .NET platformları arasında paylaşılabilir.
 
-Bir Web tarayıcısı içinde geçerli olmayan API 'Ler (örneğin, dosya sistemine erişmek, bir yuva açmak ve iş parçacığı açmak) <xref:System.PlatformNotSupportedException> oluşturur.
+Bir Web tarayıcısı içinde geçerli olmayan API 'Ler (örneğin, dosya sistemine erişmek, bir yuva açmak ve iş parçacığı açmak) <xref:System.PlatformNotSupportedException>oluşturur.
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
@@ -154,5 +154,5 @@ Bir Web tarayıcısı içinde geçerli olmayan API 'Ler (örneğin, dosya sistem
 * <xref:blazor/hosting-models>
 * [C# Kılavuzu](/dotnet/csharp/)
 * <xref:mvc/views/razor>
-* ['SI](https://www.w3.org/html/)
+* [HTML](https://www.w3.org/html/)
 * [Başar Blazor](https://github.com/AdrienTorris/awesome-blazor) topluluk bağlantıları

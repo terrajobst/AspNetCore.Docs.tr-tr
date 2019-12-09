@@ -5,17 +5,17 @@ description: ASP.NET Core kullanarak Blazor sunucu uygulamasının nasıl barın
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/21/2019
+ms.date: 12/05/2019
 no-loc:
 - Blazor
 - SignalR
 uid: host-and-deploy/blazor/server
-ms.openlocfilehash: b688d000f26c9b230d9fdee8423b3194145fe1aa
-ms.sourcegitcommit: 3e503ef510008e77be6dd82ee79213c9f7b97607
+ms.openlocfilehash: d45d355eabc53fc90bcda4cb7be22fb6a9f04541
+ms.sourcegitcommit: 851b921080fe8d719f54871770ccf6f78052584e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74317304"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74944340"
 ---
 # <a name="host-and-deploy-opno-locblazor-server"></a>Blazor sunucusu barındırma ve dağıtma
 
@@ -83,7 +83,7 @@ Blazor Server uygulamaları için [Azure SignalR hizmetini](/azure/azure-signalr
 
 1. Blazor Server uygulaması için Visual Studio 'da bir Azure Apps yayımlama profili oluşturun.
 1. **Azure SignalR hizmeti** bağımlılığını profile ekleyin. Azure aboneliğinin uygulamaya atanacak önceden mevcut bir Azure SignalR hizmeti örneği yoksa, yeni bir hizmet örneği sağlamak için **Yeni bir azure SignalR hizmet örneği oluştur** ' u seçin.
-1. Uygulamayı Azure 'da yayımlayın.
+1. Uygulamayı Azure’da yayımlama.
 
 #### <a name="iis"></a>IIS
 
@@ -109,7 +109,7 @@ metadata:
 
 Aşağıdaki örnekte gösterildiği gibi, [js birlikte çalışması](xref:blazor/javascript-interop) ağ gecikmesini ölçmek için kullanılabilir:
 
-```cshtml
+```razor
 @inject IJSRuntime JS
 
 @if (latency is null)

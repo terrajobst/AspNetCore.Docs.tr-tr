@@ -5,16 +5,16 @@ description: Blazor uygulamalar için yeniden kullanılabilir düzen bileşenler
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 09/23/2019
+ms.date: 12/05/2019
 no-loc:
 - Blazor
 uid: blazor/layouts
-ms.openlocfilehash: 3546259fc6b622a6137a6baa8f446c5f43af1cab
-ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
+ms.openlocfilehash: 90acfb0d4e9daadb12be79de6bd0c99fc545697a
+ms.sourcegitcommit: 851b921080fe8d719f54871770ccf6f78052584e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73962817"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74944063"
 ---
 # <a name="aspnet-core-opno-locblazor-layouts"></a>ASP.NET Core Blazor düzenleri
 
@@ -31,7 +31,7 @@ Bir *bileşeni* bir *düzene*dönüştürmek için bileşen:
 
 Aşağıdaki kod örneğinde, *mainlayout. Razor*olan bir düzen bileşeninin Razor şablonu gösterilmektedir. Düzen `LayoutComponentBase` devralır ve gezinti çubuğu ile altbilgi arasındaki `@Body` ayarlar:
 
-[!code-cshtml[](layouts/sample_snapshot/3.x/MainLayout.razor?highlight=1,13)]
+[!code-razor[](layouts/sample_snapshot/3.x/MainLayout.razor?highlight=1,13)]
 
 Blazor uygulama şablonlarından birini temel alan bir uygulamada, `MainLayout` bileşeni (*Mainlayout. Razor*) uygulamanın *paylaşılan* klasöründedir.
 
@@ -39,11 +39,11 @@ Blazor uygulama şablonlarından birini temel alan bir uygulamada, `MainLayout` 
 
 Uygulamanın *app. Razor* dosyasındaki `Router` bileşende varsayılan uygulama yerleşimini belirtin. Varsayılan Blazor şablonları tarafından sunulan aşağıdaki `Router` bileşeni, `MainLayout` bileşenine varsayılan düzeni ayarlar:
 
-[!code-cshtml[](layouts/sample_snapshot/3.x/App1.razor?highlight=3)]
+[!code-razor[](layouts/sample_snapshot/3.x/App1.razor?highlight=3)]
 
 `NotFound` içerik için varsayılan bir düzen sağlamak üzere `NotFound` içeriği için bir `LayoutView` belirtin:
 
-[!code-cshtml[](layouts/sample_snapshot/3.x/App2.razor?highlight=6-9)]
+[!code-razor[](layouts/sample_snapshot/3.x/App2.razor?highlight=6-9)]
 
 `Router` bileşeni hakkında daha fazla bilgi için bkz. <xref:blazor/routing>.
 
@@ -55,7 +55,7 @@ Bir bileşene düzen uygulamak için Razor yönergesini `@layout` kullanın. Der
 
 Aşağıdaki `MasterList` bileşenin içeriği, `@Body`konumundaki `MasterLayout` eklenir:
 
-[!code-cshtml[](layouts/sample_snapshot/3.x/MasterList.razor?highlight=1)]
+[!code-razor[](layouts/sample_snapshot/3.x/MasterList.razor?highlight=1)]
 
 Düzen doğrudan bir bileşende belirtildiğinde, yönlendiricide ayarlanan *varsayılan bir düzen* veya *_Imports. Razor*'den içeri aktarılan bir `@layout` yönergesi geçersiz kılınır.
 
@@ -69,7 +69,7 @@ Aşağıdaki *_Imports. Razor* dosyası içeri aktarmaları:
 * Aynı klasörde ve alt klasörlerde bulunan tüm Razor bileşenleri.
 * `BlazorApp1.Data` ad alanı.
  
-[!code-cshtml[](layouts/sample_snapshot/3.x/_Imports.razor)]
+[!code-razor[](layouts/sample_snapshot/3.x/_Imports.razor)]
 
 *_Imports. Razor* dosyası, [Razor görünümleri ve sayfaları için _ViewImports. cshtml dosyasına](xref:mvc/views/layout#importing-shared-directives) benzer ancak özellikle Razor bileşen dosyalarına uygulanır.
 
@@ -81,15 +81,15 @@ Uygulamalar iç içe düzenleri içerebilir. Bir bileşen, daha sonra başka bir
 
 Aşağıdaki örnek, iç içe düzenleri nasıl kullanacağınızı gösterir. *Epısodescomponent. Razor* dosyası görüntülenecek bileşendir. Bileşen `MasterListLayout`başvurur:
 
-[!code-cshtml[](layouts/sample_snapshot/3.x/EpisodesComponent.razor?highlight=1)]
+[!code-razor[](layouts/sample_snapshot/3.x/EpisodesComponent.razor?highlight=1)]
 
 *Masterlistlayout. Razor* dosyası `MasterListLayout`sağlar. Düzen, `MasterLayout`başka bir düzene başvuruyor. `EpisodesComponent`, `@Body` göründüğü yerde işlenir:
 
-[!code-cshtml[](layouts/sample_snapshot/3.x/MasterListLayout.razor?highlight=1,9)]
+[!code-razor[](layouts/sample_snapshot/3.x/MasterListLayout.razor?highlight=1,9)]
 
 Son olarak, *Masterlayout. Razor* içindeki `MasterLayout` üstbilgi, ana menü ve alt bilgi gibi en üst düzey düzen öğelerini içerir. `EpisodesComponent` `MasterListLayout` `@Body` göründüğü yerde işlenir:
 
-[!code-cshtml[](layouts/sample_snapshot/3.x/MasterLayout.razor?highlight=6)]
+[!code-razor[](layouts/sample_snapshot/3.x/MasterLayout.razor?highlight=6)]
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
