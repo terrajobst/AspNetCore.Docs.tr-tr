@@ -1,0 +1,1 @@
+<span data-ttu-id="c7917-101">Bu, [ASP.NET Core model bağlamasıyla](https://docs.microsoft.com/aspnet/core/mvc/models/model-binding)birlikte gelen örnek bir projem dir.</span><span class="sxs-lookup"><span data-stu-id="c7917-101">This is a sample project that goes with [Model binding in ASP.NET Core](https://docs.microsoft.com/aspnet/core/mvc/models/model-binding).</span></span>
