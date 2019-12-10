@@ -5,14 +5,14 @@ description: ASP.NET Core Web API 'Leri ile hata işleme hakkında bilgi edinin.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: prkrishn
 ms.custom: mvc
-ms.date: 09/27/2019
+ms.date: 12/10/2019
 uid: web-api/handle-errors
-ms.openlocfilehash: 457ad7449c608c3b1b0acd729626e07808f55897
-ms.sourcegitcommit: ddc813f0f1fb293861a01597532919945b0e7fe5
+ms.openlocfilehash: c2dbc47b4495b7187aefbc62eb6d2f0c9683c2da
+ms.sourcegitcommit: 29ace642ca0e1f0b48a18d66de266d8811df2b83
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74412097"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74987823"
 ---
 # <a name="handle-errors-in-aspnet-core-web-apis"></a>ASP.NET Core Web API 'Lerinde hataları işleme
 
@@ -34,7 +34,7 @@ curl -i https://localhost:5001/weatherforecast/chicago
 
 ::: moniker range=">= aspnetcore-3.0"
 
-ASP.NET Core 3,0 ve üzeri sürümlerde geliştirici özel durum sayfasında, istemci HTML biçimli çıkış isteğinde yoksa bir düz metin yanıtı görüntülenir. Aşağıdaki çıktı görüntülenir:
+ASP.NET Core 3,0 ve üzeri sürümlerde geliştirici özel durum sayfasında, istemci HTML biçimli çıkış isteğinde yoksa bir düz metin yanıtı görüntülenir. Şu çıktı görünür:
 
 ```console
 HTTP/1.1 500 Internal Server Error
@@ -149,7 +149,7 @@ Geliştirme dışı ortamlarda, [özel durum Işleme ara yazılımı](xref:funda
 
     ::: moniker-end
 
-Önceki `Error` eylemi istemciye [RFC7807](https://tools.ietf.org/html/rfc7807)uyumlu bir yük gönderir.
+Yukarıdaki `Error` eylemi istemciye [RFC 7807](https://tools.ietf.org/html/rfc7807)ile uyumlu bir yük gönderir.
 
 Özel durum Işleme ara yazılımı, yerel geliştirme ortamında daha ayrıntılı içerik üzerinde anlaşılan çıkış de sağlayabilir. Geliştirme ve üretim ortamları genelinde tutarlı bir yük biçimi oluşturmak için aşağıdaki adımları kullanın:
 
@@ -267,6 +267,13 @@ Web API denetleyicileri için,, model doğrulama başarısız olduğunda MVC bir
 ## <a name="client-error-response"></a>İstemci hata yanıtı
 
 Bir *hata sonucu* , 400 veya ÜZERI bir http durum kodu ile sonuç olarak tanımlanır. Web API denetleyicileri için, MVC bir hata sonucunu <xref:Microsoft.AspNetCore.Mvc.ProblemDetails>bir sonuçla dönüştürür.
+
+::: moniker range="= aspnetcore-2.1"
+
+> [!IMPORTANT]
+> ASP.NET Core 2,1, neredeyse RFC 7807 uyumlu olan bir sorun ayrıntıları yanıtı üretir. Yüzde 100 uyumluluğu önemliyse, projeyi ASP.NET Core 2,2 veya üzeri bir sürüme yükseltin.
+
+::: moniker-end
 
 ::: moniker range=">= aspnetcore-3.0"
 
