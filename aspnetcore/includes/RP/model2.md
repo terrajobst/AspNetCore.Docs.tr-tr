@@ -29,7 +29,7 @@ Aşağıdaki Vurgulanan kodda gösterildiği gibi *appSettings. JSON* dosyasına
 Aşağıdaki `using` deyimlerini *Startup.cs*üst kısmına ekleyin:
 
 ```csharp
-using RazorPagesMovie.Models;
+using RazorPagesMovie.Data;
 using Microsoft.EntityFrameworkCore;
 ```
 
