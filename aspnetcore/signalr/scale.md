@@ -9,12 +9,12 @@ ms.date: 11/28/2018
 no-loc:
 - SignalR
 uid: signalr/scale
-ms.openlocfilehash: 7fc767939996a489174be949742637030924616d
-ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
+ms.openlocfilehash: 6506430202870ba9de2f8eb6f33d79c7c1fbbbd4
+ms.sourcegitcommit: e7d4fe6727d423f905faaeaa312f6c25ef844047
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73963743"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75608073"
 ---
 # <a name="aspnet-core-opno-locsignalr-hosting-and-scaling"></a>ASP.NET Core SignalR barındırma ve ölçeklendirme
 
@@ -52,7 +52,7 @@ SignalR kaynak kullanımını diğer Web uygulamalarındaki hatalara neden olaca
 
 SignalR kaynak kullanımını SignalR uygulamasında hatalara neden olacak şekilde korumak için, bir sunucunun işleyeceği bağlantı sayısını sınırlamak üzere ölçeği ölçeklendirin.
 
-## <a name="scale-out"></a>Ölçeklendirme
+## <a name="scale-out"></a>uygulamasını ölçeklendirme
 
 SignalR kullanan bir uygulamanın, bir sunucu grubu için sorunlar oluşturan tüm bağlantılarını izlemesi gerekir. Bir sunucu ekleyin ve diğer sunucuların hakkında bilgi sahibi olmadığı yeni bağlantıları alır. Örneğin, aşağıdaki diyagramdaki her bir sunucuda SignalR diğer sunuculardaki bağlantılardan haberdar değildir. Sunuculardan birindeki SignalR tüm istemcilere ileti göndermek istediğinde, ileti yalnızca bu sunucuya bağlı olan istemcilere gider.
 
@@ -90,9 +90,24 @@ Redsıs geri düzlemi, kendi altyapınızda barındırılan uygulamalar için ö
 
 Daha önce bahsedilen Azure SignalR hizmet avantajları Redsıs geri düzlemi için dezavantajlardır:
 
-* [İstemci benzeşimi](/iis/extensions/configuring-application-request-routing-arr/http-load-balancing-using-application-request-routing#step-3---configure-client-affinity)olarak da bilinen yapışkan oturumlar gereklidir. Sunucuda bir bağlantı başlatıldıktan sonra bağlantı o sunucuda kalmaya devam etmek zorunda kalır.
+* [İstemci benzeşimi](/iis/extensions/configuring-application-request-routing-arr/http-load-balancing-using-application-request-routing#step-3---configure-client-affinity)olarak da bilinen yapışkan oturumlar, aşağıdakilerin **her ikisi** de doğru olduğunda gereklidir:
+  * Tüm istemciler **yalnızca** WebSockets kullanacak şekilde yapılandırılır.
+  * [Skipanlaşma ayarı](xref:signalr/configuration#configure-additional-options) istemci yapılandırmasında etkindir. 
+   Sunucuda bir bağlantı başlatıldıktan sonra bağlantı o sunucuda kalmaya devam etmek zorunda kalır.
 * Birkaç ileti gönderilse bile SignalR bir uygulama, istemci sayısına göre ölçeklendirmelidir.
 * SignalR uygulaması, SignalRolmayan bir Web uygulamasından çok daha fazla bağlantı kaynağı kullanır.
+
+## <a name="iis-limitations-on-windows-client-os"></a>Windows istemci işletim sisteminde IIS sınırlamaları
+
+Windows 10 ve Windows 8. x istemci işletim sistemleridir. İstemci işletim sistemlerindeki IIS, 10 eşzamanlı bağlantı sınırına sahiptir. SignalRbağlantıları şunlardır:
+
+* Geçici ve sık yeniden oluşturuldu.
+* Artık **kullanılmadıysa** hemen atılamaz.
+
+Yukarıdaki koşullar, istemci işletim sistemi üzerindeki 10 bağlantı sınırına ulaşmaları olasılığını ortadan alır. Geliştirme için bir istemci işletim sistemi kullanıldığında şunları yapmanızı öneririz:
+
+* IIS kullanmaktan kaçının.
+* Dağıtım hedefleri olarak Kestrel veya IIS Express kullanın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -5,7 +5,7 @@ Identity scaffolder öğesini çalıştırın:
 * Gelen **Çözüm Gezgini**, projeye sağ tıklayın > **Ekle** > **yeni iskele kurulmuş öğe**.
 * Sol bölmeden **İskele Ekle** iletişim kutusunda **kimlik** > **ekleme**.
 * **Kimlik Ekle** iletişim kutusunda istediğiniz seçenekleri belirleyin.
-  * Var olan düzen sayfanızı seçin veya Düzen dosyanızın üzerine yanlış biçimlendirme uygulanır. Örneğin `~/Pages/Shared/_Layout.cshtml` , MVC projeleri `~/Views/Shared/_Layout.cshtml` için Razor Pages
+  * Var olan düzen sayfanızı seçin veya Düzen dosyanızın üzerine yanlış biçimlendirme uygulanır. Örneğin, MVC projeleri için Razor Pages `~/Views/Shared/_Layout.cshtml` `~/Pages/Shared/_Layout.cshtml`
   * Seçin **+** yeni bir düğme **veri bağlamı sınıfının**.
 * Seçin **ekleme**.
 
@@ -17,11 +17,15 @@ ASP.NET Core iskele kurucu daha önce yüklemediyseniz şimdi yükleyin:
 dotnet tool install -g dotnet-aspnet-codegenerator
 ```
 
-Proje (\*. csproj) dosyasına [Microsoft. VisualStudio. Web. CodeGeneration. Design](https://www.nuget.org/packages/Microsoft.VisualStudio.Web.CodeGeneration.Design/) öğesine bir paket başvurusu ekleyin. Proje dizininde aşağıdaki komutu çalıştırın:
+Gerekli NuGet paket başvurularını proje (\*. csproj) dosyasına ekleyin. Proje dizininde aşağıdaki komutu çalıştırın:
 
 ```dotnetcli
 dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design
-dotnet restore
+dotnet add package Microsoft.EntityFrameworkCore.Design
+dotnet add package Microsoft.AspNetCore.Identity.EntityFrameworkCore
+dotnet add package Microsoft.AspNetCore.Identity.UI
+dotnet add package Microsoft.EntityFrameworkCore.SqlServer
+dotnet add package Microsoft.EntityFrameworkCore.Tools
 ```
 
 Kimlik destek seçeneklerini listelemek için aşağıdaki komutu çalıştırın:
@@ -29,6 +33,8 @@ Kimlik destek seçeneklerini listelemek için aşağıdaki komutu çalıştırı
 ```dotnetcli
 dotnet aspnet-codegenerator identity -h
 ```
+
+[!INCLUDE[](~/includes/scaffoldTFM.md)]
 
 Proje klasöründe, kimlik desteği ' ı istediğiniz seçeneklerle çalıştırın. Örneğin, kimliği varsayılan UI ve minimum dosya sayısı ile ayarlamak için aşağıdaki komutu çalıştırın:
 

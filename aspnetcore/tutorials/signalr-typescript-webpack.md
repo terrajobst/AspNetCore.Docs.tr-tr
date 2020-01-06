@@ -8,12 +8,12 @@ ms.date: 11/21/2019
 no-loc:
 - SignalR
 uid: tutorials/signalr-typescript-webpack
-ms.openlocfilehash: a7c99c9e79647995886aec5b3a91584fd2f24451
-ms.sourcegitcommit: 3e503ef510008e77be6dd82ee79213c9f7b97607
+ms.openlocfilehash: 331176f299c0efcd7acb19430ffddcaee7ca1cf3
+ms.sourcegitcommit: 2cb857f0de774df421e35289662ba92cfe56ffd1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74317482"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75357951"
 ---
 # <a name="use-aspnet-core-opno-locsignalr-with-typescript-and-webpack"></a>TypeScript ve WebPack ile ASP.NET Core SignalR kullanma
 
@@ -21,7 +21,7 @@ ms.locfileid: "74317482"
 
 [WebPack](https://webpack.js.org/) , geliştiricilerin bir Web uygulamasının istemci tarafı kaynaklarını paketleyip oluşturmalarına olanak sağlar. Bu öğretici, istemcisinin [TypeScript](https://www.typescriptlang.org/)'te yazıldığı bir ASP.NET Core SignalR Web uygulamasında WebPack 'in kullanımını gösterir.
 
-Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
+Bu öğreticide şunların nasıl yapıladığını öğreneceksiniz:
 
 > [!div class="checklist"]
 > * Bir başlatıcı ASP.NET Core SignalR uygulama için yapı iskelesi
@@ -30,22 +30,22 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 > * SignalR sunucusunu yapılandırma
 > * İstemci ve sunucu arasındaki iletişimi etkinleştir
 
-[Örnek kodu görüntüleme veya indirme](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/tutorials/signalr-typescript-webpack/sample) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
+[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/tutorials/signalr-typescript-webpack/sample) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
 
 ::: moniker range=">= aspnetcore-3.0"
 
-## <a name="prerequisites"></a>Önkoşullar
+## <a name="prerequisites"></a>Prerequisites
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * **ASP.net ve Web geliştirme** iş yüküyle [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=inline+link&utm_content=download+vs2019)
-* [.NET Core SDK 3,0 veya üzeri](https://www.microsoft.com/net/download/all)
+* [.NET Core SDK 3.0 veya üzeri](https://www.microsoft.com/net/download/all)
 * [NPM](https://www.npmjs.com/) ile [Node. js](https://nodejs.org/)
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 * [Visual Studio Code](https://code.visualstudio.com/download)
-* [.NET Core SDK 3,0 veya üzeri](https://www.microsoft.com/net/download/all)
+* [.NET Core SDK 3.0 veya üzeri](https://www.microsoft.com/net/download/all)
 * [C#Visual Studio Code sürüm 1.17.1 veya üzeri için](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)
 * [NPM](https://www.npmjs.com/) ile [Node. js](https://nodejs.org/)
 
@@ -274,13 +274,13 @@ Uygulamanın aşağıdaki adımlarla çalıştığından emin olun.
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * **ASP.net ve Web geliştirme** iş yüküyle [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=inline+link&utm_content=download+vs2019)
-* [.NET Core SDK 2,2 veya üzeri](https://www.microsoft.com/net/download/all)
+* [.NET core SDK 2.2 veya üzeri](https://www.microsoft.com/net/download/all)
 * [NPM](https://www.npmjs.com/) ile [Node. js](https://nodejs.org/)
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 * [Visual Studio Code](https://code.visualstudio.com/download)
-* [.NET Core SDK 2,2 veya üzeri](https://www.microsoft.com/net/download/all)
+* [.NET core SDK 2.2 veya üzeri](https://www.microsoft.com/net/download/all)
 * [C#Visual Studio Code sürüm 1.17.1 veya üzeri için](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)
 * [NPM](https://www.npmjs.com/) ile [Node. js](https://nodejs.org/)
 
@@ -433,7 +433,7 @@ Uygulama Şu anda ileti göndermek için basit bir form görüntülüyor. Bunu y
 1. Proje kökünde aşağıdaki komutu yürütün:
 
     ```console
-    npm install @microsoft/signalr
+    npm install @aspnet/signalr
     ```
 
     Yukarıdaki komut, istemcinin sunucuya ileti göndermesini sağlayan [SignalR TypeScript istemcisini](https://www.npmjs.com/package/@microsoft/signalr)yüklüyor.

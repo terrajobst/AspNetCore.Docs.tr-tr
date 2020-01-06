@@ -6,16 +6,18 @@ ms.author: casoper
 ms.date: 12/05/2019
 ms.custom: mvc, seodec18
 uid: security/authentication/azure-ad-b2c-webapi
-ms.openlocfilehash: 0c7e8a1db924bdedf29468bf6b8cc17f03962c6d
-ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
+ms.openlocfilehash: 9b18b19838a2d25944a2498b6eec1677e56b12cc
+ms.sourcegitcommit: 2cb857f0de774df421e35289662ba92cfe56ffd1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74880736"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75358267"
 ---
 # <a name="authentication-in-web-apis-with-azure-active-directory-b2c-in-aspnet-core"></a>Web API ASP.NET Core, Azure Active Directory B2C ile kimlik doğrulaması
 
 Tarafından [Cam Soper](https://twitter.com/camsoper)
+
+<!-- Next update remove screenshots. They become obsolete too soon and are more work to update -->
 
 [Azure Active Directory B2C](/azure/active-directory-b2c/active-directory-b2c-overview) (Azure AD B2C) olan bir bulut kimlik yönetimi çözümü, web ve mobil uygulamaları için. Hizmet, bulutta ve şirket içinde barındırılan uygulamalar için kimlik doğrulaması sağlar. Kimlik doğrulama türleri bireysel hesaplar, sosyal ağ hesabı, içerir ve kurumsal hesaplarda Federasyon. Azure AD B2C, ayrıca minimal yapılandırma ile çok faktörlü kimlik doğrulaması sağlar.
 
@@ -177,7 +179,7 @@ Web API'sine kimliği doğrulanmış bir isteği yapmak için bir taşıyıcı b
    |       **Kimlik doğrulama URL'si**        | `https://login.microsoftonline.com/{tenant domain name}/oauth2/v2.0/authorize?p=B2C_1_SiUpIn` |  Değiştirin *{Kiracı etki alanı adı}* kiracının etki alanı adına sahip. **Önemli**: Bu URL içinde bulunan olarak aynı etki alanı adı olmalıdır `AzureAdB2C.Instance` Web API'SİNİN *appsettings.json* dosya. Bkz. Not&dagger;.                                                  |
    |       **İstemci kimliği**       |                *{Postman uygulamanın girin **uygulama kimliği**}*                              |                                                                                                                                                                                                                                                                              |
    |         **Kapsam**         |         `https://{tenant domain name}/{api}/user_impersonation openid offline_access`       | Değiştirin *{Kiracı etki alanı adı}* kiracının etki alanı adına sahip. Değiştirin *{API}* ilk kaydettiğinizde uygulama kimliği URI'si ile web API'si verdiğiniz (Bu durumda, `api`). URL için Desen: `https://{tenant}.onmicrosoft.com/{api-id-uri}/{scope name}`.         |
-   |         **State**         |                                      *{boş bırakın}*                                          |                                                                                                                                                                                                                                                                              |
+   |         **Durum**         |                                      *{boş bırakın}*                                          |                                                                                                                                                                                                                                                                              |
    | **İstemci kimlik doğrulaması** |                                İstemci kimlik bilgileri gövdesinde Gönder                                |                                                                                                                                                                                                                                                                              |
 
     > [!NOTE]

@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-3.0'
 ms.author: johluo
 ms.date: 09/25/2019
 uid: grpc/migration
-ms.openlocfilehash: c4c07808540c9af370bfa253e8154a8a19f0f3de
-ms.sourcegitcommit: 897d4abff58505dae86b2947c5fe3d1b80d927f3
+ms.openlocfilehash: 451171a041f7bbb3711babd73d2fa2e245aadd28
+ms.sourcegitcommit: 2cb857f0de774df421e35289662ba92cfe56ffd1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73634062"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75355134"
 ---
 # <a name="migrating-grpc-services-from-c-core-to-aspnet-core"></a>GRPC hizmetlerini C Core 'dan ASP.NET Core geçirme
 
@@ -49,7 +49,7 @@ Ancak, tek bir yaşam süresine sahip bir hizmet uygulamasının kapsamı, kapsa
 
 C Core tabanlı uygulamalarda, `grpc.max_receive_message_length` ve `grpc.max_send_message_length` gibi ayarlar [sunucu örneği oluşturulurken](https://grpc.io/grpc/csharp/api/Grpc.Core.Server.html#Grpc_Core_Server__ctor_System_Collections_Generic_IEnumerable_Grpc_Core_ChannelOption__)`ChannelOption` ile yapılandırılır.
 
-ASP.NET Core, gRPC `GrpcServiceOptions` türü aracılığıyla yapılandırma sağlar. Örneğin, bir gRPC hizmetinin en büyük gelen ileti boyutu `AddGrpc` aracılığıyla yapılandırılabilir. Aşağıdaki örnek, varsayılan `MaxReceiveMessageSize` 4 MB ile 16 MB arasında değişir:
+ASP.NET Core, gRPC `GrpcServiceOptions` türü aracılığıyla yapılandırma sağlar. Örneğin, bir gRPC hizmetinin en büyük gelen ileti boyutu `AddGrpc`aracılığıyla yapılandırılabilir. Aşağıdaki örnek, varsayılan `MaxReceiveMessageSize` 4 MB ile 16 MB arasında değişir:
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -97,6 +97,7 @@ gRPC yakalayıcısı ASP.NET Core ara yazılım farklılıkları:
   * Erişim sağla:
     * Seri durumdan çıkarılmış ileti bir çağrıya gönderildi.
     * Seri hale getirilmeden önce çağrıdan döndürülen ileti.
+  * , GRPC hizmetlerinden oluşturulan özel durumları yakalayabilir ve işleyebilir.
 * Yazılımlar
   * GRPC yakalayıcılar öncesinde çalışır.
   * Temel alınan HTTP/2 iletileri üzerinde çalışır.

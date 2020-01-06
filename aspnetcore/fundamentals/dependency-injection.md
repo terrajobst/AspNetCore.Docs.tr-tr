@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 11/05/2019
 uid: fundamentals/dependency-injection
-ms.openlocfilehash: c46e7322e86c2836a15bd0720995a8634bb185be
-ms.sourcegitcommit: 897d4abff58505dae86b2947c5fe3d1b80d927f3
+ms.openlocfilehash: fabc6df07d2d7beaa546b189bb7527f626fc669d
+ms.sourcegitcommit: 47d453f34b6fd0179119c572cb8be64c5365cbb6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73634017"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75597947"
 ---
 # <a name="dependency-injection-in-aspnet-core"></a>ASP.NET Core bağımlılık ekleme
 
@@ -107,7 +107,7 @@ Bu arabirim somut bir tür tarafından uygulanır, `MyDependency`:
 Kapsayıcı, [(genel) açık türlerden](/dotnet/csharp/language-reference/language-specification/types#open-and-closed-types)yararlanarak `ILogger<TCategoryName>` çözer, her [(genel) oluşturulan türü](/dotnet/csharp/language-reference/language-specification/types#constructed-types)kaydetme ihtiyacını ortadan kaldırır:
 
 ```csharp
-services.AddSingleton(typeof(ILogger<T>), typeof(Logger<T>));
+services.AddSingleton(typeof(ILogger<>), typeof(Logger<>));
 ```
 
 Örnek uygulamada `IMyDependency` hizmeti somut tür `MyDependency`kaydedilir. Kayıt, hizmet ömrünü tek bir isteğin kullanım ömrüne göre kapsamlar. [Hizmet yaşam süreleri](#service-lifetimes) bu konunun ilerleyen kısımlarında açıklanmıştır.
@@ -272,7 +272,7 @@ Tek yaşam süresi Hizmetleri (<xref:Microsoft.Extensions.DependencyInjection.Se
 
 Hizmet kayıt uzantısı yöntemleri, belirli senaryolarda yararlı olan aşırı yüklemeler sunar.
 
-| Yöntem | Otomatik<br>object<br>elden | Birden Çok<br>uygulamalar | Geçiş bağımsız değişkenleri |
+| Yöntem | Otomatik<br>nesnesi<br>elden | Birden Çok<br>uygulamalar | Geçiş bağımsız değişkenleri |
 | ------ | :-----------------------------: | :-------------------------: | :-------: |
 | `Add{LIFETIME}<{SERVICE}, {IMPLEMENTATION}>()`<br>Örnek:<br>`services.AddSingleton<IMyDep, MyDep>();` | Evet | Evet | Hayır |
 | `Add{LIFETIME}<{SERVICE}>(sp => new {IMPLEMENTATION})`<br>Örnekler:<br>`services.AddSingleton<IMyDep>(sp => new MyDep());`<br>`services.AddSingleton<IMyDep>(sp => new MyDep("A string!"));` | Evet | Evet | Evet |
@@ -640,7 +640,7 @@ Tek bir hizmetin fabrika yöntemi (örneğin, [AddSingleton\<TService > (ısevic
 
 * *Hizmet bulucu deseninin*kullanmaktan kaçının. Örneğin, yerine şunu kullandığınızda bir hizmet örneği elde etmek için <xref:System.IServiceProvider.GetService*> çağırmayın:
 
-  **Olmayan**
+  **Yanlış:**
 
   ```csharp
   public class MyClass()

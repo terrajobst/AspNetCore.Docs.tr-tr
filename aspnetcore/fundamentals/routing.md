@@ -5,14 +5,14 @@ description: İstek URI 'Lerini uç nokta seçiclerine eşleyerek ve gelen istek
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 09/24/2019
+ms.date: 12/13/2019
 uid: fundamentals/routing
-ms.openlocfilehash: be4493cc927bd5437a2c9dab00b6a555756195bb
-ms.sourcegitcommit: eb2fe5ad2e82fab86ca952463af8d017ba659b25
+ms.openlocfilehash: 9780183f8f9bc322f73d058b3cab7f8c10f7cd5f
+ms.sourcegitcommit: 2cb857f0de774df421e35289662ba92cfe56ffd1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2019
-ms.locfileid: "73416132"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75354734"
 ---
 # <a name="routing-in-aspnet-core"></a>ASP.NET Core yönlendirme
 
@@ -20,12 +20,12 @@ ms.locfileid: "73416132"
 
 ::: moniker range=">= aspnetcore-3.0"
 
-Yönlendirme, istek URI 'Lerini uç noktalarla eşleştirmekten ve gelen istekleri bu uç noktalara gönderen sorumludur. Yollar uygulamada tanımlanır ve uygulama başlatıldığında yapılandırılır. Yol, isteğe bağlı olarak istekte bulunan URL 'den değerleri ayıklayabilir ve bu değerler, istek işleme için kullanılabilir. Uygulamadan yönlendirme bilgilerini kullanarak, yönlendirme, uç noktalarıyla eşlenen URL 'Ler de oluşturabilir.
+Yönlendirme, istek URI 'Lerini uç noktalarla eşleştirmekten ve gelen istekleri bu uç noktalara gönderen sorumludur. Yollar uygulamada tanımlanır ve uygulama başlatıldığında yapılandırılır. Yol, isteğe bağlı olarak istekte bulunan URL 'den değerleri ayıklayabilir ve bu değerler, istek işleme için kullanılabilir. Uygulamadan yönlendirme bilgilerini kullanarak, yönlendirme, uç noktalarıyla eşlenen URL 'Ler de oluşturabilir. Birçok uygulamanın, şablonların sağladıklarının ötesinde yollar eklemesi gerekmez. Denetleyiciler ve Razor sayfaları için ASP.NET Core şablonları, yol uç noktalarını yapılandırır. Özel yol uç noktaları eklemeniz gerekiyorsa, Özel uç noktalar şablon tarafından oluşturulan yol uç noktaları ile yapılandırılabilir.
 
 > [!IMPORTANT]
 > Bu belge, alt düzey ASP.NET Core yönlendirmeyi içerir. ASP.NET Core MVC yönlendirme hakkında daha fazla bilgi için bkz. <xref:mvc/controllers/routing>. Razor Pages 'de yönlendirme kuralları hakkında bilgi için bkz. <xref:razor-pages/razor-pages-conventions>.
 
-[Örnek kodu görüntüleme veya indirme](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/routing/samples) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
+[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/routing/samples) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
 
 ## <a name="routing-basics"></a>Yönlendirme temelleri
 
@@ -127,6 +127,22 @@ Bu yöntemlerin aşırı yüklemesi `HttpContext`içeren bağımsız değişkenl
 >
 > * `Map` veya `MapWhen`birlikte ara yazılım ile birlikte <xref:Microsoft.AspNetCore.Routing.LinkGenerator> kullanın. `Map*`, yürütülen isteğin temel yolunu değiştirir ve bu da bağlantı oluşturma çıktısını etkiler. Tüm <xref:Microsoft.AspNetCore.Routing.LinkGenerator> API 'Leri temel yol belirtmeye izin verir. `Map*`bağlantı oluşturmada etkilerini geri almak için her zaman boş bir temel yol belirtin.
 
+## <a name="endpoint-routing"></a>Uç nokta yönlendirme
+
+* Bir rota uç noktasında, bir şablon, meta veri ve uç noktanın yanıtına hizmet veren bir istek temsilcisi vardır. Meta veriler, her uç noktaya eklenen ilkelere ve yapılandırmaya göre çapraz kesme sorunları uygulamak için kullanılır. Örneğin, bir yetkilendirme ara yazılımı, bir [Yetkilendirme İlkesi](xref:security/authorization/policies#applying-policies-to-mvc-controllers)için bitiş noktasının meta veri koleksiyonunu sorgulanamıyor.
+* Uç nokta yönlendirme iki genişletme yöntemi kullanarak ara yazılım ile tümleşir:
+  * [Userouting](xref:Microsoft.AspNetCore.Builder.EndpointRoutingApplicationBuilderExtensions.UseRouting*) , ara yazılım ardışık düzenine yol eşleştirmeyi ekler. Yetkilendirme, uç nokta yürütme vb. gibi rota kullanan herhangi bir ara yazılım öncesinde gelmelidir.
+  * [Useendpoints](xref:Microsoft.AspNetCore.Builder.EndpointRoutingApplicationBuilderExtensions.UseEndpoints*) , uç nokta yürütmeyi ara yazılım ardışık düzenine ekler. Uç noktanın yanıtını sunan istek temsilcisini çalıştırır.
+  `UseEndpoints` Ayrıca, uygulama tarafından eşleştirilebileceği ve yürütülebileceği yol bitiş noktaları yapılandırılır. Örneğin, <xref:Microsoft.AspNetCore.Builder.RazorPagesEndpointRouteBuilderExtensions.MapRazorPages*>, <xref:Microsoft.AspNetCore.Builder.ControllerEndpointRouteBuilderExtensions.MapControllers*>, <xref:Microsoft.AspNetCore.Builder.EndpointRouteBuilderExtensions.MapGet*>ve <xref:Microsoft.AspNetCore.Builder.EndpointRouteBuilderExtensions.MapPost*>.
+* Uygulamalar, yollarını yapılandırmak için ASP.NET Core yardımcı yöntemlerini kullanır. ASP.NET Core çerçeveler <xref:Microsoft.AspNetCore.Builder.RazorPagesEndpointRouteBuilderExtensions.MapRazorPages*>,, <xref:Microsoft.AspNetCore.Builder.ControllerEndpointRouteBuilderExtensions.MapControllers*> ve `MapHub<THub>`gibi yardımcı yöntemler sağlar. Kendi özel yol uç noktalarınızı yapılandırmaya yönelik yardımcı yöntemler de vardır: <xref:Microsoft.AspNetCore.Builder.EndpointRouteBuilderExtensions.MapGet*>, <xref:Microsoft.AspNetCore.Builder.EndpointRouteBuilderExtensions.MapPost*>ve [Mapverb](xref:Microsoft.AspNetCore.Builder.EndpointRouteBuilderExtensions). 
+* Uç nokta yönlendirme, bir uygulama başladıktan sonra değişen uç noktaları da destekler. Bunu uygulamanızda veya ASP.NET Core çerçevesinde desteklemek için, özel bir <xref:Microsoft.AspNetCore.Routing.EndpointDataSource> oluşturulmalı ve kayıtlı olmalıdır. Bu gelişmiş bir özelliktir ve genellikle gerekli değildir. Uç noktalar genellikle başlangıçta yapılandırılır ve uygulamanın ömrü boyunca statiktir. Başlangıç sırasında bir dosyadan veya veritabanından rota yapılandırması yükleme dinamik değil.
+
+Aşağıdaki kod, uç nokta yönlendirmenin temel bir örneğini göstermektedir:
+
+[!code-csharp[](routing/samples/3.x/Startup.cs?name=snippet)]
+
+Uç nokta yönlendirme hakkında daha fazla bilgi için bu belgede [URL eşleştirmesi](#url-matching) bölümüne bakın.
+
 ## <a name="endpoint-routing-differences-from-earlier-versions-of-routing"></a>Önceki yönlendirme sürümlerinden uç nokta yönlendirme farkları
 
 ASP.NET Core 2,2 ' den önceki yönlendirmenin uç nokta yönlendirme ve sürümleri arasında birkaç fark vardır:
@@ -204,7 +220,7 @@ ASP.NET Core 2,2 ' den önceki yönlendirmenin uç nokta yönlendirme ve sürüm
 
   ASP.NET Core (`{*myparametername}`) önceki sürümlerindeki tek yıldız catch-all parametre sözdizimi desteklenmeye devam eder ve eğik çizgi kodlandı.
 
-  | Yolu              | İle oluşturulan bağlantı<br>`Url.Action(new { category = "admin/products" })`&hellip; |
+  | Yol              | İle oluşturulan bağlantı<br>`Url.Action(new { category = "admin/products" })`&hellip; |
   | ------------------ | --------------------------------------------------------------------- |
   | `/search/{*page}`  | `/search/admin%2Fproducts` (eğik çizgi kodlanmış)             |
   | `/search/{**page}` | `/search/admin/products`                                              |
@@ -236,7 +252,7 @@ public class ProductsLinkMiddleware
 }
 ```
 
-### <a name="create-routes"></a>Rotalar oluştur
+### <a name="create-routes"></a>Yolları oluşturma
 
 Çoğu uygulama, <xref:Microsoft.AspNetCore.Routing.IRouteBuilder>tanımlanan benzer uzantı yöntemlerinden birini veya <xref:Microsoft.AspNetCore.Builder.MapRouteRouteBuilderExtensions.MapRoute*> çağırarak yollar oluşturur. <xref:Microsoft.AspNetCore.Routing.IRouteBuilder> uzantısı yöntemlerinden herhangi biri bir <xref:Microsoft.AspNetCore.Routing.Route> örneği oluşturur ve bunu yol koleksiyonuna ekler.
 
@@ -356,11 +372,11 @@ Yolların `Startup.Configure` yönteminde yapılandırılması gerekir. Örnek u
 
 Aşağıdaki tabloda verilen URI 'Ler ile ilgili yanıtlar gösterilmektedir.
 
-| URI                    | Yanıtıyla                                          |
+| {1&gt;URI&lt;1}                    | Yanıt                                          |
 | ---------------------- | ------------------------------------------------- |
-| `/package/create/3`    | Herkese! Rota değerleri: [işlem, oluşturma], [kimlik, 3] |
-| `/package/track/-3`    | Herkese! Rota değerleri: [işlem, izleme], [kimlik,-3] |
-| `/package/track/-3/`   | Herkese! Rota değerleri: [işlem, izleme], [kimlik,-3] |
+| `/package/create/3`    | Merhaba! Rota değerleri: [işlem, oluşturma], [kimlik, 3] |
+| `/package/track/-3`    | Merhaba! Rota değerleri: [işlem, izleme], [kimlik,-3] |
+| `/package/track/-3/`   | Merhaba! Rota değerleri: [işlem, izleme], [kimlik,-3] |
 | `/package/track/`      | İstek, eşleşme olmadan üzerinden yapılır.              |
 | `GET /hello/Joe`       | Merhaba, ali!                                          |
 | `POST /hello/Joe`      | İstek üzerinden geçer, yalnızca HTTP GET ile eşleşir. |
@@ -470,13 +486,13 @@ public User GetUserById(int id) { }
 ```
 
 > [!WARNING]
-> URL 'YI doğrulayan ve bir CLR türüne (`int` veya `DateTime`) dönüştürülen yol kısıtlamaları her zaman sabit kültürü kullanır. Bu kısıtlamalar, URL 'nin yerelleştirilemeyen olduğunu varsayar. Framework tarafından sunulan yol kısıtlamaları, yol değerlerinde depolanan değerleri değiştirmez. URL 'den Ayrıştırılan tüm rota değerleri dizeler olarak depolanır. Örneğin, `float` kısıtlaması yol değerini bir float öğesine dönüştürmeye çalışır, ancak dönüştürülen değer yalnızca bir float öğesine dönüştürülebileceğini doğrulamak için kullanılır.
+> URL 'YI doğrulayan ve bir CLR türüne (örneğin `int` veya `DateTime`) dönüştürülen yol kısıtlamaları her zaman sabit kültürü kullanır. Bu kısıtlamalar, URL 'nin yerelleştirilemeyen olduğunu varsayar. Framework tarafından sunulan yol kısıtlamaları, yol değerlerinde depolanan değerleri değiştirmez. URL 'den Ayrıştırılan tüm rota değerleri dizeler olarak depolanır. Örneğin, `float` kısıtlaması yol değerini bir float öğesine dönüştürmeye çalışır, ancak dönüştürülen değer yalnızca bir float öğesine dönüştürülebileceğini doğrulamak için kullanılır.
 
 ## <a name="regular-expressions"></a>Normal ifadeler
 
 ASP.NET Core Framework, normal ifade oluşturucusuna `RegexOptions.IgnoreCase | RegexOptions.Compiled | RegexOptions.CultureInvariant` ekler. Bu üyelerin açıklaması için bkz. <xref:System.Text.RegularExpressions.RegexOptions>.
 
-Normal ifadeler, C# yönlendirme ve dil tarafından kullanılanlarla aynı sınırlayıcıları ve belirteçleri kullanır. Normal ifade belirteçlerinin atlanmalıdır. `^\d{3}-\d{2}-\d{4}$` normal ifade ' i yönlendirmede kullanmak için, ifadede, C# kaynak `\` dosyadaki `\\` (çift ters eğik çizgi) karakter olarak belirtilen `\` (tek ters eğik çizgi) karakterlere sahip olması gerekir. karakter (tam [dize sabit değerleri](/dotnet/csharp/language-reference/keywords/string)kullanmadıkça). Yönlendirme parametresi sınırlayıcı karakterlerini (`{`, `}`, `[`, `]`) atlamak için, ifadedeki karakterleri çift (`{{`, `}`, `[[`, `]]`). Aşağıdaki tabloda, bir normal ifade ve kaçan sürümü gösterilmektedir.
+Normal ifadeler, C# yönlendirme ve dil tarafından kullanılanlarla aynı sınırlayıcıları ve belirteçleri kullanır. Normal ifade belirteçlerinin atlanmalıdır. `^\d{3}-\d{2}-\d{4}$` normal ifade ' i yönlendirmede kullanmak için, ifadede, C# kaynak `\` dosyadaki `\\` (çift ters eğik çizgi) karakter olarak dize içinde belirtilen `\` (tek ters eğik çizgi) karakterleri olmalıdır (tam [dize sabit değerleri](/dotnet/csharp/language-reference/keywords/string)kullanmadıkça). Yönlendirme parametresi sınırlayıcı karakterlerini (`{`, `}`, `[`, `]`) atlamak için, ifadedeki karakterleri çift (`{{`, `}`, `[[`, `]]`). Aşağıdaki tabloda, bir normal ifade ve kaçan sürümü gösterilmektedir.
 
 | Normal ifade    | Kaçan normal Ifade     |
 | --------------------- | ------------------------------ |
@@ -487,11 +503,11 @@ Yönlendirmelerde kullanılan normal ifadeler, genellikle şapka işareti (`^`) 
 
 | İfade   | Dize    | Eşleştirme | Yorum               |
 | ------------ | --------- | :---: |  -------------------- |
-| `[a-z]{2}`   | herkese     | Evet   | Alt dize eşleşmeleri     |
+| `[a-z]{2}`   | merhaba     | Evet   | Alt dize eşleşmeleri     |
 | `[a-z]{2}`   | 123abc456 | Evet   | Alt dize eşleşmeleri     |
-| `[a-z]{2}`   | MZ        | Evet   | Eşleşen ifadesi    |
+| `[a-z]{2}`   | mz        | Evet   | Eşleşen ifadesi    |
 | `[a-z]{2}`   | MZ        | Evet   | Büyük/küçük harfe duyarlı değil    |
-| `^[a-z]{2}$` | herkese     | Hayır    | Yukarıdaki `^` ve `$` bakın |
+| `^[a-z]{2}$` | merhaba     | Hayır    | Yukarıdaki `^` ve `$` bakın |
 | `^[a-z]{2}$` | 123abc456 | Hayır    | Yukarıdaki `^` ve `$` bakın |
 
 Normal ifade sözdizimi hakkında daha fazla bilgi için bkz. [.NET Framework normal ifadeler](/dotnet/standard/base-types/regular-expression-language-quick-reference).
@@ -693,7 +709,7 @@ services.AddMvc(options => options.EnableEndpointRouting = false)
 > [!IMPORTANT]
 > Bu belge, alt düzey ASP.NET Core yönlendirmeyi içerir. ASP.NET Core MVC yönlendirme hakkında daha fazla bilgi için bkz. <xref:mvc/controllers/routing>. Razor Pages 'de yönlendirme kuralları hakkında bilgi için bkz. <xref:razor-pages/razor-pages-conventions>.
 
-[Örnek kodu görüntüleme veya indirme](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/routing/samples) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
+[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/routing/samples) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
 
 ## <a name="routing-basics"></a>Yönlendirme temelleri
 
@@ -865,7 +881,7 @@ ASP.NET Core 2,2 veya üzeri ve daha önceki yönlendirme sürümlerindeki ASP.N
 
   ASP.NET Core (`{*myparametername}`) önceki sürümlerindeki tek yıldız catch-all parametre sözdizimi desteklenmeye devam eder ve eğik çizgi kodlandı.
 
-  | Yolu              | İle oluşturulan bağlantı<br>`Url.Action(new { category = "admin/products" })`&hellip; |
+  | Yol              | İle oluşturulan bağlantı<br>`Url.Action(new { category = "admin/products" })`&hellip; |
   | ------------------ | --------------------------------------------------------------------- |
   | `/search/{*page}`  | `/search/admin%2Fproducts` (eğik çizgi kodlanmış)             |
   | `/search/{**page}` | `/search/admin/products`                                              |
@@ -897,7 +913,7 @@ public class ProductsLinkMiddleware
 }
 ```
 
-### <a name="create-routes"></a>Rotalar oluştur
+### <a name="create-routes"></a>Yolları oluşturma
 
 Çoğu uygulama, <xref:Microsoft.AspNetCore.Routing.IRouteBuilder>tanımlanan benzer uzantı yöntemlerinden birini veya <xref:Microsoft.AspNetCore.Builder.MapRouteRouteBuilderExtensions.MapRoute*> çağırarak yollar oluşturur. <xref:Microsoft.AspNetCore.Routing.IRouteBuilder> uzantısı yöntemlerinden herhangi biri bir <xref:Microsoft.AspNetCore.Routing.Route> örneği oluşturur ve bunu yol koleksiyonuna ekler.
 
@@ -1017,11 +1033,11 @@ Yolların `Startup.Configure` yönteminde yapılandırılması gerekir. Örnek u
 
 Aşağıdaki tabloda verilen URI 'Ler ile ilgili yanıtlar gösterilmektedir.
 
-| URI                    | Yanıtıyla                                          |
+| {1&gt;URI&lt;1}                    | Yanıt                                          |
 | ---------------------- | ------------------------------------------------- |
-| `/package/create/3`    | Herkese! Rota değerleri: [işlem, oluşturma], [kimlik, 3] |
-| `/package/track/-3`    | Herkese! Rota değerleri: [işlem, izleme], [kimlik,-3] |
-| `/package/track/-3/`   | Herkese! Rota değerleri: [işlem, izleme], [kimlik,-3] |
+| `/package/create/3`    | Merhaba! Rota değerleri: [işlem, oluşturma], [kimlik, 3] |
+| `/package/track/-3`    | Merhaba! Rota değerleri: [işlem, izleme], [kimlik,-3] |
+| `/package/track/-3/`   | Merhaba! Rota değerleri: [işlem, izleme], [kimlik,-3] |
 | `/package/track/`      | İstek, eşleşme olmadan üzerinden yapılır.              |
 | `GET /hello/Joe`       | Merhaba, ali!                                          |
 | `POST /hello/Joe`      | İstek üzerinden geçer, yalnızca HTTP GET ile eşleşir. |
@@ -1131,13 +1147,13 @@ public User GetUserById(int id) { }
 ```
 
 > [!WARNING]
-> URL 'YI doğrulayan ve bir CLR türüne (`int` veya `DateTime`) dönüştürülen yol kısıtlamaları her zaman sabit kültürü kullanır. Bu kısıtlamalar, URL 'nin yerelleştirilemeyen olduğunu varsayar. Framework tarafından sunulan yol kısıtlamaları, yol değerlerinde depolanan değerleri değiştirmez. URL 'den Ayrıştırılan tüm rota değerleri dizeler olarak depolanır. Örneğin, `float` kısıtlaması yol değerini bir float öğesine dönüştürmeye çalışır, ancak dönüştürülen değer yalnızca bir float öğesine dönüştürülebileceğini doğrulamak için kullanılır.
+> URL 'YI doğrulayan ve bir CLR türüne (örneğin `int` veya `DateTime`) dönüştürülen yol kısıtlamaları her zaman sabit kültürü kullanır. Bu kısıtlamalar, URL 'nin yerelleştirilemeyen olduğunu varsayar. Framework tarafından sunulan yol kısıtlamaları, yol değerlerinde depolanan değerleri değiştirmez. URL 'den Ayrıştırılan tüm rota değerleri dizeler olarak depolanır. Örneğin, `float` kısıtlaması yol değerini bir float öğesine dönüştürmeye çalışır, ancak dönüştürülen değer yalnızca bir float öğesine dönüştürülebileceğini doğrulamak için kullanılır.
 
 ## <a name="regular-expressions"></a>Normal ifadeler
 
 ASP.NET Core Framework, normal ifade oluşturucusuna `RegexOptions.IgnoreCase | RegexOptions.Compiled | RegexOptions.CultureInvariant` ekler. Bu üyelerin açıklaması için bkz. <xref:System.Text.RegularExpressions.RegexOptions>.
 
-Normal ifadeler, C# yönlendirme ve dil tarafından kullanılanlarla aynı sınırlayıcıları ve belirteçleri kullanır. Normal ifade belirteçlerinin atlanmalıdır. `^\d{3}-\d{2}-\d{4}$` normal ifade ' i yönlendirmede kullanmak için, ifadede, C# kaynak `\` dosyadaki `\\` (çift ters eğik çizgi) karakter olarak belirtilen `\` (tek ters eğik çizgi) karakterlere sahip olması gerekir. karakter (tam [dize sabit değerleri](/dotnet/csharp/language-reference/keywords/string)kullanmadıkça). Yönlendirme parametresi sınırlayıcı karakterlerini (`{`, `}`, `[`, `]`) atlamak için, ifadedeki karakterleri çift (`{{`, `}`, `[[`, `]]`). Aşağıdaki tabloda, bir normal ifade ve kaçan sürümü gösterilmektedir.
+Normal ifadeler, C# yönlendirme ve dil tarafından kullanılanlarla aynı sınırlayıcıları ve belirteçleri kullanır. Normal ifade belirteçlerinin atlanmalıdır. `^\d{3}-\d{2}-\d{4}$` normal ifade ' i yönlendirmede kullanmak için, ifadede, C# kaynak `\` dosyadaki `\\` (çift ters eğik çizgi) karakter olarak dize içinde belirtilen `\` (tek ters eğik çizgi) karakterleri olmalıdır (tam [dize sabit değerleri](/dotnet/csharp/language-reference/keywords/string)kullanmadıkça). Yönlendirme parametresi sınırlayıcı karakterlerini (`{`, `}`, `[`, `]`) atlamak için, ifadedeki karakterleri çift (`{{`, `}`, `[[`, `]]`). Aşağıdaki tabloda, bir normal ifade ve kaçan sürümü gösterilmektedir.
 
 | Normal ifade    | Kaçan normal Ifade     |
 | --------------------- | ------------------------------ |
@@ -1148,11 +1164,11 @@ Yönlendirmelerde kullanılan normal ifadeler, genellikle şapka işareti (`^`) 
 
 | İfade   | Dize    | Eşleştirme | Yorum               |
 | ------------ | --------- | :---: |  -------------------- |
-| `[a-z]{2}`   | herkese     | Evet   | Alt dize eşleşmeleri     |
+| `[a-z]{2}`   | merhaba     | Evet   | Alt dize eşleşmeleri     |
 | `[a-z]{2}`   | 123abc456 | Evet   | Alt dize eşleşmeleri     |
-| `[a-z]{2}`   | MZ        | Evet   | Eşleşen ifadesi    |
+| `[a-z]{2}`   | mz        | Evet   | Eşleşen ifadesi    |
 | `[a-z]{2}`   | MZ        | Evet   | Büyük/küçük harfe duyarlı değil    |
-| `^[a-z]{2}$` | herkese     | Hayır    | Yukarıdaki `^` ve `$` bakın |
+| `^[a-z]{2}$` | merhaba     | Hayır    | Yukarıdaki `^` ve `$` bakın |
 | `^[a-z]{2}$` | 123abc456 | Hayır    | Yukarıdaki `^` ve `$` bakın |
 
 Normal ifade sözdizimi hakkında daha fazla bilgi için bkz. [.NET Framework normal ifadeler](/dotnet/standard/base-types/regular-expression-language-quick-reference).
@@ -1269,7 +1285,7 @@ services.AddMvc()
 > [!IMPORTANT]
 > Bu belge, alt düzey ASP.NET Core yönlendirmeyi içerir. ASP.NET Core MVC yönlendirme hakkında daha fazla bilgi için bkz. <xref:mvc/controllers/routing>. Razor Pages 'de yönlendirme kuralları hakkında bilgi için bkz. <xref:razor-pages/razor-pages-conventions>.
 
-[Örnek kodu görüntüleme veya indirme](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/routing/samples) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
+[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/routing/samples) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
 
 ## <a name="routing-basics"></a>Yönlendirme temelleri
 
@@ -1347,7 +1363,7 @@ Rotalar öncelikle <xref:Microsoft.AspNetCore.Routing.VirtualPathContext.Values>
 
 [VirtualPathData. DataTokens](xref:Microsoft.AspNetCore.Routing.VirtualPathData.DataTokens*) özellikleri, URL 'yi oluşturan rotayla ilgili ek verilerin bir sözlüğüdür. Bu, [RouteData. Datatoken](xref:Microsoft.AspNetCore.Routing.RouteData.DataTokens*)'ların paraleldir.
 
-### <a name="create-routes"></a>Rotalar oluştur
+### <a name="create-routes"></a>Yolları oluşturma
 
 Yönlendirme, <xref:Microsoft.AspNetCore.Routing.IRouter>standart uygulama olarak <xref:Microsoft.AspNetCore.Routing.Route> sınıfını sağlar. <xref:Microsoft.AspNetCore.Routing.Route>, <xref:Microsoft.AspNetCore.Routing.IRouter.RouteAsync*> çağrıldığında URL yoluyla eşleştirilecek desenleri tanımlamak için *yol şablonu* sözdizimini kullanır. <xref:Microsoft.AspNetCore.Routing.Route>, <xref:Microsoft.AspNetCore.Routing.IRouter.GetVirtualPath*> çağrıldığında bir URL oluşturmak için aynı yol şablonunu kullanır.
 
@@ -1469,11 +1485,11 @@ Yolların `Startup.Configure` yönteminde yapılandırılması gerekir. Örnek u
 
 Aşağıdaki tabloda verilen URI 'Ler ile ilgili yanıtlar gösterilmektedir.
 
-| URI                    | Yanıtıyla                                          |
+| {1&gt;URI&lt;1}                    | Yanıt                                          |
 | ---------------------- | ------------------------------------------------- |
-| `/package/create/3`    | Herkese! Rota değerleri: [işlem, oluşturma], [kimlik, 3] |
-| `/package/track/-3`    | Herkese! Rota değerleri: [işlem, izleme], [kimlik,-3] |
-| `/package/track/-3/`   | Herkese! Rota değerleri: [işlem, izleme], [kimlik,-3] |
+| `/package/create/3`    | Merhaba! Rota değerleri: [işlem, oluşturma], [kimlik, 3] |
+| `/package/track/-3`    | Merhaba! Rota değerleri: [işlem, izleme], [kimlik,-3] |
+| `/package/track/-3/`   | Merhaba! Rota değerleri: [işlem, izleme], [kimlik,-3] |
 | `/package/track/`      | İstek, eşleşme olmadan üzerinden yapılır.              |
 | `GET /hello/Joe`       | Merhaba, ali!                                          |
 | `POST /hello/Joe`      | İstek üzerinden geçer, yalnızca HTTP GET ile eşleşir. |
@@ -1585,13 +1601,13 @@ public User GetUserById(int id) { }
 ```
 
 > [!WARNING]
-> URL 'YI doğrulayan ve bir CLR türüne (`int` veya `DateTime`) dönüştürülen yol kısıtlamaları her zaman sabit kültürü kullanır. Bu kısıtlamalar, URL 'nin yerelleştirilemeyen olduğunu varsayar. Framework tarafından sunulan yol kısıtlamaları, yol değerlerinde depolanan değerleri değiştirmez. URL 'den Ayrıştırılan tüm rota değerleri dizeler olarak depolanır. Örneğin, `float` kısıtlaması yol değerini bir float öğesine dönüştürmeye çalışır, ancak dönüştürülen değer yalnızca bir float öğesine dönüştürülebileceğini doğrulamak için kullanılır.
+> URL 'YI doğrulayan ve bir CLR türüne (örneğin `int` veya `DateTime`) dönüştürülen yol kısıtlamaları her zaman sabit kültürü kullanır. Bu kısıtlamalar, URL 'nin yerelleştirilemeyen olduğunu varsayar. Framework tarafından sunulan yol kısıtlamaları, yol değerlerinde depolanan değerleri değiştirmez. URL 'den Ayrıştırılan tüm rota değerleri dizeler olarak depolanır. Örneğin, `float` kısıtlaması yol değerini bir float öğesine dönüştürmeye çalışır, ancak dönüştürülen değer yalnızca bir float öğesine dönüştürülebileceğini doğrulamak için kullanılır.
 
 ## <a name="regular-expressions"></a>Normal ifadeler
 
 ASP.NET Core Framework, normal ifade oluşturucusuna `RegexOptions.IgnoreCase | RegexOptions.Compiled | RegexOptions.CultureInvariant` ekler. Bu üyelerin açıklaması için bkz. <xref:System.Text.RegularExpressions.RegexOptions>.
 
-Normal ifadeler, C# yönlendirme ve dil tarafından kullanılanlarla aynı sınırlayıcıları ve belirteçleri kullanır. Normal ifade belirteçlerinin atlanmalıdır. `^\d{3}-\d{2}-\d{4}$` normal ifade ' i yönlendirmede kullanmak için, ifadede, C# kaynak `\` dosyadaki `\\` (çift ters eğik çizgi) karakter olarak belirtilen `\` (tek ters eğik çizgi) karakterlere sahip olması gerekir. karakter (tam [dize sabit değerleri](/dotnet/csharp/language-reference/keywords/string)kullanmadıkça). Yönlendirme parametresi sınırlayıcı karakterlerini (`{`, `}`, `[`, `]`) atlamak için, ifadedeki karakterleri çift (`{{`, `}`, `[[`, `]]`). Aşağıdaki tabloda, bir normal ifade ve kaçan sürümü gösterilmektedir.
+Normal ifadeler, C# yönlendirme ve dil tarafından kullanılanlarla aynı sınırlayıcıları ve belirteçleri kullanır. Normal ifade belirteçlerinin atlanmalıdır. `^\d{3}-\d{2}-\d{4}$` normal ifade ' i yönlendirmede kullanmak için, ifadede, C# kaynak `\` dosyadaki `\\` (çift ters eğik çizgi) karakter olarak dize içinde belirtilen `\` (tek ters eğik çizgi) karakterleri olmalıdır (tam [dize sabit değerleri](/dotnet/csharp/language-reference/keywords/string)kullanmadıkça). Yönlendirme parametresi sınırlayıcı karakterlerini (`{`, `}`, `[`, `]`) atlamak için, ifadedeki karakterleri çift (`{{`, `}`, `[[`, `]]`). Aşağıdaki tabloda, bir normal ifade ve kaçan sürümü gösterilmektedir.
 
 | Normal ifade    | Kaçan normal Ifade     |
 | --------------------- | ------------------------------ |
@@ -1602,11 +1618,11 @@ Yönlendirmelerde kullanılan normal ifadeler, genellikle şapka işareti (`^`) 
 
 | İfade   | Dize    | Eşleştirme | Yorum               |
 | ------------ | --------- | :---: |  -------------------- |
-| `[a-z]{2}`   | herkese     | Evet   | Alt dize eşleşmeleri     |
+| `[a-z]{2}`   | merhaba     | Evet   | Alt dize eşleşmeleri     |
 | `[a-z]{2}`   | 123abc456 | Evet   | Alt dize eşleşmeleri     |
-| `[a-z]{2}`   | MZ        | Evet   | Eşleşen ifadesi    |
+| `[a-z]{2}`   | mz        | Evet   | Eşleşen ifadesi    |
 | `[a-z]{2}`   | MZ        | Evet   | Büyük/küçük harfe duyarlı değil    |
-| `^[a-z]{2}$` | herkese     | Hayır    | Yukarıdaki `^` ve `$` bakın |
+| `^[a-z]{2}$` | merhaba     | Hayır    | Yukarıdaki `^` ve `$` bakın |
 | `^[a-z]{2}$` | 123abc456 | Hayır    | Yukarıdaki `^` ve `$` bakın |
 
 Normal ifade sözdizimi hakkında daha fazla bilgi için bkz. [.NET Framework normal ifadeler](/dotnet/standard/base-types/regular-expression-language-quick-reference).

@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/04/2019
 uid: fundamentals/logging/index
-ms.openlocfilehash: 49d598330948c5f4a137c534094e14ed5e01e27c
-ms.sourcegitcommit: f4cd3828e26e6d549ba8d0c36a17be35ad9e5a51
+ms.openlocfilehash: e1c50c4592b21d56ed813dac43204d63f1bfe46c
+ms.sourcegitcommit: 2cb857f0de774df421e35289662ba92cfe56ffd1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74825483"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75359354"
 ---
 # <a name="logging-in-net-core-and-aspnet-core"></a>.NET Core ve ASP.NET Core oturum açma
 
@@ -1056,6 +1056,16 @@ logging.AddEventLog();
 * "uygulama" `LogName` &ndash;
 * `SourceName` &ndash; ".NET Runtime"
 * `MachineName` &ndash; yerel makine
+
+Olaylar, [Uyarı düzeyi ve üzeri](#log-level)için günlüğe kaydedilir. Olayları `Warning`daha düşük günlüğe kaydetmek için, günlük düzeyini açık olarak ayarlayın. Örneğin, *appSettings. JSON* dosyasına aşağıdakini ekleyin:
+
+```json
+"EventLog": {
+  "LogLevel": {
+    "Default": "Information"
+  }
+}
+```
 
 ### <a name="tracesource-provider"></a>TraceSource sağlayıcısı
 

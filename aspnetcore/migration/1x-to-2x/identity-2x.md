@@ -1,36 +1,36 @@
 ---
-title: Kimlik doğrulaması ve kimlik için ASP.NET Core 2.0 geçirme
+title: Kimlik doğrulaması ve kimliği 2,0 ASP.NET Core geçirin
 author: scottaddie
-description: Bu makalede, ASP.NET Core 2.0 için geçirme ASP.NET Core 1.x kimlik doğrulaması ve kimlik için en yaygın adımlar özetlenmektedir.
+description: Bu makalede ASP.NET Core 1. x kimlik doğrulamasını ve kimliğini ASP.NET Core 2,0 'e geçirmeye yönelik en yaygın adımlar özetlenmektedir.
 ms.author: scaddie
 ms.date: 06/21/2019
 uid: migration/1x-to-2x/identity-2x
-ms.openlocfilehash: c83356e12fa5ae581b369265b9d857b08445ed51
-ms.sourcegitcommit: 9f11685382eb1f4dd0fb694dea797adacedf9e20
+ms.openlocfilehash: f3817fa1808c331f7e167618e3bb00d68ad08571
+ms.sourcegitcommit: 2cb857f0de774df421e35289662ba92cfe56ffd1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67313738"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75355175"
 ---
-# <a name="migrate-authentication-and-identity-to-aspnet-core-20"></a>Kimlik doğrulaması ve kimlik için ASP.NET Core 2.0 geçirme
+# <a name="migrate-authentication-and-identity-to-aspnet-core-20"></a>Kimlik doğrulaması ve kimliği 2,0 ASP.NET Core geçirin
 
-Tarafından [Scott Addie](https://github.com/scottaddie) ve [Hao Kung](https://github.com/HaoK)
+[Scott Ade](https://github.com/scottaddie) ve [Hao Kung](https://github.com/HaoK) tarafından
 
-ASP.NET Core 2.0 kimlik doğrulaması için yeni bir modeli vardır ve [kimlik](xref:security/authentication/identity) , basitleştirir yapılandırma hizmetlerini kullanarak. Kimlik doğrulaması veya kimlik kullanan ASP.NET Core 1.x uygulamaları, aşağıda belirtildiği gibi yeni modeli kullanmak için güncelleştirilebilir.
+ASP.NET Core [2,0, kimlik doğrulama ve kimlik](xref:security/authentication/identity) için Hizmetleri kullanarak yapılandırmayı basitleştiren yeni bir modeline sahiptir. Kimlik doğrulama veya kimlik kullanan ASP.NET Core 1. x uygulamaları, aşağıda özetlenen yeni modeli kullanacak şekilde güncelleştirilemeyebilir.
 
-## <a name="update-namespaces"></a>Güncelleştirme ad alanları
+## <a name="update-namespaces"></a>Ad alanlarını güncelleştirme
 
-1\.x içinde gibi sınıfları `IdentityRole` ve `IdentityUser` bulundu `Microsoft.AspNetCore.Identity.EntityFrameworkCore` ad alanı.
+1\. x içinde, `Microsoft.AspNetCore.Identity.EntityFrameworkCore` ad alanında `IdentityRole` ve `IdentityUser` sınıfları bulundu.
 
-2\.0, <xref:Microsoft.AspNetCore.Identity> ad alanı birkaç tür sınıflar için yeni giriş dönüştü. Varsayılan kimlik koduyla etkilenen sınıflarını `ApplicationUser` ve `Startup`. Ayarlama, `using` etkilenen başvurularını çözümlemek için deyimleri.
+2,0 ' de <xref:Microsoft.AspNetCore.Identity> ad alanı bu tür sınıfların birkaçı için yeni giriş haline geldi. Varsayılan kimlik koduyla, etkilenen sınıflar `ApplicationUser` ve `Startup`içerir. Etkilenen başvuruları çözümlemek için `using` deyimlerinizi ayarlayın.
 
 <a name="auth-middleware"></a>
 
-## <a name="authentication-middleware-and-services"></a>Kimlik doğrulaması ara yazılımı ve Hizmetleri
+## <a name="authentication-middleware-and-services"></a>Kimlik doğrulama ara yazılımı ve Hizmetleri
 
-1\.x projelerinde, kimlik doğrulaması ara yazılımı üzerinden yapılandırılır. Desteklemek istediğiniz her bir kimlik doğrulama düzeni için bir ara yazılım yöntemi çağrılır.
+1\. x projelerinde kimlik doğrulaması, ara yazılım aracılığıyla yapılandırılır. Desteklemek istediğiniz her kimlik doğrulama düzeni için bir ara yazılım yöntemi çağırılır.
 
-Aşağıdaki 1.x örnek kimliği ile Facebook kimlik doğrulamasını yapılandırır *Startup.cs*:
+Aşağıdaki 1. x örneği, Facebook kimlik doğrulamasını *Startup.cs*içinde kimliğiyle yapılandırır:
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -49,9 +49,9 @@ public void Configure(IApplicationBuilder app, ILoggerFactory loggerfactory)
 }
 ```
 
-2\.0 projelerinde, kimlik doğrulama hizmetleri aracılığıyla yapılandırılır. Her kimlik doğrulama düzeni kaydedilmiştir `ConfigureServices` yöntemi *Startup.cs*. `UseIdentity` Yöntemi ile değiştirilir `UseAuthentication`.
+2,0 projesinde, kimlik doğrulaması hizmetler aracılığıyla yapılandırılır. Her kimlik doğrulama şeması, *Startup.cs*`ConfigureServices` yöntemine kaydedilir. `UseIdentity` yöntemi `UseAuthentication`ile değiştirilmiştir.
 
-Aşağıdaki 2.0 örnek kimliği ile Facebook kimlik doğrulamasını yapılandırır *Startup.cs*:
+Aşağıdaki 2,0 örnek, Facebook kimlik doğrulamasını *Startup.cs*içinde kimliğiyle yapılandırır:
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -74,23 +74,23 @@ public void Configure(IApplicationBuilder app, ILoggerFactory loggerfactory) {
 }
 ```
 
-`UseAuthentication` Yöntemi otomatik kimlik doğrulaması ve Uzaktan kimlik doğrulama isteklerinin işlenmesini sorumlu tek bir kimlik doğrulaması ara yazılım bileşeni ekler. Tek bir ara yazılım bileşenlerinin tümünü tek, ortak bir ara yazılım bileşeni ile değiştirir.
+`UseAuthentication` yöntemi, otomatik kimlik doğrulamasından ve uzak kimlik doğrulama isteklerinin işlenmesinden sorumlu olan tek bir kimlik doğrulama ara yazılım bileşeni ekler. Tek, ortak bir ara yazılım bileşeniyle tüm bireysel ara yazılım bileşenlerini değiştirir.
 
-Her temel kimlik doğrulaması düzeni için 2.0 geçiş yönergeleri aşağıda verilmiştir.
+Her bir büyük kimlik doğrulama şeması için 2,0 geçiş yönergeleri aşağıda verilmiştir.
 
 ### <a name="cookie-based-authentication"></a>Tanımlama bilgisi tabanlı kimlik doğrulaması
 
-Aşağıdaki iki seçenekten birini seçin ve gerekli değişiklikleri yapın *Startup.cs*:
+Aşağıdaki iki seçenekten birini seçin ve *Startup.cs*'de gerekli değişiklikleri yapın:
 
-1. Tanımlama bilgileri kimlik ile kullanma
-    - Değiştirin `UseIdentity` ile `UseAuthentication` içinde `Configure` yöntemi:
+1. Kimlik tanımlama bilgilerini kullanın
+    - `Configure` yönteminde `UseAuthentication` `UseIdentity` değiştirin:
 
         ```csharp
         app.UseAuthentication();
         ```
 
-    - Çağırma `AddIdentity` yönteminde `ConfigureServices` tanımlama bilgisi kimlik doğrulaması hizmetlerini eklemek için yöntemi.
-    - İsteğe bağlı olarak, çağırma `ConfigureApplicationCookie` veya `ConfigureExternalCookie` yönteminde `ConfigureServices` kimlik tanımlama bilgisi ayarları ince ayar için yöntemi.
+    - Tanımlama bilgisi kimlik doğrulama hizmetlerini eklemek için `ConfigureServices` yönteminde `AddIdentity` yöntemi çağırın.
+    - İsteğe bağlı olarak, kimlik tanımlama bilgisi ayarlarını ince ayar için `ConfigureServices` yönteminde `ConfigureApplicationCookie` veya `ConfigureExternalCookie` yöntemini çağırın.
 
         ```csharp
         services.AddIdentity<ApplicationUser, IdentityRole>()
@@ -100,14 +100,14 @@ Aşağıdaki iki seçenekten birini seçin ve gerekli değişiklikleri yapın *S
         services.ConfigureApplicationCookie(options => options.LoginPath = "/Account/LogIn");
         ```
 
-2. Kimlik olmadan tanımlama bilgileri kullanma
-    - Değiştirin `UseCookieAuthentication` yöntem çağrısı `Configure` yöntemiyle `UseAuthentication`:
+2. Kimlik bilgilerini kimlik olmadan kullan
+    - `Configure` yönteminde `UseCookieAuthentication` yöntemi çağrısını `UseAuthentication`ile değiştirin:
 
         ```csharp
         app.UseAuthentication();
         ```
 
-    - Çağırma `AddAuthentication` ve `AddCookie` yöntemleri `ConfigureServices` yöntemi:
+    - `ConfigureServices` yönteminde `AddAuthentication` ve `AddCookie` yöntemlerini çağırın:
 
         ```csharp
         // If you don't want the cookie to be automatically authenticated and assigned to HttpContext.User,
@@ -122,14 +122,14 @@ Aşağıdaki iki seçenekten birini seçin ve gerekli değişiklikleri yapın *S
 
 ### <a name="jwt-bearer-authentication"></a>JWT taşıyıcı kimlik doğrulaması
 
-Aşağıdaki değişiklikleri yapın *Startup.cs*:
-- Değiştirin `UseJwtBearerAuthentication` yöntem çağrısı `Configure` yöntemiyle `UseAuthentication`:
+*Startup.cs*içinde aşağıdaki değişiklikleri yapın:
+- `Configure` yönteminde `UseJwtBearerAuthentication` yöntemi çağrısını `UseAuthentication`ile değiştirin:
 
     ```csharp
     app.UseAuthentication();
     ```
 
-- Çağırma `AddJwtBearer` yönteminde `ConfigureServices` yöntemi:
+- `ConfigureServices` yönteminde `AddJwtBearer` yöntemi çağırın:
 
     ```csharp
     services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
@@ -140,19 +140,19 @@ Aşağıdaki değişiklikleri yapın *Startup.cs*:
             });
     ```
 
-    Varsayılan düzenini geçirerek ayarlanmalıdır. Bu nedenle bu kod parçacığı kimliğini kullanmaz `JwtBearerDefaults.AuthenticationScheme` için `AddAuthentication` yöntemi.
+    Bu kod parçacığı kimlik kullanmaz, bu nedenle `AddAuthentication` yöntemine `JwtBearerDefaults.AuthenticationScheme` geçirerek varsayılan düzenin ayarlanması gerekir.
 
-### <a name="openid-connect-oidc-authentication"></a>Openıd Connect (OIDC) kimlik doğrulaması
+### <a name="openid-connect-oidc-authentication"></a>OpenID Connect (OıDC) kimlik doğrulaması
 
-Aşağıdaki değişiklikleri yapın *Startup.cs*:
+*Startup.cs*içinde aşağıdaki değişiklikleri yapın:
 
-- Değiştirin `UseOpenIdConnectAuthentication` yöntem çağrısı `Configure` yöntemiyle `UseAuthentication`:
+- `Configure` yönteminde `UseOpenIdConnectAuthentication` yöntemi çağrısını `UseAuthentication`ile değiştirin:
 
     ```csharp
     app.UseAuthentication();
     ```
 
-- Çağırma `AddOpenIdConnect` yönteminde `ConfigureServices` yöntemi:
+- `ConfigureServices` yönteminde `AddOpenIdConnect` yöntemi çağırın:
 
     ```csharp
     services.AddAuthentication(options =>
@@ -168,7 +168,7 @@ Aşağıdaki değişiklikleri yapın *Startup.cs*:
     });
     ```
 
-- Değiştirin `PostLogoutRedirectUri` özelliğinde `OpenIdConnectOptions` eylemiyle `SignedOutRedirectUri`:
+- `OpenIdConnectOptions` Eylemdeki `PostLogoutRedirectUri` özelliğini `SignedOutRedirectUri`ile değiştirin:
 
     ```csharp
     .AddOpenIdConnect(options =>
@@ -179,14 +179,14 @@ Aşağıdaki değişiklikleri yapın *Startup.cs*:
     
 ### <a name="facebook-authentication"></a>Facebook kimlik doğrulaması
 
-Aşağıdaki değişiklikleri yapın *Startup.cs*:
-- Değiştirin `UseFacebookAuthentication` yöntem çağrısı `Configure` yöntemiyle `UseAuthentication`:
+*Startup.cs*içinde aşağıdaki değişiklikleri yapın:
+- `Configure` yönteminde `UseFacebookAuthentication` yöntemi çağrısını `UseAuthentication`ile değiştirin:
 
     ```csharp
     app.UseAuthentication();
     ```
 
-- Çağırma `AddFacebook` yönteminde `ConfigureServices` yöntemi:
+- `ConfigureServices` yönteminde `AddFacebook` yöntemi çağırın:
 
     ```csharp
     services.AddAuthentication()
@@ -199,14 +199,14 @@ Aşağıdaki değişiklikleri yapın *Startup.cs*:
 
 ### <a name="google-authentication"></a>Google kimlik doğrulaması
 
-Aşağıdaki değişiklikleri yapın *Startup.cs*:
-- Değiştirin `UseGoogleAuthentication` yöntem çağrısı `Configure` yöntemiyle `UseAuthentication`:
+*Startup.cs*içinde aşağıdaki değişiklikleri yapın:
+- `Configure` yönteminde `UseGoogleAuthentication` yöntemi çağrısını `UseAuthentication`ile değiştirin:
 
     ```csharp
     app.UseAuthentication();
     ```
 
-- Çağırma `AddGoogle` yönteminde `ConfigureServices` yöntemi:
+- `ConfigureServices` yönteminde `AddGoogle` yöntemi çağırın:
 
     ```csharp
     services.AddAuthentication()
@@ -217,16 +217,18 @@ Aşağıdaki değişiklikleri yapın *Startup.cs*:
             });
     ```
 
-### <a name="microsoft-account-authentication"></a>Microsoft Account kimlik doğrulaması
+### <a name="microsoft-account-authentication"></a>Microsoft Hesabı kimlik doğrulaması
 
-Aşağıdaki değişiklikleri yapın *Startup.cs*:
-- Değiştirin `UseMicrosoftAccountAuthentication` yöntem çağrısı `Configure` yöntemiyle `UseAuthentication`:
+Microsoft hesabı kimlik doğrulaması hakkında daha fazla bilgi için [Bu GitHub sorununa](https://github.com/aspnet/AspNetCore.Docs/issues/14455)bakın.
+
+*Startup.cs*içinde aşağıdaki değişiklikleri yapın:
+- `Configure` yönteminde `UseMicrosoftAccountAuthentication` yöntemi çağrısını `UseAuthentication`ile değiştirin:
 
     ```csharp
     app.UseAuthentication();
     ```
 
-- Çağırma `AddMicrosoftAccount` yönteminde `ConfigureServices` yöntemi:
+- `ConfigureServices` yönteminde `AddMicrosoftAccount` yöntemi çağırın:
 
     ```csharp
     services.AddAuthentication()
@@ -239,14 +241,14 @@ Aşağıdaki değişiklikleri yapın *Startup.cs*:
 
 ### <a name="twitter-authentication"></a>Twitter kimlik doğrulaması
 
-Aşağıdaki değişiklikleri yapın *Startup.cs*:
-- Değiştirin `UseTwitterAuthentication` yöntem çağrısı `Configure` yöntemiyle `UseAuthentication`:
+*Startup.cs*içinde aşağıdaki değişiklikleri yapın:
+- `Configure` yönteminde `UseTwitterAuthentication` yöntemi çağrısını `UseAuthentication`ile değiştirin:
 
     ```csharp
     app.UseAuthentication();
     ```
 
-- Çağırma `AddTwitter` yönteminde `ConfigureServices` yöntemi:
+- `ConfigureServices` yönteminde `AddTwitter` yöntemi çağırın:
 
     ```csharp
     services.AddAuthentication()
@@ -257,19 +259,19 @@ Aşağıdaki değişiklikleri yapın *Startup.cs*:
             });
     ```
 
-### <a name="setting-default-authentication-schemes"></a>Varsayılan kimlik doğrulama düzenleri ayarlama
+### <a name="setting-default-authentication-schemes"></a>Varsayılan kimlik doğrulama düzenlerini ayarlama
 
-1\.x içinde `AutomaticAuthenticate` ve `AutomaticChallenge` özelliklerini [AuthenticationOptions](/dotnet/api/Microsoft.AspNetCore.Builder.AuthenticationOptions?view=aspnetcore-1.1) temel sınıfı yönelik tek bir kimlik doğrulama şemasını temel ayarlanacak. Bunu zorunlu kılmak için iyi bir yolu yoktu.
+1\. x içinde, [Authenticationoptions](/dotnet/api/Microsoft.AspNetCore.Builder.AuthenticationOptions?view=aspnetcore-1.1) temel sınıfının `AutomaticAuthenticate` ve `AutomaticChallenge` özellikleri tek bir kimlik doğrulama düzeninde ayarlamaya yöneliktir. Bunu zorlayacağından iyi bir yol yoktu.
 
-2\. 0 ', bu iki özellik özellikleri ayrı ayrı olarak kaldırılan `AuthenticationOptions` örneği. İçinde yapılandırılabilir `AddAuthentication` yöntem çağrısı içinde `ConfigureServices` yöntemi *Startup.cs*:
+2,0 ' de, bu iki özellik ayrı `AuthenticationOptions` örneğindeki özellikler olarak kaldırılmıştır. Bunlar, *Startup.cs*yönteminin `ConfigureServices` yöntemi içinde `AddAuthentication` Yöntem çağrısında yapılandırılabilirler:
 
 ```csharp
 services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme);
 ```
 
-Yukarıdaki kod parçacığında, varsayılan düzenini ayarlamak `CookieAuthenticationDefaults.AuthenticationScheme` ("tanımlama bilgileri").
+Önceki kod parçacığında, varsayılan düzen `CookieAuthenticationDefaults.AuthenticationScheme` ("Cookies") olarak ayarlanır.
 
-Alternatif olarak, aşırı yüklenmiş bir sürümünü kullanmak `AddAuthentication` birden fazla özelliği ayarlamak için yöntemi. Aşırı yüklenmiş yöntem aşağıdaki örnekte varsayılan düzenini ayarlamak `CookieAuthenticationDefaults.AuthenticationScheme`. Kimlik doğrulama düzeni bunun yerine bireysel içinde belirtilen `[Authorize]` öznitelikleri veya yetkilendirme ilkeleri.
+Alternatif olarak, birden fazla özellik ayarlamak için `AddAuthentication` yönteminin aşırı yüklenmiş bir sürümünü kullanın. Aşağıdaki aşırı yüklenmiş yöntem örneğinde, varsayılan düzen `CookieAuthenticationDefaults.AuthenticationScheme`olarak ayarlanmıştır. Kimlik doğrulama düzeni, farklı `[Authorize]` özniteliklerde veya yetkilendirme ilkeleriniz içinde de belirtilebilir.
 
 ```csharp
 services.AddAuthentication(options =>
@@ -279,36 +281,36 @@ services.AddAuthentication(options =>
 });
 ```
 
-Aşağıdaki koşullardan biri doğru ise, 2. 0'varsayılan düzenini tanımlayın:
-- Kullanıcı otomatik olarak oturum açmanız istiyor
-- Kullandığınız `[Authorize]` düzenleri belirtmeden özniteliği veya Yetkilendirme İlkeleri
+Aşağıdaki koşullardan biri doğru ise, 2,0 'de varsayılan bir düzen tanımlayın:
+- Kullanıcının otomatik olarak oturum açabilmesi istiyorsunuz
+- Şemaları belirtmeden `[Authorize]` özniteliğini veya yetkilendirme ilkelerini kullanın
 
-Bu kuralın istisnası `AddIdentity` yöntemi. Bu yöntem, siz ve varsayılan kimlik doğrulaması ve uygulama tanımlama bilgisinin düzenleri meydan kümeleri için tanımlama bilgileri ekler. `IdentityConstants.ApplicationScheme`. Ayrıca, varsayılan oturum açma düzeni için dış tanımlama bilgisi ayarlar `IdentityConstants.ExternalScheme`.
+Bu kural için bir özel durum `AddIdentity` yöntemidir. Bu yöntem sizin için tanımlama bilgileri ekler ve varsayılan kimlik doğrulama ve zorluk düzenlerini `IdentityConstants.ApplicationScheme`uygulama tanımlama bilgisine ayarlar. Ayrıca, varsayılan oturum açma düzenini `IdentityConstants.ExternalScheme`dış tanımlama bilgisine ayarlar.
 
 <a name="obsolete-interface"></a>
 
-## <a name="use-httpcontext-authentication-extensions"></a>HttpContext kimlik doğrulama uzantıları kullanma
+## <a name="use-httpcontext-authentication-extensions"></a>HttpContext kimlik doğrulama uzantılarını kullanma
 
-`IAuthenticationManager` Arabirimi 1.x kimlik doğrulama sisteminde ana giriş noktasıdır. Yeni bir dizi ile değiştirilmiştir `HttpContext` alanında uzantı yöntemlerini `Microsoft.AspNetCore.Authentication` ad alanı.
+`IAuthenticationManager` arabirimi, 1. x kimlik doğrulama sistemine ana giriş noktasıdır. `Microsoft.AspNetCore.Authentication` ad alanında yeni bir `HttpContext` uzantısı yöntemleriyle değiştirilmiştir.
 
-Örneğin, başvuru 1.x projeleri bir `Authentication` özelliği:
+Örneğin, 1. x projeleri bir `Authentication` özelliğine başvurur:
 
 [!code-csharp[](../1x-to-2x/samples/AspNetCoreDotNetCore1App/AspNetCoreDotNetCore1App/Controllers/AccountController.cs?name=snippet_AuthenticationProperty)]
 
-2\.0 projelerinde, içeri aktarma `Microsoft.AspNetCore.Authentication` ad alanını ve silme `Authentication` özelliği başvuruları:
+2,0 projesinde `Microsoft.AspNetCore.Authentication` ad alanını içeri aktarın ve `Authentication` Özellik başvurularını silin:
 
 [!code-csharp[](../1x-to-2x/samples/AspNetCoreDotNetCore2App/AspNetCoreDotNetCore2App/Controllers/AccountController.cs?name=snippet_AuthenticationProperty)]
 
 <a name="windows-auth-changes"></a>
 
-## <a name="windows-authentication-httpsys--iisintegration"></a>Windows kimlik doğrulaması (HTTP.sys / IISIntegration)
+## <a name="windows-authentication-httpsys--iisintegration"></a>Windows kimlik doğrulaması (HTTP. sys/Iisıntegration)
 
-Windows kimlik doğrulamasının iki çeşidi vardır:
+Windows kimlik doğrulamasının iki farklı çeşidi vardır:
 
-* Konak, yalnızca kimliği doğrulanmış kullanıcılara izin verir. Bu farklılığa 2.0 değişikliklerden etkilenmez.
-* Ana bilgisayar hem anonim verir ve kimliği doğrulanmış kullanıcılar. Bu farklılığa 2.0 değişikliklerden etkilenir. Örneğin, altındaki anonim kullanıcılar izin [IIS](xref:host-and-deploy/iis/index) veya [HTTP.sys](xref:fundamentals/servers/httpsys) katman ancak denetleyici düzeyinde kullanıcıları yetkilendirme. Bu senaryoda, varsayılan düzenini kümesinde `Startup.ConfigureServices` yöntemi.
+* Konak yalnızca kimliği doğrulanmış kullanıcılara izin verir. Bu çeşitleme 2,0 değişikliklerden etkilenmez.
+* Konak hem anonim hem de kimliği doğrulanmış kullanıcılara izin verir. Bu çeşitleme 2,0 değişikliklerden etkilenir. Örneğin, uygulamanın [IIS](xref:host-and-deploy/iis/index) veya [http. sys](xref:fundamentals/servers/httpsys) katmanında anonim kullanıcılara izin verilmesi, ancak kullanıcıları denetleyici düzeyinde yetkilendirmeniz gerekir. Bu senaryoda, `Startup.ConfigureServices` yönteminde varsayılan düzeni ayarlayın.
 
-  İçin [Microsoft.AspNetCore.Server.IISIntegration](https://www.nuget.org/packages/Microsoft.AspNetCore.Server.IISIntegration/), varsayılan düzenini ayarlayın `IISDefaults.AuthenticationScheme`:
+  [Microsoft. AspNetCore. Server. ıısıntegration](https://www.nuget.org/packages/Microsoft.AspNetCore.Server.IISIntegration/)için varsayılan düzeni `IISDefaults.AuthenticationScheme`olarak ayarlayın:
 
   ```csharp
   using Microsoft.AspNetCore.Server.IISIntegration;
@@ -316,7 +318,7 @@ Windows kimlik doğrulamasının iki çeşidi vardır:
   services.AddAuthentication(IISDefaults.AuthenticationScheme);
   ```
 
-  İçin [Microsoft.AspNetCore.Server.HttpSys](https://www.nuget.org/packages/Microsoft.AspNetCore.Server.HttpSys/), varsayılan düzenini ayarlayın `HttpSysDefaults.AuthenticationScheme`:
+  [Microsoft. AspNetCore. Server. HttpSys](https://www.nuget.org/packages/Microsoft.AspNetCore.Server.HttpSys/)için varsayılan düzeni `HttpSysDefaults.AuthenticationScheme`olarak ayarlayın:
 
   ```csharp
   using Microsoft.AspNetCore.Server.HttpSys;
@@ -324,43 +326,43 @@ Windows kimlik doğrulamasının iki çeşidi vardır:
   services.AddAuthentication(HttpSysDefaults.AuthenticationScheme);
   ```
 
-  Varsayılan düzen ayarlanamadı (sınama) authorize isteğinin, şu özel durumla çalışmasını engeller:
+  Varsayılan düzenin ayarlanamaması, yetkilendirme (sınama) isteğinin şu özel durumla çalışmasını engeller:
 
-  > `System.InvalidOperationException`: Hiçbir authenticationScheme belirtildiğinden ve bulunan hiçbir DefaultChallengeScheme vardı.
+  > `System.InvalidOperationException`: authenticationScheme belirtilmedi ve hiç Defaultchallenbescheme bulunamadı.
 
 Daha fazla bilgi için bkz. <xref:security/authentication/windowsauth>.
 
 <a name="identity-cookie-options"></a>
 
-## <a name="identitycookieoptions-instances"></a>IdentityCookieOptions örnekleri
+## <a name="identitycookieoptions-instances"></a>Identityıeoptions örnekleri
 
-Bir yan etkisi 2.0 değişiklikleri seçeneklerini tanımlama bilgisi seçenekleri örnek yerine adlandırılmış kullanarak anahtardır. Kimlik tanımlama bilgisi düzeni adları özelleştirme yeteneği kaldırılır.
+2,0 değişikliğin yan etkisi, tanımlama bilgisi seçenekleri örnekleri yerine adlandırılmış seçenekleri kullanma anahtarıdır. Kimlik tanımlama bilgisi düzen adlarını özelleştirme özelliği kaldırılır.
 
-Örneğin, 1.x projelerin [Oluşturucu ekleme](xref:mvc/controllers/dependency-injection#constructor-injection) geçirilecek bir `IdentityCookieOptions` parametrede *AccountController.cs* ve *ManageController.cs*. Dış tanımlama bilgisi kimlik doğrulaması düzeni sağlanan örneğinden erişilebilir:
+Örneğin, 1. x projeleri bir `IdentityCookieOptions` parametresini *accountcontroller.cs* ve *ManageController.cs*öğesine geçirmek için [Oluşturucu Ekleme](xref:mvc/controllers/dependency-injection#constructor-injection) kullanır. Dış tanımlama bilgisi kimlik doğrulama şemasına, belirtilen örnekten erişilir:
 
 [!code-csharp[](../1x-to-2x/samples/AspNetCoreDotNetCore1App/AspNetCoreDotNetCore1App/Controllers/AccountController.cs?name=snippet_AccountControllerConstructor&highlight=4,11)]
 
-Yukarıda sözü edilen Oluşturucu ekleme 2.0 projelerinde, gereksiz olur ve `_externalCookieScheme` alan silinebilir:
+Belirtilen Oluşturucu Ekleme, 2,0 projesinde gereksiz hale gelir ve `_externalCookieScheme` alanı silinebilir:
 
 [!code-csharp[](../1x-to-2x/samples/AspNetCoreDotNetCore2App/AspNetCoreDotNetCore2App/Controllers/AccountController.cs?name=snippet_AccountControllerConstructor)]
 
-kullanılan 1.x projelerini `_externalCookieScheme` gibi alan:
+1. x projeleri `_externalCookieScheme` alanını şu şekilde kullandı:
 
 [!code-csharp[](../1x-to-2x/samples/AspNetCoreDotNetCore1App/AspNetCoreDotNetCore1App/Controllers/AccountController.cs?name=snippet_AuthenticationProperty)]
 
-2\.0 projelerinde, önceki kodu aşağıdakiyle değiştirin. `IdentityConstants.ExternalScheme` Sabiti doğrudan kullanılabilir.
+2,0 projesinde, yukarıdaki kodu aşağıdaki kodla değiştirin. `IdentityConstants.ExternalScheme` sabiti doğrudan kullanılabilir.
 
 [!code-csharp[](../1x-to-2x/samples/AspNetCoreDotNetCore2App/AspNetCoreDotNetCore2App/Controllers/AccountController.cs?name=snippet_AuthenticationProperty)]
 
-Yeni eklenen çözmek `SignOutAsync` aşağıdaki ad alanını içeri aktararak çağırın:
+Aşağıdaki ad alanını içeri aktararak yeni eklenen `SignOutAsync` çağrısını çözümleyin:
 
 [!code-csharp[](../1x-to-2x/samples/AspNetCoreDotNetCore2App/AspNetCoreDotNetCore2App/Controllers/AccountController.cs?name=snippet_AuthenticationImport)]
 
 <a name="navigation-properties"></a>
 
-## <a name="add-identityuser-poco-navigation-properties"></a>POCO IdentityUser Gezinti özellikleri ekleyin
+## <a name="add-identityuser-poco-navigation-properties"></a>Identityuser POCO gezinti özellikleri ekle
 
-Entity Framework (EF) çekirdek gezinme özelliklerini temel `IdentityUser` POCO (düz eski CLR nesnesi) kaldırıldı. El ile 1.x projenizi bu özellikleri kullandıysanız, bunları 2.0 projeye ekleyin:
+Taban `IdentityUser` POCO (düz eski CLR nesnesi) Entity Framework (EF) temel gezinti özellikleri kaldırılmıştır. 1\. x projeniz bu özellikleri kullandıysanız, bunları el ile 2,0 projesine ekleyin:
 
 ```csharp
 /// <summary>
@@ -379,7 +381,7 @@ public virtual ICollection<IdentityUserClaim<int>> Claims { get; } = new List<Id
 public virtual ICollection<IdentityUserLogin<int>> Logins { get; } = new List<IdentityUserLogin<int>>();
 ```
 
-EF Core geçişleri çalıştırırken yinelenen yabancı anahtarlar önlemek için aşağıdaki ekleyin, `IdentityDbContext` sınıfının `OnModelCreating` yöntemi (sonra `base.OnModelCreating();` çağrısı):
+EF Core geçişleri çalıştırırken yinelenen yabancı anahtarların oluşmasını engellemek için, aşağıdakileri `IdentityDbContext` sınıfınıza ' `OnModelCreating` metoduna ekleyin (`base.OnModelCreating();` çağrısından sonra):
 
 ```csharp
 protected override void OnModelCreating(ModelBuilder builder)
@@ -414,33 +416,33 @@ protected override void OnModelCreating(ModelBuilder builder)
 
 <a name="synchronous-method-removal"></a>
 
-## <a name="replace-getexternalauthenticationschemes"></a>GetExternalAuthenticationSchemes değiştirin
+## <a name="replace-getexternalauthenticationschemes"></a>Getexternalauthenticationdüzenlerini değiştirme
 
-Zaman uyumlu yöntem `GetExternalAuthenticationSchemes` yerine zaman uyumsuz bir sürümü kaldırıldı. 1.x projelerini olmayan aşağıdaki kodu *Controllers/ManageController.cs*:
+Zaman uyumlu Yöntem `GetExternalAuthenticationSchemes` zaman uyumsuz bir sürüm yararına kaldırılmıştır. 1. x projeleri *denetleyicileri/ManageController. cs*dosyasında aşağıdaki koda sahiptir:
 
 [!code-csharp[](../1x-to-2x/samples/AspNetCoreDotNetCore1App/AspNetCoreDotNetCore1App/Controllers/ManageController.cs?name=snippet_GetExternalAuthenticationSchemes)]
 
-Bu yöntem görünür *Views/Account/Login.cshtml* çok:
+Bu yöntem, *Görünümler/Account/Login. cshtml* içinde de görüntülenir:
 
 [!code-cshtml[](../1x-to-2x/samples/AspNetCoreDotNetCore1App/AspNetCoreDotNetCore1App/Views/Account/Login.cshtml?name=snippet_GetExtAuthNSchemes&highlight=2)]
 
-2\.0 projelerinde kullanma <xref:Microsoft.AspNetCore.Identity.SignInManager`1.GetExternalAuthenticationSchemesAsync*> yöntemi. Değişiklik *ManageController.cs* aşağıdaki koda benzer:
+2,0 projesinde <xref:Microsoft.AspNetCore.Identity.SignInManager`1.GetExternalAuthenticationSchemesAsync*> yöntemini kullanın. *ManageController.cs* içindeki değişiklik aşağıdaki koda benzer:
 
 [!code-csharp[](../1x-to-2x/samples/AspNetCoreDotNetCore2App/AspNetCoreDotNetCore2App/Controllers/ManageController.cs?name=snippet_GetExternalAuthenticationSchemesAsync)]
 
-İçinde *Login.cshtml*, `AuthenticationScheme` erişilebilir özellik `foreach` döngü değişiklikleri `Name`:
+*Login. cshtml*içinde, `foreach` döngüsünde erişilen `AuthenticationScheme` özelliği `Name`olarak değişir:
 
 [!code-cshtml[](../1x-to-2x/samples/AspNetCoreDotNetCore2App/AspNetCoreDotNetCore2App/Views/Account/Login.cshtml?name=snippet_GetExtAuthNSchemesAsync&highlight=2,19)]
 
 <a name="property-change"></a>
 
-## <a name="manageloginsviewmodel-property-change"></a>ManageLoginsViewModel özellik değişikliği
+## <a name="manageloginsviewmodel-property-change"></a>ManageLoginsViewModel özelliği değişikliği
 
-A `ManageLoginsViewModel` nesnesi kullanılır `ManageLogins` eylemi *ManageController.cs*. 1\.x projelerinde, nesne 's `OtherLogins` özelliği döndürme türü `IList<AuthenticationDescription>`. Bu dönüş türü alma gerektirir `Microsoft.AspNetCore.Http.Authentication`:
+Bir `ManageLoginsViewModel` nesnesi, *ManageController.cs*`ManageLogins` eyleminde kullanılır. 1\. x projelerinde, nesnenin `OtherLogins` özelliği dönüş türü `IList<AuthenticationDescription>`. Bu dönüş türü `Microsoft.AspNetCore.Http.Authentication`içeri aktarmayı gerektirir:
 
 [!code-csharp[](../1x-to-2x/samples/AspNetCoreDotNetCore1App/AspNetCoreDotNetCore1App/Models/ManageViewModels/ManageLoginsViewModel.cs?name=snippet_ManageLoginsViewModel&highlight=2,11)]
 
-Dönüş türü değişikliklerini 2.0 projelerinde `IList<AuthenticationScheme>`. Bu yeni dönüş türünü değiştirme gerektirir `Microsoft.AspNetCore.Http.Authentication` ile içeri aktarma bir `Microsoft.AspNetCore.Authentication` içeri aktarın.
+2,0 projesinde, dönüş türü `IList<AuthenticationScheme>`olarak değişir. Bu yeni dönüş türü, `Microsoft.AspNetCore.Http.Authentication` içeri aktarmanın `Microsoft.AspNetCore.Authentication` içeri aktarma ile değiştirilmesi gerekiyor.
 
 [!code-csharp[](../1x-to-2x/samples/AspNetCoreDotNetCore2App/AspNetCoreDotNetCore2App/Models/ManageViewModels/ManageLoginsViewModel.cs?name=snippet_ManageLoginsViewModel&highlight=2,11)]
 
@@ -448,4 +450,4 @@ Dönüş türü değişikliklerini 2.0 projelerinde `IList<AuthenticationScheme>
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-Daha fazla bilgi için [Auth 2.0 için tartışma](https://github.com/aspnet/Security/issues/1338) github'da sorun.
+Daha fazla bilgi için bkz. GitHub 'da [kimlik doğrulama 2,0 sorunu tartışması](https://github.com/aspnet/Security/issues/1338) .

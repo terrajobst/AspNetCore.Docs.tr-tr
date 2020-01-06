@@ -4,14 +4,14 @@ author: rick-anderson
 description: ASP.NET Core model bağlamasının nasıl çalıştığını ve davranışını nasıl özelleştireceğinizi öğrenin.
 ms.assetid: 0be164aa-1d72-4192-bd6b-192c9c301164
 ms.author: riande
-ms.date: 11/21/2019
+ms.date: 12/18/2019
 uid: mvc/models/model-binding
-ms.openlocfilehash: da6cc25e0bbb1b2301529b34eab4c91f9ccb46eb
-ms.sourcegitcommit: 851b921080fe8d719f54871770ccf6f78052584e
+ms.openlocfilehash: d36e42ef2517068ade3f874dc62cc7587ee3ca98
+ms.sourcegitcommit: 2cb857f0de774df421e35289662ba92cfe56ffd1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74944301"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75355668"
 ---
 # <a name="model-binding-in-aspnet-core"></a>ASP.NET Core 'de model bağlama
 
@@ -34,7 +34,7 @@ Denetleyiciler ve Razor sayfaları, HTTP isteklerinden gelen verilerle çalış�
 
 Aşağıdaki eylem yöntemine sahip olduğunuzu varsayalım:
 
-[!code-csharp[](model-binding/samples/2.x/ModelBindingSample/Controllers/PetsController.cs?name=snippet_DogsOnly)]
+[!code-csharp[](model-binding/samples/3.x/ModelBindingSample/Controllers/PetsController.cs?name=snippet_DogsOnly)]
 
 Ve uygulama şu URL ile bir istek alıyor:
 
@@ -67,19 +67,19 @@ Model bağlama, aşağıdaki tür hedeflerin değerlerini bulmayı dener:
 
 Bir denetleyicinin veya `PageModel` sınıfın ortak özelliğine, model bağlamasının bu özelliği hedeflemesini sağlamak için uygulanabilir:
 
-[!code-csharp[](model-binding/samples/2.x/ModelBindingSample/Pages/Instructors/Edit.cshtml.cs?name=snippet_BindProperty&highlight=3-4)]
+[!code-csharp[](model-binding/samples/3.x/ModelBindingSample/Pages/Instructors/Edit.cshtml.cs?name=snippet_BindProperty&highlight=3-4)]
 
 ### <a name="bindpropertiesattribute"></a>[BindProperties] özniteliği
 
 ASP.NET Core 2,1 ve üzeri sürümlerde kullanılabilir.  Model bağlamaya, sınıfın tüm ortak özelliklerini hedeflemesini bildirmek için bir denetleyiciye veya `PageModel` sınıfa uygulanabilir:
 
-[!code-csharp[](model-binding/samples/2.x/ModelBindingSample/Pages/Instructors/Create.cshtml.cs?name=snippet_BindProperties&highlight=1-2)]
+[!code-csharp[](model-binding/samples/3.x/ModelBindingSample/Pages/Instructors/Create.cshtml.cs?name=snippet_BindProperties&highlight=1-2)]
 
 ### <a name="model-binding-for-http-get-requests"></a>HTTP GET istekleri için model bağlama
 
 Varsayılan olarak, Özellikler HTTP GET istekleri için bağlantılı değildir. Genellikle, bir GET isteği için tüm ihtiyacınız olan bir kayıt KIMLIĞI parametresidir. Kayıt KIMLIĞI, veritabanındaki öğeyi aramak için kullanılır. Bu nedenle, modelin bir örneğini tutan bir özelliği bağlamaya gerek yoktur. GET isteklerinden alınan özelliklerin verilerine bağlanmasını istediğiniz senaryolarda `SupportsGet` özelliğini `true`olarak ayarlayın:
 
-[!code-csharp[](model-binding/samples/2.x/ModelBindingSample/Pages/Instructors/Index.cshtml.cs?name=snippet_SupportsGet)]
+[!code-csharp[](model-binding/samples/3.x/ModelBindingSample/Pages/Instructors/Index.cshtml.cs?name=snippet_SupportsGet)]
 
 ## <a name="sources"></a>Kaynaklar
 
@@ -108,11 +108,11 @@ Bu öznitelikler:
 
 * Model özelliklerine tek tek eklenir (model sınıfına değil), aşağıdaki örnekte olduğu gibi:
 
-  [!code-csharp[](model-binding/samples/2.x/ModelBindingSample/Models/Instructor.cs?name=snippet_FromQuery&highlight=5-6)]
+  [!code-csharp[](model-binding/samples/3.x/ModelBindingSample/Models/Instructor.cs?name=snippet_FromQuery&highlight=5-6)]
 
 * İsteğe bağlı olarak oluşturucuda bir model adı değeri kabul edin. Bu seçenek, özellik adının istekteki değerle eşleşmemesi durumunda sağlanır. Örneğin, istekteki değer aşağıdaki örnekte olduğu gibi adında bir tire olan bir üstbilgi olabilir:
 
-  [!code-csharp[](model-binding/samples/2.x/ModelBindingSample/Pages/Instructors/Index.cshtml.cs?name=snippet_FromHeader)]
+  [!code-csharp[](model-binding/samples/3.x/ModelBindingSample/Pages/Instructors/Index.cshtml.cs?name=snippet_FromHeader)]
 
 ### <a name="frombody-attribute"></a>[FromBody] özniteliği
 
@@ -153,9 +153,9 @@ Kaynak verileri, model bağlama sistemine *değer sağlayıcılara*göre sağlan
 * `IValueProviderFactory`uygulayan bir sınıf oluşturun.
 * Factory sınıfını `Startup.ConfigureServices`kaydedin.
 
-Örnek uygulama, tanımlama bilgilerinden değerler alan bir [değer sağlayıcısı](https://github.com/aspnet/AspNetCore.Docs/blob/master/aspnetcore/mvc/models/model-binding/samples/2.x/ModelBindingSample/CookieValueProvider.cs) ve [Factory](https://github.com/aspnet/AspNetCore.Docs/blob/master/aspnetcore/mvc/models/model-binding/samples/2.x/ModelBindingSample/CookieValueProviderFactory.cs) örneği içerir. `Startup.ConfigureServices`kayıt kodu aşağıda verilmiştir:
+Örnek uygulama, tanımlama bilgilerinden değerler alan bir [değer sağlayıcısı](https://github.com/aspnet/AspNetCore.Docs/blob/master/aspnetcore/mvc/models/model-binding/samples/3.x/ModelBindingSample/CookieValueProvider.cs) ve [Factory](https://github.com/aspnet/AspNetCore.Docs/blob/master/aspnetcore/mvc/models/model-binding/samples/3.x/ModelBindingSample/CookieValueProviderFactory.cs) örneği içerir. `Startup.ConfigureServices`kayıt kodu aşağıda verilmiştir:
 
-[!code-csharp[](model-binding/samples/2.x/ModelBindingSample/Startup.cs?name=snippet_ValueProvider&highlight=3)]
+[!code-csharp[](model-binding/samples/3.x/ModelBindingSample/Startup.cs?name=snippet_ValueProvider&highlight=4)]
 
 Gösterilen kod, tüm yerleşik değer sağlayıcılarından sonra özel değer sağlayıcısını koyar.  Listenin ilk olması için, `Add`yerine `Insert(0, new CookieValueProviderFactory())` çağırın.
 
@@ -180,7 +180,7 @@ Bir kaynak bulunursa ancak hedef türe dönüştürülemiyorsa, model durumu ge�
 
 Razor sayfasında, sayfayı bir hata iletisiyle yeniden görüntüleyin:
 
-[!code-csharp[](model-binding/samples/2.x/ModelBindingSample/Pages/Instructors/Create.cshtml.cs?name=snippet_HandleMBError&highlight=3-6)]
+[!code-csharp[](model-binding/samples/3.x/ModelBindingSample/Pages/Instructors/Create.cshtml.cs?name=snippet_HandleMBError&highlight=3-6)]
 
 İstemci tarafı doğrulama, aksi durumda Razor Pages bir forma gönderilemeyen hatalı verileri yakalar. Bu doğrulama, önceki vurgulanmış kodu tetiklemeyi zorlaştırır. Örnek uygulama, teslim **tarihi** alanına hatalı veri yerleştiren ve formu Gönderen **Geçersiz tarih içeren bir Gönder** düğmesi içerir. Bu düğme, veri dönüştürme hataları oluştuğunda sayfanın yeniden görüntülenmesine yönelik kodun nasıl çalıştığını gösterir.
 
@@ -276,13 +276,13 @@ Karmaşık türlerin model bağlamasını denetlemek için birkaç yerleşik öz
 
 , Yöntem parametrelerine değil yalnızca model özelliklerine uygulanabilir. Modelin özelliği için bağlama gerçekleşmemişse model bağlamasının model durumu hatası eklemesine neden olur. Örnek buradadır:
 
-[!code-csharp[](model-binding/samples/2.x/ModelBindingSample/Models/InstructorWithCollection.cs?name=snippet_BindRequired&highlight=8-9)]
+[!code-csharp[](model-binding/samples/3.x/ModelBindingSample/Models/InstructorWithCollection.cs?name=snippet_BindRequired&highlight=8-9)]
 
 ### <a name="bindnever-attribute"></a>[Bindhiç] özniteliği
 
 , Yöntem parametrelerine değil yalnızca model özelliklerine uygulanabilir. Model bağlamasının model özelliğini değiştirmesini engeller. Örnek buradadır:
 
-[!code-csharp[](model-binding/samples/2.x/ModelBindingSample/Models/InstructorWithDictionary.cs?name=snippet_BindNever&highlight=3-4)]
+[!code-csharp[](model-binding/samples/3.x/ModelBindingSample/Models/InstructorWithDictionary.cs?name=snippet_BindNever&highlight=3-4)]
 
 ### <a name="bind-attribute"></a>[Bind] özniteliği
 
@@ -401,8 +401,8 @@ ASP.NET Core yol değeri sağlayıcısını ve sorgu dizesi değeri sağlayıcı
 * Değer sağlayıcısı oluşturucusuna geçirilen [kültür değerini](https://github.com/aspnet/AspNetCore/blob/e625fe29b049c60242e8048b4ea743cca65aa7b5/src/Mvc/Mvc.Core/src/ModelBinding/QueryStringValueProviderFactory.cs#L30) [CultureInfo. CurrentCulture](xref:System.Globalization.CultureInfo.CurrentCulture) ile değiştirin
 * MVC seçeneklerinde varsayılan değer sağlayıcı fabrikasını yeni bir değerle değiştirin:
 
-[!code-csharp[](model-binding/samples_snapshot/2.x/Startup.cs?name=snippet)]
-[!code-csharp[](model-binding/samples_snapshot/2.x/Startup.cs?name=snippet1)]
+[!code-csharp[](model-binding/samples_snapshot/3.x/Startup.cs?name=snippet)]
+[!code-csharp[](model-binding/samples_snapshot/3.x/Startup.cs?name=snippet1)]
 
 ## <a name="special-data-types"></a>Özel veri türleri
 
@@ -432,7 +432,7 @@ Yerleşik XML girişi formatlayıcıları 'nı kullanmak için:
 
 * `Startup.ConfigureServices`<xref:Microsoft.Extensions.DependencyInjection.MvcXmlMvcCoreBuilderExtensions.AddXmlSerializerFormatters*> veya <xref:Microsoft.Extensions.DependencyInjection.MvcXmlMvcCoreBuilderExtensions.AddXmlDataContractSerializerFormatters*>çağırın.
 
-  [!code-csharp[](model-binding/samples/2.x/ModelBindingSample/Startup.cs?name=snippet_ValueProvider&highlight=9)]
+  [!code-csharp[](model-binding/samples/3.x/ModelBindingSample/Startup.cs?name=snippet_ValueProvider&highlight=10)]
 
 * `Consumes` özniteliğini, istek gövdesinde XML beklemeniz gereken denetleyici sınıflarına veya eylem yöntemlerine uygulayın.
 
@@ -444,27 +444,52 @@ Yerleşik XML girişi formatlayıcıları 'nı kullanmak için:
 
   Daha fazla bilgi için bkz. [XML serileştirme tanıtımı](/dotnet/standard/serialization/introducing-xml-serialization).
 
+### <a name="customize-model-binding-with-input-formatters"></a>Giriş formatlayıcıları ile model bağlamayı özelleştirme
+
+Giriş biçimlendiricisi, istek gövdesinden veri okumak için tam sorumluluğa sahiptir. Bu işlemi özelleştirmek için, giriş biçimlendirici tarafından kullanılan API 'Leri yapılandırın. Bu bölümde, `ObjectId`adlı özel bir türü anlamak için `System.Text.Json`tabanlı giriş biçimlendiricinin nasıl özelleştirileceği açıklanmaktadır. 
+
+`Id`adlı özel bir `ObjectId` özelliği içeren aşağıdaki modeli göz önünde bulundurun:
+
+[!code-csharp[](model-binding/samples/3.x/ModelBindingSample/Models/ModelWithObjectId.cs?name=snippet_Class&highlight=3)]
+
+`System.Text.Json`kullanırken model bağlama işlemini özelleştirmek için, <xref:System.Text.Json.Serialization.JsonConverter%601>türetilmiş bir sınıf oluşturun:
+
+[!code-csharp[](model-binding/samples/3.x/ModelBindingSample/JsonConverters/ObjectIdConverter.cs?name=snippet_Class)]
+
+Özel bir dönüştürücü kullanmak için <xref:System.Text.Json.Serialization.JsonConverterAttribute> özniteliğini türe uygulayın. Aşağıdaki örnekte, `ObjectId` türü özel dönüştürücü olarak `ObjectIdConverter` ile yapılandırılır:
+
+[!code-csharp[](model-binding/samples/3.x/ModelBindingSample/Models/ObjectId.cs?name=snippet_Class&highlight=1)]
+
+Daha fazla bilgi için bkz. [özel dönüştürücüler yazma](/dotnet/standard/serialization/system-text-json-converters-how-to).
+
 ## <a name="exclude-specified-types-from-model-binding"></a>Belirtilen türleri model bağlamalarından Dışla
 
 Model bağlama ve doğrulama sistemlerinin davranışı [ModelMetadata](/dotnet/api/microsoft.aspnetcore.mvc.modelbinding.modelmetadata)tarafından yönlendiriliyor. [Mvcoptions. Modelmetadatadetails sağlayıcılarına](xref:Microsoft.AspNetCore.Mvc.MvcOptions.ModelMetadataDetailsProviders)bir ayrıntı sağlayıcısı ekleyerek `ModelMetadata` özelleştirebilirsiniz. Yerleşik Ayrıntılar sağlayıcıları, belirtilen türler için model bağlamayı veya doğrulamayı devre dışı bırakmak üzere kullanılabilir.
 
 Belirtilen türdeki tüm modellerdeki model bağlamayı devre dışı bırakmak için `Startup.ConfigureServices`bir <xref:Microsoft.AspNetCore.Mvc.ModelBinding.Metadata.ExcludeBindingMetadataProvider> ekleyin. Örneğin, `System.Version`türündeki tüm modeller üzerinde model bağlamayı devre dışı bırakmak için:
 
-[!code-csharp[](model-binding/samples/2.x/ModelBindingSample/Startup.cs?name=snippet_ValueProvider&highlight=4-5)]
+[!code-csharp[](model-binding/samples/3.x/ModelBindingSample/Startup.cs?name=snippet_ValueProvider&highlight=5-6)]
 
 Belirtilen türdeki özelliklerde doğrulamayı devre dışı bırakmak için `Startup.ConfigureServices`<xref:Microsoft.AspNetCore.Mvc.ModelBinding.SuppressChildValidationMetadataProvider> ekleyin. Örneğin, `System.Guid`türündeki özelliklerde doğrulamayı devre dışı bırakmak için:
 
-[!code-csharp[](model-binding/samples/2.x/ModelBindingSample/Startup.cs?name=snippet_ValueProvider&highlight=6-7)]
+[!code-csharp[](model-binding/samples/3.x/ModelBindingSample/Startup.cs?name=snippet_ValueProvider&highlight=7-8)]
 
 ## <a name="custom-model-binders"></a>Özel model ciltleri
 
 Özel bir model cildi yazarak ve belirli bir hedef için seçmek üzere `[ModelBinder]` özniteliğini kullanarak model bağlamayı genişletebilirsiniz. [Özel model bağlama](xref:mvc/advanced/custom-model-binding)hakkında daha fazla bilgi edinin.
 
-## <a name="manual-model-binding"></a>El ile model bağlama
+## <a name="manual-model-binding"></a>El ile model bağlama 
 
 Model bağlama, <xref:Microsoft.AspNetCore.Mvc.ControllerBase.TryUpdateModelAsync*> yöntemi kullanılarak el ile çağrılabilir. Yöntemi hem `ControllerBase` hem de `PageModel` sınıflarında tanımlanmıştır. Yöntem aşırı yüklemeleri, kullanılacak öneki ve değer sağlayıcısını belirtmenizi sağlar. Model bağlama başarısız olursa Yöntem `false` döndürür. Örnek buradadır:
 
-[!code-csharp[](model-binding/samples/2.x/ModelBindingSample/Pages/InstructorsWithCollection/Create.cshtml.cs?name=snippet_TryUpdate&highlight=1-4)]
+[!code-csharp[](model-binding/samples/3.x/ModelBindingSample/Pages/InstructorsWithCollection/Create.cshtml.cs?name=snippet_TryUpdate&highlight=1-4)]
+
+<xref:Microsoft.AspNetCore.Mvc.ControllerBase.TryUpdateModelAsync*>, form gövdesinden, sorgu dizesinden ve veri rota verilerinden veri almak için değer sağlayıcılarını kullanır. `TryUpdateModelAsync` genellikle: 
+
+* Daha fazla nakletmeyi engellemek için denetleyiciler ve görünümler kullanan Razor Pages ve MVC uygulamalarıyla birlikte kullanılır.
+* Form verilerinden, sorgu dizelerinden ve veri rotalarından tüketilmediği müddetçe bir Web API 'SI ile kullanılmaz. JSON kullanan Web API uç noktaları, istek gövdesini bir nesne olarak seri durumdan çıkarmak için [giriş formatlarını](#input-formatters) kullanır.
+
+Daha fazla bilgi için bkz. [Tryupdatemodelasync](xref:data/ef-rp/crud#TryUpdateModelAsync).
 
 ## <a name="fromservices-attribute"></a>[FromServices] özniteliği
 

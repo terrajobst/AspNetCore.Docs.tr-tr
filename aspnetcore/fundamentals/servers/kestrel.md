@@ -5,14 +5,14 @@ description: ASP.NET Core platformlar arası Web sunucusu olan Kestrel hakkında
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/14/2019
+ms.date: 12/26/2019
 uid: fundamentals/servers/kestrel
-ms.openlocfilehash: 6fba6689f72f7a565e28d80f6770765ab097cf11
-ms.sourcegitcommit: f40c9311058c9b1add4ec043ddc5629384af6c56
+ms.openlocfilehash: 9fbf0ec93634100fccef279fc7cad92cb1420e84
+ms.sourcegitcommit: 991442dfb16ef08a0aae05bc79f9e9a2d819c587
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74289098"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75492603"
 ---
 # <a name="kestrel-web-server-implementation-in-aspnet-core"></a>ASP.NET Core Web sunucusu uygulamasını Kestrel
 
@@ -33,7 +33,7 @@ Kestrel aşağıdaki senaryoları destekler:
 
 Kestrel, .NET Core 'un desteklediği tüm platformlarda ve sürümlerde desteklenir.
 
-[Örnek kodu görüntüleme veya indirme](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/servers/kestrel/samples) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
+[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/servers/kestrel/samples) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
 
 ## <a name="http2-support"></a>HTTP/2 desteği
 
@@ -49,7 +49,7 @@ Aşağıdaki temel gereksinimler karşılanıyorsa, [http/2](https://httpwg.org/
 &dagger;HTTP/2, gelecek sürümlerde macOS 'ta desteklenecektir.
 &Dagger;Kestrel Windows Server 2012 R2 ve Windows 8.1 üzerinde HTTP/2 için sınırlı destek içerir. Bu işletim sistemlerinde kullanılabilir olan desteklenen TLS şifre paketlerinin listesi sınırlı olduğundan destek sınırlıdır. TLS bağlantılarının güvenliğini sağlamak için Eliptik Eğri dijital Imza algoritması (ECDSA) kullanılarak oluşturulan bir sertifika gerekli olabilir.
 
-Bir HTTP/2 bağlantısı kurulduysa, [HttpRequest. Protocol](xref:Microsoft.AspNetCore.Http.HttpRequest.Protocol*) Reports `HTTP/2`.
+Bir HTTP/2 bağlantı kurulur, [HttpRequest.Protocol](xref:Microsoft.AspNetCore.Http.HttpRequest.Protocol*) raporları `HTTP/2`.
 
 HTTP/2 varsayılan olarak devre dışıdır. Yapılandırma hakkında daha fazla bilgi için [Kestrel Options](#kestrel-options) ve [Listenoptions. Protocols](#listenoptionsprotocols) bölümlerine bakın.
 
@@ -135,15 +135,30 @@ Aşağıdaki yaklaşımlardan **birini** kullanın:
 * `Startup.ConfigureServices`'de Kestrel yapılandırma:
 
   1. `Startup` sınıfına bir `IConfiguration` örneği ekleyin. Aşağıdaki örnek, eklenen yapılandırmanın `Configuration` özelliğine atandığını varsayar.
-  2. `Startup.ConfigureServices`, yapılandırmanın `Kestrel` bölümünü Kestrel 'in yapılandırmasına yükleyin.
+  2. `Startup.ConfigureServices`, yapılandırmanın `Kestrel` bölümünü Kestrel 'in yapılandırmasına yükleyin:
 
      ```csharp
-     // using Microsoft.Extensions.Configuration
-
-     public void ConfigureServices(IServiceCollection services)
+     using Microsoft.Extensions.Configuration
+     
+     public class Startup
      {
-         services.Configure<KestrelServerOptions>(
-             Configuration.GetSection("Kestrel"));
+         public Startup(IConfiguration configuration)
+         {
+             Configuration = configuration;
+         }
+
+         public IConfiguration Configuration { get; }
+
+         public void ConfigureServices(IServiceCollection services)
+         {
+             services.Configure<KestrelServerOptions>(
+                 Configuration.GetSection("Kestrel"));
+         }
+
+         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+         {
+             ...
+         }
      }
      ```
 
@@ -352,7 +367,7 @@ Varsayılan olarak, ASP.NET Core bağlar:
 
 Kullanarak URL 'Leri belirtin:
 
-* ortam değişkeni `ASPNETCORE_URLS`.
+* `ASPNETCORE_URLS` ortam değişkeni.
 * `--urls` komut satırı bağımsız değişkeni.
 * `urls` ana bilgisayar yapılandırma anahtarı.
 * `UseUrls` genişletme yöntemi.
@@ -637,7 +652,7 @@ webBuilder.ConfigureKestrel(serverOptions =>
 
 <xref:Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerOptions.Listen*> yöntemi bir TCP yuvasına bağlanır ve bir seçenek lambda X. 509.440 sertifika yapılandırmasına izin verir:
 
-[!code-csharp[](kestrel/samples/3.x/KestrelSample/Program.cs?name=snippet_TCPSocket&highlight=9-16)]
+[!code-csharp[](kestrel/samples/3.x/KestrelSample/Program.cs?name=snippet_TCPSocket&highlight=12-18)]
 
 Örnek, <xref:Microsoft.AspNetCore.Server.Kestrel.Core.ListenOptions>olan bir uç nokta için HTTPS 'yi yapılandırır. Belirli uç noktalar için diğer Kestrel ayarlarını yapılandırmak üzere aynı API 'yi kullanın.
 
@@ -969,7 +984,7 @@ Kestrel aşağıdaki senaryoları destekler:
 
 Kestrel, .NET Core 'un desteklediği tüm platformlarda ve sürümlerde desteklenir.
 
-[Örnek kodu görüntüleme veya indirme](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/servers/kestrel/samples) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
+[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/servers/kestrel/samples) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
 
 ## <a name="http2-support"></a>HTTP/2 desteği
 
@@ -985,7 +1000,7 @@ Aşağıdaki temel gereksinimler karşılanıyorsa, [http/2](https://httpwg.org/
 &dagger;HTTP/2, gelecek sürümlerde macOS 'ta desteklenecektir.
 &Dagger;Kestrel Windows Server 2012 R2 ve Windows 8.1 üzerinde HTTP/2 için sınırlı destek içerir. Bu işletim sistemlerinde kullanılabilir olan desteklenen TLS şifre paketlerinin listesi sınırlı olduğundan destek sınırlıdır. TLS bağlantılarının güvenliğini sağlamak için Eliptik Eğri dijital Imza algoritması (ECDSA) kullanılarak oluşturulan bir sertifika gerekli olabilir.
 
-Bir HTTP/2 bağlantısı kurulduysa, [HttpRequest. Protocol](xref:Microsoft.AspNetCore.Http.HttpRequest.Protocol*) Reports `HTTP/2`.
+Bir HTTP/2 bağlantı kurulur, [HttpRequest.Protocol](xref:Microsoft.AspNetCore.Http.HttpRequest.Protocol*) raporları `HTTP/2`.
 
 HTTP/2 varsayılan olarak devre dışıdır. Yapılandırma hakkında daha fazla bilgi için [Kestrel Options](#kestrel-options) ve [Listenoptions. Protocols](#listenoptionsprotocols) bölümlerine bakın.
 
@@ -1089,15 +1104,30 @@ Aşağıdaki yaklaşımlardan **birini** kullanın:
 * `Startup.ConfigureServices`'de Kestrel yapılandırma:
 
   1. `Startup` sınıfına bir `IConfiguration` örneği ekleyin. Aşağıdaki örnek, eklenen yapılandırmanın `Configuration` özelliğine atandığını varsayar.
-  2. `Startup.ConfigureServices`, yapılandırmanın `Kestrel` bölümünü Kestrel 'in yapılandırmasına yükleyin.
+  2. `Startup.ConfigureServices`, yapılandırmanın `Kestrel` bölümünü Kestrel 'in yapılandırmasına yükleyin:
 
      ```csharp
-     // using Microsoft.Extensions.Configuration
-
-     public void ConfigureServices(IServiceCollection services)
+     using Microsoft.Extensions.Configuration
+     
+     public class Startup
      {
-         services.Configure<KestrelServerOptions>(
-             Configuration.GetSection("Kestrel"));
+         public Startup(IConfiguration configuration)
+         {
+             Configuration = configuration;
+         }
+
+         public IConfiguration Configuration { get; }
+
+         public void ConfigureServices(IServiceCollection services)
+         {
+             services.Configure<KestrelServerOptions>(
+                 Configuration.GetSection("Kestrel"));
+         }
+
+         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+         {
+             ...
+         }
      }
      ```
 
@@ -1319,7 +1349,7 @@ Varsayılan olarak, ASP.NET Core bağlar:
 
 Kullanarak URL 'Leri belirtin:
 
-* ortam değişkeni `ASPNETCORE_URLS`.
+* `ASPNETCORE_URLS` ortam değişkeni.
 * `--urls` komut satırı bağımsız değişkeni.
 * `urls` ana bilgisayar yapılandırma anahtarı.
 * `UseUrls` genişletme yöntemi.
@@ -1899,7 +1929,7 @@ Kestrel aşağıdaki senaryoları destekler:
 
 Kestrel, .NET Core 'un desteklediği tüm platformlarda ve sürümlerde desteklenir.
 
-[Örnek kodu görüntüleme veya indirme](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/servers/kestrel/samples) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
+[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/servers/kestrel/samples) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
 
 ## <a name="when-to-use-kestrel-with-a-reverse-proxy"></a>Ters ara sunucu ile Kestrel ne zaman kullanılır?
 
@@ -1979,15 +2009,30 @@ Aşağıdaki yaklaşımlardan **birini** kullanın:
 * `Startup.ConfigureServices`'de Kestrel yapılandırma:
 
   1. `Startup` sınıfına bir `IConfiguration` örneği ekleyin. Aşağıdaki örnek, eklenen yapılandırmanın `Configuration` özelliğine atandığını varsayar.
-  2. `Startup.ConfigureServices`, yapılandırmanın `Kestrel` bölümünü Kestrel 'in yapılandırmasına yükleyin.
+  2. `Startup.ConfigureServices`, yapılandırmanın `Kestrel` bölümünü Kestrel 'in yapılandırmasına yükleyin:
 
      ```csharp
-     // using Microsoft.Extensions.Configuration
-
-     public void ConfigureServices(IServiceCollection services)
+     using Microsoft.Extensions.Configuration
+     
+     public class Startup
      {
-         services.Configure<KestrelServerOptions>(
-             Configuration.GetSection("Kestrel"));
+         public Startup(IConfiguration configuration)
+         {
+             Configuration = configuration;
+         }
+
+         public IConfiguration Configuration { get; }
+
+         public void ConfigureServices(IServiceCollection services)
+         {
+             services.Configure<KestrelServerOptions>(
+                 Configuration.GetSection("Kestrel"));
+         }
+
+         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+         {
+             ...
+         }
      }
      ```
 
@@ -2166,7 +2211,7 @@ Varsayılan olarak, ASP.NET Core bağlar:
 
 Kullanarak URL 'Leri belirtin:
 
-* ortam değişkeni `ASPNETCORE_URLS`.
+* `ASPNETCORE_URLS` ortam değişkeni.
 * `--urls` komut satırı bağımsız değişkeni.
 * `urls` ana bilgisayar yapılandırma anahtarı.
 * `UseUrls` genişletme yöntemi.

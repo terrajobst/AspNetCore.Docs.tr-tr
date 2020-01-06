@@ -4,14 +4,14 @@ author: blowdart
 description: IIS ve HTTP. sys için ASP.NET Core sertifika kimlik doğrulamasını nasıl yapılandıracağınızı öğrenin.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: bdorrans
-ms.date: 12/09/2019
+ms.date: 01/02/2020
 uid: security/authentication/certauth
-ms.openlocfilehash: 38ee8a6767191bb3eee4286e49b96162b14d9889
-ms.sourcegitcommit: 4e3edff24ba6e43a103fee1b126c9826241bb37b
+ms.openlocfilehash: 9c175439c0313d62c75898f1af097774b06f353a
+ms.sourcegitcommit: e7d4fe6727d423f905faaeaa312f6c25ef844047
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74959066"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75608151"
 ---
 # <a name="configure-certificate-authentication-in-aspnet-core"></a>ASP.NET Core sertifika kimlik doğrulamasını yapılandırma
 
@@ -28,7 +28,7 @@ Sertifika kimlik doğrulaması, genellikle bir ara sunucu veya yük dengeleyicin
 
 Proxy 'lerin ve yük dengeleyicilerin kullanıldığı ortamlarda sertifika kimlik doğrulamasına alternatif olarak, OpenID Connect (OıDC) ile Federasyon Hizmetleri (ADFS) Active Directory.
 
-## <a name="get-started"></a>Kullanmaya başlayın
+## <a name="get-started"></a>Başlangıç
 
 Bir HTTPS sertifikası alın, uygulayın ve [ana bilgisayarınızı](#configure-your-host-to-require-certificates) sertifika gerektirecek şekilde yapılandırın.
 
@@ -63,23 +63,33 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 
 ### <a name="allowedcertificatetypes--chained-selfsigned-or-all-chained--selfsigned"></a>AllowedCertificateTypes = zincirleme, SelfSigned veya All (zincirleme | SelfSigned)
 
-Bu denetim yalnızca uygun sertifika türüne izin verildiğini doğrular.
+Varsayılan değer: `CertificateTypes.Chained`
+
+Bu denetim yalnızca uygun sertifika türüne izin verildiğini doğrular. Uygulama otomatik olarak imzalanan sertifikalar kullanıyorsa, bu seçeneğin `CertificateTypes.All` veya `CertificateTypes.SelfSigned`olarak ayarlanması gerekir.
 
 ### <a name="validatecertificateuse"></a>ValidateCertificateUse
+
+Varsayılan değer: `true`
 
 Bu denetim, istemci tarafından sunulan sertifikanın Istemci kimlik doğrulaması genişletilmiş anahtar kullanımı (EKU) olduğunu veya hiç EKU olmadığını doğrular. Belirtimlerde bir EKU belirtilmemişse, tüm EKU 'lar geçerli kabul edilir.
 
 ### <a name="validatevalidityperiod"></a>ValidateValidityPeriod
 
+Varsayılan değer: `true`
+
 Bu denetim, sertifikanın geçerlilik süresi içinde olduğunu doğrular. Her istekte işleyici, geçerli oturumu sırasında sunulmadığı zaman geçerli olmayan bir sertifikanın süresinin dolmamasını sağlar.
 
 ### <a name="revocationflag"></a>Revocationbayrağı
+
+Varsayılan değer: `X509RevocationFlag.ExcludeRoot`
 
 Zincirdeki hangi sertifikaların iptal için denetleneceğini belirten bayrak.
 
 İptal denetimleri yalnızca sertifika bir kök sertifikaya zincirleme yapıldığında gerçekleştirilir.
 
 ### <a name="revocationmode"></a>Revocationmodu
+
+Varsayılan değer: `X509RevocationMode.Online`
 
 İptal denetimlerinin nasıl gerçekleştirileceğini belirten bayrak.
 
@@ -376,6 +386,9 @@ Get-ChildItem -Path cert:\localMachine\my\"The thumbprint..." | Export-PfxCertif
 
 Export-Certificate -Cert cert:\localMachine\my\"The thumbprint..." -FilePath root_ca_dev_damienbod.crt
 ```
+
+> [!NOTE]
+> `-DnsName` parametre değeri uygulamanın dağıtım hedefi ile aynı olmalıdır. Örneğin, geliştirme için "localhost".
 
 #### <a name="install-in-the-trusted-root"></a>Güvenilen köke yüklensin
 

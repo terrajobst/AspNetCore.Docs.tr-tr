@@ -5,12 +5,12 @@ description: ASP.NET Core bir uygulamayla kimlik kullanın. Parola gereksinimler
 ms.author: riande
 ms.date: 12/05/2019
 uid: security/authentication/identity
-ms.openlocfilehash: c867b73a96fd081f6e2ca17fef561ac539c0a129
-ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
+ms.openlocfilehash: 787d39dd7824f912128e6af849fa268c3e8eb908
+ms.sourcegitcommit: 2cb857f0de774df421e35289662ba92cfe56ffd1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74880723"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75359205"
 ---
 # <a name="introduction-to-identity-on-aspnet-core"></a>ASP.NET Core kimliğe giriş
 
@@ -49,7 +49,7 @@ Bireysel kullanıcı hesaplarıyla bir ASP.NET Core Web uygulaması projesi olu�
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * **Dosya** > **Yeni** > **Proje**' yi seçin.
-* Seçin **ASP.NET Core Web uygulaması**. Projeyi Proje **WebApp1** aynı ad alanına sahip olacak şekilde adlandırın. **Tamam**'a tıklayın.
+* Seçin **ASP.NET Core Web uygulaması**. Projeyi Proje **WebApp1** aynı ad alanına sahip olacak şekilde adlandırın. **Tamam**'ı tıklatın.
 * Bir ASP.NET Core **Web uygulaması**seçip **kimlik doğrulamasını Değiştir**' i seçin.
 * **Bireysel kullanıcı hesapları** ' nı seçip **Tamam**' a tıklayın.
 
@@ -216,6 +216,7 @@ Daha fazla bilgi için bkz. [Adddefaultıdentity kaynağı](https://github.com/a
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 
+* SQLite kullanarak kimlik yapılandırma hakkında bilgi için [Bu GitHub sorununa](https://github.com/aspnet/AspNetCore.Docs/issues/5131) bakın.
 * [Kimliği Yapılandırma](xref:security/authentication/identity-configuration)
 * <xref:security/authorization/secure-data>
 * <xref:security/authentication/add-user-data>
@@ -258,7 +259,7 @@ Bireysel kullanıcı hesaplarıyla bir ASP.NET Core Web uygulaması projesi olu�
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * **Dosya** > **Yeni** > **Proje**' yi seçin.
-* Seçin **ASP.NET Core Web uygulaması**. Projeyi Proje **WebApp1** aynı ad alanına sahip olacak şekilde adlandırın. **Tamam**'a tıklayın.
+* Seçin **ASP.NET Core Web uygulaması**. Projeyi Proje **WebApp1** aynı ad alanına sahip olacak şekilde adlandırın. **Tamam**'ı tıklatın.
 * Bir ASP.NET Core **Web uygulaması**seçip **kimlik doğrulamasını Değiştir**' i seçin.
 * **Bireysel kullanıcı hesapları** ' nı seçip **Tamam**' a tıklayın.
 
@@ -403,6 +404,7 @@ Minimum parola gereksinimlerini ayarlayan bir örnek için bkz. [yapılandırma]
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 
+* SQLite kullanarak kimlik yapılandırma hakkında bilgi için [Bu GitHub sorununa](https://github.com/aspnet/AspNetCore.Docs/issues/5131) bakın.
 * [Kimliği Yapılandırma](xref:security/authentication/identity-configuration)
 * <xref:security/authorization/secure-data>
 * <xref:security/authentication/add-user-data>

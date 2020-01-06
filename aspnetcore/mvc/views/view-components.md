@@ -4,14 +4,14 @@ author: rick-anderson
 description: Görünüm bileşenlerinin ASP.NET Core nasıl kullanıldığını ve uygulamalara nasıl ekleneceğini öğrenin.
 ms.author: riande
 ms.custom: mvc
-ms.date: 05/14/2019
+ms.date: 12/18/2019
 uid: mvc/views/view-components
-ms.openlocfilehash: e6990368519857a27b291d7d565c09072f23f1b0
-ms.sourcegitcommit: 7001657c00358b082734ba4273693b9b3ed35d2a
+ms.openlocfilehash: a4583d49eb0b42f1fa6e3d8c444d263cba34da79
+ms.sourcegitcommit: 2cb857f0de774df421e35289662ba92cfe56ffd1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68670080"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75356842"
 ---
 # <a name="view-components-in-aspnet-core"></a>ASP.NET Core bileşenleri görüntüleme
 
@@ -40,7 +40,7 @@ Görünüm bileşenleri, kısmi bir görünüm için çok karmaşık olan işlem
 * Normal blogdaki kenar çubuğu içeriği
 * Her sayfada işlenecek bir oturum açma paneli ve kullanıcının oturum açma durumuna bağlı olarak oturum açma veya oturum açma bağlantılarını gösterme
 
-Bir görünüm bileşeni iki bölümden oluşur: Sınıf (genellikle [Viewcomponent](/dotnet/api/microsoft.aspnetcore.mvc.viewcomponent)öğesinden türetilir) ve döndürdüğü sonuç (genellikle bir görünüm). Denetleyiciler gibi bir görünüm bileşeni de bir POCO olabilir, ancak çoğu geliştirici, ' den `ViewComponent`türeterek kullanılabilir yöntemler ve özelliklerden faydalanmak ister.
+Bir görünüm bileşeni iki bölümden oluşur: Sınıf (genellikle [Viewcomponent](/dotnet/api/microsoft.aspnetcore.mvc.viewcomponent)öğesinden türetilir) ve döndürdüğü sonuç (genellikle bir görünüm). Denetleyiciler gibi, bir görünüm bileşeni de bir POCO olabilir, ancak çoğu geliştirici `ViewComponent`türeterek kullanılabilir yöntemler ve özelliklerden faydalanmak ister.
 
 Görünüm bileşenlerinin bir uygulamanın belirtimlerini karşılayıp karşılamadığını düşünürken, bunun yerine Razor bileşenleri kullanmayı göz önünde bulundurun. Razor bileşenleri ayrıca yeniden kullanılabilir Kullanıcı C# arabirimi birimleri oluşturmak için biçimlendirmeyi kodla birleştirir. Razor bileşenleri, istemci tarafı UI mantığı ve kompozisyonu sağlarken geliştirici üretkenliği için tasarlanmıştır. Daha fazla bilgi için bkz. <xref:blazor/components>.
 
@@ -53,10 +53,10 @@ Bu bölüm, bir görünüm bileşeni oluşturmak için üst düzey gereksinimler
 Bir görünüm bileşeni sınıfı, aşağıdakilerden herhangi biri tarafından oluşturulabilir:
 
 * *Viewcomponent* 'dan türetme
-* `[ViewComponent]` Özniteliği özniteliğiyle bir sınıfı dekorasyon veya `[ViewComponent]` özniteliği ile bir sınıftan türetiliyor
+* `[ViewComponent]` özniteliğiyle bir sınıfı dekorasyon veya `[ViewComponent]` özniteliğiyle bir sınıftan türetiliyor
 * Sonekin son ek *Viewcomponent* ile bittiği bir sınıf oluşturma
 
-Denetleyiciler gibi, görünüm bileşenleri ortak, iç içe olmayan ve soyut olmayan sınıflar olmalıdır. Görünüm bileşeni adı, "ViewComponent" sonekini kaldıran sınıf adıdır. Ayrıca `ViewComponentAttribute.Name` özelliği kullanılarak açıkça belirtilebilir.
+Denetleyiciler gibi, görünüm bileşenleri ortak, iç içe olmayan ve soyut olmayan sınıflar olmalıdır. Görünüm bileşeni adı, "ViewComponent" sonekini kaldıran sınıf adıdır. Ayrıca, `ViewComponentAttribute.Name` özelliği kullanılarak açıkça de belirlenebilir.
 
 Bir görünüm bileşeni Sınıfı:
 
@@ -66,9 +66,9 @@ Bir görünüm bileşeni Sınıfı:
 
 ### <a name="view-component-methods"></a>Bileşen yöntemlerini görüntüle
 
-Bir `InvokeAsync` görünüm bileşeni, bir `Task<IViewComponentResult>` veya döndüren `IViewComponentResult`zaman uyumlu `Invoke` bir yöntemde veya döndüren bir yöntemde mantığını tanımlar. Parametreler, model bağlamalarından değil doğrudan görünüm bileşeni çağrısından gelir. Bir görünüm bileşeni hiçbir şekilde isteği doğrudan işlemez. Genellikle, bir görünüm bileşeni bir modeli başlatır ve `View` yöntemini çağırarak bir görünüme geçirir. Özet bölümünde bileşen yöntemlerini görüntüleyin:
+Bir görünüm bileşeni, bir `Task<IViewComponentResult>` döndüren `InvokeAsync` yöntemde veya bir `IViewComponentResult`döndüren zaman uyumlu `Invoke` yönteminde mantığını tanımlar. Parametreler, model bağlamalarından değil doğrudan görünüm bileşeni çağrısından gelir. Bir görünüm bileşeni hiçbir şekilde isteği doğrudan işlemez. Genellikle, bir görünüm bileşeni bir modeli başlatır ve `View` yöntemini çağırarak onu bir görünüme geçirir. Özet bölümünde bileşen yöntemlerini görüntüleyin:
 
-* Bir veya döndüren `Invoke`zamanuyumlu bir yöntem `InvokeAsync` `Task<IViewComponentResult>` döndüren bir yöntem tanımlayın. `IViewComponentResult`
+* Bir `IViewComponentResult`döndüren bir `Task<IViewComponentResult>` ya da zaman uyumlu `Invoke` yöntemi döndüren `InvokeAsync` yöntemi tanımlayın.
 * Genellikle bir modeli başlatır ve `ViewComponent` `View` yöntemini çağırarak bir görünüme geçirir.
 * Parametreler, HTTP değil çağırma yönteminden gelir. Model bağlama yok.
 * Doğrudan bir HTTP uç noktası olarak erişilemez. Bunlar, kodunuzun içinden çağrılır (genellikle bir görünümde). Bir görünüm bileşeni hiçbir şekilde isteği hiçbir şekilde işlemez.
@@ -86,7 +86,15 @@ Arama yolu, denetleyiciler + görünümler ve Razor Pages kullanan projeler içi
 
 Bir görünüm bileşeni için varsayılan görünüm adı *varsayılandır*, yani görünüm dosyanız genellikle *default. cshtml*olarak adlandırılır. Görünüm bileşeni sonucunu oluştururken veya `View` yöntemini çağırırken farklı bir görünüm adı belirtebilirsiniz.
 
-Görünüm dosyasını *default. cshtml* olarak yazmanız ve *görünümleri/paylaşılan/bileşenler/{görünüm bileşen adı}/{View Name}* yolunu kullanmanız önerilir. Bu örnekte kullanılan `PriorityList` görünüm bileşeni görünüm bileşeni görünümü için *Görünümler/paylaşılan/bileşenler/prioritylist/default. cshtml* kullanır.
+Görünüm dosyasını *default. cshtml* olarak yazmanız ve *görünümleri/paylaşılan/bileşenler/{görünüm bileşen adı}/{View Name}* yolunu kullanmanız önerilir. Bu örnekte kullanılan `PriorityList` görünüm bileşeni, görünüm bileşeni görünümü için *Görünümler/paylaşılan/bileşenler/PriorityList/default. cshtml* kullanır.
+
+### <a name="customize-the-view-search-path"></a>Arama yolunu görüntüle
+
+Arama yolunu görüntüle ' yi özelleştirmek için Razor 'nin <xref:Microsoft.AspNetCore.Mvc.Razor.RazorViewEngineOptions.ViewLocationFormats> koleksiyonunu değiştirin. Örneğin, "/Components/{View bileşen adı}/{View Name}" yolu içinde görünümleri aramak için, koleksiyona yeni bir öğe ekleyin:
+
+[!code-cs[](view-components/samples_snapshot/2.x/Startup.cs?name=snippet_ViewLocationFormats&highlight=4)]
+
+Yukarıdaki kodda, "{0}" yer tutucusu "bileşenler/{görünüm bileşeni adı}/{View Name}" yolunu temsil eder.
 
 ## <a name="invoking-a-view-component"></a>Bir görünüm bileşenini çağırma
 
@@ -96,7 +104,7 @@ Görünüm bileşenini kullanmak için, aşağıdakileri bir görünüm içinde 
 @await Component.InvokeAsync("Name of view component", {Anonymous Type Containing Parameters})
 ```
 
-Parametreleri `InvokeAsync` yöntemine geçirilir. Makalede geliştirilen görünüm bileşeni, *Görünümler/Todo/Index. cshtml* görünüm dosyasından çağrılır. `PriorityList` Aşağıdaki şekilde, `InvokeAsync` yöntemi iki parametreyle çağrılır:
+Parametreler `InvokeAsync` yöntemine geçirilir. Makalede geliştirilen `PriorityList` görünüm bileşeni, *Görünümler/Todo/Index. cshtml* görünüm dosyasından çağrılır. Aşağıdaki şekilde `InvokeAsync` yöntemi iki parametreyle çağrılır:
 
 [!code-cshtml[](view-components/sample/ViewCompFinal/Views/ToDo/IndexFinal.cshtml?range=35)]
 
@@ -117,7 +125,7 @@ Etiket Yardımcıları için Pascal özellikli sınıf ve Yöntem parametreleri,
 </vc:[view-component-name]>
 ```
 
-Bir görünüm bileşenini etiket Yardımcısı olarak kullanmak için, `@addTagHelper` yönergesini kullanarak görünüm bileşenini içeren derlemeyi kaydedin. Görünüm bileşeniniz adlı `MyWebApp`bir derlemede yer alıyorsa, *_viewwimports. cshtml* dosyasına aşağıdaki yönergeyi ekleyin:
+Bir görünüm bileşenini etiket Yardımcısı olarak kullanmak için, `@addTagHelper` yönergesini kullanarak görünüm bileşenini içeren derlemeyi kaydedin. Görünüm bileşeniniz `MyWebApp`adlı bir derlemede yer alıyorsa, *_ViewImports. cshtml* dosyasına aşağıdaki yönergeyi ekleyin:
 
 ```cshtml
 @addTagHelper *, MyWebApp
@@ -125,7 +133,7 @@ Bir görünüm bileşenini etiket Yardımcısı olarak kullanmak için, `@addTag
 
 Görünüm bileşenine başvuran herhangi bir dosyaya bir görünüm bileşenini etiket Yardımcısı olarak kaydedebilirsiniz. Etiket yardımcılarını kaydetme hakkında daha fazla bilgi için bkz. [etiket Yardımcısı kapsamını yönetme](xref:mvc/views/tag-helpers/intro#managing-tag-helper-scope) .
 
-Bu öğreticide kullanılan yöntem: `InvokeAsync`
+Bu öğreticide kullanılan `InvokeAsync` yöntemi:
 
 [!code-cshtml[](view-components/sample/ViewCompFinal/Views/ToDo/IndexFinal.cshtml?range=35)]
 
@@ -133,27 +141,27 @@ Etiket Yardımcısı biçimlendirmesinde:
 
 [!code-cshtml[](view-components/sample/ViewCompFinal/Views/ToDo/IndexTagHelper.cshtml?range=37-38)]
 
-Yukarıdaki örnekte, `PriorityList` görünüm bileşeni olur `priority-list`. Görünüm bileşenine yönelik parametreler, Kebab durumunda öznitelik olarak geçirilir.
+Yukarıdaki örnekte `PriorityList` görünüm bileşeni `priority-list`hale gelir. Görünüm bileşenine yönelik parametreler, Kebab durumunda öznitelik olarak geçirilir.
 
 ::: moniker-end
 
 ### <a name="invoking-a-view-component-directly-from-a-controller"></a>Bir görünüm bileşenini doğrudan bir denetleyiciden çağırma
 
-Görünüm bileşenleri genellikle bir görünümden çağrılır, ancak bunları doğrudan bir denetleyici yönteminden çağırabilirsiniz. Görüntüleme bileşenleri, denetleyiciler gibi uç noktaları tanımlamıyorsa, ' ın `ViewComponentResult`içeriğini döndüren bir denetleyici eylemini kolayca uygulayabilirsiniz.
+Görünüm bileşenleri genellikle bir görünümden çağrılır, ancak bunları doğrudan bir denetleyici yönteminden çağırabilirsiniz. Görüntüleme bileşenleri denetleyiciler gibi uç noktaları tanımlamıyorsa, `ViewComponentResult`içeriğini döndüren bir denetleyici eylemini kolayca uygulayabilirsiniz.
 
 Bu örnekte, görünüm bileşeni doğrudan denetleyiciden çağrılır:
 
 [!code-csharp[](view-components/sample/ViewCompFinal/Controllers/ToDoController.cs?name=snippet_IndexVC)]
 
-## <a name="walkthrough-creating-a-simple-view-component"></a>İzlenecek yol: Basit bir görünüm bileşeni oluşturma
+## <a name="walkthrough-creating-a-simple-view-component"></a>İzlenecek yol: basit bir görünüm bileşeni oluşturma
 
-Başlatıcı kodunu [indirin](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/views/view-components/sample), derleyin ve test edin. Bu, Yapılacaklar öğelerinin listesini görüntüleyen bir `ToDo` denetleyiciyi olan basit bir projem .
+Başlatıcı kodunu [indirin](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/views/view-components/sample), derleyin ve test edin. Bu, *Todo* öğelerinin listesini görüntüleyen `ToDo` denetleyicisi olan basit bir projem dir.
 
 ![ToDos listesi](view-components/_static/2dos.png)
 
 ### <a name="add-a-viewcomponent-class"></a>ViewComponent sınıfı ekleme
 
-Bir *viewcomponents* klasörü oluşturun ve aşağıdaki `PriorityListViewComponent` sınıfı ekleyin:
+Bir *Viewcomponents* klasörü oluşturun ve aşağıdaki `PriorityListViewComponent` sınıfını ekleyin:
 
 [!code-csharp[](view-components/sample/ViewCompFinal/ViewComponents/PriorityListViewComponent1.cs?name=snippet1)]
 
@@ -161,40 +169,40 @@ Koda notlar:
 
 * Görünüm bileşen sınıfları projedeki **herhangi bir** klasörde bulunabilir.
 * PriorityList**viewcomponent** sınıf adı, son ek **viewcomponent**ile sona ertiğinden, çalışma zamanı bir görünümden sınıf bileşenine başvururken "prioritylist" dizesini kullanır. Daha sonra ayrıntılı olarak açıklayacağım.
-* `[ViewComponent]` Özniteliği bir görünüm bileşenine başvurmak için kullanılan adı değiştirebilir. Örneğin, sınıfını `XYZ` adlandırdık ve `ViewComponent` özniteliği uygulamış olduğumuz:
+* `[ViewComponent]` özniteliği bir görünüm bileşenine başvurmak için kullanılan adı değiştirebilir. Örneğin, `XYZ` sınıfını adlandırdık ve `ViewComponent` özniteliğini uygulamış olduğumuz:
 
   ```csharp
   [ViewComponent(Name = "PriorityList")]
      public class XYZ : ViewComponent
      ```
 
-* Yukarıdaki özniteliği görüntüle bileşen seçicisine bileşenle ilişkili görünümleri ararken adı `PriorityList` kullanmasını ve bir görünümden sınıf bileşenine başvururken "prioritylist" dizesini kullanmasını söyler. `[ViewComponent]` Daha sonra ayrıntılı olarak açıklayacağım.
+* Yukarıdaki `[ViewComponent]` özniteliği, görüntüle bileşen seçicisine bileşenle ilişkili görünümleri ararken `PriorityList` adını kullanmasını ve bir görünümden sınıf bileşenine başvururken "PriorityList" dizesini kullanmasını söyler. Daha sonra ayrıntılı olarak açıklayacağım.
 * Bileşen, veri bağlamını kullanılabilir hale getirmek için [bağımlılık ekleme](../../fundamentals/dependency-injection.md) işlemini kullanır.
-* `InvokeAsync`bir görünümden çağrılabilen bir yöntemi gösterir ve rastgele sayıda bağımsız değişken alabilir.
-* `InvokeAsync` `ToDo` Yöntemi `isDone` ve parametrelerinikarşılayanöğekümesinidöndürür`maxPriority` .
+* `InvokeAsync`, bir görünümden çağrılabilecek bir yöntemi ortaya koyar ve bu, rastgele sayıda bağımsız değişken alabilir.
+* `InvokeAsync` yöntemi `isDone` ve `maxPriority` parametrelerini karşılayan `ToDo` öğe kümesini döndürür.
 
 ### <a name="create-the-view-component-razor-view"></a>Görünüm bileşeni Razor görünümünü oluşturma
 
 * *Görünümler/paylaşılan/bileşenler* klasörünü oluşturun. Bu klasör, adlandırılmış *Bileşenler* **olmalıdır** .
 
-* *Görünümler/paylaşılan/bileşenler/PriorityList* klasörünü oluşturun. Bu klasör adı, görünüm bileşen sınıfının adıyla ya da sınıfın adı eksi sonek ile eşleşmelidir (Bu kural izleniyorsa ve sınıf adında *Viewcomponent* sonekini kullandıysanız). `ViewComponent` Özniteliğini kullandıysanız, sınıf adının öznitelik atamasını eşleşmesi gerekir.
+* *Görünümler/paylaşılan/bileşenler/PriorityList* klasörünü oluşturun. Bu klasör adı, görünüm bileşen sınıfının adıyla ya da sınıfın adı eksi sonek ile eşleşmelidir (Bu kural izleniyorsa ve sınıf adında *Viewcomponent* sonekini kullandıysanız). `ViewComponent` özniteliğini kullandıysanız, sınıf adının öznitelik atamasını eşleşmesi gerekir.
 
 * Bir *Görünümler/paylaşılan/bileşenler/PriorityList/default. cshtml* Razor görünümü oluşturun:
 
 
   [!code-cshtml[](view-components/sample/ViewCompFinal/Views/Shared/Components/PriorityList/Default1.cshtml)]
 
-   Razor görünümü bir listesini `TodoItem` alır ve görüntüler. Görünüm bileşeni `InvokeAsync` yöntemi, görünümün adını (örneğimizde olduğu gibi) geçirmezse, *varsayılan* olarak kurala göre görünüm adı için kullanılır. Öğreticide daha sonra görünümün adının nasıl geçirileceğini göstereceğiz. Belirli bir denetleyicinin varsayılan stilini geçersiz kılmak için denetleyiciye özgü görünüm klasörüne bir görünüm ekleyin (örneğin, *Görünümler/Todo/Components/PriorityList/default. cshtml)* .
+   Razor görünümü `TodoItem` bir listesini alır ve görüntüler. Görünüm bileşeni `InvokeAsync` yöntemi görünümün adını geçmezse (bizim örneğimizde olduğu gibi), *varsayılan* olarak kural adına göre görünüm adı kullanılır. Öğreticide daha sonra görünümün adının nasıl geçirileceğini göstereceğiz. Belirli bir denetleyicinin varsayılan stilini geçersiz kılmak için denetleyiciye özgü görünüm klasörüne bir görünüm ekleyin (örneğin, *Görünümler/Todo/Components/PriorityList/default. cshtml)* .
 
     Görünüm bileşeni denetleyiciye özgü ise, denetleyiciyi denetleyiciye özgü klasöre ekleyebilirsiniz (*Görünümler/Todo/bileşenler/PriorityList/default. cshtml*).
 
-* Priority listesi `div` bileşenine, *Görünümler/Todo/index. cshtml* dosyasının altına bir çağrı içeren bir çağrı ekleyin:
+* Öncelik listesi bileşenine, *Görünümler/Todo/index. cshtml* dosyasının en altına bir çağrı içeren `div` ekleyin:
 
     [!code-cshtml[](view-components/sample/ViewCompFinal/Views/ToDo/IndexFirst.cshtml?range=34-38)]
 
-Biçimlendirme `@await Component.InvokeAsync` , görünüm bileşenlerini çağırma söz dizimini gösterir. İlk bağımsız değişken, çağırmak veya çağırmak istediğimiz bileşenin adıdır. Sonraki parametreler bileşene geçirilir. `InvokeAsync`rastgele sayıda bağımsız değişken alabilir.
+Biçimlendirme `@await Component.InvokeAsync`, görünüm bileşenlerini çağırma söz dizimini gösterir. İlk bağımsız değişken, çağırmak veya çağırmak istediğimiz bileşenin adıdır. Sonraki parametreler bileşene geçirilir. `InvokeAsync`, rastgele sayıda bağımsız değişken alabilir.
 
-Uygulamayı test edin. Aşağıdaki görüntüde ToDo listesi ve öncelik öğeleri gösterilmektedir:
+Uygulamayı test etme. Aşağıdaki görüntüde ToDo listesi ve öncelik öğeleri gösterilmektedir:
 
 ![Yapılacaklar listesi ve öncelik öğeleri](view-components/_static/pi.png)
 
@@ -206,7 +214,7 @@ Görünüm bileşenini doğrudan denetleyiciden de çağırabilirsiniz:
 
 ### <a name="specifying-a-view-name"></a>Bir görünüm adı belirtme
 
-Karmaşık bir görünüm bileşeninin bazı koşullarda varsayılan olmayan bir görünüm belirtmesi gerekebilir. Aşağıdaki kod, `InvokeAsync` yönteminden "PVC" görünümünün nasıl ekleneceğini gösterir. `PriorityListViewComponent` Sınıfında `InvokeAsync` yöntemi güncelleştirin.
+Karmaşık bir görünüm bileşeninin bazı koşullarda varsayılan olmayan bir görünüm belirtmesi gerekebilir. Aşağıdaki kod, `InvokeAsync` yönteminden "PVC" görünümünün nasıl ekleneceğini gösterir. `PriorityListViewComponent` sınıfındaki `InvokeAsync` yöntemini güncelleştirin.
 
 [!code-csharp[](../../mvc/views/view-components/sample/ViewCompFinal/ViewComponents/PriorityListViewComponentFinal.cs?highlight=4,5,6,7,8,9&range=28-39)]
 
@@ -252,13 +260,13 @@ Derleme zamanı güvenliğini istiyorsanız, sabit kodlanmış görünüm bileş
 
 [!code-csharp[](../../mvc/views/view-components/sample/ViewCompFinal/ViewComponents/PriorityList.cs?highlight=10&range=5-35)]
 
-Razor görünümü `using` dosyanıza bir ifade ekleyin ve `nameof` işlecini kullanın:
+Razor görünümü dosyanıza `using` bir ifade ekleyin ve `nameof` işlecini kullanın:
 
 [!code-cshtml[](view-components/sample/ViewCompFinal/Views/ToDo/IndexNameof.cshtml?range=1-6,35-)]
 
 ## <a name="perform-synchronous-work"></a>Zaman uyumlu iş gerçekleştirin
 
-Zaman uyumsuz iş yapmanız gerekmiyorsa çerçeve `Invoke` zaman uyumlu bir yöntem çağırma işlemini gerçekleştirir. Aşağıdaki yöntem, zaman uyumlu `Invoke` bir görünüm bileşeni oluşturur:
+Zaman uyumsuz iş gerçekleştirmeniz gerekmiyorsa çerçeve, zaman uyumlu `Invoke` yöntemini çağırmayı işler. Aşağıdaki yöntem, zaman uyumlu bir `Invoke` görünüm bileşeni oluşturur:
 
 ```csharp
 public class PriorityList : ViewComponent
@@ -271,7 +279,7 @@ public class PriorityList : ViewComponent
 }
 ```
 
-Görünüm bileşeninin Razor dosyası `Invoke` yöntemine geçirilen dizeleri listeler (*Görünümler/giriş/bileşenler/prioritylist/default. cshtml*):
+Görünüm bileşeninin Razor dosyası `Invoke` metoduna geçirilen dizeleri listeler (*Görünümler/giriş/bileşenler/PriorityList/default. cshtml*):
 
 ```cshtml
 @model List<string>
@@ -292,15 +300,15 @@ Görünüm bileşeni, aşağıdaki yaklaşımlardan birini kullanarak bir Razor 
 * <xref:Microsoft.AspNetCore.Mvc.IViewComponentHelper>
 * [Etiket Yardımcısı](xref:mvc/views/tag-helpers/intro)
 
-<xref:Microsoft.AspNetCore.Mvc.IViewComponentHelper> Yaklaşımı kullanmak için şunu çağırın `Component.InvokeAsync`:
+<xref:Microsoft.AspNetCore.Mvc.IViewComponentHelper> yaklaşımını kullanmak için, `Component.InvokeAsync`çağırın:
 
 ::: moniker-end
 
 ::: moniker range="< aspnetcore-1.1"
 
-Görünüm bileşeni ile <xref:Microsoft.AspNetCore.Mvc.IViewComponentHelper>Razor dosyası (örneğin, *Görünümler/Home/Index. cshtml*) çağrılır.
+Görünüm bileşeni, <xref:Microsoft.AspNetCore.Mvc.IViewComponentHelper>ile bir Razor dosyasında çağrılır (örneğin, *views/Home/Index. cshtml*).
 
-Çağrı `Component.InvokeAsync`:
+`Component.InvokeAsync`çağrısı:
 
 ::: moniker-end
 
@@ -310,7 +318,7 @@ Görünüm bileşeni ile <xref:Microsoft.AspNetCore.Mvc.IViewComponentHelper>Raz
 
 ::: moniker range=">= aspnetcore-1.1"
 
-Etiket Yardımcısını kullanmak için, `@addTagHelper` yönergesini kullanarak görünüm bileşenini içeren derlemeyi kaydedin (görünüm bileşeni adlı `MyWebApp`bir derlemede):
+Etiket Yardımcısını kullanmak için, `@addTagHelper` yönergesini kullanarak görünüm bileşenini içeren derlemeyi kaydedin (görünüm bileşeni, `MyWebApp`adlı bir derlemede bulunur):
 
 ```cshtml
 @addTagHelper *, MyWebApp
@@ -325,13 +333,13 @@ Razor biçimlendirme dosyasında bileşen etiketini görüntüle yardımcısın�
 
 ::: moniker-end
 
-Öğesinin `PriorityList.Invoke` Yöntem imzası zaman uyumludur, ancak Razor, biçimlendirme dosyasında ile `Component.InvokeAsync` metodunu bulur ve çağırır.
+`PriorityList.Invoke` yöntemi imzası zaman uyumludur, ancak Razor, biçimlendirme dosyasında `Component.InvokeAsync` olan yöntemi bulur ve çağırır.
 
 ## <a name="all-view-component-parameters-are-required"></a>Tüm görünüm bileşeni parametreleri gereklidir
 
 Bir görünüm bileşenindeki her bir parametre gerekli bir özniteliktir. [Bu GitHub sorununa](https://github.com/aspnet/AspNetCore/issues/5011)bakın. Herhangi bir parametre atlanırsa:
 
-* `InvokeAsync` Yöntem imzası eşleşmez, bu nedenle Yöntem yürütülmez.
+* `InvokeAsync` yöntemi imzası eşleşmez, bu nedenle Yöntem yürütülmez.
 * ViewComponent hiçbir biçimlendirmeyi işlemez.
 * Hata oluşturulmayacak.
 

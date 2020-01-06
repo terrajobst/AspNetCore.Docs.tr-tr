@@ -2,16 +2,17 @@
 title: ASP.NET Core 'de ıhttpclientfactory kullanarak HTTP istekleri yapın
 author: stevejgordon
 description: ASP.NET Core içindeki mantıksal HttpClient örneklerini yönetmek için ıhttpclientfactory arabirimini kullanma hakkında bilgi edinin.
+monikerRange: '>= aspnetcore-2.1'
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 11/27/2019
+ms.date: 12/16/2019
 uid: fundamentals/http-requests
-ms.openlocfilehash: f33444b8fc08dc022da7700af53a218600290162
-ms.sourcegitcommit: 169ea5116de729c803685725d96450a270bc55b7
+ms.openlocfilehash: f2494a5815396e693f6fd2a45ad78ebffe4d54a3
+ms.sourcegitcommit: 2cb857f0de774df421e35289662ba92cfe56ffd1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74733927"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75358088"
 ---
 # <a name="make-http-requests-using-ihttpclientfactory-in-aspnet-core"></a>ASP.NET Core 'de ıhttpclientfactory kullanarak HTTP istekleri yapın
 
@@ -97,7 +98,7 @@ Türü belirtilmiş istemci, oluşturucusunda bir `HttpClient` parametresi kabul
 
 [!code-csharp[](http-requests/samples/3.x/HttpClientFactorySample/GitHub/GitHubService.cs?name=snippet1&highlight=5)]
 
-Önceki kodda:
+Yukarıdaki kodda:
 
 * Yapılandırma, yazılan istemciye taşınır.
 * `HttpClient` nesnesi ortak bir özellik olarak sunulur.
@@ -306,7 +307,7 @@ Yukarıdaki yaklaşımlar `IHttpClientFactory` benzer bir şekilde çözdüğü 
 - `SocketsHttpHandler`, `HttpClient` örnekleri arasında bağlantıları paylaşır. Bu paylaşım, yuva azalmasına engel olur.
 - `SocketsHttpHandler`, eski DNS sorunlarından kaçınmak için bağlantıları `PooledConnectionLifetime` göre döngüler.
 
-### <a name="cookies"></a>Özgü
+### <a name="cookies"></a>Tanımlama bilgileri
 
 Havuza alınmış `HttpMessageHandler` örnekleri, `CookieContainer` nesneleri paylaşılmasına neden olur. Beklenmeyen `CookieContainer` nesne paylaşımı genellikle hatalı kodla sonuçlanır. Tanımlama bilgileri gerektiren uygulamalar için şunlardan birini göz önünde bulundurun:
 
@@ -357,6 +358,7 @@ Aşağıdaki örnekte:
 * [Dayanıklı HTTP isteklerini uygulamak için HttpClientFactory kullanma](/dotnet/standard/microservices-architecture/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests)
 * [HttpClientFactory ve Polly ilkeleriyle üstel geri alma ile HTTP çağrı yeniden denemeleri uygulayın](/dotnet/standard/microservices-architecture/implement-resilient-applications/implement-http-call-retries-exponential-backoff-polly)
 * [Devre Kesici desenini uygulama](/dotnet/standard/microservices-architecture/implement-resilient-applications/implement-circuit-breaker-pattern)
+* [.NET 'te JSON serileştirme ve serisini kaldırma](/dotnet/standard/serialization/system-text-json-how-to)
 
 ::: moniker-end
 
@@ -371,7 +373,7 @@ Bir <xref:System.Net.Http.IHttpClientFactory>, bir uygulamadaki <xref:System.Net
 * `HttpClient` yaşam sürelerini el ile yönetirken gerçekleşen yaygın DNS sorunlarından kaçınmak için temel `HttpClientMessageHandler` örneklerinin biriktirmesini ve ömrünü yönetir.
 * Fabrika tarafından oluşturulan istemcilerle gönderilen tüm istekler için yapılandırılabilir bir günlük deneyimi (`ILogger`aracılığıyla) ekler.
 
-[Örnek kodu görüntüleme veya indirme](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/http-requests/samples) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
+[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/http-requests/samples) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
 
 ## <a name="consumption-patterns"></a>Tüketim desenleri
 
@@ -607,7 +609,7 @@ Yukarıdaki yaklaşımlar `IHttpClientFactory` benzer bir şekilde çözdüğü 
 - `SocketsHttpHandler`, `HttpClient` örnekleri arasında bağlantıları paylaşır. Bu paylaşım, yuva azalmasına engel olur.
 - `SocketsHttpHandler`, eski DNS sorunlarından kaçınmak için bağlantıları `PooledConnectionLifetime` göre döngüler.
 
-### <a name="cookies"></a>Özgü
+### <a name="cookies"></a>Tanımlama bilgileri
 
 Havuza alınmış `HttpMessageHandler` örnekleri, `CookieContainer` nesneleri paylaşılmasına neden olur. Beklenmeyen `CookieContainer` nesne paylaşımı genellikle hatalı kodla sonuçlanır. Tanımlama bilgileri gerektiren uygulamalar için şunlardan birini göz önünde bulundurun:
 
@@ -661,7 +663,7 @@ Aşağıdaki örnekte:
 
 ::: moniker-end
 
-::: moniker range="<= aspnetcore-2.1"
+::: moniker range="= aspnetcore-2.1"
 
 , [Glenn CONDRON](https://github.com/glennc), [Ryan şimdi e](https://github.com/rynowak)ve [Steve Gordon](https://github.com/stevejgordon)
 
@@ -672,7 +674,7 @@ Bir <xref:System.Net.Http.IHttpClientFactory>, bir uygulamadaki <xref:System.Net
 * `HttpClient` yaşam sürelerini el ile yönetirken gerçekleşen yaygın DNS sorunlarından kaçınmak için temel `HttpClientMessageHandler` örneklerinin biriktirmesini ve ömrünü yönetir.
 * Fabrika tarafından oluşturulan istemcilerle gönderilen tüm istekler için yapılandırılabilir bir günlük deneyimi (`ILogger`aracılığıyla) ekler.
 
-[Örnek kodu görüntüleme veya indirme](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/http-requests/samples) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
+[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/http-requests/samples) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
 
 ## <a name="prerequisites"></a>Prerequisites
 
@@ -915,7 +917,7 @@ Yukarıdaki yaklaşımlar `IHttpClientFactory` benzer bir şekilde çözdüğü 
 - `SocketsHttpHandler`, `HttpClient` örnekleri arasında bağlantıları paylaşır. Bu paylaşım, yuva azalmasına engel olur.
 - `SocketsHttpHandler`, eski DNS sorunlarından kaçınmak için bağlantıları `PooledConnectionLifetime` göre döngüler.
 
-### <a name="cookies"></a>Özgü
+### <a name="cookies"></a>Tanımlama bilgileri
 
 Havuza alınmış `HttpMessageHandler` örnekleri, `CookieContainer` nesneleri paylaşılmasına neden olur. Beklenmeyen `CookieContainer` nesne paylaşımı genellikle hatalı kodla sonuçlanır. Tanımlama bilgileri gerektiren uygulamalar için şunlardan birini göz önünde bulundurun:
 

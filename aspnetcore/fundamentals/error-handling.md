@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/05/2019
 uid: fundamentals/error-handling
-ms.openlocfilehash: 162972043a90fc8cc45aed52b5fa80ade3e11f39
-ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
+ms.openlocfilehash: c20d8757eef80fdbb73b1b7a9933a3c0be9bb8ed
+ms.sourcegitcommit: 2cb857f0de774df421e35289662ba92cfe56ffd1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74880070"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75358983"
 ---
 # <a name="handle-errors-in-aspnet-core"></a>ASP.NET Core hataları işleme
 
@@ -84,6 +84,8 @@ Hata işleyicisi denetleyicisi veya sayfasındaki özel duruma ve özgün istek 
 Özel durum işleme için lambda kullanmanın bir örneği aşağıda verilmiştir:
 
 [!code-csharp[](error-handling/samples/2.x/ErrorHandlingSample/Startup.cs?name=snippet_HandlerPageLambda)]
+
+Yukarıdaki kodda, Internet Explorer tarayıcısının bir IE hata iletisi yerine hata iletisini görüntüleyeceği `await context.Response.WriteAsync(new string(' ', 512));` eklenir. Daha fazla bilgi için [bu GitHub sorunu](https://github.com/aspnet/AspNetCore.Docs/issues/16144).
 
 > [!WARNING]
 > <xref:Microsoft.AspNetCore.Diagnostics.IExceptionHandlerFeature> veya <xref:Microsoft.AspNetCore.Diagnostics.IExceptionHandlerPathFeature> istemcilere duyarlı hata bilgileri sunma. Hatalara hizmet vermek bir güvenlik riskidir.

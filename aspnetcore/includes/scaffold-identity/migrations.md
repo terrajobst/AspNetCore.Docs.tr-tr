@@ -5,6 +5,7 @@ Oluşturulan kimlik veritabanı kodu [Entity Framework Core geçişleri](/ef/cor
 Visual Studio **Paket Yöneticisi Konsolu**:
 
 ```powershell
+Install-Package Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore
 Add-Migration CreateIdentitySchema
 Update-Database
 ```
@@ -18,4 +19,4 @@ dotnet ef database update
 
 ---
 
-`Add-Migration` Komut için "createıdentityschema" ad parametresi rastgele. `"CreateIdentitySchema"`geçişi açıklar.
+`Add-Migration` komutu için "Createıdentityschema" ad parametresi rastgele. `"CreateIdentitySchema"` geçişi açıklar.

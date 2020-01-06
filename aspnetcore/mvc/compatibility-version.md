@@ -7,32 +7,32 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 9/25/2019
 uid: mvc/compatibility-version
-ms.openlocfilehash: 35e3b6acba2bc9a0b863bd6d1e96365328b5f169
-ms.sourcegitcommit: fae6f0e253f9d62d8f39de5884d2ba2b4b2a6050
+ms.openlocfilehash: b29e2ee49aaf0f557f1acd0cf03e9e82d5ea0105
+ms.sourcegitcommit: 2cb857f0de774df421e35289662ba92cfe56ffd1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71256156"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75357737"
 ---
 # <a name="compatibility-version-for-aspnet-core-mvc"></a>ASP.NET Core MVC için uyumluluk sürümü
 
 Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-::: moniker range="= aspnetcore-3.0"
+::: moniker range=">= aspnetcore-3.0"
 
-Yöntemi <xref:Microsoft.Extensions.DependencyInjection.MvcCoreMvcBuilderExtensions.SetCompatibilityVersion*> , ASP.NET Core 3,0 uygulamaları için bir op değildir. Diğer bir deyişle, `SetCompatibilityVersion` herhangi bir <xref:Microsoft.AspNetCore.Mvc.CompatibilityVersion> değeriyle çağırmak uygulama üzerinde hiçbir etkiye sahip değildir.
+<xref:Microsoft.Extensions.DependencyInjection.MvcCoreMvcBuilderExtensions.SetCompatibilityVersion*> yöntemi, ASP.NET Core 3,0 uygulamaları için bir op değildir. Diğer bir deyişle, `SetCompatibilityVersion` herhangi bir <xref:Microsoft.AspNetCore.Mvc.CompatibilityVersion> değeri ile çağırmak uygulama üzerinde hiçbir etkiye sahip değildir.
 
-* ASP.NET Core sonraki küçük sürümü yeni `CompatibilityVersion` bir değer sağlayabilir.
-* `CompatibilityVersion`üzerinden `Version_2_0` değerler`Version_2_2` işaretlenir .`[Obsolete(...)]`
+* ASP.NET Core sonraki alt sürümü yeni bir `CompatibilityVersion` değeri verebilir.
+* `Version_2_2` ile `Version_2_0` `CompatibilityVersion` değerler `[Obsolete(...)]`olarak işaretlenir.
 * Bkz. [Antiforgery, CORS, Diagnostics, MVC ve yönlendirme IÇINDEKI API değişikliklerini bozma](https://github.com/aspnet/Announcements/issues/387). Bu liste, uyumluluk anahtarlarına yönelik son değişiklikleri içerir.
 
-ASP.NET Core 2. `SetCompatibilityVersion` x uygulamalarıyla nasıl çalıştığını görmek için, [Bu makalenin ASP.NET Core 2,2 sürümünü](https://docs.microsoft.com/aspnet/core/mvc/compatibility-version?view=aspnetcore-2.2)seçin.
+`SetCompatibilityVersion` ASP.NET Core 2. x uygulamalarıyla nasıl çalıştığını görmek için, [Bu makalenin ASP.NET Core 2,2 sürümünü](https://docs.microsoft.com/aspnet/core/mvc/compatibility-version?view=aspnetcore-2.2)seçin.
 
 ::: moniker-end
 
 ::: moniker range="< aspnetcore-3.0"
 
-Yöntemi <xref:Microsoft.Extensions.DependencyInjection.MvcCoreMvcBuilderExtensions.SetCompatibilityVersion*> , ASP.NET Core 2. x uygulamasının, ASP.NET Core MVC 2,1 veya 2,2 ' de ortaya çıkan olası davranış değişikliklerinin kabul veya devre dışı olmasına olanak sağlar. Bu olası davranışı ortadan kaldırma, MVC alt sisteminin davranışını ve **kodunuzun** çalışma zamanı tarafından nasıl çağrıldığını gösterir. ' De, en son davranışı ve ASP.NET Core uzun vadeli davranışını alırsınız.
+<xref:Microsoft.Extensions.DependencyInjection.MvcCoreMvcBuilderExtensions.SetCompatibilityVersion*> yöntemi, bir ASP.NET Core 2. x uygulamasının, ASP.NET Core MVC 2,1 veya 2,2 ' de ortaya çıkan olası davranış değişikliklerinin kabul etmesine veya devre dışı olmasına izin verir. Bu olası davranışı ortadan kaldırma, MVC alt sisteminin davranışını ve **kodunuzun** çalışma zamanı tarafından nasıl çağrıldığını gösterir. ' De, en son davranışı ve ASP.NET Core uzun vadeli davranışını alırsınız.
 
 Aşağıdaki kod uyumluluk modunu ASP.NET Core 2,2 olarak ayarlar:
 
@@ -40,12 +40,12 @@ Aşağıdaki kod uyumluluk modunu ASP.NET Core 2,2 olarak ayarlar:
 
 Uygulamanızı en son sürümü (`CompatibilityVersion.Latest`) kullanarak test etmenizi öneririz. Çoğu uygulamanın en son sürümü kullanarak önemli davranış değişikliklerinin olmadığı tahmin ederiz.
 
-Çağıran `SetCompatibilityVersion(CompatibilityVersion.Version_2_0)` uygulamalar, ASP.NET Core 2.1/2.2 MVC sürümlerinde tanıtılan büyük olasılıkla davranış değişikliklerinden korunmaktadır. Bu koruma:
+`SetCompatibilityVersion(CompatibilityVersion.Version_2_0)` çağıran uygulamalar, ASP.NET Core 2.1/2.2 MVC sürümlerinde tanıtılan büyük olasılıkla davranış değişikliklerinden korunur. Bu koruma:
 
 * Tüm 2,1 ve sonraki değişikliklere uygulanmaz, MVC alt sisteminde çalışma zamanı davranış değişikliklerinin ASP.NET Core büyük olasılıkla bozmasına yöneliktir.
 * ASP.NET Core 3,0 ' ye genişlemez.
 
-ASP.NET Core 2,1 ve 2,2 **olmayan** `SetCompatibilityVersion` uygulamalar için varsayılan uyumluluk, 2,0 uyumluluğuna yöneliktir. Diğer bir deyişle, `SetCompatibilityVersion` çağırma `SetCompatibilityVersion(CompatibilityVersion.Version_2_0)`ile aynı değildir.
+`SetCompatibilityVersion` **çağırmayan** ASP.NET Core 2,1 ve 2,2 uygulamaları için varsayılan uyumluluk, 2,0 uyumluluğuna sahiptir. Diğer bir deyişle, `SetCompatibilityVersion` çağrılmayan `SetCompatibilityVersion(CompatibilityVersion.Version_2_0)`çağırma ile aynıdır.
 
 Aşağıdaki kod, uyumluluk modunu aşağıdaki davranışlar dışında 2,2 ASP.NET Core olarak ayarlar:
 
@@ -59,7 +59,7 @@ Doğru uyumluluk anahtarlarını kullanarak, bölme davranışı ile ilgili olan
 * En son sürümü kullanmanıza ve belirli bir bölme davranışı değişikliğini geri yüklemenize olanak tanır.
 * , Uygulamanızı en son değişikliklerle çalışacak şekilde güncelleştirmeniz için size zaman kazandırır.
 
-<xref:Microsoft.AspNetCore.Mvc.MvcOptions> Belgelerde nelerin değiştiğini ve değişikliklerin çoğu kullanıcı için nasıl gelişdiğinin iyi bir açıklaması vardır.
+<xref:Microsoft.AspNetCore.Mvc.MvcOptions> belgelerinin ne değiştiği ve değişikliklerin çoğu kullanıcı için nasıl geliştirdiğinin iyi bir açıklaması vardır.
 
 ASP.NET Core 3,0 ile, uyumluluk anahtarları tarafından desteklenen eski davranışlar kaldırılmıştır. Bunlar, neredeyse tüm kullanıcılar faydalanmasını olumlu değişiklikler olduğunu hissettik. Bu değişiklikleri 2,1 ve 2,2 ' de sunarak, çoğu uygulama yararlı olabilir, diğerleri ise güncelleştirilmeye zaman alabilir.
 ::: moniker-end

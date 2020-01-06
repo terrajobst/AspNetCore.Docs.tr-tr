@@ -1,37 +1,37 @@
 ---
-title: ASP.NET Core 1.1 yenilikler
+title: ASP.NET Core 1,1 ' deki yenilikler
 author: rick-anderson
-description: ASP.NET Core 1.1 yeni özellikler hakkında bilgi edinin.
+description: ASP.NET Core 1,1 ' deki yeni özellikler hakkında bilgi edinin.
 ms.author: riande
 ms.date: 12/18/2018
 uid: aspnetcore-1.1
-ms.openlocfilehash: 167842a7376a6bb0a88e6f41159730f076bb2bdb
-ms.sourcegitcommit: 335a88c1b6e7f0caa8a3a27db57c56664d676d34
+ms.openlocfilehash: 0b1c4eb467dd13a7654229b3ed76dd14e984e94b
+ms.sourcegitcommit: 2cb857f0de774df421e35289662ba92cfe56ffd1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/12/2019
-ms.locfileid: "67034723"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75355221"
 ---
-# <a name="whats-new-in-aspnet-core-11"></a>ASP.NET Core 1.1 yenilikler
+# <a name="whats-new-in-aspnet-core-11"></a>ASP.NET Core 1,1 ' deki yenilikler
 
-ASP.NET Core 1.1 aşağıdaki yeni özellikler içerir:
+ASP.NET Core 1,1 aşağıdaki yeni özellikleri içerir:
 
 - [URL Yeniden Yazma Ara Yazılımı](xref:fundamentals/url-rewriting)
 - [Yanıtları Önbelleğe Alma Ara Yazılımı](xref:performance/caching/middleware)
-- [Görünüm bileşenleri olarak etiket Yardımcıları](xref:mvc/views/view-components#invoking-a-view-component-as-a-tag-helper)
-- [MVC filtre olarak ara yazılımı](xref:mvc/controllers/filters#using-middleware-in-the-filter-pipeline)
+- [Bileşenleri etiket yardımcıları olarak görüntüle](xref:mvc/views/view-components#invoking-a-view-component-as-a-tag-helper)
+- [MVC filtreleri olarak ara yazılım](xref:mvc/controllers/filters#using-middleware-in-the-filter-pipeline)
 - [Tanımlama bilgisi tabanlı TempData sağlayıcısı](xref:fundamentals/app-state#tempdata)
-- [Azure App Service oturum açma sağlayıcısı](xref:fundamentals/logging/index#azure-app-service-provider)
+- [Azure App Service günlük sağlayıcısı](xref:fundamentals/logging/index#azure-app-service-provider)
 - [Azure Key Vault yapılandırma sağlayıcısı](xref:security/key-vault-configuration)
-- [Azure ve Redis depolama veri koruma anahtar deposu](xref:security/data-protection/implementation/key-storage-providers)
-- WebListener Windows Server'de
+- [Azure ve Redsıs depolama veri koruma anahtarı depoları](xref:security/data-protection/implementation/key-storage-providers)
+- Windows için WebListener sunucusu
 - [WebSockets desteği](xref:fundamentals/websockets)
 
-## <a name="choosing-between-versions-10-and-11-of-aspnet-core"></a>Arasındaki sürümleri 1.0 ve ASP.NET Core 1.1 seçme
+## <a name="choosing-between-versions-10-and-11-of-aspnet-core"></a>ASP.NET Core 1,0 ve 1,1 sürümleri arasında seçim yapma
 
-ASP.NET Core 1.1, 1.0 daha fazla özelliği vardır. Genel olarak, en son sürümünü kullanmanızı öneririz.
+ASP.NET Core 1,1 ASP.NET Core 1,0 ' den daha fazla özelliğe sahip. Genel olarak, en son sürümü kullanmanızı öneririz.
 
 ## <a name="additional-information"></a>Ek Bilgiler
 
 - [ASP.NET Core 1.1.0 sürüm notları](https://github.com/aspnet/Home/releases/tag/1.1.0)
-- ASP.NET Core geliştirme takımın ilerleme durumu ve planları ile bağlanmak için etkinliğindeki [ASP.NET topluluğu toplantısında](https://live.asp.net/).
+- ASP.NET Core geliştirme ekibinin ilerleme ve planlarıyla bağlantı kurmak için, [ASP.net Community](https://live.asp.net/)' ye ayarlayın.

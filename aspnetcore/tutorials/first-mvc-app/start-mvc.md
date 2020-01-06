@@ -5,16 +5,16 @@ description: ASP.NET Core MVC ile çalışmaya başlama hakkında bilgi edinin.
 ms.author: riande
 ms.date: 10/16/2019
 uid: tutorials/first-mvc-app/start-mvc
-ms.openlocfilehash: 0c8c59a5c59c8a70985dc8463c80f9569a00621f
-ms.sourcegitcommit: 6628cd23793b66e4ce88788db641a5bbf470c3c1
+ms.openlocfilehash: e70384a6f20f3ef06059ed6b51c76e923187c317
+ms.sourcegitcommit: 2cb857f0de774df421e35289662ba92cfe56ffd1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73761243"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75354932"
 ---
 # <a name="get-started-with-aspnet-core-mvc"></a>ASP.NET Core MVC ile çalışmaya başlama
 
-[Rick Anderson](https://twitter.com/RickAndMSFT) tarafından
+Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 ::: moniker range=">= aspnetcore-3.0"
 
@@ -25,7 +25,7 @@ Bu öğretici, ASP.NET Core MVC web uygulaması oluşturma hakkında temel bilgi
 Uygulama, bir film başlıkları veritabanını yönetir. Aşağıdakilerin nasıl yapıldığını öğreneceksiniz:
 
 > [!div class="checklist"]
-> * Bir Web uygulaması oluşturun.
+> * Bir web uygulaması oluşturun.
 > * Bir modeli ekleyin ve yapı iskelesi yapın.
 > * Bir veritabanıyla çalışın.
 > * Arama ve doğrulama ekleyin.
@@ -38,15 +38,15 @@ Sonunda, film verilerini yönetebilen ve görüntüleyebilen bir uygulamanız va
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-[!INCLUDE[](~/includes/net-core-prereqs-vs-3.0.md)]
+[!INCLUDE[](~/includes/net-core-prereqs-vs-3.1.md)]
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
-[!INCLUDE[](~/includes/net-core-prereqs-vsc-3.0.md)]
+[!INCLUDE[](~/includes/net-core-prereqs-vsc-3.1.md)]
 
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Mac için Visual Studio](#tab/visual-studio-mac)
 
-[!INCLUDE[](~/includes/net-core-prereqs-mac-3.0.md)]
+[!INCLUDE[](~/includes/net-core-prereqs-mac-3.1.md)]
 
 ---
 
@@ -74,7 +74,7 @@ Visual Studio, az önce oluşturduğunuz MVC projesi için varsayılan şablonu 
 
 Öğreticide familar, VS Code ile varsayılmıştır. Daha fazla bilgi için bkz. [vs Code kullanmaya](https://code.visualstudio.com/docs) başlama ve [Yardım Visual Studio Code](#visual-studio-code-help) .
 
-* [Tümleşik terminali](https://code.visualstudio.com/docs/editor/integrated-terminal)açın.
+* Açık [tümleşik Terminalini](https://code.visualstudio.com/docs/editor/integrated-terminal).
 * Dizinleri (`cd`), projeyi içerecek bir klasöre değiştirin.
 * Şu komutu çalıştırın:
 
@@ -90,15 +90,15 @@ Visual Studio, az önce oluşturduğunuz MVC projesi için varsayılan şablonu 
 
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Mac için Visual Studio](#tab/visual-studio-mac)
 
-* **Dosya** > **yeni çözüm**seçin.
+* **Yeni çözüm**> **Dosya** ' yı seçin.
 
-  ![macOS yeni çözüm](./start-mvc/_static/new_project_vsmac.png)
+  ![Yeni çözüm macOS](./start-mvc/_static/new_project_vsmac.png)
 
 * Bir **sonraki**> **.NET Core** > **App** > **Web uygulaması (Model-View-Controller)** seçeneğini belirleyin.
 
   ![macOS yeni proje iletişim kutusu](./start-mvc/_static/new_project_mvc_vsmac.png)
 
-* **Yeni ASP.NET Core Web API 'Nizi yapılandırın** iletişim kutusunda, **.NET Core 3,0**'nin **hedef çerçevesini** ayarlayın.
+* **Yeni ASP.NET Core Web API 'Nizi yapılandırın** iletişim kutusunda, **.NET Core 3,1**'nin **hedef çerçevesini** ayarlayın.
 
 <!-- 
   ![macOS .NET Core 2.2 selection](./start-mvc/_static/new_project_22_vsmac.png)
@@ -116,8 +116,8 @@ Uygulamayı hata ayıklamasız modda çalıştırmak için **CTRL-F5** ' i seçi
 
 [!INCLUDE[](~/includes/trustCertVS.md)]
 
-* Visual Studio [IIS Express](/iis/extensions/introduction-to-iis-express/iis-express-overview) başlar ve uygulamayı çalıştırır. Adres çubuğunda `localhost:port#` ve `example.com` gibi bir şey gösterilmediğine dikkat edin. Bunun nedeni, `localhost` yerel bilgisayarınız için Standart ana bilgisayar adıdır. Visual Studio bir Web projesi oluşturduğunda, Web sunucusu için rastgele bir bağlantı noktası kullanılır.
-* Uygulamayı CTRL + F5 (hata ayıklama modu) ile başlatmak, kod değişiklikleri yapmanıza, dosyayı kaydetmenize, tarayıcıyı yenilemanıza ve kod değişikliklerini görmenize olanak tanır. Birçok geliştirici, uygulamayı hızlı bir şekilde başlatmak ve değişiklikleri görüntülemek için hata ayıklama olmayan modu kullanmayı tercih eder.
+* Visual Studio [IIS Express](/iis/extensions/introduction-to-iis-express/iis-express-overview) başlar ve uygulamayı çalıştırır. Adres çubuğunun `example.com`gibi `localhost:port#` gösterdiğine dikkat edin. Bunun nedeni, `localhost` yerel bilgisayarınız için Standart ana bilgisayar adıdır. Visual Studio bir web projesi oluşturduğunda, web sunucusu için rastgele bir bağlantı noktası kullanılır.
+* Uygulamayı CTRL + F5 (hata ayıklama modu) ile başlatmak, kod değişiklikleri yapmanıza, dosyayı kaydetmenize, tarayıcıyı yenilemanıza ve kod değişikliklerini görmenize olanak tanır. Birçok geliştirici uygulamayı hemen başlatmak ve değişiklikleri görüntülemek için hata ayıklamasız modu kullanmayı tercih eder.
 * **Hata ayıklama menü öğesinden** uygulamayı hata ayıklama veya hata ayıklama olmayan modda başlatabilirsiniz:
 
   ![Hata ayıklama menüsü](start-mvc/_static/debug_menu.png)
@@ -136,7 +136,7 @@ Hata ayıklayıcı olmadan çalıştırmak için CTRL + F5 tuşlarına basın.
 
 [!INCLUDE[](~/includes/trustCertVSC.md)]
 
-  Visual Studio Code, [Kestrel](xref:fundamentals/servers/kestrel)başlatır, bir tarayıcı başlatır ve `https://localhost:5001` ' e gider. Adres çubuğunda `localhost:port:5001` ve `example.com` gibi bir şey görüntülenir. Bunun nedeni, `localhost` yerel bilgisayar için Standart ana bilgisayar adıdır. Localhost yalnızca yerel bilgisayardan Web isteklerine hizmet verir.
+  Visual Studio Code, [Kestrel](xref:fundamentals/servers/kestrel)başlatır, bir tarayıcı başlatır ve `https://localhost:5001`gider. Adres çubuğu `example.com`gibi değil `localhost:port:5001` gösterir. Bunun nedeni, `localhost` yerel bilgisayar için Standart ana bilgisayar adıdır. Localhost yalnızca yerel bilgisayardan Web isteklerine hizmet verir.
 
   Uygulamayı CTRL + F5 (hata ayıklama modu) ile başlatmak, kod değişiklikleri yapmanıza, dosyayı kaydetmenize, tarayıcıyı yenilemanıza ve kod değişikliklerini görmenize olanak tanır. Birçok geliştirici, sayfayı yenilemek ve değişiklikleri görüntülemek için hata ayıklama olmayan modu kullanmayı tercih eder.
 
@@ -144,11 +144,11 @@ Hata ayıklayıcı olmadan çalıştırmak için CTRL + F5 tuşlarına basın.
 
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Mac için Visual Studio](#tab/visual-studio-mac)
 
-Uygulamayı başlatmak için **çalıştır** > **hata ayıklama olmadan Başlat** ' ı seçin. Mac için Visual Studio, [Kestrel](xref:fundamentals/servers/index#kestrel) Server 'ı başlatır, bir tarayıcı başlatır ve `http://localhost:port` ' e gider ve *bağlantı noktası* rastgele seçilmiş bir bağlantı noktası numarasıdır.
+Uygulamayı başlatmak için **çalıştır** > **hata ayıklama olmadan Başlat** ' ı seçin. Mac için Visual Studio, [Kestrel](xref:fundamentals/servers/index#kestrel) Server 'ı başlatır, bir tarayıcı başlatır ve `http://localhost:port`' a gider ve *bağlantı noktası* rastgele seçilmiş bir bağlantı noktası numarasıdır.
 
 [!INCLUDE[](~/includes/trustCertMac.md)]
 
-* Adres çubuğunda `localhost:port#` ve `example.com` gibi bir şey görüntülenir. Bunun nedeni, `localhost` yerel bilgisayarınız için Standart ana bilgisayar adıdır. Visual Studio bir Web projesi oluşturduğunda, Web sunucusu için rastgele bir bağlantı noktası kullanılır. Uygulamayı çalıştırdığınızda, farklı bir bağlantı noktası numarası görürsünüz.
+* Adres çubuğu `example.com`gibi değil `localhost:port#` gösterir. Bunun nedeni, `localhost` yerel bilgisayarınız için Standart ana bilgisayar adıdır. Visual Studio bir web projesi oluşturduğunda, web sunucusu için rastgele bir bağlantı noktası kullanılır. Uygulamayı çalıştırdığınızda, farklı bir bağlantı noktası numarası görürsünüz.
 * Uygulamayı **Çalıştır** menüsünden Hata Ayıkla veya hata ayıklama olmayan modda başlatabilirsiniz.
 
   Aşağıdaki görüntüde uygulama gösterilmektedir:
@@ -175,7 +175,7 @@ Bu öğretici, ASP.NET Core MVC web uygulaması oluşturma hakkında temel bilgi
 Uygulama, bir film başlıkları veritabanını yönetir. Aşağıdakilerin nasıl yapıldığını öğreneceksiniz:
 
 > [!div class="checklist"]
-> * Bir Web uygulaması oluşturun.
+> * Bir web uygulaması oluşturun.
 > * Bir modeli ekleyin ve yapı iskelesi yapın.
 > * Bir veritabanıyla çalışın.
 > * Arama ve doğrulama ekleyin.
@@ -224,7 +224,7 @@ Visual Studio, az önce oluşturduğunuz MVC projesi için varsayılan şablonu 
 
 Öğreticide familar, VS Code ile varsayılmıştır. Daha fazla bilgi için bkz. [vs Code kullanmaya](https://code.visualstudio.com/docs) başlama ve [Yardım Visual Studio Code](#visual-studio-code-help) .
 
-* [Tümleşik terminali](https://code.visualstudio.com/docs/editor/integrated-terminal)açın.
+* Açık [tümleşik Terminalini](https://code.visualstudio.com/docs/editor/integrated-terminal).
 * Dizinleri (`cd`), projeyi içerecek bir klasöre değiştirin.
 * Şu komutu çalıştırın:
 
@@ -240,9 +240,9 @@ Visual Studio, az önce oluşturduğunuz MVC projesi için varsayılan şablonu 
 
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Mac için Visual Studio](#tab/visual-studio-mac)
 
-* **Dosya** > **yeni çözüm**seçin.
+* **Yeni çözüm**> **Dosya** ' yı seçin.
 
-  ![macOS yeni çözüm](./start-mvc/_static/new_project_vsmac.png)
+  ![Yeni çözüm macOS](./start-mvc/_static/new_project_vsmac.png)
 
 * Bir **sonraki**> **.NET Core** > **App** > **Web uygulaması (Model-View-Controller)** seçeneğini belirleyin.
 
@@ -264,8 +264,8 @@ Uygulamayı hata ayıklamasız modda çalıştırmak için **CTRL-F5** ' i seçi
 
 [!INCLUDE[](~/includes/trustCertVS.md)]
 
-* Visual Studio [IIS Express](/iis/extensions/introduction-to-iis-express/iis-express-overview) başlar ve uygulamayı çalıştırır. Adres çubuğunda `localhost:port#` ve `example.com` gibi bir şey gösterilmediğine dikkat edin. Bunun nedeni, `localhost` yerel bilgisayarınız için Standart ana bilgisayar adıdır. Visual Studio bir Web projesi oluşturduğunda, Web sunucusu için rastgele bir bağlantı noktası kullanılır.
-* Uygulamayı CTRL + F5 (hata ayıklama modu) ile başlatmak, kod değişiklikleri yapmanıza, dosyayı kaydetmenize, tarayıcıyı yenilemanıza ve kod değişikliklerini görmenize olanak tanır. Birçok geliştirici, uygulamayı hızlı bir şekilde başlatmak ve değişiklikleri görüntülemek için hata ayıklama olmayan modu kullanmayı tercih eder.
+* Visual Studio [IIS Express](/iis/extensions/introduction-to-iis-express/iis-express-overview) başlar ve uygulamayı çalıştırır. Adres çubuğunun `example.com`gibi `localhost:port#` gösterdiğine dikkat edin. Bunun nedeni, `localhost` yerel bilgisayarınız için Standart ana bilgisayar adıdır. Visual Studio bir web projesi oluşturduğunda, web sunucusu için rastgele bir bağlantı noktası kullanılır.
+* Uygulamayı CTRL + F5 (hata ayıklama modu) ile başlatmak, kod değişiklikleri yapmanıza, dosyayı kaydetmenize, tarayıcıyı yenilemanıza ve kod değişikliklerini görmenize olanak tanır. Birçok geliştirici uygulamayı hemen başlatmak ve değişiklikleri görüntülemek için hata ayıklamasız modu kullanmayı tercih eder.
 * **Hata ayıklama menü öğesinden** uygulamayı hata ayıklama veya hata ayıklama olmayan modda başlatabilirsiniz:
 
   ![Hata ayıklama menüsü](start-mvc/_static/debug_menu.png)
@@ -274,7 +274,7 @@ Uygulamayı hata ayıklamasız modda çalıştırmak için **CTRL-F5** ' i seçi
 
   ![IIS Express](start-mvc/_static/iis_express.png)
 
-* İzlemeye izin vermek için **kabul et** ' i seçin. Bu uygulama kişisel bilgileri izlemez. Şablon tarafından oluşturulan kod, [genel veri koruma yönetmeliği (GDPR)](xref:security/gdpr)buluşmanıza yardımcı olan varlıkları içerir.
+* İzlemeye onay vermek için **Kabul Et**'i seçin. Bu uygulama kişisel bilgileri izlemez. Şablon tarafından oluşturulan kod, [genel veri koruma yönetmeliği (GDPR)](xref:security/gdpr)buluşmanıza yardımcı olan varlıkları içerir.
 
   ![Giriş veya dizin sayfası](start-mvc/_static/privacy.png)
 
@@ -288,11 +288,11 @@ Hata ayıklayıcı olmadan çalıştırmak için CTRL + F5 tuşlarına basın.
 
 [!INCLUDE[](~/includes/trustCertVSC.md)]
 
-  Visual Studio Code, [Kestrel](xref:fundamentals/servers/kestrel)başlatır, bir tarayıcı başlatır ve `https://localhost:5001` ' e gider. Adres çubuğunda `localhost:port:5001` ve `example.com` gibi bir şey görüntülenir. Bunun nedeni, `localhost` yerel bilgisayar için Standart ana bilgisayar adıdır. Localhost yalnızca yerel bilgisayardan Web isteklerine hizmet verir.
+  Visual Studio Code, [Kestrel](xref:fundamentals/servers/kestrel)başlatır, bir tarayıcı başlatır ve `https://localhost:5001`gider. Adres çubuğu `example.com`gibi değil `localhost:port:5001` gösterir. Bunun nedeni, `localhost` yerel bilgisayar için Standart ana bilgisayar adıdır. Localhost yalnızca yerel bilgisayardan Web isteklerine hizmet verir.
 
   Uygulamayı CTRL + F5 (hata ayıklama modu) ile başlatmak, kod değişiklikleri yapmanıza, dosyayı kaydetmenize, tarayıcıyı yenilemanıza ve kod değişikliklerini görmenize olanak tanır. Birçok geliştirici, sayfayı yenilemek ve değişiklikleri görüntülemek için hata ayıklama olmayan modu kullanmayı tercih eder.
 
-* İzlemeye izin vermek için **kabul et** ' i seçin. Bu uygulama kişisel bilgileri izlemez. Şablon tarafından oluşturulan kod, [genel veri koruma yönetmeliği (GDPR)](xref:security/gdpr)buluşmanıza yardımcı olan varlıkları içerir.
+* İzlemeye onay vermek için **Kabul Et**'i seçin. Bu uygulama kişisel bilgileri izlemez. Şablon tarafından oluşturulan kod, [genel veri koruma yönetmeliği (GDPR)](xref:security/gdpr)buluşmanıza yardımcı olan varlıkları içerir.
 
   ![Giriş veya dizin sayfası](start-mvc/_static/privacy.png)
 
@@ -302,14 +302,14 @@ Hata ayıklayıcı olmadan çalıştırmak için CTRL + F5 tuşlarına basın.
 
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Mac için Visual Studio](#tab/visual-studio-mac)
 
-Uygulamayı başlatmak için **çalıştır** > **hata ayıklama olmadan Başlat** ' ı seçin. Mac için Visual Studio, [Kestrel](xref:fundamentals/servers/index#kestrel) Server 'ı başlatır, bir tarayıcı başlatır ve `http://localhost:port` ' e gider ve *bağlantı noktası* rastgele seçilmiş bir bağlantı noktası numarasıdır.
+Uygulamayı başlatmak için **çalıştır** > **hata ayıklama olmadan Başlat** ' ı seçin. Mac için Visual Studio, [Kestrel](xref:fundamentals/servers/index#kestrel) Server 'ı başlatır, bir tarayıcı başlatır ve `http://localhost:port`' a gider ve *bağlantı noktası* rastgele seçilmiş bir bağlantı noktası numarasıdır.
 
 [!INCLUDE[](~/includes/trustCertMac.md)]
 
-* Adres çubuğunda `localhost:port#` ve `example.com` gibi bir şey görüntülenir. Bunun nedeni, `localhost` yerel bilgisayarınız için Standart ana bilgisayar adıdır. Visual Studio bir Web projesi oluşturduğunda, Web sunucusu için rastgele bir bağlantı noktası kullanılır. Uygulamayı çalıştırdığınızda, farklı bir bağlantı noktası numarası görürsünüz.
+* Adres çubuğu `example.com`gibi değil `localhost:port#` gösterir. Bunun nedeni, `localhost` yerel bilgisayarınız için Standart ana bilgisayar adıdır. Visual Studio bir web projesi oluşturduğunda, web sunucusu için rastgele bir bağlantı noktası kullanılır. Uygulamayı çalıştırdığınızda, farklı bir bağlantı noktası numarası görürsünüz.
 * Uygulamayı **Çalıştır** menüsünden Hata Ayıkla veya hata ayıklama olmayan modda başlatabilirsiniz.
 
-* İzlemeye izin vermek için **kabul et** ' i seçin. Bu uygulama kişisel bilgileri izlemez. Şablon tarafından oluşturulan kod, [genel veri koruma yönetmeliği (GDPR)](xref:security/gdpr)buluşmanıza yardımcı olan varlıkları içerir.
+* İzlemeye onay vermek için **Kabul Et**'i seçin. Bu uygulama kişisel bilgileri izlemez. Şablon tarafından oluşturulan kod, [genel veri koruma yönetmeliği (GDPR)](xref:security/gdpr)buluşmanıza yardımcı olan varlıkları içerir.
 
   ![Giriş veya dizin sayfası](./start-mvc/_static/output_privacy_macos.png)
 

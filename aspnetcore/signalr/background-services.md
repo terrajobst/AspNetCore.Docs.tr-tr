@@ -9,12 +9,12 @@ ms.date: 11/12/2019
 no-loc:
 - SignalR
 uid: signalr/background-services
-ms.openlocfilehash: 000732115153eeafed3948c2a07acf77ffc34218
-ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
+ms.openlocfilehash: 324592759af79d1229eb147fb4551e97c678ef64
+ms.sourcegitcommit: 2cb857f0de774df421e35289662ba92cfe56ffd1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73964052"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75358684"
 ---
 # <a name="host-aspnet-core-opno-locsignalr-in-background-services"></a>Arka plan hizmetlerinde ana bilgisayar ASP.NET Core SignalR
 
@@ -27,11 +27,11 @@ Bu makalede şu yönergelere kılavuzluk sunulmaktadır:
 
 [Örnek kodu görüntüleme veya indirme](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/signalr/background-service/sample/) [(nasıl indirileceği)](xref:index#how-to-download-a-sample)
 
-## <a name="wire-up-opno-locsignalr-during-startup"></a>Başlangıç sırasında SignalR
+## <a name="enable-opno-locsignalr-in-startup"></a>Başlangıçta SignalR etkinleştir
 
 ::: moniker range=">= aspnetcore-3.0"
 
-Arka plan çalışan işleminin bağlamında ASP.NET Core SignalR hub 'Ları barındırmak, bir ASP.NET Core Web uygulamasındaki hub barındırmakla aynıdır. `Startup.ConfigureServices` yönteminde, `services.AddSignalR` çağırmak gereken hizmetleri SignalRdesteklemek için ASP.NET Core bağımlılık ekleme (dı) katmanına ekler. `Startup.Configure`, `MapHub` yöntemi, ASP.NET Core isteği ardışık düzeninde Merkez uç noktaları arasında bağlantı kurmak için `UseEndpoints` geri çağırmada çağrılır.
+Arka plan çalışan işleminin bağlamında ASP.NET Core SignalR hub 'Ları barındırmak, bir ASP.NET Core Web uygulamasındaki hub barındırmakla aynıdır. `Startup.ConfigureServices` yönteminde, `services.AddSignalR` çağırmak gereken hizmetleri SignalRdesteklemek için ASP.NET Core bağımlılık ekleme (dı) katmanına ekler. `Startup.Configure`, `MapHub` yöntemi, ASP.NET Core isteği ardışık düzeninde hub uç noktalarına bağlanmak için `UseEndpoints` geri çağırmada çağrılır.
 
 ```csharp
 public class Startup
@@ -62,7 +62,7 @@ public class Startup
 
 ::: moniker range="<= aspnetcore-2.2"
 
-Arka plan çalışan işleminin bağlamında ASP.NET Core SignalR hub 'Ları barındırmak, bir ASP.NET Core Web uygulamasındaki hub barındırmakla aynıdır. `Startup.ConfigureServices` yönteminde, `services.AddSignalR` çağırmak gereken hizmetleri SignalRdesteklemek için ASP.NET Core bağımlılık ekleme (dı) katmanına ekler. `Startup.Configure`, `UseSignalR` yöntemi ASP.NET Core isteği ardışık düzeninde hub uç noktaları için çağrılır.
+Arka plan çalışan işleminin bağlamında ASP.NET Core SignalR hub 'Ları barındırmak, bir ASP.NET Core Web uygulamasındaki hub barındırmakla aynıdır. `Startup.ConfigureServices` yönteminde, `services.AddSignalR` çağırmak gereken hizmetleri SignalRdesteklemek için ASP.NET Core bağımlılık ekleme (dı) katmanına ekler. `Startup.Configure`, `UseSignalR` yöntemi, ASP.NET Core isteği ardışık düzeninde hub uç noktaları bağlamak için çağrılır.
 
 [!code-csharp[Startup](background-service/sample/Server/Startup.cs?name=Startup)]
 
@@ -83,13 +83,13 @@ Türü kesin belirlenmiş `ClockHub` tarafından kullanılan arabirim `IClock` a
 
 ## <a name="call-a-opno-locsignalr-hub-from-a-background-service"></a>Arka plan hizmetinden bir SignalR hub 'ı çağırma
 
-Başlangıç sırasında, `BackgroundService``Worker` sınıfı `AddHostedService`kullanılarak bağlanır.
+Başlangıç sırasında, `BackgroundService``Worker` sınıfı `AddHostedService`kullanılarak etkinleştirilir.
 
 ```csharp
 services.AddHostedService<Worker>();
 ```
 
-SignalR, her hub 'ın, ASP.NET Core HTTP isteği ardışık düzeninde tek bir uç noktaya eklendiği `Startup` aşamasında da kablolu olduğundan, her hub sunucu üzerinde bir `IHubContext<T>` temsil edilir. ASP.NET Core dı özelliklerini kullanarak, barındırma katmanı tarafından oluşturulan `BackgroundService` sınıflar, MVC denetleyici sınıfları veya Razor sayfa modelleri gibi diğer sınıflar, oluşturma sırasında `IHubContext<ClockHub, IClock>` örneklerini kabul ederek sunucu tarafı hub 'Larına başvurular alabilir.
+SignalR, her hub 'ın ASP.NET Core HTTP isteği ardışık düzeninde tek bir uç noktaya eklendiği `Startup` aşamasında de etkinleştirildiğinden, her hub sunucu üzerinde bir `IHubContext<T>` temsil edilir. ASP.NET Core dı özelliklerini kullanarak, barındırma katmanı tarafından oluşturulan `BackgroundService` sınıflar, MVC denetleyici sınıfları veya Razor sayfa modelleri gibi diğer sınıflar, oluşturma sırasında `IHubContext<ClockHub, IClock>` örneklerini kabul ederek sunucu tarafı hub 'Larına başvurular alabilir.
 
 [!code-csharp[Startup](background-service/sample/Server/Worker.cs?name=Worker)]
 
@@ -99,7 +99,7 @@ SignalR, her hub 'ın, ASP.NET Core HTTP isteği ardışık düzeninde tek bir u
 
 SignalR veya bir .NET masaüstü uygulamasının JavaScript istemcisini kullanan tek sayfalı bir uygulama gibi <xref:signalr/dotnet-client>kullanarak kullanarak `BackgroundService` veya `IHostedService` bir uygulama da SignalR hub 'Larına bağlanıp olaylara yanıt vermek için kullanılabilir.
 
-`ClockHubClient` sınıfı hem `IClock` arabirimini hem de `IHostedService` arabirimini uygular. Bu şekilde, `Startup` sırasında, sürekli olarak çalışmak ve sunucudan hub olaylarına yanıt vermek için bu şekilde kablolu bir şekilde erişilebilir.
+`ClockHubClient` sınıfı hem `IClock` arabirimini hem de `IHostedService` arabirimini uygular. Bu sayede `Startup`, sürekli olarak çalışacak ve sunucudan hub olaylarına yanıt veren bir şekilde etkinleştirilebilir.
 
 ```csharp
 public partial class ClockHubClient : IClock, IHostedService
@@ -107,7 +107,7 @@ public partial class ClockHubClient : IClock, IHostedService
 }
 ```
 
-Başlatma sırasında `ClockHubClient`, bir `HubConnection` örneğini oluşturur ve hub 'ın `ShowTime` olayı için işleyici olarak `IClock.ShowTime` metodunu kablodan bir şekilde kablolar.
+Başlatma sırasında `ClockHubClient`, bir `HubConnection` örneğini oluşturur ve hub 'ın `ShowTime` olayı için işleyici olarak `IClock.ShowTime` yöntemini sunar.
 
 [!code-csharp[The ClockHubClient constructor](background-service/sample/Clients.ConsoleTwo/ClockHubClient.cs?name=ClockHubClientCtor)]
 

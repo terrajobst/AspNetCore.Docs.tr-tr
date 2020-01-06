@@ -5,14 +5,14 @@ description: Çalışma zamanında yüklenen ad-değer çiftlerini kullanarak bi
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/14/2019
+ms.date: 12/16/2019
 uid: security/key-vault-configuration
-ms.openlocfilehash: e0e55d40734e0cb6e3e1afe1c708ec47c6f43054
-ms.sourcegitcommit: f91d322f790123d41ec3271fa084ae20ed9f89a6
+ms.openlocfilehash: 37ba756cc4170c145d2ab1f9f0a465057cc826c1
+ms.sourcegitcommit: 2cb857f0de774df421e35289662ba92cfe56ffd1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74155181"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75358714"
 ---
 # <a name="azure-key-vault-configuration-provider-in-aspnet-core"></a>ASP.NET Core Azure Key Vault yapılandırma sağlayıcısı
 
@@ -23,7 +23,7 @@ Bu belgede, Azure Key Vault gizliliklerden uygulama yapılandırma değerlerini 
 * Hassas yapılandırma verilerine erişimi denetleme.
 * Yapılandırma verilerini depolarken FIPS 140-2 düzey 2 doğrulanan donanım güvenlik modülleri (HSM 'ler) gereksinimini karşılarsınız.
 
-[Örnek kodu görüntüleme veya indirme](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/key-vault-configuration/samples) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
+[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/key-vault-configuration/samples) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
 
 ## <a name="packages"></a>Paketler
 
@@ -73,7 +73,7 @@ Hızlı başlangıç tarafından sunulan yönergeler [: Azure CLI kullanarak Azu
 
 1. [Azure Portal](https://portal.azure.com/)aşağıdaki yöntemlerden birini kullanarak Azure Cloud Shell 'i açın:
 
-   * Bir kod bloğunun sağ üst köşesinde **deneyin** öğesini seçin. Metin kutusunda "Azure CLı" arama dizesini kullanın.
+   * Kod bloğunun sağ üst köşesindeki **Deneyin**’i seçin. Metin kutusunda "Azure CLı" arama dizesini kullanın.
    * **Cloud Shell Başlat** düğmesini kullanarak tarayıcınızda Cloud Shell açın.
    * Azure portal sağ üst köşesindeki menüdeki **Cloud Shell** düğmesini seçin.
 
@@ -90,7 +90,7 @@ Hızlı başlangıç tarafından sunulan yönergeler [: Azure CLI kullanarak Azu
 1. Aşağıdaki komutla kaynak grubunda bir Anahtar Kasası oluşturun; burada `{KEY VAULT NAME}`, Yeni Anahtar Kasası 'nın adıdır ve `{LOCATION}` Azure bölgesidir (Datacenter):
 
    ```azure-cli
-   az keyvault create --name "{KEY VAULT NAME}" --resource-group "{RESOURCE GROUP NAME}" --location {LOCATION}
+   az keyvault create --name {KEY VAULT NAME} --resource-group "{RESOURCE GROUP NAME}" --location {LOCATION}
    ```
 
 1. Anahtar kasasında ad-değer çiftleri olarak gizli diziler oluşturun.
@@ -100,8 +100,8 @@ Hızlı başlangıç tarafından sunulan yönergeler [: Azure CLI kullanarak Azu
    Aşağıdaki gizlilikler örnek uygulamayla kullanım içindir. Değerler, geliştirme ortamında yüklenen `_dev` sonek değerlerinden Kullanıcı parolalarından ayırt etmek için bir `_prod` soneki içerir. `{KEY VAULT NAME}`, önceki adımda oluşturduğunuz anahtar kasasının adıyla değiştirin:
 
    ```azure-cli
-   az keyvault secret set --vault-name "{KEY VAULT NAME}" --name "SecretName" --value "secret_value_1_prod"
-   az keyvault secret set --vault-name "{KEY VAULT NAME}" --name "Section--SecretName" --value "secret_value_2_prod"
+   az keyvault secret set --vault-name {KEY VAULT NAME} --name "SecretName" --value "secret_value_1_prod"
+   az keyvault secret set --vault-name {KEY VAULT NAME} --name "Section--SecretName" --value "secret_value_2_prod"
    ```
 
 ## <a name="use-application-id-and-x509-certificate-for-non-azure-hosted-apps"></a>Azure 'da barındırılan uygulamalar için uygulama KIMLIĞI ve X. 509.440 sertifikası kullanın
@@ -124,12 +124,12 @@ Hızlı başlangıç tarafından sunulan yönergeler [: Azure CLI kullanarak Azu
 1. Anahtar Kasası adı, uygulama KIMLIĞI ve sertifika parmak izini uygulamanın *appSettings. JSON* dosyasında depolayın.
 1. Azure portal **ana** kasaları ' ne gidin.
 1. Azure Key Vault bölümünde, [üretim ortamındaki gizli dizi deposunda](#secret-storage-in-the-production-environment-with-azure-key-vault) oluşturduğunuz anahtar kasasını seçin.
-1. **Erişim ilkeleri**' ni seçin.
+1. **Erişim ilkeleri**'ni seçin.
 1. **Erişim Ilkesi Ekle**' yi seçin.
 1. **Gizli izinleri** açın ve uygulamaya **Get** ve **list** izinleri sağlayın.
 1. **Sorumlu Seç** ' i seçin ve kayıtlı uygulamayı ada göre seçin. **Seç** düğmesini seçin.
-1. **Tamam ' ı**seçin.
-1. **Kaydet**' i seçin.
+1. Seçin **Tamam**.
+1. **Kaydet**’i seçin.
 1. Uygulamayı dağıtın.
 
 `Certificate` örnek uygulama, `IConfigurationRoot` yapılandırma değerlerini gizli adı ile aynı ada sahip bir adla edinir:
@@ -190,7 +190,7 @@ Azure App Service dağıtılan bir uygulama, hizmet oluşturulduğunda Azure AD 
 Azure CLı ve uygulamanın nesne KIMLIĞINI kullanarak, anahtar kasasına erişmek için uygulamaya `list` ve `get` izinleri sağlayın:
 
 ```azure-cli
-az keyvault set-policy --name '{KEY VAULT NAME}' --object-id {OBJECT ID} --secret-permissions get list
+az keyvault set-policy --name {KEY VAULT NAME} --object-id {OBJECT ID} --secret-permissions get list
 ```
 
 Azure CLı, PowerShell veya Azure portal kullanarak **uygulamayı yeniden başlatın** .
@@ -304,8 +304,8 @@ Bu yaklaşım uygulandığında:
 1. Gizlilikler, aşağıdaki Azure CLı komutları kullanılarak Azure Key Vault kaydedilir:
 
    ```azure-cli
-   az keyvault secret set --vault-name "{KEY VAULT NAME}" --name "5000-AppSecret" --value "5.0.0.0_secret_value_prod"
-   az keyvault secret set --vault-name "{KEY VAULT NAME}" --name "5100-AppSecret" --value "5.1.0.0_secret_value_prod"
+   az keyvault secret set --vault-name {KEY VAULT NAME} --name "5000-AppSecret" --value "5.0.0.0_secret_value_prod"
+   az keyvault secret set --vault-name {KEY VAULT NAME} --name "5100-AppSecret" --value "5.1.0.0_secret_value_prod"
    ```
 
 1. Uygulama çalıştırıldığında, Anahtar Kasası gizli dizileri yüklenir. `5000-AppSecret` dize gizli dizisi, uygulamanın proje dosyasında (`5.0.0.0`) belirtilen uygulamanın sürümüyle eşleştirilir.
@@ -371,7 +371,7 @@ Configuration.Reload();
 
 Devre dışı ve son kullanma parolası bir <xref:Microsoft.Azure.KeyVault.Models.KeyVaultErrorException>oluşturur. Uygulamanın üretilmesini engellemek için, farklı bir yapılandırma sağlayıcısı kullanarak yapılandırmayı sağlayın veya devre dışı ya da süre dolma parolasını güncelleştirin.
 
-## <a name="troubleshoot"></a>Sorun giderme
+## <a name="troubleshoot"></a>Sorunları Gider
 
 Uygulama, sağlayıcıyı kullanarak yapılandırmayı yükleyemediğinde, [ASP.NET Core günlük altyapısına](xref:fundamentals/logging/index)bir hata iletisi yazılır. Aşağıdaki koşullar yapılandırmanın yüklenmesine engel olur:
 

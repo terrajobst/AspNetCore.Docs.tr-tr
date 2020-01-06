@@ -7,12 +7,12 @@ ms.author: scaddie
 ms.custom: H1Hack27Feb2017
 ms.date: 09/06/2019
 uid: client-side/spa-services
-ms.openlocfilehash: 7aff46f739239246191763e0590046b2d9995922
-ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
+ms.openlocfilehash: 52285999d7710cc3198836b9246596980cfc1666
+ms.sourcegitcommit: 2cb857f0de774df421e35289662ba92cfe56ffd1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71080504"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75355781"
 ---
 # <a name="use-javascript-services-to-create-single-page-applications-in-aspnet-core"></a>ASP.NET Core içinde tek sayfalı uygulamalar oluşturmak için JavaScript hizmetlerini kullanın
 
@@ -69,7 +69,7 @@ SpaServices ile çalışmak için aşağıdakileri yükleyin:
     node -v && npm -v
     ```
 
-  * Bir Azure Web sitesine dağıtım yapıyorsanız hiçbir işlem gerekli&mdash;değildir. js, sunucu ortamlarında yüklenir ve kullanılabilir.
+  * Bir Azure Web sitesine dağıtım yapıyorsanız bir işlem gerekmez&mdash;Node. js yüklenir ve sunucu ortamlarında kullanılabilir.
 
 * [!INCLUDE [](~/includes/net-core-sdk-download-link.md)]
 
@@ -195,7 +195,7 @@ Uygulamayı tarayıcıda yüklendikten sonra geliştirici araçları konsol sekm
 
 Çoğu ASP.NET Core tabanlı maça, istemci tarafı yönlendirme genellikle sunucu tarafı yönlendirmeye ek olarak istenir. SPA ve MVC yönlendirme sistemleri girişim bağımsız olarak çalışabilir. Yoktur, ancak bir kenar büyük/küçük harf taşıyor sorunlarını: HTTP 404 yanıtları tanımlayan.
 
-Senaryoyu göz önünde bulundurun uzantısız bir yolu `/some/page` kullanılır. İstek deseni-sunucu tarafı rota match değil, ancak desenine bir istemci-tarafı rota ile eşleşmekte varsayılır. Şimdi gelen bir istek için göz önünde bulundurun `/images/user-512.png`, hangi genellikle bekliyor sunucudaki bir görüntü dosyası bulunamıyor. İstenen kaynak yolu herhangi bir sunucu tarafı yolu veya statik dosya ile eşleşmiyorsa, istemci tarafı uygulamanın bu&mdash;işlemi genellikle bir 404 HTTP durum kodu döndürerek işlemesi çok düşüktür.
+Senaryoyu göz önünde bulundurun uzantısız bir yolu `/some/page` kullanılır. İstek deseni-sunucu tarafı rota match değil, ancak desenine bir istemci-tarafı rota ile eşleşmekte varsayılır. Şimdi gelen bir istek için göz önünde bulundurun `/images/user-512.png`, hangi genellikle bekliyor sunucudaki bir görüntü dosyası bulunamıyor. İstenen kaynak yolu herhangi bir sunucu tarafı yolu veya statik dosya ile eşleşmiyorsa, istemci tarafı uygulamanın&mdash;bunu işleyemesi büyük olasılıkla 404 HTTP durum kodu döndürülüyor.
 
 ### <a name="routing-helpers-prerequisites"></a>Yönlendirme Yardımcıları önkoşulları
 
@@ -213,7 +213,7 @@ Adlı bir genişletme yöntemi `MapSpaFallbackRoute` kullanılır `Configure` y�
 
 Yollar yapılandırıldıkları sırayla değerlendirilir. Sonuç olarak, `default` rota önceki kod örneğinde kullanılan ilk desen eşleştirmesi için.
 
-## <a name="create-a-new-project"></a>Yeni bir proje oluşturma
+## <a name="create-a-new-project"></a>Yeni bir proje oluşturun
 
 JavaScript Hizmetleri önceden yapılandırılmış uygulama şablonları sağlar. Istenmeyen hizmetler, bu şablonlarda, angular, tepki ve Redux gibi farklı çerçeveler ve kitaplıklarla birlikte kullanılır.
 
@@ -289,6 +289,8 @@ Komut dosyası içinde tanımlanan ayarlarını okur Karma test Çalıştırıc�
 [!code-javascript[](../client-side/spa-services/sample/SpaServicesSampleApp/ClientApp/test/karma.conf.js?range=4-5,8-11)]
 
 ## <a name="publish-the-app"></a>Uygulamayı yayımlama
+
+Azure 'da yayımlama hakkında daha fazla bilgi için [Bu GitHub sorununa](https://github.com/aspnet/AspNetCore.Docs/issues/12474) bakın.
 
 Oluşturulan istemci-tarafı varlıkları ve yayımlanan ASP.NET Core yapıları dağıtmak için hazır bir pakete birleştiren çok uğraşmayı gerektirebilir. Ne SpaServices adlı özel bir MSBuild hedefi ile tüm yayın işlem düzenler `RunWebpack`:
 

@@ -5,14 +5,14 @@ description: Uygulamalar ve veritabanları gibi ASP.NET Core altyapısı için s
 monikerRange: '>= aspnetcore-2.2'
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/13/2019
+ms.date: 12/15/2019
 uid: host-and-deploy/health-checks
-ms.openlocfilehash: 4a4606a58178018f0d71d467d4c8b6c9982c09dc
-ms.sourcegitcommit: 231780c8d7848943e5e9fd55e93f437f7e5a371d
+ms.openlocfilehash: dfd26b775b6c6a1af0108d34981d7ec3737980dd
+ms.sourcegitcommit: 2cb857f0de774df421e35289662ba92cfe56ffd1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74116000"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75356124"
 ---
 # <a name="health-checks-in-aspnet-core"></a>ASP.NET Core durum denetimleri
 
@@ -28,7 +28,7 @@ Sistem durumu denetimleri, bir uygulama tarafından HTTP uç noktaları olarak g
 * Bellek, disk ve diğer fiziksel sunucu kaynaklarının kullanımı sağlıklı bir durum için izlenebilir.
 * Sistem durumu denetimleri, kullanılabilirliği ve normal çalışmayı onaylamak için bir uygulamanın veritabanları ve dış hizmet uç noktaları gibi bağımlılıklarını test edebilir.
 
-[Örnek kodu görüntüleme veya indirme](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/host-and-deploy/health-checks/samples) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
+[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/host-and-deploy/health-checks/samples) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
 
 Örnek uygulama, bu konuda açıklanan senaryoların örneklerini içerir. Örnek uygulamayı belirli bir senaryo için çalıştırmak için, bir komut kabuğunda projenin klasöründen [DotNet Run](/dotnet/core/tools/dotnet-run) komutunu kullanın. Örnek uygulamayı kullanma hakkında ayrıntılı bilgi için bu konudaki örnek uygulamanın *README.MD* dosyasına ve senaryo açıklamalarına bakın.
 
@@ -236,7 +236,7 @@ Bir tarayıcıdan el ile sistem durumu denetimleri gerçekleştirmek yaygın kul
 
 Varsayılan olarak, sistem durumu denetimleri ara yazılımı tüm kayıtlı sistem durumu denetimlerini çalıştırır. Bir sistem durumu denetimleri alt kümesini çalıştırmak için <xref:Microsoft.AspNetCore.Diagnostics.HealthChecks.HealthCheckOptions.Predicate> seçeneğine Boole değeri döndüren bir işlev sağlayın. Aşağıdaki örnekte, `Bar` sistem durumu denetimi, işlevin koşullu deyimindeki etiketiyle (`bar_tag`) filtrelenerek `true` yalnızca sistem durumu denetiminin <xref:Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckRegistration.Tags> özelliği `foo_tag` veya `baz_tag`eşleşiyorsa döndürülür:
 
-`Startup.ConfigureServices`:
+`Startup.ConfigureServices` içinde:
 
 ```csharp
 services.AddHealthChecks()
@@ -265,7 +265,7 @@ app.UseEndpoints(endpoints =>
 
 Sistem durumunun HTTP durum kodlarına eşlenmesini özelleştirmek için <xref:Microsoft.AspNetCore.Diagnostics.HealthChecks.HealthCheckOptions.ResultStatusCodes> kullanın. Aşağıdaki <xref:Microsoft.AspNetCore.Http.StatusCodes> atamaları, ara yazılım tarafından kullanılan varsayılan değerlerdir. Durum kodu değerlerini gereksinimlerinize uyacak şekilde değiştirin.
 
-`Startup.Configure`:
+`Startup.Configure` içinde:
 
 ```csharp
 app.UseEndpoints(endpoints =>
@@ -286,7 +286,7 @@ app.UseEndpoints(endpoints =>
 
 <xref:Microsoft.AspNetCore.Diagnostics.HealthChecks.HealthCheckOptions.AllowCachingResponses>, yanıt önbelleğini engellemek için sistem durumu denetimlerinin ara yazılım tarafından araştırma yanıtına HTTP üstbilgileri ekleyip eklemediğini denetler. Değer `false` (varsayılan) ise, ara yazılım, yanıt önbelleğe almayı engellemek için `Cache-Control`, `Expires`ve `Pragma` üst bilgilerini ayarlar veya geçersiz kılar. Değer `true`ise, ara yazılım yanıtın önbellek üstbilgilerini değiştirmez.
 
-`Startup.Configure`:
+`Startup.Configure` içinde:
 
 ```csharp
 app.UseEndpoints(endpoints =>
@@ -300,9 +300,7 @@ app.UseEndpoints(endpoints =>
 
 ### <a name="customize-output"></a>Çıktıyı özelleştirme
 
-<xref:Microsoft.AspNetCore.Diagnostics.HealthChecks.HealthCheckOptions.ResponseWriter> seçeneği, yanıtı yazmak için kullanılan bir temsilciyi alır veya ayarlar.
-
-`Startup.Configure`:
+`Startup.Configure`, [Healthcheckoptions. ResponseWriter](xref:Microsoft.AspNetCore.Diagnostics.HealthChecks.HealthCheckOptions.ResponseWriter) seçeneğini yanıtı yazmak için bir temsilci olarak ayarlayın:
 
 ```csharp
 app.UseEndpoints(endpoints =>
@@ -314,27 +312,19 @@ app.UseEndpoints(endpoints =>
 });
 ```
 
-Varsayılan temsilci, [HealthReport. Status](xref:Microsoft.Extensions.Diagnostics.HealthChecks.HealthReport.Status)dize değerine sahip en az bir düz metin yanıtı yazar. Aşağıdaki özel temsilci, `WriteResponse`özel bir JSON yanıtı verir:
+Varsayılan temsilci, [HealthReport. Status](xref:Microsoft.Extensions.Diagnostics.HealthChecks.HealthReport.Status)dize değerine sahip en az bir düz metin yanıtı yazar. Aşağıdaki özel temsilciler özel bir JSON yanıtını çıktı.
 
-```csharp
-private static Task WriteResponse(HttpContext httpContext, HealthReport result)
-{
-    httpContext.Response.ContentType = "application/json";
+Örnek uygulamadaki ilk örnek <xref:System.Text.Json?displayProperty=fullName>nasıl kullanacağınızı gösterir:
 
-    var json = new JObject(
-        new JProperty("status", result.Status.ToString()),
-        new JProperty("results", new JObject(result.Entries.Select(pair =>
-            new JProperty(pair.Key, new JObject(
-                new JProperty("status", pair.Value.Status.ToString()),
-                new JProperty("description", pair.Value.Description),
-                new JProperty("data", new JObject(pair.Value.Data.Select(
-                    p => new JProperty(p.Key, p.Value))))))))));
-    return httpContext.Response.WriteAsync(
-        json.ToString(Formatting.Indented));
-}
-```
+[!code-csharp[](health-checks/samples/3.x/HealthChecksSample/CustomWriterStartup.cs?name=snippet_WriteResponse_SystemTextJson)]
 
-Durum denetimleri sistemi, karmaşık JSON dönüş biçimleri için yerleşik destek sağlamaz çünkü biçim, sizin tercih ettiğiniz izleme sistemine özgüdür. Gereksinimlerinizi karşılamak için gereken önceki örnekteki `JObject` özelleştirebilirsiniz.
+İkinci örnek [Newtonsoft. JSON](https://www.nuget.org/packages/Newtonsoft.Json/)' ın nasıl kullanılacağını gösterir:
+
+[!code-csharp[](health-checks/samples/3.x/HealthChecksSample/CustomWriterStartup.cs?name=snippet_WriteResponse_NewtonSoftJson)]
+
+Örnek uygulamada, `WriteResponse``Newtonsoft.Json` sürümünü etkinleştirmek için, *CustomWriterStartup.cs* ' de `SYSTEM_TEXT_JSON` [Önişlemci yönergesini](xref:index#preprocessor-directives-in-sample-code) not edin.
+
+Durum denetimleri API 'SI, biçim, izleme sistemine özgü olan karmaşık JSON dönüş biçimleri için yerleşik destek sağlamaz. Önceki örneklerde gereken yanıtı gerektiği gibi özelleştirin. `System.Text.Json`ile JSON serileştirme hakkında daha fazla bilgi için bkz. [.net 'TE JSON serileştirilmesi ve serisini kaldırma](/dotnet/standard/serialization/system-text-json-how-to).
 
 ## <a name="database-probe"></a>Veritabanı araştırması
 
@@ -531,11 +521,11 @@ uygulama, belirli bir bellek eşiğine (örnek uygulamada 1 GB) daha fazlasını
 
 Sistem durumu denetimi hizmetlerini `Startup.ConfigureServices`<xref:Microsoft.Extensions.DependencyInjection.HealthCheckServiceCollectionExtensions.AddHealthChecks*> ile kaydedin. Durum denetimini <xref:Microsoft.Extensions.DependencyInjection.HealthChecksBuilderAddCheckExtensions.AddCheck*>geçirerek etkinleştirmek yerine, `MemoryHealthCheck` bir hizmet olarak kaydedilir. Tüm kayıtlı <xref:Microsoft.Extensions.Diagnostics.HealthChecks.IHealthCheck> Hizmetleri sistem durumu denetimi Hizmetleri ve ara yazılım tarafından kullanılabilir. Sistem durumu denetimi hizmetlerini tek hizmet olarak kaydetmeyi öneririz.
 
-Örnek uygulamada (*CustomWriterStartup.cs*):
+Örnek uygulamanın *CustomWriterStartup.cs* ' de:
 
 [!code-csharp[](health-checks/samples/3.x/HealthChecksSample/CustomWriterStartup.cs?name=snippet_ConfigureServices&highlight=4)]
 
-`Startup.Configure``MapHealthChecks` çağırarak bir sistem durumu denetim uç noktası oluşturulur. Bir `WriteResponse` temsilcisi, sistem durumu denetimi yürütüldüğünde özel bir JSON yanıtının çıkışı için `ResponseWriter` özelliğine sağlanır:
+`Startup.Configure``MapHealthChecks` çağırarak bir sistem durumu denetim uç noktası oluşturulur. Sistem durumu denetimi yürütüldüğünde özel bir JSON yanıtının çıktısını almak için Microsoft. AspNetCore. Diagnostics. Healthdenetimleri. HealthCheckOptions. ResponseWriter > özelliğine < `WriteResponse` bir temsilci sağlanır:
 
 ```csharp
 app.UseEndpoints(endpoints =>
@@ -547,9 +537,7 @@ app.UseEndpoints(endpoints =>
 }
 ```
 
-`WriteResponse` yöntemi bir JSON nesnesine `CompositeHealthCheckResult` biçimlendirir ve sistem durumu denetimi yanıtı için JSON çıktısı verir:
-
-[!code-csharp[](health-checks/samples/3.x/HealthChecksSample/CustomWriterStartup.cs?name=snippet_WriteResponse)]
+`WriteResponse` temsilci, `CompositeHealthCheckResult` bir JSON nesnesine biçimlendirir ve sistem durumu denetimi yanıtı için JSON çıktısı verir. Daha fazla bilgi için [çıktıyı özelleştirme](#customize-output) bölümüne bakın.
 
 Örnek uygulamayı kullanarak özel yanıt yazıcı çıkışıyla ölçüm tabanlı araştırmayı çalıştırmak için, komut kabuğu 'ndaki projenin klasöründen aşağıdaki komutu yürütün:
 
@@ -809,7 +797,7 @@ Sistem durumu denetimleri, bir uygulama tarafından HTTP uç noktaları olarak g
 * Bellek, disk ve diğer fiziksel sunucu kaynaklarının kullanımı sağlıklı bir durum için izlenebilir.
 * Sistem durumu denetimleri, kullanılabilirliği ve normal çalışmayı onaylamak için bir uygulamanın veritabanları ve dış hizmet uç noktaları gibi bağımlılıklarını test edebilir.
 
-[Örnek kodu görüntüleme veya indirme](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/host-and-deploy/health-checks/samples) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
+[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/host-and-deploy/health-checks/samples) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
 
 Örnek uygulama, bu konuda açıklanan senaryoların örneklerini içerir. Örnek uygulamayı belirli bir senaryo için çalıştırmak için, bir komut kabuğunda projenin klasöründen [DotNet Run](/dotnet/core/tools/dotnet-run) komutunu kullanın. Örnek uygulamayı kullanma hakkında ayrıntılı bilgi için bu konudaki örnek uygulamanın *README.MD* dosyasına ve senaryo açıklamalarına bakın.
 
@@ -986,7 +974,7 @@ public void Configure(IApplicationBuilder app)
 
 Sistem durumunun HTTP durum kodlarına eşlenmesini özelleştirmek için <xref:Microsoft.AspNetCore.Diagnostics.HealthChecks.HealthCheckOptions.ResultStatusCodes> kullanın. Aşağıdaki <xref:Microsoft.AspNetCore.Http.StatusCodes> atamaları, ara yazılım tarafından kullanılan varsayılan değerlerdir. Durum kodu değerlerini gereksinimlerinize uyacak şekilde değiştirin.
 
-`Startup.Configure`:
+`Startup.Configure` içinde:
 
 ```csharp
 //using Microsoft.AspNetCore.Diagnostics.HealthChecks;
@@ -1007,7 +995,7 @@ app.UseHealthChecks("/health", new HealthCheckOptions()
 
 <xref:Microsoft.AspNetCore.Diagnostics.HealthChecks.HealthCheckOptions.AllowCachingResponses>, yanıt önbelleğini engellemek için sistem durumu denetimlerinin ara yazılım tarafından araştırma yanıtına HTTP üstbilgileri ekleyip eklemediğini denetler. Değer `false` (varsayılan) ise, ara yazılım, yanıt önbelleğe almayı engellemek için `Cache-Control`, `Expires`ve `Pragma` üst bilgilerini ayarlar veya geçersiz kılar. Değer `true`ise, ara yazılım yanıtın önbellek üstbilgilerini değiştirmez.
 
-`Startup.Configure`:
+`Startup.Configure` içinde:
 
 ```csharp
 //using Microsoft.AspNetCore.Diagnostics.HealthChecks;
@@ -1023,7 +1011,7 @@ app.UseHealthChecks("/health", new HealthCheckOptions()
 
 <xref:Microsoft.AspNetCore.Diagnostics.HealthChecks.HealthCheckOptions.ResponseWriter> seçeneği, yanıtı yazmak için kullanılan bir temsilciyi alır veya ayarlar. Varsayılan temsilci, [HealthReport. Status](xref:Microsoft.Extensions.Diagnostics.HealthChecks.HealthReport.Status)dize değerine sahip en az bir düz metin yanıtı yazar.
 
-`Startup.Configure`:
+`Startup.Configure` içinde:
 
 ```csharp
 // using Microsoft.AspNetCore.Diagnostics.HealthChecks;

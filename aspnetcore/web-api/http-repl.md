@@ -5,14 +5,14 @@ description: HTTP REPL .NET Core küresel aracının bir ASP.NET Core Web API 's
 monikerRange: '>= aspnetcore-2.1'
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 12/02/2019
+ms.date: 12/11/2019
 uid: web-api/http-repl
-ms.openlocfilehash: c6e3ab5685b5bd0b154d20585fb0d187f81da641
-ms.sourcegitcommit: 3b6b0a54b20dc99b0c8c5978400c60adf431072f
+ms.openlocfilehash: 34ec2b2eb511f33e1263cdad4a338183a3e4b83a
+ms.sourcegitcommit: 2cb857f0de774df421e35289662ba92cfe56ffd1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74717171"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75356188"
 ---
 # <a name="test-web-apis-with-the-http-repl"></a>HTTP REPL ile Web API 'Lerini test etme
 
@@ -26,13 +26,13 @@ HTTP okuma-değerlendirme-yazdırma döngüsü (REPL):
 
 Aşağıdaki [http fiilleri](https://github.com/microsoft/api-guidelines/blob/vNext/Guidelines.md#74-supported-methods) desteklenir:
 
-* [SILMELI](#test-http-delete-requests)
-* [Al](#test-http-get-requests)
+* [DELETE](#test-http-delete-requests)
+* [GET](#test-http-get-requests)
 * [BAŞLı](#test-http-head-requests)
 * [Seçenekler](#test-http-options-requests)
 * [DÜZELTMESI](#test-http-patch-requests)
-* [Yayınla](#test-http-post-requests)
-* [KONUR](#test-http-put-requests)
+* [POST](#test-http-post-requests)
+* [PUT](#test-http-put-requests)
 
 Takip etmek için, [örnek ASP.NET Core Web API](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/web-api/http-repl/samples) 'sini ([indirme](xref:index#how-to-download-a-sample)) görüntüleyin veya indirin.
 
@@ -225,7 +225,7 @@ https://localhost:5001/people~
 
 HTTP REPL 'un varsayılan [renkleri](#set-color-preferences) özelleştirilebilir. Ayrıca, [varsayılan bir metin Düzenleyicisi](#set-the-default-text-editor) tanımlanabilir. HTTP REPL tercihleri geçerli oturum genelinde kalıcı hale getirilir ve gelecekteki oturumlarda kabul edilir. Değiştirildikten sonra, Tercihler aşağıdaki dosyada depolanır:
 
-# <a name="linuxtablinux"></a>['Un](#tab/linux)
+# <a name="linuxtablinux"></a>[Linux](#tab/linux)
 
 *% GIRIŞ%/. httpreplprefs*
 
@@ -335,7 +335,7 @@ pref set editor.command.default "<EXECUTABLE>"
 
 Yukarıdaki komutta, `<EXECUTABLE>` metin düzenleyicisinin yürütülebilir dosyasının tam yoludur. Örneğin, Visual Studio Code varsayılan metin düzenleyicisi olarak ayarlamak için aşağıdaki komutu çalıştırın:
 
-# <a name="linuxtablinux"></a>['Un](#tab/linux)
+# <a name="linuxtablinux"></a>[Linux](#tab/linux)
 
 ```console
 pref set editor.command.default "/usr/bin/code"
@@ -690,8 +690,9 @@ HTTP SILME isteği vermek için:
         "data": "Strawberry"
       }
     ]
+    ```
 
-1. Run the `delete` command on an endpoint that supports it:
+1. `delete` komutunu bunu destekleyen bir uç noktada çalıştırın:
 
     ```console
     https://localhost:5001/fruits~ delete 2
@@ -970,7 +971,7 @@ Aynı HTTP REPL komutları kümesini sıklıkla yürütüyorsanız bunları bir 
     https://localhost:5001/~ run C:\http-repl-scripts\people-script.txt
     ```
 
-    Aşağıdaki çıktı görüntülenir:
+    Şu çıktı görünür:
 
     ```console
     https://localhost:5001/~ set base https://localhost:5001

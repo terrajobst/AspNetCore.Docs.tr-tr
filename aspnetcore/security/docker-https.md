@@ -6,13 +6,15 @@ monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
 ms.date: 07/05/2019
+no-loc:
+- Let's Encrypt
 uid: security/docker-https
-ms.openlocfilehash: c13ba02845eef5c53a939feec2be8a01bc4ca128
-ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
+ms.openlocfilehash: 47027033c0b7130f2d38d22c02a54945b2cc31b3
+ms.sourcegitcommit: 2cb857f0de774df421e35289662ba92cfe56ffd1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71082539"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75358919"
 ---
 # <a name="hosting-aspnet-core-images-with-docker-over-https"></a>HTTPS üzerinden Docker ile görüntüleri barındırma ASP.NET Core
 
@@ -26,22 +28,22 @@ Geliştirme senaryoları için bkz. [https üzerinden Docker ile ASP.NET Core uy
 
 Bu örnek, [Docker Istemcisinin](https://www.docker.com/products/docker) [Docker 17,06](https://docs.docker.com/release-notes/docker-ce) veya sonraki bir sürümünü gerektirir.
 
-## <a name="prerequisites"></a>Önkoşullar
+## <a name="prerequisites"></a>Prerequisites
 
 Bu belgedeki bazı yönergeler için [.NET Core 2,2 SDK](https://www.microsoft.com/net/download) veya üzeri gereklidir.
 
 ## <a name="certificates"></a>Sertifikalar
 
-Bir etki alanı için [Üretim barındırma](https://blogs.msdn.microsoft.com/webdev/2017/11/29/configuring-https-in-asp-net-core-across-different-platforms/) için bir [sertifika yetkilisinden](https://en.wikipedia.org/wiki/Certificate_authority) bir sertifika gereklidir.  [Şifrelemem](https://letsencrypt.org/) , ücretsiz sertifikalar sunan bir sertifika yetkilisindir.
+Bir etki alanı için [Üretim barındırma](https://blogs.msdn.microsoft.com/webdev/2017/11/29/configuring-https-in-asp-net-core-across-different-platforms/) için bir [sertifika yetkilisinden](https://wikipedia.org/wiki/Certificate_authority) bir sertifika gereklidir. [Let's Encrypt](https://letsencrypt.org/) , ücretsiz sertifikalar sunan bir sertifika yetkilisindir.
 
-Bu belge, üzerine `localhost`önceden oluşturulmuş görüntüleri barındırmak için otomatik olarak [imzalanan geliştirme sertifikaları](https://en.wikipedia.org/wiki/Self-signed_certificate) kullanır. Yönergeler, üretim sertifikalarını kullanmaya benzerdir.
+Bu belge, `localhost`üzerinde önceden oluşturulmuş görüntüleri barındırmak için [otomatik olarak imzalanan geliştirme sertifikaları](https://en.wikipedia.org/wiki/Self-signed_certificate) kullanır. Yönergeler, üretim sertifikalarını kullanmaya benzerdir.
 
 Üretim sertifikaları için:
 
-* `dotnet dev-certs` Araç gerekli değildir.
+* `dotnet dev-certs` aracı gerekli değildir.
 * Sertifikaların, yönergelerde kullanılan konumda depolanması gerekmez. Herhangi bir konumun çalışması gerekir, ancak bu sertifikalar site dizininizde depolanarak önerilmez.
 
-Yönergeler birimi, sertifikaları kapsayıcılara bağlama. Dockerfile içindeki bir `COPY` komutla kapsayıcı görüntülerine sertifika ekleyebilirsiniz. Sertifikaların bir görüntüye kopyalanması önerilmez:
+Yönergeler birimi, sertifikaları kapsayıcılara bağlama. Bir *Dockerfile*içinde `COPY` komutuyla kapsayıcı görüntülerine sertifika ekleyebilirsiniz. Sertifikaları bir görüntüye kopyalamak aşağıdaki nedenlerden dolayı önerilmez:
 
 * Geliştirici sertifikaları ile test etmek için aynı görüntünün kullanımını zorlaştırır.
 * Üretim sertifikaları ile barındırmak için aynı görüntünün kullanımını zorlaştırır.
@@ -60,7 +62,7 @@ dotnet dev-certs https -ep %USERPROFILE%\.aspnet\https\aspnetapp.pfx -p { passwo
 dotnet dev-certs https --trust
 ```
 
-Yukarıdaki komutlarda, öğesini parolayla değiştirin `{ password here }` .
+Yukarıdaki komutlarda `{ password here }` bir parolayla değiştirin.
 
 Kapsayıcı görüntüsünü HTTPS için yapılandırılan ASP.NET Core çalıştırın:
 
@@ -80,9 +82,9 @@ dotnet dev-certs https -ep ${HOME}/.aspnet/https/aspnetapp.pfx -p { password her
 dotnet dev-certs https --trust
 ```
 
-`dotnet dev-certs https --trust`yalnızca macOS ve Windows 'da desteklenir. Linux 'ta sertifikalarınızın desteklediği şekilde sertifika almanız gerekir. Büyük olasılıkla, tarayıcınızda sertifikaya güvenmeniz gerekir.
+`dotnet dev-certs https --trust` yalnızca macOS ve Windows 'ta desteklenir. Linux 'ta sertifikalarınızın desteklediği şekilde sertifika almanız gerekir. Büyük olasılıkla, tarayıcınızda sertifikaya güvenmeniz gerekir.
 
-Yukarıdaki komutlarda, öğesini parolayla değiştirin `{ password here }` .
+Yukarıdaki komutlarda `{ password here }` bir parolayla değiştirin.
 
 Kapsayıcı görüntüsünü HTTPS için yapılandırılan ASP.NET Core çalıştırın:
 
@@ -102,7 +104,7 @@ dotnet dev-certs https -ep %USERPROFILE%\.aspnet\https\aspnetapp.pfx -p { passwo
 dotnet dev-certs https --trust
 ```
 
-Yukarıdaki komutlarda, öğesini parolayla değiştirin `{ password here }` .
+Yukarıdaki komutlarda `{ password here }` bir parolayla değiştirin.
 
 Kapsayıcı görüntüsünü HTTPS için yapılandırılan ASP.NET Core çalıştırın:
 

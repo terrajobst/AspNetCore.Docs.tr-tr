@@ -9,24 +9,24 @@ ms.date: 11/12/2019
 no-loc:
 - SignalR
 uid: signalr/javascript-client
-ms.openlocfilehash: 926160a41c82853d83890f0d52b14d7d5561a990
-ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
+ms.openlocfilehash: eaf737642cdbd7ab2b1b5c16538b47a70cddd332
+ms.sourcegitcommit: 2cb857f0de774df421e35289662ba92cfe56ffd1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73963778"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75354694"
 ---
 # <a name="aspnet-core-opno-locsignalr-javascript-client"></a>ASP.NET Core SignalR JavaScript istemcisi
 
-, [Oychel Appel](https://twitter.com/rachelappel) tarafından
+Tarafından [Rachel Appel](https://twitter.com/rachelappel)
 
 ASP.NET Core SignalR JavaScript istemci kitaplığı, geliştiricilerin sunucu tarafı hub kodunu çağırmasını sağlar.
 
-[Örnek kodu görüntüleme veya indirme](https://github.com/aspnet/AspNetCore.Docs/tree/live/aspnetcore/signalr/javascript-client/sample) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
+[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/live/aspnetcore/signalr/javascript-client/sample) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
 
 ## <a name="install-the-opno-locsignalr-client-package"></a>SignalR istemci paketini yükler
 
-SignalR JavaScript istemci kitaplığı [NPM](https://www.npmjs.com/) paketi olarak dağıtılır. Visual Studio kullanıyorsanız, kök klasörde, **Paket Yöneticisi konsolundan** `npm install` çalıştırın. Visual Studio Code için, **Tümleşik terminalden**komutunu çalıştırın.
+SignalR JavaScript istemci kitaplığı [NPM](https://www.npmjs.com/) paketi olarak dağıtılır. Visual Studio kullanıyorsanız, çalıştırma `npm install` gelen **Paket Yöneticisi Konsolu** while kök klasöründe. Visual Studio Code için komutu çalıştırın **tümleşik Terminalini**.
 
 ::: moniker range=">= aspnetcore-3.0"
 
@@ -35,7 +35,7 @@ SignalR JavaScript istemci kitaplığı [NPM](https://www.npmjs.com/) paketi ola
   npm install @microsoft/signalr
   ```
 
-NPM *node_modules\\@microsoft\signalr\dist\browser* klasöre paket içeriğini yüklüyor. *Wwwroot\\lib* klasörü altında *SignalR* adlı yeni bir klasör oluşturun. *SignalR. js* dosyasını *wwwroot\lib\signalr* klasörüne kopyalayın.
+npm paket içeriğini yükler *node_modules\\@microsoft\signalr\dist\browser* klasör. Adlı yeni bir klasör oluşturun *signalr* altında *wwwroot\\LIB* klasör. Kopyalama *signalr.js* dosyasını *wwwroot\lib\signalr* klasör.
 
 ::: moniker-end
 
@@ -46,7 +46,7 @@ NPM *node_modules\\@microsoft\signalr\dist\browser* klasöre paket içeriğini y
   npm install @aspnet/signalr
   ```
 
-NPM *node_modules\\@aspnet\signalr\dist\browser* klasöre paket içeriğini yüklüyor. *Wwwroot\\lib* klasörü altında *SignalR* adlı yeni bir klasör oluşturun. *SignalR. js* dosyasını *wwwroot\lib\signalr* klasörüne kopyalayın.
+npm paket içeriğini yükler *node_modules\\@aspnet\signalr\dist\browser* klasör. Adlı yeni bir klasör oluşturun *signalr* altında *wwwroot\\LIB* klasör. Kopyalama *signalr.js* dosyasını *wwwroot\lib\signalr* klasör.
 
 ::: moniker-end
 
@@ -58,26 +58,26 @@ NPM *node_modules\\@aspnet\signalr\dist\browser* klasöre paket içeriğini yük
 <script src="~/lib/signalr/signalr.js"></script>
 ```
 
-## <a name="connect-to-a-hub"></a>Bir hub 'a bağlanma
+## <a name="connect-to-a-hub"></a>Bir hub'ına bağlama
 
-Aşağıdaki kod bir bağlantı oluşturur ve başlatır. Hub 'ın adı büyük/küçük harfe duyarlıdır.
+Aşağıdaki kod oluşturur ve bir bağlantı başlatır. Hub'ının adı büyük/küçük harfe duyarlıdır.
 
 [!code-javascript[Call hub methods](javascript-client/sample/wwwroot/js/chat.js?range=9-13,43-45)]
 
-### <a name="cross-origin-connections"></a>Çapraz kaynak bağlantıları
+### <a name="cross-origin-connections"></a>Çıkış noktaları arası bağlantılar
 
-Genellikle, tarayıcılar istenen sayfayla aynı etki alanındaki bağlantıları yükler. Ancak, başka bir etki alanına bağlantı gerektiğinde bu durumlar vardır.
+Genellikle, tarayıcılar istenen sayfa aynı etki alanında bağlantıları yükleyin. Ancak, başka bir etki alanı bağlantı gerekli olduğunda durumlar vardır.
 
-Kötü amaçlı bir sitenin başka bir siteden hassas verileri okumasını engellemek için, [Çıkış](xref:security/cors) noktaları varsayılan olarak devre dışı bırakılır. Bir çapraz kaynak isteğine izin vermek için `Startup` sınıfında etkinleştirin.
+Kötü amaçlı bir siteyi başka bir siteden hassas verileri okumasını önlemek için [çıkış noktaları arası bağlantıları](xref:security/cors) varsayılan olarak devre dışıdır. Çıkış noktaları arası istek izin vermek için bunu etkinleştirin `Startup` sınıfı.
 
 [!code-csharp[Cross-origin connections](javascript-client/sample/Startup.cs?highlight=29-35,56)]
 
-## <a name="call-hub-methods-from-client"></a>İstemciden çağrı merkezi yöntemleri
+## <a name="call-hub-methods-from-client"></a>İstemciden hub yöntemlerini çağırma
 
-JavaScript istemcileri, [Hubconnection](/javascript/api/%40aspnet/signalr/hubconnection)'un [Invoke](/javascript/api/%40aspnet/signalr/hubconnection#invoke) yöntemi aracılığıyla hub 'larda ortak yöntemleri çağırır. `invoke` yöntemi iki bağımsız değişkeni kabul eder:
+JavaScript istemcilerinin şirket hub'ları genel yöntemleri çağırmak [çağırma](/javascript/api/%40aspnet/signalr/hubconnection#invoke) yöntemi [HubConnection](/javascript/api/%40aspnet/signalr/hubconnection). `invoke` Yöntemi iki bağımsız değişkeni kabul eder:
 
-* Hub yönteminin adı. Aşağıdaki örnekte, hub 'daki Yöntem adı `SendMessage`.
-* Hub yönteminde tanımlanan bağımsız değişkenler. Aşağıdaki örnekte, bağımsız değişken adı `message`. Örnek kod, Internet Explorer hariç tüm büyük tarayıcıların güncel sürümlerinde desteklenen ok işlev sözdizimini kullanır.
+* Hub yönteminin adı. Aşağıdaki örnekte, yöntem hub'ında addır `SendMessage`.
+* Hub yönteminin içinde tanımlanan tüm bağımsız değişkenler. Aşağıdaki örnekte, bağımsız değişkeni addır `message`. Örnek kod, Internet Explorer hariç tüm büyük tarayıcıların güncel sürümlerinde desteklenen ok işlev sözdizimini kullanır.
 
   [!code-javascript[Call hub methods](javascript-client/sample/wwwroot/js/chat.js?range=24)]
 
@@ -91,42 +91,42 @@ JavaScript istemcileri, [Hubconnection](/javascript/api/%40aspnet/signalr/hubcon
 > [!NOTE]
 > `send` kullanmak sunucu iletiyi almadan önce beklemez. Sonuç olarak, sunucudan veri veya hata döndürülmesi mümkün değildir.
 
-## <a name="call-client-methods-from-hub"></a>Hub 'dan istemci yöntemlerini çağır
+## <a name="call-client-methods-from-hub"></a>İstemci hub'ından yöntemleri çağırma
 
-Hub 'dan ileti almak için `HubConnection`[on](/javascript/api/%40aspnet/signalr/hubconnection#on) metodunu kullanarak bir yöntemi tanımlayın.
+Hub'ından iletiler almak için bir yöntemi kullanarak tanımlarsınız [üzerinde](/javascript/api/%40aspnet/signalr/hubconnection#on) yöntemi `HubConnection`.
 
-* JavaScript istemci yönteminin adı. Aşağıdaki örnekte, yöntem adı `ReceiveMessage`.
-* Hub 'ın yönteme geçirdiği bağımsız değişkenler. Aşağıdaki örnekte, bağımsız değişken değeri `message`.
+* JavaScript istemci yöntemin adı. Aşağıdaki örnekte, yöntem adı olan `ReceiveMessage`.
+* Bağımsız değişkenleri hub yöntemine geçirir. Aşağıdaki örnekte, bağımsız değişken değeri olan `message`.
 
 [!code-javascript[Receive calls from hub](javascript-client/sample/wwwroot/js/chat.js?range=14-19)]
 
-`connection.on` önceki kod, sunucu tarafı kodu [Sendadsync](/dotnet/api/microsoft.aspnetcore.signalr.clientproxyextensions.sendasync) yöntemi kullanılarak çağırdığında çalışır.
+Önceki kodda `connection.on` sunucu tarafı kod kullanarak çağırdığında çalıştıran [SendAsync](/dotnet/api/microsoft.aspnetcore.signalr.clientproxyextensions.sendasync) yöntemi.
 
 [!code-csharp[Call client-side](javascript-client/sample/hubs/chathub.cs?range=8-11)]
 
 SignalR, `SendAsync` ve `connection.on`tanımlanan yöntem adı ve bağımsız değişkenlerle eşleştirerek hangi istemci yönteminin çağrılacağını belirler.
 
 > [!NOTE]
-> En iyi uygulama olarak, `on`sonra `HubConnection` [Başlangıç](/javascript/api/%40aspnet/signalr/hubconnection#start) yöntemini çağırın. Bunun yapılması, işleyicilerinin herhangi bir ileti alınmadan önce kaydolmasını sağlar.
+> En iyi uygulama, çağrı [Başlat](/javascript/api/%40aspnet/signalr/hubconnection#start) metodunda `HubConnection` sonra `on`. İletileri almadan önce İşleyicileriniz kayıtlı sağlar.
 
 ## <a name="error-handling-and-logging"></a>Hata işleme ve günlüğe kaydetme
 
-İstemci tarafı hatalarını işlemek için `start` yönteminin sonuna bir `catch` yöntemi zincirleyin. Hataları tarayıcı konsoluna çıkarmak için `console.error` kullanın.
+Zincir bir `catch` sonuna yöntemi `start` istemci tarafı hataları işlemek için yöntemi. Kullanım `console.error` tarayıcının konsola çıktı hataları.
 
 [!code-javascript[Error handling](javascript-client/sample/wwwroot/js/chat.js?range=49-51)]
 
-Bağlantı yapıldığında günlüğe bir günlükçü ve olay türü geçirerek istemci tarafı günlük izlemeyi ayarlayın. İletiler, belirtilen günlük düzeyi ve daha yükseği ile günlüğe kaydedilir. Kullanılabilir günlük düzeyleri aşağıdaki gibidir:
+Bağlantı kurulduğunda oturum için bir Günlükçü ve olay türünü geçirerek istemci tarafı günlük izleme ayarlayın. Belirtilen günlük düzeyi ve üzeri, iletileri günlüğe kaydedilir. Kullanılabilir günlük düzeyleri aşağıdaki gibidir:
 
-* &ndash; hata iletileri `signalR.LogLevel.Error`. Yalnızca `Error` iletileri günlüğe kaydeder.
-* olası hatalar hakkında &ndash; uyarı iletileri `signalR.LogLevel.Warning`. `Warning`ve `Error` iletileri günlüğe kaydeder.
-* hata olmadan &ndash; durum iletileri `signalR.LogLevel.Information`. `Information`, `Warning`ve `Error` iletileri günlüğe kaydeder.
-* Izleme iletilerini &ndash; `signalR.LogLevel.Trace`. Hub ve istemci arasında taşınan veriler de dahil olmak üzere her şeyi günlüğe kaydeder.
+* `signalR.LogLevel.Error` &ndash; Hata iletileri. Günlükleri `Error` yalnızca iletileri.
+* `signalR.LogLevel.Warning` &ndash; Olası hatalar hakkında uyarı iletileri. Günlükleri `Warning`, ve `Error` iletileri.
+* `signalR.LogLevel.Information` &ndash; Hatasız durum iletileri. Günlükleri `Information`, `Warning`, ve `Error` iletileri.
+* `signalR.LogLevel.Trace` &ndash; İzleme iletileri. Hub ve istemci arasında taşınan veriler dahil her şeyi günlüğe kaydeder.
 
-Günlük düzeyini yapılandırmak için [Hubconnectionbuilder](/javascript/api/%40aspnet/signalr/hubconnectionbuilder) üzerinde [configurelogging](/javascript/api/%40aspnet/signalr/hubconnectionbuilder#configurelogging) yöntemini kullanın. İletiler tarayıcı konsoluna kaydedilir.
+Kullanım [configureLogging](/javascript/api/%40aspnet/signalr/hubconnectionbuilder#configurelogging) metodunda [HubConnectionBuilder](/javascript/api/%40aspnet/signalr/hubconnectionbuilder) günlük düzeyi yapılandırmak için. İletileri tarayıcı konsoluna yazılır.
 
 [!code-javascript[Logging levels](javascript-client/sample/wwwroot/js/chat.js?range=9-12)]
 
-## <a name="reconnect-clients"></a>İstemcileri yeniden bağla
+## <a name="reconnect-clients"></a>İstemcileri yeniden
 
 ::: moniker range=">= aspnetcore-3.0"
 
@@ -236,15 +236,16 @@ const connection = new signalR.HubConnectionBuilder()
     .withUrl("/chatHub")
     .withAutomaticReconnect({
         nextRetryDelayInMilliseconds: retryContext => {
-          if (retryContext.elapsedMilliseconds < 60000) {
-            // If we've been reconnecting for less than 60 seconds so far,
-            // wait between 0 and 10 seconds before the next reconnect attempt.
-            return Math.random() * 10000;
-          } else {
-            // If we've been reconnecting for more than 60 seconds so far, stop reconnecting.
-            return null;
-          }
-        })
+            if (retryContext.elapsedMilliseconds < 60000) {
+                // If we've been reconnecting for less than 60 seconds so far,
+                // wait between 0 and 10 seconds before the next reconnect attempt.
+                return Math.random() * 10000;
+            } else {
+                // If we've been reconnecting for more than 60 seconds so far, stop reconnecting.
+                return null;
+            }
+        }
+    })
     .build();
 ```
 
@@ -257,26 +258,26 @@ Alternatif olarak, [el ile yeniden bağlanma](#manually-reconnect)bölümünde g
 ::: moniker range="< aspnetcore-3.0"
 
 > [!WARNING]
-> 3,0 ' den önce SignalR JavaScript istemcisi otomatik olarak yeniden bağlanmaz. İstemcinizi el ile yeniden bağlayacaksınız kodu yazmanız gerekir.
+> 3,0 ' den önce SignalR JavaScript istemcisi otomatik olarak yeniden bağlanmaz. İstemcinizi el ile yeniden kod yazmanız gerekir.
 
 ::: moniker-end
 
 Aşağıdaki kod, genel bir el ile yeniden bağlantı yaklaşımını göstermektedir:
 
-1. Bir işlev (Bu durumda `start` işlevi) bağlantıyı başlatmak için oluşturulur.
-1. Bağlantının `onclose` olay işleyicisinde `start` işlevini çağırın.
+1. Bir işlev (Bu durumda, `start` işlevi) bağlantıyı başlatmak için oluşturulur.
+1. Çağrı `start` bağlantının işlevinde `onclose` olay işleyicisi.
 
 [!code-javascript[Reconnect the JavaScript client](javascript-client/sample/wwwroot/js/chat.js?range=28-40)]
 
-Gerçek dünyada bir uygulama, bir üstel geri kapatmayı kullanır veya vermeden önce belirtilen sayıda kez yeniden dener.
+Gerçek uygulama bir üstel geri alma kullanın veya ancak bir belirtilen sayıda vazgeçmeden önce yeniden deneyin.
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [JavaScript API'si başvurusu](/javascript/api/?view=signalr-js-latest)
-* [JavaScript öğreticisi](xref:tutorials/signalr)
-* [WebPack ve TypeScript öğreticisi](xref:tutorials/signalr-typescript-webpack)
+* [JavaScript Öğreticisi](xref:tutorials/signalr)
+* [Web ve TypeScript Öğreticisi](xref:tutorials/signalr-typescript-webpack)
 * [Merkezler](xref:signalr/hubs)
 * [.NET istemcisi](xref:signalr/dotnet-client)
 * [Azure'a Yayımlama](xref:signalr/publish-to-azure-web-app)
-* [Çıkış noktaları arası Istekler (CORS)](xref:security/cors)
+* [Çıkış noktaları arası istekleri (CORS)](xref:security/cors)
 * [Azure SignalR hizmeti sunucusuz belgeler](/azure/azure-signalr/signalr-concept-serverless-development-config)

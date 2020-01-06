@@ -6,16 +6,16 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/21/2019
 uid: security/authentication/social/index
-ms.openlocfilehash: 627ca483d60514d85e38c0e346ff5aef64ad9fee
-ms.sourcegitcommit: 16cf016035f0c9acf3ff0ad874c56f82e013d415
+ms.openlocfilehash: 06ce9c72f43955345efb61afed2538158810005f
+ms.sourcegitcommit: 2cb857f0de774df421e35289662ba92cfe56ffd1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73034303"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75358075"
 ---
 # <a name="facebook-google-and-external-provider-authentication-in-aspnet-core"></a>ASP.NET Core Facebook, Google ve dış sağlayıcı kimlik doğrulaması
 
-Tarafından [Valeriy Novyıtskyy](https://github.com/01binary) ve [Rick Anderson](https://twitter.com/RickAndMSFT)
+Tarafından [Valeriy Novytskyy](https://github.com/01binary) ve [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 Bu öğreticide, kullanıcıların dış kimlik doğrulama sağlayıcılarından kimlik bilgileriyle OAuth 2,0 kullanarak oturum açmasını sağlayan ASP.NET Core 3,0 uygulamasının nasıl oluşturulacağı gösterilmektedir.
 
@@ -34,9 +34,9 @@ Sosyal oturumların trafik ve müşteri dönüştürmelerini nasıl ve ne şekil
 
 * Yeni bir proje oluşturun.
 * **ASP.NET Core Web uygulaması** ' nı ve **İleri ' yi**seçin.
-* Bir **Proje adı** girin ve **konumu**onaylayın veya değiştirin. **Oluştur**' u seçin.
+* Bir **Proje adı** girin ve **konumu**onaylayın veya değiştirin. Seçin **oluşturma**.
 * Açılan kutuda **ASP.NET Core 3,0** ' i seçin ve ardından **Web uygulaması**' nı seçin.
-* **Kimlik doğrulaması**altında **Değiştir** ' i seçin ve kimlik doğrulamasını **bireysel kullanıcı hesapları**olarak ayarlayın. **Tamam ' ı**seçin.
+* **Kimlik doğrulaması**altında **Değiştir** ' i seçin ve kimlik doğrulamasını **bireysel kullanıcı hesapları**olarak ayarlayın. Seçin **Tamam**.
 * **Yeni ASP.NET Core Web uygulaması oluştur** penceresinde **Oluştur**' u seçin.
 
 # <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Visual Studio Code/Mac için Visual Studio](#tab/visual-studio-code+visual-studio-mac)
@@ -45,7 +45,7 @@ Sosyal oturumların trafik ve müşteri dönüştürmelerini nasıl ve ne şekil
 
 * Dizinleri (`cd`), projeyi içerecek bir klasöre değiştirin.
 
-* Windows için aşağıdaki komutu çalıştırın:
+* Windows için şu komutu çalıştırın:
 
   ```dotnetcli
   dotnet new webapp -o WebApp1 -au Individual -uld
@@ -103,7 +103,7 @@ Bir parola oluşturmak ve dış sağlayıcılar ile oturum açma işlemi sıras�
 
 ![Web uygulaması yönetme görünümü](index/_static/pass1a.png)
 
-* **Oluştur** ' u seçin
+* **Oluştur**’u seçin
 
 ![Parola sayfanızı ayarlama](index/_static/pass2a.png)
 
@@ -111,8 +111,7 @@ Bir parola oluşturmak ve dış sağlayıcılar ile oturum açma işlemi sıras�
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
+* Oturum açma düğmelerinin nasıl özelleştirileceği hakkında bilgi edinmek için [Bu GitHub sorununa](https://github.com/aspnet/AspNetCore.Docs/issues/10563) bakın.
 * Bu makalede dış kimlik doğrulaması tanıtılmıştır ve ASP.NET Core uygulamanıza dış oturum açma bilgileri eklemek için gereken önkoşullar açıklanacaktır.
-
 * Uygulamanız için gereken sağlayıcıları için oturum açma işlemlerini yapılandırmak üzere sağlayıcıya özgü sayfalara başvurun.
-
 * Kullanıcı ve bunların erişim ve yenileme belirteçleriyle ilgili ek verileri kalıcı hale getirmek isteyebilirsiniz. Daha fazla bilgi için bkz. <xref:security/authentication/social/additional-claims>.

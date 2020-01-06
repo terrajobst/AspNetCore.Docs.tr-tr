@@ -3,14 +3,14 @@ title: ASP.NET Core kimliği olmadan Facebook, Google ve dış sağlayıcı kiml
 author: rick-anderson
 description: Facebook, Google, Twitter vb. hesap Kullanıcı kimlik doğrulamasını ASP.NET Core kimliği olmadan kullanma açıklaması.
 ms.author: riande
-ms.date: 11/19/2019
+ms.date: 12/10/2019
 uid: security/authentication/social/social-without-identity
-ms.openlocfilehash: 680ea091dcc5ed7f94879b5d277e8be7e5abeb7b
-ms.sourcegitcommit: f40c9311058c9b1add4ec043ddc5629384af6c56
+ms.openlocfilehash: 612964ec9ed4975cdc81780dda3bac6cce96037f
+ms.sourcegitcommit: 2cb857f0de774df421e35289662ba92cfe56ffd1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74289111"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75359064"
 ---
 # <a name="use-social-sign-in-provider-authentication-without-aspnet-core-identity"></a>ASP.NET Core kimlik olmadan sosyal oturum açma sağlayıcısı kimlik doğrulamasını kullanma
 
@@ -47,7 +47,7 @@ Uygulamanın `DefaultScheme`, [ıeauthenticationdefaults. AuthenticationScheme](
 
 [!code-csharp[](social-without-identity/samples_snapshot/3.x/Startup.cs?name=snippet2&highlight=3-4)]
 
-Kimlik doğrulama şemaları ve tanımlama bilgisi kimlik doğrulaması hakkında daha fazla bilgi için bkz. <xref:security/authentication/cookie>.
+Kimlik doğrulama şemaları hakkında daha fazla bilgi için bkz. [kimlik doğrulama kavramları](xref:security/authentication/index#authentication-concepts). Tanımlama bilgisi kimlik doğrulaması hakkında daha fazla bilgi için bkz. <xref:security/authentication/cookie>.
 
 ## <a name="apply-authorization"></a>Yetkilendirmeyi uygula
 
@@ -102,7 +102,7 @@ Uygulamanın `DefaultScheme`, [ıeauthenticationdefaults. AuthenticationScheme](
 
 [!code-csharp[](social-without-identity/samples_snapshot/2.x/Startup.cs?name=snippet2)]
 
-Kimlik doğrulama şemaları ve tanımlama bilgisi kimlik doğrulaması hakkında daha fazla bilgi için bkz. <xref:security/authentication/cookie>.
+Kimlik doğrulama şemaları hakkında daha fazla bilgi için bkz. [kimlik doğrulama kavramları](xref:security/authentication/index#authentication-concepts). Tanımlama bilgisi kimlik doğrulaması hakkında daha fazla bilgi için bkz. <xref:security/authentication/cookie>.
 
 ## <a name="apply-authorization"></a>Yetkilendirmeyi uygula
 

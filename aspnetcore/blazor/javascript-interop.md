@@ -9,12 +9,12 @@ ms.date: 12/05/2019
 no-loc:
 - Blazor
 uid: blazor/javascript-interop
-ms.openlocfilehash: 05225b86701b7a5d5c84dd43afbef70dd1ece228
-ms.sourcegitcommit: 851b921080fe8d719f54871770ccf6f78052584e
+ms.openlocfilehash: 2350870f8548a9c8df324182883a105706c12c20
+ms.sourcegitcommit: 2cb857f0de774df421e35289662ba92cfe56ffd1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74944076"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75355744"
 ---
 # <a name="aspnet-core-opno-locblazor-javascript-interop"></a>ASP.NET Core Blazor JavaScript birlikte çalışabilirliği
 
@@ -30,13 +30,9 @@ Blazor bir uygulama, JavaScript kodundan .NET ve .NET yöntemlerinden JavaScript
 
 Bir JavaScript işlevini çağırmak için .NET kodunun gerekli olduğu durumlar vardır. Örneğin, JavaScript çağrısı, tarayıcı özelliklerini veya bir JavaScript kitaplığından uygulamaya yönelik işlevselliği sunabilir. Bu senaryoya *JavaScript birlikte çalışabilirliği* (*js birlikte çalışma*) denir.
 
-.NET 'ten JavaScript 'i çağırmak için `IJSRuntime` soyutlamasını kullanın. `InvokeAsync<T>` yöntemi, herhangi bir sayıda JSON seri hale getirilebilir bağımsız değişkenle birlikte çağırmak istediğiniz JavaScript işlevi için bir tanımlayıcı alır. İşlev tanımlayıcısı, genel kapsama (`window`) göredir. `window.someScope.someFunction`çağırmak isterseniz, tanımlayıcı `someScope.someFunction`. Çağrılmadan önce işlevi kaydetmeniz gerekmez. Dönüş türü `T` ayrıca seri hale getirilebilir JSON olmalıdır. `T`, döndürülen JSON türüyle en iyi eşleşen .NET türüyle eşleşmelidir.
+.NET 'ten JavaScript 'i çağırmak için `IJSRuntime` soyutlamasını kullanın. JS birlikte çalışma çağrıları vermek için `IJSRuntime` soyutlamasını bileşeninizin içine ekler. `InvokeAsync<T>` yöntemi, herhangi bir sayıda JSON seri hale getirilebilir bağımsız değişkenle birlikte çağırmak istediğiniz JavaScript işlevi için bir tanımlayıcı alır. İşlev tanımlayıcısı, genel kapsama (`window`) göredir. `window.someScope.someFunction`çağırmak isterseniz, tanımlayıcı `someScope.someFunction`. Çağrılmadan önce işlevi kaydetmeniz gerekmez. Dönüş türü `T` ayrıca seri hale getirilebilir JSON olmalıdır. `T`, döndürülen JSON türüyle en iyi eşleşen .NET türüyle eşleşmelidir.
 
-Blazor Server uygulamaları için:
-
-* Blazor sunucusu uygulaması tarafından birden çok kullanıcı isteği işlenir. JavaScript işlevlerini çağırmak için bir bileşende `JSRuntime.Current` çağırmayın.
-* `IJSRuntime` soyutlamasını ekler ve bu nesneyi kullanarak JS birlikte çalışma çağrıları verme.
-* Blazor bir uygulama prerendering olduğunda, tarayıcıyla bir bağlantı kurulmadığından JavaScript 'e çağrı yapılamaz. Daha fazla bilgi için, [Blazor bir uygulamanın ne zaman prerendering olduğunu Algıla](#detect-when-a-blazor-app-is-prerendering) bölümüne bakın.
+Prerendering özellikli Blazor Server uygulamaları için, ilk prerendering sırasında JavaScript 'e çağırma mümkün değildir. JavaScript birlikte çalışma çağrılarının, tarayıcıyla bağlantı kurulana kadar ertelenmesi gerekir. Daha fazla bilgi için, [Blazor bir uygulamanın ne zaman prerendering olduğunu Algıla](#detect-when-a-blazor-app-is-prerendering) bölümüne bakın.
 
 Aşağıdaki örnek, deneysel bir JavaScript tabanlı kod çözücüsü olan [Textdecoder](https://developer.mozilla.org/docs/Web/API/TextDecoder)tabanlıdır. Örnek, bir C# yöntemden JavaScript işlevinin nasıl çağrılacağını gösterir. JavaScript işlevi bir C# yöntemden bir bayt dizisi kabul eder, dizinin kodunu çözer ve görüntülenecek metni bileşene döndürür.
 

@@ -5,12 +5,12 @@ description: Mevcut ASP.NET MVC veya Web API uygulamalarını ASP.NET Core. Web 
 ms.author: scaddie
 ms.date: 10/18/2019
 uid: migration/proper-to-2x/index
-ms.openlocfilehash: 1564b644b774939c3c242a41812851917e96d2b2
-ms.sourcegitcommit: a166291c6708f5949c417874108332856b53b6a9
+ms.openlocfilehash: 19be7191792c44fb5414eb0a7b24772c45391253
+ms.sourcegitcommit: 2cb857f0de774df421e35289662ba92cfe56ffd1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "74803350"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75359418"
 ---
 # <a name="migrate-from-aspnet-to-aspnet-core"></a>ASP.NET 'den ASP.NET Core 'e geçiş
 
@@ -158,6 +158,40 @@ ASP.NET Core, aksi belirtilmedikçe statik dosyalar "Web root" ( *&lt;içerik k�
 ## <a name="multi-value-cookies"></a>Çok değerli tanımlama bilgileri
 
 ASP.NET Core 'de [çok değerli tanımlama bilgileri](xref:System.Web.HttpCookie.Values) desteklenmez. Değer başına bir tanımlama bilgisi oluşturun.
+
+## <a name="partial-app-migration"></a>Kısmi uygulama geçişi
+
+Kısmi uygulama geçişine yönelik bir yaklaşım, bir IIS alt uygulaması oluşturmaktır ve yalnızca ASP.NET 4. x adresinden ASP.NET Core, uygulamanın URL yapısını korurken yalnızca belirli yolları. Örneğin, *ApplicationHost. config* DOSYASıNDAN uygulamanın URL yapısını göz önünde bulundurun:
+
+```xml
+<sites>
+    <site name="Default Web Site" id="1" serverAutoStart="true">
+        <application path="/">
+            <virtualDirectory path="/" physicalPath="D:\sites\MainSite\" />
+        </application>
+        <application path="/api" applicationPool="DefaultAppPool">
+            <virtualDirectory path="/" physicalPath="D:\sites\netcoreapi" />
+        </application>
+        <bindings>
+            <binding protocol="http" bindingInformation="*:80:" />
+            <binding protocol="https" bindingInformation="*:443:" sslFlags="0" />
+        </bindings>
+    </site>
+    ...
+</sites>
+```
+
+Dizin yapısı:
+
+```
+.
+├── MainSite
+│   ├── ...
+│   └── Web.config
+└── NetCoreApi
+    ├── ...
+    └── web.config
+```
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 

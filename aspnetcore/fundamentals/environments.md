@@ -5,14 +5,14 @@ description: ASP.NET Core uygulamalarında birden çok ortamda uygulama davranı
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/07/2019
+ms.date: 12/17/2019
 uid: fundamentals/environments
-ms.openlocfilehash: affbb95273c91fe5bf452e0e1ebefa669297304c
-ms.sourcegitcommit: 851b921080fe8d719f54871770ccf6f78052584e
+ms.openlocfilehash: 30e2771c0a24fcbf6490d08c7028566314b6c011
+ms.sourcegitcommit: 2cb857f0de774df421e35289662ba92cfe56ffd1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74944327"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75358727"
 ---
 # <a name="use-multiple-environments-in-aspnet-core"></a>ASP.NET Core çoklu ortamları kullanma
 
@@ -188,11 +188,12 @@ Konak yapılandırıldığında, uygulama tarafından okunan son ortam ayarı, u
 [Azure App Service](https://azure.microsoft.com/services/app-service/)ortamında ortamı ayarlamak için aşağıdaki adımları gerçekleştirin:
 
 1. Uygulama **Hizmetleri** dikey penceresinden uygulamayı seçin.
-1. **Ayarlar** grubunda, **uygulama ayarları** dikey penceresini seçin.
-1. **Uygulama ayarları** alanında **yeni ayar Ekle**' yi seçin.
-1. **Ad girin**için `ASPNETCORE_ENVIRONMENT`sağlayın. **Değer girin**için ortamı sağlayın (örneğin, `Staging`).
-1. Ortam ayarının, dağıtım yuvaları takas edildiğinde geçerli yuvada kalmasını istiyorsanız, **yuva ayarı** onay kutusunu işaretleyin. Daha fazla bilgi için bkz. [Azure belgeleri: hangi ayarları değiştirmiş?](/azure/app-service/web-sites-staged-publishing).
-1. Dikey pencerenin en üstünde **Kaydet** ' i seçin.
+1. **Ayarlar** grubunda **yapılandırma** dikey penceresini seçin.
+1. **Uygulama ayarları** sekmesinde **Yeni uygulama ayarı**' nı seçin.
+1. **Uygulama ayarı Ekle/Düzenle** penceresinde **ad**için `ASPNETCORE_ENVIRONMENT` sağlayın. **Değer**için ortamı sağlayın (örneğin, `Staging`).
+1. Dağıtım yuvaları takas edildiğinde ortam ayarının geçerli yuvada kalmasını istiyorsanız **dağıtım yuvası ayarını** onay kutusunu işaretleyin. Daha fazla bilgi için bkz. Azure belgelerindeki [Azure App Service hazırlama ortamlarını ayarlama](/azure/app-service/web-sites-staged-publishing) .
+1. **Tamam ' ı** seçerek **uygulama ayarı Ekle/Düzenle** penceresini kapatın.
+1. **Yapılandırma** dikey penceresinin en üstünde **Kaydet** ' i seçin.
 
 Azure App Service, Azure portal bir uygulama ayarı (ortam değişkeni) eklendikten, değiştirildikten veya silindikten sonra uygulamayı otomatik olarak yeniden başlatır.
 
@@ -617,11 +618,12 @@ Konak yapılandırıldığında, uygulama tarafından okunan son ortam ayarı, u
 [Azure App Service](https://azure.microsoft.com/services/app-service/)ortamında ortamı ayarlamak için aşağıdaki adımları gerçekleştirin:
 
 1. Uygulama **Hizmetleri** dikey penceresinden uygulamayı seçin.
-1. **Ayarlar** grubunda, **uygulama ayarları** dikey penceresini seçin.
-1. **Uygulama ayarları** alanında **yeni ayar Ekle**' yi seçin.
-1. **Ad girin**için `ASPNETCORE_ENVIRONMENT`sağlayın. **Değer girin**için ortamı sağlayın (örneğin, `Staging`).
-1. Ortam ayarının, dağıtım yuvaları takas edildiğinde geçerli yuvada kalmasını istiyorsanız, **yuva ayarı** onay kutusunu işaretleyin. Daha fazla bilgi için bkz. [Azure belgeleri: hangi ayarları değiştirmiş?](/azure/app-service/web-sites-staged-publishing).
-1. Dikey pencerenin en üstünde **Kaydet** ' i seçin.
+1. **Ayarlar** grubunda **yapılandırma** dikey penceresini seçin.
+1. **Uygulama ayarları** sekmesinde **Yeni uygulama ayarı**' nı seçin.
+1. **Uygulama ayarı Ekle/Düzenle** penceresinde **ad**için `ASPNETCORE_ENVIRONMENT` sağlayın. **Değer**için ortamı sağlayın (örneğin, `Staging`).
+1. Dağıtım yuvaları takas edildiğinde ortam ayarının geçerli yuvada kalmasını istiyorsanız **dağıtım yuvası ayarını** onay kutusunu işaretleyin. Daha fazla bilgi için bkz. Azure belgelerindeki [Azure App Service hazırlama ortamlarını ayarlama](/azure/app-service/web-sites-staged-publishing) .
+1. **Tamam ' ı** seçerek **uygulama ayarı Ekle/Düzenle** penceresini kapatın.
+1. **Yapılandırma** dikey penceresinin en üstünde **Kaydet** ' i seçin.
 
 Azure App Service, Azure portal bir uygulama ayarı (ortam değişkeni) eklendikten, değiştirildikten veya silindikten sonra uygulamayı otomatik olarak yeniden başlatır.
 

@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.date: 03/27/2019
 ms.topic: tutorial
 uid: data/ef-mvc/migrations
-ms.openlocfilehash: 4c96815461898ce9273f953f083143d8b50d406e
-ms.sourcegitcommit: 7d3c6565dda6241eb13f9a8e1e1fd89b1cfe4d18
+ms.openlocfilehash: bcd36509fe42da0a79b9243d17701f40e066a212
+ms.sourcegitcommit: 077b45eceae044475f04c1d7ef2d153d7c0515a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72259410"
+ms.lasthandoff: 12/29/2019
+ms.locfileid: "75542694"
 ---
 # <a name="tutorial-using-the-migrations-feature---aspnet-mvc-with-ef-core"></a>Öğretici: EF Core ile geçiş özelliğini kullanma-ASP.NET MVC
 
@@ -28,7 +28,7 @@ Bu öğreticide şunları yaptınız:
 > * Veri modeli anlık görüntüsü hakkında bilgi edinin
 > * Geçişi Uygula
 
-## <a name="prerequisites"></a>Önkoşullar
+## <a name="prerequisites"></a>Prerequisites
 
 * [Sıralama, filtreleme ve sayfalama](sort-filter-page.md)
 
@@ -104,7 +104,7 @@ Veritabanı zaten mevcut olduğunda ilk geçişi oluşturduysanız veritabanı o
 
 Geçişler, *geçiş/SchoolContextModelSnapshot. cs*içinde geçerli veritabanı şemasının bir *anlık görüntüsünü* oluşturur. Bir geçiş eklediğinizde EF, veri modeli Snapshot dosyası ile karşılaştırılarak nelerin değiştirildiğini belirler.
 
-Bir geçişi silerken [DotNet EF geçişleri kaldır](/ef/core/miscellaneous/cli/dotnet#dotnet-ef-migrations-remove) komutunu kullanın. `dotnet ef migrations remove` geçişi siler ve anlık görüntünün doğru şekilde sıfırlanmasını sağlar.
+Bir geçişi kaldırmak için [DotNet EF geçişleri kaldır](/ef/core/miscellaneous/cli/dotnet#dotnet-ef-migrations-remove) komutunu kullanın. `dotnet ef migrations remove` geçişi siler ve anlık görüntünün doğru şekilde sıfırlanmasını sağlar. `dotnet ef migrations remove` başarısız olursa, hata hakkında daha fazla bilgi edinmek için `dotnet ef migrations remove -v` kullanın.
 
 Anlık görüntü dosyasının nasıl kullanıldığı hakkında daha fazla bilgi için bkz. [Takım ortamlarında EF Core geçişleri](/ef/core/managing-schemas/migrations/teams) .
 
@@ -167,7 +167,7 @@ CLı komutları hakkında daha fazla bilgi için bkz. [.NET Core CLI](/ef/core/m
 
 PMC komutları hakkında daha fazla bilgi için bkz. [Paket Yöneticisi Konsolu (Visual Studio)](/ef/core/miscellaneous/cli/powershell).
 
-## <a name="get-the-code"></a>Kodu alın
+## <a name="get-the-code"></a>Kodu edinin
 
 [Tamamlanmış uygulamayı indirin veya görüntüleyin.](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final)
 

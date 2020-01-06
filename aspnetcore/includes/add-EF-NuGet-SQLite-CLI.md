@@ -17,3 +17,5 @@ Yukarıdaki komutlar şunları ekler:
 * Yapı iskelesi için gereken paketler: `Microsoft.VisualStudio.Web.CodeGeneration.Design` ve `Microsoft.EntityFrameworkCore.SqlServer`.
 
 Bir uygulamanın, veritabanı bağlamlarını ortama göre yapılandırmasına izin veren birden çok ortam yapılandırmasında rehberlik için, bkz. <xref:fundamentals/environments#environment-based-startup-class-and-methods>.
+
+[!INCLUDE[](~/includes/scaffoldTFM.md)]

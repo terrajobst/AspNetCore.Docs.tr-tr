@@ -4,14 +4,14 @@ author: rick-anderson
 description: ASP.NET Core MVC ve Razor Pages model doğrulaması hakkında bilgi edinin.
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/05/2019
+ms.date: 12/15/2019
 uid: mvc/models/validation
-ms.openlocfilehash: 7a6017141eb1016128c4a135c187479717580bb5
-ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
+ms.openlocfilehash: 042a9933e561de4957f6332bdff3c4f09d2e119b
+ms.sourcegitcommit: 2cb857f0de774df421e35289662ba92cfe56ffd1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74881037"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75355273"
 ---
 # <a name="model-validation-in-aspnet-core-mvc-and-razor-pages"></a>ASP.NET Core MVC ve Razor Pages model doğrulaması
 
@@ -58,7 +58,7 @@ Yerleşik doğrulama özniteliklerinden bazıları şunlardır:
 * `[Required]`: alanın null olduğunu doğrular. Bu özniteliğin davranışı hakkındaki ayrıntılar için bkz. [`[Required]` özniteliği](#required-attribute) .
 * `[StringLength]`: dize özellik değerinin belirtilen uzunluk sınırını aşmadığını doğrular.
 * `[Url]`: özelliğin bir URL biçimine sahip olduğunu doğrular.
-* `[Remote]`: sunucuda bir eylem yöntemi çağırarak istemcide girişi doğrular. Bu özniteliğin davranışı hakkındaki ayrıntılar için bkz. `[`[Remote] ' Attribute] (#remote-özniteliği).
+* `[Remote]`: sunucuda bir eylem yöntemi çağırarak istemcide girişi doğrular. Bu özniteliğin davranışı hakkındaki ayrıntılar için bkz. [`[Remote]` özniteliği](#remote-attribute) .
 
 Doğrulama özniteliklerinin tüm listesi [System. ComponentModel. Dataaçıklamalarda](xref:System.ComponentModel.DataAnnotations) ad alanında bulunabilir.
 
@@ -423,6 +423,8 @@ Yerleşik doğrulama öznitelikleri şunlardır:
 * `[StringLength]`: dize özellik değerinin belirtilen uzunluk sınırını aşmadığını doğrular.
 * `[Url]`: özelliğin bir URL biçimine sahip olduğunu doğrular.
 * `[Remote]`: sunucuda bir eylem yöntemi çağırarak istemcide girişi doğrular. Bu özniteliğin davranışı hakkındaki ayrıntılar için bkz. [`[Remote]` özniteliği](#remote-attribute) .
+
+İstemci tarafı doğrulama ile `[RegularExpression]` özniteliğini kullanırken, Regex istemcide JavaScript 'te yürütülür. Bu, [ECMAScript](/dotnet/standard/base-types/regular-expression-options#ecmascript-matching-behavior) eşleştirme davranışının kullanılacağı anlamına gelir. Daha fazla bilgi için [bu GitHub sorunu](https://github.com/dotnet/corefx/issues/42487).
 
 Doğrulama özniteliklerinin tüm listesi [System. ComponentModel. Dataaçıklamalarda](xref:System.ComponentModel.DataAnnotations) ad alanında bulunabilir.
 
