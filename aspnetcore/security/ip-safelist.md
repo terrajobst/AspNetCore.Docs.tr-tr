@@ -17,7 +17,7 @@ ms.locfileid: "73034340"
 
 By [Davmıen Bowden](https://twitter.com/damien_bod) ve [Tom Dykstra](https://github.com/tdykstra)
  
-Bu makalede bir ASP.NET Core uygulamasında bir IP SafeList (beyaz liste olarak da bilinir) uygulamanın üç yolu gösterilmektedir. Şunu kullanabilirsiniz:
+Bu makalede bir ASP.NET Core uygulamasında bir IP SafeList (izin verilenler listesi olarak da bilinir) uygulamanın üç yolu gösterilmektedir. Şunu kullanabilirsiniz:
 
 * Her isteğin uzak IP adresini denetlemek için ara yazılım.
 * Belirli denetleyiciler veya eylem yöntemlerine yönelik isteklerin uzak IP adresini denetlemek için eylem filtreleri.
