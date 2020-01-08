@@ -314,7 +314,7 @@
           uid: blazor/handle-errors
         - name: Hata ayıklama
           uid: blazor/debug
-        - name: Web API çağrısı
+        - name: Web API’si çağırma
           uid: blazor/call-web-api
         - name: Barındırma ve dağıtma
           items:
@@ -326,8 +326,6 @@
               uid: host-and-deploy/blazor/server
             - name: Bağlayıcıyı yapılandırma
               uid: host-and-deploy/blazor/configure-linker
-        - name: Örnekler
-          href: 'https://github.com/aspnet/samples/tree/master/samples/aspnetcore/blazor'
     - name: İstemci tarafı geliştirme
       items:
         - name: Tek Sayfalı Uygulamalar
@@ -612,7 +610,7 @@
       uid: test/integration-tests
     - name: Yükleme ve stres testleri
       uid: test/loadtests
-    - name: Sorun giderme
+    - name: Sorun giderme ve hata ayıklama
       uid: test/troubleshoot
     - name: Günlüğe Kaydetme
       uid: fundamentals/logging/index
@@ -885,15 +883,15 @@
             - name: Genel Bakış
               uid: security/authentication/azure-active-directory/index
             - name: Azure AD’yi web uygulamasıyla tümleştirme
-              href: 'https://azure.microsoft.com/documentation/samples/active-directory-dotnet-webapp-openidconnect-aspnetcore/'
+              href: 'https://github.com/Azure-Samples/ms-identity-aspnetcore-webapp-tutorial'
             - name: Azure AD BC2’yi web uygulamasıyla tümleştirme
               uid: security/authentication/azure-ad-b2c
             - name: Azure AD BC2’yi web API’siyle tümleştirme
               uid: security/authentication/azure-ad-b2c-webapi
             - name: WPF'den bir web API’sini çağırma
-              href: 'https://azure.microsoft.com/documentation/samples/active-directory-dotnet-native-aspnetcore/'
+              href: 'https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore'
             - name: Azure AD kullanarak bir web uygulamasında Web API’sini çağırma
-              href: 'https://azure.microsoft.com/documentation/samples/active-directory-dotnet-webapp-webapi-openidconnect-aspnetcore/'
+              href: 'https://github.com/Azure-Samples/active-directory-dotnet-webapp-webapi-openidconnect-aspnetcore'
         - name: IdentityServer4 ile ASP.NET Core uygulamalarının güvenliğini sağlama
           href: 'https://identityserver4.readthedocs.io/'
         - name: Azure App Service kimlik doğrulaması (Kolay Kimlik Doğrulaması) ile ASP.NET Core uygulamalarının güvenliğini sağlama
@@ -1101,6 +1099,9 @@
       uid: fundamentals/host/hosted-services
     - name: Başlangıç derlemelerini barındırma
       uid: fundamentals/configuration/platform-specific-configuration
+    - name: Sınıf kitaplıklarında ASP.NET Core
+      displayName: shared framework
+      uid: fundamentals/target-aspnetcore
     - name: Microsoft.AspNetCore.App metapackage
       uid: fundamentals/metapackage-app
     - name: Microsoft.AspNetCore.All metapackage
