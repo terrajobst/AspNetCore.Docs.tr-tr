@@ -203,7 +203,7 @@ Sonra, Kullanıcı **Kaydet**' i tıklattığında yürütülen kodu ekleyin. @N
 
 Yöntem imzası artık HttpGet `Edit` yönteminden farklıdır, bu nedenle Yöntem adı `EditPost` ' den `Edit` ' ye geri değişir.
 
-Görünüm bir kurs varlıkları koleksiyonuna sahip olmadığından, model Bağlayıcısı `CourseAssignments` gezinti özelliğini otomatik olarak güncelleştiremez. @No__t-0 gezinti özelliğini güncelleştirmek için model cildi kullanmak yerine, bunu yeni `UpdateInstructorCourses` yönteminde yapmanız gerekir. Bu nedenle, `CourseAssignments` özelliğini model bağlamadan hariç bırakmanız gerekir. Bu, `TryUpdateModel` ' i çağıran kodda herhangi bir değişiklik yapılmasını gerektirmez ve bu nedenle, beyaz liste aşırı yüklemesini kullandığınızdan ve `CourseAssignments` ekleme listesinde yer almayız.
+Görünüm bir kurs varlıkları koleksiyonuna sahip olmadığından, model Bağlayıcısı `CourseAssignments` gezinti özelliğini otomatik olarak güncelleştiremez. @No__t-0 gezinti özelliğini güncelleştirmek için model cildi kullanmak yerine, bunu yeni `UpdateInstructorCourses` yönteminde yapmanız gerekir. Bu nedenle, `CourseAssignments` özelliğini model bağlamadan hariç bırakmanız gerekir. Bu, `TryUpdateModel` ' i çağıran kodda herhangi bir değişiklik yapılmasını gerektirmez ve bu nedenle, izin verilenler listesi aşırı yüklemesini kullandığınızdan ve `CourseAssignments` ekleme listesinde yer almayız.
 
 Hiçbir onay kutusu seçilmediyse, `UpdateInstructorCourses` ' daki kod, `CourseAssignments` gezinti özelliğini boş bir koleksiyonla başlatır ve döndürür:
 
