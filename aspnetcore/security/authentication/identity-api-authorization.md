@@ -7,22 +7,22 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 11/08/2019
 uid: security/authentication/identity/spa
-ms.openlocfilehash: f58d92634ce1ef6110533d56c40b7520dda90514
-ms.sourcegitcommit: 4818385c3cfe0805e15138a2c1785b62deeaab90
+ms.openlocfilehash: 31a5e47d772e7416646c4d83c3209d7d2b254199
+ms.sourcegitcommit: 7dfe6cc8408ac6a4549c29ca57b0c67ec4baa8de
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73897046"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75829172"
 ---
 # <a name="authentication-and-authorization-for-spas"></a>Maça kimlik doğrulaması ve yetkilendirme
 
 ASP.NET Core 3,0 veya üzeri, API yetkilendirmesi desteğini kullanarak tek sayfalı uygulamalarda (Spaon) kimlik doğrulaması sunmaktadır. Kimlik doğrulama ve depolama için ASP.NET Core kimliği, açık KIMLIK Connect uygulama için [IdentityServer](https://identityserver.io/) ile birleştirilir.
 
-Web uygulamasındaki kimlik doğrulama parametresine benzer bir kimlik doğrulama parametresi ( **Model-View-Controller)** (MVC **) ve** **Web uygulaması** (Razor Pages) Proje şablonları. İzin verilen parametre değerleri **none** ve **bireysel**. **Tepki. js ve Redux** proje şablonu şu anda kimlik doğrulama parametresini desteklemiyor.
+Bir kimlik doğrulaması parametresi, **Web uygulamasındaki (model-görünüm-denetleyici)** (MVC) ve **web uygulaması** (Razor Pages) proje şablonlarındaki kimlik doğrulama parametresine benzer **angular** ve **tepki** veren proje şablonlarına eklenmiştir. İzin verilen parametre değerleri **none** ve **bireysel**. **Tepki. js ve Redux** proje şablonu şu anda kimlik doğrulama parametresini desteklemiyor.
 
 ## <a name="create-an-app-with-api-authorization-support"></a>API yetkilendirme desteğiyle uygulama oluşturma
 
-Kullanıcı kimlik doğrulaması ve yetkilendirme, hem angular ile hem de maça 'Ları ile kullanılabilir. Bir komut kabuğu açın ve şu komutu çalıştırın:
+Kullanıcı kimlik doğrulaması ve yetkilendirme, hem angular ile hem de maça 'Ları ile kullanılabilir. Bir komut kabuğunu açın ve aşağıdaki komutu çalıştırın:
 
 **Angular**:
 
@@ -58,7 +58,7 @@ Aşağıdaki bölümlerde, kimlik doğrulama desteği dahil edildiğinde projeni
         .AddEntityFrameworkStores<ApplicationDbContext>();
     ```
 
-  * IdentityServer 'ın en üstünde yer alan bazı varsayılan ASP.NET Core kurallarını yükleyen ek bir `AddApiAuthorization` Yardımcısı yöntemi olan IdentityServer:
+  * IdentityServer 'ın en üstünde bazı varsayılan ASP.NET Core kuralları ayarlayan ek bir `AddApiAuthorization` yardımcı yöntemi olan IdentityServer:
 
     ```csharp
     services.AddIdentityServer()
@@ -95,7 +95,7 @@ Bu yardımcı yöntemi, varsayılan kimlik doğrulama işleyicisi olarak uygulam
 
 ### <a name="weatherforecastcontroller"></a>Dalgalı bir denetleyici
 
-*Controllers\dalgalı therforeroı Controller.cs* dosyasında, kullanıcıya kaynağa erişim için varsayılan ilkeye göre yetkilendirileceğini belirten sınıfa uygulanan `[Authorize]` özniteliğine dikkat edin. Varsayılan yetkilendirme ilkesi, yukarıda belirtilen ilke şemasına `AddIdentityServerJwt` tarafından ayarlanan varsayılan kimlik doğrulama şemasını kullanacak şekilde yapılandırılmıştır. Bu, bu tür yardımcı yöntemi tarafından yapılandırılan `JwtBearerHandler` istekleri için varsayılan işleyicidir uygulama.
+*Controllers\dalgalı therforeroı Controller.cs* dosyasında, kullanıcıya kaynağa erişim için varsayılan ilkeye göre yetkilendirileceğini belirten sınıfa uygulanan `[Authorize]` özniteliğine dikkat edin. Varsayılan yetkilendirme ilkesi, yukarıda belirtilen ilke şemasına `AddIdentityServerJwt` tarafından yapılandırılan varsayılan kimlik doğrulama şemasını kullanacak şekilde yapılandırılmıştır. Bu, bu tür bir yardımcı yöntemi tarafından yapılandırılan `JwtBearerHandler`, uygulamaya yönelik istekler için varsayılan işleyicidir.
 
 ### <a name="applicationdbcontext"></a>ApplicationDbContext
 

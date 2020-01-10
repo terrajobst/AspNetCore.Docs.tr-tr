@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/06/2019
 uid: security/enforcing-ssl
-ms.openlocfilehash: 032105c67e15ab94635ae6fadea103450c7eb0fb
-ms.sourcegitcommit: 851b921080fe8d719f54871770ccf6f78052584e
+ms.openlocfilehash: d7d4eece935bd83b69a6a5d81898012b99d73193
+ms.sourcegitcommit: 7dfe6cc8408ac6a4549c29ca57b0c67ec4baa8de
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74944245"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75828912"
 ---
 # <a name="enforce-https-in-aspnet-core"></a>ASP.NET Core 'de HTTPS 'yi zorla
 
@@ -415,7 +415,7 @@ dotnet dev-certs https --trust
 
 Açık olan tüm tarayıcı örneklerini kapatın. Uygulamaya yeni bir tarayıcı penceresi açın.
 
-Visual Studio 'da sertifika sorunlarını gidermek için [IIS Express (ASPNET/AspNetCore #16892) kullanarak https hatası](https://github.com/aspnet/AspNetCore/issues/16892) bölümüne bakın.
+Visual Studio 'da sertifika sorunlarını gidermek için [IIS Express (DotNet/AspNetCore #16892) kullanarak https hatası](https://github.com/dotnet/AspNetCore/issues/16892) makalesine bakın.
 
 ### <a name="iis-express-ssl-certificate-used-with-visual-studio"></a>Visual Studio ile kullanılan SSL sertifikası IIS Express
 

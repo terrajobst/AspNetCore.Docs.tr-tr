@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 07/23/2019
 uid: security/authentication/identity-custom-storage-providers
-ms.openlocfilehash: 6d0d9b5467d9d27b936a17fa86f73e7d8123b75b
-ms.sourcegitcommit: 6628cd23793b66e4ce88788db641a5bbf470c3c1
+ms.openlocfilehash: 70951085474d88fd57f1b1496a41adcda520b91f
+ms.sourcegitcommit: 7dfe6cc8408ac6a4549c29ca57b0c67ec4baa8de
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73760974"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75829160"
 ---
 # <a name="custom-storage-providers-for-aspnet-core-identity"></a>ASP.NET Core kimlik için özel depolama sağlayıcıları
 
@@ -57,11 +57,11 @@ Aşağıdaki diyagramda, bir Web uygulamasının yöneticileriyle nasıl etkile�
 
 [ASP.NET Core Identity](https://github.com/aspnet/identity) veri türleri aşağıdaki bölümlerde ayrıntılı olarak verilmiştir:
 
-### <a name="users"></a>Kullanıcılarına
+### <a name="users"></a>Kullanıcılar
 
 Web sitenizin kayıtlı kullanıcıları. [Identityuser](/dotnet/api/microsoft.aspnet.identity.corecompat.identityuser) türü, kendi özel türü için bir örnek olarak genişletilebilir veya kullanılıyor olabilir. Kendi özel kimlik depolama çözümünüzü uygulamak için belirli bir türden devralma gerekmez.
 
-### <a name="user-claims"></a>Kullanıcı talepleri
+### <a name="user-claims"></a>Kullanıcı Talepleri
 
 Kullanıcının kimliğini temsil eden kullanıcı hakkındaki deyimler (veya [talepler](/dotnet/api/system.security.claims.claim)) kümesi. Kullanıcı kimliğinin, roller aracılığıyla elde edilebileceğinden daha fazla ifadesini etkinleştirebilir.
 
@@ -69,7 +69,7 @@ Kullanıcının kimliğini temsil eden kullanıcı hakkındaki deyimler (veya [t
 
 Bir kullanıcıya oturum açarken kullanmak üzere dış kimlik doğrulama sağlayıcısı (Facebook veya bir Microsoft hesabı gibi) hakkında bilgiler. [Örnek](/dotnet/api/microsoft.aspnet.identity.corecompat.identityuserlogin)
 
-### <a name="roles"></a>Lerdir
+### <a name="roles"></a>Roller
 
 Sitenizin yetkilendirme grupları. Rol kimliği ve rol adı ("admin" veya "Employee" gibi) içerir. [Örnek](/dotnet/api/microsoft.aspnet.identity.corecompat.identityrole)
 
@@ -132,7 +132,7 @@ Kullanıcı üzerindeki tüm veri işlemlerine yönelik yöntemleri sağlayan bi
 * [Iuserpasswordstore](/dotnet/api/microsoft.aspnetcore.identity.iuserpasswordstore-1)
 * [Iusersecuritystampstore](/dotnet/api/microsoft.aspnetcore.identity.iusersecuritystampstore-1)
 * [Iuseremailstore](/dotnet/api/microsoft.aspnetcore.identity.iuseremailstore-1)
-* [Iuserphonenumberstore](/dotnet/api/microsoft.aspnetcore.identity.iuserphonenumberstore-1)
+* [IUserPhoneNumberStore](/dotnet/api/microsoft.aspnetcore.identity.iuserphonenumberstore-1)
 * [Iqueryableuserstore](/dotnet/api/microsoft.aspnetcore.identity.iqueryableuserstore-1)
 * [Iuserloginstore](/dotnet/api/microsoft.aspnetcore.identity.iuserloginstore-1)
 * [Iusertwofactorstore](/dotnet/api/microsoft.aspnetcore.identity.iusertwofactorstore-1)
@@ -160,7 +160,7 @@ Kullanıcı üzerindeki tüm veri işlemlerine yönelik yöntemleri sağlayan bi
  [Iusersecuritystampstore&lt;tuser&gt;](/dotnet/api/microsoft.aspnetcore.identity.iusersecuritystampstore-1) arabirimi, kullanıcının hesap bilgilerinin değişip değişmediğini belirten bir güvenlik damgası kullanmak için uyguladığınız yöntemleri tanımlar. Bu damga, Kullanıcı parolayı değiştirdiğinde veya oturum açma ekler veya kaldırdığında güncelleştirilir. Güvenlik damgasını alma ve ayarlama yöntemlerini içerir.
 * **Iusertwofactorstore**  
  [Iusertwofactorstore&lt;TUser&gt;](/dotnet/api/microsoft.aspnetcore.identity.iusertwofactorstore-1) arabirimi iki öğeli kimlik doğrulamayı desteklemek için uyguladığınız yöntemleri tanımlar. Bir kullanıcı için iki öğeli kimlik doğrulamasının etkin olup olmadığını alma ve ayarlama yöntemlerini içerir.
-* **Iuserphonenumberstore**  
+* **IUserPhoneNumberStore**  
  [Iuserphonenumberstore&lt;tuser&gt;](/dotnet/api/microsoft.aspnetcore.identity.iuserphonenumberstore-1) arabirimi, Kullanıcı telefon numaralarını depolamak için uyguladığınız yöntemleri tanımlar. Telefon numarasını alma ve ayarlama ve telefon numarasının onaylanıp onaylanmayacağı yöntemlerini içerir.
 * **Iuseremailstore**  
  [Iuseremailstore&lt;tuser&gt;](/dotnet/api/microsoft.aspnetcore.identity.iuseremailstore-1) arabirimi, kullanıcı e-posta adreslerini depolamak için uyguladığınız yöntemleri tanımlar. E-posta adresini alma ve ayarlama yöntemlerini ve e-postanın onaylanıp onaylanmadığını içerir.
@@ -238,4 +238,4 @@ public void ConfigureServices(IServiceCollection services)
 ## <a name="references"></a>Referanslar
 
 * [ASP.NET 4. x kimliği için özel depolama sağlayıcıları](/aspnet/identity/overview/extensibility/overview-of-custom-storage-providers-for-aspnet-identity)
-* Bu depo &ndash; [kimlik ASP.NET Core](https://github.com/aspnet/AspNetCore/tree/master/src/Identity) , topluluk tarafından tutulan depo sağlayıcılarının bağlantılarını içerir.
+* Bu depo &ndash; [kimlik ASP.NET Core](https://github.com/dotnet/AspNetCore/tree/master/src/Identity) , topluluk tarafından tutulan depo sağlayıcılarının bağlantılarını içerir.

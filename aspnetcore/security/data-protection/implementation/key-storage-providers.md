@@ -5,12 +5,12 @@ description: Anahtar depolama sağlayıcıları ASP.NET Core ve anahtar depolama
 ms.author: riande
 ms.date: 12/05/2019
 uid: security/data-protection/implementation/key-storage-providers
-ms.openlocfilehash: 76f224fb7d322722c3875b734127da4da294a646
-ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
+ms.openlocfilehash: c1d2ac1304230af88e63e1aca441f044b32038fd
+ms.sourcegitcommit: 7dfe6cc8408ac6a4549c29ca57b0c67ec4baa8de
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74881215"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75829094"
 ---
 # <a name="key-storage-providers-in-aspnet-core"></a>ASP.NET core'da anahtar depolama sağlayıcıları
 
@@ -114,7 +114,7 @@ Daha fazla bilgi için aşağıdaki konulara bakın:
 
 * [StackExchange.Redis ConnectionMultiplexer](https://github.com/StackExchange/StackExchange.Redis/blob/master/docs/Basics.md)
 * [Azure Redis önbelleği](/azure/redis-cache/cache-dotnet-how-to-use-azure-redis-cache#connect-to-the-cache)
-* [ASP.NET/DataProtection örnekleri](https://github.com/aspnet/AspNetCore/tree/2.2.0/src/DataProtection/samples)
+* [ASP.NET Core DataProtection örnekleri](https://github.com/dotnet/AspNetCore/tree/2.2.0/src/DataProtection/samples)
 
 ## <a name="registry"></a>Kayıt defteri
 

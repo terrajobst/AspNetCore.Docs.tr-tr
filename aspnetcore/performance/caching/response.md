@@ -6,18 +6,18 @@ monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.date: 11/04/2019
 uid: performance/caching/response
-ms.openlocfilehash: a456e97053fea7c9ee9ec634ae9b7bbd52febe7f
-ms.sourcegitcommit: 09f4a5ded39cc8204576fe801d760bd8b611f3aa
+ms.openlocfilehash: 9246305e6979a6a7e006f567ee6bf9569029aef1
+ms.sourcegitcommit: 7dfe6cc8408ac6a4549c29ca57b0c67ec4baa8de
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73611470"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75828314"
 ---
 # <a name="response-caching-in-aspnet-core"></a>ASP.NET Core 'de yanıt önbelleğe alma
 
 [John Luo](https://github.com/JunTaoLuo), [Rick Anderson](https://twitter.com/RickAndMSFT), [Steve Smith](https://ardalis.com/)ve [Luke Latham](https://github.com/guardrex) tarafından
 
-[Örnek kodu görüntüleme veya indirme](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/performance/caching/response/samples) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
+[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/performance/caching/response/samples) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
 
 Yanıt önbelleğe alma, bir istemcinin veya proxy 'nin bir Web sunucusunda yaptığı istek sayısını azaltır. Yanıt önbelleği Ayrıca, Web sunucusunun yanıt oluşturmak için gerçekleştirdiği iş miktarını azaltır. Yanıt önbelleğe alma, istemci, ara sunucu ve ara yazılım 'nin yanıtları nasıl önbellekte istediğinizi belirten üstbilgiler tarafından denetlenir.
 
@@ -31,7 +31,7 @@ HTTP 1,1 önbelleğe alma belirtimini izleyen sunucu tarafında önbelleğe alma
 
 Ortak `Cache-Control` yönergeleri aşağıdaki tabloda gösterilmiştir.
 
-| Deki                                                       | Eylem |
+| Yönergesi                                                       | Eylem |
 | --------------------------------------------------------------- | ------ |
 | [public](https://tools.ietf.org/html/rfc7234#section-5.2.2.5)   | Önbellek, yanıtı saklayabilir. |
 | [private](https://tools.ietf.org/html/rfc7234#section-5.2.2.6)  | Yanıtın paylaşılan bir önbellek tarafından depolanması gerekir. Özel bir önbellek, yanıtı depolayıp yeniden kullanabilir. |
@@ -43,18 +43,18 @@ Ortak `Cache-Control` yönergeleri aşağıdaki tabloda gösterilmiştir.
 
 | Üstbilgi                                                     | İşlev |
 | ---------------------------------------------------------- | -------- |
-| [Ölçerin](https://tools.ietf.org/html/rfc7234#section-5.1)     | Yanıt oluşturulduktan veya kaynak sunucuda başarıyla doğrulandıktan sonra geçen sürenin saniye cinsinden tahmini. |
+| [Geçerlilik süresi](https://tools.ietf.org/html/rfc7234#section-5.1)     | Yanıt oluşturulduktan veya kaynak sunucuda başarıyla doğrulandıktan sonra geçen sürenin saniye cinsinden tahmini. |
 | [Bitiminden](https://tools.ietf.org/html/rfc7234#section-5.3) | Yanıtın eski kabul edildiği zaman. |
 | [Prag](https://tools.ietf.org/html/rfc7234#section-5.4)  | `no-cache` davranışı ayarlamak için HTTP/1.0 önbellekler ile geriye dönük uyumluluk için mevcuttur. `Cache-Control` üst bilgisi varsa, `Pragma` üst bilgisi yok sayılır. |
 | [Değiş](https://tools.ietf.org/html/rfc7231#section-7.1.4)  | Tüm `Vary` üstbilgi alanları önbelleğe alınan yanıtın orijinal isteği ve yeni istek içinde eşleşmediğinden, önbelleğe alınmış bir yanıtın gönderilmemesi gerektiğini belirtir. |
 
 ## <a name="http-based-caching-respects-request-cache-control-directives"></a>HTTP tabanlı önbelleğe alma istek önbelleği-denetim yönergeleri
 
-[Cache-Control üst bilgisi Için HTTP 1,1 önbelleğe alma belirtiminin](https://tools.ietf.org/html/rfc7234#section-5.2) , istemci tarafından gönderilen geçerli bir `Cache-Control` üst bilgisini kabul etmek için önbellek gerekir. İstemci, `no-cache` üst bilgi değeri ile istek yapabilir ve sunucuyu her istek için yeni bir yanıt oluşturmaya zorlayabilir.
+[Cache-Control üst bilgisi Için HTTP 1,1 önbelleğe alma belirtiminin](https://tools.ietf.org/html/rfc7234#section-5.2) , istemci tarafından gönderilen geçerli bir `Cache-Control` üst bilgisini kabul etmek için bir önbellek gerekir. İstemci, `no-cache` üst bilgi değeri ile istek yapabilir ve sunucuyu her istek için yeni bir yanıt oluşturmaya zorlayabilir.
 
 İstemci `Cache-Control` istek üst bilgilerini her zaman değerlendirin, HTTP önbelleği hedefini düşünüyorsanız anlamlı hale gelir. Resmi belirtim altında, önbelleğe alma, istemcilerin, proxy 'lerin ve sunucuların bir ağı üzerinde istekleri karşılayan gecikme süresini ve ağ yükünü azaltmaya yöneliktir. Kaynak sunucu üzerindeki yükü denetlemek için bir yol değildir.
 
-Yazılım, resmi önbellek belirtimine bağlı olduğundan, [yanıt önbelleğe alma ara yazılımı](xref:performance/caching/middleware) kullanılırken bu önbelleğe alma davranışının üzerinde geliştirici denetimi yoktur. [Ara yazılım Için planlı geliştirmeler](https://github.com/aspnet/AspNetCore/issues/2612) , önbelleğe alınmış bir yanıta sunmaya karar verirken bir isteğin `Cache-Control` üst bilgisini yoksayacak şekilde yapılandırmak için bir fırsattır. Planlı geliştirmeler sunucu yükünü daha iyi denetleme olanağı sağlar.
+Yazılım, resmi önbellek belirtimine bağlı olduğundan, [yanıt önbelleğe alma ara yazılımı](xref:performance/caching/middleware) kullanılırken bu önbelleğe alma davranışının üzerinde geliştirici denetimi yoktur. [Ara yazılım Için planlı geliştirmeler](https://github.com/dotnet/AspNetCore/issues/2612) , önbelleğe alınmış bir yanıt sunmaya karar verirken bir isteğin `Cache-Control` üst bilgisini yoksayacak şekilde yapılandırmak için bir fırsattır. Planlı geliştirmeler sunucu yükünü daha iyi denetleme olanağı sağlar.
 
 ## <a name="other-caching-technology-in-aspnet-core"></a>ASP.NET Core diğer önbelleğe alma teknolojisi
 
@@ -122,14 +122,14 @@ Vary: User-Agent
 
 ### <a name="nostore-and-locationnone"></a>NoStore ve Location. None
 
-<xref:Microsoft.AspNetCore.Mvc.CacheProfile.NoStore> diğer özelliklerin çoğunu geçersiz kılar. Bu özellik `true` olarak ayarlandığında, `Cache-Control` üstbilgisi `no-store` olarak ayarlanır. <xref:Microsoft.AspNetCore.Mvc.CacheProfile.Location> `None`olarak ayarlandıysa:
+<xref:Microsoft.AspNetCore.Mvc.CacheProfile.NoStore> diğer özelliklerin çoğunu geçersiz kılar. Bu özellik `true`olarak ayarlandığında, `Cache-Control` üst bilgisi `no-store`olarak ayarlanır. <xref:Microsoft.AspNetCore.Mvc.CacheProfile.Location> `None`olarak ayarlandıysa:
 
-* `Cache-Control` `no-store,no-cache` olarak ayarlanır.
-* `Pragma` `no-cache` olarak ayarlanır.
+* `Cache-Control` `no-store,no-cache`olarak ayarlanır.
+* `Pragma` `no-cache`olarak ayarlanır.
 
 <xref:Microsoft.AspNetCore.Mvc.CacheProfile.NoStore> `false` ve <xref:Microsoft.AspNetCore.Mvc.CacheProfile.Location> `None`, `Cache-Control`ve `Pragma` `no-cache`olarak ayarlanır.
 
-<xref:Microsoft.AspNetCore.Mvc.CacheProfile.NoStore> genellikle hata sayfaları için `true` olarak ayarlanır. Örnek uygulamadaki Cache2 sayfası, istemcinin yanıtı depolayamamasını sağlayan yanıt üst bilgileri oluşturur.
+<xref:Microsoft.AspNetCore.Mvc.CacheProfile.NoStore>, genellikle hata sayfaları için `true` olarak ayarlanır. Örnek uygulamadaki Cache2 sayfası, istemcinin yanıtı depolayamamasını sağlayan yanıt üst bilgileri oluşturur.
 
 [!code-csharp[](response/samples/2.x/ResponseCacheSample/Pages/Cache2.cshtml.cs?name=snippet)]
 
@@ -142,9 +142,9 @@ Pragma: no-cache
 
 ### <a name="location-and-duration"></a>Konum ve süre
 
-Önbelleğe almayı etkinleştirmek için <xref:Microsoft.AspNetCore.Mvc.CacheProfile.Duration> pozitif bir değere ayarlanmalıdır ve <xref:Microsoft.AspNetCore.Mvc.CacheProfile.Location> ' in `Any` (varsayılan) veya `Client` olması gerekir. Framework, `Cache-Control` üst bilgisini konum değerine ve ardından yanıtın `max-age` belirler.
+Önbelleğe almayı etkinleştirmek için <xref:Microsoft.AspNetCore.Mvc.CacheProfile.Duration> pozitif bir değere ayarlanmalıdır ve <xref:Microsoft.AspNetCore.Mvc.CacheProfile.Location> `Any` (varsayılan) ya da `Client`olmalıdır. Framework, `Cache-Control` üst bilgisini konum değerine ve ardından yanıtın `max-age` belirler.
 
-<xref:Microsoft.AspNetCore.Mvc.CacheProfile.Location> ' ın `Any` ve `Client` seçenekleri sırasıyla `public` ve `private` ' in `Cache-Control` üst bilgi değerlerine dönüştürülür. [NoStore ve Location. None](#nostore-and-locationnone) bölümünde belirtildiği gibi, <xref:Microsoft.AspNetCore.Mvc.CacheProfile.Location> `None` olarak ayarlamak `Cache-Control` ve `Pragma` üst bilgilerini `no-cache`olarak ayarlar.
+<xref:Microsoft.AspNetCore.Mvc.CacheProfile.Location>`Any` ve `Client` sırasıyla `public` ve `private``Cache-Control` üst bilgi değerlerine çevirin. [NoStore ve Location. None](#nostore-and-locationnone) bölümünde belirtildiği gibi, <xref:Microsoft.AspNetCore.Mvc.CacheProfile.Location> `None` olarak ayarlamak `Cache-Control` ve `Pragma` üst bilgilerini `no-cache`olarak ayarlar.
 
 `Location.Any` (`Cache-Control` `public`olarak ayarlanır), *istemci veya herhangi bir ara proxy* 'Nin [yanıt önbelleğe alma ara yazılımı](xref:performance/caching/middleware)dahil olmak üzere değeri önbelleğe alabilir olduğunu gösterir.
 
@@ -152,7 +152,7 @@ Pragma: no-cache
 
 Önbellek denetim üstbilgileri, yalnızca istemcilere ve yanıt önbelleklerine ne zaman ve nasıl önbellek alınacağını gösteren yönergeler sağlar. İstemcilerin ve proxy 'lerin [HTTP 1,1 önbelleğe alma belirtimini](https://tools.ietf.org/html/rfc7234)kabul edeceğini garanti etmez. [Yanıt önbelleğe alma ara yazılımı](xref:performance/caching/middleware) her zaman belirtim tarafından düzenlendiği önbelleğe alma kurallarını izler.
 
-Aşağıdaki örnek, örnek uygulamadan Cache3 sayfa modelini ve <xref:Microsoft.AspNetCore.Mvc.CacheProfile.Duration> ayarlanarak oluşturulan üstbilgileri ve varsayılan <xref:Microsoft.AspNetCore.Mvc.CacheProfile.Location> değerini bırakarak gösterir:
+Aşağıdaki örnekte, örnek uygulamadan Cache3 sayfa modeli ve <xref:Microsoft.AspNetCore.Mvc.CacheProfile.Duration> ayarlanarak oluşturulan üstbilgiler ve varsayılan <xref:Microsoft.AspNetCore.Mvc.CacheProfile.Location> değeri bırakılır:
 
 [!code-csharp[](response/samples/2.x/ResponseCacheSample/Pages/Cache3.cshtml.cs?name=snippet)]
 
@@ -164,7 +164,7 @@ Cache-Control: public,max-age=10
 
 ### <a name="cache-profiles"></a>Önbellek profilleri
 
-Birçok denetleyici eylem özniteliği üzerinde yanıt önbelleği ayarlarını çoğaltmak yerine, önbellek profilleri `Startup.ConfigureServices` ' da MVC/Razor Pages ayarlanırken seçenek olarak yapılandırılabilir. Başvurulan bir önbellek profilinde bulunan değerler <xref:Microsoft.AspNetCore.Mvc.ResponseCacheAttribute> tarafından varsayılanlar olarak kullanılır ve özniteliğinde belirtilen özellikler tarafından geçersiz kılınır.
+Birçok denetleyici eylem özniteliği üzerinde yanıt önbelleği ayarlarını çoğaltmak yerine, `Startup.ConfigureServices`' de MVC/Razor Pages ayarlanırken önbellek profilleri seçenek olarak yapılandırılabilir. Başvurulan bir önbellek profilinde bulunan değerler, <xref:Microsoft.AspNetCore.Mvc.ResponseCacheAttribute> varsayılan olarak kullanılır ve özniteliğinde belirtilen özellikler tarafından geçersiz kılınır.
 
 Önbellek profili ayarlayın. Aşağıdaki örnek, örnek uygulamanın `Startup.ConfigureServices`30 saniyelik önbellek profilini gösterir:
 

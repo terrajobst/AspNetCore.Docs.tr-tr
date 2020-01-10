@@ -9,25 +9,25 @@ ms.date: 11/27/2019
 no-loc:
 - SignalR
 uid: signalr/introduction
-ms.openlocfilehash: e84dd0d086cbfc80a80bc10baa33979da9b5d137
-ms.sourcegitcommit: 3b6b0a54b20dc99b0c8c5978400c60adf431072f
+ms.openlocfilehash: 635431abf9263c2dff261aea47e6f8324061763f
+ms.sourcegitcommit: 7dfe6cc8408ac6a4549c29ca57b0c67ec4baa8de
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74717240"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75829289"
 ---
 # <a name="introduction-to-aspnet-core-opno-locsignalr"></a>ASP.NET Core SignalR giriş
 
-## <a name="what-is-opno-locsignalr"></a>SignalRnedir?
+## <a name="what-is-opno-locsignalr"></a>SignalR nedir?
 
 ASP.NET Core SignalR, uygulamalara gerçek zamanlı Web işlevselliği eklemeyi kolaylaştıran açık kaynaklı bir kitaplıktır. Gerçek zamanlı Web işlevselliği, sunucu tarafı kodun anında istemcilere içerik gönderebilmesine olanak sağlar.
 
 SignalRiçin iyi adaylar:
 
-* Sunucudan yüksek frekanslı güncelleştirmeler gerektiren uygulamalar. Oyun, sosyal ağlar, oylama, açık eksiltme, haritalar ve GPS uygulamaları örnekleri verilmiştir.
-* Panolar ve izleme uygulamaları. Şirket panoları, anlık satış güncelleştirmeleri veya seyahat uyarıları örnekleri bulunur.
-* İşbirliğine dayalı uygulamalar. Beyaz tahta uygulamaları ve takım toplantısı yazılımı, işbirliğine dayalı uygulamalara örnek olarak verilebilir.
-* Bildirimleri gerektiren uygulamalar. Sosyal ağlar, e-posta, sohbet, Oyunlar, seyahat uyarıları ve diğer birçok uygulama kullanım bildirimleri.
+* Sunucudan yüksek sıklıkta güncelleştirmeler gerektiren uygulamalar. Oyun, sosyal ağlar, oylama, açık artırma, haritalar ve GPS uygulamaları bunlara örnektir.
+* Panolar ve izleme uygulamaları. Şirket panoları, anlık satış güncelleştirmeleri veya seyahat uyarıları bunlara örnektir.
+* İş birliği uygulamaları. Beyaz tahta uygulamaları ve takım toplantısı yazılımları, iş birliği uygulamalarına örnektir.
+* Bildirim gerektiren uygulamalar. Sosyal ağlar, e-posta, sohbet, oyunlar, seyahat uyarıları ve diğer birçok uygulama, bildirimleri kullanır.
 
 SignalR, sunucudan istemciye [uzak yordam çağrıları (RPC)](https://wikipedia.org/wiki/Remote_procedure_call)oluşturmak IÇIN bir API sağlar. RPC 'ler, sunucu tarafı .NET Core kodundan gelen istemcilerdeki JavaScript işlevlerini çağırır.
 
@@ -38,7 +38,7 @@ ASP.NET Core için SignalR bazı özellikler şunlardır:
 * Belirli istemcilere veya istemci gruplarına iletiler gönderir.
 * Artan trafiği işleyecek şekilde ölçeklendirilir.
 
-Kaynak, [GitHub 'daki birSignalR deposunda](https://github.com/aspnet/AspNetCore/tree/master/src/SignalR)barındırılır.
+Kaynak, [GitHub 'daki birSignalR deposunda](https://github.com/dotnet/AspNetCore/tree/master/src/SignalR)barındırılır.
 
 ## <a name="transports"></a>Taşımalar
 

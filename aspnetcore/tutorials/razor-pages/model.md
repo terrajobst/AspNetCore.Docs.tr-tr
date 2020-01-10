@@ -5,12 +5,12 @@ description: Entity Framework Core (EF Core) kullanarak bir veritabanında filml
 ms.author: riande
 ms.date: 12/05/2019
 uid: tutorials/razor-pages/model
-ms.openlocfilehash: ef4671c9e7628c106b9f68ba5cbfd8a127e095d0
-ms.sourcegitcommit: 2cb857f0de774df421e35289662ba92cfe56ffd1
+ms.openlocfilehash: fa5be8f3a222a7c186409faa2f48e43347df637a
+ms.sourcegitcommit: 7dfe6cc8408ac6a4549c29ca57b0c67ec4baa8de
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75358035"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75829302"
 ---
 # <a name="add-a-model-to-a-razor-pages-app-in-aspnet-core"></a>Bir ASP.NET Core Razor sayfaları uygulama için model ekleme
 
@@ -47,8 +47,8 @@ Sağ tıklayın *modelleri* klasör. Seçin **ekleme** > **sınıfı**. Sınıf 
 
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Mac için Visual Studio](#tab/visual-studio-mac)
 
-* Çözüm Gezgini'nde sağ **RazorPagesMovie** proje ve ardından **Ekle** > **yeni klasör**. Klasör adı *modelleri*.
-* *Modeller* klasörüne sağ tıklayın ve ardından > **yeni dosya** **Ekle** ' yi seçin.
+* Çözüm Bölmesi, **RazorPagesMovie** projesine sağ tıklayın ve ardından > **Yeni klasör ekle...** seçeneğini belirleyin. Klasör *modellerini*adlandırın.
+* *Modeller* klasörüne sağ tıklayın ve ardından > **yeni dosya Ekle...** öğesini seçin.
 * İçinde **yeni dosya** iletişim:
 
   * Seçin **genel** sol bölmesinde.
@@ -56,8 +56,6 @@ Sağ tıklayın *modelleri* klasör. Seçin **ekleme** > **sınıfı**. Sınıf 
   * Sınıf adı **film** seçip **yeni**.
 
 [!INCLUDE [model 1b](~/includes/RP/model1b.md)]
-
-[!INCLUDE [model 2](~/includes/RP/model2.md)]
 
 ---
 
@@ -122,22 +120,38 @@ Tamamlamak **ekleme Razor sayfaları (CRUD) Entity Framework kullanarak** ileti�
 
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Mac için Visual Studio](#tab/visual-studio-mac)
 
-* Proje dizininde bir komut penceresi açın (içeren dizine *Program.cs*, *Startup.cs*, ve *.csproj* dosyaları).
-* Yapı iskelesi Aracı'nı yükleyin:
+Oluşturma bir *sayfaları/filmler* klasörü:
 
-  ```dotnetcli
-   dotnet tool install --global dotnet-aspnet-codegenerator
-   ```
+* **Yeni > klasör** **eklemek** > *Sayfalar* klasörüne sağ tıklayın.
+* Klasör adı *filmler*
 
-* Şu komutu çalıştırın:
+*Sayfalar/filmler* klasörüne sağ tıklayarak > **yeni yapı Iskelesi > ekleyin...** .
 
-  ```dotnetcli
-  dotnet aspnet-codegenerator razorpage -m Movie -dc RazorPagesMovieContext -udl -outDir Pages/Movies --referenceScriptLibraries
-  ```
+![Önceki yönergeleri görüntüden.](model/_static/scaMac.png)
 
-[!INCLUDE [explains scaffold gen params](~/includes/RP/model4.md)]
+**Yeni yapı iskelesi** iletişim kutusunda **Razor Pages Entity Framework (crud)** > **İleri**' yi kullanarak seçin.
 
-[!INCLUDE [use SQL Server in production](~/includes/RP/sqlitedev.md)]
+![Önceki yönergeleri görüntüden.](model/_static/add_scaffoldMac.png)
+
+Tamamlamak **ekleme Razor sayfaları (CRUD) Entity Framework kullanarak** iletişim:
+
+* **Model sınıfı** açılan kutusunda, seçin veya yazın, **Film (RazorPagesMovie. modeller)** .
+* **Veri bağlamı sınıfı** satırına, RazorPagesMovie adlı yeni sınıfın adını yazın. **Veri**. RazorPagesMovieContext. [Bu değişiklik](https://developercommunity.visualstudio.com/content/problem/652166/aspnet-core-ef-scaffolder-uses-incorrect-namespace.html) gerekli değildir. Doğru ad alanıyla veritabanı bağlamı sınıfını oluşturur.
+* **Add (Ekle)** seçeneğini belirleyin.
+
+![Önceki yönergeleri görüntüden.](model/_static/arpMac.png)
+
+*Appsettings.json* dosya yerel bir veritabanına bağlanmak için kullanılan bağlantı dizesi ile güncelleştirilir.
+
+### <a name="add-ef-tools"></a>EF araçları ekleme
+
+Aşağıdaki .NET Core CLI komutunu çalıştırın:
+
+```dotnetcli
+dotnet tool install --global dotnet-ef
+```
+
+Yukarıdaki komut, .NET Core CLI için Entity Framework Core araçları ekler.
 
 ---
 
@@ -156,7 +170,20 @@ Tamamlamak **ekleme Razor sayfaları (CRUD) Entity Framework kullanarak** ileti�
 
 Oluşturulan ve güncelleştirilen dosyalar, sonraki bölümde açıklanmıştır.
 
-# <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Visual Studio Code/Mac için Visual Studio](#tab/visual-studio-code+visual-studio-mac)
+# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Mac için Visual Studio](#tab/visual-studio-mac)
+
+İskele işlem oluşturur ve aşağıdaki dosyaları güncelleştirir:
+
+* *Sayfa/filmler*: oluşturma, silme, Ayrıntılar, düzenleme ve dizin.
+* *Data/RazorPagesMovieContext.cs*
+
+### <a name="updated"></a>Güncelleştirme tarihi
+
+* *Startup.cs*
+
+Oluşturulan ve güncelleştirilen dosyalar, sonraki bölümde açıklanmıştır.
+
+# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 Yapı iskelesi işlemi aşağıdaki dosyaları oluşturur:
 
@@ -310,8 +337,6 @@ Sağ tıklayın *modelleri* klasör. Seçin **ekleme** > **sınıfı**. Sınıf 
 
 [!INCLUDE [model 1b](~/includes/RP/model1b.md)]
 
-[!INCLUDE [model 2](~/includes/RP/model2.md)]
-
 ---
 
 Derleme hata doğrulamak için projeyi derleyin.
@@ -372,14 +397,28 @@ to use Data, it should not use models. That will make the namespace the same for
 
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Mac için Visual Studio](#tab/visual-studio-mac)
 
-* Proje dizininde bir komut penceresi açın (içeren dizine *Program.cs*, *Startup.cs*, ve *.csproj* dosyaları).
-* Şu komutu çalıştırın:
+Oluşturma bir *sayfaları/filmler* klasörü:
 
-  ```dotnetcli
-  dotnet aspnet-codegenerator razorpage -m Movie -dc RazorPagesMovieContext -udl -outDir Pages/Movies --referenceScriptLibraries
-  ```
+* **Yeni > klasör** **eklemek** > *Sayfalar* klasörüne sağ tıklayın.
+* Klasör adı *filmler*
 
-[!INCLUDE [explains scaffold gen params](~/includes/RP/model4.md)]
+*Sayfalar/filmler* klasörüne sağ tıklayın > > **yeni yapı Iskelesi öğesi** **ekleyin** .
+
+![Önceki yönergeleri görüntüden.](model/_static/scaMac.png)
+
+**Yeni yapı Iskelesi Ekle** iletişim kutusunda **Razor Pages Entity Framework (crud)** > **Ekle**' yi seçin.
+
+![Önceki yönergeleri görüntüden.](model/_static/add_scaffoldMac.png)
+
+Tamamlamak **ekleme Razor sayfaları (CRUD) Entity Framework kullanarak** iletişim:
+
+* **Model sınıfı** açılan kutusunda **film**' ı seçin veya yazın.
+* **Veri bağlamı sınıfı** satırına **RazorPagesMovieContext** öğesini seçin. Bu, doğru ad alanı ile yeni bir DB bağlam sınıfı oluşturacaktır. Bu durumda, **RazorPagesMovie. modeller. RazorPagesMovieContext**olacaktır.
+* **Add (Ekle)** seçeneğini belirleyin.
+
+![Önceki yönergeleri görüntüden.](model/_static/arpMac.png)
+
+*Appsettings.json* dosya yerel bir veritabanına bağlanmak için kullanılan bağlantı dizesi ile güncelleştirilir.
 
 ---
 

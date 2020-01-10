@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/18/2019
 uid: mvc/views/view-components
-ms.openlocfilehash: a4583d49eb0b42f1fa6e3d8c444d263cba34da79
-ms.sourcegitcommit: 2cb857f0de774df421e35289662ba92cfe56ffd1
+ms.openlocfilehash: 8df070b580b6125db6616b33a81f3ffebad69f3a
+ms.sourcegitcommit: 7dfe6cc8408ac6a4549c29ca57b0c67ec4baa8de
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75356842"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75828925"
 ---
 # <a name="view-components-in-aspnet-core"></a>ASP.NET Core bileşenleri görüntüleme
 
@@ -337,7 +337,7 @@ Razor biçimlendirme dosyasında bileşen etiketini görüntüle yardımcısın�
 
 ## <a name="all-view-component-parameters-are-required"></a>Tüm görünüm bileşeni parametreleri gereklidir
 
-Bir görünüm bileşenindeki her bir parametre gerekli bir özniteliktir. [Bu GitHub sorununa](https://github.com/aspnet/AspNetCore/issues/5011)bakın. Herhangi bir parametre atlanırsa:
+Bir görünüm bileşenindeki her bir parametre gerekli bir özniteliktir. [Bu GitHub sorununa](https://github.com/dotnet/AspNetCore/issues/5011)bakın. Herhangi bir parametre atlanırsa:
 
 * `InvokeAsync` yöntemi imzası eşleşmez, bu nedenle Yöntem yürütülmez.
 * ViewComponent hiçbir biçimlendirmeyi işlemez.

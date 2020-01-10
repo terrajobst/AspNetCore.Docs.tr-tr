@@ -5,12 +5,12 @@ description: Bu öğreticide, .NET Core CLI dosya İzleyicisi (DotNet Watch) ara
 ms.author: riande
 ms.date: 05/31/2018
 uid: tutorials/dotnet-watch
-ms.openlocfilehash: a2a0bcdace67052975630f99aab23bbb0fd99bff
-ms.sourcegitcommit: 383017d7060a6d58f6a79cf4d7335d5b4b6c5659
+ms.openlocfilehash: 053c98ba032c85b61776d5b5644c5575cd4f890c
+ms.sourcegitcommit: 7dfe6cc8408ac6a4549c29ca57b0c67ec4baa8de
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72816143"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75829003"
 ---
 # <a name="develop-aspnet-core-apps-using-a-file-watcher"></a>Dosya İzleyicisi kullanarak ASP.NET Core uygulamalar geliştirme
 
@@ -41,7 +41,7 @@ Now listening on: http://localhost:5000
 Application started. Press Ctrl+C to shut down.
 ```
 
-Bir Web tarayıcısında `http://localhost:<port number>/api/math/sum?a=4&b=5`' a gidin. `9`sonucunu görmeniz gerekir.
+Bir web tarayıcısında `http://localhost:<port number>/api/math/sum?a=4&b=5` sayfasına gidin. `9`sonucunu görmeniz gerekir.
 
 Ürün API 'sine gidin (`http://localhost:<port number>/api/math/product?a=4&b=5`). Beklendiğinde `20` değil `9`döndürür. Bu sorun öğreticide daha sonra düzeltildi.
 
@@ -185,4 +185,4 @@ VSTest, her iki test projesinde herhangi bir dosya değiştiğinde yürütülür
 
 ## <a name="dotnet-watch-in-github"></a>GitHub 'da `dotnet-watch`
 
-`dotnet-watch` GitHub [ASPNET/AspNetCore deposunun](https://github.com/aspnet/AspNetCore/tree/master/src/Tools/dotnet-watch)bir parçasıdır.
+`dotnet-watch` GitHub [DotNet/AspNetCore deposunun](https://github.com/dotnet/AspNetCore/tree/master/src/Tools/dotnet-watch)bir parçasıdır.
