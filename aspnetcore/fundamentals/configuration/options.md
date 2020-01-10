@@ -5,14 +5,14 @@ description: ASP.NET Core uygulamalarında ilgili ayarların gruplarını temsil
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/18/2019
+ms.date: 01/07/2019
 uid: fundamentals/configuration/options
-ms.openlocfilehash: 1e0bbe041223d376a778c6a326fcee4d254a9127
-ms.sourcegitcommit: c815a9465e7b1bab44ce1643ec345b33e6cf1598
+ms.openlocfilehash: 98fe30fbc424dd51ce8f8319b7ce959fd755c480
+ms.sourcegitcommit: da2fb2d78ce70accdba903ccbfdcfffdd0112123
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75606785"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75722745"
 ---
 # <a name="options-pattern-in-aspnet-core"></a>ASP.NET Core için seçenek kalıbı
 
@@ -54,7 +54,7 @@ Seçenekler Ayrıca yapılandırma verilerini doğrulamaya yönelik bir mekanizm
 
 ## <a name="general-options-configuration"></a>Genel Seçenekler yapılandırması
 
-Genel Seçenekler yapılandırması örnek uygulamada &num;1 olarak gösterilmiştir.
+Genel Seçenekler yapılandırması örnek uygulamada 1 olarak gösterilmiştir.
 
 Bir seçenek sınıfı ortak parametresiz bir Oluşturucu ile soyut olmamalıdır. Aşağıdaki `MyOptions`sınıfında, `Option1` ve `Option2`iki özelliği vardır. Varsayılan değerleri ayarlama isteğe bağlıdır, ancak aşağıdaki örnekteki sınıf oluşturucusu `Option1`varsayılan değerini ayarlar. `Option2`, özelliği doğrudan başlatarak varsayılan değer kümesine sahiptir (*modeller/MyOptions. cs*):
 
@@ -98,7 +98,7 @@ option1 = value1_from_json, option2 = -1
 
 ## <a name="configure-simple-options-with-a-delegate"></a>Bir temsilciyle basit seçenekleri yapılandırma
 
-Basit seçeneklerin bir temsilciyle yapılandırılması, örnek uygulamada &num;2 örnek olarak gösterilmiştir.
+Basit seçenekleri bir temsilciyle yapılandırmak örnek uygulamada 2 örnek olarak gösterilmiştir.
 
 Seçenek değerlerini ayarlamak için bir temsilci kullanın. Örnek uygulama `MyOptionsWithDelegateConfig` sınıfını kullanır (*modeller/MyOptionsWithDelegateConfig. cs*):
 
@@ -128,7 +128,7 @@ delegate_option1 = value1_configured_by_delegate, delegate_option2 = 500
 
 ## <a name="suboptions-configuration"></a>Alt seçenekler yapılandırması
 
-Alt seçenekler yapılandırması örnek uygulamada &num;3 örnek olarak gösterilmiştir.
+Alt seçenekler yapılandırması örnek uygulamada 3 örnek olarak gösterilmiştir.
 
 Uygulamalar, uygulamadaki belirli senaryo gruplarına (sınıflar) ait seçenek sınıfları oluşturmamalıdır. Uygulamanın yapılandırma değerleri gerektiren bölümlerinin yalnızca kullandıkları yapılandırma değerlerine erişimi olmalıdır.
 
@@ -164,7 +164,7 @@ subOption1 = subvalue1_from_json, subOption2 = 200
 
 ## <a name="options-injection"></a>Seçeneklere ekleme
 
-Seçenekler ekleme, örnek uygulamada &num;4 olarak gösterilmiştir.
+Seçenekler ekleme, örnek uygulamada 4 olarak gösterilmiştir.
 
 <xref:Microsoft.Extensions.Options.IOptionsMonitor%601> içine ekle:
 
@@ -189,7 +189,7 @@ Uygulama çalıştırıldığında, seçenek değerleri işlenen sayfada göster
 
 ## <a name="reload-configuration-data-with-ioptionssnapshot"></a>Ioptionssnapshot ile yapılandırma verilerini yeniden yükleme
 
-Yapılandırma verilerini <xref:Microsoft.Extensions.Options.IOptionsSnapshot%601> ile yeniden yükleme örnek uygulamada örnek &num;5 gösterilmiştir.
+Yapılandırma verilerini <xref:Microsoft.Extensions.Options.IOptionsSnapshot%601> ile yeniden yükleme, örnek uygulamadaki 5. örnekte gösterilmiştir.
 
 <xref:Microsoft.Extensions.Options.IOptionsSnapshot%601>kullanarak, erişilen ve isteğin ömrü boyunca önbelleğe alınan istekler her istek için bir kez hesaplanır.
 
@@ -220,9 +220,9 @@ snapshot option1 = value1_from_json UPDATED, snapshot option2 = 200
 
 ## <a name="named-options-support-with-iconfigurenamedoptions"></a>IController Enamedooptıons ile adlandırılmış seçenekler desteği
 
-<xref:Microsoft.Extensions.Options.IConfigureNamedOptions%601> ile adlandırılmış seçenekler, örnek uygulamada 6 &num;örnek olarak gösterilmiştir.
+<xref:Microsoft.Extensions.Options.IConfigureNamedOptions%601> ile adlandırılmış seçenekler, örnek uygulamada 6 örnek olarak gösterilmiştir.
 
-*Adlandırılmış seçenekler* desteği, uygulamanın adlandırılmış seçenek yapılandırmalarının ayırt etmesine izin verir. Örnek uygulamada, adlandırılmış Seçenekler [OptionsServiceCollectionExtensions. configure](xref:Microsoft.Extensions.DependencyInjection.OptionsServiceCollectionExtensions.Configure*)ile bildirilmiştir ve bu, [\<TOptions > ' i çağırır. ](xref:Microsoft.Extensions.Options.ConfigureNamedOptions`1.Configure*)Uzantı yöntemini Yapılandır:
+Adlandırılmış seçenekler desteği, uygulamanın adlandırılmış seçenek yapılandırmalarının ayırt etmesine izin verir. Örnek uygulamada, adlandırılmış Seçenekler [OptionsServiceCollectionExtensions. configure](xref:Microsoft.Extensions.DependencyInjection.OptionsServiceCollectionExtensions.Configure*)ile bildirilmiştir ve bu, [\<TOptions > ' i çağırır. ](xref:Microsoft.Extensions.Options.ConfigureNamedOptions`1.Configure*)Uzantı yöntemini yapılandırın. Adlandırılmış seçenekler büyük/küçük harfe duyarlıdır.
 
 [!code-csharp[](options/samples/3.x/OptionsSample/Startup.cs?name=snippet_Example6)]
 
@@ -478,7 +478,7 @@ Microsoft. [AspNetCore. app metapackage](xref:fundamentals/metapackage-app) 'e b
 
 ## <a name="general-options-configuration"></a>Genel Seçenekler yapılandırması
 
-Genel Seçenekler yapılandırması örnek uygulamada &num;1 olarak gösterilmiştir.
+Genel Seçenekler yapılandırması örnek uygulamada 1 olarak gösterilmiştir.
 
 Bir seçenek sınıfı ortak parametresiz bir Oluşturucu ile soyut olmamalıdır. Aşağıdaki `MyOptions`sınıfında, `Option1` ve `Option2`iki özelliği vardır. Varsayılan değerleri ayarlama isteğe bağlıdır, ancak aşağıdaki örnekteki sınıf oluşturucusu `Option1`varsayılan değerini ayarlar. `Option2`, özelliği doğrudan başlatarak varsayılan değer kümesine sahiptir (*modeller/MyOptions. cs*):
 
@@ -522,7 +522,7 @@ option1 = value1_from_json, option2 = -1
 
 ## <a name="configure-simple-options-with-a-delegate"></a>Bir temsilciyle basit seçenekleri yapılandırma
 
-Basit seçeneklerin bir temsilciyle yapılandırılması, örnek uygulamada &num;2 örnek olarak gösterilmiştir.
+Basit seçenekleri bir temsilciyle yapılandırmak örnek uygulamada 2 örnek olarak gösterilmiştir.
 
 Seçenek değerlerini ayarlamak için bir temsilci kullanın. Örnek uygulama `MyOptionsWithDelegateConfig` sınıfını kullanır (*modeller/MyOptionsWithDelegateConfig. cs*):
 
@@ -552,7 +552,7 @@ delegate_option1 = value1_configured_by_delegate, delegate_option2 = 500
 
 ## <a name="suboptions-configuration"></a>Alt seçenekler yapılandırması
 
-Alt seçenekler yapılandırması örnek uygulamada &num;3 örnek olarak gösterilmiştir.
+Alt seçenekler yapılandırması örnek uygulamada 3 örnek olarak gösterilmiştir.
 
 Uygulamalar, uygulamadaki belirli senaryo gruplarına (sınıflar) ait seçenek sınıfları oluşturmamalıdır. Uygulamanın yapılandırma değerleri gerektiren bölümlerinin yalnızca kullandıkları yapılandırma değerlerine erişimi olmalıdır.
 
@@ -588,7 +588,7 @@ subOption1 = subvalue1_from_json, subOption2 = 200
 
 ## <a name="options-injection"></a>Seçeneklere ekleme
 
-Seçenekler ekleme, örnek uygulamada &num;4 olarak gösterilmiştir.
+Seçenekler ekleme, örnek uygulamada 4 olarak gösterilmiştir.
 
 <xref:Microsoft.Extensions.Options.IOptionsMonitor%601> içine ekle:
 
@@ -613,7 +613,7 @@ Uygulama çalıştırıldığında, seçenek değerleri işlenen sayfada göster
 
 ## <a name="reload-configuration-data-with-ioptionssnapshot"></a>Ioptionssnapshot ile yapılandırma verilerini yeniden yükleme
 
-Yapılandırma verilerini <xref:Microsoft.Extensions.Options.IOptionsSnapshot%601> ile yeniden yükleme örnek uygulamada örnek &num;5 gösterilmiştir.
+Yapılandırma verilerini <xref:Microsoft.Extensions.Options.IOptionsSnapshot%601> ile yeniden yükleme, örnek uygulamadaki 5. örnekte gösterilmiştir.
 
 <xref:Microsoft.Extensions.Options.IOptionsSnapshot%601>kullanarak, erişilen ve isteğin ömrü boyunca önbelleğe alınan istekler her istek için bir kez hesaplanır.
 
@@ -644,9 +644,9 @@ snapshot option1 = value1_from_json UPDATED, snapshot option2 = 200
 
 ## <a name="named-options-support-with-iconfigurenamedoptions"></a>IController Enamedooptıons ile adlandırılmış seçenekler desteği
 
-<xref:Microsoft.Extensions.Options.IConfigureNamedOptions%601> ile adlandırılmış seçenekler, örnek uygulamada 6 &num;örnek olarak gösterilmiştir.
+<xref:Microsoft.Extensions.Options.IConfigureNamedOptions%601> ile adlandırılmış seçenekler, örnek uygulamada 6 örnek olarak gösterilmiştir.
 
-*Adlandırılmış seçenekler* desteği, uygulamanın adlandırılmış seçenek yapılandırmalarının ayırt etmesine izin verir. Örnek uygulamada, adlandırılmış Seçenekler [OptionsServiceCollectionExtensions. configure](xref:Microsoft.Extensions.DependencyInjection.OptionsServiceCollectionExtensions.Configure*)ile bildirilmiştir ve bu, [\<TOptions > ' i çağırır. ](xref:Microsoft.Extensions.Options.ConfigureNamedOptions`1.Configure*)Uzantı yöntemini Yapılandır:
+Adlandırılmış seçenekler desteği, uygulamanın adlandırılmış seçenek yapılandırmalarının ayırt etmesine izin verir. Örnek uygulamada, adlandırılmış Seçenekler [OptionsServiceCollectionExtensions. configure](xref:Microsoft.Extensions.DependencyInjection.OptionsServiceCollectionExtensions.Configure*)ile bildirilmiştir ve bu, [\<TOptions > ' i çağırır. ](xref:Microsoft.Extensions.Options.ConfigureNamedOptions`1.Configure*)Uzantı yöntemini yapılandırın. Adlandırılmış seçenekler büyük/küçük harfe duyarlıdır.
 
 [!code-csharp[](options/samples/2.x/OptionsSample/Startup.cs?name=snippet_Example6)]
 
@@ -900,7 +900,7 @@ Microsoft. [AspNetCore. app metapackage](xref:fundamentals/metapackage-app) 'e b
 
 ## <a name="general-options-configuration"></a>Genel Seçenekler yapılandırması
 
-Genel Seçenekler yapılandırması örnek uygulamada &num;1 olarak gösterilmiştir.
+Genel Seçenekler yapılandırması örnek uygulamada 1 olarak gösterilmiştir.
 
 Bir seçenek sınıfı ortak parametresiz bir Oluşturucu ile soyut olmamalıdır. Aşağıdaki `MyOptions`sınıfında, `Option1` ve `Option2`iki özelliği vardır. Varsayılan değerleri ayarlama isteğe bağlıdır, ancak aşağıdaki örnekteki sınıf oluşturucusu `Option1`varsayılan değerini ayarlar. `Option2`, özelliği doğrudan başlatarak varsayılan değer kümesine sahiptir (*modeller/MyOptions. cs*):
 
@@ -944,7 +944,7 @@ option1 = value1_from_json, option2 = -1
 
 ## <a name="configure-simple-options-with-a-delegate"></a>Bir temsilciyle basit seçenekleri yapılandırma
 
-Basit seçeneklerin bir temsilciyle yapılandırılması, örnek uygulamada &num;2 örnek olarak gösterilmiştir.
+Basit seçenekleri bir temsilciyle yapılandırmak örnek uygulamada 2 örnek olarak gösterilmiştir.
 
 Seçenek değerlerini ayarlamak için bir temsilci kullanın. Örnek uygulama `MyOptionsWithDelegateConfig` sınıfını kullanır (*modeller/MyOptionsWithDelegateConfig. cs*):
 
@@ -974,7 +974,7 @@ delegate_option1 = value1_configured_by_delegate, delegate_option2 = 500
 
 ## <a name="suboptions-configuration"></a>Alt seçenekler yapılandırması
 
-Alt seçenekler yapılandırması örnek uygulamada &num;3 örnek olarak gösterilmiştir.
+Alt seçenekler yapılandırması örnek uygulamada 3 örnek olarak gösterilmiştir.
 
 Uygulamalar, uygulamadaki belirli senaryo gruplarına (sınıflar) ait seçenek sınıfları oluşturmamalıdır. Uygulamanın yapılandırma değerleri gerektiren bölümlerinin yalnızca kullandıkları yapılandırma değerlerine erişimi olmalıdır.
 
@@ -1010,7 +1010,7 @@ subOption1 = subvalue1_from_json, subOption2 = 200
 
 ## <a name="options-provided-by-a-view-model-or-with-direct-view-injection"></a>Bir görünüm modeli veya doğrudan görünüm ekleme ile belirtilen seçenekler
 
-Bir görünüm modeli veya doğrudan görünüm ekleme ile sunulan seçenekler örnek uygulamada &num;4 olarak gösterilmiştir.
+Bir görünüm modeli veya doğrudan görünüm ekleme ile sunulan seçenekler örnek uygulamada 4 olarak gösterilmiştir.
 
 Seçenekler, bir görünüm modelinde veya <xref:Microsoft.Extensions.Options.IOptionsMonitor%601> ekleme tarafından doğrudan bir görünüme (*Pages/Index. cshtml. cs*) sağlanabilir.
 
@@ -1030,7 +1030,7 @@ Uygulama çalıştırıldığında, seçenek değerleri işlenen sayfada göster
 
 ## <a name="reload-configuration-data-with-ioptionssnapshot"></a>Ioptionssnapshot ile yapılandırma verilerini yeniden yükleme
 
-Yapılandırma verilerini <xref:Microsoft.Extensions.Options.IOptionsSnapshot%601> ile yeniden yükleme örnek uygulamada örnek &num;5 gösterilmiştir.
+Yapılandırma verilerini <xref:Microsoft.Extensions.Options.IOptionsSnapshot%601> ile yeniden yükleme, örnek uygulamadaki 5. örnekte gösterilmiştir.
 
 <xref:Microsoft.Extensions.Options.IOptionsSnapshot%601>, minimum işleme yüküyle yeniden yükleme seçeneklerini destekler.
 
@@ -1058,9 +1058,9 @@ snapshot option1 = value1_from_json UPDATED, snapshot option2 = 200
 
 ## <a name="named-options-support-with-iconfigurenamedoptions"></a>IController Enamedooptıons ile adlandırılmış seçenekler desteği
 
-<xref:Microsoft.Extensions.Options.IConfigureNamedOptions%601> ile adlandırılmış seçenekler, örnek uygulamada 6 &num;örnek olarak gösterilmiştir.
+<xref:Microsoft.Extensions.Options.IConfigureNamedOptions%601> ile adlandırılmış seçenekler, örnek uygulamada 6 örnek olarak gösterilmiştir.
 
-*Adlandırılmış seçenekler* desteği, uygulamanın adlandırılmış seçenek yapılandırmalarının ayırt etmesine izin verir. Örnek uygulamada, adlandırılmış Seçenekler [OptionsServiceCollectionExtensions. configure](xref:Microsoft.Extensions.DependencyInjection.OptionsServiceCollectionExtensions.Configure*)ile bildirilmiştir ve bu, [\<TOptions > ' i çağırır. ](xref:Microsoft.Extensions.Options.ConfigureNamedOptions`1.Configure*)Uzantı yöntemini Yapılandır:
+Adlandırılmış seçenekler desteği, uygulamanın adlandırılmış seçenek yapılandırmalarının ayırt etmesine izin verir. Örnek uygulamada, adlandırılmış Seçenekler [OptionsServiceCollectionExtensions. configure](xref:Microsoft.Extensions.DependencyInjection.OptionsServiceCollectionExtensions.Configure*)ile bildirilmiştir ve bu, [\<TOptions > ' i çağırır. ](xref:Microsoft.Extensions.Options.ConfigureNamedOptions`1.Configure*)Uzantı yöntemini yapılandırın. Adlandırılmış seçenekler büyük/küçük harfe duyarlıdır.
 
 [!code-csharp[](options/samples/2.x/OptionsSample/Startup.cs?name=snippet_Example6)]
 

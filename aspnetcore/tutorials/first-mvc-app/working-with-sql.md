@@ -5,12 +5,12 @@ description: ASP.NET Core MVC uygulamasında SQL Server LocalDB veya SQLite kull
 ms.author: riande
 ms.date: 8/16/2019
 uid: tutorials/first-mvc-app/working-with-sql
-ms.openlocfilehash: de392f4220cf0182d02a20f387164d2f4b184b58
-ms.sourcegitcommit: 020c3760492efed71b19e476f25392dda5dd7388
+ms.openlocfilehash: d556f07111fb2022a1c2f1a066459566e302835d
+ms.sourcegitcommit: da2fb2d78ce70accdba903ccbfdcfffdd0112123
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/12/2019
-ms.locfileid: "72289084"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75722783"
 ---
 # <a name="work-with-sql-in-aspnet-core"></a>ASP.NET Core 'de SQL ile çalışma
 
@@ -231,7 +231,7 @@ VERITABANıNDAKI tüm kayıtları silin (Bu nedenle çekirdek yöntemi çalışa
 
 Uygulama, sağlanan verileri gösterir.
 
-![Microsoft Edge 'de film verilerini gösteren MVC film uygulaması açık](working-with-sql/_static/m55.png)
+![Microsoft Edge 'de film verilerini gösteren MVC film uygulaması açık](working-with-sql/_static/m55_mac.png)
 
 > [!div class="step-by-step"]
 > [Önceki](adding-model.md)

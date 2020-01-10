@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 07/10/2019
 uid: tutorials/publish-to-azure-webapp-using-vs
-ms.openlocfilehash: 802d5c65423227e5fb7ccf39d692df2f0178ad34
-ms.sourcegitcommit: e6bd2bbe5683e9a7dbbc2f2eab644986e6dc8a87
+ms.openlocfilehash: 7fc3644df3dcb957f2537538aaa9506c6b38a480
+ms.sourcegitcommit: 79850db9e79b1705b89f466c6f2c961ff15485de
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70238191"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75693979"
 ---
 # <a name="publish-an-aspnet-core-app-to-azure-with-visual-studio"></a>Visual Studio ile Azure'a bir ASP.NET Core uygulaması yayımlama
 
@@ -23,7 +23,7 @@ Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
 ::: moniker-end
 
 
-Bkz: [Mac için Visual Studio'dan azure'a Yayımla](https://blog.xamarin.com/publish-azure-visual-studio-mac/) macOS üzerinde çalışıyorsanız ve o.
+MacOS 'ta çalışıyorsanız [Mac için Visual Studio kullanarak Azure App Service Için Web uygulaması yayımlama](https://docs.microsoft.com/visualstudio/mac/publish-app-svc?view=vsmac-2019) konusuna bakın.
 
 App Service dağıtım sorun gidermek için bkz: <xref:test/troubleshoot-azure-iis>.
 
@@ -41,7 +41,7 @@ Tamamlamak **yeni proje** iletişim:
 
 * Sol bölmede seçin **.NET Core**.
 * Orta bölmede seçin **ASP.NET Core Web uygulaması**.
-* **Tamam**’ı seçin.
+* Seçin **Tamam**.
 
 ![Yeni Proje iletişim kutusu](publish-to-azure-webapp-using-vs/_static/new_prj.png)
 
@@ -72,10 +72,10 @@ Visual Studio çözüm oluşturur.
 
 * Seçin **kaydetme** ve yeni bir kullanıcı kaydı. Kurgusal bir e-posta adresini kullanabilirsiniz. Gönderdiğinizde, sayfa şu iletiyi görüntüler:
 
-    *"İç sunucu hatası: İstek işlenirken bir veritabanı işlemi başarısız oldu. SQL özel durumu: Veritabanı açılamıyor. Uygulama DB bağlamı için mevcut geçişler uygulama bu sorunu çözebilir."*
+    *"İç sunucu hatası: istek işlenirken bir veritabanı işlemi başarısız oldu. SQL özel durumu: veritabanı açılamıyor. Uygulama DB bağlamı için mevcut geçişleri uygulamak, bu sorunu çözebilir. "*
 * Seçin **geçerli geçişleri** ve Sayfa güncelleştirmelerini yenileyin sonra sayfa.
 
-![İç sunucu hatası: İstek işlenirken bir veritabanı işlemi başarısız oldu. SQL özel durumu: Veritabanı açılamıyor. Uygulama DB bağlamı için mevcut geçişler uygulama, bu sorunu çözebilir.](publish-to-azure-webapp-using-vs/_static/mig.png)
+![İç sunucu hatası: İstek işlenirken bir veritabanı işlemi başarısız oldu. SQL özel durum: veritabanı açılamıyor. Uygulama DB bağlamı için mevcut geçişler uygulama, bu sorunu çözebilir.](publish-to-azure-webapp-using-vs/_static/mig.png)
 
 Yeni kullanıcı kaydetmek için kullanılan e-posta uygulaması görüntüler ve **oturumunuzu** bağlantı.
 
@@ -95,7 +95,7 @@ Yeni kullanıcı kaydetmek için kullanılan e-posta uygulaması görüntüler v
 
 ![Yayımla iletişim kutusu](publish-to-azure-webapp-using-vs/_static/maas1.png)
 
-### <a name="create-azure-resources"></a>Azure kaynakları oluşturma
+### <a name="create-azure-resources"></a>Azure kaynakları oluşturun
 
 **App Service Oluştur** iletişim kutusu görüntülenir:
 
@@ -123,7 +123,7 @@ Yeni kullanıcı kaydetmek için kullanılan e-posta uygulaması görüntüler v
 
 ![SQL Server iletişim yapılandırın](publish-to-azure-webapp-using-vs/_static/conf_servername.png)
 
-* **Tamam**’ı seçin.
+* Seçin **Tamam**.
 
 Visual Studio döner **App Service Oluştur** iletişim.
 
@@ -144,7 +144,7 @@ Dağıtım tamamlandığında, seçin **ayarları**:
 
 * **Kaydet**’i seçin. Visual Studio döner **Yayımla** iletişim. 
 
-![Yayımla iletişim kutusu: Ayarlar paneli](publish-to-azure-webapp-using-vs/_static/pubs.png)
+![Yayımla iletişim kutusu: ayarlar paneli](publish-to-azure-webapp-using-vs/_static/pubs.png)
 
 Tıklayın **yayımlama**. Visual Studio, uygulamanızı Azure'a yayımlar. Dağıtım tamamlandığında, uygulamayı bir tarayıcıda açılır.
 
@@ -176,7 +176,7 @@ Uygulamayı test etme işlemini tamamladığınızda, Git [Azure portalında](ht
 
 * Seçin **kaynak grupları**, ardından oluşturduğunuz kaynak grubunu seçin.
 
-![Azure portalı: Kenar çubuğu menüsündeki kaynak grupları](publish-to-azure-webapp-using-vs/_static/portalrg.png)
+![Azure portalı: Kaynak gruplarını kenar çubuğu menüsü](publish-to-azure-webapp-using-vs/_static/portalrg.png)
 
 * İçinde **kaynak grupları** sayfasında **Sil**.
 

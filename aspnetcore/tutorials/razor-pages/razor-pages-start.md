@@ -5,12 +5,12 @@ description: Bu öğretici dizisinde Razor Pages ASP.NET Core nasıl kullanılac
 ms.author: riande
 ms.date: 11/12/2019
 uid: tutorials/razor-pages/razor-pages-start
-ms.openlocfilehash: b651437b698d01310f90c5f14832616c1896e6c0
-ms.sourcegitcommit: 4e3edff24ba6e43a103fee1b126c9826241bb37b
+ms.openlocfilehash: 6e1d58ccd83f7d7c1083dc2bf9ce7476650812a1
+ms.sourcegitcommit: da2fb2d78ce70accdba903ccbfdcfffdd0112123
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74959105"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75723041"
 ---
 # <a name="tutorial-get-started-with-razor-pages-in-aspnet-core"></a>Öğretici: ASP.NET Core Razor Pages ile çalışmaya başlama
 
@@ -100,18 +100,13 @@ Bu öğreticinin sonunda, daha sonraki öğreticilerde oluşturacağınız çal�
 
   ![macOS yeni proje iletişim kutusu](razor-pages-start/_static/webapp.png)
 
-* **Yeni ASP.NET Core Web API 'Nizi yapılandırın** Iletişim kutusunda **hedef Framework 'ü** **.NET Core 3,1**olarak ayarlayın.
+* **Yeni Web uygulamanızı yapılandırın** Iletişim kutusunda **hedef Framework 'ü** **.NET Core 3,1**olarak ayarlayın.
 
-  ![macOS .NET Core 3,0 seçimi](razor-pages-start/_static/targetframework3.png)
+  ![macOS .NET Core 3,1 seçimi](razor-pages-start/_static/targetframework3.png)
 
 * Projeyi **RazorPagesMovie**olarak adlandırın ve **Oluştur**' u seçin.
 
   ![nameproj](razor-pages-start/_static/RazorPagesMovie.png)
-
-
-## <a name="open-the-project"></a>Projeyi açın
-
-Visual Studio 'da **dosya > aç**' ı seçin ve ardından *RazorPagesMovie. csproj* dosyasını seçin.
 
 <!-- End of VS tabs -->
 
@@ -242,19 +237,21 @@ Bu öğreticinin sonunda, daha sonraki öğreticilerde oluşturacağınız çal�
 
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Mac için Visual Studio](#tab/visual-studio-mac)
 
-Terminalden aşağıdaki komutu çalıştırın:
+* **Yeni çözüm**> **Dosya** ' yı seçin.
 
-<!-- TODO: update these instruction once mac support 2.2 projects -->
+![Yeni çözüm macOS](../first-mvc-app/start-mvc/_static/new_project_vsmac.png)
 
-```dotnetcli
-dotnet new webapp -o RazorPagesMovie
-```
+* **Web uygulaması** > bir **sonraki**> **.NET Core** > **App** ' i seçin.
 
-Yukarıdaki komutlar, bir Razor Pages projesi oluşturmak için [.NET Core CLI](/dotnet/core/tools/dotnet) kullanır.
+  ![macOS yeni proje iletişim kutusu](razor-pages-start/_static/webapp.png)
 
-## <a name="open-the-project"></a>Projeyi açın
+* **Yeni ASP.NET Core Web API 'Nizi yapılandırın** Iletişim kutusunda **hedef Framework 'ü** **.NET Core 3,1**olarak ayarlayın.
 
-Visual Studio 'da **dosya > aç**' ı seçin ve ardından *RazorPagesMovie. csproj* dosyasını seçin.
+  ![macOS .NET Core 3,0 seçimi](razor-pages-start/_static/targetframework3.png)
+
+* Projeyi **RazorPagesMovie**olarak adlandırın ve **Oluştur**' u seçin.
+
+  ![nameproj](razor-pages-start/_static/RazorPagesMovie.png)
 
 <!-- End of VS tabs -->
 

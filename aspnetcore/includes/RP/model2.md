@@ -6,7 +6,7 @@ RazorPagesMovie projesinde, *veri*adlı yeni bir klasör oluşturun. Aşağıdak
 
 [!code-csharp[](~/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie30/Data/RazorPagesMovieContext.cs)]
 
-Önceki kod, varlık kümesi için bir `DbSet` özelliği oluşturur. Entity Framework terimlerinde, genellikle bir varlık kümesi bir veritabanı tablosuna karşılık gelir ve bir varlık tablodaki bir satıra karşılık gelir.
+Önceki kod, varlık kümesi için bir `DbSet` özelliği oluşturur. Entity Framework terimlerinde, genellikle bir varlık kümesi bir veritabanı tablosuna karşılık gelir ve bir varlık tablodaki bir satıra karşılık gelir. Daha sonraki bir adımda bağımlılıklar eklenene kadar kod derlenmez.
 
 <a name="cs"></a>
 

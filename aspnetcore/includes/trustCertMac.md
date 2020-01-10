@@ -1,21 +1,15 @@
-* Aşağıdaki komutu çalıştırarak HTTPS geliştirme sertifikasına güvenin:
+Mac için Visual Studio aşağıdaki açılan pencereyi görüntüler:
 
-    ```dotnetcli
-    dotnet dev-certs https --trust
-    ```
+![HTTPS geliştirme sertifikası bulunamadı. Sertifikayı yüklemek ve güvenmek istiyor musunuz?](~/getting-started/_static/trustCertMac.png)
 
-* Yukarıdaki komut aşağıdaki çıktıyı görüntüler:
+Geliştirme sertifikasına güveniyorsanız **Evet** ' i seçin.
 
-    ```console
-    Trusting the HTTPS development certificate was requested. If the certificate 
-    is not already trusted we will run the following command:
-    'sudo security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keychain 
-    <<certificate>>'
-    This command might prompt you for your password to install the certificate on the 
-    system keychain.
-    The HTTPS developer certificate was generated successfully.
-    ```
+Aşağıdaki iletişim kutusu görüntülenir:
 
-* İstenirse yönetici kullanıcı adını ve parolasını girin.  Sertifika şimdi yüklenir ve güvenilir olur.
+![Güvenlik Uyarısı iletişim kutusu](~/getting-started/_static/certMac.png)
 
-    Daha fazla bilgi için bkz. [ASP.NET Core https geliştirme sertifikasına güvenin](xref:security/enforcing-ssl#trust-the-aspnet-core-https-development-certificate-on-windows-and-macos) .
+Parolanızı girin ve **Tamam** ' ı seçin.
+
+Geliştirme sertifikasına güvenmeyi kabul ediyorsanız **Evet** ' i seçin.
+
+Daha fazla bilgi için bkz [. asp.NET Core https geliştirme sertifikasına güvenin](xref:security/enforcing-ssl#trust-the-aspnet-core-https-development-certificate-on-windows-and-macos)

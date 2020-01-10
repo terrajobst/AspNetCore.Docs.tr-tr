@@ -5,12 +5,12 @@ description: Basit bir ASP.NET Core uygulamasına model ekleyin.
 ms.author: riande
 ms.date: 8/15/2019
 uid: tutorials/first-mvc-app/adding-model
-ms.openlocfilehash: 2fac37e7069fb2a464d4de1da8912197f7adf8a8
-ms.sourcegitcommit: 6628cd23793b66e4ce88788db641a5bbf470c3c1
+ms.openlocfilehash: 5d4251a2577111324aa2cfb715c41e3ecad5a9d1
+ms.sourcegitcommit: da2fb2d78ce70accdba903ccbfdcfffdd0112123
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73761096"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75722809"
 ---
 # <a name="add-a-model-to-an-aspnet-core-mvc-app"></a>ASP.NET Core MVC uygulamasına model ekleme
 
@@ -32,9 +32,13 @@ Bu öğreticide, önce model sınıflarını yazdığınızda EF Core veritaban�
 
  > **sınıf** **eklemek** > *modeller* klasörüne sağ tıklayın. Dosyayı *Movie.cs*olarak adlandırın.
 
-# <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Visual Studio Code/Mac için Visual Studio](#tab/visual-studio-code+visual-studio-mac)
+# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 *Modeller* klasörüne *Movie.cs* adlı bir dosya ekleyin.
+
+# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Mac için Visual Studio](#tab/visual-studio-mac)
+
+*Modeller* klasörüne sağ tıklayın > **yeni > Class** > **boş sınıf** **ekleyin** . Dosyayı *Movie.cs*olarak adlandırın.
 
 ---
 
@@ -67,9 +71,26 @@ Install-Package Microsoft.EntityFrameworkCore.SqlServer
 
 Yukarıdaki komut, EF Core SQL Server sağlayıcısını ekler. Sağlayıcı paketi, EF Core paketini bir bağımlılık olarak yüklüyor. Ek paketler, öğreticinin sonraki bölümlerinde bulunan yapı iskelesi adımında otomatik olarak yüklenir.
 
-# <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Visual Studio Code/Mac için Visual Studio](#tab/visual-studio-code+visual-studio-mac)
+# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 [!INCLUDE[](~/includes/add-EF-NuGet-SQLite-CLI.md)]
+
+# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Mac için Visual Studio](#tab/visual-studio-mac)
+
+**Proje** menüsünde, **NuGet Paketlerini Yönet**' i seçin.
+
+Sağ üst köşedeki **arama** alanına `Microsoft.EntityFrameworkCore.SQLite` girin ve aramak için **dönüş** tuşuna basın. Eşleşen NuGet paketini seçin ve **paket Ekle** düğmesine basın.
+
+![Entity Framework Core NuGet paketi Ekle](~/tutorials/first-mvc-app-mac/adding-model/_static/add-nuget-packages.png)
+
+Proje **Seç** iletişim kutusu, `MvcMovie` projesi seçili olacak şekilde görüntülenir. **Tamam** düğmesine basın.
+
+Bir **Lisans kabul** iletişim kutusu görüntülenir. Lisansları istenen şekilde gözden geçirin ve ardından **kabul et** düğmesine tıklayın.
+
+Aşağıdaki NuGet paketlerini yüklemek için yukarıdaki adımları yineleyin:
+ * `Microsoft.VisualStudio.Web.CodeGeneration.Design`
+ * `Microsoft.EntityFrameworkCore.SqlServer`
+ * `Microsoft.EntityFrameworkCore.Design`
 
 ---
 
@@ -155,7 +176,7 @@ Film modeli için oluşturma, okuma, güncelleştirme ve silme (CRUD) sayfaları
 
 * **Görünümler:** Her seçeneğin varsayılan kısmını işaretli tut
 * **Denetleyici adı:** Varsayılan *MoviesController* tut
-* **Ekle** 'yi seçin
+* **Ekle**’yi seçin
 
 Visual Studio şunları oluşturur:
 
@@ -426,7 +447,7 @@ Bu bölümde, film modeli iskele kurulmuş. Diğer bir deyişle, yapı iskelesi 
 
 * **Görünümler:** Her seçeneğin varsayılan kısmını işaretli tut
 * **Denetleyici adı:** Varsayılan *MoviesController* tut
-* **Ekle** 'yi seçin
+* **Ekle**’yi seçin
 
 ![Denetleyici Ekle iletişim kutusu](adding-model/_static/add_controller2.png)
 
@@ -688,7 +709,7 @@ Film denetleyicisini oluştururken, yapı iskelesi *Index. cshtml* dosyasının 
 * [Genelleştirme ve yerelleştirme](xref:fundamentals/localization)
 
 > [!div class="step-by-step"]
-> Daha [önce bir görünüm ekleme](adding-view.md)
-> [daha sonra SQL ile çalışma](working-with-sql.md)
+> Daha önce bir [veritabanı Ile çalışmaya](working-with-sql.md)
+> [bir görünüm ekleme](adding-view.md)
 
 ::: moniker-end

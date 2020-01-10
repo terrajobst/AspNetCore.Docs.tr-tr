@@ -8,12 +8,12 @@ ms.date: 12/05/2019
 no-loc:
 - SignalR
 uid: performance/performance-best-practices
-ms.openlocfilehash: bd30776d527b4ac9f44005e9f5d03fec7cfda2e6
-ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
+ms.openlocfilehash: c74adf7479d176c41dc26c7e77acfc3dc9cdcb88
+ms.sourcegitcommit: 79850db9e79b1705b89f466c6f2c961ff15485de
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74880925"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75693966"
 ---
 # <a name="aspnet-core-performance-best-practices"></a>ASP.NET Core performans En Iyi yöntemleri
 
@@ -44,7 +44,7 @@ ASP.NET Core uygulamalarda yaygın bir performans sorunu, zaman uyumsuz olabilec
 **Şunları yapın**:
 
 * [Etkin kod yollarını](#understand-hot-code-paths) zaman uyumsuz yapın.
-* Zaman uyumsuz bir API kullanılabiliyorsa veri erişimi ve uzun süre çalışan işlem API 'Lerini çağrı zaman uyumsuz olarak çağırın. Bir kez daha, eşzamanlı bir API 'YI zaman uyumsuz yapmak için [Task. Run](/dotnet/api/system.threading.tasks.task.run) kullanmayın.
+* Zaman uyumsuz bir API kullanılabiliyorsa veri erişimi, g/ç ve uzun süre çalışan işlem API 'Lerini çağrı zaman uyumsuz olarak çağırın. Bir synchronus API 'SI zaman uyumsuz yapmak için [Task. Run](/dotnet/api/system.threading.tasks.task.run) **kullanmayın.**
 * Denetleyiciyi/Razor sayfası eylemlerini zaman uyumsuz yapın. [Zaman uyumsuz/await](/dotnet/csharp/programming-guide/concepts/async/) desenlerinden faydalanmak için tüm çağrı yığını zaman uyumsuzdur.
 
 [Iş parçacığı havuzuna](/windows/desktop/procthread/thread-pools)sık sık eklenen iş parçacıklarını bulmak Için [PerfView](https://github.com/Microsoft/perfview)gibi bir profil oluşturucu kullanılabilir. `Microsoft-Windows-DotNETRuntime/ThreadPoolWorkerThread/Start` olayı, iş parçacığı havuzuna eklenen bir iş parçacığını gösterir. <!--  For more information, see [async guidance docs](TBD-Link_To_Davifowl_Doc)  -->
@@ -67,7 +67,7 @@ Yukarıdaki gibi bellek sorunları, [PerfView](https://github.com/Microsoft/perf
 
 Daha fazla bilgi için bkz. [çöp toplama ve performans](/dotnet/standard/garbage-collection/performance).
 
-## <a name="optimize-data-access"></a>Veri erişimini iyileştirme
+## <a name="optimize-data-access-and-io"></a>Veri erişimini ve g/ç 'yi iyileştirme
 
 Veri deposuna ve diğer uzak hizmetlere sahip etkileşimler genellikle ASP.NET Core uygulamasının en yavaş parçalarından oluşur. Verileri etkili bir şekilde okumak ve yazmak iyi bir performans için önemlidir.
 

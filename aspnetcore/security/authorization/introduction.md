@@ -1,31 +1,33 @@
 ---
-title: ASP.NET Core yetkilendirme giriş
+title: ASP.NET Core yetkilendirme için giriş
 author: rick-anderson
-description: Yetkilendirme ve yetkilendirme ASP.NET Core uygulamalarında nasıl çalıştığı hakkındaki temel bilgileri öğrenin.
+description: ASP.NET Core uygulamalarda yetkilendirme ve yetkilendirme ile ilgili temel bilgileri öğrenin.
 ms.author: riande
 ms.date: 10/14/2016
 uid: security/authorization/introduction
-ms.openlocfilehash: 5465eb7875ebecd77b628376ef886db0ddd05025
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: b5e60b3c256941fff5e54e1a02e077c34c535902
+ms.sourcegitcommit: 79850db9e79b1705b89f466c6f2c961ff15485de
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64902846"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75693875"
 ---
-# <a name="introduction-to-authorization-in-aspnet-core"></a>ASP.NET Core yetkilendirme giriş
+# <a name="introduction-to-authorization-in-aspnet-core"></a>ASP.NET Core yetkilendirme için giriş
 
 <a name="security-authorization-introduction"></a>
 
-Yetkilendirme ne belirleyen işleme başvuran bir kullanıcı işlemleri gerçekleştirebilirsiniz. Örneğin, bir belge kitaplığı oluşturma, belgelere ekleme, belgeleri düzenlemeye ve silmek için bir yönetici kullanıcı izin. Kitaplıkla çalışırken yönetici olmayan bir kullanıcı yalnızca belgeleri okumak için yetkili.
+Yetkilendirme, bir kullanıcının ne yapabileceğini belirleyen işlemi ifade eder. Örneğin, bir yönetici kullanıcının belge kitaplığı oluşturmalarına, belge eklemesine, belge düzenlemesine ve bunları silmesine izin verilir. Kitaplıkla çalışan yönetici olmayan bir Kullanıcı yalnızca belgeleri okuma yetkisine sahiptir.
 
-Yetkilendirme, dikey ve kimlik doğrulaması'dan bağımsız gerçekleşir. Ancak, bir kimlik doğrulama mekanizması yetkilendirme gerektirir. Kimlik doğrulaması kullanan bir kullanıcıdır ascertaining işlemidir. Kimlik doğrulaması, geçerli kullanıcı için bir veya daha fazla kimlikleri oluşturabilir.
+Yetkilendirme, kimlik doğrulamasından dik ve bağımsızdır. Ancak, yetkilendirme bir kimlik doğrulama mekanizması gerektirir. Kimlik doğrulaması, kullanıcı kim olduğunu belirlememe işlemidir. Kimlik doğrulaması geçerli kullanıcı için bir veya daha fazla kimlik oluşturabilir.
+
+ASP.NET Core kimlik doğrulaması hakkında daha fazla bilgi için bkz. <xref:security/authentication/index>.
 
 ## <a name="authorization-types"></a>Yetkilendirme türleri
 
-ASP.NET Core yetkilendirme sağlayan basit, bildirim temelli [rol](xref:security/authorization/roles) ve zengin [ilke tabanlı](xref:security/authorization/policies) modeli. Yetkilendirme gereksinimleri ifade edilir ve işleyicileri bir kullanıcının talebi gereksinimleriyle karşılaştırarak değerlendirmek. Kesinlik temelli denetimleri basit ilkeleri veya kullanıcı kimliği ve kullanıcının erişmeye çalıştığı kaynak özelliklerini değerlendirmek ilkeleri temel alabilir.
+ASP.NET Core yetkilendirme basit, bildirime dayalı bir [rol](xref:security/authorization/roles) ve zengin bir [ilke tabanlı](xref:security/authorization/policies) model sağlar. Yetkilendirme, gereksinimlerde ifade edilir ve işleyiciler bir kullanıcının gereksinimlerine göre taleplerini değerlendirir. Zorunlu denetimler, kullanıcının erişmeye çalıştığı kaynağın Kullanıcı kimliğini ve özelliklerini değerlendiren basit ilkeleri veya ilkeleri temel alabilir.
 
-## <a name="namespaces"></a>Ad Alanları
+## <a name="namespaces"></a>{1&gt;Ad alanları&lt;1}
 
-Yetkilendirme bileşenlerine dahil `AuthorizeAttribute` ve `AllowAnonymousAttribute` öznitelikleri içinde bulunan `Microsoft.AspNetCore.Authorization` ad alanı.
+`AuthorizeAttribute` ve `AllowAnonymousAttribute` öznitelikleri dahil olmak üzere yetkilendirme bileşenleri `Microsoft.AspNetCore.Authorization` ad alanında bulunur.
 
-Üzerinde belgelerine [basit yetkilendirme](xref:security/authorization/simple).
+[Basit yetkilendirme](xref:security/authorization/simple)ile ilgili belgelere başvurun.
