@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 11/2/2019
 uid: performance/caching/memory
-ms.openlocfilehash: 1114d154ed1af09958df63ae718712177bbf6db0
-ms.sourcegitcommit: 09f4a5ded39cc8204576fe801d760bd8b611f3aa
+ms.openlocfilehash: eb40026bc9686357cc7cfb8a99f127a3b433cb70
+ms.sourcegitcommit: 7dfe6cc8408ac6a4549c29ca57b0c67ec4baa8de
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73611437"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75866039"
 ---
 # <a name="cache-in-memory-in-aspnet-core"></a>ASP.NET Core 'de önbellek belleği
 
@@ -19,7 +19,7 @@ ms.locfileid: "73611437"
 
 By [Rick Anderson](https://twitter.com/RickAndMSFT), [John Luo](https://github.com/JunTaoLuo)ve [Steve Smith](https://ardalis.com/)
 
-[Örnek kodu görüntüleme veya indirme](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/performance/caching/memory/3.0sample) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
+[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/performance/caching/memory/3.0sample) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
 
 ## <a name="caching-basics"></a>Önbelleğe alma temelleri
 
@@ -33,15 +33,15 @@ Bellek içi önbellek herhangi bir nesneyi depolayabilirler. Dağıtılmış ön
 
 ## <a name="systemruntimecachingmemorycache"></a>System. Runtime. Caching/MemoryCache
 
-<xref:System.Runtime.Caching> / <xref:System.Runtime.Caching.MemoryCache> ([NuGet paketi](https://www.nuget.org/packages/System.Runtime.Caching/)) ile birlikte kullanılabilir:
+<xref:System.Runtime.Caching>/<xref:System.Runtime.Caching.MemoryCache> ([NuGet paketi](https://www.nuget.org/packages/System.Runtime.Caching/)) ile birlikte kullanılabilir:
 
 * .NET Standard 2,0 veya üzeri.
 * .NET Standard 2,0 veya sonraki bir sürümü hedefleyen tüm [.NET uygulamaları](/dotnet/standard/net-standard#net-implementation-support) . Örneğin, 2,0 veya üzeri ASP.NET Core.
 * .NET Framework 4,5 veya üzeri.
 
-[Microsoft. Extensions. Caching. Memory](https://www.nuget.org/packages/Microsoft.Extensions.Caching.Memory/) / `IMemoryCache` (Bu makalede açıklanan) `System.Runtime.Caching` / `MemoryCache` üzerinde önerilir, çünkü ASP.NET Core daha iyi tümleşiktir. Örneğin `IMemoryCache`, ASP.NET Core [bağımlılığı ekleme](xref:fundamentals/dependency-injection)ile yerel olarak çalışmaktadır.
+[Microsoft. Extensions. Caching. Memory](https://www.nuget.org/packages/Microsoft.Extensions.Caching.Memory/)/`IMemoryCache` (Bu makalede açıklanan) `System.Runtime.Caching`/`MemoryCache` üzerinde önerilir, çünkü ASP.NET Core daha iyi tümleşiktir. Örneğin, `IMemoryCache` ASP.NET Core [bağımlılığı ekleme](xref:fundamentals/dependency-injection)ile yerel olarak çalışmaktadır.
 
-Kodu ASP.NET 4. x ' ten ASP.NET Core taşıma sırasında uyumluluk Köprüsü olarak `MemoryCache` `System.Runtime.Caching` / kullanın.
+Kodu ASP.NET 4. x ' ten ASP.NET Core taşıma sırasında uyumluluk Köprüsü olarak `MemoryCache` `System.Runtime.Caching`/kullanın.
 
 ## <a name="cache-guidelines"></a>Önbellek yönergeleri
 
@@ -54,11 +54,11 @@ Kodu ASP.NET 4. x ' ten ASP.NET Core taşıma sırasında uyumluluk Köprüsü o
 ## <a name="use-imemorycache"></a>Imemorycache kullan
 
 > [!WARNING]
-> Ön sınır [ekleme](xref:fundamentals/dependency-injection) ve `SetSize`, `Size` veya `SizeLimit` ' e çağrı için bir *paylaşılan* bellek önbelleğinin kullanılması uygulamanın başarısız olmasına neden olabilir. Önbellekte bir boyut sınırı ayarlandığında, tüm girişlerin eklenmekte olan bir boyut belirtmesi gerekir. Bu, geliştiricilerin paylaşılan önbelleğin kullanıldığı ilgili tam denetime sahip olmaması nedeniyle sorunlara yol açabilir. Örneğin, Entity Framework Core paylaşılan önbelleği kullanır ve bir boyut belirtmez. Bir uygulama önbellek boyutu sınırı ayarlarsa ve EF Core kullanıyorsa, uygulama bir `InvalidOperationException` oluşturur.
-> Önbelleği sınırlandırmak için `SetSize`, `Size` veya `SizeLimit` kullanıldığında, önbelleğe alma için bir önbellek oluşturun. Daha fazla bilgi ve bir örnek için bkz. [önbellek boyutunu sınırlamak Için SetSize, size ve SizeLimit kullanma](#use-setsize-size-and-sizelimit-to-limit-cache-size).
+> Yük [devretme ve arama](xref:fundamentals/dependency-injection) `SetSize`, `Size`veya `SizeLimit` bir *paylaşılan* bellek önbelleğinin kullanılması, önbellek boyutunu sınırlamak için uygulamanın başarısız olmasına neden olabilir. Önbellekte bir boyut sınırı ayarlandığında, tüm girişlerin eklenmekte olan bir boyut belirtmesi gerekir. Bu, geliştiricilerin paylaşılan önbelleğin kullanıldığı ilgili tam denetime sahip olmaması nedeniyle sorunlara yol açabilir. Örneğin, Entity Framework Core paylaşılan önbelleği kullanır ve bir boyut belirtmez. Bir uygulama önbellek boyutu sınırı ayarlarsa ve EF Core kullanıyorsa, uygulama bir `InvalidOperationException`oluşturur.
+> Önbelleği sınırlandırmak için `SetSize`, `Size`veya `SizeLimit` kullanırken, önbelleğe alma için bir önbellek oluşturun. Daha fazla bilgi ve bir örnek için bkz. [önbellek boyutunu sınırlamak Için SetSize, size ve SizeLimit kullanma](#use-setsize-size-and-sizelimit-to-limit-cache-size).
 > Paylaşılan bir önbellek, diğer çerçeveler veya kitaplıklar tarafından paylaşılır. Örneğin, EF Core paylaşılan önbelleği kullanır ve bir boyut belirtmez. 
 
-Bellek içi önbelleğe alma, [bağımlılık ekleme](xref:fundamentals/dependency-injection)kullanılarak bir uygulamadan başvurulan bir *hizmettir* . Oluşturucuda `IMemoryCache` örneği isteyin:
+Bellek içi önbelleğe alma, [bağımlılık ekleme](xref:fundamentals/dependency-injection)kullanılarak bir uygulamadan başvurulan bir *hizmettir* . Oluşturucuda `IMemoryCache` örneği iste:
 
 [!code-csharp[](memory/3.0sample/WebCacheSample/Controllers/HomeController.cs?name=snippet_ctor)]
 
@@ -94,7 +94,7 @@ Aşağıdaki kod *hem kayan hem de mutlak* süre sonu ile önbelleğe alınmış
 
 Yukarıdaki kod, verilerin mutlak süreden daha uzun süre önbelleğe alınmamasını garanti eder.
 
-<xref:Microsoft.Extensions.Caching.Memory.CacheExtensions.GetOrCreate*>, <xref:Microsoft.Extensions.Caching.Memory.CacheExtensions.GetOrCreateAsync*> ve <xref:Microsoft.Extensions.Caching.Memory.CacheExtensions.Get*> <xref:Microsoft.Extensions.Caching.Memory.CacheExtensions> sınıfında uzantı yöntemleridir. Bu yöntemler <xref:Microsoft.Extensions.Caching.Memory.IMemoryCache> özelliğini genişletir.
+<xref:Microsoft.Extensions.Caching.Memory.CacheExtensions.GetOrCreate*>, <xref:Microsoft.Extensions.Caching.Memory.CacheExtensions.GetOrCreateAsync*>ve <xref:Microsoft.Extensions.Caching.Memory.CacheExtensions.Get*>, <xref:Microsoft.Extensions.Caching.Memory.CacheExtensions> sınıfında uzantı yöntemleridir. Bu yöntemler <xref:Microsoft.Extensions.Caching.Memory.IMemoryCache>özelliğini genişletir.
 
 ## <a name="memorycacheentryoptions"></a>Memorycachebir Yoptions
 
@@ -118,25 +118,25 @@ Aşağıdaki örnek:
 <xref:Microsoft.Extensions.Caching.Memory.MemoryCacheOptions.SizeLimit> ayarlanmamışsa, önbellek bağlantılı olmadan büyür. ASP.NET Core çalışma zamanı, sistem belleği azaldığında önbelleği kırpmaz. Uygulamalar şu şekilde tasarlanmıştır:
 
 * Önbellek büyümesini sınırla.
-* Kullanılabilir bellek sınırlıysa <xref:Microsoft.Extensions.Caching.Memory.MemoryCache.Compact*> veya <xref:Microsoft.Extensions.Caching.Memory.MemoryCache.Remove*> ' i çağırın:
+* Kullanılabilir bellek sınırlı olduğunda <xref:Microsoft.Extensions.Caching.Memory.MemoryCache.Compact*> veya <xref:Microsoft.Extensions.Caching.Memory.MemoryCache.Remove*> çağırın:
 
 Aşağıdaki kod, [bağımlılık ekleme](xref:fundamentals/dependency-injection)tarafından erişilebilen bir unitless sabit boyut <xref:Microsoft.Extensions.Caching.Memory.MemoryCache> oluşturur:
 
 [!code-csharp[](memory/sample/RPcache/Services/MyMemoryCache.cs?name=snippet)]
 
-`SizeLimit` ' da birim yok. Önbellek boyutu sınırı ayarlandıysa, önbelleğe alınmış girişler, en çok ne kadar uygun olduğunu belirleyen birimlerde boyut belirtmelidir. Bir önbellek örneğinin tüm kullanıcıları aynı birim sistemini kullanmalıdır. Önbelleğe alınmış giriş boyutlarının toplamı, `SizeLimit` tarafından belirtilen değeri aşarsa bir giriş önbelleğe alınmaz. Önbellek boyutu sınırı ayarlanmamışsa, girişte ayarlanan önbellek boyutu yok sayılır.
+`SizeLimit` birimleri yok. Önbellek boyutu sınırı ayarlandıysa, önbelleğe alınmış girişler, en çok ne kadar uygun olduğunu belirleyen birimlerde boyut belirtmelidir. Bir önbellek örneğinin tüm kullanıcıları aynı birim sistemini kullanmalıdır. Önbelleğe alınmış giriş boyutlarının toplamı `SizeLimit`tarafından belirtilen değeri aşarsa, bir giriş önbelleğe alınmaz. Önbellek boyutu sınırı ayarlanmamışsa, girişte ayarlanan önbellek boyutu yok sayılır.
 
-Aşağıdaki kod `MyMemoryCache` ' i [bağımlılık ekleme](xref:fundamentals/dependency-injection) kapsayıcısına kaydeder.
+Aşağıdaki kod, [bağımlılık ekleme](xref:fundamentals/dependency-injection) kapsayıcısına `MyMemoryCache` kaydeder.
 
 [!code-csharp[](memory/3.0sample/RPcache/Startup.cs?name=snippet)]
 
 `MyMemoryCache`, bu boyut sınırlı önbelleğin farkında olan bileşenler için bağımsız bir bellek önbelleği olarak oluşturulur ve önbellek girişi boyutunu uygun şekilde ayarlamayı öğrenin.
 
-Aşağıdaki kod `MyMemoryCache` kullanır:
+Aşağıdaki kod `MyMemoryCache`kullanır:
 
 [!code-csharp[](memory/3.0sample/RPcache/Pages/SetSize.cshtml.cs?name=snippet)]
 
-Önbellek girişinin boyutu <xref:Microsoft.Extensions.Caching.Memory.MemoryCacheEntryOptions.Size> veya <xref:Microsoft.Extensions.Caching.Memory.MemoryCacheEntryExtensions.SetSize*> uzantı yöntemleriyle ayarlanabilir:
+Önbellek girişinin boyutu <xref:Microsoft.Extensions.Caching.Memory.MemoryCacheEntryOptions.Size> veya <xref:Microsoft.Extensions.Caching.Memory.MemoryCacheEntryExtensions.SetSize*> uzantısı yöntemleriyle ayarlanabilir:
 
 [!code-csharp[](memory/3.0sample/RPcache/Pages/SetSize.cshtml.cs?name=snippet2&highlight=9,10,14,15)]
 
@@ -150,11 +150,11 @@ Aşağıdaki kod `MyMemoryCache` kullanır:
 * En erken mutlak bitiş tarihi olan öğeler.
 * En erken Kayan süre sonu olan öğeler.
 
-Öncelik <xref:Microsoft.Extensions.Caching.Memory.CacheItemPriority.NeverRemove> sabitlenmiş öğeler hiçbir şekilde kaldırılmaz. Aşağıdaki kod bir önbellek öğesini ve çağrıları kaldırır `Compact`:
+Öncelik <xref:Microsoft.Extensions.Caching.Memory.CacheItemPriority.NeverRemove> sabitlenmiş öğeler hiçbir şekilde kaldırılmaz. Aşağıdaki kod bir önbellek öğesini kaldırır ve `Compact`çağırır:
 
 [!code-csharp[](memory/3.0sample/RPcache/Pages/TestCache.cshtml.cs?name=snippet3)]
 
-Daha fazla bilgi için bkz. [GitHub 'Da Compact Source](https://github.com/aspnet/Extensions/blob/v3.0.0-preview8.19405.4/src/Caching/Memory/src/MemoryCache.cs#L382-L393) .
+Daha fazla bilgi için bkz. [GitHub 'Da Compact Source](https://github.com/dotnet/extensions/blob/v3.0.0-preview8.19405.4/src/Caching/Memory/src/MemoryCache.cs#L382-L393) .
 
 ## <a name="cache-dependencies"></a>Önbellek bağımlılıkları
 
@@ -166,7 +166,7 @@ Aşağıdaki örnek, bağımlı bir girdinin süresi dolduğunda önbellek giri�
 
 ## <a name="additional-notes"></a>Ek notlar
 
-* Süre sonu arka planda gerçekleşmez. Süre dolmakta olan öğeler için önbelleği etkin bir şekilde tarayan bir Zamanlayıcı yok. Önbellekteki (`Get`, `Set`, `Remove`) herhangi bir etkinlik, süre sonu olmayan öğeler için bir arka plan taraması tetikleyebilir. `CancellationTokenSource` (<xref:System.Threading.CancellationTokenSource.CancelAfter*>) bir Zamanlayıcı girişi de kaldırır ve vadesi geçmiş öğeler için bir tarama tetikler. Aşağıdaki örnek, kayıtlı belirteç için [CancellationTokenSource (TimeSpan)](/dotnet/api/system.threading.cancellationtokensource.-ctor) kullanır. Bu belirteç tetiklendiğinde, girdiyi hemen kaldırır ve çıkarma geri çağırmaları tetikler:
+* Süre sonu arka planda gerçekleşmez. Süre dolmakta olan öğeler için önbelleği etkin bir şekilde tarayan bir Zamanlayıcı yok. Önbellekteki herhangi bir etkinlik (`Get`, `Set`, `Remove`), süre dolmamış öğeler için bir arka plan taraması tetiklenebilir. `CancellationTokenSource` (<xref:System.Threading.CancellationTokenSource.CancelAfter*>) bir Zamanlayıcı girişi de kaldırır ve vadesi geçmiş öğeler için bir tarama tetikler. Aşağıdaki örnek, kayıtlı belirteç için [CancellationTokenSource (TimeSpan)](/dotnet/api/system.threading.cancellationtokensource.-ctor) kullanır. Bu belirteç tetiklendiğinde, girdiyi hemen kaldırır ve çıkarma geri çağırmaları tetikler:
 
 [!code-csharp[](memory/3.0sample/WebCacheSample/Controllers/HomeController.cs?name=snippet_ae)]
 
@@ -178,7 +178,7 @@ Aşağıdaki örnek, bağımlı bir girdinin süresi dolduğunda önbellek giri�
 * Diğeri oluşturmak için bir önbellek girdisi kullanıldığında, alt öğe üst girdinin süre sonu belirteçlerini ve zaman tabanlı süre sonu ayarlarını kopyalar. Üst girdinin el ile kaldırılması veya güncelleştirilmesi için alt öğenin kullanım dışı olmaması.
 
 * Önbellek girdisi önbellekten çıkarıldıktan sonra uygulanacak geri çağırmaları ayarlamak için <xref:Microsoft.Extensions.Caching.Memory.ICacheEntry.PostEvictionCallbacks> kullanın.
-* Çoğu uygulama için, `IMemoryCache` etkindir. Örneğin, `ConfigureServices` ' te `AddMvc`, `AddControllersWithViews`, `AddRazorPages`, `AddMvcCore().AddRazorViewEngine` ve diğer birçok `Add{Service}` yöntemi çağrılırken `IMemoryCache` etkinleştirilir. Önceki `Add{Service}` yöntemlerinden birini çağırmayan uygulamalarda, `ConfigureServices` ' de <xref:Microsoft.Extensions.DependencyInjection.MemoryCacheServiceCollectionExtensions.AddMemoryCache*> ' i çağırmak gerekebilir.
+* Çoğu uygulama için `IMemoryCache` etkindir. Örneğin, `Add{Service}` `AddMvc`, `AddControllersWithViews`, `AddRazorPages`, `AddMvcCore().AddRazorViewEngine`ve diğer birçok `ConfigureServices`yöntemini çağırmak `IMemoryCache`izin vermez. Önceki `Add{Service}` yöntemlerinden birini çağırmayan uygulamalarda, `ConfigureServices`<xref:Microsoft.Extensions.DependencyInjection.MemoryCacheServiceCollectionExtensions.AddMemoryCache*> çağırmak gerekebilir.
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
@@ -196,7 +196,7 @@ Aşağıdaki örnek, bağımlı bir girdinin süresi dolduğunda önbellek giri�
 <!-- This is the 2.1 version -->
 By [Rick Anderson](https://twitter.com/RickAndMSFT), [John Luo](https://github.com/JunTaoLuo)ve [Steve Smith](https://ardalis.com/)
 
-[Örnek kodu görüntüleme veya indirme](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/performance/caching/memory/sample) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
+[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/performance/caching/memory/sample) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
 
 ## <a name="caching-basics"></a>Önbelleğe alma temelleri
 
@@ -210,15 +210,15 @@ Bellek içi önbellek herhangi bir nesneyi depolayabilirler. Dağıtılmış ön
 
 ## <a name="systemruntimecachingmemorycache"></a>System. Runtime. Caching/MemoryCache
 
-<xref:System.Runtime.Caching> / <xref:System.Runtime.Caching.MemoryCache> ([NuGet paketi](https://www.nuget.org/packages/System.Runtime.Caching/)) ile birlikte kullanılabilir:
+<xref:System.Runtime.Caching>/<xref:System.Runtime.Caching.MemoryCache> ([NuGet paketi](https://www.nuget.org/packages/System.Runtime.Caching/)) ile birlikte kullanılabilir:
 
 * .NET Standard 2,0 veya üzeri.
 * .NET Standard 2,0 veya sonraki bir sürümü hedefleyen tüm [.NET uygulamaları](/dotnet/standard/net-standard#net-implementation-support) . Örneğin, 2,0 veya üzeri ASP.NET Core.
 * .NET Framework 4,5 veya üzeri.
 
-[Microsoft. Extensions. Caching. Memory](https://www.nuget.org/packages/Microsoft.Extensions.Caching.Memory/) / `IMemoryCache` (Bu makalede açıklanan) `System.Runtime.Caching` / `MemoryCache` üzerinde önerilir, çünkü ASP.NET Core daha iyi tümleşiktir. Örneğin `IMemoryCache`, ASP.NET Core [bağımlılığı ekleme](xref:fundamentals/dependency-injection)ile yerel olarak çalışmaktadır.
+[Microsoft. Extensions. Caching. Memory](https://www.nuget.org/packages/Microsoft.Extensions.Caching.Memory/)/`IMemoryCache` (Bu makalede açıklanan) `System.Runtime.Caching`/`MemoryCache` üzerinde önerilir, çünkü ASP.NET Core daha iyi tümleşiktir. Örneğin, `IMemoryCache` ASP.NET Core [bağımlılığı ekleme](xref:fundamentals/dependency-injection)ile yerel olarak çalışmaktadır.
 
-Kodu ASP.NET 4. x ' ten ASP.NET Core taşıma sırasında uyumluluk Köprüsü olarak `MemoryCache` `System.Runtime.Caching` / kullanın.
+Kodu ASP.NET 4. x ' ten ASP.NET Core taşıma sırasında uyumluluk Köprüsü olarak `MemoryCache` `System.Runtime.Caching`/kullanın.
 
 ## <a name="cache-guidelines"></a>Önbellek yönergeleri
 
@@ -231,18 +231,18 @@ Kodu ASP.NET 4. x ' ten ASP.NET Core taşıma sırasında uyumluluk Köprüsü o
 ## <a name="using-imemorycache"></a>Imemorycache kullanma
 
 > [!WARNING]
-> Ön sınır [ekleme](xref:fundamentals/dependency-injection) ve `SetSize`, `Size` veya `SizeLimit` ' e çağrı için bir *paylaşılan* bellek önbelleğinin kullanılması uygulamanın başarısız olmasına neden olabilir. Önbellekte bir boyut sınırı ayarlandığında, tüm girişlerin eklenmekte olan bir boyut belirtmesi gerekir. Bu, geliştiricilerin paylaşılan önbelleğin kullanıldığı ilgili tam denetime sahip olmaması nedeniyle sorunlara yol açabilir. Örneğin, Entity Framework Core paylaşılan önbelleği kullanır ve bir boyut belirtmez. Bir uygulama önbellek boyutu sınırı ayarlarsa ve EF Core kullanıyorsa, uygulama bir `InvalidOperationException` oluşturur.
-> Önbelleği sınırlandırmak için `SetSize`, `Size` veya `SizeLimit` kullanıldığında, önbelleğe alma için bir önbellek oluşturun. Daha fazla bilgi ve bir örnek için bkz. [önbellek boyutunu sınırlamak Için SetSize, size ve SizeLimit kullanma](#use-setsize-size-and-sizelimit-to-limit-cache-size).
+> Yük [devretme ve arama](xref:fundamentals/dependency-injection) `SetSize`, `Size`veya `SizeLimit` bir *paylaşılan* bellek önbelleğinin kullanılması, önbellek boyutunu sınırlamak için uygulamanın başarısız olmasına neden olabilir. Önbellekte bir boyut sınırı ayarlandığında, tüm girişlerin eklenmekte olan bir boyut belirtmesi gerekir. Bu, geliştiricilerin paylaşılan önbelleğin kullanıldığı ilgili tam denetime sahip olmaması nedeniyle sorunlara yol açabilir. Örneğin, Entity Framework Core paylaşılan önbelleği kullanır ve bir boyut belirtmez. Bir uygulama önbellek boyutu sınırı ayarlarsa ve EF Core kullanıyorsa, uygulama bir `InvalidOperationException`oluşturur.
+> Önbelleği sınırlandırmak için `SetSize`, `Size`veya `SizeLimit` kullanırken, önbelleğe alma için bir önbellek oluşturun. Daha fazla bilgi ve bir örnek için bkz. [önbellek boyutunu sınırlamak Için SetSize, size ve SizeLimit kullanma](#use-setsize-size-and-sizelimit-to-limit-cache-size).
 
 Bellek içi önbelleğe alma, [bağımlılık ekleme](../../fundamentals/dependency-injection.md)kullanılarak uygulamanız tarafından başvurulan bir *hizmettir* . `ConfigureServices``AddMemoryCache` çağrısı:
 
 [!code-csharp[](memory/sample/WebCache/Startup.cs?highlight=9)]
 
-Oluşturucuda `IMemoryCache` örneği isteyin:
+Oluşturucuda `IMemoryCache` örneği iste:
 
 [!code-csharp[](memory/sample/WebCache/Controllers/HomeController.cs?name=snippet_ctor)]
 
-`IMemoryCache`, [Microsoft. AspNetCore. app metapackage](xref:fundamentals/metapackage-app)Içinde bulunan [Microsoft. Extensions. Caching. Memory](https://www.nuget.org/packages/Microsoft.Extensions.Caching.Memory/)için NuGet paketini gerektirir.
+`IMemoryCache`, [Microsoft. AspNetCore. app metapackage](xref:fundamentals/metapackage-app)' de bulunan NuGet paketi [Microsoft. Extensions. Caching. Memory](https://www.nuget.org/packages/Microsoft.Extensions.Caching.Memory/)gerektirir.
 
 Aşağıdaki kod, bir saatin önbellekte olup olmadığını denetlemek için [TryGetValue](/dotnet/api/microsoft.extensions.caching.memory.imemorycache.trygetvalue?view=aspnetcore-2.0#Microsoft_Extensions_Caching_Memory_IMemoryCache_TryGetValue_System_Object_System_Object__) kullanır. Bir zaman önbelleğe alınmadıysa, yeni bir giriş oluşturulur ve [Ayarla](/dotnet/api/microsoft.extensions.caching.memory.cacheextensions.set?view=aspnetcore-2.0#Microsoft_Extensions_Caching_Memory_CacheExtensions_Set__1_Microsoft_Extensions_Caching_Memory_IMemoryCache_System_Object___0_Microsoft_Extensions_Caching_Memory_MemoryCacheEntryOptions_)birlikte önbelleğe eklenir.
 
@@ -266,14 +266,14 @@ Aşağıdaki kod, önbelleğe alınmış zamanı getirmek için [Al](/dotnet/api
 
 [!code-csharp[](memory/sample/WebCache/Controllers/HomeController.cs?name=snippet_gct)]
 
-<xref:Microsoft.Extensions.Caching.Memory.CacheExtensions.GetOrCreate*>, <xref:Microsoft.Extensions.Caching.Memory.CacheExtensions.GetOrCreateAsync*> ve [Get](/dotnet/api/microsoft.extensions.caching.memory.cacheextensions.get#Microsoft_Extensions_Caching_Memory_CacheExtensions_Get__1_Microsoft_Extensions_Caching_Memory_IMemoryCache_System_Object_) , [cacheextensions](/dotnet/api/microsoft.extensions.caching.memory.cacheextensions) sınıfının <xref:Microsoft.Extensions.Caching.Memory.IMemoryCache> özelliğini genişleten bir parçası. Diğer önbellek yöntemlerinin açıklaması için bkz. [ımemorycache metotları](/dotnet/api/microsoft.extensions.caching.memory.imemorycache) ve [cacheextensions yöntemleri](/dotnet/api/microsoft.extensions.caching.memory.cacheextensions) .
+<xref:Microsoft.Extensions.Caching.Memory.CacheExtensions.GetOrCreate*>, <xref:Microsoft.Extensions.Caching.Memory.CacheExtensions.GetOrCreateAsync*>ve [Get](/dotnet/api/microsoft.extensions.caching.memory.cacheextensions.get#Microsoft_Extensions_Caching_Memory_CacheExtensions_Get__1_Microsoft_Extensions_Caching_Memory_IMemoryCache_System_Object_) , <xref:Microsoft.Extensions.Caching.Memory.IMemoryCache>özelliğini genişleten [cacheextensions](/dotnet/api/microsoft.extensions.caching.memory.cacheextensions) sınıfının bir parçası olan uzantı yöntemleridir. Diğer önbellek yöntemlerinin açıklaması için bkz. [ımemorycache metotları](/dotnet/api/microsoft.extensions.caching.memory.imemorycache) ve [cacheextensions yöntemleri](/dotnet/api/microsoft.extensions.caching.memory.cacheextensions) .
 
 ## <a name="memorycacheentryoptions"></a>Memorycachebir Yoptions
 
 Aşağıdaki örnek:
 
 * Kayan süre sonu zamanı ayarlar. Bu önbelleğe alınmış öğeye erişen istekler, Kayan süre sonu saatini sıfırlayacaktır.
-* Önbellek önceliğini `CacheItemPriority.NeverRemove` olarak ayarlar.
+* Önbellek önceliğini `CacheItemPriority.NeverRemove`olarak ayarlar.
 * Giriş önbellekten çıkarıldıktan sonra çağrılacak [Postevictiondelegate](/dotnet/api/microsoft.extensions.caching.memory.postevictiondelegate) ayarlar. Geri çağırma, öğeyi önbellekten kaldıran koddan farklı bir iş parçacığında çalıştırılır.
 
 [!code-csharp[](memory/sample/WebCache/Controllers/HomeController.cs?name=snippet_et&highlight=14-21)]
@@ -290,21 +290,21 @@ Aşağıdaki örnek:
 <xref:Microsoft.Extensions.Caching.Memory.MemoryCacheOptions.SizeLimit> ayarlanmamışsa, önbellek bağlantılı olmadan büyür. ASP.NET Core çalışma zamanı, sistem belleği azaldığında önbelleği kırpmaz. Uygulamalar şu şekilde tasarlanmıştır:
 
 * Önbellek büyümesini sınırla.
-* Kullanılabilir bellek sınırlıysa <xref:Microsoft.Extensions.Caching.Memory.MemoryCache.Compact*> veya <xref:Microsoft.Extensions.Caching.Memory.MemoryCache.Remove*> ' i çağırın:
+* Kullanılabilir bellek sınırlı olduğunda <xref:Microsoft.Extensions.Caching.Memory.MemoryCache.Compact*> veya <xref:Microsoft.Extensions.Caching.Memory.MemoryCache.Remove*> çağırın:
 
 Aşağıdaki kod, [bağımlılık ekleme](xref:fundamentals/dependency-injection)tarafından erişilebilen bir unitless sabit boyut <xref:Microsoft.Extensions.Caching.Memory.MemoryCache> oluşturur:
 
 [!code-csharp[](memory/sample/RPcache/Services/MyMemoryCache.cs?name=snippet)]
 
-`SizeLimit` ' da birim yok. Önbellek boyutu sınırı ayarlandıysa, önbelleğe alınmış girişler, en çok ne kadar uygun olduğunu belirleyen birimlerde boyut belirtmelidir. Bir önbellek örneğinin tüm kullanıcıları aynı birim sistemini kullanmalıdır. Önbelleğe alınmış giriş boyutlarının toplamı, `SizeLimit` tarafından belirtilen değeri aşarsa bir giriş önbelleğe alınmaz. Önbellek boyutu sınırı ayarlanmamışsa, girişte ayarlanan önbellek boyutu yok sayılır.
+`SizeLimit` birimleri yok. Önbellek boyutu sınırı ayarlandıysa, önbelleğe alınmış girişler, en çok ne kadar uygun olduğunu belirleyen birimlerde boyut belirtmelidir. Bir önbellek örneğinin tüm kullanıcıları aynı birim sistemini kullanmalıdır. Önbelleğe alınmış giriş boyutlarının toplamı `SizeLimit`tarafından belirtilen değeri aşarsa, bir giriş önbelleğe alınmaz. Önbellek boyutu sınırı ayarlanmamışsa, girişte ayarlanan önbellek boyutu yok sayılır.
 
-Aşağıdaki kod `MyMemoryCache` ' i [bağımlılık ekleme](xref:fundamentals/dependency-injection) kapsayıcısına kaydeder.
+Aşağıdaki kod, [bağımlılık ekleme](xref:fundamentals/dependency-injection) kapsayıcısına `MyMemoryCache` kaydeder.
 
 [!code-csharp[](memory/sample/RPcache/Startup.cs?name=snippet&highlight=5)]
 
 `MyMemoryCache`, bu boyut sınırlı önbelleğin farkında olan bileşenler için bağımsız bir bellek önbelleği olarak oluşturulur ve önbellek girişi boyutunu uygun şekilde ayarlamayı öğrenin.
 
-Aşağıdaki kod `MyMemoryCache` kullanır:
+Aşağıdaki kod `MyMemoryCache`kullanır:
 
 [!code-csharp[](memory/sample/RPcache/Pages/About.cshtml.cs?name=snippet)]
 
@@ -326,7 +326,7 @@ Aşağıdaki kod `MyMemoryCache` kullanır:
 
 [!code-csharp[](memory/3.0sample/RPcache/Pages/TestCache.cshtml.cs?name=snippet3)]
 
-Daha fazla bilgi için bkz. [GitHub 'Da Compact Source](https://github.com/aspnet/Extensions/blob/v3.0.0-preview8.19405.4/src/Caching/Memory/src/MemoryCache.cs#L382-L393) .
+Daha fazla bilgi için bkz. [GitHub 'Da Compact Source](https://github.com/dotnet/extensions/blob/v3.0.0-preview8.19405.4/src/Caching/Memory/src/MemoryCache.cs#L382-L393) .
 
 ## <a name="cache-dependencies"></a>Önbellek bağımlılıkları
 
