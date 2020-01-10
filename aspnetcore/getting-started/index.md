@@ -4,20 +4,20 @@ author: rick-anderson
 description: ASP.NET Core kullanarak temel bir Merhaba Dünya uygulaması oluşturan ve çalıştıran kısa bir öğretici.
 ms.author: riande
 ms.custom: mvc
-ms.date: 09/22/2019
+ms.date: 01/07/2020
 uid: getting-started
-ms.openlocfilehash: 116a22bce80257948bfcc02c03a74a4b5568b8b5
-ms.sourcegitcommit: 4649814d1ae32248419da4e8f8242850fd8679a5
+ms.openlocfilehash: c806bd1e79dea9119f1c9e99d0a2b9742a10987a
+ms.sourcegitcommit: ef1720cb733908f36a54825d84c3461c5280bdbe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71975686"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75737483"
 ---
 # <a name="tutorial-get-started-with-aspnet-core"></a>Öğretici: ASP.NET Core kullanmaya başlayın
 
 Bu öğreticide, bir ASP.NET Core Web uygulaması oluşturmak ve çalıştırmak için .NET Core komut satırı arabirimi 'nin nasıl kullanılacağı gösterilmektedir.
 
-Şunları yapmayı öğreneceksiniz:
+Şunları öğreneceksiniz:
 
 > [!div class="checklist"]
 > * Bir Web uygulaması projesi oluşturun.
@@ -29,9 +29,9 @@ Sonunda, yerel makinenizde çalışan bir çalışan Web uygulamanız olacaktır
 
 ![Web uygulaması giriş sayfası](_static/home-page.png)
 
-## <a name="prerequisites"></a>Önkoşullar
+## <a name="prerequisites"></a>Prerequisites
 
-[!INCLUDE[](~/includes/3.0-SDK.md)]
+[!INCLUDE[](~/includes/3.1-SDK.md)]
 
 ## <a name="create-a-web-app-project"></a>Web uygulaması projesi oluşturma
 
@@ -41,7 +41,7 @@ Bir komut kabuğu açın ve şu komutu girin:
 dotnet new webapp -o aspnetcoreapp
 ```
 
-Önceki komut:
+Yukarıdaki komut:
 
 * Yeni bir Web uygulaması oluşturur.  
 * `-o aspnetcoreapp` parametresi, uygulama için kaynak dosyalarla *aspnetcoreapp* adlı bir dizin oluşturur.
@@ -70,7 +70,7 @@ dotnet dev-certs https --trust
 
 Yukarıdaki komut aşağıdaki iletiyi görüntüler:
 
-*Https geliştirme sertifikasına güvenmek istendi. Sertifika zaten güvenilmiyorsa, şu komutu çalıştıracağız:* `'sudo security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keychain <<certificate>>'`
+*Https geliştirme sertifikasına güvenmek istendi. Sertifikaya zaten güvenilmiyorsa, şu komutu çalıştıracağız:* `'sudo security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keychain <<certificate>>'`
 
 Bu komut, sertifikayı sistem anahtarlığınıza yüklemek için parolanızı isteyebilir. Geliştirme sertifikasına güvenmeyi kabul ediyorsanız parolanızı girin.
 
