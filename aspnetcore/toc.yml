@@ -584,6 +584,8 @@
       uid: grpc/diagnostics
     - name: Güvenlik konuları
       uid: grpc/security
+    - name: gRPC hizmetlerinin sürümünü oluşturma
+      uid: grpc/versioning
     - name: dotnet-grpc ile Protobuf başvurularını yönetme
       uid: grpc/dotnet-grpc
     - name: C-core’dan gRPC hizmetlerini geçirme
