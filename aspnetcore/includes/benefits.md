@@ -13,7 +13,7 @@ ASP.NET Core aşağıdaki avantajları sağlar:
 * Basit, [yüksek performanslı](https://github.com/aspnet/benchmarks)ve modüler bir http istek işlem hattı.
 * Aşağıdakiler üzerinde barındırma özelliği:
   * [Kestrel](xref:fundamentals/servers/kestrel)
-  * [ISS](xref:host-and-deploy/iis/index)
+  * [IIS](xref:host-and-deploy/iis/index)
   * [HTTP. sys](xref:fundamentals/servers/httpsys)
   * [NGINX](xref:host-and-deploy/linux-nginx)
   * [Apache](xref:host-and-deploy/linux-apache)
