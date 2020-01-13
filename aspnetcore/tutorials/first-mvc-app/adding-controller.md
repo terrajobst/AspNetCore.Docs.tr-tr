@@ -5,12 +5,12 @@ description: Basit bir ASP.NET Core MVC uygulamasına denetleyici eklemeyi öğr
 ms.author: riande
 ms.date: 08/05/2017
 uid: tutorials/first-mvc-app/adding-controller
-ms.openlocfilehash: fe0c1d3c066d6ab20387391e15c3a7cfe684c61e
-ms.sourcegitcommit: 077b45eceae044475f04c1d7ef2d153d7c0515a8
+ms.openlocfilehash: fb670902b0dafa7dce2b3372e550095387844936
+ms.sourcegitcommit: 57b85708f4cded99b8f008a69830cb104cd8e879
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/29/2019
-ms.locfileid: "75542698"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75914244"
 ---
 # <a name="add-a-controller-to-an-aspnet-core-mvc-app"></a>ASP.NET Core MVC uygulamasına denetleyici ekleme
 
@@ -110,7 +110,7 @@ Uygulamayı çalıştırın ve şu konuma gidin:
 
 ![Merhaba Rick uygulama yanıtını gösteren tarayıcı penceresi, NumTimes\: 4](~/tutorials/first-mvc-app/adding-controller/_static/rick4.png)
 
-Yukarıdaki görüntüde, URL segmenti (`Parameters`) kullanılmaz, `name` ve `numTimes` parametreleri [sorgu dizeleri](https://wikipedia.org/wiki/Query_string)olarak geçirilir. Yukarıdaki URL 'deki `?` (soru işareti) bir ayırıcı ve sorgu dizeleri izler. `&` karakter Sorgu dizelerini ayırır.
+Yukarıdaki görüntüde, URL segmenti (`Parameters`) kullanılmaz, `name` ve `numTimes` parametreleri [sorgu dizesine](https://wikipedia.org/wiki/Query_string)geçirilir. Yukarıdaki URL 'deki `?` (soru işareti) bir ayırıcı ve sorgu dizesi aşağıdaki gibidir. `&` karakter alan-değer çiftlerini ayırır.
 
 `Welcome` yöntemini aşağıdaki kod ile değiştirin:
 
@@ -229,7 +229,7 @@ Uygulamayı çalıştırın ve şu konuma gidin:
 
 ![Merhaba Rick uygulama yanıtını gösteren tarayıcı penceresi, NumTimes\: 4](~/tutorials/first-mvc-app/adding-controller/_static/rick4.png)
 
-Yukarıdaki görüntüde, URL segmenti (`Parameters`) kullanılmaz, `name` ve `numTimes` parametreleri [sorgu dizeleri](https://wikipedia.org/wiki/Query_string)olarak geçirilir. Yukarıdaki URL 'deki `?` (soru işareti) bir ayırıcı ve sorgu dizeleri izler. `&` karakter Sorgu dizelerini ayırır.
+Yukarıdaki görüntüde, URL segmenti (`Parameters`) kullanılmaz, `name` ve `numTimes` parametreleri [sorgu dizesine](https://wikipedia.org/wiki/Query_string)geçirilir. Yukarıdaki URL 'deki `?` (soru işareti) bir ayırıcı ve sorgu dizesi aşağıdaki gibidir. `&` karakter alan-değer çiftlerini ayırır.
 
 `Welcome` yöntemini aşağıdaki kod ile değiştirin:
 

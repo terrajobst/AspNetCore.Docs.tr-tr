@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.date: 11/04/2019
 uid: performance/caching/response
-ms.openlocfilehash: 9246305e6979a6a7e006f567ee6bf9569029aef1
-ms.sourcegitcommit: 7dfe6cc8408ac6a4549c29ca57b0c67ec4baa8de
+ms.openlocfilehash: e20c197c7ce3334d4f4f0b917d1fc94174e6c615
+ms.sourcegitcommit: 57b85708f4cded99b8f008a69830cb104cd8e879
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75828314"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75914194"
 ---
 # <a name="response-caching-in-aspnet-core"></a>ASP.NET Core 'de yanıt önbelleğe alma
 
@@ -66,7 +66,7 @@ Daha fazla bilgi için bkz. <xref:performance/caching/memory>.
 
 ### <a name="distributed-cache"></a>Dağıtılmış Önbellek
 
-Uygulama bir bulutta veya sunucu grubunda barındırıldığı zaman bellekte verileri depolamak için dağıtılmış önbellek kullanın. Önbellek, istekleri işleyen sunucular arasında paylaşılır. İstemci, önbelleğe alınmış veriler varsa, gruptaki herhangi bir sunucu tarafından işlenen bir istek gönderebilir. ASP.NET Core, SQL Server ve Redsıs dağıtılmış önbellekler sunmaktadır.
+Uygulama bir bulutta veya sunucu grubunda barındırıldığı zaman bellekte verileri depolamak için dağıtılmış önbellek kullanın. Önbellek, istekleri işleyen sunucular arasında paylaşılır. İstemci, önbelleğe alınmış veriler varsa, gruptaki herhangi bir sunucu tarafından işlenen bir istek gönderebilir. ASP.NET Core, SQL Server, [redsıs](https://www.nuget.org/packages/Microsoft.Extensions.Caching.StackExchangeRedis)ve [nCache](https://www.nuget.org/packages/Alachisoft.NCache.OpenSource.SDK/) dağıtılmış önbellekler ile çalışır.
 
 Daha fazla bilgi için bkz. <xref:performance/caching/distributed>.
 
@@ -78,7 +78,7 @@ Daha fazla bilgi için bkz. <xref:mvc/views/tag-helpers/builtin-th/cache-tag-hel
 
 ### <a name="distributed-cache-tag-helper"></a>Dağıtılmış önbellek etiketi Yardımcısı
 
-Dağıtılmış bulut etiketi Yardımcısı ile dağıtılmış bulutta veya Web grubu senaryolarında bir MVC görünümü veya Razor sayfasından içerik önbelleğe alma. Dağıtılmış önbellek etiketi Yardımcısı, verileri depolamak için SQL Server veya Redsıs kullanır.
+Dağıtılmış bulut etiketi Yardımcısı ile dağıtılmış bulutta veya Web grubu senaryolarında bir MVC görünümü veya Razor sayfasından içerik önbelleğe alma. Dağıtılmış önbellek etiketi Yardımcısı, verileri depolamak için SQL Server, [redsıs](https://www.nuget.org/packages/Microsoft.Extensions.Caching.StackExchangeRedis)veya [nCache](https://www.nuget.org/packages/Alachisoft.NCache.OpenSource.SDK/) kullanır.
 
 Daha fazla bilgi için bkz. <xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper>.
 
