@@ -9,12 +9,12 @@ ms.date: 12/09/2019
 no-loc:
 - Blazor
 uid: blazor/get-started
-ms.openlocfilehash: e368ecaf931d392de7e52ec2d5a2dfd171c2c86f
-ms.sourcegitcommit: 851b921080fe8d719f54871770ccf6f78052584e
+ms.openlocfilehash: 554f4daff92a0839ee7679287a4618e9b51e0fe5
+ms.sourcegitcommit: 925cdbd94613243f33bc7613a62ea34006219931
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74943773"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75921303"
 ---
 # <a name="get-started-with-aspnet-core-opno-locblazor"></a>ASP.NET Core Blazor kullanmaya başlama
 
@@ -30,7 +30,7 @@ Blazorkullanmaya başlayın:
 
 1. İsteğe bağlı olarak [Blazor WebAssembly](xref:blazor/hosting-models#blazor-webassembly) şablonunu yükler:
    * [.NET Core 3,1 veya üzeri (Önizleme) SDK 'sını](https://dotnet.microsoft.com/download/dotnet-core/3.1)yükler.
-   * Komut kabuğu 'nda aşağıdaki komutu çalıştırın. [Microsoft. AspNetCore.Blazor. Şablon](https://www.nuget.org/packages/Microsoft.AspNetCore.Blazor.Templates/) paketinin önizleme sürümü varsa Blazor WebAssembly önizleme aşamasındadır.
+   * Komut kabuğu 'nda aşağıdaki komutu çalıştırın. [Microsoft.AspNetCore.Blazor.Şablon](https://www.nuget.org/packages/Microsoft.AspNetCore.Blazor.Templates/) paketinin önizleme sürümü varsa Blazor WebAssembly önizleme aşamasındadır.
 
    ```dotnetcli
    dotnet new -i Microsoft.AspNetCore.Blazor.Templates::3.1.0-preview4.19579.2
@@ -44,11 +44,11 @@ Blazorkullanmaya başlayın:
 
    2 \. Yeni bir proje oluşturun.
 
-   3 \. **Blazor uygulama**' yı seçin. **İleri**’yi seçin.
+   3 \. **Blazor uygulama**' yı seçin. **İleri**'yi seçin.
 
-   4 \. **Proje adı** alanında bir proje adı girin veya varsayılan proje adını kabul edin. **Konum** girişinin doğru olduğunu onaylayın veya proje için bir konum belirtin. **Oluştur**’u seçin.
+   4 \. **Proje adı** alanında bir proje adı girin veya varsayılan proje adını kabul edin. **Konum** girişinin doğru olduğunu onaylayın veya proje için bir konum belirtin. Seçin **oluşturma**.
 
-   5 \. Blazor Weelsembly deneyimi için, **Webassembly uygulama şablonunuBlazor** seçin. Blazor sunucusu deneyimi için **Blazor sunucusu uygulama** şablonunu seçin. **Oluştur**’u seçin. Blazor, *Blazor sunucusu* ve *Blazor webassembly*'yi barındıran iki hakkında bilgi için bkz. <xref:blazor/hosting-models>.
+   5 \. Blazor Weelsembly deneyimi için, **Webassembly uygulama şablonunuBlazor** seçin. Blazor sunucusu deneyimi için **Blazor sunucusu uygulama** şablonunu seçin. Seçin **oluşturma**. Blazor, *Blazor sunucusu* ve *Blazor webassembly*'yi barındıran iki hakkında bilgi için bkz. <xref:blazor/hosting-models>.
 
    6 \. Uygulamayı çalıştırmak için **Ctrl**+**F5** tuşuna basın.
 
@@ -57,7 +57,7 @@ Blazorkullanmaya başlayın:
 
    # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
-   1 \. [Visual Studio Code](https://code.visualstudio.com/)'i yükler.
+   1 \. [Visual Studio Code](https://code.visualstudio.com/)’u yükleyin.
 
    2 \. En son [ C# Visual Studio Code uzantısını](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)yükler.
 
@@ -77,7 +77,7 @@ Blazorkullanmaya başlayın:
 
    4 \. Visual Studio Code 'de *WebApplication1* klasörünü açın.
 
-   5 \. Bir Blazor Server projesi için IDE, projeyi derlemek ve hatalarını ayıklamak için varlık eklemenizi ister. **Evet**' i seçin.
+   5 \. Bir Blazor Server projesi için IDE, projeyi derlemek ve hatalarını ayıklamak için varlık eklemenizi ister. **Evet**’i seçin.
 
    6 \. Blazor sunucusu uygulaması kullanıyorsanız, Visual Studio Code hata ayıklayıcıyı kullanarak uygulamayı çalıştırın. Blazor WebAssembly uygulaması kullanıyorsanız, uygulamanın proje klasöründen `dotnet run` yürütün.
 
@@ -85,7 +85,7 @@ Blazorkullanmaya başlayın:
 
    # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Mac için Visual Studio](#tab/visual-studio-mac)
 
-   1 \. [Mac için Visual Studio](https://visualstudio.microsoft.com/vs/mac/)'i yükler. [Güncelleştirme kanalını önizlemeye](/visualstudio/mac/install-preview)geçirin.
+   1 \. [Mac için Visual Studio](https://visualstudio.microsoft.com/vs/mac/)'i yükler.
 
    2 \. **Yeni çözüm** > **Dosya** seçin veya yeni bir **Proje**oluşturun.
 
@@ -97,7 +97,7 @@ Blazorkullanmaya başlayın:
 
    5 \. **Hedef Framework 'ü** **.NET Core 3,1** olarak ayarlayın ve **İleri ' yi**seçin.
 
-   6 \. **Proje adı** alanında, uygulamayı `WebApplication1`olarak adlandırın. **Oluştur**’u seçin.
+   6 \. **Proje adı** alanında, uygulamayı `WebApplication1`olarak adlandırın. Seçin **oluşturma**.
 
    7 \. Uygulamayı *hata ayıklayıcısı olmadan*çalıştırmak Için **hata ayıklama olmadan** **Çalıştır > Çalıştır** ' ı seçin. Uygulamayı hata *ayıklayıcıyla*çalıştırmak Için, **hata ayıklamayı Başlat** ile uygulamayı çalıştırın.
 
@@ -135,7 +135,7 @@ Blazorkullanmaya başlayın:
 
 1. İsteğe bağlı olarak [Blazor WebAssembly](xref:blazor/hosting-models#blazor-webassembly) şablonunu yükler:
    * [.NET Core 3,1 veya üzeri (Önizleme) SDK 'sını](https://dotnet.microsoft.com/download/dotnet-core/3.1)yükler.
-   * Komut kabuğu 'nda aşağıdaki komutu çalıştırın. [Microsoft. AspNetCore.Blazor. Şablon](https://www.nuget.org/packages/Microsoft.AspNetCore.Blazor.Templates/) paketinin önizleme sürümü varsa Blazor WebAssembly önizleme aşamasındadır.
+   * Komut kabuğu 'nda aşağıdaki komutu çalıştırın. [Microsoft.AspNetCore.Blazor.Şablon](https://www.nuget.org/packages/Microsoft.AspNetCore.Blazor.Templates/) paketinin önizleme sürümü varsa Blazor WebAssembly önizleme aşamasındadır.
 
    ```dotnetcli
    dotnet new -i Microsoft.AspNetCore.Blazor.Templates::3.1.0-preview4.19579.2
@@ -151,11 +151,11 @@ Blazorkullanmaya başlayın:
 
    3 \. Yeni bir proje oluşturun.
 
-   4 \. **Blazor uygulama**' yı seçin. **İleri**’yi seçin.
+   4 \. **Blazor uygulama**' yı seçin. **İleri**'yi seçin.
 
-   5 \. **Proje adı** alanında bir proje adı girin veya varsayılan proje adını kabul edin. **Konum** girişinin doğru olduğunu onaylayın veya proje için bir konum belirtin. **Oluştur**’u seçin.
+   5 \. **Proje adı** alanında bir proje adı girin veya varsayılan proje adını kabul edin. **Konum** girişinin doğru olduğunu onaylayın veya proje için bir konum belirtin. Seçin **oluşturma**.
 
-   6 \. Blazor Weelsembly deneyimi için, **Webassembly uygulama şablonunuBlazor** seçin. Blazor sunucusu deneyimi için **Blazor sunucusu uygulama** şablonunu seçin. **Oluştur**’u seçin. Blazor, *Blazor sunucusu* ve *Blazor webassembly*'yi barındıran iki hakkında bilgi için bkz. <xref:blazor/hosting-models>.
+   6 \. Blazor Weelsembly deneyimi için, **Webassembly uygulama şablonunuBlazor** seçin. Blazor sunucusu deneyimi için **Blazor sunucusu uygulama** şablonunu seçin. Seçin **oluşturma**. Blazor, *Blazor sunucusu* ve *Blazor webassembly*'yi barındıran iki hakkında bilgi için bkz. <xref:blazor/hosting-models>.
 
    7 \. Uygulamayı çalıştırmak için **F5** tuşuna basın.
 
@@ -164,7 +164,7 @@ Blazorkullanmaya başlayın:
 
    # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
-   1 \. [Visual Studio Code](https://code.visualstudio.com/)'i yükler.
+   1 \. [Visual Studio Code](https://code.visualstudio.com/)’u yükleyin.
 
    2 \. En son [ C# Visual Studio Code uzantısını](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)yükler.
 
@@ -184,7 +184,7 @@ Blazorkullanmaya başlayın:
 
    4 \. Visual Studio Code 'de *WebApplication1* klasörünü açın.
 
-   5 \. Bir Blazor Server projesi için IDE, projeyi derlemek ve hatalarını ayıklamak için varlık eklemenizi ister. **Evet**' i seçin.
+   5 \. Bir Blazor Server projesi için IDE, projeyi derlemek ve hatalarını ayıklamak için varlık eklemenizi ister. **Evet**’i seçin.
 
    6 \. Blazor sunucusu uygulaması kullanıyorsanız, Visual Studio Code hata ayıklayıcıyı kullanarak uygulamayı çalıştırın. Blazor WebAssembly uygulaması kullanıyorsanız, uygulamanın proje klasöründen `dotnet run` yürütün.
 
@@ -204,7 +204,7 @@ Blazorkullanmaya başlayın:
 
    5 \. **Hedef Framework 'ü** **.NET Core 3,0** olarak ayarlayın ve **İleri ' yi**seçin.
 
-   6 \. **Proje adı** alanında, uygulamayı `WebApplication1`olarak adlandırın. **Oluştur**’u seçin.
+   6 \. **Proje adı** alanında, uygulamayı `WebApplication1`olarak adlandırın. Seçin **oluşturma**.
 
    7 \. Uygulamayı *hata ayıklayıcısı olmadan*çalıştırmak Için **hata ayıklama olmadan** **Çalıştır > Çalıştır** ' ı seçin. Uygulamayı hata *ayıklayıcıyla*çalıştırmak Için, **hata ayıklamayı Başlat** ile uygulamayı çalıştırın.
 
