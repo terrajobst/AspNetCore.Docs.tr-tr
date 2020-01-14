@@ -5,16 +5,16 @@ description: Blazor uygulaması oluşturun adım adım.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/05/2019
+ms.date: 01/13/2020
 no-loc:
 - Blazor
 uid: tutorials/first-blazor-app
-ms.openlocfilehash: 11ff540a70ebdb8baa0c7adb98cb1dfe27d91e50
-ms.sourcegitcommit: 851b921080fe8d719f54871770ccf6f78052584e
+ms.openlocfilehash: 8830dcf26b58b5f5fdd36b60298e7b365f99bdd9
+ms.sourcegitcommit: 925cdbd94613243f33bc7613a62ea34006219931
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74944193"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75921285"
 ---
 # <a name="build-your-first-opno-locblazor-app"></a>İlk Blazor uygulamanızı oluşturma
 
@@ -73,19 +73,19 @@ Bir bileşeni, bir HTML söz dizimini kullanarak başka bir bileşene ekleyin.
 
 Bileşenler de parametrelere sahip olabilir. Bileşen parametreleri, bileşen sınıfında `[Parameter]` özniteliğiyle ortak özellikler kullanılarak tanımlanır. Biçimlendirme içindeki bir bileşenin bağımsız değişkenlerini belirtmek için öznitelikleri kullanın.
 
-1. Bileşenin `@code` C# kodunu güncelleştirin:
+1. Bileşenin `@code` C# kodunu aşağıdaki gibi güncelleştirin:
 
    * `[Parameter]` özniteliğiyle ortak bir `IncrementAmount` özelliği ekleyin.
-   * `currentCount`değerini artırdığınızda `IncrementAmount` kullanmak için `IncrementCount` yöntemini değiştirin.
+   * `IncrementCount` yöntemini, `currentCount`değerini artırıldığında `IncrementAmount` özelliğini kullanacak şekilde değiştirin.
 
    *Pages/Counter. Razor*:
 
    [!code-razor[](build-your-first-blazor-app/samples_snapshot/3.x/Counter.razor?highlight=13,17)]
 
-<!-- Add back when supported.
-   > [!NOTE]
-   > From Visual Studio, you can quickly add a component parameter by using the `para` snippet. Type `para` and press the `Tab` key twice.
--->
+   <!-- Add back when supported.
+       > [!NOTE]
+       > From Visual Studio, you can quickly add a component parameter by using the `para` snippet. Type `para` and press the `Tab` key twice.
+   -->
 
 1. Özniteliği kullanarak `Index` bileşeninin `<Counter>` öğesinde bir `IncrementAmount` parametresi belirtin. Sayacı on olarak artırmak için değeri ayarlayın.
 
