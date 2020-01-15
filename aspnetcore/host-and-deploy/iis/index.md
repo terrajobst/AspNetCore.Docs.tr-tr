@@ -5,14 +5,14 @@ description: ASP.NET Core uygulamaları Windows Server Internet Information Serv
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 01/06/2020
+ms.date: 01/13/2020
 uid: host-and-deploy/iis/index
-ms.openlocfilehash: 8e0475e3e18688c7d4344661826290d15a2443c0
-ms.sourcegitcommit: 7dfe6cc8408ac6a4549c29ca57b0c67ec4baa8de
+ms.openlocfilehash: bf035bc65f0f120f52e55effe4d413bfecdf735d
+ms.sourcegitcommit: 2388c2a7334ce66b6be3ffbab06dd7923df18f60
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75829198"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75952080"
 ---
 # <a name="host-aspnet-core-on-windows-with-iis"></a>Windows IIS üzerinde ASP.NET Core barındırma
 
@@ -771,31 +771,19 @@ Uygulamanın çalışmasını engellemek için, IIS Yöneticisi 'Ni kullanarak u
 
 ## <a name="deployment-resources-for-iis-administrators"></a>IIS Yöneticiler için dağıtım kaynakları
 
-IIS IIS belgelerinde kapsamlı hakkında bilgi edinin.  
-[IIS belgeleri](/iis)
-
-.NET Core uygulaması dağıtım modelleri hakkında bilgi edinin.  
-[.NET core uygulama dağıtımı](/dotnet/core/deploying/)
-
-Yapılandırma kılavuzu dahil ASP.NET Core modülü hakkında bilgi edinin.  
-<xref:host-and-deploy/aspnet-core-module>
-
-Dizin yapısı, yayımlanmış ASP.NET Core uygulamaları hakkında bilgi edinin.  
-[Dizin yapısı](xref:host-and-deploy/directory-structure)
-
-ASP.NET Core uygulamaları ve IIS modüllerini yönetmek nasıl etkin ve etkin olmayan IIS modülleri keşfedin.  
-[IIS modülleri](xref:host-and-deploy/iis/modules)
-
-ASP.NET Core uygulamaları IIS dağıtımları sorunları tanılamayı öğrenin.  
-[Sorun giderme](xref:test/troubleshoot-azure-iis)
-
-Sık karşılaşılan barındırırken IIS üzerinde ASP.NET Core uygulamaları ayırmak.  
-[Azure App Service ve IIS için sık karşılaşılan hatalar başvurusu](xref:host-and-deploy/azure-iis-errors-reference)
+* [IIS belgeleri](/iis)
+* [IIS 'de IIS Yöneticisi 'Ni kullanmaya başlama](/iis/get-started/getting-started-with-iis/getting-started-with-the-iis-manager-in-iis-7-and-iis-8)
+* [.NET core uygulama dağıtımı](/dotnet/core/deploying/)
+* <xref:host-and-deploy/aspnet-core-module>
+* <xref:host-and-deploy/directory-structure>
+* <xref:host-and-deploy/iis/modules>
+* <xref:test/troubleshoot-azure-iis>
+* <xref:host-and-deploy/azure-iis-errors-reference>
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * <xref:test/troubleshoot>
-* [ASP.NET Core'a giriş](xref:index)
+* <xref:index>
 * [Resmi Microsoft IIS sitesi](https://www.iis.net/)
 * [Windows Server Teknik İçerik Kitaplığı](/windows-server/windows-server)
 * [IIS HTTP/2](/iis/get-started/whats-new-in-iis-10/http2-on-iis)

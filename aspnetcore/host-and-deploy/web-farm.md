@@ -5,14 +5,14 @@ description: Bir ASP.NET Core uygulamasının birden çok örneğini bir Web gru
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/07/2019
+ms.date: 01/13/2020
 uid: host-and-deploy/web-farm
-ms.openlocfilehash: 16ec2162be8199857d0f2d0ff989ec4cdc6c3277
-ms.sourcegitcommit: 68d804d60e104c81fe77a87a9af70b5df2726f60
+ms.openlocfilehash: 5c13e9bc4c514f9b42871d55a430265c8ec2da23
+ms.sourcegitcommit: 2388c2a7334ce66b6be3ffbab06dd7923df18f60
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73830700"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75951825"
 ---
 # <a name="host-aspnet-core-in-a-web-farm"></a>Web çiftliğinde ASP.NET Core ana bilgisayar
 
@@ -60,13 +60,13 @@ Aşağıdaki senaryolar ek yapılandırma gerektirmez, ancak Web grupları için
 
 | Senaryo | &hellip; bağımlıdır |
 | -------- | ------------------- |
-| Kimlik doğrulaması | Veri koruma (bkz. <xref:security/data-protection/configuration/overview>).<br><br>Daha fazla bilgi için bkz. <xref:security/authentication/cookie> ve <xref:security/cookie-sharing>. |
+| Kimlik Doğrulama | Veri koruma (bkz. <xref:security/data-protection/configuration/overview>).<br><br>Daha fazla bilgi için bkz. <xref:security/authentication/cookie> ve <xref:security/cookie-sharing>. |
 | Kimlik | Kimlik doğrulama ve veritabanı yapılandırması.<br><br>Daha fazla bilgi için bkz. <xref:security/authentication/identity>. |
 | Oturum | Veri koruma (şifreli tanımlama bilgileri) (bkz. <xref:security/data-protection/configuration/overview>) ve önbelleğe alma (bkz. <xref:performance/caching/distributed>).<br><br>Daha fazla bilgi için bkz. [oturum ve uygulama durumu: oturum durumu](xref:fundamentals/app-state#session-state). |
 | TempData | Veri koruma (şifreli tanımlama bilgileri) (bkz. <xref:security/data-protection/configuration/overview>) veya oturum (bkz. [oturum ve uygulama durumu: oturum durumu](xref:fundamentals/app-state#session-state)).<br><br>Daha fazla bilgi için bkz. [oturum ve uygulama durumu: TempData](xref:fundamentals/app-state#tempdata). |
 | Korsanlığa karşı koruma | Veri koruma (bkz. <xref:security/data-protection/configuration/overview>).<br><br>Daha fazla bilgi için bkz. <xref:security/anti-request-forgery>. |
 
-## <a name="troubleshoot"></a>Sorun giderme
+## <a name="troubleshoot"></a>Sorunları Gider
 
 ### <a name="data-protection-and-caching"></a>Veri koruma ve önbelleğe alma
 
@@ -92,3 +92,4 @@ Web grubu uygulamalarının isteklere yanıt verme yeteneği varsa, Terminal sat
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [Windows &ndash; Için özel Betik uzantısı](/azure/virtual-machines/extensions/custom-script-windows) , dağıtım sonrası yapılandırma ve yazılım yüklemesi için yararlı olan Azure sanal makinelerinde betikleri indirir ve yürütür.
+* <xref:host-and-deploy/proxy-load-balancer>

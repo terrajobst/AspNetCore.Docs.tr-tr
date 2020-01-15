@@ -5,14 +5,14 @@ description: Barındırma ortamlarını ayarlamayı ve ASP.NET Core uygulamalar�
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/07/2019
+ms.date: 01/13/2020
 uid: host-and-deploy/index
-ms.openlocfilehash: 8c7c131ca328f3118c45e822d6d5c86f0d44001f
-ms.sourcegitcommit: b3e1e31e5d8bdd94096cf27444594d4a7b065525
+ms.openlocfilehash: ffc1f0b649e24e5e4a0bca2fc36a0b0c25460238
+ms.sourcegitcommit: 2388c2a7334ce66b6be3ffbab06dd7923df18f60
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74803272"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75951792"
 ---
 # <a name="host-and-deploy-aspnet-core"></a>ASP.NET Core barındırma ve dağıtma
 
@@ -77,6 +77,10 @@ Bir Windows komut isteminden [DotNet MSBuild](/dotnet/core/tools/dotnet-msbuild)
 
 Bir Web grubu ortamında uygulamaları ASP.NET Core barındırmak için yapılandırma hakkında bilgi için (örneğin, ölçeklenebilirlik için uygulamanızın birden çok örneğinin dağıtılması), bkz. <xref:host-and-deploy/web-farm>.
 
+## <a name="host-on-docker"></a>Docker 'da barındırma
+
+Daha fazla bilgi için bkz. <xref:host-and-deploy/docker/index>.
+
 ::: moniker range=">= aspnetcore-2.2"
 
 ## <a name="perform-health-checks"></a>Sistem durumu denetimleri gerçekleştirme
@@ -87,7 +91,5 @@ Bir uygulamada ve bağımlılıklarında sistem durumu denetimleri gerçekleşti
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-* <xref:host-and-deploy/docker/index>
 * <xref:test/troubleshoot>
 * [ASP.NET barındırma](https://dotnet.microsoft.com/apps/aspnet/hosting)
-

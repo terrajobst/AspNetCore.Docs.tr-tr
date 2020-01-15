@@ -9,12 +9,12 @@ ms.date: 07/05/2019
 no-loc:
 - Let's Encrypt
 uid: security/docker-https
-ms.openlocfilehash: 47027033c0b7130f2d38d22c02a54945b2cc31b3
-ms.sourcegitcommit: 2cb857f0de774df421e35289662ba92cfe56ffd1
+ms.openlocfilehash: 07e2791e5b26975c71323f8cb41a4b0fbe0cdf11
+ms.sourcegitcommit: 2388c2a7334ce66b6be3ffbab06dd7923df18f60
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75358919"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75952133"
 ---
 # <a name="hosting-aspnet-core-images-with-docker-over-https"></a>HTTPS üzerinden Docker ile görüntüleri barındırma ASP.NET Core
 
@@ -43,7 +43,7 @@ Bu belge, `localhost`üzerinde önceden oluşturulmuş görüntüleri barındır
 * `dotnet dev-certs` aracı gerekli değildir.
 * Sertifikaların, yönergelerde kullanılan konumda depolanması gerekmez. Herhangi bir konumun çalışması gerekir, ancak bu sertifikalar site dizininizde depolanarak önerilmez.
 
-Yönergeler birimi, sertifikaları kapsayıcılara bağlama. Bir *Dockerfile*içinde `COPY` komutuyla kapsayıcı görüntülerine sertifika ekleyebilirsiniz. Sertifikaları bir görüntüye kopyalamak aşağıdaki nedenlerden dolayı önerilmez:
+Aşağıdaki bölümde yer alan yönergeler, Docker 'ın `-v` komut satırı seçeneğini kullanarak sertifikaları kapsayıcılara bağlama. Bir *Dockerfile*içinde `COPY` komutuyla kapsayıcı görüntülerine sertifika ekleyebilirsiniz, ancak bu önerilmez. Sertifikaları bir görüntüye kopyalamak aşağıdaki nedenlerden dolayı önerilmez:
 
 * Geliştirici sertifikaları ile test etmek için aynı görüntünün kullanımını zorlaştırır.
 * Üretim sertifikaları ile barındırmak için aynı görüntünün kullanımını zorlaştırır.
