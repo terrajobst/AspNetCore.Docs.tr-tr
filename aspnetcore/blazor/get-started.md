@@ -9,12 +9,12 @@ ms.date: 12/09/2019
 no-loc:
 - Blazor
 uid: blazor/get-started
-ms.openlocfilehash: 554f4daff92a0839ee7679287a4618e9b51e0fe5
-ms.sourcegitcommit: 925cdbd94613243f33bc7613a62ea34006219931
+ms.openlocfilehash: 2135c2a090d60ec7a46fa4f899f0f14987b6b4e0
+ms.sourcegitcommit: 2388c2a7334ce66b6be3ffbab06dd7923df18f60
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75921303"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75951719"
 ---
 # <a name="get-started-with-aspnet-core-opno-locblazor"></a>ASP.NET Core Blazor kullanmaya başlama
 
@@ -101,7 +101,7 @@ Blazorkullanmaya başlayın:
 
    7 \. Uygulamayı *hata ayıklayıcısı olmadan*çalıştırmak Için **hata ayıklama olmadan** **Çalıştır > Çalıştır** ' ı seçin. Uygulamayı hata *ayıklayıcıyla*çalıştırmak Için, **hata ayıklamayı Başlat** ile uygulamayı çalıştırın.
 
-       If a prompt appears to trust the development certificate, trust the certificate and continue.
+   Geliştirme sertifikasına güvenmek için bir istem görünürse, sertifikaya güvenin ve devam edin.
 
    # <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli/)
 
