@@ -5,28 +5,28 @@ description: ASP.NET Core SignalR .NET Istemcisiyle ilgili bilgiler
 monikerRange: '>= aspnetcore-2.1'
 ms.author: bradyg
 ms.custom: mvc
-ms.date: 11/12/2019
+ms.date: 01/14/2020
 no-loc:
 - SignalR
 uid: signalr/dotnet-client
-ms.openlocfilehash: 28e8fcf808406cd0251ba94e2ef97ab04841fcd0
-ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
+ms.openlocfilehash: 39d9eccdb1e0457b177e75e6f94f3dd185b0093d
+ms.sourcegitcommit: cbd30479f42cbb3385000ef834d9c7d021fd218d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73963965"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76146322"
 ---
 # <a name="aspnet-core-opno-locsignalr-net-client"></a>.NET Client ASP.NET Core SignalR
 
 ASP.NET Core SignalR .NET istemci kitaplığı, .NET uygulamalarından SignalR hub 'larla iletişim kurmanızı sağlar.
 
-[Örnek kodu görüntüleme veya indirme](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/signalr/dotnet-client/sample) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
+[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/signalr/dotnet-client/sample) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
 
 Bu makaledeki kod örneği, SignalR .NET Client ASP.NET Core kullanan bir WPF uygulamasıdır.
 
 ## <a name="install-the-opno-locsignalr-net-client-package"></a>SignalR .NET istemci paketini yükler
 
-[Microsoft. AspNetCore.SignalR. ](https://www.nuget.org/packages/Microsoft.AspNetCore.SignalR.Client).Net istemcilerinin SignalR hub 'lara bağlanması için istemci paketi gerekir.
+[Microsoft.AspNetCore.SignalR.](https://www.nuget.org/packages/Microsoft.AspNetCore.SignalR.Client).Net istemcilerinin SignalR hub 'lara bağlanması için istemci paketi gerekir.
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
@@ -46,7 +46,7 @@ dotnet add package Microsoft.AspNetCore.SignalR.Client
 
 ---
 
-## <a name="connect-to-a-hub"></a>Bir hub 'a bağlanma
+## <a name="connect-to-a-hub"></a>Bir hub'ına bağlama
 
 Bir bağlantı kurmak için bir `HubConnectionBuilder` oluşturun ve `Build`çağırın. Hub URL 'SI, protokol, aktarım türü, günlük düzeyi, üst bilgiler ve diğer seçenekler bir bağlantı oluşturulurken yapılandırılabilir. `HubConnectionBuilder` yöntemlerinden herhangi birini `Build`ekleyerek gerekli seçenekleri yapılandırın. Bağlantıyı `StartAsync`başlatın.
 
@@ -164,7 +164,7 @@ Yukarıdaki örnek, bağlantı kaybolduktan hemen sonra yeniden bağlanmaya baş
 
 Otomatik yeniden bağlanma denemelerinin zamanlaması ve sayısı üzerinde daha fazla denetime sahip olmak istiyorsanız `WithAutomaticReconnect`, `NextRetryDelay`adlı tek bir yönteme sahip `IRetryPolicy` arabirimini uygulayan bir nesneyi kabul eder.
 
-`NextRetryDelay` `RetryContext`türünde tek bir bağımsız değişken alır. `RetryContext` üç özelliğe sahiptir: `PreviousRetryCount`, `ElapsedTime` ve `RetryReason` `long`, `TimeSpan` ve `Exception`. İlk yeniden bağlanma denemesinden önce, hem `PreviousRetryCount` hem de `ElapsedTime` sıfır olur ve `RetryReason` bağlantının kaybolmasına neden olan özel durum olacaktır. Her başarısız yeniden deneme denemesinden sonra `PreviousRetryCount`, bu ana kadar geçen süreyi yansıtacak şekilde `ElapsedTime` güncelleştirilir ve `RetryReason` son yeniden bağlanma denemesinin başarısız olmasına neden olan özel durum olacaktır.
+`NextRetryDelay` `RetryContext`türünde tek bir bağımsız değişken alır. `RetryContext` üç özelliğe sahiptir: `PreviousRetryCount`, `ElapsedTime` ve `RetryReason``long`, `TimeSpan` ve `Exception`. İlk yeniden bağlanma denemesinden önce, hem `PreviousRetryCount` hem de `ElapsedTime` sıfır olur ve `RetryReason` bağlantının kaybolmasına neden olan özel durum olacaktır. Her başarısız yeniden deneme denemesinden sonra `PreviousRetryCount`, bu ana kadar geçen süreyi yansıtacak şekilde `ElapsedTime` güncelleştirilir ve `RetryReason` son yeniden bağlanma denemesinin başarısız olmasına neden olan özel durum olacaktır.
 
 `NextRetryDelay`, sonraki yeniden bağlanma girişiminden önce beklenecek süreyi temsil eden bir TimeSpan değeri döndürmelidir veya `HubConnection` yeniden bağlamayı durdurması gerekiyorsa `null`.
 
@@ -179,7 +179,7 @@ public class RandomRetryPolicy : IRetryPolicy
         // wait between 0 and 10 seconds before the next reconnect attempt.
         if (retryContext.ElapsedTime < TimeSpan.FromSeconds(60))
         {
-            return TimeSpan.FromSeconds(_random.Next() * 10);
+            return TimeSpan.FromSeconds(_random.NextDouble() * 10);
         }
         else
         {
@@ -206,7 +206,7 @@ Alternatif olarak, [el ile yeniden bağlanma](#manually-reconnect)bölümünde g
 ::: moniker range="< aspnetcore-3.0"
 
 > [!WARNING]
-> 3,0 ' den önce, SignalR .NET istemcisi otomatik olarak yeniden bağlanmaz. İstemcinizi el ile yeniden bağlayacaksınız kodu yazmanız gerekir.
+> 3,0 ' den önce, SignalR .NET istemcisi otomatik olarak yeniden bağlanmaz. İstemcinizi el ile yeniden kod yazmanız gerekir.
 
 ::: moniker-end
 
@@ -227,7 +227,7 @@ Bağlantıyı yeniden başlatan bir `Closed` işleyicisinde, aşağıdaki örnek
 
 [!code-csharp[Use Closed event handler to automate reconnection](dotnet-client/sample/signalrchatclient/MainWindow.xaml.cs?name=snippet_ClosedRestart)]
 
-## <a name="call-hub-methods-from-client"></a>İstemciden çağrı merkezi yöntemleri
+## <a name="call-hub-methods-from-client"></a>İstemciden hub yöntemlerini çağırma
 
 `InvokeAsync` hub 'daki yöntemleri çağırır. Hub yöntemi adını ve hub yönteminde tanımlanan tüm bağımsız değişkenleri `InvokeAsync`geçirin. SignalR zaman uyumsuzdur, bu nedenle çağrıları yaparken `async` ve `await` kullanın.
 
@@ -240,7 +240,7 @@ Bağlantıyı yeniden başlatan bir `Closed` işleyicisinde, aşağıdaki örnek
 > [!NOTE]
 > Azure SignalR hizmetini *sunucusuz modda*kullanıyorsanız, bir istemciden hub yöntemlerini çağıramezsiniz. Daha fazla bilgi için [SignalR hizmeti belgelerine](/azure/azure-signalr/signalr-concept-serverless-development-config)bakın.
 
-## <a name="call-client-methods-from-hub"></a>Hub 'dan istemci yöntemlerini çağır
+## <a name="call-client-methods-from-hub"></a>İstemci hub'ından yöntemleri çağırma
 
 Bağlantıyı başlatmadan önce, derleme sonrasında `connection.On` kullanarak hub çağıran yöntemleri tanımlayın.
 
