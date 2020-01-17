@@ -7,22 +7,16 @@ ms.custom: mvc
 ms.date: 02/06/2019
 ms.topic: tutorial
 uid: data/ef-mvc/intro
-ms.openlocfilehash: a8909d391ae1a35e9c8155df767ab157701c8a51
-ms.sourcegitcommit: 7d3c6565dda6241eb13f9a8e1e1fd89b1cfe4d18
+ms.openlocfilehash: 42ce63d1a31e033cf97536935b6dc94e015f30fa
+ms.sourcegitcommit: cbd30479f42cbb3385000ef834d9c7d021fd218d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72259453"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76146387"
 ---
 # <a name="tutorial-get-started-with-ef-core-in-an-aspnet-mvc-web-app"></a>Öğretici: bir ASP.NET MVC web uygulamasında EF Core kullanmaya başlama
 
-::: moniker range=">= aspnetcore-3.0"
-
 Bu öğretici 3,0 ASP.NET Core güncelleştirilmedi. [Razor Pages sürümü](xref:data/ef-rp/intro) güncelleştirildi. Bunun ne zaman güncelleştirilemeyebilir hakkında bilgi edinmek için [Bu GitHub sorununa](https://github.com/aspnet/AspNetCore.Docs/issues/13920)bakın.
-
-::: moniker-end
-
-::: moniker range="< aspnetcore-3.0"
 
 [!INCLUDE [RP better than MVC](~/includes/RP-EF/rp-over-mvc.md)]
 
@@ -43,7 +37,7 @@ Bu öğreticide şunları yaptınız:
 > * Denetleyici ve görünüm oluşturma
 > * Veritabanını görüntüleme
 
-## <a name="prerequisites"></a>Önkoşullar
+## <a name="prerequisites"></a>Prerequisites
 
 * [.NET Core SDK 2,2](https://www.microsoft.com/net/download)
 * Aşağıdaki iş yükleriyle [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=inline+link&utm_content=download+vs2019) :
@@ -87,7 +81,7 @@ Kullanıcılar görüntüleyebilir ve Öğrenci, kurs ve Eğitmen bilgileri gün
 
 * **Kimlik doğrulamanın** **kimlik doğrulaması yok**olarak ayarlandığından emin olun.
 
-* **Tamam 'ı** seçin
+* **Tamam**’ı seçin
 
   ![Yeni ASP.NET Core projesi iletişim kutusu](intro/_static/new-aspnet2.png)
 
@@ -139,7 +133,7 @@ Aşağıdaki bölümlerde, bu varlıkların her biri için bir sınıf oluştura
 
 [!code-csharp[](intro/samples/cu/Models/Student.cs?name=snippet_Intro)]
 
-`ID` özelliği, bu sınıfa karşılık gelen veritabanı tablosunun birincil anahtar sütunu olacak. Varsayılan olarak, Entity Framework `ID` veya `classnameID` adında bir özelliği birincil anahtar olarak yorumlar.
+`ID` özelliği, bu sınıfa karşılık gelen veritabanı tablosunun birincil anahtar sütunu olacak. Varsayılan olarak Entity Framework, `ID` veya `classnameID` olarak adlandırılan özellikleri birincil anahtar olarak algılar.
 
 `Enrollments` Özelliği bir [gezinti özelliği](/ef/core/modeling/relationships). Gezinti özellikleri, bu varlıkla ilgili diğer varlıkları tutar. Bu durumda, bir `Student entity` `Enrollments` özelliği, bu `Student` varlıkla ilgili `Enrollment` varlıkların tümünü tutacaktır. Diğer bir deyişle, veritabanında verilen bir öğrenci satırı, iki ilişkili kayıt satırına (bu öğrencinin birincil anahtar değerini kendi StudentID yabancı anahtar sütununda içeren satırlar) sahipse, `Student` varlığın `Enrollments` gezinti özelliği bu iki `Enrollment` varlığını içerir.
 
@@ -255,7 +249,7 @@ CRUD eylem yöntemlerinin ve görünümlerinin otomatik olarak oluşturulması, 
 
   * **Entity Framework kullanarak, görünümlerle MVC denetleyicisi ' ni**seçin.
 
-  * **Ekle**'ye tıklayın. **Görünümler Ile MVC denetleyicisi ekleme, Entity Framework kullanma** iletişim kutusu görüntülenir.
+  * **Ekle**'yi tıklatın. **Görünümler Ile MVC denetleyicisi ekleme, Entity Framework kullanma** iletişim kutusu görüntülenir.
 
     ![Yapı iskelesi öğrenci](intro/_static/scaffold-student2.png)
 
@@ -265,7 +259,7 @@ CRUD eylem yöntemlerinin ve görünümlerinin otomatik olarak oluşturulması, 
 
   * Varsayılan **Studentscontroller** adını olarak kabul edin.
 
-  * **Ekle**'ye tıklayın.
+  * **Ekle**'yi tıklatın.
 
   **Ekle**' ye tıkladığınızda, Visual Studio yapı iskelesi altyapısı, denetleyicisiyle birlikte çalışan bir *StudentsController.cs* dosyası ve bir dizi görünüm ( *. cshtml* dosyası) oluşturur.
 
@@ -361,7 +355,7 @@ Entity Framework kullanan zaman uyumsuz kod yazarken dikkat edilmesi gereken baz
 
 .NET ' te zaman uyumsuz programlama hakkında daha fazla bilgi için bkz. [Async Overview](/dotnet/articles/standard/async).
 
-## <a name="get-the-code"></a>Kodu alın
+## <a name="get-the-code"></a>Kodu edinin
 
 [Tamamlanmış uygulamayı indirin veya görüntüleyin.](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final)
 
@@ -387,4 +381,3 @@ Temel CRUD (oluşturma, okuma, güncelleştirme, silme) işlemlerini nasıl ger�
 > [!div class="nextstepaction"]
 > [Temel CRUD işlevlerini uygulama](crud.md)
 
-::: moniker-end

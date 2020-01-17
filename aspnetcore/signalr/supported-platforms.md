@@ -5,16 +5,16 @@ description: ASP.NET Core SignalRiçin desteklenen platformlar hakkında bilgi e
 monikerRange: '>= aspnetcore-2.1'
 ms.author: bradyg
 ms.custom: mvc
-ms.date: 11/21/2019
+ms.date: 01/16/2020
 no-loc:
 - SignalR
 uid: signalr/supported-platforms
-ms.openlocfilehash: 9b9cf1d57d61c333c485f23b7ab952c66814d2aa
-ms.sourcegitcommit: 3e503ef510008e77be6dd82ee79213c9f7b97607
+ms.openlocfilehash: 054965921c87c1a9be27e5ddaa8a87b0fa1f4113
+ms.sourcegitcommit: cbd30479f42cbb3385000ef834d9c7d021fd218d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74317474"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76146504"
 ---
 # <a name="aspnet-core-opno-locsignalr-supported-platforms"></a>Desteklenen SignalR platformları ASP.NET Core
 
@@ -26,7 +26,7 @@ ASP.NET Core için SignalR, ASP.NET Core desteklediği tüm sunucu platformunu d
 
 [JavaScript Istemcisi](xref:signalr/javascript-client) NodeJS 8 ve sonraki sürümlerde ve aşağıdaki tarayıcılarda çalışır:
 
-| Browser                         | Sürüm         |
+| Tarayıcı                         | Sürüm         |
 | ------------------------------- | --------------- |
 | Microsoft Edge                  | Geçerli&dagger; |
 | Mozilla Firefox                 | Geçerli&dagger; |
@@ -50,6 +50,6 @@ Sunucu IIS çalıştırıyorsa, WebSockets aktarımı Windows Server 2012 veya �
 
 Aşağıdaki istemciler mevcuttur, ancak deneysel veya resmi olmayan bir. Şu anda desteklenmemektedir ve hiçbir şekilde bulunmayabilir.
 
-* [C++istemcilerinin](https://github.com/aspnet/SignalR/tree/master/clients/cpp)
+* [C++istemcilerinin](https://github.com/aspnet/SignalR-Client-Cpp)
 
 * [Swift istemcisi](https://github.com/moozzyk/SignalR-Client-Swift)

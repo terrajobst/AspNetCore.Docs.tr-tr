@@ -2,20 +2,20 @@
 title: Güvenli ASP.NET Core Blazor Server uygulamaları
 author: guardrex
 description: Sunucu uygulamalarına Blazor yönelik güvenlik tehditlerini nasıl azaltacağınızı öğrenin.
-monikerRange: '>= aspnetcore-3.0'
+monikerRange: '>= aspnetcore-3.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/05/2019
+ms.date: 12/18/2019
 no-loc:
 - Blazor
 - SignalR
 uid: security/blazor/server
-ms.openlocfilehash: 2d644b84b304a31ad0debc16164ad155c7f7da65
-ms.sourcegitcommit: 851b921080fe8d719f54871770ccf6f78052584e
+ms.openlocfilehash: d87aac02137681e62cf8f5cbd4dc8b0be6f8431e
+ms.sourcegitcommit: cbd30479f42cbb3385000ef834d9c7d021fd218d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74944288"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76146309"
 ---
 # <a name="secure-aspnet-core-opno-locblazor-server-apps"></a>Güvenli ASP.NET Core Blazor Server uygulamaları
 
@@ -206,7 +206,7 @@ Bir istemci, çerçeve bu bileşenin yeni bir işlemesini oluşturmadan önce bi
 
 ### <a name="guard-against-multiple-dispatches"></a>Birden çok gönderine karşı koruma
 
-Bir olay geri çağırması, bir dış hizmetten veya veritabanından veri getirme gibi uzun süren bir işlemi çağıralıyorsa, bir koruyucu kullanmayı düşünün. Koruyucu, bir işlem görsel geri bildirimde çalışırken, kullanıcının birden çok işlemi sıraya almasını önleyebilir. Aşağıdaki bileşen kodu, `GetForecastAsync` verileri sunucudan alırken `true` `isLoading` ayarlar. `isLoading` `true`, bu düğme Kullanıcı arabiriminde devre dışı bırakılır:
+Bir olay geri çağırması, bir dış hizmetten veya veritabanından veri getirme gibi uzun süre çalışan bir işlemi zaman uyumsuz olarak çağıralıyorsa, bir koruyucu kullanmayı düşünün. Koruyucu, bir işlem görsel geri bildirimde çalışırken, kullanıcının birden çok işlemi sıraya almasını önleyebilir. Aşağıdaki bileşen kodu, `GetForecastAsync` verileri sunucudan alırken `true` `isLoading` ayarlar. `isLoading` `true`, bu düğme Kullanıcı arabiriminde devre dışı bırakılır:
 
 ```razor
 @page "/fetchdata"
@@ -230,6 +230,8 @@ Bir olay geri çağırması, bir dış hizmetten veya veritabanından veri getir
     }
 }
 ```
+
+Önceki örnekte gösterilen koruma deseninin arka plan işlemi `async`-`await` düzeniyle zaman uyumsuz olarak yürütülürse, bu işlem geçerlidir.
 
 ### <a name="cancel-early-and-avoid-use-after-dispose"></a>Erken iptali yapın ve bir-After-Dispose kullanmaktan kaçının
 

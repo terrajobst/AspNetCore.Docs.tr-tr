@@ -5,14 +5,14 @@ description: ASP.NET Core uygulamalar oluşturmaya yönelik temel kavramları ö
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/07/2019
+ms.date: 01/15/2020
 uid: fundamentals/index
-ms.openlocfilehash: 7173a732a04bf3e598adef298fa9120c15dd52fb
-ms.sourcegitcommit: 67116718dc33a7a01696d41af38590fdbb58e014
+ms.openlocfilehash: 3fbfc7c4c0d5e568339bc00a7cbe84a3932acf1f
+ms.sourcegitcommit: cbd30479f42cbb3385000ef834d9c7d021fd218d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73799378"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76146361"
 ---
 # <a name="aspnet-core-fundamentals"></a>ASP.NET Core temelleri
 
@@ -61,14 +61,14 @@ ASP.NET Core, zengin bir yerleşik ara yazılım kümesi içerir ve özel ara ya
 
 Daha fazla bilgi için bkz. <xref:fundamentals/middleware/index>.
 
-## <a name="host"></a>Ana bilgisayar
+## <a name="host"></a>Konak
 
 ASP.NET Core bir uygulama, başlangıçta bir *konak* oluşturur. Ana bilgisayar, uygulamanın tüm kaynaklarını kapsülleyen bir nesnedir, örneğin:
 
 * Bir HTTP sunucusu uygulama
 * Ara yazılım bileşenleri
 * Günlüğe Kaydetme
-* IÇERIK
+* DI
 * Yapılandırma
 
 Uygulamanın tüm birbirine bağlı kaynaklarını tek bir nesnede dahil etmek için başlıca neden, yaşam süresi yönetimi: uygulama başlatma ve düzgün kapanma üzerinde denetim.
@@ -131,7 +131,7 @@ ASP.NET Core aşağıdaki sunucu uygulamalarını sağlar:
 
 ASP.NET Core, *Kestrel* platformlar arası sunucu uygulamasını sağlar. ASP.NET Core 2,0 veya üzeri sürümlerde, Kestrel doğrudan Internet 'e açık olan bir genel kullanıma yönelik uç sunucu olarak çalıştırılabilir. Kestrel, genellikle [NGINX](https://nginx.org) veya [Apache](https://httpd.apache.org/)ile ters proxy yapılandırmasında çalıştırılır.
 
-# <a name="linuxtablinux"></a>['Un](#tab/linux)
+# <a name="linuxtablinux"></a>[Linux](#tab/linux)
 
 ASP.NET Core, *Kestrel* platformlar arası sunucu uygulamasını sağlar. ASP.NET Core 2,0 veya üzeri sürümlerde, Kestrel doğrudan Internet 'e açık olan bir genel kullanıma yönelik uç sunucu olarak çalıştırılabilir. Kestrel, genellikle [NGINX](https://nginx.org) veya [Apache](https://httpd.apache.org/)ile ters proxy yapılandırmasında çalıştırılır.
 
@@ -152,7 +152,7 @@ ASP.NET Core aşağıdaki sunucu uygulamalarını sağlar:
 
 ASP.NET Core, *Kestrel* platformlar arası sunucu uygulamasını sağlar. ASP.NET Core 2,0 veya üzeri sürümlerde, Kestrel doğrudan Internet 'e açık olan bir genel kullanıma yönelik uç sunucu olarak çalıştırılabilir. Kestrel, genellikle [NGINX](https://nginx.org) veya [Apache](https://httpd.apache.org/)ile ters proxy yapılandırmasında çalıştırılır.
 
-# <a name="linuxtablinux"></a>['Un](#tab/linux)
+# <a name="linuxtablinux"></a>[Linux](#tab/linux)
 
 ASP.NET Core, *Kestrel* platformlar arası sunucu uygulamasını sağlar. ASP.NET Core 2,0 veya üzeri sürümlerde, Kestrel doğrudan Internet 'e açık olan bir genel kullanıma yönelik uç sunucu olarak çalıştırılabilir. Kestrel, genellikle [NGINX](https://nginx.org) veya [Apache](https://httpd.apache.org/)ile ters proxy yapılandırmasında çalıştırılır.
 
@@ -189,7 +189,7 @@ app.UseWebSockets(options);
 
 Daha fazla bilgi için bkz. <xref:fundamentals/configuration/options>.
 
-## <a name="environments"></a>Lý
+## <a name="environments"></a>Ortamlar
 
 *Geliştirme*, *hazırlık*ve *üretim*gibi yürütme ortamları, ASP.NET Core birinci sınıf kavramlardır. `ASPNETCORE_ENVIRONMENT` ortam değişkenini ayarlayarak bir uygulamanın üzerinde çalıştığı ortamı belirtebilirsiniz. ASP.NET Core, uygulamanın başlangıcında bu ortam değişkenini okur ve değeri bir `IHostingEnvironment` uygulamasında depolar. Ortam nesnesi, uygulama tarafından her yerde DI aracılığıyla kullanılabilir.
 
@@ -310,6 +310,12 @@ Proje dosyasındaki [\<içerik > proje öğesi](/visualstudio/msbuild/common-msb
   <Content Update="wwwroot\local\**\*.*" CopyToPublishDirectory="Never" />
 </ItemGroup>
 ```
+
+::: moniker range=">= aspnetcore-3.0"
+
+Statik kimlik varlıklarının Web köküne yayımlanmasını engellemek için bkz. <xref:security/authentication/identity#prevent-publish-of-static-identity-assets>.
+
+::: moniker-end
 
 Razor ( *. cshtml*) dosyalarında, tilde işareti (`~/`) Web köküne işaret eder. `~/` başlayan bir yol, *sanal yol*olarak adlandırılır.
 

@@ -4,14 +4,14 @@ author: rick-anderson
 description: Docker kayıt defterinden yayınlanan .NET Core Docker görüntülerini nasıl kullanacağınızı öğrenin. Görüntüleri çekin ve kendi görüntülerinizi oluşturun.
 ms.author: riande
 ms.custom: mvc
-ms.date: 06/18/2019
+ms.date: 01/15/2020
 uid: host-and-deploy/docker/building-net-docker-images
-ms.openlocfilehash: 64503ed55438b24f2d3d87092107408ddcb515d7
-ms.sourcegitcommit: fcdf9aaa6c45c1a926bd870ed8f893bdb4935152
+ms.openlocfilehash: 5bed5e9a4a6109a45badcef7c0d4e03eb2312bf0
+ms.sourcegitcommit: cbd30479f42cbb3385000ef834d9c7d021fd218d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72165272"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76146349"
 ---
 # <a name="docker-images-for-aspnet-core"></a>ASP.NET Core için Docker görüntüleri
 
@@ -40,7 +40,7 @@ Bu öğreticide, ASP.NET Core örnek bir uygulama indirir ve Docker kapsayıcıl
 
    Örnek, uygulamayı çalıştırmak için bu görüntüyü kullanır. Görüntü, ASP.NET Core çalışma zamanını ve kitaplıklarını içerir ve üretimde uygulamaları çalıştırmak için iyileştirilmiştir. Dağıtım ve uygulama başlatma hızı için tasarlanan görüntü görece küçüktür, bu nedenle Docker kayıt defterinden Docker ana bilgisayarına ağ performansı en iyi duruma getirilmiştir. Yalnızca bir uygulamayı çalıştırmak için gereken ikili dosyalar ve içerikler kapsayıcıya kopyalanır. İçerik çalıştırılmaya hazırlanıyor ve `Docker run` en hızlı süreyi uygulama başlatma ile etkinleştirir. Docker modelinde dinamik kod derlemesi gerekli değildir.
 
-## <a name="prerequisites"></a>Önkoşullar
+## <a name="prerequisites"></a>Prerequisites
 ::: moniker range="< aspnetcore-3.0"
 
 * [.NET Core 2,2 SDK](https://www.microsoft.com/net/core)
@@ -64,7 +64,7 @@ Bu öğreticide, ASP.NET Core örnek bir uygulama indirir ve Docker kapsayıcıl
 
 * [Git](https://git-scm.com/download)
 
-## <a name="download-the-sample-app"></a>Örnek uygulamayı indirin
+## <a name="download-the-sample-app"></a>Örnek uygulamayı indirme
 
 * [.NET Core Docker deposunu](https://github.com/dotnet/dotnet-docker)kopyalayarak örneği indirin: 
 
@@ -269,4 +269,4 @@ ENTRYPOINT ["dotnet", "aspnetapp.dll"]
 Örnek uygulamayı içeren git deposu, belgeleri de içerir. Depodaki kullanılabilir kaynaklara genel bir bakış için [Readme dosyasına](https://github.com/dotnet/dotnet-docker/blob/master/samples/aspnetapp/README.md)bakın. Özellikle, HTTPS 'yi uygulamayı öğrenin:
 
 > [!div class="nextstepaction"]
-> [HTTPS üzerinden Docker ile ASP.NET Core uygulamaları geliştirme](https://github.com/dotnet/dotnet-docker/blob/master/samples/aspnetapp/aspnetcore-docker-https-development.md)
+> [HTTPS üzerinden Docker ile ASP.NET Core uygulamaları geliştirme](https://github.com/dotnet/dotnet-docker/blob/master/samples/run-aspnetcore-https-development.md)
