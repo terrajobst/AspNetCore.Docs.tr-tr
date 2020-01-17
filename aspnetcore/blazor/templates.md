@@ -2,20 +2,20 @@
 title: ASP.NET Core Blazor şablonları
 author: guardrex
 description: ASP.NET Core Blazor uygulama şablonları ve Blazor proje yapısı hakkında bilgi edinin.
-monikerRange: '>= aspnetcore-3.0'
+monikerRange: '>= aspnetcore-3.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/25/2019
+ms.date: 12/18/2019
 no-loc:
 - Blazor
 - SignalR
 uid: blazor/templates
-ms.openlocfilehash: bc0ea4a777e8684a7b0925377b8a19a45c2b531c
-ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
+ms.openlocfilehash: 2a95b986450471b474d93ead252255f2bd9d4918
+ms.sourcegitcommit: 9ee99300a48c810ca6fd4f7700cd95c3ccb85972
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74879664"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76160125"
 ---
 # <a name="aspnet-core-opno-locblazor-templates"></a>ASP.NET Core Blazor şablonları
 
@@ -43,20 +43,20 @@ Aşağıdaki dosya ve klasörler, Blazor şablonundan oluşturulan Blazor bir uy
   * `ConfigureServices` &ndash;, uygulamanın [bağımlılık ekleme (dı)](xref:fundamentals/dependency-injection) hizmetlerini yapılandırır. Sunucu uygulamalarında Blazor, hizmetler <xref:Microsoft.Extensions.DependencyInjection.ComponentServiceCollectionExtensions.AddServerSideBlazor*>çağırarak eklenir ve `WeatherForecastService` örnek `FetchData` bileşeni tarafından kullanılmak üzere hizmet kapsayıcısına eklenir.
   * `Configure` &ndash;, uygulamanın istek işleme ardışık düzenini yapılandırır:
     * Blazor WebAssembly &ndash;, uygulamanın kök bileşeni olan `App` bileşenini (`app` DOM öğesi olarak belirtilen `AddComponent` yöntemine) ekler.
-    * Blazor Sunucusu
+    * Blazor sunucusu
       * <xref:Microsoft.AspNetCore.Builder.ComponentEndpointRouteBuilderExtensions.MapBlazorHub*>, tarayıcıya gerçek zamanlı bağlantı için bir uç nokta ayarlamak üzere çağırılır. Bağlantı, uygulamalara gerçek zamanlı Web işlevselliği eklemek için bir çerçeveden [SignalR](xref:signalr/introduction)oluşturulur.
       * [Mapfallbacktopage ("/_Host")](xref:Microsoft.AspNetCore.Builder.RazorPagesEndpointRouteBuilderExtensions.MapFallbackToPage*) , uygulamanın kök sayfasını (*Pages/_Host. cshtml*) ayarlamak ve gezinmeyi etkinleştirmek için çağırılır.
 
 * *Wwwroot/index.html* (Blazor WebAssembly) bir HTML sayfası olarak uygulanan uygulamanın kök sayfasını &ndash;:
   * Uygulamanın herhangi bir sayfası başlangıçta istendiğinde, Bu sayfa işlenir ve yanıtta döndürülür.
   * Bu sayfa, kök `App` bileşeninin nerede işleneceğini belirtir. `App` bileşeni (*app. Razor*) `Startup.Configure`içindeki `AddComponent` metoduna `app` DOM öğesi olarak belirtilir.
-  * *_Framework/Blazor.webassembly.js* JavaScript dosyası yüklenir ve şunları yapın:
+  * `_framework/blazor.webassembly.js` JavaScript dosyası yüklenir ve şunları yapın:
     * .NET çalışma zamanını, uygulamayı ve uygulamanın bağımlılıklarını indirir.
     * Uygulamayı çalıştırmak için çalışma zamanını başlatır.
 
 * *Pages/_Host. cshtml* (Blazor Server), Razor sayfası olarak uygulanan uygulamanın kök sayfasına &ndash;:
   * Uygulamanın herhangi bir sayfası başlangıçta istendiğinde, Bu sayfa işlenir ve yanıtta döndürülür.
-  * Tarayıcı ve sunucu arasındaki gerçek zamanlı SignalR bağlantısını ayarlayan *_framework/Blazor.Server.js* JavaScript dosyası yüklenir.
+  * Tarayıcı ve sunucu arasındaki gerçek zamanlı SignalR bağlantısını ayarlayan `_framework/blazor.server.js` JavaScript dosyası yüklenir.
   * Ana bilgisayar sayfası, kök `App` bileşeni 'nin (*app. Razor*) nerede işleneceğini belirtir.
 
 * *App. razor* &ndash; <xref:Microsoft.AspNetCore.Components.Routing.Router> bileşenini kullanarak istemci tarafı yönlendirmeyi ayarlayan uygulamanın kök bileşenidir. `Router` bileşeni tarayıcı gezintisini karşılar ve istenen adresle eşleşen sayfayı işler.
