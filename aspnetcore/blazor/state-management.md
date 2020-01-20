@@ -2,19 +2,20 @@
 title: ASP.NET Core Blazor durum yönetimi
 author: guardrex
 description: Blazor Server uygulamalarında durumu kalıcı hale getirme hakkında bilgi edinin.
-monikerRange: '>= aspnetcore-3.0'
+monikerRange: '>= aspnetcore-3.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/05/2019
+ms.date: 12/18/2019
 no-loc:
 - Blazor
+- SignalR
 uid: blazor/state-management
-ms.openlocfilehash: 7351ee2438c6adf675b8aa5e8ecdb1b2da7b4f23
-ms.sourcegitcommit: 851b921080fe8d719f54871770ccf6f78052584e
+ms.openlocfilehash: ffb32a4f274a30f2a5ceed9cbf193285e85bab4c
+ms.sourcegitcommit: 9ee99300a48c810ca6fd4f7700cd95c3ccb85972
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74943933"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76160151"
 ---
 # <a name="aspnet-core-opno-locblazor-state-management"></a>ASP.NET Core Blazor durum yönetimi
 
@@ -241,17 +242,7 @@ Prerendering sırasında:
 
 Hatayı çözmek için bir yol prerendering devre dışı bırakılır. Bu genellikle uygulama tarayıcı tabanlı depolamanın yoğun bir şekilde kullanımını yapıyorsa en iyi seçenektir. Prerendering karmaşıklık ekler ve `localStorage` veya `sessionStorage` kullanılabilir olana kadar uygulama yararlı bir içeriğe gidemez.
 
-::: moniker range=">= aspnetcore-3.1"
-
 Prerendering 'yi devre dışı bırakmak için, *Pages/_Host. cshtml* dosyasını açın ve `Component` etiketi Yardımcısı `render-mode` çağrısını `Server`olarak değiştirin.
-
-::: moniker-end
-
-::: moniker range="< aspnetcore-3.1"
-
-Prerendering 'yi devre dışı bırakmak için, *Pages/_Host. cshtml* dosyasını açın ve `Html.RenderComponentAsync<App>(RenderMode.Server)`çağrısını değiştirin.
-
-::: moniker-end
 
 Prerendering, `localStorage` veya `sessionStorage`kullanmayan diğer sayfalar için yararlı olabilir. Prerendering etkin tutmak için, tarayıcı devreye bağlanana kadar yükleme işlemini erteleyin. Aşağıda, bir sayaç değeri depolamak için bir örnek verilmiştir:
 
