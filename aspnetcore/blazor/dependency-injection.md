@@ -2,19 +2,20 @@
 title: ASP.NET Core Blazor bağımlılığı ekleme
 author: guardrex
 description: Blazor uygulamalarının bileşenlere nasıl hizmet ekleyebilmesi için bkz.
-monikerRange: '>= aspnetcore-3.0'
+monikerRange: '>= aspnetcore-3.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/05/2019
+ms.date: 01/08/2020
 no-loc:
 - Blazor
+- SignalR
 uid: blazor/dependency-injection
-ms.openlocfilehash: aad6cfee500b5cb502470f6a4a7cb5756df09dc4
-ms.sourcegitcommit: 851b921080fe8d719f54871770ccf6f78052584e
+ms.openlocfilehash: 6930d721f04fd5f7cad2ba472724497a157fda0f
+ms.sourcegitcommit: 9ee99300a48c810ca6fd4f7700cd95c3ccb85972
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74943790"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76159982"
 ---
 # <a name="aspnet-core-opno-locblazor-dependency-injection"></a>ASP.NET Core Blazor bağımlılığı ekleme
 
@@ -36,8 +37,8 @@ Varsayılan hizmetler, uygulamanın hizmet koleksiyonuna otomatik olarak eklenir
 | Hizmet | Ömür | Açıklama |
 | ------- | -------- | ----------- |
 | <xref:System.Net.Http.HttpClient> | Adet | HTTP istekleri göndermek ve bir URI tarafından tanımlanan bir kaynaktan HTTP yanıtlarını almak için yöntemler sağlar.<br><br>Bir Blazor WebAssembly uygulamasındaki `HttpClient` örneği, arka planda HTTP trafiğini işlemek için tarayıcıyı kullanır.<br><br>Blazor Server uygulamaları, varsayılan olarak hizmet olarak yapılandırılmış bir `HttpClient` içermez. Blazor sunucusu uygulamasına bir `HttpClient` sağlayın.<br><br>Daha fazla bilgi için bkz. <xref:blazor/call-web-api>. |
-| `IJSRuntime` | Adet | JavaScript çağrılarının dağıtıldığı bir JavaScript çalışma zamanının örneğini temsil eder. Daha fazla bilgi için bkz. <xref:blazor/javascript-interop>. |
-| `NavigationManager` | Adet | URI 'Ler ve gezinme durumu ile çalışmaya yönelik yardımcıları içerir. Daha fazla bilgi için bkz. [URI ve gezinti durumu yardımcıları](xref:blazor/routing#uri-and-navigation-state-helpers). |
+| `IJSRuntime` | Singleton (Blazor WebAssembly)<br>Kapsamlı (Blazor sunucu) | JavaScript çağrılarının dağıtıldığı bir JavaScript çalışma zamanının örneğini temsil eder. Daha fazla bilgi için bkz. <xref:blazor/javascript-interop>. |
+| `NavigationManager` | Singleton (Blazor WebAssembly)<br>Kapsamlı (Blazor sunucu) | URI 'Ler ve gezinme durumu ile çalışmaya yönelik yardımcıları içerir. Daha fazla bilgi için bkz. [URI ve gezinti durumu yardımcıları](xref:blazor/routing#uri-and-navigation-state-helpers). |
 
 Özel bir hizmet sağlayıcı, tabloda listelenen varsayılan Hizmetleri otomatik olarak sağlamaz. Özel bir hizmet sağlayıcısı kullanır ve tabloda gösterilen hizmetlerden herhangi birini gerekliyse, gerekli hizmetleri yeni hizmet sağlayıcısına ekleyin.
 

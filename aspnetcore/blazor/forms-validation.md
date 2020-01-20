@@ -2,19 +2,20 @@
 title: ASP.NET Core Blazor formları ve doğrulama
 author: guardrex
 description: Blazor'de formları ve alan doğrulama senaryolarını nasıl kullanacağınızı öğrenin.
-monikerRange: '>= aspnetcore-3.0'
+monikerRange: '>= aspnetcore-3.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/05/2019
+ms.date: 12/18/2019
 no-loc:
 - Blazor
+- SignalR
 uid: blazor/forms-validation
-ms.openlocfilehash: a94a433f26e451bbadc73615e502e46d273f05c2
-ms.sourcegitcommit: 7dfe6cc8408ac6a4549c29ca57b0c67ec4baa8de
+ms.openlocfilehash: 6f6fdc13dbb754ecfe06025d496017d3c16951fe
+ms.sourcegitcommit: 9ee99300a48c810ca6fd4f7700cd95c3ccb85972
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75828145"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76159969"
 ---
 # <a name="aspnet-core-opno-locblazor-forms-and-validation"></a>ASP.NET Core Blazor formları ve doğrulama
 
@@ -37,8 +38,8 @@ public class ExampleModel
 
 Bir form `EditForm` bileşeni kullanılarak tanımlanır. Aşağıdaki formda tipik öğeler, bileşenler ve Razor kodu gösterilmektedir:
 
-```csharp
-<EditForm Model="@exampleModel" OnValidSubmit="@HandleValidSubmit">
+```razor
+<EditForm Model="@exampleModel" OnValidSubmit="HandleValidSubmit">
     <DataAnnotationsValidator />
     <ValidationSummary />
 
@@ -57,7 +58,12 @@ Bir form `EditForm` bileşeni kullanılarak tanımlanır. Aşağıdaki formda ti
 }
 ```
 
+Yukarıdaki örnekte:
+
 * Form, `ExampleModel` türünde tanımlanan doğrulamayı kullanarak `name` alanında Kullanıcı girişini doğrular. Model, bileşenin `@code` bloğunda oluşturulur ve özel bir alanda tutulur (`exampleModel`). Alan, `<EditForm>` öğesinin `Model` özniteliğine atanır.
+* `InputText` bileşen `@bind-Value` bağlar:
+  * Model özelliği (`exampleModel.Name`) `InputText` bileşenin `Value` özelliğine.
+  * `InputText` bileşenin `ValueChanged` özelliğine bir değişiklik olayı temsilcisi.
 * `DataAnnotationsValidator` bileşeni, veri açıklamalarını kullanarak doğrulama desteğini ekler.
 * `ValidationSummary` bileşeni doğrulama iletilerini özetler.
 * `HandleValidSubmit`, form başarıyla gönderdiğinde tetiklenir (doğrulamayı geçirir).
@@ -118,39 +124,50 @@ Aşağıdaki form, `Starship` modelinde tanımlanan doğrulamayı kullanarak Kul
 
 <h2>New Ship Entry Form</h2>
 
-<EditForm Model="@starship" OnValidSubmit="@HandleValidSubmit">
+<EditForm Model="@starship" OnValidSubmit="HandleValidSubmit">
     <DataAnnotationsValidator />
     <ValidationSummary />
 
     <p>
-        <label for="identifier">Identifier: </label>
-        <InputText id="identifier" @bind-Value="starship.Identifier" />
+        <label>
+            Identifier:
+            <InputText @bind-Value="starship.Identifier" />
+        </label>
     </p>
     <p>
-        <label for="description">Description (optional): </label>
-        <InputTextArea id="description" @bind-Value="starship.Description" />
+        <label>
+            Description (optional):
+            <InputTextArea @bind-Value="starship.Description" />
+        </label>
     </p>
     <p>
-        <label for="classification">Primary Classification: </label>
-        <InputSelect id="classification" @bind-Value="starship.Classification">
-            <option value="">Select classification ...</option>
-            <option value="Exploration">Exploration</option>
-            <option value="Diplomacy">Diplomacy</option>
-            <option value="Defense">Defense</option>
-        </InputSelect>
+        <label>
+            Primary Classification:
+            <InputSelect @bind-Value="starship.Classification">
+                <option value="">Select classification ...</option>
+                <option value="Exploration">Exploration</option>
+                <option value="Diplomacy">Diplomacy</option>
+                <option value="Defense">Defense</option>
+            </InputSelect>
+        </label>
     </p>
     <p>
-        <label for="accommodation">Maximum Accommodation: </label>
-        <InputNumber id="accommodation" 
-            @bind-Value="starship.MaximumAccommodation" />
+        <label>
+            Maximum Accommodation:
+            <InputNumber @bind-Value="starship.MaximumAccommodation" />
+        </label>
     </p>
     <p>
-        <label for="valid">Engineering Approval: </label>
-        <InputCheckbox id="valid" @bind-Value="starship.IsValidatedDesign" />
+        <label>
+            Engineering Approval:
+            <InputCheckbox @bind-Value="starship.IsValidatedDesign" />
+        </label>
     </p>
     <p>
-        <label for="productionDate">Production Date: </label>
-        <InputDate id="productionDate" @bind-Value="starship.ProductionDate" />
+        <label>
+            Production Date:
+            <InputDate @bind-Value="starship.ProductionDate" />
+        </label>
     </p>
 
     <button type="submit">Submit</button>
@@ -174,6 +191,54 @@ Aşağıdaki form, `Starship` modelinde tanımlanan doğrulamayı kullanarak Kul
 
 `EditForm`, hangi alanların değiştirildiği ve geçerli doğrulama iletileri de dahil olmak üzere düzenleme işlemiyle ilgili meta verileri izleyen [basamaklı bir değer](xref:blazor/components#cascading-values-and-parameters) olarak `EditContext` oluşturur. `EditForm` ayrıca geçerli ve geçersiz gönderir (`OnValidSubmit`, `OnInvalidSubmit`) için uygun olaylar sağlar. Alternatif olarak, doğrulamayı tetiklemek ve alan değerlerini özel doğrulama kodu ile denetlemek için `OnSubmit` kullanın.
 
+Aşağıdaki örnekte:
+
+* `HandleSubmit` yöntemi, **Gönder** düğmesi seçildiğinde çalışır.
+* Form, formun `EditContext`kullanılarak onaylanır.
+* Form, `EditContext` sunucuda bir Web API uç noktası çağıran `ServerValidate` yöntemine geçirerek daha sonra onaylanır (*gösterilmez*).
+* Ek kod, `isValid`denetleyerek istemci ve sunucu tarafı doğrulamanın sonucuna bağlı olarak çalıştırılır.
+
+```razor
+<EditForm EditContext="@editContext" OnSubmit="@HandleSubmit">
+
+    ...
+
+    <button type="submit">Submit</button>
+</EditForm>
+
+@code {
+    private Starship starship = new Starship();
+    private EditContext editContext;
+
+    protected override void OnInitialized()
+    {
+        editContext = new EditContext(starship);
+    }
+
+    private async Task HandleSubmit()
+    {
+        var isValid = editContext.Validate() && 
+            await ServerValidate(editContext);
+
+        if (isValid)
+        {
+            ...
+        }
+        else
+        {
+            ...
+        }
+    }
+
+    private async Task<bool> ServerValidate(EditContext editContext)
+    {
+        var serverChecksValid = ...
+
+        return serverChecksValid;
+    }
+}
+```
+
 ## <a name="inputtext-based-on-the-input-event"></a>Giriş olayına göre InputText
 
 `change` olayı yerine `input` olayını kullanan özel bir bileşen oluşturmak için `InputText` bileşenini kullanın.
@@ -189,6 +254,94 @@ Aşağıdaki biçimlendirmeye sahip bir bileşen oluşturun ve bileşeni tıpkı
     value="@CurrentValue" 
     @oninput="EventCallback.Factory.CreateBinder<string>(
         this, __value => CurrentValueAsString = __value, CurrentValueAsString)" />
+```
+
+## <a name="work-with-radio-buttons"></a>Radyo düğmeleriyle çalışma
+
+Bir formda radyo düğmeleriyle çalışırken, radyo düğmeleri bir grup olarak değerlendirildiğinden veri bağlama diğer öğelerden farklı işlenir. Her radyo düğmesinin değeri sabittir, ancak radyo düğmesi grubunun değeri seçili radyo düğmesinin değeridir. Aşağıdaki örnekte gösterildiği nasıl yapılır:
+
+* Radyo düğmesi grubu için veri bağlamayı işleyin.
+* Özel bir `InputRadio` bileşeni kullanarak doğrulamayı destekler.
+
+```razor
+@using System.Globalization
+@typeparam TValue
+@inherits InputBase<TValue>
+
+<input @attributes="AdditionalAttributes" type="radio" value="@SelectedValue" 
+       checked="@(SelectedValue.Equals(Value))" @onchange="OnChange" />
+
+@code {
+    [Parameter]
+    public TValue SelectedValue { get; set; }
+
+    private void OnChange(ChangeEventArgs args)
+    {
+        CurrentValueAsString = args.Value.ToString();
+    }
+
+    protected override bool TryParseValueFromString(string value, 
+        out TValue result, out string errorMessage)
+    {
+        var success = BindConverter.TryConvertTo<TValue>(
+            value, CultureInfo.CurrentCulture, out var parsedValue);
+        if (success)
+        {
+            result = parsedValue;
+            errorMessage = null;
+
+            return true;
+        }
+        else
+        {
+            result = default;
+            errorMessage = $"{FieldIdentifier.FieldName} field isn't valid.";
+
+            return false;
+        }
+    }
+}
+```
+
+Aşağıdaki `EditForm`, kullanıcıdan bir derecelendirme almak ve doğrulamak için önceki `InputRadio` bileşenini kullanır:
+
+```razor
+@page "/RadioButtonExample"
+@using System.ComponentModel.DataAnnotations
+
+<h1>Radio Button Group Test</h1>
+
+<EditForm Model="model" OnValidSubmit="HandleValidSubmit">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    @for (int i = 1; i <= 5; i++)
+    {
+        <label>
+            <InputRadio name="rate" SelectedValue="i" @bind-Value="model.Rating" />
+            @i
+        </label>
+    }
+
+    <button type="submit">Submit</button>
+</EditForm>
+
+<p>You chose: @model.Rating</p>
+
+@code {
+    private Model model = new Model();
+
+    private void HandleValidSubmit()
+    {
+        Console.WriteLine("valid");
+    }
+
+    public class Model
+    {
+        [Range(1, 5)]
+        public int Rating { get; set; }
+    }
+}
 ```
 
 ## <a name="validation-support"></a>Doğrulama desteği
@@ -243,15 +396,13 @@ private class MyCustomValidator : ValidationAttribute
 }
 ```
 
-::: moniker range=">= aspnetcore-3.1"
-
 ### <a name="opno-locblazor-data-annotations-validation-package"></a>Blazor veri ek açıklamaları doğrulama paketi
 
 [Microsoft. AspNetCore.Blazor. Dataaçıklamalarda. doğrulama](https://www.nuget.org/packages/Microsoft.AspNetCore.Blazor.DataAnnotations.Validation) , `DataAnnotationsValidator` bileşenini kullanarak doğrulama deneyimini boşlukları dolduran bir pakettir. Paket şu anda *deneysel*.
 
 ### <a name="compareproperty-attribute"></a>[CompareProperty] özniteliği
 
-<xref:System.ComponentModel.DataAnnotations.CompareAttribute> `DataAnnotationsValidator` bileşeniyle iyi çalışmaz. [Microsoft. AspNetCore.Blazor. Datareek açıklamaları. doğrulaması](https://www.nuget.org/packages/Microsoft.AspNetCore.Blazor.DataAnnotations.Validation) *deneysel* paketi, bu sınırlamalar etrafında çalıştırılan `ComparePropertyAttribute`ek bir doğrulama özniteliği tanıtır. Blazor bir uygulamada, `[CompareProperty]` `[Compare]` özniteliğinin doğrudan bir değiştirme işlemi olur. Daha fazla bilgi için bkz. [CompareAttribute Onvalidgönderim EditForm ile yoksayıldı (DotNet/AspNetCore #10643)](https://github.com/dotnet/AspNetCore/issues/10643#issuecomment-543909748).
+<xref:System.ComponentModel.DataAnnotations.CompareAttribute>, doğrulama sonucunu belirli bir üyeyle ilişkilendirmediği için `DataAnnotationsValidator` bileşeni ile iyi çalışmaz. Bu, alan düzeyi doğrulama ve tüm modelin bir gönderme sırasında doğrulanması arasındaki tutarsız davranışa neden olabilir. [Microsoft. AspNetCore.Blazor. Datareek açıklamaları. doğrulaması](https://www.nuget.org/packages/Microsoft.AspNetCore.Blazor.DataAnnotations.Validation) *deneysel* paketi, bu sınırlamalar etrafında çalıştırılan `ComparePropertyAttribute`ek bir doğrulama özniteliği tanıtır. Blazor bir uygulamada, `[CompareProperty]` `[Compare]` özniteliğinin doğrudan bir değiştirme işlemi olur.
 
 ### <a name="nested-models-collection-types-and-complex-types"></a>İç içe modeller, koleksiyon türleri ve karmaşık türler
 
@@ -260,7 +411,7 @@ Blazor, yerleşik `DataAnnotationsValidator`veri açıklamalarını kullanarak f
 Koleksiyon ve karmaşık tür özellikleri dahil olmak üzere, bağlantılı modelin tüm nesne grafiğini doğrulamak için, *deneysel* [Microsoft. aspnetcore.Blazortarafından sunulan `ObjectGraphDataAnnotationsValidator` kullanın. Dataaçıklamalarda. doğrulama](https://www.nuget.org/packages/Microsoft.AspNetCore.Blazor.DataAnnotations.Validation) paketi:
 
 ```razor
-<EditForm Model="@model" OnValidSubmit="@HandleValidSubmit">
+<EditForm Model="@model" OnValidSubmit="HandleValidSubmit">
     <ObjectGraphDataAnnotationsValidator />
     ...
 </EditForm>
@@ -303,12 +454,69 @@ public class ShipDescription
 }
 ```
 
-::: moniker-end
+### <a name="enable-the-submit-button-based-on-form-validation"></a>Form doğrulamasına göre Gönder düğmesini etkinleştir
 
-::: moniker range="< aspnetcore-3.1"
+Form doğrulamasına göre Gönder düğmesini etkinleştirmek ve devre dışı bırakmak için:
 
-### <a name="validation-of-complex-or-collection-type-properties"></a>Karmaşık veya koleksiyon türü özelliklerinin doğrulanması
+* Bileşen başlatıldığında modeli atamak için formun `EditContext` kullanın.
+* Gönder düğmesini etkinleştirmek ve devre dışı bırakmak için bağlamın `OnFieldChanged` geri aramasında formu doğrulayın.
 
-Bir modelin özelliklerine uygulanan doğrulama öznitelikleri, form gönderildiğinde doğrular. Ancak, koleksiyonların özellikleri veya bir modelin karmaşık veri türleri `DataAnnotationsValidator` bileşeni tarafından form gönderimi üzerinde doğrulanmaz. Bu senaryoda iç içe geçmiş doğrulama özniteliklerini kabul etmek için özel bir doğrulama bileşeni kullanın. Bir örnek için [Blazor doğrulama örneğine (ASPNET/Samples)](https://github.com/aspnet/samples/tree/master/samples/aspnetcore/blazor/Validation)bakın.
+```razor
+<EditForm EditContext="@editContext">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
 
-::: moniker-end
+    ...
+
+    <button type="submit" disabled="@formInvalid">Submit</button>
+</EditForm>
+
+@code {
+    private Starship starship = new Starship();
+    private bool formInvalid = true;
+    private EditContext editContext;
+
+    protected override void OnInitialized()
+    {
+        editContext = new EditContext(starship);
+
+        editContext.OnFieldChanged += (_, __) =>
+        {
+            formInvalid = !editContext.Validate();
+            StateHasChanged();
+        };
+    }
+}
+```
+
+Yukarıdaki örnekte, şu durumlarda `formInvalid` `false` ayarlayın:
+
+* Form geçerli varsayılan değerlerle önceden yüklenir.
+* Form yüklendiğinde Gönder düğmesinin etkinleştirilmesini istiyorsunuz.
+
+Önceki yaklaşımın yan etkisi, Kullanıcı herhangi bir alanla etkileşime geçtiğinde bir `ValidationSummary` bileşeninin geçersiz alanlarla doldurulduğu bir alandır. Bu senaryoya aşağıdaki yollarla değinilerek şunlar olabilir:
+
+* Form üzerinde `ValidationSummary` bileşeni kullanmayın.
+* Gönder düğmesi seçildiğinde `ValidationSummary` bileşeni görünür hale getirin (örneğin, bir `HandleValidSubmit` yönteminde).
+
+```razor
+<EditForm EditContext="@editContext" OnValidSubmit="HandleValidSubmit">
+    <DataAnnotationsValidator />
+    <ValidationSummary style="@displaySummary" />
+
+    ...
+
+    <button type="submit" disabled="@formInvalid">Submit</button>
+</EditForm>
+
+@code {
+    private string displaySummary = "display:none";
+
+    ...
+
+    private void HandleValidSubmit()
+    {
+        displaySummary = "display:block";
+    }
+}
+```

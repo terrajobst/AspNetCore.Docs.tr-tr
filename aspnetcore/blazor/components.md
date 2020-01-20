@@ -2,19 +2,20 @@
 title: ASP.NET Core Razor bileşenleri oluşturma ve kullanma
 author: guardrex
 description: Veri bağlama, olayları işleme ve bileşen yaşam döngülerini yönetme dahil Razor bileşenleri oluşturmayı ve kullanmayı öğrenin.
-monikerRange: '>= aspnetcore-3.0'
+monikerRange: '>= aspnetcore-3.1'
 ms.author: riande
 ms.custom: mvc
 ms.date: 12/28/2019
 no-loc:
 - Blazor
+- SignalR
 uid: blazor/components
-ms.openlocfilehash: 9e796a23a0b24a9fee314051644703ef12bd7607
-ms.sourcegitcommit: 7dfe6cc8408ac6a4549c29ca57b0c67ec4baa8de
+ms.openlocfilehash: e73667925c04dd1b2360138343c4a2dcef0ee310
+ms.sourcegitcommit: 9ee99300a48c810ca6fd4f7700cd95c3ccb85972
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75828210"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76160021"
 ---
 # <a name="create-and-use-aspnet-core-razor-components"></a>ASP.NET Core Razor bileşenleri oluşturma ve kullanma
 
@@ -34,9 +35,6 @@ Bir bileşen için Kullanıcı arabirimi HTML kullanılarak tanımlanır. Dinami
 
 Bileşen sınıfının üyeleri bir `@code` bloğunda tanımlanmıştır. `@code` bloğunda, bileşen durumu (özellikler, alanlar) olay işleme yöntemleriyle veya diğer bileşen mantığını tanımlamaya yönelik yöntemlerle belirtilir. Birden fazla `@code` bloğu izin verilir.
 
-> [!NOTE]
-> ASP.NET Core 3,0 ' nin önceki önizlemelerinde, `@functions` blokları Razor bileşenlerinde `@code` bloklarında aynı amaçla kullanılmıştır. `@functions` blokları Razor bileşenlerinde çalışmaya devam eder, ancak ASP.NET Core 3,0 Preview 6 veya sonraki bir sürümünde `@code` bloğunun kullanılmasını öneririz.
-
 Bileşen üyeleri, `@`ile başlayan ifadeleri kullanarak C# bileşenin işleme mantığının bir parçası olarak kullanılabilir. Örneğin bir C# alan, alan adına `@` önek olarak işlenerek işlenir. Aşağıdaki örnek değerlendirilir ve işler:
 
 * `font-style`için CSS özellik değerine `_headingFontStyle`.
@@ -53,17 +51,37 @@ Bileşen üyeleri, `@`ile başlayan ifadeleri kullanarak C# bileşenin işleme m
 
 Bileşen ilk olarak işlendikten sonra, bileşen işleme ağacını olaylara yanıt olarak yeniden oluşturur. Blazor, yeni işleme ağacını öncekiyle karşılaştırır ve tarayıcının Belge Nesne Modeli (DOM) üzerinde herhangi bir değişiklik uygular.
 
-Bileşenler sıradan C# sınıflardır ve bir proje içinde herhangi bir yere yerleştirilebilir. Web sayfalarını üreten bileşenler genellikle *Sayfalar* klasöründe bulunur. Sayfa olmayan bileşenler sıklıkla *paylaşılan* klasöre veya projeye eklenen özel bir klasöre yerleştirilir. Özel bir klasör kullanmak için, özel klasörün ad alanını üst bileşene ya da uygulamanın *_Imports. Razor* dosyasına ekleyin. Örneğin, aşağıdaki ad alanı, uygulamanın kök ad alanı `WebApplication`olduğunda *Bileşenler* klasöründeki bileşenleri kullanılabilir yapar:
+Bileşenler sıradan C# sınıflardır ve bir proje içinde herhangi bir yere yerleştirilebilir. Web sayfalarını üreten bileşenler genellikle *Sayfalar* klasöründe bulunur. Sayfa olmayan bileşenler sıklıkla *paylaşılan* klasöre veya projeye eklenen özel bir klasöre yerleştirilir.
+
+Genellikle, bir bileşenin ad alanı uygulamanın kök ad alanından ve uygulamanın içindeki konum (klasör) ile türetilir. Uygulamanın kök ad alanı `BlazorApp` ve `Counter` bileşeni *Sayfalar* klasöründe yer alıyorsa:
+
+* `Counter` bileşenin ad alanı `BlazorApp.Pages`.
+* Bileşenin tam nitelikli tür adı `BlazorApp.Pages.Counter`.
+
+Daha fazla bilgi için [bileşenleri Içeri aktarma](#import-components) bölümüne bakın.
+
+Özel bir klasör kullanmak için, özel klasörün ad alanını üst bileşene ya da uygulamanın *_Imports. Razor* dosyasına ekleyin. Örneğin, aşağıdaki ad alanı, uygulamanın kök ad alanı `BlazorApp`olduğunda *Bileşenler* klasöründeki bileşenleri kullanılabilir yapar:
 
 ```razor
-@using WebApplication.Components
+@using BlazorApp.Components
 ```
 
 ## <a name="integrate-components-into-razor-pages-and-mvc-apps"></a>Bileşenleri Razor Pages ve MVC uygulamalarıyla tümleştirme
 
-Mevcut Razor Pages ve MVC uygulamalarıyla bileşenleri kullanın. Razor bileşenleri kullanmak için mevcut sayfaları veya görünümleri yeniden yazmanız gerekmez. Sayfa veya görünüm işlendiğinde, bileşenler aynı anda önceden işlenir.
+Razor bileşenleri, Razor Pages ve MVC uygulamalarıyla tümleştirilebilir. Sayfa veya görünüm işlendiğinde, bileşenler aynı anda önceden alınabilir.
 
-::: moniker range=">= aspnetcore-3.1"
+Razor bileşenlerini barındırmak üzere bir Razor Pages veya MVC uygulaması hazırlamak için, <xref:blazor/hosting-models#integrate-razor-components-into-razor-pages-and-mvc-apps> makalesindeki *Razor bileşenlerini tümleştirme Razor Pages ve MVC Apps* bölümündeki yönergeleri izleyin.
+
+Uygulamanın bileşenlerini tutmak için özel bir klasör kullanırken, klasörü/görünümü veya *_ViewImports. cshtml* dosyasını temsil eden ad alanını ekleyin. Aşağıdaki örnekte:
+
+* `MyAppNamespace` uygulamanın ad alanıyla değiştirin.
+* *Bileşenler adlı bir* klasör bileşenleri tutmak için kullanılmazsa `Components`, bileşenlerin bulunduğu klasöre geçin.
+
+```csharp
+@using MyAppNamespace.Components
+```
+
+*_ViewImports. cshtml* dosyası, bir Razor Pages uygulamasının *Sayfalar* klasöründe veya bir MVC uygulamasının *views* klasöründe bulunur.
 
 Bir sayfadan veya görünümden bir bileşeni işlemek için `Component` etiketi yardımcısını kullanın:
 
@@ -90,35 +108,6 @@ Sayfalar ve görünümler bileşenleri kullanırken, listesiyse doğru değildir
 Statik HTML sayfasından sunucu bileşenleri işleme desteklenmiyor.
 
 Bileşenlerin nasıl işlendiği, bileşen durumu ve `Component` etiketi Yardımcısı hakkında daha fazla bilgi için bkz. <xref:blazor/hosting-models>.
-
-::: moniker-end
-
-::: moniker range="< aspnetcore-3.1"
-
-Bir sayfadan veya görünümden bir bileşeni işlemek için `RenderComponentAsync<TComponent>` HTML yardımcı yöntemini kullanın:
-
-```cshtml
-@(await Html.RenderComponentAsync<MyComponent>(RenderMode.ServerPrerendered))
-```
-
-`RenderMode`, bileşenin şunları yapıp kullanmadığını yapılandırır:
-
-* , Sayfaya ön gönderilir.
-* , Sayfada statik HTML olarak veya Kullanıcı aracısından bir Blazor uygulamasını önyüklemek için gerekli bilgileri içeriyorsa.
-
-| `RenderMode`        | Açıklama |
-| ------------------- | ----------- |
-| `ServerPrerendered` | Bileşeni statik HTML olarak işler ve Blazor sunucusu uygulaması için bir işaret içerir. Kullanıcı Aracısı başladığında, bu işaretleyici bir Blazor uygulamasının önyüklemesi için kullanılır. Parametreler desteklenmiyor. |
-| `Server`            | Blazor sunucusu uygulaması için bir işaret oluşturur. Bileşen çıkışı dahil değildir. Kullanıcı Aracısı başladığında, bu işaretleyici bir Blazor uygulamasının önyüklemesi için kullanılır. Parametreler desteklenmiyor. |
-| `Static`            | Bileşeni statik HTML olarak işler. Parametreler destekleniyor. |
-
-Sayfalar ve görünümler bileşenleri kullanırken, listesiyse doğru değildir. Bileşenler, kısmi görünümler ve bölümler gibi görüntüleme ve sayfaya özgü senaryolar kullanamaz. Bir bileşende kısmi görünümden mantığı kullanmak için kısmi görünüm mantığını bir bileşene ayırın.
-
-Statik HTML sayfasından sunucu bileşenleri işleme desteklenmiyor.
-
-Bileşenlerin nasıl işlendiği, bileşen durumu ve `RenderComponentAsync` HTML Yardımcısı hakkında daha fazla bilgi için bkz. <xref:blazor/hosting-models>.
-
-::: moniker-end
 
 ## <a name="use-components"></a>Bileşenleri kullanma
 
@@ -353,6 +342,11 @@ Bileşen işlendiğinde, giriş öğesinin `value` `CurrentValue` özelliğinden
 
 `onchange`aksine, öğe odağı kaybettiğinde harekete geçirilir `oninput` metin kutusunun değeri değiştiğinde harekete geçirilir.
 
+önceki örnekteki `@bind-value` bağlar:
+
+* Öğenin `value` özniteliğinde belirtilen ifade (`CurrentValue`).
+* `@bind-value:event`tarafından belirtilen olaya yönelik değişiklik olayı temsilcisi.
+
 **Ayrıştırılamayan değerler**
 
 Bir Kullanıcı, bir veri sınırlama öğesine ayrıştırılamayan bir değer sağlıyorsa, bağlama olayı tetiklendiğinde, çözümlenemeyen değer otomatik olarak önceki değerine döndürülür.
@@ -522,6 +516,10 @@ Genel olarak, bir özellik `@bind-property:event` özniteliği kullanılarak kar
 <MyComponent @bind-MyProp="MyValue" @bind-MyProp:event="MyEventHandler" />
 ```
 
+**Radyo düğmeleri**
+
+Bir form içindeki radyo düğmelerine bağlama hakkında bilgi için bkz. <xref:blazor/forms-validation#work-with-radio-buttons>.
+
 ## <a name="event-handling"></a>Olay işleme
 
 Razor bileşenleri olay işleme özellikleri sağlar. `on{EVENT}` adlı bir HTML öğesi özniteliği için (örneğin, `onclick` ve `onsubmit`), temsilci türü belirtilmiş bir değer ile, Razor bileşenleri özniteliğin değerini bir olay işleyicisi olarak değerlendirir. Özniteliğin adı her zaman [`@on{EVENT}`](xref:mvc/views/razor#onevent)biçimlendirilir.
@@ -592,7 +590,7 @@ Desteklenen `EventArgs` aşağıdaki tabloda gösterilmiştir.
 | İlerleme durumu         | `ProgressEventArgs`  | `onabort`, `onload`, `onloadend`, `onloadstart`, `onprogress`, `ontimeout` |
 | Dokunmatik            | `TouchEventArgs`     | `ontouchstart`, `ontouchend`, `ontouchmove`, `ontouchenter`, `ontouchleave`, `ontouchcancel`<br><br>`TouchPoint`, dokunmaya duyarlı bir cihazdaki tek bir iletişim noktasını temsil eder. |
 
-Önceki tablodaki olayların özellikleri ve olay işleme davranışı hakkında bilgi için bkz. [başvuru kaynağında EventArgs sınıfları (DotNet/AspNetCore Release/3.0 dalı)](https://github.com/dotnet/AspNetCore/tree/release/3.0/src/Components/Web/src/Web).
+Önceki tablodaki olayların özellikleri ve olay işleme davranışı hakkında bilgi için bkz. [başvuru kaynağında EventArgs sınıfları (DotNet/aspnetcore Release/3.1 dalı)](https://github.com/dotnet/aspnetcore/tree/release/3.1/src/Components/Web/src/Web).
 
 ### <a name="lambda-expressions"></a>Lambda ifadeleri
 
@@ -696,8 +694,6 @@ Olay işleme ve bağlama bileşeni parametrelerini `EventCallback` ve `EventCall
 
 `EventCallback`üzerinde türü kesin belirlenmiş `EventCallback<T>` tercih edin. `EventCallback<T>`, bileşenin kullanıcılarına daha iyi hata geri bildirimi sağlar. Diğer UI olay işleyicileriyle benzer şekilde, olay parametresini belirtmek isteğe bağlıdır. Geri çağırmaya hiçbir değer geçirilmemişse `EventCallback` kullanın.
 
-::: moniker range=">= aspnetcore-3.1"
-
 ### <a name="prevent-default-actions"></a>Varsayılan eylemleri engelle
 
 Bir olayın varsayılan eylemini engellemek için [`@on{EVENT}:preventDefault`](xref:mvc/views/razor#oneventpreventdefault) Directive özniteliğini kullanın.
@@ -763,8 +759,6 @@ Aşağıdaki örnekte, onay kutusunun seçilmesi ikinci alt `<div>`, üst `<div>
         Console.WriteLine($"A child div was selected. {DateTime.Now}");
 }
 ```
-
-::: moniker-end
 
 ## <a name="chained-bind"></a>Zincirleme bağlama
 
@@ -1091,8 +1085,6 @@ Bileşenler, `@page` yönergesinde belirtilen yol şablonundan yol parametreleri
 
 *Catch-all* parametre sözdizimi (`*`/`**`), birden çok klasör sınırları genelinde yolu yakalayan Razor bileşenlerinde ( *. Razor* **) desteklenmez.**
 
-::: moniker range=">= aspnetcore-3.1"
-
 ## <a name="partial-class-support"></a>Kısmi sınıf desteği
 
 Razor bileşenleri kısmi sınıflar olarak oluşturulur. Razor bileşenleri aşağıdaki yaklaşımlardan birini kullanarak yazılır:
@@ -1154,43 +1146,16 @@ namespace BlazorApp.Pages
 }
 ```
 
-::: moniker-end
-
-::: moniker range="< aspnetcore-3.1"
-
-## <a name="specify-a-component-base-class"></a>Bir bileşen taban sınıfı belirtin
-
-`@inherits` yönergesi, bir bileşen için temel sınıf belirtmek üzere kullanılabilir.
-
-[Örnek uygulama](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/blazor/common/samples/) , bileşenin özelliklerini ve yöntemlerini sağlamak için bir bileşenin `BlazorRocksBase`temel sınıfı nasıl devralmasını gösterir.
-
-*Pages/BlazorRocks. Razor*:
-
-```razor
-@page "/BlazorRocks"
-@inherits BlazorRocksBase
-
-<h1>@BlazorRocksText</h1>
-```
-
-*BlazorRocksBase.cs*:
+Gerekli olan ad alanlarını kısmi sınıf dosyasına gereken şekilde ekleyin. Razor bileşenleri tarafından kullanılan tipik ad alanları şunlardır:
 
 ```csharp
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Components;
-
-namespace BlazorSample
-{
-    public class BlazorRocksBase : ComponentBase
-    {
-        public string BlazorRocksText { get; set; } = 
-            "Blazor rocks the browser!";
-    }
-}
+using Microsoft.AspNetCore.Components.Authorization;
+using Microsoft.AspNetCore.Components.Forms;
+using Microsoft.AspNetCore.Components.Routing;
+using Microsoft.AspNetCore.Components.Web;
 ```
-
-Temel sınıf `ComponentBase`türetmelidir.
-
-::: moniker-end
 
 ## <a name="import-components"></a>Bileşenleri içeri aktar
 

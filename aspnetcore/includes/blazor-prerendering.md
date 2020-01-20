@@ -1,4 +1,15 @@
-Blazor sunucu uygulaması prerendering olduğunda, tarayıcıyla bir bağlantı kurulmadığından, JavaScript 'e çağırma gibi bazı eylemler mümkün değildir. Bileşenler, ön işlenmiş olduğunda farklı şekilde işlenmesi gerekebilir.
+---
+no-loc:
+- Blazor
+- SignalR
+ms.openlocfilehash: 5f3e22e04fe18149ec5a8acb42f42a8ef83a7664
+ms.sourcegitcommit: 9ee99300a48c810ca6fd4f7700cd95c3ccb85972
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76159916"
+---
+Bir Blazor sunucusu uygulaması prerendering olsa da, tarayıcıyla bir bağlantı kurulmadığından, JavaScript 'e çağırma gibi bazı eylemler mümkün değildir. Bileşenler, ön işlenmiş olduğunda farklı şekilde işlenmesi gerekebilir.
 
 Tarayıcı bağlantısı kurulana kadar JavaScript birlikte çalışma çağrılarını geciktirmek için [Onafterrenderasync bileşen yaşam döngüsü olayını](xref:blazor/lifecycle#after-component-render)kullanabilirsiniz. Bu olay yalnızca uygulama tam olarak işlendikten ve istemci bağlantısı kurulduktan sonra çağırılır.
 
@@ -31,7 +42,7 @@ Yukarıdaki örnek kod için, *Wwwroot/index.html* (Blazor WebAssembly) veya *Pa
 ```
 
 > [!WARNING]
-> Yukarıdaki örnek yalnızca tanıtım amacıyla Belge Nesne Modeli (DOM) değiştirir. JavaScript, Blazor 'in değişiklik izlemesini kesintiye uğradığı için çoğu senaryoda, JavaScript ile DOM 'ı doğrudan değiştirme önerilmez.
+> Yukarıdaki örnek yalnızca tanıtım amacıyla Belge Nesne Modeli (DOM) değiştirir. JavaScript 'in Blazordeğişiklik izlemesini kesintiye uğratacağından, Çoğu senaryoda DOM 'ın JavaScript ile doğrudan değiştirilmesi önerilmez.
 
 Aşağıdaki bileşen, prerendering ile uyumlu bir şekilde bileşenin başlatma mantığının bir parçası olarak JavaScript birlikte çalışabilirinin nasıl kullanılacağını göstermektedir. Bileşeni, `OnAfterRenderAsync`içinden bir işleme güncelleştirmesi tetiklemenin mümkün olduğunu gösterir. Geliştirici Bu senaryoda sonsuz bir döngü oluşturmaktan kaçınmalıdır.
 
@@ -82,4 +93,4 @@ Yukarıdaki örnek kod için, *Wwwroot/index.html* (Blazor WebAssembly) veya *Pa
 ```
 
 > [!WARNING]
-> Yukarıdaki örnek yalnızca tanıtım amacıyla Belge Nesne Modeli (DOM) değiştirir. JavaScript, Blazor 'in değişiklik izlemesini kesintiye uğradığı için çoğu senaryoda, JavaScript ile DOM 'ı doğrudan değiştirme önerilmez.
+> Yukarıdaki örnek yalnızca tanıtım amacıyla Belge Nesne Modeli (DOM) değiştirir. JavaScript 'in Blazordeğişiklik izlemesini kesintiye uğratacağından, Çoğu senaryoda DOM 'ın JavaScript ile doğrudan değiştirilmesi önerilmez.

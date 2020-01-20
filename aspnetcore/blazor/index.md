@@ -2,20 +2,20 @@
 title: ASP.NET Core Blazor giriş
 author: guardrex
 description: ASP.NET Core uygulamasında .NET ile etkileşimli istemci tarafı Web Kullanıcı arabirimi oluşturmak için bir yol olan ASP.NET Core Blazorgezin.
-monikerRange: '>= aspnetcore-3.0'
+monikerRange: '>= aspnetcore-3.1'
 ms.author: riande
 ms.custom: mvc, seoapril2019
-ms.date: 12/05/2019
+ms.date: 12/18/2019
 no-loc:
 - Blazor
 - SignalR
 uid: blazor/index
-ms.openlocfilehash: 4ab6af649afe66d92fb2ea07d3abed057f321bce
-ms.sourcegitcommit: 851b921080fe8d719f54871770ccf6f78052584e
+ms.openlocfilehash: 9f43735fc02ba9f8da4ba27c8b5763d587b5429a
+ms.sourcegitcommit: 9ee99300a48c810ca6fd4f7700cd95c3ccb85972
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74943725"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76159930"
 ---
 # <a name="introduction-to-aspnet-core-opno-locblazor"></a>ASP.NET Core Blazor giriş
 
@@ -128,7 +128,7 @@ Yayınlanan uygulamanın boyutu, *Yük boyutu*, uygulamanın useyeteneğinin ön
 * HTTP yanıtları sıkıştırılır.
 * .NET çalışma zamanı ve derlemeler tarayıcıda önbelleğe alınır.
 
-## <a name="opno-locblazor-server"></a>Blazor Sunucusu
+## <a name="opno-locblazor-server"></a>Blazor sunucusu
 
 Blazor, Kullanıcı arabirimi güncelleştirmelerinin uygulanma, bileşen işleme mantığını ayırır. Blazor Server, bir ASP.NET Core uygulamasındaki sunucuda Razor bileşenlerini barındırmak için destek sağlar. Kullanıcı Arabirimi güncelleştirmeleri [SignalR](xref:signalr/introduction) bir bağlantı üzerinden işlenir.
 

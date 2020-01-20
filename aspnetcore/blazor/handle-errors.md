@@ -2,28 +2,26 @@
 title: ASP.NET Core Blazor uygulamalarda hataları işleme
 author: guardrex
 description: Blazor işlenmemiş özel durumları nasıl yönettiğini ve hataları algılayan ve işleyen uygulamalar geliştirme Blazor nasıl ASP.NET Core olduğunu öğrenin.
-monikerRange: '>= aspnetcore-3.0'
+monikerRange: '>= aspnetcore-3.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/05/2019
+ms.date: 12/18/2019
 no-loc:
 - Blazor
 - SignalR
 uid: blazor/handle-errors
-ms.openlocfilehash: d73eb9a0dd0ec7a4bec4b7b9aeaaa4a9ee888bce
-ms.sourcegitcommit: 851b921080fe8d719f54871770ccf6f78052584e
+ms.openlocfilehash: fe4cc13b1efb8c70c9632f032626aa938fb65ea3
+ms.sourcegitcommit: 9ee99300a48c810ca6fd4f7700cd95c3ccb85972
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74943712"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76159956"
 ---
 # <a name="handle-errors-in-aspnet-core-opno-locblazor-apps"></a>ASP.NET Core Blazor uygulamalarda hataları işleme
 
 [Steve Sanderson](https://github.com/SteveSandersonMS) tarafından
 
 Bu makalede, işlenmemiş özel durumları Blazor nasıl yönettiği ve hataları algılayan ve işleyen uygulamalar geliştirileceği açıklanır.
-
-::: moniker range=">= aspnetcore-3.1"
 
 ## <a name="detailed-errors-during-development"></a>Geliştirme sırasında ayrıntılı hatalar
 
@@ -58,8 +56,6 @@ Blazor sunucu uygulamasında, *Pages/_Host. cshtml* dosyasındaki deneyimi özel
 ```
 
 `blazor-error-ui` öğesi Blazor şablonlarına eklenen stillerle gizlenir ve bir hata oluştuğunda gösterilir.
-
-::: moniker-end
 
 ## <a name="how-the-opno-locblazor-framework-reacts-to-unhandled-exceptions"></a>Blazor Framework işlenmemiş özel durumlara nasıl yeniden davranır
 
@@ -213,8 +209,6 @@ Bir kullanıcının bağlantısı kesilmediği ve Framework devre durumunu temiz
 
 ### <a name="prerendering"></a>Prerendering
 
-::: moniker range=">= aspnetcore-3.1"
-
 Blazor bileşenleri, `Component` etiketi Yardımcısı kullanılarak, işlenmiş HTML biçimlendirmesinin kullanıcının ilk HTTP isteğinin bir parçası olarak döndürülmesi için önceden kullanılabilir. Bu şu şekilde geçerlidir:
 
 * Aynı sayfanın parçası olan tüm ön işlenmiş bileşenler için yeni bir devre oluşturma.
@@ -229,27 +223,6 @@ Herhangi bir bileşen prerendering sırasında, örneğin bir yaşam döngüsü 
 Normal koşullarda, prerendering başarısız olduğunda bileşeni oluşturma ve işleme devam etmek, çalışan bir bileşen işlenemediği için mantıklı değildir.
 
 Prerendering sırasında oluşabilecek hatalara tolerans sağlamak için hata işleme mantığı özel durum oluşturabilecek bir bileşenin içine yerleştirilmelidir. [Try-catch](/dotnet/csharp/language-reference/keywords/try-catch) deyimlerini hata işleme ve günlüğe kaydetme ile kullanın. Bir `try-catch` bildiriminde `Component` etiketi yardımcısını sarmalama yerine, `Component` etiketi Yardımcısı tarafından işlenen bileşene hata işleme mantığını koyun.
-
-::: moniker-end
-
-::: moniker range="< aspnetcore-3.1"
-
-Blazor bileşenleri, işlenmiş HTML işaretlemesi kullanıcının ilk HTTP isteğinin bir parçası olarak döndürüldüğünden `Html.RenderComponentAsync` kullanılarak önceden uygulanabilir. Bu şu şekilde geçerlidir:
-
-* Aynı sayfanın parçası olan tüm ön işlenmiş bileşenler için yeni bir devre oluşturma.
-* İlk HTML oluşturuluyor.
-* Kullanıcı tarayıcısının aynı sunucuya geri SignalR bir bağlantı kuruncaya kadar devreyi `disconnected` olarak kabul edin. Bağlantı oluşturulduğunda, devre üzerindeki etkileşim sürdürülür ve bileşenlerin HTML işaretlemesi güncelleştirilir.
-
-Herhangi bir bileşen prerendering sırasında, örneğin bir yaşam döngüsü yöntemi veya işleme mantığı sırasında işlenmeyen bir özel durum oluşturursa:
-
-* Bu, devre için önemli bir durumdur.
-* Özel durum, `Html.RenderComponentAsync` çağrısından çağrı yığınını ortaya atılır. Bu nedenle, özel durum geliştirici kodu tarafından açıkça yakalanmadığı takdirde tüm HTTP isteği başarısız olur.
-
-Normal koşullarda, prerendering başarısız olduğunda bileşeni oluşturma ve işleme devam etmek, çalışan bir bileşen işlenemediği için mantıklı değildir.
-
-Prerendering sırasında oluşabilecek hatalara tolerans sağlamak için hata işleme mantığı özel durum oluşturabilecek bir bileşenin içine yerleştirilmelidir. [Try-catch](/dotnet/csharp/language-reference/keywords/try-catch) deyimlerini hata işleme ve günlüğe kaydetme ile kullanın. `try-catch` bildiriminde `RenderComponentAsync` çağrısını sarmalama yerine, `RenderComponentAsync`tarafından işlenen bileşene hata işleme mantığını koyun.
-
-::: moniker-end
 
 ## <a name="advanced-scenarios"></a>Gelişmiş senaryolar
 

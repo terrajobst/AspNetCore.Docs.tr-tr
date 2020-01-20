@@ -2,23 +2,24 @@
 title: Desteklenen Blazor platformları ASP.NET Core
 author: guardrex
 description: ASP.NET Core Blazoriçin desteklenen platformlar hakkında bilgi edinin.
-monikerRange: '>= aspnetcore-3.0'
+monikerRange: '>= aspnetcore-3.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/15/2019
+ms.date: 12/18/2019
 no-loc:
 - Blazor
+- SignalR
 uid: blazor/supported-platforms
-ms.openlocfilehash: de51296cc8785474e1c1406cfd5d4e5bd4050172
-ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
+ms.openlocfilehash: 505974280b5c96ec2bcae42c6e076ab67a15bb07
+ms.sourcegitcommit: 9ee99300a48c810ca6fd4f7700cd95c3ccb85972
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73962739"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76160138"
 ---
 # <a name="aspnet-core-opno-locblazor-supported-platforms"></a>Desteklenen Blazor platformları ASP.NET Core
 
-[Luke Latham](https://github.com/guardrex) tarafından
+Tarafından [Luke Latham](https://github.com/guardrex)
 
 [!INCLUDE[](~/includes/blazorwasm-preview-notice.md)]
 
@@ -26,7 +27,7 @@ ms.locfileid: "73962739"
 
 ### <a name="opno-locblazor-webassembly"></a>Blazor WebAssembly
 
-| Tarayıcı                          | Version               |
+| Tarayıcı                          | Sürüm               |
 | -------------------------------- | :-------------------: |
 | Microsoft Edge                   | Geçerli               |
 | Mozilla Firefox                  | Geçerli               |
@@ -34,11 +35,11 @@ ms.locfileid: "73962739"
 | İOS dahil Safari            | Geçerli               |
 | Microsoft Internet Explorer      | Desteklenmez&dagger; |
 
-&dagger;Microsoft Internet Explorer [Webassembly](https://webassembly.org)'yi desteklemez.
+&dagger;Microsoft Internet Explorer, [Webassembly](https://webassembly.org)'yi desteklemez.
 
 ### <a name="opno-locblazor-server"></a>Blazor sunucusu
 
-| Tarayıcı                          | Version    |
+| Tarayıcı                          | Sürüm    |
 | -------------------------------- | :--------: |
 | Microsoft Edge                   | Geçerli    |
 | Mozilla Firefox                  | Geçerli    |
@@ -46,7 +47,7 @@ ms.locfileid: "73962739"
 | İOS dahil Safari            | Geçerli    |
 | Microsoft Internet Explorer      | 11&dagger; |
 
-&dagger;Ek polydolgular gereklidir (örneğin, [Polyfill.io](https://polyfill.io/v3/) bir paket aracılığıyla taahhüt eklenebilir).
+&dagger;ek polydolgular gereklidir (örneğin, [Polyfill.io](https://polyfill.io/v3/) bir paket aracılığıyla taahhüt eklenebilir).
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 

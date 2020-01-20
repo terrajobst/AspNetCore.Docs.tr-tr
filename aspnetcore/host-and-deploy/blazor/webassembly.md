@@ -2,19 +2,20 @@
 title: ASP.NET Core Blazor WebAssembly 'ı barındırma ve dağıtma
 author: guardrex
 description: ASP.NET Core, Içerik teslim ağları (CDN), dosya sunucuları ve GitHub sayfalarını kullanarak bir Blazor uygulamasını nasıl barındırılacağını ve dağıtacağınızı öğrenin.
-monikerRange: '>= aspnetcore-3.0'
+monikerRange: '>= aspnetcore-3.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/15/2019
+ms.date: 12/18/2019
 no-loc:
 - Blazor
+- SignalR
 uid: host-and-deploy/blazor/webassembly
-ms.openlocfilehash: 0fcefc3f1e51beb7cc29aef6dd4f4b8557e61965
-ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
+ms.openlocfilehash: 8ed95cdb96804e08c3f1273bbea8f64a8e4f173c
+ms.sourcegitcommit: 9ee99300a48c810ca6fd4f7700cd95c3ccb85972
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73963640"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76160255"
 ---
 # <a name="host-and-deploy-aspnet-core-opno-locblazor-webassembly"></a>ASP.NET Core Blazor WebAssembly 'ı barındırma ve dağıtma
 
@@ -36,7 +37,7 @@ Aşağıdaki dağıtım stratejileri desteklenir:
 
 Blazor WebAssembly uygulamasındaki sayfa bileşenlerine yönelik yönlendirme istekleri, Blazor sunucusu, barındırılan bir uygulamada yönlendirme istekleri kadar basittir. İki bileşeni olan bir Blazor WebAssembly uygulaması düşünün:
 
-* *Main. razor* &ndash; uygulamanın köküne yüklenir ve `About` bileşenine bir bağlantı içerir (`href="About"`).
+* *Main. razor* &ndash;, uygulamanın köküne yüklenir ve `About` bileşenine (`href="About"`) bir bağlantı içerir.
 * *. Razor* &ndash; `About` bileşeni hakkında.
 
 Uygulamanın varsayılan belgesi, tarayıcının adres çubuğu kullanılarak istendiğinde (örneğin, `https://www.contoso.com/`):
@@ -83,7 +84,7 @@ Bir Blazor projesi yayımlandığında, aşağıdaki IIS yapılandırmasıyla bi
 * MIME türleri aşağıdaki dosya uzantıları için ayarlanır:
   * *. dll* &ndash; `application/octet-stream`
   * *. json* &ndash; `application/json`
-  * *.* &ndash; `application/wasm`
+  * *.* , &ndash; `application/wasm`
   * *. WOFF* &ndash; `application/font-woff`
   * *. woff2* &ndash; `application/font-woff`
 * Aşağıdaki MIME türleri için HTTP sıkıştırması etkindir:
@@ -151,12 +152,12 @@ IIS ile dağıtım sorunlarını giderme hakkında daha fazla bilgi için bkz. <
 
 Blob hizmeti bir depolama hesabında barındırılan statik Web sitesi için etkinleştirildiğinde:
 
-* **Dizin belgesi adını** `index.html` olarak ayarlayın.
-* **Hata belge yolunu** `index.html` olarak ayarlayın. Razor bileşenleri ve diğer dosya olmayan uç noktaları, blob hizmeti tarafından depolanan statik içerikte fiziksel yollarda yer vermez. Blazor yönlendiricisinin işlemesi gereken bu kaynaklardan birine yönelik bir istek alındığında, blob hizmeti tarafından oluşturulan *404-bulunamayan* hata, isteği **hata belge yoluna**yönlendirir. *İndex. html* blobu döndürülür ve Blazor yönlendirici yolu yükler ve işler.
+* **Dizin belgesi adını** `index.html`olarak ayarlayın.
+* **Hata belge yolunu** `index.html`olarak ayarlayın. Razor bileşenleri ve diğer dosya olmayan uç noktaları, blob hizmeti tarafından depolanan statik içerikte fiziksel yollarda yer vermez. Blazor yönlendiricisinin işlemesi gereken bu kaynaklardan birine yönelik bir istek alındığında, blob hizmeti tarafından oluşturulan *404-bulunamayan* hata, isteği **hata belge yoluna**yönlendirir. *İndex. html* blobu döndürülür ve Blazor yönlendirici yolu yükler ve işler.
 
 Daha fazla bilgi için bkz. [Azure Storage 'Da statik Web sitesi barındırma](/azure/storage/blobs/storage-blob-static-website).
 
-### <a name="nginx"></a>NGINX
+### <a name="nginx"></a>Nginx
 
 Aşağıdaki *NGINX. conf* dosyası, NGINX 'in, disk üzerinde karşılık gelen bir dosyayı bulamadığı her seferinde *index. html* dosyasını göndermek üzere nasıl yapılandırılacağını gösterecek şekilde basitleştirilmiştir.
 
@@ -240,7 +241,7 @@ Daha fazla bilgi için bkz. [mod_mime](https://httpd.apache.org/docs/2.4/mod/mod
 
 URL yeniden işlemesini işlemek için, isteği *index. html* sayfasına yönlendirmeyi işleyen bir betiği olan bir *404. html* dosyası ekleyin. Topluluk tarafından sunulan örnek bir uygulama için bkz. [GitHub sayfaları Için tek sayfalı uygulamalar](https://spa-github-pages.rafrex.com/) ([GitHub üzerinde rafrex/Spa-GitHub-Pages](https://github.com/rafrex/spa-github-pages#readme)). Topluluk yaklaşımını kullanan bir örnek, GitHub ([canlı site](https://blazor-demo.github.io/)) [üzerinde blazor-demo/blazor-demo. GitHub. IO](https://github.com/blazor-demo/blazor-demo.github.io) adresinde görülebilir.
 
-Bir kuruluş sitesi yerine bir proje sitesi kullanırken, *index. html*dosyasına `<base>` etiketi ekleyin veya güncelleştirin. `href` öznitelik değerini, sondaki eğik çizgiyle (örneğin, `my-repository/`) GitHub depo adına ayarlayın.
+Bir kuruluş sitesi yerine bir proje sitesi kullanırken, *index. html*' de `<base>` etiketini ekleyin veya güncelleştirin. `href` öznitelik değerini, sondaki eğik çizgiyle (örneğin, `my-repository/`) GitHub depo adına ayarlayın.
 
 ## <a name="host-configuration-values"></a>Ana bilgisayar yapılandırma değerleri
 
@@ -248,7 +249,7 @@ Bir kuruluş sitesi yerine bir proje sitesi kullanırken, *index. html*dosyasın
 
 ### <a name="content-root"></a>İçerik kökü
 
-`--contentroot` bağımsız değişkeni, uygulamanın içerik dosyalarını ([içerik kökü](xref:fundamentals/index#content-root)) içeren dizinin mutlak yolunu ayarlar. Aşağıdaki örneklerde, `/content-root-path`, uygulamanın içerik kök yoludur.
+`--contentroot` bağımsız değişkeni, uygulamanın içerik dosyalarını ([içerik kökü](xref:fundamentals/index#content-root)) içeren dizinin mutlak yolunu ayarlar. Aşağıdaki örneklerde, uygulamanın içerik kök yolu `/content-root-path`.
 
 * Uygulamayı bir komut isteminde yerel olarak çalıştırırken bağımsız değişkenini geçirin. Uygulamanın dizininden şunu yürütün:
 
@@ -256,13 +257,13 @@ Bir kuruluş sitesi yerine bir proje sitesi kullanırken, *index. html*dosyasın
   dotnet run --contentroot=/content-root-path
   ```
 
-* **IIS Express** profilindeki uygulamanın *launchsettings. JSON* dosyasına bir giriş ekleyin. Bu ayar, uygulama Visual Studio hata ayıklayıcıyla ve `dotnet run` ile bir komut isteminden çalıştırıldığında kullanılır.
+* **IIS Express** profilindeki uygulamanın *launchsettings. JSON* dosyasına bir giriş ekleyin. Bu ayar, uygulama Visual Studio hata ayıklayıcıyla ve `dotnet run`ile bir komut isteminden çalıştırıldığında kullanılır.
 
   ```json
   "commandLineArgs": "--contentroot=/content-root-path"
   ```
 
-* Visual Studio 'da  > **hata ayıklama** > **uygulama bağımsız değişkenlerinin** **Özellikler**bölümünde bağımsız değişkenini belirtin. Visual Studio özellik sayfasında bağımsız değişkeni ayarlama, bağımsız değişkenini *Launchsettings. JSON* dosyasına ekler.
+* Visual Studio 'da, **özellikler** > **hata ayıklama** > **uygulama bağımsız değişkenleri**' nde bağımsız değişkeni belirtin. Visual Studio özellik sayfasında bağımsız değişkeni ayarlama, bağımsız değişkenini *Launchsettings. JSON* dosyasına ekler.
 
   ```console
   --contentroot=/content-root-path
@@ -270,10 +271,10 @@ Bir kuruluş sitesi yerine bir proje sitesi kullanırken, *index. html*dosyasın
 
 ### <a name="path-base"></a>Yol tabanı
 
-`--pathbase` bağımsız değişkeni, kök olmayan göreli URL yoluyla yerel olarak çalıştırılan bir uygulamanın uygulama temel yolunu ayarlar (`<base>` etiketi `href`, hazırlama ve üretim için `/` dışında bir yola ayarlanır). Aşağıdaki örneklerde, `/relative-URL-path`, uygulamanın yol tabanı olur. Daha fazla bilgi için bkz. [uygulama temel yolu](xref:host-and-deploy/blazor/index#app-base-path).
+`--pathbase` bağımsız değişkeni, kök olmayan göreli URL yoluyla yerel olarak çalıştırılan bir uygulamanın uygulama temel yolunu ayarlar (`<base>` etiketi `href`, hazırlama ve üretim için `/` dışında bir yola ayarlanır). Aşağıdaki örneklerde, uygulamanın yol tabanı `/relative-URL-path`. Daha fazla bilgi için bkz. [uygulama temel yolu](xref:host-and-deploy/blazor/index#app-base-path).
 
 > [!IMPORTANT]
-> `<base>` etiketinin `href` olarak belirtilen yolun aksine, `--pathbase` bağımsız değişken değeri geçirilirken sondaki eğik çizgi (`/`) eklemeyin. Uygulama temel yolu `<base>` etiketinde `<base href="/CoolApp/">` (sondaki eğik çizgi içeriyorsa) olarak sağlanmışsa, komut satırı bağımsız değişken değerini `--pathbase=/CoolApp` (sondaki eğik çizgi olmadan) olarak geçirin.
+> `<base>` etiketinin `href` olarak belirtilen yolun aksine, `--pathbase` bağımsız değişken değeri geçirilirken sondaki eğik çizgi (`/`) eklemeyin. Uygulama temel yolu, `<base>` etiketinde `<base href="/CoolApp/">` (sondaki eğik çizgi içeriyorsa) olarak sağlanmışsa, komut satırı bağımsız değişken değerini `--pathbase=/CoolApp` (sonunda eğik çizgi yok) olarak geçirin.
 
 * Uygulamayı bir komut isteminde yerel olarak çalıştırırken bağımsız değişkenini geçirin. Uygulamanın dizininden şunu yürütün:
 
@@ -281,13 +282,13 @@ Bir kuruluş sitesi yerine bir proje sitesi kullanırken, *index. html*dosyasın
   dotnet run --pathbase=/relative-URL-path
   ```
 
-* **IIS Express** profilindeki uygulamanın *launchsettings. JSON* dosyasına bir giriş ekleyin. Bu ayar, uygulamayı Visual Studio hata ayıklayıcıyla ve `dotnet run` ile bir komut isteminden çalıştırırken kullanılır.
+* **IIS Express** profilindeki uygulamanın *launchsettings. JSON* dosyasına bir giriş ekleyin. Bu ayar, uygulamayı Visual Studio hata ayıklayıcıyla çalıştırırken ve `dotnet run`ile bir komut isteminden kullanılır.
 
   ```json
   "commandLineArgs": "--pathbase=/relative-URL-path"
   ```
 
-* Visual Studio 'da  > **hata ayıklama** > **uygulama bağımsız değişkenlerinin** **Özellikler**bölümünde bağımsız değişkenini belirtin. Visual Studio özellik sayfasında bağımsız değişkeni ayarlama, bağımsız değişkenini *Launchsettings. JSON* dosyasına ekler.
+* Visual Studio 'da, **özellikler** > **hata ayıklama** > **uygulama bağımsız değişkenleri**' nde bağımsız değişkeni belirtin. Visual Studio özellik sayfasında bağımsız değişkeni ayarlama, bağımsız değişkenini *Launchsettings. JSON* dosyasına ekler.
 
   ```console
   --pathbase=/relative-URL-path
@@ -303,13 +304,13 @@ Bir kuruluş sitesi yerine bir proje sitesi kullanırken, *index. html*dosyasın
   dotnet run --urls=http://127.0.0.1:0
   ```
 
-* **IIS Express** profilindeki uygulamanın *launchsettings. JSON* dosyasına bir giriş ekleyin. Bu ayar, uygulamayı Visual Studio hata ayıklayıcıyla ve `dotnet run` ile bir komut isteminden çalıştırırken kullanılır.
+* **IIS Express** profilindeki uygulamanın *launchsettings. JSON* dosyasına bir giriş ekleyin. Bu ayar, uygulamayı Visual Studio hata ayıklayıcıyla çalıştırırken ve `dotnet run`ile bir komut isteminden kullanılır.
 
   ```json
   "commandLineArgs": "--urls=http://127.0.0.1:0"
   ```
 
-* Visual Studio 'da  > **hata ayıklama** > **uygulama bağımsız değişkenlerinin** **Özellikler**bölümünde bağımsız değişkenini belirtin. Visual Studio özellik sayfasında bağımsız değişkeni ayarlama, bağımsız değişkenini *Launchsettings. JSON* dosyasına ekler.
+* Visual Studio 'da, **özellikler** > **hata ayıklama** > **uygulama bağımsız değişkenleri**' nde bağımsız değişkeni belirtin. Visual Studio özellik sayfasında bağımsız değişkeni ayarlama, bağımsız değişkenini *Launchsettings. JSON* dosyasına ekler.
 
   ```console
   --urls=http://127.0.0.1:0

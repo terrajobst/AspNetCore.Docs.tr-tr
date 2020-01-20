@@ -2,20 +2,21 @@
 title: Blazor barındırma modellerini ASP.NET Core
 author: guardrex
 description: Blazor WebAssembly ve Blazor sunucusu barındırma modellerini anlayın.
-monikerRange: '>= aspnetcore-3.0'
+monikerRange: '>= aspnetcore-3.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/05/2019
+ms.date: 12/18/2019
 no-loc:
 - Blazor
 - SignalR
+- blazor.webassembly.js
 uid: blazor/hosting-models
-ms.openlocfilehash: 7676d16bddf146ea38619ed35c5e32c5bce731de
-ms.sourcegitcommit: 851b921080fe8d719f54871770ccf6f78052584e
+ms.openlocfilehash: c9521acf40317c90d1197660bfa516710263cfc9
+ms.sourcegitcommit: 9ee99300a48c810ca6fd4f7700cd95c3ccb85972
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74943777"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76160047"
 ---
 # <a name="aspnet-core-opno-locblazor-hosting-models"></a>Blazor barındırma modellerini ASP.NET Core
 
@@ -37,7 +38,7 @@ Blazor için sorumlu barındırma modeli, WebAssembly üzerinde tarayıcıda ist
 
 **Blazor WebAssembly uygulama** şablonunu seçtikten sonra, **ASP.NET Core barındırılan** onay kutusunu ([DotNet New blazorwasm--hosted](/dotnet/core/tools/dotnet-new)) seçerek uygulamayı ASP.NET Core arka ucunu kullanacak şekilde yapılandırma seçeneğiniz vardır. ASP.NET Core uygulaması, Blazor uygulamasına istemcilere hizmet verir. Blazor WebAssembly uygulaması, Web API çağrılarını veya [SignalR](xref:signalr/introduction)kullanarak ağ üzerinden sunucu ile etkileşime geçebilir.
 
-Şablonlar şunları ele alan *blazor. webassembly. js* betiğini içerir:
+Şablonlar aşağıdakileri işleyecek `blazor.webassembly.js` betiği içerir:
 
 * .NET çalışma zamanını, uygulamayı ve uygulamanın bağımlılıklarını indirme.
 * Uygulamayı çalıştırmak için çalışma zamanının başlatılması.
@@ -56,7 +57,7 @@ WebAssembly barındırma Blazor için aşağı yanlar vardır:
 * İndirme boyutu daha büyüktür ve uygulamaların yüklenmesi daha uzun sürer.
 * .NET çalışma zamanı ve araç desteği daha az olgun. Örneğin, [.NET Standard](/dotnet/standard/net-standard) desteğinin ve hata ayıklamada sınırlamalar mevcuttur.
 
-## <a name="opno-locblazor-server"></a>Blazor Sunucusu
+## <a name="opno-locblazor-server"></a>Blazor sunucusu
 
 Blazor sunucusu barındırma modeliyle uygulama, sunucuda bir ASP.NET Core uygulamasının içinden yürütülür. Kullanıcı Arabirimi güncelleştirmeleri, olay işleme ve JavaScript çağrıları [SignalR](xref:signalr/introduction) bir bağlantı üzerinden işlenir.
 
@@ -69,7 +70,7 @@ ASP.NET Core uygulama, şu ekleme için uygulamanın `Startup` sınıfına başv
 * Sunucu tarafı hizmetler.
 * İstek işleme işlem hattının uygulaması.
 
-*Blazor. Server. js* komut dosyası&dagger; istemci bağlantısını kurar. Uygulamanın, uygulama durumunu (örneğin, kayıp ağ bağlantısı durumunda) kalıcı hale getirmek ve geri yüklemek, uygulamanın sorumluluğundadır.
+`blazor.server.js` betiği&dagger; istemci bağlantısını kurar. Uygulamanın, uygulama durumunu (örneğin, kayıp ağ bağlantısı durumunda) kalıcı hale getirmek ve geri yüklemek, uygulamanın sorumluluğundadır.
 
 Blazor sunucusu barındırma modeli çeşitli avantajlar sunar:
 
@@ -86,7 +87,7 @@ Sunucu barındırma Blazor için aşağı yanlar vardır:
 * Ölçeklenebilirlik, çok sayıda kullanıcısı olan uygulamalar için zorlayıcı bir uygulamalardır. Sunucunun birden çok istemci bağlantısını yönetmesi ve istemci durumunu işlemesi gerekir.
 * Uygulamayı çalıştırmak için bir ASP.NET Core sunucusu gerekir. Sunucusuz dağıtım senaryoları mümkün değildir (örneğin, bir CDN 'den uygulama sunma).
 
-&dagger;*blazor. Server. js* komut dosyası, ASP.NET Core paylaşılan çerçevesindeki gömülü bir kaynaktan sunulur.
+&dagger;`blazor.server.js` betiği ASP.NET Core paylaşılan çerçevede eklenmiş bir kaynaktan sunulur.
 
 ### <a name="comparison-to-server-rendered-ui"></a>Sunucu tarafından işlenmiş Kullanıcı arabirimine karşılaştırma
 
@@ -110,6 +111,187 @@ Blazor bir kullanıcı arabirimi güncelleştirmesi tarafından tetiklenir:
 Grafik yeniden tanımlanır ve bir UI *farkı* (fark) hesaplanır. Bu fark, istemcideki Kullanıcı arabirimini güncelleştirmek için gereken en küçük DOM düzenlemelerinin kümesidir. Fark istemciye bir ikili biçimde gönderilir ve tarayıcı tarafından uygulanır.
 
 Kullanıcı, istemci üzerinde bundan uzaklaştığında bir bileşen atılmış olur. Bir Kullanıcı bir bileşenle etkileşim kurarken, bileşenin durumu (hizmetler, kaynaklar) sunucunun belleğinde tutulmalıdır. Birçok bileşenin durumu sunucu tarafından eşzamanlı olarak Korunabileceğinden, bellek tükenmesi sorunu ele alınmalıdır. Sunucu belleğinin en iyi şekilde kullanılmasını sağlamak üzere Blazor sunucu uygulamasının nasıl yazılacağı hakkında yönergeler için bkz. <xref:security/blazor/server>.
+
+### <a name="integrate-razor-components-into-razor-pages-and-mvc-apps"></a>Razor bileşenlerini Razor Pages ve MVC uygulamalarıyla tümleştirin
+
+#### <a name="use-components-in-pages-and-views"></a>Sayfalar ve görünümlerde bileşenleri kullanma
+
+Mevcut bir Razor Pages veya MVC uygulaması, Razor bileşenlerini sayfalarla ve görünümleriyle tümleştirebilir:
+
+1. Uygulamanın düzen dosyasında ( *_Layout. cshtml*):
+
+   * Aşağıdaki `<base>` etiketini `<head>` öğesine ekleyin:
+
+     ```html
+     <base href="~/" />
+     ```
+
+     Yukarıdaki örnekteki `href` değeri ( *uygulama temel yolu*), UYGULAMANıN kök URL yolunda (`/`) bulunduğunu varsayar. Uygulama bir alt uygulama ise, <xref:host-and-deploy/blazor/index#app-base-path> makalesinin *uygulama temel yolu* bölümündeki yönergeleri izleyin.
+
+     *_Layout. cshtml* dosyası, bir MVC uygulamasında bir Razor Pages uygulamasının veya *görünümlerinin/paylaşılan* klasörünün *Sayfalar/paylaşılan* klasöründe bulunur.
+
+   * Kapanış `</body>` etiketinin içindeki *blazor. Server. js* betiği için bir `<script>` etiketi ekleyin:
+
+     ```html
+     <script src="_framework/blazor.server.js"></script>
+     ```
+
+     Framework, *blazor. Server. js* betiğini uygulamaya ekler. Betiği uygulamaya el ile eklemeniz gerekmez.
+
+1. Aşağıdaki içerikle projenin kök klasörüne bir *_Imports. Razor* dosyası ekleyin (son ad alanını, `MyAppNamespace`, uygulamanın ad alanına değiştirin):
+
+   ```csharp
+   @using System.Net.Http
+   @using Microsoft.AspNetCore.Authorization
+   @using Microsoft.AspNetCore.Components.Authorization
+   @using Microsoft.AspNetCore.Components.Forms
+   @using Microsoft.AspNetCore.Components.Routing
+   @using Microsoft.AspNetCore.Components.Web
+   @using Microsoft.JSInterop
+   @using MyAppNamespace
+   ```
+
+1. `Startup.ConfigureServices`, Blazor sunucusu hizmetini ekleyin:
+
+   ```csharp
+   services.AddServerSideBlazor();
+   ```
+
+1. `Startup.Configure`, Blazor hub uç noktasını `app.UseEndpoints`öğesine ekleyin:
+
+   ```csharp
+   endpoints.MapBlazorHub();
+   ```
+
+1. Bileşenleri herhangi bir sayfa veya görünümle tümleştirin. Daha fazla bilgi için, <xref:blazor/components#integrate-components-into-razor-pages-and-mvc-apps> makalesinin *bileşenleri Razor Pages ve MVC uygulamalarına tümleştirme* bölümüne bakın.
+
+#### <a name="use-routable-components-in-a-razor-pages-app"></a>Razor Pages uygulamasında yönlendirilebilir bileşenleri kullanma
+
+Razor Pages uygulamalarda yönlendirilebilir Razor bileşenlerini desteklemek için:
+
+1. [Sayfalar ve görünümlerde bileşenleri kullanma](#use-components-in-pages-and-views) bölümündeki yönergeleri izleyin.
+
+1. Aşağıdaki içeriğe sahip projenin köküne bir *app. Razor* dosyası ekleyin:
+
+   ```razor
+   @using Microsoft.AspNetCore.Components.Routing
+
+   <Router AppAssembly="typeof(Program).Assembly">
+       <Found Context="routeData">
+           <RouteView RouteData="routeData" />
+       </Found>
+       <NotFound>
+           <h1>Page not found</h1>
+           <p>Sorry, but there's nothing here!</p>
+       </NotFound>
+   </Router>
+   ```
+
+1. *Sayfalar* klasörüne aşağıdaki içeriğe sahip bir *_Host. cshtml* dosyası ekleyin:
+
+   ```cshtml
+   @page "/blazor"
+   @{
+       Layout = "_Layout";
+   }
+
+   <app>
+       <component type="typeof(App)" render-mode="ServerPrerendered" />
+   </app>
+   ```
+
+   Bileşenler, düzeni için paylaşılan *_Layout. cshtml* dosyasını kullanır.
+
+1. `Startup.Configure`' de uç nokta yapılandırmasına *_Host. cshtml* sayfası için düşük öncelikli bir yol ekleyin:
+
+   ```csharp
+   app.UseEndpoints(endpoints =>
+   {
+       ...
+
+       endpoints.MapFallbackToPage("/_Host");
+   });
+   ```
+
+1. Uygulamaya yönlendirilebilir bileşenler ekleyin. Örneğin:
+
+   ```razor
+   @page "/counter"
+
+   <h1>Counter</h1>
+
+   ...
+   ```
+
+   Uygulamanın bileşenlerini tutmak için özel bir klasör kullanırken, klasörü *sayfaları/_ViewImports. cshtml* dosyasına temsil eden ad alanını ekleyin. Daha fazla bilgi için bkz. <xref:blazor/components#integrate-components-into-razor-pages-and-mvc-apps>.
+
+#### <a name="use-routable-components-in-an-mvc-app"></a>MVC uygulamasında yönlendirilebilir bileşenleri kullanma
+
+MVC uygulamalarında yönlendirilebilir Razor bileşenlerini desteklemek için:
+
+1. [Sayfalar ve görünümlerde bileşenleri kullanma](#use-components-in-pages-and-views) bölümündeki yönergeleri izleyin.
+
+1. Aşağıdaki içeriğe sahip projenin köküne bir *app. Razor* dosyası ekleyin:
+
+   ```razor
+   @using Microsoft.AspNetCore.Components.Routing
+
+   <Router AppAssembly="typeof(Program).Assembly">
+       <Found Context="routeData">
+           <RouteView RouteData="routeData" />
+       </Found>
+       <NotFound>
+           <h1>Page not found</h1>
+           <p>Sorry, but there's nothing here!</p>
+       </NotFound>
+   </Router>
+   ```
+
+1. Aşağıdaki içeriğe sahip *Görünümler/giriş* klasörüne bir *_Host. cshtml* dosyası ekleyin:
+
+   ```cshtml
+   @{
+       Layout = "_Layout";
+   }
+
+   <app>
+       <component type="typeof(App)" render-mode="ServerPrerendered" />
+   </app>
+   ```
+
+   Bileşenler, düzeni için paylaşılan *_Layout. cshtml* dosyasını kullanır.
+
+1. Ana denetleyiciye bir eylem ekleyin:
+
+   ```csharp
+   public IActionResult Blazor()
+   {
+      return View("_Host");
+   }
+   ```
+
+1. `Startup.Configure`' deki uç nokta yapılandırmasına *_Host. cshtml* görünümünü döndüren denetleyici eylemi için düşük öncelikli bir yol ekleyin:
+
+   ```csharp
+   app.UseEndpoints(endpoints =>
+   {
+       ...
+
+       endpoints.MapFallbackToController("Blazor", "Home");
+   });
+   ```
+
+1. Bir *Sayfalar* klasörü oluşturun ve uygulamaya yönlendirilebilir bileşenler ekleyin. Örneğin:
+
+   ```razor
+   @page "/counter"
+
+   <h1>Counter</h1>
+
+   ...
+   ```
+
+   Uygulamanın bileşenlerini tutmak için özel bir klasör kullanırken, klasörü *görüntüleme/_ViewImports. cshtml* dosyasına temsil eden ad alanını ekleyin. Daha fazla bilgi için bkz. <xref:blazor/components#integrate-components-into-razor-pages-and-mvc-apps>.
 
 ### <a name="circuits"></a>Uygulanıp
 
@@ -169,8 +351,6 @@ Aşağıdaki tabloda `components-reconnect-modal` öğesine uygulanan CSS sını
 
 sunucu bağlantısı kurumadan önce sunucu üzerindeki kullanıcı arabirimine varsayılan olarak, Blazor Server uygulamaları varsayılan olarak ayarlanır. Bu, *_Host. cshtml* Razor sayfasında ayarlanır:
 
-::: moniker range=">= aspnetcore-3.1"
-
 ```cshtml
 <body>
     <app>
@@ -181,44 +361,16 @@ sunucu bağlantısı kurumadan önce sunucu üzerindeki kullanıcı arabirimine 
 </body>
 ```
 
-::: moniker-end
-
-::: moniker range="< aspnetcore-3.1"
-
-```cshtml
-<body>
-    <app>@(await Html.RenderComponentAsync<App>(RenderMode.ServerPrerendered))</app>
-
-    <script src="_framework/blazor.server.js"></script>
-</body>
-```
-
-::: moniker-end
-
 `RenderMode`, bileşenin şunları yapıp kullanmadığını yapılandırır:
 
 * , Sayfaya ön gönderilir.
 * , Sayfada statik HTML olarak veya Kullanıcı aracısından bir Blazor uygulamasını önyüklemek için gerekli bilgileri içeriyorsa.
-
-::: moniker range=">= aspnetcore-3.1"
 
 | `RenderMode`        | Açıklama |
 | ------------------- | ----------- |
 | `ServerPrerendered` | Bileşeni statik HTML olarak işler ve Blazor sunucusu uygulaması için bir işaret içerir. Kullanıcı Aracısı başladığında, bu işaretleyici bir Blazor uygulamasının önyüklemesi için kullanılır. |
 | `Server`            | Blazor sunucusu uygulaması için bir işaret oluşturur. Bileşen çıkışı dahil değildir. Kullanıcı Aracısı başladığında, bu işaretleyici bir Blazor uygulamasının önyüklemesi için kullanılır. |
 | `Static`            | Bileşeni statik HTML olarak işler. |
-
-::: moniker-end
-
-::: moniker range="< aspnetcore-3.1"
-
-| `RenderMode`        | Açıklama |
-| ------------------- | ----------- |
-| `ServerPrerendered` | Bileşeni statik HTML olarak işler ve Blazor sunucusu uygulaması için bir işaret içerir. Kullanıcı Aracısı başladığında, bu işaretleyici bir Blazor uygulamasının önyüklemesi için kullanılır. Parametreler desteklenmiyor. |
-| `Server`            | Blazor sunucusu uygulaması için bir işaret oluşturur. Bileşen çıkışı dahil değildir. Kullanıcı Aracısı başladığında, bu işaretleyici bir Blazor uygulamasının önyüklemesi için kullanılır. Parametreler desteklenmiyor. |
-| `Static`            | Bileşeni statik HTML olarak işler. Parametreler destekleniyor. |
-
-::: moniker-end
 
 Statik HTML sayfasından sunucu bileşenleri işleme desteklenmiyor.
 
@@ -290,8 +442,6 @@ Sayfa veya görünüm şunları işler:
 
 Aşağıdaki Razor sayfası bir `Counter` bileşeni işler:
 
-::: moniker range=">= aspnetcore-3.1"
-
 ```cshtml
 <h1>My Razor Page</h1>
 
@@ -304,28 +454,9 @@ Aşağıdaki Razor sayfası bir `Counter` bileşeni işler:
 }
 ```
 
-::: moniker-end
-
-::: moniker range="< aspnetcore-3.1"
-
-```cshtml
-<h1>My Razor Page</h1>
-
-@(await Html.RenderComponentAsync<Counter>(RenderMode.ServerPrerendered))
-
-@code {
-    [BindProperty(SupportsGet=true)]
-    public int InitialValue { get; set; }
-}
-```
-
-::: moniker-end
-
 ### <a name="render-noninteractive-components-from-razor-pages-and-views"></a>Razor sayfaları ve görünümlerinden etkileşimsiz bileşenleri işleme
 
 Aşağıdaki Razor sayfasında, `Counter` bileşen bir form kullanılarak belirtilen bir başlangıç değeri ile statik olarak işlenir:
-
-::: moniker range=">= aspnetcore-3.1"
 
 ```cshtml
 <h1>My Razor Page</h1>
@@ -344,29 +475,6 @@ Aşağıdaki Razor sayfasında, `Counter` bileşen bir form kullanılarak belirt
 }
 ```
 
-::: moniker-end
-
-::: moniker range="< aspnetcore-3.1"
-
-```cshtml
-<h1>My Razor Page</h1>
-
-<form>
-    <input type="number" asp-for="InitialValue" />
-    <button type="submit">Set initial value</button>
-</form>
-
-@(await Html.RenderComponentAsync<Counter>(RenderMode.Static, 
-    new { InitialValue = InitialValue }))
-
-@code {
-    [BindProperty(SupportsGet=true)]
-    public int InitialValue { get; set; }
-}
-```
-
-::: moniker-end
-
 `MyComponent` statik olarak işlendiğinde, bileşen etkileşimli olamaz.
 
 ### <a name="detect-when-the-app-is-prerendering"></a>Uygulamanın ne zaman prerendering olduğunu Algıla
@@ -379,7 +487,7 @@ Bazen Blazor Server uygulamaları tarafından kullanılan SignalR istemcisini ya
 
 *Pages/_Host. cshtml* dosyasında SignalR istemcisini yapılandırmak için:
 
-* *Blazor. Server. js* betiği için `<script>` etiketine bir `autostart="false"` özniteliği ekleyin.
+* `blazor.server.js` betiği için `<script>` etiketine bir `autostart="false"` özniteliği ekleyin.
 * `Blazor.start` çağırın ve SignalR oluşturucuyu belirten bir yapılandırma nesnesini geçirin.
 
 ```html
