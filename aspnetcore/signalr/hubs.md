@@ -5,16 +5,16 @@ description: ASP.NET Core SignalRhub 'larını nasıl kullanacağınızı öğre
 monikerRange: '>= aspnetcore-2.1'
 ms.author: bradyg
 ms.custom: mvc
-ms.date: 11/12/2019
+ms.date: 01/16/2020
 no-loc:
 - SignalR
 uid: signalr/hubs
-ms.openlocfilehash: f95766cab84bddff2c7c62f30bce1e6d1e43deab
-ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
+ms.openlocfilehash: e5bc12c5ccafe2b5273d72e6bde0f631ca043428
+ms.sourcegitcommit: f259889044d1fc0f0c7e3882df0008157ced4915
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73963796"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76294634"
 ---
 # <a name="use-hubs-in-opno-locsignalr-for-aspnet-core"></a>ASP.NET Core için SignalR hub 'ları kullanma
 
@@ -94,7 +94,7 @@ Herhangi C# bir yöntemde yaptığınız gibi, karmaşık türler ve diziler dah
 | Yöntem | Açıklama |
 | ------ | ----------- |
 | `GetHttpContext` | Bağlantı için `HttpContext` döndürür veya bağlantı bir HTTP isteğiyle ilişkilendirilmediği durumlarda `null`. HTTP bağlantılarında, HTTP üstbilgileri ve sorgu dizeleri gibi bilgileri almak için bu yöntemi kullanabilirsiniz. |
-| `Abort` | Bağlantıyı iptal eder. |
+| `Abort` | Bağlantıyı durdurur. |
 
 ## <a name="the-clients-object"></a>Istemciler nesnesi
 
@@ -173,6 +173,8 @@ SignalR hub 'Ları API 'SI, bağlantıları yönetmek ve izlemek için `OnConnec
 Bir istemcinin bağlantısı kesildiğinde eylemler gerçekleştirmek için `OnDisconnectedAsync` sanal yöntemini geçersiz kılın. İstemci kasıtlı olarak bağlantı kesildiğinde (örneğin `connection.stop()`çağırarak), `exception` parametresi `null`olur. Ancak, istemcinin bağlantısı bir hata nedeniyle kesildiyse (örneğin, bir ağ hatası), `exception` parametresi hatayı açıklayan bir özel durum içerir.
 
 [!code-csharp[Handle disconnection](hubs/sample/hubs/chathub.cs?name=OnDisconnectedAsync)]
+
+[!INCLUDE[](~/includes/connectionid-signalr.md)]
 
 ## <a name="handle-errors"></a>Hataları işleme
 
