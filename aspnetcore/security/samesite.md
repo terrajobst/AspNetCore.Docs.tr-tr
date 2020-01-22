@@ -154,7 +154,7 @@ Yeni standart için Firefox desteği, `about:config` sayfasında özellik `netwo
 
 ### <a name="test-with-edge-browser"></a>Edge tarayıcısı ile test
 
-Edge, eski SameSite standardını destekler. Edge sürüm 44, yeni standart ile bilinen uyumluluk sorunlarına sahip değildir.
+Microsoft Edge, eski SameSite standardını destekler. Microsoft Edge sürüm 44, yeni standart ile bilinen uyumluluk sorunlarına sahip değildir.
 
 ### <a name="test-with-edge-chromium"></a>Edge ile test (Kmıum)
 
