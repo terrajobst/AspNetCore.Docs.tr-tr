@@ -1,0 +1,61 @@
+### YamlMime:Landing
+title: ASP.NET Core belgeleri-yenilikler nelerdir?
+summary: ASP.NET Core docs 'taki yenilikler 'e hoş geldiniz. En son değişiklikleri hızlı bir şekilde bulmak için bu sayfayı kullanın.
+metadata:
+  title: ASP.NET Core belgeleri-yenilikler nelerdir?
+  description: ASP.NET Core docs 'ta yeni ve güncelleştirilmiş içerik hakkında bilgi edinin.
+  ms.topic: landing-page
+  ms.date: 01/17/2020
+  ms.openlocfilehash: edd748d4d53583e531a280e64979190dcd3c9296
+  ms.sourcegitcommit: eca76bd065eb94386165a0269f1e95092f23fa58
+  ms.translationtype: MT
+  ms.contentlocale: tr-TR
+  ms.lasthandoff: 01/24/2020
+  ms.locfileid: "76727422"
+landingContent:
+- title: ASP.NET Core docs güncelleştirmelerini bulma
+  linkLists:
+  - linkListType: whats-new
+    links:
+    - text: Aralık 2019
+      url: 2019-12.md
+    - text: 2019 Kasım
+      url: 2019-11.md
+    - text: Ekim 2019
+      url: 2019-10.md
+    - text: Eylül 2019
+      url: 2019-09.md
+- title: Dahil edin-ASP.NET Core belgelerine katkıda bulunun
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: ASP.NET Core docs deposu
+      url: https://github.com/aspnet/AspNetCore.Docs/blob/master/README.md
+    - text: Sorunlar ve çekme istekleri için proje yapısı ve Etiketler
+      url: https://github.com/dotnet/docs/blob/master/styleguide/labels-projects.md
+  - linkListType: concept
+    links:
+    - text: Microsoft docs katılımcısı Kılavuzu
+      url: https://docs.microsoft.com/contribute
+    - text: ASP.NET Core docs katkıda bulunan Kılavuzu
+      url: https://github.com/aspnet/AspNetCore.Docs/blob/master/CONTRIBUTING.md
+    - text: ASP.NET Core API başvuru belgeleri katkıda bulunan Kılavuzu
+      url: https://github.com/aspnet/ApiDocs/blob/master/CONTRIBUTING.md
+- title: İlgili yenilikler sayfası
+  linkLists:
+  - linkListType: whats-new
+    links:
+    - text: Xamarin docs güncelleştirmeleri
+      url: /xamarin/whats-new/
+    - text: .NET Core sürüm notları
+      url: https://github.com/dotnet/core/blob/master/release-notes/README.md
+    - text: ASP.NET Core sürüm notları
+      url: /aspnet/core/release-notes/aspnetcore-3.1
+    - text: C#derleyici (Roslyn) sürüm notları
+      url: https://github.com/dotnet/roslyn/tree/master/docs/ide
+    - text: Visual Studio sürüm notları
+      url: /visualstudio/releases/2019/release-notes
+    - text: Mac için Visual Studio sürüm notları
+      url: /visualstudio/releasenotes/vs2019-mac-relnotes
+    - text: Visual Studio Code sürüm notları
+      url: https://code.visualstudio.com/updates
