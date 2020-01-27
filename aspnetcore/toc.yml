@@ -1,5 +1,7 @@
 - name: ASP.NET Core belgeleri
   href: '/aspnet/#pivot=core'
+- name: ASP.NET Core belgelerindeki yenilikler
+  href: whats-new/index.yml
 - name: Genel Bakış
   items:
     - name: ASP.NET Core Hakkında
@@ -10,7 +12,7 @@
       href: /dotnet/standard/choosing-core-framework-server?toc=/aspnet/core/toc.json&bc=/aspnet/core/breadcrumb/toc.json
 - name: Kullanmaya başlayın
   uid: getting-started
-- name: Yenilikler
+- name: Sürüm notları
   items:
     - name: 3.1 sürümündeki yenilikler
       uid: aspnetcore-3.1
@@ -885,15 +887,27 @@
             - name: Genel Bakış
               uid: security/authentication/azure-active-directory/index
             - name: Azure AD’yi web uygulamasıyla tümleştirme
-              href: 'https://github.com/Azure-Samples/ms-identity-aspnetcore-webapp-tutorial'
-            - name: Azure AD BC2’yi web uygulamasıyla tümleştirme
-              uid: security/authentication/azure-ad-b2c
-            - name: Azure AD BC2’yi web API’siyle tümleştirme
-              uid: security/authentication/azure-ad-b2c-webapi
-            - name: WPF'den bir web API’sini çağırma
-              href: 'https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore'
-            - name: Azure AD kullanarak bir web uygulamasında Web API’sini çağırma
-              href: 'https://github.com/Azure-Samples/active-directory-dotnet-webapp-webapi-openidconnect-aspnetcore'
+              href: /azure/active-directory/develop/quickstart-v2-aspnet-core-webapp
+            - name: Senaryolar
+              items:
+                - name: Kullanıcılar için oturum açan web uygulaması
+                  href: /azure/active-directory/develop/scenario-web-app-sign-user-overview?tabs=aspnetcore
+                - name: Web API’lerini çağıran web uygulaması
+                  href: /azure/active-directory/develop/scenario-web-app-call-api-overview
+                - name: Korumalı web API’si
+                  href: /azure/active-directory/develop/scenario-protected-web-api-overview
+                - name: Diğer web API’lerini çağıran web uygulaması
+                  href: /azure/active-directory/develop/scenario-web-api-call-api-overview
+                - name: Azure AD BC2’yi web uygulamasıyla tümleştirme
+                  uid: security/authentication/azure-ad-b2c
+            - name: Örnekler
+              items:
+                - name: Azure AD V2 kullanarak kullanıcılar için oturum açma ve web API’lerini çağırma
+                  href: /samples/azure-samples/active-directory-aspnetcore-webapp-openidconnect-v2/enable-webapp-signin/
+                - name: Azure AD V2 kullanarak bir WPF uygulamasından ASP.NET Core 2.0 Web API’sini Çağırma
+                  href: /samples/azure-samples/active-directory-dotnet-native-aspnetcore-v2/calling-an-aspnet-core-web-api-from-a-wpf-application-using-azure-ad-v2/
+                - name: Azure AD B2C ile Web API’si
+                  href: 'https://azure.microsoft.com/resources/samples/active-directory-b2c-dotnetcore-webapi/'
         - name: IdentityServer4 ile ASP.NET Core uygulamalarının güvenliğini sağlama
           href: 'https://identityserver4.readthedocs.io/'
         - name: Azure App Service kimlik doğrulaması (Kolay Kimlik Doğrulaması) ile ASP.NET Core uygulamalarının güvenliğini sağlama

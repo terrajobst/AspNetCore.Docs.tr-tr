@@ -5,14 +5,14 @@ description: ASP.NET Core uygulamasını yapılandırmak için yapılandırma AP
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 01/13/2020
+ms.date: 01/23/2020
 uid: fundamentals/configuration/index
-ms.openlocfilehash: 09ef06f179e34cd7f4f04ac30c3b5dd95d058244
-ms.sourcegitcommit: 2388c2a7334ce66b6be3ffbab06dd7923df18f60
+ms.openlocfilehash: 141ae5cda7672159032013cbda1ef4bfa7c142dd
+ms.sourcegitcommit: eca76bd065eb94386165a0269f1e95092f23fa58
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75951872"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76726976"
 ---
 # <a name="configuration-in-aspnet-core"></a>ASP.NET Core yapılandırma
 
@@ -21,7 +21,7 @@ Tarafından [Luke Latham](https://github.com/guardrex)
 ASP.NET Core içindeki uygulama yapılandırması, *yapılandırma sağlayıcıları*tarafından belirlenen anahtar-değer çiftlerini temel alır. Yapılandırma sağlayıcıları yapılandırma verilerini çeşitli yapılandırma kaynaklarından anahtar-değer çiftlerine okur:
 
 * Azure Key Vault
-* Azure Uygulama Yapılandırması
+* Azure Uygulama yapılandırması
 * Komut satırı bağımsız değişkenleri
 * Özel sağlayıcılar (yüklü veya oluşturulmuş)
 * Dizin dosyaları
@@ -205,7 +205,7 @@ Aşağıdaki tabloda ASP.NET Core uygulamalar için kullanılabilen yapılandır
 | Sağlayıcı | &hellip; yapılandırma sağlar |
 | -------- | ----------------------------------- |
 | [Azure Key Vault yapılandırma sağlayıcısı](xref:security/key-vault-configuration) (*güvenlik* konuları) | Azure Key Vault |
-| [Azure uygulama yapılandırma sağlayıcısı](/azure/azure-app-configuration/quickstart-aspnet-core-app) (Azure belgeleri) | Azure Uygulama Yapılandırması |
+| [Azure uygulama yapılandırma sağlayıcısı](/azure/azure-app-configuration/quickstart-aspnet-core-app) (Azure belgeleri) | Azure Uygulama yapılandırması |
 | [Komut satırı yapılandırma sağlayıcısı](#command-line-configuration-provider) | Komut satırı parametreleri |
 | [Özel yapılandırma sağlayıcısı](#custom-configuration-provider) | Özel kaynak |
 | [Ortam değişkenleri yapılandırma sağlayıcısı](#environment-variables-configuration-provider) | Ortam değişkenleri |
@@ -923,7 +923,7 @@ var sectionExists = _config.GetSection("section2:subsection2").Exists();
 
 Yapılandırma, *Seçenekler modelini*kullanarak ilgili ayarların gruplarını temsil eden sınıflara bağlanabilir. Daha fazla bilgi için bkz. <xref:fundamentals/configuration/options>.
 
-Yapılandırma değerleri dizeler olarak döndürülür, ancak <xref:Microsoft.Extensions.Configuration.ConfigurationBinder.Bind*> çağrısı [poco](https://wikipedia.org/wiki/Plain_Old_CLR_Object) nesnelerinin oluşturulmasını mümkün yapar.
+Yapılandırma değerleri dizeler olarak döndürülür, ancak <xref:Microsoft.Extensions.Configuration.ConfigurationBinder.Bind*> çağrısı [poco](https://wikipedia.org/wiki/Plain_Old_CLR_Object) nesnelerinin oluşturulmasını mümkün yapar. Ciltçi, değerleri, belirtilen türün tüm genel okuma/yazma özelliklerine bağlar. Alanlar bağlanmadı **.**
 
 Örnek uygulama bir `Starship` modeli içerir (*modeller/Başlangıçgönder. cs*):
 
@@ -980,7 +980,7 @@ Aşağıdaki yapılandırma anahtar-değer çiftleri oluşturulur:
 
 ## <a name="bind-to-an-object-graph"></a>Bir nesne grafiğine bağlama
 
-<xref:Microsoft.Extensions.Configuration.ConfigurationBinder.Bind*>, tüm POCO nesne grafiğini bağlama yeteneğine sahiptir.
+<xref:Microsoft.Extensions.Configuration.ConfigurationBinder.Bind*>, tüm POCO nesne grafiğini bağlama yeteneğine sahiptir. Basit bir nesne bağlamakla birlikte yalnızca genel okuma/yazma özellikleri bağlanır.
 
 Örnek, nesne grafı `Metadata` ve `Actors` sınıfları (*modeller/TvShow. cs*) içeren bir `TvShow` modeli içerir:
 
@@ -1126,7 +1126,7 @@ Yapılandırmada doğru anahtar-değer çiftini üreten herhangi bir yapılandı
 }
 ```
 
-`ConfigureAppConfiguration` içinde:
+`ConfigureAppConfiguration`:
 
 ```csharp
 config.AddJsonFile(

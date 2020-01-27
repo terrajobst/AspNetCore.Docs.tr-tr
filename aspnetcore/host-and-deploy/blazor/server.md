@@ -5,17 +5,17 @@ description: ASP.NET Core kullanarak Blazor sunucu uygulamasının nasıl barın
 monikerRange: '>= aspnetcore-3.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/18/2019
+ms.date: 01/17/2020
 no-loc:
 - Blazor
 - SignalR
 uid: host-and-deploy/blazor/server
-ms.openlocfilehash: c07cd05dd8e1c4384c6f8f019173b9b7a9a06fd0
-ms.sourcegitcommit: 9ee99300a48c810ca6fd4f7700cd95c3ccb85972
+ms.openlocfilehash: e8b3a7faaf1dc88059a79abbc7e74657ebb2068c
+ms.sourcegitcommit: eca76bd065eb94386165a0269f1e95092f23fa58
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76160229"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76726733"
 ---
 # <a name="host-and-deploy-opno-locblazor-server"></a>Blazor sunucusu barındırma ve dağıtma
 
@@ -83,7 +83,7 @@ Blazor Server uygulamaları için [Azure SignalR hizmetini](/azure/azure-signalr
 
 1. Blazor Server uygulaması için Visual Studio 'da bir Azure Apps yayımlama profili oluşturun.
 1. **Azure SignalR hizmeti** bağımlılığını profile ekleyin. Azure aboneliğinin uygulamaya atanacak önceden mevcut bir Azure SignalR hizmeti örneği yoksa, yeni bir hizmet örneği sağlamak için **Yeni bir azure SignalR hizmet örneği oluştur** ' u seçin.
-1. Uygulamayı Azure’da yayımlama.
+1. Uygulamayı Azure 'da yayımlayın.
 
 #### <a name="iis"></a>IIS
 
@@ -104,6 +104,17 @@ metadata:
     nginx.ingress.kubernetes.io/session-cookie-expires: "14400"
     nginx.ingress.kubernetes.io/session-cookie-max-age: "14400"
 ```
+
+#### <a name="linux-with-nginx"></a>Nginx ile Linux
+
+SignalR WebSockets 'in düzgün çalışması için proxy 'nin `Upgrade` ve `Connection` üst bilgilerini aşağıdaki şekilde ayarlayın:
+
+```
+proxy_set_header Upgrade $http_upgrade;
+proxy_set_header Connection $connection_upgrade;
+```
+
+Daha fazla bilgi için bkz. [WebSocket proxy 'si olarak NGINX](https://www.nginx.com/blog/websocket-nginx/).
 
 ### <a name="measure-network-latency"></a>Ölçü ağı gecikmesi
 

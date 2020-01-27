@@ -5,12 +5,12 @@ description: Basit bir ASP.NET Core uygulamasına model ekleyin.
 ms.author: riande
 ms.date: 01/13/2020
 uid: tutorials/first-mvc-app/adding-model
-ms.openlocfilehash: adf313418e82cc265304262f7a751273fa0e139f
-ms.sourcegitcommit: 2388c2a7334ce66b6be3ffbab06dd7923df18f60
+ms.openlocfilehash: 12429f1f381788569615a2a40e1ca13c4b3cfb6e
+ms.sourcegitcommit: eca76bd065eb94386165a0269f1e95092f23fa58
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75952105"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76727118"
 ---
 # <a name="add-a-model-to-an-aspnet-core-mvc-app"></a>ASP.NET Core MVC uygulamasına model ekleme
 
@@ -22,7 +22,7 @@ Bu sınıfları bir veritabanıyla çalışmak için [Entity Framework Core](/ef
 
 Oluşturduğunuz model sınıfları, EF Core hiçbir bağımlılığı olmadığından, POCO sınıfları olarak bilinir ( **P**Lain **O**). Yalnızca veritabanında depolanacak verilerin özelliklerini tanımlar.
 
-Bu öğreticide, önce model sınıflarını yazdığınızda EF Core veritabanını oluşturur. Burada kapsanmayan alternatif bir yaklaşım var olan bir veritabanından model sınıfları oluşturmaktır. Bu yaklaşım hakkında daha fazla bilgi için bkz. [ASP.NET Core-var olan veritabanı](/ef/core/get-started/aspnetcore/existing-db).
+Bu öğreticide, önce model sınıflarını yazdığınızda EF Core veritabanını oluşturur.
 
 ::: moniker range=">= aspnetcore-3.0"
 
@@ -177,7 +177,7 @@ Film modeli için oluşturma, okuma, güncelleştirme ve silme (CRUD) sayfaları
 
 * **Görünümler:** Her seçeneğin varsayılan kısmını işaretli tut
 * **Denetleyici adı:** Varsayılan *MoviesController* tut
-* **Ekle**’yi seçin
+* **Ekle** 'yi seçin
 
 Visual Studio şunları oluşturur:
 
@@ -452,7 +452,7 @@ Bu bölümde, film modeli iskele kurulmuş. Diğer bir deyişle, yapı iskelesi 
 
 * **Görünümler:** Her seçeneğin varsayılan kısmını işaretli tut
 * **Denetleyici adı:** Varsayılan *MoviesController* tut
-* **Ekle**’yi seçin
+* **Ekle** 'yi seçin
 
 ![Denetleyici Ekle iletişim kutusu](adding-model/_static/add_controller2.png)
 

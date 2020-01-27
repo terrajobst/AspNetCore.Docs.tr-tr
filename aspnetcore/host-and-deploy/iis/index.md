@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 01/13/2020
 uid: host-and-deploy/iis/index
-ms.openlocfilehash: bf035bc65f0f120f52e55effe4d413bfecdf735d
-ms.sourcegitcommit: 2388c2a7334ce66b6be3ffbab06dd7923df18f60
+ms.openlocfilehash: 146a204509856186a2696b770cae2249d348fa34
+ms.sourcegitcommit: eca76bd065eb94386165a0269f1e95092f23fa58
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75952080"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76726830"
 ---
 # <a name="host-aspnet-core-on-windows-with-iis"></a>Windows IIS üzerinde ASP.NET Core barındırma
 
@@ -26,8 +26,19 @@ ASP.NET Core uygulamasını bir IIS sunucusuna yayımlamaya yönelik bir öğret
 
 Aşağıdaki işletim sistemleri desteklenir:
 
+::: moniker range=">= aspnetcore-3.0"
+
+* Windows 7 veya üzeri
+* Windows Server 2012 R2 veya üzeri
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
+
 * Windows 7 veya üzeri
 * Windows Server 2008 R2 veya üzeri
+
+::: moniker-end
 
 [Http. sys sunucusu](xref:fundamentals/servers/httpsys) (eskiden webListener olarak adlandırılır), IIS ile ters proxy yapılandırmasında çalışmaz. Kullanım [Kestrel sunucu](xref:fundamentals/servers/kestrel).
 
@@ -745,7 +756,7 @@ Site için uygulama başlatma modülünü etkinleştirmek üzere aşağıdaki ya
   </configuration>
   ```
 
-### <a name="idle-timeout"></a>Boşta Kalma Zaman Aşımı
+### <a name="idle-timeout"></a>Boşta kalma zaman aşımı
 
 *Yalnızca işlem sırasında barındırılan uygulamalar için geçerlidir.*
 

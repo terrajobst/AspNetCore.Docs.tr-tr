@@ -4,14 +4,14 @@ author: rick-anderson
 description: Bu öğreticide, dış kimlik doğrulama sağlayıcılarıyla OAuth 2,0 kullanarak bir ASP.NET Core uygulamasının nasıl oluşturulacağı gösterilmektedir.
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/21/2019
+ms.date: 01/23/2020
 uid: security/authentication/social/index
-ms.openlocfilehash: 06ce9c72f43955345efb61afed2538158810005f
-ms.sourcegitcommit: 2cb857f0de774df421e35289662ba92cfe56ffd1
+ms.openlocfilehash: 7d0f6647a6f5a4d41067b13acd3d294144027bb7
+ms.sourcegitcommit: eca76bd065eb94386165a0269f1e95092f23fa58
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75358075"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76727324"
 ---
 # <a name="facebook-google-and-external-provider-authentication-in-aspnet-core"></a>ASP.NET Core Facebook, Google ve dış sağlayıcı kimlik doğrulaması
 
@@ -35,7 +35,7 @@ Sosyal oturumların trafik ve müşteri dönüştürmelerini nasıl ve ne şekil
 * Yeni bir proje oluşturun.
 * **ASP.NET Core Web uygulaması** ' nı ve **İleri ' yi**seçin.
 * Bir **Proje adı** girin ve **konumu**onaylayın veya değiştirin. Seçin **oluşturma**.
-* Açılan kutuda **ASP.NET Core 3,0** ' i seçin ve ardından **Web uygulaması**' nı seçin.
+* Açılan kutuda ASP.NET Core en son sürümünü (**ASP.NET Core {X. Y}** ) seçin ve ardından **Web uygulaması**' nı seçin.
 * **Kimlik doğrulaması**altında **Değiştir** ' i seçin ve kimlik doğrulamasını **bireysel kullanıcı hesapları**olarak ayarlayın. Seçin **Tamam**.
 * **Yeni ASP.NET Core Web uygulaması oluştur** penceresinde **Oluştur**' u seçin.
 
@@ -45,7 +45,7 @@ Sosyal oturumların trafik ve müşteri dönüştürmelerini nasıl ve ne şekil
 
 * Dizinleri (`cd`), projeyi içerecek bir klasöre değiştirin.
 
-* Windows için şu komutu çalıştırın:
+* Windows için aşağıdaki komutu çalıştırın:
 
   ```dotnetcli
   dotnet new webapp -o WebApp1 -au Individual -uld

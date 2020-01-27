@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/13/2019
 uid: fundamentals/routing
-ms.openlocfilehash: 462f34664540b92ba6758224a722c7ca8f9c8de0
-ms.sourcegitcommit: 7dfe6cc8408ac6a4549c29ca57b0c67ec4baa8de
+ms.openlocfilehash: 5e3ff65420b3c6769d52f8b96c216043cb1fdc1a
+ms.sourcegitcommit: eca76bd065eb94386165a0269f1e95092f23fa58
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75829068"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76726998"
 ---
 # <a name="routing-in-aspnet-core"></a>ASP.NET Core yönlendirme
 
@@ -134,7 +134,7 @@ Bu yöntemlerin aşırı yüklemesi `HttpContext`içeren bağımsız değişkenl
   * [Userouting](xref:Microsoft.AspNetCore.Builder.EndpointRoutingApplicationBuilderExtensions.UseRouting*) , ara yazılım ardışık düzenine yol eşleştirmeyi ekler. Yetkilendirme, uç nokta yürütme vb. gibi rota kullanan herhangi bir ara yazılım öncesinde gelmelidir.
   * [Useendpoints](xref:Microsoft.AspNetCore.Builder.EndpointRoutingApplicationBuilderExtensions.UseEndpoints*) , uç nokta yürütmeyi ara yazılım ardışık düzenine ekler. Uç noktanın yanıtını sunan istek temsilcisini çalıştırır.
   `UseEndpoints` Ayrıca, uygulama tarafından eşleştirilebileceği ve yürütülebileceği yol bitiş noktaları yapılandırılır. Örneğin, <xref:Microsoft.AspNetCore.Builder.RazorPagesEndpointRouteBuilderExtensions.MapRazorPages*>, <xref:Microsoft.AspNetCore.Builder.ControllerEndpointRouteBuilderExtensions.MapControllers*>, <xref:Microsoft.AspNetCore.Builder.EndpointRouteBuilderExtensions.MapGet*>ve <xref:Microsoft.AspNetCore.Builder.EndpointRouteBuilderExtensions.MapPost*>.
-* Uygulamalar, yollarını yapılandırmak için ASP.NET Core yardımcı yöntemlerini kullanır. ASP.NET Core çerçeveler <xref:Microsoft.AspNetCore.Builder.RazorPagesEndpointRouteBuilderExtensions.MapRazorPages*>,, <xref:Microsoft.AspNetCore.Builder.ControllerEndpointRouteBuilderExtensions.MapControllers*> ve `MapHub<THub>`gibi yardımcı yöntemler sağlar. Kendi özel yol uç noktalarınızı yapılandırmaya yönelik yardımcı yöntemler de vardır: <xref:Microsoft.AspNetCore.Builder.EndpointRouteBuilderExtensions.MapGet*>, <xref:Microsoft.AspNetCore.Builder.EndpointRouteBuilderExtensions.MapPost*>ve [Mapverb](xref:Microsoft.AspNetCore.Builder.EndpointRouteBuilderExtensions). 
+* Uygulamalar, yollarını yapılandırmak için ASP.NET Core yardımcı yöntemlerini kullanır. ASP.NET Core çerçeveler <xref:Microsoft.AspNetCore.Builder.RazorPagesEndpointRouteBuilderExtensions.MapRazorPages*>, <xref:Microsoft.AspNetCore.Builder.ControllerEndpointRouteBuilderExtensions.MapControllers*> ve `MapHub<THub>`gibi yardımcı yöntemler sağlar. Kendi özel yol uç noktalarınızı yapılandırmaya yönelik yardımcı yöntemler de vardır: <xref:Microsoft.AspNetCore.Builder.EndpointRouteBuilderExtensions.MapGet*>, <xref:Microsoft.AspNetCore.Builder.EndpointRouteBuilderExtensions.MapPost*>ve [Mapverb](xref:Microsoft.AspNetCore.Builder.EndpointRouteBuilderExtensions). 
 * Uç nokta yönlendirme, bir uygulama başladıktan sonra değişen uç noktaları da destekler. Bunu uygulamanızda veya ASP.NET Core çerçevesinde desteklemek için, özel bir <xref:Microsoft.AspNetCore.Routing.EndpointDataSource> oluşturulmalı ve kayıtlı olmalıdır. Bu gelişmiş bir özelliktir ve genellikle gerekli değildir. Uç noktalar genellikle başlangıçta yapılandırılır ve uygulamanın ömrü boyunca statiktir. Başlangıç sırasında bir dosyadan veya veritabanından rota yapılandırması yükleme dinamik değil.
 
 Aşağıdaki kod, uç nokta yönlendirmenin temel bir örneğini göstermektedir:
@@ -220,7 +220,7 @@ ASP.NET Core 2,2 ' den önceki yönlendirmenin uç nokta yönlendirme ve sürüm
 
   ASP.NET Core (`{*myparametername}`) önceki sürümlerindeki tek yıldız catch-all parametre sözdizimi desteklenmeye devam eder ve eğik çizgi kodlandı.
 
-  | Yol              | İle oluşturulan bağlantı<br>`Url.Action(new { category = "admin/products" })`&hellip; |
+  | Yolu              | İle oluşturulan bağlantı<br>`Url.Action(new { category = "admin/products" })`&hellip; |
   | ------------------ | --------------------------------------------------------------------- |
   | `/search/{*page}`  | `/search/admin%2Fproducts` (eğik çizgi kodlanmış)             |
   | `/search/{**page}` | `/search/admin/products`                                              |
@@ -252,7 +252,7 @@ public class ProductsLinkMiddleware
 }
 ```
 
-### <a name="create-routes"></a>Yolları oluşturma
+### <a name="create-routes"></a>Rotalar oluştur
 
 Çoğu uygulama, <xref:Microsoft.AspNetCore.Routing.IRouteBuilder>tanımlanan benzer uzantı yöntemlerinden birini veya <xref:Microsoft.AspNetCore.Builder.MapRouteRouteBuilderExtensions.MapRoute*> çağırarak yollar oluşturur. <xref:Microsoft.AspNetCore.Routing.IRouteBuilder> uzantısı yöntemlerinden herhangi biri bir <xref:Microsoft.AspNetCore.Routing.Route> örneği oluşturur ve bunu yol koleksiyonuna ekler.
 
@@ -374,9 +374,9 @@ Aşağıdaki tabloda verilen URI 'Ler ile ilgili yanıtlar gösterilmektedir.
 
 | {1&gt;URI&lt;1}                    | Yanıt                                          |
 | ---------------------- | ------------------------------------------------- |
-| `/package/create/3`    | Merhaba! Rota değerleri: [işlem, oluşturma], [kimlik, 3] |
-| `/package/track/-3`    | Merhaba! Rota değerleri: [işlem, izleme], [kimlik,-3] |
-| `/package/track/-3/`   | Merhaba! Rota değerleri: [işlem, izleme], [kimlik,-3] |
+| `/package/create/3`    | Herkese! Rota değerleri: [işlem, oluşturma], [kimlik, 3] |
+| `/package/track/-3`    | Herkese! Rota değerleri: [işlem, izleme], [kimlik,-3] |
+| `/package/track/-3/`   | Herkese! Rota değerleri: [işlem, izleme], [kimlik,-3] |
 | `/package/track/`      | İstek, eşleşme olmadan üzerinden yapılır.              |
 | `GET /hello/Joe`       | Merhaba, ali!                                          |
 | `POST /hello/Joe`      | İstek üzerinden geçer, yalnızca HTTP GET ile eşleşir. |
@@ -503,11 +503,11 @@ Yönlendirmelerde kullanılan normal ifadeler, genellikle şapka işareti (`^`) 
 
 | İfade   | Dize    | Eşleştirme | Yorum               |
 | ------------ | --------- | :---: |  -------------------- |
-| `[a-z]{2}`   | merhaba     | Evet   | Alt dize eşleşmeleri     |
+| `[a-z]{2}`   | herkese     | Evet   | Alt dize eşleşmeleri     |
 | `[a-z]{2}`   | 123abc456 | Evet   | Alt dize eşleşmeleri     |
 | `[a-z]{2}`   | mz        | Evet   | Eşleşen ifadesi    |
 | `[a-z]{2}`   | MZ        | Evet   | Büyük/küçük harfe duyarlı değil    |
-| `^[a-z]{2}$` | merhaba     | Hayır    | Yukarıdaki `^` ve `$` bakın |
+| `^[a-z]{2}$` | herkese     | Hayır    | Yukarıdaki `^` ve `$` bakın |
 | `^[a-z]{2}$` | 123abc456 | Hayır    | Yukarıdaki `^` ve `$` bakın |
 
 Normal ifade sözdizimi hakkında daha fazla bilgi için bkz. [.NET Framework normal ifadeler](/dotnet/standard/base-types/regular-expression-language-quick-reference).
@@ -881,7 +881,7 @@ ASP.NET Core 2,2 veya üzeri ve daha önceki yönlendirme sürümlerindeki ASP.N
 
   ASP.NET Core (`{*myparametername}`) önceki sürümlerindeki tek yıldız catch-all parametre sözdizimi desteklenmeye devam eder ve eğik çizgi kodlandı.
 
-  | Yol              | İle oluşturulan bağlantı<br>`Url.Action(new { category = "admin/products" })`&hellip; |
+  | Yolu              | İle oluşturulan bağlantı<br>`Url.Action(new { category = "admin/products" })`&hellip; |
   | ------------------ | --------------------------------------------------------------------- |
   | `/search/{*page}`  | `/search/admin%2Fproducts` (eğik çizgi kodlanmış)             |
   | `/search/{**page}` | `/search/admin/products`                                              |
@@ -913,7 +913,7 @@ public class ProductsLinkMiddleware
 }
 ```
 
-### <a name="create-routes"></a>Yolları oluşturma
+### <a name="create-routes"></a>Rotalar oluştur
 
 Çoğu uygulama, <xref:Microsoft.AspNetCore.Routing.IRouteBuilder>tanımlanan benzer uzantı yöntemlerinden birini veya <xref:Microsoft.AspNetCore.Builder.MapRouteRouteBuilderExtensions.MapRoute*> çağırarak yollar oluşturur. <xref:Microsoft.AspNetCore.Routing.IRouteBuilder> uzantısı yöntemlerinden herhangi biri bir <xref:Microsoft.AspNetCore.Routing.Route> örneği oluşturur ve bunu yol koleksiyonuna ekler.
 
@@ -1035,9 +1035,9 @@ Aşağıdaki tabloda verilen URI 'Ler ile ilgili yanıtlar gösterilmektedir.
 
 | {1&gt;URI&lt;1}                    | Yanıt                                          |
 | ---------------------- | ------------------------------------------------- |
-| `/package/create/3`    | Merhaba! Rota değerleri: [işlem, oluşturma], [kimlik, 3] |
-| `/package/track/-3`    | Merhaba! Rota değerleri: [işlem, izleme], [kimlik,-3] |
-| `/package/track/-3/`   | Merhaba! Rota değerleri: [işlem, izleme], [kimlik,-3] |
+| `/package/create/3`    | Herkese! Rota değerleri: [işlem, oluşturma], [kimlik, 3] |
+| `/package/track/-3`    | Herkese! Rota değerleri: [işlem, izleme], [kimlik,-3] |
+| `/package/track/-3/`   | Herkese! Rota değerleri: [işlem, izleme], [kimlik,-3] |
 | `/package/track/`      | İstek, eşleşme olmadan üzerinden yapılır.              |
 | `GET /hello/Joe`       | Merhaba, ali!                                          |
 | `POST /hello/Joe`      | İstek üzerinden geçer, yalnızca HTTP GET ile eşleşir. |
@@ -1164,11 +1164,11 @@ Yönlendirmelerde kullanılan normal ifadeler, genellikle şapka işareti (`^`) 
 
 | İfade   | Dize    | Eşleştirme | Yorum               |
 | ------------ | --------- | :---: |  -------------------- |
-| `[a-z]{2}`   | merhaba     | Evet   | Alt dize eşleşmeleri     |
+| `[a-z]{2}`   | herkese     | Evet   | Alt dize eşleşmeleri     |
 | `[a-z]{2}`   | 123abc456 | Evet   | Alt dize eşleşmeleri     |
 | `[a-z]{2}`   | mz        | Evet   | Eşleşen ifadesi    |
 | `[a-z]{2}`   | MZ        | Evet   | Büyük/küçük harfe duyarlı değil    |
-| `^[a-z]{2}$` | merhaba     | Hayır    | Yukarıdaki `^` ve `$` bakın |
+| `^[a-z]{2}$` | herkese     | Hayır    | Yukarıdaki `^` ve `$` bakın |
 | `^[a-z]{2}$` | 123abc456 | Hayır    | Yukarıdaki `^` ve `$` bakın |
 
 Normal ifade sözdizimi hakkında daha fazla bilgi için bkz. [.NET Framework normal ifadeler](/dotnet/standard/base-types/regular-expression-language-quick-reference).
@@ -1363,7 +1363,7 @@ Rotalar öncelikle <xref:Microsoft.AspNetCore.Routing.VirtualPathContext.Values>
 
 [VirtualPathData. DataTokens](xref:Microsoft.AspNetCore.Routing.VirtualPathData.DataTokens*) özellikleri, URL 'yi oluşturan rotayla ilgili ek verilerin bir sözlüğüdür. Bu, [RouteData. Datatoken](xref:Microsoft.AspNetCore.Routing.RouteData.DataTokens*)'ların paraleldir.
 
-### <a name="create-routes"></a>Yolları oluşturma
+### <a name="create-routes"></a>Rotalar oluştur
 
 Yönlendirme, <xref:Microsoft.AspNetCore.Routing.IRouter>standart uygulama olarak <xref:Microsoft.AspNetCore.Routing.Route> sınıfını sağlar. <xref:Microsoft.AspNetCore.Routing.Route>, <xref:Microsoft.AspNetCore.Routing.IRouter.RouteAsync*> çağrıldığında URL yoluyla eşleştirilecek desenleri tanımlamak için *yol şablonu* sözdizimini kullanır. <xref:Microsoft.AspNetCore.Routing.Route>, <xref:Microsoft.AspNetCore.Routing.IRouter.GetVirtualPath*> çağrıldığında bir URL oluşturmak için aynı yol şablonunu kullanır.
 
@@ -1487,9 +1487,9 @@ Aşağıdaki tabloda verilen URI 'Ler ile ilgili yanıtlar gösterilmektedir.
 
 | {1&gt;URI&lt;1}                    | Yanıt                                          |
 | ---------------------- | ------------------------------------------------- |
-| `/package/create/3`    | Merhaba! Rota değerleri: [işlem, oluşturma], [kimlik, 3] |
-| `/package/track/-3`    | Merhaba! Rota değerleri: [işlem, izleme], [kimlik,-3] |
-| `/package/track/-3/`   | Merhaba! Rota değerleri: [işlem, izleme], [kimlik,-3] |
+| `/package/create/3`    | Herkese! Rota değerleri: [işlem, oluşturma], [kimlik, 3] |
+| `/package/track/-3`    | Herkese! Rota değerleri: [işlem, izleme], [kimlik,-3] |
+| `/package/track/-3/`   | Herkese! Rota değerleri: [işlem, izleme], [kimlik,-3] |
 | `/package/track/`      | İstek, eşleşme olmadan üzerinden yapılır.              |
 | `GET /hello/Joe`       | Merhaba, ali!                                          |
 | `POST /hello/Joe`      | İstek üzerinden geçer, yalnızca HTTP GET ile eşleşir. |
@@ -1618,11 +1618,11 @@ Yönlendirmelerde kullanılan normal ifadeler, genellikle şapka işareti (`^`) 
 
 | İfade   | Dize    | Eşleştirme | Yorum               |
 | ------------ | --------- | :---: |  -------------------- |
-| `[a-z]{2}`   | merhaba     | Evet   | Alt dize eşleşmeleri     |
+| `[a-z]{2}`   | herkese     | Evet   | Alt dize eşleşmeleri     |
 | `[a-z]{2}`   | 123abc456 | Evet   | Alt dize eşleşmeleri     |
 | `[a-z]{2}`   | mz        | Evet   | Eşleşen ifadesi    |
 | `[a-z]{2}`   | MZ        | Evet   | Büyük/küçük harfe duyarlı değil    |
-| `^[a-z]{2}$` | merhaba     | Hayır    | Yukarıdaki `^` ve `$` bakın |
+| `^[a-z]{2}$` | herkese     | Hayır    | Yukarıdaki `^` ve `$` bakın |
 | `^[a-z]{2}$` | 123abc456 | Hayır    | Yukarıdaki `^` ve `$` bakın |
 
 Normal ifade sözdizimi hakkında daha fazla bilgi için bkz. [.NET Framework normal ifadeler](/dotnet/standard/base-types/regular-expression-language-quick-reference).

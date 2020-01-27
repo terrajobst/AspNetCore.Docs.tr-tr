@@ -1,51 +1,82 @@
 ---
-title: ASP.NET Core Web API JsonPatch
-author: tdykstra
-description: Bir ASP.NET Core web API'si, JSON Patch isteklerinin nasıl işleneceğini öğrenin.
-ms.author: tdykstra
+title: ASP.NET Core Web API 'sinde JsonPatch
+author: rick-anderson
+description: ASP.NET Core Web API 'sindeki JSON Patch isteklerini nasıl işleyeceğinizi öğrenin.
+ms.author: riande
 ms.custom: mvc
-ms.date: 03/24/2019
+ms.date: 11/01/2019
 uid: web-api/jsonpatch
-ms.openlocfilehash: 97264903d85dbb397e85fdbf7b070e2aaae74bc8
-ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
+ms.openlocfilehash: e57556e4b3fba55c6c187092593ffab4e31ee2d9
+ms.sourcegitcommit: eca76bd065eb94386165a0269f1e95092f23fa58
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67815552"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76727111"
 ---
-# <a name="jsonpatch-in-aspnet-core-web-api"></a>ASP.NET Core Web API JsonPatch
+# <a name="jsonpatch-in-aspnet-core-web-api"></a>ASP.NET Core Web API 'sinde JsonPatch
 
-tarafından [Tom Dykstra](https://github.com/tdykstra)
+, [Tom Dykstra](https://github.com/tdykstra) ve [Kirk larkabağı](https://github.com/serpent5) tarafından
 
-Bu makalede, bir ASP.NET Core web API'si, JSON Patch isteklerinin nasıl işleneceğini açıklar.
+::: moniker range=">= aspnetcore-3.0"
+
+Bu makalede, ASP.NET Core Web API 'sinde JSON Patch isteklerinin nasıl işleneceği açıklanır.
+
+## <a name="package-installation"></a>Paket yüklemesi
+
+`Microsoft.AspNetCore.Mvc.NewtonsoftJson` paketi kullanılarak JsonPatch desteği etkinleştirilmiştir. Bu özelliği etkinleştirmek için uygulamaların şunları yapmanız gerekir:
+
+* [Microsoft. AspNetCore. Mvc. NewtonsoftJson](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc.NewtonsoftJson/) NuGet paketini yükler.
+* Projenin `Startup.ConfigureServices` yöntemini `AddNewtonsoftJson`çağrısı içerecek şekilde güncelleştirin:
+
+  ```csharp
+  services
+      .AddControllersWithViews()
+      .AddNewtonsoftJson();
+  ```
+
+`AddNewtonsoftJson`, MVC hizmeti kayıt yöntemleriyle uyumludur:
+
+  * `AddRazorPages`
+  * `AddControllersWithViews`
+  * `AddControllers`
+
+## <a name="jsonpatch-addnewtonsoftjson-and-systemtextjson"></a>JsonPatch, AddNewtonsoftJson ve System. Text. JSON
+  
+`AddNewtonsoftJson`, **Tüm** JSON içeriğini biçimlendirmek için kullanılan `System.Text.Json` tabanlı giriş ve çıkış formatlarını değiştirir. `Newtonsoft.Json`kullanarak `JsonPatch` için destek eklemek için, diğer formatlayıcıları değişmeden bırakarak, projenin `Startup.ConfigureServices` aşağıdaki gibi güncelleştirin:
+
+[!code-csharp[](jsonpatch/samples/3.0/WebApp1/Startup.cs?name=snippet)]
+
+Yukarıdaki kod, [Microsoft. AspNetCore. Mvc. NewtonsoftJson](https://nuget.org/packages/Microsoft.AspNetCore.Mvc.NewtonsoftJson) öğesine ve aşağıdaki using deyimlerine yönelik bir başvuru gerektirir:
+
+[!code-csharp[](jsonpatch/samples/3.0/WebApp1/Startup.cs?name=snippet1)]
 
 ## <a name="patch-http-request-method"></a>PATCH HTTP istek yöntemi
 
-KOY ve [düzeltme eki](https://tools.ietf.org/html/rfc5789) yöntemleri, mevcut bir kaynağı güncelleştirmek için kullanılır. Aralarındaki fark, düzeltme eki yalnızca değişiklikleri belirtirken PUT tüm kaynak değiştirir ' dir.
+PUT ve [Patch](https://tools.ietf.org/html/rfc5789) yöntemleri, var olan bir kaynağı güncelleştirmek için kullanılır. Bunlar arasındaki fark, PUT 'ın tüm kaynağı değiştirmesi, ancak düzeltme eki yalnızca değişiklikleri belirttiğinde.
 
 ## <a name="json-patch"></a>JSON yaması
 
-[JSON yaması](https://tools.ietf.org/html/rfc6902) bir kaynağa uygulanacak güncelleştirmeleri belirtmek için bir biçimidir. Bir dizi JSON yama belgesi sahip *operations*. Her bir işlemin belirli bir değişiklik türünü tanımlar, gibi bir dizi öğesine eklemek veya bir özellik değeri değiştirin.
+[JSON yaması](https://tools.ietf.org/html/rfc6902) , bir kaynağa uygulanacak güncelleştirmelerin belirtilmesine yönelik bir biçimdir. JSON yama belgesinde bir dizi *işlem*vardır. Her işlem, bir dizi öğesi ekleme veya bir özellik değerini değiştirme gibi belirli bir değişiklik türünü tanımlar.
 
-Örneğin, aşağıdaki JSON belgelerini bir kaynak, kaynak ve patch işlemleri sonucu için JSON patch belgenin gösterir.
+Örneğin, aşağıdaki JSON belgeleri bir kaynağı, kaynak için bir JSON yama belgesini ve düzeltme eki işlemlerini uygulamanın sonucunu temsil eder.
 
 ### <a name="resource-example"></a>Kaynak örneği
 
-[!code-csharp[](jsonpatch/samples/2.2/JSON/customer.json)]
+[!code-json[](jsonpatch/samples/2.2/JSON/customer.json)]
 
-### <a name="json-patch-example"></a>JSON patch örneği
+### <a name="json-patch-example"></a>JSON Patch örneği
 
 [!code-json[](jsonpatch/samples/2.2/JSON/add.json)]
 
-Yukarıdaki JSON:
+Önceki JSON 'da:
 
-* `op` Özelliği işlem türünü belirtir.
-* `path` Güncelleştirilecek öğe özelliği belirtir.
-* `value` Özelliğinin yeni değeri sağlar.
+* `op` özelliği işlem türünü gösterir.
+* `path` özelliği güncelleştirilecek öğeyi gösterir.
+* `value` özelliği yeni değeri sağlar.
 
-### <a name="resource-after-patch"></a>Düzeltme eki sonra kaynak
+### <a name="resource-after-patch"></a>Düzeltme ekiyle sonra kaynak
 
-Yukarıdaki JSON yama belgesi uyguladıktan sonra kaynak şöyledir:
+Önceki JSON Patch belgesi uygulandıktan sonra kaynak şu şekildedir:
 
 ```json
 {
@@ -67,44 +98,44 @@ Yukarıdaki JSON yama belgesi uyguladıktan sonra kaynak şöyledir:
 }
 ```
 
-Kaynak JSON yama belgesi uygulayarak yapılan değişiklikler atomiktir: listedeki herhangi bir işlem başarısız olursa, listedeki işlem uygulanır.
+Bir kaynak için bir JSON Patch belgesi uygulanarak yapılan değişiklikler atomik: listedeki herhangi bir işlem başarısız olursa, listede hiçbir işlem uygulanmaz.
 
-## <a name="path-syntax"></a>Yolu sözdizimi
+## <a name="path-syntax"></a>Yol sözdizimi
 
-[Yolu](https://tools.ietf.org/html/rfc6901) işlem nesnesi özelliğine düzeyleri arasında eğik çizgi sahiptir. Örneğin: `"/address/zipCode"`.
+Bir işlem nesnesinin [Path](https://tools.ietf.org/html/rfc6901) özelliği düzeyler arasında eğik çizgi içeriyor. Örneğin: `"/address/zipCode"`.
 
-Sıfır tabanlı dizin, dizi öğeleri belirtmek için kullanılır. İlk öğesi `addresses` dizi konumunda olacak `/addresses/0`. İçin `add` bir dizinin sonuna bir tire (-) yerine bir dizin numarasını kullanın: `/addresses/-`.
+Sıfır tabanlı dizinler, dizi öğelerini belirtmek için kullanılır. `addresses` dizisinin ilk öğesi `/addresses/0`. Bir dizinin sonuna `add` için dizin numarası yerine bir tire (-) kullanın: `/addresses/-`.
 
 ### <a name="operations"></a>İşlemler
 
-Aşağıdaki tablo desteklenen gösterir işlemleri sınıfında tanımlandığı gibi [JSON Patch belirtimi](https://tools.ietf.org/html/rfc6902):
+Aşağıdaki tabloda, [JSON Patch belirtiminde](https://tools.ietf.org/html/rfc6902)tanımlanan desteklenen işlemler gösterilmektedir:
 
 |Çalışma  | Notlar |
 |-----------|--------------------------------|
-| `add`     | Bir özellik ya da dizi öğesini ekleyin. Var olan bir özellik için: değeri ayarlayın.|
-| `remove`  | Bir özellik ya da dizi öğesini kaldırın. |
-| `replace` | Aynı `remove` ardından `add` aynı konumda. |
-| `move`    | Aynı `remove` ardından kaynağından `add` değerini kullanarak bir kaynaktan bir hedefe. |
-| `copy`    | Aynı `add` değerini kullanarak bir kaynaktan bir hedefe. |
-| `test`    | Başarılı durum kodu döndürür değerini `path` sağlanan = `value`.|
+| `add`     | Bir özellik veya dizi öğesi ekleyin. Var olan özellik için: set değeri.|
+| `remove`  | Bir özellik veya dizi öğesi kaldırın. |
+| `replace` | Aynı konumdaki `add` ve ardından `remove` ile aynı. |
+| `move`    | Kaynaktaki değeri kullanarak `add` ve ardından hedefteki `remove` ile aynı. |
+| `copy`    | Kaynaktaki değeri kullanarak hedefle `add` aynı. |
+| `test`    | `path` = değeri `value`sağlanmışsa başarı durum kodunu döndürür.|
 
-## <a name="jsonpatch-in-aspnet-core"></a>ASP.NET core'da JsonPatch
+## <a name="jsonpatch-in-aspnet-core"></a>ASP.NET Core 'de JsonPatch
 
-JSON yaması ASP.NET Core uygulaması sağlanan [Microsoft.AspNetCore.JsonPatch](https://www.nuget.org/packages/microsoft.aspnetcore.jsonpatch/) NuGet paketi. Paket dahil [Microsoft.AspnetCore.App](xref:fundamentals/metapackage-app) metapackage.
+JSON düzeltme ekinin ASP.NET Core uygulanması, [Microsoft. AspNetCore. JsonPatch](https://www.nuget.org/packages/microsoft.aspnetcore.jsonpatch/) NuGet paketinde sunulmaktadır.
 
 ## <a name="action-method-code"></a>Eylem yöntemi kodu
 
-API denetleyicisi içinde bir eylem yöntemi için JSON Patch:
+Bir API denetleyicisinde, JSON yaması için bir eylem yöntemi:
 
-* İle açıklanıyor `HttpPatch` özniteliği.
-* Kabul eden bir `JsonPatchDocument<T>`, genellikle [FromBody] ile.
-* Çağrıları `ApplyTo` üzerindeki değişiklikleri uygulamak için yama belgesi.
+* `HttpPatch` özniteliğiyle açıklama eklenir.
+* Genellikle `[FromBody]`ile bir `JsonPatchDocument<T>`kabul eder.
+* Değişiklikleri uygulamak için düzeltme eki belgesinde `ApplyTo` çağırır.
 
 Örnek buradadır:
 
 [!code-csharp[](jsonpatch/samples/2.2/Controllers/HomeController.cs?name=snippet_PatchAction&highlight=1,3,9)]
 
-Bu örnek uygulama kodundan aşağıdakilerle çalışır `Customer` modeli.
+Örnek uygulamadaki Bu kod, aşağıdaki `Customer` modeliyle çalışmaktadır.
 
 [!code-csharp[](jsonpatch/samples/2.2/Models/Customer.cs?name=snippet_Customer)]
 
@@ -112,15 +143,15 @@ Bu örnek uygulama kodundan aşağıdakilerle çalışır `Customer` modeli.
 
 Örnek eylem yöntemi:
 
-* Oluşturur bir `Customer`.
-* Düzeltme eki uygular.
-* Yanıt gövdesinde sonucunu döndürür.
+* Bir `Customer`oluşturur.
+* Düzeltme ekini uygular.
+* Yanıtın gövdesinde sonucu döndürür.
 
- Gerçek bir uygulamada kod bir veritabanı gibi bir depolama alanından verileri almak ve düzeltme eki uygulandıktan sonra veritabanı güncelleştirmesi.
+ Gerçek bir uygulamada, kod veritabanı gibi bir mağazadan verileri alır ve düzeltme ekini uyguladıktan sonra veritabanını güncelleştirir.
 
 ### <a name="model-state"></a>Model durumu
 
-Önceki eylem yöntemi örneği bir aşırı yüklemesini çağırır `ApplyTo` , parametrelerinden biri olarak model durumunu alır. Bu seçenek belirtilmişse, hata iletileri yanıtlarını alabilirsiniz. Aşağıdaki örnek, bir 400 Hatalı istek yanıt gövdesinin gösterir. bir `test` işlemi:
+Önceki eylem yöntemi örneği, parametrelerinden biri olarak model durumunu alan `ApplyTo` aşırı yüklemesini çağırır. Bu seçenekle, yanıtlardan hata iletileri alabilirsiniz. Aşağıdaki örnek, bir `test` işlemi için 400 Hatalı Istek yanıtı gövdesini gösterir:
 
 ```json
 {
@@ -132,95 +163,309 @@ Bu örnek uygulama kodundan aşağıdakilerle çalışır `Customer` modeli.
 
 ### <a name="dynamic-objects"></a>Dinamik nesneler
 
-Eylem yöntemi aşağıda dinamik bir nesne için bir düzeltme eki uygulama işlemini gösterir.
+Aşağıdaki eylem yöntemi örneği, dinamik bir nesne için bir düzeltme ekinin nasıl uygulanacağını gösterir.
 
 [!code-csharp[](jsonpatch/samples/2.2/Controllers/HomeController.cs?name=snippet_Dynamic)]
 
 ## <a name="the-add-operation"></a>Ekleme işlemi
 
-* Varsa `path` bir dizi öğesine işaret eder: tarafından belirtilen bir önce yeni bir öğe ekler `path`.
-* Varsa `path` gösteren bir özelliğe: özellik değeri ayarlar.
-* Varsa `path` varolmayan bir konuma işaret eder:
-  * Düzeltme eki kaynağa dinamik bir nesne ise: bir özellik ekler.
-  * Kaynak düzeltme eki için statik bir nesneyse: istek başarısız olur.
+* `path` bir dizi öğesine işaret ediyorsa: `path`tarafından belirtiden önce yeni bir öğe ekler.
+* `path` bir özelliğe işaret ediyorsa: özellik değerini ayarlar.
+* `path` varolmayan bir konuma işaret ediyorsa:
+  * Yama yapılacak kaynak dinamik bir nesnedir: bir özellik ekler.
+  * Yama yapılacak kaynak statik bir nesnese: istek başarısız olur.
 
-Aşağıdaki örnek yama belgesi değerini ayarlar `CustomerName` ve ekler bir `Order` nesnesinin sonuna `Orders` dizisi.
+Aşağıdaki örnek düzeltme eki belgesi, `CustomerName` değerini ayarlar ve `Orders` dizisinin sonuna bir `Order` nesnesi ekler.
 
 [!code-json[](jsonpatch/samples/2.2/JSON/add.json)]
 
 ## <a name="the-remove-operation"></a>Kaldırma işlemi
 
-* Varsa `path` bir dizi öğesine işaret eder: öğeyi kaldırır.
-* Varsa `path` işaret eden bir özellik için:
-  * Kaynak düzeltme eki için dinamik bir nesne ise: özelliği kaldırır.
-  * Kaynak düzeltme eki için statik bir nesne ise: 
-    * Özellik boş değer atanabilir ise: null olarak ayarlar.
-    * NULL olmayan bir özelliğidir, bu ayarlar `default<T>`.
+* `path` bir dizi öğesine işaret ediyorsa: öğeyi kaldırır.
+* `path` bir özelliğe işaret ediyorsa:
+  * Yayama kaynağı dinamik bir nesne ise: özelliğini kaldırır.
+  * Yama yapılacak kaynak statik bir nesnese:
+    * Özellik null atanabilir ise: null olarak ayarlar.
+    * Özellik null atanamaz ise, `default<T>`olarak ayarlar.
 
-Aşağıdaki örnek, düzeltme eki belge kümeleri `CustomerName` null ve silmeleri `Orders[0]`.
+Aşağıdaki örnek düzeltme eki belgesi null olarak `CustomerName` ve `Orders[0]`siler.
 
 [!code-json[](jsonpatch/samples/2.2/JSON/remove.json)]
 
 ## <a name="the-replace-operation"></a>Değiştirme işlemi
 
-Bu işlem işlevsel olarak aynıdır bir `remove` arkasından bir `add`.
+Bu işlem, işlevsel olarak bir `remove` ve ardından bir `add`.
 
-Aşağıdaki örnek yama belgesi değerini ayarlar `CustomerName` ve değiştirir `Orders[0]`yeni bir `Order` nesne.
+Aşağıdaki örnek düzeltme eki belgesi `CustomerName` değerini ayarlar ve `Orders[0]`yeni bir `Order` nesnesiyle değiştirir.
 
 [!code-json[](jsonpatch/samples/2.2/JSON/replace.json)]
 
 ## <a name="the-move-operation"></a>Taşıma işlemi
 
-* Varsa `path` bir dizi öğesine işaret: kopyalar `from` konumunu öğesine `path` öğesi, daha sonra çalışan bir `remove` işlemi `from` öğesi.
-* Varsa `path` gösteren bir özelliğe: kopyalar değerini `from` özelliğini `path` özelliği, daha sonra çalışan bir `remove` işlemi `from` özelliği.
-* Varsa `path` işaret varolmayan bir özellik için:
-  * Kaynak düzeltme eki için statik bir nesneyse: istek başarısız olur.
-  * Yama kaynak dinamik bir nesne ise: kopyaları `from` özelliği tarafından belirtilen konuma `path`, sonra çalışan bir `remove` işlemi `from` özelliği.
+* `path` bir dizi öğesine işaret ediyorsa: `from` öğesini `path` öğesinin konumuna kopyalar, sonra `from` öğesinde bir `remove` işlemi çalıştırır.
+* `path` bir özelliğe işaret ediyorsa: `from` özelliğinin değerini `path` özelliğine kopyalar, sonra `from` özelliğinde bir `remove` işlemi çalıştırır.
+* `path` varolmayan bir özelliğe işaret ediyorsa:
+  * Yama yapılacak kaynak statik bir nesnese: istek başarısız olur.
+  * Düzeltme Eki uygulanacak kaynak dinamik bir nesnedir: `from` özelliğini `path`belirtilen konuma kopyalar, sonra `from` özelliğinde `remove` işlemini çalıştırır.
 
-Aşağıdaki örnek yama belgesi:
+Aşağıdaki örnek düzeltme eki belgesi:
 
-* Değerini kopyalar `Orders[0].OrderName` için `CustomerName`.
-* Kümeleri `Orders[0].OrderName` null.
-* Taşır `Orders[1]` için önce `Orders[0]`.
+* `Orders[0].OrderName` değerini `CustomerName`olarak kopyalar.
+* `Orders[0].OrderName` null olarak ayarlar.
+* `Orders[0]`önce `Orders[1]` ' a gider.
 
 [!code-json[](jsonpatch/samples/2.2/JSON/move.json)]
 
 ## <a name="the-copy-operation"></a>Kopyalama işlemi
 
-Bu işlem işlevsel olarak aynıdır bir `move` son olmadan işlemi `remove` adım.
+Bu işlem, son `remove` adımı olmadan bir `move` işlemiyle aynı işleve sahiptir.
 
-Aşağıdaki örnek yama belgesi:
+Aşağıdaki örnek düzeltme eki belgesi:
 
-* Değerini kopyalar `Orders[0].OrderName` için `CustomerName`.
-* Bir kopyasını ekler `Orders[1]` önce `Orders[0]`.
+* `Orders[0].OrderName` değerini `CustomerName`olarak kopyalar.
+* `Orders[0]`önce `Orders[1]` bir kopyasını ekler.
 
 [!code-json[](jsonpatch/samples/2.2/JSON/copy.json)]
 
 ## <a name="the-test-operation"></a>Test işlemi
 
-Bu konumdaki değeri tarafından belirtilmişse `path` sağlanan değerinden farklı `value`, istek başarısız olur. Bu durumda bile yama belgesindeki tüm diğer işlemler, aksi takdirde başarılı olabilir tüm PATCH isteği başarısız olur.
+`path` tarafından belirtilen konumdaki değer `value`belirtilen değerden farklıysa, istek başarısız olur. Bu durumda, yama belgesindeki diğer tüm işlemler başka bir şekilde başarılı olsa bile, tüm yama isteği başarısız olur.
 
-`test` İşlemi bir eşzamanlılık çakışması olduğunda, bir güncelleştirme önlemek için yaygın olarak kullanılır.
+`test` işlem, yaygın olarak bir eşzamanlılık çakışması olduğunda bir güncelleştirmeyi engellemek için kullanılır.
 
-Aşağıdaki örnek yama belgesi etkisizdir başlangıç değeri oluşan `CustomerName` "John", test başarısız çünkü:
+`CustomerName` başlangıçtaki değeri "John" ise ve test başarısız olduğu için aşağıdaki örnek düzeltme eki belgesi etkisizdir:
 
 [!code-json[](jsonpatch/samples/2.2/JSON/test-fail.json)]
 
-## <a name="get-the-code"></a>Kodu alma
+## <a name="get-the-code"></a>Kodu alın
 
-[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/web-api/jsonpatch/samples/2.2). ([Nasıl indirileceğini](xref:index#how-to-download-a-sample)).
+[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/web-api/jsonpatch/samples/2.2). ([İndirme](xref:index#how-to-download-a-sample)).
 
-Örnek test etmek için uygulamayı çalıştırın ve aşağıdaki ayarlarla HTTP istekleri göndermek için:
+Örneği test etmek için, uygulamayı çalıştırın ve aşağıdaki ayarlarla HTTP istekleri gönderin:
 
 * URL: `http://localhost:{port}/jsonpatch/jsonpatchwithmodelstate`
 * HTTP yöntemi: `PATCH`
 * Üst bilgi: `Content-Type: application/json-patch+json`
-* Gövdesi: JSON patch belge örneklerinden birini kopyalayıp *JSON* proje klasörü.
+* Gövde: *JSON proje klasöründen JSON Patch* belgesi örneklerinden birini kopyalayıp yapıştırın.
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-* [IETF RFC 5789 düzeltme eki yöntemi belirtimi](https://tools.ietf.org/html/rfc5789)
+* [IETF RFC 5789 PATCH yöntemi belirtimi](https://tools.ietf.org/html/rfc5789)
 * [IETF RFC 6902 JSON Patch belirtimi](https://tools.ietf.org/html/rfc6902)
 * [IETF RFC 6901 JSON Patch yolu biçim belirtimi](https://tools.ietf.org/html/rfc6901)
-* [JSON yaması belgeleri](https://jsonpatch.com/). JSON yaması belgeleri oluşturmak için kaynakların bağlantılarını içerir.
-* [ASP.NET Core JSON Patch kaynak kodu](https://github.com/aspnet/AspNetCore/tree/master/src/Features/JsonPatch/src)
+* [JSON yama belgeleri](https://jsonpatch.com/). JSON yama belgeleri oluşturmak için kaynakların bağlantılarını içerir.
+* [ASP.NET Core JSON Patch kaynak kodu](https://github.com/dotnet/AspNetCore/tree/master/src/Features/JsonPatch/src)
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
+
+Bu makalede, ASP.NET Core Web API 'sinde JSON Patch isteklerinin nasıl işleneceği açıklanır.
+
+## <a name="patch-http-request-method"></a>PATCH HTTP istek yöntemi
+
+PUT ve [Patch](https://tools.ietf.org/html/rfc5789) yöntemleri, var olan bir kaynağı güncelleştirmek için kullanılır. Bunlar arasındaki fark, PUT 'ın tüm kaynağı değiştirmesi, ancak düzeltme eki yalnızca değişiklikleri belirttiğinde.
+
+## <a name="json-patch"></a>JSON yaması
+
+[JSON yaması](https://tools.ietf.org/html/rfc6902) , bir kaynağa uygulanacak güncelleştirmelerin belirtilmesine yönelik bir biçimdir. JSON yama belgesinde bir dizi *işlem*vardır. Her işlem, bir dizi öğesi ekleme veya bir özellik değerini değiştirme gibi belirli bir değişiklik türünü tanımlar.
+
+Örneğin, aşağıdaki JSON belgeleri bir kaynağı, kaynak için bir JSON yama belgesini ve düzeltme eki işlemlerini uygulamanın sonucunu temsil eder.
+
+### <a name="resource-example"></a>Kaynak örneği
+
+[!code-json[](jsonpatch/samples/2.2/JSON/customer.json)]
+
+### <a name="json-patch-example"></a>JSON Patch örneği
+
+[!code-json[](jsonpatch/samples/2.2/JSON/add.json)]
+
+Önceki JSON 'da:
+
+* `op` özelliği işlem türünü gösterir.
+* `path` özelliği güncelleştirilecek öğeyi gösterir.
+* `value` özelliği yeni değeri sağlar.
+
+### <a name="resource-after-patch"></a>Düzeltme ekiyle sonra kaynak
+
+Önceki JSON Patch belgesi uygulandıktan sonra kaynak şu şekildedir:
+
+```json
+{
+  "customerName": "Barry",
+  "orders": [
+    {
+      "orderName": "Order0",
+      "orderType": null
+    },
+    {
+      "orderName": "Order1",
+      "orderType": null
+    },
+    {
+      "orderName": "Order2",
+      "orderType": null
+    }
+  ]
+}
+```
+
+Bir kaynak için bir JSON Patch belgesi uygulanarak yapılan değişiklikler atomik: listedeki herhangi bir işlem başarısız olursa, listede hiçbir işlem uygulanmaz.
+
+## <a name="path-syntax"></a>Yol sözdizimi
+
+Bir işlem nesnesinin [Path](https://tools.ietf.org/html/rfc6901) özelliği düzeyler arasında eğik çizgi içeriyor. Örneğin: `"/address/zipCode"`.
+
+Sıfır tabanlı dizinler, dizi öğelerini belirtmek için kullanılır. `addresses` dizisinin ilk öğesi `/addresses/0`. Bir dizinin sonuna `add` için dizin numarası yerine bir tire (-) kullanın: `/addresses/-`.
+
+### <a name="operations"></a>İşlemler
+
+Aşağıdaki tabloda, [JSON Patch belirtiminde](https://tools.ietf.org/html/rfc6902)tanımlanan desteklenen işlemler gösterilmektedir:
+
+|Çalışma  | Notlar |
+|-----------|--------------------------------|
+| `add`     | Bir özellik veya dizi öğesi ekleyin. Var olan özellik için: set değeri.|
+| `remove`  | Bir özellik veya dizi öğesi kaldırın. |
+| `replace` | Aynı konumdaki `add` ve ardından `remove` ile aynı. |
+| `move`    | Kaynaktaki değeri kullanarak `add` ve ardından hedefteki `remove` ile aynı. |
+| `copy`    | Kaynaktaki değeri kullanarak hedefle `add` aynı. |
+| `test`    | `path` = değeri `value`sağlanmışsa başarı durum kodunu döndürür.|
+
+## <a name="jsonpatch-in-aspnet-core"></a>ASP.NET Core 'de JsonPatch
+
+JSON düzeltme ekinin ASP.NET Core uygulanması, [Microsoft. AspNetCore. JsonPatch](https://www.nuget.org/packages/microsoft.aspnetcore.jsonpatch/) NuGet paketinde sunulmaktadır. Paket, [Microsoft. AspnetCore. app](xref:fundamentals/metapackage-app) metapackage 'e dahildir.
+
+## <a name="action-method-code"></a>Eylem yöntemi kodu
+
+Bir API denetleyicisinde, JSON yaması için bir eylem yöntemi:
+
+* `HttpPatch` özniteliğiyle açıklama eklenir.
+* Genellikle `[FromBody]`ile bir `JsonPatchDocument<T>`kabul eder.
+* Değişiklikleri uygulamak için düzeltme eki belgesinde `ApplyTo` çağırır.
+
+Örnek buradadır:
+
+[!code-csharp[](jsonpatch/samples/2.2/Controllers/HomeController.cs?name=snippet_PatchAction&highlight=1,3,9)]
+
+Örnek uygulamadaki Bu kod, aşağıdaki `Customer` modeliyle çalışmaktadır.
+
+[!code-csharp[](jsonpatch/samples/2.2/Models/Customer.cs?name=snippet_Customer)]
+
+[!code-csharp[](jsonpatch/samples/2.2/Models/Order.cs?name=snippet_Order)]
+
+Örnek eylem yöntemi:
+
+* Bir `Customer`oluşturur.
+* Düzeltme ekini uygular.
+* Yanıtın gövdesinde sonucu döndürür.
+
+ Gerçek bir uygulamada, kod veritabanı gibi bir mağazadan verileri alır ve düzeltme ekini uyguladıktan sonra veritabanını güncelleştirir.
+
+### <a name="model-state"></a>Model durumu
+
+Önceki eylem yöntemi örneği, parametrelerinden biri olarak model durumunu alan `ApplyTo` aşırı yüklemesini çağırır. Bu seçenekle, yanıtlardan hata iletileri alabilirsiniz. Aşağıdaki örnek, bir `test` işlemi için 400 Hatalı Istek yanıtı gövdesini gösterir:
+
+```json
+{
+    "Customer": [
+        "The current value 'John' at path 'customerName' is not equal to the test value 'Nancy'."
+    ]
+}
+```
+
+### <a name="dynamic-objects"></a>Dinamik nesneler
+
+Aşağıdaki eylem yöntemi örneği, dinamik bir nesne için bir düzeltme ekinin nasıl uygulanacağını gösterir.
+
+[!code-csharp[](jsonpatch/samples/2.2/Controllers/HomeController.cs?name=snippet_Dynamic)]
+
+## <a name="the-add-operation"></a>Ekleme işlemi
+
+* `path` bir dizi öğesine işaret ediyorsa: `path`tarafından belirtiden önce yeni bir öğe ekler.
+* `path` bir özelliğe işaret ediyorsa: özellik değerini ayarlar.
+* `path` varolmayan bir konuma işaret ediyorsa:
+  * Yama yapılacak kaynak dinamik bir nesnedir: bir özellik ekler.
+  * Yama yapılacak kaynak statik bir nesnese: istek başarısız olur.
+
+Aşağıdaki örnek düzeltme eki belgesi, `CustomerName` değerini ayarlar ve `Orders` dizisinin sonuna bir `Order` nesnesi ekler.
+
+[!code-json[](jsonpatch/samples/2.2/JSON/add.json)]
+
+## <a name="the-remove-operation"></a>Kaldırma işlemi
+
+* `path` bir dizi öğesine işaret ediyorsa: öğeyi kaldırır.
+* `path` bir özelliğe işaret ediyorsa:
+  * Yayama kaynağı dinamik bir nesne ise: özelliğini kaldırır.
+  * Yama yapılacak kaynak statik bir nesnese:
+    * Özellik null atanabilir ise: null olarak ayarlar.
+    * Özellik null atanamaz ise, `default<T>`olarak ayarlar.
+
+Aşağıdaki örnek düzeltme eki belgesi null olarak `CustomerName` ve `Orders[0]`siler.
+
+[!code-json[](jsonpatch/samples/2.2/JSON/remove.json)]
+
+## <a name="the-replace-operation"></a>Değiştirme işlemi
+
+Bu işlem, işlevsel olarak bir `remove` ve ardından bir `add`.
+
+Aşağıdaki örnek düzeltme eki belgesi `CustomerName` değerini ayarlar ve `Orders[0]`yeni bir `Order` nesnesiyle değiştirir.
+
+[!code-json[](jsonpatch/samples/2.2/JSON/replace.json)]
+
+## <a name="the-move-operation"></a>Taşıma işlemi
+
+* `path` bir dizi öğesine işaret ediyorsa: `from` öğesini `path` öğesinin konumuna kopyalar, sonra `from` öğesinde bir `remove` işlemi çalıştırır.
+* `path` bir özelliğe işaret ediyorsa: `from` özelliğinin değerini `path` özelliğine kopyalar, sonra `from` özelliğinde bir `remove` işlemi çalıştırır.
+* `path` varolmayan bir özelliğe işaret ediyorsa:
+  * Yama yapılacak kaynak statik bir nesnese: istek başarısız olur.
+  * Düzeltme Eki uygulanacak kaynak dinamik bir nesnedir: `from` özelliğini `path`belirtilen konuma kopyalar, sonra `from` özelliğinde `remove` işlemini çalıştırır.
+
+Aşağıdaki örnek düzeltme eki belgesi:
+
+* `Orders[0].OrderName` değerini `CustomerName`olarak kopyalar.
+* `Orders[0].OrderName` null olarak ayarlar.
+* `Orders[0]`önce `Orders[1]` ' a gider.
+
+[!code-json[](jsonpatch/samples/2.2/JSON/move.json)]
+
+## <a name="the-copy-operation"></a>Kopyalama işlemi
+
+Bu işlem, son `remove` adımı olmadan bir `move` işlemiyle aynı işleve sahiptir.
+
+Aşağıdaki örnek düzeltme eki belgesi:
+
+* `Orders[0].OrderName` değerini `CustomerName`olarak kopyalar.
+* `Orders[0]`önce `Orders[1]` bir kopyasını ekler.
+
+[!code-json[](jsonpatch/samples/2.2/JSON/copy.json)]
+
+## <a name="the-test-operation"></a>Test işlemi
+
+`path` tarafından belirtilen konumdaki değer `value`belirtilen değerden farklıysa, istek başarısız olur. Bu durumda, yama belgesindeki diğer tüm işlemler başka bir şekilde başarılı olsa bile, tüm yama isteği başarısız olur.
+
+`test` işlem, yaygın olarak bir eşzamanlılık çakışması olduğunda bir güncelleştirmeyi engellemek için kullanılır.
+
+`CustomerName` başlangıçtaki değeri "John" ise ve test başarısız olduğu için aşağıdaki örnek düzeltme eki belgesi etkisizdir:
+
+[!code-json[](jsonpatch/samples/2.2/JSON/test-fail.json)]
+
+## <a name="get-the-code"></a>Kodu alın
+
+[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/web-api/jsonpatch/samples/2.2). ([İndirme](xref:index#how-to-download-a-sample)).
+
+Örneği test etmek için, uygulamayı çalıştırın ve aşağıdaki ayarlarla HTTP istekleri gönderin:
+
+* URL: `http://localhost:{port}/jsonpatch/jsonpatchwithmodelstate`
+* HTTP yöntemi: `PATCH`
+* Üst bilgi: `Content-Type: application/json-patch+json`
+* Gövde: *JSON proje klasöründen JSON Patch* belgesi örneklerinden birini kopyalayıp yapıştırın.
+
+## <a name="additional-resources"></a>Ek kaynaklar
+
+* [IETF RFC 5789 PATCH yöntemi belirtimi](https://tools.ietf.org/html/rfc5789)
+* [IETF RFC 6902 JSON Patch belirtimi](https://tools.ietf.org/html/rfc6902)
+* [IETF RFC 6901 JSON Patch yolu biçim belirtimi](https://tools.ietf.org/html/rfc6901)
+* [JSON yama belgeleri](https://jsonpatch.com/). JSON yama belgeleri oluşturmak için kaynakların bağlantılarını içerir.
+* [ASP.NET Core JSON Patch kaynak kodu](https://github.com/dotnet/AspNetCore/tree/master/src/Features/JsonPatch/src)
+
+::: moniker-end

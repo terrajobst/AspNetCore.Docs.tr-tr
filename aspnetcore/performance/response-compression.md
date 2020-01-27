@@ -5,14 +5,14 @@ description: Yanıt sıkıştırması ve ASP.NET Core uygulamalarında yanıt s�
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/05/2019
+ms.date: 01/22/2020
 uid: performance/response-compression
-ms.openlocfilehash: 04b2ffd7047e8b127968adb5d40e0141365fb5fe
-ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
+ms.openlocfilehash: b8a84418a3258e9ac43b4eadd8564c0708590bce
+ms.sourcegitcommit: eca76bd065eb94386165a0269f1e95092f23fa58
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74880903"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76726969"
 ---
 # <a name="response-compression-in-aspnet-core"></a>ASP.NET Core 'de yanıt sıkıştırması
 
@@ -139,7 +139,7 @@ public class Startup
 
 Notlar:
 
-* `app.UseResponseCompression`, `app.UseMvc`önce çağrılmalıdır.
+* `app.UseResponseCompression`, yanıtları sıkıştıran herhangi bir ara yazılım önce çağrılmalıdır. Daha fazla bilgi için bkz. <xref:fundamentals/middleware/index#middleware-order>.
 * `Accept-Encoding` istek üst bilgisini ayarlamak ve yanıt üst bilgilerini, boyutunu ve gövdesini incelemek için [Fiddler](https://www.telerik.com/fiddler), [Firebug](https://getfirebug.com/)veya [Postman](https://www.getpostman.com/) gibi bir araç kullanın.
 
 `Accept-Encoding` üst bilgisi olmadan örnek uygulamaya bir istek gönderir ve yanıtın sıkıştırılmamış olduğunu gözlemleyin. `Content-Encoding` ve `Vary` üstbilgileri yanıt üzerinde yok.

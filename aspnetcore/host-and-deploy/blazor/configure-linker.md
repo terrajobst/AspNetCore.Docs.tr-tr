@@ -10,12 +10,12 @@ no-loc:
 - Blazor
 - SignalR
 uid: host-and-deploy/blazor/configure-linker
-ms.openlocfilehash: cdcd62915b8f1bae26773ed91e55973527e158f6
-ms.sourcegitcommit: 9ee99300a48c810ca6fd4f7700cd95c3ccb85972
+ms.openlocfilehash: 263b85a3213c1da233e4c96095faaf39d0a8e13f
+ms.sourcegitcommit: eca76bd065eb94386165a0269f1e95092f23fa58
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76160281"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76726767"
 ---
 # <a name="configure-the-linker-for-aspnet-core-opno-locblazor"></a>ASP.NET Core Blazor için bağlayıcı yapılandırma
 
@@ -108,4 +108,4 @@ Hangi I18N derlemelerinin korunacağını denetlemek için, proje dosyasında `<
 
 Birden çok değeri ayırmak için virgül kullanın (örneğin, `mideast,west`).
 
-Daha fazla bilgi için bkz. [I18N: Pnetlib uluslararası duruma getirme çerçeve Libary (Mono/Mono GitHub deposu)](https://github.com/mono/mono/tree/master/mcs/class/I18N).
+Daha fazla bilgi için bkz. [I18N: Pnetlib uluslararası duruma getirme çerçeve kitaplığı (Mono/Mono GitHub deposu)](https://github.com/mono/mono/tree/master/mcs/class/I18N).

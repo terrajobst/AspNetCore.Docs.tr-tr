@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 01/13/2020
 uid: host-and-deploy/linux-nginx
-ms.openlocfilehash: e718592127115e46df3154364957943a457b0b1b
-ms.sourcegitcommit: cbd30479f42cbb3385000ef834d9c7d021fd218d
+ms.openlocfilehash: 880d1762ebbea641c0b9c5a9f8bbca0b68a463c5
+ms.sourcegitcommit: eca76bd065eb94386165a0269f1e95092f23fa58
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76146335"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76726669"
 ---
 # <a name="host-aspnet-core-on-linux-with-nginx"></a>NGINX ile Linux üzerinde ana bilgisayar ASP.NET Core
 
@@ -124,7 +124,7 @@ sudo service nginx start
 
 Bir tarayıcının NGINX için varsayılan giriş sayfasını görüntülediğini doğrulayın. Giriş sayfasına `http://<server_IP_address>/index.nginx-debian.html`adresinden ulaşılabilir.
 
-### <a name="configure-nginx"></a>Nginx hizmetini yapılandırma
+### <a name="configure-nginx"></a>NGINX 'i yapılandırma
 
 İstekleri ASP.NET Core uygulamanıza iletmek için NGINX 'i ters proxy olarak yapılandırmak için */etc/nginx/sites-available/default*değiştirin. Bu dosyayı bir metin düzenleyicisinde açın ve içeriği şu şekilde değiştirin:
 
@@ -144,6 +144,8 @@ server {
     }
 }
 ```
+
+Uygulama, SignalR WebSockets kullanan bir Blazor Server uygulaması ise, `Connection` üst bilgisinin nasıl ayarlanacağı hakkında bilgi için bkz. <xref:host-and-deploy/blazor/server#linux-with-nginx>.
 
 `server_name` eşleştiğinde NGINX varsayılan sunucuyu kullanır. Varsayılan sunucu tanımlanmazsa, yapılandırma dosyasındaki ilk sunucu varsayılan sunucusudur. En iyi uygulama olarak, yapılandırma dosyanızda 444 durum kodunu döndüren belirli bir varsayılan sunucu ekleyin. Varsayılan bir sunucu yapılandırma örneği:
 
@@ -336,7 +338,7 @@ static char ngx_http_server_string[] = "Server: Web Server" CRLF;
 static char ngx_http_server_full_string[] = "Server: Web Server" CRLF;
 ```
 
-#### <a name="configure-options"></a>Seçenekleri yapılandırma
+#### <a name="configure-options"></a>Seçenekleri Yapılandır
 
 Sunucuyu gerekli olan ek modüllerle yapılandırın. Uygulamayı sağlamlaştırmak için [ModSecurity](https://www.modsecurity.org/)gibi bir Web uygulaması güvenlik duvarı kullanmayı düşünün.
 
@@ -381,7 +383,7 @@ Tıklama saldırılarını azaltmak için:
    sudo nano /etc/nginx/nginx.conf
    ```
 
-   `add_header X-Frame-Options "SAMEORIGIN";` satırını ekleyin.
+   Satırı `add_header X-Frame-Options "SAMEORIGIN";`ekleyin.
 1. Dosyayı kaydedin.
 1. NGINX 'i yeniden başlatın.
 

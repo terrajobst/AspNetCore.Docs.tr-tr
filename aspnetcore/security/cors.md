@@ -4,14 +4,14 @@ author: rick-anderson
 description: ASP.NET Core uygulamasında çapraz kaynak isteklerini izin vermek veya reddetmek için CORS 'nin nasıl standart olduğunu öğrenin.
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/13/2019
+ms.date: 01/23/2020
 uid: security/cors
-ms.openlocfilehash: 3a51d365626c858ad48298a1108e37eba9050fe7
-ms.sourcegitcommit: 35a86ce48041caaf6396b1e88b0472578ba24483
+ms.openlocfilehash: 57098be73164c71d1b0d1fe2f3aee7ec41a32346
+ms.sourcegitcommit: eca76bd065eb94386165a0269f1e95092f23fa58
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72391301"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76727318"
 ---
 # <a name="enable-cross-origin-requests-cors-in-aspnet-core"></a>ASP.NET Core 'de çıkış noktaları arası Istekleri (CORS) etkinleştirme
 
@@ -502,6 +502,11 @@ CORS özellikli uç noktalar [Fiddler](https://www.telerik.com/fiddler) veya [Po
 * CORS ara yazılımı için isteği işleme gereksinimi yoktur.
 * CORS üstbilgileri yanıtta döndürülmedi.
 
+## <a name="cors-in-iis"></a>IIS 'de CORS
+
+IIS 'ye dağıtım yaparken, sunucu anonim erişime izin verecek şekilde yapılandırılmamışsa CORS, Windows kimlik doğrulamasından önce çalıştırılmalıdır. Bu senaryoyu desteklemek için, [IIS CORS modülünün](https://www.iis.net/downloads/microsoft/iis-cors-module) uygulama için yüklenmiş ve yapılandırılmış olması gerekir.
+
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [Çıkış noktaları arası kaynak paylaşımı (CORS)](https://developer.mozilla.org/docs/Web/HTTP/CORS)
+* [IIS CORS modülünü kullanmaya başlama](https://blogs.iis.net/iisteam/getting-started-with-the-iis-cors-module)
