@@ -3,15 +3,15 @@ title: ASP.NET Core Sınıf Kitaplığı'nda yeniden kullanılabilir Razor UI
 author: Rick-Anderson
 description: Yeniden kullanılabilir Razor kısmi görünümler, ASP.NET Core sınıf kitaplığında kullanarak kullanıcı Arabirimi oluşturma açıklanır.
 ms.author: riande
-ms.date: 10/26/2019
+ms.date: 01/25/2020
 ms.custom: mvc, seodec18
 uid: razor-pages/ui-class
-ms.openlocfilehash: b5235f4e31f6edd21fb410824fb215ab2d4a41b6
-ms.sourcegitcommit: eca76bd065eb94386165a0269f1e95092f23fa58
+ms.openlocfilehash: 420cc54701394673e2b442b1fdf999e421820fd5
+ms.sourcegitcommit: b5ceb0a46d0254cc3425578116e2290142eec0f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76727295"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76809126"
 ---
 # <a name="create-reusable-ui-using-the-razor-class-library-project-in-aspnet-core"></a>ASP.NET Core 'de Razor Sınıf Kitaplığı projesini kullanarak yeniden kullanılabilir kullanıcı arabirimi oluşturma
 
@@ -86,7 +86,7 @@ Varsayalım *RazorUIClassLib/sayfaları/paylaşılan* iki kısmi dosyaları içe
 
 ## <a name="create-an-rcl-with-static-assets"></a>Statik varlıklar içeren bir RCL oluşturma
 
-RCL, RCL 'nin tüketen uygulaması tarafından başvurulabilen, yardımcı statik varlıklar gerektirebilir. ASP.NET Core, tüketen bir uygulama tarafından kullanılabilen statik varlıkları içeren RCLs oluşturulmasına izin verir.
+RCL, RCL 'nin RCL veya tüketen uygulaması tarafından başvurulabilen, yardımcı statik varlıklar gerektirebilir. ASP.NET Core, tüketen bir uygulama tarafından kullanılabilen statik varlıkları içeren RCLs oluşturulmasına izin verir.
 
 Yardımcı varlıkları RCL 'nin bir parçası olarak dahil etmek için, sınıf kitaplığında bir *Wwwroot* klasörü oluşturun ve gerekli dosyaları bu klasöre ekleyin.
 
@@ -127,7 +127,7 @@ TypeScript dosyalarını RCL 'ye eklemek için:
 
 ### <a name="consume-content-from-a-referenced-rcl"></a>Başvurulan bir RCL 'den içerik tüketme
 
-RCL 'nin *Wwwroot* klasörüne eklenen dosyalar, `_content/{LIBRARY NAME}/`önek altında tüketen uygulamaya sunulur. Örneğin, *Razor. Class. lib* adlı bir kitaplık `_content/Razor.Class.Lib/`statik içerik yolu ile sonuçlanır. Bir NuGet paketi üretilirken ve derleme adı paket KIMLIĞIYLE aynı değilse, `{LIBRARY NAME}`için paket KIMLIĞINI kullanın.
+RCL 'nin *Wwwroot* klasörüne eklenen dosyalar, ön ek `_content/{LIBRARY NAME}/`RCL veya tüketen uygulamaya sunulur. Örneğin, *Razor. Class. lib* adlı bir kitaplık `_content/Razor.Class.Lib/`statik içerik yolu ile sonuçlanır. Bir NuGet paketi üretilirken ve derleme adı paket KIMLIĞIYLE aynı değilse, `{LIBRARY NAME}`için paket KIMLIĞINI kullanın.
 
 Tüketen uygulama, kitaplık tarafından `<script>`, `<style>`, `<img>`ve diğer HTML etiketleriyle sunulan statik varlıklara başvurur. Tüketim uygulaması `Startup.Configure`içinde [statik dosya desteğinin](xref:fundamentals/static-files) etkinleştirilmiş olması gerekir:
 

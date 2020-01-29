@@ -1,33 +1,33 @@
 ---
-title: Dağıtılmış önbellek etiketi Yardımcısı ASP.NET core'da
+title: ASP.NET Core dağıtılmış önbellek etiketi Yardımcısı
 author: pkellner
-description: Dağıtılmış önbellek etiketi Yardımcısı'nı kullanmayı öğrenin.
+description: Dağıtılmış önbellek etiketi yardımcısını nasıl kullanacağınızı öğrenin.
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/10/2018
+ms.date: 01/24/2020
 uid: mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper
-ms.openlocfilehash: 4e4d383bac67c73bad8b0a31b9ceb9452251761b
-ms.sourcegitcommit: 7a40c56bf6a6aaa63a7ee83a2cac9b3a1d77555e
+ms.openlocfilehash: e5100d7244600358186b653073990985f48434a7
+ms.sourcegitcommit: b5ceb0a46d0254cc3425578116e2290142eec0f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67856194"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76809061"
 ---
-# <a name="distributed-cache-tag-helper-in-aspnet-core"></a>Dağıtılmış önbellek etiketi Yardımcısı ASP.NET core'da
+# <a name="distributed-cache-tag-helper-in-aspnet-core"></a>ASP.NET Core dağıtılmış önbellek etiketi Yardımcısı
 
-Tarafından [Peter Kellner](https://peterkellner.net) ve [Luke Latham](https://github.com/guardrex)
+By [Peter Kellner](https://peterkellner.net) ve [Luke Latham](https://github.com/guardrex)
 
-Dağıtılmış önbellek etiketi Yardımcısı, dağıtılmış önbellek kaynağına içeriği önbelleğe alarak ASP.NET Core uygulamanızı performansını önemli ölçüde artırmak olanağı sağlar.
+Dağıtılmış önbellek etiketi Yardımcısı, içeriğini dağıtılmış bir önbellek kaynağına önbelleğe alarak ASP.NET Core uygulamanızın performansını önemli ölçüde iyileştirebilme olanağı sağlar.
 
-Etiket Yardımcıları genel bakış için bkz. <xref:mvc/views/tag-helpers/intro>.
+Etiket Yardımcıları hakkında genel bilgi için bkz. <xref:mvc/views/tag-helpers/intro>.
 
-Dağıtılmış önbellek etiketi Yardımcısı, önbellek etiketi Yardımcısı olarak aynı temel sınıfından devralır. Tüm [önbellek etiketi Yardımcısı](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper) öznitelikleri dağıtılmış etiketi Yardımcısı için kullanılabilir.
+Dağıtılmış önbellek etiketi Yardımcısı, önbellek etiketi Yardımcısı ile aynı temel sınıftan devralınır. Tüm [önbellek etiketi Yardımcısı](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper) öznitelikleri, dağıtılmış etiket Yardımcısı tarafından kullanılabilir.
 
-Dağıtılmış önbellek etiketi Yardımcısı kullanan [Oluşturucu ekleme](xref:fundamentals/dependency-injection#constructor-injection-behavior). <xref:Microsoft.Extensions.Caching.Distributed.IDistributedCache> Arabirimi, dağıtılmış önbellek etiketi Yardımcısı'nın oluşturucuya geçirilir. Hiçbir somut uygulaması varsa `IDistributedCache` oluşturulur `Startup.ConfigureServices` (*Startup.cs*), dağıtılmış önbellek etiketi Yardımcısı olarak önbelleğe alınmış verileri depolamak için aynı bellek içi sağlayıcısı kullanan [önbellek etiketi Yardımcısı](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper).
+Dağıtılmış önbellek etiketi Yardımcısı, [Oluşturucu Ekleme](xref:fundamentals/dependency-injection#constructor-injection-behavior)işlemini kullanır. <xref:Microsoft.Extensions.Caching.Distributed.IDistributedCache> arabirimi, dağıtılmış önbellek etiketi Yardımcısı 'nın oluşturucusuna geçirilir. `Startup.ConfigureServices` (*Startup.cs*) içinde `IDistributedCache` somut bir uygulama oluşturulmadıysa, dağıtılmış önbellek etiketi Yardımcısı önbelleğe alınmış verileri [önbellek etiketi Yardımcısı](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper)olarak depolamak için aynı bellek içi sağlayıcıyı kullanır.
 
 ## <a name="distributed-cache-tag-helper-attributes"></a>Dağıtılmış önbellek etiketi Yardımcısı öznitelikleri
 
-### <a name="attributes-shared-with-the-cache-tag-helper"></a>Önbellek etiketi Yardımcısı ile paylaşılan öznitelikleri
+### <a name="attributes-shared-with-the-cache-tag-helper"></a>Önbellek etiketi Yardımcısı ile paylaşılan öznitelikler
 
 * `enabled`
 * `expires-on`
@@ -40,15 +40,15 @@ Dağıtılmış önbellek etiketi Yardımcısı kullanan [Oluşturucu ekleme](xr
 * `vary-by-user`
 * `vary-by priority`
 
-Önbellek etiketi Yardımcısı aynı sınıfta dağıtılmış önbellek etiketi Yardımcısı devralır. Bu öznitelikler açıklaması için bkz. [önbellek etiketi Yardımcısı](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper).
+Dağıtılmış önbellek etiketi Yardımcısı, önbellek etiketi Yardımcısı ile aynı sınıftan devralınır. Bu özniteliklerin açıklamaları için [önbellek etiketi Yardımcısı](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper)' na bakın.
 
-### <a name="name"></a>name
+### <a name="name"></a>{1&gt;name&lt;1}
 
 | Öznitelik türü | Örnek                               |
 | -------------- | ------------------------------------- |
 | Dize         | `my-distributed-cache-unique-key-101` |
 
-`name` gerekli değildir. `name` Özniteliği, her depolanan önbellek örneği için bir anahtar olarak kullanılır. Önbellek etiketi Razor sayfası adı ve Razor sayfası konuma göre her bir örneği için bir önbellek anahtarı atayan Yardımcısı, dağıtılmış önbellek etiketi Yardımcısı yalnızca anahtarıyla özniteliğini tabanları `name`.
+`name` gereklidir. `name` özniteliği, depolanan her önbellek örneği için bir anahtar olarak kullanılır. Razor sayfasındaki Razor sayfası adı ve konumuna göre her örneğe bir önbellek anahtarı atayan önbellek etiketi Yardımcısı 'nın aksine, dağıtılmış önbellek etiketi Yardımcısı yalnızca anahtarını öznitelik `name`temel alır.
 
 Örnek:
 
@@ -58,11 +58,11 @@ Dağıtılmış önbellek etiketi Yardımcısı kullanan [Oluşturucu ekleme](xr
 </distributed-cache>
 ```
 
-## <a name="distributed-cache-tag-helper-idistributedcache-implementations"></a>Dağıtılmış önbellek etiketi Yardımcısı IDistributedCache uygulamaları
+## <a name="distributed-cache-tag-helper-idistributedcache-implementations"></a>Dağıtılmış önbellek etiketi Yardımcısı ıdistributedönbellek uygulamaları
 
-İki uygulamaları vardır <xref:Microsoft.Extensions.Caching.Distributed.IDistributedCache> ASP.NET Core için yerleşik olarak bulunur. Bir SQL Sunucusu'nu temel alır ve diğer Redis dayanır. Bu uygulamalar ayrıntıları bulunabilir <xref:performance/caching/distributed>. Bir örneği her iki uygulamaları içeren `IDistributedCache` içinde `Startup`.
+ASP.NET Core için yerleşik <xref:Microsoft.Extensions.Caching.Distributed.IDistributedCache> iki uygulaması vardır. Biri SQL Server tabanlıdır ve diğeri redin tabanlıdır. [NCache](http://www.alachisoft.com/ncache/aspnet-core-idistributedcache-ncache.html)gibi üçüncü taraf uygulamalar da mevcuttur. Bu uygulamaların ayrıntıları <xref:performance/caching/distributed>' de bulunabilir. Her iki uygulama da `Startup`bir `IDistributedCache` örneğini ayarlamayı içerir.
 
-Tüm özel uygulanışı kullanmaya özellikle ilişkili hiçbir etiket öznitelik `IDistributedCache`.
+`IDistributedCache`belirli bir uygulamasını kullanmayla özellikle ilişkili etiket özniteliği yok.
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 

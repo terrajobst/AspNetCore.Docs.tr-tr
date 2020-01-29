@@ -6,12 +6,12 @@ description: ASP.NET Core link etiketi yardımcı özniteliklerini ve her bir ö
 ms.custom: mvc
 ms.date: 09/24/2019
 uid: mvc/views/tag-helpers/builtin-th/link-tag-helper
-ms.openlocfilehash: e1e2e58b4ab9087e1f9de5b5c03b587feb88f1b9
-ms.sourcegitcommit: fae6f0e253f9d62d8f39de5884d2ba2b4b2a6050
+ms.openlocfilehash: d7514433bee8a138cd7d75bfd15c9798d4fd31a3
+ms.sourcegitcommit: b5ceb0a46d0254cc3425578116e2290142eec0f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71256521"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76809113"
 ---
 # <a name="link-tag-helper-in-aspnet-core"></a>ASP.NET Core etiket Yardımcısı bağlantı
 
@@ -23,7 +23,7 @@ Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 Bağlantı etiketi Yardımcısı, CSS dosyası için CDN ve CDN kullanılabilir olmadığında geri dönüş belirtmenize olanak tanır. Bağlantı etiketi Yardımcısı, CDN 'nin performans avantajlarından yararlanarak yerel barındırma sağlamlığı sağlar.
 
-Aşağıdaki Razor biçimlendirmesinde, ASP.NET Core Web `head` uygulaması şablonuyla oluşturulan bir düzen dosyasının öğesi gösterilmektedir:
+Aşağıdaki Razor biçimlendirmesinde, ASP.NET Core Web uygulaması şablonuyla oluşturulan bir düzen dosyasının `head` öğesi gösterilmektedir:
 
 [!code-html[](link-tag-helper/sample/_Layout.cshtml?name=snippet)]
 
@@ -31,13 +31,13 @@ Aşağıdaki kod, önceki koddan (geliştirme olmayan bir ortamda) HTML olarak i
 
 [!code-csharp[](link-tag-helper/sample/HtmlPage1.html)]
 
-Önceki kodda, bağlantı etiketi Yardımcısı `<meta name="x-stylesheet-fallback-test" content="" class="sr-only" />` öğesi ve istenen *Bootstrap. min. css* dosyasının CDN üzerinde kullanılabilir olduğunu doğrulamak için kullanılan aşağıdaki JavaScript 'i oluşturdu. Bu durumda, CSS dosyası kullanılabilir olduğundan, etiket Yardımcısı CDN CSS dosyası ile `<link />` öğeyi üretti.
+Yukarıdaki kodda, bağlantı etiketi Yardımcısı `<meta name="x-stylesheet-fallback-test" content="" class="sr-only" />` öğesini ve istenen *Bootstrap. min. css* dosyasını doğrulamak için kullanılan aşağıdaki JavaScript 'ı, CDN üzerinde kullanılabilir. Bu durumda, CSS dosyası kullanılabilir olduğundan, etiket Yardımcısı CDN CSS dosyası ile `<link />` öğeyi üretti.
 
 ## <a name="commonly-used-link-tag-helper-attributes"></a>Yaygın olarak kullanılan bağlantı etiketi Yardımcısı öznitelikleri
 
 Tüm bağlantı etiketi Yardımcısı öznitelikleri, özellikleri ve yöntemleri için [bağlantı etiketi Yardımcısı](xref:Microsoft.AspNetCore.Mvc.TagHelpers.LinkTagHelper) ' na bakın.
 
-### <a name="href"></a>değerini
+### <a name="href"></a>{1&gt;href&lt;1}
 
 Bağlı kaynağın tercih edilen adresi. Adres, her durumda oluşturulan HTML 'ye düşünce olarak iletilir.
 
@@ -56,10 +56,6 @@ Geri dönüş testi için kullanılacak CSS özellik adı. Daha fazla bilgi içi
 ### <a name="asp-fallback-test-value"></a>ASP-geri dönüş-test-değeri
 
 Geri dönüş testi için kullanılacak CSS özelliği değeri. Daha fazla bilgi için bkz. <xref:Microsoft.AspNetCore.Mvc.TagHelpers.LinkTagHelper.FallbackTestValue>.
-
-### <a name="asp-fallback-test-value"></a>ASP-geri dönüş-test-değeri
-
-Geri dönüş testi için kullanılacak CSS özelliği değeri. Daha fazla bilgi için bkz.<xref:Microsoft.AspNetCore.Mvc.TagHelpers.LinkTagHelper.FallbackTestValue>
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 

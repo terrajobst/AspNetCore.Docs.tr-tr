@@ -5,17 +5,17 @@ description: Blazor işlenmemiş özel durumları nasıl yönettiğini ve hatala
 monikerRange: '>= aspnetcore-3.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/18/2019
+ms.date: 01/22/2020
 no-loc:
 - Blazor
 - SignalR
 uid: blazor/handle-errors
-ms.openlocfilehash: fe4cc13b1efb8c70c9632f032626aa938fb65ea3
-ms.sourcegitcommit: 9ee99300a48c810ca6fd4f7700cd95c3ccb85972
+ms.openlocfilehash: 7b5602d5ae5e58d1678762fe1cd2adec1f31c969
+ms.sourcegitcommit: b5ceb0a46d0254cc3425578116e2290142eec0f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76159956"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76809009"
 ---
 # <a name="handle-errors-in-aspnet-core-opno-locblazor-apps"></a>ASP.NET Core Blazor uygulamalarda hataları işleme
 
@@ -112,7 +112,7 @@ Hangi olayların günlüğe kaydedileceğini ve günlüğe kaydedilen olayların
 Blazor bir bileşenin örneğini oluşturduğunda:
 
 * Bileşenin Oluşturucusu çağrılır.
-* [`@inject`](xref:blazor/dependency-injection#request-a-service-in-a-component) yönergesi veya [`[Inject]`](xref:blazor/dependency-injection#request-a-service-in-a-component) özniteliği aracılığıyla bileşen oluşturucusuna sağlanan Singleton olmayan her türlü hizmeti Oluşturucu. 
+* [`@inject`](xref:blazor/dependency-injection#request-a-service-in-a-component) yönergesi veya [`[Inject]`](xref:blazor/dependency-injection#request-a-service-in-a-component) özniteliği aracılığıyla bileşen oluşturucusuna sağlanan Singleton olmayan her türlü hizmeti Oluşturucu.
 
 Herhangi bir `[Inject]` özelliği için yürütülen bir Oluşturucu veya ayarlayıcı işlenmeyen bir özel durum oluşturduğunda devre dışı olur. Framework bileşeni örneklemediğinden özel durum önemlidir. Oluşturucu mantığı özel durumlar oluşturmayabilir, uygulama hata işleme ve günlüğe kaydetme ile [try-catch](/dotnet/csharp/language-reference/keywords/try-catch) ifadesini kullanarak özel durumları yakalemelidir.
 
@@ -165,7 +165,7 @@ Kullanıcı kodu yakalanmazsa ve özel durumu işlemezse çerçeve özel durumu 
 
 ### <a name="component-disposal"></a>Bileşen elden çıkarma
 
-Örneğin, Kullanıcı başka bir sayfaya gezindiği için, bir bileşen kullanıcı arabiriminden kaldırılabilir. <xref:System.IDisposable?displayProperty=fullName> uygulayan bir bileşen kullanıcı arabiriminden kaldırıldığında, çerçeve bileşenin <xref:System.IDisposable.Dispose*> yöntemini çağırır. 
+Örneğin, Kullanıcı başka bir sayfaya gezindiği için, bir bileşen kullanıcı arabiriminden kaldırılabilir. <xref:System.IDisposable?displayProperty=fullName> uygulayan bir bileşen kullanıcı arabiriminden kaldırıldığında, çerçeve bileşenin <xref:System.IDisposable.Dispose*> yöntemini çağırır.
 
 Bileşenin `Dispose` yöntemi işlenmeyen bir özel durum oluşturursa, bu özel durum devre dışı olarak önemli olur. Çıkarma mantığı özel durumlar oluşturmayabilir, uygulama hata işleme ve günlüğe kaydetme ile [try-catch](/dotnet/csharp/language-reference/keywords/try-catch) ifadesini kullanarak özel durumları yakalemelidir.
 
@@ -192,16 +192,49 @@ Daha fazla bilgi için bkz. <xref:blazor/javascript-interop>.
 
 ### <a name="circuit-handlers"></a>Devre işleyicileri
 
-Blazor, bir kullanıcının devresi durumu değiştiğinde bildirimleri alan bir *devre işleyicisi*tanımlamasına olanak tanır. Aşağıdaki durumlar kullanılır:
+Blazor sunucusu, kodun bir Kullanıcı devresi durumunda değişiklikler üzerinde kod çalıştırmaya izin veren bir *devhandler*tanımlamasına olanak tanır. Devre işleyicisi, `CircuitHandler` türeterek ve sınıfı uygulamanın hizmet kapsayıcısına kaydettirilerek uygulanır. Bir devre işleyicinin aşağıdaki örneği açık SignalR bağlantılarını izler:
 
-* `initialized`
-* `connected`
-* `disconnected`
-* `disposed`
+```csharp
+using System.Collections.Generic;
+using System.Threading;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Components.Server.Circuits;
 
-Bildirimler, `CircuitHandler` soyut temel sınıfından devralan bir DI hizmeti kaydedilerek yönetilir.
+public class TrackingCircuitHandler : CircuitHandler
+{
+    private HashSet<Circuit> _circuits = new HashSet<Circuit>();
 
-Özel bir devre işleyicisindeki Yöntemler işlenmeyen bir özel durum oluşturuyorsam, özel durum devre için önemli olur. Bir işleyicinin kodundaki veya yöntemleri çağrılan özel durumlara tolerans sağlamak için kodu bir veya daha fazla [try-catch](/dotnet/csharp/language-reference/keywords/try-catch) deyiminde hata işleme ve günlüğe kaydetme ile sarın.
+    public override Task OnConnectionUpAsync(Circuit circuit, 
+        CancellationToken cancellationToken)
+    {
+        _circuits.Add(circuit);
+
+        return Task.CompletedTask;
+    }
+
+    public override Task OnConnectionDownAsync(Circuit circuit, 
+        CancellationToken cancellationToken)
+    {
+        _circuits.Remove(circuit);
+
+        return Task.CompletedTask;
+    }
+
+    public int ConnectedCircuits => _circuits.Count;
+}
+```
+
+Devre işleyicileri DI kullanılarak kaydedilir. Kapsamlı örnekler, bir devrenin örneği başına oluşturulur. Yukarıdaki örnekte `TrackingCircuitHandler` kullanarak, tüm devrelerin durumu izlenmelidir çünkü bir tek hizmet oluşturulur:
+
+```csharp
+public void ConfigureServices(IServiceCollection services)
+{
+    ...
+    services.AddSingleton<CircuitHandler, TrackingCircuitHandler>();
+}
+```
+
+Özel bir devre işleyicisindeki Yöntemler işlenmeyen bir özel durum oluşturuyorsam, özel durum Blazor sunucusu devresi için önemli olur. Bir işleyicinin kodundaki veya yöntemleri çağrılan özel durumlara tolerans sağlamak için kodu bir veya daha fazla [try-catch](/dotnet/csharp/language-reference/keywords/try-catch) deyiminde hata işleme ve günlüğe kaydetme ile sarın.
 
 ### <a name="circuit-disposal"></a>Devre elden çıkarma
 
