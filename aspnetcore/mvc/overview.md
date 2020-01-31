@@ -3,14 +3,14 @@ title: ASP.NET Core MVC’ye Genel Bakış
 author: ardalis
 description: ASP.NET Core MVC 'nin, Model-View-Controller tasarım modelini kullanarak Web uygulamaları ve API 'Ler oluşturmak için zengin bir çatı olduğunu öğrenin.
 ms.author: riande
-ms.date: 11/07/2019
+ms.date: 01/28/2020
 uid: mvc/overview
-ms.openlocfilehash: 4f4ea3da8563cabaaa6183c6835c2f1eb8c387b4
-ms.sourcegitcommit: 67116718dc33a7a01696d41af38590fdbb58e014
+ms.openlocfilehash: a147c2aa01f1440f8ac59f73eb7be734193f802a
+ms.sourcegitcommit: fe41cff0b99f3920b727286944e5b652ca301640
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73799489"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76869977"
 ---
 # <a name="overview-of-aspnet-core-mvc"></a>ASP.NET Core MVC’ye Genel Bakış
 
@@ -41,7 +41,7 @@ Görünümler, kullanıcı arabiriminden içerik sunmadan sorumludur. .NET kodun
 
 ### <a name="controller-responsibilities"></a>Denetleyici sorumlulukları
 
-Denetleyiciler, kullanıcı etkileşimini işleyen, modeliyle çalışan ve sonunda işlenecek bir görünüm olan bileşenleridir. MVC uygulamasında, görünüm yalnızca bilgileri görüntüler; denetleyici, Kullanıcı girişini ve etkileşimini işler ve yanıtlar. MVC modelinde, denetleyici ilk giriş noktasıdır ve hangi model türlerinin birlikte çalışacağını ve hangi görünümün işleneceğini seçmekten sorumludur (Bu nedenle adı, uygulamanın belirli bir istek için nasıl yanıt verdiğini denetler).
+Denetleyiciler, kullanıcı etkileşimini işleyen, modeliyle çalışan ve sonunda işlenecek bir görünüm olan bileşenleridir. Bir MVC uygulamasında, görünüm yalnızca bilgileri görüntüler; denetleyici ise kullanıcı girişini ve etkileşimini işler ve bunlara yanıt verir. MVC modelinde, denetleyici ilk giriş noktasıdır ve hangi model türlerinin birlikte çalışacağını ve hangi görünümün işleneceğini seçmekten sorumludur (Bu nedenle adı, uygulamanın belirli bir istek için nasıl yanıt verdiğini denetler).
 
 > [!NOTE]
 > Denetleyiciler çok fazla sorumluluk tarafından aşırı karmaşık olmamalıdır. Denetleyici mantığının aşırı karmaşık hale gelmesini sağlamak için, denetleyiciden ve etki alanı modeline kadar iş mantığı gönderin.
@@ -258,4 +258,5 @@ Daha fazla bilgi için bkz. <xref:mvc/compatibility-version>.
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [ASP.NET Core &ndash; MVC Için Mysınanan. AspNetCore. Mvc-Floent test Kitaplığı](https://github.com/ivaylokenov/MyTested.AspNetCore.Mvc) , MVC ve Web API uygulamalarını test etmek için akıcı bir arabirim sağlar. (*Microsoft tarafından korunmaz veya desteklenmez.* )
+* [Razor bileşenlerini Razor Pages ve MVC uygulamalarıyla tümleştirin](xref:blazor/hosting-models#integrate-razor-components-into-razor-pages-and-mvc-apps)
 

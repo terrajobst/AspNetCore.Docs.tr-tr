@@ -5,34 +5,34 @@ description: Seçtiğiniz araç ile Blazor bir uygulama oluşturarak Blazor kull
 monikerRange: '>= aspnetcore-3.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/18/2019
+ms.date: 01/28/2019
 no-loc:
 - Blazor
 - SignalR
 uid: blazor/get-started
-ms.openlocfilehash: 642881b5400a70a99f6e7e262d2a2f1038389ce7
-ms.sourcegitcommit: eca76bd065eb94386165a0269f1e95092f23fa58
+ms.openlocfilehash: bd33d874b3d6122f2ab820e9b147b0e62ba03a58
+ms.sourcegitcommit: fe41cff0b99f3920b727286944e5b652ca301640
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76726849"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76869586"
 ---
-# <a name="get-started-with-aspnet-core-opno-locblazor"></a>ASP.NET Core Blazor kullanmaya başlama
+# <a name="get-started-with-aspnet-core-blazor"></a>ASP.NET Core Blazor kullanmaya başlama
 
 [Daniel Roth](https://github.com/danroth27) ve [Luke Latham](https://github.com/guardrex) tarafından
 
 [!INCLUDE[](~/includes/blazorwasm-preview-notice.md)]
 
-Blazorkullanmaya başlayın:
+Blazor kullanmaya başlama:
 
 1. [.NET Core 3,1 SDK 'sını](https://dotnet.microsoft.com/download/dotnet-core/3.1)yükler.
 
-1. İsteğe bağlı olarak [Blazor WebAssembly](xref:blazor/hosting-models#blazor-webassembly) şablonunu yükler:
+1. [Blazor WebAssembly](xref:blazor/hosting-models#blazor-webassembly) şablonunu isteğe bağlı olarak yükler:
    * [.NET Core 3,1 veya üzeri (Önizleme) SDK 'sını](https://dotnet.microsoft.com/download/dotnet-core/3.1)yükler.
-   * Komut kabuğu 'nda aşağıdaki komutu çalıştırın. [Microsoft. AspNetCore.Blazor. Şablon](https://www.nuget.org/packages/Microsoft.AspNetCore.Blazor.Templates/) paketinin önizleme sürümü varsa Blazor WebAssembly önizleme aşamasındadır.
+   * Komut kabuğu 'nda aşağıdaki komutu çalıştırın. [Microsoft. AspNetCore. Blazor. Templates](https://www.nuget.org/packages/Microsoft.AspNetCore.Blazor.Templates/) paketinin önizleme sürümü vardır, ancak Blazor WebAssembly önizlemededir.
 
    ```dotnetcli
-   dotnet new -i Microsoft.AspNetCore.Blazor.Templates::3.1.0-preview4.19579.2
+   dotnet new -i Microsoft.AspNetCore.Blazor.Templates::3.2.0-preview1.20073.1
    ```
 
 1. Araç seçiminiz için yönergeleri izleyin:
@@ -43,16 +43,16 @@ Blazorkullanmaya başlayın:
 
    2 \. Yeni bir proje oluşturun.
 
-   3 \. **Blazor uygulama**' yı seçin. **İleri**'yi seçin.
+   3 \. **Blazor uygulamasını**seçin. **İleri**'yi seçin.
 
    4 \. **Proje adı** alanında bir proje adı girin veya varsayılan proje adını kabul edin. **Konum** girişinin doğru olduğunu onaylayın veya proje için bir konum belirtin. Seçin **oluşturma**.
 
-   5 \. Blazor Weelsembly deneyimi için, **Webassembly uygulama şablonunuBlazor** seçin. Blazor sunucusu deneyimi için **Blazor sunucusu uygulama** şablonunu seçin. Seçin **oluşturma**. Blazor, *Blazor sunucusu* ve *Blazor webassembly*'yi barındıran iki hakkında bilgi için bkz. <xref:blazor/hosting-models>.
+   5 \. Blazor WebAssembly deneyimi için **Blazor Webassembly uygulama** şablonunu seçin. Blazor sunucu deneyimi için **Blazor Server uygulama** şablonunu seçin. Seçin **oluşturma**. İki Blazor barındırma modeli, *Blazor Server* ve *Blazor webassembly*hakkında daha fazla bilgi için bkz. <xref:blazor/hosting-models>.
 
    6 \. Uygulamayı çalıştırmak için **Ctrl**+**F5** tuşuna basın.
 
    > [!NOTE]
-   > Blazor Visual Studio uzantısını ASP.NET Core Blazor önceki bir önizleme sürümü için yüklediyseniz (Preview 6 veya daha önceki bir sürümü), uzantıyı kaldırabilirsiniz. Blazor şablonlarının bir komut kabuğu 'na yüklenmesi artık Visual Studio 'daki şablonları yüzeye eklemek yeterlidir.
+   > ASP.NET Core Blazor 'nin önceki bir önizleme sürümü için Blazor Visual Studio uzantısı 'nı yüklediyseniz (Preview 6 veya daha önceki bir sürümü), uzantıyı kaldırabilirsiniz. Blazor şablonlarının bir komut kabuğu 'na yüklenmesi artık Visual Studio 'daki şablonları yüzey için yeterlidir.
 
    # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
@@ -60,25 +60,25 @@ Blazorkullanmaya başlayın:
 
    2 \. En son [ C# Visual Studio Code uzantısını](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)yükler.
 
-   3 \. Blazor Weelsembly deneyimi için, komut kabuğu 'nda aşağıdaki komutu yürütün:
+   3 \. Bir Blazor WebAssembly deneyimi için komut kabuğu 'nda aşağıdaki komutu yürütün:
 
       ```dotnetcli
       dotnet new blazorwasm -o WebApplication1
       ```
 
-      Blazor sunucusu deneyimi için, komut kabuğu 'nda aşağıdaki komutu yürütün:
+      Bir Blazor sunucu deneyimi için komut kabuğu 'nda aşağıdaki komutu yürütün:
 
       ```dotnetcli
       dotnet new blazorserver -o WebApplication1
       ```
 
-      Blazor, *Blazor sunucusu* ve *Blazor webassembly*'yi barındıran iki hakkında bilgi için bkz. <xref:blazor/hosting-models>.
+      İki Blazor barındırma modeli, *Blazor Server* ve *Blazor webassembly*hakkında daha fazla bilgi için bkz. <xref:blazor/hosting-models>.
 
    4 \. Visual Studio Code 'de *WebApplication1* klasörünü açın.
 
    5 \. Bir Blazor Server projesi için IDE, projeyi derlemek ve hatalarını ayıklamak için varlık eklemenizi ister. **Evet**' i seçin.
 
-   6 \. Blazor sunucusu uygulaması kullanıyorsanız, Visual Studio Code hata ayıklayıcıyı kullanarak uygulamayı çalıştırın. Blazor WebAssembly uygulaması kullanıyorsanız, uygulamanın proje klasöründen `dotnet run` yürütün.
+   6 \. Bir Blazor Server uygulaması kullanıyorsanız, Visual Studio Code hata ayıklayıcıyı kullanarak uygulamayı çalıştırın. Blazor WebAssembly uygulaması kullanılıyorsa, uygulamanın proje klasöründen `dotnet run` yürütün.
 
    7 \. Bir tarayıcıda `https://localhost:5001`' a gidin.
 
@@ -90,7 +90,7 @@ Blazorkullanmaya başlayın:
 
    3 \. Kenar çubuğunda **.NET Core** > **uygulaması**' nı seçin.
 
-   4 \. **Blazor sunucusu uygulama** şablonunu seçin. Şu anda yalnızca Blazor sunucusu şablonu Mac için Visual Studio kullanılabilir. Blazor Weelsembly deneyimi için **.NET Core CLI** sekmesindeki yönergeleri izleyin. Blazor sunucusu şablonunu seçtikten sonra **İleri**' yi seçin. Blazor, *Blazor sunucusu* ve *Blazor webassembly*'yi barındıran iki hakkında bilgi için bkz. <xref:blazor/hosting-models>.
+   4 \. **Blazor Server uygulama** şablonunu seçin. Şu anda yalnızca Blazor Server şablonu Mac için Visual Studio kullanılabilir. Blazor WebAssembly deneyimi için **.NET Core CLI** sekmesindeki yönergeleri izleyin. Blazor sunucu şablonunu seçtikten sonra **İleri**' yi seçin. İki Blazor barındırma modeli, *Blazor Server* ve *Blazor webassembly*hakkında daha fazla bilgi için bkz. <xref:blazor/hosting-models>.
 
    <!-- For a Blazor WebAssembly experience, select the **Blazor WebAssembly App** template. Select **Next**. -->
 
@@ -104,7 +104,7 @@ Blazorkullanmaya başlayın:
 
    # <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli/)
 
-   Blazor Weelsembly deneyimi için, komut kabuğu 'nda aşağıdaki komutları yürütün:
+   Bir Blazor Weelsembly deneyimi için komut kabuğu 'nda aşağıdaki komutları yürütün:
 
    ```dotnetcli
    dotnet new blazorwasm -o WebApplication1
@@ -112,7 +112,7 @@ Blazorkullanmaya başlayın:
    dotnet run
    ```
 
-   Blazor sunucusu deneyimi için, komut kabuğu 'nda aşağıdaki komutları yürütün:
+   Bir Blazor sunucu deneyimi için aşağıdaki komutları bir komut kabuğunda yürütün:
 
    ```dotnetcli
    dotnet new blazorserver -o WebApplication1
@@ -120,7 +120,7 @@ Blazorkullanmaya başlayın:
    dotnet run
    ```
 
-   Blazor, *Blazor sunucusu* ve *Blazor webassembly*'yi barındıran iki hakkında bilgi için bkz. <xref:blazor/hosting-models>.
+   İki Blazor barındırma modeli, *Blazor Server* ve *Blazor webassembly*hakkında daha fazla bilgi için bkz. <xref:blazor/hosting-models>.
 
    Bir tarayıcıda `https://localhost:5001`' a gidin.
 

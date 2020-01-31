@@ -6,7 +6,7 @@ API belge değişiklikleri, [Apıdoc deposunda](https://github.com/aspnet/ApiDoc
 
 ASP.NET 4. x belge değişiklikleri [ASPNET/AspNetDocs deposunda](https://github.com/aspnet/AspNetDocs)yapılır.
 
-## <a name="microsoft-open-source-code-of-conduct"></a>Microsoft Açık Kaynak Kullanım Şartları
+## <a name="microsoft-open-source-code-of-conduct"></a>Microsoft açık kaynak kullanım kuralları
 
-Bu proje, [Microsoft Açık Kaynak Kullanım Kuralları](https://opensource.microsoft.com/codeofconduct/)’nı benimsemiştir.
-Daha fazla bilgi için [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) (Kullanım Kuralları Hakkında SSS) konusuna bakın veya sorularınızı ya da görüşlerinizi bildirmek için [opencode@microsoft.com](mailto:opencode@microsoft.com) adresinden bize ulaşın.
+Bu proje [Microsoft açık kaynak kullanım kuralları](https://opensource.microsoft.com/codeofconduct/)'nı benimsemiştir.
+Daha fazla bilgi için bkz. [kullanım KURALLARı SSS](https://opensource.microsoft.com/codeofconduct/faq/) veya ek soru veya açıklamalarla iletişim [opencode@microsoft.com](mailto:opencode@microsoft.com) .

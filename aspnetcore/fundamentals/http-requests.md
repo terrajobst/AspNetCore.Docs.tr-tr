@@ -7,12 +7,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 12/16/2019
 uid: fundamentals/http-requests
-ms.openlocfilehash: 482f8e28c23c621cecaf9ce111d89e9166ea6d85
-ms.sourcegitcommit: da2fb2d78ce70accdba903ccbfdcfffdd0112123
+ms.openlocfilehash: 9b9da82191a587be0603ee114562e9a964f05250
+ms.sourcegitcommit: fe41cff0b99f3920b727286944e5b652ca301640
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75722732"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76870404"
 ---
 # <a name="make-http-requests-using-ihttpclientfactory-in-aspnet-core"></a>ASP.NET Core 'de ıhttpclientfactory kullanarak HTTP istekleri yapın
 
@@ -98,7 +98,7 @@ Türü belirtilmiş istemci, oluşturucusunda bir `HttpClient` parametresi kabul
 
 [!code-csharp[](http-requests/samples/3.x/HttpClientFactorySample/GitHub/GitHubService.cs?name=snippet1&highlight=5)]
 
-Yukarıdaki kodda:
+Önceki kodda:
 
 * Yapılandırma, yazılan istemciye taşınır.
 * `HttpClient` nesnesi ortak bir özellik olarak sunulur.
@@ -307,7 +307,7 @@ Yukarıdaki yaklaşımlar `IHttpClientFactory` benzer bir şekilde çözdüğü 
 - `SocketsHttpHandler`, `HttpClient` örnekleri arasında bağlantıları paylaşır. Bu paylaşım, yuva azalmasına engel olur.
 - `SocketsHttpHandler`, eski DNS sorunlarından kaçınmak için bağlantıları `PooledConnectionLifetime` göre döngüler.
 
-### <a name="cookies"></a>Tanımlama bilgileri
+### <a name="cookies"></a>Özgü
 
 Havuza alınmış `HttpMessageHandler` örnekleri, `CookieContainer` nesneleri paylaşılmasına neden olur. Beklenmeyen `CookieContainer` nesne paylaşımı genellikle hatalı kodla sonuçlanır. Tanımlama bilgileri gerektiren uygulamalar için şunlardan birini göz önünde bulundurun:
 
@@ -352,6 +352,22 @@ Aşağıdaki örnekte:
 * `Main`, hizmetin `GetPage` yöntemini yürütmek için bir kapsam oluşturur ve Web sayfası içeriğinin ilk 500 karakterini konsola yazar.
 
 [!code-csharp[](http-requests/samples/3.x/HttpClientFactoryConsoleSample/Program.cs?highlight=14-15,20,26-27,59-62)]
+
+## <a name="header-propagation-middleware"></a>Üst bilgi yayma ara yazılımı
+
+Üst bilgi yayma, gelen istekten giden HTTP Istemci isteklerine HTTP üstbilgilerini yaymaya yönelik bir ASP.NET Core ara istemcindedir. Üst bilgi yaymayı kullanmak için:
+
+* [Microsoft. AspNetCore. Headeryayma](https://www.nuget.org/packages/Microsoft.AspNetCore.HeaderPropagation) paketine başvurun.
+* Ara yazılımı ve `HttpClient` `Startup`' de yapılandırın:
+
+  [!code-csharp[](http-requests/samples/3.x/Startup.cs?highlight=5-9,21&name=snippet)]
+
+* İstemci giden isteklerde yapılandırılan üst bilgileri içerir:
+
+  ```C#
+  var client = clientFactory.CreateClient("MyForwardingClient");
+  var response = client.GetAsync(...);
+  ```
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
@@ -609,7 +625,7 @@ Yukarıdaki yaklaşımlar `IHttpClientFactory` benzer bir şekilde çözdüğü 
 - `SocketsHttpHandler`, `HttpClient` örnekleri arasında bağlantıları paylaşır. Bu paylaşım, yuva azalmasına engel olur.
 - `SocketsHttpHandler`, eski DNS sorunlarından kaçınmak için bağlantıları `PooledConnectionLifetime` göre döngüler.
 
-### <a name="cookies"></a>Tanımlama bilgileri
+### <a name="cookies"></a>Özgü
 
 Havuza alınmış `HttpMessageHandler` örnekleri, `CookieContainer` nesneleri paylaşılmasına neden olur. Beklenmeyen `CookieContainer` nesne paylaşımı genellikle hatalı kodla sonuçlanır. Tanımlama bilgileri gerektiren uygulamalar için şunlardan birini göz önünde bulundurun:
 
@@ -917,7 +933,7 @@ Yukarıdaki yaklaşımlar `IHttpClientFactory` benzer bir şekilde çözdüğü 
 - `SocketsHttpHandler`, `HttpClient` örnekleri arasında bağlantıları paylaşır. Bu paylaşım, yuva azalmasına engel olur.
 - `SocketsHttpHandler`, eski DNS sorunlarından kaçınmak için bağlantıları `PooledConnectionLifetime` göre döngüler.
 
-### <a name="cookies"></a>Tanımlama bilgileri
+### <a name="cookies"></a>Özgü
 
 Havuza alınmış `HttpMessageHandler` örnekleri, `CookieContainer` nesneleri paylaşılmasına neden olur. Beklenmeyen `CookieContainer` nesne paylaşımı genellikle hatalı kodla sonuçlanır. Tanımlama bilgileri gerektiren uygulamalar için şunlardan birini göz önünde bulundurun:
 
@@ -962,6 +978,23 @@ Aşağıdaki örnekte:
 * `Main`, hizmetin `GetPage` yöntemini yürütmek için bir kapsam oluşturur ve Web sayfası içeriğinin ilk 500 karakterini konsola yazar.
 
 [!code-csharp[](http-requests/samples/2.x/HttpClientFactoryConsoleSample/Program.cs?highlight=14-15,20,26-27,59-62)]
+
+## <a name="header-propagation-middleware"></a>Üst bilgi yayma ara yazılımı
+
+Üst bilgi yayma, gelen istekten giden HTTP Istemci isteklerine HTTP üstbilgilerini yaymak için bir topluluk tarafından desteklenen bir ara yazılımlar. Üst bilgi yaymayı kullanmak için:
+
+* Topluluğun, paket [Headeryayılmasının](https://www.nuget.org/packages/HeaderPropagation)desteklediği bağlantı noktasına başvurun. ASP.NET Core 3,1 ve üzeri, [Microsoft. AspNetCore. Headeryayılmayı](https://www.nuget.org/packages/Microsoft.AspNetCore.HeaderPropagation)destekler.
+
+* Ara yazılımı ve `HttpClient` `Startup`' de yapılandırın:
+
+  [!code-csharp[](http-requests/samples/2.x/Startup21.cs?highlight=5-9,25&name=snippet)]
+
+* İstemci giden isteklerde yapılandırılan üst bilgileri içerir:
+
+  ```C#
+  var client = clientFactory.CreateClient("MyForwardingClient");
+  var response = client.GetAsync(...);
+  ```
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 

@@ -4,14 +4,14 @@ author: Rick-Anderson
 description: Nasıl ASP.NET Core Razor sayfalar kodlama sayfa odaklı senaryolar daha kolay ve MVC kullanmaktan daha üretken hale getirdiğini öğrenin.
 monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
-ms.date: 01/18/2020
+ms.date: 01/28/2020
 uid: razor-pages/index
-ms.openlocfilehash: 69c9f09aa0e3dbdbe78720c573b5e1fc63464571
-ms.sourcegitcommit: f259889044d1fc0f0c7e3882df0008157ced4915
+ms.openlocfilehash: da30908b38d553405fd3f959f09a19eff750ed17
+ms.sourcegitcommit: fe41cff0b99f3920b727286944e5b652ca301640
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76294659"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76870528"
 ---
 # <a name="introduction-to-razor-pages-in-aspnet-core"></a>ASP.NET Core Razor Pages giriş
 
@@ -149,7 +149,7 @@ Denetleyicileri ve görünümleri kullanarak ASP.NET uygulamaları hakkında bil
 Doğrulama hatalarını kontrol edin.
 
 * Hata yoksa, verileri kaydedin ve yeniden yönlendirin.
-* Hatalar varsa, doğrulama iletileriyle sayfayı yeniden görüntüleyin. Çoğu durumda, doğrulama hataları istemci üzerinde algılanır ve sunucuya hiçbir zaman gönderilmez.
+* Hatalar varsa, doğrulama iletileriyle sayfayı yeniden görüntüleyin. Çoğu durumda, istemci üzerinde doğrulama hataları algılanır ve sunucuya hiçbir zaman gönderilmez.
 
 *Pages/Create. cshtml* görünüm dosyası:
 
@@ -163,7 +163,7 @@ Sayfalardan işlenmiş HTML */Create. cshtml*:
 
 * Geçerli verilerle:
 
-  * `OnPostAsync` Handler yöntemi <xref:Microsoft.AspNetCore.Mvc.RazorPages.PageModel.RedirectToPage*> yardımcı yöntemini çağırır. `RedirectToPage`, bir <xref:Microsoft.AspNetCore.Mvc.RedirectToPageResult> örneği döndürür. `RedirectToPage`:
+  * `OnPostAsync` Handler yöntemi <xref:Microsoft.AspNetCore.Mvc.RazorPages.PageModel.RedirectToPage*> yardımcı yöntemini çağırır. `RedirectToPage`, <xref:Microsoft.AspNetCore.Mvc.RedirectToPageResult>örneğini döndürür. `RedirectToPage`:
 
     * Bir eylem sonucudur.
     * `RedirectToAction` veya `RedirectToRoute` benzerdir (denetleyiciler ve görünümlerde kullanılır).
@@ -171,7 +171,7 @@ Sayfalardan işlenmiş HTML */Create. cshtml*:
 
 * Sunucuya geçirilen doğrulama hatalarıyla birlikte:
 
-  * `OnPostAsync` Handler yöntemi <xref:Microsoft.AspNetCore.Mvc.RazorPages.PageBase.Page*> yardımcı yöntemini çağırır. `Page`, bir <xref:Microsoft.AspNetCore.Mvc.RazorPages.PageResult> örneği döndürür. `Page` döndürmek, denetleyicilerde eylemlerin `View`nasıl dönüşlerine benzer. `PageResult`, bir işleyici yöntemi için varsayılan dönüş türüdür. `void` döndüren bir işleyici yöntemi sayfayı işler.
+  * `OnPostAsync` Handler yöntemi <xref:Microsoft.AspNetCore.Mvc.RazorPages.PageBase.Page*> yardımcı yöntemini çağırır. `Page`, <xref:Microsoft.AspNetCore.Mvc.RazorPages.PageResult>örneğini döndürür. `Page` döndürmek, denetleyicilerde eylemlerin `View`nasıl dönüşlerine benzer. `PageResult`, bir işleyici yöntemi için varsayılan dönüş türüdür. `void` döndüren bir işleyici yöntemi sayfayı işler.
   * Yukarıdaki örnekte, formun hiçbir değer olmadan nakledilmesi [ModelState ile sonuçlanır. IsValid](xref:Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary.IsValid) yanlış döndürüyor. Bu örnekte, istemcide hiçbir doğrulama hatası gösterilmezler. Doğrulama hatası teslim etme bu belgenin ilerleyen bölümlerinde ele alınmıştır.
 
   [!code-cs[](index/3.0sample/RazorPagesContacts/Pages/Customers/Create.cshtml.cs?name=snippet_OnPostAsync&highlight=3-6)]
@@ -309,7 +309,7 @@ Doğrulama öznitelikleri, uygulanan model özellikleri üzerinde zorlamak için
   * İlk karakterin büyük harf olmasını gerektirir.
   * Sonraki boşlukların içindeki özel karakter ve sayılara izin verir. "PG-13" bir derecelendirme için geçerlidir, ancak bir "tarz" için başarısız olur.
 
-* `Range` özniteliği, bir değeri belirtilen bir aralık içinde kısıtlar.
+* `Range` özniteliği bir değeri belirtilen bir Aralık içinde kısıtlar.
 * `StringLength` özniteliği, bir dize özelliğinin en büyük uzunluğunu ve isteğe bağlı olarak en düşük uzunluğunu ayarlar.
 * Değer türleri (örneğin `decimal`, `int`, `float`, `DateTime`), doğal olarak gereklidir ve `[Required]` özniteliğine gerek kalmaz.
 
@@ -448,7 +448,7 @@ Sayfa adı, kök */Pages* klasöründeki, önde gelen `/` (örneğin, `/Index`) 
 
 Sayfalar için URL oluşturma göreli adları destekler. Aşağıdaki tabloda, *sayfalarda/müşteriler/Create. cshtml*'de farklı `RedirectToPage` parametreleri kullanılarak hangi dizin sayfasının seçildiği gösterilmektedir.
 
-| RedirectToPage (x)| Sayfa |
+| RedirectToPage (x)| Sayfasında |
 | ----------------- | ------------ |
 | RedirectToPage ("/Index") | *Sayfa/dizin* |
 | RedirectToPage ("./Index"); | *Sayfalar/müşteriler/Dizin* |
@@ -603,6 +603,7 @@ Razor Pages uygulamada bir özel kök dizinde olduğunu belirtmek için <xref:Mi
 * <xref:razor-pages/razor-pages-conventions>
 * <xref:test/razor-pages-tests>
 * <xref:mvc/views/partial>
+* [Razor bileşenlerini Razor Pages ve MVC uygulamalarıyla tümleştirin](xref:blazor/hosting-models#integrate-razor-components-into-razor-pages-and-mvc-apps)
 
 ::: moniker-end
 
@@ -740,17 +741,17 @@ Denetleyicileri ve görünümleri kullanarak ASP.NET uygulamaları hakkında bil
 Doğrulama hatalarını kontrol edin.
 
 * Hata yoksa, verileri kaydedin ve yeniden yönlendirin.
-* Hatalar varsa, doğrulama iletileriyle sayfayı yeniden görüntüleyin. İstemci tarafı doğrulaması geleneksel ASP.NET Core MVC uygulamalarıyla aynıdır. Çoğu durumda, doğrulama hataları istemci üzerinde algılanır ve sunucuya hiçbir zaman gönderilmez.
+* Hatalar varsa, doğrulama iletileriyle sayfayı yeniden görüntüleyin. İstemci tarafı doğrulaması geleneksel ASP.NET Core MVC uygulamalarıyla aynıdır. Çoğu durumda, istemci üzerinde doğrulama hataları algılanır ve sunucuya hiçbir zaman gönderilmez.
 
 Veriler başarıyla girildiğinde, `OnPostAsync` Handler yöntemi bir `RedirectToPageResult`örneğini döndürmek için `RedirectToPage` yardımcı yöntemini çağırır. `RedirectToPage`, `RedirectToAction` veya `RedirectToRoute`benzer ancak sayfalar için özelleştirilen yeni bir eylem sonucudur. Önceki örnekte, kök dizin sayfasına (`/Index`) yeniden yönlendirir. `RedirectToPage`, [Sayfalar Için URL oluşturma](#url_gen) bölümünde ayrıntılı olarak açıklanmıştır.
 
-Gönderilen formda doğrulama hataları olduğunda (sunucuya geçirilen)`OnPostAsync` işleyicisi yöntemi `Page` yardımcı yöntemini çağırır. `Page`, bir `PageResult` örneği döndürür. `Page` döndürmek, denetleyicilerde eylemlerin `View`nasıl dönüşlerine benzer. `PageResult`, bir işleyici yöntemi için varsayılan dönüş türüdür. `void` döndüren bir işleyici yöntemi sayfayı işler.
+Gönderilen formda doğrulama hataları olduğunda (sunucuya geçirilen)`OnPostAsync` işleyicisi yöntemi `Page` yardımcı yöntemini çağırır. `Page`, `PageResult`örneğini döndürür. `Page` döndürmek, denetleyicilerde eylemlerin `View`nasıl dönüşlerine benzer. `PageResult`, bir işleyici yöntemi için varsayılan dönüş türüdür. `void` döndüren bir işleyici yöntemi sayfayı işler.
 
 `Customer` özelliği, model bağlamasını kabul etmek için `[BindProperty]` özniteliğini kullanır.
 
 [!code-cs[](index/sample/RazorPagesContacts/Pages/Create.cshtml.cs?name=snippet_PageModel&highlight=10-11)]
 
-Razor Pages, varsayılan olarak, özellikleri yalnızca`GET` olmayan fiiller ile bağlayın. Özelliklere bağlamak, yazmanız gereken kod miktarını azaltabilir. Bağlama, form alanlarını işlemek için aynı özelliği kullanarak kodu azaltır (`<input asp-for="Customer.Name">`) ve girişi kabul eder.
+Razor Pages, varsayılan olarak, özellikleri yalnızca`GET` olmayan fiiller ile bağlayın. Özelliklere bağlama, yazmanız gerektiğini kodun miktarını azaltabilir. Bağlama, form alanlarını işlemek için aynı özelliği kullanarak kodu azaltır (`<input asp-for="Customer.Name">`) ve girişi kabul eder.
 
 [!INCLUDE[](~/includes/bind-get.md)]
 
@@ -956,7 +957,7 @@ Sayfa adı, kök */Pages* klasöründeki, önde gelen `/` (örneğin, `/Index`) 
 
 Sayfalar için URL oluşturma göreli adları destekler. Aşağıdaki tabloda, *sayfa/müşteri/oluşturma. cshtml*'den farklı `RedirectToPage` parametrelerle hangi dizin sayfasının seçildiği gösterilmektedir:
 
-| RedirectToPage (x)| Sayfa |
+| RedirectToPage (x)| Sayfasında |
 | ----------------- | ------------ |
 | RedirectToPage ("/Index") | *Sayfa/dizin* |
 | RedirectToPage ("./Index"); | *Sayfalar/müşteriler/Dizin* |

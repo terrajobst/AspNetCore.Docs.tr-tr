@@ -3,15 +3,15 @@ title: Ekleme, indirmek ve bir ASP.NET Core projesi kimliği için kullanıcı v
 author: rick-anderson
 description: Bir ASP.NET Core projesi içinde kimlik için özel kullanıcı veri eklemeyi öğrenin. GDPR başına verileri silin.
 ms.author: riande
-ms.date: 12/05/2019
+ms.date: 01/28/2020
 ms.custom: mvc, seodec18
 uid: security/authentication/add-user-data
-ms.openlocfilehash: f54df68834cd3e2493e558aaab9851f036f3f01b
-ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
+ms.openlocfilehash: e08c02e2e5d4a429aae10c59e7ae3ea48c975067
+ms.sourcegitcommit: c81ef12a1b6e6ac838e5e07042717cf492e6635b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74880750"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76885552"
 ---
 # <a name="add-download-and-delete-custom-user-data-to-identity-in-an-aspnet-core-project"></a>Ekleme, indirmek ve kimlik için bir ASP.NET Core projesi özel kullanıcı verilerini silme
 
@@ -78,15 +78,15 @@ dotnet new webapp -o WebApp1
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * Gelen **Çözüm Gezgini**, projeye sağ tıklayın > **Ekle** > **yeni iskele kurulmuş öğe**.
-* Sol bölmeden **İskele Ekle** iletişim kutusunda **kimlik** > **ekleme**.
-* İçinde **ADD kimliğini** iletişim kutusunda, aşağıdaki seçenekleri:
+* **Yapı Iskelesi Ekle** iletişim kutusunun sol bölmesinde **kimlik** > **Ekle**' yi seçin.
+* **Kimlik Ekle** iletişim kutusunda aşağıdaki seçenekler:
   * Varolan bir düzen dosyası seçin *~/Pages/Shared/_Layout.cshtml*
   * Aşağıdaki dosyalar geçersiz kılmak için seçin:
     * **Hesabı/kaydı**
     * **Hesabı/yönetmek/dizin**
   * Seçin **+** yeni bir düğme **veri bağlamı sınıfının**. Tür kabul et (**WebApp1.Models.WebApp1Context** proje adlandırılmışsa **WebApp1**).
   * Seçin **+** yeni bir düğme **kullanıcı sınıfı**. Tür kabul et (**WebApp1User** proje adlandırılmışsa **WebApp1**) > **Ekle**.
-* Seçin **ekleme**.
+* **Add (Ekle)** seçeneğini belirleyin.
 
 # <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
 

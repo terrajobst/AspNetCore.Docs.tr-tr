@@ -5,45 +5,45 @@ description: Dizin yapısı, yayımlanmış ASP.NET Core uygulamaları hakkında
 monikerRange: '>= aspnetcore-2.2'
 ms.author: riande
 ms.custom: mvc
-ms.date: 06/17/2019
+ms.date: 01/28/2020
 uid: host-and-deploy/directory-structure
-ms.openlocfilehash: f1df047decc7a0a6b7dcee57a690c55eea428b05
-ms.sourcegitcommit: 28a2874765cefe9eaa068dceb989a978ba2096aa
+ms.openlocfilehash: ba5cb96dfdcdca10034299e3bbe662ce056af791
+ms.sourcegitcommit: fe41cff0b99f3920b727286944e5b652ca301640
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67166975"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76870272"
 ---
 # <a name="aspnet-core-directory-structure"></a>ASP.NET Core dizin yapısı
 
 Tarafından [Luke Latham](https://github.com/guardrex)
 
-*Yayımlama* dizinini içeren uygulamanın dağıtılabilir varlıklar tarafından üretilen [dotnet yayımlama](/dotnet/core/tools/dotnet-publish) komutu. Dizini içerir:
+*Yayımla* dizini, uygulamanın [DotNet Publish](/dotnet/core/tools/dotnet-publish) komutu tarafından üretilen dağıtılabilir varlıkları içerir. Dizin şunları içerir:
 
 * Uygulama dosyaları
 * Yapılandırma dosyaları
 * Statik varlıklar
 * Paketler
-* Bir çalışma zamanı ([müstakil dağıtım](/dotnet/core/deploying/#self-contained-deployments-scd) yalnızca)
+* Çalışma zamanı (yalnızca[kendi içindeki dağıtım](/dotnet/core/deploying/#self-contained-deployments-scd) )
 
 | Uygulama türü | Dizin yapısı |
 | -------- | ------------------- |
-| [Framework bağımlı dağıtım](/dotnet/core/deploying/#framework-dependent-deployments-fdd) | <ul><li>Yayımlama&dagger;<ul><li>Görünümleri&dagger; (MVC uygulamaları; görünümleri önceden derlenmiş değil)</li><li>Sayfaları&dagger; (sayfaları önceden derlenmiş değil, MVC veya Razor sayfaları uygulamaları;)</li><li>wwwroot&dagger;</li><li>*\.DLL dosyaları</li><li>{DERLEME adı}.deps.JSON</li><li>{DERLEME adı} .dll</li><li>{DERLEME adı} .pdb</li><li>{} DERLEME ADI. Views.dll</li><li>{} DERLEME ADI. Views.pdb</li><li>{DERLEME adı}.runtimeconfig.json</li><li>Web.config (IIS dağıtımlar)</li></ul></li></ul> |
-| [Kendi içinde dağıtım](/dotnet/core/deploying/#self-contained-deployments-scd) | <ul><li>Yayımlama&dagger;<ul><li>Görünümleri&dagger; (MVC uygulamaları; görünümleri önceden derlenmiş değil)</li><li>Sayfaları&dagger; (sayfaları önceden derlenmiş değil, MVC veya Razor sayfaları uygulamaları;)</li><li>wwwroot&dagger;</li><li>\*.dll dosyaları</li><li>{DERLEME adı}.deps.JSON</li><li>{DERLEME adı} .dll</li><li>{DERLEME adı} .exe</li><li>{DERLEME adı} .pdb</li><li>{} DERLEME ADI. Views.dll</li><li>{} DERLEME ADI. Views.pdb</li><li>{DERLEME adı}.runtimeconfig.json</li><li>Web.config (IIS dağıtımlar)</li></ul></li></ul> |
+| [Çerçeveye bağımlı yürütülebilir (FDE)](/dotnet/core/deploying/#framework-dependent-executables-fde) | <ul><li>&dagger; Yayımla<ul><li>&dagger; MVC uygulamalarını görüntüler; Görünümler önceden derlenmiş değilse</li><li>Sayfalar önceden derlenmiş değilse MVC veya Razor Pages uygulamalar&dagger;.</li><li>Wwwroot&dagger;</li><li>*. dll dosyaları</li><li>{Assembly Name}. Deps. json</li><li>{Assembly Name}. dll</li><li>{Assembly Name} {. UZANTı} *. exe* uzantısı Windows üzerinde, MacOS veya Linux üzerinde hiçbir uzantı</li><li>{Assembly Name}. pdb</li><li>{BÜTÜNLEŞTIRILMIŞ kod adı}. Views. dll <li>{bütünleştirilmiş kod adı}</li>. Görünümler. pdb</li><li>{ASSEMBLY NAME}. runtimeconfig. JSON</li><li>Web. config (IIS dağıtımları)</li><li>createdump ([Linux createdump Utility](https://github.com/dotnet/coreclr/blob/master/Documentation/botr/xplat-minidump-generation.md#configurationpolicy))* </li><li>. bu (Linux paylaşılan nesne kitaplığı)</li><li>*. a (MacOS Arşivi)</li><li>* . dylib (MacOS dinamik kitaplığı)</li></ul></li></ul> |
+| [Kendi içinde dağıtım (SCD)](/dotnet/core/deploying/#self-contained-deployments-scd) | <ul><li>&dagger; Yayımla<ul><li>Görünümler&dagger; MVC uygulamalarını önceden derlenmiş değilse görüntüler</li><li>Sayfalar önceden derlenmiş değilse MVC veya Razor Pages uygulamalar&dagger;.</li><li>Wwwroot&dagger;</li><li>*. dll dosyaları</li><li>{ASSEMBLY NAME}. Deps. JSON</li><li>{Bütünleştirilmiş kod adı}. dll</li><li>{Bütünleştirilmiş kod adı}. exe</li><li>{Bütünleştirilmiş kod adı}. pdb</li><li>{BÜTÜNLEŞTIRILMIŞ KOD ADı}. Views. dll</li><li>{BÜTÜNLEŞTIRILMIŞ KOD ADı}. Views. pdb</li><li>{ASSEMBLY NAME}. runtimeconfig. JSON</li><li>Web. config (IIS dağıtımları)</li></ul></li></ul> |
 
-&dagger;Bir dizini gösterir
+&dagger;bir dizini belirtir
 
-*Yayımlama* dizini temsil eder *içerik kök yolu*ayrıca adlı *uygulama temel yolu*, dağıtım. Dilediğiniz adı verilir *yayımlama* dizin sunucusuna dağıtılan uygulamanın konumuna barındırılan uygulamasının fiziksel yolu sunucunun görür.
+*Yayımla* dizini, dağıtımın *uygulama temel yolu*olarak da adlandırılan *içerik kök yolunu*temsil eder. Sunucuda dağıtılan uygulamanın *Yayımlama* dizinine hangi ad verildiğinde, konumu sunucunun barındırılan uygulamanın fiziksel yolu olarak görev yapar.
 
-*Wwwroot* dizini varsa yalnızca içeren statik varlıklar.
+Varsa, *Wwwroot* dizini yalnızca statik varlıkları içerir.
 
 ::: moniker range="< aspnetcore-3.0"
 
-Oluşturma bir *günlükleri* klasördür yararlı [ASP.NET Core modülü Gelişmiş hata ayıklama günlüğü](xref:host-and-deploy/aspnet-core-module#enhanced-diagnostic-logs). Sağlanan yolda `<handlerSetting>` değer modülü tarafından otomatik olarak oluşturulmaz ve dağıtım hata ayıklama günlüğünü yazılacak modülüne izin verecek şekilde önceden mevcut olmalıdır.
+*Günlük* klasörü oluşturma, [ASP.NET Core modülü gelişmiş hata ayıklama günlüğü](xref:host-and-deploy/aspnet-core-module#enhanced-diagnostic-logs)için yararlıdır. `<handlerSetting>` değere verilen yoldaki klasörler, modül tarafından otomatik olarak oluşturulmaz ve modülün hata ayıklama günlüğünü yazmasına izin vermek için dağıtımda önceden var olmalıdır.
 
-A *günlükleri* aşağıdaki iki yaklaşımdan birini kullanarak dağıtım için dizin oluşturulabilir:
+Aşağıdaki iki yaklaşımdan birini kullanarak dağıtım için bir *günlük* dizini oluşturulabilir:
 
-* Aşağıdaki `<Target>` proje dosyasına öğe:
+* Aşağıdaki `<Target>` öğesini proje dosyasına ekleyin:
 
    ```xml
    <Target Name="CreateLogsFolder" AfterTargets="Publish">
@@ -56,11 +56,11 @@ A *günlükleri* aşağıdaki iki yaklaşımdan birini kullanarak dağıtım iç
    </Target>
    ```
 
-   `<MakeDir>` Öğesi boş bir oluşturur *günlükleri* yayımlanan çıkış klasöründe. Öğesini kullanan `PublishDir` özelliği klasörü oluşturmak için hedef konumu belirlenemiyor. Web dağıtımı gibi çeşitli dağıtım yöntemleri, dağıtım sırasında boş klasörler atlayın. `<WriteLinesToFile>` Öğesi bir dosya oluşturur *günlükleri* klasörü, sunucu klasörünün dağıtım garanti eder. Çalışan işlemi, hedef klasöre yazma erişimi yoksa, bu yaklaşımı kullanarak klasör oluşturma başarısız olur.
+   `<MakeDir>` öğesi yayımlanan çıktıda boş bir *Günlükler* klasörü oluşturur. Öğesi, klasörü oluşturmak için hedef konumu belirlemede `PublishDir` özelliğini kullanır. Web Dağıtımı gibi birkaç dağıtım yöntemi, dağıtım sırasında boş klasörleri atlar. `<WriteLinesToFile>` öğesi *Günlükler* klasöründe, klasörün sunucuya dağıtımını garanti eden bir dosya oluşturur. Çalışan işleminin hedef klasöre yazma erişimi yoksa, bu yaklaşımı kullanarak klasör oluşturma işlemi başarısız olur.
 
-* Fiziksel olarak oluşturma *günlükleri* dağıtım sunucusunda dizin.
+* Dağıtımdaki sunucuda *günlük* dizinini fiziksel olarak oluşturun.
 
-Dağıtım dizini okuma/Yürütme izinleri gerektirir. *Günlükleri* dizin okuma/yazma izinleri gerektirir. Dosyaları yazılacağı ek dizinleri okuma/yazma izinleri gerektirir.
+Dağıtım dizini için okuma/yürütme izinleri gerekir. *Günlükler* dizini için okuma/yazma izinleri gerekir. Dosyaların yazıldığı ek dizinler okuma/yazma izinleri gerektirir.
 
 ::: moniker-end
 
@@ -69,4 +69,4 @@ Dağıtım dizini okuma/Yürütme izinleri gerektirir. *Günlükleri* dizin okum
 * [dotnet publish](/dotnet/core/tools/dotnet-publish)
 * [.NET core uygulama dağıtımı](/dotnet/core/deploying/)
 * [Hedef çerçeveler](/dotnet/standard/frameworks)
-* [.NET core RID Kataloğu](/dotnet/core/rid-catalog)
+* [.NET Core RID kataloğu](/dotnet/core/rid-catalog)

@@ -5,17 +5,17 @@ description: ASP.NET Core Blazor uygulama şablonları ve Blazor proje yapısı 
 monikerRange: '>= aspnetcore-3.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/18/2019
+ms.date: 01/29/2020
 no-loc:
 - Blazor
 - SignalR
 uid: blazor/templates
-ms.openlocfilehash: 2a95b986450471b474d93ead252255f2bd9d4918
-ms.sourcegitcommit: 9ee99300a48c810ca6fd4f7700cd95c3ccb85972
+ms.openlocfilehash: acfa4b8a42cbd310c6fc6dc973573578e94ef999
+ms.sourcegitcommit: c81ef12a1b6e6ac838e5e07042717cf492e6635b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76160125"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76885514"
 ---
 # <a name="aspnet-core-opno-locblazor-templates"></a>ASP.NET Core Blazor şablonları
 
@@ -36,16 +36,20 @@ Blazorbarındırma modelleri hakkında daha fazla bilgi için bkz. <xref:blazor/
 
 Aşağıdaki dosya ve klasörler, Blazor şablonundan oluşturulan Blazor bir uygulama yapar:
 
-* *Program.cs* [ana bilgisayarı](xref:fundamentals/host/generic-host)ASP.NET Core ayarlayan uygulamanın giriş noktasını &ndash;. Bu dosyadaki kod, ASP.NET Core şablonlarından oluşturulan tüm ASP.NET Core uygulamalarda ortaktır.
+* *Program.cs* , uygulamanın giriş noktasını &ndash;:
 
-* *Startup.cs* &ndash;, uygulamanın başlangıç mantığını içerir. `Startup` sınıfı iki yöntemi tanımlar:
+  * ASP.NET Core [ana bilgisayar](xref:fundamentals/host/generic-host) (Blazor sunucu)
+  * WebAssembly Host (Blazor WebAssembly) &ndash; bu dosyadaki kod Blazor WebAssembly şablonundan oluşturulan uygulamalar için benzersizdir (`blazorwasm`).
+    * Uygulamanın kök bileşeni olan `App` bileşeni, `Add` metoduna `app` DOM öğesi olarak belirtilir.
+    * Hizmetler, ana bilgisayar Oluşturucu 'daki `ConfigureServices` yöntemiyle yapılandırılabilir (örneğin, `builder.Services.AddSingleton<IMyDependency, MyDependency>();`).
+    * Yapılandırma, ana bilgisayar Oluşturucu (`builder.Configuration`) aracılığıyla sağlanabilir.
+
+* *Startup.cs* (Blazor Server) &ndash; uygulamanın başlangıç mantığını içerir. `Startup` sınıfı iki yöntemi tanımlar:
 
   * `ConfigureServices` &ndash;, uygulamanın [bağımlılık ekleme (dı)](xref:fundamentals/dependency-injection) hizmetlerini yapılandırır. Sunucu uygulamalarında Blazor, hizmetler <xref:Microsoft.Extensions.DependencyInjection.ComponentServiceCollectionExtensions.AddServerSideBlazor*>çağırarak eklenir ve `WeatherForecastService` örnek `FetchData` bileşeni tarafından kullanılmak üzere hizmet kapsayıcısına eklenir.
   * `Configure` &ndash;, uygulamanın istek işleme ardışık düzenini yapılandırır:
-    * Blazor WebAssembly &ndash;, uygulamanın kök bileşeni olan `App` bileşenini (`app` DOM öğesi olarak belirtilen `AddComponent` yöntemine) ekler.
-    * Blazor sunucusu
-      * <xref:Microsoft.AspNetCore.Builder.ComponentEndpointRouteBuilderExtensions.MapBlazorHub*>, tarayıcıya gerçek zamanlı bağlantı için bir uç nokta ayarlamak üzere çağırılır. Bağlantı, uygulamalara gerçek zamanlı Web işlevselliği eklemek için bir çerçeveden [SignalR](xref:signalr/introduction)oluşturulur.
-      * [Mapfallbacktopage ("/_Host")](xref:Microsoft.AspNetCore.Builder.RazorPagesEndpointRouteBuilderExtensions.MapFallbackToPage*) , uygulamanın kök sayfasını (*Pages/_Host. cshtml*) ayarlamak ve gezinmeyi etkinleştirmek için çağırılır.
+    * <xref:Microsoft.AspNetCore.Builder.ComponentEndpointRouteBuilderExtensions.MapBlazorHub*>, tarayıcıya gerçek zamanlı bağlantı için bir uç nokta ayarlamak üzere çağırılır. Bağlantı, uygulamalara gerçek zamanlı Web işlevselliği eklemek için bir çerçeveden [SignalR](xref:signalr/introduction)oluşturulur.
+    * [Mapfallbacktopage ("/_Host")](xref:Microsoft.AspNetCore.Builder.RazorPagesEndpointRouteBuilderExtensions.MapFallbackToPage*) , uygulamanın kök sayfasını (*Pages/_Host. cshtml*) ayarlamak ve gezinmeyi etkinleştirmek için çağırılır.
 
 * *Wwwroot/index.html* (Blazor WebAssembly) bir HTML sayfası olarak uygulanan uygulamanın kök sayfasını &ndash;:
   * Uygulamanın herhangi bir sayfası başlangıçta istendiğinde, Bu sayfa işlenir ve yanıtta döndürülür.

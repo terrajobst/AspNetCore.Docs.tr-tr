@@ -5,20 +5,20 @@ description: ASP.NET Core ' de Web API 'SI oluşturmanın temellerini öğrenin.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 11/22/2019
+ms.date: 01/27/2020
 uid: web-api/index
-ms.openlocfilehash: 5ef8b4d012f4ed90339ffea191612e4dc365d958
-ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
+ms.openlocfilehash: 8609e2095c202643cdc905cc610298195b654215
+ms.sourcegitcommit: fe41cff0b99f3920b727286944e5b652ca301640
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74880538"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76870023"
 ---
 # <a name="create-web-apis-with-aspnet-core"></a>ASP.NET Core ile Web API 'Leri oluşturma
 
 [Scott Ade](https://github.com/scottaddie) ve [Tom Dykstra](https://github.com/tdykstra) tarafından
 
-ASP.NET Core, web API'leri olarak da bilinen RESTful hizmetleri oluşturulmasını C# kullanarak desteklemektedir. İstekleri işlemek için, bir Web API 'SI denetleyicileri kullanır. Bir Web API 'sindeki *denetleyiciler* `ControllerBase`türetilen sınıflardır. Bu makalede, Web API isteklerini işlemek için denetleyicilerin nasıl kullanılacağı gösterilmektedir.
+ASP.NET Core, kullanarak C#Web API 'leri olarak da bilinen, yeniden oluşturulan hizmetler oluşturmayı destekler. İstekleri işlemek için, bir Web API 'SI denetleyicileri kullanır. Bir Web API 'sindeki *denetleyiciler* `ControllerBase`türetilen sınıflardır. Bu makalede, Web API isteklerini işlemek için denetleyicilerin nasıl kullanılacağı gösterilmektedir.
 
 [Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/web-api/index/samples). ([İndirme](xref:index#how-to-download-a-sample)).
 
@@ -78,13 +78,28 @@ Kullanılabilir öznitelikleri içeren bir liste için <xref:Microsoft.AspNetCor
 
 [`[ApiController]`](xref:Microsoft.AspNetCore.Mvc.ApiControllerAttribute) özniteliği, AŞAĞıDAKI, API 'ye özgü davranışları etkinleştirmek üzere bir denetleyici sınıfına uygulanabilir:
 
+::: moniker range=">= aspnetcore-2.2"
+
 * [Öznitelik yönlendirme gereksinimi](#attribute-routing-requirement)
 * [Otomatik HTTP 400 yanıtları](#automatic-http-400-responses)
 * [Bağlama kaynak parametresi çıkarımı](#binding-source-parameter-inference)
 * [Multipart/form-veri isteği çıkarımı](#multipartform-data-request-inference)
 * [Hata durum kodları için sorun ayrıntıları](#problem-details-for-error-status-codes)
 
+*Hata durum kodları özelliği Için sorun ayrıntıları* , 2,2 veya üzeri bir [Uyumluluk sürümü](xref:mvc/compatibility-version) gerektirir. Diğer özellikler, 2,1 veya üzeri bir uyumluluk sürümü gerektirir.
+
+::: moniker-end
+
+::: moniker range="= aspnetcore-2.1"
+
+* [Öznitelik yönlendirme gereksinimi](#attribute-routing-requirement)
+* [Otomatik HTTP 400 yanıtları](#automatic-http-400-responses)
+* [Bağlama kaynak parametresi çıkarımı](#binding-source-parameter-inference)
+* [Multipart/form-veri isteği çıkarımı](#multipartform-data-request-inference)
+
 Bu özellikler, 2,1 veya üzeri bir [Uyumluluk sürümü](xref:mvc/compatibility-version) gerektirir.
+
+::: moniker-end
 
 ### <a name="attribute-on-specific-controllers"></a>Belirli denetleyicilerde öznitelik
 

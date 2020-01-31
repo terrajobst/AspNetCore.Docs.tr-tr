@@ -5,12 +5,12 @@ description: Basit bir ASP.NET Core MVC uygulamasına görünüm ekleme
 ms.author: riande
 ms.date: 8/04/2019
 uid: tutorials/first-mvc-app/adding-view
-ms.openlocfilehash: de75c3b0651c0cda6629af786d7db9dc83bc4fef
-ms.sourcegitcommit: 020c3760492efed71b19e476f25392dda5dd7388
+ms.openlocfilehash: a25233968f115c6e3a214d97cf2ca5ab81df8d83
+ms.sourcegitcommit: fe41cff0b99f3920b727286944e5b652ca301640
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/12/2019
-ms.locfileid: "72288826"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76870434"
 ---
 # <a name="add-a-view-to-an-aspnet-core-mvc-app"></a>ASP.NET Core MVC uygulamasına görünüm ekleme
 
@@ -61,9 +61,9 @@ Yukarıdaki kod denetleyicinin <xref:Microsoft.AspNetCore.Mvc.Controller.View*> 
 * *Görünümler/HelloWorld* klasörüne sağ tıklayın ve ardından **> yeni dosya ekleyin**.
 * İçinde **yeni dosya** iletişim:
 
-  * Sol bölmedeki **Web** ' i seçin.
-  * Orta bölmedeki **boş HTML dosyasını** seçin.
-  * **Ad** kutusuna *Index. cshtml* yazın.
+  * Sol bölmedeki **ASP .NET Core** ' u seçin.
+  * Orta bölmedeki **MVC görünümü sayfasını** seçin.
+  * **Ad** kutusuna *Index* yazın.
   * **Yeni**' yi seçin.
 
 ![Yeni öğe Ekle iletişim kutusu](adding-view/_static/add_view_mac.png)
