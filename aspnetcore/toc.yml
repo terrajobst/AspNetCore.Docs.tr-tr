@@ -230,8 +230,6 @@
           uid: razor-pages/filter
         - name: Yol ve uygulama kuralları
           uid: razor-pages/razor-pages-conventions
-        - name: Razor SDK
-          uid: razor-pages/sdk
     - name: MVC
       items:
         - name: Genel Bakış
@@ -409,21 +407,25 @@
               href: 'mvc/views/working-with-forms.md#the-validation-summary-tag-helper'
     - name: Gelişmiş
       items:
+        - name: Uygulama bölümleri
+          uid: mvc/extensibility/app-parts
+        - name: Uygulama modeli
+          uid: mvc/controllers/application-model
+        - name: Alanlar
+          uid: mvc/controllers/areas
+        - name: FilTReleri
+          uid: mvc/controllers/filters
+        - name: Razor SDK
+          uid: razor-pages/sdk
         - name: Görünüm bileşenleri
           uid: mvc/views/view-components
         - name: Görünüm derlemesi
           uid: mvc/views/view-compilation
-        - name: Uygulama modeli
-          uid: mvc/controllers/application-model
-        - name: FilTReleri
-          uid: mvc/controllers/filters
-        - name: Alanlar
-          uid: mvc/controllers/areas
         - name: Dosyaları karşıya yükleme
           uid: mvc/models/file-uploads
-        - name: Uygulama bölümleri
-          uid: mvc/extensibility/app-parts
-        - name: aspnet-codegenerator
+        - name: Web SDK’sı
+          uid: razor-pages/web-sdk
+        - name: aspnet-codegenerator (Model Oluşturma)
           uid: fundamentals/tools/dotnet-aspnet-codegenerator
 - name: Web API’si uygulamaları
   items:
@@ -578,6 +580,8 @@
       uid: grpc/client
     - name: gRPC istemci fabrikası tümleştirmesi
       uid: grpc/clientfactory
+    - name: Tarayıcı uygulamalarında gRPC kullanma
+      uid: grpc/browser
     - name: Yapılandırma
       uid: grpc/configuration
     - name: Kimlik doğrulaması ve yetkilendirme
