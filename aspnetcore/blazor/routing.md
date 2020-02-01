@@ -10,28 +10,28 @@ no-loc:
 - Blazor
 - SignalR
 uid: blazor/routing
-ms.openlocfilehash: 0cd15f25ff7975cae3f63a739212aa23062ece23
-ms.sourcegitcommit: 9ee99300a48c810ca6fd4f7700cd95c3ccb85972
+ms.openlocfilehash: 32459f9f42220b01ce04e6444a9bb4a9592ee2da
+ms.sourcegitcommit: 0b0e485a8a6dfcc65a7a58b365622b3839f4d624
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76160164"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76928278"
 ---
-# <a name="aspnet-core-opno-locblazor-routing"></a>ASP.NET Core Blazor yönlendirme
+# <a name="aspnet-core-blazor-routing"></a>ASP.NET Core Blazor yönlendirme
 
 Tarafından [Luke Latham](https://github.com/guardrex)
 
 [!INCLUDE[](~/includes/blazorwasm-preview-notice.md)]
 
-İstekleri yönlendirmeyi ve Blazor uygulamalarda gezinti bağlantıları oluşturmak için `NavLink` bileşenini kullanmayı öğrenin.
+İstekleri yönlendirmeyi ve Blazor uygulamalarında gezinti bağlantıları oluşturmak için `NavLink` bileşenini kullanmayı öğrenin.
 
 ## <a name="aspnet-core-endpoint-routing-integration"></a>Uç nokta yönlendirme tümleştirmesi ASP.NET Core
 
-Blazor sunucusu [ASP.NET Core uç nokta yönlendirmesinde](xref:fundamentals/routing)tümleşiktir. ASP.NET Core bir uygulama, `Startup.Configure``MapBlazorHub` etkileşimli bileşenlere yönelik gelen bağlantıları kabul edecek şekilde yapılandırılmıştır:
+Blazor sunucusu [ASP.NET Core uç nokta yönlendirme](xref:fundamentals/routing)ile tümleşiktir. ASP.NET Core bir uygulama, `Startup.Configure``MapBlazorHub` etkileşimli bileşenlere yönelik gelen bağlantıları kabul edecek şekilde yapılandırılmıştır:
 
 [!code-csharp[](routing/samples_snapshot/3.x/Startup.cs?highlight=5)]
 
-En yaygın yapılandırma, tüm istekleri Razor sayfasına yönlendirmesidir ve bu, Blazor sunucu uygulamasının sunucu tarafı bölümü için ana bilgisayar görevi görür. Kurala göre, *ana bilgisayar* sayfası genellikle *_Host. cshtml*olarak adlandırılır. Ana bilgisayar dosyasında belirtilen yol, yol eşleştirilirken düşük bir öncelik ile çalıştığından bir *geri dönüş yolu* olarak adlandırılır. Geri dönüş yolu, diğer yollar eşleşmediği zaman kabul edilir. Bu, uygulamanın Blazor sunucu uygulamasıyla kesintiye uğramadan diğer denetleyicileri ve sayfaları kullanmasına izin verir.
+En yaygın yapılandırma, tüm istekleri Razor sayfasına yönlendirmesidir ve bu, Blazor Server uygulamasının sunucu tarafı bölümü için ana bilgisayar görevi görür. Kurala göre, *ana bilgisayar* sayfası genellikle *_Host. cshtml*olarak adlandırılır. Ana bilgisayar dosyasında belirtilen yol, yol eşleştirilirken düşük bir öncelik ile çalıştığından bir *geri dönüş yolu* olarak adlandırılır. Geri dönüş yolu, diğer yollar eşleşmediği zaman kabul edilir. Bu, uygulamanın Blazor sunucu uygulamasıyla kesintiye uğramadan diğer denetleyicileri ve sayfaları kullanmasına izin verir.
 
 ## <a name="route-templates"></a>Rota şablonları
 
@@ -48,14 +48,14 @@ En yaygın yapılandırma, tüm istekleri Razor sayfasına yönlendirmesidir ve 
 </Router>
 ```
 
-`@page` yönergesine sahip bir *. Razor* dosyası derlendiğinde, oluşturulan sınıf yol şablonunu belirten bir <xref:Microsoft.AspNetCore.Mvc.RouteAttribute> sağlanır.
+`@page` yönergesine sahip bir *. Razor* dosyası derlendiğinde, oluşturulan sınıf yol şablonunu belirten bir <xref:Microsoft.AspNetCore.Components.RouteAttribute> sağlanır.
 
 Çalışma zamanında `RouteView` bileşeni:
 
 * Tüm istenen parametrelerle birlikte `Router` `RouteData` alır.
 * Belirtilen parametreleri kullanarak belirtilen bileşeni düzeniyle (veya isteğe bağlı bir varsayılan düzende) işler.
 
-İsteğe bağlı olarak, düzen belirtmeyen bileşenler için kullanılacak düzen sınıfıyla bir `DefaultLayout` parametresi belirtebilirsiniz. Varsayılan Blazor şablonları `MainLayout` bileşenini belirtir. *Mainlayout. Razor* , şablon projenin *paylaşılan* klasöründedir. Düzenler hakkında daha fazla bilgi için bkz. <xref:blazor/layouts>.
+İsteğe bağlı olarak, düzen belirtmeyen bileşenler için kullanılacak düzen sınıfıyla bir `DefaultLayout` parametresi belirtebilirsiniz. Varsayılan Blazor şablonları `MainLayout` bileşeni belirler. *Mainlayout. Razor* , şablon projenin *paylaşılan* klasöründedir. Düzenler hakkında daha fazla bilgi için bkz. <xref:blazor/layouts>.
 
 Birden çok yol şablonu, bir bileşene uygulanabilir. Aşağıdaki bileşen `/BlazorRoute` ve `/DifferentBlazorRoute`isteklerine yanıt verir:
 
@@ -67,7 +67,7 @@ Birden çok yol şablonu, bir bileşene uygulanabilir. Aşağıdaki bileşen `/B
 ```
 
 > [!IMPORTANT]
-> URL 'Lerin doğru bir şekilde çözülmesi için, uygulamanın, `href` özniteliğinde belirtilen uygulama temel yolu ile *Wwwroot/index.html* dosyasına (Blazor WebAssembly) veya *Pages/_Host. cshtml* dosyasına (Blazor Server) bir `<base>` etiketi içermesi gerekir (`<base href="/">`). Daha fazla bilgi için bkz. <xref:host-and-deploy/blazor/index#app-base-path>.
+> URL 'Lerin doğru şekilde çözülmesi için, uygulamanın, `href` özniteliğinde belirtilen uygulama temel yolu ile *Wwwroot/index.html* dosyasına (Blazor WebAssembly) veya *Pages/_Host. cshtml* dosyasına (Blazor Server) bir `<base>` etiketi içermesi gerekir (`<base href="/">`). Daha fazla bilgi için bkz. <xref:host-and-deploy/blazor/index#app-base-path>.
 
 ## <a name="provide-custom-content-when-content-isnt-found"></a>İçerik bulunamadığında özel içerik sağla
 
@@ -153,7 +153,7 @@ Aşağıdaki tabloda gösterilen yol kısıtlamaları mevcuttur. Sabit kültür 
 
 ### <a name="routing-with-urls-that-contain-dots"></a>Noktalar içeren URL 'lerle yönlendirme
 
-Blazor Server uygulamalarında, *_Host. cshtml* içindeki varsayılan yol `/` (`@page "/"`). URL bir dosya isteyecek şekilde göründüğünden, nokta (`.`) içeren bir istek URL 'SI varsayılan yol tarafından eşleşmiyor. Blazor bir uygulama, var olmayan bir statik dosya için *404-Found* yanıtı döndürür. Bir nokta içeren yolları kullanmak için, *_Host. cshtml* 'yi aşağıdaki yol şablonuyla yapılandırın:
+Blazor Server uygulamalarında *_Host. cshtml* içindeki varsayılan yol `/` (`@page "/"`). URL bir dosya isteyecek şekilde göründüğünden, nokta (`.`) içeren bir istek URL 'SI varsayılan yol tarafından eşleşmiyor. Bir Blazor uygulaması mevcut olmayan bir statik dosya için *404-Found* yanıtı döndürür. Bir nokta içeren yolları kullanmak için, *_Host. cshtml* 'yi aşağıdaki yol şablonuyla yapılandırın:
 
 ```cshtml
 @page "/{**path}"

@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.date: 03/27/2019
 ms.topic: tutorial
 uid: data/ef-mvc/migrations
-ms.openlocfilehash: bcd36509fe42da0a79b9243d17701f40e066a212
-ms.sourcegitcommit: 077b45eceae044475f04c1d7ef2d153d7c0515a8
+ms.openlocfilehash: 9f3e3b29d155f1024aef530bf9c55efa57d4546a
+ms.sourcegitcommit: 0b0e485a8a6dfcc65a7a58b365622b3839f4d624
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/29/2019
-ms.locfileid: "75542694"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76928394"
 ---
 # <a name="tutorial-using-the-migrations-feature---aspnet-mvc-with-ef-core"></a>Öğretici: EF Core ile geçiş özelliğini kullanma-ASP.NET MVC
 
@@ -38,7 +38,7 @@ Yeni bir uygulama geliştirirken, veri modeliniz sıklıkla değişir ve model h
 
 Veritabanını veri modeliyle eşitlenmiş halde tutma yöntemi, uygulamayı üretime dağıtana kadar iyi çalışır. Uygulama üretimde çalışırken, genellikle tutmak istediğiniz verileri saklar ve yeni sütun ekleme gibi her değişiklik yaptığınızda her şeyi kaybetmek istemezsiniz. EF Core geçişleri özelliği, yeni bir veritabanı oluşturmak yerine EF 'in veritabanı şemasını güncelleştirmesine olanak sağlayarak bu sorunu çözer.
 
-Geçişlerle çalışmak için **Paket Yöneticisi konsolu 'nu** (PMC) veya komut satırı ARABIRIMINI (CLI) kullanabilirsiniz.  Bu öğreticiler CLı komutlarının nasıl kullanılacağını göstermektedir. PMC hakkındaki bilgiler [Bu öğreticinin sonunda](#pmc).
+Geçişlerle çalışmak için **Paket Yöneticisi konsolu 'nu** (PMC) veya CLI 'yi kullanabilirsiniz.  Bu öğreticiler CLı komutlarının nasıl kullanılacağını göstermektedir. PMC hakkındaki bilgiler [Bu öğreticinin sonunda](#pmc).
 
 ## <a name="change-the-connection-string"></a>Bağlantı dizesini değiştirme
 
@@ -167,7 +167,7 @@ CLı komutları hakkında daha fazla bilgi için bkz. [.NET Core CLI](/ef/core/m
 
 PMC komutları hakkında daha fazla bilgi için bkz. [Paket Yöneticisi Konsolu (Visual Studio)](/ef/core/miscellaneous/cli/powershell).
 
-## <a name="get-the-code"></a>Kodu edinin
+## <a name="get-the-code"></a>Kodu alın
 
 [Tamamlanmış uygulamayı indirin veya görüntüleyin.](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final)
 

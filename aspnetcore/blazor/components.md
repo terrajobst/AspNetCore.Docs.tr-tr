@@ -5,17 +5,17 @@ description: Veri bağlama, olayları işleme ve bileşen yaşam döngülerini y
 monikerRange: '>= aspnetcore-3.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/28/2019
+ms.date: 01/24/2020
 no-loc:
 - Blazor
 - SignalR
 uid: blazor/components
-ms.openlocfilehash: 6643ccd0fdb62243427bb0972d8deb3f7b57079d
-ms.sourcegitcommit: eca76bd065eb94386165a0269f1e95092f23fa58
+ms.openlocfilehash: d6ba60b20d21636c7f780a80d8fbdb152505a3a3
+ms.sourcegitcommit: 0b0e485a8a6dfcc65a7a58b365622b3839f4d624
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76726925"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76928254"
 ---
 # <a name="create-and-use-aspnet-core-razor-components"></a>ASP.NET Core Razor bileşenleri oluşturma ve kullanma
 
@@ -23,11 +23,11 @@ ms.locfileid: "76726925"
 
 [Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/blazor/common/samples/) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
 
-Blazor uygulamalar, *bileşenleri*kullanılarak oluşturulmuştur. Bir bileşen, bir sayfa, iletişim veya form gibi bir kullanıcı arabirimi (UI) öbekidir. Bir bileşen, veri eklemek veya UI olaylarına yanıt vermek için gereken HTML işaretlemesini ve işleme mantığını içerir. Bileşenler esnek ve hafif. Bunlar, iç içe geçmiş, yeniden kullanılabilir ve projeler arasında paylaşılabilir.
+Blazor uygulamaları, *bileşenleri*kullanılarak oluşturulmuştur. Bir bileşen, bir sayfa, iletişim veya form gibi bir kullanıcı arabirimi (UI) öbekidir. Bir bileşen, veri eklemek veya UI olaylarına yanıt vermek için gereken HTML işaretlemesini ve işleme mantığını içerir. Bileşenler esnek ve hafif. Bunlar, iç içe geçmiş, yeniden kullanılabilir ve projeler arasında paylaşılabilir.
 
 ## <a name="component-classes"></a>Bileşen sınıfları
 
-Bileşenler, C# ve HTML Işaretlemesi kullanılarak [Razor](xref:mvc/views/razor) bileşen dosyalarında ( *. Razor*) uygulanır. Blazor bir bileşen, bir *Razor bileşeni*olarak adlandırılır.
+Bileşenler, C# ve HTML Işaretlemesi kullanılarak [Razor](xref:mvc/views/razor) bileşen dosyalarında ( *. Razor*) uygulanır. Blazor içindeki bir bileşen, bir *Razor bileşeni*olarak adlandırılır.
 
 Bir bileşenin adı, büyük harfle başlamalıdır. Örneğin, *mycoolcomponent. Razor* geçerlidir ve *mycoolcomponent. Razor* geçersizdir.
 
@@ -49,7 +49,7 @@ Bileşen üyeleri, `@`ile başlayan ifadeleri kullanarak C# bileşenin işleme m
 }
 ```
 
-Bileşen ilk olarak işlendikten sonra, bileşen işleme ağacını olaylara yanıt olarak yeniden oluşturur. Blazor, yeni işleme ağacını öncekiyle karşılaştırır ve tarayıcının Belge Nesne Modeli (DOM) üzerinde herhangi bir değişiklik uygular.
+Bileşen ilk olarak işlendikten sonra, bileşen işleme ağacını olaylara yanıt olarak yeniden oluşturur. Blazor ardından yeni işleme ağacını önceki bir ile karşılaştırır ve tarayıcının Belge Nesne Modeli (DOM) üzerinde herhangi bir değişiklik uygular.
 
 Bileşenler sıradan C# sınıflardır ve bir proje içinde herhangi bir yere yerleştirilebilir. Web sayfalarını üreten bileşenler genellikle *Sayfalar* klasöründe bulunur. Sayfa olmayan bileşenler sıklıkla *paylaşılan* klasöre veya projeye eklenen özel bir klasöre yerleştirilir.
 
@@ -90,7 +90,7 @@ Bir sayfadan veya görünümden bir bileşeni işlemek için `Component` etiketi
     param-IncrementAmount="10" />
 ```
 
-Parametreleri geçirme (örneğin, önceki örnekteki `IncrementAmount`) desteklenir.
+Parametre türünün JSON serileştirilebilir olması gerekir, bu, genellikle türün bir varsayılan oluşturucuya ve ayarlanabilir özelliklere sahip olması anlamına gelir. Örneğin, `IncrementAmount` için bir değer belirtebilirsiniz çünkü `IncrementAmount` türü, JSON seri hale getirici tarafından desteklenen bir temel tür `int`.
 
 `RenderMode`, bileşenin şunları yapıp kullanmadığını yapılandırır:
 
@@ -99,8 +99,8 @@ Parametreleri geçirme (örneğin, önceki örnekteki `IncrementAmount`) destekl
 
 | `RenderMode`        | Açıklama |
 | ------------------- | ----------- |
-| `ServerPrerendered` | Bileşeni statik HTML olarak işler ve Blazor sunucusu uygulaması için bir işaret içerir. Kullanıcı Aracısı başladığında, bu işaretleyici bir Blazor uygulamasının önyüklemesi için kullanılır. |
-| `Server`            | Blazor sunucusu uygulaması için bir işaret oluşturur. Bileşen çıkışı dahil değildir. Kullanıcı Aracısı başladığında, bu işaretleyici bir Blazor uygulamasının önyüklemesi için kullanılır. |
+| `ServerPrerendered` | Bileşeni statik HTML olarak işler ve bir Blazor Server uygulaması için işaret içerir. Kullanıcı Aracısı başladığında, bu işaretleyici bir Blazor uygulamasını önyüklemek için kullanılır. |
+| `Server`            | Bir Blazor sunucu uygulaması için işaretleyici işler. Bileşen çıkışı dahil değildir. Kullanıcı Aracısı başladığında, bu işaretleyici bir Blazor uygulamasını önyüklemek için kullanılır. |
 | `Static`            | Bileşeni statik HTML olarak işler. |
 
 Sayfalar ve görünümler bileşenleri kullanırken, listesiyse doğru değildir. Bileşenler, kısmi görünümler ve bölümler gibi görüntüleme ve sayfaya özgü senaryolar kullanamaz. Bir bileşende kısmi görünümden mantığı kullanmak için kısmi görünüm mantığını bir bileşene ayırın.
@@ -108,6 +108,10 @@ Sayfalar ve görünümler bileşenleri kullanırken, listesiyse doğru değildir
 Statik HTML sayfasından sunucu bileşenleri işleme desteklenmiyor.
 
 Bileşenlerin nasıl işlendiği, bileşen durumu ve `Component` etiketi Yardımcısı hakkında daha fazla bilgi için bkz. <xref:blazor/hosting-models>.
+
+## <a name="tag-helpers-arent-used-in-components"></a>Etiket Yardımcıları bileşenlerde kullanılmıyor
+
+Razor bileşenlerinde ( *. Razor* dosyaları) [Etiket Yardımcıları](xref:mvc/views/tag-helpers/intro) desteklenmez. Blazor ' de etiket Yardımcısı benzeri işlevsellik sağlamak için, etiket Yardımcısı ile aynı işlevselliğe sahip bir bileşen oluşturun ve bunun yerine bileşeni kullanın.
 
 ## <a name="use-components"></a>Bileşenleri kullanma
 
@@ -392,7 +396,7 @@ Yukarıdaki alan türleri:
 * Serbest biçimli metin içeremez.
 * Tarayıcının uygulamasına göre Kullanıcı etkileşimi özellikleri sağlar.
 
-Aşağıdaki alan türleri belirli biçimlendirme gereksinimlerine sahiptir ve şu anda tüm büyük tarayıcılarda desteklenmediğinden Blazor tarafından desteklenmemektedir:
+Aşağıdaki alan türleri özel biçimlendirme gereksinimlerine sahiptir ve şu anda tüm büyük tarayıcılarda desteklenmediği için Blazor tarafından desteklenmemektedir:
 
 * `datetime-local`
 * `month`
@@ -424,7 +428,7 @@ Yukarıdaki kodda `<input>` öğenin alan türü (`type`), `text`varsayılan ola
 
 `@bind:format` özniteliği, `<input>` öğesinin `value` uygulanacak tarih biçimini belirtir. Biçim Ayrıca, `onchange` bir olay gerçekleştiğinde değeri ayrıştırmak için de kullanılır.
 
-Blazor, tarihleri biçimlendirmek için yerleşik destek içerdiğinden `date` alanı türü için bir biçim belirtilmesi önerilmez. Önerinin artma, `yyyy-MM-dd` tarih biçimini yalnızca `date` alan türüyle bir biçim sağlanırsa doğru şekilde çalışacak şekilde kullanın:
+Blazor 'in tarihleri biçimlendirmek için yerleşik desteği olduğundan `date` alanı türü için bir biçim belirtilmesi önerilmez. Önerinin artma, `yyyy-MM-dd` tarih biçimini yalnızca `date` alan türüyle bir biçim sağlanırsa doğru şekilde çalışacak şekilde kullanın:
 
 ```razor
 <input type="date" @bind="StartDate" @bind:format="yyyy-MM-dd">
@@ -904,7 +908,7 @@ Bileşen başvurularını yakalama, [öğe başvurularını yakalamak](xref:blaz
 
 ## <a name="invoke-component-methods-externally-to-update-state"></a>Durumu güncelleştirmek için bileşen yöntemlerini dışarıdan çağır
 
-Blazor, yürütmenin tek bir mantıksal iş parçacığını zorlamak için bir `SynchronizationContext` kullanır. Bir bileşenin [yaşam döngüsü yöntemleri](xref:blazor/lifecycle) ve Blazor tarafından oluşturulan tüm olay geri çağırmaları bu `SynchronizationContext`yürütülür. Bir bileşenin Zamanlayıcı veya diğer bildirimler gibi dış bir olaya göre güncellenmesi gerekir, Blazor`SynchronizationContext`dağıtım yapılacak `InvokeAsync` yöntemini kullanın.
+Blazor, yürütmenin tek bir mantıksal iş parçacığını zorlamak için bir `SynchronizationContext` kullanır. Bir bileşenin [yaşam döngüsü yöntemleri](xref:blazor/lifecycle) ve Blazor tarafından oluşturulan tüm olay geri çağırmaları bu `SynchronizationContext`yürütülür. Bir bileşenin bir zamanlayıcı veya diğer bildirimler gibi dış bir olaya göre güncellenmesi gerekir, `SynchronizationContext`Blazor ' ye gönderilecek `InvokeAsync` yöntemini kullanın.
 
 Örneğin, güncelleştirilmiş durumdaki herhangi bir dinleme bileşenine bildirimde bulunan bir *bildirim hizmeti* düşünün:
 
@@ -957,11 +961,11 @@ Bir bileşeni güncelleştirmek için `NotifierService` kullanımı:
 }
 ```
 
-Yukarıdaki örnekte `NotifierService` bileşenin `OnNotify` yöntemini Blazor`SynchronizationContext`dışında çağırır. `InvokeAsync`, doğru bağlama geçmek ve bir işlemeyi kuyruğa almak için kullanılır.
+Yukarıdaki örnekte `NotifierService` bileşenin `OnNotify` yöntemini Blazor `SynchronizationContext`dışında çağırır. `InvokeAsync`, doğru bağlama geçmek ve bir işlemeyi kuyruğa almak için kullanılır.
 
 ## <a name="use-key-to-control-the-preservation-of-elements-and-components"></a>Öğelerin ve bileşenlerin korunmasını denetlemek için \@anahtarını kullanın
 
-Bir öğe veya bileşen listesi işlendiğinde ve öğeler ya da bileşenler daha sonra değiştiğinde, Blazoryayılma algoritması, önceki öğelerin veya bileşenlerin ne zaman tutulacağına ve model nesnelerinin bunlara nasıl eşleneceğine karar vermelidir. Normalde, bu işlem otomatiktir ve yoksayılabilir, ancak işlemi denetlemek isteyebileceğiniz durumlar vardır.
+Bir öğe veya bileşen listesi işlenirken ve öğeler ya da bileşenler daha sonra değiştiğinde, Blazor 'in yayılma algoritması, önceki öğelerin veya bileşenlerin ne zaman tutulacağına ve model nesnelerinin bunlara nasıl eşleneceğine karar vermelidir. Normalde, bu işlem otomatiktir ve yoksayılabilir, ancak işlemi denetlemek isteyebileceğiniz durumlar vardır.
 
 Aşağıdaki örnek göz önünde bulundurun:
 
@@ -1008,7 +1012,7 @@ Bazı senaryolarda `@key` kullanımı, rerendering karmaşıklığını en aza i
 
 Genellikle, bir liste işlendiğinde (örneğin, bir `@foreach` bloğunda) ve `@key`tanımlamak için uygun bir değer olduğunda `@key` kullanmak mantıklı olur.
 
-Ayrıca, bir nesne değiştiğinde Blazor bir öğeyi veya bileşen alt ağacını `@key` engellemek için de kullanabilirsiniz:
+Bir nesne değiştiğinde Blazor 'in bir öğeyi veya bileşen alt ağacını engellemesini engellemek için `@key` de kullanabilirsiniz:
 
 ```razor
 <div @key="currentPerson">
@@ -1016,7 +1020,7 @@ Ayrıca, bir nesne değiştiğinde Blazor bir öğeyi veya bileşen alt ağacın
 </div>
 ```
 
-`@currentPerson` değişirse `@key` Attribute yönergesi Blazor `<div>` ve alt öğelerini atmayı ve yeni öğeler ve bileşenlerle Kullanıcı arabiriminde alt ağacı yeniden oluşturmayı zorlar. `@currentPerson` değiştiğinde hiçbir Kullanıcı arabirimi durumunun korunmayacağını garanti etmeniz gerekirse bu yararlı olabilir.
+`@currentPerson` değişirse `@key` Attribute yönergesi, tüm `<div>` ve alt öğelerini atmayı ve yeni öğeler ve bileşenlerle Kullanıcı arabiriminde alt ağacı yeniden oluşturmayı zorlar. `@currentPerson` değiştiğinde hiçbir Kullanıcı arabirimi durumunun korunmayacağını garanti etmeniz gerekirse bu yararlı olabilir.
 
 ### <a name="when-not-to-use-key"></a>\@anahtar ne zaman kullanılmaz
 
@@ -1035,7 +1039,7 @@ Genellikle, `@key`için aşağıdaki değer türlerinden birini sağlamak mantı
 
 ## <a name="routing"></a>Yönlendirme
 
-Blazor yönlendirme, uygulamadaki her erişilebilir bileşene bir rota şablonu sağlayarak elde edilir.
+Blazor ' de yönlendirme, uygulamadaki her erişilebilir bileşene bir rota şablonu sunarak elde edilir.
 
 `@page` yönergesine sahip bir Razor dosyası derlendiğinde, oluşturulan sınıfa yol şablonunu belirten bir <xref:Microsoft.AspNetCore.Mvc.RouteAttribute> verilir. Çalışma zamanında, yönlendirici bileşen sınıflarını bir `RouteAttribute` arar ve hangi bileşenin istenen URL ile eşleşen bir rota şablonuna sahip olduğunu işler.
 
@@ -1081,10 +1085,10 @@ Bileşenler, `@page` yönergesinde belirtilen yol şablonundan yol parametreleri
 
 Razor bileşenleri kısmi sınıflar olarak oluşturulur. Razor bileşenleri aşağıdaki yaklaşımlardan birini kullanarak yazılır:
 
-* C#kod, tek bir dosyada HTML işaretlemesi ve Razor kodu ile bir [`@code`](xref:mvc/views/razor#code) bloğunda tanımlanmıştır. Blazor şablonlar, bu yaklaşımı kullanarak Razor bileşenlerini tanımlar.
+* C#kod, tek bir dosyada HTML işaretlemesi ve Razor kodu ile bir [`@code`](xref:mvc/views/razor#code) bloğunda tanımlanmıştır. Blazor şablonları bu yaklaşımı kullanarak Razor bileşenlerini tanımlar.
 * C#kod, kısmi sınıf olarak tanımlanan bir arka plan kod dosyasına yerleştirilir.
 
-Aşağıdaki örnek, bir Blazor şablonundan oluşturulan bir uygulamada `@code` bloğu olan varsayılan `Counter` bileşenini gösterir. HTML işaretleme, Razor kodu ve C# kod aynı dosyada:
+Aşağıdaki örnek, Blazor şablonundan oluşturulan bir uygulamada bir `@code` bloğu olan varsayılan `Counter` bileşenini gösterir. HTML işaretleme, Razor kodu ve C# kod aynı dosyada:
 
 *Counter. Razor*:
 
@@ -1147,6 +1151,43 @@ using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Components.Forms;
 using Microsoft.AspNetCore.Components.Routing;
 using Microsoft.AspNetCore.Components.Web;
+```
+
+## <a name="specify-a-base-class"></a>Temel sınıf belirtin
+
+[`@inherits`](xref:mvc/views/razor#inherits) yönergesi, bir bileşen için temel sınıf belirtmek üzere kullanılabilir. Aşağıdaki örnek, bileşenin özelliklerini ve yöntemlerini sağlamak için bir bileşenin `BlazorRocksBase`bir temel sınıfı nasıl devralmasını gösterir. Temel sınıf `ComponentBase`türetmelidir.
+
+*Pages/BlazorRocks. Razor*:
+
+```razor
+@page "/BlazorRocks"
+@inherits BlazorRocksBase
+
+<h1>@BlazorRocksText</h1>
+```
+
+*BlazorRocksBase.cs*:
+
+```csharp
+using Microsoft.AspNetCore.Components;
+
+namespace BlazorSample
+{
+    public class BlazorRocksBase : ComponentBase
+    {
+        public string BlazorRocksText { get; set; } = 
+            "Blazor rocks the browser!";
+    }
+}
+```
+
+## <a name="specify-an-attribute"></a>Bir öznitelik belirtin
+
+Özellikler Razor bileşenlerinde [`@attribute`](xref:mvc/views/razor#attribute) yönergesi ile belirtilebilir. Aşağıdaki örnek bileşen sınıfına `[Authorize]` özniteliğini uygular:
+
+```razor
+@page "/"
+@attribute [Authorize]
 ```
 
 ## <a name="import-components"></a>Bileşenleri içeri aktar
@@ -1545,7 +1586,7 @@ Başka bir bileşende el ile yerleşik olarak kullanılabilecek aşağıdaki `Pe
 }
 ```
 
-Aşağıdaki örnekte, `CreateComponent` yöntemindeki döngü üç `PetDetails` bileşeni oluşturur. Bileşenleri oluşturmak için `RenderTreeBuilder` Yöntemler çağrılırken (`OpenComponent` ve `AddAttribute`), dizi numaraları kaynak kodu satır numaralarıdır. Blazor farkı algoritması, ayrı çağrı etkinleştirmeleri değil, farklı kod satırlarına karşılık gelen sıra numaralarına dayanır. `RenderTreeBuilder` yöntemlerle bir bileşen oluştururken, dizi numaraları için bağımsız değişkenleri sabit olarak kodlayın. **Sıra numarasını oluşturmak için bir hesaplama veya sayaç kullanmak kötü performansa neden olabilir.** Daha fazla bilgi için bkz. [kod satırı numaralarıyla Ilgili sıra numaraları ve yürütme sırası çalışmıyor](#sequence-numbers-relate-to-code-line-numbers-and-not-execution-order) bölümü.
+Aşağıdaki örnekte, `CreateComponent` yöntemindeki döngü üç `PetDetails` bileşeni oluşturur. Bileşenleri oluşturmak için `RenderTreeBuilder` Yöntemler çağrılırken (`OpenComponent` ve `AddAttribute`), dizi numaraları kaynak kodu satır numaralarıdır. Blazor fark algoritması, ayrı çağrı etkinleştirmeleri değil ayrı kod satırlarına karşılık gelen sıra numaralarına dayanır. `RenderTreeBuilder` yöntemlerle bir bileşen oluştururken, dizi numaraları için bağımsız değişkenleri sabit olarak kodlayın. **Sıra numarasını oluşturmak için bir hesaplama veya sayaç kullanmak kötü performansa neden olabilir.** Daha fazla bilgi için bkz. [kod satırı numaralarıyla Ilgili sıra numaraları ve yürütme sırası çalışmıyor](#sequence-numbers-relate-to-code-line-numbers-and-not-execution-order) bölümü.
 
 `BuiltContent` bileşeni:
 
@@ -1581,11 +1622,11 @@ Aşağıdaki örnekte, `CreateComponent` yöntemindeki döngü üç `PetDetails`
 ```
 
 > [!WARNING]
-> `Microsoft.AspNetCore.Components.RenderTree` türler, işleme işlemlerinin *sonuçlarının* işlenmesine izin verir. Bunlar Blazor Framework uygulamasının iç ayrıntılardır. Bu türlerin *dengesizleşilmesi* ve gelecekteki sürümlerde değişikliğe tabi olması gerekir.
+> `Microsoft.AspNetCore.Components.RenderTree` türler, işleme işlemlerinin *sonuçlarının* işlenmesine izin verir. Bunlar, Blazor Framework uygulamasının iç ayrıntılardır. Bu türlerin *dengesizleşilmesi* ve gelecekteki sürümlerde değişikliğe tabi olması gerekir.
 
 ### <a name="sequence-numbers-relate-to-code-line-numbers-and-not-execution-order"></a>Sıra numaraları, kod satırı numaralarıyla ilgilidir ve yürütme sırası değildir
 
-Blazor `.razor` dosyalar her zaman derlenir. Derleme adımı, çalışma zamanında uygulama performansını geliştiren bilgileri eklemek için kullanılabilir olduğundan, bu büyük olasılıkla `.razor` için harika bir avantajdır.
+Blazor `.razor` dosyaları her zaman derlenir. Derleme adımı, çalışma zamanında uygulama performansını geliştiren bilgileri eklemek için kullanılabilir olduğundan, bu büyük olasılıkla `.razor` için harika bir avantajdır.
 
 Bu geliştirmelerin önemli bir örneği *sıra numarası*içerir. Sıra numaraları, hangi çıkışların ayrı ve sıralı kod satırlarından geldiğini çalışma zamanına işaret ediyor. Çalışma zamanı, doğrusal bir zamanda, genel ağaç farkı algoritması için genellikle mümkün olandan çok daha hızlı olan etkili ağaç SLA 'ları oluşturmak için bu bilgileri kullanır.
 

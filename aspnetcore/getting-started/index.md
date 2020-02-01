@@ -6,18 +6,18 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 01/07/2020
 uid: getting-started
-ms.openlocfilehash: c806bd1e79dea9119f1c9e99d0a2b9742a10987a
-ms.sourcegitcommit: ef1720cb733908f36a54825d84c3461c5280bdbe
+ms.openlocfilehash: 4f7e67e1e422afe3f7e2970e0c40380f065390ac
+ms.sourcegitcommit: 0b0e485a8a6dfcc65a7a58b365622b3839f4d624
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75737483"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76928324"
 ---
 # <a name="tutorial-get-started-with-aspnet-core"></a>Öğretici: ASP.NET Core kullanmaya başlayın
 
-Bu öğreticide, bir ASP.NET Core Web uygulaması oluşturmak ve çalıştırmak için .NET Core komut satırı arabirimi 'nin nasıl kullanılacağı gösterilmektedir.
+Bu öğreticide, bir ASP.NET Core Web uygulaması oluşturmak ve çalıştırmak için .NET Core CLI nasıl kullanılacağı gösterilmektedir.
 
-Şunları öğreneceksiniz:
+Şunları yapmayı öğreneceksiniz:
 
 > [!div class="checklist"]
 > * Bir Web uygulaması projesi oluşturun.
@@ -41,7 +41,7 @@ Bir komut kabuğu açın ve şu komutu girin:
 dotnet new webapp -o aspnetcoreapp
 ```
 
-Yukarıdaki komut:
+Önceki komut:
 
 * Yeni bir Web uygulaması oluşturur.  
 * `-o aspnetcoreapp` parametresi, uygulama için kaynak dosyalarla *aspnetcoreapp* adlı bir dizin oluşturur.

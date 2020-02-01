@@ -9,12 +9,12 @@ ms.date: 11/12/2019
 no-loc:
 - SignalR
 uid: signalr/messagepackhubprotocol
-ms.openlocfilehash: 1b01357233a9b95a5da052d92e30232c94e78a78
-ms.sourcegitcommit: eca76bd065eb94386165a0269f1e95092f23fa58
+ms.openlocfilehash: 3c2a4285945d3fdc6bba195e3160da8b9dcbba44
+ms.sourcegitcommit: 0b0e485a8a6dfcc65a7a58b365622b3839f4d624
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76727228"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76928184"
 ---
 # <a name="use-messagepack-hub-protocol-in-opno-locsignalr-for-aspnet-core"></a>ASP.NET Core için SignalR içinde MessagePack hub protokolünü kullanın
 
@@ -49,6 +49,18 @@ services.AddSignalR()
             MessagePack.Resolvers.StandardResolver.Instance
         };
     });
+```
+
+> [!WARNING]
+> [CVE-2020-5234](https://github.com/neuecc/MessagePack-CSharp/security/advisories/GHSA-7q36-4xx7-xcxf) ' i gözden geçirmeyi ve önerilen düzeltme eklerini uygulamayı kesinlikle öneririz. Örneğin, `MessagePackSecurity.Active` static özelliği `MessagePackSecurity.UntrustedData`olarak ayarlanıyor. `MessagePackSecurity.Active` ayarlamak için [MessagePack 'in bir 1.9. x sürümünün](https://www.nuget.org/packages/MessagePack/1.9.3)el ile yüklenmesi gerekir. Yükleme `MessagePack` 1.9. x yükseltmeleri, SignalR sürümünü kullanır. `MessagePackSecurity.Active` `MessagePackSecurity.UntrustedData`olarak ayarlanmamışsa kötü amaçlı bir istemci hizmet reddine neden olabilir. Aşağıdaki kodda gösterildiği gibi `Program.Main``MessagePackSecurity.Active` ayarlayın:
+
+```csharp
+public static void Main(string[] args)
+{
+  MessagePackSecurity.Active = MessagePackSecurity.UntrustedData;
+
+  CreateHostBuilder(args).Build().Run();
+}
 ```
 
 ## <a name="configure-messagepack-on-the-client"></a>İstemcide MessagePack 'i yapılandırma

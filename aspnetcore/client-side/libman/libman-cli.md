@@ -1,21 +1,21 @@
 ---
-title: ASP.NET Core ile LibMan komut satırı arabirimini (CLı) kullanın
+title: ASP.NET Core ile LibMan CLı kullanın
 author: scottaddie
-description: ASP.NET Core projesindeki LibMan komut satırı arabirimini (CLı) kullanmayı öğrenin.
+description: ASP.NET Core projesindeki LibMan CLı 'yı nasıl kullanacağınızı öğrenin.
 ms.author: scaddie
 ms.custom: mvc
 ms.date: 11/12/2019
 no-loc:
 - SignalR
 uid: client-side/libman/libman-cli
-ms.openlocfilehash: 8b2b1e45ab4685482554ac439b0276e0cf381609
-ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
+ms.openlocfilehash: 02d88d09805bd23a86ef924766373245fec7ff52
+ms.sourcegitcommit: 0b0e485a8a6dfcc65a7a58b365622b3839f4d624
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73962797"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76928359"
 ---
-# <a name="use-the-libman-command-line-interface-cli-with-aspnet-core"></a>ASP.NET Core ile LibMan komut satırı arabirimini (CLı) kullanın
+# <a name="use-the-libman-cli-with-aspnet-core"></a>ASP.NET Core ile LibMan CLı kullanın
 
 [Scott Ade](https://twitter.com/Scott_Addie) tarafından
 

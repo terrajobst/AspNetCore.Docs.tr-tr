@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/16/2019
 uid: security/key-vault-configuration
-ms.openlocfilehash: 37ba756cc4170c145d2ab1f9f0a465057cc826c1
-ms.sourcegitcommit: 2cb857f0de774df421e35289662ba92cfe56ffd1
+ms.openlocfilehash: cd31094884f53f34d55c0bceabae41ca2bacba4c
+ms.sourcegitcommit: 0b0e485a8a6dfcc65a7a58b365622b3839f4d624
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75358714"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76928539"
 ---
 # <a name="azure-key-vault-configuration-provider-in-aspnet-core"></a>ASP.NET Core Azure Key Vault yapılandırma sağlayıcısı
 
@@ -73,11 +73,11 @@ Hızlı başlangıç tarafından sunulan yönergeler [: Azure CLI kullanarak Azu
 
 1. [Azure Portal](https://portal.azure.com/)aşağıdaki yöntemlerden birini kullanarak Azure Cloud Shell 'i açın:
 
-   * Kod bloğunun sağ üst köşesindeki **Deneyin**’i seçin. Metin kutusunda "Azure CLı" arama dizesini kullanın.
+   * Bir kod bloğunun sağ üst köşesinde **deneyin** öğesini seçin. Metin kutusunda "Azure CLı" arama dizesini kullanın.
    * **Cloud Shell Başlat** düğmesini kullanarak tarayıcınızda Cloud Shell açın.
    * Azure portal sağ üst köşesindeki menüdeki **Cloud Shell** düğmesini seçin.
 
-   Daha fazla bilgi için bkz. [Azure komut satırı arabirimi (CLI)](/cli/azure/) ve [Azure Cloud Shell Genel Bakış](/azure/cloud-shell/overview).
+   Daha fazla bilgi için bkz. [Azure CLI](/cli/azure/) ve [Azure Cloud Shell Genel Bakış](/azure/cloud-shell/overview).
 
 1. Kimlik doğrulaması yapmadıysanız, `az login` komutuyla oturum açın.
 
@@ -124,7 +124,7 @@ Hızlı başlangıç tarafından sunulan yönergeler [: Azure CLI kullanarak Azu
 1. Anahtar Kasası adı, uygulama KIMLIĞI ve sertifika parmak izini uygulamanın *appSettings. JSON* dosyasında depolayın.
 1. Azure portal **ana** kasaları ' ne gidin.
 1. Azure Key Vault bölümünde, [üretim ortamındaki gizli dizi deposunda](#secret-storage-in-the-production-environment-with-azure-key-vault) oluşturduğunuz anahtar kasasını seçin.
-1. **Erişim ilkeleri**'ni seçin.
+1. **Erişim ilkeleri**' ni seçin.
 1. **Erişim Ilkesi Ekle**' yi seçin.
 1. **Gizli izinleri** açın ve uygulamaya **Get** ve **list** izinleri sağlayın.
 1. **Sorumlu Seç** ' i seçin ve kayıtlı uygulamayı ada göre seçin. **Seç** düğmesini seçin.
