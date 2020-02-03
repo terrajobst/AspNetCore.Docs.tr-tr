@@ -75,10 +75,10 @@ Blazor sunucu uygulamasındaki kalıcı durum için üç ortak konum vardır. He
 
 ### <a name="server-side-in-a-database"></a>Veritabanında sunucu tarafı
 
-Kalıcı veri kalıcılığı veya birden çok kullanıcı veya cihaza yayılması gereken veriler için, bağımsız bir sunucu tarafı veritabanı neredeyse en iyi seçenektir. Şu seçenekler mevcuttur:
+Kalıcı veri kalıcılığı veya birden çok kullanıcı veya cihaza yayılması gereken veriler için, bağımsız bir sunucu tarafı veritabanı neredeyse en iyi seçenektir. Seçeneklere şunlar dahildir:
 
 * İlişkisel SQL veritabanı
-* Anahtar-değer deposu
+* Anahtar değeri deposu
 * Blob deposu
 * Tablo deposu
 
@@ -86,7 +86,7 @@ Veriler veritabanına kaydedildikten sonra, bir kullanıcı tarafından herhangi
 
 Azure veri depolama seçenekleri hakkında daha fazla bilgi için bkz. [Azure depolama belgeleri](/azure/storage/) ve [Azure veritabanları](https://azure.microsoft.com/product-categories/databases/).
 
-### <a name="url"></a>{1&gt;URL&lt;1}
+### <a name="url"></a>URL
 
 Gezinti durumunu temsil eden geçici veriler için, verileri URL 'nin bir parçası olarak modelleyin. URL 'de modellenen durum örnekleri şunları içerir:
 

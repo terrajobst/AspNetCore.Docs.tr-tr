@@ -25,7 +25,7 @@ Yönlendirme, istek URI 'Lerini uç noktalarla eşleştirmekten ve gelen istekle
 > [!IMPORTANT]
 > Bu belge, alt düzey ASP.NET Core yönlendirmeyi içerir. ASP.NET Core MVC yönlendirme hakkında daha fazla bilgi için bkz. <xref:mvc/controllers/routing>. Razor Pages 'de yönlendirme kuralları hakkında bilgi için bkz. <xref:razor-pages/razor-pages-conventions>.
 
-[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/routing/samples) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
+[Örnek kodu görüntüleme veya indirme](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/routing/samples) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
 
 ## <a name="routing-basics"></a>Yönlendirme temelleri
 
@@ -220,7 +220,7 @@ ASP.NET Core 2,2 ' den önceki yönlendirmenin uç nokta yönlendirme ve sürüm
 
   ASP.NET Core (`{*myparametername}`) önceki sürümlerindeki tek yıldız catch-all parametre sözdizimi desteklenmeye devam eder ve eğik çizgi kodlandı.
 
-  | Yolu              | İle oluşturulan bağlantı<br>`Url.Action(new { category = "admin/products" })`&hellip; |
+  | Yol              | İle oluşturulan bağlantı<br>`Url.Action(new { category = "admin/products" })`&hellip; |
   | ------------------ | --------------------------------------------------------------------- |
   | `/search/{*page}`  | `/search/admin%2Fproducts` (eğik çizgi kodlanmış)             |
   | `/search/{**page}` | `/search/admin/products`                                              |
@@ -252,7 +252,7 @@ public class ProductsLinkMiddleware
 }
 ```
 
-### <a name="create-routes"></a>Rotalar oluştur
+### <a name="create-routes"></a>Yolları oluşturma
 
 Çoğu uygulama, <xref:Microsoft.AspNetCore.Routing.IRouteBuilder>tanımlanan benzer uzantı yöntemlerinden birini veya <xref:Microsoft.AspNetCore.Builder.MapRouteRouteBuilderExtensions.MapRoute*> çağırarak yollar oluşturur. <xref:Microsoft.AspNetCore.Routing.IRouteBuilder> uzantısı yöntemlerinden herhangi biri bir <xref:Microsoft.AspNetCore.Routing.Route> örneği oluşturur ve bunu yol koleksiyonuna ekler.
 
@@ -372,7 +372,7 @@ Yolların `Startup.Configure` yönteminde yapılandırılması gerekir. Örnek u
 
 Aşağıdaki tabloda verilen URI 'Ler ile ilgili yanıtlar gösterilmektedir.
 
-| {1&gt;URI&lt;1}                    | Yanıt                                          |
+| URI                    | Yanıt                                          |
 | ---------------------- | ------------------------------------------------- |
 | `/package/create/3`    | Herkese! Rota değerleri: [işlem, oluşturma], [kimlik, 3] |
 | `/package/track/-3`    | Herkese! Rota değerleri: [işlem, izleme], [kimlik,-3] |
@@ -709,7 +709,7 @@ services.AddMvc(options => options.EnableEndpointRouting = false)
 > [!IMPORTANT]
 > Bu belge, alt düzey ASP.NET Core yönlendirmeyi içerir. ASP.NET Core MVC yönlendirme hakkında daha fazla bilgi için bkz. <xref:mvc/controllers/routing>. Razor Pages 'de yönlendirme kuralları hakkında bilgi için bkz. <xref:razor-pages/razor-pages-conventions>.
 
-[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/routing/samples) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
+[Örnek kodu görüntüleme veya indirme](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/routing/samples) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
 
 ## <a name="routing-basics"></a>Yönlendirme temelleri
 
@@ -881,7 +881,7 @@ ASP.NET Core 2,2 veya üzeri ve daha önceki yönlendirme sürümlerindeki ASP.N
 
   ASP.NET Core (`{*myparametername}`) önceki sürümlerindeki tek yıldız catch-all parametre sözdizimi desteklenmeye devam eder ve eğik çizgi kodlandı.
 
-  | Yolu              | İle oluşturulan bağlantı<br>`Url.Action(new { category = "admin/products" })`&hellip; |
+  | Yol              | İle oluşturulan bağlantı<br>`Url.Action(new { category = "admin/products" })`&hellip; |
   | ------------------ | --------------------------------------------------------------------- |
   | `/search/{*page}`  | `/search/admin%2Fproducts` (eğik çizgi kodlanmış)             |
   | `/search/{**page}` | `/search/admin/products`                                              |
@@ -913,7 +913,7 @@ public class ProductsLinkMiddleware
 }
 ```
 
-### <a name="create-routes"></a>Rotalar oluştur
+### <a name="create-routes"></a>Yolları oluşturma
 
 Çoğu uygulama, <xref:Microsoft.AspNetCore.Routing.IRouteBuilder>tanımlanan benzer uzantı yöntemlerinden birini veya <xref:Microsoft.AspNetCore.Builder.MapRouteRouteBuilderExtensions.MapRoute*> çağırarak yollar oluşturur. <xref:Microsoft.AspNetCore.Routing.IRouteBuilder> uzantısı yöntemlerinden herhangi biri bir <xref:Microsoft.AspNetCore.Routing.Route> örneği oluşturur ve bunu yol koleksiyonuna ekler.
 
@@ -1033,7 +1033,7 @@ Yolların `Startup.Configure` yönteminde yapılandırılması gerekir. Örnek u
 
 Aşağıdaki tabloda verilen URI 'Ler ile ilgili yanıtlar gösterilmektedir.
 
-| {1&gt;URI&lt;1}                    | Yanıt                                          |
+| URI                    | Yanıt                                          |
 | ---------------------- | ------------------------------------------------- |
 | `/package/create/3`    | Herkese! Rota değerleri: [işlem, oluşturma], [kimlik, 3] |
 | `/package/track/-3`    | Herkese! Rota değerleri: [işlem, izleme], [kimlik,-3] |
@@ -1285,7 +1285,7 @@ services.AddMvc()
 > [!IMPORTANT]
 > Bu belge, alt düzey ASP.NET Core yönlendirmeyi içerir. ASP.NET Core MVC yönlendirme hakkında daha fazla bilgi için bkz. <xref:mvc/controllers/routing>. Razor Pages 'de yönlendirme kuralları hakkında bilgi için bkz. <xref:razor-pages/razor-pages-conventions>.
 
-[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/routing/samples) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
+[Örnek kodu görüntüleme veya indirme](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/routing/samples) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
 
 ## <a name="routing-basics"></a>Yönlendirme temelleri
 
@@ -1363,7 +1363,7 @@ Rotalar öncelikle <xref:Microsoft.AspNetCore.Routing.VirtualPathContext.Values>
 
 [VirtualPathData. DataTokens](xref:Microsoft.AspNetCore.Routing.VirtualPathData.DataTokens*) özellikleri, URL 'yi oluşturan rotayla ilgili ek verilerin bir sözlüğüdür. Bu, [RouteData. Datatoken](xref:Microsoft.AspNetCore.Routing.RouteData.DataTokens*)'ların paraleldir.
 
-### <a name="create-routes"></a>Rotalar oluştur
+### <a name="create-routes"></a>Yolları oluşturma
 
 Yönlendirme, <xref:Microsoft.AspNetCore.Routing.IRouter>standart uygulama olarak <xref:Microsoft.AspNetCore.Routing.Route> sınıfını sağlar. <xref:Microsoft.AspNetCore.Routing.Route>, <xref:Microsoft.AspNetCore.Routing.IRouter.RouteAsync*> çağrıldığında URL yoluyla eşleştirilecek desenleri tanımlamak için *yol şablonu* sözdizimini kullanır. <xref:Microsoft.AspNetCore.Routing.Route>, <xref:Microsoft.AspNetCore.Routing.IRouter.GetVirtualPath*> çağrıldığında bir URL oluşturmak için aynı yol şablonunu kullanır.
 
@@ -1485,7 +1485,7 @@ Yolların `Startup.Configure` yönteminde yapılandırılması gerekir. Örnek u
 
 Aşağıdaki tabloda verilen URI 'Ler ile ilgili yanıtlar gösterilmektedir.
 
-| {1&gt;URI&lt;1}                    | Yanıt                                          |
+| URI                    | Yanıt                                          |
 | ---------------------- | ------------------------------------------------- |
 | `/package/create/3`    | Herkese! Rota değerleri: [işlem, oluşturma], [kimlik, 3] |
 | `/package/track/-3`    | Herkese! Rota değerleri: [işlem, izleme], [kimlik,-3] |

@@ -15,7 +15,7 @@ ms.locfileid: "76727318"
 ---
 # <a name="enable-cross-origin-requests-cors-in-aspnet-core"></a>ASP.NET Core 'de çıkış noktaları arası Istekleri (CORS) etkinleştirme
 
-Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
+Gönderen [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 Bu makalede, ASP.NET Core uygulamasında CORS 'nin nasıl etkinleştirileceği gösterilmektedir.
 
@@ -28,7 +28,7 @@ Tarayıcı güvenliği, bir Web sayfasının Web sayfasını sunduğundan farkl�
 * Bir sunucunun bazı çapraz kaynak isteklerine, diğerlerini reddetirken açık olarak izin almasına izin verir.
 * , [JSONP](/dotnet/framework/wcf/samples/jsonp)gibi önceki tekniklerin daha güvenli ve daha esnektir.
 
-[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/cors/sample) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
+[Örnek kodu görüntüleme veya indirme](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/cors/sample) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
 
 ## <a name="same-origin"></a>Aynı kaynak
 

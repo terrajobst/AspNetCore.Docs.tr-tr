@@ -102,7 +102,7 @@ Bir kaynak için bir JSON Patch belgesi uygulanarak yapılan değişiklikler ato
 
 ## <a name="path-syntax"></a>Yol sözdizimi
 
-Bir işlem nesnesinin [Path](https://tools.ietf.org/html/rfc6901) özelliği düzeyler arasında eğik çizgi içeriyor. Örneğin: `"/address/zipCode"`.
+Bir işlem nesnesinin [Path](https://tools.ietf.org/html/rfc6901) özelliği düzeyler arasında eğik çizgi içeriyor. Örneğin, `"/address/zipCode"`.
 
 Sıfır tabanlı dizinler, dizi öğelerini belirtmek için kullanılır. `addresses` dizisinin ilk öğesi `/addresses/0`. Bir dizinin sonuna `add` için dizin numarası yerine bir tire (-) kullanın: `/addresses/-`.
 
@@ -237,9 +237,9 @@ Aşağıdaki örnek düzeltme eki belgesi:
 
 [!code-json[](jsonpatch/samples/2.2/JSON/test-fail.json)]
 
-## <a name="get-the-code"></a>Kodu alın
+## <a name="get-the-code"></a>Kodu alma
 
-[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/web-api/jsonpatch/samples/2.2). ([İndirme](xref:index#how-to-download-a-sample)).
+[Örnek kodu görüntüleyin veya indirin](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/web-api/jsonpatch/samples/2.2). ([İndirme](xref:index#how-to-download-a-sample)).
 
 Örneği test etmek için, uygulamayı çalıştırın ve aşağıdaki ayarlarla HTTP istekleri gönderin:
 
@@ -314,7 +314,7 @@ Bir kaynak için bir JSON Patch belgesi uygulanarak yapılan değişiklikler ato
 
 ## <a name="path-syntax"></a>Yol sözdizimi
 
-Bir işlem nesnesinin [Path](https://tools.ietf.org/html/rfc6901) özelliği düzeyler arasında eğik çizgi içeriyor. Örneğin: `"/address/zipCode"`.
+Bir işlem nesnesinin [Path](https://tools.ietf.org/html/rfc6901) özelliği düzeyler arasında eğik çizgi içeriyor. Örneğin, `"/address/zipCode"`.
 
 Sıfır tabanlı dizinler, dizi öğelerini belirtmek için kullanılır. `addresses` dizisinin ilk öğesi `/addresses/0`. Bir dizinin sonuna `add` için dizin numarası yerine bir tire (-) kullanın: `/addresses/-`.
 
@@ -449,9 +449,9 @@ Aşağıdaki örnek düzeltme eki belgesi:
 
 [!code-json[](jsonpatch/samples/2.2/JSON/test-fail.json)]
 
-## <a name="get-the-code"></a>Kodu alın
+## <a name="get-the-code"></a>Kodu alma
 
-[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/web-api/jsonpatch/samples/2.2). ([İndirme](xref:index#how-to-download-a-sample)).
+[Örnek kodu görüntüleyin veya indirin](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/web-api/jsonpatch/samples/2.2). ([İndirme](xref:index#how-to-download-a-sample)).
 
 Örneği test etmek için, uygulamayı çalıştırın ve aşağıdaki ayarlarla HTTP istekleri gönderin:
 

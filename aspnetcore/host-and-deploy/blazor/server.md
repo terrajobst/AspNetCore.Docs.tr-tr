@@ -83,7 +83,7 @@ Blazor Server uygulamaları için [Azure SignalR hizmetini](/azure/azure-signalr
 
 1. Blazor Server uygulaması için Visual Studio 'da bir Azure Apps yayımlama profili oluşturun.
 1. **Azure SignalR hizmeti** bağımlılığını profile ekleyin. Azure aboneliğinin uygulamaya atanacak önceden mevcut bir Azure SignalR hizmeti örneği yoksa, yeni bir hizmet örneği sağlamak için **Yeni bir azure SignalR hizmet örneği oluştur** ' u seçin.
-1. Uygulamayı Azure 'da yayımlayın.
+1. Uygulamayı Azure’da yayımlama.
 
 #### <a name="iis"></a>IIS
 

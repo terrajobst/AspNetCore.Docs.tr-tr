@@ -16,9 +16,9 @@ ms.locfileid: "76726969"
 ---
 # <a name="response-compression-in-aspnet-core"></a>ASP.NET Core 'de yanıt sıkıştırması
 
-Tarafından [Luke Latham](https://github.com/guardrex)
+[Luke Latham](https://github.com/guardrex) tarafından
 
-[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/performance/response-compression/samples) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
+[Örnek kodu görüntüleme veya indirme](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/performance/response-compression/samples) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
 
 Ağ bant genişliği sınırlı bir kaynaktır. Yanıt boyutunu azaltmak genellikle önemli ölçüde önemli ölçüde bir uygulamanın yanıt hızını artırır. Yük boyutlarını azaltmanın bir yolu, uygulamanın yanıtlarını sıkıştırmaktır.
 

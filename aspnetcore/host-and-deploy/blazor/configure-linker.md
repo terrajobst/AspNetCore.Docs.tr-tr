@@ -17,13 +17,13 @@ ms.contentlocale: tr-TR
 ms.lasthandoff: 01/24/2020
 ms.locfileid: "76726767"
 ---
-# <a name="configure-the-linker-for-aspnet-core-opno-locblazor"></a>ASP.NET Core Blazor için bağlayıcı yapılandırma
+# <a name="configure-the-linker-for-aspnet-core-opno-locblazor"></a>ASP.NET Core [!OP.NO-LOC(Blazor)] için bağlayıcı yapılandırma
 
-Tarafından [Luke Latham](https://github.com/guardrex)
+[Luke Latham](https://github.com/guardrex) tarafından
 
 [!INCLUDE[](~/includes/blazorwasm-preview-notice.md)]
 
-Blazor, uygulamanın çıkış derlemelerinden gereksiz Il 'yi kaldırmak için bir derleme sırasında [ara dil (IL)](/dotnet/standard/managed-code#intermediate-language--execution) bağlamayı gerçekleştirir.
+[!OP.NO-LOC(Blazor)], uygulamanın çıkış derlemelerinden gereksiz Il 'yi kaldırmak için bir derleme sırasında [ara dil (IL)](/dotnet/standard/managed-code#intermediate-language--execution) bağlamayı gerçekleştirir.
 
 Aşağıdaki yaklaşımlardan birini kullanarak derleme bağlamayı kontrol edin:
 
@@ -55,7 +55,7 @@ Bir XML yapılandırma dosyası sağlayarak ve dosyayı proje dosyasında MSBuil
 ```xml
 <?xml version="1.0" encoding="UTF-8" ?>
 <!--
-  This file specifies which parts of the BCL or Blazor packages must not be
+  This file specifies which parts of the BCL or [!OP.NO-LOC(Blazor)] packages must not be
   stripped by the IL Linker even if they aren't referenced by user code.
 -->
 <linker>
@@ -86,7 +86,7 @@ Daha fazla bilgi için bkz. [Il Bağlayıcısı: XML tanımlayıcısının sözd
 
 ### <a name="configure-the-linker-for-internationalization"></a>Bağlayıcıyı uluslararası duruma getirme için yapılandırma
 
-Varsayılan olarak, Blazor WebAssembly uygulamaları için Blazorbağlayıcı yapılandırması, açıkça istenen yerel ayarlar dışında uluslararası duruma getirme bilgilerini kaldırır. Bu derlemelerin kaldırılması uygulamanın boyutunu en aza indirir.
+Varsayılan olarak, [!OP.NO-LOC(Blazor)] WebAssembly uygulamaları için [!OP.NO-LOC(Blazor)]bağlayıcı yapılandırması, açıkça istenen yerel ayarlar dışında uluslararası duruma getirme bilgilerini kaldırır. Bu derlemelerin kaldırılması uygulamanın boyutunu en aza indirir.
 
 Hangi I18N derlemelerinin korunacağını denetlemek için, proje dosyasında `<MonoLinkerI18NAssemblies>` MSBuild özelliğini ayarlayın:
 
