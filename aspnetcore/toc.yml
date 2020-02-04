@@ -702,7 +702,7 @@
         - name: Mac için Visual Studio ile yayımlama
           displayName: 'azure, deploy, publish'
           href: /visualstudio/mac/publish-app-svc?toc=/aspnet/core/toc.json&bc=/aspnet/core/breadcrumb/toc.json
-        - name: CLI araçları ile yayımlama
+        - name: CLI ile yayımlama
           displayName: 'azure, deploy, publish'
           href: /azure/app-service/app-service-web-tutorial-dotnetcore-sqldb?toc=/aspnet/core/toc.json&bc=/aspnet/core/breadcrumb/toc.json
         - name: Visual Studio ve Git ile yayımlama
