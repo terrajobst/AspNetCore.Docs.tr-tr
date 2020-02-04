@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 01/13/2020
 uid: host-and-deploy/windows-service
-ms.openlocfilehash: 37fc0b7862db3280f9ade8d563feba28153ab79b
-ms.sourcegitcommit: 2388c2a7334ce66b6be3ffbab06dd7923df18f60
+ms.openlocfilehash: d4b540de50f4153f517f871f037521347fb5eb84
+ms.sourcegitcommit: 990a4c2e623c202a27f60bdf3902f250359c13be
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75951836"
+ms.lasthandoff: 02/03/2020
+ms.locfileid: "76971998"
 ---
 # <a name="host-aspnet-core-in-a-windows-service"></a>Windows hizmetinde konak ASP.NET Core
 
@@ -249,7 +249,7 @@ New-Service -Name {SERVICE NAME} -BinaryPathName {EXE FILE PATH} -Credential {DO
 * `{DESCRIPTION}` &ndash; hizmet açıklaması (örneğin, `My sample service`).
 * `{DISPLAY NAME}` &ndash; hizmet görünen adı (örneğin, `My Service`).
 
-### <a name="start-a-service"></a>Bir hizmet başlatın
+### <a name="start-a-service"></a>Hizmet başlatma
 
 Aşağıdaki PowerShell 6 komutuyla bir hizmet başlatın:
 
@@ -274,7 +274,7 @@ Durum, aşağıdaki değerlerden biri olarak bildirilir:
 * `Stopping`
 * `Stopped`
 
-### <a name="stop-a-service"></a>Bir hizmet durdurun
+### <a name="stop-a-service"></a>Bir hizmeti durdur
 
 Aşağıdaki PowerShell 6 komutuyla bir hizmeti durdurun:
 

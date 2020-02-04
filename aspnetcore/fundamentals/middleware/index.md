@@ -5,14 +5,14 @@ description: ASP.NET Core ara yazılımı ve istek işlem hattı hakkında bilgi
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/19/2019
+ms.date: 02/02/2020
 uid: fundamentals/middleware/index
-ms.openlocfilehash: 63566c1642e17ad333bb65b122330d11c4472aff
-ms.sourcegitcommit: 2cb857f0de774df421e35289662ba92cfe56ffd1
+ms.openlocfilehash: 5c8e9e58ab222e482ef029f5099d0a8acd07d8a6
+ms.sourcegitcommit: 990a4c2e623c202a27f60bdf3902f250359c13be
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75355012"
+ms.lasthandoff: 02/03/2020
+ms.locfileid: "76972027"
 ---
 # <a name="aspnet-core-middleware"></a>ASP.NET Core ara yazılımı
 
@@ -73,7 +73,7 @@ Aşağıdaki `Startup.Configure` yöntemi, güvenlikle ilgili ara yazılım bile
 
 [!code-csharp[](index/snapshot/StartupAll3.cs?name=snippet)]
 
-Yukarıdaki kodda:
+Önceki kodda:
 
 * [Bireysel kullanıcılar hesaplarıyla](xref:security/authentication/identity) yeni bir Web uygulaması oluştururken eklenmemiş olan ara yazılım, yorum yapılır.
 * Her ara yazılımın bu tam sıra, ancak birçok do olması gerekmez. Örneğin, `UseCors`, `UseAuthentication`ve `UseAuthorization` gösterilen sırayla gelmelidir.
@@ -226,6 +226,7 @@ ASP.NET Core aşağıdaki ara yazılım bileşenleriyle birlikte gönderilir. *O
 | [Tanılama](xref:fundamentals/error-handling) | Geliştirici özel durum sayfası, özel durum işleme, durum kodu sayfaları ve yeni uygulamalar için varsayılan Web sayfası sağlayan çeşitli ayrı middlewares. | Hata oluşturan bileşenlerden önce. Özel durumlar için Terminal veya yeni uygulamalar için varsayılan Web sayfasına hizmet sunma. |
 | [İletilen üstbilgiler](xref:host-and-deploy/proxy-load-balancer) | Proxy üst bilgilerini geçerli istek üzerine iletir. | Güncelleştirilmiş alanları kullanan bileşenlerden önce. Örnekler: Scheme, Host, istemci IP, yöntem. |
 | [Sistem durumu denetimi](xref:host-and-deploy/health-checks) | ASP.NET Core uygulamasının sistem durumunu ve bağımlılıklarını denetler (örneğin, veritabanı kullanılabilirliğini denetleme). | Bir istek bir sistem durumu denetimi uç noktasıyla eşleşiyorsa Terminal. |
+| [Üst bilgi yayma](xref:fundamentals/http-requests#header-propagation-middleware) | Gelen istekten gelen HTTP üstbilgilerini giden HTTP Istemci isteklerine yayar. |
 | [HTTP yöntemini geçersiz kılma](xref:Microsoft.AspNetCore.Builder.HttpMethodOverrideExtensions) | Gelen POST isteğinin yöntemi geçersiz kılmasına izin verir. | Güncelleştirilmiş yöntemini kullanan bileşenlerden önce. |
 | [HTTPS yönlendirmesi](xref:security/enforcing-ssl#require-https) | Tüm HTTP isteklerini HTTPS 'ye yeniden yönlendirin. | URL 'YI kullanan bileşenlerden önce. |
 | [HTTP katı taşıma güvenliği (HSTS)](xref:security/enforcing-ssl#http-strict-transport-security-protocol-hsts) | Özel bir yanıt üst bilgisi ekleyen güvenlik geliştirme ara yazılımı. | Yanıtlar gönderilmeden önce ve istekleri değiştiren bileşenler. Örnekler: Iletilen üstbilgiler, URL yeniden yazma. |
@@ -304,7 +305,7 @@ Aşağıdaki `Startup.Configure` yöntemi, güvenlikle ilgili ara yazılım bile
 
 [!code-csharp[](index/snapshot/Startup22.cs?name=snippet)]
 
-Yukarıdaki kodda:
+Önceki kodda:
 
 * [Bireysel kullanıcılar hesaplarıyla](xref:security/authentication/identity) yeni bir Web uygulaması oluştururken eklenmemiş olan ara yazılım, yorum yapılır.
 * Her ara yazılımın bu tam sıra, ancak birçok do olması gerekmez. Örneğin, `UseCors` ve `UseAuthentication` gösterilen sırada olmalıdır.
