@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 02/02/2020
 uid: fundamentals/middleware/index
-ms.openlocfilehash: 5c8e9e58ab222e482ef029f5099d0a8acd07d8a6
-ms.sourcegitcommit: 990a4c2e623c202a27f60bdf3902f250359c13be
+ms.openlocfilehash: 47f465c00138acf434c6ec59f757e37361ad97db
+ms.sourcegitcommit: 0e21d4f8111743bcb205a2ae0f8e57910c3e8c25
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/03/2020
-ms.locfileid: "76972027"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77034110"
 ---
 # <a name="aspnet-core-middleware"></a>ASP.NET Core ara yazılımı
 
@@ -162,6 +162,13 @@ public void Configure(IApplicationBuilder app)
 }
 ```
 
+Tek sayfalı uygulamalarda, SPA ara yazılım <xref:Microsoft.Extensions.DependencyInjection.SpaStaticFilesExtensions.UseSpaStaticFiles*> genellikle en son ara yazılım ardışık düzeninde gelir. SPA ara yazılımı son olarak gelir:
+
+* Tüm diğer middlewares önce eşleşen isteklere yanıt vermek için.
+* İstemci tarafı yönlendirmenin sunucu uygulaması tarafından tanınmayan tüm yollar için çalışmasına izin vermek için.
+
+Tek sayfalı uygulamalarla ilgili daha fazla ayrıntı için bkz. [tepki](xref:spa/react) verme ve [angular](xref: client-side/spa/angular) proje şablonları için kılavuzlar.
+
 ## <a name="branch-the-middleware-pipeline"></a>Ara yazılım ardışık düzenini dallandırma
 
 <xref:Microsoft.AspNetCore.Builder.MapExtensions.Map*> uzantıları, işlem hattının dallanması için bir kural olarak kullanılır. `Map`, istek ardışık düzenini, verilen istek yolunun eşleşenleri temelinde dallandırır. İstek yolu verilen yol ile başlıyorsa, dal yürütülür.
@@ -236,7 +243,8 @@ ASP.NET Core aşağıdaki ara yazılım bileşenleriyle birlikte gönderilir. *O
 | [Yanıt sıkıştırması](xref:performance/response-compression) | Yanıtları sıkıştırmak için destek sağlar. | Sıkıştırma gerektiren bileşenlerden önce. |
 | [Yerelleştirme iste](xref:fundamentals/localization) | Yerelleştirme desteği sağlar. | Yerelleştirmenin önemli bileşenlerinden önce. |
 | [Uç nokta yönlendirme](xref:fundamentals/routing) | İstek yollarını tanımlar ve kısıtlar. | Eşleşen yolların terminali. |
-| [Oturum](xref:fundamentals/app-state) | Kullanıcı oturumlarını yönetmek için destek sağlar. | Oturum gerektiren bileşenlerden önce. |
+| [Star](xref:Microsoft.AspNetCore.Builder.SpaApplicationBuilderExtensions.UseSpa*) | Tek sayfalı uygulama (SPA) için varsayılan sayfayı döndürerek, ara yazılım zincirindeki bu noktadan gelen tüm istekleri işler | Zincirde geç, böylece statik dosyalar, MVC eylemleri vb. hizmet sağlayan diğer ara yazılımlar önceliklidir.|
+| [Oturum](xref:fundamentals/app-state) | Kullanıcı oturumlarını yönetmek için destek sağlar. | Oturum gerektiren bileşenlerden önce. | 
 | [Statik dosyalar](xref:fundamentals/static-files) | Statik dosyaları ve dizin taramayı sunma desteği sağlar. | Bir istek bir dosyayla eşleşiyorsa Terminal. |
 | [URL yeniden yazma](xref:fundamentals/url-rewriting) | URL 'Leri yeniden yazma ve istekleri yeniden yönlendirme desteği sağlar. | URL 'YI kullanan bileşenlerden önce. |
 | [WebSockets](xref:fundamentals/websockets) | WebSockets protokolünü etkinleştirilir. | WebSocket isteklerini kabul etmek için gereken bileşenlerden önce. |
