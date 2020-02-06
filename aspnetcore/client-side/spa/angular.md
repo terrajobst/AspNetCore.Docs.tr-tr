@@ -5,14 +5,14 @@ description: Angular ve angular CLı için ASP.NET Core tek sayfalı uygulama (S
 monikerRange: '>= aspnetcore-2.1'
 ms.author: stevesa
 ms.custom: mvc
-ms.date: 03/07/2019
+ms.date: 02/06/2020
 uid: spa/angular
-ms.openlocfilehash: 150b2176eac2e68c1ef9ec6deabb087836ff84ce
-ms.sourcegitcommit: cb6015f737b6a93127016ab0f21b58e34b624ff3
+ms.openlocfilehash: 11ad5d4c7cadcc582b3e288a331569f62f0b98ac
+ms.sourcegitcommit: bd896935e91236e03241f75e6534ad6debcecbbf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "77004272"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77044853"
 ---
 # <a name="use-the-angular-project-template-with-aspnet-core"></a>Angular proje şablonunu ASP.NET Core ile kullanma
 
@@ -53,7 +53,7 @@ Now listening on: http://localhost:<port>
 
 Bu URL 'yi bir tarayıcıda gezin.
 
-Uygulama arka planda angular CLı sunucusunun bir örneğini başlatır. Aşağıdakine benzer bir ileti günlüğe kaydedilir: *ng Live Development Server, localhost üzerinde dinleme yapıyor:&lt;otherport&gt;, tarayıcınızı http://localhost:&lt ; diğer bağlantı noktası&gt;/ açın* . Bu iletiyi yoksayın&mdash;birleştirilmiş ASP.NET Core ve angular CLı uygulamasının URL 'SI **değildir** .
+Uygulama arka planda angular CLı sunucusunun bir örneğini başlatır. Aşağıdakine benzer bir ileti günlüğe kaydedilir: *ng Live Development Server, localhost üzerinde dinleme yapıyor:&lt;otherport&gt;, tarayıcınızı http://localhost:&lt; diğer bağlantı noktası&gt;/açın* . Bu iletiyi yoksayın&mdash;birleştirilmiş ASP.NET Core ve angular CLı uygulamasının URL 'SI **değildir** .
 
 ---
 
@@ -61,7 +61,7 @@ Proje şablonu, bir ASP.NET Core uygulaması ve angular uygulaması oluşturur. 
 
 ## <a name="add-pages-images-styles-modules-etc"></a>Sayfa, resim, stil, modül vb. ekleyin
 
-*Clientapp* dizini standart ANGULAR CLI uygulaması içerir. Daha fazla bilgi için bkz. resmi [angular belgeleri](https://https://angular.io) .
+*Clientapp* dizini standart ANGULAR CLI uygulaması içerir. Daha fazla bilgi için bkz. resmi [angular belgeleri](https://angular.io) .
 
 Bu şablon tarafından oluşturulan angular uygulaması ve angular CLı 'nın kendisi tarafından oluşturulan (`ng new`aracılığıyla) hafif farklar vardır; Ancak, uygulamanın özellikleri değiştirilmez. Şablon tarafından oluşturulan uygulama, [önyükleme](https://getbootstrap.com/)tabanlı bir düzen ve temel bir yönlendirme örneği içerir.
 

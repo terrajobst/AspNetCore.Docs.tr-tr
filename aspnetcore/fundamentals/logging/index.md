@@ -5,14 +5,14 @@ description: Microsoft. Extensions. Logging NuGet paketi tarafından sunulan gü
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 01/08/2020
+ms.date: 02/05/2020
 uid: fundamentals/logging/index
-ms.openlocfilehash: f21559e43ae004c81abc18fe8a768d4145ffb184
-ms.sourcegitcommit: 57b85708f4cded99b8f008a69830cb104cd8e879
+ms.openlocfilehash: 3c75fdc940701b8f4d367990b5073861467079b2
+ms.sourcegitcommit: bd896935e91236e03241f75e6534ad6debcecbbf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75914237"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77044908"
 ---
 # <a name="logging-in-net-core-and-aspnet-core"></a>.NET Core ve ASP.NET Core oturum açma
 
@@ -28,7 +28,7 @@ Genel ana bilgisayarı olmayan uygulamalar için günlük kodu, [sağlayıcılar
 
 ::: moniker-end
 
-[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/logging/index/samples) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
+[Örnek kodu görüntüleme veya indirme](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/logging/index/samples) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
 
 ## <a name="add-providers"></a>Sağlayıcı Ekle
 
@@ -483,7 +483,7 @@ Aşağıdaki kod `Information` ve `Warning` günlüklerini oluşturur:
 
 ::: moniker-end
 
-Önceki kodda, ilk parametredir [oturum öğesini belirten Olay No.](#log-event-id) İkinci parametre, kalan Yöntem parametreleri tarafından belirtilen bağımsız değişken değerleri için yer tutucuları olan bir ileti şablonudur. Yöntem parametreleri bu makalenin ilerleyen kısımlarında bulunan [ileti şablonu bölümünde](#log-message-template) açıklanmaktadır.
+Yukarıdaki kodda, ilk parametre [günlük olay kimliğidir](#log-event-id). İkinci parametre, kalan Yöntem parametreleri tarafından belirtilen bağımsız değişken değerleri için yer tutucuları olan bir ileti şablonudur. Yöntem parametreleri bu makalenin ilerleyen kısımlarında bulunan [ileti şablonu bölümünde](#log-message-template) açıklanmaktadır.
 
 Yöntem adındaki düzeyi (örneğin, `LogInformation` ve `LogWarning`) içeren günlük yöntemleri, [ILogger için uzantı yöntemleridir](xref:Microsoft.Extensions.Logging.LoggerExtensions). Bu yöntemler bir `LogLevel` parametresi alan `Log` yöntemini çağırır. Bu uzantı yöntemlerinden biri yerine doğrudan `Log` yöntemi çağırabilirsiniz, ancak söz dizimi görece karmaşıktır. Daha fazla bilgi için bkz. <xref:Microsoft.Extensions.Logging.ILogger> ve [günlükçü uzantıları kaynak kodu](https://github.com/dotnet/extensions/blob/release/2.2/src/Logging/Logging.Abstractions/src/LoggerExtensions.cs).
 
@@ -604,7 +604,7 @@ info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
 
 ## <a name="log-event-id"></a>Günlüğe olay KIMLIĞI
 
-Her günlük belirtebilirsiniz bir *öğesini belirten Olay No*. Örnek uygulama bunu yerel olarak tanımlanmış bir `LoggingEvents` sınıfını kullanarak yapar:
+Her günlük bir *olay kimliği*belirtebilir. Örnek uygulama bunu yerel olarak tanımlanmış bir `LoggingEvents` sınıfını kullanarak yapar:
 
 ::: moniker range=">= aspnetcore-3.0"
 
@@ -728,7 +728,7 @@ Aşağıdaki örnek, koddaki filtre kurallarının nasıl kaydedileceği göster
 
 ::: moniker range=">= aspnetcore-3.0"
 
-[!code-csharp[](index/samples/3.x/TodoApiSample/Program.cs?name=snippet_FilterInCode&highlight=4-5)]
+[!code-csharp[](index/samples/3.x/TodoApiSample/Program.cs?name=snippet_FilterInCode&highlight=2-3)]
 
 ::: moniker-end
 
@@ -746,12 +746,12 @@ Yapılandırma verileri ve önceki örneklerde gösterilen `AddFilter` kodu, aş
 
 | Sayı | Sağlayıcı      | Şununla başlayan Kategoriler...          | En düşük günlük düzeyi |
 | :----: | ------------- | --------------------------------------- | ----------------- |
-| 1\.      | Hata ayıklama         | Tüm kategoriler                          | Bilgisi       |
+| 1\.      | Hata ayıklama         | Tüm Kategoriler                          | Bilgiler       |
 | 2      | Konsolu       | Microsoft.AspNetCore.Mvc.Razor.Internal | Uyarı           |
 | 3      | Konsolu       | Microsoft.AspNetCore.Mvc.Razor.Razor    | Hata ayıklama             |
 | 4      | Konsolu       | Microsoft.AspNetCore.Mvc.Razor          | Hata             |
-| 5      | Konsolu       | Tüm kategoriler                          | Bilgisi       |
-| 6      | Tüm sağlayıcılar | Tüm kategoriler                          | Hata ayıklama             |
+| 5      | Konsolu       | Tüm Kategoriler                          | Bilgiler       |
+| 6      | Tüm sağlayıcılar | Tüm Kategoriler                          | Hata ayıklama             |
 | 7      | Tüm sağlayıcılar | Sistem                                  | Hata ayıklama             |
 | 8      | Hata ayıklama         | Microsoft                               | İzleme             |
 
@@ -996,7 +996,7 @@ Bir uygulamadan izleme toplamak için DotNet Trace araçları kullanın:
    | 4       | `ILogger.Log()` çağrıldığında `FormatMessage` olayı açar. , Bilgilerin biçimlendirilen dize sürümünü sağlar. |
    | 8       | `ILogger.Log()` çağrıldığında `MessageJson` olayı açar. Bağımsız değişkenlerin JSON gösterimini sağlar. |
 
-   | Olay Düzeyi | Açıklama     |
+   | Olay düzeyi | Açıklama     |
    | :---------: | --------------- |
    | 0           | `LogAlways`     |
    | 1\.           | `Critical`      |
@@ -1024,7 +1024,7 @@ Bir uygulamadan izleme toplamak için DotNet Trace araçları kullanın:
 
 1. Trace 'i [PerfView](#perfview)ile açın. *Trace. NetTrace* dosyasını açın ve izleme olaylarını araştırın.
 
-Daha fazla bilgi için bkz.
+Daha fazla bilgi için bkz.:
 
 * [Performans Analizi yardımcı programı Için izleme (DotNet-Trace)](/dotnet/core/diagnostics/dotnet-trace) (.NET Core belgeleri)
 * [Performans Analizi yardımcı programı (DotNet-Trace) Için izleme](https://github.com/dotnet/diagnostics/blob/master/documentation/dotnet-trace-instructions.md) (DotNet/Diagnostics GitHub deposu belgeleri)

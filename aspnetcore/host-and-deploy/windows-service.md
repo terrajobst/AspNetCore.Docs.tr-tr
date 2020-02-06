@@ -5,22 +5,22 @@ description: ASP.NET Core uygulamasının bir Windows hizmetinde nasıl barınd�
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 01/13/2020
+ms.date: 02/06/2020
 uid: host-and-deploy/windows-service
-ms.openlocfilehash: d4b540de50f4153f517f871f037521347fb5eb84
-ms.sourcegitcommit: 990a4c2e623c202a27f60bdf3902f250359c13be
+ms.openlocfilehash: 71f7bf3f5dcf8068d0ada03675ef7948267b79f4
+ms.sourcegitcommit: bd896935e91236e03241f75e6534ad6debcecbbf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/03/2020
-ms.locfileid: "76971998"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77044890"
 ---
 # <a name="host-aspnet-core-in-a-windows-service"></a>Windows hizmetinde konak ASP.NET Core
 
-Tarafından [Luke Latham](https://github.com/guardrex)
+[Luke Latham](https://github.com/guardrex) tarafından
 
 Bir ASP.NET Core uygulaması, IIS kullanmadan Windows [hizmeti](/dotnet/framework/windows-services/introduction-to-windows-service-applications) olarak Windows üzerinde barındırılabilir. Windows hizmeti olarak barındırıldığı zaman, uygulama otomatik olarak sunucu yeniden başlatıldıktan sonra başlatılır.
 
-[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/host-and-deploy/windows-service/samples) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
+[Örnek kodu görüntüleme veya indirme](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/host-and-deploy/windows-service/samples) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
 
 ## <a name="prerequisites"></a>Prerequisites
 
@@ -50,8 +50,10 @@ Uygulama, [Microsoft. Extensions. Hosting. WindowsServices](https://www.nuget.or
 
 * Ana bilgisayar ömrünü `WindowsServiceLifetime`olarak ayarlar.
 * [İçerik kökünü](xref:fundamentals/index#content-root) [AppContext. BaseDirectory](xref:System.AppContext.BaseDirectory)olarak ayarlar. Daha fazla bilgi için [geçerli dizin ve içerik kökü](#current-directory-and-content-root) bölümüne bakın.
-* Varsayılan kaynak adı olarak uygulama adı ile olay günlüğüne günlük kaydını sağlar.
-  * Günlük düzeyi appSettings 'teki `Logging:LogLevel:Default` anahtarı kullanılarak yapılandırılabilir *. Production. JSON* dosyası.
+* Olay günlüğüne kaydetmeyi sağlar:
+  * Uygulama adı varsayılan kaynak adı olarak kullanılır.
+  * Varsayılan günlük düzeyi, ana bilgisayarı oluşturmak için `CreateDefaultBuilder` çağıran ASP.NET Core şablona dayalı bir uygulama için *Uyarı* veya daha yüksek bir uygulamadır.
+  * Varsayılan günlük düzeyini *appSettings. json*/appsettings içindeki `Logging:EventLog:LogLevel:Default` anahtarıyla geçersiz kılın *. { Environment}. JSON* veya diğer yapılandırma sağlayıcısı.
   * Yeni olay kaynakları yalnızca yöneticiler tarafından oluşturulabilir. Uygulama adı kullanılarak bir olay kaynağı oluşturuoluşturumadığında, *uygulama* kaynağına bir uyarı kaydedilir ve olay günlükleri devre dışı bırakılır.
 
 *Program.cs*`CreateHostBuilder`:
@@ -223,12 +225,12 @@ Hizmet Kullanıcı hesabı için *hizmet hakları olarak oturum* açma oluşturm
 1. **Kullanıcı veya Grup Ekle**' yi seçin.
 1. Aşağıdaki yaklaşımlardan birini kullanarak nesne adını (Kullanıcı hesabı) sağlayın:
    1. Kullanıcı hesabını (`{DOMAIN OR COMPUTER NAME\USER}`) nesne adı alanına yazın ve kullanıcıyı ilkeye eklemek için **Tamam** ' ı seçin.
-   1. **Gelişmiş**'i seçin. **Şimdi bul**' u seçin. Listeden Kullanıcı hesabını seçin. Seçin **Tamam**. Kullanıcıyı ilkeye eklemek için yeniden **Tamam ' ı** seçin.
+   1. **Gelişmiş**'i seçin. **Şimdi bul**' u seçin. Listeden Kullanıcı hesabını seçin. **Tamam**’ı seçin. Kullanıcıyı ilkeye eklemek için yeniden **Tamam ' ı** seçin.
 1. Değişiklikleri kabul etmek için **Tamam ' ı** veya **Uygula** ' yı seçin.
 
 ## <a name="create-and-manage-the-windows-service"></a>Windows hizmetini oluşturma ve yönetme
 
-### <a name="create-a-service"></a>Bir hizmet oluşturma
+### <a name="create-a-service"></a>Hizmet oluşturma
 
 Bir hizmeti kaydetmek için PowerShell komutlarını kullanın. Bir yönetim PowerShell 6 komut kabuğundan aşağıdaki komutları yürütün:
 
@@ -378,7 +380,7 @@ CreateWebHostBuilder(args)
 
 Dosyaları içeren klasörde <xref:Microsoft.Extensions.Configuration.IConfigurationBuilder> kullanırken <xref:Microsoft.Extensions.Configuration.FileConfigurationExtensions.SetBasePath*> mutlak bir yol belirtin.
 
-## <a name="troubleshoot"></a>Sorunları Gider
+## <a name="troubleshoot"></a>Sorun giderme
 
 Windows hizmet uygulamasının sorunlarını gidermek için bkz. <xref:test/troubleshoot>.
 
@@ -400,8 +402,8 @@ Windows hizmet uygulamasının sorunlarını gidermek için bkz. <xref:test/trou
 Sistem ve uygulama olay günlüklerine erişin:
 
 1. Başlat menüsünü açın, *Olay Görüntüleyicisi*araması yapın ve **Olay Görüntüleyicisi** uygulamayı seçin.
-1. İçinde **Olay Görüntüleyicisi'ni**açın **Windows Günlükleri** düğümü.
-1. Sistem olay günlüğünü açmak için **sistem** ' i seçin. Seçin **uygulama** uygulama olay günlüğünü açın.
+1. **Olay Görüntüleyicisi**, **Windows günlükleri** düğümünü açın.
+1. Sistem olay günlüğünü açmak için **sistem** ' i seçin. Uygulama olay günlüğünü açmak için **uygulama** ' yı seçin.
 1. Başarısız olan uygulama ile ilişkili hataları arayın.
 
 ### <a name="run-the-app-at-a-command-prompt"></a>Uygulamayı bir komut isteminde aşağıdakini çalıştırın
@@ -412,10 +414,10 @@ Birçok başlatma hatası olay günlüklerinde yararlı bilgiler oluşturmaz. Ba
 
 Çalışan bir uygulama, geliştirme makinesindeki .NET Core SDK yükseltmeden veya uygulama içindeki paket sürümlerini değiştirirken hemen başarısız olabilir. Bazı durumlarda, ana yükseltme yaparken, bir uygulama tutarsız paketleri kesilebilir. Bu sorunların çoğu, bu yönergeleri izleyerek düzeltilebilir:
 
-1. Silme *bin* ve *obj* klasörleri.
+1. *Bin* ve *obj* klasörlerini silin.
 1. Bir komut kabuğundan [DotNet NuGet yerelleri, Tümünü Temizle](/dotnet/core/tools/dotnet-nuget-locals) ' i yürüterek paket önbelleklerini temizleyin.
 
-   Paket önbelleklerini Temizleme, [NuGet. exe](https://www.nuget.org/downloads) aracı ile de gerçekleştirilebilir ve komut `nuget locals all -clear`yürütülebilir. *nuget.exe* Windows masaüstü işletim sistemi ile birlikte gelen bir yükleme değildir ve gelen ayrı olarak edinilmelidir [NuGet Web sitesi](https://www.nuget.org/downloads).
+   Paket önbelleklerini Temizleme, [NuGet. exe](https://www.nuget.org/downloads) aracı ile de gerçekleştirilebilir ve komut `nuget locals all -clear`yürütülebilir. *NuGet. exe* , Windows masaüstü işletim sistemiyle birlikte paketlenmiş bir yüklemedir ve [NuGet Web sitesinden](https://www.nuget.org/downloads)ayrı olarak alınmalıdır.
 
 1. Geri yükle ve projeyi yeniden derleyin.
 1. Uygulamayı yeniden dağıtmadan önce sunucusundaki dağıtım klasöründeki tüm dosyaları silin.
