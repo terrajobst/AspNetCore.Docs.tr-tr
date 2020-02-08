@@ -5,14 +5,14 @@ description: ASP.NET Core ' de Web API 'SI oluşturmanın temellerini öğrenin.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 01/27/2020
+ms.date: 02/02/2020
 uid: web-api/index
-ms.openlocfilehash: 8609e2095c202643cdc905cc610298195b654215
-ms.sourcegitcommit: fe41cff0b99f3920b727286944e5b652ca301640
+ms.openlocfilehash: 3dca07db3d6be4ab219a2e05e3adcf1b24ee5c40
+ms.sourcegitcommit: 80286715afb93c4d13c931b008016d6086c0312b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76870023"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77074516"
 ---
 # <a name="create-web-apis-with-aspnet-core"></a>ASP.NET Core ile Web API 'Leri oluşturma
 
@@ -20,7 +20,7 @@ ms.locfileid: "76870023"
 
 ASP.NET Core, kullanarak C#Web API 'leri olarak da bilinen, yeniden oluşturulan hizmetler oluşturmayı destekler. İstekleri işlemek için, bir Web API 'SI denetleyicileri kullanır. Bir Web API 'sindeki *denetleyiciler* `ControllerBase`türetilen sınıflardır. Bu makalede, Web API isteklerini işlemek için denetleyicilerin nasıl kullanılacağı gösterilmektedir.
 
-[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/web-api/index/samples). ([İndirme](xref:index#how-to-download-a-sample)).
+[Örnek kodu görüntüleyin veya indirin](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/web-api/index/samples). ([İndirme](xref:index#how-to-download-a-sample)).
 
 ## <a name="controllerbase-class"></a>ControllerBase sınıfı
 
@@ -56,7 +56,7 @@ Bir Web API 'SI <xref:Microsoft.AspNetCore.Mvc.ControllerBase>türetilen bir vey
 
 Tüm kullanılabilir yöntemlerin ve özelliklerin listesi için bkz. <xref:Microsoft.AspNetCore.Mvc.ControllerBase>.
 
-## <a name="attributes"></a>{1&gt;{2&gt;Öznitelikler&lt;2}&lt;1}
+## <a name="attributes"></a>Öznitelikler
 
 <xref:Microsoft.AspNetCore.Mvc> ad alanı, Web API denetleyicileri ve eylem yöntemlerinin davranışını yapılandırmak için kullanılabilen öznitelikleri sağlar. Aşağıdaki örnek, desteklenen HTTP eylem fiilini ve döndürülebilecek bilinen HTTP durum kodlarını belirtmek için özniteliklerini kullanır:
 
@@ -397,6 +397,30 @@ Bir denetleyici eyleminde aşağıdaki kodu göz önünde bulundurun:
 [!code-csharp[](index/samples/2.x/2.2/Startup.cs?name=snippet_ConfigureApiBehaviorOptions&highlight=3,8)]
 
 ::: moniker-end
+
+<a name="consumes"></a>
+
+## <a name="define-supported-request-content-types-with-the-consumes-attribute"></a>Desteklenen istek içerik türlerini [tüketir] özniteliğiyle tanımlayın
+
+Varsayılan olarak, bir eylem tüm kullanılabilir istek içerik türlerini destekler. Örneğin, bir uygulama hem JSON hem de XML [giriş formatlarını](xref:mvc/models/model-binding#input-formatters)destekleyecek şekilde yapılandırıldıysa, bir eylem `application/json` ve `application/xml`dahil olmak üzere birden çok içerik türünü destekler.
+
+[[Tüketir]](<xref:Microsoft.AspNetCore.Mvc.ConsumesAttribute>) özniteliği, desteklenen istek içerik türlerini sınırlama eylemi sağlar. Bir veya daha fazla içerik türü belirterek `[Consumes]` özniteliğini bir eyleme veya denetleyiciye uygulayın:
+
+```csharp
+[HttpPost]
+[Consumes("application/xml")]
+public IActionResult CreateProduct(Product product)
+```
+
+Yukarıdaki kodda `CreateProduct` eylemi `application/xml`içerik türünü belirtir. Bu eyleme yönlendirilen isteklerin `application/xml`bir `Content-Type` üst bilgisi belirtmesi gerekir. `application/xml` `Content-Type` üst bilgisi belirtmeyen istekler [415 desteklenmeyen medya türü](https://developer.mozilla.org/docs/Web/HTTP/Status/415) yanıtına neden olacak.
+
+`[Consumes]` özniteliği Ayrıca bir eylemin bir tür kısıtlaması uygulayarak bir gelen isteğin içerik türüne göre seçimini etkilemesini sağlar. Aşağıdaki örnek göz önünde bulundurun:
+
+[!code-csharp[](index/samples/3.x/Controllers/ConsumesController.cs?name=snippet_Class)]
+
+Yukarıdaki kodda `ConsumesController`, `https://localhost:5001/api/Consumes` URL 'sine gönderilen istekleri işleyecek şekilde yapılandırılmıştır. Denetleyicinin eylemleri, `PostJson` ve `PostForm`aynı URL 'ye sahip POST isteklerini işler. Bir tür kısıtlaması uygulamadan `[Consumes]` özniteliği olmadan belirsiz eşleşme özel durumu oluşur.
+
+`[Consumes]` özniteliği her iki eyleme de uygulanır. `PostJson` eylemi, `application/json``Content-Type` üstbilgisiyle gönderilen istekleri işler. `PostForm` eylemi, `application/x-www-form-urlencoded``Content-Type` üstbilgisiyle gönderilen istekleri işler. 
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 

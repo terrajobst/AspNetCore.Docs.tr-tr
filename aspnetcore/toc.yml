@@ -101,6 +101,9 @@
         - name: TypeScript ile SignalR
           displayName: tutorial
           uid: tutorials/signalr-typescript-webpack
+        - name: Blazor WebAssembly ile SignalR
+          displayName: tutorial
+          uid: tutorials/signalr-blazor-webassembly
     - name: Uzaktan Yordam Çağrısı uygulamaları
       items:
         - name: gRPC hizmetini kullanmaya başlama
@@ -282,8 +285,12 @@
           uid: blazor/get-started
         - name: Barındırma modelleri
           uid: blazor/hosting-models
-        - name: İlk uygulamanızı oluşturma
-          uid: tutorials/first-blazor-app
+        - name: Öğreticiler
+          items:
+            - name: İlk uygulamanızı oluşturma
+              uid: tutorials/first-blazor-app
+            - name: Blazor WebAssembly ile SignalR
+              uid: tutorials/signalr-blazor-webassembly
         - name: Şablonlar
           uid: blazor/templates
         - name: Bileşenler
@@ -477,6 +484,8 @@
           uid: tutorials/signalr
         - name: TypeScript ile SignalR
           uid: tutorials/signalr-typescript-webpack
+        - name: Blazor WebAssembly ile SignalR
+          uid: tutorials/signalr-blazor-webassembly
     - name: Örnekler
       href: 'https://github.com/aspnet/SignalR-samples'
       displayName: signalr

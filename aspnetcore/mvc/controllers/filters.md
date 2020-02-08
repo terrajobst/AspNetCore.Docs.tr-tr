@@ -4,14 +4,14 @@ author: Rick-Anderson
 description: Filtrelerin nasıl çalıştığını ve ASP.NET Core nasıl kullanılacağını öğrenin.
 ms.author: riande
 ms.custom: mvc
-ms.date: 1/1/2020
+ms.date: 02/04/2020
 uid: mvc/controllers/filters
-ms.openlocfilehash: 759c150e7f35f3f6a52947edc5ef41448dc227fe
-ms.sourcegitcommit: 7dfe6cc8408ac6a4549c29ca57b0c67ec4baa8de
+ms.openlocfilehash: c4bb9d5746e494106ead6ad5bbf972bbcc5a39f1
+ms.sourcegitcommit: 0e21d4f8111743bcb205a2ae0f8e57910c3e8c25
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75828977"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77034071"
 ---
 # <a name="filters-in-aspnet-core"></a>ASP.NET Core filtreler
 
@@ -28,13 +28,16 @@ Yerleşik Filtreler şunları gibi görevleri işler:
 
 Çapraz kesme sorunlarını işlemek için özel filtreler oluşturulabilir. Çapraz kesme sorunlarına örnek olarak hata işleme, önbelleğe alma, yapılandırma, yetkilendirme ve günlüğe kaydetme dahildir.  Filtreler kodu çoğaltmaktan kaçının. Örneğin, bir hata işleme özel durum filtresi hata işlemeyi birleştirebilir.
 
-Bu belge, görünümler içeren Razor Pages, API denetleyicileri ve denetleyiciler için geçerlidir.
+Bu belge, görünümler içeren Razor Pages, API denetleyicileri ve denetleyiciler için geçerlidir. Filtreler, [Razor bileşenleriyle](xref:blazor/components)doğrudan çalışmaz. Filtre, şu durumlarda bir bileşeni yalnızca dolaylı olarak etkileyebilir:
+
+* Bileşen bir sayfa veya görünüme katıştırılır.
+* Sayfa veya denetleyici/görünüm filtreyi kullanır.
 
 Örneği ([indirme](xref:index#how-to-download-a-sample)) [görüntüleyin veya indirin](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/controllers/filters/3.1sample) .
 
 ## <a name="how-filters-work"></a>Filtreler nasıl çalışır?
 
-Filtreler, bazen *Filtre işlem hattı*olarak da adlandırılan *ASP.NET Core eylemi çağırma işlem hattı*içinde çalışır.  Filtre işlem hattı çalıştırılacak eylemi ASP.NET Core seçtikten sonra çalışır.
+Filtreler, bazen *Filtre işlem hattı*olarak da adlandırılan *ASP.NET Core eylemi çağırma işlem hattı*içinde çalışır. Filtre işlem hattı çalıştırılacak eylemi ASP.NET Core seçtikten sonra çalışır.
 
 ![İstek diğer ara yazılım, yönlendirme ara yazılımı, eylem seçimi ve eylem çağırma Işlem hattı aracılığıyla işlenir. İstek işleme, istemciye gönderilen bir yanıt olmadan önce eylem seçimi, yönlendirme ara yazılımı ve diğer diğer ara yazılım aracılığıyla yeniden devam eder.](filters/_static/filter-pipeline-1.png)
 
@@ -544,7 +547,7 @@ Filtre aşağıdaki kodda uygulanır:
 Önceki kodu [indirme örneğini](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/controllers/filters/3.1sample)çalıştırarak test edin:
 
 * F12 geliştirici araçlarını çağırın.
-* [https://test-cors.org](`https://localhost:5001/Sample/HeaderWithFactory`) sayfasına gidin.
+* `https://localhost:5001/Sample/HeaderWithFactory` sayfasına gidin.
 
 F12 geliştirici araçları, örnek kod tarafından eklenen aşağıdaki yanıt üstbilgilerini görüntüler:
 
@@ -1067,7 +1070,7 @@ Framework, alt sınıflı olabilecek bir soyut `ResultFilterAttribute` sağlar. 
 Önceki kod, [indirme örneği](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/controllers/filters/sample)çalıştırılarak test edilebilir:
 
 * F12 geliştirici araçlarını çağırın.
-* [https://test-cors.org](`https://localhost:5001/Sample/HeaderWithFactory`) sayfasına gidin.
+* `https://localhost:5001/Sample/HeaderWithFactory` sayfasına gidin.
 
 F12 geliştirici araçları, örnek kod tarafından eklenen aşağıdaki yanıt üstbilgilerini görüntüler:
 

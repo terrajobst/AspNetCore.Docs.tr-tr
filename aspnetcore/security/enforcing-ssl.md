@@ -6,16 +6,16 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/06/2019
 uid: security/enforcing-ssl
-ms.openlocfilehash: d7d4eece935bd83b69a6a5d81898012b99d73193
-ms.sourcegitcommit: 7dfe6cc8408ac6a4549c29ca57b0c67ec4baa8de
+ms.openlocfilehash: 59883a8165040fa58edb2f6cf22d4d6b3abf6f3e
+ms.sourcegitcommit: 80286715afb93c4d13c931b008016d6086c0312b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75828912"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77074555"
 ---
 # <a name="enforce-https-in-aspnet-core"></a>ASP.NET Core 'de HTTPS 'yi zorla
 
-Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
+Gönderen [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 Bu belgede nasıl yapılacağı gösterilmektedir:
 
@@ -277,7 +277,7 @@ Aşağıdaki kod:
 ::: moniker-end
 
 
-* Strict-Transport-Security üstbilgisinin preload parametresini ayarlar. Önyükleme, [RFC HSTS belirtiminin](https://tools.ietf.org/html/rfc6797)bir parçası değildir, ancak Web tarayıcıları tarafından Yeni yüklemede HSTS sitelerini önceden yüklemek için desteklenir. Daha fazla bilgi için bkz. [https://hstspreload.org/](https://hstspreload.org/)
+* Strict-Transport-Security üstbilgisinin preload parametresini ayarlar. Önyükleme, [RFC HSTS belirtiminin](https://tools.ietf.org/html/rfc6797)bir parçası değildir, ancak Web tarayıcıları tarafından Yeni yüklemede HSTS sitelerini önceden yüklemek için desteklenir. Daha fazla bilgi için bkz. [https://hstspreload.org/](https://hstspreload.org/) .
 * SSTS ilkesini konak alt etki alanlarını barındıracak şekilde uygulayan [ıncludealt etki alanını](https://tools.ietf.org/html/rfc6797#section-6.1.2)sağlar.
 * Strict-Transport-Security üstbilgisinin Max-Age parametresini açıkça 60 gün olarak ayarlar. Ayarlanmazsa, varsayılan olarak 30 gün olur. Daha fazla bilgi için bkz. [Maksimum yaş yönergesi](https://tools.ietf.org/html/rfc6797#section-6.1.1) .
 * Dışlanacak konaklar listesine `example.com` ekler.
@@ -383,7 +383,7 @@ Yukarıdaki komutlar çoğu tarayıcı güveni sorununu çözüyor. Tarayıcı y
 ### <a name="docker---certificate-not-trusted"></a>Docker-Sertifikaya güvenilmiyor
 
 * *C:\Users\{User} \AppData\Roaming\ASP.NET\Https* klasörünü silin.
-* Çözümü temizleyin. Silme *bin* ve *obj* klasörleri.
+* Çözümü temizleyin. *Bin* ve *obj* klasörlerini silin.
 * Geliştirme aracını yeniden başlatın. Örneğin, Visual Studio, Visual Studio Code veya Mac için Visual Studio.
 
 ### <a name="windows---certificate-not-trusted"></a>Windows-Sertifikaya güvenilmiyor
@@ -419,7 +419,7 @@ Visual Studio 'da sertifika sorunlarını gidermek için [IIS Express (DotNet/As
 
 ### <a name="iis-express-ssl-certificate-used-with-visual-studio"></a>Visual Studio ile kullanılan SSL sertifikası IIS Express
 
-IIS Express sertifikayla ilgili sorunları gidermek için Visual Studio yükleyicisinden **Onar** ' ı seçin.
+IIS Express sertifikayla ilgili sorunları gidermek için Visual Studio yükleyicisinden **Onar** ' ı seçin. Daha fazla bilgi için [Bu GitHub sorununa](https://github.com/dotnet/aspnetcore/issues/16892)bakın.
 
 ## <a name="additional-information"></a>Ek bilgiler
 
