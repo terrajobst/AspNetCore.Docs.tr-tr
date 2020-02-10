@@ -4,20 +4,20 @@ author: scottaddie
 description: ASP.NET Core Web API 'sindeki çeşitli denetleyici eylemi yöntemi döndürme türlerini kullanma hakkında bilgi edinin.
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 09/09/2019
+ms.date: 02/03/2020
 uid: web-api/action-return-types
-ms.openlocfilehash: fe665026fdced22ccf4b4f1ba655e858a7acf016
-ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
+ms.openlocfilehash: aeea005abfcfd45a6fc94dfddfd65e60ffb15df8
+ms.sourcegitcommit: 235623b6e5a5d1841139c82a11ac2b4b3f31a7a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74879735"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77089194"
 ---
 # <a name="controller-action-return-types-in-aspnet-core-web-api"></a>ASP.NET Core Web API 'sindeki denetleyici eylemi dönüş türleri
 
 [Scott Ade](https://github.com/scottaddie) tarafından
 
-[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/web-api/action-return-types/samples) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
+[Örnek kodu görüntüleme veya indirme](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/web-api/action-return-types/samples) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
 
 ASP.NET Core Web API denetleyicisi eylem dönüş türleri için aşağıdaki seçenekleri sunar:
 
@@ -60,8 +60,8 @@ public IEnumerable<Product> GetOnSaleProducts() =>
 Zaman uyumlu numaralandırmayı önlemek ve engellemeyi ASP.NET Core 2,2 ve önceki sürümlerde veritabanı üzerinde bekleyip, `ToListAsync`çağırın:
 
 ```csharp
-public IEnumerable<Product> GetOnSaleProducts() =>
-    _context.Products.Where(p => p.IsOnSale).ToListAsync();
+public async Task<IEnumerable<Product>> GetOnSaleProducts() =>
+    await _context.Products.Where(p => p.IsOnSale).ToListAsync();
 ```
 
 ASP.NET Core 3,0 ve üzeri sürümlerde `IAsyncEnumerable<T>` bir eylemden geri döndürülüyor:

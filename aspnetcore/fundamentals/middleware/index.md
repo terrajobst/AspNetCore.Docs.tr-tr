@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 02/02/2020
 uid: fundamentals/middleware/index
-ms.openlocfilehash: 47f465c00138acf434c6ec59f757e37361ad97db
-ms.sourcegitcommit: 0e21d4f8111743bcb205a2ae0f8e57910c3e8c25
+ms.openlocfilehash: 6698e269e0a6480cd5a03c59f9a19da31e23bf69
+ms.sourcegitcommit: 235623b6e5a5d1841139c82a11ac2b4b3f31a7a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77034110"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77089155"
 ---
 # <a name="aspnet-core-middleware"></a>ASP.NET Core ara yazılımı
 
@@ -167,7 +167,7 @@ Tek sayfalı uygulamalarda, SPA ara yazılım <xref:Microsoft.Extensions.Depende
 * Tüm diğer middlewares önce eşleşen isteklere yanıt vermek için.
 * İstemci tarafı yönlendirmenin sunucu uygulaması tarafından tanınmayan tüm yollar için çalışmasına izin vermek için.
 
-Tek sayfalı uygulamalarla ilgili daha fazla ayrıntı için bkz. [tepki](xref:spa/react) verme ve [angular](xref: client-side/spa/angular) proje şablonları için kılavuzlar.
+Tek sayfalı uygulamalarla ilgili daha fazla ayrıntı için bkz. [tepki](xref:spa/react) verme ve [angular](xref:spa/angular) proje şablonları için kılavuzlar.
 
 ## <a name="branch-the-middleware-pipeline"></a>Ara yazılım ardışık düzenini dallandırma
 
@@ -226,7 +226,7 @@ ASP.NET Core aşağıdaki ara yazılım bileşenleriyle birlikte gönderilir. *O
 
 | Ara yazılım | Açıklama | Sipariş verme |
 | ---------- | ----------- | ----- |
-| [Kimlik Doğrulaması](xref:security/authentication/identity) | Kimlik doğrulama desteği sağlar. | `HttpContext.User` önce. OAuth geri çağırmaları için Terminal. |
+| [Kimlik doğrulaması](xref:security/authentication/identity) | Kimlik doğrulama desteği sağlar. | `HttpContext.User` önce. OAuth geri çağırmaları için Terminal. |
 | [Yetkilendirme](xref:Microsoft.AspNetCore.Builder.AuthorizationAppBuilderExtensions.UseAuthorization*) | Yetkilendirme desteği sağlar. | Kimlik doğrulama ara yazılımı hemen sonrasında. |
 | [Tanımlama bilgisi Ilkesi](xref:security/gdpr) | Kişisel bilgileri depolamak için kullanıcılardan onay izler ve `secure` ve `SameSite`gibi tanımlama bilgisi alanları için en düşük standartları uygular. | Tanımlama bilgilerini veren ara yazılım öncesi. Örnekler: Authentication, Session, MVC (TempData). |
 | [CORS](xref:security/cors) | Çıkış noktaları arası kaynak paylaşımını yapılandırır. | CORS kullanan bileşenlerden önce. |
@@ -432,7 +432,7 @@ ASP.NET Core aşağıdaki ara yazılım bileşenleriyle birlikte gönderilir. *O
 
 | Ara yazılım | Açıklama | Sipariş verme |
 | ---------- | ----------- | ----- |
-| [Kimlik Doğrulaması](xref:security/authentication/identity) | Kimlik doğrulama desteği sağlar. | `HttpContext.User` önce. OAuth geri çağırmaları için Terminal. |
+| [Kimlik doğrulaması](xref:security/authentication/identity) | Kimlik doğrulama desteği sağlar. | `HttpContext.User` önce. OAuth geri çağırmaları için Terminal. |
 | [Tanımlama bilgisi Ilkesi](xref:security/gdpr) | Kişisel bilgileri depolamak için kullanıcılardan onay izler ve `secure` ve `SameSite`gibi tanımlama bilgisi alanları için en düşük standartları uygular. | Tanımlama bilgilerini veren ara yazılım öncesi. Örnekler: Authentication, Session, MVC (TempData). |
 | [CORS](xref:security/cors) | Çıkış noktaları arası kaynak paylaşımını yapılandırır. | CORS kullanan bileşenlerden önce. |
 | [Tanılama](xref:fundamentals/error-handling) | Geliştirici özel durum sayfası, özel durum işleme, durum kodu sayfaları ve yeni uygulamalar için varsayılan Web sayfası sağlayan çeşitli ayrı middlewares. | Hata oluşturan bileşenlerden önce. Özel durumlar için Terminal veya yeni uygulamalar için varsayılan Web sayfasına hizmet sunma. |
