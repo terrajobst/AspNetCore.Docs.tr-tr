@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/15/2019
 uid: mvc/models/validation
-ms.openlocfilehash: b697f02183c76b9a96471a748a86c144fde47bb0
-ms.sourcegitcommit: f259889044d1fc0f0c7e3882df0008157ced4915
+ms.openlocfilehash: c4fd16ef682627810c6d7629671de056f1cf3b3f
+ms.sourcegitcommit: 235623b6e5a5d1841139c82a11ac2b4b3f31a7a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/18/2020
-ms.locfileid: "76268750"
+ms.lasthandoff: 02/10/2020
+ms.locfileid: "77114763"
 ---
 # <a name="model-validation-in-aspnet-core-mvc-and-razor-pages"></a>ASP.NET Core MVC ve Razor Pages model doğrulaması
 
@@ -84,7 +84,9 @@ Belirli bir özniteliğin hata iletisinde hangi parametrelerin `String.Format` g
 
 .NET Core 3,0 ve sonraki sürümlerde doğrulama sistemi, null olamayan parametrelere veya bir `[Required]` özniteliğine sahip olduklarından, bağlantılı özelliklere davranır. `decimal` ve `int` gibi [değer türleri](/dotnet/csharp/language-reference/keywords/value-types) null atanamaz. Bu davranış, `Startup.ConfigureServices`<xref:Microsoft.AspNetCore.Mvc.MvcOptions.SuppressImplicitRequiredAttributeForNonNullableReferenceTypes> yapılandırılarak devre dışı bırakılabilir:
 
-' ' CSharp Hizmetleri. AddControllers (Options = > seçenekleri. SuppressImplicitRequiredAttributeForNonNullableReferenceTypes = true); ...
+```csharp
+services.AddControllers(options => options.SuppressImplicitRequiredAttributeForNonNullableReferenceTypes = true);
+```
 
 ### <a name="required-validation-on-the-server"></a>[Zorunlu] sunucuda doğrulama
 
@@ -426,7 +428,7 @@ Yerleşik doğrulama öznitelikleri şunlardır:
 * `[Url]`: özelliğin bir URL biçimine sahip olduğunu doğrular.
 * `[Remote]`: sunucuda bir eylem yöntemi çağırarak istemcide girişi doğrular. Bu özniteliğin davranışı hakkındaki ayrıntılar için bkz. [`[Remote]` özniteliği](#remote-attribute) .
 
-İstemci tarafı doğrulama ile `[RegularExpression]` özniteliğini kullanırken, Regex istemcide JavaScript 'te yürütülür. Bu, [ECMAScript](/dotnet/standard/base-types/regular-expression-options#ecmascript-matching-behavior) eşleştirme davranışının kullanılacağı anlamına gelir. Daha fazla bilgi için [bu GitHub sorunu](https://github.com/dotnet/corefx/issues/42487).
+İstemci tarafı doğrulama ile `[RegularExpression]` özniteliğini kullanırken, Regex istemcide JavaScript 'te yürütülür. Bu, [ECMAScript](/dotnet/standard/base-types/regular-expression-options#ecmascript-matching-behavior) eşleştirme davranışının kullanılacağı anlamına gelir. Daha fazla bilgi için [Bu GitHub sorununa](https://github.com/dotnet/corefx/issues/42487)bakın.
 
 Doğrulama özniteliklerinin tüm listesi [System. ComponentModel. Dataaçıklamalarda](xref:System.ComponentModel.DataAnnotations) ad alanında bulunabilir.
 

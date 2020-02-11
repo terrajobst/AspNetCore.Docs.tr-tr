@@ -6,16 +6,16 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 11/26/2019
 uid: tutorials/web-api-javascript
-ms.openlocfilehash: 5a31aa2974eb41938db89f97c070c352a26290fd
-ms.sourcegitcommit: 0dd224b2b7efca1fda0041b5c3f45080327033f6
+ms.openlocfilehash: 2a19a7d16ca8b8f5d6ac8eb99ad919b89f1e368b
+ms.sourcegitcommit: 235623b6e5a5d1841139c82a11ac2b4b3f31a7a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74681181"
+ms.lasthandoff: 02/10/2020
+ms.locfileid: "77114659"
 ---
 # <a name="tutorial-call-an-aspnet-core-web-api-with-javascript"></a>Öğretici: JavaScript ile ASP.NET Core Web API 'SI çağırma
 
-[Rick Anderson](https://twitter.com/RickAndMSFT) tarafından
+Gönderen [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 Bu öğreticide, [Fetch API](https://developer.mozilla.org/docs/Web/API/Fetch_API)kullanılarak JavaScript ile ASP.NET Core Web API 'sinin nasıl çağrılacağını gösterilmektedir.
 
@@ -27,7 +27,7 @@ ASP.NET Core 2,2 için, [JavaScript ile Web API 'Sini çağırma](xref:tutorials
 
 ::: moniker range=">= aspnetcore-3.0"
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Önkoşullar
 
 * Tüm [öğreticiyi: Web API 'Si oluşturma](xref:tutorials/first-web-api)
 * CSS, HTML ve JavaScript ile benzerlik
@@ -36,7 +36,7 @@ ASP.NET Core 2,2 için, [JavaScript ile Web API 'Sini çağırma](xref:tutorials
 
 Bu bölümde, Yapılacaklar öğeleri oluşturmak ve yönetmek için form içeren bir HTML sayfası ekleyeceksiniz. Olay işleyicileri sayfadaki öğelere iliştirilir. Olay işleyicileri, Web API 'sinin eylem yöntemlerine HTTP istekleri sonucu vermez. Fetch API 'sinin `fetch` işlevi her HTTP isteğini başlatır.
 
-`fetch` işlevi, bir `Response` nesnesi olarak temsil edilen bir HTTP yanıtı içeren bir `Promise` nesnesi döndürür. Ortak bir model, `Response` nesnesinde `json` işlevini çağırarak JSON yanıt gövdesini ayıklamaya yönelik bir modeldir. JavaScript, sayfayı Web API 'sinin yanıtından alınan ayrıntılarla güncelleştirir.
+`fetch` işlevi, bir `Response` nesnesi olarak temsil edilen HTTP yanıtını içeren bir [Promise](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise) nesnesi döndürür. Ortak bir model, `Response` nesnesinde `json` işlevini çağırarak JSON yanıt gövdesini ayıklamaya yönelik bir modeldir. JavaScript, sayfayı Web API 'sinin yanıtından alınan ayrıntılarla güncelleştirir.
 
 En basit `fetch` çağrısı, yolu temsil eden tek bir parametreyi kabul eder. `init` nesnesi olarak bilinen ikinci bir parametre isteğe bağlıdır. `init` HTTP isteğini yapılandırmak için kullanılır.
 
@@ -56,7 +56,7 @@ En basit `fetch` çağrısı, yolu temsil eden tek bir parametreyi kabul eder. `
 
     [!code-javascript[](first-web-api/samples/3.0/TodoApi/wwwroot/js/site.js?name=snippet_SiteJs)]
 
-HTML sayfasını yerel olarak test etmek için ASP.NET Core projesinin başlatma ayarlarındaki bir değişikliğin yapılması gerekebilir:
+ASP.NET Core proje başlatma ayarlarında bir değişiklik HTML sayfasını yerel olarak test etmek için gerekli:
 
 1. *Properties\launchSettings.JSON*'i açın.
 1. Uygulamayı, projenin varsayılan dosyası&mdash;*Dizin. html* ' de açmaya zorlamak için `launchUrl` özelliğini kaldırın.
@@ -71,7 +71,7 @@ Aşağıdaki kodda, *API/todoıtems* yoluna BIR http get isteği gönderilir:
 
 Web API 'SI başarılı bir durum kodu döndürdüğünde `_displayItems` işlevi çağrılır. `_displayItems` tarafından kabul edilen dizi parametresindeki her Yapılacaklar öğesi, **Düzenle** ve **Sil** düğmeleriyle bir tabloya eklenir. Web API isteği başarısız olursa, tarayıcının konsoluna bir hata kaydedilir.
 
-### <a name="add-a-to-do-item"></a>Yapılacaklar öğesi ekleme
+### <a name="add-a-to-do-item"></a>Yapılacak İş Öğesi Ekle
 
 Aşağıdaki kodda:
 
@@ -86,7 +86,7 @@ Aşağıdaki kodda:
 
 Web API 'SI başarılı bir durum kodu döndürdüğünde, `getItems` işlevi HTML tablosunu güncelleştirmek için çağrılır. Web API isteği başarısız olursa, tarayıcının konsoluna bir hata kaydedilir.
 
-### <a name="update-a-to-do-item"></a>Yapılacaklar öğesini güncelleştirme
+### <a name="update-a-to-do-item"></a>Yapılacak iş öğesini güncelleştirme
 
 Bir yapılacaklar öğesinin güncelleştirilmesi bir tane eklemeye benzer; Ancak, iki önemli fark vardır:
 
@@ -95,7 +95,7 @@ Bir yapılacaklar öğesinin güncelleştirilmesi bir tane eklemeye benzer; Anca
 
 [!code-javascript[](first-web-api/samples/3.0/TodoApi/wwwroot/js/site.js?name=snippet_UpdateItem)]
 
-### <a name="delete-a-to-do-item"></a>Bir yapılacaklar öğesini silme
+### <a name="delete-a-to-do-item"></a>Yapılacak iş öğesi silme
 
 Bir yapılacaklar öğesini silmek için, isteğin `method` seçeneğini `DELETE` olarak ayarlayın ve URL 'de öğenin benzersiz tanımlayıcısını belirtin.
 

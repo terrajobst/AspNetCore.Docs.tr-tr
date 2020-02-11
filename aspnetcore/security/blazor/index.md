@@ -5,17 +5,17 @@ description: Blazor kimlik doğrulaması ve yetkilendirme senaryoları hakkında
 monikerRange: '>= aspnetcore-3.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 01/29/2020
+ms.date: 02/02/2020
 no-loc:
 - Blazor
 - SignalR
 uid: security/blazor/index
-ms.openlocfilehash: e9087c246f4805e5931180fa0869fc8a8d23a6c1
-ms.sourcegitcommit: c81ef12a1b6e6ac838e5e07042717cf492e6635b
+ms.openlocfilehash: c7b3788b5737073100e7fa449fd6bb4a83c0043a
+ms.sourcegitcommit: 235623b6e5a5d1841139c82a11ac2b4b3f31a7a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76885589"
+ms.lasthandoff: 02/10/2020
+ms.locfileid: "77114893"
 ---
 # <a name="aspnet-core-blazor-authentication-and-authorization"></a>ASP.NET Core Blazor kimlik doğrulaması ve yetkilendirme
 
@@ -32,7 +32,7 @@ Güvenlik senaryoları Blazor Server ve Blazor WebAssembly Apps arasında farkl�
 
 Blazor WebAssembly Apps, istemcide çalışır. Yetkilendirme *yalnızca* hangi kullanıcı arabirimi seçeneklerinin gösterileceğini belirlemede kullanılır. İstemci tarafı denetimleri bir kullanıcı tarafından değiştirililerek veya atlandığından, bir Blazor WebAssembly uygulaması yetkilendirme erişim kurallarını zorunlu kılamaz.
 
-## <a name="authentication"></a>Kimlik Doğrulama
+## <a name="authentication"></a>Kimlik Doğrulaması
 
 Blazor, kullanıcının kimliğini kurmak için mevcut ASP.NET Core kimlik doğrulama mekanizmalarını kullanır. Tam mekanizma Blazor uygulamasının nasıl barındırıldığını, Blazor Server veya Blazor WebAssembly öğesine bağlıdır.
 
@@ -55,7 +55,7 @@ Diğer ASP.NET Core projelerine yönelik aynı kimlik doğrulama mekanizması k�
   * ASP.NET Core [kimlik](xref:security/authentication/identity) sistemini kullanarak uygulama içinde.
   * [Azure AD B2C](xref:security/authentication/azure-ad-b2c).
 * **İş veya okul hesapları**
-* **Windows kimlik doğrulaması**
+* **Windows Kimlik Doğrulaması**
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
@@ -69,7 +69,7 @@ dotnet new blazorserver -o {APP NAME} -au {AUTHENTICATION}
 
 | Kimlik doğrulama mekanizması                                                                 | `{AUTHENTICATION}` değeri |
 | ---------------------------------------------------------------------------------------- | :----------------------: |
-| Kimlik doğrulaması yok                                                                        | `None`                   |
+| Kimlik Doğrulaması Yok                                                                        | `None`                   |
 | Ye<br>Uygulamada ASP.NET Core kimlikle depolanan kullanıcılar.                        | `Individual`             |
 | Ye<br>[Azure AD B2C](xref:security/authentication/azure-ad-b2c)' de depolanan kullanıcılar. | `IndividualB2C`          |
 | İş veya okul hesapları<br>Tek bir kiracı için kuruluş kimlik doğrulaması.            | `SingleOrg`              |
@@ -530,3 +530,4 @@ Projenin kimlik doğrulaması etkin bir Blazor sunucu şablonu kullanılarak olu
 * <xref:security/index>
 * <xref:security/blazor/server>
 * <xref:security/authentication/windowsauth>
+* [Başar Blazor: kimlik doğrulama](https://github.com/AdrienTorris/awesome-blazor#authentication) topluluğu örnek bağlantıları
