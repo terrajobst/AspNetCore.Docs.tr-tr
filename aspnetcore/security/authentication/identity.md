@@ -5,18 +5,18 @@ description: ASP.NET Core bir uygulamayla kimlik kullanın. Parola gereksinimler
 ms.author: riande
 ms.date: 01/15/2020
 uid: security/authentication/identity
-ms.openlocfilehash: 98fee261a741a20eed181ca5b9a4ebb693deeb63
-ms.sourcegitcommit: cbd30479f42cbb3385000ef834d9c7d021fd218d
+ms.openlocfilehash: 164ba10c1d1e2a73ebeb8240293a58f158055699
+ms.sourcegitcommit: 85564ee396c74c7651ac47dd45082f3f1803f7a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76146517"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77172538"
 ---
 # <a name="introduction-to-identity-on-aspnet-core"></a>ASP.NET Core kimliğe giriş
 
 ::: moniker range=">= aspnetcore-3.0"
 
-Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
+Gönderen [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 ASP.NET Core kimliği:
 
@@ -49,7 +49,7 @@ Bireysel kullanıcı hesaplarıyla bir ASP.NET Core Web uygulaması projesi olu�
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * **Dosya** > **Yeni** > **Proje**' yi seçin.
-* Seçin **ASP.NET Core Web uygulaması**. Projeyi Proje **WebApp1** aynı ad alanına sahip olacak şekilde adlandırın. **Tamam**'ı tıklatın.
+* **ASP.NET Core Web uygulaması**' nı seçin. Projeyi Proje **WebApp1** aynı ad alanına sahip olacak şekilde adlandırın. **Tamam**’a tıklayın.
 * Bir ASP.NET Core **Web uygulaması**seçip **kimlik doğrulamasını Değiştir**' i seçin.
 * **Bireysel kullanıcı hesapları** ' nı seçip **Tamam**' a tıklayın.
 
@@ -148,7 +148,7 @@ Kullanıcı başarıyla oluşturulduysa, Kullanıcı `_signInManager.SignInAsync
 
 Kayıt sırasında anında oturum açmayı önlemeye yönelik adımlar için bkz. [Hesap onayı](xref:security/authentication/accconfirm#prevent-login-at-registration) .
 
-### <a name="log-in"></a>Oturum aç
+### <a name="log-in"></a>Oturum açma
 
 Oturum açma formu şu durumlarda görüntülenir:
 
@@ -246,7 +246,7 @@ Statik kimlik varlıklarının (kimlik Kullanıcı arabirimi için stil sayfalar
 
 ::: moniker range="< aspnetcore-3.0"
 
-Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
+Gönderen [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 ASP.NET Core kimlik, ASP.NET Core uygulamalara oturum açma işlevselliği ekleyen bir üyelik sistemidir. Kullanıcılar, kimlik içinde depolanan oturum açma bilgilerini içeren bir hesap oluşturabilir veya bir dış oturum açma sağlayıcısı kullanabilirler. Desteklenen dış oturum açma sağlayıcıları [Facebook, Google, Microsoft hesabı ve Twitter](xref:security/authentication/social/index)içerir.
 
@@ -275,7 +275,7 @@ Bireysel kullanıcı hesaplarıyla bir ASP.NET Core Web uygulaması projesi olu�
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * **Dosya** > **Yeni** > **Proje**' yi seçin.
-* Seçin **ASP.NET Core Web uygulaması**. Projeyi Proje **WebApp1** aynı ad alanına sahip olacak şekilde adlandırın. **Tamam**'ı tıklatın.
+* **ASP.NET Core Web uygulaması**' nı seçin. Projeyi Proje **WebApp1** aynı ad alanına sahip olacak şekilde adlandırın. **Tamam**’a tıklayın.
 * Bir ASP.NET Core **Web uygulaması**seçip **kimlik doğrulamasını Değiştir**' i seçin.
 * **Bireysel kullanıcı hesapları** ' nı seçip **Tamam**' a tıklayın.
 
@@ -301,7 +301,9 @@ Veritabanını başlatmak için geçişleri uygulayın.
 
 Paket Yöneticisi konsolunda aşağıdaki komutu çalıştırın (PMC):
 
-```PM> Update-Database```
+```powershell
+Update-Database
+```
 
 # <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
 
@@ -364,7 +366,7 @@ Kullanıcı başarıyla oluşturulduysa, Kullanıcı `_signInManager.SignInAsync
 
 **Note:** Kayıt sırasında anında oturum açmayı önlemeye yönelik adımlar için bkz. [Hesap onayı](xref:security/authentication/accconfirm#prevent-login-at-registration) .
 
-### <a name="log-in"></a>Oturum aç
+### <a name="log-in"></a>Oturum açma
 
 Oturum açma formu şu durumlarda görüntülenir:
 

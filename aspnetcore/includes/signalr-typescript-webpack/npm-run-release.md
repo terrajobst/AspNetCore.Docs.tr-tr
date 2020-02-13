@@ -2,14 +2,14 @@
 npm run release
 ```
 
-Bu komut, uygulamayı çalıştırırken alınacağı istemci-tarafı varlıkları verir. Varlıkları yerleştirilir *wwwroot* klasör.
+Bu komut, uygulamayı çalıştırırken sunulacak istemci tarafı varlıkları oluşturur. Varlıklar *Wwwroot* klasörüne yerleştirilir.
 
-Web, aşağıdaki görevleri tamamlandı:
+WebPack aşağıdaki görevleri tamamladı:
 
-* İçeriğini temizleneceği *wwwroot* dizin.
-* JavaScript için TypeScript dönüştürülen&mdash;olarak da bilinen bir işlem *transpilation*.
-* Dosya boyutunu küçültmek için oluşturulan JavaScript karıştırılmış&mdash;olarak da bilinen bir işlem *küçültme*.
-* İşlenen JavaScript, CSS ve HTML dosyalarından kopyalanan *src* için *wwwroot* dizin.
-* Aşağıdaki öğeleri içine eklenen *wwwroot/index.html* dosyası:
-  * A `<link>` başvuran etiketi *wwwroot/main.\< karma\>.css* dosya. Bu etiket kapatılmadan hemen önce yerleştirilir `</head>` etiketi.
-  * A `<script>` küçültülmüş başvuran etiketi *wwwroot/main.\< karma\>.js* dosya. Bu etiket kapatılmadan hemen önce yerleştirilir `</body>` etiketi.
+* *Wwwroot* dizininin içeriği temizlendi.
+* TypeScript 'i *transpilation*olarak bilinen bir işlemde JavaScript 'e dönüştürüyordu.
+* Dosya boyutunu *minbirleşme*olarak bilinen bir işlemde azaltmak Için üretilen JavaScript 'i karıştırın.
+* İşlenen JavaScript, CSS ve HTML dosyaları *src* 'den *Wwwroot* dizinine kopyalanamadı.
+* *Wwwroot/index.html* dosyasına aşağıdaki öğeler eklenmiş:
+  * *Wwwroot/Main.\<karma\>. css* dosyasına başvuran bir `<link>` etiketi. Bu etiket, kapatma `</head>` etiketinden hemen öncesine yerleştirilir.
+  * Mini olarak belirtilen *Wwwroot/Main.\<karma\>. js* dosyasına başvuruda bulunan bir `<script>` etiketi. Bu etiket, kapatma `</body>` etiketinden hemen öncesine yerleştirilir.

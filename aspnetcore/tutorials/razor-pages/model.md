@@ -5,16 +5,16 @@ description: Entity Framework Core (EF Core) kullanarak bir veritabanında filml
 ms.author: riande
 ms.date: 12/05/2019
 uid: tutorials/razor-pages/model
-ms.openlocfilehash: 9d9266ae08c7abe747d4497bbcf52778cf2e370e
-ms.sourcegitcommit: f259889044d1fc0f0c7e3882df0008157ced4915
+ms.openlocfilehash: d2f9a64c77d76702004b94cdf36e558b33d7e19a
+ms.sourcegitcommit: 85564ee396c74c7651ac47dd45082f3f1803f7a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/18/2020
-ms.locfileid: "76268761"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77172569"
 ---
 # <a name="add-a-model-to-a-razor-pages-app-in-aspnet-core"></a>Bir ASP.NET Core Razor sayfaları uygulama için model ekleme
 
-Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
+Gönderen [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 ::: moniker range=">= aspnetcore-3.0"
 
@@ -30,16 +30,16 @@ EF Core üzerinde herhangi bir bağımlılığı olmadığından model sınıfla
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-Sağ **RazorPagesMovie** Proje > **Ekle** > **yeni klasör**. Klasör adı *modelleri*.
+**Yeni > klasör** **eklemek** > **RazorPagesMovie** projesine sağ tıklayın. Klasör *modellerini*adlandırın.
 
-Sağ tıklayın *modelleri* klasör. Seçin **ekleme** > **sınıfı**. Sınıf adı **film**.
+*Modeller* klasörüne sağ tıklayın.  > **sınıfı** **Ekle** ' yi seçin. Sınıf **filmi**olarak adlandırın.
 
 [!INCLUDE [model 1b](~/includes/RP/model1b.md)]
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
-* Adlı bir klasör ekleme *modelleri*.
-* Bir sınıfa eklemek *modelleri* adlı klasöre *Movie.cs*.
+* *Modeller*adlı bir klasör ekleyin.
+* *Movie.cs*adlı *modeller* klasörüne bir sınıf ekleyin.
 
 [!INCLUDE [model 1b](~/includes/RP/model1b.md)]
 
@@ -49,11 +49,11 @@ Sağ tıklayın *modelleri* klasör. Seçin **ekleme** > **sınıfı**. Sınıf 
 
 * Çözüm Bölmesi, **RazorPagesMovie** projesine sağ tıklayın ve ardından > **Yeni klasör ekle...** seçeneğini belirleyin. Klasör *modellerini*adlandırın.
 * *Modeller* klasörüne sağ tıklayın ve ardından > **yeni dosya Ekle...** öğesini seçin.
-* İçinde **yeni dosya** iletişim:
+* **Yeni dosya** iletişim kutusunda:
 
-  * Seçin **genel** sol bölmesinde.
+  * Sol bölmedeki **genel** ' i seçin.
   * Orta bölmede **boş sınıf** ' ı seçin.
-  * Sınıf adı **film** seçip **yeni**.
+  * Sınıfı **filmi** adlandırın ve **Yeni**' yi seçin.
 
 [!INCLUDE [model 1b](~/includes/RP/model1b.md)]
 
@@ -67,10 +67,10 @@ Bu bölümde, film modeli iskele kurulmuş. Diğer bir deyişle, yapı iskelesi 
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-Oluşturma bir *sayfaları/filmler* klasörü:
+*Sayfalar/filmler* klasörü oluştur:
 
 * **Yeni > klasör** **eklemek** > *Sayfalar* klasörüne sağ tıklayın.
-* Klasör adı *filmler*
+* Klasör *filmlerini* adlandırın
 
 *Sayfalar/filmler* klasörüne sağ tıklayın > > **yeni yapı Iskelesi öğesi** **ekleyin** .
 
@@ -80,22 +80,22 @@ Oluşturma bir *sayfaları/filmler* klasörü:
 
 ![Önceki yönergeleri görüntüden.](model/_static/add_scaffold.png)
 
-Tamamlamak **ekleme Razor sayfaları (CRUD) Entity Framework kullanarak** iletişim:
+**Entity Framework kullanarak Razor Pages Ekle (CRUD)** iletişim kutusunu doldurun:
 
-* İçinde **Model sınıfı** seçin, açılan menü **film (RazorPagesMovie.Models)** .
+* **Model sınıfı** açılan kutusunda **Film (RazorPagesMovie. modeller)** öğesini seçin.
 * **Veri bağlamı sınıfı** satırında **+** (artı) işaretini seçin ve oluşturulan adı RazorPagesMovie ' dan değiştirin. **Modeller**. RazorPagesMovieContext to RazorPagesMovie. **Veri**. RazorPagesMovieContext. [Bu değişiklik](https://developercommunity.visualstudio.com/content/problem/652166/aspnet-core-ef-scaffolder-uses-incorrect-namespace.html) gerekli değildir. Doğru ad alanıyla veritabanı bağlamı sınıfını oluşturur.
 * **Add (Ekle)** seçeneğini belirleyin.
 
 ![Önceki yönergeleri görüntüden.](model/_static/3/arp.png)
 
-*Appsettings.json* dosya yerel bir veritabanına bağlanmak için kullanılan bağlantı dizesi ile güncelleştirilir.
+*AppSettings. JSON* dosyası, yerel bir veritabanına bağlanmak için kullanılan bağlantı dizesiyle güncelleştirilir.
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 <!--  Until https://github.com/aspnet/Scaffolding/issues/582 is fixed windows needs backslash or the namespace is namespace RazorPagesMovie.Pages_Movies rather than namespace RazorPagesMovie.Pages.Movies
 -->
 
-* Proje dizininde bir komut penceresi açın (içeren dizine *Program.cs*, *Startup.cs*, ve *.csproj* dosyaları).
+* Proje dizininde bir komut penceresi açın ( *program.cs*, *Startup.cs*ve *. csproj* dosyalarını içeren dizin).
 * Yapı iskelesi Aracı'nı yükleyin:
 
   ```dotnetcli
@@ -121,10 +121,10 @@ Tamamlamak **ekleme Razor sayfaları (CRUD) Entity Framework kullanarak** ileti�
 
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Mac için Visual Studio](#tab/visual-studio-mac)
 
-Oluşturma bir *sayfaları/filmler* klasörü:
+*Sayfalar/filmler* klasörü oluştur:
 
 * **Yeni > klasör** **eklemek** > *Sayfalar* klasörüne sağ tıklayın.
-* Klasör adı *filmler*
+* Klasör *filmlerini* adlandırın
 
 *Sayfalar/filmler* klasörüne sağ tıklayarak > **yeni yapı Iskelesi > ekleyin...** .
 
@@ -134,7 +134,7 @@ Oluşturma bir *sayfaları/filmler* klasörü:
 
 ![Önceki yönergeleri görüntüden.](model/_static/add_scaffoldMac.png)
 
-Tamamlamak **ekleme Razor sayfaları (CRUD) Entity Framework kullanarak** iletişim:
+**Entity Framework kullanarak Razor Pages Ekle (CRUD)** iletişim kutusunu doldurun:
 
 * **Model sınıfı** açılan kutusunda, seçin veya yazın, **Film (RazorPagesMovie. modeller)** .
 * **Veri bağlamı sınıfı** satırına, RazorPagesMovie adlı yeni sınıfın adını yazın. **Veri**. RazorPagesMovieContext. [Bu değişiklik](https://developercommunity.visualstudio.com/content/problem/652166/aspnet-core-ef-scaffolder-uses-incorrect-namespace.html) gerekli değildir. Doğru ad alanıyla veritabanı bağlamı sınıfını oluşturur.
@@ -142,7 +142,7 @@ Tamamlamak **ekleme Razor sayfaları (CRUD) Entity Framework kullanarak** ileti�
 
 ![Önceki yönergeleri görüntüden.](model/_static/arpMac.png)
 
-*Appsettings.json* dosya yerel bir veritabanına bağlanmak için kullanılan bağlantı dizesi ile güncelleştirilir.
+*AppSettings. JSON* dosyası, yerel bir veritabanına bağlanmak için kullanılan bağlantı dizesiyle güncelleştirilir.
 
 ### <a name="add-ef-tools"></a>EF araçları ekleme
 
@@ -162,10 +162,10 @@ Yukarıdaki komut, .NET Core CLI için Entity Framework Core araçları ekler.
 
 İskele işlem oluşturur ve aşağıdaki dosyaları güncelleştirir:
 
-* *Sayfa/filmler*: oluşturma, silme, Ayrıntılar, düzenleme ve dizin.
-* *Data/RazorPagesMovieContext.cs*
+* *Sayfalar/filmler*: oluşturma, silme, ayrıntılar, düzenleme ve dizin.
+* *Data/RazorPagesMovieContext. cs*
 
-### <a name="updated"></a>Güncelleştirme tarihi
+### <a name="updated"></a>Güncellendi
 
 * *Startup.cs*
 
@@ -175,10 +175,10 @@ Oluşturulan ve güncelleştirilen dosyalar, sonraki bölümde açıklanmıştı
 
 İskele işlem oluşturur ve aşağıdaki dosyaları güncelleştirir:
 
-* *Sayfa/filmler*: oluşturma, silme, Ayrıntılar, düzenleme ve dizin.
-* *Data/RazorPagesMovieContext.cs*
+* *Sayfalar/filmler*: oluşturma, silme, ayrıntılar, düzenleme ve dizin.
+* *Data/RazorPagesMovieContext. cs*
 
-### <a name="updated"></a>Güncelleştirme tarihi
+### <a name="updated"></a>Güncellendi
 
 * *Startup.cs*
 
@@ -188,7 +188,7 @@ Oluşturulan ve güncelleştirilen dosyalar, sonraki bölümde açıklanmıştı
 
 Yapı iskelesi işlemi aşağıdaki dosyaları oluşturur:
 
-* *Sayfa/filmler*: oluşturma, silme, Ayrıntılar, düzenleme ve dizin.
+* *Sayfalar/filmler*: oluşturma, silme, ayrıntılar, düzenleme ve dizin.
 
 Oluşturulan dosyalar sonraki bölümde açıklanmaktadır.
 
@@ -211,7 +211,7 @@ Bu bölümde, Paket Yöneticisi Konsolu (PMC'yi) için kullanılır:
 
 PMC'de aşağıdaki komutları girin:
 
-```PMC
+```powershell
 Add-Migration InitialCreate
 Update-Database
 ```
@@ -230,7 +230,7 @@ Yukarıdaki komutlar şu uyarıyı oluşturur: "' Movie ' varlık türündeki ' 
 
 Bu uyarıyı yoksayabilirsiniz, daha sonraki bir öğreticide düzeltilecektir.
 
-Geçişler komutu, ilk veritabanı şemasını oluşturmak için kod üretir. Şema, `DbContext`belirtilen modeli temel alır. `InitialCreate` Bağımsız değişkeni, geçişlerin adlandırmak için kullanılır. Herhangi bir ad kullanılabilir, ancak bir adı seçili kural gereği, geçiş açıklar.
+Geçişler komutu, ilk veritabanı şemasını oluşturmak için kod üretir. Şema, `DbContext`belirtilen modeli temel alır. `InitialCreate` bağımsız değişkeni, geçişleri adlandırmak için kullanılır. Herhangi bir ad kullanılabilir, ancak bir adı seçili kural gereği, geçiş açıklar.
 
 `update` komutu uygulanmamış geçişlerde `Up` yöntemini çalıştırır. Bu durumda `update`, veritabanını oluşturan *geçiş/\<zaman damgası > _InitialCreate. cs* dosyasında `Up` yöntemini çalıştırır.
 
@@ -238,37 +238,37 @@ Geçişler komutu, ilk veritabanı şemasını oluşturmak için kod üretir. Ş
 
 ### <a name="examine-the-context-registered-with-dependency-injection"></a>Bağımlılık ekleme ile kayıtlı bağlamını İnceleme
 
-ASP.NET Core ile oluşturulmuş [bağımlılık ekleme](xref:fundamentals/dependency-injection). Hizmetler (örneğin, EF Core DB bağlamı), uygulama başlatma sırasında bağımlılık ekleme ile kaydedilir. Bu hizmetler (örneğin, Razor sayfaları) gerektiren bileşenler bu hizmetler Oluşturucu parametresi üzerinden sağlanır. Bir DB bağlamı örneği alır Oluşturucu kodu öğreticinin ilerleyen bölümlerinde gösterilmektedir.
+ASP.NET Core [bağımlılık ekleme](xref:fundamentals/dependency-injection)ile oluşturulmuştur. Hizmetler (örneğin, EF Core DB bağlamı), uygulama başlatma sırasında bağımlılık ekleme ile kaydedilir. Bu hizmetler (örneğin, Razor sayfaları) gerektiren bileşenler bu hizmetler Oluşturucu parametresi üzerinden sağlanır. Bir DB bağlamı örneği alır Oluşturucu kodu öğreticinin ilerleyen bölümlerinde gösterilmektedir.
 
 Yapı iskelesi aracı otomatik olarak oluşturulmuş bir veritabanı bağlamını ve bağımlılık ekleme kapsayıcısını ile kayıtlı.
 
-İnceleme `Startup.ConfigureServices` yöntemi. Vurgulanan satırı iskele kurucu tarafından eklendi:
+`Startup.ConfigureServices` metodunu inceleyin. Vurgulanan satırı iskele kurucu tarafından eklendi:
 
 [!code-csharp[](razor-pages-start/sample/RazorPagesMovie30/Startup.cs?name=snippet_ConfigureServices&highlight=5-6)]
 
-`RazorPagesMovieContext` EF Core işlevleri (oluşturma, okuma, güncelleştirme, silme, vb.) için koordinatları `Movie` modeli. Veri bağlamı (`RazorPagesMovieContext`) türetilir [Microsoft.EntityFrameworkCore.DbContext](/dotnet/api/microsoft.entityframeworkcore.dbcontext). Veri bağlamı, hangi varlıkları veri modelinde yer alan belirtir.
+`RazorPagesMovieContext`, `Movie` modeli için EF Core işlevselliğini (oluşturma, okuma, güncelleştirme, silme, vb.) koordine eder. Veri bağlamı (`RazorPagesMovieContext`) [Microsoft. EntityFrameworkCore. DbContext](/dotnet/api/microsoft.entityframeworkcore.dbcontext)öğesinden türetilir. Veri bağlamı, hangi varlıkları veri modelinde yer alan belirtir.
 
 [!code-csharp[](~/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie22/Data/RazorPagesMovieContext.cs)]
 
 Önceki kod, varlık kümesi için bir [Dbset\<filmi >](/dotnet/api/microsoft.entityframeworkcore.dbset-1) özelliği oluşturur. Entity Framework terminolojisinde, bir varlık kümesini genellikle bir veritabanı tablosuna karşılık gelir. Bir varlık tablosunda bir satıra karşılık gelir.
 
-Bağlantı dizesi adı için bağlam üzerinde bir yöntemi çağırarak geçirilen bir [DbContextOptions](/dotnet/api/microsoft.entityframeworkcore.dbcontextoptions) nesne. Yerel geliştirme için [ASP.NET Core yapılandırma sistemi](xref:fundamentals/configuration/index) bağlantı dizesinden okur *appsettings.json* dosya.
+Bağlantı dizesinin adı, [Dbcontextoptions](/dotnet/api/microsoft.entityframeworkcore.dbcontextoptions) nesnesinde bir yöntem çağırarak bağlama geçirilir. Yerel geliştirme için [ASP.NET Core yapılandırma sistemi](xref:fundamentals/configuration/index) , *appSettings. JSON* dosyasından bağlantı dizesini okur.
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
-İnceleme `Up` yöntemi.
+`Up` metodunu inceleyin.
 
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Mac için Visual Studio](#tab/visual-studio-mac)
 
-İnceleme `Up` yöntemi.
+`Up` metodunu inceleyin.
 
 ---
 
 <a name="test"></a>
 
-### <a name="test-the-app"></a>Uygulamayı test etme
+### <a name="test-the-app"></a>Uygulamayı test edin
 
-* Uygulamayı çalıştırın ve ekleme `/Movies` tarayıcıda URL'sine (`http://localhost:port/movies`).
+* Uygulamayı çalıştırın ve tarayıcıdaki URL 'ye `/Movies` ekleyin (`http://localhost:port/movies`).
 
 Hatası alırsanız:
 
@@ -277,24 +277,24 @@ SqlException: Cannot open database "RazorPagesMovieContext-GUID" requested by th
 Login failed for user 'User-name'.
 ```
 
-Eksik [geçişler adım](#pmc).
+[Geçişler adımını](#pmc)kaçırdınız.
 
-* Test **Oluştur** bağlantı.
+* **Oluştur** bağlantısını test edin.
 
-  ![sayfası oluşturma](model/_static/conan.png)
+  ![Sayfa oluşturma](model/_static/conan.png)
 
   > [!NOTE]
-  > Ondalık virgül kullanımı girmeniz mümkün olmayabilir `Price` alan. Desteklemek için [jQuery doğrulama](https://jqueryvalidation.org/) virgül İngilizce olmayan yerel (",") bir ondalık noktasının ve ABD İngilizce olmayan tarih biçimleri, uygulamayı Eğer gerekir. Genelleştirme hakkında yönergeler için bkz. [bu GitHub sorunu](https://github.com/aspnet/AspNetCore.Docs/issues/4076#issuecomment-326590420).
+  > `Price` alanına ondalık virgül giremeyebilirsiniz. Ondalık bir nokta ve ABD Ingilizcesi olmayan tarih biçimleri için virgül (",") kullanan Ingilizce olmayan yerel ayarlarda [jQuery doğrulamasını](https://jqueryvalidation.org/) desteklemek için, uygulamanın Genelleştirilmiş olması gerekir. Genelleştirme yönergeleri için [Bu GitHub sorununa](https://github.com/aspnet/AspNetCore.Docs/issues/4076#issuecomment-326590420)bakın.
 
-* Test **Düzenle**, **ayrıntıları**, ve **Sil** bağlantıları.
+* **Düzenle**, **Ayrıntılar** ve **Sil** bağlantılarını test edin.
 
 Sonraki öğreticiye yapı iskelesi tarafından oluşturulan dosyaları açıklar.
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 > [!div class="step-by-step"]
-> [Önceki: Başlama](xref:tutorials/razor-pages/razor-pages-start)
-> [sonraki: Razor sayfaları için iskele kurulmuş](xref:tutorials/razor-pages/page)
+> [Önceki: başlangıç](xref:tutorials/razor-pages/razor-pages-start)
+> [Ileri: scafkatRazor Pages](xref:tutorials/razor-pages/page)
 
 ::: moniker-end
 
@@ -311,16 +311,16 @@ EF Core üzerinde herhangi bir bağımlılığı olmadığından model sınıfla
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-Sağ **RazorPagesMovie** Proje > **Ekle** > **yeni klasör**. Klasör adı *modelleri*.
+**Yeni > klasör** **eklemek** > **RazorPagesMovie** projesine sağ tıklayın. Klasör *modellerini*adlandırın.
 
-Sağ tıklayın *modelleri* klasör. Seçin **ekleme** > **sınıfı**. Sınıf adı **film**.
+*Modeller* klasörüne sağ tıklayın.  > **sınıfı** **Ekle** ' yi seçin. Sınıf **filmi**olarak adlandırın.
 
 [!INCLUDE [model 1b](~/includes/RP/model1b.md)]
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
-* Adlı bir klasör ekleme *modelleri*.
-* Bir sınıfa eklemek *modelleri* adlı klasöre *Movie.cs*.
+* *Modeller*adlı bir klasör ekleyin.
+* *Movie.cs*adlı *modeller* klasörüne bir sınıf ekleyin.
 
 [!INCLUDE [model 1b](~/includes/RP/model1b.md)]
 
@@ -328,13 +328,13 @@ Sağ tıklayın *modelleri* klasör. Seçin **ekleme** > **sınıfı**. Sınıf 
 
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Mac için Visual Studio](#tab/visual-studio-mac)
 
-* Çözüm Gezgini'nde sağ **RazorPagesMovie** proje ve ardından **Ekle** > **yeni klasör**. Klasör adı *modelleri*.
+* Çözüm Gezgini, **RazorPagesMovie** projesine sağ tıklayın ve ardından > **Yeni klasör** **Ekle** ' yi seçin. Klasör *modellerini*adlandırın.
 * *Modeller* klasörüne sağ tıklayın ve ardından > **yeni dosya** **Ekle** ' yi seçin.
-* İçinde **yeni dosya** iletişim:
+* **Yeni dosya** iletişim kutusunda:
 
-  * Seçin **genel** sol bölmesinde.
+  * Sol bölmedeki **genel** ' i seçin.
   * Orta bölmede **boş sınıf** ' ı seçin.
-  * Sınıf adı **film** seçip **yeni**.
+  * Sınıfı **filmi** adlandırın ve **Yeni**' yi seçin.
 
 [!INCLUDE [model 1b](~/includes/RP/model1b.md)]
 
@@ -348,10 +348,10 @@ Bu bölümde, film modeli iskele kurulmuş. Diğer bir deyişle, yapı iskelesi 
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-Oluşturma bir *sayfaları/filmler* klasörü:
+*Sayfalar/filmler* klasörü oluştur:
 
 * **Yeni > klasör** **eklemek** > *Sayfalar* klasörüne sağ tıklayın.
-* Klasör adı *filmler*
+* Klasör *filmlerini* adlandırın
 
 *Sayfalar/filmler* klasörüne sağ tıklayın > > **yeni yapı Iskelesi öğesi** **ekleyin** .
 
@@ -361,26 +361,26 @@ Oluşturma bir *sayfaları/filmler* klasörü:
 
 ![Önceki yönergeleri görüntüden.](model/_static/add_scaffold.png)
 
-Tamamlamak **ekleme Razor sayfaları (CRUD) Entity Framework kullanarak** iletişim:
+**Entity Framework kullanarak Razor Pages Ekle (CRUD)** iletişim kutusunu doldurun:
 <!-- In the next section, change 
 (plus) sign and accept the generated name 
 to use Data, it should not use models. That will make the namespace the same for the VS version and the CLI version
 -->
 
-* İçinde **Model sınıfı** seçin, açılan menü **film (RazorPagesMovie.Models)** .
-* İçinde **veri bağlamı sınıfının** satır, select **+** (artı) oturum açın ve oluşturulan adı kabul **RazorPagesMovie.Models.RazorPagesMovieContext**.
+* **Model sınıfı** açılan kutusunda **Film (RazorPagesMovie. modeller)** öğesini seçin.
+* **Veri bağlamı sınıfı** satırında **+** (artı) Işaretini seçin ve oluşturulan **RazorPagesMovie. modeller. RazorPagesMovieContext**adını kabul edin.
 * **Add (Ekle)** seçeneğini belirleyin.
 
 ![Önceki yönergeleri görüntüden.](model/_static/arp.png)
 
-*Appsettings.json* dosya yerel bir veritabanına bağlanmak için kullanılan bağlantı dizesi ile güncelleştirilir.
+*AppSettings. JSON* dosyası, yerel bir veritabanına bağlanmak için kullanılan bağlantı dizesiyle güncelleştirilir.
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 <!--  Until https://github.com/aspnet/Scaffolding/issues/582 is fixed windows needs backslash or the namespace is namespace RazorPagesMovie.Pages_Movies rather than namespace RazorPagesMovie.Pages.Movies
 -->
 
-* Proje dizininde bir komut penceresi açın (içeren dizine *Program.cs*, *Startup.cs*, ve *.csproj* dosyaları).
+* Proje dizininde bir komut penceresi açın ( *program.cs*, *Startup.cs*ve *. csproj* dosyalarını içeren dizin).
 
 * **Windows için**: aşağıdaki komutu çalıştırın:
 
@@ -398,10 +398,10 @@ to use Data, it should not use models. That will make the namespace the same for
 
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Mac için Visual Studio](#tab/visual-studio-mac)
 
-Oluşturma bir *sayfaları/filmler* klasörü:
+*Sayfalar/filmler* klasörü oluştur:
 
 * **Yeni > klasör** **eklemek** > *Sayfalar* klasörüne sağ tıklayın.
-* Klasör adı *filmler*
+* Klasör *filmlerini* adlandırın
 
 *Sayfalar/filmler* klasörüne sağ tıklayın > > **yeni yapı Iskelesi öğesi** **ekleyin** .
 
@@ -411,7 +411,7 @@ Oluşturma bir *sayfaları/filmler* klasörü:
 
 ![Önceki yönergeleri görüntüden.](model/_static/add_scaffoldMac.png)
 
-Tamamlamak **ekleme Razor sayfaları (CRUD) Entity Framework kullanarak** iletişim:
+**Entity Framework kullanarak Razor Pages Ekle (CRUD)** iletişim kutusunu doldurun:
 
 * **Model sınıfı** açılan kutusunda **film**' ı seçin veya yazın.
 * **Veri bağlamı sınıfı** satırına **RazorPagesMovieContext** öğesini seçin. Bu, doğru ad alanı ile yeni bir DB bağlam sınıfı oluşturacaktır. Bu durumda, **RazorPagesMovie. modeller. RazorPagesMovieContext**olacaktır.
@@ -419,7 +419,7 @@ Tamamlamak **ekleme Razor sayfaları (CRUD) Entity Framework kullanarak** ileti�
 
 ![Önceki yönergeleri görüntüden.](model/_static/arpMac.png)
 
-*Appsettings.json* dosya yerel bir veritabanına bağlanmak için kullanılan bağlantı dizesi ile güncelleştirilir.
+*AppSettings. JSON* dosyası, yerel bir veritabanına bağlanmak için kullanılan bağlantı dizesiyle güncelleştirilir.
 
 ---
 
@@ -427,8 +427,8 @@ Tamamlamak **ekleme Razor sayfaları (CRUD) Entity Framework kullanarak** ileti�
 
 ### <a name="files-created"></a>Oluşturulan dosyalar
 
-* *Sayfa/filmler*: oluşturma, silme, Ayrıntılar, düzenleme ve dizin.
-* *Data/RazorPagesMovieContext.cs*
+* *Sayfalar/filmler*: oluşturma, silme, ayrıntılar, düzenleme ve dizin.
+* *Data/RazorPagesMovieContext. cs*
 
 ### <a name="file-updated"></a>Dosya güncelleştirildi
 
@@ -453,14 +453,14 @@ Bu bölümde, Paket Yöneticisi Konsolu (PMC'yi) için kullanılır:
 
 PMC'de aşağıdaki komutları girin:
 
-```Powershell
+```powershell
 Add-Migration Initial
 Update-Database
 ```
 
-`Add-Migration` Komut, ilk veritabanı şeması oluşturmak için kod oluşturur. Şema, `DbContext` belirtilen modele dayalıdır ( *RazorPagesMovieContext.cs* dosyasında). `InitialCreate` bağımsız değişkeni, geçişi adlandırmak için kullanılır. Herhangi bir ad kullanılabilir, ancak kurala göre geçiş tanımlayan bir ad kullanılır. Daha fazla bilgi için bkz. <xref:data/ef-mvc/migrations>.
+`Add-Migration` komutu, ilk veritabanı şemasını oluşturmak için kod üretir. Şema, `DbContext` belirtilen modele dayalıdır ( *RazorPagesMovieContext.cs* dosyasında). `InitialCreate` bağımsız değişkeni, geçişi adlandırmak için kullanılır. Herhangi bir ad kullanılabilir, ancak kurala göre geçiş tanımlayan bir ad kullanılır. Daha fazla bilgi için bkz. <xref:data/ef-mvc/migrations>.
 
-`Update-Database` Komutu çalıştırmaları `Up` yönteminde *geçişleri /\<zaman damgası > _InitialCreate.cs* dosya. `Up` Yöntemi veritabanı oluşturur.
+`Update-Database` komutu *geçişler/\<zaman damgası > _InitialCreate. cs* dosyasında `Up` yöntemini çalıştırır. `Up` yöntemi veritabanını oluşturur.
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
@@ -478,37 +478,37 @@ Update-Database
 
 ### <a name="examine-the-context-registered-with-dependency-injection"></a>Bağımlılık ekleme ile kayıtlı bağlamını İnceleme
 
-ASP.NET Core ile oluşturulmuş [bağımlılık ekleme](xref:fundamentals/dependency-injection). Hizmetler (örneğin, EF Core DB bağlamı), uygulama başlatma sırasında bağımlılık ekleme ile kaydedilir. Bu hizmetler (örneğin, Razor sayfaları) gerektiren bileşenler bu hizmetler Oluşturucu parametresi üzerinden sağlanır. Bir DB bağlamı örneği alır Oluşturucu kodu öğreticinin ilerleyen bölümlerinde gösterilmektedir.
+ASP.NET Core [bağımlılık ekleme](xref:fundamentals/dependency-injection)ile oluşturulmuştur. Hizmetler (örneğin, EF Core DB bağlamı), uygulama başlatma sırasında bağımlılık ekleme ile kaydedilir. Bu hizmetler (örneğin, Razor sayfaları) gerektiren bileşenler bu hizmetler Oluşturucu parametresi üzerinden sağlanır. Bir DB bağlamı örneği alır Oluşturucu kodu öğreticinin ilerleyen bölümlerinde gösterilmektedir.
 
 Yapı iskelesi aracı otomatik olarak oluşturulmuş bir veritabanı bağlamını ve bağımlılık ekleme kapsayıcısını ile kayıtlı.
 
-İnceleme `Startup.ConfigureServices` yöntemi. Vurgulanan satırı iskele kurucu tarafından eklendi:
+`Startup.ConfigureServices` metodunu inceleyin. Vurgulanan satırı iskele kurucu tarafından eklendi:
 
 [!code-csharp[](razor-pages-start/sample/RazorPagesMovie22/Startup.cs?name=snippet_ConfigureServices&highlight=15-18)]
 
-`RazorPagesMovieContext` EF Core işlevleri (oluşturma, okuma, güncelleştirme, silme, vb.) için koordinatları `Movie` modeli. Veri bağlamı (`RazorPagesMovieContext`) türetilir [Microsoft.EntityFrameworkCore.DbContext](/dotnet/api/microsoft.entityframeworkcore.dbcontext). Veri bağlamı, hangi varlıkları veri modelinde yer alan belirtir.
+`RazorPagesMovieContext`, `Movie` modeli için EF Core işlevselliğini (oluşturma, okuma, güncelleştirme, silme, vb.) koordine eder. Veri bağlamı (`RazorPagesMovieContext`) [Microsoft. EntityFrameworkCore. DbContext](/dotnet/api/microsoft.entityframeworkcore.dbcontext)öğesinden türetilir. Veri bağlamı, hangi varlıkları veri modelinde yer alan belirtir.
 
 [!code-csharp[](~/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie22/Data/RazorPagesMovieContext.cs)]
 
 Önceki kod, varlık kümesi için bir [Dbset\<filmi >](/dotnet/api/microsoft.entityframeworkcore.dbset-1) özelliği oluşturur. Entity Framework terminolojisinde, bir varlık kümesini genellikle bir veritabanı tablosuna karşılık gelir. Bir varlık tablosunda bir satıra karşılık gelir.
 
-Bağlantı dizesi adı için bağlam üzerinde bir yöntemi çağırarak geçirilen bir [DbContextOptions](/dotnet/api/microsoft.entityframeworkcore.dbcontextoptions) nesne. Yerel geliştirme için [ASP.NET Core yapılandırma sistemi](xref:fundamentals/configuration/index) bağlantı dizesinden okur *appsettings.json* dosya.
+Bağlantı dizesinin adı, [Dbcontextoptions](/dotnet/api/microsoft.entityframeworkcore.dbcontextoptions) nesnesinde bir yöntem çağırarak bağlama geçirilir. Yerel geliştirme için [ASP.NET Core yapılandırma sistemi](xref:fundamentals/configuration/index) , *appSettings. JSON* dosyasından bağlantı dizesini okur.
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
-İnceleme `Up` yöntemi.
+`Up` metodunu inceleyin.
 
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Mac için Visual Studio](#tab/visual-studio-mac)
 
-İnceleme `Up` yöntemi.
+`Up` metodunu inceleyin.
 
 ---
 
 <a name="test"></a>
 
-### <a name="test-the-app"></a>Uygulamayı test etme
+### <a name="test-the-app"></a>Uygulamayı test edin
 
-* Uygulamayı çalıştırın ve ekleme `/Movies` tarayıcıda URL'sine (`http://localhost:port/movies`).
+* Uygulamayı çalıştırın ve tarayıcıdaki URL 'ye `/Movies` ekleyin (`http://localhost:port/movies`).
 
 Hatası alırsanız:
 
@@ -517,23 +517,23 @@ SqlException: Cannot open database "RazorPagesMovieContext-GUID" requested by th
 Login failed for user 'User-name'.
 ```
 
-Eksik [geçişler adım](#pmc).
+[Geçişler adımını](#pmc)kaçırdınız.
 
-* Test **Oluştur** bağlantı.
+* **Oluştur** bağlantısını test edin.
 
-  ![sayfası oluşturma](model/_static/conan.png)
+  ![Sayfa oluşturma](model/_static/conan.png)
 
   > [!NOTE]
-  > Ondalık virgül kullanımı girmeniz mümkün olmayabilir `Price` alan. Desteklemek için [jQuery doğrulama](https://jqueryvalidation.org/) virgül İngilizce olmayan yerel (",") bir ondalık noktasının ve ABD İngilizce olmayan tarih biçimleri, uygulamayı Eğer gerekir. Genelleştirme hakkında yönergeler için bkz. [bu GitHub sorunu](https://github.com/aspnet/AspNetCore.Docs/issues/4076#issuecomment-326590420).
+  > `Price` alanına ondalık virgül giremeyebilirsiniz. Ondalık bir nokta ve ABD Ingilizcesi olmayan tarih biçimleri için virgül (",") kullanan Ingilizce olmayan yerel ayarlarda [jQuery doğrulamasını](https://jqueryvalidation.org/) desteklemek için, uygulamanın Genelleştirilmiş olması gerekir. Genelleştirme yönergeleri için [Bu GitHub sorununa](https://github.com/aspnet/AspNetCore.Docs/issues/4076#issuecomment-326590420)bakın.
 
-* Test **Düzenle**, **ayrıntıları**, ve **Sil** bağlantıları.
+* **Düzenle**, **Ayrıntılar** ve **Sil** bağlantılarını test edin.
 
 Sonraki öğreticiye yapı iskelesi tarafından oluşturulan dosyaları açıklar.
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 > [!div class="step-by-step"]
-> [Önceki: Başlama](xref:tutorials/razor-pages/razor-pages-start)
-> [sonraki: Razor sayfaları için iskele kurulmuş](xref:tutorials/razor-pages/page)
+> [Önceki: başlangıç](xref:tutorials/razor-pages/razor-pages-start)
+> [Ileri: scafkatRazor Pages](xref:tutorials/razor-pages/page)
 
 ::: moniker-end

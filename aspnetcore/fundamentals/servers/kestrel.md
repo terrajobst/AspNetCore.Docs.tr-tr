@@ -5,14 +5,14 @@ description: ASP.NET Core platformlar arası Web sunucusu olan Kestrel hakkında
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/06/2020
+ms.date: 02/10/2020
 uid: fundamentals/servers/kestrel
-ms.openlocfilehash: 0c5d16b1901a8a8e5ae1914e5eaa86f71fa3a90b
-ms.sourcegitcommit: 80286715afb93c4d13c931b008016d6086c0312b
+ms.openlocfilehash: d026e1b6fc1a9ecc66014eacb8eb0b46dd9353ec
+ms.sourcegitcommit: 85564ee396c74c7651ac47dd45082f3f1803f7a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77074542"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77171726"
 ---
 # <a name="kestrel-web-server-implementation-in-aspnet-core"></a>ASP.NET Core Web sunucusu uygulamasını Kestrel
 
@@ -346,7 +346,7 @@ Varsayılan değer 96 KB 'tır (98.304).
 
 ### <a name="synchronous-io"></a>Zaman uyumlu GÇ
 
-<xref:Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerOptions.AllowSynchronousIO>, istek ve yanıt için zaman uyumlu GÇ 'ye izin verilip verilmediğini denetler. Varsayılan değer `false` şeklindedir.
+<xref:Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerOptions.AllowSynchronousIO>, istek ve yanıt için zaman uyumlu GÇ 'ye izin verilip verilmediğini denetler. Varsayılan değer: `false`.
 
 > [!WARNING]
 > Çok sayıda engelleme zaman uyumlu GÇ işlemi, iş parçacığı havuzuna neden olabilir ve bu da uygulamanın yanıt vermemesine neden olur. Yalnızca zaman uyumsuz GÇ desteklemeyen bir kitaplık kullanırken `AllowSynchronousIO` etkinleştirin.
@@ -662,6 +662,9 @@ webBuilder.ConfigureKestrel(serverOptions =>
 Aşağıdaki örnekte gösterildiği gibi NGINX ile daha iyi performans için <xref:Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerOptions.ListenUnixSocket*> bir UNIX yuvası dinleyin:
 
 [!code-csharp[](kestrel/samples/3.x/KestrelSample/Program.cs?name=snippet_UnixSocket)]
+
+* NGINX confiuguration dosyasında, `server` > `location` > `proxy_pass` girişi `http://unix:/tmp/{KESTREL SOCKET}:/;`olarak ayarlayın. `{KESTREL SOCKET}`, <xref:Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerOptions.ListenUnixSocket*> için belirtilen yuvanın adıdır (örneğin, önceki örnekte `kestrel-test.sock`).
+* Yuvanın NGINX tarafından yazılabilir olduğundan emin olun (örneğin, `chmod go+w /tmp/kestrel-test.sock`).
 
 ### <a name="port-0"></a>Bağlantı noktası 0
 
@@ -1661,6 +1664,9 @@ Aşağıdaki örnekte gösterildiği gibi NGINX ile daha iyi performans için <x
 
 [!code-csharp[](kestrel/samples/2.x/KestrelSample/Program.cs?name=snippet_UnixSocket)]
 
+* NGINX confiuguration dosyasında, `server` > `location` > `proxy_pass` girişi `http://unix:/tmp/{KESTREL SOCKET}:/;`olarak ayarlayın. `{KESTREL SOCKET}`, <xref:Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerOptions.ListenUnixSocket*> için belirtilen yuvanın adıdır (örneğin, önceki örnekte `kestrel-test.sock`).
+* Yuvanın NGINX tarafından yazılabilir olduğundan emin olun (örneğin, `chmod go+w /tmp/kestrel-test.sock`). 
+
 ### <a name="port-0"></a>Bağlantı noktası 0
 
 `0` bağlantı noktası numarası belirtildiğinde, Kestrel dinamik olarak kullanılabilir bir bağlantı noktasına bağlanır. Aşağıdaki örnek, çalışma zamanında Kestrel gerçekte hangi bağlantı noktasının gerçekten bağlandığını nasıl belirleyeceğini göstermektedir:
@@ -2570,6 +2576,9 @@ public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             });
         });
 ```
+
+* NGINX confiuguration dosyasında, `server` > `location` > `proxy_pass` girişi `http://unix:/tmp/{KESTREL SOCKET}:/;`olarak ayarlayın. `{KESTREL SOCKET}`, <xref:Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerOptions.ListenUnixSocket*> için belirtilen yuvanın adıdır (örneğin, önceki örnekte `kestrel-test.sock`).
+* Yuvanın NGINX tarafından yazılabilir olduğundan emin olun (örneğin, `chmod go+w /tmp/kestrel-test.sock`). 
 
 ### <a name="port-0"></a>Bağlantı noktası 0
 

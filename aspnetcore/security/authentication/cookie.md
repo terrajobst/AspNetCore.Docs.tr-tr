@@ -4,14 +4,14 @@ author: rick-anderson
 description: ASP.NET Core kimliği olmadan tanımlama bilgisi kimlik doğrulamasını nasıl kullanacağınızı öğrenin.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
-ms.date: 08/20/2019
+ms.date: 02/11/2020
 uid: security/authentication/cookie
-ms.openlocfilehash: 288fa4317801544bf0d689280c56836431017c89
-ms.sourcegitcommit: 9e85c2562df5e108d7933635c830297f484bb775
+ms.openlocfilehash: 62a3d247dade6c83156a8378407d5e3891713fd1
+ms.sourcegitcommit: 85564ee396c74c7651ac47dd45082f3f1803f7a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73462924"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77172111"
 ---
 # <a name="use-cookie-authentication-without-aspnet-core-identity"></a>ASP.NET Core kimliği olmadan tanımlama bilgisi kimlik doğrulaması kullanma
 
@@ -94,7 +94,7 @@ Gerekli <xref:System.Security.Claims.Claim>s <xref:System.Security.Claims.Claims
 
 ASP.NET Core [veri koruma](xref:security/data-protection/using-data-protection) sistemi şifreleme için kullanılır. Birden çok makinede barındırılan bir uygulama, uygulamalar arasında yük dengeleme veya bir Web grubu kullanma için, [veri korumayı](xref:security/data-protection/configuration/overview) aynı anahtar halkasını ve uygulama tanımlayıcısını kullanacak şekilde yapılandırın.
 
-## <a name="sign-out"></a>Oturumu Kapat
+## <a name="sign-out"></a>Oturumu kapat
 
 Geçerli kullanıcının oturumunu kapatmak ve tanımlama bilgilerini silmek için <xref:Microsoft.AspNetCore.Authentication.AuthenticationHttpContextExtensions.SignOutAsync*>çağırın:
 
@@ -215,7 +215,7 @@ await HttpContext.SignInAsync(
 
 ## <a name="absolute-cookie-expiration"></a>Mutlak tanımlama bilgisi süre sonu
 
-Mutlak bir süre sonu, <xref:Microsoft.AspNetCore.Authentication.AuthenticationProperties.ExpiresUtc>ile ayarlanabilir. Kalıcı bir tanımlama bilgisi oluşturmak için, `IsPersistent` de ayarlanması gerekir. Aksi takdirde, tanımlama bilgisi oturum tabanlı bir yaşam süresi ile oluşturulur ve bu kimlik doğrulama biletinden önce ya da sonra zaman alabilir. `ExpiresUtc` ayarlandığında, ayarlandıysa, <xref:Microsoft.AspNetCore.Builder.CookieAuthenticationOptions><xref:Microsoft.AspNetCore.Builder.CookieAuthenticationOptions.ExpireTimeSpan> seçeneğinin değerini geçersiz kılar.
+Mutlak bir süre sonu, <xref:Microsoft.AspNetCore.Authentication.AuthenticationProperties.ExpiresUtc>ile ayarlanabilir. Kalıcı bir tanımlama bilgisi oluşturmak için, `IsPersistent` de ayarlanması gerekir. Aksi takdirde, tanımlama bilgisi oturum tabanlı bir yaşam süresi ile oluşturulur ve bu kimlik doğrulama biletinden önce ya da sonra zaman alabilir. `ExpiresUtc` ayarlandığında, ayarlandıysa, <xref:Microsoft.AspNetCore.Authentication.Cookies.CookieAuthenticationOptions><xref:Microsoft.AspNetCore.Authentication.Cookies.CookieAuthenticationOptions.ExpireTimeSpan> seçeneğinin değerini geçersiz kılar.
 
 Aşağıdaki kod parçacığı, 20 dakika boyunca bir kimlik ve karşılık gelen tanımlama bilgisi oluşturur. Bu, daha önce yapılandırılmış olan tüm Kayan süre sonu ayarlarını yoksayar.
 
@@ -311,7 +311,7 @@ Gerekli <xref:System.Security.Claims.Claim>s <xref:System.Security.Claims.Claims
 
 ASP.NET Core [veri koruma](xref:security/data-protection/using-data-protection) sistemi şifreleme için kullanılır. Birden çok makinede barındırılan bir uygulama, uygulamalar arasında yük dengeleme veya bir Web grubu kullanma için, [veri korumayı](xref:security/data-protection/configuration/overview) aynı anahtar halkasını ve uygulama tanımlayıcısını kullanacak şekilde yapılandırın.
 
-## <a name="sign-out"></a>Oturumu Kapat
+## <a name="sign-out"></a>Oturumu kapat
 
 Geçerli kullanıcının oturumunu kapatmak ve tanımlama bilgilerini silmek için <xref:Microsoft.AspNetCore.Authentication.AuthenticationHttpContextExtensions.SignOutAsync*>çağırın:
 

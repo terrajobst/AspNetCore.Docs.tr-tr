@@ -6,16 +6,16 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 7/23/2019
 uid: tutorials/razor-pages/validation
-ms.openlocfilehash: 34157a63e43372876a02a858741dfd3a83a063b1
-ms.sourcegitcommit: 2cb857f0de774df421e35289662ba92cfe56ffd1
+ms.openlocfilehash: f283234ed8a32dc9b7904bc6fee1cc9c04741029
+ms.sourcegitcommit: 85564ee396c74c7651ac47dd45082f3f1803f7a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75354807"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77172598"
 ---
 # <a name="add-validation-to-an-aspnet-core-razor-page"></a>ASP.NET Core Razor sayfasına doğrulama ekleme
 
-Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
+Gönderen [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 Bu bölümde, `Movie` modeline doğrulama mantığı eklenir. Doğrulama kuralları, bir Kullanıcı bir filmi oluşturduğunda veya düzenleişinizde zorlanır.
 
@@ -49,7 +49,7 @@ Doğrulama öznitelikleri, uygulanan model özellikleri üzerinde zorlamak isted
   * İlk karakterin büyük harf olmasını gerektirir.
   * Sonraki boşlukların içindeki özel karakter ve sayılara izin verir. "PG-13" bir derecelendirme için geçerlidir, ancak bir "tarz" için başarısız olur.
 
-* `Range` özniteliği, bir değeri belirtilen bir aralık içinde kısıtlar.
+* `Range` özniteliği bir değeri belirtilen bir Aralık içinde kısıtlar.
 * `StringLength` özniteliği, bir dize özelliğinin en büyük uzunluğunu ve isteğe bağlı olarak en düşük uzunluğunu ayarlamanıza olanak sağlar.
 * Değer türleri (örneğin `decimal`, `int`, `float`, `DateTime`), doğal olarak gereklidir ve `[Required]` özniteliğine gerek kalmaz.
 
@@ -161,7 +161,7 @@ Sınıfa uygulanan Dataek açıklamaları şemayı değiştirir. Örneğin, `Tit
 
 `Movie` tablosu şu anda aşağıdaki şemaya sahiptir:
 
-``` sql
+```sql
 CREATE TABLE [dbo].[Movie] (
     [ID]          INT             IDENTITY (1, 1) NOT NULL,
     [Title]       NVARCHAR (MAX)  NULL,
@@ -189,7 +189,7 @@ Update-Database
 
 Güncelleştirilmiş `Movie` tablosu aşağıdaki şemaya sahiptir:
 
-``` sql
+```sql
 CREATE TABLE [dbo].[Movie] (
     [ID]          INT             IDENTITY (1, 1) NOT NULL,
     [Title]       NVARCHAR (60)   NOT NULL,
@@ -207,7 +207,7 @@ SQLite için geçişler gerekli değildir.
 
 ---
 
-### <a name="publish-to-azure"></a>Azure'a Yayımlama
+### <a name="publish-to-azure"></a>Azure’da Yayımlama
 
 Azure 'a dağıtma hakkında bilgi için bkz. [öğretici: Azure 'DA SQL veritabanı ile ASP.NET Core uygulama oluşturma](/azure/app-service/app-service-web-tutorial-dotnetcore-sqldb).
 

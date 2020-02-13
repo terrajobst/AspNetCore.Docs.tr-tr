@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/05/2019
 uid: mvc/views/working-with-forms
-ms.openlocfilehash: 61b50a63bd026f917035f64785d8d3b1956958a6
-ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
+ms.openlocfilehash: 1c7652c909432b25ae373873cd593afd879cfa00
+ms.sourcegitcommit: 85564ee396c74c7651ac47dd45082f3f1803f7a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74880957"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77172557"
 ---
 # <a name="tag-helpers-in-forms-in-aspnet-core"></a>ASP.NET Core formlardaki etiket yardımcıları
 
@@ -41,7 +41,7 @@ Birçok durumda, HTML Yardımcıları belirli bir etiket Yardımcısı için alt
 
 Yukarıdaki form etiketi Yardımcısı aşağıdaki HTML 'yi oluşturur:
 
-```HTML
+```html
 <form method="post" action="/Demo/Register">
     <!-- Input and Submit elements -->
     <input name="__RequestVerificationToken" type="hidden" value="<removed for brevity>">
@@ -81,7 +81,7 @@ Form eylemi etiketi Yardımcısı, `formaction` özniteliği oluşturulan `<butt
 |[asp-sayfa](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper#asp-page)|Razor sayfasının adı.|
 |[ASP-Page-Handler](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper#asp-page-handler)|Razor sayfası işleyicisinin adı.|
 |[ASP-Route](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper#asp-route)|Rotanın adı.|
-|[ASP-Route-{Value}](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper#asp-route-value)|Tek bir URL yol değeri. Örneğin: `asp-route-id="1234"`.|
+|[ASP-Route-{Value}](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper#asp-route-value)|Tek bir URL yol değeri. Örneğin, `asp-route-id="1234"`.|
 |[ASP-All-Route-Data](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper#asp-all-route-data)|Tüm rota değerleri.|
 |[ASP-Fragment](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper#asp-fragment)|URL parçası.|
 
@@ -163,9 +163,9 @@ Aşağıdaki biçimlendirme formu `/Home/Test` uç noktasına gönderir.
 
 Giriş etiketi Yardımcısı, bir HTML [\<girişi >](https://www.w3.org/wiki/HTML/Elements/input) öğesini Razor görünüminizdeki bir model ifadesine bağlar.
 
-Sözdizimi:
+Söz dizimi:
 
-```HTML
+```cshtml
 <input asp-for="<Expression Name>">
 ```
 
@@ -183,7 +183,7 @@ Giriş etiketi Yardımcısı:
 
 * Güçlü yazma sağlar. Özelliğin adı değişirse ve etiket yardımcısını güncelleştirmezseniz aşağıdakine benzer bir hata alırsınız:
 
-```HTML
+```
 An error occurred during the compilation of a resource required to process
 this request. Please review the following specific error details and modify
 your source code appropriately.
@@ -196,18 +196,18 @@ Type expected
 
 `Input` Tag Yardımcısı, HTML `type` özniteliğini .NET türüne göre ayarlar. Aşağıdaki tabloda bazı ortak .NET türleri ve oluşturulan HTML türü listelenmekte (her .NET türü listelenmemiştir).
 
-|.NET türü|Giriş Türü|
+|.NET türü|Giriş türü|
 |---|---|
 |Bool|Type = "onay kutusu"|
 |Dize|Type = "metin"|
 |DateTime|Type =["TarihSaat-yerel"](https://developer.mozilla.org/docs/Web/HTML/Element/input/datetime-local)|
 |Bayt|Type = "Number"|
-|int|Type = "Number"|
+|Int|Type = "Number"|
 |Tek, Çift|Type = "Number"|
 
 Aşağıdaki tabloda, giriş etiketi Yardımcısı 'nın belirli giriş türleriyle eşleşecağı bazı ortak [veri ek açıklamaları](/dotnet/api/microsoft.aspnetcore.mvc.dataannotations.iattributeadapter) (her doğrulama özniteliği listelenmez) gösterilmektedir:
 
-|Öznitelik|Giriş Türü|
+|Öznitelik|Giriş türü|
 |---|---|
 |EmailAddress|Type = "e-posta"|
 |'Deki|Type = "URL"|
@@ -225,7 +225,7 @@ Aşağıdaki tabloda, giriş etiketi Yardımcısı 'nın belirli giriş türleri
 
 Yukarıdaki kod, aşağıdaki HTML 'yi oluşturur:
 
-```HTML
+```html
   <form method="post" action="/Demo/RegisterInput">
       Email:
       <input type="email" data-val="true"
@@ -251,7 +251,7 @@ Yukarıdaki kod, aşağıdaki HTML 'yi oluşturur:
 
 `@Html.Editor()` ve `@Html.EditorFor()`, varsayılan şablonlarını yürütürken `htmlAttributes` adlı özel bir `ViewDataDictionary` girişi kullanır. Bu davranış, isteğe bağlı olarak `additionalViewData` parametreleri kullanılarak genişletilebilir. "HtmlAttributes" anahtarı büyük/küçük harfe duyarlıdır. "HtmlAttributes" anahtarı, `@Html.TextBox()`gibi giriş yardımcılarını geçirilmiş `htmlAttributes` nesnesine benzer şekilde işlenir.
 
-```HTML
+```cshtml
 @Html.EditorFor(model => model.YourProperty, 
   new { htmlAttributes = new { @class="myCssClass", style="Width:100px" } })
 ```
@@ -260,16 +260,17 @@ Yukarıdaki kod, aşağıdaki HTML 'yi oluşturur:
 
 `asp-for` öznitelik değeri, bir lambda ifadesinin bir `ModelExpression` ve sağ tarafıdır. Bu nedenle, `asp-for="Property1"` oluşturulan kodda `m => m.Property1` hale gelir ve bu nedenle `Model`ile önek gerektirmez. "\@" karakterini kullanarak bir satır içi ifadeyi başlatabilir ve `m.`önce taşıyabilirsiniz:
 
-```HTML
+```cshtml
 @{
-       var joe = "Joe";
-   }
-   <input asp-for="@joe">
+  var joe = "Joe";
+}
+
+<input asp-for="@joe">
 ```
 
 Şunları üretir:
 
-```HTML
+```html
 <input type="text" id="joe" name="joe" value="Joe">
 ```
 
@@ -294,7 +295,7 @@ Görünümde `Address.AddressLine1`bağlandık:
 
 `Address.AddressLine1`için aşağıdaki HTML oluşturulmuştur:
 
-```HTML
+```html
 <input type="text" id="Address_AddressLine1" name="Address.AddressLine1" value="">
 ```
 
@@ -308,10 +309,10 @@ Eylem yöntemi:
 
 ```csharp
 public IActionResult Edit(int id, int colorIndex)
-   {
-       ViewData["Index"] = colorIndex;
-       return View(GetPerson(id));
-   }
+{
+    ViewData["Index"] = colorIndex;
+    return View(GetPerson(id));
+}
 ```
 
 Aşağıdaki Razor, belirli bir `Color` öğesine nasıl erişistediğinizi göstermektedir:
@@ -359,7 +360,7 @@ değer bir `asp-for` veya `Html.DisplayFor` denk bir bağlamda kullanılacaksa, 
 
 Aşağıdaki HTML oluşturulur:
 
-```HTML
+```html
 <form method="post" action="/Demo/RegisterTextArea">
   <textarea data-val="true"
    data-val-maxlength="The field Description must be a string or array type with a maximum length of &#x27;1024&#x27;."
@@ -395,7 +396,7 @@ Aşağıdaki HTML oluşturulur:
 
 `<label>` öğesi için aşağıdaki HTML oluşturulur:
 
-```HTML
+```html
 <label for="Email">Email Address</label>
 ```
 
@@ -415,13 +416,13 @@ Etiket etiketi Yardımcısı, `<input>` öğesiyle ilişkili KIMLIK olan "e-post
 
 `Validation Message Tag Helper`, bir HTML [span](https://developer.mozilla.org/docs/Web/HTML/Element/span) öğesinde `asp-validation-for` özniteliğiyle kullanılır.
 
-```HTML
+```cshtml
 <span asp-validation-for="Email"></span>
 ```
 
 Doğrulama Iletisi etiketi Yardımcısı aşağıdaki HTML 'yi oluşturur:
 
-```HTML
+```html
 <span class="field-validation-valid"
   data-valmsg-for="Email"
   data-valmsg-replace="true"></span>
@@ -434,7 +435,7 @@ Aynı özellik için bir `Input` etiketi Yardımcısı sonrasında `Validation M
 
 Sunucu tarafı doğrulama hatası oluştuğunda (örneğin, özel sunucu tarafı doğrulamadan veya istemci tarafı doğrulaması devre dışı bırakılmışsa), MVC bu hata iletisini `<span>` öğesinin gövdesi olarak koyar.
 
-```HTML
+```html
 <span class="field-validation-error" data-valmsg-for="Email"
             data-valmsg-replace="true">
    The Email Address field is required.
@@ -453,7 +454,7 @@ Sunucu tarafı doğrulama hatası oluştuğunda (örneğin, özel sunucu tarafı
 |--- |--- |
 |ValidationSummary. All|Özellik ve model düzeyi|
 |Yalnızca ValidationSummary. model|Model|
-|ValidationSummary. None|Yok.|
+|ValidationSummary. None|Hiçbiri|
 
 ### <a name="sample"></a>Örnek
 
@@ -465,7 +466,7 @@ Aşağıdaki örnekte, veri modelinde `<input>` öğesinde doğrulama hata ileti
 
 Oluşturulan HTML (model geçerli olduğunda):
 
-```HTML
+```html
 <form action="/DemoReg/Register" method="post">
   <div class="validation-summary-valid" data-valmsg-summary="true">
   <ul><li style="display:none"></li></ul></div>
@@ -551,7 +552,7 @@ Daha zengin bir kullanıcı arabirimi almak için, Numaralandırıcı listenizi 
 
 Aşağıdaki HTML oluşturulur:
 
-```HTML
+```html
   <form method="post" action="/Home/IndexEnum">
          <select data-val="true" data-val-required="The EnumCountry field is required."
                  id="EnumCountry" name="EnumCountry">
@@ -581,7 +582,7 @@ HTML [\<SeçenekGrubu >](https://www.w3.org/wiki/HTML/Elements/optgroup) öğesi
 
 Oluşturulan HTML:
 
-```HTML
+```html
  <form method="post" action="/Home/IndexGroup">
       <select id="Country" name="Country">
           <optgroup label="North America">
@@ -612,7 +613,7 @@ Aşağıdaki görünümle:
 
 Aşağıdaki HTML 'yi oluşturur:
 
-```HTML
+```html
 <form method="post" action="/Home/IndexMultiSelect">
     <select id="CountryCodes"
     multiple="multiple"
@@ -648,7 +649,7 @@ Geçerli `Country` değerine bağlı olarak doğru `<option>` öğesi seçilecek
 
 [!code-csharp[](working-with-forms/sample/final/Controllers/HomeController.cs?range=114-119)]
 
-```HTML
+```html
  <form method="post" action="/Home/IndexEmpty">
       <select id="Country" name="Country">
           <option value="">&lt;none&gt;</option>

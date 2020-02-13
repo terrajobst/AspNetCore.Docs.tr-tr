@@ -5,14 +5,14 @@ description: ASP.NET Core içindeki mantıksal HttpClient örneklerini yönetmek
 monikerRange: '>= aspnetcore-2.1'
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 12/16/2019
+ms.date: 02/09/2020
 uid: fundamentals/http-requests
-ms.openlocfilehash: 9b9da82191a587be0603ee114562e9a964f05250
-ms.sourcegitcommit: fe41cff0b99f3920b727286944e5b652ca301640
+ms.openlocfilehash: 93b75525e8a3f10c4e0b655baaff83c0f6e8131b
+ms.sourcegitcommit: 85564ee396c74c7651ac47dd45082f3f1803f7a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76870404"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77171801"
 ---
 # <a name="make-http-requests-using-ihttpclientfactory-in-aspnet-core"></a>ASP.NET Core 'de ıhttpclientfactory kullanarak HTTP istekleri yapın
 
@@ -109,7 +109,12 @@ Aşağıdaki kod, bir tür istemci sınıfını kaydetmek için `Startup.Configu
 
 [!code-csharp[](http-requests/samples/3.x/HttpClientFactorySample/Startup.cs?name=snippet3)]
 
-Yazılan istemci, DI ile geçici olarak kaydedilir. Yazılan istemci doğrudan eklenebilir ve tüketilebilir:
+Yazılan istemci, DI ile geçici olarak kaydedilir. Yukarıdaki kodda, `GitHubService` geçici bir hizmet olarak `AddHttpClient` kaydettirir. Bu kayıt, için bir fabrika yöntemi kullanır:
+
+1. `HttpClient` örneği oluşturun.
+1. `HttpClient` örneğini oluşturucusuna geçirerek `GitHubService`örneğini oluşturun.
+
+Yazılan istemci doğrudan eklenebilir ve tüketilebilir:
 
 [!code-csharp[](http-requests/samples/3.x/HttpClientFactorySample/Pages/TypedClient.cshtml.cs?name=snippet1&highlight=11-14,20)]
 
@@ -318,7 +323,7 @@ Otomatik tanımlama bilgisi işlemeyi devre dışı bırakmak için <xref:Micros
 
 [!code-csharp[](http-requests/samples/2.x/HttpClientFactorySample/Startup.cs?name=snippet13)]
 
-## <a name="logging"></a>Günlüğe Kaydetme
+## <a name="logging"></a>Günlüğe kaydetme
 
 Tüm istekler için `IHttpClientFactory` kayıt günlüğü iletileri aracılığıyla oluşturulan istemciler. Varsayılan günlük iletilerini görmek için günlük yapılandırmasında uygun bilgi düzeyini etkinleştirin. İstek üst bilgilerinin günlüğe kaydedilmesi gibi ek Günlükler yalnızca izleme düzeyinde yer alır.
 
@@ -364,7 +369,7 @@ Aşağıdaki örnekte:
 
 * İstemci giden isteklerde yapılandırılan üst bilgileri içerir:
 
-  ```C#
+  ```csharp
   var client = clientFactory.CreateClient("MyForwardingClient");
   var response = client.GetAsync(...);
   ```
@@ -389,7 +394,7 @@ Bir <xref:System.Net.Http.IHttpClientFactory>, bir uygulamadaki <xref:System.Net
 * `HttpClient` yaşam sürelerini el ile yönetirken gerçekleşen yaygın DNS sorunlarından kaçınmak için temel `HttpClientMessageHandler` örneklerinin biriktirmesini ve ömrünü yönetir.
 * Fabrika tarafından oluşturulan istemcilerle gönderilen tüm istekler için yapılandırılabilir bir günlük deneyimi (`ILogger`aracılığıyla) ekler.
 
-[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/http-requests/samples) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
+[Örnek kodu görüntüleme veya indirme](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/http-requests/samples) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
 
 ## <a name="consumption-patterns"></a>Tüketim desenleri
 
@@ -636,7 +641,7 @@ Otomatik tanımlama bilgisi işlemeyi devre dışı bırakmak için <xref:Micros
 
 [!code-csharp[](http-requests/samples/2.x/HttpClientFactorySample/Startup.cs?name=snippet13)]
 
-## <a name="logging"></a>Günlüğe Kaydetme
+## <a name="logging"></a>Günlüğe kaydetme
 
 Tüm istekler için `IHttpClientFactory` kayıt günlüğü iletileri aracılığıyla oluşturulan istemciler. Varsayılan günlük iletilerini görmek için günlük yapılandırmanızda uygun bilgi düzeyini etkinleştirin. İstek üst bilgilerinin günlüğe kaydedilmesi gibi ek Günlükler yalnızca izleme düzeyinde yer alır.
 
@@ -690,9 +695,9 @@ Bir <xref:System.Net.Http.IHttpClientFactory>, bir uygulamadaki <xref:System.Net
 * `HttpClient` yaşam sürelerini el ile yönetirken gerçekleşen yaygın DNS sorunlarından kaçınmak için temel `HttpClientMessageHandler` örneklerinin biriktirmesini ve ömrünü yönetir.
 * Fabrika tarafından oluşturulan istemcilerle gönderilen tüm istekler için yapılandırılabilir bir günlük deneyimi (`ILogger`aracılığıyla) ekler.
 
-[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/http-requests/samples) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
+[Örnek kodu görüntüleme veya indirme](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/http-requests/samples) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Önkoşullar
 
 .NET Framework hedefleyen projeler [Microsoft. Extensions. http](https://www.nuget.org/packages/Microsoft.Extensions.Http/) NuGet paketinin yüklenmesini gerektirir. .NET Core ile hedeflenen ve [Microsoft. AspNetCore. app metapackage](xref:fundamentals/metapackage-app) 'e başvuran projeler zaten `Microsoft.Extensions.Http` paketini içerir.
 
@@ -944,7 +949,7 @@ Otomatik tanımlama bilgisi işlemeyi devre dışı bırakmak için <xref:Micros
 
 [!code-csharp[](http-requests/samples/2.x/HttpClientFactorySample/Startup.cs?name=snippet13)]
 
-## <a name="logging"></a>Günlüğe Kaydetme
+## <a name="logging"></a>Günlüğe kaydetme
 
 Tüm istekler için `IHttpClientFactory` kayıt günlüğü iletileri aracılığıyla oluşturulan istemciler. Varsayılan günlük iletilerini görmek için günlük yapılandırmanızda uygun bilgi düzeyini etkinleştirin. İstek üst bilgilerinin günlüğe kaydedilmesi gibi ek Günlükler yalnızca izleme düzeyinde yer alır.
 
@@ -991,7 +996,7 @@ Aşağıdaki örnekte:
 
 * İstemci giden isteklerde yapılandırılan üst bilgileri içerir:
 
-  ```C#
+  ```csharp
   var client = clientFactory.CreateClient("MyForwardingClient");
   var response = client.GetAsync(...);
   ```

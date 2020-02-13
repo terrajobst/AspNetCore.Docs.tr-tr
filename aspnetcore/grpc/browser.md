@@ -1,19 +1,19 @@
 ---
-title: tarayıcı uygulamalarında gRPC
+title: Tarayıcı uygulamalarında gRPC kullanma
 author: jamesnk
 description: ASP.NET Core GRPC hizmetlerini, gRPC-Web kullanan tarayıcı uygulamalarından çağrılabilir olacak şekilde nasıl yapılandıracağınızı öğrenin.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: jamesnk
-ms.date: 01/24/2020
+ms.date: 02/10/2020
 uid: grpc/browser
-ms.openlocfilehash: 6359c3b76b3cb1ba2b6d9f9a989f64cbf4c4379d
-ms.sourcegitcommit: b5ceb0a46d0254cc3425578116e2290142eec0f0
+ms.openlocfilehash: 333fc8c4277bbac47042d4904c276e963186914a
+ms.sourcegitcommit: 85564ee396c74c7651ac47dd45082f3f1803f7a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76830662"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77172273"
 ---
-# <a name="grpc-in-browser-apps"></a>tarayıcı uygulamalarında gRPC
+# <a name="use-grpc-in-browser-apps"></a>Tarayıcı uygulamalarında gRPC kullanma
 
 , [James bAyKiNg](https://twitter.com/jamesnk)
 
@@ -38,7 +38,7 @@ GRPC-Web ' i bir ASP.NET Core gRPC hizmeti ile etkinleştirmek için:
 * [GRPC. AspNetCore. Web](https://www.nuget.org/packages/Grpc.AspNetCore.Web) paketine bir başvuru ekleyin.
 * *Startup.cs*'e `AddGrpcWeb` ve `UseGrpcWeb` ekleyerek, uygulamayı GRPC-Web kullanacak şekilde yapılandırın:
 
-[!code-csharp[](~/grpc/browser/sample/Startup.cs?name=snippet_1&highlight=3,10,14)]
+[!code-csharp[](~/grpc/browser/sample/Startup.cs?name=snippet_1&highlight=10,14)]
 
 Yukarıdaki kod:
 
@@ -47,7 +47,7 @@ Yukarıdaki kod:
 
 Alternatif olarak, tüm hizmetleri, bir `services.AddGrpcWeb(o => o.GrpcWebEnabled = true);` ConfigureServices 'e ekleyerek gRPC-Web ' i destekleyecek şekilde yapılandırın.
 
-[!code-csharp[](~/grpc/browser/sample/AllServicesSupportExample_Startup.cs?name=snippet_1&highlight=5,12,16)]
+[!code-csharp[](~/grpc/browser/sample/AllServicesSupportExample_Startup.cs?name=snippet_1&highlight=6,13)]
 
 ASP.NET Core CORS 'yi destekleyecek şekilde yapılandırmak gibi, tarayıcıdan gRPC-Web ' i çağırmak için bazı ek yapılandırmalar gerekebilir. Daha fazla bilgi için bkz. [cors desteği](xref:security/cors).
 
@@ -70,6 +70,7 @@ Bir JavaScript gRPC-Web istemcisi vardır. JavaScript 'ten gRPC-Web kullanma hak
 GRPC-Web kullanmak için:
 
 * [GRPC .net. Client. Web](https://www.nuget.org/packages/Grpc.Net.Client.Web) paketine başvuru ekleyin.
+* [GRPC .net. Client](https://www.nuget.org/packages/Grpc.Net.Client) paketine yönelik başvurunun 2.27.0 veya daha büyük olduğundan emin olun.
 * Kanalı `GrpcWebHandler`kullanacak şekilde yapılandırın:
 
 [!code-csharp[](~/grpc/browser/sample/Handler.cs?name=snippet_1)]
@@ -81,9 +82,14 @@ Yukarıdaki kod:
 
 `GrpcWebHandler` oluşturulduğunda aşağıdaki yapılandırma seçeneklerine sahiptir:
 
-* **InnerHandler**: http çağrısını yapan temel <xref:System.Net.Http.HttpMessageHandler>, örneğin, `HttpClientHandler`.
-* **Mod**: enum `GrpcWebMode`. `GrpcWebMode.GrpcWebText`, içeriği Base64 kodlamalı olacak şekilde yapılandırır, bu da sunucu akış çağrılarını desteklemek için gereklidir.
-* **HttpVersion**: HTTP protokol `Version`. gRPC-Web belirli bir protokol gerektirmez ve yapılandırılmadığı takdirde bir istek yapıldığında bir tane belirtmez.
+* **InnerHandler**: GRPC http isteğini oluşturan temel <xref:System.Net.Http.HttpMessageHandler>, örneğin, `HttpClientHandler`.
+* **Mode**: GRPC http istek isteğinin `Content-Type` `application/grpc-web` veya `application/grpc-web-text`olup olmadığını belirten bir numaralandırma türü.
+    * `GrpcWebMode.GrpcWeb`, içeriği kodlama olmadan gönderilecek şekilde yapılandırır. Varsayılan değer.
+    * `GrpcWebMode.GrpcWebText`, içeriği Base64 kodlamalı olacak şekilde yapılandırır. Tarayıcılarda sunucu akış çağrıları için gereklidir.
+* **HttpVersion**: temel alınan GRPC http Isteğindeki [HttpRequestMessage. Version](xref:System.Net.Http.HttpRequestMessage.Version) ayarlamak için kullanılan http Protokolü `Version`. gRPC-Web belirli bir sürüm gerektirmez ve belirtilmediği takdirde varsayılanı geçersiz kılmaz.
+
+> [!IMPORTANT]
+> Oluşturulan gRPC istemcilerinin birli yöntemleri çağırmak için eşitleme ve zaman uyumsuz yöntemleri vardır. Örneğin, `SayHello` eşitlenir ve `SayHelloAsync` zaman uyumsuz olur. Bir Blazor WebAssembly uygulamasında bir Sync yönteminin çağrılması uygulamanın yanıt vermemeye başlamasına neden olur. Zaman uyumsuz yöntemlerin her zaman Blazor WebAssembly içinde kullanılması gerekir.
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 

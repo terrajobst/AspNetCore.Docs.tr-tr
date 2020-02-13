@@ -9,22 +9,22 @@ ms.date: 01/17/2020
 no-loc:
 - SignalR
 uid: signalr/scale
-ms.openlocfilehash: 2ffafd452af46b635f4ebbdf74561ad043158808
-ms.sourcegitcommit: f259889044d1fc0f0c7e3882df0008157ced4915
+ms.openlocfilehash: bb32bb8617f8a3e4170eeb7e38696ee2bbcafe03
+ms.sourcegitcommit: 85564ee396c74c7651ac47dd45082f3f1803f7a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76294729"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77172546"
 ---
-# <a name="aspnet-core-opno-locsignalr-hosting-and-scaling"></a>ASP.NET Core SignalR barındırma ve ölçeklendirme
+# <a name="aspnet-core-signalr-hosting-and-scaling"></a>ASP.NET Core SignalR barındırma ve ölçeklendirme
 
 , [Andrew Stanton-nuri](https://twitter.com/anurse), [Brady Gaster](https://twitter.com/bradygaster)ve [Tom Dykstra](https://github.com/tdykstra),
 
-Bu makalede, ASP.NET Core SignalRkullanan yüksek trafik uygulamalarına yönelik barındırma ve ölçeklendirme konuları açıklanmaktadır.
+Bu makalede ASP.NET Core SignalR kullanan yüksek trafikli uygulamalar için barındırma ve ölçeklendirme konuları açıklanmaktadır.
 
 ## <a name="sticky-sessions"></a>Yapışkan oturumlar
 
-SignalR, belirli bir bağlantı için tüm HTTP isteklerinin aynı sunucu işlemi tarafından işlenmesini gerektirir. Sunucu grubunda (birden çok sunucu) SignalR çalıştığında, "yapışkan oturumlar" kullanılmalıdır. "Yapışkan oturumlar", bazı yük dengeleyiciler tarafından oturum benzeşimi olarak da adlandırılır. Azure App Service istekleri yönlendirmek için [uygulama Isteği yönlendirme](https://docs.microsoft.com/iis/extensions/planning-for-arr/application-request-routing-version-2-overview) (ARR) kullanır. Azure App Service "ARR benzeşimi" ayarının etkinleştirilmesi "yapışkan oturumlar" sağlayacaktır. Yapışkan oturumların gerekmediği tek koşullar şunlardır:
+SignalR belirli bir bağlantı için tüm HTTP isteklerinin aynı sunucu işlemi tarafından işlenmesini gerektirir. SignalR bir sunucu grubunda (birden çok sunucu) çalışırken, "yapışkan oturumlar" kullanılmalıdır. "Yapışkan oturumlar", bazı yük dengeleyiciler tarafından oturum benzeşimi olarak da adlandırılır. Azure App Service istekleri yönlendirmek için [uygulama Isteği yönlendirme](https://docs.microsoft.com/iis/extensions/planning-for-arr/application-request-routing-version-2-overview) (ARR) kullanır. Azure App Service "ARR benzeşimi" ayarının etkinleştirilmesi "yapışkan oturumlar" sağlayacaktır. Yapışkan oturumların gerekmediği tek koşullar şunlardır:
 
 1. Tek bir sunucuda barındırırken, tek bir işlemde.
 1. Azure SignalR hizmetini kullanırken.
@@ -32,15 +32,15 @@ SignalR, belirli bir bağlantı için tüm HTTP isteklerinin aynı sunucu işlem
 
 Tüm diğer koşullarda (Redsıs geri düzlemi kullanıldığında dahil), sunucu ortamının yapışkan oturumlar için yapılandırılması gerekir.
 
-SignalRiçin Azure App Service yapılandırma hakkında yönergeler için bkz. <xref:signalr/publish-to-azure-web-app>.
+SignalR için Azure App Service yapılandırma hakkında yönergeler için bkz. <xref:signalr/publish-to-azure-web-app>.
 
 ## <a name="tcp-connection-resources"></a>TCP bağlantı kaynakları
 
-Bir Web sunucusunun destekleyebileceği eşzamanlı TCP bağlantısı sayısı sınırlıdır. Standart HTTP istemcileri, *kısa ömürlü* bağlantıları kullanır. Bu bağlantılar, istemci boşta kaldığında ve daha sonra yeniden açıldığı zaman kapatılabilir. Öte yandan, SignalR bir bağlantı *kalıcıdır*. SignalR bağlantılar, istemci boşta kaldığında bile açık kalır. Çok sayıda istemciye hizmet veren yüksek trafikli bir uygulamada, bu kalıcı bağlantılar sunucuların en fazla bağlantı sayısına ulaşmasına neden olabilir.
+Bir Web sunucusunun destekleyebileceği eşzamanlı TCP bağlantısı sayısı sınırlıdır. Standart HTTP istemcileri, *kısa ömürlü* bağlantıları kullanır. Bu bağlantılar, istemci boşta kaldığında ve daha sonra yeniden açıldığı zaman kapatılabilir. Öte yandan, bir SignalR bağlantısı *kalıcıdır*. İstemci boşta kaldığında bile SignalR bağlantıları açık kalır. Çok sayıda istemciye hizmet veren yüksek trafikli bir uygulamada, bu kalıcı bağlantılar sunucuların en fazla bağlantı sayısına ulaşmasına neden olabilir.
 
 Kalıcı bağlantılar, her bağlantıyı izlemek için ek bellek de tüketir.
 
-SignalR göre bağlantıyla ilgili kaynakların ağır kullanımı, aynı sunucuda barındırılan diğer Web uygulamalarını etkileyebilir. SignalR açılıp en son kullanılabilir TCP bağlantılarını tutuyorsa, aynı sunucudaki diğer Web uygulamalarına da daha fazla bağlantı bulunmaz.
+SignalR tarafından kurulan bağlantıyla ilgili kaynakların ağır kullanımı, aynı sunucuda barındırılan diğer Web uygulamalarını etkileyebilir. SignalR açıldığında ve en son kullanılabilir TCP bağlantılarını tutuyorsa, aynı sunucudaki diğer Web uygulamalarına da daha fazla bağlantı yoktur.
 
 Sunucuda bağlantı biterse rastgele yuva hataları ve bağlantı sıfırlama hataları görürsünüz. Örneğin:
 
@@ -48,23 +48,23 @@ Sunucuda bağlantı biterse rastgele yuva hataları ve bağlantı sıfırlama ha
 An attempt was made to access a socket in a way forbidden by its access permissions...
 ```
 
-SignalR kaynak kullanımını diğer Web uygulamalarındaki hatalara neden olacak şekilde korumak için, diğer Web uygulamalarınızdan farklı sunucularda SignalR çalıştırın.
+SignalR kaynak kullanımını diğer Web uygulamalarındaki hatalara neden olmasına devam etmek için, diğer Web uygulamalarınızdan farklı sunucularda SignalR 'yi çalıştırın.
 
-SignalR kaynak kullanımını SignalR uygulamasında hatalara neden olacak şekilde korumak için, bir sunucunun işleyeceği bağlantı sayısını sınırlamak üzere ölçeği ölçeklendirin.
+Bir SignalR uygulamasında hatalara neden olan SignalR kaynak kullanımını önlemek için, bir sunucunun işleyeceği bağlantı sayısını sınırlamak üzere ölçeği ölçeklendirin.
 
-## <a name="scale-out"></a>uygulamasını ölçeklendirme
+## <a name="scale-out"></a>Ölçeği genişletme
 
-SignalR kullanan bir uygulamanın, bir sunucu grubu için sorunlar oluşturan tüm bağlantılarını izlemesi gerekir. Bir sunucu ekleyin ve diğer sunucuların hakkında bilgi sahibi olmadığı yeni bağlantıları alır. Örneğin, aşağıdaki diyagramdaki her bir sunucuda SignalR diğer sunuculardaki bağlantılardan haberdar değildir. Sunuculardan birindeki SignalR tüm istemcilere ileti göndermek istediğinde, ileti yalnızca bu sunucuya bağlı olan istemcilere gider.
+SignalR kullanan bir uygulamanın, bir sunucu grubu için sorunlar oluşturan tüm bağlantılarını izlemesi gerekir. Bir sunucu ekleyin ve diğer sunucuların hakkında bilgi sahibi olmadığı yeni bağlantıları alır. Örneğin, aşağıdaki diyagramdaki her bir sunucuda SignalR diğer sunuculardaki bağlantılardan haberdar değildir. Sunuculardan birindeki SignalR tüm istemcilere ileti göndermek istediğinde ileti yalnızca bu sunucuya bağlı olan istemcilere gider.
 
-![Ölçeklendirme [! Üs. NO-LOC (SignalR)] geri düzlemi olmadan](scale/_static/scale-no-backplane.png)
+![Geri düzlemi olmadan SignalR ölçeklendirme](scale/_static/scale-no-backplane.png)
 
-Bu sorunu çözmeye yönelik seçenekler [Azure SignalR hizmetidir](#azure-signalr-service) ve [redsıs arkadüzledir](#redis-backplane).
+Bu sorunu çözmeye yönelik seçenekler [Azure SignalR hizmeti](#azure-signalr-service) ve [redsıs arkadüzledir](#redis-backplane).
 
-## <a name="azure-opno-locsignalr-service"></a>Azure SignalR hizmeti
+## <a name="azure-signalr-service"></a>Azure SignalR Service
 
-Azure SignalR hizmeti, arka düzlemi yerine bir ara sunucu. İstemci sunucuya bir bağlantı başlattığında, istemci hizmete bağlanmak için yeniden yönlendirilir. Bu işlem aşağıdaki diyagramda gösterilmiştir:
+Azure SignalR hizmeti, geri düzlemi yerine bir ara sunucu. İstemci sunucuya bir bağlantı başlattığında, istemci hizmete bağlanmak için yeniden yönlendirilir. Bu işlem aşağıdaki diyagramda gösterilmiştir:
 
-![Azure 'a bağlantı kurma [! Üs. NO-LOC (SignalR)] hizmeti](scale/_static/azure-signalr-service-one-connection.png)
+![Azure SignalR hizmeti ile bağlantı kurma](scale/_static/azure-signalr-service-one-connection.png)
 
 Sonuç olarak, hizmetin tüm istemci bağlantılarını yönetmesi, her sunucunun aşağıdaki diyagramda gösterildiği gibi yalnızca küçük bir sabit bağlantı sayısına ihtiyacı vardır:
 
@@ -72,11 +72,11 @@ Sonuç olarak, hizmetin tüm istemci bağlantılarını yönetmesi, her sunucunu
 
 Bu genişleme yaklaşımına yönelik bu yaklaşım, Redsıs geri düzlemi 'nin diğer avantajlarından biridir:
 
-* [İstemci benzeşimi](/iis/extensions/configuring-application-request-routing-arr/http-load-balancing-using-application-request-routing#step-3---configure-client-affinity)olarak da bilinen yapışkan oturumlar gerekli değildir, çünkü istemciler, bağlandıklarında Azure SignalR hizmetine anında yönlendirilir.
-* SignalR bir uygulama, gönderilen ileti sayısına göre ölçeklenebilir, ancak Azure SignalR hizmeti herhangi bir sayıda bağlantıyı işleyecek şekilde otomatik olarak ölçeklendirilir. Örneğin, binlerce istemci olabilir, ancak saniye başına yalnızca birkaç ileti gönderiliyorsa, SignalR uygulamanın yalnızca bağlantıları işlemek için birden çok sunucuya ölçeklendirilmesi gerekmez.
-* SignalR bir uygulama, SignalRolmayan bir Web uygulamasından daha fazla bağlantı kaynağı kullanmaz.
+* [İstemci benzeşimi](/iis/extensions/configuring-application-request-routing-arr/http-load-balancing-using-application-request-routing#step-3---configure-client-affinity)olarak da bilinen yapışkan oturumlar gerekli değildir, çünkü Istemciler bağlandıklarında Azure SignalR hizmetine anında yönlendirilir.
+* Bir SignalR uygulaması, gönderilen ileti sayısına göre ölçeklenebilir, ancak Azure SignalR hizmeti herhangi bir sayıda bağlantıyı işleyecek şekilde otomatik olarak ölçeklendirilir. Örneğin, binlerce istemci olabilir, ancak saniye başına yalnızca birkaç ileti gönderiliyorsa, SignalR uygulamasının yalnızca bağlantıları işlemek için birden çok sunucuya ölçeklendirilmesi gerekmez.
+* Bir SignalR uygulaması, SignalR olmadan bir Web uygulamasından çok daha fazla bağlantı kaynağı kullanmaz.
 
-Bu nedenlerden dolayı, App Service, VM 'Ler ve kapsayıcılar dahil olmak üzere Azure üzerinde barındırılan tüm ASP.NET Core SignalR uygulamaları için Azure SignalR hizmetini öneririz.
+Bu nedenlerden dolayı, App Service, VM 'Ler ve kapsayıcılar dahil olmak üzere Azure 'da barındırılan tüm ASP.NET Core SignalR uygulamaları için Azure SignalR hizmetini öneririz.
 
 Daha fazla bilgi için bkz. [Azure SignalR hizmeti belgeleri](/azure/azure-signalr/signalr-overview).
 
@@ -86,9 +86,9 @@ Daha fazla bilgi için bkz. [Azure SignalR hizmeti belgeleri](/azure/azure-signa
 
 ![Redsıs geri düzlemi, bir sunucudan tüm istemcilere gönderilen ileti](scale/_static/redis-backplane.png)
 
-Redsıs geri düzlemi, kendi altyapınızda barındırılan uygulamalar için önerilen genişleme yaklaşımıdır. Veri merkezinizde bir Azure veri merkezi arasında önemli bir bağlantı gecikmesi varsa, Azure SignalR hizmeti düşük gecikme süresi veya yüksek performans gereksinimlerine sahip şirket içi uygulamalar için pratik bir seçenek olmayabilir.
+Redsıs geri düzlemi, kendi altyapınızda barındırılan uygulamalar için önerilen genişleme yaklaşımıdır. Veri merkezinizde bir Azure veri merkezi arasında önemli bir bağlantı gecikmesi varsa, Azure SignalR hizmeti, düşük gecikme süresi veya yüksek performans gereksinimlerine sahip şirket içi uygulamalar için pratik bir seçenek olmayabilir.
 
-Daha önce bahsedilen Azure SignalR hizmet avantajları Redsıs geri düzlemi için dezavantajlardır:
+Daha önce belirtilen Azure SignalR hizmeti avantajları Redsıs geri düzlemi için dezavantajlardır:
 
 * [İstemci benzeşimi](/iis/extensions/configuring-application-request-routing-arr/http-load-balancing-using-application-request-routing#step-3---configure-client-affinity)olarak da bilinen yapışkan oturumlar, aşağıdakilerin **her ikisi** de doğru olduğunda gereklidir:
   * Tüm istemciler **yalnızca** WebSockets kullanacak şekilde yapılandırılır.
@@ -113,7 +113,7 @@ Yukarıdaki koşullar, istemci işletim sistemi üzerindeki 10 bağlantı sını
 
 Proxy 'nin `Connection` ve `Upgrade` üst bilgilerini SignalR WebSockets için aşağıdaki şekilde ayarlayın:
 
-```
+```nginx
 proxy_set_header Upgrade $http_upgrade;
 proxy_set_header Connection $connection_upgrade;
 ```

@@ -5,12 +5,12 @@ description: ASP.NET Core MVC 'nin, Model-View-Controller tasarım modelini kull
 ms.author: riande
 ms.date: 01/28/2020
 uid: mvc/overview
-ms.openlocfilehash: a147c2aa01f1440f8ac59f73eb7be734193f802a
-ms.sourcegitcommit: fe41cff0b99f3920b727286944e5b652ca301640
+ms.openlocfilehash: a0d1e364bf4cda4ad30c5070c9e61e6972759bb0
+ms.sourcegitcommit: 85564ee396c74c7651ac47dd45082f3f1803f7a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76869977"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77171819"
 ---
 # <a name="overview-of-aspnet-core-mvc"></a>ASP.NET Core MVC’ye Genel Bakış
 
@@ -65,7 +65,7 @@ ASP.NET Core MVC şunları içerir:
 * [Bağımlılık ekleme](../fundamentals/dependency-injection.md)
 * [Filtreler](#filters)
 * [Alanlar](#areas)
-* [Web API 'Leri](#web-apis)
+* [Web API'leri](#web-apis)
 * [Test edilebilirlik](#testability)
 * [Razor Görünüm altyapısı](#razor-view-engine)
 * [Türü kesin belirlenmiş görünümler](#strongly-typed-views)
@@ -161,7 +161,7 @@ Uygulamanız Ayrıca, `@inject` yönergesini kullanarak, [görüntüleme dosyala
 </html>
 ```
 
-### <a name="filters"></a>FilTReleri
+### <a name="filters"></a>Filtreler
 
 [Filtreler](controllers/filters.md) , geliştiricilerin özel durum işleme veya yetkilendirme gibi çapraz sorunları yalıtmalarına yardımcı olur. Filtreler, eylem yöntemleri için özel ön ve son işlem dışı mantığı çalıştırmayı etkinleştirir ve belirli bir istek için yürütme işlem hattının içindeki belirli noktalarda çalışacak şekilde yapılandırılabilir. Filtreler, denetleyicilere veya eylemlere öznitelik olarak uygulanabilir (veya küresel olarak çalıştırılabilir). Çeşitli filtreler (örneğin `Authorize`) çerçeveye dahil edilir. `[Authorize]`, MVC yetkilendirme filtrelerini oluşturmak için kullanılan özniteliktir.
 
@@ -258,5 +258,5 @@ Daha fazla bilgi için bkz. <xref:mvc/compatibility-version>.
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [ASP.NET Core &ndash; MVC Için Mysınanan. AspNetCore. Mvc-Floent test Kitaplığı](https://github.com/ivaylokenov/MyTested.AspNetCore.Mvc) , MVC ve Web API uygulamalarını test etmek için akıcı bir arabirim sağlar. (*Microsoft tarafından korunmaz veya desteklenmez.* )
-* [Razor bileşenlerini Razor Pages ve MVC uygulamalarıyla tümleştirin](xref:blazor/hosting-models#integrate-razor-components-into-razor-pages-and-mvc-apps)
+* [Razor bileşenlerini Razor Pages ve MVC uygulamalarıyla tümleştirin](xref:blazor/hosting-model-configuration#integrate-razor-components-into-razor-pages-and-mvc-apps)
 

@@ -5,16 +5,16 @@ description: Basit bir ASP.NET Core MVC uygulamasına görünüm ekleme
 ms.author: riande
 ms.date: 8/04/2019
 uid: tutorials/first-mvc-app/adding-view
-ms.openlocfilehash: a25233968f115c6e3a214d97cf2ca5ab81df8d83
-ms.sourcegitcommit: fe41cff0b99f3920b727286944e5b652ca301640
+ms.openlocfilehash: 5510fb6844452571ca764e21640f0bd16444c782
+ms.sourcegitcommit: 85564ee396c74c7651ac47dd45082f3f1803f7a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76870434"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77171979"
 ---
 # <a name="add-a-view-to-an-aspnet-core-mvc-app"></a>ASP.NET Core MVC uygulamasına görünüm ekleme
 
-Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
+Gönderen [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 ::: moniker range=">= aspnetcore-3.0"
 
@@ -44,7 +44,7 @@ Yukarıdaki kod denetleyicinin <xref:Microsoft.AspNetCore.Mvc.Controller.View*> 
 
   * *Index. cshtml* **adlı ad** kutusu değerini saklayın.
 
-  * **Ekle** 'yi seçin
+  * **Ekle**’yi seçin
 
 ![Yeni öğe Ekle iletişim kutusu](adding-view/_static/add_view.png)
 
@@ -59,12 +59,12 @@ Yukarıdaki kod denetleyicinin <xref:Microsoft.AspNetCore.Mvc.Controller.View*> 
 
 * *Görünümler* klasörüne sağ tıklayın ve ardından **Yeni > klasör ekleyin** ve *HelloWorld*klasörünü adlandırın.
 * *Görünümler/HelloWorld* klasörüne sağ tıklayın ve ardından **> yeni dosya ekleyin**.
-* İçinde **yeni dosya** iletişim:
+* **Yeni dosya** iletişim kutusunda:
 
   * Sol bölmedeki **ASP .NET Core** ' u seçin.
   * Orta bölmedeki **MVC görünümü sayfasını** seçin.
   * **Ad** kutusuna *Index* yazın.
-  * **Yeni**' yi seçin.
+  * **Yeni**'yi seçin.
 
 ![Yeni öğe Ekle iletişim kutusu](adding-view/_static/add_view_mac.png)
 
@@ -74,7 +74,7 @@ Yukarıdaki kod denetleyicinin <xref:Microsoft.AspNetCore.Mvc.Controller.View*> 
 
 [!code-HTML[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie22/Views/HelloWorld/Index1.cshtml?highlight=7)]
 
-[https://test-cors.org](`https://localhost:{PORT}/HelloWorld`) sayfasına gidin. `HelloWorldController` `Index` yöntemi çok bitmedi; Bu, yönteminin tarayıcıya yanıt işlemek için bir görünüm şablonu dosyası kullanması gerektiğini belirten `return View();`ifadesini çalıştırdı. Bir görünüm şablonu dosya adı belirtilmediğinden, MVC varsayılan görünüm dosyasını kullanmaya göre varsayılan olarak ayarlanmış. Varsayılan görünüm dosyası yöntemiyle aynı ada sahiptir (`Index`), bu nedenle */views/HelloWorld/Index.cshtml* kullanılır. Aşağıdaki görüntüde "görünüm Şablonumuzdan Merhaba!" dizesi gösterilmektedir görünümde sabit kodlanmış.
+`https://localhost:{PORT}/HelloWorld` sayfasına gidin. `HelloWorldController` `Index` yöntemi çok bitmedi; Bu, yönteminin tarayıcıya yanıt işlemek için bir görünüm şablonu dosyası kullanması gerektiğini belirten `return View();`ifadesini çalıştırdı. Bir görünüm şablonu dosya adı belirtilmediğinden, MVC varsayılan görünüm dosyasını kullanmaya göre varsayılan olarak ayarlanmış. Varsayılan görünüm dosyası yöntemiyle aynı ada sahiptir (`Index`), bu nedenle */views/HelloWorld/Index.cshtml* kullanılır. Aşağıdaki görüntüde "görünüm Şablonumuzdan Merhaba!" dizesi gösterilmektedir görünümde sabit kodlanmış.
 
 ![Tarayıcı penceresi](~/tutorials/first-mvc-app/adding-view/_static/hell_template.png)
 
@@ -107,7 +107,7 @@ Değişikliklerinizi kaydedin ve **Gizlilik** bağlantısını seçin. Tarayıc�
 
 *Views/_ViewStart. cshtml* dosyasını inceleyin:
 
-```HTML
+```cshtml
 @{
     Layout = "_Layout";
 }
@@ -123,9 +123,9 @@ Başlık ve `<h2>` öğesi biraz farklıdır, bu sayede kodun hangi bitini gör�
 
 yukarıdaki koddaki `ViewData["Title"] = "Movie List";`, `ViewData` sözlüğün `Title` özelliğini "film listesi" olarak ayarlar. `Title` özelliği, Düzen sayfasındaki `<title>` HTML öğesinde kullanılır:
 
-```HTML
+```cshtml
 <title>@ViewData["Title"] - Movie App</title>
-   ```
+```
 
 Değişikliği kaydedin ve `https://localhost:{PORT}/HelloWorld`gidin. Tarayıcı başlığı, birincil başlık ve ikincil başlıkların değiştirildiğini unutmayın. (Tarayıcıda değişiklik görmüyorsanız, önbelleğe alınmış içeriği görüntülüyor olabilirsiniz. Sunucudan gelen yanıtı zorlamak için tarayıcınızda CTRL + F5 tuşlarına basın.) Tarayıcı başlığı, *Index. cshtml* görünüm şablonunda belirlediğimiz `ViewData["Title"]` ve düzen dosyasına eklenen ek "-film uygulaması" ile oluşturulur.
 
@@ -201,7 +201,7 @@ Yukarıdaki kod denetleyicinin <xref:Microsoft.AspNetCore.Mvc.Controller.View*> 
 
   * *Index. cshtml* **adlı ad** kutusu değerini saklayın.
 
-  * **Ekle** 'yi seçin
+  * **Ekle**’yi seçin
 
 ![Yeni öğe Ekle iletişim kutusu](adding-view/_static/add_view.png)
 
@@ -216,12 +216,12 @@ Yukarıdaki kod denetleyicinin <xref:Microsoft.AspNetCore.Mvc.Controller.View*> 
 
 * *Görünümler* klasörüne sağ tıklayın ve ardından **Yeni > klasör ekleyin** ve *HelloWorld*klasörünü adlandırın.
 * *Görünümler/HelloWorld* klasörüne sağ tıklayın ve ardından **> yeni dosya ekleyin**.
-* İçinde **yeni dosya** iletişim:
+* **Yeni dosya** iletişim kutusunda:
 
   * Sol bölmedeki **Web** ' i seçin.
   * Orta bölmedeki **boş HTML dosyasını** seçin.
   * **Ad** kutusuna *Index. cshtml* yazın.
-  * **Yeni**' yi seçin.
+  * **Yeni**'yi seçin.
 
 ![Yeni öğe Ekle iletişim kutusu](adding-view/_static/add_view_mac.png)
 
@@ -231,7 +231,7 @@ Yukarıdaki kod denetleyicinin <xref:Microsoft.AspNetCore.Mvc.Controller.View*> 
 
 [!code-HTML[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie22/Views/HelloWorld/Index1.cshtml?highlight=7)]
 
-[https://test-cors.org](`https://localhost:{PORT}/HelloWorld`) sayfasına gidin. `HelloWorldController` `Index` yöntemi çok bitmedi; Bu, yönteminin tarayıcıya yanıt işlemek için bir görünüm şablonu dosyası kullanması gerektiğini belirten `return View();`ifadesini çalıştırdı. Bir görünüm şablonu dosya adı belirtilmediğinden, MVC varsayılan görünüm dosyasını kullanmaya göre varsayılan olarak ayarlanmış. Varsayılan görünüm dosyası yöntemiyle aynı ada sahiptir (`Index`), bu nedenle */views/HelloWorld/Index.cshtml* kullanılır. Aşağıdaki görüntüde "görünüm Şablonumuzdan Merhaba!" dizesi gösterilmektedir görünümde sabit kodlanmış.
+`https://localhost:{PORT}/HelloWorld` sayfasına gidin. `HelloWorldController` `Index` yöntemi çok bitmedi; Bu, yönteminin tarayıcıya yanıt işlemek için bir görünüm şablonu dosyası kullanması gerektiğini belirten `return View();`ifadesini çalıştırdı. Bir görünüm şablonu dosya adı belirtilmediğinden, MVC varsayılan görünüm dosyasını kullanmaya göre varsayılan olarak ayarlanmış. Varsayılan görünüm dosyası yöntemiyle aynı ada sahiptir (`Index`), bu nedenle */views/HelloWorld/Index.cshtml* kullanılır. Aşağıdaki görüntüde "görünüm Şablonumuzdan Merhaba!" dizesi gösterilmektedir görünümde sabit kodlanmış.
 
 ![Tarayıcı penceresi](~/tutorials/first-mvc-app/adding-view/_static/hell_template.png)
 
@@ -267,7 +267,7 @@ Değişikliklerinizi kaydedin ve **Gizlilik** bağlantısını seçin. Tarayıc�
 
 *Views/_ViewStart. cshtml* dosyasını inceleyin:
 
-```HTML
+```cshtml
 @{
     Layout = "_Layout";
 }
@@ -283,9 +283,9 @@ Başlık ve `<h2>` öğesi biraz farklıdır, bu sayede kodun hangi bitini gör�
 
 yukarıdaki koddaki `ViewData["Title"] = "Movie List";`, `ViewData` sözlüğün `Title` özelliğini "film listesi" olarak ayarlar. `Title` özelliği, Düzen sayfasındaki `<title>` HTML öğesinde kullanılır:
 
-```HTML
+```cshtml
 <title>@ViewData["Title"] - Movie App</title>
-   ```
+```
 
 Değişikliği kaydedin ve `https://localhost:{PORT}/HelloWorld`gidin. Tarayıcı başlığı, birincil başlık ve ikincil başlıkların değiştirildiğini unutmayın. (Tarayıcıda değişiklik görmüyorsanız, önbelleğe alınmış içeriği görüntülüyor olabilirsiniz. Sunucudan gelen yanıtı zorlamak için tarayıcınızda CTRL + F5 tuşlarına basın.) Tarayıcı başlığı, *Index. cshtml* görünüm şablonunda belirlediğimiz `ViewData["Title"]` ve düzen dosyasına eklenen ek "-film uygulaması" ile oluşturulur.
 

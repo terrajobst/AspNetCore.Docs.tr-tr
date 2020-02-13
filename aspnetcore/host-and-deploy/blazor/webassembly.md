@@ -10,12 +10,12 @@ no-loc:
 - Blazor
 - SignalR
 uid: host-and-deploy/blazor/webassembly
-ms.openlocfilehash: 8ed95cdb96804e08c3f1273bbea8f64a8e4f173c
-ms.sourcegitcommit: 9ee99300a48c810ca6fd4f7700cd95c3ccb85972
+ms.openlocfilehash: 861935ff31652f923399a8aa5ae52baa6b77fa91
+ms.sourcegitcommit: 85564ee396c74c7651ac47dd45082f3f1803f7a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76160255"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77172401"
 ---
 # <a name="host-and-deploy-aspnet-core-opno-locblazor-webassembly"></a>ASP.NET Core Blazor WebAssembly 'ı barındırma ve dağıtma
 
@@ -146,7 +146,7 @@ Tek başına bir uygulama bir IIS alt uygulaması olarak barındırılıyorsa, a
 
 IIS ile dağıtım sorunlarını giderme hakkında daha fazla bilgi için bkz. <xref:test/troubleshoot-azure-iis>.
 
-### <a name="azure-storage"></a>Azure Depolama
+### <a name="azure-storage"></a>Azure Storage
 
 [Azure depolama](/azure/storage/) statik dosya barındırma, sunucusuz Blazor uygulama barındırılmasına olanak sağlar. Özel etki alanı adları, Azure Content Delivery Network (CDN) ve HTTPS desteklenir.
 
@@ -183,7 +183,7 @@ Docker 'da NGINX kullanarak Blazor barındırmak için Dockerfile 'ı alp tabanl
 
 Aşağıdaki örnekte gösterildiği gibi Dockerfile dosyasına bir satır ekleyin:
 
-```Dockerfile
+```dockerfile
 FROM nginx:alpine
 COPY ./bin/Release/netstandard2.0/publish /usr/share/nginx/html/
 COPY nginx.conf /etc/nginx/nginx.conf
@@ -316,6 +316,6 @@ Bir kuruluş sitesi yerine bir proje sitesi kullanırken, *index. html*' de `<ba
   --urls=http://127.0.0.1:0
   ```
 
-## <a name="configure-the-linker"></a>Bağlayıcıyı yapılandırma
+## <a name="configure-the-linker"></a>Bağlayıcı yapılandırma
 
 Blazor, çıkış derlemelerinden gereksiz Il 'yi kaldırmak için her bir derlemede ara dil (IL) bağlamayı gerçekleştirir. Derleme bağlama, derleme üzerinde denetlenebilir. Daha fazla bilgi için bkz. <xref:host-and-deploy/blazor/configure-linker>.

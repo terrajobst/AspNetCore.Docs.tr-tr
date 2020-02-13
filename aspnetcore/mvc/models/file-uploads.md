@@ -5,14 +5,14 @@ description: ASP.NET Core MVC 'de dosyaları karşıya yüklemek için model ba�
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/04/2019
+ms.date: 02/11/2020
 uid: mvc/models/file-uploads
-ms.openlocfilehash: b5433576ff3e997e6d80201236be2d8463a52d07
-ms.sourcegitcommit: 7dfe6cc8408ac6a4549c29ca57b0c67ec4baa8de
+ms.openlocfilehash: 56fd26c1864089558f5cd89f693dc86ea30c3331
+ms.sourcegitcommit: 85564ee396c74c7651ac47dd45082f3f1803f7a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75829237"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77172466"
 ---
 # <a name="upload-files-in-aspnet-core"></a>ASP.NET Core dosyaları karşıya yükleme
 
@@ -22,9 +22,9 @@ ms.locfileid: "75829237"
 
 ASP.NET Core, daha küçük dosyalar için arabellekli model bağlama ve daha büyük dosyalar için arabelleğe alınmamış akış kullanarak bir veya daha fazla dosyanın yüklenmesini destekler
 
-[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/models/file-uploads/samples/) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
+[Örnek kodu görüntüleme veya indirme](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/models/file-uploads/samples/) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
 
-## <a name="security-considerations"></a>Güvenlik konuları
+## <a name="security-considerations"></a>Güvenlikle ilgili dikkat edilmesi gerekenler
 
 Kullanıcılara bir sunucuya dosya yükleme yeteneği sağlarken dikkatli olun. Saldırganlar şunları deneyebilir:
 
@@ -55,8 +55,8 @@ Başarılı bir saldırının olasılığını azaltan güvenlik adımları şun
 >
 > Kullanıcıların dosyaları kabul ederken saldırı yüzey alanı azaltma hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın:
 >
-> * [Sınırsız dosya karşıya yükleme](https://www.owasp.org/index.php/Unrestricted_File_Upload)
-> * [Azure güvenlik: uygun denetimleri kullanıcıların dosyaları kabul ederken karşılandığından emin](/azure/security/azure-security-threat-modeling-tool-input-validation#controls-users)
+> * [Kısıtlanmamış dosya yükleme](https://www.owasp.org/index.php/Unrestricted_File_Upload)
+> * [Azure güvenliği: kullanıcılardan dosya kabul edilirken uygun denetimlerin yerinde olduğundan emin olun](/azure/security/azure-security-threat-modeling-tool-input-validation#controls-users)
 
 Örnek uygulamadaki örnekler de dahil olmak üzere güvenlik önlemlerini uygulama hakkında daha fazla bilgi için [doğrulama](#validation) bölümüne bakın.
 
@@ -83,7 +83,7 @@ Dosyalar için ortak depolama seçenekleri şunlardır:
   * Hizmetler genellikle tek hata noktalarına tabi olan şirket içi çözümler üzerinde geliştirilmiş ölçeklenebilirlik ve esneklik sunar.
   * Hizmetler büyük depolama altyapısı senaryolarında düşük maliyetlidir.
 
-  Daha fazla bilgi için bkz. [hızlı başlangıç: nesne depolamada blob oluşturmak için .NET kullanma](/azure/storage/blobs/storage-quickstart-blobs-dotnet). Konu <xref:Microsoft.Azure.Storage.File.CloudFile.UploadFromFileAsync*>gösterir, ancak <xref:Microsoft.Azure.Storage.File.CloudFile.UploadFromStreamAsync*> bir <xref:System.IO.Stream>çalışırken blob depolamaya <xref:System.IO.FileStream> kaydetmek için kullanılabilir.
+  Daha fazla bilgi için bkz. [hızlı başlangıç: nesne depolamada blob oluşturmak için .NET kullanma](/azure/storage/blobs/storage-quickstart-blobs-dotnet).
 
 ## <a name="file-upload-scenarios"></a>Karşıya dosya yükleme senaryoları
 
@@ -228,7 +228,7 @@ Sunucuya yüklenen tek dosyalara <xref:Microsoft.AspNetCore.Http.IFormFile>kulla
 >
 > Bu nedenle, şu ana kadar dikkate alınması gereken örnekler aşağıda verilmiştir. Ek bilgiler aşağıdaki bölümler ve [örnek uygulama](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/models/file-uploads/samples/)tarafından sağlanır:
 >
-> * [Güvenlik konuları](#security-considerations)
+> * [Güvenlikle ilgili dikkat edilmesi gerekenler](#security-considerations)
 > * [Doğrulama](#validation)
 
 Model bağlama ve <xref:Microsoft.AspNetCore.Http.IFormFile>kullanarak dosya karşıya yüklerken, eylem yöntemi şunları kabul edebilir:
@@ -399,7 +399,7 @@ Yukarıdaki örnek, örnek uygulamada gösterilen senaryoya benzerdir:
 >
 > Belirtilen örneklerde dikkate alınması gereken önemli noktalar. Ek bilgiler aşağıdaki bölümler ve [örnek uygulama](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/models/file-uploads/samples/)tarafından sağlanır:
 >
-> * [Güvenlik konuları](#security-considerations)
+> * [Güvenlikle ilgili dikkat edilmesi gerekenler](#security-considerations)
 > * [Doğrulama](#validation)
 
 ### <a name="upload-large-files-with-streaming"></a>Akışa sahip büyük dosyaları karşıya yükleme
@@ -718,7 +718,7 @@ Bu ayar yalnızca IIS için geçerlidir. Kestrel üzerinde barındırırken davr
 
 ASP.NET Core modülündeki sınırlamalar veya IIS Istek filtreleme modülünün varlığı, karşıya yüklemeleri 2 veya 4 GB ile sınırlandırabilir. Daha fazla bilgi için bkz. [2 GB 'tan büyük dosya karşıya yüklenemiyor (DotNet/AspNetCore #2711)](https://github.com/dotnet/AspNetCore/issues/2711).
 
-## <a name="troubleshoot"></a>Sorunları Gider
+## <a name="troubleshoot"></a>Sorun giderme
 
 Dosyaları karşıya yükleme ve olası çözümleri ile çalışırken karşılaşılan bazı yaygın sorunlar aşağıda verilmiştir.
 
@@ -751,9 +751,9 @@ Bu konudaki örneklerde karşıya yüklenen dosyanın içeriğini tutmak için <
 
 ASP.NET Core, daha küçük dosyalar için arabellekli model bağlama ve daha büyük dosyalar için arabelleğe alınmamış akış kullanarak bir veya daha fazla dosyanın yüklenmesini destekler
 
-[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/models/file-uploads/samples/) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
+[Örnek kodu görüntüleme veya indirme](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/models/file-uploads/samples/) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
 
-## <a name="security-considerations"></a>Güvenlik konuları
+## <a name="security-considerations"></a>Güvenlikle ilgili dikkat edilmesi gerekenler
 
 Kullanıcılara bir sunucuya dosya yükleme yeteneği sağlarken dikkatli olun. Saldırganlar şunları deneyebilir:
 
@@ -784,8 +784,8 @@ Başarılı bir saldırının olasılığını azaltan güvenlik adımları şun
 >
 > Kullanıcıların dosyaları kabul ederken saldırı yüzey alanı azaltma hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın:
 >
-> * [Sınırsız dosya karşıya yükleme](https://www.owasp.org/index.php/Unrestricted_File_Upload)
-> * [Azure güvenlik: uygun denetimleri kullanıcıların dosyaları kabul ederken karşılandığından emin](/azure/security/azure-security-threat-modeling-tool-input-validation#controls-users)
+> * [Kısıtlanmamış dosya yükleme](https://www.owasp.org/index.php/Unrestricted_File_Upload)
+> * [Azure güvenliği: kullanıcılardan dosya kabul edilirken uygun denetimlerin yerinde olduğundan emin olun](/azure/security/azure-security-threat-modeling-tool-input-validation#controls-users)
 
 Örnek uygulamadaki örnekler de dahil olmak üzere güvenlik önlemlerini uygulama hakkında daha fazla bilgi için [doğrulama](#validation) bölümüne bakın.
 
@@ -957,7 +957,7 @@ Sunucuya yüklenen tek dosyalara <xref:Microsoft.AspNetCore.Http.IFormFile>kulla
 >
 > Bu nedenle, şu ana kadar dikkate alınması gereken örnekler aşağıda verilmiştir. Ek bilgiler aşağıdaki bölümler ve [örnek uygulama](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/models/file-uploads/samples/)tarafından sağlanır:
 >
-> * [Güvenlik konuları](#security-considerations)
+> * [Güvenlikle ilgili dikkat edilmesi gerekenler](#security-considerations)
 > * [Doğrulama](#validation)
 
 Model bağlama ve <xref:Microsoft.AspNetCore.Http.IFormFile>kullanarak dosya karşıya yüklerken, eylem yöntemi şunları kabul edebilir:
@@ -1128,7 +1128,7 @@ Yukarıdaki örnek, örnek uygulamada gösterilen senaryoya benzerdir:
 >
 > Belirtilen örneklerde dikkate alınması gereken önemli noktalar. Ek bilgiler aşağıdaki bölümler ve [örnek uygulama](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/models/file-uploads/samples/)tarafından sağlanır:
 >
-> * [Güvenlik konuları](#security-considerations)
+> * [Güvenlikle ilgili dikkat edilmesi gerekenler](#security-considerations)
 > * [Doğrulama](#validation)
 
 ### <a name="upload-large-files-with-streaming"></a>Akışa sahip büyük dosyaları karşıya yükleme
@@ -1440,7 +1440,7 @@ Bu ayar yalnızca IIS için geçerlidir. Kestrel üzerinde barındırırken davr
 
 ASP.NET Core modülündeki sınırlamalar veya IIS Istek filtreleme modülünün varlığı, karşıya yüklemeleri 2 veya 4 GB ile sınırlandırabilir. Daha fazla bilgi için bkz. [2 GB 'tan büyük dosya karşıya yüklenemiyor (DotNet/AspNetCore #2711)](https://github.com/dotnet/AspNetCore/issues/2711).
 
-## <a name="troubleshoot"></a>Sorunları Gider
+## <a name="troubleshoot"></a>Sorun giderme
 
 Dosyaları karşıya yükleme ve olası çözümleri ile çalışırken karşılaşılan bazı yaygın sorunlar aşağıda verilmiştir.
 
@@ -1472,6 +1472,6 @@ Bu konudaki örneklerde karşıya yüklenen dosyanın içeriğini tutmak için <
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-* [Sınırsız dosya karşıya yükleme](https://www.owasp.org/index.php/Unrestricted_File_Upload)
+* [Kısıtlanmamış dosya yükleme](https://www.owasp.org/index.php/Unrestricted_File_Upload)
 * [Azure güvenliği: güvenlik çerçevesi: giriş doğrulaması | Karşı](/azure/security/azure-security-threat-modeling-tool-input-validation)
 * [Azure bulut tasarım desenleri: Valet anahtar düzeni](/azure/architecture/patterns/valet-key)

@@ -5,12 +5,12 @@ description: Mevcut ASP.NET MVC veya Web API uygulamalarını ASP.NET Core. Web 
 ms.author: scaddie
 ms.date: 10/18/2019
 uid: migration/proper-to-2x/index
-ms.openlocfilehash: 19be7191792c44fb5414eb0a7b24772c45391253
-ms.sourcegitcommit: 2cb857f0de774df421e35289662ba92cfe56ffd1
+ms.openlocfilehash: e9ebfa7352350cf39917e515a1a66d6271829f38
+ms.sourcegitcommit: 85564ee396c74c7651ac47dd45082f3f1803f7a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75359418"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77172347"
 ---
 # <a name="migrate-from-aspnet-to-aspnet-core"></a>ASP.NET 'den ASP.NET Core 'e geçiş
 
@@ -18,9 +18,9 @@ ms.locfileid: "75359418"
 
 Bu makale, ASP.NET uygulamalarının ASP.NET Core geçişine yönelik bir başvuru kılavuzu görevi görür.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Önkoşullar
 
-[.NET core SDK 2.2 veya üzeri](https://www.microsoft.com/net/download)
+[.NET Core SDK 2,2 veya üzeri](https://www.microsoft.com/net/download)
 
 ## <a name="target-frameworks"></a>Hedef çerçeveler
 
@@ -102,10 +102,10 @@ Uygulama, ayarları almak için `Configuration` 'dan okur:
 
 Bu şekilde, bu değerlere sahip bir hizmeti yüklemek için [bağımlılık ekleme](xref:fundamentals/dependency-injection) (dı) kullanma gibi işlemleri daha sağlam hale getirmek için bu yaklaşımın uzantıları vardır. Dı yaklaşımı, kesin türü belirtilmiş bir yapılandırma nesneleri kümesi sağlar.
 
-````csharp
+```csharp
 // Assume AppConfiguration is a class representing a strongly-typed version of AppConfiguration section
 services.Configure<AppConfiguration>(Configuration.GetSection("AppConfiguration"));
-````
+```
 
 > [!NOTE]
 > ASP.NET Core yapılandırmaya yönelik daha ayrıntılı bir başvuru için bkz. [ASP.NET Core yapılandırma](xref:fundamentals/configuration/index).

@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.date: 01/28/2020
 uid: razor-pages/index
-ms.openlocfilehash: da30908b38d553405fd3f959f09a19eff750ed17
-ms.sourcegitcommit: fe41cff0b99f3920b727286944e5b652ca301640
+ms.openlocfilehash: 402e11d653cf0e7433c63844cb7e2802abc61679
+ms.sourcegitcommit: 85564ee396c74c7651ac47dd45082f3f1803f7a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76870528"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77172615"
 ---
 # <a name="introduction-to-razor-pages-in-aspnet-core"></a>ASP.NET Core Razor Pages giriş
 
@@ -25,7 +25,7 @@ Model-View-Controller yaklaşımını kullanan bir öğretici arıyorsanız, bkz
 
 Bu belge Razor Pages bir giriş sağlar. Adım adım öğretici değildir. Bölümlerden bazılarını çok gelişmiş bir şekilde bulursanız, bkz. [Razor Pages kullanmaya başlama](xref:tutorials/razor-pages/razor-pages-start). ASP.NET Core genel bir bakış için bkz. [ASP.NET Core giriş](xref:index).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Önkoşullar
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
@@ -212,7 +212,7 @@ Razor Pages, varsayılan olarak, özellikleri yalnızca`GET` olmayan fiiller ile
 
 [!code-cshtml[](index/3.0sample/RazorPagesContacts/Pages/Customers/Index.cshtml?range=21)]
 
-`<a /a>` [tutturucu etiketi Yardımcısı](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper) , düzenleme sayfasına bir bağlantı oluşturmak için `asp-route-{value}` özniteliğini kullandı. Bağlantı, iletişim KIMLIĞINE sahip rota verileri içerir. Örneğin: `https://localhost:5001/Edit/1`. [Etiket Yardımcıları](xref:mvc/views/tag-helpers/intro), Razor dosyalarında HTML öğelerinin oluşturulmasına ve işlenmesine sunucu tarafı kodun katılmasını etkinleştir.
+`<a /a>` [tutturucu etiketi Yardımcısı](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper) , düzenleme sayfasına bir bağlantı oluşturmak için `asp-route-{value}` özniteliğini kullandı. Bağlantı, iletişim KIMLIĞINE sahip rota verileri içerir. Örneğin, `https://localhost:5001/Edit/1`. [Etiket Yardımcıları](xref:mvc/views/tag-helpers/intro), Razor dosyalarında HTML öğelerinin oluşturulmasına ve işlenmesine sunucu tarafı kodun katılmasını etkinleştir.
 
 *Index. cshtml* dosyası her müşteri için bir silme düğmesi oluşturmak için biçimlendirme içerir:
 
@@ -220,7 +220,7 @@ Razor Pages, varsayılan olarak, özellikleri yalnızca`GET` olmayan fiiller ile
 
 İşlenmiş HTML:
 
-```HTML
+```html
 <button type="submit" formaction="/Customers?id=1&amp;handler=delete">delete</button>
 ```
 
@@ -235,7 +235,7 @@ Bu örnekte `handler` `delete` olduğundan, `OnPostDeleteAsync` Handler yöntemi
 
 [!code-cs[](index/3.0sample/RazorPagesContacts/Pages/Customers/Index.cshtml.cs?name=snippet2)]
 
-`OnPostDeleteAsync` Yöntemi:
+`OnPostDeleteAsync` yöntemi:
 
 * Sorgu dizesinden `id` alır.
 * `FindAsync`ile müşteri iletişim için veritabanını sorgular.
@@ -424,13 +424,13 @@ Uygulama aşağıdaki dosya/klasör yapısına sahiptir:
 
 * */Pages*
 
-  * *Index.cshtml*
+  * *Index. cshtml*
   * *Gizlilik. cshtml*
   * */Customers*
 
     * *. Cshtml oluştur*
-    * *Edit.cshtml*
-    * *Index.cshtml*
+    * *Edit. cshtml*
+    * *Index. cshtml*
 
 *Pages/Customers/Create. cshtml* ve *Pages/Customers/Edit. cshtml* sayfaları, başarılı olduktan sonra *sayfaları/müşterileri/Index. cshtml* 'ye yeniden yönlendirir. Dize `./Index`, önceki sayfaya erişmek için kullanılan göreli bir sayfa adıdır. *Pages/Customers/Index. cshtml* sayfasının URL 'leri oluşturmak için kullanılır. Örneğin:
 
@@ -470,7 +470,7 @@ Farklı bir [alandaki](xref:mvc/controllers/areas)bir sayfaya yeniden yönlendir
 RedirectToPage("/Index", new { area = "Services" });
 ```
 
-Daha fazla bilgi için bkz. <xref:mvc/controllers/areas> ve <xref:razor-pages/razor-pages-conventions>.
+Daha fazla bilgi için <xref:mvc/controllers/areas> ve <xref:razor-pages/razor-pages-conventions> bölümlerine bakın.
 
 ## <a name="viewdata-attribute"></a>ViewData özniteliği
 
@@ -522,7 +522,7 @@ Aşağıdaki kod, `TempData`kullanarak `Message` değerini ayarlar:
 
 *Pages/Customers/Index. cshtml. cs* sayfa modeli, `[TempData]` özniteliğini `Message` özelliğine uygular.
 
-```cs
+```csharp
 [TempData]
 public string Message { get; set; }
 ```
@@ -603,7 +603,7 @@ Razor Pages uygulamada bir özel kök dizinde olduğunu belirtmek için <xref:Mi
 * <xref:razor-pages/razor-pages-conventions>
 * <xref:test/razor-pages-tests>
 * <xref:mvc/views/partial>
-* [Razor bileşenlerini Razor Pages ve MVC uygulamalarıyla tümleştirin](xref:blazor/hosting-models#integrate-razor-components-into-razor-pages-and-mvc-apps)
+* [Razor bileşenlerini Razor Pages ve MVC uygulamalarıyla tümleştirin](xref:blazor/hosting-model-configuration#integrate-razor-components-into-razor-pages-and-mvc-apps)
 
 ::: moniker-end
 
@@ -617,7 +617,7 @@ Model-View-Controller yaklaşımını kullanan bir öğretici arıyorsanız, bkz
 
 Bu belge Razor Pages bir giriş sağlar. Adım adım öğretici değildir. Bölümlerden bazılarını çok gelişmiş bir şekilde bulursanız, bkz. [Razor Pages kullanmaya başlama](xref:tutorials/razor-pages/razor-pages-start). ASP.NET Core genel bir bakış için bkz. [ASP.NET Core giriş](xref:index).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Önkoşullar
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
@@ -767,7 +767,7 @@ Giriş sayfası (*Index. cshtml*):
 
 [!code-cshtml[](index/sample/RazorPagesContacts/Pages/Index.cshtml?range=21)]
 
-`<a asp-page="./Edit" asp-route-id="@contact.Id">Edit</a>` [tutturucu etiketi Yardımcısı](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper) , düzenleme sayfasına bir bağlantı oluşturmak için `asp-route-{value}` özniteliğini kullandı. Bağlantı, iletişim KIMLIĞINE sahip rota verileri içerir. Örneğin: `https://localhost:5001/Edit/1`. [Etiket Yardımcıları](xref:mvc/views/tag-helpers/intro), Razor dosyalarında HTML öğelerinin oluşturulmasına ve işlenmesine sunucu tarafı kodun katılmasını etkinleştir. Etiket Yardımcıları `@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers` tarafından etkinleştirilir
+`<a asp-page="./Edit" asp-route-id="@contact.Id">Edit</a>` [tutturucu etiketi Yardımcısı](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper) , düzenleme sayfasına bir bağlantı oluşturmak için `asp-route-{value}` özniteliğini kullandı. Bağlantı, iletişim KIMLIĞINE sahip rota verileri içerir. Örneğin, `https://localhost:5001/Edit/1`. [Etiket Yardımcıları](xref:mvc/views/tag-helpers/intro), Razor dosyalarında HTML öğelerinin oluşturulmasına ve işlenmesine sunucu tarafı kodun katılmasını etkinleştir. Etiket Yardımcıları `@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers` tarafından etkinleştirilir
 
 *Pages/Edit. cshtml* dosyası:
 
@@ -804,7 +804,7 @@ Bu örnekte `handler` `delete` olduğundan, `OnPostDeleteAsync` Handler yöntemi
 
 [!code-cs[](index/sample/RazorPagesContacts/Pages/Index.cshtml.cs?range=26-37)]
 
-`OnPostDeleteAsync` Yöntemi:
+`OnPostDeleteAsync` yöntemi:
 
 * Sorgu dizesinden `id` kabul eder. *Index. cshtml* sayfa yönergesi yönlendirme kısıtlaması `"{id:int?}"`içeriyorsa, `id` rota verilerinden gelir. `id` için rota verileri, URI 'de `https://localhost:5001/Customers/2`gibi belirtilir.
 * `FindAsync`ile müşteri iletişim için veritabanını sorgular.
@@ -940,12 +940,12 @@ Uygulama aşağıdaki dosya/klasör yapısına sahiptir:
 
 * */Pages*
 
-  * *Index.cshtml*
+  * *Index. cshtml*
   * */Customers*
 
     * *. Cshtml oluştur*
-    * *Edit.cshtml*
-    * *Index.cshtml*
+    * *Edit. cshtml*
+    * *Index. cshtml*
 
 *Pages/Customers/Create. cshtml* ve *Pages/Customers/Edit. cshtml* sayfaları, başarılı olduktan sonra *Pages/Index. cshtml* dosyasına yönlendirilir. `/Index` dize, önceki sayfaya erişmek için URI 'nin bir parçasıdır. `/Index` dize */Index. cshtml* sayfasına URI oluşturmak için kullanılır. Örneğin:
 
@@ -964,7 +964,7 @@ Sayfalar için URL oluşturma göreli adları destekler. Aşağıdaki tabloda, *
 | RedirectToPage (".. /İndex ") | *Sayfa/dizin* |
 | RedirectToPage ("Dizin")  | *Sayfalar/müşteriler/Dizin* |
 
-`RedirectToPage("Index")`, `RedirectToPage("./Index")` ve `RedirectToPage("../Index")` , *göreli adlardır*. `RedirectToPage` parametresi, hedef sayfanın adını hesaplamak için geçerli sayfanın yoluyla *birleştirilir* .  <!-- Review: Original had The provided string is combined with the page name of the current page to compute the name of the destination page.  page name, not page path -->
+`RedirectToPage("Index")`, `RedirectToPage("./Index")`ve `RedirectToPage("../Index")` *göreli adlardır*. `RedirectToPage` parametresi, hedef sayfanın adını hesaplamak için geçerli sayfanın yoluyla *birleştirilir* .  <!-- Review: Original had The provided string is combined with the page name of the current page to compute the name of the destination page.  page name, not page path -->
 
 Karmaşık bir yapıya sahip siteler oluştururken göreli ad bağlama yararlı olur. Bir klasördeki sayfalar arasında bağlantı sağlamak için göreli adlar kullanırsanız, bu klasörü yeniden adlandırabilirsiniz. Tüm bağlantılar hala çalışır (klasör adını içermediği için).
 
@@ -1026,7 +1026,7 @@ Aşağıdaki kod, `TempData`kullanarak `Message` değerini ayarlar:
 
 *Pages/Customers/Index. cshtml. cs* sayfa modeli, `[TempData]` özniteliğini `Message` özelliğine uygular.
 
-```cs
+```csharp
 [TempData]
 public string Message { get; set; }
 ```
