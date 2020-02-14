@@ -5,17 +5,17 @@ description: Çıkış noktaları arası kaynak paylaşımı (CORS) istekleri ya
 monikerRange: '>= aspnetcore-3.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/18/2019
+ms.date: 01/22/2020
 no-loc:
 - Blazor
 - SignalR
 uid: blazor/call-web-api
-ms.openlocfilehash: 66605f38a6fcaedebc92b0946dca1e5f28b593c6
-ms.sourcegitcommit: 9ee99300a48c810ca6fd4f7700cd95c3ccb85972
+ms.openlocfilehash: 345fb6962e3376c22551eb7914c70c89cb7100d5
+ms.sourcegitcommit: d2ba66023884f0dca115ff010bd98d5ed6459283
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76160073"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77213281"
 ---
 # <a name="call-a-web-api-from-aspnet-core-opno-locblazor"></a>ASP.NET Core Blazor bir Web API 'SI çağırma
 
@@ -23,9 +23,9 @@ ms.locfileid: "76160073"
 
 [!INCLUDE[](~/includes/blazorwasm-preview-notice.md)]
 
-[Blazor WebAssembly](xref:blazor/hosting-models#blazor-webassembly) Apps, önceden yapılandırılmış bir `HttpClient` hizmetini kullanarak Web API 'lerini çağırır. Blazor JSON yardımcıları veya <xref:System.Net.Http.HttpRequestMessage>kullanarak JavaScript [getirme API 'si](https://developer.mozilla.org/docs/Web/API/Fetch_API) seçeneklerini içerebilen oluşturma istekleri.
+[Blazor WebAssembly](xref:blazor/hosting-models#blazor-webassembly) Apps, önceden yapılandırılmış bir `HttpClient` hizmetini kullanarak Web API 'lerini çağırır. Blazor JSON yardımcıları veya <xref:System.Net.Http.HttpRequestMessage>kullanarak JavaScript [getirme API 'si](https://developer.mozilla.org/docs/Web/API/Fetch_API) seçeneklerini içerebilen oluşturma istekleri. Blazor WebAssembly Apps 'teki `HttpClient` hizmeti, isteklerin kaynak sunucusuna geri getirilmesi için odaklanılmıştır. Bu konudaki kılavuz yalnızca WebAssembly uygulamalarına Blazor aittir.
 
-[Blazor Server](xref:blazor/hosting-models#blazor-server) Apps, genellikle <xref:System.Net.Http.IHttpClientFactory>kullanılarak oluşturulan <xref:System.Net.Http.HttpClient> örneklerini kullanarak Web API 'lerini çağırır. Daha fazla bilgi için bkz. <xref:fundamentals/http-requests>.
+[Blazor Server](xref:blazor/hosting-models#blazor-server) Apps, genellikle <xref:System.Net.Http.IHttpClientFactory>kullanılarak oluşturulan <xref:System.Net.Http.HttpClient> örneklerini kullanarak Web API 'lerini çağırır. Bu konudaki kılavuz Blazor sunucusu uygulamalarıyla ilgili değildir. Blazor Server uygulamaları geliştirirken, <xref:fundamentals/http-requests>' daki yönergeleri izleyin.
 
 [Örnek kodu görüntüleyin veya indirin](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/blazor/common/samples/) ([nasıl Indirilir](xref:index#how-to-download-a-sample)) &ndash; *BlazorWebAssemblySample* uygulamasını seçin.
 

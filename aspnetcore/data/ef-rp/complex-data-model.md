@@ -6,16 +6,16 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 07/22/2019
 uid: data/ef-rp/complex-data-model
-ms.openlocfilehash: 1244b2e23a842538ff2fca01a513317a690afe7c
-ms.sourcegitcommit: 16cf016035f0c9acf3ff0ad874c56f82e013d415
+ms.openlocfilehash: 411c0874d2b2c6ecadd1da9aff7a093f1e8e525a
+ms.sourcegitcommit: d2ba66023884f0dca115ff010bd98d5ed6459283
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73034028"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77213434"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---data-model---5-of-8"></a>ASP.NET Core veri modelinde EF Core ile Razor Pages-5/8
 
-Tarafından [Tom Dykstra](https://github.com/tdykstra) ve [Rick Anderson](https://twitter.com/RickAndMSFT)
+, [Tom Dykstra](https://github.com/tdykstra) ve [Rick Anderson](https://twitter.com/RickAndMSFT) tarafından
 
 [!INCLUDE [about the series](~/includes/RP-EF/intro.md)]
 
@@ -534,7 +534,7 @@ Yukarıdaki kod, yeni varlıklar için tohum verileri sağlar. Bu kodun çoğu y
 
 ## <a name="add-a-migration"></a>Geçiş Ekle
 
-Projeyi oluşturun.
+Projeyi derleyin.
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
@@ -632,7 +632,7 @@ Uygulamayı çalıştırın. Uygulamayı çalıştırmak `DbInitializer.Initiali
 Veritabanını SSOX içinde açın:
 
 * Daha önce SSOX açıldıysa **Yenile** düğmesine tıklayın.
-* Genişletin **tabloları** düğümü. Oluşturulan tablolar görüntülenir.
+* **Tables** düğümünü genişletin. Oluşturulan tablolar görüntülenir.
 
   ![SSOX içindeki tablolar](complex-data-model/_static/ssox-tables.png)
 
@@ -821,18 +821,18 @@ Yukarıdaki değişiklik ile uygulamadaki `Student.FirstMidName`, `Student` tabl
 
 `Column` özniteliğinin eklenmesi modeli `SchoolContext`yedekleyen şekilde değiştirir. `SchoolContext` yedekleyen model artık veritabanıyla eşleşmez. Geçiş uygulamadan önce uygulama çalışıyorsa aşağıdaki özel durum oluşturulur:
 
-```SQL
+```
 SqlException: Invalid column name 'FirstName'.
 ```
 
 DB 'yi güncelleştirmek için:
 
-* Projeyi oluşturun.
+* Projeyi derleyin.
 * Proje klasöründe bir komut penceresi açın. Yeni bir geçiş oluşturmak ve DB 'yi güncelleştirmek için aşağıdaki komutları girin:
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-```PMC
+```powershell
 Add-Migration ColumnFirstName
 Update-Database
 ```
@@ -855,7 +855,7 @@ Please review the migration for accuracy.
 
 Ad alanları artık 50 karakterle sınırlı olduğundan uyarı oluşturulur. VERITABANıNDAKI bir ad 50 karakterden fazlasına sahipse, son karakter 51 ' i kaybedersiniz.
 
-* Uygulamayı test edin.
+* Uygulamayı test etme.
 
 Öğrenci tablosunu SSOX içinde açın:
 
@@ -1242,7 +1242,7 @@ Yukarıdaki kod, yeni varlıklar için tohum verileri sağlar. Bu kodun çoğu y
 
 ## <a name="add-a-migration"></a>Geçiş Ekle
 
-Projeyi oluşturun.
+Projeyi derleyin.
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
@@ -1290,7 +1290,7 @@ Güncelleştirilmiş `DbInitializer` kod, yeni varlıklar için tohum verileri e
 
 **Paket Yöneticisi konsolunda** (PMC), aşağıdaki komutu çalıştırın:
 
-```PMC
+```powershell
 Drop-Database
 Update-Database
 ```
@@ -1315,7 +1315,7 @@ Uygulamayı çalıştırın. Uygulamayı çalıştırmak `DbInitializer.Initiali
 VERITABANıNı SSOX içinde açın:
 
 * Daha önce SSOX açıldıysa **Yenile** düğmesine tıklayın.
-* Genişletin **tabloları** düğümü. Oluşturulan tablolar görüntülenir.
+* **Tables** düğümünü genişletin. Oluşturulan tablolar görüntülenir.
 
 ![SSOX içindeki tablolar](complex-data-model/_static/ssox-tables.png)
 

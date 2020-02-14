@@ -5,17 +5,17 @@ description: Bileşenlerin bir dış bileşen kitaplığından Blazor uygulamala
 monikerRange: '>= aspnetcore-3.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/18/2019
+ms.date: 01/23/2020
 no-loc:
 - Blazor
 - SignalR
 uid: blazor/class-libraries
-ms.openlocfilehash: f8e8688cdb3d1aef0d470e0e2d8c3857140ef65f
-ms.sourcegitcommit: 9ee99300a48c810ca6fd4f7700cd95c3ccb85972
+ms.openlocfilehash: 32088b43f91174596f6b9251d36782e806f966b9
+ms.sourcegitcommit: d2ba66023884f0dca115ff010bd98d5ed6459283
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76160034"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77213255"
 ---
 # <a name="aspnet-core-razor-components-class-libraries"></a>ASP.NET Core Razor bileşenleri sınıf kitaplıkları
 
@@ -31,21 +31,30 @@ Bileşenler normal .NET türleri olduğu gibi, bir RCL tarafından sunulan bile�
 
 ## <a name="create-an-rcl"></a>RCL oluşturma
 
-Ortamınızı Blazoriçin yapılandırmak üzere <xref:blazor/get-started> makalesindeki yönergeleri izleyin.
+Ortamınızı Blazor için yapılandırmak üzere <xref:blazor/get-started> makalesindeki yönergeleri izleyin.
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-1. Yeni bir proje oluşturun.
-1. **Razor sınıfı kitaplığı**' nı seçin. **İleri**'yi seçin.
+1. Yeni bir proje oluşturma.
+1. **Razor sınıfı kitaplığı**' nı seçin. **İleri**’yi seçin.
 1. **Yeni bir Razor sınıf kitaplığı oluştur** Iletişim kutusunda **Oluştur**' u seçin.
-1. **Proje adı** alanında bir proje adı girin veya varsayılan proje adını kabul edin. Bu konudaki örneklerde `MyComponentLib1`proje adı kullanılır. Seçin **oluşturma**.
+1. **Proje adı** alanında bir proje adı girin veya varsayılan proje adını kabul edin. Bu konudaki örneklerde `MyComponentLib1`proje adı kullanılır. **Oluştur**'u seçin.
 1. RCL 'yi bir çözüme ekleyin:
    1. Çözüme sağ tıklayın.  > **var olan projeyi** **Ekle** ' yi seçin.
    1. RCL 'nin proje dosyasına gidin.
    1. RCL 'nin proje dosyasını ( *. csproj*) seçin.
 1. Uygulamadan RCL 'ye bir başvuru ekleyin:
    1. Uygulama projesine sağ tıklayın.  > **başvuru** **Ekle** ' yi seçin.
-   1. RCL projesini seçin. Seçin **Tamam**.
+   1. RCL projesini seçin. **Tamam**’ı seçin.
+
+> [!NOTE]
+> Şablondan RCL oluşturulurken **destek sayfaları ve görünümler** onay kutusu Işaretliyse, Razor bileşeni yazma özelliğini etkinleştirmek için aşağıdaki içeriklerle oluşturulan projenin köküne bir *_Imports. Razor* dosyası da ekleyin:
+>
+> ```razor
+> @using Microsoft.AspNetCore.Components.Web
+> ```
+>
+> Dosyayı oluşturulan projenin köküne el ile ekleyin.
 
 # <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
 
@@ -54,6 +63,15 @@ Ortamınızı Blazoriçin yapılandırmak üzere <xref:blazor/get-started> makal
    ```dotnetcli
    dotnet new razorclasslib -o MyComponentLib1
    ```
+
+   > [!NOTE]
+   > Şablondan RCL oluşturulurken `-s|--support-pages-and-views` anahtarı kullanılıyorsa, Razor bileşeni yazma özelliğini etkinleştirmek için aşağıdaki içeriklerle oluşturulan projenin köküne bir *_Imports. Razor* dosyası da ekleyin:
+   >
+   > ```razor
+   > @using Microsoft.AspNetCore.Components.Web
+   > ```
+   >
+   > Dosyayı oluşturulan projenin köküne el ile ekleyin.
 
 1. Kitaplığı var olan bir projeye eklemek için, bir komut kabuğunda [DotNet Add Reference](/dotnet/core/tools/dotnet-add-reference) komutunu kullanın. Aşağıdaki örnekte, RCL uygulamaya eklenir. Uygulamanın proje klasöründen, kitaplığın yolunu kullanarak aşağıdaki komutu yürütün:
 

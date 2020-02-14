@@ -10,12 +10,12 @@ no-loc:
 - Blazor
 - SignalR
 uid: blazor/lifecycle
-ms.openlocfilehash: df5bb676df59b538179a69978040521c4ee78ed1
-ms.sourcegitcommit: cbd30479f42cbb3385000ef834d9c7d021fd218d
+ms.openlocfilehash: ecacd0a9728cbefd716e9dc7cd8a8c62f3df6e0d
+ms.sourcegitcommit: d2ba66023884f0dca115ff010bd98d5ed6459283
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76146374"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77213395"
 ---
 # <a name="aspnet-core-opno-locblazor-lifecycle"></a>ASP.NET Core Blazor yaşam döngüsü
 
@@ -27,7 +27,7 @@ Blazor Framework zaman uyumlu ve zaman uyumsuz yaşam döngüsü yöntemlerini i
 
 ### <a name="component-initialization-methods"></a>Bileşen başlatma yöntemleri
 
-<xref:Microsoft.AspNetCore.Components.ComponentBase.OnInitializedAsync*> ve <xref:Microsoft.AspNetCore.Components.ComponentBase.OnInitialized*>, bileşen ilk parametrelerini ana bileşeninden aldıktan sonra başlatıldığında çağrılır. Bileşen zaman uyumsuz bir işlem gerçekleştirdiğinde ve işlem tamamlandığında yenilenmesi gerektiğinde `OnInitializedAsync` kullanın. Bu yöntemlere yalnızca bileşen ilk örneği oluşturulduğunda bir kez çağırılır.
+<xref:Microsoft.AspNetCore.Components.ComponentBase.OnInitializedAsync*> ve <xref:Microsoft.AspNetCore.Components.ComponentBase.OnInitialized*>, bileşen ilk parametrelerini ana bileşeninden aldıktan sonra başlatıldığında çağrılır. Bileşen zaman uyumsuz bir işlem gerçekleştirdiğinde ve işlem tamamlandığında yenilenmesi gerektiğinde `OnInitializedAsync` kullanın.
 
 Zaman uyumlu bir işlem için `OnInitialized`geçersiz kılın:
 
@@ -46,6 +46,15 @@ protected override async Task OnInitializedAsync()
     await ...
 }
 ```
+
+[içerik](xref:blazor/hosting-model-configuration#render-mode) çağrısına yönelik Blazor sunucu uygulamaları **_iki kez_** `OnInitializedAsync`:
+
+* Bir kez, bileşen sayfanın bir parçası olarak başlangıçta statik olarak işlendiğinde.
+* Tarayıcı sunucuya geri bir bağlantı kurduğunda ikinci bir zaman.
+
+`OnInitializedAsync` geliştirici kodunun iki kez çalışmasını engellemek için, [prerendering sonrasında durum bilgisi olan yeniden bağlanma](#stateful-reconnection-after-prerendering) bölümüne bakın.
+
+Bir Blazor sunucusu uygulaması prerendering olsa da, tarayıcıyla bir bağlantı kurulmadığından, JavaScript 'e çağırma gibi bazı eylemler mümkün değildir. Bileşenler, ön işlenmiş olduğunda farklı şekilde işlenmesi gerekebilir. Daha fazla bilgi için bkz. [uygulamanın ne zaman prerendering](#detect-when-the-app-is-prerendering) bölümüne bakın.
 
 ### <a name="before-parameters-are-set"></a>Parametreler ayarlanmadan önce
 
@@ -183,3 +192,67 @@ Bir bileşen <xref:System.IDisposable>uygularsa, bileşen kullanıcı arabirimin
 ## <a name="handle-errors"></a>Hataları işleme
 
 Yaşam döngüsü yöntemi yürütme sırasında hataları işleme hakkında bilgi için bkz. <xref:blazor/handle-errors#lifecycle-methods>.
+
+## <a name="stateful-reconnection-after-prerendering"></a>Prerendering sonrasında durum bilgisi olan yeniden bağlanma
+
+`RenderMode` `ServerPrerendered`Blazor sunucu uygulamasında, bileşen başlangıçta sayfanın bir parçası olarak statik olarak işlenir. Tarayıcı sunucuya geri bir bağlantı kurduğunda, bileşen *yeniden*işlenir ve bileşen artık etkileşimli olur. Bileşeni başlatmak için [Onbaşlatılmış {Async}](xref:blazor/lifecycle#component-initialization-methods) yaşam döngüsü yöntemi varsa, yöntem *iki kez*yürütülür:
+
+* Bileşen statik olarak önceden kullanılırken.
+* Sunucu bağlantısı kurulduktan sonra.
+
+Bu, bileşen son işlendiğinde Kullanıcı arabiriminde görünen verilerde fark edilebilir bir değişikliğe neden olabilir.
+
+Blazor sunucu uygulamasında çift işleme senaryosunu önlemek için:
+
+* Prerendering sırasında durumu önbelleğe almak için kullanılabilecek bir tanımlayıcı geçirin ve uygulamayı yeniden başlattıktan sonra durumu alma.
+* Bileşen durumunu kaydetmek için prerendering sırasında tanımlayıcıyı kullanın.
+* Önbelleğe alınan durumu almak için prerendering öğesinden sonra tanımlayıcıyı kullanın.
+
+Aşağıdaki kod, Çift işlemeyi engelleyen şablon tabanlı Blazor sunucu uygulamasındaki güncelleştirilmiş bir `WeatherForecastService` gösterir:
+
+```csharp
+public class WeatherForecastService
+{
+    private static readonly string[] _summaries = new[]
+    {
+        "Freezing", "Bracing", "Chilly", "Cool", "Mild",
+        "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
+    };
+    
+    public WeatherForecastService(IMemoryCache memoryCache)
+    {
+        MemoryCache = memoryCache;
+    }
+    
+    public IMemoryCache MemoryCache { get; }
+
+    public Task<WeatherForecast[]> GetForecastAsync(DateTime startDate)
+    {
+        return MemoryCache.GetOrCreateAsync(startDate, async e =>
+        {
+            e.SetOptions(new MemoryCacheEntryOptions
+            {
+                AbsoluteExpirationRelativeToNow = 
+                    TimeSpan.FromSeconds(30)
+            });
+
+            var rng = new Random();
+
+            await Task.Delay(TimeSpan.FromSeconds(10));
+
+            return Enumerable.Range(1, 5).Select(index => new WeatherForecast
+            {
+                Date = startDate.AddDays(index),
+                TemperatureC = rng.Next(-20, 55),
+                Summary = _summaries[rng.Next(_summaries.Length)]
+            }).ToArray();
+        });
+    }
+}
+```
+
+`RenderMode`hakkında daha fazla bilgi için bkz. <xref:blazor/hosting-model-configuration#render-mode>.
+
+## <a name="detect-when-the-app-is-prerendering"></a>Uygulamanın ne zaman prerendering olduğunu Algıla
+
+[!INCLUDE[](~/includes/blazor-prerendering.md)]

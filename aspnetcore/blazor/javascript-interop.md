@@ -5,17 +5,17 @@ description: Blazor uygulamalarında JavaScript 'ten .NET ve .NET yöntemlerinde
 monikerRange: '>= aspnetcore-3.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/18/2019
+ms.date: 01/23/2020
 no-loc:
 - Blazor
 - SignalR
 uid: blazor/javascript-interop
-ms.openlocfilehash: 4edef123bc1fe41845b8060b9c3b8e77ffd2969d
-ms.sourcegitcommit: c81ef12a1b6e6ac838e5e07042717cf492e6635b
+ms.openlocfilehash: c4f2444b60fc2d3a8af893df379cf62636a7bdd5
+ms.sourcegitcommit: d2ba66023884f0dca115ff010bd98d5ed6459283
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76885478"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77213369"
 ---
 # <a name="aspnet-core-opno-locblazor-javascript-interop"></a>ASP.NET Core Blazor JavaScript birlikte çalışabilirliği
 
@@ -25,7 +25,7 @@ Sağlayan [Javier Calvarro Nelson](https://github.com/javiercn), [Daniel Roth](h
 
 Blazor bir uygulama, JavaScript kodundan .NET ve .NET yöntemlerinden JavaScript işlevlerini çağırabilir.
 
-[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/blazor/common/samples/) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
+[Örnek kodu görüntüleme veya indirme](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/blazor/common/samples/) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
 
 ## <a name="invoke-javascript-functions-from-net-methods"></a>.NET metotlarından JavaScript işlevlerini çağırma
 
@@ -241,11 +241,213 @@ public static ValueTask<T> GenericMethod<T>(this ElementReference elementRef,
 
 [!code-razor[](javascript-interop/samples_snapshot/component3.razor?highlight=17)]
 
+## <a name="reference-elements-across-components"></a>Bileşenler arasında başvuru öğeleri
+
+`ElementReference`, bir bileşenin `OnAfterRender` yönteminde (ve bir öğe başvurusu bir `struct`), bu nedenle bileşenler arasında bir öğe başvurusu geçirilememelidir.
+
+Bir üst bileşen için bir öğe başvurusunu diğer bileşenlere kullanılabilir hale getirmek için, üst bileşen şunları yapabilir:
+
+* Alt bileşenlerin geri çağırmaları kaydetmesine izin ver.
+* Geçirilen öğe başvurusuyla `OnAfterRender` olayı sırasında kayıtlı geri çağırmaları çağırın. Bu yaklaşım dolaylı olarak, alt bileşenlerin üst öğenin öğe başvurusuyla etkileşime geçmesini sağlar.
+
+Aşağıdaki Blazor WebAssembly örneğinde yaklaşım gösterilmektedir.
+
+*Wwwroot/index.html*`<head>`:
+
+```html
+<style>
+    .red { color: red }
+</style>
+```
+
+*Wwwroot/index.html*`<body>`:
+
+```html
+<script>
+    function setElementClass(element, className) {
+        /** @type {HTMLElement} **/
+        var myElement = element;
+        myElement.classList.add(className);
+    }
+</script>
+```
+
+*Pages/Index. Razor* (üst bileşen):
+
+```razor
+@page "/"
+
+<h1 @ref="_title">Hello, world!</h1>
+
+Welcome to your new app.
+
+<SurveyPrompt Parent="this" Title="How is Blazor working for you?" />
+```
+
+*Sayfa/dizin. Razor. cs*:
+
+```csharp
+using System;
+using System.Collections.Generic;
+using Microsoft.AspNetCore.Components;
+
+namespace BlazorSample.Pages
+{
+    public partial class Index : 
+        ComponentBase, IObservable<ElementReference>, IDisposable
+    {
+        private bool _disposing;
+        private IList<IObserver<ElementReference>> _subscriptions = 
+            new List<IObserver<ElementReference>>();
+        private ElementReference _title;
+
+        protected override void OnAfterRender(bool firstRender)
+        {
+            base.OnAfterRender(firstRender);
+
+            foreach (var subscription in _subscriptions)
+            {
+                try
+                {
+                    subscription.OnNext(_title);
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+            }
+        }
+
+        public void Dispose()
+        {
+            _disposing = true;
+
+            foreach (var subscription in _subscriptions)
+            {
+                try
+                {
+                    subscription.OnCompleted();
+                }
+                catch (Exception)
+                {
+                }
+            }
+
+            _subscriptions.Clear();
+        }
+
+        public IDisposable Subscribe(IObserver<ElementReference> observer)
+        {
+            if (_disposing)
+            {
+                throw new InvalidOperationException("Parent being disposed");
+            }
+
+            _subscriptions.Add(observer);
+
+            return new Subscription(observer, this);
+        }
+
+        private class Subscription : IDisposable
+        {
+            public Subscription(IObserver<ElementReference> observer, Index self)
+            {
+                Observer = observer;
+                Self = self;
+            }
+
+            public IObserver<ElementReference> Observer { get; }
+            public Index Self { get; }
+
+            public void Dispose()
+            {
+                Self._subscriptions.Remove(Observer);
+            }
+        }
+    }
+}
+```
+
+*Shared/gözetimi ve Prompt. Razor* (alt bileşen):
+
+```razor
+@inject IJSRuntime JS
+
+<div class="alert alert-secondary mt-4" role="alert">
+    <span class="oi oi-pencil mr-2" aria-hidden="true"></span>
+    <strong>@Title</strong>
+
+    <span class="text-nowrap">
+        Please take our
+        <a target="_blank" class="font-weight-bold" 
+            href="https://go.microsoft.com/fwlink/?linkid=2109206">brief survey</a>
+    </span>
+    and tell us what you think.
+</div>
+
+@code {
+    [Parameter]
+    public string Title { get; set; }
+}
+```
+
+*Shared/gözetimi ve Prompt. Razor. cs*:
+
+```csharp
+using System;
+using Microsoft.AspNetCore.Components;
+
+namespace BlazorSample.Shared
+{
+    public partial class SurveyPrompt : 
+        ComponentBase, IObserver<ElementReference>, IDisposable
+    {
+        private IDisposable _subscription = null;
+
+        [Parameter]
+        public IObservable<ElementReference> Parent { get; set; }
+
+        protected override void OnParametersSet()
+        {
+            base.OnParametersSet();
+
+            if (_subscription != null)
+            {
+                _subscription.Dispose();
+            }
+
+            _subscription = Parent.Subscribe(this);
+        }
+
+        public void OnCompleted()
+        {
+            _subscription = null;
+        }
+
+        public void OnError(Exception error)
+        {
+            _subscription = null;
+        }
+
+        public void OnNext(ElementReference value)
+        {
+            JS.InvokeAsync<object>(
+                "setElementClass", new object[] { value, "red" });
+        }
+
+        public void Dispose()
+        {
+            _subscription?.Dispose();
+        }
+    }
+}
+```
+
 ## <a name="invoke-net-methods-from-javascript-functions"></a>JavaScript işlevlerinden .NET yöntemlerini çağır
 
 ### <a name="static-net-method-call"></a>Statik .NET yöntemi çağrısı
 
-JavaScript 'ten statik bir .NET yöntemi çağırmak için `DotNet.invokeMethod` veya `DotNet.invokeMethodAsync` işlevlerini kullanın. Çağırmak istediğiniz statik metodun tanımlayıcısını, işlevi içeren derlemenin adını ve tüm bağımsız değişkenleri geçirin. Blazor sunucu senaryolarını desteklemek için zaman uyumsuz sürüm tercih edilir. JavaScript 'ten bir .NET yöntemi çağırmak için, .NET yönteminin public, static ve `[JSInvokable]` özniteliğine sahip olması gerekir. Varsayılan olarak, yöntem tanımlayıcısı yöntem adıdır, ancak `JSInvokableAttribute` oluşturucusunu kullanarak farklı bir tanımlayıcı belirtebilirsiniz. Açık genel yöntemlerin çağrılması Şu anda desteklenmiyor.
+JavaScript 'ten statik bir .NET yöntemi çağırmak için `DotNet.invokeMethod` veya `DotNet.invokeMethodAsync` işlevlerini kullanın. Çağırmak istediğiniz statik metodun tanımlayıcısını, işlevi içeren derlemenin adını ve tüm bağımsız değişkenleri geçirin. Blazor sunucu senaryolarını desteklemek için zaman uyumsuz sürüm tercih edilir. .NET yöntemi genel, statik ve `[JSInvokable]` özniteliğine sahip olmalıdır. Açık genel yöntemlerin çağrılması Şu anda desteklenmiyor.
 
 Örnek uygulama, `int`s C# dizisini döndürmek için bir yöntem içerir. `JSInvokable` özniteliği yöntemine uygulanır.
 
@@ -281,6 +483,30 @@ Array(4) [ 1, 2, 3, 4 ]
 ```
 
 Dördüncü dizi değeri, `ReturnArrayAsync`tarafından döndürülen diziye (`data.push(4);`) gönderilir.
+
+Varsayılan olarak, yöntem tanımlayıcısı yöntem adıdır, ancak `JSInvokableAttribute` oluşturucusunu kullanarak farklı bir tanımlayıcı belirtebilirsiniz:
+
+```csharp
+@code {
+    [JSInvokable("DifferentMethodName")]
+    public static Task<int[]> ReturnArrayAsync()
+    {
+        return Task.FromResult(new int[] { 1, 2, 3 });
+    }
+}
+```
+
+İstemci tarafı JavaScript dosyasında:
+
+```javascript
+returnArrayAsyncJs: function () {
+  DotNet.invokeMethodAsync('BlazorSample', 'DifferentMethodName')
+    .then(data => {
+      data.push(4);
+      console.log(data);
+    });
+}
+```
 
 ### <a name="instance-method-call"></a>Örnek yöntem çağrısı
 
@@ -361,6 +587,284 @@ JS birlikte çalışması, ağ hataları nedeniyle başarısız olabilir ve güv
   ```
 
 Kaynak tükenmesi hakkında daha fazla bilgi için bkz. <xref:security/blazor/server>.
+
+## <a name="perform-large-data-transfers-in-opno-locblazor-server-apps"></a>Blazor Server uygulamalarında büyük veri aktarımları gerçekleştirin
+
+Bazı senaryolarda, JavaScript ve Blazorarasında büyük miktarlarda veri aktarılmalıdır. Genellikle, büyük veri aktarımları şu durumlarda oluşur:
+
+* Tarayıcı dosya sistemi API 'Leri bir dosyayı karşıya yüklemek veya indirmek için kullanılır.
+* Üçüncü taraf kitaplığı ile birlikte çalışma gerekir.
+
+Blazor sunucuda, performans sorunlarına neden olabilecek tek büyük mesajların geçirilmesini engellemek için bir sınırlama vardır.
+
+JavaScript ve Blazorarasında veri aktaran kodu geliştirirken aşağıdaki kılavuzu göz önünde bulundurun:
+
+* Verileri daha küçük parçalara dilimleyin ve tüm veriler sunucu tarafından alınana kadar veri segmentlerini sırayla gönderin.
+* JavaScript ve C# kodda büyük nesneler ayırmayın.
+* Veri gönderirken veya alırken uzun süreler için ana UI iş parçacığını engellemez.
+* İşlem tamamlandığında veya iptal edildiğinde tüketilen tüm belleği boşaltın.
+* Güvenlik amaçları için aşağıdaki ek gereksinimleri uygulayın:
+  * Geçirilebilen en büyük dosya veya veri boyutunu bildirin.
+  * İstemciden sunucuya en düşük karşıya yükleme hızını bildirin.
+* Veriler, sunucu tarafından alındıktan sonra şu olabilir:
+  * Tüm segmentler toplanana kadar bir bellek arabelleğinde geçici olarak depolanır.
+  * Hemen tüketildi. Örneğin, veriler bir veritabanında hemen depolanabilir veya her bir segment alındığında diske yazılabilir.
+
+Aşağıdaki dosya Yükleyici sınıfı istemcisiyle JS birlikte çalışabilirliği yönetir. Uploader sınıfı, JS birlikte çalışması için şunu kullanır:
+
+* Veri segmenti göndermek için istemciyi yoklayın.
+* Yoklama zaman aşımına uğrarsa işlemi iptal edin.
+
+```csharp
+using System;
+using System.Buffers;
+using System.Collections.Generic;
+using System.IO;
+using System.Threading.Tasks;
+using Microsoft.JSInterop;
+
+public class FileUploader : IDisposable
+{
+    private readonly IJSRuntime _jsRuntime;
+    private readonly int _segmentSize = 6144;
+    private readonly int _maxBase64SegmentSize = 8192;
+    private readonly DotNetObjectReference<FileUploader> _thisReference;
+    private List<IMemoryOwner<byte>> _uploadedSegments = 
+        new List<IMemoryOwner<byte>>();
+
+    public FileUploader(IJSRuntime jsRuntime)
+    {
+        _jsRuntime = jsRuntime;
+    }
+
+    public async Task<Stream> ReceiveFile(string selector, int maxSize)
+    {
+        var fileSize = 
+            await _jsRuntime.InvokeAsync<int>("getFileSize", selector);
+
+        if (fileSize > maxSize)
+        {
+            return null;
+        }
+
+        var numberOfSegments = Math.Floor(fileSize / (double)_segmentSize) + 1;
+        var lastSegmentBytes = 0;
+        string base64EncodedSegment;
+
+        for (var i = 0; i < numberOfSegments; i++)
+        {
+            try
+            {
+                base64EncodedSegment = 
+                    await _jsRuntime.InvokeAsync<string>(
+                        "receiveSegment", i, selector);
+
+                if (base64EncodedSegment.Length < _maxBase64SegmentSize && 
+                    i < numberOfSegments - 1)
+                {
+                    return null;
+                }
+            }
+            catch
+            {
+                return null;
+            }
+
+          var current = MemoryPool<byte>.Shared.Rent(_segmentSize);
+
+          if (!Convert.TryFromBase64String(base64EncodedSegment, 
+              current.Memory.Slice(0, _segmentSize).Span, out lastSegmentBytes))
+          {
+              return null;
+          }
+
+          _uploadedSegments.Add(current);
+        }
+
+        var segments = _uploadedSegments;
+        _uploadedSegments = null;
+
+        return new SegmentedStream(segments, _segmentSize, lastSegmentBytes);
+    }
+
+    public void Dispose()
+    {
+        if (_uploadedSegments != null)
+        {
+            foreach (var segment in _uploadedSegments)
+            {
+                segment.Dispose();
+            }
+        }
+    }
+}
+```
+
+Yukarıdaki örnekte:
+
+* `_maxBase64SegmentSize`, `_maxBase64SegmentSize = _segmentSize * 4 / 3`hesaplanan `8192`olarak ayarlanır.
+* Düşük düzey .NET Core bellek yönetimi API 'Leri, bellek kesimlerini `_uploadedSegments`sunucuda depolamak için kullanılır.
+* `ReceiveFile` yöntemi, JS birlikte çalışabilirliği aracılığıyla karşıya yüklemeyi işlemek için kullanılır:
+  * Dosya boyutu, `_jsRuntime.InvokeAsync<FileInfo>('getFileSize', selector)`ile JS birlikte çalışma aracılığıyla bayt olarak belirlenir.
+  * Alacak segmentlerin sayısı `numberOfSegments`' de hesaplanıp depolanır.
+  * Kesimleri, `_jsRuntime.InvokeAsync<string>('receiveSegment', i, selector)`ile JS birlikte çalışabilirliği aracılığıyla `for` döngüsünde istenir. Tüm kesimler ancak son, kod çözmede önce 8.192 bayt olmalıdır. İstemci verileri verimli bir şekilde gönderilmeye zorlanır.
+  * Alınan her segment için, <xref:System.Convert.TryFromBase64String*>ile kod çözme işleminden önce denetimler gerçekleştirilir.
+  * Karşıya yükleme tamamlandıktan sonra verileri içeren bir akış yeni bir <xref:System.IO.Stream> (`SegmentedStream`) olarak döndürülür.
+
+Kesimli akış sınıfı, kesim listesini ReadOnly aranabilir olmayan <xref:System.IO.Stream>olarak kullanıma sunar:
+
+```csharp
+using System;
+using System.Buffers;
+using System.Collections.Generic;
+using System.IO;
+
+public class SegmentedStream : Stream
+{
+    private readonly ReadOnlySequence<byte> _sequence;
+    private long _currentPosition = 0;
+
+    public SegmentedStream(IList<IMemoryOwner<byte>> segments, int segmentSize, 
+        int lastSegmentSize)
+    {
+        if (segments.Count == 1)
+        {
+            _sequence = new ReadOnlySequence<byte>(
+                segments[0].Memory.Slice(0, lastSegmentSize));
+            return;
+        }
+
+        var sequenceSegment = new BufferSegment<byte>(
+            segments[0].Memory.Slice(0, segmentSize));
+        var lastSegment = sequenceSegment;
+
+        for (int i = 1; i < segments.Count; i++)
+        {
+            var isLastSegment = i + 1 == segments.Count;
+            lastSegment = lastSegment.Append(segments[i].Memory.Slice(
+                0, isLastSegment ? lastSegmentSize : segmentSize));
+        }
+
+        _sequence = new ReadOnlySequence<byte>(
+            sequenceSegment, 0, lastSegment, lastSegmentSize);
+    }
+
+    public override long Position
+    {
+        get => throw new NotImplementedException();
+        set => throw new NotImplementedException();
+    }
+
+    public override int Read(byte[] buffer, int offset, int count)
+    {
+        var bytesToWrite = (int)(_currentPosition + count < _sequence.Length ? 
+            count : _sequence.Length - _currentPosition);
+        var data = _sequence.Slice(_currentPosition, bytesToWrite);
+        data.CopyTo(buffer.AsSpan(offset, bytesToWrite));
+        _currentPosition += bytesToWrite;
+
+        return bytesToWrite;
+    }
+
+    private class BufferSegment<T> : ReadOnlySequenceSegment<T>
+    {
+        public BufferSegment(ReadOnlyMemory<T> memory)
+        {
+            Memory = memory;
+        }
+
+        public BufferSegment<T> Append(ReadOnlyMemory<T> memory)
+        {
+            var segment = new BufferSegment<T>(memory)
+            {
+                RunningIndex = RunningIndex + Memory.Length
+            };
+
+            Next = segment;
+
+            return segment;
+        }
+    }
+
+    public override bool CanRead => true;
+
+    public override bool CanSeek => false;
+
+    public override bool CanWrite => false;
+
+    public override long Length => throw new NotImplementedException();
+
+    public override void Flush() => throw new NotImplementedException();
+
+    public override long Seek(long offset, SeekOrigin origin) => 
+        throw new NotImplementedException();
+
+    public override void SetLength(long value) => 
+        throw new NotImplementedException();
+
+    public override void Write(byte[] buffer, int offset, int count) => 
+        throw new NotImplementedException();
+}
+```
+
+Aşağıdaki kod, verileri almak için JavaScript işlevlerini uygular:
+
+```javascript
+function getFileSize(selector) {
+  const file = getFile(selector);
+  return file.size;
+}
+
+async function receiveSegment(segmentNumber, selector) {
+  const file = getFile(selector);
+  var segments = getFileSegments(file);
+  var index = segmentNumber * 6144;
+  return await getNextChunk(file, index);
+}
+
+function getFile(selector) {
+  const element = document.querySelector(selector);
+  if (!element) {
+    throw new Error('Invalid selector');
+  }
+  const files = element.files;
+  if (!files || files.length === 0) {
+    throw new Error(`Element ${elementId} doesn't contain any files.`);
+  }
+  const file = files[0];
+  return file;
+}
+
+function getFileSegments(file) {
+  const segments = Math.floor(size % 6144 === 0 ? size / 6144 : 1 + size / 6144);
+  return segments;
+}
+
+async function getNextChunk(file, index) {
+  const length = file.size - index <= 6144 ? file.size - index : 6144;
+  const chunk = file.slice(index, index + length);
+  index += length;
+  const base64Chunk = await this.base64EncodeAsync(chunk);
+  return { base64Chunk, index };
+}
+
+async function base64EncodeAsync(chunk) {
+  const reader = new FileReader();
+  const result = new Promise((resolve, reject) => {
+    reader.addEventListener('load',
+      () => {
+        const base64Chunk = reader.result;
+        const cleanChunk = 
+          base64Chunk.replace('data:application/octet-stream;base64,', '');
+        resolve(cleanChunk);
+      },
+      false);
+    reader.addEventListener('error', reject);
+  });
+  reader.readAsDataURL(chunk);
+  return result;
+}
+```
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 

@@ -5,23 +5,23 @@ description: Veri bağlama, olayları işleme ve bileşen yaşam döngülerini y
 monikerRange: '>= aspnetcore-3.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 01/24/2020
+ms.date: 02/04/2020
 no-loc:
 - Blazor
 - SignalR
 uid: blazor/components
-ms.openlocfilehash: d6ba60b20d21636c7f780a80d8fbdb152505a3a3
-ms.sourcegitcommit: 0b0e485a8a6dfcc65a7a58b365622b3839f4d624
+ms.openlocfilehash: 0da0d83a4fde7b753a84bf05d3a9284776f2881f
+ms.sourcegitcommit: d2ba66023884f0dca115ff010bd98d5ed6459283
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76928254"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77213356"
 ---
 # <a name="create-and-use-aspnet-core-razor-components"></a>ASP.NET Core Razor bileşenleri oluşturma ve kullanma
 
 , [Luke Latham](https://github.com/guardrex) ve [Daniel Roth](https://github.com/danroth27) tarafından
 
-[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/blazor/common/samples/) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
+[Örnek kodu görüntüleme veya indirme](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/blazor/common/samples/) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
 
 Blazor uygulamaları, *bileşenleri*kullanılarak oluşturulmuştur. Bir bileşen, bir sayfa, iletişim veya form gibi bir kullanıcı arabirimi (UI) öbekidir. Bir bileşen, veri eklemek veya UI olaylarına yanıt vermek için gereken HTML işaretlemesini ve işleme mantığını içerir. Bileşenler esnek ve hafif. Bunlar, iç içe geçmiş, yeniden kullanılabilir ve projeler arasında paylaşılabilir.
 
@@ -70,7 +70,7 @@ Daha fazla bilgi için [bileşenleri Içeri aktarma](#import-components) bölüm
 
 Razor bileşenleri, Razor Pages ve MVC uygulamalarıyla tümleştirilebilir. Sayfa veya görünüm işlendiğinde, bileşenler aynı anda önceden alınabilir.
 
-Razor bileşenlerini barındırmak üzere bir Razor Pages veya MVC uygulaması hazırlamak için, <xref:blazor/hosting-models#integrate-razor-components-into-razor-pages-and-mvc-apps> makalesindeki *Razor bileşenlerini tümleştirme Razor Pages ve MVC Apps* bölümündeki yönergeleri izleyin.
+Razor bileşenlerini barındırmak üzere bir Razor Pages veya MVC uygulaması hazırlamak için, <xref:blazor/hosting-model-configuration#integrate-razor-components-into-razor-pages-and-mvc-apps> makalesindeki *Razor bileşenlerini tümleştirme Razor Pages ve MVC Apps* bölümündeki yönergeleri izleyin.
 
 Uygulamanın bileşenlerini tutmak için özel bir klasör kullanırken, klasörü/görünümü veya *_ViewImports. cshtml* dosyasını temsil eden ad alanını ekleyin. Aşağıdaki örnekte:
 
@@ -107,7 +107,10 @@ Sayfalar ve görünümler bileşenleri kullanırken, listesiyse doğru değildir
 
 Statik HTML sayfasından sunucu bileşenleri işleme desteklenmiyor.
 
-Bileşenlerin nasıl işlendiği, bileşen durumu ve `Component` etiketi Yardımcısı hakkında daha fazla bilgi için bkz. <xref:blazor/hosting-models>.
+Bileşenlerin nasıl işlendiği, bileşen durumu ve `Component` etiketi Yardımcısı hakkında daha fazla bilgi için aşağıdaki makalelere bakın:
+
+* <xref:blazor/hosting-models>
+* <xref:blazor/hosting-model-configuration>
 
 ## <a name="tag-helpers-arent-used-in-components"></a>Etiket Yardımcıları bileşenlerde kullanılmıyor
 
@@ -149,7 +152,7 @@ Bileşenler, bileşen sınıfında `[Parameter]` özniteliğiyle ortak özellikl
 <h1>Parent-child example</h1>
 
 <ChildComponent Title="Panel Title from Parent"
-                OnClick="@ShowMessage">
+                OnClickCallback="@ShowMessage">
     Content of the child component is supplied
     by the parent component.
 </ChildComponent>
@@ -180,7 +183,7 @@ Aşağıdaki örnekte `ChildComponent`, işlemek için bir kullanıcı arabirimi
 <h1>Parent-child example</h1>
 
 <ChildComponent Title="Panel Title from Parent"
-                OnClick="@ShowMessage">
+                OnClickCallback="@ShowMessage">
     Content of the child component is supplied
     by the parent component.
 </ChildComponent>
@@ -351,11 +354,11 @@ Bileşen işlendiğinde, giriş öğesinin `value` `CurrentValue` özelliğinden
 * Öğenin `value` özniteliğinde belirtilen ifade (`CurrentValue`).
 * `@bind-value:event`tarafından belirtilen olaya yönelik değişiklik olayı temsilcisi.
 
-**Ayrıştırılamayan değerler**
+### <a name="unparsable-values"></a>Ayrıştırılamayan değerler
 
 Bir Kullanıcı, bir veri sınırlama öğesine ayrıştırılamayan bir değer sağlıyorsa, bağlama olayı tetiklendiğinde, çözümlenemeyen değer otomatik olarak önceki değerine döndürülür.
 
-Aşağıdaki senaryoyu göz önünde bulundurun:
+Şu senaryoyu göz önünde bulundurun:
 
 * Bir `<input>` öğesi, `123`başlangıçtaki değeri olan bir `int` türüne bağlanır:
 
@@ -379,7 +382,7 @@ Varsayılan olarak, bağlama öğenin `onchange` olayına (`@bind="{PROPERTY OR 
   * Kullanıcının geçersiz giriş sağlamasına ve ilişkili `EditContext`doğrulama hataları almasına izin verin.
   * Kullanıcı ek WebForm verisi girmeye uğramadan doğrulama hatalarını Kullanıcı ARABIRIMINDE görüntüleyin.
 
-**Genelleştirme**
+### <a name="globalization"></a>Genelleştirme
 
 `@bind` değerleri, geçerli kültürün kuralları kullanılarak görüntülenmek üzere biçimlendirilir ve ayrıştırılır.
 
@@ -406,7 +409,7 @@ Aşağıdaki alan türleri özel biçimlendirme gereksinimlerine sahiptir ve şu
 
 Kullanıcının kültürünü ayarlama hakkında daha fazla bilgi için [Yerelleştirme](#localization) bölümüne bakın.
 
-**Biçim dizeleri**
+### <a name="format-strings"></a>Biçim dizeleri
 
 Veri bağlama [`@bind:format`](xref:mvc/views/razor#bind)kullanarak <xref:System.DateTime> biçim dizeleriyle birlikte kullanılabilir. Para birimi veya sayı biçimleri gibi diğer biçim ifadeleri şu anda kullanılamaz.
 
@@ -434,9 +437,9 @@ Blazor 'in tarihleri biçimlendirmek için yerleşik desteği olduğundan `date`
 <input type="date" @bind="StartDate" @bind:format="yyyy-MM-dd">
 ```
 
-**Bileşen parametreleri**
+### <a name="parent-to-child-binding-with-component-parameters"></a>Bileşen parametreleriyle üst-alt öğe bağlama
 
-Bağlama bileşen parametrelerini tanır; burada `@bind-{property}`, bileşenler arasında bir özellik değeri bağlayabilirler.
+Bağlama, bir üst bileşenden bir özellik değerini alt bileşene bağlamak `@bind-{property}` bileşen parametrelerini tanır. Bir alt öğeden üst öğeye bağlama, [zincirleme bağlama Ile alt-üst öğe bağlama](#child-to-parent-binding-with-chained-bind) bölümünde ele alınmıştır.
 
 Aşağıdaki alt bileşen (`ChildComponent`) `Year` bir bileşen parametresine ve geri çağırmaya `YearChanged` sahiptir:
 
@@ -456,7 +459,10 @@ Aşağıdaki alt bileşen (`ChildComponent`) `Year` bir bileşen parametresine v
 
 `EventCallback<T>` [Eventcallback](#eventcallback) bölümünde açıklanmaktadır.
 
-Aşağıdaki üst bileşen `ChildComponent` kullanır ve üst öğeden `ParentYear` parametresini alt bileşendeki `Year` parametresine bağlar:
+Aşağıdaki üst bileşen şunları kullanır:
+
+* `ChildComponent` ve üst öğeden `ParentYear` parametresini alt bileşendeki `Year` parametresine bağlar.
+* `onclick` olayı `ChangeTheYear` metodunu tetiklemek için kullanılır. Daha fazla bilgi için bkz. [olay işleme](#event-handling) bölümü.
 
 ```razor
 @page "/ParentComponent"
@@ -520,7 +526,138 @@ Genel olarak, bir özellik `@bind-property:event` özniteliği kullanılarak kar
 <MyComponent @bind-MyProp="MyValue" @bind-MyProp:event="MyEventHandler" />
 ```
 
-**Radyo düğmeleri**
+### <a name="child-to-parent-binding-with-chained-bind"></a>Zincirli bağlama ile üstten üst öğe bağlama
+
+Yaygın bir senaryo, bir veri bağlama parametresini bileşen çıkışında bir sayfa öğesine zincirlemesini sağlar. Birden çok bağlama düzeyi aynı anda gerçekleştiğinden, bu senaryoya *zincirleme bağlama* denir.
+
+Bir zincir bağlama, sayfanın öğesinde `@bind` sözdizimiyle uygulanamıyor. Olay işleyicisi ve değeri ayrı olarak belirtilmelidir. Bununla birlikte, bir üst bileşen, bileşen parametresiyle `@bind` sözdizimini kullanabilir.
+
+Aşağıdaki `PasswordField` bileşeni (*Passwordfield. Razor*):
+
+* Bir `<input>` öğesinin değerini bir `Password` özelliğine ayarlar.
+* `Password` özelliğindeki değişiklikleri, bir [Eventcallback](#eventcallback)ile bir üst bileşene gösterir.
+* , `ToggleShowPassword` yöntemini tetiklemek için kullanılan `onclick` olayını kullanır. Daha fazla bilgi için bkz. [olay işleme](#event-handling) bölümü.
+
+```razor
+<h1>Child Component</h2>
+
+Password: 
+
+<input @oninput="OnPasswordChanged" 
+       required 
+       type="@(_showPassword ? "text" : "password")" 
+       value="@Password" />
+
+<button class="btn btn-primary" @onclick="ToggleShowPassword">
+    Show password
+</button>
+
+@code {
+    private bool _showPassword;
+
+    [Parameter]
+    public string Password { get; set; }
+
+    [Parameter]
+    public EventCallback<string> PasswordChanged { get; set; }
+
+    private Task OnPasswordChanged(ChangeEventArgs e)
+    {
+        Password = e.Value.ToString();
+
+        return PasswordChanged.InvokeAsync(Password);
+    }
+
+    private void ToggleShowPassword()
+    {
+        _showPassword = !_showPassword;
+    }
+}
+```
+
+`PasswordField` bileşeni başka bir bileşende kullanılır:
+
+```razor
+@page "/ParentComponent"
+
+<h1>Parent Component</h1>
+
+<PasswordField @bind-Password="_password" />
+
+@code {
+    private string _password;
+}
+```
+
+Önceki örnekteki parolada denetim veya tuzak hataları gerçekleştirmek için:
+
+* `Password` için bir yedekleme alanı oluşturun (Aşağıdaki örnek kodda`_password`).
+* `Password` ayarlayıcısı 'nda denetimleri veya yakalama hatalarını gerçekleştirin.
+
+Aşağıdaki örnek, parolanın değerinde bir boşluk kullanılmışsa kullanıcıya anında geri bildirim sağlar:
+
+```razor
+@page "/ParentComponent"
+
+<h1>Parent Component</h1>
+
+Password: 
+
+<input @oninput="OnPasswordChanged" 
+       required 
+       type="@(_showPassword ? "text" : "password")" 
+       value="@Password" />
+
+<button class="btn btn-primary" @onclick="ToggleShowPassword">
+    Show password
+</button>
+
+<span class="text-danger">@_validationMessage</span>
+
+@code {
+    private bool _showPassword;
+    private string _password;
+    private string _validationMessage;
+
+    [Parameter]
+    public string Password
+    {
+        get { return _password ?? string.Empty; }
+        set
+        {
+            if (_password != value)
+            {
+                if (value.Contains(' '))
+                {
+                    _validationMessage = "Spaces not allowed!";
+                }
+                else
+                {
+                    _password = value;
+                    _validationMessage = string.Empty;
+                }
+            }
+        }
+    }
+
+    [Parameter]
+    public EventCallback<string> PasswordChanged { get; set; }
+
+    private Task OnPasswordChanged(ChangeEventArgs e)
+    {
+        Password = e.Value.ToString();
+
+        return PasswordChanged.InvokeAsync(Password);
+    }
+
+    private void ToggleShowPassword()
+    {
+        _showPassword = !_showPassword;
+    }
+}
+```
+
+### <a name="radio-buttons"></a>Radyo düğmeleri
 
 Bir form içindeki radyo düğmelerine bağlama hakkında bilgi için bkz. <xref:blazor/forms-validation#work-with-radio-buttons>.
 
@@ -584,17 +721,20 @@ Desteklenen `EventArgs` aşağıdaki tabloda gösterilmiştir.
 | Pano        | `ClipboardEventArgs` | `oncut`, `oncopy`, `onpaste` |
 | Sürükle             | `DragEventArgs`      | `ondrag`, `ondragstart`, `ondragenter`, `ondragleave`, `ondragover`, `ondrop`, `ondragend`<br><br>`DataTransfer` ve `DataTransferItem` öğe verilerini sürüklemiş tutun. |
 | Hata            | `ErrorEventArgs`     | `onerror` |
-| Olay            | `EventArgs`          | *Genel*<br>`onactivate`, `onbeforeactivate`, `onbeforedeactivate`, `ondeactivate`, `onended`, `onfullscreenchange`, `onfullscreenerror`, `onloadeddata`, `onloadedmetadata`, `onpointerlockchange`, `onpointerlockerror`, `onreadystatechange`, `onscroll`<br><br>*Pano*<br>`onbeforecut`, `onbeforecopy`, `onbeforepaste`<br><br>*Giriş*<br>`oninvalid`, `onreset`, `onselect`, `onselectionchange`, `onselectstart`, `onsubmit`<br><br>*Medyasını*<br>`oncanplay`, `oncanplaythrough`, `oncuechange`, `ondurationchange`, `onemptied`, `onpause`, `onplay`, `onplaying`, `onratechange`, `onseeked`, `onseeking`, `onstalled`, `onstop`, `onsuspend`, `ontimeupdate`, `onvolumechange`, `onwaiting` |
+| Olay            | `EventArgs`          | *Genel*<br>`onactivate`, `onbeforeactivate`, `onbeforedeactivate`, `ondeactivate`, `onended`, `onfullscreenchange`, `onfullscreenerror`, `onloadeddata`, `onloadedmetadata`, `onpointerlockchange`, `onpointerlockerror`, `onreadystatechange`, `onscroll`<br><br>*Pano*<br>`onbeforecut`, `onbeforecopy`, `onbeforepaste`<br><br>*Girdi*<br>`oninvalid`, `onreset`, `onselect`, `onselectionchange`, `onselectstart`, `onsubmit`<br><br>*Medyasını*<br>`oncanplay`, `oncanplaythrough`, `oncuechange`, `ondurationchange`, `onemptied`, `onpause`, `onplay`, `onplaying`, `onratechange`, `onseeked`, `onseeking`, `onstalled`, `onstop`, `onsuspend`, `ontimeupdate`, `onvolumechange`, `onwaiting` |
 | Çı            | `FocusEventArgs`     | `onfocus`, `onblur`, `onfocusin`, `onfocusout`<br><br>`relatedTarget`için destek içermez. |
-| Giriş            | `ChangeEventArgs`    | `onchange`, `oninput` |
+| Girdi            | `ChangeEventArgs`    | `onchange`, `oninput` |
 | Klavye         | `KeyboardEventArgs`  | `onkeydown`, `onkeypress`, `onkeyup` |
 | Tığında            | `MouseEventArgs`     | `onclick`, `oncontextmenu`, `ondblclick`, `onmousedown`, `onmouseup`, `onmouseover`, `onmousemove`, `onmouseout` |
 | Fare işaretçisi    | `PointerEventArgs`   | `onpointerdown`, `onpointerup`, `onpointercancel`, `onpointermove`, `onpointerover`, `onpointerout`, `onpointerenter`, `onpointerleave`, `ongotpointercapture`, `onlostpointercapture` |
 | Fare tekerleği      | `WheelEventArgs`     | `onwheel`, `onmousewheel` |
 | İlerleme durumu         | `ProgressEventArgs`  | `onabort`, `onload`, `onloadend`, `onloadstart`, `onprogress`, `ontimeout` |
-| Dokunmatik            | `TouchEventArgs`     | `ontouchstart`, `ontouchend`, `ontouchmove`, `ontouchenter`, `ontouchleave`, `ontouchcancel`<br><br>`TouchPoint`, dokunmaya duyarlı bir cihazdaki tek bir iletişim noktasını temsil eder. |
+| Dokunma            | `TouchEventArgs`     | `ontouchstart`, `ontouchend`, `ontouchmove`, `ontouchenter`, `ontouchleave`, `ontouchcancel`<br><br>`TouchPoint`, dokunmaya duyarlı bir cihazdaki tek bir iletişim noktasını temsil eder. |
 
-Önceki tablodaki olayların özellikleri ve olay işleme davranışı hakkında bilgi için bkz. [başvuru kaynağında EventArgs sınıfları (DotNet/aspnetcore Release/3.1 dalı)](https://github.com/dotnet/aspnetcore/tree/release/3.1/src/Components/Web/src/Web).
+Daha fazla bilgi için aşağıdaki kaynaklara bakın:
+
+* [ASP.NET Core başvuru kaynağındaki EventArgs sınıfları (DotNet/aspnetcore sürümü/3.1 dalı)](https://github.com/dotnet/aspnetcore/tree/release/3.1/src/Components/Web/src/Web).
+* [MDN Web belgeleri: GlobalEventHandlers](https://developer.mozilla.org/docs/Web/API/GlobalEventHandlers) &ndash;, hangi HTML ÖĞELERININ her Dom olayını destekledikleri hakkında bilgiler içerir.
 
 ### <a name="lambda-expressions"></a>Lambda ifadeleri
 
@@ -641,7 +781,7 @@ Genellikle, bir dizi öğe üzerinde yineleme yaparken olduğu gibi ek değerler
 
 [!code-razor[](common/samples/3.x/BlazorWebAssemblySample/Components/ChildComponent.razor?highlight=5-7,17-18)]
 
-`ParentComponent`, alt öğenin `EventCallback<T>` (`OnClick`) `ShowMessage` yöntemine ayarlar.
+`ParentComponent`, alt öğenin `EventCallback<T>` (`OnClickCallback`) `ShowMessage` yöntemine ayarlar.
 
 *Pages/ParentComponent. Razor*:
 
@@ -651,7 +791,7 @@ Genellikle, bir dizi öğe üzerinde yineleme yaparken olduğu gibi ek değerler
 <h1>Parent-child example</h1>
 
 <ChildComponent Title="Panel Title from Parent"
-                OnClick="@ShowMessage">
+                OnClickCallback="@ShowMessage">
     Content of the child component is supplied
     by the parent component.
 </ChildComponent>
@@ -677,7 +817,7 @@ Genellikle, bir dizi öğe üzerinde yineleme yaparken olduğu gibi ek değerler
 
 ```razor
 <ChildComponent 
-    OnClick="@(async () => { await Task.Yield(); _messageText = "Blaze It!"; })" />
+    OnClickCallback="@(async () => { await Task.Yield(); _messageText = "Blaze It!"; })" />
 ```
 
 `InvokeAsync` ile bir `EventCallback` veya `EventCallback<T>` çağırın ve <xref:System.Threading.Tasks.Task>await:
@@ -756,126 +896,6 @@ Aşağıdaki örnekte, onay kutusunun seçilmesi ikinci alt `<div>`, üst `<div>
 }
 ```
 
-## <a name="chained-bind"></a>Zincirleme bağlama
-
-Yaygın bir senaryo, bir veri bağlama parametresini bileşen çıkışında bir sayfa öğesine zincirlemesini sağlar. Birden çok bağlama düzeyi aynı anda gerçekleştiğinden, bu senaryoya *zincirleme bağlama* denir.
-
-Bir zincir bağlama, sayfanın öğesinde `@bind` sözdizimiyle uygulanamıyor. Olay işleyicisi ve değeri ayrı olarak belirtilmelidir. Bununla birlikte, bir üst bileşen, bileşen parametresiyle `@bind` sözdizimini kullanabilir.
-
-Aşağıdaki `PasswordField` bileşeni (*Passwordfield. Razor*):
-
-* Bir `<input>` öğesinin değerini bir `Password` özelliğine ayarlar.
-* `Password` özelliğindeki değişiklikleri, bir [Eventcallback](#eventcallback)ile bir üst bileşene gösterir.
-
-```razor
-Password: 
-
-<input @oninput="OnPasswordChanged" 
-       required 
-       type="@(_showPassword ? "text" : "password")" 
-       value="@Password" />
-
-<button class="btn btn-primary" @onclick="ToggleShowPassword">
-    Show password
-</button>
-
-@code {
-    private bool _showPassword;
-
-    [Parameter]
-    public string Password { get; set; }
-
-    [Parameter]
-    public EventCallback<string> PasswordChanged { get; set; }
-
-    private Task OnPasswordChanged(ChangeEventArgs e)
-    {
-        Password = e.Value.ToString();
-
-        return PasswordChanged.InvokeAsync(Password);
-    }
-
-    private void ToggleShowPassword()
-    {
-        _showPassword = !_showPassword;
-    }
-}
-```
-
-`PasswordField` bileşeni başka bir bileşende kullanılır:
-
-```razor
-<PasswordField @bind-Password="_password" />
-
-@code {
-    private string _password;
-}
-```
-
-Önceki örnekteki parolada denetim veya tuzak hataları gerçekleştirmek için:
-
-* `Password` için bir yedekleme alanı oluşturun (Aşağıdaki örnek kodda`_password`).
-* `Password` ayarlayıcısı 'nda denetimleri veya yakalama hatalarını gerçekleştirin.
-
-Aşağıdaki örnek, parolanın değerinde bir boşluk kullanılmışsa kullanıcıya anında geri bildirim sağlar:
-
-```razor
-Password: 
-
-<input @oninput="OnPasswordChanged" 
-       required 
-       type="@(_showPassword ? "text" : "password")" 
-       value="@Password" />
-
-<button class="btn btn-primary" @onclick="ToggleShowPassword">
-    Show password
-</button>
-
-<span class="text-danger">@_validationMessage</span>
-
-@code {
-    private bool _showPassword;
-    private string _password;
-    private string _validationMessage;
-
-    [Parameter]
-    public string Password
-    {
-        get { return _password ?? string.Empty; }
-        set
-        {
-            if (_password != value)
-            {
-                if (value.Contains(' '))
-                {
-                    _validationMessage = "Spaces not allowed!";
-                }
-                else
-                {
-                    _password = value;
-                    _validationMessage = string.Empty;
-                }
-            }
-        }
-    }
-
-    [Parameter]
-    public EventCallback<string> PasswordChanged { get; set; }
-
-    private Task OnPasswordChanged(ChangeEventArgs e)
-    {
-        Password = e.Value.ToString();
-
-        return PasswordChanged.InvokeAsync(Password);
-    }
-
-    private void ToggleShowPassword()
-    {
-        _showPassword = !_showPassword;
-    }
-}
-```
-
 ## <a name="capture-references-to-components"></a>Bileşenlere başvuruları yakala
 
 Bileşen başvuruları, bir bileşen örneğine başvurmak için bir yol sağlar, böylece bu örneğe `Show` veya `Reset`gibi komutlar verebilirsiniz. Bir bileşen başvurusunu yakalamak için:
@@ -928,7 +948,21 @@ public class NotifierService
 }
 ```
 
-Bir bileşeni güncelleştirmek için `NotifierService` kullanımı:
+`NotifierService` bir tekalma olarak kaydedin:
+
+* Blazor WebAssembly ' de hizmeti `Program.Main`'ye kaydedin:
+
+  ```csharp
+  builder.Services.AddSingleton<NotifierService>();
+  ```
+
+* Blazor sunucusu 'nda hizmeti `Startup.ConfigureServices`kaydedin:
+
+  ```csharp
+  services.AddSingleton<NotifierService>();
+  ```
+
+Bir bileşeni güncelleştirmek için `NotifierService` kullanın:
 
 ```razor
 @page "/"
@@ -1654,16 +1688,16 @@ builder.AddContent(1, "Second");
 
 Kod ilk kez yürütüldüğünde, `someFlag` `true`, Oluşturucu şunları alır:
 
-| Sequence | Tür      | Veri   |
+| Sequence | Tür      | Veriler   |
 | :------: | --------- | :----: |
-| 0        | Metin düğümü | adı  |
-| 1\.        | Metin düğümü | Saniye |
+| 0        | Metin düğümü | Adı  |
+| 1        | Metin düğümü | Saniye |
 
 `someFlag` `false`hale geldiğini ve biçimlendirmenin yeniden işleneceğini varsayın. Bu kez, Oluşturucu şunları alır:
 
-| Sequence | Tür       | Veri   |
+| Sequence | Tür       | Veriler   |
 | :------: | ---------- | :----: |
-| 1\.        | Metin düğümü  | Saniye |
+| 1        | Metin düğümü  | Saniye |
 
 Çalışma zamanı bir fark gerçekleştirdiğinde, sırasıyla `0` öğenin kaldırıldığını görür, bu nedenle aşağıdaki önemsiz *düzenleme betiğini*oluşturur:
 
@@ -1686,14 +1720,14 @@ builder.AddContent(seq++, "Second");
 
 Şimdi ilk çıktı:
 
-| Sequence | Tür      | Veri   |
+| Sequence | Tür      | Veriler   |
 | :------: | --------- | :----: |
-| 0        | Metin düğümü | adı  |
-| 1\.        | Metin düğümü | Saniye |
+| 0        | Metin düğümü | Adı  |
+| 1        | Metin düğümü | Saniye |
 
 Bu sonuç önceki bir durum ile aynıdır, bu nedenle olumsuz bir sorun yoktur. `someFlag` ikinci işleme `false` ve çıktı:
 
-| Sequence | Tür      | Veri   |
+| Sequence | Tür      | Veriler   |
 | :------: | --------- | ------ |
 | 0        | Metin düğümü | Saniye |
 
