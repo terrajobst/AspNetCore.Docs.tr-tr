@@ -297,18 +297,20 @@
           uid: blazor/components
         - name: Yaşam döngüsü
           uid: blazor/lifecycle
-        - name: Formlar ve doğrulama
-          uid: blazor/forms-validation
-        - name: Bileşen kitaplıkları
-          uid: blazor/class-libraries
         - name: Düzenler
           uid: blazor/layouts
+        - name: Formlar ve doğrulama
+          uid: blazor/forms-validation
         - name: Bağımlılık ekleme
           uid: blazor/dependency-injection
         - name: Yönlendirme
           uid: blazor/routing
         - name: JavaScript ile birlikte çalışma
           uid: blazor/javascript-interop
+        - name: Barındırma modeli yapılandırması
+          uid: blazor/hosting-model-configuration
+        - name: Bileşen kitaplıkları
+          uid: blazor/class-libraries
         - name: Güvenlik ve Kimlik
           items:
             - name: Genel Bakış
