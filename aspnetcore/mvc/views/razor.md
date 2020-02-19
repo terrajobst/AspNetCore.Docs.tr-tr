@@ -3,14 +3,14 @@ title: ASP.NET Core Razor söz dizimi başvurusu
 author: rick-anderson
 description: Kodu sunucu tabanlı Web sayfalarını eklemek için Razor söz dizimi biçimlendirme hakkında bilgi edinin.
 ms.author: riande
-ms.date: 12/05/2019
+ms.date: 02/12/2020
 uid: mvc/views/razor
-ms.openlocfilehash: 2d47fbc33328ab454616bcabab796df089686d79
-ms.sourcegitcommit: 85564ee396c74c7651ac47dd45082f3f1803f7a2
+ms.openlocfilehash: 0b1eed2816329d62fca4bdb5719825a4197af353
+ms.sourcegitcommit: 6645435fc8f5092fc7e923742e85592b56e37ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77171854"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77447184"
 ---
 # <a name="razor-syntax-reference-for-aspnet-core"></a>ASP.NET Core Razor söz dizimi başvurusu
 
@@ -22,7 +22,7 @@ Razor kod sunucu tabanlı Web sayfalarını eklemek için bir biçimlendirme sö
 
 HTML varsayılan Razor dilidir. HTML Razor işaretlemesi işleme bir HTML dosyasından HTML'yi işlemeye değerinden farklı değildir. *. Cshtml* Razor dosyalarındaki HTML işaretlemesi sunucu tarafından değiştirilmeden işlenir.
 
-## <a name="razor-syntax"></a>Razor sözdizimi
+## <a name="razor-syntax"></a>Razor söz dizimi
 
 Razor, C# HTML 'den ' ye C#geçiş yapmak için `@` sembolünü destekler ve kullanır. Razor değerlendirir C# ifadeleri ve bunları HTML çıktısında oluşturur.
 
@@ -389,7 +389,7 @@ Razor kilit deyimleri kritik bölümlerle korumanın yeteneğine sahiptir:
 }
 ```
 
-### <a name="comments"></a>Yorumlar
+### <a name="comments"></a>Açıklamalar
 
 Razor destekler C# ve HTML yorumlarında:
 
@@ -719,13 +719,13 @@ Bir *. cshtml* dosyasının ilk satırındaki `@page` yönergesi, dosyanın bir 
 
 *Bu senaryo yalnızca Razor bileşenleri (. Razor) için geçerlidir.*
 
-Bileşenlerdeki veri bağlama `@bind` özniteliğiyle gerçekleştirilir. Daha fazla bilgi için bkz. <xref:blazor/components#data-binding>.
+Bileşenlerdeki veri bağlama `@bind` özniteliğiyle gerçekleştirilir. Daha fazla bilgi için bkz. <xref:blazor/data-binding>.
 
 ### <a name="onevent"></a>{EVENT} üzerinde \@
 
 *Bu senaryo yalnızca Razor bileşenleri (. Razor) için geçerlidir.*
 
-Razor, bileşenler için olay işleme özellikleri sağlar. Daha fazla bilgi için bkz. <xref:blazor/components#event-handling>.
+Razor, bileşenler için olay işleme özellikleri sağlar. Daha fazla bilgi için bkz. <xref:blazor/event-handling>.
 
 ::: moniker-end
 
@@ -763,7 +763,7 @@ Bileşen başvuruları (`@ref`) bir bileşen örneğine başvurmak için bir yol
 
 *Bu senaryo yalnızca Razor bileşenleri (. Razor) için geçerlidir.*
 
-`@typeparam` yönergesi, oluşturulan bileşen sınıfı için genel bir tür parametresi bildirir. Daha fazla bilgi için bkz. <xref:blazor/components#generic-typed-components>.
+`@typeparam` yönergesi, oluşturulan bileşen sınıfı için genel bir tür parametresi bildirir. Daha fazla bilgi için bkz. <xref:blazor/templated-components#generic-typed-components>.
 
 ::: moniker-end
 
@@ -901,7 +901,7 @@ Razor anahtar kelimelerinde `@(Razor Keyword)` (örneğin, `@(functions)`) yok e
 * foreach
 * if
 * else
-* Kilit
+* lock
 * anahtarı
 * Deneme
 * Yakalama

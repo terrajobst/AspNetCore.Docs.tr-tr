@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/06/2019
 uid: security/enforcing-ssl
-ms.openlocfilehash: 9efd49bb246a10c4eb49fb1bb0374ae9442d55a1
-ms.sourcegitcommit: 85564ee396c74c7651ac47dd45082f3f1803f7a2
+ms.openlocfilehash: 43f3abfa4bc311ed246f6f2585d522661e492039
+ms.sourcegitcommit: 6645435fc8f5092fc7e923742e85592b56e37ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77172620"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77447158"
 ---
 # <a name="enforce-https-in-aspnet-core"></a>ASP.NET Core 'de HTTPS 'yi zorla
 
@@ -259,7 +259,7 @@ ASP.NET Core 2,1 ve üzeri `UseHsts` genişletme yöntemiyle HSTS uygular. Aşa�
 
 `UseHsts` geliştirmede önerilmez çünkü HSTS ayarları tarayıcılar tarafından yüksek oranda önbelleğe alınabilir. Varsayılan olarak, `UseHsts` yerel geri döngü adresini dışlar.
 
-İlk kez HTTPS 'yi uygulayan üretim ortamları için, <xref:System.TimeSpan> yöntemlerinden birini kullanarak ilk [HstsOptions. maxAge](xref:Microsoft.AspNetCore.HttpsPolicy.HstsOptions.MaxAge*) değerini küçük bir değere ayarlayın. HTTPS altyapısını HTTP 'ye döndürmeniz gerekirse, değeri saat olarak bir tek güne kadar ayarlayın. HTTPS yapılandırmasının sürdürülebilirliği konusunda emin olduktan sonra, HSTS maksimum yaş değerini artırın; yaygın olarak kullanılan bir değer bir yıldır.
+İlk kez HTTPS 'yi uygulayan üretim ortamları için, <xref:System.TimeSpan> yöntemlerinden birini kullanarak ilk [HstsOptions. maxAge](xref:Microsoft.AspNetCore.HttpsPolicy.HstsOptions.MaxAge*) değerini küçük bir değere ayarlayın. HTTPS altyapısını HTTP 'ye döndürmeniz gerekirse, değeri saat olarak bir tek güne kadar ayarlayın. HTTPS yapılandırmasının sürdürülebilirliği konusunda emin olduktan sonra, HSTS `max-age` değerini artırın; yaygın olarak kullanılan bir değer bir yıldır.
 
 Aşağıdaki kod:
 
@@ -277,9 +277,9 @@ Aşağıdaki kod:
 ::: moniker-end
 
 
-* Strict-Transport-Security üstbilgisinin preload parametresini ayarlar. Önyükleme, [RFC HSTS belirtiminin](https://tools.ietf.org/html/rfc6797)bir parçası değildir, ancak Web tarayıcıları tarafından Yeni yüklemede HSTS sitelerini önceden yüklemek için desteklenir. Daha fazla bilgi için bkz. [https://hstspreload.org/](https://hstspreload.org/) .
+* `Strict-Transport-Security` üst bilgisinin preload parametresini ayarlar. Önyükleme, [RFC HSTS belirtiminin](https://tools.ietf.org/html/rfc6797)bir parçası değildir, ancak Web tarayıcıları tarafından Yeni yüklemede HSTS sitelerini önceden yüklemek için desteklenir. Daha fazla bilgi için bkz. [https://hstspreload.org/](https://hstspreload.org/).
 * SSTS ilkesini konak alt etki alanlarını barındıracak şekilde uygulayan [ıncludealt etki alanını](https://tools.ietf.org/html/rfc6797#section-6.1.2)sağlar.
-* Strict-Transport-Security üstbilgisinin Max-Age parametresini açıkça 60 gün olarak ayarlar. Ayarlanmazsa, varsayılan olarak 30 gün olur. Daha fazla bilgi için bkz. [Maksimum yaş yönergesi](https://tools.ietf.org/html/rfc6797#section-6.1.1) .
+* `Strict-Transport-Security` üstbilgisinin `max-age` parametresini açıkça 60 gün olarak ayarlar. Ayarlanmazsa, varsayılan olarak 30 gün olur. Daha fazla bilgi için bkz. [Maksimum yaş yönergesi](https://tools.ietf.org/html/rfc6797#section-6.1.1).
 * Dışlanacak konaklar listesine `example.com` ekler.
 
 `UseHsts` aşağıdaki geri döngü Konakları dışlar:
@@ -294,7 +294,7 @@ Bağlantı güvenliğinin ağın herkese açık kenarından işlendiği bazı ar
 
 HTTPS/HSTS 'yi devre dışı bırakmak için:
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio) 
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio) 
 
 **Https Için Yapılandır** onay kutusunun işaretini kaldırın.
 
@@ -311,7 +311,7 @@ HTTPS/HSTS 'yi devre dışı bırakmak için:
 ::: moniker-end
 
 
-# <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli) 
+# <a name="net-core-cli"></a>[.NET Core CLI](#tab/netcore-cli) 
 
 `--no-https` seçeneğini kullanın. Örneğin:
 
@@ -325,7 +325,7 @@ dotnet new webapp --no-https
 
 ## <a name="trust-the-aspnet-core-https-development-certificate-on-windows-and-macos"></a>Windows ve macOS 'ta ASP.NET Core HTTPS geliştirme sertifikasına güvenin
 
-.NET Core SDK bir HTTPS geliştirme sertifikası içerir. Sertifika, ilk çalıştırma deneyiminin bir parçası olarak yüklenir. Örneğin, `dotnet --info` aşağıdakine benzer bir çıktı üretir:
+.NET Core SDK bir HTTPS geliştirme sertifikası içerir. Sertifika, ilk çalıştırma deneyiminin bir parçası olarak yüklenir. Örneğin, `dotnet --info` aşağıdaki çıkışın bir varyasyonunu üretir:
 
 ```
 ASP.NET Core

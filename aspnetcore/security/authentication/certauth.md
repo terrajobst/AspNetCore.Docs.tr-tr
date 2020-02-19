@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-3.0'
 ms.author: bdorrans
 ms.date: 01/02/2020
 uid: security/authentication/certauth
-ms.openlocfilehash: 9c175439c0313d62c75898f1af097774b06f353a
-ms.sourcegitcommit: e7d4fe6727d423f905faaeaa312f6c25ef844047
+ms.openlocfilehash: 280daa86510d4445c791b6952653122961f13aeb
+ms.sourcegitcommit: 6645435fc8f5092fc7e923742e85592b56e37ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75608151"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77447288"
 ---
 # <a name="configure-certificate-authentication-in-aspnet-core"></a>ASP.NET Core sertifika kimlik doğrulamasını yapılandırma
 
@@ -28,7 +28,7 @@ Sertifika kimlik doğrulaması, genellikle bir ara sunucu veya yük dengeleyicin
 
 Proxy 'lerin ve yük dengeleyicilerin kullanıldığı ortamlarda sertifika kimlik doğrulamasına alternatif olarak, OpenID Connect (OıDC) ile Federasyon Hizmetleri (ADFS) Active Directory.
 
-## <a name="get-started"></a>Başlangıç
+## <a name="get-started"></a>Kullanmaya başlayın
 
 Bir HTTPS sertifikası alın, uygulayın ve [ana bilgisayarınızı](#configure-your-host-to-require-certificates) sertifika gerektirecek şekilde yapılandırın.
 
@@ -236,19 +236,26 @@ Sertifika iletme ara yazılımını yapılandırma hakkında bilgi için bkz. [k
 
 ### <a name="use-certificate-authentication-in-azure-web-apps"></a>Azure Web Apps sertifika kimlik doğrulamasını kullanma
 
+Azure için bir iletme yapılandırması gerekmez. Bu, sertifika iletme ara ortamında zaten kuruldu.
+
+> [!NOTE]
+> Bu, Certificateforwardingara yazılımı 'nın mevcut olmasını gerektirir.
+
+### <a name="use-certificate-authentication-in-custom-web-proxies"></a>Özel Web proxy 'lerinde sertifika kimlik doğrulamasını kullanma
+
 `AddCertificateForwarding` yöntemi şunu belirtmek için kullanılır:
 
 * İstemci üst bilgi adı.
 * Sertifika nasıl yüklenir (`HeaderConverter` özelliği kullanılarak).
 
-Azure Web Apps, sertifika, `X-ARR-ClientCert`adlı özel bir istek üst bilgisi olarak geçirilir. Bunu kullanmak için `Startup.ConfigureServices`sertifika iletmeyi yapılandırın:
+Özel Web proxy 'lerinde, sertifika özel bir istek üst bilgisi olarak geçirilir, örneğin `X-SSL-CERT`. Bunu kullanmak için `Startup.ConfigureServices`sertifika iletmeyi yapılandırın:
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
 {
     services.AddCertificateForwarding(options =>
     {
-        options.CertificateHeader = "X-ARR-ClientCert";
+        options.CertificateHeader = "X-SSL-CERT";
         options.HeaderConverter = (headerValue) =>
         {
             X509Certificate2 clientCertificate = null;
@@ -326,46 +333,80 @@ namespace AspNetCoreCertificateAuthApi
 }
 ```
 
-#### <a name="implement-an-httpclient-using-a-certificate"></a>Sertifika kullanarak bir HttpClient uygulama
+#### <a name="implement-an-httpclient-using-a-certificate-and-the-httpclienthandler"></a>Sertifika ve HttpClientHandler kullanarak bir HttpClient uygulama
 
-Web API istemcisi, bir `IHttpClientFactory` örneği kullanılarak oluşturulan bir `HttpClient`kullanır. Bu, `HttpClient`için bir işleyici tanımlamak için bir yol sağlamaz, bu nedenle sertifikayı `X-ARR-ClientCert` istek başlığına eklemek için bir `HttpRequestMessage` kullanın. Sertifika, `GetRawCertDataString` yöntemi kullanılarak bir dize olarak eklenir. 
+HttpClientHandler, doğrudan HttpClient sınıfının oluşturucusuna eklenebilir. HttpClient örnekleri oluşturulurken dikkatli olunmalıdır. HttpClient daha sonra sertifikayı her bir istekle gönderecek.
 
 ```csharp
-private async Task<JsonDocument> GetApiDataAsync()
+private async Task<JsonDocument> GetApiDataUsingHttpClientHandler()
 {
-    try
+    var cert = new X509Certificate2(Path.Combine(_environment.ContentRootPath, "sts_dev_cert.pfx"), "1234");
+    var handler = new HttpClientHandler();
+    handler.ClientCertificates.Add(cert);
+    var client = new HttpClient(handler);
+     
+    var request = new HttpRequestMessage()
     {
-        // Do not hardcode passwords in production code
-        // Use thumbprint or key vault
-        var cert = new X509Certificate2(
-            Path.Combine(_environment.ContentRootPath, 
-                "sts_dev_cert.pfx"), "1234");
-        var client = _clientFactory.CreateClient();
-        var request = new HttpRequestMessage()
-        {
-            RequestUri = new Uri("https://localhost:44379/api/values"),
-            Method = HttpMethod.Get,
-        };
-
-        request.Headers.Add("X-ARR-ClientCert", cert.GetRawCertDataString());
-        var response = await client.SendAsync(request);
-
-        if (response.IsSuccessStatusCode)
-        {
-            var responseContent = await response.Content.ReadAsStringAsync();
-            var data = JsonDocument.Parse(responseContent);
-
-            return data;
-        }
-
-        throw new ApplicationException(
-            $"Status code: {response.StatusCode}, " +
-            $"Error: {response.ReasonPhrase}");
-    }
-    catch (Exception e)
+        RequestUri = new Uri("https://localhost:44379/api/values"),
+        Method = HttpMethod.Get,
+    };
+    var response = await client.SendAsync(request);
+    if (response.IsSuccessStatusCode)
     {
-        throw new ApplicationException($"Exception {e}");
+        var responseContent = await response.Content.ReadAsStringAsync();
+        var data = JsonDocument.Parse(responseContent);
+        return data;
     }
+ 
+    throw new ApplicationException($"Status code: {response.StatusCode}, Error: {response.ReasonPhrase}");
+}
+```
+
+#### <a name="implement-an-httpclient-using-a-certificate-and-a-named-httpclient-from-ihttpclientfactory"></a>Bir sertifika ve ıhttpclientfactory adlı bir HttpClient kullanarak bir HttpClient uygulama 
+
+Aşağıdaki örnekte, bir istemci sertifikası, işleyicisinden ClientCertificates özelliği kullanılarak bir HttpClientHandler öğesine eklenir. Bu işleyici bundan sonra, ConfigurePrimaryHttpMessageHandler yöntemi kullanılarak bir HttpClient adlandırılmış örneğinde kullanılabilir. Bu, ConfigureServices yöntemindeki başlangıç sınıfında ayarlanır.
+
+```csharp
+var clientCertificate = 
+    new X509Certificate2(
+      Path.Combine(_environment.ContentRootPath, "sts_dev_cert.pfx"), "1234");
+ 
+var handler = new HttpClientHandler();
+handler.ClientCertificates.Add(clientCertificate);
+ 
+services.AddHttpClient("namedClient", c =>
+{
+}).ConfigurePrimaryHttpMessageHandler(() => handler);
+```
+
+Daha sonra ıhttpclientfactory, adlandırılmış örneği işleyicinin ve sertifikayla almak için kullanılabilir. Başlangıç sınıfında tanımlanan istemcinin adına sahip CreateClient yöntemi örneği almak için kullanılır. HTTP isteği, gereken şekilde istemci kullanılarak gönderilebilir.
+
+```csharp
+private readonly IHttpClientFactory _clientFactory;
+ 
+public ApiService(IHttpClientFactory clientFactory)
+{
+    _clientFactory = clientFactory;
+}
+ 
+private async Task<JsonDocument> GetApiDataWithNamedClient()
+{
+    var client = _clientFactory.CreateClient("namedClient");
+ 
+    var request = new HttpRequestMessage()
+    {
+        RequestUri = new Uri("https://localhost:44379/api/values"),
+        Method = HttpMethod.Get,
+    };
+    var response = await client.SendAsync(request);
+    if (response.IsSuccessStatusCode)
+    {
+        var responseContent = await response.Content.ReadAsStringAsync();
+        var data = JsonDocument.Parse(responseContent);
+        return data;
+    }
+ 
+    throw new ApplicationException($"Status code: {response.StatusCode}, Error: {response.ReasonPhrase}");
 }
 ```
 

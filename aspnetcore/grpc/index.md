@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-3.0'
 ms.author: johluo
 ms.date: 09/20/2019
 uid: grpc/index
-ms.openlocfilehash: 2f32bf6e8df2c5b3574c337682cdc2845991630c
-ms.sourcegitcommit: 73e255e846e414821b8cc20ffa3aec946735cd4e
+ms.openlocfilehash: d97eea1da28424680a3cfa38102637b1e20ff661
+ms.sourcegitcommit: 6645435fc8f5092fc7e923742e85592b56e37ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71925170"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77446963"
 ---
 # <a name="introduction-to-grpc-on-net-core"></a>.NET Core 'da gRPC 'ye giriş
 
@@ -33,7 +33,7 @@ Bu avantajlar, gRPC 'yi ideal hale getirir:
 
 ## <a name="c-tooling-support-for-proto-files"></a>C#. Proto dosyaları için araç desteği
 
-gRPC, API geliştirmesi için bir sözleşmenin ilk yaklaşımını kullanır. Hizmetler ve mesajlar  *\*. proto* dosyalarında tanımlanmıştır:
+gRPC, API geliştirmesi için bir sözleşmenin ilk yaklaşımını kullanır. Hizmetler ve mesajlar *\*. proto* dosyalarında tanımlanmıştır:
 
 ```protobuf
 syntax = "proto3";
@@ -51,10 +51,10 @@ message HelloReply {
 }
 ```
 
-Hizmetler, istemciler ve iletiler için .net türleri bir projedeki  *\*. proto* dosyaları eklenerek otomatik olarak oluşturulur:
+Hizmetler, istemciler ve iletiler için .NET türleri, bir projeye *\*. proto* dosyaları eklenerek otomatik olarak oluşturulur:
 
 * [GRPC. Tools](https://www.nuget.org/packages/Grpc.Tools/) paketine bir paket başvurusu ekleyin.
-* *\*. Proto* dosyalarını `<Protobuf>` öğe grubuna ekleyin.
+* `<Protobuf>` öğesi grubuna *\*. proto* dosyaları ekleyin.
 
 ```xml
 <ItemGroup>
@@ -62,7 +62,7 @@ Hizmetler, istemciler ve iletiler için .net türleri bir projedeki  *\*. proto*
 </ItemGroup>
 ```
 
-GRPC araç desteği hakkında daha fazla bilgi için bkz <xref:grpc/basics>.
+GRPC araç desteği hakkında daha fazla bilgi için bkz. <xref:grpc/basics>.
 
 ## <a name="grpc-services-on-aspnet-core"></a>ASP.NET Core gRPC Hizmetleri
 
@@ -92,7 +92,7 @@ public class GreeterService : Greeter.GreeterBase
 }
 ```
 
-`GreeterService`,. proto dosyasındaki `GreeterBase` `Greeter` hizmetten *oluşturulan türden devralır. \** Hizmet, *Startup.cs*içindeki istemciler için erişilebilir hale getirilir:
+`GreeterService`, *\*. proto* dosyasındaki `Greeter` hizmetinden oluşturulan `GreeterBase` türünden devralır. Hizmet, *Startup.cs*içindeki istemciler için erişilebilir hale getirilir:
 
 ```csharp
 app.UseEndpoints(endpoints =>
@@ -101,25 +101,25 @@ app.UseEndpoints(endpoints =>
 });
 ```
 
-ASP.NET Core 'de gRPC hizmetleri hakkında daha fazla bilgi edinmek için <xref:grpc/aspnetcore>bkz.
+ASP.NET Core 'de gRPC hizmetleri hakkında daha fazla bilgi edinmek için bkz. <xref:grpc/aspnetcore>.
 
 ## <a name="call-grpc-services-with-a-net-client"></a>Bir .NET istemcisiyle gRPC hizmetlerini çağırma
 
-GRPC istemcileri [  *\*. proto* dosyalarından oluşturulan](xref:grpc/basics#generated-c-assets)somut istemci türleridir. Somut GRPC istemcisinde  *\*. proto* dosyasındaki GRPC hizmetine çeviren yöntemler vardır.
+gRPC istemcileri [ *\*. proto* dosyalarından oluşturulan](xref:grpc/basics#generated-c-assets)somut istemci türleridir. Somut gRPC istemcisinde *\*. proto* dosyasındaki GRPC hizmetine çeviren yöntemler vardır.
 
 ```csharp
 var channel = GrpcChannel.ForAddress("https://localhost:5001");
 var client = new Greeter.GreeterClient(channel);
 
-var response = await client.SayHello(
+var response = await client.SayHelloAsync(
     new HelloRequest { Name = "World" });
 
 Console.WriteLine(response.Message);
 ```
 
-GRPC istemcisi, bir gRPC hizmeti ile uzun süreli bağlantıyı temsil eden bir kanal kullanılarak oluşturulur. Kullanılarak `GrpcChannel.ForAddress`bir kanal oluşturulabilir.
+GRPC istemcisi, bir gRPC hizmeti ile uzun süreli bağlantıyı temsil eden bir kanal kullanılarak oluşturulur. Kanal, `GrpcChannel.ForAddress`kullanılarak oluşturulabilir.
 
-İstemci oluşturma ve farklı hizmet yöntemlerini çağırma hakkında daha fazla bilgi için bkz <xref:grpc/client>.
+İstemci oluşturma ve farklı hizmet yöntemlerini çağırma hakkında daha fazla bilgi için bkz. <xref:grpc/client>.
 
 [!INCLUDE[](~/includes/gRPCazure.md)]
 

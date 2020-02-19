@@ -9,12 +9,12 @@ ms.date: 01/17/2020
 no-loc:
 - SignalR
 uid: signalr/scale
-ms.openlocfilehash: bb32bb8617f8a3e4170eeb7e38696ee2bbcafe03
-ms.sourcegitcommit: 85564ee396c74c7651ac47dd45082f3f1803f7a2
+ms.openlocfilehash: 260e2f0c16288fec2e0a694d070f357529782d8d
+ms.sourcegitcommit: 6645435fc8f5092fc7e923742e85592b56e37ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77172546"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77447340"
 ---
 # <a name="aspnet-core-signalr-hosting-and-scaling"></a>ASP.NET Core SignalR barındırma ve ölçeklendirme
 
@@ -52,7 +52,7 @@ SignalR kaynak kullanımını diğer Web uygulamalarındaki hatalara neden olmas
 
 Bir SignalR uygulamasında hatalara neden olan SignalR kaynak kullanımını önlemek için, bir sunucunun işleyeceği bağlantı sayısını sınırlamak üzere ölçeği ölçeklendirin.
 
-## <a name="scale-out"></a>Ölçeği genişletme
+## <a name="scale-out"></a>Ölçeklendirme
 
 SignalR kullanan bir uygulamanın, bir sunucu grubu için sorunlar oluşturan tüm bağlantılarını izlemesi gerekir. Bir sunucu ekleyin ve diğer sunucuların hakkında bilgi sahibi olmadığı yeni bağlantıları alır. Örneğin, aşağıdaki diyagramdaki her bir sunucuda SignalR diğer sunuculardaki bağlantılardan haberdar değildir. Sunuculardan birindeki SignalR tüm istemcilere ileti göndermek istediğinde ileti yalnızca bu sunucuya bağlı olan istemcilere gider.
 
@@ -60,7 +60,7 @@ SignalR kullanan bir uygulamanın, bir sunucu grubu için sorunlar oluşturan t�
 
 Bu sorunu çözmeye yönelik seçenekler [Azure SignalR hizmeti](#azure-signalr-service) ve [redsıs arkadüzledir](#redis-backplane).
 
-## <a name="azure-signalr-service"></a>Azure SignalR Service
+## <a name="azure-signalr-service"></a>Azure SignalR Hizmeti
 
 Azure SignalR hizmeti, geri düzlemi yerine bir ara sunucu. İstemci sunucuya bir bağlantı başlattığında, istemci hizmete bağlanmak için yeniden yönlendirilir. Bu işlem aşağıdaki diyagramda gösterilmiştir:
 
@@ -119,6 +119,11 @@ proxy_set_header Connection $connection_upgrade;
 ```
 
 Daha fazla bilgi için bkz. [WebSocket proxy 'si olarak NGINX](https://www.nginx.com/blog/websocket-nginx/).
+
+## <a name="third-party-opno-locsignalr-backplane-providers"></a>Üçüncü taraf SignalR arka düzlem sağlayıcıları
+
+* [NCache](https://www.alachisoft.com/ncache/asp-net-core-signalr.html)
+* [Orleans](https://github.com/OrleansContrib/SignalR.Orleans)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
