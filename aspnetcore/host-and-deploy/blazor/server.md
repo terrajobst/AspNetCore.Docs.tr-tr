@@ -5,17 +5,17 @@ description: ASP.NET Core kullanarak Blazor sunucu uygulamasının nasıl barın
 monikerRange: '>= aspnetcore-3.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/15/2020
+ms.date: 02/12/2020
 no-loc:
 - Blazor
 - SignalR
 uid: host-and-deploy/blazor/server
-ms.openlocfilehash: b928296c45ddb11efcd2c8912cc595c799e65037
+ms.openlocfilehash: a051d51e734fec4315da73d3c4df57706df7f363
 ms.sourcegitcommit: 6645435fc8f5092fc7e923742e85592b56e37ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/19/2020
-ms.locfileid: "77447262"
+ms.locfileid: "77465829"
 ---
 # <a name="host-and-deploy-opno-locblazor-server"></a>Blazor sunucusu barındırma ve dağıtma
 
@@ -87,10 +87,7 @@ Blazor Server uygulamaları için [Azure SignalR hizmetini](/azure/azure-signalr
 
 #### <a name="iis"></a>IIS
 
-IIS kullanırken şunları etkinleştirin:
-
-* [IIS üzerinde WebSockets](xref:fundamentals/websockets#enabling-websockets-on-iis).
-* [Uygulama Isteği yönlendirme Ile yapışkan oturumlar](/iis/extensions/configuring-application-request-routing-arr/http-load-balancing-using-application-request-routing).
+IIS kullanırken, yapışkan oturumlar uygulama Isteği yönlendirme ile etkinleştirilir. Daha fazla bilgi için bkz. [uygulama Isteği yönlendirme kullanarak HTTP yük dengelemesi](/iis/extensions/configuring-application-request-routing-arr/http-load-balancing-using-application-request-routing).
 
 #### <a name="kubernetes"></a>Kubernetes
 

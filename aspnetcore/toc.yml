@@ -295,6 +295,16 @@
           uid: blazor/templates
         - name: Bileşenler
           uid: blazor/components
+        - name: Veri bağlama
+          uid: blazor/data-binding
+        - name: Olay işleme
+          uid: blazor/event-handling
+        - name: Şablonlu bileşenler
+          uid: blazor/templated-components
+        - name: Bileşenleri tümleştirme
+          uid: blazor/integrate-components
+        - name: Genelleştirme ve yerelleştirme
+          uid: blazor/globalization-localization
         - name: Yaşam döngüsü
           uid: blazor/lifecycle
         - name: Düzenler
@@ -335,6 +345,8 @@
               uid: host-and-deploy/blazor/server
             - name: Bağlayıcıyı yapılandırma
               uid: host-and-deploy/blazor/configure-linker
+        - name: Gelişmiş senaryolar
+          uid: blazor/advanced-scenarios
     - name: İstemci tarafı geliştirme
       items:
         - name: Tek Sayfalı Uygulamalar
