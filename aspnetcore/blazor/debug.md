@@ -17,13 +17,13 @@ ms.contentlocale: tr-TR
 ms.lasthandoff: 01/17/2020
 ms.locfileid: "76159995"
 ---
-# <a name="debug-aspnet-core-opno-locblazor"></a>Hata ayıklama ASP.NET Core Blazor
+# <a name="debug-aspnet-core-opno-locblazor"></a>Hata ayıklama ASP.NET Core [!OP.NO-LOC(Blazor)]
 
 [Daniel Roth](https://github.com/danroth27)
 
 [!INCLUDE[](~/includes/blazorwasm-preview-notice.md)]
 
-Kmıum tabanlı tarayıcılarda (Chrome/Edge) tarayıcı geliştirme araçlarını kullanarak Weelsembly Blazor hata ayıklama için *erken* destek mevcuttur. İş şu şekilde devam ediyor:
+Kmıum tabanlı tarayıcılarda (Chrome/Microsoft Edge) tarayıcı geliştirme araçlarını kullanarak Weelsembly [!OP.NO-LOC(Blazor)] hata ayıklama için *erken* destek mevcuttur. İş şu şekilde devam ediyor:
 
 * Visual Studio 'da hata ayıklamayı tamamen etkinleştirin.
 * Visual Studio Code hata ayıklamayı etkinleştir.
@@ -55,15 +55,15 @@ Hata ayıklama aşağıdaki tarayıcılardan birini gerektirir:
 
 ## <a name="procedure"></a>Yordam
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 > [!WARNING]
 > Visual Studio 'da hata ayıklama desteği, daha erken bir geliştirme aşamasıdır. **F5** hata ayıklaması Şu anda desteklenmiyor.
 
-1. Hata ayıklama olmadan `Debug` yapılandırmasında bir Blazor WebAssembly uygulaması çalıştırın ( **F5**yerine**F5+** **F5** ).
-1. Uygulamanın hata ayıklama özelliklerini açın ( **hata ayıklama** menüsünde son giriş) ve http **Uygulama URL**'sini kopyalayın. Bir Kmıum tabanlı tarayıcı (Edge beta veya Chrome) kullanarak uygulamanın HTTP adresine (HTTPS adresine değil) göz atabilirsiniz.
+1. Hata ayıklama olmadan `Debug` yapılandırmasında bir [!OP.NO-LOC(Blazor)] WebAssembly uygulaması çalıştırın ( **F5**yerine**F5+** **F5** ).
+1. Uygulamanın hata ayıklama özelliklerini açın ( **hata ayıklama** menüsünde son giriş) ve http **Uygulama URL**'sini kopyalayın. Bir Kmıum tabanlı tarayıcı (Microsoft Edge beta veya Chrome) kullanarak uygulamanın HTTP adresine (HTTPS adresine değil) göz atabilirsiniz.
 1. Klavye odağını geliştirici araçları paneline değil tarayıcı penceresinde uygulamaya yerleştirin. Geliştirici araçları bölmesinin Bu yordam için kapalı tutulması en iyisidir. Hata ayıklama başlatıldıktan sonra geliştirici araçları panelini yeniden açabilirsiniz.
-1. Aşağıdaki Blazorözgü klavye kısayolunu seçin:
+1. Aşağıdaki [!OP.NO-LOC(Blazor)]özgü klavye kısayolunu seçin:
 
    * Windows üzerinde `Shift+Alt+D`
    * macOS üzerinde `Shift+Cmd+D`
@@ -76,18 +76,18 @@ Hata ayıklama aşağıdaki tarayıcılardan birini gerektirir:
 
    2 \. Klavye odağını uygulamayı tarayıcı penceresinde yerleştirin.
 
-   3 \. Yeni tarayıcı penceresinde Blazorözgü klavye kısayolunu seçin: Windows üzerinde `Shift+Alt+D` veya macOS üzerinde `Shift+Cmd+D`.
+   3 \. Yeni tarayıcı penceresinde [!OP.NO-LOC(Blazor)]özgü klavye kısayolunu seçin: Windows üzerinde `Shift+Alt+D` veya macOS üzerinde `Shift+Cmd+D`.
 
    4 \. **Devtools** sekmesi tarayıcıda açılır. **Tarayıcı penceresinde uygulamanın sekmesini yeniden seçin.**
 
    Uygulamayı Visual Studio 'ya eklemek için, [Visual Studio 'da Işleme iliştirme](#attach-to-process-in-visual-studio) bölümüne bakın.
 
-# <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli/)
+# <a name="net-core-cli"></a>[.NET Core CLI](#tab/netcore-cli/)
 
-1. `--configuration Debug` seçeneğini [DotNet Run](/dotnet/core/tools/dotnet-run) komutuna geçirerek `Debug` yapılandırmasında bir Blazor WebAssembly uygulaması çalıştırın: `dotnet run --configuration Debug`.
+1. `--configuration Debug` seçeneğini [DotNet Run](/dotnet/core/tools/dotnet-run) komutuna geçirerek `Debug` yapılandırmasında bir [!OP.NO-LOC(Blazor)] WebAssembly uygulaması çalıştırın: `dotnet run --configuration Debug`.
 1. Kabuk penceresinde gösterilen HTTP URL 'sindeki uygulamaya gidin.
 1. Klavye odağını geliştirici araçları paneline değil uygulamaya yerleştirin. Geliştirici araçları bölmesinin Bu yordam için kapalı tutulması en iyisidir. Hata ayıklama başlatıldıktan sonra geliştirici araçları panelini yeniden açabilirsiniz.
-1. Aşağıdaki Blazorözgü klavye kısayolunu seçin:
+1. Aşağıdaki [!OP.NO-LOC(Blazor)]özgü klavye kısayolunu seçin:
 
    * Windows üzerinde `Shift+Alt+D`
    * macOS üzerinde `Shift+Cmd+D`
@@ -100,7 +100,7 @@ Hata ayıklama aşağıdaki tarayıcılardan birini gerektirir:
 
    2 \. Klavye odağını geliştirici araçları paneline değil tarayıcı penceresinde uygulamaya yerleştirin.
 
-   3 \. Yeni tarayıcı penceresinde Blazorözgü klavye kısayolunu seçin: Windows üzerinde `Shift+Alt+D` veya macOS üzerinde `Shift+Cmd+D`.
+   3 \. Yeni tarayıcı penceresinde [!OP.NO-LOC(Blazor)]özgü klavye kısayolunu seçin: Windows üzerinde `Shift+Alt+D` veya macOS üzerinde `Shift+Cmd+D`.
 
 ---
 
