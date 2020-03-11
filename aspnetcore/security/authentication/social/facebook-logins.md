@@ -1,5 +1,5 @@
 ---
-title: ASP.NET Core 'da Facebook dış oturum açma kurulumu
+title: ASP.NET core'da Facebook dış oturum açma Kurulumu
 author: rick-anderson
 description: Facebook hesabı kullanıcı kimlik doğrulamasının mevcut bir ASP.NET Core uygulamasına tümleştirilmesini gösteren kod örnekleri ile öğretici.
 ms.author: riande
@@ -8,19 +8,19 @@ ms.date: 12/02/2019
 monikerRange: '>= aspnetcore-3.0'
 uid: security/authentication/facebook-logins
 ms.openlocfilehash: 2e4cc04c6e7ff8e5f5701cc7f9ede73dbc1b4685
-ms.sourcegitcommit: 3b6b0a54b20dc99b0c8c5978400c60adf431072f
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74717152"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78667470"
 ---
-# <a name="facebook-external-login-setup-in-aspnet-core"></a>ASP.NET Core 'da Facebook dış oturum açma kurulumu
+# <a name="facebook-external-login-setup-in-aspnet-core"></a>ASP.NET core'da Facebook dış oturum açma Kurulumu
 
 Tarafından [Valeriy Novyıtskyy](https://github.com/01binary) ve [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 Kod örnekleri ile bu öğreticide, kullanıcılarınızın [önceki sayfada](xref:security/authentication/social/index)oluşturulmuş bir örnek ASP.NET Core 3,0 projesi kullanarak Facebook hesabıyla oturum açmasını nasıl etkinleştireceğinizi gösterilmektedir. [Resmi adımları](https://developers.facebook.com)Izleyerek Facebook uygulama kimliği oluşturarak başladık.
 
-## <a name="create-the-app-in-facebook"></a>Facebook 'ta uygulama oluşturma
+## <a name="create-the-app-in-facebook"></a>İçinde Facebook uygulaması oluşturma
 
 * Projeye [Microsoft. AspNetCore. Authentication. Facebook](https://www.nuget.org/packages/Microsoft.AspNetCore.Authentication.Facebook) NuGet paketini ekleyin.
 
@@ -28,11 +28,11 @@ Kod örnekleri ile bu öğreticide, kullanıcılarınızın [önceki sayfada](xr
 
 * Yeni bir uygulama KIMLIĞI oluşturmak için **uygulamalarım** menüsünde **uygulama oluştur** ' u seçin.
 
-   ![Microsoft Edge 'de açık geliştiriciler portalı için Facebook](index/_static/FBMyApps.png)
+   ![Microsoft Edge'de Facebook geliştiriciler portalı açın](index/_static/FBMyApps.png)
 
 * Formu doldurun ve **uygulama kimliği oluştur** düğmesine dokunun.
 
-  ![Yeni bir uygulama KIMLIĞI formu oluşturun](index/_static/FBNewAppId.png)
+  ![Yeni uygulama Kimliğini formu oluşturma](index/_static/FBNewAppId.png)
 
 * Yeni uygulama kartında **Ürün Ekle**' yi seçin.  **Facebook oturum açma** kartında **Ayarla** ' ya tıklayın. 
 
@@ -40,11 +40,11 @@ Kod örnekleri ile bu öğreticide, kullanıcılarınızın [önceki sayfada](xr
 
 * **Hızlı başlangıç** Sihirbazı, ilk sayfa olarak **bir platform Seç** ile başlatılır. Sol alt taraftaki menüdeki **Facebook oturum açma** **ayarları** bağlantısına tıklayarak Sihirbazı Şimdi atlayın:
 
-  ![hızlı başlangıç atla](index/_static/FBSkipQuickStart.png)
+  ![Ziyaretimde hızlı başlangıç](index/_static/FBSkipQuickStart.png)
 
 * **Istemci OAuth ayarları** sayfası görüntülenir:
 
-  ![İstemci OAuth ayarları sayfası](index/_static/FBOAuthSetup.png)
+  ![İstemci OAuth Ayarları sayfası](index/_static/FBOAuthSetup.png)
 
 * **Geçerli OAuth yeniden yönlendirme URI 'leri** alanına */SignIn-Facebook* eklenmiş olan geliştirme URI 'nizi girin (örneğin: `https://localhost:44320/signin-facebook`). Bu öğreticide daha sonra yapılandırılan Facebook kimlik doğrulaması, OAuth akışını uygulamak için */SignIn-Facebook* rotasındaki istekleri otomatik olarak işleymeyecektir.
 
@@ -55,11 +55,11 @@ Kod örnekleri ile bu öğreticide, kullanıcılarınızın [önceki sayfada](xr
 
 * Sol gezinti bölmesinde **ayarlar** > **temel** bağlantı ' ya tıklayın.
 
-  Bu sayfada, `App ID` ve `App Secret`bir kopyasını alın. Bir sonraki bölümde ASP.NET Core uygulamanıza her ikisini de ekleyeceksiniz:
+  Bu sayfada, `App ID` ve `App Secret`bir kopyasını alın. Sonraki bölümde, ASP.NET Core uygulamasına hem de ekleyeceksiniz:
 
 * Siteyi dağıttığınızda **Facebook oturum açma** kurulumu sayfasını yeniden ziyaret etmeniz ve yeni BIR ortak URI kaydetmeniz gerekir.
 
-## <a name="store-facebook-app-id-and-app-secret"></a>Facebook uygulama KIMLIĞI ve uygulama gizli anahtarını depolayın
+## <a name="store-facebook-app-id-and-app-secret"></a>Facebook uygulama Kimliğiniz ve parolanız App Store
 
 Gizli ayarları, Facebook `App ID` ve `App Secret` gibi hassas ayarları, uygulama yapılandırmanıza [gizli yönetici](xref:security/app-secrets)kullanarak bağlayın. Bu öğreticinin amaçları doğrultusunda belirteçleri `Authentication:Facebook:AppId` ve `Authentication:Facebook:AppSecret`adlandırın.
 
@@ -88,42 +88,42 @@ services.AddAuthentication().AddFacebook(facebookOptions =>
 
 [!INCLUDE[](includes/chain-auth-providers.md)]
 
-Facebook kimlik doğrulaması tarafından desteklenen yapılandırma seçenekleri hakkında daha fazla bilgi için bkz. çok [yönlü Bookoptions](/dotnet/api/microsoft.aspnetcore.builder.facebookoptions) API başvurusu. Yapılandırma seçenekleri şu şekilde kullanılabilir:
+Facebook kimlik doğrulaması tarafından desteklenen yapılandırma seçenekleri hakkında daha fazla bilgi için bkz. çok [yönlü Bookoptions](/dotnet/api/microsoft.aspnetcore.builder.facebookoptions) API başvurusu. İçin yapılandırma seçenekleri kullanılabilir:
 
-* Kullanıcı hakkında farklı bilgiler isteyin.
-* Oturum açma deneyimini özelleştirmek için sorgu dizesi bağımsız değişkenleri ekleyin.
+* Kullanıcı ile ilgili farklı bilgi isteyin.
+* Oturum açma deneyimi özelleştirmek için sorgu dizesi bağımsız değişkenleri ekleyin.
 
 ## <a name="sign-in-with-facebook"></a>Facebook ile oturum açma
 
-Uygulamanızı çalıştırın ve **oturum aç**' a tıklayın. Facebook ile oturum açma seçeneği görürsünüz.
+Uygulamanızı çalıştırın ve **oturum aç**' a tıklayın. Facebook ile oturum açmak için bir seçenek görürsünüz.
 
-![Web uygulaması: kimliği doğrulanmamış Kullanıcı](index/_static/DoneFacebook.png)
+![Web uygulaması: kullanıcı kimliği](index/_static/DoneFacebook.png)
 
 **Facebook**'a tıkladığınızda, kimlik doğrulama için Facebook 'a yönlendirilirsiniz:
 
-![Facebook kimlik doğrulama sayfası](index/_static/FBLogin.png)
+![Facebook kimlik doğrulaması sayfası](index/_static/FBLogin.png)
 
-Facebook kimlik doğrulaması, varsayılan olarak genel profil ve e-posta adresini ister:
+Facebook kimlik doğrulaması varsayılan olarak genel profil ve e-posta adresi ister:
 
-![Facebook kimlik doğrulama sayfası onay ekranı](index/_static/FBLoginDone.png)
+![Facebook kimlik doğrulaması sayfası onay ekranı](index/_static/FBLoginDone.png)
 
-Facebook kimlik bilgilerinizi girdikten sonra, e-postanızı ayarlayabileceğiniz sitenize geri yönlendirilirsiniz.
+Facebook kimlik bilgilerinizi girdikten sonra e-postanızı ayarlayabildiğiniz sitenize geri yönlendirilir.
 
-Artık Facebook kimlik bilgilerinizi kullanarak oturumunuz açıldı:
+Şimdi, Facebook kimlik bilgilerinizi kullanarak kaydedilir:
 
-![Web uygulaması: kullanıcının kimliği doğrulandı](index/_static/Done.png)
+![Web uygulaması: kimliği doğrulanmış kullanıcı](index/_static/Done.png)
 
 [!INCLUDE[Forward request information when behind a proxy or load balancer section](includes/forwarded-headers-middleware.md)]
 
 ## <a name="troubleshooting"></a>Sorun giderme
 
-* **Yalnızca 2. x ASP.NET Core:** Kimlik, `ConfigureServices``services.AddIdentity` çağırarak yapılandırılmamışsa, kimlik doğrulamaya çalışmak ArgumentException ile sonuçlanır *: ' Signınscheme ' seçeneği sağlanmalıdır*. Bu öğreticide kullanılan proje şablonu bunun yapılmasını sağlar.
+* **Yalnızca 2. x ASP.NET Core:** Kimlik, `ConfigureServices``services.AddIdentity` çağırarak yapılandırılmamışsa, kimlik doğrulamaya çalışmak ArgumentException ile sonuçlanır *: ' Signınscheme ' seçeneği sağlanmalıdır*. Bu öğreticide kullanılan proje şablonu, bu gerçekleştirilir sağlar.
 * Site veritabanı ilk geçiş uygulanarak oluşturulmadıysa, *istek hatasını Işlerken bir veritabanı işlemi başarısız oldu* . Veritabanını oluşturmak için **geçişleri Uygula** ' ya dokunun ve hatanın ötesinde devam etmek için yenileyin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* Bu makalede Facebook ile kimlik doğrulaması yapabilirsiniz. [Önceki sayfada](xref:security/authentication/social/index)listelenen diğer sağlayıcılarla kimlik doğrulaması yapmak için benzer bir yaklaşımı izleyebilirsiniz.
+* Bu makalede, Facebook ile kimliğini nasıl doğrulayabileceğiniz gösterdi. [Önceki sayfada](xref:security/authentication/social/index)listelenen diğer sağlayıcılarla kimlik doğrulaması yapmak için benzer bir yaklaşımı izleyebilirsiniz.
 
 * Web sitenizi Azure Web App 'e yayımladığınızda, Facebook Geliştirici portalındaki `AppSecret` sıfırlamanız gerekir.
 
-* `Authentication:Facebook:AppId` ve `Authentication:Facebook:AppSecret` Azure portal uygulama ayarları olarak ayarlayın. Yapılandırma sistemi, ortam değişkenlerinden anahtarları okumak üzere ayarlanır.
+* `Authentication:Facebook:AppId` ve `Authentication:Facebook:AppSecret` Azure portal uygulama ayarları olarak ayarlayın. Yapılandırma sistemi ortam değişkenlerinden anahtarları okumak için ayarlanır.

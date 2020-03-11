@@ -1,28 +1,28 @@
 ---
 title: ASP.NET Core bağımlılık ekleme
-author: guardrex
+author: rick-anderson
 description: ASP.NET Core bağımlılık ekleme ve nasıl kullanılacağı hakkında bilgi edinin.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
 ms.date: 02/05/2020
 uid: fundamentals/dependency-injection
-ms.openlocfilehash: 7c0789dafcb7dfacd15ac448a39bad94649963c8
-ms.sourcegitcommit: bd896935e91236e03241f75e6534ad6debcecbbf
+ms.openlocfilehash: 3080d1a19bb48996e2bc7a3ce824f48bfc1bcbce
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77044927"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78663767"
 ---
 # <a name="dependency-injection-in-aspnet-core"></a>ASP.NET Core bağımlılık ekleme
 
-[Steve Smith](https://ardalis.com/), [Scott Ade](https://scottaddie.com)ve [Luke Latham](https://github.com/guardrex) tarafından
+, [Steve Smith](https://ardalis.com/) ve [Scott Ade](https://scottaddie.com) tarafından
 
 ASP.NET Core, sınıflar ve bunların bağımlılıkları arasında [denetimin INVERSION (IoC)](/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#dependency-inversion) elde etmek için bir teknik olan bağımlılık ekleme (dı) yazılım tasarım modelini destekler.
 
 MVC denetleyicileri içindeki bağımlılık eklenmesine özgü daha fazla bilgi için bkz. <xref:mvc/controllers/dependency-injection>.
 
-[Örnek kodu görüntüleme veya indirme](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/dependency-injection/samples) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
+[Örnek kodu görüntüleme veya indirme](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/dependency-injection/samples) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
 
 ## <a name="overview-of-dependency-injection"></a>Bağımlılık eklenmesine genel bakış
 
@@ -72,7 +72,7 @@ Bağımlılık ekleme bu sorunları şu şekilde giderir:
 * Bir hizmet kapsayıcısına bağımlılığın kaydı. ASP.NET Core yerleşik bir hizmet kapsayıcısı sağlar <xref:System.IServiceProvider>. Hizmetler, uygulamanın `Startup.ConfigureServices` yöntemine kaydedilir.
 * Hizmetin kullanıldığı sınıf oluşturucusuna *ekleme* . Çerçeve, bağımlılığın bir örneğini oluşturma ve artık gerekli olmadığında bu uygulamayı atma sorumluluğunu alır.
 
-[Örnek uygulamada](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/dependency-injection/samples), `IMyDependency` arabirimi hizmetin uygulamaya sağladığı bir yöntemi tanımlar:
+[Örnek uygulamada](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/dependency-injection/samples), `IMyDependency` arabirimi hizmetin uygulamaya sağladığı bir yöntemi tanımlar:
 
 ::: moniker range=">= aspnetcore-3.0"
 
@@ -187,19 +187,19 @@ Daha fazla bilgi için bkz. <xref:fundamentals/startup>.
 | Hizmet Türü | Ömür |
 | ------------ | -------- |
 | <xref:Microsoft.AspNetCore.Hosting.Builder.IApplicationBuilderFactory?displayProperty=fullName> | Geçici |
-| `IHostApplicationLifetime` | Adet |
-| `IWebHostEnvironment` | Adet |
-| <xref:Microsoft.AspNetCore.Hosting.IStartup?displayProperty=fullName> | Adet |
+| `IHostApplicationLifetime` | adet |
+| `IWebHostEnvironment` | adet |
+| <xref:Microsoft.AspNetCore.Hosting.IStartup?displayProperty=fullName> | adet |
 | <xref:Microsoft.AspNetCore.Hosting.IStartupFilter?displayProperty=fullName> | Geçici |
-| <xref:Microsoft.AspNetCore.Hosting.Server.IServer?displayProperty=fullName> | Adet |
+| <xref:Microsoft.AspNetCore.Hosting.Server.IServer?displayProperty=fullName> | adet |
 | <xref:Microsoft.AspNetCore.Http.IHttpContextFactory?displayProperty=fullName> | Geçici |
-| <xref:Microsoft.Extensions.Logging.ILogger`1?displayProperty=fullName> | Adet |
-| <xref:Microsoft.Extensions.Logging.ILoggerFactory?displayProperty=fullName> | Adet |
-| <xref:Microsoft.Extensions.ObjectPool.ObjectPoolProvider?displayProperty=fullName> | Adet |
+| <xref:Microsoft.Extensions.Logging.ILogger`1?displayProperty=fullName> | adet |
+| <xref:Microsoft.Extensions.Logging.ILoggerFactory?displayProperty=fullName> | adet |
+| <xref:Microsoft.Extensions.ObjectPool.ObjectPoolProvider?displayProperty=fullName> | adet |
 | <xref:Microsoft.Extensions.Options.IConfigureOptions`1?displayProperty=fullName> | Geçici |
-| <xref:Microsoft.Extensions.Options.IOptions`1?displayProperty=fullName> | Adet |
-| <xref:System.Diagnostics.DiagnosticSource?displayProperty=fullName> | Adet |
-| <xref:System.Diagnostics.DiagnosticListener?displayProperty=fullName> | Adet |
+| <xref:Microsoft.Extensions.Options.IOptions`1?displayProperty=fullName> | adet |
+| <xref:System.Diagnostics.DiagnosticSource?displayProperty=fullName> | adet |
+| <xref:System.Diagnostics.DiagnosticListener?displayProperty=fullName> | adet |
 
 ::: moniker-end
 
@@ -208,19 +208,19 @@ Daha fazla bilgi için bkz. <xref:fundamentals/startup>.
 | Hizmet Türü | Ömür |
 | ------------ | -------- |
 | <xref:Microsoft.AspNetCore.Hosting.Builder.IApplicationBuilderFactory?displayProperty=fullName> | Geçici |
-| <xref:Microsoft.AspNetCore.Hosting.IApplicationLifetime?displayProperty=fullName> | Adet |
-| <xref:Microsoft.AspNetCore.Hosting.IHostingEnvironment?displayProperty=fullName> | Adet |
-| <xref:Microsoft.AspNetCore.Hosting.IStartup?displayProperty=fullName> | Adet |
+| <xref:Microsoft.AspNetCore.Hosting.IApplicationLifetime?displayProperty=fullName> | adet |
+| <xref:Microsoft.AspNetCore.Hosting.IHostingEnvironment?displayProperty=fullName> | adet |
+| <xref:Microsoft.AspNetCore.Hosting.IStartup?displayProperty=fullName> | adet |
 | <xref:Microsoft.AspNetCore.Hosting.IStartupFilter?displayProperty=fullName> | Geçici |
-| <xref:Microsoft.AspNetCore.Hosting.Server.IServer?displayProperty=fullName> | Adet |
+| <xref:Microsoft.AspNetCore.Hosting.Server.IServer?displayProperty=fullName> | adet |
 | <xref:Microsoft.AspNetCore.Http.IHttpContextFactory?displayProperty=fullName> | Geçici |
-| <xref:Microsoft.Extensions.Logging.ILogger`1?displayProperty=fullName> | Adet |
-| <xref:Microsoft.Extensions.Logging.ILoggerFactory?displayProperty=fullName> | Adet |
-| <xref:Microsoft.Extensions.ObjectPool.ObjectPoolProvider?displayProperty=fullName> | Adet |
+| <xref:Microsoft.Extensions.Logging.ILogger`1?displayProperty=fullName> | adet |
+| <xref:Microsoft.Extensions.Logging.ILoggerFactory?displayProperty=fullName> | adet |
+| <xref:Microsoft.Extensions.ObjectPool.ObjectPoolProvider?displayProperty=fullName> | adet |
 | <xref:Microsoft.Extensions.Options.IConfigureOptions`1?displayProperty=fullName> | Geçici |
-| <xref:Microsoft.Extensions.Options.IOptions`1?displayProperty=fullName> | Adet |
-| <xref:System.Diagnostics.DiagnosticSource?displayProperty=fullName> | Adet |
-| <xref:System.Diagnostics.DiagnosticListener?displayProperty=fullName> | Adet |
+| <xref:Microsoft.Extensions.Options.IOptions`1?displayProperty=fullName> | adet |
+| <xref:System.Diagnostics.DiagnosticSource?displayProperty=fullName> | adet |
+| <xref:System.Diagnostics.DiagnosticListener?displayProperty=fullName> | adet |
 
 ::: moniker-end
 
@@ -261,7 +261,7 @@ Kapsamlı ömür Hizmetleri (<xref:Microsoft.Extensions.DependencyInjection.Serv
 > [!WARNING]
 > Bir ara yazılım içinde kapsamlı bir hizmet kullanırken, hizmeti `Invoke` veya `InvokeAsync` yöntemine ekleyin. Oluşturucu ekleme yoluyla ekleme, hizmeti tek bir gibi davranmaya zoryor. Daha fazla bilgi için bkz. <xref:fundamentals/middleware/write#per-request-middleware-dependencies>.
 
-### <a name="singleton"></a>Adet
+### <a name="singleton"></a>adet
 
 Tek yaşam süresi Hizmetleri (<xref:Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton*>), ilk istendiğinde oluşturulur (veya `Startup.ConfigureServices` çalıştırıldığında ve hizmet kaydıyla bir örnek belirtildiğinde). Her sonraki istek aynı örneği kullanır. Uygulama tek davranış gerektiriyorsa, hizmet kapsayıcısının hizmetin ömrünü yönetmesine izin verilmesi önerilir. Tekil tasarım modelini uygulamayın ve nesnenin sınıfındaki ömrünü yönetmek için Kullanıcı kodu sağlayın.
 
@@ -272,13 +272,13 @@ Tek yaşam süresi Hizmetleri (<xref:Microsoft.Extensions.DependencyInjection.Se
 
 Hizmet kayıt uzantısı yöntemleri, belirli senaryolarda yararlı olan aşırı yüklemeler sunar.
 
-| Yöntem | Otomatik<br>nesne<br>elden | Birden Çok<br>uygulamalar | Geçiş bağımsız değişkenleri |
+| Yöntem | Otomatik<br>object<br>elden | Birden çok<br>uygulamalar | Geçiş bağımsız değişkenleri |
 | ------ | :-----------------------------: | :-------------------------: | :-------: |
-| `Add{LIFETIME}<{SERVICE}, {IMPLEMENTATION}>()`<br>Örnek:<br>`services.AddSingleton<IMyDep, MyDep>();` | Evet | Evet | Hayır |
-| `Add{LIFETIME}<{SERVICE}>(sp => new {IMPLEMENTATION})`<br>Örnekler:<br>`services.AddSingleton<IMyDep>(sp => new MyDep());`<br>`services.AddSingleton<IMyDep>(sp => new MyDep("A string!"));` | Evet | Evet | Evet |
-| `Add{LIFETIME}<{IMPLEMENTATION}>()`<br>Örnek:<br>`services.AddSingleton<MyDep>();` | Evet | Hayır | Hayır |
-| `AddSingleton<{SERVICE}>(new {IMPLEMENTATION})`<br>Örnekler:<br>`services.AddSingleton<IMyDep>(new MyDep());`<br>`services.AddSingleton<IMyDep>(new MyDep("A string!"));` | Hayır | Evet | Evet |
-| `AddSingleton(new {IMPLEMENTATION})`<br>Örnekler:<br>`services.AddSingleton(new MyDep());`<br>`services.AddSingleton(new MyDep("A string!"));` | Hayır | Hayır | Evet |
+| `Add{LIFETIME}<{SERVICE}, {IMPLEMENTATION}>()`<br>Örnek:<br>`services.AddSingleton<IMyDep, MyDep>();` | Yes | Yes | Hayır |
+| `Add{LIFETIME}<{SERVICE}>(sp => new {IMPLEMENTATION})`<br>Örnekler:<br>`services.AddSingleton<IMyDep>(sp => new MyDep());`<br>`services.AddSingleton<IMyDep>(sp => new MyDep("A string!"));` | Yes | Yes | Yes |
+| `Add{LIFETIME}<{IMPLEMENTATION}>()`<br>Örnek:<br>`services.AddSingleton<MyDep>();` | Yes | Hayır | Hayır |
+| `AddSingleton<{SERVICE}>(new {IMPLEMENTATION})`<br>Örnekler:<br>`services.AddSingleton<IMyDep>(new MyDep());`<br>`services.AddSingleton<IMyDep>(new MyDep("A string!"));` | Hayır | Yes | Yes |
+| `AddSingleton(new {IMPLEMENTATION})`<br>Örnekler:<br>`services.AddSingleton(new MyDep());`<br>`services.AddSingleton(new MyDep("A string!"));` | Hayır | Hayır | Yes |
 
 Tür çıkarma hakkında daha fazla bilgi için [Hizmetler 'In aktiften çıkarılması](#disposal-of-services) bölümüne bakın. Birden çok uygulama için yaygın bir senaryo, [test için bir sahte işlem türüdür](xref:test/integration-tests#inject-mock-services).
 
@@ -292,7 +292,7 @@ services.AddSingleton<IMyDependency, MyDependency>();
 services.TryAddSingleton<IMyDependency, DifferentDependency>();
 ```
 
-Daha fazla bilgi için bkz.:
+Daha fazla bilgi için bkz.
 
 * <xref:Microsoft.Extensions.DependencyInjection.Extensions.ServiceCollectionDescriptorExtensions.TryAdd*>
 * <xref:Microsoft.Extensions.DependencyInjection.Extensions.ServiceCollectionDescriptorExtensions.TryAddTransient*>

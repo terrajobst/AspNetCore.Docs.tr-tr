@@ -1,75 +1,75 @@
 ---
-title: Visual Studio'da ASP.NET Core ile LibMan kullanın
+title: Visual Studio 'da ASP.NET Core LibMan kullanma
 author: scottaddie
-description: Visual Studio ile ASP.NET Core projesinde LibMan kullanmayı öğrenin.
+description: Visual Studio ile ASP.NET Core projesindeki LibMan 'ı nasıl kullanacağınızı öğrenin.
 ms.author: scaddie
 ms.custom: mvc
 ms.date: 08/20/2018
 uid: client-side/libman/libman-vs
-ms.openlocfilehash: ebfb405516d968bf5d5b8cff956a9892457027f2
-ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
+ms.openlocfilehash: e92e6bc28ec58b26785dd6c79e71512368202a26
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67813468"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78658314"
 ---
-# <a name="use-libman-with-aspnet-core-in-visual-studio"></a>Visual Studio'da ASP.NET Core ile LibMan kullanın
+# <a name="use-libman-with-aspnet-core-in-visual-studio"></a>Visual Studio 'da ASP.NET Core LibMan kullanma
 
-Tarafından [Scott Addie](https://twitter.com/Scott_Addie)
+[Scott Ade](https://twitter.com/Scott_Addie) tarafından
 
-Visual Studio için yerleşik desteği vardır [LibMan](xref:client-side/libman/index) dahil olmak üzere, ASP.NET Core projelerinde:
+Visual Studio, aşağıdakiler dahil olmak üzere ASP.NET Core projelerinde [Libman](xref:client-side/libman/index) için yerleşik desteğe sahiptir:
 
-* Yapılandırma ve yapı LibMan geri yükleme işlemleri çalıştırma desteği.
-* LibMan geri yükleme ve temizleme işlemlerini tetikleme menü öğeleri.
-* Kitaplıkları bulma ve dosyalar projeye ekleme için arama iletişim kutusu.
-* Düzenleme için desteği *libman.json*&mdash;LibMan bildirim dosyası.
+* Derlemede LibMan geri yükleme işlemlerini yapılandırma ve çalıştırma desteği.
+* LibMan geri yükleme ve temizleme işlemlerini tetikleyen menü öğeleri.
+* Kitaplıkları bulmak ve dosyaları bir projeye eklemek için arama iletişim kutusu.
+* Libman *. JSON* için Düzen desteğini Libman bildirim dosyası&mdash;.
 
-[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/client-side/libman/samples/) [(karşıdan yükleme)](xref:index#how-to-download-a-sample)
+[Örnek kodu görüntüleme veya indirme](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/client-side/libman/samples/) [(nasıl indirileceği)](xref:index#how-to-download-a-sample)
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-* [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=inline+link&utm_content=download+vs2019) ile **ASP.NET ve web geliştirme** iş yükü
+* **ASP.net ve Web geliştirme** iş yüküyle [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=inline+link&utm_content=download+vs2019)
 
 ## <a name="add-library-files"></a>Kitaplık dosyaları Ekle
 
-Kitaplık dosyalarını bir ASP.NET Core projesi için iki farklı şekilde eklenebilir:
+Kitaplık dosyaları, ASP.NET Core projesine iki farklı şekilde eklenebilir:
 
-1. [İstemci tarafı kitaplık Ekle iletişim kutusunu kullanın](#use-the-add-client-side-library-dialog)
-1. [LibMan bildirim dosyası girişlerini el ile yapılandırma](#manually-configure-libman-manifest-file-entries)
+1. [Istemci tarafı kitaplığı Ekle iletişim kutusunu kullanın](#use-the-add-client-side-library-dialog)
+1. [LibMan bildirim dosyası girişlerini el ile yapılandır](#manually-configure-libman-manifest-file-entries)
 
-### <a name="use-the-add-client-side-library-dialog"></a>İstemci tarafı kitaplık Ekle iletişim kutusunu kullanın
+### <a name="use-the-add-client-side-library-dialog"></a>Istemci tarafı kitaplığı Ekle iletişim kutusunu kullanın
 
-Bir istemci-tarafı kitaplığını yüklemek için aşağıdaki adımları izleyin:
+İstemci tarafı kitaplığı yüklemek için şu adımları izleyin:
 
-* İçinde **Çözüm Gezgini**, hangi dosyaların eklenmelidir proje klasörüne sağ tıklayın. Seçin **ekleme** > **istemci tarafı kitaplık**. **İstemci tarafı kitaplık Ekle** iletişim kutusu görüntülenir:
+* **Çözüm Gezgini**, dosyaların eklenmesi gereken proje klasörüne sağ tıklayın.  > **Istemci tarafı kitaplığı** **Ekle** ' yi seçin. **Istemci tarafı kitaplığı Ekle** iletişim kutusu görünür:
 
-  ![İstemci tarafı kitaplık iletişim kutusu Ekle](_static/add-library-dialog.png)
+  ![Istemci tarafı kitaplığı Ekle iletişim kutusu](_static/add-library-dialog.png)
 
-* Kitaplık sağlayıcısından seçin **sağlayıcısı** açılır. CDNJS varsayılan sağlayıcıdır.
-* İçinde getirilecek kitaplığı adı **Kitaplığı** metin kutusu. IntelliSense belirtilen metinle başlayan kitaplıkların bir listesi sağlar.
-* IntelliSense listeden kitaplığı seçin. Bildirimi kitaplık adı soneki ile `@` sembol ve seçili sağlayıcıya bilinen en son kararlı sürümü.
-* Dahil etmek için hangi dosyaların karar verin:
-  * Seçin **tüm kitaplık dosyalarını dahil et** tüm kitaplık dosyalarını içerecek şekilde radyo düğmesi.
-  * Seçin **belirli dosyaları seçin** kitaplığın dosyaların bir alt kümesine eklenecek radyo düğmesi. Dosya Seçici ağaç radyo düğmesi seçili olduğunda etkindir. İndirmek için dosya adlarını sol tarafındaki kutuları işaretleyin.
-* Dosyaları depolamak için proje klasörü belirtin **hedef konum** metin kutusu. Bir öneri olarak, her kitaplık ayrı bir klasörde depolar.
+* **Sağlayıcı** açılan listesinden kitaplık sağlayıcısını seçin. CDNJS varsayılan sağlayıcıdır.
+* **Kitaplık** metin kutusuna getirilecek kitaplık adını yazın. IntelliSense, sağlanan metinle başlayan kitaplıkların bir listesini sağlar.
+* IntelliSense listesinden kitaplığı seçin. Kitaplık adının `@` simgesiyle ve seçili sağlayıcının bilinen en son kararlı sürümüyle sonekli olduğuna dikkat edin.
+* Hangi dosyaları içerecek olduğuna karar verin:
+  * Tüm kitaplık dosyalarını dahil etmek için **tüm kitaplık dosyalarını dahil et** radyo düğmesini seçin.
+  * Kitaplık dosyalarının bir alt kümesini dahil etmek için **belirli dosyaları seç** radyo düğmesini seçin. Radyo düğmesi seçildiğinde, dosya seçici ağacı etkinleştirilir. İndirilecek dosya adlarının solundaki kutuları işaretleyin.
+* **Hedef konum** metin kutusunda dosyaları depolamak için proje klasörünü belirtin. Öneri olarak, her kitaplığı ayrı bir klasörde saklayın.
 
-  Önerilen **hedef konum** klasör konumu iletişim kutusu, başlatılan dayanır:
+  Önerilen **hedef konum** klasörü, iletişim kutusunun başlatıldığı konuma göre belirlenir:
 
-  * Başlatılan proje kök ise:
-    * *wwwroot/lib* kullanılır *wwwroot* bulunmaktadır.
-    * *LIB* kullanılır *wwwroot* yok.
-  * Başlatılan proje klasöründen, karşılık gelen klasörü adı kullanılır.
+  * Proje kökünden başlatıldığında:
+    * *Wwwroot* varsa, *Wwwroot/lib* kullanılır.
+    * *Wwwroot* yoksa *lib* kullanılır.
+  * Bir proje klasöründen başlatılmışsa, karşılık gelen klasör adı kullanılır.
 
-  Klasör öneri kitaplık adı ile soneki. Aşağıdaki tabloda, jQuery Razor sayfaları projesinde yüklerken klasör öneriler gösterilmektedir.
+  Klasör önerisi, Kitaplık adı ile sonekli olarak düzeltilir. Aşağıdaki tabloda, bir Razor Pages projesine jQuery yükleme sırasında klasör önerileri gösterilmektedir.
   
-  |Başlatma konumu                           |Önerilen klasörü      |
+  |Başlatma konumu                           |Önerilen klasör      |
   |------------------------------------------|----------------------|
-  |Proje kök dizinini (varsa *wwwroot* var)        |*wwwroot/lib/jquery /* |
-  |Proje kök dizinini (varsa *wwwroot* yok) |*lib/jquery/*         |
-  |*Sayfaları* proje klasöründe                 |*Sayfa/jquery /*       |
+  |Proje kökü ( *Wwwroot* varsa)        |*Wwwroot/LIB/jQuery/* |
+  |Proje kökü ( *Wwwroot* yoksa) |*LIB/jQuery/*         |
+  |Projedeki *Sayfalar* klasörü                 |*Sayfa/jQuery/*       |
 
-* Tıklayın **yükleme** başına yapılandırma dosyalarını indirmek için düğmeye *libman.json*.
-* Gözden geçirme **Kitaplık Yöneticisi** akışı **çıkış** yükleme Ayrıntıları penceresi. Örneğin:
+* Dosyaları *Libman. JSON*' da yapılandırmaya göre Indirmek için **Yükle** düğmesine tıklayın.
+* Yükleme ayrıntıları için **Çıkış** penceresinin **Kitaplık Yöneticisi** akışını gözden geçirin. Örnek:
 
   ```console
   Restore operation started...
@@ -82,53 +82,53 @@ Bir istemci-tarafı kitaplığını yüklemek için aşağıdaki adımları izle
   1 libraries restored in 2.32 seconds
   ```
 
-### <a name="manually-configure-libman-manifest-file-entries"></a>LibMan bildirim dosyası girişlerini el ile yapılandırma
+### <a name="manually-configure-libman-manifest-file-entries"></a>LibMan bildirim dosyası girişlerini el ile yapılandır
 
-Proje kök 's LibMan bildiriminin içeriği üzerinde Visual Studio'da tüm LibMan işlemleri temel alır (*libman.json*). El ile düzenleyebilirsiniz *libman.json* proje için kitaplık dosyalarını yapılandırmak için. Visual Studio tüm kitaplık dosyalarını bir kez yükler *libman.json* kaydedilir.
+Visual Studio 'daki tüm LibMan işlemleri, proje kökünün LibMan bildiriminin (*Libman. JSON*) içeriğini temel alır. Kitaplık dosyalarını proje için yapılandırmak üzere *Libman. JSON* dosyasını el ile düzenleyebilirsiniz. Visual Studio, *Libman. JSON* dosyası kaydedildikten sonra tüm kitaplık dosyalarını geri yükler.
 
-Açmak için *libman.json* düzenlemek için aşağıdaki seçenekler mevcuttur:
+Düzenlenecek *Libman. JSON* ' u açmak için aşağıdaki seçenekler mevcuttur:
 
-* Çift *libman.json* dosyası **Çözüm Gezgini**.
-* Projeye sağ **Çözüm Gezgini** seçip **istemci tarafı kitaplıkları yönetmek**. **&#8224;**
-* Seçin **istemci tarafı kitaplıkları yönetmek** Visual Studio'dan **proje** menüsü. **&#8224;**
+* **Çözüm Gezgini**'daki *Libman. JSON* dosyasına çift tıklayın.
+* **Çözüm Gezgini** ' de projeye sağ tıklayın ve **Istemci tarafı kitaplıklarını yönet**' i seçin. **&#8224;**
+* Visual Studio **Proje** menüsünden **Istemci tarafı kitaplıklarını yönet** ' i seçin. **&#8224;**
 
-**&#8224;** Varsa *libman.json* dosya proje kök dizininde zaten yoksa, varsayılan öğe şablonu içeriği ile oluşturulur.
+**&#8224;** *Libman. JSON* dosyası proje kökünde zaten mevcut değilse, varsayılan öğe şablonu içeriğiyle oluşturulur.
 
-Visual Studio düzenleme desteği renklendirme gibi biçimlendirme, IntelliSense ve şema doğrulama zengin JSON sunar. LibMan bildirim JSON şeması bulunduğu [ https://json.schemastore.org/libman ](https://json.schemastore.org/libman).
+Visual Studio, renklendirme, biçimlendirme, IntelliSense ve şema doğrulaması gibi zengin JSON düzenlemesi desteği sunar. LibMan bildiriminin JSON şeması [https://json.schemastore.org/libman](https://json.schemastore.org/libman)konumunda bulunur.
 
-Aşağıdaki bildirim dosyası ile tanımlanan yapılandırma başına LibMan alır `libraries` özelliği. Bir açıklama içinde tanımlanan nesne değişmez değerlerinin `libraries` izler:
+Aşağıdaki bildirim dosyası ile LibMan, `libraries` özelliğinde tanımlanan yapılandırma başına dosya alır. `libraries` içinde tanımlanan nesne sabit değerlerinin açıklaması aşağıdadır:
 
-* Bir alt kümesini [jQuery](https://jquery.com/) sürüm 3.3.1 CDNJS sağlayıcısından alınır. Alt tanımlanan `files` özelliği&mdash;*jquery.min.js*, *jquery.js*, ve *jquery.min.map*. Dosyalar projesinin yerleştirilir *wwwroot/lib/jquery* klasör.
-* Tamamen [önyükleme](https://getbootstrap.com/) sürüm 4.1.3 alınır ve yerleştirilmiş bir *wwwroot/lib/önyükleme* klasör. Nesne sabit değeri `provider` özelliklerine `defaultProvider` özellik değeri. LibMan unpkg sağlayıcısından önyükleme dosyaları alır.
-* Bir alt kümesini [Lodash](https://lodash.com/) unsurun kuruluştaki tarafından onaylandı. *Lodash.js* ve *lodash.min.js* dosyaları yerel dosya sisteminden alınır *C:\\temp\\lodash\\* . Dosyalar projenin kopyalanır *wwwroot/lib/lodash* klasör.
+* [JQuery](https://jquery.com/) sürüm 3.3.1 'nin bir alt kümesi CDNJS sağlayıcısından alınmıştır. Alt küme,&mdash;*jQuery. min. js*, *jQuery. js*ve *jquery. min. Map*`files` özelliğinde tanımlanmıştır. Dosyalar projenin *Wwwroot/lib/jQuery* klasörüne yerleştirilir.
+* [Önyükleme](https://getbootstrap.com/) sürümü 4.1.3 tamamen alınır ve bir *Wwwroot/LIB/Bootstrap* klasörüne yerleştirilir. Nesne sabit değerinin `provider` özelliği `defaultProvider` özellik değerini geçersiz kılar. LibMan, önyükleme dosyalarını unpkg sağlayıcısından alır.
+* [Lodash](https://lodash.com/) alt kümesi, kuruluş içindeki bir yöneten gövde tarafından onaylandı. *Lodash. js* ve *lodash. min. js* dosyaları, *C:\\Temp\\lodash\\* konumundaki yerel dosya sisteminden alınır. Dosyalar projenin *Wwwroot/LIB/lodash* klasörüne kopyalanır.
 
 [!code-json[](samples/LibManSample/libman.json)]
 
 > [!NOTE]
-> LibMan yalnızca her kitaplığının her sağlayıcısından bir sürümünü destekler. *Libman.json* dosya aynı kitaplık adı verilen sağlayıcı için iki kitaplıklarıyla içeriyorsa, şema doğrulaması başarısız olur.
+> LibMan, her bir sağlayıcının her bir kitaplığının yalnızca bir sürümünü destekler. *Libman. JSON* dosyası, belirli bir sağlayıcı için aynı kitaplık adına sahip iki kitaplık içeriyorsa şema doğrulamasında başarısız olur.
 
-## <a name="restore-library-files"></a>Kitaplık dosyaları geri yükleme
+## <a name="restore-library-files"></a>Kitaplık dosyalarını geri yükleme
 
-Visual Studio içinden kitaplık dosyaları geri yüklemek için olmalıdır geçerli bir *libman.json* proje kök dosyasında. Geri yüklenen dosya projenin her kitaplık için belirtilen konuma yerleştirilir.
+Kitaplık dosyalarını Visual Studio içinden geri yüklemek için, proje kökünde geçerli bir *Libman. JSON* dosyası olmalıdır. Geri yüklenen dosyalar her kitaplık için belirtilen konumda projeye yerleştirilir.
 
-ASP.NET Core projesinde iki yolla kitaplık dosyalarını geri yüklenebilir:
+Kitaplık dosyaları, bir ASP.NET Core projesine iki şekilde geri yüklenebilir:
 
 1. [Derleme sırasında dosyaları geri yükleme](#restore-files-during-build)
 1. [Dosyaları el ile geri yükleme](#restore-files-manually)
 
 ### <a name="restore-files-during-build"></a>Derleme sırasında dosyaları geri yükleme
 
-LibMan yapı işleminin bir parçası olarak tanımlanan kitaplık dosyalarını geri yükleyebilirsiniz. Varsayılan olarak, *derleme üzerinde geri yükleme* davranışı devre dışı bırakıldı.
+LibMan, yapı sürecinin bir parçası olarak tanımlanan kitaplık dosyalarını geri yükleyebilir. Varsayılan olarak, *Derleme sonrası geri yükleme* davranışı devre dışıdır.
 
-Ve test derleme üzerinde geri yükleme davranışı etkinleştirmek için:
+Derleme sonrası geri yükleme davranışını etkinleştirmek ve test etmek için:
 
-* Sağ *libman.json* içinde **Çözüm Gezgini** seçip **etkinleştirme geri istemci-tarafı kitaplıklarını temel yapı** bağlam menüsünden.
-* Tıklayın **Evet** NuGet paketini yüklemek isteyip istemediğiniz sorulduğunda düğmesi. [Microsoft.Web.LibraryManager.Build](https://www.nuget.org/packages/Microsoft.Web.LibraryManager.Build/) NuGet paketini projeye eklendi:
+* **Çözüm Gezgini** ' de *Libman. JSON* öğesine sağ tıklayın ve bağlam menüsünden **derlemede istemci tarafı kitaplıklarını geri yükle** ' yi seçin.
+* Bir NuGet paketi yüklemek isteyip istemediğiniz sorulduğunda **Evet** düğmesine tıklayın. Projeye [Microsoft. Web. LibraryManager. Build](https://www.nuget.org/packages/Microsoft.Web.LibraryManager.Build/) NuGet paketi eklenir:
 
   [!code-xml[](samples/LibManSample/LibManSample.csproj?name=snippet_RestoreOnBuildPackage)]
 
-* LibMan dosya geri yüklemesi gerçekleşir doğrulamak için projeyi derleyin. `Microsoft.Web.LibraryManager.Build` Paket LibMan projenin derleme işlemi sırasında çalıştırılan bir MSBuild hedefi yerleştirir.
-* Gözden geçirme **derleme** akışı **çıkış** LibMan etkinlik günlüğü penceresi:
+* LibMan dosyasının geri yükleme işlemini onaylamak için projeyi derleyin. `Microsoft.Web.LibraryManager.Build` paketi, projenin derleme işlemi sırasında LibMan çalıştıran bir MSBuild hedefini çıkarır.
+* Bir LibMan etkinlik günlüğü için **Çıkış** penceresinin **derleme** akışını gözden geçirin:
 
   ```console
   1>------ Build started: Project: LibManSample, Configuration: Debug Any CPU ------
@@ -142,25 +142,25 @@ Ve test derleme üzerinde geri yükleme davranışı etkinleştirmek için:
   ========== Build: 1 succeeded, 0 failed, 0 up-to-date, 0 skipped ==========
   ```
 
-Derleme üzerinde geri yükleme davranışı etkinleştirildiğinde *libman.json* bağlam menüsünü görüntüler bir **devre dışı bırakma geri istemci-tarafı kitaplıklarını temel yapı** seçeneği. Bu seçeneğin belirlenmesi kaldırır `Microsoft.Web.LibraryManager.Build` paket proje dosyasından başvuru. Sonuç olarak, istemci tarafı kitaplıkları üzerinde her derleme artık geri yüklenir.
+Derleme sonrası geri yükleme davranışı etkin olduğunda, *Libman. JSON* bağlam menüsünde **derleme sırasında Istemci tarafı kitaplıklarını geri yükle** seçeneği görüntülenir. Bu seçeneğin belirlenmesi, proje dosyasından `Microsoft.Web.LibraryManager.Build` paketi başvurusunu kaldırır. Sonuç olarak, istemci tarafı kitaplıkları her derlemede artık geri yüklenmez.
 
-Derleme üzerinde geri yükleme ayar ne olursa olsun, el ile diledikleri zaman geri yükleyebilirsiniz *libman.json* bağlam menüsü. Daha fazla bilgi için [dosyaları el ile geri](#restore-files-manually).
+Derlemeyi geri yükle ayarından bağımsız olarak, *Libman. JSON* bağlam menüsünden istediğiniz zaman el ile geri yükleyebilirsiniz. Daha fazla bilgi için bkz. [dosyaları el Ile geri yükleme](#restore-files-manually).
 
 ### <a name="restore-files-manually"></a>Dosyaları el ile geri yükleme
 
-Kitaplık dosyaları el ile geri yüklemek için:
+Kitaplık dosyalarını el ile geri yüklemek için:
 
-* Çözümdeki tüm projeleri için:
-  * İçinde çözüm adına sağ tıklayın **Çözüm Gezgini**.
-  * Seçin **geri istemci tarafı kitaplıkları** seçeneği.
+* Çözümdeki tüm projeler için:
+  * **Çözüm Gezgini**çözüm adına sağ tıklayın.
+  * **Istemci tarafı kitaplıklarını geri yükle** seçeneğini belirleyin.
 * Belirli bir proje için:
-  * Sağ *libman.json* dosyası **Çözüm Gezgini**.
-  * Seçin **geri istemci tarafı kitaplıkları** seçeneği.
+  * **Çözüm Gezgini**'daki *Libman. JSON* dosyasına sağ tıklayın.
+  * **Istemci tarafı kitaplıklarını geri yükle** seçeneğini belirleyin.
 
-Geri yükleme işlemi devam ederken:
+Geri yükleme işlemi çalışırken:
 
-* Görev durumu Merkezi (TSC) simgesi Visual Studio durum çubuğunda animasyon uygulanır ve okuyacaksa *geri yükleme işlemi başladı*. Simgesine tıklayarak, bilinen arka plan görevleri listeleme bir araç ipucu açılır.
-* Durum çubuğundaki ileti gönderilecek ve **Kitaplık Yöneticisi** akışı **çıkış** penceresi. Örneğin:
+* Visual Studio durum çubuğundaki Görev Durumu Merkezi (TSC) simgesi canlandırılır ve *geri yükleme işlemi başlatılır*. Simgeye tıkladığınızda bilinen arka plan görevlerinin listelendiği bir araç ipucu açılır.
+* İletiler durum çubuğuna ve **Çıkış** penceresinin **Kitaplık Yöneticisi** akışına gönderilir. Örnek:
 
   ```console
   Restore operation started...
@@ -173,19 +173,19 @@ Geri yükleme işlemi devam ederken:
   1 libraries restored in 2.32 seconds
   ```
 
-## <a name="delete-library-files"></a>Kitaplık dosyaları sil
+## <a name="delete-library-files"></a>Kitaplık dosyalarını sil
 
-Gerçekleştirilecek *temiz* Visual Studio'da daha önce geri kitaplık dosyaları silen işlemi:
+Daha önce Visual Studio 'da geri yüklenen kitaplık dosyalarını silen *Temizleme* işlemini gerçekleştirmek için:
 
-* Sağ *libman.json* dosyası **Çözüm Gezgini**.
-* Seçin **temiz istemci tarafı kitaplıkları** seçeneği.
+* **Çözüm Gezgini**'daki *Libman. JSON* dosyasına sağ tıklayın.
+* **Istemci tarafı kitaplıklarını temizle** seçeneğini belirleyin.
 
-Kitaplık olmayan dosyaları kaldırılmamıştır önlemek için temizleme işlemi tüm dizinleri silmez. Yalnızca önceki geri yükleme dahil edilen dosyalar da kaldırır.
+Kitaplık olmayan dosyaların yanlışlıkla kaldırılmasını engellemek için, temizleme işlemi tüm dizinleri silmez. Yalnızca önceki geri yüklemeye dahil edilen dosyaları kaldırır.
 
-Temizleme işlemi devam ederken:
+Temizleme işlemi çalışırken:
 
-* Visual Studio durum çubuğunda TSC simge animasyon uygulanır ve okuyacaksa *istemci kitaplıkları işlemi başlatıldı*. Simgesine tıklayarak, bilinen arka plan görevleri listeleme bir araç ipucu açılır.
-* İletileri için durum çubuğu gönderilir ve **Kitaplık Yöneticisi** akışı **çıkış** penceresi. Örneğin:
+* Visual Studio durum çubuğundaki TSC simgesi animasyon alınacaktır ve *istemci kitaplıkları işlemini*okur. Simgeye tıkladığınızda bilinen arka plan görevlerinin listelendiği bir araç ipucu açılır.
+* İletiler durum çubuğuna ve **Çıkış** penceresinin **Kitaplık Yöneticisi** akışına gönderilir. Örnek:
 
 ```console
 Clean libraries operation started...
@@ -193,41 +193,41 @@ Clean libraries operation completed
 2 libraries were successfully deleted in 1.91 secs
 ```
 
-Temizleme işlemi, yalnızca dosyaları projeden siler. Kitaplık dosyaları için daha hızlı alma gelecekteki geri yükleme işlemleri üzerindeki önbellekte kalır. Yerel makinenin önbelleğinde depolanan kitaplık dosyalarını yönetmek için kullandığınız [LibMan CLI](xref:client-side/libman/libman-cli).
+Temizleme işlemi yalnızca projeden dosyaları siler. Kitaplık dosyaları gelecekteki geri yükleme işlemlerinde daha hızlı bir şekilde almak için önbellekte kalır. Yerel makinenin önbelleğinde depolanan kitaplık dosyalarını yönetmek için [Libman CLI](xref:client-side/libman/libman-cli)kullanın.
 
-## <a name="uninstall-library-files"></a>Kitaplık dosyaları kaldırma
+## <a name="uninstall-library-files"></a>Kitaplık dosyalarını kaldır
 
-Kitaplık dosyaları kaldırmak için:
+Kitaplık dosyalarını kaldırmak için:
 
-* Açık *libman.json*.
-* Giriş işaretini içinde karşılık gelen konum `libraries` nesne sabit değeri.
-* Sol kenar boşluğunda görünür ampul simgesini tıklatın ve seçin **kaldırma \<library_name > @\<library_version >** :
+* *Libman. JSON*öğesini açın.
+* Giriş işaretini karşılık gelen `libraries` nesnesi sabit değerinin içine konumlandırın.
+* Sol kenar boşluğunda görüntülenen ampul simgesine tıklayın ve **kaldır \<library_name > @\<library_version >** ' i seçin:
 
-  ![Kitaplık bağlam menüsü seçeneği kaldırın](_static/uninstall-menu-option.png)
+  ![Kitaplığı Kaldır bağlam menü seçeneği](_static/uninstall-menu-option.png)
 
-Alternatif olarak, el ile düzenleyebilir ve LibMan bildirimi kaydetmek (*libman.json*). [Geri yükleme işlemi](#restore-library-files) dosyası kaydedildiğinde çalıştırır. Artık tanımlanan kitaplık dosyalarını *libman.json* projeden kaldırıldı.
+Alternatif olarak, LibMan bildirimini (*Libman. JSON*) el ile düzenleyebilir ve kaydedebilirsiniz. [Geri yükleme işlemi](#restore-library-files) dosya kaydedildiğinde çalışır. *Libman. JSON* dosyasında artık tanımlanmamış kitaplık dosyaları projeden kaldırılır.
 
-## <a name="update-library-version"></a>Kitaplık sürümünü güncelleştirme
+## <a name="update-library-version"></a>Kitaplık sürümünü Güncelleştir
 
-Bir güncelleştirilen kitaplığı sürümünü denetlemek için:
+Güncelleştirilmiş bir kitaplık sürümünü denetlemek için:
 
-* Açık *libman.json*.
-* Giriş işaretini içinde karşılık gelen konum `libraries` nesne sabit değeri.
-* Sol kenar boşluğunda görünür ampul simgesini tıklatın. Üzerine **Güncelleştirmeleri denetle**.
+* *Libman. JSON*öğesini açın.
+* Giriş işaretini karşılık gelen `libraries` nesnesi sabit değerinin içine konumlandırın.
+* Sol kenar boşluğunda görünen ampul simgesine tıklayın. **Güncelleştirme denetimi**üzerine gelin.
 
-LibMan yüklü olan sürümden daha yeni bir kitaplık sürümü olup olmadığını denetler. Aşağıdaki sonuçlar ortaya çıkabilir:
+LibMan, yüklü sürümden daha yeni bir kitaplık sürümünü denetler. Aşağıdaki sonuçlar oluşabilir:
 
-* A **güncelleştirme bulunamadı** en son sürümü zaten yüklü değilse, ileti görüntülenir.
-* En son kararlı sürüm görüntülenme olmasa bile zaten yüklü.
+* En son sürüm zaten yüklüyse **hiçbir güncelleştirme bulunamadı** iletisi görüntülenir.
+* Henüz yüklenmemişse en son kararlı sürüm görüntülenir.
 
-  ![Bağlam menüsü seçeneği Güncelleştirmeleri denetle](_static/update-menu-option.png)
+  ![Güncelleştirmeler bağlam menüsü seçeneğini denetle](_static/update-menu-option.png)
 
-* Yüklü olan sürümden daha yeni bir ön sürüm varsa, ön sürümü görüntülenir.
+* Yüklü sürümden daha yeni bir yayın öncesi sürüm varsa, yayın öncesi görüntülenir.
 
-Eski bir kitaplığı sürümünün indirgemek için el ile düzenlemeniz *libman.json* dosya. Dosya kaydedildiğinde, LibMan [geri yükleme işlemi](#restore-library-files):
+Daha eski bir kitaplık sürümüne düşürme için, *Libman. JSON* dosyasını el ile düzenleyin. Dosya kaydedildiğinde, LibMan [geri yükleme işlemi](#restore-library-files):
 
-* Gereksiz dosyaları önceki sürümden kaldırır.
-* Yeni ve güncelleştirilmiş dosyaları yeni sürümden ekler.
+* Eski sürümden gereksiz dosyaları kaldırır.
+* Yeni sürümden yeni ve güncelleştirilmiş dosyalar ekler.
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 

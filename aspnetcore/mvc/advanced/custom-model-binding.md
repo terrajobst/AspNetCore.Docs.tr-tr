@@ -5,12 +5,12 @@ description: Model bağlamanın, denetleyici eylemlerinin ASP.NET Core doğrudan
 ms.author: riande
 ms.date: 01/06/2020
 uid: mvc/advanced/custom-model-binding
-ms.openlocfilehash: 92e7abbb9d9b4c29af429557a31e3ef403211976
-ms.sourcegitcommit: 79850db9e79b1705b89f466c6f2c961ff15485de
+ms.openlocfilehash: 511cf39bfedfc55d2f75842daf4445d2aaf4872d
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75693953"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78659868"
 ---
 # <a name="custom-model-binding-in-aspnet-core"></a>ASP.NET Core özel model bağlama
 
@@ -20,7 +20,7 @@ ms.locfileid: "75693953"
 
 Model bağlama, denetleyici eylemlerinin HTTP istekleri yerine model türleriyle doğrudan (Yöntem bağımsız değişkenleri olarak geçirilir) çalışmasına izin verir. Gelen istek verileri ve uygulama modelleri arasındaki eşleme, model ciltleri tarafından işlenir. Geliştiriciler, özel model ciltlerinizi uygulayarak yerleşik model bağlama işlevini genişletebilir (genellikle kendi sağlayıcınızı yazmanız gerekmez).
 
-[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/advanced/custom-model-binding/samples) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
+[Örnek kodu görüntüleme veya indirme](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/advanced/custom-model-binding/samples) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
 
 ## <a name="default-model-binder-limitations"></a>Varsayılan model Ciltçi sınırlamaları
 
@@ -34,7 +34,7 @@ Kendi özel model cilinkini oluşturmadan önce, mevcut model ciltçileri 'nin n
 
 ### <a name="working-with-the-bytearraymodelbinder"></a>Bytearraymodelciltçi ile çalışma
 
-İkili verileri temsil etmek için Base64 kodlamalı dizeler kullanılabilir. Örneğin, bir görüntü dize olarak kodlanır. Örnek, [Base64String. txt](https://github.com/aspnet/AspNetCore.Docs/blob/master/aspnetcore/mvc/advanced/custom-model-binding/samples/3.x/CustomModelBindingSample/Base64String.txt)dosyasında Base64 kodlamalı dize olarak bir görüntü içerir.
+İkili verileri temsil etmek için Base64 kodlamalı dizeler kullanılabilir. Örneğin, bir görüntü dize olarak kodlanır. Örnek, [Base64String. txt](https://github.com/dotnet/AspNetCore.Docs/blob/master/aspnetcore/mvc/advanced/custom-model-binding/samples/3.x/CustomModelBindingSample/Base64String.txt)dosyasında Base64 kodlamalı dize olarak bir görüntü içerir.
 
 ASP.NET Core MVC, Base64 kodlamalı bir dize alabilir ve bir bayt dizisine dönüştürmek için bir `ByteArrayModelBinder` kullanabilir. <xref:Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ByteArrayModelBinderProvider> `byte[]` bağımsız değişkenlerini `ByteArrayModelBinder`eşlenir:
 
@@ -61,6 +61,7 @@ Kendi özel model cilinkini oluştururken kendi `IModelBinderProvider` türünü
 Aşağıdaki örnek, Base64 kodlamalı bir dizeyi bir `byte[]` dönüştürmek ve sonucu bir dosyaya kaydetmek için `ByteArrayModelBinder` nasıl kullanacağınızı gösterir:
 
 [!code-csharp[](custom-model-binding/samples/3.x/CustomModelBindingSample/Controllers/ImageController.cs?name=snippet_Post)]
+[!INCLUDE[about the series](~/includes/code-comments-loc.md)]
 
 [Postman](https://www.getpostman.com/)gibi bir araç kullanarak bu API yöntemine Base64 kodlamalı bir dize gönderebilirsiniz:
 
@@ -143,7 +144,7 @@ Ancak, bir uygulama çok biçimli model bağlama gerektiriyorsa, bir uygulama a�
 
 Model bağlama, denetleyici eylemlerinin HTTP istekleri yerine model türleriyle doğrudan (Yöntem bağımsız değişkenleri olarak geçirilir) çalışmasına izin verir. Gelen istek verileri ve uygulama modelleri arasındaki eşleme, model ciltleri tarafından işlenir. Geliştiriciler, özel model ciltlerinizi uygulayarak yerleşik model bağlama işlevini genişletebilir (genellikle kendi sağlayıcınızı yazmanız gerekmez).
 
-[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/advanced/custom-model-binding/samples) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
+[Örnek kodu görüntüleme veya indirme](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/advanced/custom-model-binding/samples) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
 
 ## <a name="default-model-binder-limitations"></a>Varsayılan model Ciltçi sınırlamaları
 
@@ -157,7 +158,7 @@ Kendi özel model cilinkini oluşturmadan önce, mevcut model ciltçileri 'nin n
 
 ### <a name="working-with-the-bytearraymodelbinder"></a>Bytearraymodelciltçi ile çalışma
 
-İkili verileri temsil etmek için Base64 kodlamalı dizeler kullanılabilir. Örneğin, bir görüntü dize olarak kodlanır. Örnek, [Base64String. txt](https://github.com/aspnet/AspNetCore.Docs/blob/master/aspnetcore/mvc/advanced/custom-model-binding/samples/2.x/CustomModelBindingSample/Base64String.txt)dosyasında Base64 kodlamalı dize olarak bir görüntü içerir.
+İkili verileri temsil etmek için Base64 kodlamalı dizeler kullanılabilir. Örneğin, bir görüntü dize olarak kodlanır. Örnek, [Base64String. txt](https://github.com/dotnet/AspNetCore.Docs/blob/master/aspnetcore/mvc/advanced/custom-model-binding/samples/2.x/CustomModelBindingSample/Base64String.txt)dosyasında Base64 kodlamalı dize olarak bir görüntü içerir.
 
 ASP.NET Core MVC, Base64 kodlamalı bir dize alabilir ve bir bayt dizisine dönüştürmek için bir `ByteArrayModelBinder` kullanabilir. <xref:Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ByteArrayModelBinderProvider> `byte[]` bağımsız değişkenlerini `ByteArrayModelBinder`eşlenir:
 

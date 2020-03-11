@@ -9,11 +9,11 @@ no-loc:
 - SignalR
 uid: grpc/comparison
 ms.openlocfilehash: 8935e665dfd5d8f9afa002f475c202ec0f0ee657
-ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74880677"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78667162"
 ---
 # <a name="compare-grpc-services-with-http-apis"></a>gRPC hizmetlerini HTTP API’leriyle karşılaştırma
 
@@ -32,7 +32,7 @@ Aşağıdaki tabloda, gRPC ve HTTP API 'Leri arasında JSON ile yüksek düzeyde
 | Te          | [Prototip (küçük, ikili)](#performance)           | JSON (büyük, insan tarafından okunabilir)  |
 | Dikkatli olun | [Katı belirtim](#strict-specification)      | Miş. Herhangi bir HTTP geçerlidir.     |
 | Akış        | [İstemci, sunucu, iki yönlü](#streaming)       | İstemci, sunucu                |
-| Tarayıcı desteği  | [Hayır (GRPC-Web gerektirir)](#limited-browser-support) | Evet                           |
+| Tarayıcı desteği  | [Hayır (GRPC-Web gerektirir)](#limited-browser-support) | Yes                           |
 | Güvenlik         | Taşıma (TLS)                                    | Taşıma (TLS)               |
 | İstemci kod oluşturma | [Evet](#code-generation)                      | Openapı + üçüncü taraf araçları |
 

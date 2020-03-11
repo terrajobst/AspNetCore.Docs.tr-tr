@@ -2,7 +2,7 @@
 
 Identity scaffolder öğesini çalıştırın:
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * **Çözüm Gezgini**, projeye sağ tıklayıp **Yeni > Iskli öğe** **ekleyin** >.
 * **Yapı Iskelesi Ekle** iletişim kutusunun sol bölmesinde **kimlik** > **Ekle**' yi seçin.
@@ -14,12 +14,12 @@ Identity scaffolder öğesini çalıştırın:
   * Veri bağlamı sınıfınızı seçin.
   * **Add (Ekle)** seçeneğini belirleyin.
 * Yeni bir kullanıcı bağlamı oluşturmak ve muhtemelen kimlik için özel bir Kullanıcı sınıfı oluşturmak için:
-  * Seçin **+** yeni bir düğme **veri bağlamı sınıfının**.
+  * Yeni bir **veri bağlamı sınıfı**oluşturmak için **+** düğmesini seçin.
   * **Add (Ekle)** seçeneğini belirleyin.
 
 Note: yeni bir kullanıcı bağlamı oluşturuyorsanız, geçersiz kılmak için bir dosya seçmeniz gerekmez.
 
-# <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
+# <a name="net-core-cli"></a>[.NET Core CLI](#tab/netcore-cli)
 
 ASP.NET Core iskele kurucu daha önce yüklemediyseniz şimdi yükleyin:
 
@@ -52,7 +52,7 @@ Proje klasöründe, kimlik desteği ' ı istediğiniz seçeneklerle çalıştır
 dotnet aspnet-codegenerator identity -dc MyWeb.Data.ApplicationDbContext --files "Account.Register;Account.Login"
 ```
 
-PowerShell, bir komut ayırıcısı olarak noktalı virgül kullanır. PowerShell kullanırken, dosya listesinde noktalı virgül karakterini kaçış veya dosya listesini çift tırnak içine koyun. Örneğin:
+PowerShell, bir komut ayırıcısı olarak noktalı virgül kullanır. PowerShell kullanırken, dosya listesinde noktalı virgül karakterini kaçış veya dosya listesini çift tırnak içine koyun. Örnek:
 
 ```dotnetcli
 dotnet aspnet-codegenerator identity -dc MyWeb.Data.ApplicationDbContext --files "Account.Register;Account.Login;Account.Logout"
@@ -68,7 +68,7 @@ Identity desteği `--files` bayrağını veya `--useDefaultUI` bayrağını beli
 
 Identity scaffolder öğesini çalıştırın:
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * **Çözüm Gezgini**, projeye sağ tıklayıp **Yeni > Iskli öğe** **ekleyin** >.
 * **Yapı Iskelesi Ekle** iletişim kutusunun sol bölmesinde **kimlik** > **Ekle**' yi seçin.
@@ -80,12 +80,12 @@ Identity scaffolder öğesini çalıştırın:
   * Veri bağlamı sınıfınızı seçin.
   * **Add (Ekle)** seçeneğini belirleyin.
 * Yeni bir kullanıcı bağlamı oluşturmak ve muhtemelen kimlik için özel bir Kullanıcı sınıfı oluşturmak için:
-  * Seçin **+** yeni bir düğme **veri bağlamı sınıfının**.
+  * Yeni bir **veri bağlamı sınıfı**oluşturmak için **+** düğmesini seçin.
   * **Add (Ekle)** seçeneğini belirleyin.
 
 Note: yeni bir kullanıcı bağlamı oluşturuyorsanız, geçersiz kılmak için bir dosya seçmeniz gerekmez.
 
-# <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
+# <a name="net-core-cli"></a>[.NET Core CLI](#tab/netcore-cli)
 
 ASP.NET Core iskele kurucu daha önce yüklemediyseniz şimdi yükleyin:
 
@@ -112,7 +112,7 @@ Proje klasöründe, kimlik desteği ' ı istediğiniz seçeneklerle çalıştır
 dotnet aspnet-codegenerator identity -dc MyWeb.Data.ApplicationDbContext --files "Account.Register;Account.Login"
 ```
 
-PowerShell, bir komut ayırıcısı olarak noktalı virgül kullanır. PowerShell kullanırken, dosya listesinde noktalı virgül karakterini kaçış veya dosya listesini çift tırnak içine koyun. Örneğin:
+PowerShell, bir komut ayırıcısı olarak noktalı virgül kullanır. PowerShell kullanırken, dosya listesinde noktalı virgül karakterini kaçış veya dosya listesini çift tırnak içine koyun. Örnek:
 
 ```dotnetcli
 dotnet aspnet-codegenerator identity -dc MyWeb.Data.ApplicationDbContext --files "Account.Register;Account.Login;Account.Logout"

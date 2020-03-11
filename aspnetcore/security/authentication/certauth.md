@@ -7,11 +7,11 @@ ms.author: bdorrans
 ms.date: 01/02/2020
 uid: security/authentication/certauth
 ms.openlocfilehash: 280daa86510d4445c791b6952653122961f13aeb
-ms.sourcegitcommit: 6645435fc8f5092fc7e923742e85592b56e37ada
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77447288"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78665328"
 ---
 # <a name="configure-certificate-authentication-in-aspnet-core"></a>ASP.NET Core sertifika kimlik doğrulamasını yapılandırma
 
@@ -28,7 +28,7 @@ Sertifika kimlik doğrulaması, genellikle bir ara sunucu veya yük dengeleyicin
 
 Proxy 'lerin ve yük dengeleyicilerin kullanıldığı ortamlarda sertifika kimlik doğrulamasına alternatif olarak, OpenID Connect (OıDC) ile Federasyon Hizmetleri (ADFS) Active Directory.
 
-## <a name="get-started"></a>Kullanmaya başlayın
+## <a name="get-started"></a>başlarken
 
 Bir HTTPS sertifikası alın, uygulayın ve [ana bilgisayarınızı](#configure-your-host-to-require-certificates) sertifika gerektirecek şekilde yapılandırın.
 
@@ -36,7 +36,7 @@ Web uygulamanızda `Microsoft.AspNetCore.Authentication.Certificate` paketine bi
 
 Kimlik doğrulaması başarısız olursa, bu işleyici, bekleneceğiniz gibi bir `401 (Unauthorized)`yerine `403 (Forbidden)` yanıtı döndürür. Bu durum, kimlik doğrulamanın ilk TLS bağlantısı sırasında gerçekleşme nedendir. İşleyiciye ulaştığında, çok geç olur. Anonim bir bağlantıyla bir sertifikayla bir bağlantıyı yükseltmenin bir yolu yoktur.
 
-Ayrıca, `Startup.Configure` yöntemine `app.UseAuthentication();` ekleyin. Aksi takdirde `HttpContext.User`, sertifikadan oluşturulan `ClaimsPrincipal` olarak ayarlanmayacak. Örneğin:
+Ayrıca, `Startup.Configure` yöntemine `app.UseAuthentication();` ekleyin. Aksi takdirde `HttpContext.User`, sertifikadan oluşturulan `ClaimsPrincipal` olarak ayarlanmayacak. Örnek:
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)

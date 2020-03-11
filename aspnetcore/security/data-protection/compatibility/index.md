@@ -1,17 +1,18 @@
 ---
-title: ASP.NET core'da uyumluluğu
+title: ASP.NET Core uyumluluk
 author: rick-anderson
-description: Bu belgede, çeşitli ASP.NET Core veri koruma uyumluluk konuları için bir içindekiler tablosu olarak görev yapar.
+description: Bu belge, çeşitli ASP.NET Core veri koruma uyumluluk konularına yönelik bir içindekiler tablosu görevi görür.
 ms.author: riande
 ms.date: 10/14/2016
 uid: security/data-protection/compatibility/index
-ms.openlocfilehash: 7b70412cbbe1223255a28cc9fff08b46fd217244
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: c5e277d812bb5d16fa5a3ab1b6acc091ed3b32ce
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64901952"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78667974"
 ---
-# <a name="compatibility-in-aspnet-core"></a>ASP.NET core'da uyumluluğu
+# <a name="compatibility-in-aspnet-core"></a>ASP.NET Core uyumluluk
 
-* [ASP.NET değiştirerek \<machineKey > içinde ASP.NET Core](xref:security/data-protection/compatibility/replacing-machinekey)
+* [ASP.NET Core ASP.NET \<machineKey > değiştirme](xref:security/data-protection/compatibility/replacing-machinekey)
+* `Microsoft.AspNetCore.DataProtection` 3,1, Azure işlev uygulamalarıyla uyumlu değil. Daha fazla bilgi için [Bu GitHub sorununa](https://github.com/Azure/azure-functions-host/issues/5447) bakın

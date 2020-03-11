@@ -1,58 +1,58 @@
 ---
-title: ASP.NET core'da amaç dizeleri
+title: ASP.NET Core için amaç dizeleri
 author: rick-anderson
-description: Amaç dizeleri ASP.NET Core veri koruma API'lerini nasıl kullanıldığı hakkında bilgi edinin.
+description: ASP.NET Core veri koruma API 'Lerinde amaç dizelerinin nasıl kullanıldığını öğrenin.
 ms.author: riande
 ms.date: 10/14/2016
 uid: security/data-protection/consumer-apis/purpose-strings
 ms.openlocfilehash: 4c85423f8de7e4b784ae1bb304a884541df251b6
-ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65087541"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78664726"
 ---
-# <a name="purpose-strings-in-aspnet-core"></a>ASP.NET core'da amaç dizeleri
+# <a name="purpose-strings-in-aspnet-core"></a>ASP.NET Core için amaç dizeleri
 
 <a name="data-protection-consumer-apis-purposes"></a>
 
-Tükettikleri bileşenleri `IDataProtectionProvider` benzersiz bir geçmelidir *amacıyla* parametresi `CreateProtector` yöntemi. Amacıyla *parametre* kök şifreleme anahtarları aynı olsa bile, şifreleme tüketicileri arasında yalıtım sağlar. veri koruma sisteminde Security'ye devralınan aynıdır.
+`IDataProtectionProvider` kullanan bileşenler `CreateProtector` yöntemine benzersiz bir *amaçlar* parametresi iletmelidir. Amaç *parametresi* , kök şifreleme anahtarları aynı olsa bile, şifreleme tüketicileri arasında yalıtım sağladığından, veri koruma sisteminin güvenliğine ait olur.
 
-Bir tüketici bir amaç belirtir, amacı dize şifreleme alt anahtarlarının benzersiz, tüketiciye türetmek için kök şifreleme anahtarları ile birlikte kullanılır. Bu uygulama tüm diğer şifreleme tüketicilerinizin tüketiciden yalıtır: başka bir bileşen kendi yüklerini okuyabilir ve tüm diğer bileşenin yüklerini okunamıyor. Bu yalıtım ayrıca bileşen saldırısı blokunu tüm kategorileri işler.
+Bir tüketici amacını belirttiğinde, amaç dizesi, bu tüketiciye özgü şifreleme alt anahtarlarını türetmek için kök şifreleme anahtarlarıyla birlikte kullanılır. Bu, tüketiciyi uygulamadaki diğer tüm şifreleme tüketicilerinden yalıtır: başka hiçbir bileşen yüklerini okuyamadığı için başka bir bileşen tarafından okunamaz. Bu yalıtım Ayrıca, bileşene karşı uygun olmayan tüm saldırı kategorilerini da işler.
 
 ![Amaç diyagramı örneği](purpose-strings/_static/purposes.png)
 
-Yukarıdaki diyagramda `IDataProtector` örnekleri A ve B **olamaz** birbirlerinin yüklerini yalnızca okuma kendi.
+Yukarıdaki diyagramda, A ve B `IDataProtector` örnekleri, her birinin yüklerini ve yalnızca kendi yüklerini **okuyamaz** .
 
-Amaç dize gizli olması gerekmez. Yalnızca anlamda iyi çalışan başka bir bileşen aynı amaca dize hiç olmadığı kadar sağlayacak benzersiz olmalıdır.
+Amaç dizesinin gizli olması gerekmez. Tek bir iyi davranmış bileşenin aynı amaç dizesini sağlamayabileceği anlamda benzersiz olması gerekir.
 
 >[!TIP]
-> Veri koruma API'lerini kullanan bileşen ad alanı ve tür adını kullanarak bir iyi, uygulama bu bilgileri hiçbir zaman çakışacak olduğu gibi udur.
+> Veri koruma API 'Lerini kullanan bileşenin ad alanını ve tür adını kullanmak, bu bilgiler hiçbir şekilde çakışmayacağı için iyi bir parmak kuralıdır.
 >
->Taşıyıcı belirteçleri minting için sorumlu olan Contoso tarafından yazılan bir bileşen Contoso.Security.BearerToken kendi amacı dize olarak kullanabilirsiniz. Veya, kendi amacı dize olarak Contoso.Security.BearerToken.v1 - daha da iyi - kullanabilirsiniz. Sürüm numarası ekleme Contoso.Security.BearerToken.v2 amacı kullanılacak bir sonraki sürümünde sağlar ve yükü Git kadar farklı sürümleri birbirlerinden tamamen yalıtılmış olacaktır.
+>En küçük taşıyıcı belirteçlerinden sorumlu olan contoso tarafından yazılmış bir bileşen, kendi amaç dizesi olarak contoso. Security. Yataertoken kullanabilir. Ya da daha iyi bir deyişle, kendi amaç dizesi olarak contoso. Security. Yataertoken. v1 kullanabilir. Sürüm numarasını eklemek, gelecekteki bir sürümün amaç olarak contoso. Security. Yataertoken. v2 kullanmasına izin verir ve farklı sürümler, yük olduğu kadar bir diğerinden tamamen yalıtılacaktır.
 
-Amacıyla parametresi beri `CreateProtector` bir dize dizisidir yukarıdaki yerine olarak belirtilmiş `[ "Contoso.Security.BearerToken", "v1" ]`. Bu amacıyla hiyerarşisi oluşturma sağlar ve veri koruma sisteminde ile çok kiracılı senaryolarda olasılığını'kurmak açılır.
+`CreateProtector` için amaçları parametresi bir dize dizisi olduğundan, yukarıdaki bir `[ "Contoso.Security.BearerToken", "v1" ]`olarak belirtilebilir. Bu, bir amaç hiyerarşisi oluşturmayı ve veri koruma sistemiyle çok kiracılı senaryolar olasılığını açar.
 
 <a name="data-protection-contoso-purpose"></a>
 
 >[!WARNING]
-> Bileşenleri giriş amacıyla zinciri için tek kaynak olmasını güvenilir olmayan kullanıcı girişlerinden izin vermemelisiniz.
+> Bileşenler, güvenilmeyen Kullanıcı girişinin, amaç zinciri için tek giriş kaynağı olması için izin vermemelidir.
 >
->Örneğin, bir bileşen güvenli iletileri depolamak için sorumlu Contoso.Messaging.SecureMessage göz önünde bulundurun. Güvenli ileti sistemi bileşeni çağırıyorsa `CreateProtector([ username ])`, kötü niyetli bir kullanıcı bir hesap kullanıcı adı "Contoso.Security.BearerToken" ile çağırmak için bileşen alma denemesi oluşturabilir sonra `CreateProtector([ "Contoso.Security.BearerToken" ])`, bu nedenle yanlışlıkla güvenli Mesajlaşma neden Sistem için kimlik doğrulama belirteçleri algılanan Naneli yükler.
+>Örneğin, güvenli iletileri depolamaktan sorumlu olan contoso. Messaging. SecureMessage bileşenini göz önünde bulundurun. Güvenli mesajlaşma bileşeni `CreateProtector([ username ])`çağırdıysanız, kötü niyetli bir Kullanıcı, `CreateProtector([ "Contoso.Security.BearerToken" ])`bileşeni "contoso. Security. yataertoken" adlı Kullanıcı adına sahip bir hesap oluşturabilir ve bu sayede, güvenli mesajlaşma sisteminin kimlik doğrulama belirteçleri olarak algılanan krem yükleri olmasına neden olabilir.
 >
->İleti sistemi bileşeni için daha iyi bir amacıyla zinciri olur `CreateProtector([ "Contoso.Messaging.SecureMessage", "User: username" ])`, uygun yalıtım sağlar.
+>Mesajlaşma bileşeni için daha iyi bir amaç zinciri, uygun yalıtımı sağlayan `CreateProtector([ "Contoso.Messaging.SecureMessage", "User: username" ])`.
 
-Tarafından sağlanan yalıtım ve davranışlarını `IDataProtectionProvider`, `IDataProtector`, ve amacıyla aşağıdaki gibidir:
+`IDataProtectionProvider`, `IDataProtector`ve amaçlarına ait ve davranışları tarafından sunulan yalıtım şu şekildedir:
 
-* İçin bir verilen `IDataProtectionProvider` nesnesi `CreateProtector` yöntemi oluşturur bir `IDataProtector` nesneyi benzersiz şekilde bağlı hem de `IDataProtectionProvider` ve metodun Metoda geçilen amacıyla parametresini oluşturulan nesne.
+* Belirli bir `IDataProtectionProvider` nesnesi için `CreateProtector` yöntemi, kendisini oluşturan `IDataProtectionProvider` nesnesine ve yöntemine geçirilen amaçlar parametresine benzersiz olarak bağlanmış bir `IDataProtector` nesnesi oluşturur.
 
-* Amacı parametre null olmamalıdır. (Amacıyla bir dizi olarak belirtilirse, bu dizinin sıfır uzunluğunda olmalıdır ve null olmayan bir dizinin tüm öğelerinin olmalıdır anlamına gelir.) Boş dize amacı, teknik olarak izin verilir, ancak önerilmez.
+* Amaç parametresi null olmamalıdır. (Eğer amaçları bir dizi olarak belirtilmişse bu, dizinin sıfır uzunlukta olmaması ve dizinin tüm öğelerinin null olmaması gerektiğini gösterir.) Boş bir dize amacına Teknik olarak izin verilir ancak önerilmez.
 
-* (Sıralı bir karşılaştırıcı kullanılarak) aynı sırada aynı dizeler içerdikleri ve yalnızca, iki amaca bağımsız değişkenleri eşdeğerdir. Tek amaçlı bir bağımsız değişken karşılık gelen tek öğeli amacıyla diziye eşdeğerdir.
+* İki amaç bağımsız değişkeni aynı sırada ve yalnızca aynı dizeleri içeriyorsa (bir sıra karşılaştırıcısı kullanarak) eşdeğerdir. Tek bir amaç bağımsız değişkeni, karşılık gelen tek öğeli amaçlar dizisine eşdeğerdir.
 
-* İki `IDataProtector` eşdeğerini oluşturuldukları ve yalnızca, nesneleri eşdeğer `IDataProtectionProvider` nesneleri eşdeğer amacıyla parametrelere sahip.
+* İki `IDataProtector` nesne eşdeğerdir ve yalnızca eşdeğer amaçlar parametrelerine sahip eşdeğer `IDataProtectionProvider` nesnelerden oluşturulduklarında eşdeğerdir.
 
-* İçin bir verilen `IDataProtector` nesnesi, bir çağrı `Unprotect(protectedData)` özgün döndüreceği `unprotectedData` ve yalnızca, `protectedData := Protect(unprotectedData)` eşdeğer için `IDataProtector` nesne.
+* Belirli bir `IDataProtector` nesnesi için, bir `Unprotect(protectedData)` çağrısı özgün `unprotectedData` döndürür ve yalnızca eşdeğer bir `IDataProtector` nesnesi için `protectedData := Protect(unprotectedData)`.
 
 > [!NOTE]
-> Burada bazı bileşeni ile başka bir bileşen çakışma bilinen bir amaç dize kasıtlı olarak seçer çalışması düşündüğümüz değil. Böyle bir bileşene temelde kötü amaçlı olarak kabul edilir ve bu sistem, kötü amaçlı kod içinde çalışan işlemi zaten çalışıyor durumunda, güvenlik Güvenceleri sağlamaya yönelik değildir.
+> Bazı bileşenlerin, başka bir bileşenle çakışacak bilinen bir amaç dizesi kasıtlı olarak seçtiği durumu dikkate almıyoruz. Bu tür bir bileşen temelde kötü amaçlı olarak değerlendirilir ve bu sistem kötü amaçlı kodun çalışan işlemin içinde zaten çalıştığı olayda güvenlik garantisi sağlamaya yönelik değildir.

@@ -1,3 +1,3 @@
-# <a name="aspnet-core-response-cache-sample"></a>ASP.NET Core yanıt önbellek örneği
+# <a name="aspnet-core-response-cache-sample"></a>ASP.NET Core yanıt önbelleği örneği
 
-Bu örnek, ASP.NET Core eşlik eden yanıt önbelleğe alma kullanımı gösterir [yanıt önbelleğe alma ASP.NET Core](https://docs.microsoft.com/aspnet/core/performance/caching/response).
+Bu örnek, [ASP.NET Core Içindeki yanıt önbelleğe](https://docs.microsoft.com/aspnet/core/performance/caching/response)almaya eşlik etmek için ASP.NET Core ' de yanıt önbelleğe alma kullanımını gösterir.

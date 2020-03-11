@@ -1,49 +1,49 @@
 ---
 title: Dış OAuth kimlik doğrulama sağlayıcıları
 author: rick-anderson
-description: ASP.NET Core uygulamaları ile çalışan dış OAuth kimlik doğrulama sağlayıcıları keşfedin.
+description: ASP.NET Core uygulamalarıyla çalışan dış OAuth kimlik doğrulama sağlayıcılarını bulur.
 ms.author: riande
 ms.custom: mvc
 ms.date: 11/11/2018
 uid: security/authentication/otherlogins
 ms.openlocfilehash: 2bc9a11d0a46e54b4206f846d187b8c1cc954f89
-ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67815554"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78666266"
 ---
 # <a name="external-oauth-authentication-providers"></a>Dış OAuth kimlik doğrulama sağlayıcıları
 
-Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT), [Pranav Rastogi'nin](https://github.com/rustd), ve [Valeriy Novytskyy](https://github.com/01binary)
+By [Rick Anderson](https://twitter.com/RickAndMSFT), [Pranav Oystogi](https://github.com/rustd)ve [Valeriy Novi tskyy](https://github.com/01binary)
 
-Aşağıdaki liste, ASP.NET Core uygulamaları ile çalışan yaygın dış OAuth kimlik doğrulama sağlayıcılarını içerir. Tarafından korunan olanlar gibi üçüncü taraf NuGet paketlerini [aspnet contrib](https://www.nuget.org/packages?q=owners%3Aaspnet-contrib+title%3AOAuth), ASP.NET Core ekibi tarafından gerçekleştirilen kimlik doğrulama sağlayıcıları tamamlamak için kullanılabilir.
+Aşağıdaki liste ASP.NET Core uygulamalarla çalışan ortak dış OAuth kimlik doğrulama sağlayıcılarını içerir. [ASPNET-contrib](https://www.nuget.org/packages?q=owners%3Aaspnet-contrib+title%3AOAuth)tarafından tutulan gibi üçüncü taraf NuGet paketleri, ASP.NET Core ekibi tarafından uygulanan kimlik doğrulama sağlayıcılarını tamamlamak için kullanılabilir.
 
-* [LinkedIn](https://www.linkedin.com/developer/apps) ([yönergeleri](https://developer.linkedin.com/docs/oauth2))
+* [LinkedIn](https://www.linkedin.com/developer/apps) ([yönergeler](https://developer.linkedin.com/docs/oauth2))
 
-* [Instagram](https://www.instagram.com/developer/register/) ([yönergeleri](https://www.instagram.com/developer/authentication/))
+* [Sistem durumu](https://www.instagram.com/developer/register/) ([yönergeler](https://www.instagram.com/developer/authentication/))
 
-* [Reddit](https://www.reddit.com/login?dest=https%3A%2F%2Fwww.reddit.com%2Fprefs%2Fapps) ([yönergeleri](https://github.com/reddit/reddit/wiki/OAuth2-Quick-Start-Example))
+* [Reddıt](https://www.reddit.com/login?dest=https%3A%2F%2F www.reddit.com%2Fprefs%2Fapps) ([yönergeler](https://github.com/reddit/reddit/wiki/OAuth2-Quick-Start-Example))
 
-* [Github](https://github.com/login?return_to=https%3A%2F%2Fgithub.com%2Fsettings%2Fapplications%2Fnew) ([yönergeleri](https://developer.github.com/v3/oauth/))
+* [GitHub](https://github.com/login?return_to=https%3A%2F%2Fgithub.com%2Fsettings%2Fapplications%2Fnew) ([yönergeler](https://developer.github.com/v3/oauth/))
 
-* [Yahoo](https://login.yahoo.com/config/login?src=devnet&.done=http%3A%2F%2Fdeveloper.yahoo.com%2Fapps%2Fcreate%2F) ([yönergeleri](https://developer.yahoo.com/bbauth/user.html))
+* [Yahoo](https://login.yahoo.com/config/login?src=devnet&.done=http%3A%2F%2Fdeveloper.yahoo.com%2Fapps%2Fcreate%2F) ([yönergeler](https://developer.yahoo.com/bbauth/user.html))
 
-* [Tumblr](https://www.tumblr.com/oauth/apps) ([yönergeleri](https://www.tumblr.com/docs/api/v2#auth))
+* [Tumblr](https://www.tumblr.com/oauth/apps) ([yönergeler](https://www.tumblr.com/docs/api/v2#auth))
 
-* [Pinterest](https://www.pinterest.com/login/?next=http%3A%2F%2Fdevsite%2Fapps%2F) ([yönergeleri](https://developers.pinterest.com/docs/api/overview/?))
+* [Pilgi](https://www.pinterest.com/login/?next=http%3A%2F%2Fdevsite%2Fapps%2F) ([yönergeler](https://developers.pinterest.com/docs/api/overview/?))
 
-* [Pocket](https://getpocket.com/developer/apps/new) ([yönergeleri](https://getpocket.com/developer/docs/authentication))
+* [Pocket](https://getpocket.com/developer/apps/new) ([yönergeler](https://getpocket.com/developer/docs/authentication))
 
-* [Flickr](https://www.flickr.com/services/apps/create) ([yönergeleri](https://www.flickr.com/services/api/auth.oauth.html))
+* [Flickr](https://www.flickr.com/services/apps/create) ([yönergeler](https://www.flickr.com/services/api/auth.oauth.html))
 
-* [Dribble](https://dribbble.com/signup) ([yönergeleri](https://developer.dribbble.com/v1/oauth/))
+* [Dribble](https://dribbble.com/signup) ([yönergeler](https://developer.dribbble.com/v1/oauth/))
 
-* [Vimeo](https://vimeo.com/join) ([yönergeleri](https://developer.vimeo.com/api/authentication))
+* [Vimeo](https://vimeo.com/join) ([yönergeler](https://developer.vimeo.com/api/authentication))
 
-* [SoundCloud](https://soundcloud.com/you/apps/new) ([yönergeleri](https://developers.soundcloud.com/blog/we-love-oauth-2))
+* [SoundCloud](https://soundcloud.com/you/apps/new) ([yönergeler](https://developers.soundcloud.com/blog/we-love-oauth-2))
 
-* [VK](https://vk.com/apps?act=manage) ([yönergeleri](https://vk.com/pages?oid=-17680044&p=Authorizing_Sites))
+* [VK](https://vk.com/apps?act=manage) ([yönergeler](https://vk.com/pages?oid=-17680044&p=Authorizing_Sites))
 
 [!INCLUDE[Multiple authentication providers](includes/chain-auth-providers.md)]
 

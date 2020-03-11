@@ -5,12 +5,12 @@ description: ASP.NET Core Web API 'Leri için özel biçimleri oluşturma ve kul
 ms.author: riande
 ms.date: 02/08/2017
 uid: web-api/advanced/custom-formatters
-ms.openlocfilehash: 122edfd4ccd06ed62e071691f421d2aeef8002b4
-ms.sourcegitcommit: 488cc779fc71377d9371e7a14356113e9c7eff17
+ms.openlocfilehash: dd25cda460ba758cd07de094eaadd1f2d8c28657
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70913508"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78667673"
 ---
 # <a name="custom-formatters-in-aspnet-core-web-api"></a>ASP.NET Core Web API 'sindeki özel formatıcılar
 
@@ -22,7 +22,7 @@ Framework, JSON ve XML için yerleşik giriş ve çıkış biçimleri sağlar. D
 
 Bu makalede, özel formatlayıcılar oluşturarak ek biçimler için nasıl destek ekleneceği gösterilmektedir. Düz metin için özel bir giriş biçimlendirici örneği için GitHub 'da [Textplainınputformatter](https://github.com/aspnet/Entropy/blob/master/samples/Mvc.Formatters/TextPlainInputFormatter.cs) bölümüne bakın.
 
-[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/web-api/advanced/custom-formatters/sample) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
+[Örnek kodu görüntüleme veya indirme](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/web-api/advanced/custom-formatters/sample) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
 
 ## <a name="when-to-use-custom-formatters"></a>Özel formatlayıcılar ne zaman kullanılır?
 
@@ -36,7 +36,7 @@ Bu makalede, özel formatlayıcılar oluşturarak ek biçimler için nasıl dest
 
 * İstemciye göndermek için veri serileştirmek istiyorsanız çıkış biçimlendirici sınıfı oluşturun.
 * İstemciden alınan verilerin serisini kaldırmak istiyorsanız bir giriş biçimlendirici sınıfı oluşturun.
-* `InputFormatters` [Mvcoptions](/dotnet/api/microsoft.aspnetcore.mvc.mvcoptions)içindeki ve `OutputFormatters` koleksiyonlarına Biçimlendiriciler örneklerini ekleyin.
+* [Mvcoptions](/dotnet/api/microsoft.aspnetcore.mvc.mvcoptions)içindeki `InputFormatters` ve `OutputFormatters` koleksiyonlara formatlamalarınızın örneklerini ekleyin.
 
 Aşağıdaki bölümlerde, bu adımların her biri için rehberlik ve kod örnekleri sağlanmaktadır.
 
@@ -46,8 +46,8 @@ Bir biçimlendirici oluşturmak için:
 
 * Sınıfı uygun temel sınıftan türet.
 * Oluşturucuda geçerli medya türleri ve kodlamalar belirtin.
-* Geçersiz `CanReadType` kılma / yöntemleri `CanWriteType`
-* Geçersiz `ReadRequestBodyAsync` kılma / yöntemleri `WriteResponseBodyAsync`
+* `CanReadType`/`CanWriteType` yöntemleri geçersiz kıl
+* `ReadRequestBodyAsync`/`WriteResponseBodyAsync` yöntemleri geçersiz kıl
   
 ### <a name="derive-from-the-appropriate-base-class"></a>Uygun taban sınıftan türet
 
@@ -55,52 +55,52 @@ Metin medya türleri (örneğin, vCard) için, [Textinputformatter](/dotnet/api/
 
 [!code-csharp[](custom-formatters/sample/Formatters/VcardOutputFormatter.cs?name=classdef)]
 
-Bir giriş biçimlendirici örneği için bkz. [örnek uygulama](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/web-api/advanced/custom-formatters/sample).
+Bir giriş biçimlendirici örneği için bkz. [örnek uygulama](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/web-api/advanced/custom-formatters/sample).
 
 İkili türler için [inputformatter](/dotnet/api/microsoft.aspnetcore.mvc.formatters.inputformatter) veya [outputformatter](/dotnet/api/microsoft.aspnetcore.mvc.formatters.outputformatter) temel sınıfından türetirsiniz.
 
 ### <a name="specify-valid-media-types-and-encodings"></a>Geçerli medya türlerini ve kodlamaları belirtin
 
-Oluşturucuda, `SupportedMediaTypes` ve `SupportedEncodings` koleksiyonlarına ekleyerek geçerli medya türlerini ve kodlamaları belirtin.
+Oluşturucuda, `SupportedMediaTypes` ve `SupportedEncodings` koleksiyonlara ekleyerek geçerli medya türlerini ve kodlamaları belirtin.
 
 [!code-csharp[](custom-formatters/sample/Formatters/VcardOutputFormatter.cs?name=ctor&highlight=3,5-6)]
 
-Bir giriş biçimlendirici örneği için bkz. [örnek uygulama](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/web-api/advanced/custom-formatters/sample).
+Bir giriş biçimlendirici örneği için bkz. [örnek uygulama](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/web-api/advanced/custom-formatters/sample).
 
 > [!NOTE]
 > Bir biçimlendirici sınıfında Oluşturucu bağımlılığı ekleme yapamazsınız. Örneğin, oluşturucuya bir günlükçü parametresi ekleyerek günlükçü alamazsınız. Hizmetlere erişmek için yöntemlerinize geçirilen bağlam nesnesini kullanmanız gerekir. [Aşağıdaki](#read-write) kod örneği bunun nasıl yapılacağını gösterir.
 
 ### <a name="override-canreadtypecanwritetype"></a>CanReadType/CanWriteType geçersiz kıl
 
-`CanReadType` Veya`CanWriteType` yöntemlerini geçersiz kılarak seri durumdan çıkarabilen veya seri hale getirekullanabileceğiniz türü belirtin. Örneğin, yalnızca bir `Contact` türden vCard metni oluşturabileceğiniz gibi, tam tersi de olabilir.
+`CanReadType` veya `CanWriteType` yöntemlerini geçersiz kılarak içinden seri durumdan çıkarabilen veya seri hale getirilecek bir tür belirtin. Örneğin, yalnızca bir `Contact` türünden vCard metni oluşturabileceğiniz gibi, tam tersi de olabilir.
 
 [!code-csharp[](custom-formatters/sample/Formatters/VcardOutputFormatter.cs?name=canwritetype)]
 
-Bir giriş biçimlendirici örneği için bkz. [örnek uygulama](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/web-api/advanced/custom-formatters/sample).
+Bir giriş biçimlendirici örneği için bkz. [örnek uygulama](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/web-api/advanced/custom-formatters/sample).
 
 #### <a name="the-canwriteresult-method"></a>CanWriteResult yöntemi
 
-Bazı senaryolarda `CanWriteResult` `CanWriteType`yerine geçersiz kılmanız gerekir. Aşağıdaki `CanWriteResult` koşullar doğruysa kullanın:
+Bazı senaryolarda `CanWriteType`yerine `CanWriteResult` geçersiz kılmanız gerekir. Aşağıdaki koşullar doğruysa `CanWriteResult` kullanın:
 
 * Eylem yönteminiz bir model sınıfı döndürür.
 * Çalışma zamanında döndürülebilecek türetilmiş sınıflar var.
 * Eylem tarafından türetilen sınıfın döndürüldüğü çalışma zamanında bilmeniz gerekir.
 
-Örneğin, eylem yöntemi `Person` imzanızın bir tür döndürdüğünden, ancak ondan `Person`türetilen bir `Student` veya `Instructor` türü döndürebildiğini varsayalım. Biçimlendiricinin yalnızca `Student` nesneleri işlemesini istiyorsanız, `CanWriteResult` metoduna sunulan bağlam nesnesindeki [nesne](/dotnet/api/microsoft.aspnetcore.mvc.formatters.outputformattercanwritecontext.object#Microsoft_AspNetCore_Mvc_Formatters_OutputFormatterCanWriteContext_Object) türünü denetleyin. Eylem `CanWriteResult` yöntemidöndürüldüğünde`CanWriteType` kullanılması gerekmediğini unutmayın ;Budurumdayöntemçalışmazamanıtürünüalır.`IActionResult`
+Örneğin, eylem yöntemi imzanızın `Person` bir tür döndürdüğünden, ancak `Person`türetilen bir `Student` veya `Instructor` türü döndürebildiğini varsayalım. Biçimlendiricinin yalnızca `Student` nesneleri işlemesini istiyorsanız, `CanWriteResult` yöntemine sunulan bağlam nesnesindeki [nesne](/dotnet/api/microsoft.aspnetcore.mvc.formatters.outputformattercanwritecontext.object#Microsoft_AspNetCore_Mvc_Formatters_OutputFormatterCanWriteContext_Object) türünü denetleyin. Eylem yöntemi `IActionResult`döndürdüğünde `CanWriteResult` kullanılması gerekmediğini unutmayın; Bu durumda `CanWriteType` yöntemi çalışma zamanı türünü alır.
 
 <a id="read-write"></a>
 
 ### <a name="override-readrequestbodyasyncwriteresponsebodyasync"></a>ReadRequestBodyAsync/WriteResponseBodyAsync geçersiz kıl
 
-`ReadRequestBodyAsync` Ya`WriteResponseBodyAsync`da ' de serileştirilin veya serileştirme fiili işi yapabilirsiniz. Aşağıdaki örnekte vurgulanan satırlarda, bağımlılık ekleme kapsayıcısından hizmetlerin nasıl alınacağı gösterilmektedir (Bu parametreleri Oluşturucu parametrelerinden alamazsınız).
+`ReadRequestBodyAsync` veya `WriteResponseBodyAsync`serisini kaldırma veya serileştirmede gerçek işi yapabilirsiniz. Aşağıdaki örnekte vurgulanan satırlarda, bağımlılık ekleme kapsayıcısından hizmetlerin nasıl alınacağı gösterilmektedir (Bu parametreleri Oluşturucu parametrelerinden alamazsınız).
 
 [!code-csharp[](custom-formatters/sample/Formatters/VcardOutputFormatter.cs?name=writeresponse&highlight=3-4)]
 
-Bir giriş biçimlendirici örneği için bkz. [örnek uygulama](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/web-api/advanced/custom-formatters/sample).
+Bir giriş biçimlendirici örneği için bkz. [örnek uygulama](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/web-api/advanced/custom-formatters/sample).
 
 ## <a name="how-to-configure-mvc-to-use-a-custom-formatter"></a>MVC 'yi özel bir biçimlendirici kullanacak şekilde yapılandırma
 
-Özel bir biçimlendirici kullanmak için, `InputFormatters` veya `OutputFormatters` koleksiyonuna biçimlendirici sınıfının bir örneğini ekleyin.
+Özel bir biçimlendirici kullanmak için, `InputFormatters` veya `OutputFormatters` koleksiyonuna bir biçimlendirici sınıfının bir örneğini ekleyin.
 
 [!code-csharp[](custom-formatters/sample/Startup.cs?name=mvcoptions&highlight=3-4)]
 
@@ -108,7 +108,7 @@ Biçimlendiriciler, eklediğiniz sırada değerlendirilir. Birincisi bir önceli
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Bu belge için](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/web-api/advanced/custom-formatters/sample)basit vCard giriş ve çıkış biçimleri uygulayan örnek uygulama. Uygulamalar aşağıdaki örnekteki gibi görünen vCard 'ları okur ve yazar:
+* [Bu belge için](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/web-api/advanced/custom-formatters/sample)basit vCard giriş ve çıkış biçimleri uygulayan örnek uygulama. Uygulamalar aşağıdaki örnekteki gibi görünen vCard 'ları okur ve yazar:
 
 ```
 BEGIN:VCARD
@@ -119,6 +119,6 @@ UID:20293482-9240-4d68-b475-325df4a83728
 END:VCARD
 ```
 
-VCard çıktısını görmek için, uygulamayı çalıştırın ve "metin/vCard" `http://localhost:63313/api/contacts/` onay üst bilgisine sahip bir get isteği gönderin (Visual Studio 'dan çalıştırıldığında) veya `http://localhost:5000/api/contacts/` (komut satırından çalıştırıldığında).
+VCard çıktısını görmek için, uygulamayı çalıştırın ve `http://localhost:63313/api/contacts/` (Visual Studio 'dan çalışırken) veya `http://localhost:5000/api/contacts/` (komut satırından çalışırken) için kabul üst bilgisi "Text/vCard" olan bir get isteği gönderin.
 
 Bir vCard 'ı bellek içi kişiler koleksiyonuna eklemek için, Içerik türü üst bilgisi "metin/vCard" ile aynı URL 'ye bir post isteği gönderin ve gövdesinde örnek olarak biçimlendirilen vCard metni yazın.

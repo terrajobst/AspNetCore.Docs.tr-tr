@@ -5,12 +5,12 @@ description: ASP.NET Core farklı diller ve kültürlere içerik yerelleştirilm
 ms.author: riande
 ms.date: 11/30/2019
 uid: fundamentals/localization
-ms.openlocfilehash: 645f680436336acbe1d5c2854a242527c9b4b9cb
-ms.sourcegitcommit: 3b6b0a54b20dc99b0c8c5978400c60adf431072f
+ms.openlocfilehash: b175354220a8a71c029e005f27443d5a72749a11
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74717409"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78662122"
 ---
 # <a name="globalization-and-localization-in-aspnet-core"></a>ASP.NET Core Genelleştirme ve yerelleştirme
 
@@ -30,7 +30,7 @@ Uygulama yerelleştirmesi şunları içerir:
 
 3. Her istek için dil/kültür seçmek üzere bir strateji uygulayın
 
-[Örnek kodu görüntüleme veya indirme](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/localization/sample/Localization) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
+[Örnek kodu görüntüleme veya indirme](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/localization/sample/Localization) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
 
 ## <a name="make-the-apps-content-localizable"></a>Uygulamanın içeriğini yerelleştirilebilir yapın
 
@@ -74,7 +74,7 @@ Bazı geliştiriciler, genel veya paylaşılan dizeler içermesi için `Startup`
 
 Bir Fransızca kaynak dosyası şunları içerebilir:
 
-| Anahtar | Değer |
+| Anahtar | Value |
 | ----- | ------ |
 | `<i>Hello</i> <b>{0}!</b>` | `<i>Bonjour</i> <b>{0} !</b>` |
 
@@ -225,6 +225,7 @@ Yerelleştirme `Startup.ConfigureServices` yönteminde yapılandırılır:
 Bir istekteki geçerli kültür, yerelleştirme [Ara](xref:fundamentals/middleware/index)ortamında ayarlanır. Yerelleştirme ara yazılımı `Startup.Configure` yönteminde etkinleştirilmiştir. Yerelleştirme ara yazılımı, istek kültürünü denetlemeyebilir (örneğin, `app.UseMvcWithDefaultRoute()`) herhangi bir ara yazılım önce yapılandırılmalıdır.
 
 [!code-csharp[](localization/sample/Localization/Startup.cs?name=snippet2)]
+[!INCLUDE[about the series](~/includes/code-comments-loc.md)]
 
 `UseRequestLocalization` bir `RequestLocalizationOptions` nesnesini başlatır. Her istekte `RequestLocalizationOptions` `RequestCultureProvider` listesi numaralandırılır ve istek kültürünü başarıyla belirleyebilmesi için ilk sağlayıcı kullanılır. Varsayılan sağlayıcılar `RequestLocalizationOptions` sınıfından gelir:
 
@@ -276,7 +277,7 @@ Kültür bilgisi ve UI kültürünün yalnızca birini belirtirseniz, belirtilen
 
 6. Dile dokunun ve ardından **Yukarı taşı**' ya dokunun.
 
-::: moniker range=">= aspnetcore-3.1"
+::: moniker range="> aspnetcore-3.1"
 ### <a name="the-content-language-http-header"></a>Content-Language HTTP üst bilgisi
 
 [Content-Language](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Language) varlık üst bilgisi:

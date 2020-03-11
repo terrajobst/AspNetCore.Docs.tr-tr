@@ -10,13 +10,13 @@ no-loc:
 - SignalR
 uid: signalr/supported-platforms
 ms.openlocfilehash: 054965921c87c1a9be27e5ddaa8a87b0fa1f4113
-ms.sourcegitcommit: cbd30479f42cbb3385000ef834d9c7d021fd218d
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76146504"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78668142"
 ---
-# <a name="aspnet-core-opno-locsignalr-supported-platforms"></a>Desteklenen SignalR platformları ASP.NET Core
+# <a name="aspnet-core-signalr-supported-platforms"></a>ASP.NET Core SignalR desteklenen platformlar
 
 ## <a name="server-system-requirements"></a>Sunucu sistem gereksinimleri
 

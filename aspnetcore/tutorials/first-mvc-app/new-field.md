@@ -6,16 +6,16 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/13/2018
 uid: tutorials/first-mvc-app/new-field
-ms.openlocfilehash: 6a2a2ca45f793ab95d45281ebb23180ac64761ec
-ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
+ms.openlocfilehash: a5ea9b75cf8bb1f31cb07a2b32f361bdbfd4efa3
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71082307"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78662906"
 ---
 # <a name="add-a-new-field-to-an-aspnet-core-mvc-app"></a>ASP.NET Core MVC uygulamasına yeni bir alan ekleme
 
-Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
+Gönderen [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 Bu bölümde [Entity Framework](/ef/core/get-started/aspnetcore/new-db) için Code First Migrations kullanılır:
 
@@ -35,17 +35,17 @@ EF Code First otomatik olarak bir veritabanı oluşturmak için kullanıldığı
 
 Uygulama oluşturma
 
-### <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+### <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
  Ctrl+Shift+B
 
-### <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+### <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 ```dotnetcli
 dotnet build
 ```
 
-### <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Mac için Visual Studio](#tab/visual-studio-mac)
+### <a name="visual-studio-for-mac"></a>[Mac için Visual Studio](#tab/visual-studio-mac)
 
 Komut ⌘ + B
 
@@ -65,13 +65,13 @@ Yeni `Rating` özelliğini tarayıcı görünümünde görüntülemek, oluşturm
 
 Bir `Rating` alanla */views/movies/Create.cshtml* güncelleştirin.
 
-# <a name="visual-studio--visual-studio-for-mactabvisual-studiovisual-studio-mac"></a>[Visual Studio/Mac için Visual Studio](#tab/visual-studio+visual-studio-mac)
+# <a name="visual-studio--visual-studio-for-mac"></a>[Visual Studio/Mac için Visual Studio](#tab/visual-studio+visual-studio-mac)
 
 Önceki "form grubunu kopyalayabilir/yapıştırabilir" ve IntelliSense 'in alanları güncelleştirmenize yardımcı olmasına izin verebilirsiniz. IntelliSense, [Etiket Yardımcıları](xref:mvc/views/tag-helpers/intro)ile birlikte çalışmaktadır.
 
 ![Geliştirici, görünümün ikinci Label öğesinde için ASP-for öznitelik değeri için R harfini yazmıştır. Bir IntelliSense bağlamsal menüsü, listede otomatik olarak vurgulanmış olan derecelendirme dahil olmak üzere kullanılabilir alanları gösterir. Geliştirici alana tıkladığında veya klavyede ENTER tuşuna bastığında, değer derecelendirme olarak ayarlanır.](new-field/_static/cr.png)
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 <!-- This tab intentionally left blank. -->
 
@@ -99,7 +99,7 @@ Hatayı çözmek için birkaç yaklaşım vardır:
 
 Bu öğretici için Code First Migrations kullanılır.
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 **Araçlar** menüsünde **NuGet Paket Yöneticisi > Paket Yöneticisi konsolu**' nu seçin.
 
@@ -118,7 +118,7 @@ Update-Database
 
 VERITABANıNDAKI tüm kayıtlar silinirse, Initialize yöntemi VERITABANıNı temel alır ve `Rating` alanını içerir.
 
-# <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Visual Studio Code/Mac için Visual Studio](#tab/visual-studio-code+visual-studio-mac)
+# <a name="visual-studio-code--visual-studio-for-mac"></a>[Visual Studio Code/Mac için Visual Studio](#tab/visual-studio-code+visual-studio-mac)
 
 [!INCLUDE[](~/includes/RP-mvc-shared/sqlite-warn.md)]
 
@@ -131,7 +131,10 @@ dotnet ef database update
 ---
 <!-- End of VS tabs -->
 
-Uygulamayı çalıştırın ve bir `Rating` alanı ile film oluşturabileceğiniz/düzenleyebileceğiniz/görüntüleydiğinizi doğrulayın. `Edit`, `Details`ve `Delete` görünüm şablonlarına `Rating` alanı eklemeniz gerekir.
+Uygulamayı çalıştırın ve bir `Rating` alanı ile film oluşturabileceğiniz, düzenleyebileceğiniz ve görüntüleyebilen bir doğrulama yapabilirsiniz. Uygulamayı güncelleştirin:
+
+* `Edit`, `Details`ve `Delete` görünüm şablonlarına `Rating` alanını ekleyin.
+* `MoviesController`düzenleme eylemi yönteminde bağlamayı güncelleştirin.
 
 > [!div class="step-by-step"]
 > [Önceki](search.md)

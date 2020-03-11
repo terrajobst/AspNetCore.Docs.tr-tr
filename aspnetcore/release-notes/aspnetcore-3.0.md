@@ -9,12 +9,12 @@ no-loc:
 - Blazor
 - SignalR
 uid: aspnetcore-3.0
-ms.openlocfilehash: 1dee9a7e1cc381547e7ece71f302f407223dc838
-ms.sourcegitcommit: 7dfe6cc8408ac6a4549c29ca57b0c67ec4baa8de
+ms.openlocfilehash: 35accdd2f65ac5430525be88cc621094e37d3e40
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75829120"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78667253"
 ---
 # <a name="whats-new-in-aspnet-core-30"></a>ASP.NET Core 3,0 ' deki yenilikler
 
@@ -67,7 +67,7 @@ Blazor bileşenleri genellikle HTML ve C#doğal bir Blend Razor söz dizimi kull
   * İkili serileştirme biçimi.
 * Şöyle özellikler sağlar:
 
-  * Kimlik Doğrulama
+  * Kimlik Doğrulaması
   * Çift yönlü akış ve akış denetimi.
   * İptal ve zaman aşımları.
 
@@ -319,8 +319,8 @@ ASP.NET Core 3,0 ' ye Json.NET eklemek için bkz. [Newtonsoft. JSON tabanlı JSO
 
 Aşağıdaki listede yeni Razor yönergeleri yer almaktadır:
 
-* [`@attribute`](xref:mvc/views/razor#attribute) &ndash; `@attribute` yönergesinin verilen özniteliği oluşturulan sayfanın veya görünümün sınıfına uygular. Örneğin: `@attribute [Authorize]`.
-* [`@implements`](xref:mvc/views/razor#implements) &ndash; `@implements` yönergesi oluşturulan sınıf için bir arabirim uygular. Örneğin: `@implements IDisposable`.
+* [`@attribute`](xref:mvc/views/razor#attribute) &ndash; `@attribute` yönergesinin verilen özniteliği oluşturulan sayfanın veya görünümün sınıfına uygular. Örneğin, `@attribute [Authorize]`.
+* [`@implements`](xref:mvc/views/razor#implements) &ndash; `@implements` yönergesi oluşturulan sınıf için bir arabirim uygular. Örneğin, `@implements IDisposable`.
 
 ## <a name="identityserver4-supports-authentication-and-authorization-for-web-apis-and-spas"></a>Identityserver4, Web API 'Leri ve maça 'Ları için kimlik doğrulama ve yetkilendirmeyi destekler
 
@@ -398,7 +398,7 @@ Daha fazla bilgi için bkz. <xref:security/authentication/windowsauth>.
 Web UI şablonları (Razor Pages, denetleyici ve görünümlerle MVC) şu şekilde kaldırılmıştır:
 
 * Tanımlama bilgisi onayı Kullanıcı arabirimi artık dahil değildir. ASP.NET Core 3,0 şablon tarafından oluşturulan bir uygulamada tanımlama bilgisi onay özelliğini etkinleştirmek için, bkz. <xref:security/gdpr>.
-* Betiklerin ve ilgili statik varlıkların artık CDNs kullanmak yerine yerel dosyalar olarak başvuruluyor. Daha fazla bilgi için, bkz. [betiklerin ve ilgili statik varlıkların artık geçerli ortama göre CDNs kullanmak yerine yerel dosyalar olarak başvuruluyor (ASPNET/AspNetCore. Docs #14350)](https://github.com/aspnet/AspNetCore.Docs/issues/14350).
+* Betiklerin ve ilgili statik varlıkların artık CDNs kullanmak yerine yerel dosyalar olarak başvuruluyor. Daha fazla bilgi için, bkz. [betiklerin ve ilgili statik varlıkların artık geçerli ortama göre CDNs kullanmak yerine yerel dosyalar olarak başvuruluyor (ASPNET/AspNetCore. Docs #14350)](https://github.com/dotnet/AspNetCore.Docs/issues/14350).
 
 Angular şablonu, angular 8 ' i kullanacak şekilde güncelleştirildi.
 
@@ -480,7 +480,7 @@ Daha fazla bilgi için aşağıdaki makalelere bakın:
 
 ## <a name="pipes-on-httpcontext"></a>HttpContext üzerindeki kanallar
 
-Artık istek gövdesini okumak ve <xref:System.IO.Pipelines> API 'sini kullanarak yanıt gövdesini yazmak mümkündür. Bağlamayı içeren <!-- <xref:Microsoft.AspNetCore.Http.HttpRequest.BodyReader> --> `HttpRequest.BodyReader` özellik, istek gövdesini okumak için kullanılabilecek bir <xref:System.IO.Pipelines.PipeReader> sağlar. Bağlamayı içeren <!-- <xref:Microsoft.AspNetCore.Http.> --> `HttpResponse.BodyWriter` özellik, yanıt gövdesini yazmak için kullanılabilecek bir <xref:System.IO.Pipelines.PipeWriter> sağlar. `HttpRequest.BodyReader`, `HttpRequest.Body` akışının analogıdır. `HttpResponse.BodyWriter`, `HttpResponse.Body` akışının analogıdır.
+Artık istek gövdesini okumak ve <xref:System.IO.Pipelines> API 'sini kullanarak yanıt gövdesini yazmak mümkündür. Sanal Makineye (VM) bağlı bir veya birden çok veri diski içerdiği için <!-- <xref:Microsoft.AspNetCore.Http.HttpRequest.BodyReader> --> `HttpRequest.BodyReader` özellik, istek gövdesini okumak için kullanılabilecek bir <xref:System.IO.Pipelines.PipeReader> sağlar. Sanal Makineye (VM) bağlı bir veya birden çok veri diski içerdiği için <!-- <xref:Microsoft.AspNetCore.Http.> --> `HttpResponse.BodyWriter` özellik, yanıt gövdesini yazmak için kullanılabilecek bir <xref:System.IO.Pipelines.PipeWriter> sağlar. `HttpRequest.BodyReader`, `HttpRequest.Body` akışının analogıdır. `HttpResponse.BodyWriter`, `HttpResponse.Body` akışının analogıdır.
 
 <!-- indirectly related, https://github.com/dotnet/docs/pull/14414 won't be published by 9/23  -->
 
@@ -504,7 +504,7 @@ Daha fazla bilgi için bkz.
 
 Bu senaryo ASP.NET Core 3,0 ' de düzeltilmiştir. `ASPNETCORE_FORWARDEDHEADERS_ENABLED` ortam değişkeni `true`olarak ayarlandığında, ana bilgisayar [Iletilen üstbilgiler ara yazılımını](xref:host-and-deploy/proxy-load-balancer#forwarded-headers-middleware-options) sağlar. `ASPNETCORE_FORWARDEDHEADERS_ENABLED`, kapsayıcı görüntülerimizde `true` olarak ayarlanır.
 
-## <a name="performance-improvements"></a>Performans geliştirmeleri
+## <a name="performance-improvements"></a>Performans iyileştirmeleri
 
 ASP.NET Core 3,0, bellek kullanımını azaltan ve üretilen işi geliştiren birçok geliştirme içerir:
 

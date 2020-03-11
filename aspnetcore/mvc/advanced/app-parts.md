@@ -5,20 +5,20 @@ description: ASP.NET Core içindeki uygulama bölümleriyle denetleyicileri, gö
 ms.author: riande
 ms.date: 11/11/2019
 uid: mvc/extensibility/app-parts
-ms.openlocfilehash: a95c344410db0651b9f8f1c1eb7551029f084c25
-ms.sourcegitcommit: 7dfe6cc8408ac6a4549c29ca57b0c67ec4baa8de
+ms.openlocfilehash: 0156c94bc6d0b83d0e14b8ef49468cfdf106d7e6
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75829081"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78667134"
 ---
 # <a name="share-controllers-views-razor-pages-and-more-with-application-parts"></a>Uygulama parçalarıyla denetleyiciler, görünümler, Razor Pages ve daha fazlasını paylaşma
 
 ::: moniker range=">= aspnetcore-3.0"
 
-Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
+Gönderen [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/advanced/app-parts) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
+[Örnek kodu görüntüleme veya indirme](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/advanced/app-parts) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
 
 *Uygulama bölümü* , bir uygulamanın kaynakları üzerinde soyutlamadır. Uygulama bölümleri ASP.NET Core denetleyicileri bulmasına, bileşenleri, etiket yardımcılarını, Razor Pages, Razor derleme kaynaklarını ve daha fazlasını bulmasına olanak tanır. <xref:Microsoft.AspNetCore.Mvc.ApplicationParts.AssemblyPart> bir uygulama bölümüdür. `AssemblyPart` bir derleme başvurusunu kapsüller ve türleri ve derleme başvurularını ortaya koyar.
 
@@ -36,7 +36,7 @@ Aşağıdaki kod, `AssemblyPart`kullanarak `ApplicationPartManager` yapılandır
 
 [!code-csharp[](./app-parts/3.0sample1/WebAppParts/Startup2.cs?name=snippet)]
 
-Önceki iki kod örneği bir derlemeden `SharedController` yükler. `SharedController`, uygulamanın projesinde değil. Bkz. [Webappparts çözüm](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/advanced/app-parts/3.0sample1/WebAppParts) örneği indirmesi.
+Önceki iki kod örneği bir derlemeden `SharedController` yükler. `SharedController`, uygulamanın projesinde değil. Bkz. [Webappparts çözüm](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/advanced/app-parts/3.0sample1/WebAppParts) örneği indirmesi.
 
 ### <a name="include-views"></a>Görünümleri dahil et
 
@@ -74,7 +74,7 @@ Bir uygulama için kullanılabilen özellikler, [bağımlılık ekleme](../../fu
 
 [!code-csharp[](./app-parts/sample2/AppPartsSample/Controllers/FeaturesController.cs?highlight=16,25-27)]
 
-[Yükleme örneği](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/advanced/app-parts/sample2) , uygulama özelliklerini göstermek için yukarıdaki kodu kullanır:
+[Yükleme örneği](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/advanced/app-parts/sample2) , uygulama özelliklerini göstermek için yukarıdaki kodu kullanır:
 
 ```text
 Controllers:
@@ -106,9 +106,9 @@ HTTP 404 hataları, uygulama parçalarıyla geliştirme sırasında sık karşı
 
 ::: moniker range="< aspnetcore-3.0"
 
-Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
+Gönderen [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/advanced/app-parts) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
+[Örnek kodu görüntüleme veya indirme](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/advanced/app-parts) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
 
 *Uygulama bölümü* , bir uygulamanın kaynakları üzerinde soyutlamadır. Uygulama bölümleri ASP.NET Core denetleyicileri bulmasına, bileşenleri, etiket yardımcılarını, Razor Pages, Razor derleme kaynaklarını ve daha fazlasını bulmasına olanak tanır. [AssemblyPart](/dotnet/api/microsoft.aspnetcore.mvc.applicationparts.assemblypart#Microsoft_AspNetCore_Mvc_ApplicationParts_AssemblyPart) bir uygulama bölümüdür. `AssemblyPart` bir derleme başvurusunu kapsüller ve türleri ve derleme başvurularını ortaya koyar.
 
@@ -126,7 +126,7 @@ Aşağıdaki kod, `AssemblyPart`kullanarak `ApplicationPartManager` yapılandır
 
 [!code-csharp[](./app-parts/sample1/WebAppParts/Startup2.cs?name=snippet)]
 
-Önceki iki kod örneği bir derlemeden `SharedController` yükler. `SharedController`, uygulamanın projesinde değil. Bkz. [Webappparts çözüm](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/advanced/app-parts/sample1/WebAppParts) örneği indirmesi.
+Önceki iki kod örneği bir derlemeden `SharedController` yükler. `SharedController`, uygulamanın projesinde değil. Bkz. [Webappparts çözüm](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/advanced/app-parts/sample1/WebAppParts) örneği indirmesi.
 
 ### <a name="include-views"></a>Görünümleri dahil et
 
@@ -160,7 +160,7 @@ Bir uygulama için kullanılabilen özellikler, [bağımlılık ekleme](../../fu
 
 [!code-csharp[](./app-parts/sample2/AppPartsSample/Controllers/FeaturesController.cs?highlight=16,25-27)]
 
-[Yükleme örneği](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/advanced/app-parts/sample2) , uygulama özelliklerini göstermek için yukarıdaki kodu kullanır:
+[Yükleme örneği](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/advanced/app-parts/sample2) , uygulama özelliklerini göstermek için yukarıdaki kodu kullanır:
 
 ```text
 Controllers:

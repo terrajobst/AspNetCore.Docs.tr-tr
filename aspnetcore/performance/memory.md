@@ -7,11 +7,11 @@ ms.custom: mvc
 ms.date: 12/05/2019
 uid: performance/memory
 ms.openlocfilehash: 0ae367e954e21e2f696a3b292fa64f1d2dba98ec
-ms.sourcegitcommit: 7dfe6cc8408ac6a4549c29ca57b0c67ec4baa8de
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75829029"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78667029"
 ---
 # <a name="memory-management-and-garbage-collection-gc-in-aspnet-core"></a>ASP.NET Core 'de bellek yönetimi ve çöp toplama (GC)
 
@@ -192,7 +192,7 @@ Bazı .NET Core nesneleri yerel belleğe bağımlıdır. Yerel bellek GC tarafı
 
 .NET, geliştiricilerin yerel bellek yayınlamasına izin vermek için <xref:System.IDisposable> arabirimi sağlar. <xref:System.IDisposable.Dispose*> çağrılmasa bile, [Sonlandırıcı](/dotnet/csharp/programming-guide/classes-and-structs/destructors) çalıştığında doğru uygulanmış sınıflar çağrı `Dispose`.
 
-Aşağıdaki kodu inceleyin:
+Aşağıdaki kodu göz önünde bulundurun:
 
 ```csharp
 [HttpGet("fileprovider")]

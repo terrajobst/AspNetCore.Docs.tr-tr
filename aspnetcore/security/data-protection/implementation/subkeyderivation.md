@@ -1,74 +1,74 @@
 ---
-title: Alt anahtar türetme ve ASP.NET Core kimliği doğrulanmış şifreleme
+title: ASP.NET Core 'de alt anahtar türetme ve kimliği doğrulanmış şifreleme
 author: rick-anderson
-description: ASP.NET Core veri koruma uygulama ayrıntılarını alt anahtarını türetme ve kimliği doğrulanmış şifreleme öğrenin.
+description: ASP.NET Core Data Protection alt anahtar türetme ve kimliği doğrulanmış şifrelemenin uygulama ayrıntılarını öğrenin.
 ms.author: riande
 ms.date: 10/14/2016
 uid: security/data-protection/implementation/subkeyderivation
 ms.openlocfilehash: bbfde378755b09cd5b1217b8cf66249b9fa1d6ad
-ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67814383"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78660554"
 ---
-# <a name="subkey-derivation-and-authenticated-encryption-in-aspnet-core"></a>Alt anahtar türetme ve ASP.NET Core kimliği doğrulanmış şifreleme
+# <a name="subkey-derivation-and-authenticated-encryption-in-aspnet-core"></a>ASP.NET Core 'de alt anahtar türetme ve kimliği doğrulanmış şifreleme
 
 <a name="data-protection-implementation-subkey-derivation"></a>
 
-Çoğu anahtar halkası anahtarlarında entropi çeşit içerir ve algoritmik bilgiler belirten "CBC modunda şifreleme + HMAC doğrulama" veya "GCM şifreleme + doğrulama". Bu gibi durumlarda, katıştırılmış entropi için bu anahtar için ana anahtar malzemesini (veya KM) olarak diyoruz ve gerçek şifreleme işlemleri için kullanılan anahtarları türetmek için anahtar türetme işlevi gerçekleştiririz.
+Anahtar halkasındaki çoğu anahtar, bir tür entropi içerir ve "CBC-Mode ENCRYPTION + HMAC doğrulaması" veya "GCM Encryption + doğrulaması" belirten algoritmik bilgilerine sahip olur. Bu gibi durumlarda, bu anahtar için ana anahtar malzemesi (veya KM) olarak katıştırılmış entropi 'ye başvurduk ve gerçek şifreleme işlemleri için kullanılacak anahtarları türetmek için bir anahtar türetme işlevi gerçekleştirdik.
 
 > [!NOTE]
-> Anahtarlar büyük/küçük harfe soyuttur ve özel bir uygulaması aşağıdaki gibi çalışmayabilir. Anahtar kendi uygulaması sağlıyorsa `IAuthenticatedEncryptor` bizim yerleşik fabrikaları birini kullanmak yerine, bu bölümde açıklanan mekanizması artık geçerlidir.
+> Anahtarlar soyuttur ve özel bir uygulama aşağıda belirtildiği gibi davranmayabilir. Anahtar, yerleşik fabrikalarımızın birini kullanmak yerine kendi `IAuthenticatedEncryptor` uygulanmasını sağlıyorsa, bu bölümde açıklanan mekanizma artık geçerli değildir.
 
 <a name="data-protection-implementation-subkey-derivation-aad"></a>
 
 ## <a name="additional-authenticated-data-and-subkey-derivation"></a>Ek kimliği doğrulanmış veriler ve alt anahtar türetme
 
-`IAuthenticatedEncryptor` Arabirimi tüm kimliği doğrulanmış şifreleme işlemleri için temel arabirim olarak hizmet verir. Kendi `Encrypt` yöntemi iki arabelleğini alır: düz metin ve additionalAuthenticatedData (AAD). Düz metin içeriği akış çağrısı değişmeden `IDataProtector.Protect`, ancak AAD sistem tarafından oluşturulan ve üç bileşenden oluşur:
+`IAuthenticatedEncryptor` arabirimi tüm kimliği doğrulanmış şifreleme işlemleri için çekirdek arabirim işlevi görür. `Encrypt` yöntemi iki ara bellek alır: düz metin ve Adtionalaıditeddata (AAD). Düz metin içerik akışı `IDataProtector.Protect`çağrısını değiştirmez, ancak AAD sistem tarafından oluşturulur ve üç bileşenden oluşur:
 
-1. 32-bit Sihirli üstbilgisi 09 F0 C9 F0'de, veri koruma sisteminde bu sürümünü tanımlar.
+1. Veri koruma sisteminin bu sürümünü tanımlayan 32-bit Magic Header 09 F0 C9 F0.
 
-2. 128 bit anahtar kimliği.
+2. 128 bitlik anahtar kimliği.
 
-3. Değişken uzunluklu bir dize oluşturan amaçlı zincirinden biçimlendirilmiş `IDataProtector` , bu işlemi gerçekleştiriyor.
+3. Bu işlemi gerçekleştiren `IDataProtector` oluşturan amaç zincirinden oluşturulmuş değişken uzunluklu bir dize.
 
-AAD üç bileşen tanımlama grubu için benzersiz olduğundan, bu yeni anahtarları KM kendisini tüm müşterilerimizin şifreleme işlemlerinin kullanmak yerine KM türetmek için kullanabiliriz. Yapılan her çağrı için `IAuthenticatedEncryptor.Encrypt`, aşağıdaki anahtar türetme işlem gerçekleşir:
+AAD, üç bileşenin de kayıt düzeni için benzersiz olduğundan, bunu, şifreleme işlemlerimizin tümünde KM 'yi kullanmak yerine, KM 'den yeni anahtar türetmede kullanabiliriz. Her `IAuthenticatedEncryptor.Encrypt`çağrısı için aşağıdaki anahtar türetme işlemi gerçekleşir:
 
 ( K_E, K_H ) = SP800_108_CTR_HMACSHA512(K_M, AAD, contextHeader || keyModifier)
 
-Burada, biz sayacı modunda NIST SP800 108 KDF arıyoruz (bkz [NIST SP800-108](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-108.pdf), Sec. 5.1) şu parametrelerle:
+Burada, (bkz. [NıST SP800-108](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-108.pdf), Sec. 5,1), AŞAĞıDAKI parametrelerle NIST SP800-108 KDF 'yi arıyoruz:
 
-* Anahtar türetme anahtarı (KDK) K_M =
+* Anahtar türetme anahtarı (KDK) = K_M
 
 * PRF = HMACSHA512
 
-* Etiket additionalAuthenticatedData =
+* Label = Adtionalaıseteddata
 
-* bağlam contextHeader = || keyModifier
+* bağlam = contextHeader | | keyModifier
 
-İçerik üstbilgisi, değişken uzunluğu ve aslında bir parmak izi için biz K_E ve K_H türetme algoritmaları sunar. Her çağrı için rastgele oluşturulmuş bir 128-bit dize anahtar değiştiricidir `Encrypt` ve tüm diğer girişler için KDF sabit olsa bile KE ve KH bu özel kimlik doğrulama şifreleme işlemi için benzersiz olduğunu olasılık aşırı yüklenilmesini ile sağlamak için kullanılır.
+Bağlam üst bilgisi değişken uzunluktadır ve temelde K_E ve K_H türettiğimiz algoritmaların bir parmak izi olarak görev yapar. Anahtar değiştirici, `Encrypt` her bir çağrı için rastgele oluşturulan 128 bitlik bir dizedir ve KDF 'ye yapılan diğer tüm girişler sabit olsa bile, bu belirli kimlik doğrulama şifreleme işlemi için KE ve KH 'nin benzersiz olmasını sağlamak için hizmet verir.
 
-CBC modunda şifreleme + HMAC doğrulama işlemleri için | K_E | simetrik blok şifreleme anahtarı uzunluğu ve | K_H | HMAC yordamının Özet boyutudur. GCM şifreleme + doğrulama işlemleri | K_H | 0 =.
+CBC modu şifreleme + HMAC doğrulama işlemleri için | K_E | , simetrik blok şifre anahtarının uzunluğu ve | K_H | HMAC yordamının Özet boyutudur. GCM şifreleme + doğrulama işlemleri için | K_H | = 0.
 
-## <a name="cbc-mode-encryption--hmac-validation"></a>CBC modunda şifreleme + HMAC doğrulama
+## <a name="cbc-mode-encryption--hmac-validation"></a>CBC modu şifreleme + HMAC doğrulaması
 
-Yukarıdaki mekanizması K_E oluşturulduktan sonra size rastgele başlatma vektörü oluşturur ve düz metin şifreleme için simetrik blok şifreleme algoritması çalıştırın. Ciphertext ve başlatma vektörünü sonra Mac üretmek için K_H anahtarıyla başlatıldı HMAC yordamı aracılığıyla çalıştırılır Bu işlem ve dönüş değeri grafik aşağıda gösterilir.
+Yukarıdaki mekanizma aracılığıyla K_E oluşturulduktan sonra rastgele bir başlatma vektörü oluşturur ve düz metin şifreler için simetrik blok şifre algoritmasını çalıştırır. Başlatma vektörü ve şifreli dosyalar, MAC 'i oluşturmak için anahtar K_H ile başlatılan HMAC yordamı aracılığıyla çalıştırılır. Bu işlem ve dönüş değeri aşağıda grafik olarak gösterilir.
 
-![CBC modunda işlem ve dön](subkeyderivation/_static/cbcprocess.png)
+![CBC modunda işlem ve dönüş](subkeyderivation/_static/cbcprocess.png)
 
-*Çıkış: keyModifier = || IV || (Veri K_E, IV) E_cbc || HMAC (K_H, IV || E_cbc (K_E, IV, veriler))*
-
-> [!NOTE]
-> `IDataProtector.Protect` Uygulaması olacak [Sihirli bir üst bilgi ve anahtar kimliği önüne ekleyin](xref:security/data-protection/implementation/authenticated-encryption-details) çağırana döndürmeden önce çıktı. Sihirli bir üst bilgi ve anahtar kimliği örtük olarak olduğundan parçası [AAD](xref:security/data-protection/implementation/subkeyderivation#data-protection-implementation-subkey-derivation-aad), ve anahtar değiştiricisi KDF giriş olarak beslenir olduğundan, bu yük döndürülen her tek baytlık Mac tarafından doğrulanır anlamına gelir
-
-## <a name="galoiscounter-mode-encryption--validation"></a>Galois/sayacı modu şifreleme + doğrulama
-
-Yukarıdaki mekanizması K_E oluşturulduktan sonra size rastgele 96 bit nonce oluşturmak ve düz metin şifrele, 128 bit kimlik doğrulaması etiketi oluşturmak için simetrik blok şifreleme algoritması'ı çalıştırın.
-
-![GCM modu işlemi ve dön](subkeyderivation/_static/galoisprocess.png)
-
-*Çıkış: keyModifier = || nonce || E_gcm (K_E, nonce, veriler) || authTag*
+*Çıkış: = keyModifier | | IV | | E_cbc (K_E, IV, veri) | | HMAC (K_H, IV | | E_cbc (K_E, IV, veri))*
 
 > [!NOTE]
-> GCM yerel olarak AAD kavramını destekler olsa da, biz yine de AAD yalnızca özgün KDF GCM, AAD parametresi için boş bir dize geçirilecek edilmesiyle besleme. Bunun nedeni, iki Katlama. İlk olarak, [çevikliği desteklemek için](xref:security/data-protection/implementation/context-headers#data-protection-implementation-context-headers) hiçbir zaman K_M doğrudan şifreleme anahtarı kullanılacak istiyoruz. Ayrıca, GCM girişleri üzerinde çok sıkı benzersizlik gereksinimleri karşılamalıdır. GCM şifreleme yordamı hiç olmadığı kadar çağrılan iki veya daha farklı olma olasılığını aynı (anahtar, nonce) giriş veri kümelerini çifti aşmamalıdır 2 ^ 32. Biz K_E düzeltin, 2'den yerine getiremez ^ 32 şifreleme işlemleri biz çalıştırma afoul 2 ve önce ^ -32 sınırlayın. Bu işlemlerin çok büyük bir sayı gibi görünebilir, ancak trafiği yüksek web sunucusu, 4 milyarı aşan istekleri aracılığıyla da bu anahtarları için normal kullanım ömrü içinde yalnızca gün içinde gidebilirsiniz. 2\. uyumlu kalmak için ^-32 olasılık sınırı devam 128 bit anahtar değiştiricisi ve herhangi belirli K_M için kullanılabilir işlem sayısını önemli ölçüde genişleten 96 bit nonce kullanılacak. Tasarım kolaylık olması için biz KDF kod yolu CBC ve GCM işlemleri arasında paylaşın ve AAD içinde KDF zaten değerlendirilir olmadığından, GCM yordamına iletme gereği yok.
+> `IDataProtector.Protect` uygulama, bir [MAGIC üst bilgisini ve anahtar kimliğini](xref:security/data-protection/implementation/authenticated-encryption-details) çağırana döndürmeden önce çıktının önüne alacak. Sihirli üstbilgi ve anahtar kimliği, [AAD](xref:security/data-protection/implementation/subkeyderivation#data-protection-implementation-subkey-derivation-aad)'nin örtük bir parçası olduğundan ve anahtar değiştiricisi KDF 'ye giriş olarak beslendiği için, bu, son döndürülen yükün her bir BAYTıNıN Mac tarafından doğrulanması anlamına gelir.
+
+## <a name="galoiscounter-mode-encryption--validation"></a>Galoa/sayaç modu şifreleme + doğrulama
+
+Yukarıdaki mekanizmayla K_E oluşturulduktan sonra rastgele bir 96-bit nonce oluşturur ve simetrik blok şifre algoritmasını şifreler düz metin olarak çalıştırır ve 128 bit kimlik doğrulama etiketini oluşturur.
+
+![GCM modu işlemi ve döndürme](subkeyderivation/_static/galoisprocess.png)
+
+*Çıkış: = keyModifier | | nonce | | E_gcm (K_E, nonce, veri) | | authTag*
+
+> [!NOTE]
+> GCM yerel olarak AAD kavramını desteklese de, AAD parametresi için bir boş dizeyi GCM 'ye geçirmek için AAD 'yi yalnızca özgün KDF 'ye besliyoruz. Bunun nedeni iki katdır. İlk olarak, [çevikliği desteklemek için](xref:security/data-protection/implementation/context-headers#data-protection-implementation-context-headers) K_M doğrudan şifreleme anahtarı olarak kullanmak istemezsiniz. Ayrıca, GCM, girişlerinde çok sıkı benzersizlik gereksinimleri uygular. GCM şifreleme yordamının, aynı (anahtar, nonce) çiftiyle iki veya daha fazla farklı giriş verisi kümesinde çağrılması olasılığı 2 ^ 32 ' yi aşmamalıdır. K_E düzeltireceğiz 2 ^-32 sınırının afoul 'i çalıştırmadan önce 2 ^ 32 ' den fazla şifreleme işlemi gerçekleştiremedik. Bu çok fazla sayıda işlem gibi görünebilir, ancak yüksek trafikli bir Web sunucusu, bu anahtarların normal ömrü içinde boyutundaydı gün içinde 4.000.000.000 istek aracılığıyla değişebilir. 2 ^-32 olasılık sınırının uyumlu kalmasını sağlamak için, belirli bir K_M için kullanılabilir işlem sayısını genişleten bir 128 bit anahtar değiştiricisi ve 96-bit nonce kullanmaya devam ediyoruz. Tasarımın basitliği için, CBC ve GCM işlemleri arasında KDF kodu yolunu paylaşıyoruz ve AAD 'nin KDF 'de zaten kabul edildiği için, bunu GCM yordamına iletmeniz gerekmez.

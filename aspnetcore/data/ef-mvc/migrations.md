@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.date: 03/27/2019
 ms.topic: tutorial
 uid: data/ef-mvc/migrations
-ms.openlocfilehash: 9f3e3b29d155f1024aef530bf9c55efa57d4546a
-ms.sourcegitcommit: 0b0e485a8a6dfcc65a7a58b365622b3839f4d624
+ms.openlocfilehash: 8b3417205457a5ce5fa16994701a06e2a4d7d350
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76928394"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78665727"
 ---
 # <a name="tutorial-using-the-migrations-feature---aspnet-mvc-with-ef-core"></a>Öğretici: EF Core ile geçiş özelliğini kullanma-ASP.NET MVC
 
@@ -28,7 +28,7 @@ Bu öğreticide şunları yaptınız:
 > * Veri modeli anlık görüntüsü hakkında bilgi edinin
 > * Geçişi Uygula
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Önkoşullar
 
 * [Sıralama, filtreleme ve sayfalama](sort-filter-page.md)
 
@@ -167,9 +167,9 @@ CLı komutları hakkında daha fazla bilgi için bkz. [.NET Core CLI](/ef/core/m
 
 PMC komutları hakkında daha fazla bilgi için bkz. [Paket Yöneticisi Konsolu (Visual Studio)](/ef/core/miscellaneous/cli/powershell).
 
-## <a name="get-the-code"></a>Kodu alın
+## <a name="get-the-code"></a>Kodu alma
 
-[Tamamlanmış uygulamayı indirin veya görüntüleyin.](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final)
+[Tamamlanmış uygulamayı indirin veya görüntüleyin.](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final)
 
 ## <a name="next-step"></a>Sonraki adım
 

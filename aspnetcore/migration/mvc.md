@@ -6,11 +6,11 @@ ms.author: riande
 ms.date: 04/06/2019
 uid: migration/mvc
 ms.openlocfilehash: 6c9449fb43960d05db8aa6dcba64d3d830834cdb
-ms.sourcegitcommit: 849af69ee3c94cdb9fd8fa1f1bb8f5a5dda7b9eb
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68371880"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78661170"
 ---
 # <a name="migrate-from-aspnet-mvc-to-aspnet-core-mvc"></a>ASP.NET MVC 'den ASP.NET Core MVC 'ye geçiş
 
@@ -27,9 +27,9 @@ Yükseltmeyi göstermek için, bir ASP.NET MVC uygulaması oluşturarak başlaya
 
 ![Visual Studio yeni proje iletişim kutusu](mvc/_static/new-project.png)
 
-![Yeni Web uygulaması iletişim kutusu: ASP.NET Templates panelinde seçili MVC proje şablonu](mvc/_static/new-project-select-mvc-template.png)
+![Yeni Web uygulaması iletişim kutusu: ASP.NET şablonlar panelinde MVC proje şablonu seçildi](mvc/_static/new-project-select-mvc-template.png)
 
-*Seçim* Çözümün adını *WebApp1* ile *Mvc5*arasında değiştirin. Visual Studio yeni çözüm adını (*Mvc5*) görüntüler, bu da projeyi bir sonraki projeden daha kolay bir şekilde anlatmayı kolaylaştırır.
+*Isteğe bağlı:* Çözümün adını *WebApp1* ile *Mvc5*arasında değiştirin. Visual Studio yeni çözüm adını (*Mvc5*) görüntüler, bu da projeyi bir sonraki projeden daha kolay bir şekilde anlatmayı kolaylaştırır.
 
 ## <a name="create-the-aspnet-core-project"></a>ASP.NET Core projesi oluşturma
 
@@ -37,9 +37,9 @@ Yükseltmeyi göstermek için, bir ASP.NET MVC uygulaması oluşturarak başlaya
 
 ![Yeni Proje iletişim kutusu](mvc/_static/new_core.png)
 
-![Yeni ASP.NET Web uygulaması iletişim kutusu: ASP.NET Core şablonları panelinde boş proje şablonu seçildi](mvc/_static/new-project-select-empty-aspnet5-template.png)
+![Yeni ASP.NET Web uygulaması iletişim kutusu: ASP.NET Core şablonlar panelinde boş proje şablonu seçildi](mvc/_static/new-project-select-empty-aspnet5-template.png)
 
-* *Seçim* *Web uygulaması* proje şablonunu kullanarak yeni bir ASP.NET Core uygulaması oluşturun. Projeyi *WebApp1*olarak adlandırın ve **bireysel kullanıcı hesaplarının**bir kimlik doğrulama seçeneğini belirleyin. Bu uygulamayı *Fullaspnetcore*olarak yeniden adlandırın. Bu projeyi oluşturmak, dönüştürmeye zaman kazandırır. Son sonucu görmek veya kodu dönüştürme projesine kopyalamak için, şablon tarafından oluşturulan koda bakabilirsiniz. Ayrıca, şablon tarafından oluşturulan projeyle karşılaştırmak için bir dönüştürme adımında takılı olduğunuzda da yararlıdır.
+* *Isteğe bağlı:* *Web uygulaması* proje şablonunu kullanarak yeni bir ASP.NET Core uygulaması oluşturun. Projeyi *WebApp1*olarak adlandırın ve **bireysel kullanıcı hesaplarının**bir kimlik doğrulama seçeneğini belirleyin. Bu uygulamayı *Fullaspnetcore*olarak yeniden adlandırın. Bu projeyi oluşturmak, dönüştürmeye zaman kazandırır. Son sonucu görmek veya kodu dönüştürme projesine kopyalamak için, şablon tarafından oluşturulan koda bakabilirsiniz. Ayrıca, şablon tarafından oluşturulan projeyle karşılaştırmak için bir dönüştürme adımında takılı olduğunuzda da yararlıdır.
 
 ## <a name="configure-the-site-to-use-mvc"></a>Siteyi MVC kullanacak şekilde yapılandırma
 
@@ -61,13 +61,13 @@ Yükseltmeyi göstermek için, bir ASP.NET MVC uygulaması oluşturarak başlaya
 
 ::: moniker-end
 
-`Microsoft.AspNetCore.Mvc`ASP.NET Core MVC çerçevesidir. `Microsoft.AspNetCore.StaticFiles`, statik dosya işleyicisidir. ASP.NET Core çalışma zamanı Modüler olur ve statik dosyalara (bkz. [statik dosyaları](xref:fundamentals/static-files)) hizmeti sağlamak için açıkça oturum açmalısınız.
+`Microsoft.AspNetCore.Mvc`, ASP.NET Core MVC çerçevesidir. `Microsoft.AspNetCore.StaticFiles` statik dosya işleyicisidir. ASP.NET Core çalışma zamanı Modüler olur ve statik dosyalara (bkz. [statik dosyaları](xref:fundamentals/static-files)) hizmeti sağlamak için açıkça oturum açmalısınız.
 
 * *Startup.cs* dosyasını açın ve kodu aşağıdakiler ile eşleşecek şekilde değiştirin:
 
   [!code-csharp[](mvc/sample/Startup.cs?highlight=13,26-31)]
 
-`UseStaticFiles` Genişletme yöntemi statik dosya işleyicisini ekler. Daha önce belirtildiği gibi, ASP.NET çalışma zamanı Modüler olur ve statik dosyaları sağlamak için açıkça kabul etmeniz gerekir. `UseMvc` Uzantı yöntemi yönlendirme ekler. Daha fazla bilgi için bkz. [uygulama başlatma](xref:fundamentals/startup) ve [yönlendirme](xref:fundamentals/routing).
+`UseStaticFiles` uzantısı yöntemi statik dosya işleyicisini ekler. Daha önce belirtildiği gibi, ASP.NET çalışma zamanı Modüler olur ve statik dosyaları sağlamak için açıkça kabul etmeniz gerekir. `UseMvc` uzantısı yöntemi yönlendirme ekler. Daha fazla bilgi için bkz. [uygulama başlatma](xref:fundamentals/startup) ve [yönlendirme](xref:fundamentals/routing).
 
 ## <a name="add-a-controller-and-view"></a>Denetleyici ekleme ve görüntüleme
 
@@ -121,11 +121,11 @@ Artık en az çalışma ASP.NET Core projesi olduğuna göre, işlevselliği ASP
 
 ## <a name="controllers-and-views"></a>Denetleyiciler ve görünümler
 
-* Yöntemlerin her birini ASP.NET MVC `HomeController` 'den New `HomeController`öğesine kopyalayın. ASP.NET MVC 'de, yerleşik şablonun denetleyici eylem yönteminin dönüş türü [ActionResult](https://msdn.microsoft.com/library/system.web.mvc.actionresult(v=vs.118).aspx); ASP.NET Core MVC 'de, eylem metotları bunun yerine `IActionResult` döndürülür. `ActionResult`uygular `IActionResult`, bu nedenle eylem yöntemlerinizi dönüş türünü değiştirmenize gerek yoktur.
+* Yöntemlerin her birini ASP.NET MVC `HomeController` yeni `HomeController`kopyalayın. ASP.NET MVC 'de, yerleşik şablonun denetleyici eylem yönteminin dönüş türü [ActionResult](https://msdn.microsoft.com/library/system.web.mvc.actionresult(v=vs.118).aspx); ASP.NET Core MVC 'de, eylem yöntemleri bunun yerine `IActionResult` döndürür. `ActionResult` `IActionResult`uygular, bu nedenle eylem yöntemlerinizi dönüş türünü değiştirmenize gerek yoktur.
 
 * ASP.NET MVC projesindeki *. cshtml*, *Contact. cshtml*ve *Index. cshtml* Razor görünüm dosyalarını ASP.NET Core projesine kopyalayın.
 
-* ASP.NET Core uygulamasını çalıştırın ve her yöntemi test edin. Düzen dosyasını veya stilleri henüz geçirmedik, bu nedenle işlenmiş görünümler yalnızca görünüm dosyalarındaki içeriği içerir. `About` Ve`Contact` görünümleri için Düzen dosyası oluşturulmuş bağlantılar yoktur, bu nedenle bunları tarayıcıdan çağırmanız gerekir ( **4492** değerini projenizde kullanılan bağlantı noktası numarasıyla değiştirin).
+* ASP.NET Core uygulamasını çalıştırın ve her yöntemi test edin. Düzen dosyasını veya stilleri henüz geçirmedik, bu nedenle işlenmiş görünümler yalnızca görünüm dosyalarındaki içeriği içerir. `About` ve `Contact` görünümleriyle ilgili düzen dosyası bağlantıları oluşturmayacaksınız. bu nedenle, bunları tarayıcıdan çağırmanız gerekir ( **4492** değerini projenizde kullanılan bağlantı noktası numarasıyla değiştirin).
 
   * `http://localhost:4492/home/about`
 
@@ -141,29 +141,29 @@ ASP.NET MVC 'nin önceki sürümlerinde, statik içerik Web projesinin kökünde
 
 * *Ayrıcalıklı Icon. ico* dosyasını eski MVC projesinden ASP.NET Core projesindeki *Wwwroot* klasörüne kopyalayın.
 
-Eski ASP.NET MVC projesi, stili için [önyükleme](https://getbootstrap.com/) kullanır ve önyükleme dosyalarını *içerik* ve *betikler* klasörlerinde depolar. Eski ASP.NET MVC projesini oluşturan şablon, düzen dosyasında önyükleme öğesine başvurur (*Görünümler/Shared/_Layout. cshtml*). ASP.NET MVC projesindeki *Bootstrap. js* ve *Bootstrap. css* dosyalarını yeni projedeki *Wwwroot* klasörüne kopyalayabilirsiniz. Bunun yerine, sonraki bölümde CDNs kullanarak önyükleme (ve diğer istemci tarafı kitaplıkları) için destek ekleyeceğiz.
+Eski ASP.NET MVC projesi, stili için [önyükleme](https://getbootstrap.com/) kullanır ve önyükleme dosyalarını *içerik* ve *betikler* klasörlerinde depolar. Eski ASP.NET MVC projesini oluşturan şablon, düzen dosyasında önyüklenmesine başvurur (*Görünümler/paylaşılan/_Layout. cshtml*). ASP.NET MVC projesindeki *Bootstrap. js* ve *Bootstrap. css* dosyalarını yeni projedeki *Wwwroot* klasörüne kopyalayabilirsiniz. Bunun yerine, sonraki bölümde CDNs kullanarak önyükleme (ve diğer istemci tarafı kitaplıkları) için destek ekleyeceğiz.
 
 ## <a name="migrate-the-layout-file"></a>Düzen dosyasını geçirme
 
-* *_Viewstart. cshtml* dosyasını eskı ASP.NET MVC projesinin *Görünümler* klasöründen ASP.NET Core projesinin *Görünümler* klasörüne kopyalayın. *_Viewstart. cshtml* dosyası ASP.NET Core MVC 'de değişmemiştir.
+* *_ViewStart. cshtml* dosyasını eskı ASP.NET MVC projesinin *Görünümler* klasöründen ASP.NET Core projesinin *Görünümler* klasörüne kopyalayın. *_ViewStart. cshtml* dosyası ASP.NET Core MVC 'de değişmemiştir.
 
 * Bir *Görünüm/paylaşılan* klasör oluşturun.
 
-* *Seçim* *_Viewwimports. cshtml* dosyasını *Fullaspnetcore* MVC projesinin *Görünümler* klasöründen ASP.NET Core projesinin *Görünümler* klasörüne kopyalayın. *_Viewwimports. cshtml* dosyasındaki herhangi bir ad alanı bildirimini kaldırın. *_Viewwimports. cshtml* dosyası tüm görünüm dosyaları için ad alanları sağlar ve [etiket yardımcılarını](xref:mvc/views/tag-helpers/intro)getirir. Etiket Yardımcıları yeni düzen dosyasında kullanılır. *_Viewwimports. cshtml* dosyası ASP.NET Core için yenidir.
+* *Isteğe bağlı:* *_ViewImports. cshtml* 'Yi *Fullaspnetcore* MVC projesinin *views* klasöründen ASP.NET Core projenin *views* klasörüne kopyalayın. *_ViewImports. cshtml* dosyasındaki herhangi bir ad alanı bildirimini kaldırın. *_ViewImports. cshtml* dosyası, tüm görünüm dosyaları için ad alanları sağlar ve [etiket yardımcılarını](xref:mvc/views/tag-helpers/intro)getirir. Etiket Yardımcıları yeni düzen dosyasında kullanılır. *_ViewImports. cshtml* dosyası ASP.NET Core için yenidir.
 
-* *_Layout. cshtml* dosyasını eskı ASP.NET MVC projesinin *Görünümler/paylaşılan* klasöründen ASP.NET Core projesinin *Görünümler/paylaşılan* klasörüne kopyalayın.
+* *_Layout. cshtml* dosyasını eskı ASP.NET MVC projesinin *Görünümler/paylaşılan* klasöründen ASP.NET Core projenin *Görünümler/paylaşılan* klasörüne kopyalayın.
 
 *_Layout. cshtml* dosyasını açın ve aşağıdaki değişiklikleri yapın (tamamlanan kod aşağıda gösterilmiştir):
 
-* `@Styles.Render("~/Content/css")` *Bootstrap. css* ' nin yükleneceği bir `<link>` öğeyle değiştirin (aşağıya bakın).
+* *Bootstrap. css* ' i yüklemek için `@Styles.Render("~/Content/css")` bir `<link>` öğesiyle değiştirin (aşağıya bakın).
 
-* Kaldırın `@Scripts.Render("~/bundles/modernizr")`.
+* `@Scripts.Render("~/bundles/modernizr")`kaldırın.
 
-* Çizgiyi açıklama (çizgi ile `@*...*@`çevreleyin). `@Html.Partial("_LoginPartial")` Daha fazla bilgi için bkz. [kimlik doğrulaması ve kimliğini ASP.NET Core geçirme](xref:migration/identity)
+* `@Html.Partial("_LoginPartial")` çizgiyi açıklama (çizgiyi `@*...*@`ile çevreleyin). Daha fazla bilgi için bkz. [kimlik doğrulaması ve kimliğini ASP.NET Core geçirme](xref:migration/identity)
 
-* `@Scripts.Render("~/bundles/jquery")` Bir`<script>` öğesiyle değiştirin (aşağıya bakın).
+* `@Scripts.Render("~/bundles/jquery")` bir `<script>` öğesiyle değiştirin (aşağıya bakın).
 
-* `@Scripts.Render("~/bundles/bootstrap")` Bir`<script>` öğesiyle değiştirin (aşağıya bakın).
+* `@Scripts.Render("~/bundles/bootstrap")` bir `<script>` öğesiyle değiştirin (aşağıya bakın).
 
 Önyükleme CSS ekleme için değiştirme biçimlendirmesi:
 
@@ -188,7 +188,7 @@ Güncelleştirilmiş *_Layout. cshtml* dosyası aşağıda gösterilmiştir:
 
 Siteyi tarayıcıda görüntüleyin. Artık beklenen stillerle birlikte doğru şekilde yüklenmelidir.
 
-* *Seçim* Yeni düzen dosyasını kullanmayı denemek isteyebilirsiniz. Bu proje için, düzen dosyasını *Fullaspnetcore* projesinden kopyalayabilirsiniz. Yeni düzen dosyası [Etiket Yardımcıları](xref:mvc/views/tag-helpers/intro) kullanır ve başka iyileştirmeler içerir.
+* *Isteğe bağlı:* Yeni düzen dosyasını kullanmayı denemek isteyebilirsiniz. Bu proje için, düzen dosyasını *Fullaspnetcore* projesinden kopyalayabilirsiniz. Yeni düzen dosyası [Etiket Yardımcıları](xref:mvc/views/tag-helpers/intro) kullanır ve başka iyileştirmeler içerir.
 
 ## <a name="configure-bundling-and-minification"></a>Paketlemeyi ve küçültmeye göre yapılandırma
 
@@ -196,7 +196,7 @@ Paketleme ve küçültmeye yönelik yapılandırma hakkında daha fazla bilgi i�
 
 ## <a name="solve-http-500-errors"></a>HTTP 500 hatalarını çözme
 
-Sorunun kaynağı hakkında bilgi içermeyen bir HTTP 500 hata iletisine neden olabilecek birçok sorun vardır. Örneğin, *views/_Viewwimports. cshtml* dosyası projenizde mevcut olmayan bir ad alanı içeriyorsa, bir http 500 hatası alırsınız. ASP.NET Core uygulamalarda varsayılan olarak, `UseDeveloperExceptionPage` uzantı `IApplicationBuilder` öğesine eklenir ve yapılandırma *geliştirme*sırasında yürütülür. Bu, aşağıdaki kodda ayrıntılı olarak verilmiştir:
+Sorunun kaynağı hakkında bilgi içermeyen bir HTTP 500 hata iletisine neden olabilecek birçok sorun vardır. Örneğin, *views/_ViewImports. cshtml* dosyası projenizde mevcut olmayan bir ad alanı içeriyorsa, bir http 500 hatası alırsınız. ASP.NET Core uygulamalarda varsayılan olarak, `UseDeveloperExceptionPage` uzantısı `IApplicationBuilder` eklenir ve yapılandırma *geliştirmede*yürütülür. Bu, aşağıdaki kodda ayrıntılı olarak verilmiştir:
 
 [!code-csharp[](mvc/sample/Startup.cs?highlight=19-22)]
 

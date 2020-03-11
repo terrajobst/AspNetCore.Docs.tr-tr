@@ -30,8 +30,8 @@ Başarılı bir saldırının olasılığını azaltan güvenlik adımları şun
 >
 > Kullanıcıların dosyaları kabul ederken saldırı yüzey alanı azaltma hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın:
 >
-> * [Sınırsız dosya karşıya yükleme](https://www.owasp.org/index.php/Unrestricted_File_Upload)
-> * [Azure güvenlik: uygun denetimleri kullanıcıların dosyaları kabul ederken karşılandığından emin](/azure/security/azure-security-threat-modeling-tool-input-validation#controls-users)
+> * [Kısıtlanmamış dosya yükleme](https://www.owasp.org/index.php/Unrestricted_File_Upload)
+> * [Azure güvenliği: kullanıcılardan dosya kabul edilirken uygun denetimlerin yerinde olduğundan emin olun](/azure/security/azure-security-threat-modeling-tool-input-validation#controls-users)
 
 Daha fazla bilgi için bkz. [ASP.NET Core dosyaları karşıya yükleme](https://docs.microsoft.com/aspnet/core/mvc/models/file-uploads).
 

@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.0'
 ms.author: scaddie
 ms.date: 06/12/2019
 uid: mvc/views/tag-helpers/th-components
-ms.openlocfilehash: 070cc3aae08664c13d8eb793a066766d0a5569ee
-ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
+ms.openlocfilehash: 5e2eb2d4322068c5864fbe49acaa6d0859bd319a
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74880970"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78660771"
 ---
 # <a name="tag-helper-components-in-aspnet-core"></a>ASP.NET Core içindeki etiket Yardımcısı bileşenleri
 
@@ -21,7 +21,7 @@ Etiket Yardımcısı bileşeni, sunucu tarafı kodundan HTML öğelerini koşull
 
 ASP.NET Core iki yerleşik etiket Yardımcısı bileşeni içerir: `head` ve `body`. <xref:Microsoft.AspNetCore.Mvc.Razor.TagHelpers> ad alanında konumlanır ve hem MVC hem de Razor Pages kullanılabilir. Etiket Yardımcısı bileşenleri *_ViewImports. cshtml*'de uygulamayla kayıt gerektirmez.
 
-[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/views/tag-helpers/th-components/samples) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
+[Örnek kodu görüntüleme veya indirme](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/views/tag-helpers/th-components/samples) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
 
 ## <a name="use-cases"></a>Uygulama alanları
 
@@ -38,7 +38,7 @@ HTML `<head>` öğesinin içinde, CSS dosyaları genellikle HTML `<link>` öğes
 
 [!code-csharp[](th-components/samples/RazorPagesSample/TagHelpers/AddressStyleTagHelperComponent.cs)]
 
-Yukarıdaki kodda:
+Önceki kodda:
 
 * `AddressStyleTagHelperComponent` <xref:Microsoft.AspNetCore.Razor.TagHelpers.TagHelperComponent>uygular. Soyutlama:
   * <xref:Microsoft.AspNetCore.Razor.TagHelpers.TagHelperContext>ile sınıfın başlatılmasına izin verir.
@@ -80,7 +80,7 @@ Etiket Yardımcısı bileşeni, DI ile kayıtlı değilse, bir Razor Pages sayfa
 
 [!code-cshtml[](th-components/samples/RazorPagesSample/Pages/Contact.cshtml?name=snippet_ITagHelperComponentManager)]
 
-Yukarıdaki kodda:
+Önceki kodda:
 
 * `@inject` yönergesi `ITagHelperComponentManager`örneğini sağlar. Örnek, Razor dosyasındaki erişim yönündeki `manager` adlı bir değişkene atanır.
 * Uygulamanın etiket Yardımcısı bileşenleri koleksiyonuna bir `AddressTagHelperComponent` örneği eklenir.
@@ -101,7 +101,7 @@ Etiket Yardımcısı bileşeni, DI ile kayıtlı değilse, bir Razor Pages sayfa
 
 [!code-csharp[](th-components/samples/RazorPagesSample/Pages/Index.cshtml.cs?name=snippet_IndexModelClass)]
 
-Yukarıdaki kodda:
+Önceki kodda:
 
 * `ITagHelperComponentManager`örneğine erişmek için Oluşturucu ekleme kullanılır.
 * Uygulamanın etiket Yardımcısı bileşenleri koleksiyonuna bir `AddressTagHelperComponent` örneği eklenir.

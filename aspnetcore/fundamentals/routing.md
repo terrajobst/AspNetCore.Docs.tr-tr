@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/13/2019
 uid: fundamentals/routing
-ms.openlocfilehash: 5e3ff65420b3c6769d52f8b96c216043cb1fdc1a
-ms.sourcegitcommit: eca76bd065eb94386165a0269f1e95092f23fa58
+ms.openlocfilehash: 113bb79318283e814c0e64ad4dc9d193282f0c52
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76726998"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78664929"
 ---
 # <a name="routing-in-aspnet-core"></a>ASP.NET Core yönlendirme
 
@@ -25,7 +25,7 @@ Yönlendirme, istek URI 'Lerini uç noktalarla eşleştirmekten ve gelen istekle
 > [!IMPORTANT]
 > Bu belge, alt düzey ASP.NET Core yönlendirmeyi içerir. ASP.NET Core MVC yönlendirme hakkında daha fazla bilgi için bkz. <xref:mvc/controllers/routing>. Razor Pages 'de yönlendirme kuralları hakkında bilgi için bkz. <xref:razor-pages/razor-pages-conventions>.
 
-[Örnek kodu görüntüleme veya indirme](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/routing/samples) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
+[Örnek kodu görüntüleme veya indirme](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/routing/samples) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
 
 ## <a name="routing-basics"></a>Yönlendirme temelleri
 
@@ -38,7 +38,7 @@ Geliştiriciler, [öznitelik yönlendirme](xref:mvc/controllers/routing#attribut
 
 Web API 'Leri, uygulamanın işlevselliğini HTTP fiilleri tarafından temsil edilen bir kaynak kümesi olarak modellemek için öznitelik yönlendirmeyi kullanmalıdır. Bu, aynı mantıksal kaynaktaki birçok işlemin (örneğin, GET, POST) aynı URL 'YI kullanacağı anlamına gelir. Öznitelik yönlendirme, bir API 'nin Genel uç nokta yerleşimini dikkatle tasarlamak için gereken bir denetim düzeyi sağlar.
 
-Razor Pages uygulamalar, bir uygulamanın *Sayfalar* klasöründe adlandırılmış kaynaklara hizmeti sağlamak için varsayılan geleneksel yönlendirmeyi kullanır. Razor Pages yönlendirme davranışını özelleştirmenizi sağlayan ek kurallar mevcuttur. Daha fazla bilgi için bkz. <xref:razor-pages/index> ve <xref:razor-pages/razor-pages-conventions>.
+Razor Pages uygulamalar, bir uygulamanın *Sayfalar* klasöründe adlandırılmış kaynaklara hizmeti sağlamak için varsayılan geleneksel yönlendirmeyi kullanır. Razor Pages yönlendirme davranışını özelleştirmenizi sağlayan ek kurallar mevcuttur. Daha fazla bilgi için <xref:razor-pages/index> ve <xref:razor-pages/razor-pages-conventions> bölümlerine bakın.
 
 URL oluşturma desteği, uygulamanın, uygulamayı birbirine bağlamak için sabit kodlama URL 'Leri olmadan geliştirilebilmesine izin verir. Bu destek, temel bir yönlendirme yapılandırmasıyla başlayıp uygulamanın kaynak düzeni belirlendikten sonra yolların değiştirilmesini sağlar.
 
@@ -501,12 +501,12 @@ Normal ifadeler, C# yönlendirme ve dil tarafından kullanılanlarla aynı sın�
 
 Yönlendirmelerde kullanılan normal ifadeler, genellikle şapka işareti (`^`) karakteriyle başlar ve dizenin başlangıç konumuyla eşleşir. İfadeler genellikle dolar işareti (`$`) karakteriyle biter ve dizenin sonuyla eşleşir. `^` ve `$` karakterler, normal ifadenin tüm yol parametresi değeri ile eşleştiğinden emin olun. `^` ve `$` karakterleri olmadan normal ifade, dize içindeki herhangi bir alt dizeden eşleşir ve bu genellikle istenmeyen bir ifadedir. Aşağıdaki tabloda örnekler verilmektedir ve bunların eşleşmesinin neden eşleşmediği veya eşleşmemesi açıklanmaktadır.
 
-| İfade   | Dize    | Eşleştirme | Yorum               |
+| İfade   | String    | Eşleştirme | Açıklama               |
 | ------------ | --------- | :---: |  -------------------- |
-| `[a-z]{2}`   | herkese     | Evet   | Alt dize eşleşmeleri     |
-| `[a-z]{2}`   | 123abc456 | Evet   | Alt dize eşleşmeleri     |
-| `[a-z]{2}`   | mz        | Evet   | Eşleşen ifadesi    |
-| `[a-z]{2}`   | MZ        | Evet   | Büyük/küçük harfe duyarlı değil    |
+| `[a-z]{2}`   | herkese     | Yes   | Alt dize eşleşmeleri     |
+| `[a-z]{2}`   | 123abc456 | Yes   | Alt dize eşleşmeleri     |
+| `[a-z]{2}`   | mz        | Yes   | Eşleşen ifadesi    |
+| `[a-z]{2}`   | MZ        | Yes   | Büyük/küçük harfe duyarlı değil    |
 | `^[a-z]{2}$` | herkese     | Hayır    | Yukarıdaki `^` ve `$` bakın |
 | `^[a-z]{2}$` | 123abc456 | Hayır    | Yukarıdaki `^` ve `$` bakın |
 
@@ -518,7 +518,7 @@ Bir parametreyi bilinen olası değerler kümesiyle kısıtlamak için, normal b
 
 Yerleşik yol kısıtlamalarına ek olarak, <xref:Microsoft.AspNetCore.Routing.IRouteConstraint> arabirimi uygulayarak özel yol kısıtlamaları oluşturulabilir. <xref:Microsoft.AspNetCore.Routing.IRouteConstraint> arabirimi, kısıtlama karşılandıysanız `true` döndüren `Match`tek bir yöntem içerir ve aksi takdirde `false`.
 
-Özel bir <xref:Microsoft.AspNetCore.Routing.IRouteConstraint>kullanmak için, yol kısıtlama türü uygulamanın hizmet kapsayıcısında uygulamanın <xref:Microsoft.AspNetCore.Routing.RouteOptions.ConstraintMap> kayıtlı olmalıdır. <xref:Microsoft.AspNetCore.Routing.RouteOptions.ConstraintMap>, yol kısıtlama anahtarlarını bu kısıtlamaları doğrulayan <xref:Microsoft.AspNetCore.Routing.IRouteConstraint> uygulamalarla eşleyen bir sözlüktür. Bir uygulamanın <xref:Microsoft.AspNetCore.Routing.RouteOptions.ConstraintMap>, bir hizmetin parçası olarak `Startup.ConfigureServices` güncelleştirilebilen olabilir [. AddRouting](xref:Microsoft.Extensions.DependencyInjection.RoutingServiceCollectionExtensions.AddRouting*) çağrısı veya <xref:Microsoft.AspNetCore.Routing.RouteOptions> doğrudan `services.Configure<RouteOptions>`ile yapılandırma. Örneğin:
+Özel bir <xref:Microsoft.AspNetCore.Routing.IRouteConstraint>kullanmak için, yol kısıtlama türü uygulamanın hizmet kapsayıcısında uygulamanın <xref:Microsoft.AspNetCore.Routing.RouteOptions.ConstraintMap> kayıtlı olmalıdır. <xref:Microsoft.AspNetCore.Routing.RouteOptions.ConstraintMap>, yol kısıtlama anahtarlarını bu kısıtlamaları doğrulayan <xref:Microsoft.AspNetCore.Routing.IRouteConstraint> uygulamalarla eşleyen bir sözlüktür. Bir uygulamanın <xref:Microsoft.AspNetCore.Routing.RouteOptions.ConstraintMap>, bir hizmetin parçası olarak `Startup.ConfigureServices` güncelleştirilebilen olabilir [. AddRouting](xref:Microsoft.Extensions.DependencyInjection.RoutingServiceCollectionExtensions.AddRouting*) çağrısı veya <xref:Microsoft.AspNetCore.Routing.RouteOptions> doğrudan `services.Configure<RouteOptions>`ile yapılandırma. Örnek:
 
 ```csharp
 services.AddRouting(options =>
@@ -527,7 +527,7 @@ services.AddRouting(options =>
 });
 ```
 
-Kısıtlama daha sonra, kısıtlama türü kaydedilirken belirtilen ad kullanılarak yollara her zamanki şekilde uygulanabilir. Örneğin:
+Kısıtlama daha sonra, kısıtlama türü kaydedilirken belirtilen ad kullanılarak yollara her zamanki şekilde uygulanabilir. Örnek:
 
 ```csharp
 [HttpGet("{id:customName}")]
@@ -578,7 +578,7 @@ Aşağıdaki örnek, yol değerlerinin bir sözlüğü ve bir <xref:Microsoft.As
 
 [!code-csharp[](routing/samples/3.x/RoutingSample/Startup.cs?name=snippet_Dictionary)]
 
-Yukarıdaki örnek sonunda oluşturulan <xref:Microsoft.AspNetCore.Routing.VirtualPathData.VirtualPath> `/package/create/123`. Sözlük, "paket yolunu Izle" şablonunun `package/{operation}/{id}``operation` ve `id` yol değerlerini sağlar. Ayrıntılar için, [yönlendirme ara yazılımı kullanma](#use-routing-middleware) bölümünde veya [örnek uygulamada](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/routing/samples)örnek koda bakın.
+Yukarıdaki örnek sonunda oluşturulan <xref:Microsoft.AspNetCore.Routing.VirtualPathData.VirtualPath> `/package/create/123`. Sözlük, "paket yolunu Izle" şablonunun `package/{operation}/{id}``operation` ve `id` yol değerlerini sağlar. Ayrıntılar için, [yönlendirme ara yazılımı kullanma](#use-routing-middleware) bölümünde veya [örnek uygulamada](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/routing/samples)örnek koda bakın.
 
 <xref:Microsoft.AspNetCore.Routing.VirtualPathContext> oluşturucusunun ikinci parametresi bir *ortam değerleri*koleksiyonudur. Ortam değerleri, bir geliştiricinin bir istek bağlamı içinde belirtmesi gereken değer sayısını sınırlandırdığından kullanım için uygundur. Geçerli isteğin geçerli yol değerleri, bağlantı oluşturma için çevresel değerler olarak kabul edilir. ASP.NET Core MVC uygulamasının `HomeController``About` eyleminde,&mdash;ortam değeri `Home` `Index` eyleme bağlamak için denetleyici yolu değerini belirtmeniz gerekmez.
 
@@ -709,7 +709,7 @@ services.AddMvc(options => options.EnableEndpointRouting = false)
 > [!IMPORTANT]
 > Bu belge, alt düzey ASP.NET Core yönlendirmeyi içerir. ASP.NET Core MVC yönlendirme hakkında daha fazla bilgi için bkz. <xref:mvc/controllers/routing>. Razor Pages 'de yönlendirme kuralları hakkında bilgi için bkz. <xref:razor-pages/razor-pages-conventions>.
 
-[Örnek kodu görüntüleme veya indirme](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/routing/samples) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
+[Örnek kodu görüntüleme veya indirme](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/routing/samples) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
 
 ## <a name="routing-basics"></a>Yönlendirme temelleri
 
@@ -722,7 +722,7 @@ Geliştiriciler, [öznitelik yönlendirme](xref:mvc/controllers/routing#attribut
 
 Web API 'Leri, uygulamanın işlevselliğini HTTP fiilleri tarafından temsil edilen bir kaynak kümesi olarak modellemek için öznitelik yönlendirmeyi kullanmalıdır. Bu, aynı mantıksal kaynaktaki birçok işlemin (örneğin, GET, POST) aynı URL 'YI kullanacağı anlamına gelir. Öznitelik yönlendirme, bir API 'nin Genel uç nokta yerleşimini dikkatle tasarlamak için gereken bir denetim düzeyi sağlar.
 
-Razor Pages uygulamalar, bir uygulamanın *Sayfalar* klasöründe adlandırılmış kaynaklara hizmeti sağlamak için varsayılan geleneksel yönlendirmeyi kullanır. Razor Pages yönlendirme davranışını özelleştirmenizi sağlayan ek kurallar mevcuttur. Daha fazla bilgi için bkz. <xref:razor-pages/index> ve <xref:razor-pages/razor-pages-conventions>.
+Razor Pages uygulamalar, bir uygulamanın *Sayfalar* klasöründe adlandırılmış kaynaklara hizmeti sağlamak için varsayılan geleneksel yönlendirmeyi kullanır. Razor Pages yönlendirme davranışını özelleştirmenizi sağlayan ek kurallar mevcuttur. Daha fazla bilgi için <xref:razor-pages/index> ve <xref:razor-pages/razor-pages-conventions> bölümlerine bakın.
 
 URL oluşturma desteği, uygulamanın, uygulamayı birbirine bağlamak için sabit kodlama URL 'Leri olmadan geliştirilebilmesine izin verir. Bu destek, temel bir yönlendirme yapılandırmasıyla başlayıp uygulamanın kaynak düzeni belirlendikten sonra yolların değiştirilmesini sağlar.
 
@@ -1162,12 +1162,12 @@ Normal ifadeler, C# yönlendirme ve dil tarafından kullanılanlarla aynı sın�
 
 Yönlendirmelerde kullanılan normal ifadeler, genellikle şapka işareti (`^`) karakteriyle başlar ve dizenin başlangıç konumuyla eşleşir. İfadeler genellikle dolar işareti (`$`) karakteriyle biter ve dizenin sonuyla eşleşir. `^` ve `$` karakterler, normal ifadenin tüm yol parametresi değeri ile eşleştiğinden emin olun. `^` ve `$` karakterleri olmadan normal ifade, dize içindeki herhangi bir alt dizeden eşleşir ve bu genellikle istenmeyen bir ifadedir. Aşağıdaki tabloda örnekler verilmektedir ve bunların eşleşmesinin neden eşleşmediği veya eşleşmemesi açıklanmaktadır.
 
-| İfade   | Dize    | Eşleştirme | Yorum               |
+| İfade   | String    | Eşleştirme | Açıklama               |
 | ------------ | --------- | :---: |  -------------------- |
-| `[a-z]{2}`   | herkese     | Evet   | Alt dize eşleşmeleri     |
-| `[a-z]{2}`   | 123abc456 | Evet   | Alt dize eşleşmeleri     |
-| `[a-z]{2}`   | mz        | Evet   | Eşleşen ifadesi    |
-| `[a-z]{2}`   | MZ        | Evet   | Büyük/küçük harfe duyarlı değil    |
+| `[a-z]{2}`   | herkese     | Yes   | Alt dize eşleşmeleri     |
+| `[a-z]{2}`   | 123abc456 | Yes   | Alt dize eşleşmeleri     |
+| `[a-z]{2}`   | mz        | Yes   | Eşleşen ifadesi    |
+| `[a-z]{2}`   | MZ        | Yes   | Büyük/küçük harfe duyarlı değil    |
 | `^[a-z]{2}$` | herkese     | Hayır    | Yukarıdaki `^` ve `$` bakın |
 | `^[a-z]{2}$` | 123abc456 | Hayır    | Yukarıdaki `^` ve `$` bakın |
 
@@ -1179,7 +1179,7 @@ Bir parametreyi bilinen olası değerler kümesiyle kısıtlamak için, normal b
 
 Yerleşik yol kısıtlamalarına ek olarak, <xref:Microsoft.AspNetCore.Routing.IRouteConstraint> arabirimi uygulayarak özel yol kısıtlamaları oluşturulabilir. <xref:Microsoft.AspNetCore.Routing.IRouteConstraint> arabirimi, kısıtlama karşılandıysanız `true` döndüren `Match`tek bir yöntem içerir ve aksi takdirde `false`.
 
-Özel bir <xref:Microsoft.AspNetCore.Routing.IRouteConstraint>kullanmak için, yol kısıtlama türü uygulamanın hizmet kapsayıcısında uygulamanın <xref:Microsoft.AspNetCore.Routing.RouteOptions.ConstraintMap> kayıtlı olmalıdır. <xref:Microsoft.AspNetCore.Routing.RouteOptions.ConstraintMap>, yol kısıtlama anahtarlarını bu kısıtlamaları doğrulayan <xref:Microsoft.AspNetCore.Routing.IRouteConstraint> uygulamalarla eşleyen bir sözlüktür. Bir uygulamanın <xref:Microsoft.AspNetCore.Routing.RouteOptions.ConstraintMap>, bir hizmetin parçası olarak `Startup.ConfigureServices` güncelleştirilebilen olabilir [. AddRouting](xref:Microsoft.Extensions.DependencyInjection.RoutingServiceCollectionExtensions.AddRouting*) çağrısı veya <xref:Microsoft.AspNetCore.Routing.RouteOptions> doğrudan `services.Configure<RouteOptions>`ile yapılandırma. Örneğin:
+Özel bir <xref:Microsoft.AspNetCore.Routing.IRouteConstraint>kullanmak için, yol kısıtlama türü uygulamanın hizmet kapsayıcısında uygulamanın <xref:Microsoft.AspNetCore.Routing.RouteOptions.ConstraintMap> kayıtlı olmalıdır. <xref:Microsoft.AspNetCore.Routing.RouteOptions.ConstraintMap>, yol kısıtlama anahtarlarını bu kısıtlamaları doğrulayan <xref:Microsoft.AspNetCore.Routing.IRouteConstraint> uygulamalarla eşleyen bir sözlüktür. Bir uygulamanın <xref:Microsoft.AspNetCore.Routing.RouteOptions.ConstraintMap>, bir hizmetin parçası olarak `Startup.ConfigureServices` güncelleştirilebilen olabilir [. AddRouting](xref:Microsoft.Extensions.DependencyInjection.RoutingServiceCollectionExtensions.AddRouting*) çağrısı veya <xref:Microsoft.AspNetCore.Routing.RouteOptions> doğrudan `services.Configure<RouteOptions>`ile yapılandırma. Örnek:
 
 ```csharp
 services.AddRouting(options =>
@@ -1188,7 +1188,7 @@ services.AddRouting(options =>
 });
 ```
 
-Kısıtlama daha sonra, kısıtlama türü kaydedilirken belirtilen ad kullanılarak yollara her zamanki şekilde uygulanabilir. Örneğin:
+Kısıtlama daha sonra, kısıtlama türü kaydedilirken belirtilen ad kullanılarak yollara her zamanki şekilde uygulanabilir. Örnek:
 
 ```csharp
 [HttpGet("{id:customName}")]
@@ -1239,7 +1239,7 @@ Aşağıdaki örnek, yol değerlerinin bir sözlüğü ve bir <xref:Microsoft.As
 
 [!code-csharp[](routing/samples/2.x/RoutingSample/Startup.cs?name=snippet_Dictionary)]
 
-Yukarıdaki örnek sonunda oluşturulan <xref:Microsoft.AspNetCore.Routing.VirtualPathData.VirtualPath> `/package/create/123`. Sözlük, "paket yolunu Izle" şablonunun `package/{operation}/{id}``operation` ve `id` yol değerlerini sağlar. Ayrıntılar için, [yönlendirme ara yazılımı kullanma](#use-routing-middleware) bölümünde veya [örnek uygulamada](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/routing/samples)örnek koda bakın.
+Yukarıdaki örnek sonunda oluşturulan <xref:Microsoft.AspNetCore.Routing.VirtualPathData.VirtualPath> `/package/create/123`. Sözlük, "paket yolunu Izle" şablonunun `package/{operation}/{id}``operation` ve `id` yol değerlerini sağlar. Ayrıntılar için, [yönlendirme ara yazılımı kullanma](#use-routing-middleware) bölümünde veya [örnek uygulamada](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/routing/samples)örnek koda bakın.
 
 <xref:Microsoft.AspNetCore.Routing.VirtualPathContext> oluşturucusunun ikinci parametresi bir *ortam değerleri*koleksiyonudur. Ortam değerleri, bir geliştiricinin bir istek bağlamı içinde belirtmesi gereken değer sayısını sınırlandırdığından kullanım için uygundur. Geçerli isteğin geçerli yol değerleri, bağlantı oluşturma için çevresel değerler olarak kabul edilir. ASP.NET Core MVC uygulamasının `HomeController``About` eyleminde,&mdash;ortam değeri `Home` `Index` eyleme bağlamak için denetleyici yolu değerini belirtmeniz gerekmez.
 
@@ -1285,7 +1285,7 @@ services.AddMvc()
 > [!IMPORTANT]
 > Bu belge, alt düzey ASP.NET Core yönlendirmeyi içerir. ASP.NET Core MVC yönlendirme hakkında daha fazla bilgi için bkz. <xref:mvc/controllers/routing>. Razor Pages 'de yönlendirme kuralları hakkında bilgi için bkz. <xref:razor-pages/razor-pages-conventions>.
 
-[Örnek kodu görüntüleme veya indirme](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/routing/samples) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
+[Örnek kodu görüntüleme veya indirme](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/routing/samples) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
 
 ## <a name="routing-basics"></a>Yönlendirme temelleri
 
@@ -1298,7 +1298,7 @@ Geliştiriciler, [öznitelik yönlendirme](xref:mvc/controllers/routing#attribut
 
 Web API 'Leri, uygulamanın işlevselliğini HTTP fiilleri tarafından temsil edilen bir kaynak kümesi olarak modellemek için öznitelik yönlendirmeyi kullanmalıdır. Bu, aynı mantıksal kaynaktaki birçok işlemin (örneğin, GET, POST) aynı URL 'YI kullanacağı anlamına gelir. Öznitelik yönlendirme, bir API 'nin Genel uç nokta yerleşimini dikkatle tasarlamak için gereken bir denetim düzeyi sağlar.
 
-Razor Pages uygulamalar, bir uygulamanın *Sayfalar* klasöründe adlandırılmış kaynaklara hizmeti sağlamak için varsayılan geleneksel yönlendirmeyi kullanır. Razor Pages yönlendirme davranışını özelleştirmenizi sağlayan ek kurallar mevcuttur. Daha fazla bilgi için bkz. <xref:razor-pages/index> ve <xref:razor-pages/razor-pages-conventions>.
+Razor Pages uygulamalar, bir uygulamanın *Sayfalar* klasöründe adlandırılmış kaynaklara hizmeti sağlamak için varsayılan geleneksel yönlendirmeyi kullanır. Razor Pages yönlendirme davranışını özelleştirmenizi sağlayan ek kurallar mevcuttur. Daha fazla bilgi için <xref:razor-pages/index> ve <xref:razor-pages/razor-pages-conventions> bölümlerine bakın.
 
 URL oluşturma desteği, uygulamanın, uygulamayı birbirine bağlamak için sabit kodlama URL 'Leri olmadan geliştirilebilmesine izin verir. Bu destek, temel bir yönlendirme yapılandırmasıyla başlayıp uygulamanın kaynak düzeni belirlendikten sonra yolların değiştirilmesini sağlar.
 
@@ -1616,12 +1616,12 @@ Normal ifadeler, C# yönlendirme ve dil tarafından kullanılanlarla aynı sın�
 
 Yönlendirmelerde kullanılan normal ifadeler, genellikle şapka işareti (`^`) karakteriyle başlar ve dizenin başlangıç konumuyla eşleşir. İfadeler genellikle dolar işareti (`$`) karakteriyle biter ve dizenin sonuyla eşleşir. `^` ve `$` karakterler, normal ifadenin tüm yol parametresi değeri ile eşleştiğinden emin olun. `^` ve `$` karakterleri olmadan normal ifade, dize içindeki herhangi bir alt dizeden eşleşir ve bu genellikle istenmeyen bir ifadedir. Aşağıdaki tabloda örnekler verilmektedir ve bunların eşleşmesinin neden eşleşmediği veya eşleşmemesi açıklanmaktadır.
 
-| İfade   | Dize    | Eşleştirme | Yorum               |
+| İfade   | String    | Eşleştirme | Açıklama               |
 | ------------ | --------- | :---: |  -------------------- |
-| `[a-z]{2}`   | herkese     | Evet   | Alt dize eşleşmeleri     |
-| `[a-z]{2}`   | 123abc456 | Evet   | Alt dize eşleşmeleri     |
-| `[a-z]{2}`   | mz        | Evet   | Eşleşen ifadesi    |
-| `[a-z]{2}`   | MZ        | Evet   | Büyük/küçük harfe duyarlı değil    |
+| `[a-z]{2}`   | herkese     | Yes   | Alt dize eşleşmeleri     |
+| `[a-z]{2}`   | 123abc456 | Yes   | Alt dize eşleşmeleri     |
+| `[a-z]{2}`   | mz        | Yes   | Eşleşen ifadesi    |
+| `[a-z]{2}`   | MZ        | Yes   | Büyük/küçük harfe duyarlı değil    |
 | `^[a-z]{2}$` | herkese     | Hayır    | Yukarıdaki `^` ve `$` bakın |
 | `^[a-z]{2}$` | 123abc456 | Hayır    | Yukarıdaki `^` ve `$` bakın |
 
@@ -1633,7 +1633,7 @@ Bir parametreyi bilinen olası değerler kümesiyle kısıtlamak için, normal b
 
 Yerleşik yol kısıtlamalarına ek olarak, <xref:Microsoft.AspNetCore.Routing.IRouteConstraint> arabirimi uygulayarak özel yol kısıtlamaları oluşturulabilir. <xref:Microsoft.AspNetCore.Routing.IRouteConstraint> arabirimi, kısıtlama karşılandıysanız `true` döndüren `Match`tek bir yöntem içerir ve aksi takdirde `false`.
 
-Özel bir <xref:Microsoft.AspNetCore.Routing.IRouteConstraint>kullanmak için, yol kısıtlama türü uygulamanın hizmet kapsayıcısında uygulamanın <xref:Microsoft.AspNetCore.Routing.RouteOptions.ConstraintMap> kayıtlı olmalıdır. <xref:Microsoft.AspNetCore.Routing.RouteOptions.ConstraintMap>, yol kısıtlama anahtarlarını bu kısıtlamaları doğrulayan <xref:Microsoft.AspNetCore.Routing.IRouteConstraint> uygulamalarla eşleyen bir sözlüktür. Bir uygulamanın <xref:Microsoft.AspNetCore.Routing.RouteOptions.ConstraintMap>, bir hizmetin parçası olarak `Startup.ConfigureServices` güncelleştirilebilen olabilir [. AddRouting](xref:Microsoft.Extensions.DependencyInjection.RoutingServiceCollectionExtensions.AddRouting*) çağrısı veya <xref:Microsoft.AspNetCore.Routing.RouteOptions> doğrudan `services.Configure<RouteOptions>`ile yapılandırma. Örneğin:
+Özel bir <xref:Microsoft.AspNetCore.Routing.IRouteConstraint>kullanmak için, yol kısıtlama türü uygulamanın hizmet kapsayıcısında uygulamanın <xref:Microsoft.AspNetCore.Routing.RouteOptions.ConstraintMap> kayıtlı olmalıdır. <xref:Microsoft.AspNetCore.Routing.RouteOptions.ConstraintMap>, yol kısıtlama anahtarlarını bu kısıtlamaları doğrulayan <xref:Microsoft.AspNetCore.Routing.IRouteConstraint> uygulamalarla eşleyen bir sözlüktür. Bir uygulamanın <xref:Microsoft.AspNetCore.Routing.RouteOptions.ConstraintMap>, bir hizmetin parçası olarak `Startup.ConfigureServices` güncelleştirilebilen olabilir [. AddRouting](xref:Microsoft.Extensions.DependencyInjection.RoutingServiceCollectionExtensions.AddRouting*) çağrısı veya <xref:Microsoft.AspNetCore.Routing.RouteOptions> doğrudan `services.Configure<RouteOptions>`ile yapılandırma. Örnek:
 
 ```csharp
 services.AddRouting(options =>
@@ -1642,7 +1642,7 @@ services.AddRouting(options =>
 });
 ```
 
-Kısıtlama daha sonra, kısıtlama türü kaydedilirken belirtilen ad kullanılarak yollara her zamanki şekilde uygulanabilir. Örneğin:
+Kısıtlama daha sonra, kısıtlama türü kaydedilirken belirtilen ad kullanılarak yollara her zamanki şekilde uygulanabilir. Örnek:
 
 ```csharp
 [HttpGet("{id:customName}")]
@@ -1655,7 +1655,7 @@ Aşağıdaki örnek, yol değerlerinin bir sözlüğü ve bir <xref:Microsoft.As
 
 [!code-csharp[](routing/samples/2.x/RoutingSample/Startup.cs?name=snippet_Dictionary)]
 
-Yukarıdaki örnek sonunda oluşturulan <xref:Microsoft.AspNetCore.Routing.VirtualPathData.VirtualPath> `/package/create/123`. Sözlük, "paket yolunu Izle" şablonunun `package/{operation}/{id}``operation` ve `id` yol değerlerini sağlar. Ayrıntılar için, [yönlendirme ara yazılımı kullanma](#use-routing-middleware) bölümünde veya [örnek uygulamada](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/routing/samples)örnek koda bakın.
+Yukarıdaki örnek sonunda oluşturulan <xref:Microsoft.AspNetCore.Routing.VirtualPathData.VirtualPath> `/package/create/123`. Sözlük, "paket yolunu Izle" şablonunun `package/{operation}/{id}``operation` ve `id` yol değerlerini sağlar. Ayrıntılar için, [yönlendirme ara yazılımı kullanma](#use-routing-middleware) bölümünde veya [örnek uygulamada](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/routing/samples)örnek koda bakın.
 
 <xref:Microsoft.AspNetCore.Routing.VirtualPathContext> oluşturucusunun ikinci parametresi bir *ortam değerleri*koleksiyonudur. Ortam değerleri, bir geliştiricinin bir istek bağlamı içinde belirtmesi gereken değer sayısını sınırlandırdığından kullanım için uygundur. Geçerli isteğin geçerli yol değerleri, bağlantı oluşturma için çevresel değerler olarak kabul edilir. ASP.NET Core MVC uygulamasının `HomeController``About` eyleminde,&mdash;ortam değeri `Home` `Index` eyleme bağlamak için denetleyici yolu değerini belirtmeniz gerekmez.
 

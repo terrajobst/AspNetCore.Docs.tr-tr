@@ -6,32 +6,32 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/05/2019
 uid: mvc/views/tag-helpers/authoring
-ms.openlocfilehash: e8b62d795f6444e6dd79e27ace687d5db4db86de
-ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
+ms.openlocfilehash: 43bd4eccfc06d27ade5de0e3387247a753609336
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74880996"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78662374"
 ---
 # <a name="author-tag-helpers-in-aspnet-core"></a>ASP.NET core'da Yazar etiket Yardımcıları
 
-Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
+Gönderen [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/views/tag-helpers/authoring/sample) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
+[Örnek kodu görüntüleme veya indirme](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/views/tag-helpers/authoring/sample) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
 
 ## <a name="get-started-with-tag-helpers"></a>Etiket Yardımcıları ile çalışmaya başlama
 
-Bu öğreticide programlama etiket Yardımcıları tanıtır. [Etiket Yardımcıları giriş](intro.md) etiket Yardımcıları sağlayan avantajlarına açıklar.
+Bu öğreticide programlama etiket Yardımcıları tanıtır. [Etiket yardımcılarına giriş](intro.md) , etiket yardımcılarının sağladığı avantajları açıklar.
 
-Etiket Yardımcısı uygulayan sınıf olan `ITagHelper` arabirimi. Etiket Yardımcısı geliştirdiğinizde, Bununla birlikte, genellikle öğesinden türetilen `TagHelper`, yapmak için bunu erişmenizi `Process` yöntemi.
+Etiket Yardımcısı `ITagHelper` arabirimini uygulayan herhangi bir sınıftır. Ancak, bir etiket Yardımcısı yazdığınızda genellikle `TagHelper`' den türetirsiniz, bunu yapmanız `Process` yöntemine erişmenizi sağlar.
 
-1. Adlı yeni bir ASP.NET Core projesi oluşturma **AuthoringTagHelpers**. Bu proje için kimlik doğrulaması gerekmez.
+1. **Authoringtaghelmakası**adlı yeni bir ASP.NET Core projesi oluşturun. Bu proje için kimlik doğrulaması gerekmez.
 
-1. Adlı etiket Yardımcıları tutmak için bir klasör oluşturun *TagHelpers*. *TagHelpers* klasördür *değil* gerekli, ancak bunu makul bir kuraldır. Şimdi bazı basit etiket Yardımcıları yazmaya başlayalım.
+1. *Taghelmakası*adlı etiket yardımcılarını tutacak bir klasör oluşturun. *Taghelmakacıları* klasörü gerekli *değildir* , ancak makul bir kuraldır. Şimdi bazı basit etiket Yardımcıları yazmaya başlayalım.
 
 ## <a name="a-minimal-tag-helper"></a>En az bir etiketi Yardımcısı
 
-Bu bölümde, bir e-posta etiketi güncelleştiren etiket Yardımcısı yazmaya. Örneğin:
+Bu bölümde, bir e-posta etiketi güncelleştiren etiket Yardımcısı yazmaya. Örnek:
 
 ```html
 <email>Support</email>
@@ -45,21 +45,21 @@ Sunucu, bizim e-posta etiketi Yardımcısı, biçimlendirme ve bunlar aşağıda
 
 Diğer bir deyişle, bir yer işareti etiketi, bu e-posta bağlantısı sağlar. Blog altyapısıdır ve yazma ve aynı etki alanı için pazarlama desteği ve diğer kişiler için e-posta göndermek istiyorsanız bunu yapmak isteyebilirsiniz.
 
-1. Aşağıdaki `EmailTagHelper` sınıfının *TagHelpers* klasör.
+1. Aşağıdaki `EmailTagHelper` sınıfını *Taghelmakaa* klasörüne ekleyin.
 
    [!code-csharp[](authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/TagHelpers/z1EmailTagHelperCopy.cs)]
 
-   * Etiket Yardımcıları kök sınıf adı öğelerini hedefleyen bir adlandırma kuralını kullanın (eksi *TagHelper* sınıf adı kısmı). Bu örnekte, kök adı **EmailTagHelper** olduğu *e-posta*, bu nedenle `<email>` etiketi hedeflenecek. Bu adlandırma çoğu etiket Yardımcıları için çalışır, daha sonra bu geçersiz kılma göstereceğiz.
+   * Etiket Yardımcıları, kök sınıf adı öğelerini hedefleyen bir adlandırma kuralı kullanır (sınıf adının sonunda *Taghelof* kısmı). Bu örnekte, **Emailtaghelper** 'nin kök adı *e-postadır*, bu nedenle `<email>` etiketi hedeflenmiş olur. Bu adlandırma çoğu etiket Yardımcıları için çalışır, daha sonra bu geçersiz kılma göstereceğiz.
 
-   * `EmailTagHelper` Sınıf türetilir `TagHelper`. `TagHelper` SAX yöntemleri ve özellikleri etiket Yardımcıları yazmak için.
+   * `EmailTagHelper` sınıfı `TagHelper`türetilir. `TagHelper` sınıfı, etiket yardımcıları yazmak için yöntemler ve özellikler sağlar.
 
-   * Geçersiz kılınan `Process` yöntemi denetimleri etiketi Yardımcısı yürütüldüğünde yapar. `TagHelper` Sınıfı zaman uyumsuz bir sürümü sağlar (`ProcessAsync`) aynı parametrelere sahip.
+   * Geçersiz kılınan `Process` yöntemi, yürütüldüğünde etiket Yardımcısı 'nın ne yaptığını denetler. `TagHelper` sınıfı ayrıca aynı parametrelerle zaman uyumsuz bir sürüm (`ProcessAsync`) sağlar.
 
-   * Bağlam parametresi `Process` (ve `ProcessAsync`) geçerli HTML etiketinin yürütme ile ilgili bilgiler içerir.
+   * `Process` (ve `ProcessAsync`) için bağlam parametresi, geçerli HTML etiketinin yürütülmesiyle ilişkili bilgiler içerir.
 
-   * Çıkış parametresi `Process` (ve `ProcessAsync`) bir HTML etiketi ve içerik oluşturmak için kullanılan özgün kaynağını temsil eden bir durum bilgisi olan HTML öğesi içeriyor.
+   * `Process` (ve `ProcessAsync`) çıkış parametresi, bir HTML etiketi ve içeriği oluşturmak için kullanılan orijinal kaynağın durum bilgisi olan HTML öğesi temsilcisini içerir.
 
-   * Bizim sınıf adı son eki olan **TagHelper**, olduğu *değil* gerekli, ancak bir en iyi yöntem kuralı dikkate almıştır. Sınıf olarak bildirebilirsiniz:
+   * Sınıfımızın adı, gerekli *olmayan* bir **ıghelper**sonekine sahiptir ancak en iyi yöntem kuralı olarak kabul edilir. Sınıf olarak bildirebilirsiniz:
 
    ```csharp
    public class Email : TagHelper
@@ -69,7 +69,7 @@ Diğer bir deyişle, bir yer işareti etiketi, bu e-posta bağlantısı sağlar.
 
    [!code-cshtml[](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/_ViewImportsCopyEmail.cshtml?highlight=2,3)]
 
-   Yukarıdaki kod, bizim derlemedeki tüm etiket Yardımcıları kullanılabilir olacağını belirtmek için joker karakter sözdizimini kullanır. Sonra ilk dize `@addTagHelper` yüklemek için etiket Yardımcısı belirtir (kullan "*" tüm etiket Yardımcıları için), ve ikinci dize "AuthoringTagHelpers" etiketi Yardımcısı olan derlemeyi belirtir. Ayrıca, ikinci satırın joker karakter söz dizimini kullanarak ASP.NET Core MVC etiket yardımcılarına getirdiğine unutmayın (Bu yardımcılar [etiket yardımcılarına giriş](intro.md)bölümünde ele alınmıştır.) Bu, etiket yardımcısını Razor görünümü için kullanılabilir hale getiren `@addTagHelper` yönergedir. Alternatif olarak, aşağıda gösterildiği gibi bir etiket Yardımcısı'nın (FQN) tam nitelikli ad sağlayabilirsiniz:
+   Yukarıdaki kod, bizim derlemedeki tüm etiket Yardımcıları kullanılabilir olacağını belirtmek için joker karakter sözdizimini kullanır. `@addTagHelper` sonraki ilk dize, yüklenecek etiket yardımcısını (tüm etiket yardımcıları için "*" kullanın) ve ikinci dize olan "Authoringtaghelmakaı", etiket Yardımcısı 'nın bulunduğu derlemeyi belirtir. Ayrıca, ikinci satırın joker karakter söz dizimini kullanarak ASP.NET Core MVC etiket yardımcılarına getirdiğine unutmayın (Bu yardımcılar [etiket yardımcılarına giriş](intro.md)bölümünde ele alınmıştır.) Bu, etiket yardımcısını Razor görünümü için kullanılabilir hale getiren `@addTagHelper` yönergedir. Alternatif olarak, aşağıda gösterildiği gibi bir etiket Yardımcısı'nın (FQN) tam nitelikli ad sağlayabilirsiniz:
 
 ```csharp
 @using AuthoringTagHelpers
@@ -82,23 +82,23 @@ the following snippet uses TagHelpers3 and should use TagHelpers (not the 3)
     [!code-html[](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/_ViewImports.cshtml?highlight=3&range=1-3)]
 -->
 
-FQN kullanarak bir görünüme bir etiket Yardımcısı eklemek için, önce FQN (`AuthoringTagHelpers.TagHelpers.EmailTagHelper`) ve ardından **derleme adı** (*authoringtaghel,* `namespace`) eklersiniz. Çoğu geliştirici, joker karakter sözdizimini kullanmayı tercih eder. [Etiket Yardımcıları giriş](intro.md) etiket Yardımcısı ekleme, kaldırma, hiyerarşi ve joker karakter sözdizimi, ayrıntıya gider.
+FQN kullanarak bir görünüme bir etiket Yardımcısı eklemek için, önce FQN (`AuthoringTagHelpers.TagHelpers.EmailTagHelper`) ve ardından **derleme adı** (*authoringtaghel,* `namespace`) eklersiniz. Çoğu geliştirici, joker karakter sözdizimini kullanmayı tercih eder. [Etiket yardımcılarına giriş](intro.md) , etiket Yardımcısı ekleme, kaldırma, hiyerarşi ve joker karakter sözdizimi hakkında ayrıntılı bilgi sağlar.
 
-1. Biçimlendirme içinde güncelleştirme *Views/Home/Contact.cshtml* bu değişikliklerle dosyası:
+1. *Görünümler/Home/Contact. cshtml* dosyasındaki biçimlendirmeyi şu değişikliklerle güncelleştirin:
 
    [!code-html[](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/Home/Contact.cshtml?highlight=15,16&range=1-17)]
 
-1. Uygulamayı çalıştırın ve e-posta etiketler ile bağlantı biçimlendirme değiştirilir doğrulayabilmeniz için HTML kaynağını görüntülemek için sık kullandığınız tarayıcıyı kullanabilirsiniz (örneğin, `<a>Support</a>`). *Destek* ve *pazarlama* bir bağlantı olarak işlenir ancak bir `href` işlevsel hale getirmek için özniteliği. Sonraki bölümde, gidereceğiz.
+1. Uygulamayı çalıştırın ve HTML kaynağını görüntülemek için en sevdiğiniz tarayıcıyı kullanın, böylece e-posta etiketlerinin yer işareti işaretlemesi ile değiştirildiğini doğrulayabilirsiniz (örneğin, `<a>Support</a>`). *Destek* ve *Pazarlama* bir bağlantı olarak işlenir, ancak bunları işlevsel hale getirmek için `href` bir özniteliğe sahip değildir. Sonraki bölümde, gidereceğiz.
 
 ## <a name="setattribute-and-setcontent"></a>SetAttribute ve SetContent
 
-Bu bölümde, güncelleştireceğiz `EmailTagHelper` böylece e-posta için bir geçerli yer işareti etiketi oluşturur. Razor görünümü bilgilerinden gerçekleştirecek şekilde güncelleştireceğiz (biçiminde bir `mail-to` özniteliği) ve bağlantı oluşturmak kullanın.
+Bu bölümde, e-posta için geçerli bir tutturucu etiketi oluşturacak şekilde `EmailTagHelper` güncelleştireceğiz. Bunu, Razor görünümünden bilgi almak (`mail-to` özniteliği biçiminde) ve bağlayıcıyı oluştururken kullanmak için güncelleştireceğiz.
 
-Güncelleştirme `EmailTagHelper` aşağıdaki sınıfı:
+`EmailTagHelper` sınıfını şu şekilde güncelleştirin:
 
 [!code-csharp[](authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/TagHelpers/EmailTagHelperMailTo.cs?range=6-22)]
 
-* Etiket Yardımcıları için Pascal özellikli sınıf ve özellik adları, [Kebab durumlarına](https://stackoverflow.com/questions/11273282/whats-the-name-for-dash-separated-case/12273101)çevrilir. Bu nedenle, kullanılacak `MailTo` kullanacağınız özniteliği `<email mail-to="value"/>` eşdeğer.
+* Etiket Yardımcıları için Pascal özellikli sınıf ve özellik adları, [Kebab durumlarına](https://stackoverflow.com/questions/11273282/whats-the-name-for-dash-separated-case/12273101)çevrilir. Bu nedenle, `MailTo` özniteliğini kullanmak için `<email mail-to="value"/>` eşdeğerini kullanırsınız.
 
 * Son satırı tamamlanmış içeriği bizim için en düşük düzeyde işlevsel etiket Yardımcısı ayarlar.
 
@@ -106,9 +106,9 @@ Güncelleştirme `EmailTagHelper` aşağıdaki sınıfı:
 
 [!code-csharp[](authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/TagHelpers/EmailTagHelperMailTo.cs?highlight=6&range=14-21)]
 
-Şu anda öznitelikleri koleksiyonda yok sürece bu yaklaşımı "href =" özniteliği için çalışır. Ayrıca `output.Attributes.Add` etiketi yardımcı öznitelik etiketi özniteliklerinin koleksiyonunu sonuna eklemek için yöntemi.
+Şu anda öznitelikleri koleksiyonda yok sürece bu yaklaşımı "href =" özniteliği için çalışır. Etiket öznitelikleri koleksiyonunun sonuna bir etiket Yardımcısı özniteliği eklemek için `output.Attributes.Add` yöntemini de kullanabilirsiniz.
 
-1. Biçimlendirme içinde güncelleştirme *Views/Home/Contact.cshtml* bu değişikliklerle dosyası:
+1. *Görünümler/Home/Contact. cshtml* dosyasındaki biçimlendirmeyi şu değişikliklerle güncelleştirin:
 
    [!code-html[](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/Home/ContactCopy.cshtml?highlight=15,16)]
 
@@ -117,27 +117,27 @@ Güncelleştirme `EmailTagHelper` aşağıdaki sınıfı:
 <a name="self-closing"></a>
 
    > [!NOTE]
-   > E-posta kendi kendine kapanan etiket yazmak için olsaydı (`<email mail-to="Rick" />`), son Çıkışta aynı zamanda kendi kendine kapanan olacaktır. Etiketi yalnızca bir başlangıç etiketiyle (`<email mail-to="Rick">`) yazma özelliğini etkinleştirmek için, sınıfı şu şekilde işaretlemeniz gerekir:
+   > E-posta etiketi kendinden kapanış (`<email mail-to="Rick" />`) yazarsanız, nihai çıkış de kendi kendini kapatıyor. Etiketi yalnızca bir başlangıç etiketiyle (`<email mail-to="Rick">`) yazma özelliğini etkinleştirmek için, sınıfı şu şekilde işaretlemeniz gerekir:
    >
    > [!code-csharp[](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/TagHelpers/EmailTagHelperMailVoid.cs?highlight=1&range=6-10)]
 
-   Bir kendi kendine kapanan e-posta etiket Yardımcısı ile çıkış olacaktır `<a href="mailto:Rick@contoso.com" />`. Kendi kendine kapanan bağlantı etiketler geçerli HTML oluşturmak istemezsiniz, ancak kendi kendine kapanan etiket Yardımcısı oluşturmak isteyebilirsiniz değildir. Etiket Yardımcıları türünü ayarlayın `TagMode` sonra bir etiketi okuma özelliği.
+   Kendi kendine kapanan bir e-posta etiketi Yardımcısı ile çıkış `<a href="mailto:Rick@contoso.com" />`. Kendi kendine kapanan bağlantı etiketler geçerli HTML oluşturmak istemezsiniz, ancak kendi kendine kapanan etiket Yardımcısı oluşturmak isteyebilirsiniz değildir. Etiket Yardımcıları, bir etiketi okuduktan sonra `TagMode` özelliğinin türünü ayarlar.
 
 ### <a name="processasync"></a>ProcessAsync
 
 Bu bölümde, biz bir zaman uyumsuz bir e-posta yardımcı yazacaksınız.
 
-1. Değiştirin `EmailTagHelper` aşağıdaki kodla sınıfı:
+1. `EmailTagHelper` sınıfını aşağıdaki kodla değiştirin:
 
    [!code-csharp[](authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/TagHelpers/EmailTagHelper.cs?range=6-17)]
 
    **Notlar:**
 
-   * Bu sürüm, zaman uyumsuz kullanır `ProcessAsync` yöntemi. Zaman uyumsuz `GetChildContentAsync` döndürür bir `Task` içeren `TagHelperContent`.
+   * Bu sürüm, zaman uyumsuz `ProcessAsync` yöntemini kullanır. Zaman uyumsuz `GetChildContentAsync`, `TagHelperContent`içeren bir `Task` döndürür.
 
-   * Kullanım `output` parametresi HTML öğesinden içeriği alamadı.
+   * HTML öğesinin içeriğini almak için `output` parametresini kullanın.
 
-1. Aşağıdaki değişiklik *Views/Home/Contact.cshtml* etiketi Yardımcısı hedef e-posta alabilmeniz için dosya.
+1. Etiket Yardımcısı 'nın hedef e-postayı kullanabilmesi için *Görünümler/giriş/ilgili. cshtml* dosyasında aşağıdaki değişikliği yapın.
 
    [!code-html[](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/Home/Contact.cshtml?highlight=15,16&range=1-17)]
 
@@ -145,37 +145,37 @@ Bu bölümde, biz bir zaman uyumsuz bir e-posta yardımcı yazacaksınız.
 
 ### <a name="removeall-precontentsethtmlcontent-and-postcontentsethtmlcontent"></a>RemoveAll ve PreContent.SetHtmlContent PostContent.SetHtmlContent
 
-1. Aşağıdaki `BoldTagHelper` sınıfının *TagHelpers* klasör.
+1. Aşağıdaki `BoldTagHelper` sınıfını *Taghelmakaa* klasörüne ekleyin.
 
    [!code-csharp[](authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/TagHelpers/BoldTagHelper.cs)]
 
-   * `[HtmlTargetElement]` Özniteliği belirten bir HTML öznitelik içeren herhangi bir HTML öğesi "bold" adlı bir öznitelik parametresi eşleşir, geçişleri ve `Process` sınıfı yöntemi geçersiz kılma çalışır. Bizim örnek içinde `Process` yöntemi "kalın" özniteliğini kaldırır ve içeren biçimlendirme çevreleyen `<strong></strong>`.
+   * `[HtmlTargetElement]` özniteliği, "Bold" adlı bir HTML özniteliği içeren herhangi bir HTML öğesinin eşleşeceğini ve sınıftaki `Process` geçersiz kılma yönteminin çalıştırılacağını belirten bir öznitelik parametresi geçirir. Örneğimizde, `Process` yöntemi "Bold" özniteliğini kaldırır ve içeren biçimlendirmeyi `<strong></strong>`ile çevreler.
 
-   * İçerik var olan etiket değiştirilecek istemediğinden açılış yazmanız gereken `<strong>` ile etiketi `PreContent.SetHtmlContent` yöntemi ve kapatma `</strong>` ile etiketi `PostContent.SetHtmlContent` yöntemi.
+   * Varolan etiket içeriğini değiştirmek istemediğiniz için, açma `<strong>` etiketini `PreContent.SetHtmlContent` yöntemi ve Closing `</strong>` etiketiyle `PostContent.SetHtmlContent` yöntemiyle yazmanız gerekir.
 
-1. Değiştirme *About.cshtml* görünümü içerecek bir `bold` öznitelik değeri. Tamamlanan kodu aşağıda gösterilmiştir.
+1. *About. cshtml* görünümünü bir `bold` özniteliği değeri içerecek şekilde değiştirin. Tamamlanan kodu aşağıda gösterilmiştir.
 
    [!code-html[](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/Home/AboutBoldOnly.cshtml?highlight=7)]
 
 1. Uygulamayı çalıştırın. Kaynak inceleyin ve biçimlendirme doğrulamak için sık kullandığınız tarayıcıyı kullanabilirsiniz.
 
-   `[HtmlTargetElement]` Yukarıdaki özniteliği bir öznitelik adı "kalın" sağlayan HTML biçimlendirmesi hedefler. `<bold>` Öğesi etiketi Yardımcısı tarafından değiştirilen değildi.
+   Yukarıdaki `[HtmlTargetElement]` özniteliği yalnızca "Bold" öznitelik adını sağlayan HTML işaretlemesini hedefler. `<bold>` öğesi etiket Yardımcısı tarafından değiştirilmedi.
 
-1. Açıklama `[HtmlTargetElement]` özniteliği satır ve varsayılan hedeflemeye `<bold>` etiketleri, diğer bir deyişle, HTML biçimlendirmesi formun `<bold>`. Unutmayın, varsayılan adlandırma kuralı, sınıf adı eşleşir **kalın**için TagHelper `<bold>` etiketler.
+1. `[HtmlTargetElement]` öznitelik satırına açıklama ekleyin ve `<bold>` etiketlerin hedeflenmesi, diğer bir deyişle, form `<bold>`HTML biçimlendirmesi. Varsayılan adlandırma kuralının, `<bold>` etiketleri ile **kalın**taghelper sınıf adıyla eşleştiğini unutmayın.
 
-1. Uygulamayı çalıştırın ve doğrulayın `<bold>` etiketin, etiket Yardımcısı tarafından işlenir.
+1. Uygulamayı çalıştırın ve `<bold>` etiketinin etiket Yardımcısı tarafından işlendiğini doğrulayın.
 
-Bir sınıf birden çok dekorasyon `[HtmlTargetElement]` hedefleri mantıksal-veya sonuçlarını öznitelikleri. Örneğin, aşağıdaki kodu kullanarak, kalın bir etiket veya bold özniteliğinin eşleşir.
+Birden çok `[HtmlTargetElement]` özniteliği olan bir sınıfı dekorasyon, hedeflerin mantıksal veya mantıksal bir sonucu olarak sonuçlanır. Örneğin, aşağıdaki kodu kullanarak, kalın bir etiket veya bold özniteliğinin eşleşir.
 
 [!code-csharp[](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/TagHelpers/zBoldTagHelperCopy.cs?highlight=1,2&range=5-15)]
 
-Birden çok öznitelik için aynı deyimde eklendiğinde, çalışma zamanı bunları bir mantıksal-and davranır Örneğin, aşağıdaki kod bir HTML öğesi "bold" adlı bir öznitelik ile "bold" olarak adlandırılmalıdır (`<bold bold />`) eşleştirilecek.
+Birden çok öznitelik için aynı deyimde eklendiğinde, çalışma zamanı bunları bir mantıksal-and davranır Örneğin, aşağıdaki kodda, bir HTML öğesinin eşleşmesi için "Bold" (`<bold bold />`) adlı bir özniteliğe sahip "Bold" olarak adlandırılması gerekir.
 
 ```csharp
 [HtmlTargetElement("bold", Attributes = "bold")]
    ```
 
-Ayrıca `[HtmlTargetElement]` hedeflenen öğesi adını değiştirmek için. İsterseniz örneğin `BoldTagHelper` hedef `<MyBold>` etiketleri, aşağıdaki öznitelik kullanmanız gerekir:
+Ayrıca, hedeflenen öğenin adını değiştirmek için `[HtmlTargetElement]` de kullanabilirsiniz. Örneğin, `BoldTagHelper` `<MyBold>` etiketleri hedeflemesini istediyseniz, aşağıdaki özniteliği kullanacaksınız:
 
 ```csharp
 [HtmlTargetElement("MyBold")]
@@ -183,39 +183,39 @@ Ayrıca `[HtmlTargetElement]` hedeflenen öğesi adını değiştirmek için. İ
 
 ## <a name="pass-a-model-to-a-tag-helper"></a>Etiket Yardımcısı için bir model geçirin
 
-1. Ekleme bir *modelleri* klasör.
+1. *Modeller* klasörü ekleyin.
 
-1. Aşağıdaki `WebsiteContext` sınıfının *modelleri* klasörü:
+1. Aşağıdaki `WebsiteContext` sınıfını *modeller* klasörüne ekleyin:
 
    [!code-csharp[](authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Models/WebsiteContext.cs)]
 
-1. Aşağıdaki `WebsiteInformationTagHelper` sınıfının *TagHelpers* klasör.
+1. Aşağıdaki `WebsiteInformationTagHelper` sınıfını *Taghelmakaa* klasörüne ekleyin.
 
    [!code-csharp[](authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/TagHelpers/WebsiteInformationTagHelper.cs)]
 
-   * Daha önce belirtildiği gibi, etiket yardımcıları, etiket yardımcıları için C# Pascal özellikli sınıf adlarını ve özellikleri [Kebab örneğine](https://wiki.c2.com/?KebabCase)çevirir. Bu nedenle, kullanılacak `WebsiteInformationTagHelper` Razor içinde yazacaksınız `<website-information />`.
+   * Daha önce belirtildiği gibi, etiket yardımcıları, etiket yardımcıları için C# Pascal özellikli sınıf adlarını ve özellikleri [Kebab örneğine](https://wiki.c2.com/?KebabCase)çevirir. Bu nedenle `WebsiteInformationTagHelper` Razor 'de kullanmak için `<website-information />`yazacaksınız.
 
-   * Açıkça hedef öğeyi tanımlayan değil `[HtmlTargetElement]` özniteliği, bunu varsayılan `website-information` hedeflenir. Aşağıdaki özniteliği (kebab durum geçerli değildir ama sınıfın adıyla eşleşen unutmayın) uygulandığında:
+   * Hedef öğeyi `[HtmlTargetElement]` özniteliğiyle açıkça tanımlamamanız, bu nedenle `website-information` varsayılan olarak hedeflenecek. Aşağıdaki özniteliği (kebab durum geçerli değildir ama sınıfın adıyla eşleşen unutmayın) uygulandığında:
 
    ```csharp
    [HtmlTargetElement("WebsiteInformation")]
    ```
 
-   Kebab Case etiketi `<website-information />` eşleşmiyor. Kullanmak istediğiniz `[HtmlTargetElement]` özniteliği, aşağıda gösterildiği gibi kebab çalışması kullanmanız:
+   Kebab Case etiketi `<website-information />` eşleşmiyor. `[HtmlTargetElement]` özniteliğini kullanmak istiyorsanız, aşağıda gösterildiği gibi Kebab durumunu kullanacaksınız:
 
    ```csharp
    [HtmlTargetElement("Website-Information")]
    ```
 
-   * Kendi kendine kapanan öğeler hiçbir içeriğe sahip. Bu örnekte, bir kendi kendine kapanan etiketi Razor işaretlemesi kullanır, ancak etiketi Yardımcısı oluşturma bir [bölümü](https://www.w3.org/TR/html5/sections.html#the-section-element) öğesi (hangi kendi kendine kapanan değildir ve içeriği yazıyorsanız `section` öğesi). Bu nedenle, ayarlanacak ihtiyacınız `TagMode` için `StartTagAndEndTag` çıkışını yazmak için. Satır ayarını WMI'ya alternatif olarak, yorum `TagMode` ve bir kapatma etiketi ile işaretleme yazma. (Daha sonra Bu öğreticide örnek biçimlendirme sağlanır.)
+   * Kendi kendine kapanan öğeler hiçbir içeriğe sahip. Bu örnekte, Razor biçimlendirmesi bir kendi kendine kapatma etiketi kullanacaktır, ancak etiket Yardımcısı bir [bölüm](https://www.w3.org/TR/html5/sections.html#the-section-element) öğesi oluşturacak (kendi kendini kapatmakta ve `section` öğesi içinde içerik yazıyor). Bu nedenle, çıkış yazmak için `StartTagAndEndTag` `TagMode` ayarlamanız gerekir. Alternatif olarak, `TagMode` satır ayarı ve bir kapanış etiketiyle biçimlendirme yazma ekleyebilirsiniz. (Daha sonra Bu öğreticide örnek biçimlendirme sağlanır.)
 
-   * `$` (Dolar işareti) dosyasında aşağıdaki satırı kullanan bir [ilişkilendirilmiş bir dizedir](/dotnet/csharp/language-reference/keywords/interpolated-strings):
+   * Aşağıdaki satırdaki `$` (dolar işareti), bir [enterpolasyonlu dize](/dotnet/csharp/language-reference/keywords/interpolated-strings)kullanır:
 
    ```cshtml
    $@"<ul><li><strong>Version:</strong> {Info.Version}</li>
    ```
 
-1. İçin aşağıdaki işaretlemeyi ekleyin *About.cshtml* görünümü. Vurgulanan biçimlendirme web site bilgilerini görüntüler.
+1. Aşağıdaki işaretlemeyi *About. cshtml* görünümüne ekleyin. Vurgulanan biçimlendirme web site bilgilerini görüntüler.
 
    [!code-html[](authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/Home/About.cshtml?highlight=1,4-8, 18-999)]
 
@@ -224,12 +224,12 @@ Ayrıca `[HtmlTargetElement]` hedeflenen öğesi adını değiştirmek için. İ
    >
    > [!code-html[](authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/Home/About.cshtml?range=18-18)]
    >
-   > Razor bilir `info` özniteliği bir sınıf, bir dize değil ve C# kodu yazmak istediğiniz. Herhangi bir dize olmayan etiketi yardımcı öznitelik olmadan yazılmalıdır `@` karakter.
+   > Razor `info` özniteliğin bir dize değil bir sınıf olduğunu ve kod yazmak C# istediğinizi bilir. Dize olmayan herhangi bir etiket Yardımcısı özniteliği `@` karakteri olmadan yazılmalıdır.
 
 1. Uygulamayı çalıştırın ve web sitesi bilgileri görmek için hakkında görünümüne gidin.
 
    > [!NOTE]
-   > Aşağıdaki biçimlendirme bir kapatma etiketi ile kullanın ve içeren satırı Kaldır `TagMode.StartTagAndEndTag` etiketi Yardımcısı'nda:
+   > Aşağıdaki biçimlendirmeyi bir kapanış etiketiyle kullanabilir ve etiket yardımından `TagMode.StartTagAndEndTag` satırı kaldırabilirsiniz:
    >
    > [!code-html[](authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/Home/AboutNotSelfClosing.cshtml?range=20-21)]
 
@@ -237,26 +237,26 @@ Ayrıca `[HtmlTargetElement]` hedeflenen öğesi adını değiştirmek için. İ
 
 True değeri geçirildiğinde çıkış koşulu etiket Yardımcısı işler.
 
-1. Aşağıdaki `ConditionTagHelper` sınıfının *TagHelpers* klasör.
+1. Aşağıdaki `ConditionTagHelper` sınıfını *Taghelmakaa* klasörüne ekleyin.
 
    [!code-csharp[](authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/TagHelpers/ConditionTagHelper.cs)]
 
-1. Öğesinin içeriğini değiştirin *Views/Home/Index.cshtml* aşağıdaki işaretlemeyle dosyası:
+1. *Views/Home/Index. cshtml* dosyasının içeriğini aşağıdaki biçimlendirme ile değiştirin:
 
    [!code-csharp[](authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/Home/Index.cshtml)]
 
-1. Değiştirin `Index` yönteminde `Home` aşağıdaki kodla denetleyicisi:
+1. `Home` denetleyicisindeki `Index` yöntemini aşağıdaki kodla değiştirin:
 
    [!code-csharp[](authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Controllers/HomeController.cs?range=9-18)]
 
-1. Uygulamayı çalıştırın ve giriş sayfasına göz atın. Koşullu biçimlendirmeyi `div` işlenmez. Sorgu dizesini URL'ye `?approved=true` URL'sine (örneğin, `http://localhost:1235/Home/Index?approved=true`). `approved` TRUE olarak ve koşullu biçimlendirme görüntülenir.
+1. Uygulamayı çalıştırın ve giriş sayfasına göz atın. Koşullu `div` işaretleme işlenmez. URL 'ye `?approved=true` sorgu dizesi ekleyin (örneğin, `http://localhost:1235/Home/Index?approved=true`). `approved` true olarak ayarlanır ve koşullu biçimlendirme görüntülenir.
 
 > [!NOTE]
-> Kullanım [nameof](/dotnet/csharp/language-reference/keywords/nameof) işleci ile kalın etiket Yardımcısı yaptığınız gibi dize belirtme yerine hedef özniteliğe belirtmek için:
+> Kalın etiket Yardımcısı ile yaptığınız gibi bir dize belirtmek yerine, hedeflenecek özniteliği belirtmek için [NameOf](/dotnet/csharp/language-reference/keywords/nameof) işlecini kullanın:
 >
 > [!code-csharp[](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/TagHelpers/zConditionTagHelperCopy.cs?highlight=1,2,5&range=5-18)]
 >
-> [Nameof](/dotnet/csharp/language-reference/keywords/nameof) işleci korumak kod hiç olmadığı kadar yeniden (biz adını değiştirmek de isteyebilirsiniz `RedCondition`).
+> [NameOf](/dotnet/csharp/language-reference/keywords/nameof) işlecinin kodu korumasını yeniden düzenlenmiş olması gerekir (adı `RedCondition`olarak değiştirmek isteyebilirsiniz).
 
 ### <a name="avoid-tag-helper-conflicts"></a>Etiket Yardımcısı çakışmaları
 
@@ -264,20 +264,20 @@ Bu bölümde, otomatik bağlama etiket Yardımcıları çifti yazın. İlk biçi
 
 Bu iki Yardımcıları yakından ilgili ve gelecekte yeniden çünkü bunların aynı dosyada saklayacağız.
 
-1. Aşağıdaki `AutoLinkerHttpTagHelper` sınıfının *TagHelpers* klasör.
+1. Aşağıdaki `AutoLinkerHttpTagHelper` sınıfını *Taghelmakaa* klasörüne ekleyin.
 
    [!code-csharp[](authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/TagHelpers/z1AutoLinker.cs?range=7-19)]
 
    >[!NOTE]
-   >`AutoLinkerHttpTagHelper` Sınıfı hedefler `p` öğeleri ve kullanıyor [Regex](/dotnet/standard/base-types/regular-expression-language-quick-reference) bağlantı oluşturmak için.
+   >`AutoLinkerHttpTagHelper` sınıfı, `p` öğeleri hedefler ve bağlayıcıyı oluşturmak için [Regex](/dotnet/standard/base-types/regular-expression-language-quick-reference) kullanır.
 
-1. Sonuna aşağıdaki işaretlemeyi ekleyin *Views/Home/Contact.cshtml* dosyası:
+1. *Görünümler/Home/Contact. cshtml* dosyasının sonuna aşağıdaki biçimlendirmeyi ekleyin:
 
    [!code-html[](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/Home/Contact.cshtml?highlight=19)]
 
 1. Uygulamayı çalıştırın ve etiket Yardımcısı bağlantı doğru şekilde işlediğinden emin olun.
 
-1. Güncelleştirme `AutoLinker` içerecek şekilde sınıfı `AutoLinkerWwwTagHelper` hangi www metne dönüştürme ayrıca orijinal www metni içeren bir yer işareti etiketi. Güncelleştirilmiş kod aşağıda vurgulanır:
+1. Www metnini, özgün www metnini de içeren bir tutturucu etiketine dönüştürecek `AutoLinkerWwwTagHelper` eklemek için `AutoLinker` sınıfını güncelleştirin. Güncelleştirilmiş kod aşağıda vurgulanır:
 
    [!code-csharp[](authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/TagHelpers/z1AutoLinker.cs?highlight=15-34&range=7-34)]
 
@@ -290,29 +290,29 @@ Bu iki Yardımcıları yakından ilgili ve gelecekte yeniden çünkü bunların 
    >
    > [!code-csharp[](authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/TagHelpers/z1AutoLinker.cs?range=12)]
    >
-   > Diğer bir deyişle, çağırma `GetChildContentAsync` kullanarak `TagHelperOutput` yöntemlere geçirilen `ProcessAsync` yöntemi. Belirtildiği gibi daha önce çıktıyı önbelleğe alındığından, son etiket WINS çalışmasına yardımcı. Aşağıdaki kod ile ilgili sorun düzeltildi:
+   > Yani, `ProcessAsync` yöntemine geçirilen `TagHelperOutput` kullanarak `GetChildContentAsync` çağıralırsınız. Belirtildiği gibi daha önce çıktıyı önbelleğe alındığından, son etiket WINS çalışmasına yardımcı. Aşağıdaki kod ile ilgili sorun düzeltildi:
    >
    > [!code-csharp[](authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/TagHelpers/z2AutoLinkerCopy.cs?range=34-35)]
    >
    > Yukarıdaki kod içeriği değiştirildi ve varsa, çıkış arabellek içeriği alır olup olmadığını denetler.
 
-1. Uygulamayı çalıştırın ve iki bağlantı beklendiği gibi çalıştığını doğrulayın. Bizim otomatik bağlayıcı etiket Yardımcısı doğru ve eksiksiz görünebilir, ancak ince bir sorun var. WWW etiketi Yardımcısı ilk çalıştırıyorsa, www bağlantıları doğru olmayacaktır. Ekleyerek kodu güncelleştirmeniz `Order` etiket çalışan sırasını denetlemek için aşırı yükleme. `Order` Özelliği aynı öğeye hedefleyen diğer etiket Yardımcıları göre yürütme sırasını belirler. Varsayılan sıra değeri sıfırdır ve düşük değerler örnekleriyle önce yürütülür.
+1. Uygulamayı çalıştırın ve iki bağlantı beklendiği gibi çalıştığını doğrulayın. Bizim otomatik bağlayıcı etiket Yardımcısı doğru ve eksiksiz görünebilir, ancak ince bir sorun var. WWW etiketi Yardımcısı ilk çalıştırıyorsa, www bağlantıları doğru olmayacaktır. Etiketin içinde çalıştığı sırayı denetlemek için `Order` aşırı yüklemesini ekleyerek kodu güncelleştirin. `Order` özelliği, aynı öğeyi hedefleyen diğer etiket yardımcıları ile ilişkili yürütme sırasını belirler. Varsayılan sıra değeri sıfırdır ve düşük değerler örnekleriyle önce yürütülür.
 
    [!code-csharp[](authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/TagHelpers/z2AutoLinkerCopy.cs?highlight=5,6,7,8&range=8-15)]
 
-   Yukarıdaki kod, HTTP etiketi Yardımcısı önce WWW etiketi Yardımcısı çalıştığını garanti eder. Değişiklik `Order` için `MaxValue` ve WWW etiketi için oluşturulmuş biçimlendirmeyi yanlış olduğundan emin olun.
+   Yukarıdaki kod, HTTP etiketi Yardımcısı önce WWW etiketi Yardımcısı çalıştığını garanti eder. `Order` `MaxValue` olarak değiştirin ve WWW etiketi için oluşturulan biçimlendirmenin yanlış olduğunu doğrulayın.
 
 ## <a name="inspect-and-retrieve-child-content"></a>Alt içeriği almak ve İnceleme
 
 Etiket Yardımcıları içerik almak için çeşitli özellikler sağlar.
 
-* Sonucu `GetChildContentAsync` eklenerek `output.Content`.
-* Sonucu inceleyebilirsiniz `GetChildContentAsync` ile `GetContent`.
-* Değiştirirseniz `output.Content`, TagHelper gövdesi olmaz yürütülen veya siz işlenen `GetChildContentAsync` otomatik bağlayıcı örneğimizi olduğu gibi:
+* `GetChildContentAsync` sonucu `output.Content`eklenebilir.
+* `GetChildContentAsync` sonucunu `GetContent`ile inceleyebilirsiniz.
+* `output.Content`değiştirirseniz, otomatik bağlayıcı örneğimizde olduğu gibi `GetChildContentAsync` çağırmadığınız sürece TagHelper gövdesi yürütülmez veya işlenmez:
 
 [!code-csharp[](../../views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/TagHelpers/z1AutoLinkerCopy.cs?highlight=5,6,10&range=8-21)]
 
-* Birden çok çağrılar `GetChildContentAsync` aynı değeri döndürür ve yeniden yürütülmez `TagHelper` önbelleğe alınan sonuç kullanmayı gösteren yanlış parametre geçirmezseniz gövde.
+* Birden çok `GetChildContentAsync` çağrısı aynı değeri döndürür ve önbelleğe alınmış sonucu kullanmamasını belirten yanlış bir parametre geçirmediğiniz takdirde `TagHelper` gövdesini yeniden çalıştırmaz.
 
 ## <a name="load-minified-partial-view-taghelper"></a>Mini yükleme küçük bir kısmı görüntüleme TagHelper
 

@@ -1,39 +1,39 @@
 ---
-title: ASP.NET Core taşınabilir nesne yerelleştirmesi yapılandırma
+title: ASP.NET Core taşınabilir nesne yerelleştirmesini yapılandırma
 author: sebastienros
-description: Bu makalede, taşınabilir nesne dosyaları tanıtır ve bunları Orchard Core framework ile ASP.NET Core uygulamasını kullanarak adımlarını özetler.
+description: Bu makale, taşınabilir nesne dosyalarını tanıtır ve bunları Orchard Core çerçevesiyle ASP.NET Core bir uygulamada kullanmaya yönelik adımları özetler.
 ms.author: scaddie
 ms.date: 09/26/2017
 uid: fundamentals/portable-object-localization
-ms.openlocfilehash: 6ec7afc59d6dfd2629a3d6d83ae619575397a9df
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 08002564eb68bc04eebaeafed560202d0d69958a
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64899426"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78656193"
 ---
-# <a name="configure-portable-object-localization-in-aspnet-core"></a>ASP.NET Core taşınabilir nesne yerelleştirmesi yapılandırma
+# <a name="configure-portable-object-localization-in-aspnet-core"></a>ASP.NET Core taşınabilir nesne yerelleştirmesini yapılandırma
 
-Tarafından [Sébastien Ros](https://github.com/sebastienros) ve [Scott Addie](https://twitter.com/Scott_Addie)
+[Sébastien Ros](https://github.com/sebastienros) ve [Scott Ade](https://twitter.com/Scott_Addie) tarafından
 
-Bu makale, bir ASP.NET Core uygulaması ile taşınabilir nesne (SAS) dosyalarında kullanma adımları size [Orchard Core](https://github.com/OrchardCMS/OrchardCore) framework.
+Bu makalede, [Orchard Core](https://github.com/OrchardCMS/OrchardCore) Framework ile bir ASP.NET Core uygulamasında taşınabilir nesne (PO) dosyalarını kullanma adımları gösterilmektedir.
 
-**Not:** Orchard Core Microsoft Ürün değildir. Sonuç olarak, Microsoft bu özellik için destek sağlar.
+**Note:** Orchard Core bir Microsoft ürünü değildir. Sonuç olarak, Microsoft bu özellik için destek sağlamaz.
 
-[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/localization/sample/POLocalization) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
+[Örnek kodu görüntüleme veya indirme](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/localization/sample/POLocalization) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
 
-## <a name="what-is-a-po-file"></a>Bir SAS dosyası nedir?
+## <a name="what-is-a-po-file"></a>PO dosyası nedir?
 
-PO dosyaları, belirli bir dile çevrilen dizelerin bulunduğu metin dosyaları olarak dağıtılır. PO dosyaları bunun yerine kullanmanın bazı avantajları *.resx* dosyaları içerir:
-- PO dosyaları çoğullaştırma destekler; *.resx* dosyaları çoğullaştırma desteklemez.
-- PO dosyaları gibi derlenmiş olmayan *.resx* dosyaları. Bu nedenle, özel araçlar ve yapılandırma adımları gerekli değildir.
-- PO dosyaları da işbirliğine dayalı çevrimiçi düzenleme araçları ile çalışma.
+PO dosyaları, belirli bir dil için çevrilmiş dizeleri içeren metin dosyaları olarak dağıtılır. *. Resx* dosyaları yerine PO dosyalarını kullanmanın bazı avantajları şunlardır:
+- PO dosyaları, pluralization 'ı destekler; *. resx* dosyaları pluralization 'yi desteklemez.
+- PO dosyaları *. resx* dosyaları gibi derlenmemektedir. Bu nedenle, özelleştirilmiş araç ve derleme adımları gerekli değildir.
+- PO dosyaları işbirliğine dayalı çevrimiçi Düzenle araçlarıyla iyi çalışır.
 
 ### <a name="example"></a>Örnek
 
-Çeviri için Fransızca kendi çoğul biriyle dahil olmak üzere, iki dizeyi içeren örnek bir SAS dosyası aşağıda verilmiştir:
+Aşağıda, çoğul biçimi ile birlikte olmak üzere Fransızca 'daki iki dizenin çevirisini içeren örnek bir PO dosyası verilmiştir:
 
-*fr.po*
+*fr. Po*
 
 ```text
 #: Services/EmailService.cs:29
@@ -47,71 +47,71 @@ msgstr[0] "L'adresse email est \"{0}\"."
 msgstr[1] "Les adresses email sont \"{0}\""
 ```
 
-Bu örnek, aşağıdaki sözdizimini kullanır:
+Bu örnek aşağıdaki sözdizimini kullanır:
 
-- `#:`: Çevrilecek dize bağlamında belirten bir açıklama. Burada kullanıldığı bağlı olarak farklı bu aynı dize çevrilmesi.
-- `msgid`: Çevrilmemiş dize.
-- `msgstr`: Çevrilmiş dize.
+- `#:`: çevrilecek dizenin bağlamını gösteren bir açıklama. Aynı dize, kullanıldığı yere bağlı olarak farklı şekilde çevrilebilir.
+- `msgid`: çevrilmemiş dize.
+- `msgstr`: çevrilmiş dize.
 
-Çoğullaştırmayı desteği söz konusu olduğunda, daha fazla giriş tanımlanabilir.
+Plurselme desteği söz konusu olduğunda, daha fazla girdi tanımlanabilir.
 
-- `msgid_plural`: Çevrilmemiş çoğul dize.
-- `msgstr[0]`: 0 çalışması için çevrilmiş dize.
-- `msgstr[N]`: Çevrilmiş dize için büyük/küçük harfe n
+- `msgid_plural`: çevrilmemiş çoğul dize.
+- `msgstr[0]`: 0 durumu için çevrilmiş dize.
+- `msgstr[N]`: N. durum için çevrilmiş dize.
 
-SAS dosya belirtimi bulunabilir [burada](https://www.gnu.org/savannah-checkouts/gnu/gettext/manual/html_node/PO-Files.html).
+PO dosya belirtimi [burada](https://www.gnu.org/savannah-checkouts/gnu/gettext/manual/html_node/PO-Files.html)bulunabilir.
 
-## <a name="configuring-po-file-support-in-aspnet-core"></a>ASP.NET core'da yapılandırma PO dosya desteği
+## <a name="configuring-po-file-support-in-aspnet-core"></a>ASP.NET Core 'de PO dosya desteğini yapılandırma
 
-Bu örnek, bir Visual Studio 2017 proje şablonundan oluşturulan bir ASP.NET Core MVC uygulaması dayanır.
+Bu örnek, Visual Studio 2017 proje şablonundan oluşturulan ASP.NET Core MVC uygulamasını temel alır.
 
-### <a name="referencing-the-package"></a>Bu paketi
+### <a name="referencing-the-package"></a>Pakete başvurma
 
-Bir başvuru ekleyin `OrchardCore.Localization.Core` NuGet paketi. Üzerinde kullanılabilir [MyGet](https://www.myget.org/) aşağıdaki paket kaynağında: https://www.myget.org/F/orchardcore-preview/api/v3/index.json
+`OrchardCore.Localization.Core` NuGet paketine bir başvuru ekleyin. Şu paket kaynağında [Myget](https://www.myget.org/) üzerinde kullanılabilir: https://www.myget.org/F/orchardcore-preview/api/v3/index.json
 
-*.Csproj* dosyayı şimdi aşağıdakine benzer bir satır içeren (sürüm numarası değişebilir):
+*. Csproj* dosyası artık aşağıdakine benzer bir satır içerir (sürüm numarası farklılık gösterebilir):
 
 [!code-xml[](localization/sample/POLocalization/POLocalization.csproj?range=9)]
 
-### <a name="registering-the-service"></a>Hizmeti kaydediliyor
+### <a name="registering-the-service"></a>Hizmet kaydediliyor
 
-Gerekli hizmetlere ekleme `ConfigureServices` yöntemi *Startup.cs*:
+Gerekli Hizmetleri *Startup.cs*`ConfigureServices` metoduna ekleyin:
 
 [!code-csharp[](localization/sample/POLocalization/Startup.cs?name=snippet_ConfigureServices&highlight=4-21)]
 
-Eklemek için gerekli olan bir ara yazılım `Configure` yöntemi *Startup.cs*:
+Gerekli ara yazılımı *Startup.cs*`Configure` yöntemine ekleyin:
 
 [!code-csharp[](localization/sample/POLocalization/Startup.cs?name=snippet_Configure&highlight=15)]
 
-Razor görünümünü seçim için aşağıdaki kodu ekleyin. *About.cshtml* Bu örnekte kullanılır.
+Aşağıdaki kodu tercih ettiğiniz Razor görünümüne ekleyin. Bu örnekte *. cshtml hakkında* kullanılır.
 
 [!code-cshtml[](localization/sample/POLocalization/Views/Home/About.cshtml)]
 
-Bir `IViewLocalizer` örneği eklenen ve "Hello world!" metni çevirmek için kullanılır.
+Bir `IViewLocalizer` örneği eklenen ve "Hello World!" metnini dönüştürmek için kullanılır.
 
-### <a name="creating-a-po-file"></a>Bir SAS dosyası oluşturma
+### <a name="creating-a-po-file"></a>PO dosyası oluşturma
 
-Adlı bir dosya oluşturun  *\<kültür kodu > .po* uygulama kök klasörünüzde. Bu örnekte, dosya adı olan *fr.po* Fransızca Dil kullanılır çünkü:
+Uygulama kök klasörünüzde *\<kültür kodu >. Po* adlı bir dosya oluşturun. Bu örnekte, Fransızca dili kullanıldığından dosya adı *fr. Po* olur:
 
 [!code-text[](localization/sample/POLocalization/fr.po)]
 
-Bu dosya, dize çevirmek için hem Fransızca çevrilmiş dize depolar. Çevirileri üst kültürünü gerekirse geri dönün. Bu örnekte, *fr.po* istenen kültürü ise dosya kullanılan `fr-FR` veya `fr-CA`.
+Bu dosya, hem çevrilecek dizeyi hem de Fransızca çevrilmiş dizeyi depolar. Çevirileri, gerekirse üst kültürüne döndürülür. Bu örnekte, istenen kültür `fr-FR` veya `fr-CA`ise *fr. Po* dosyası kullanılır.
 
 ### <a name="testing-the-application"></a>Uygulamayı test etme
 
-Uygulamanızı çalıştırın ve URL'ye `/Home/About`. Metin **Merhaba Dünya!** görüntülenir.
+Uygulamanızı çalıştırın ve `/Home/About`URL 'sine gidin. **Merhaba Dünya metni!** görüntülenir.
 
-URL'ye `/Home/About?culture=fr-FR`. Metin **Bonjour le monde!** görüntülenir.
+`/Home/About?culture=fr-FR`URL 'sine gidin. **Bonjour Le Monde metni!** görüntülenir.
 
-## <a name="pluralization"></a>Çoğullaştırmayı
+## <a name="pluralization"></a>Çoğullaştırma
 
-PO dosyaları, aynı dize dönüştürülür. farklı bir kardinalite üzerinde temel gerektiğinde faydalı olan çoğullaştırma forms destekler. Bu görevi, her bir dilin kardinalite üzerinde kullanmak için hangi dize tabanlı seçmek için özel kurallar tanımlar olarak karmaşık yapılır.
+Po dosyaları, aynı dizenin kardinalite göre farklı şekilde çevrilmesi gerektiğinde yararlı olan çoğullaştırma formlarını destekler. Bu görev, her dilin kardinalite göre hangi dizenin kullanılacağını seçmek için özel kurallar tanımladığı konusunda karmaşık hale getirilir.
 
-Orchard yerelleştirme paket çoğul bu farklı biçimlerin otomatik olarak çağırmak için bir API sağlar.
+Orchard yerelleştirme paketi, bu farklı çoğul formları otomatik olarak çağırmak için bir API sağlar.
 
-### <a name="creating-pluralization-po-files"></a>Çoğullaştırmayı PO dosyaları oluşturma
+### <a name="creating-pluralization-po-files"></a>Çoğullaştırma Po dosyaları oluşturma
 
-Aşağıdaki içeriği daha önce bahsedilen ekleyin *fr.po* dosyası:
+Aşağıdaki içeriği daha önce bahsedilen *fr. Po* dosyasına ekleyin:
 
 ```text
 msgid "There is one item."
@@ -120,19 +120,19 @@ msgstr[0] "Il y a un élément."
 msgstr[1] "Il y a {0} éléments."
 ```
 
-Bkz: [PO dosyası nedir?](#what-is-a-po-file) ne Bu örnekte her giriş temsil açıklaması.
+Bu örnekteki her girdinin ne olduğunu gösteren bir açıklama için bkz. [po dosyası nedir?](#what-is-a-po-file) .
 
-### <a name="adding-a-language-using-different-pluralization-forms"></a>Farklı çoğullaştırma formları kullanarak bir dil ekleme
+### <a name="adding-a-language-using-different-pluralization-forms"></a>Farklı çoğullaştırma formları kullanarak dil ekleme
 
-Önceki örnekte kullanılan İngilizce ve Fransızca dizeler. İngilizce ve Fransızca yalnızca iki çoğullaştırma formları ve aynı form kuralları paylaşın olduğu bir kardinalite birinin ilk çoğul eşlendi. Diğer bir kardinalite ikinci çoğul eşlenir.
+Önceki örnekte İngilizce ve Fransızca dizeleri kullanılmıştır. İngilizce ve Fransızca yalnızca iki plurtasyon biçimine sahiptir ve aynı form kurallarını paylaşır, bu da bir kardinalitesi ilk plural formuyla eşlenir. Diğer herhangi bir kardinalite ikinci çoğul formla eşleştirilir.
 
-Tüm diller, aynı kurallara paylaşın. Bu üç çoğul forma sahip Çekçe Dil ile gösterilmiştir.
+Dillerin hepsi aynı kuralları paylaşmaz. Bu, üç plural formu bulunan Çekçe dil ile gösterilmiştir.
 
-Oluşturma `cs.po` aşağıdaki gibi ve nasıl çoğullaştırma üç farklı çevirilere gereken dikkat edin:
+`cs.po` dosyasını aşağıdaki gibi oluşturun ve plurun üç farklı çeviriyi nasıl ihtiyacı olduğunu aklınızda yapın:
 
 [!code-text[](localization/sample/POLocalization/cs.po)]
 
-Çekçe yerelleştirmeler kabul etmek için ekleme `"cs"` içinde desteklenen kültürler listesine `ConfigureServices` yöntemi:
+Çekçe yerelleştirmeleri kabul etmek için, `ConfigureServices` yönteminde desteklenen kültürlerin listesine `"cs"` ekleyin:
 
 ```csharp
 var supportedCultures = new List<CultureInfo>
@@ -145,7 +145,7 @@ var supportedCultures = new List<CultureInfo>
 };
 ```
 
-Düzen *Views/Home/About.cshtml* yerelleştirilmiş, plural dizeler için birden fazla kardinaliteleri işlenecek dosya:
+Farklı kart aralıkları için yerelleştirilmiş, çoğul dizeleri işlemek üzere *Görünümler/Home/about. cshtml* dosyasını düzenleyin:
 
 ```cshtml
 <p>@Localizer.Plural(1, "There is one item.", "There are {0} items.")</p>
@@ -153,11 +153,11 @@ Düzen *Views/Home/About.cshtml* yerelleştirilmiş, plural dizeler için birden
 <p>@Localizer.Plural(5, "There is one item.", "There are {0} items.")</p>
 ```
 
-**Not:** Gerçek hayattaki bir senaryoda, bir değişken sayısı temsil etmek için kullanılacak. Burada, aynı kodu belirli bir servis talebi göstermek için üç farklı değerlerle tekrarlayın.
+**Note:** Gerçek bir Dünya senaryosunda, sayıyı temsil etmek için bir değişken kullanılır. Burada, çok özel bir durumu ortaya çıkarmak için aynı kodu üç farklı değerle tekrarlarız.
 
-Kültürler geçiş sırasında aşağıdakilere bakın:
+Kültürleri değiştirme sırasında, aşağıdakileri görürsünüz:
 
-için `/Home/About`:
+`/Home/About` için:
 
 ```html
 There is one item.
@@ -165,7 +165,7 @@ There are 2 items.
 There are 5 items.
 ```
 
-için `/Home/About?culture=fr`:
+`/Home/About?culture=fr` için:
 
 ```html
 Il y a un élément.
@@ -173,7 +173,7 @@ Il y a 2 éléments.
 Il y a 5 éléments.
 ```
 
-için `/Home/About?culture=cs`:
+`/Home/About?culture=cs` için:
 
 ```html
 Existuje jedna položka.
@@ -181,17 +181,17 @@ Existují 2 položky.
 Existuje 5 položek.
 ```
 
-Çekçe kültürü için üç çevirileri farklı olduğunu unutmayın. Fransızca ve İngilizce kültürlerini aynı yapımı için son iki çevrilmiş dizeleri paylaşın.
+Çekçe kültür için, üç çevirilerin farklı olduğunu unutmayın. Fransızca ve Ingilizce kültürler, son çevrilen iki dize için aynı yapıyı paylaşır.
 
 ## <a name="advanced-tasks"></a>Gelişmiş görevler
 
-### <a name="contextualizing-strings"></a>Contextualizing dizeleri
+### <a name="contextualizing-strings"></a>Contextualleme dizeleri
 
-Uygulamalar genellikle birçok yerde çevrilemeyen dizeleri içerir. Aynı dize farklı bir çeviri (Razor görünümleri ya da sınıf dosyaları) bir uygulama içinde belirli bir konumda olabilir. Bir SAS dosya temsil ettiği dizeyi sınıflandırmak için kullanılan bir dosya bağlamı kavramını destekler. Dosya bağlamını kullanarak, bir dize farklı dosya içeriği (veya dosya bağlam eksikliği) bağlı olarak çevrilebilir.
+Uygulamalar genellikle birkaç yerde çevrilecek dizeleri içerir. Aynı dize bir uygulama içindeki belirli konumlarda farklı bir çeviriye sahip olabilir (Razor görünümleri veya sınıf dosyaları). Bir PO dosyası, temsil edilen dizeyi kategorilere ayırmak için kullanılabilecek bir dosya bağlamı kavramını destekler. Dosya bağlamını kullanarak, dosya bağlamına (veya bir dosya bağlamının olmamasından) bağlı olarak bir dize farklı şekilde çevrilebilir.
 
-SAS yerelleştirme Hizmetleri, tam sınıf veya bir dize çevirirken kullanılan görünüm adını kullanın. Bu değeri ayarı gerçekleştirilir `msgctxt` girişi.
+PO yerelleştirme hizmetleri, tam sınıfın veya bir dize çevrilirken kullanılan görünümün adını kullanır. Bu, `msgctxt` girişi üzerinde değer ayarlanarak gerçekleştirilir.
 
-Önceki bir ikincil eklemeyi göz önünde bulundurun *fr.po* örnek. Razor görünümü konumundaki *Views/Home/About.cshtml* ayrılmış ayarlayarak dosya bağlamı olarak tanımlanabilir `msgctxt` girişin değeri:
+Önceki *fr. Po* örneğine küçük bir ek göz önünde bulundurun. *Görünümler/Home/about. cshtml* konumunda bulunan bir Razor görünümü, ayrılmış `msgctxt` girişinin değerini ayarlayarak dosya bağlamı olarak tanımlanabilir:
 
 ```text
 msgctxt "Views.Home.About"
@@ -199,28 +199,28 @@ msgid "Hello world!"
 msgstr "Bonjour le monde!"
 ```
 
-İle `msgctxt` şekilde ayarlanırsa, metin çevirisi giderek oluşur `/Home/About?culture=fr-FR`. Çeviri için gezinirken gerçekleşmeyeceğini `/Home/Contact?culture=fr-FR`.
+`msgctxt` ayarlandığı için, `/Home/About?culture=fr-FR`' a gidildiğinde metin çevirisi oluşur. Çeviri `/Home/Contact?culture=fr-FR`gidildiğinde gerçekleşmez.
 
-Özel giriş verilen dosya bağlamı ile eşleştiğinde, Orchard Core'nın geri dönüş mekanizması bir bağlam olmadan uygun bir SAS dosyasını arar. İçin tanımlı hiçbir belirli dosya bağlam olup olmadığı varsayılarak *Views/Home/Contact.cshtml*, gezinme için `/Home/Contact?culture=fr-FR` bir SAS dosya gibi yükler:
+Belirli bir giriş belirli bir dosya bağlamıyla eşleşmediğinde, Orchard Core 'un geri dönüş mekanizması bağlam olmadan uygun bir PO dosyası arar. *Görünümler/Home/Contact. cshtml*için tanımlı özel dosya bağlamı olmadığı varsayılarak, `/Home/Contact?culture=fr-FR` gezinmek, şöyle bir PO dosyası yükler:
 
 [!code-text[](localization/sample/POLocalization/fr.po)]
 
-### <a name="changing-the-location-of-po-files"></a>PO dosyaları konumunu değiştirme
+### <a name="changing-the-location-of-po-files"></a>PO dosyalarının konumunu değiştirme
 
-PO dosyaları varsayılan konumunu değiştirilebilir `ConfigureServices`:
+PO dosyalarının varsayılan konumu `ConfigureServices`' de değiştirilebilir:
 
 ```csharp
 services.AddPortableObjectLocalization(options => options.ResourcesPath = "Localization");
 ```
 
-Bu örnekte, gelen PO dosyaları yüklenir *yerelleştirme* klasör.
+Bu örnekte, PO dosyaları *Yerelleştirme* klasöründen yüklenir.
 
-### <a name="implementing-a-custom-logic-for-finding-localization-files"></a>Yerelleştirme dosyaları bulmak için özel bir mantıksal uygulama
+### <a name="implementing-a-custom-logic-for-finding-localization-files"></a>Yerelleştirme dosyalarını bulmak için özel bir mantık uygulama
 
-PO dosyaları bulmak için daha karmaşık mantık gerektiğinde `OrchardCore.Localization.PortableObject.ILocalizationFileLocationProvider` arabirimi uygulanabilir ve hizmet olarak kayıtlı. Bu, SAS dosyaları farklı konumlarda depolanabilir veya dosyaları bir klasör hiyerarşisi içinde bulunması gerektiğinde kullanışlıdır.
+PO dosyalarını bulmak için daha karmaşık mantık gerektiğinde, `OrchardCore.Localization.PortableObject.ILocalizationFileLocationProvider` arabirimi bir hizmet olarak uygulanabilir ve kaydedilebilir. Bu, PO dosyaları farklı konumlarda depolanabileceği veya dosyaların bir klasör hiyerarşisi içinde bulunması gerektiğinde kullanışlıdır.
 
-### <a name="using-a-different-default-pluralized-language"></a>Pluralized farklı varsayılan dilini kullanma
+### <a name="using-a-different-default-pluralized-language"></a>Farklı bir varsayılan plurar dili kullanma
 
-Paketi içeren bir `Plural` iki çoğul biçimi için özel bir genişletme yöntemi. Daha fazla çoğul forms gerektiren diller için bir genişletme yöntemi oluşturun. Bir uzantı yönteminiz, varsayılan dil için herhangi bir yerelleştirme dosyası sağlamanız gerekmez &mdash; özgün dizeleri zaten doğrudan kod içinde kullanılabilir.
+Paket, iki plural formlarına özgü bir `Plural` uzantısı yöntemi içerir. Daha fazla çoğul biçim gerektiren diller için bir genişletme yöntemi oluşturun. Uzantı yöntemiyle, varsayılan dil için herhangi bir yerelleştirme dosyası sağlamanız gerekmez &mdash; özgün dizeler doğrudan kodda zaten kullanılabilir.
 
-Daha fazla genel kullanabileceğiniz `Plural(int count, string[] pluralForms, params object[] arguments)` çevirileri dize dizisi kabul eden aşırı yükleme.
+Bir dizi çeviriyi kabul eden daha genel `Plural(int count, string[] pluralForms, params object[] arguments)` aşırı yüklemeyi kullanabilirsiniz.

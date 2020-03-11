@@ -1,15 +1,15 @@
 Identity scaffolder öğesini çalıştırın:
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-* Gelen **Çözüm Gezgini**, projeye sağ tıklayın > **Ekle** > **yeni iskele kurulmuş öğe**.
-* Sol bölmeden **İskele Ekle** iletişim kutusunda **kimlik** > **ekleme**.
+* **Çözüm Gezgini**, projeye sağ tıklayıp **Yeni > Iskli öğe** **ekleyin** >.
+* **Yapı Iskelesi Ekle** iletişim kutusunun sol bölmesinde **kimlik** > **Ekle**' yi seçin.
 * **Kimlik Ekle** iletişim kutusunda istediğiniz seçenekleri belirleyin.
   * Var olan düzen sayfanızı seçin veya Düzen dosyanızın üzerine yanlış biçimlendirme uygulanır. Örneğin, MVC projeleri için Razor Pages `~/Views/Shared/_Layout.cshtml` `~/Pages/Shared/_Layout.cshtml`
-  * Seçin **+** yeni bir düğme **veri bağlamı sınıfının**.
-* Seçin **ekleme**.
+  * Yeni bir **veri bağlamı sınıfı**oluşturmak için **+** düğmesini seçin.
+* **Ekle**' yi seçin.
 
-# <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
+# <a name="net-core-cli"></a>[.NET Core CLI](#tab/netcore-cli)
 
 ASP.NET Core iskele kurucu daha önce yüklemediyseniz şimdi yükleyin:
 

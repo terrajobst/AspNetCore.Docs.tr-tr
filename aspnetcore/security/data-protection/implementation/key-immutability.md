@@ -1,32 +1,32 @@
 ---
-title: Anahtar değiştirilemezliği ve ASP.NET Core anahtar ayarları
+title: ASP.NET Core anahtar imlebilirlik ve anahtar ayarları
 author: rick-anderson
-description: ASP.NET Core veri koruma anahtar değiştirilemezliği API uygulama ayrıntıları öğrenin.
+description: ASP.NET Core veri koruma anahtarı imlebilirlik API 'Lerinin uygulama ayrıntılarını öğrenin.
 ms.author: riande
 ms.date: 10/14/2016
 uid: security/data-protection/implementation/key-immutability
 ms.openlocfilehash: 7796cb102c0f6f03809704016fd36b28c7a82438
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64898766"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78664719"
 ---
-# <a name="key-immutability-and-key-settings-in-aspnet-core"></a>Anahtar değiştirilemezliği ve ASP.NET Core anahtar ayarları
+# <a name="key-immutability-and-key-settings-in-aspnet-core"></a>ASP.NET Core anahtar imlebilirlik ve anahtar ayarları
 
-Yedekleme deposu için bir nesneyi kalıcı sonra gösterimine her zaman sabittir. Yeni veri yedekleme deposu için eklenebilir, ancak hiçbir zaman mevcut verileri dönüşür. Bu davranış birincil amacı, veri bozulması engellemektir.
+Bir nesne, yedekleme deposuna kalıcı olduktan sonra, temsili süresiz olarak düzeltilir. Yeni veriler, yedekleme deposuna eklenebilir, ancak mevcut veriler hiçbir şekilde değiştirilemez. Bu davranışın birincil amacı, verilerin bozulmasını önlemektir.
 
-Bu davranış bir sonucu bir anahtarı yedekleme deposuna yazılır, sonra da değişmez olmasıdır. İptal ancak kullanarak oluşturma, etkinleştirme ve sona erme tarihleri hiçbir zaman, değiştirilebilir `IKeyManager`. Ayrıca, kendi temel alınan algoritmik bilgileri, ana anahtar malzemesini ve diğer özellikleri şifrelemeyi de sabittir.
+Bu davranışın bir sonucu, yedekleme deposuna bir anahtar yazıldıktan sonra sabittir. Oluşturma, etkinleştirme ve sona erme tarihleri hiçbir zaman değiştirilemez, ancak `IKeyManager`kullanılarak iptal edilebilir. Ayrıca, temel alınan algoritmik bilgileri, ana anahtar malzemeleri ve REST özelliklerindeki şifreleme de sabittir.
 
-Geliştirici anahtar kalıcılığı etkileyen herhangi bir ayar değişirse, bu değişiklikleri bir anahtar oluşturulur, zamana kadar açık bir çağrı yoluyla yürürlüğe olmaz `IKeyManager.CreateNewKey` veya veri koruma sisteminin kendi aracılığıyla [otomatik anahtar nesil](xref:security/data-protection/implementation/key-management#data-protection-implementation-key-management) davranışı. Anahtar kalıcılığı etkileyen ayarlar aşağıdaki gibidir:
+Geliştirici, anahtar kalıcılığını etkileyen herhangi bir ayarı değiştirirse, bu değişiklikler, bir sonraki `IKeyManager.CreateNewKey` ya da veri koruma sisteminin kendi [otomatik anahtar oluşturma](xref:security/data-protection/implementation/key-management#data-protection-implementation-key-management) davranışı aracılığıyla bir sonraki anahtar üretilene kadar etkin olmaz. Anahtar kalıcılığını etkileyen ayarlar şunlardır:
 
 * [Varsayılan anahtar yaşam süresi](xref:security/data-protection/implementation/key-management#data-protection-implementation-key-management)
 
-* [Rest mekanizması, anahtar şifreleme](xref:security/data-protection/implementation/key-encryption-at-rest)
+* [REST mekanizmasında anahtar şifreleme](xref:security/data-protection/implementation/key-encryption-at-rest)
 
-* [Anahtarı içinde yer alan algoritmik bilgileri](xref:security/data-protection/configuration/overview#changing-algorithms-with-usecryptographicalgorithms)
+* [Algoritmik bilgileri, anahtar içinde yer alır](xref:security/data-protection/configuration/overview#changing-algorithms-with-usecryptographicalgorithms)
 
-Zaman çalışırken sonraki otomatik anahtarı'den önceki etkisini göstermeye bu ayarlarına gereksinim duyarsanız, açık bir çağrı yapmayı göz önüne alın `IKeyManager.CreateNewKey` yeni bir anahtar oluşturmayı zorlamak için. Bir açık etkinleştirme tarihi vermeyi unutmayın ({artık + 2 gün} bir iyi değişiklik yayılması için zaman tanıyın için udur) ve çağrının sona erme tarihi.
+Bu ayarların sonraki otomatik anahtar alma zamanından daha önce kullanıma sunulmasını istiyorsanız, yeni bir anahtarın oluşturulmasını zorlamak için `IKeyManager.CreateNewKey` açık çağrısı yapmayı düşünün. Açık bir etkinleştirme tarihi ({Now + 2 gün}), çağrının, değişikliğin yayması için zaman kullanılmasına izin veren iyi bir kural ve çağrının sona erme tarihi olduğunu unutmayın.
 
 >[!TIP]
-> Depo temas tüm uygulamalar aynı ayarlarla belirtmelidir `IDataProtectionBuilder` genişletme yöntemleri. Aksi durumda, kalıcı anahtar özelliklerini anahtar oluşturma yordamlarını çağrılan belirli uygulamasına bağımlı olur.
+> Depoya dokunmadan tüm uygulamalar `IDataProtectionBuilder` uzantısı yöntemleriyle aynı ayarları belirtmelidir. Aksi takdirde, kalıcı anahtarın özellikleri, anahtar oluşturma yordamlarını çağıran belirli bir uygulamaya bağımlıdır.

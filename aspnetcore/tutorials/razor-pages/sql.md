@@ -6,15 +6,15 @@ ms.author: riande
 ms.date: 7/22/2019
 uid: tutorials/razor-pages/sql
 ms.openlocfilehash: b5acb573f8fa39e5300ecdb359113d8697d78934
-ms.sourcegitcommit: 07d98ada57f2a5f6d809d44bdad7a15013109549
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72334224"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78664341"
 ---
 # <a name="work-with-a-database-and-aspnet-core"></a>Veritabanı ve ASP.NET Core çalışma
 
-Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT) ve [ALi Audette](https://twitter.com/joeaudette)
+By [Rick Anderson](https://twitter.com/RickAndMSFT) ve [ali Audette](https://twitter.com/joeaudette)
 
 ::: moniker range=">= aspnetcore-3.0"
 
@@ -22,11 +22,11 @@ Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT) ve [ALi Audette](ht
 
 `RazorPagesMovieContext` nesnesi veritabanına bağlanma ve `Movie` nesneleri veritabanı kayıtlarına eşleme görevini işler. Veritabanı bağlamı, *Startup.cs*içindeki `ConfigureServices` yönteminde [bağımlılık ekleme](xref:fundamentals/dependency-injection) kapsayıcısına kaydedilir:
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 [!code-csharp[](razor-pages-start/sample/RazorPagesMovie30/Startup.cs?name=snippet_ConfigureServices&highlight=15-18)]
 
-# <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Visual Studio Code/Mac için Visual Studio](#tab/visual-studio-code+visual-studio-mac)
+# <a name="visual-studio-code--visual-studio-for-mac"></a>[Visual Studio Code/Mac için Visual Studio](#tab/visual-studio-code+visual-studio-mac)
 
 [!code-csharp[](razor-pages-start/sample/RazorPagesMovie30/Startup.cs?name=snippet_UseSqlite&highlight=11-12)]
 
@@ -34,13 +34,13 @@ Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT) ve [ALi Audette](ht
 
 ASP.NET Core [yapılandırma](xref:fundamentals/configuration/index) sistemi `ConnectionString`okur. Yerel geliştirme için, *appSettings. JSON* dosyasından bağlantı dizesini alır.
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 Veritabanı (`Database={Database name}`) için ad değeri, oluşturulan kodunuz için farklı olacaktır. Ad değeri rastgele.
 
 [!code-json[](razor-pages-start/sample/RazorPagesMovie30/appsettings.json?highlight=10-12)]
 
-# <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Visual Studio Code/Mac için Visual Studio](#tab/visual-studio-code+visual-studio-mac)
+# <a name="visual-studio-code--visual-studio-for-mac"></a>[Visual Studio Code/Mac için Visual Studio](#tab/visual-studio-code+visual-studio-mac)
 
 [!code-json[](~/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie/appsettings_SQLite.json?highlight=8-10)]
 
@@ -48,7 +48,7 @@ Veritabanı (`Database={Database name}`) için ad değeri, oluşturulan kodunuz 
 
 Uygulama bir test veya üretim sunucusuna dağıtıldığında, bağlantı dizesini gerçek bir veritabanı sunucusuna ayarlamak için bir ortam değişkeni kullanılabilir. Daha fazla bilgi için bkz. [yapılandırma](xref:fundamentals/configuration/index) .
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 ## <a name="sql-server-express-localdb"></a>SQL Server Express LocalDB
 
@@ -71,7 +71,7 @@ LocalDB, program geliştirmeye yönelik SQL Server Express veritabanı altyapıs
 
   ![Tablo verilerini gösteren film tablosu açma](sql/_static/vd22.png)
 
-# <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Visual Studio Code/Mac için Visual Studio](#tab/visual-studio-code+visual-studio-mac)
+# <a name="visual-studio-code--visual-studio-for-mac"></a>[Visual Studio Code/Mac için Visual Studio](#tab/visual-studio-code+visual-studio-mac)
 
 [!INCLUDE[](~/includes/rp/sqlite.md)]
 [!INCLUDE[](~/includes/RP-mvc-shared/sqlite-warn.md)]
@@ -97,13 +97,13 @@ if (context.Movie.Any())
 
 ### <a name="add-the-seed-initializer"></a>Tohum başlatıcısı ekleme
 
-İçinde *Program.cs*, değişiklik `Main` yöntemi aşağıdakileri yapmak için:
+*Program.cs*' de, aşağıdakileri yapmak için `Main` yöntemini değiştirin:
 
 * Bir DB bağlamı örneği bağımlılık ekleme kapsayıcısını alın.
 * Temel yöntemi çağırın ve bu yönteme geçerek bağlamı geçer.
 * Çekirdek yöntemi tamamlandığında bağlamı atın.
 
-Aşağıdaki kod güncelleştirilmiş gösterir *Program.cs* dosya.
+Aşağıdaki kod güncelleştirilmiş *program.cs* dosyasını gösterir.
 
 [!code-csharp[](razor-pages-start/sample/RazorPagesMovie30/Program.cs)]
 
@@ -112,9 +112,9 @@ Aşağıdaki kod güncelleştirilmiş gösterir *Program.cs* dosya.
 > `SqlException: Cannot open database "RazorPagesMovieContext-" requested by the login. The login failed.`
 > `Login failed for user 'user name'.`
 
-### <a name="test-the-app"></a>Uygulamayı test etme
+### <a name="test-the-app"></a>Uygulamayı test edin
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * VERITABANıNDAKI tüm kayıtları silin. Bunu, tarayıcıda veya [Ssox](xref:tutorials/razor-pages/new-field#ssox) 'ten silme bağlantılarıyla yapabilirsiniz
 * Çekirdek yöntemin çalışması için uygulamayı başlamaya zorlayın (`Startup` sınıfında yöntemleri çağırın). Başlatmayı zorlamak için IIS Express durdurulup yeniden başlatılması gerekir. Bunu aşağıdaki yaklaşımlardan biriyle yapabilirsiniz:
@@ -128,7 +128,7 @@ Aşağıdaki kod güncelleştirilmiş gösterir *Program.cs* dosya.
     * VS hata ayıklama modunda çalıştırıyorsanız, hata ayıklama modunda çalıştırmak için F5 tuşuna basın.
     * Ile hata ayıklama modunda çalıştırıyorsanız, hata ayıklayıcıyı durdurun ve F5 tuşuna basın.
 
-# <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Visual Studio Code/Mac için Visual Studio](#tab/visual-studio-code+visual-studio-mac)
+# <a name="visual-studio-code--visual-studio-for-mac"></a>[Visual Studio Code/Mac için Visual Studio](#tab/visual-studio-code+visual-studio-mac)
 
 VERITABANıNDAKI tüm kayıtları silin (Bu nedenle çekirdek yöntemi çalışacaktır). Veritabanını temel alarak uygulamayı durdurup başlatın.
 
@@ -152,11 +152,11 @@ Sonraki öğreticide, verilerin sunumu gelişmeyecektir.
 
 `RazorPagesMovieContext` nesnesi veritabanına bağlanma ve `Movie` nesneleri veritabanı kayıtlarına eşleme görevini işler. Veritabanı bağlamı, *Startup.cs*içindeki `ConfigureServices` yönteminde [bağımlılık ekleme](xref:fundamentals/dependency-injection) kapsayıcısına kaydedilir:
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 [!code-csharp[](razor-pages-start/sample/RazorPagesMovie22/Startup.cs?name=snippet_ConfigureServices&highlight=15-18)]
 
-# <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Visual Studio Code/Mac için Visual Studio](#tab/visual-studio-code+visual-studio-mac)
+# <a name="visual-studio-code--visual-studio-for-mac"></a>[Visual Studio Code/Mac için Visual Studio](#tab/visual-studio-code+visual-studio-mac)
 
 [!code-csharp[](razor-pages-start/sample/RazorPagesMovie22/Startup.cs?name=snippet_UseSqlite&highlight=11-12)]
 
@@ -169,17 +169,17 @@ Sonraki öğreticide, verilerin sunumu gelişmeyecektir.
 
 ASP.NET Core [yapılandırma](xref:fundamentals/configuration/index) sistemi `ConnectionString`okur. Yerel geliştirme için, *appSettings. JSON* dosyasından bağlantı dizesini alır.
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 Veritabanı (`Database={Database name}`) için ad değeri, oluşturulan kodunuz için farklı olacaktır. Ad değeri rastgele.
 
 [!code-json[](razor-pages-start/sample/RazorPagesMovie22/appsettings.json)]
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 [!code-json[](~/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie/appsettings_SQLite.json?highlight=8-10)]
 
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Mac için Visual Studio](#tab/visual-studio-mac)
+# <a name="visual-studio-for-mac"></a>[Mac için Visual Studio](#tab/visual-studio-mac)
 
 [!code-json[](~/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie/appsettings_SQLite.json?highlight=8-10)]
 
@@ -187,7 +187,7 @@ Veritabanı (`Database={Database name}`) için ad değeri, oluşturulan kodunuz 
 
 Uygulama bir test veya üretim sunucusuna dağıtıldığında, bağlantı dizesini gerçek bir veritabanı sunucusuna ayarlamak için bir ortam değişkeni kullanılabilir. Daha fazla bilgi için bkz. [yapılandırma](xref:fundamentals/configuration/index) .
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 ## <a name="sql-server-express-localdb"></a>SQL Server Express LocalDB
 
@@ -210,12 +210,12 @@ LocalDB, program geliştirmeye yönelik SQL Server Express veritabanı altyapıs
 
   ![Tablo verilerini gösteren film tablosu açma](sql/_static/vd22.png)
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 [!INCLUDE[](~/includes/rp/sqlite.md)]
 [!INCLUDE[](~/includes/RP-mvc-shared/sqlite-warn.md)]
 
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Mac için Visual Studio](#tab/visual-studio-mac)
+# <a name="visual-studio-for-mac"></a>[Mac için Visual Studio](#tab/visual-studio-mac)
 
 [!INCLUDE[](~/includes/rp/sqlite.md)]
 [!INCLUDE[](~/includes/RP-mvc-shared/sqlite-warn.md)]
@@ -241,13 +241,13 @@ if (context.Movie.Any())
 
 ### <a name="add-the-seed-initializer"></a>Tohum başlatıcısı ekleme
 
-İçinde *Program.cs*, değişiklik `Main` yöntemi aşağıdakileri yapmak için:
+*Program.cs*' de, aşağıdakileri yapmak için `Main` yöntemini değiştirin:
 
 * Bir DB bağlamı örneği bağımlılık ekleme kapsayıcısını alın.
 * Temel yöntemi çağırın ve bu yönteme geçerek bağlamı geçer.
 * Çekirdek yöntemi tamamlandığında bağlamı atın.
 
-Aşağıdaki kod güncelleştirilmiş gösterir *Program.cs* dosya.
+Aşağıdaki kod güncelleştirilmiş *program.cs* dosyasını gösterir.
 
 [!code-csharp[](razor-pages-start/sample/RazorPagesMovie22/Program.cs)]
 
@@ -256,9 +256,9 @@ Bir üretim uygulaması `Database.Migrate`çağırmaz. `Update-Database` çalı�
 SqlException: oturum açma tarafından istenen "RazorPagesMovieContext-21" veritabanı açılamıyor. Oturum açılamadı.
 ' Kullanıcı adı ' kullanıcısı için oturum açma başarısız.
 
-### <a name="test-the-app"></a>Uygulamayı test etme
+### <a name="test-the-app"></a>Uygulamayı test edin
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * VERITABANıNDAKI tüm kayıtları silin. Bunu, tarayıcıda veya [Ssox](xref:tutorials/razor-pages/new-field#ssox) 'ten silme bağlantılarıyla yapabilirsiniz
 * Çekirdek yöntemin çalışması için uygulamayı başlamaya zorlayın (`Startup` sınıfında yöntemleri çağırın). Başlatmayı zorlamak için IIS Express durdurulup yeniden başlatılması gerekir. Bunu aşağıdaki yaklaşımlardan biriyle yapabilirsiniz:
@@ -272,13 +272,13 @@ SqlException: oturum açma tarafından istenen "RazorPagesMovieContext-21" verit
     * VS hata ayıklama modunda çalıştırıyorsanız, hata ayıklama modunda çalıştırmak için F5 tuşuna basın.
     * Ile hata ayıklama modunda çalıştırıyorsanız, hata ayıklayıcıyı durdurun ve F5 tuşuna basın.
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 VERITABANıNDAKI tüm kayıtları silin (Bu nedenle çekirdek yöntemi çalışacaktır). Veritabanını temel alarak uygulamayı durdurup başlatın.
 
 Uygulama, sağlanan verileri gösterir.
 
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Mac için Visual Studio](#tab/visual-studio-mac)
+# <a name="visual-studio-for-mac"></a>[Mac için Visual Studio](#tab/visual-studio-mac)
 
 VERITABANıNDAKI tüm kayıtları silin (Bu nedenle çekirdek yöntemi çalışacaktır). Veritabanını temel alarak uygulamayı durdurup başlatın.
 

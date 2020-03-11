@@ -7,11 +7,11 @@ ms.author: johluo
 ms.date: 09/25/2019
 uid: grpc/migration
 ms.openlocfilehash: 451171a041f7bbb3711babd73d2fa2e245aadd28
-ms.sourcegitcommit: 2cb857f0de774df421e35289662ba92cfe56ffd1
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75355134"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78664138"
 ---
 # <a name="migrating-grpc-services-from-c-core-to-aspnet-core"></a>GRPC hizmetlerini C Core 'dan ASP.NET Core geçirme
 
@@ -63,7 +63,7 @@ public void ConfigureServices(IServiceCollection services)
 
 Yapılandırma hakkında daha fazla bilgi için bkz. <xref:grpc/configuration>.
 
-## <a name="logging"></a>Günlüğe Kaydetme
+## <a name="logging"></a>Günlüğe kaydetme
 
 C çekirdekli tabanlı uygulamalar, hata ayıklama amacıyla [günlükçüsü yapılandırmak](https://grpc.io/grpc/csharp/api/Grpc.Core.GrpcEnvironment.html?q=size#Grpc_Core_GrpcEnvironment_SetLogger_Grpc_Core_Logging_ILogger_) için `GrpcEnvironment` kullanır. ASP.NET Core Stack, bu işlevselliği [günlüğe kaydetme API 'si](xref:fundamentals/logging/index)aracılığıyla sağlar. Örneğin, gRPC hizmetine Oluşturucu ekleme yoluyla bir günlükçü eklenebilir:
 

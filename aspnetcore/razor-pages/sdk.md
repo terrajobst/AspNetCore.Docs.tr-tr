@@ -10,19 +10,19 @@ no-loc:
 - Blazor
 uid: razor-pages/sdk
 ms.openlocfilehash: 872d90662494735dc0e4caa01c46fcdcc2606bc6
-ms.sourcegitcommit: b5ceb0a46d0254cc3425578116e2290142eec0f0
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76809139"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78660071"
 ---
 # <a name="aspnet-core-razor-sdk"></a>ASP.NET Core Razor SDK'sı
 
-Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
+Gönderen [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-## <a name="overview"></a>Genel bakış
+## <a name="overview"></a>Genel Bakış
 
-[!INCLUDE[](~/includes/2.1-SDK.md)] İçerir `Microsoft.NET.Sdk.Razor` MSBuild SDK'sı (Razor SDK). Razor SDK:
+[!INCLUDE[](~/includes/2.1-SDK.md)], `Microsoft.NET.Sdk.Razor` MSBuild SDK 'sını (Razor SDK) içerir. Razor SDK:
 
 ::: moniker range=">= aspnetcore-3.0"
 
@@ -35,14 +35,14 @@ Razor SDK, `**\*.cshtml` ve `**\*.razor` glob desenlerine ayarlı `Include` özn
 
 ::: moniker range="< aspnetcore-3.0"
 
-* Oluşturma, paketleme ve içeren proje yayımlama deneyimi standartlaştırır [Razor](xref:mvc/views/razor) dosyaları ASP.NET Core MVC tabanlı projeler için.
+* ASP.NET Core MVC tabanlı projeler için [Razor](xref:mvc/views/razor) dosyaları içeren projeleri oluşturma, paketleme ve yayımlama ile ilgili deneyimi standartlaştırır.
 * Bir dizi önceden tanımlanmış hedefleri, özellikler ve Razor dosyaları derleme özelleştirme izin veren öğeleri içerir.
 
 Razor SDK, `**\*.cshtml` glob düzenine ayarlanmış bir `Include` özniteliğine sahip `Content` öğesi içerir. Eşleşen dosyalar yayımlandı.
 
 ::: moniker-end
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Önkoşullar
 
 [!INCLUDE[](~/includes/2.1-SDK.md)]
 
@@ -60,7 +60,7 @@ Razor görünümlerini veya Razor Pages içeren sınıf kitaplıkları oluşturm
 
 Razor görünümleri ya da Razor sayfaları içeren sınıf kitaplıkları oluşturmak için Razor SDK'sını kullanmak için:
 
-* Kullanım `Microsoft.NET.Sdk.Razor` yerine `Microsoft.NET.Sdk`:
+* `Microsoft.NET.Sdk`yerine `Microsoft.NET.Sdk.Razor` kullanın:
 
   ```xml
   <Project SDK="Microsoft.NET.Sdk.Razor">
@@ -68,15 +68,15 @@ Razor görünümleri ya da Razor sayfaları içeren sınıf kitaplıkları oluş
   </Project>
   ```
 
-* Genellikle, bir paket başvurusu `Microsoft.AspNetCore.Mvc` oluşturmak ve Razor sayfaları ve Razor görünümleri derlemek için gereken ek bağımlılıklar almak için gereklidir. En azından, paket başvuruları projenize eklemeniz gerekir:
+* Genellikle, Razor Pages ve Razor görünümlerini derlemek ve derlemek için gereken ek bağımlılıklar almak için `Microsoft.AspNetCore.Mvc` bir paket başvurusu gerekir. En azından, paket başvuruları projenize eklemeniz gerekir:
 
   * `Microsoft.AspNetCore.Razor.Design`
   * `Microsoft.AspNetCore.Mvc.Razor.Extensions`
   * `Microsoft.AspNetCore.Mvc.Razor`
 
-  `Microsoft.AspNetCore.Razor.Design` Paket proje için Razor derleme görevleri ve hedefleri sağlar.
+  `Microsoft.AspNetCore.Razor.Design` paketi, proje için Razor derleme görevlerini ve hedeflerini sağlar.
 
-  Yukarıdaki paketleri dahil `Microsoft.AspNetCore.Mvc`. Aşağıdaki biçimlendirmede Razor dosyaları için bir ASP.NET Core Razor sayfalar uygulama oluşturmak için Razor SDK'sını kullanan bir proje dosyasını göstermektedir:
+  Önceki paketler `Microsoft.AspNetCore.Mvc`eklenmiştir. Aşağıdaki biçimlendirmede Razor dosyaları için bir ASP.NET Core Razor sayfalar uygulama oluşturmak için Razor SDK'sını kullanan bir proje dosyasını göstermektedir:
 
   [!code-xml[](sdk/sample/RazorSDK.csproj)]
 
@@ -85,7 +85,7 @@ Razor görünümleri ya da Razor sayfaları içeren sınıf kitaplıkları oluş
 ::: moniker range="= aspnetcore-2.1"
 
 > [!WARNING]
-> `Microsoft.AspNetCore.Razor.Design` Ve `Microsoft.AspNetCore.Mvc.Razor.Extensions` paketleri dahil edilecek [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app). Ancak, daha az sürüm `Microsoft.AspNetCore.App` paket başvuru sağlayan bir metapackage en son sürümünü içermeyen App `Microsoft.AspNetCore.Razor.Design`. Projeleri sürümünün tutarlı olmasını başvurmalıdır `Microsoft.AspNetCore.Razor.Design` (veya `Microsoft.AspNetCore.Mvc`) böylece Razor yönelik en son derleme zamanı düzeltmeleri dahil edilir. Daha fazla bilgi için [bu GitHub sorunu](https://github.com/aspnet/Razor/issues/2553).
+> `Microsoft.AspNetCore.Razor.Design` ve `Microsoft.AspNetCore.Mvc.Razor.Extensions` paketleri [Microsoft. AspNetCore. app metapackage](xref:fundamentals/metapackage-app)içinde yer alır. Ancak, sürüm-daha az `Microsoft.AspNetCore.App` paket başvurusu, en son `Microsoft.AspNetCore.Razor.Design`sürümünü içermeyen uygulamaya bir metapackage sağlar. , Razor için en son derleme zamanı düzeltmelerinin dahil olması için projeler `Microsoft.AspNetCore.Razor.Design` tutarlı bir sürüme (veya `Microsoft.AspNetCore.Mvc`) başvurmalıdır. Daha fazla bilgi için [Bu GitHub sorununa](https://github.com/aspnet/Razor/issues/2553)bakın.
 
 ::: moniker-end
 
@@ -93,8 +93,8 @@ Razor görünümleri ya da Razor sayfaları içeren sınıf kitaplıkları oluş
 
 Aşağıdaki özellikler proje derlemesi bir parçası olarak Razor'ın SDK davranışı denetler:
 
-* `RazorCompileOnBuild` &ndash; Zaman `true`, derler ve Razor derleme proje oluşturma işleminin parçası olarak yayar. `true` değerini varsayılan olarak alır.
-* `RazorCompileOnPublish` &ndash; Zaman `true`, derler ve Razor derleme proje yayımlama işleminin parçası olarak yayar. `true` değerini varsayılan olarak alır.
+* `true``RazorCompileOnBuild` &ndash;, proje oluşturmanın bir parçası olarak Razor derlemesini derler ve yayar. `true` değerini varsayılan olarak alır.
+* `true``RazorCompileOnPublish` &ndash;, projenin yayımlaması kapsamında Razor derlemesini derler ve yayar. `true` değerini varsayılan olarak alır.
 
 Özellikler ve öğeler aşağıdaki tabloda, giriş ve çıkış Razor SDK'sına yapılandırmak için kullanılır.
 
@@ -110,23 +110,23 @@ Aşağıdaki özellikler proje derlemesi bir parçası olarak Razor'ın SDK davr
 | `RazorGenerate` | Kod oluşturmaya giriş olan öğe öğeleri ( *. cshtml* dosyaları). |
 | `RazorComponent` | Razor bileşen kodu oluşturmaya giriş olan öğe öğeleri ( *. Razor* dosyaları). |
 | `RazorCompile` | Razor derleme hedeflerine giriş olan öğe öğeleri ( *. cs* dosyaları). Razor derlemesine derlenecek ek dosyaları belirtmek için bu `ItemGroup` kullanın. |
-| `RazorTargetAssemblyAttribute` | Kod için kullanılan öğeler için Razor derleme öznitelikleri oluşturur. Örneğin:  <br>`RazorAssemblyAttribute`<br>`Include="System.Reflection.AssemblyMetadataAttribute"`<br>`_Parameter1="BuildSource" _Parameter2="https://docs.microsoft.com/">` |
+| `RazorTargetAssemblyAttribute` | Kod için kullanılan öğeler için Razor derleme öznitelikleri oluşturur. Örnek:  <br>`RazorAssemblyAttribute`<br>`Include="System.Reflection.AssemblyMetadataAttribute"`<br>`_Parameter1="BuildSource" _Parameter2="https://docs.microsoft.com/">` |
 | `RazorEmbeddedResource` | Oluşturulan Razor derlemesine katıştırılmış kaynakları olarak eklenen öğeler. |
 
 | Özellik | Açıklama |
 | -------- | ----------- |
 | `RazorTargetName` | Razor tarafından üretilen derleme dosya adı (uzantısı olmadan). |
 | `RazorOutputPath` | Razor çıkış dizini. |
-| `RazorCompileToolset` | Razor derlemesi oluşturmak için kullanılan araç kümesini belirlemek için kullanılır. Geçerli değerler `Implicit`, `RazorSDK`, ve `PrecompilationTool`. |
-| [Enabledefaultcontentıtems](https://github.com/aspnet/websdk/blob/rel-2.0.0/src/ProjectSystem/Microsoft.NET.Sdk.Web.ProjectSystem.Targets/netstandard1.0/Microsoft.NET.Sdk.Web.ProjectSystem.targets#L21) | Varsayılan değer `true`. `true`, *Web. config*, *. JSON*ve *. cshtml* dosyalarını projeye içerik olarak ekler. Aracılığıyla başvurulduğunda `Microsoft.NET.Sdk.Web`, altında dosyaları *wwwroot* ve yapılandırma dosyaları da dahil edilir. |
-| `EnableDefaultRazorGenerateItems` | Zaman `true`, içeren *.cshtml* dosyalarını `Content` öğeler `RazorGenerate` öğeleri. |
-| `GenerateRazorTargetAssemblyInfo` | Zaman `true`, oluşturur bir *.cs* tarafından belirtilen öznitelikler içeren dosya `RazorAssemblyAttribute` ve derleme çıkış dosyası içerir. |
-| `EnableDefaultRazorTargetAssemblyInfoAttributes` | Zaman `true`, derleme öznitelikleri için varsayılan ayarı ekler `RazorAssemblyAttribute`. |
-| `CopyRazorGenerateFilesToPublishDirectory` | Zaman `true`, kopya `RazorGenerate` öğeleri ( *.cshtml*) dosyalarını yayımlama dizinine kopyalayın. Genellikle, derleme zamanı veya yayımlama zamanı derleme katıldıkları, Razor dosyaları bir yayımlanan uygulama için gerekli değildir. `false` değerini varsayılan olarak alır. |
-| `CopyRefAssembliesToPublishDirectory` | Zaman `true`, başvuru bütünleştirilmiş kod öğeleri Yayımla dizinine kopyalayın. Genellikle, Razor derleme, derleme zamanı veya yayımlama zamanı oluşursa başvuru bütünleştirilmiş kodları yayınlanmış bir uygulama için gerekli değildir. Kümesine `true` yayımlanmış uygulamanızın çalışma zamanı derlemesi gerekiyorsa. Örneğin, değer kümesine `true` uygulama değiştirirse *.cshtml* çalışma zamanında dosya veya katıştırılmış görünümlerini kullanır. `false` değerini varsayılan olarak alır. |
-| `IncludeRazorContentInPack` | Zaman `true`, tüm Razor içerik öğeleri ( *.cshtml* dosyaları) üretilen NuGet paketini eklenmek üzere işaretlenir. `false` değerini varsayılan olarak alır. |
-| `EmbedRazorGenerateSources` | Zaman `true`, RazorGenerate ekler ( *.cshtml*) öğeleri olarak oluşturulmuş Razor derlemesine katıştırılmış dosyaları. `false` değerini varsayılan olarak alır. |
-| `UseRazorBuildServer` | Zaman `true`, kod oluşturma iş yüklerini boşaltmak üzere bir sürekli derleme sunucu işlemi kullanır. Varsayılan olarak, değeri olarak `UseSharedCompilation`. |
+| `RazorCompileToolset` | Razor derlemesi oluşturmak için kullanılan araç kümesini belirlemek için kullanılır. Geçerli değerler `Implicit`, `RazorSDK`ve `PrecompilationTool`. |
+| [Enabledefaultcontentıtems](https://github.com/aspnet/websdk/blob/rel-2.0.0/src/ProjectSystem/Microsoft.NET.Sdk.Web.ProjectSystem.Targets/netstandard1.0/Microsoft.NET.Sdk.Web.ProjectSystem.targets#L21) | `true` varsayılan değerdir. `true`, *Web. config*, *. JSON*ve *. cshtml* dosyalarını projeye içerik olarak ekler. `Microsoft.NET.Sdk.Web`aracılığıyla başvuruluyorsa, *Wwwroot* ve yapılandırma dosyaları altındaki dosyalar da dahil edilir. |
+| `EnableDefaultRazorGenerateItems` | `true`, `RazorGenerate` öğelerinde `Content` öğelerden *. cshtml* dosyalarını ekler. |
+| `GenerateRazorTargetAssemblyInfo` | `true`, `RazorAssemblyAttribute` tarafından belirtilen öznitelikleri içeren bir *. cs* dosyası oluşturur ve derleme çıkışında dosyayı içerir. |
+| `EnableDefaultRazorTargetAssemblyInfoAttributes` | `true`, `RazorAssemblyAttribute`derleme özniteliklerinin varsayılan bir kümesini ekler. |
+| `CopyRazorGenerateFilesToPublishDirectory` | `true`, `RazorGenerate` öğeleri ( *. cshtml*) dosyalarını Yayımla dizinine kopyalar. Genellikle, derleme zamanı veya yayımlama zamanı derleme katıldıkları, Razor dosyaları bir yayımlanan uygulama için gerekli değildir. `false` değerini varsayılan olarak alır. |
+| `CopyRefAssembliesToPublishDirectory` | `true`, başvuru derleme öğelerini yayımlama dizinine kopyalayın. Genellikle, Razor derleme, derleme zamanı veya yayımlama zamanı oluşursa başvuru bütünleştirilmiş kodları yayınlanmış bir uygulama için gerekli değildir. Yayımlanmış uygulamanız çalışma zamanı derlemesi gerektiriyorsa `true` olarak ayarlayın. Örneğin, uygulama çalışma zamanında *. cshtml* dosyalarını değiştirirse veya gömülü görünümleri kullanıyorsa değeri `true` olarak ayarlayın. `false` değerini varsayılan olarak alır. |
+| `IncludeRazorContentInPack` | `true`, tüm Razor içerik öğeleri ( *. cshtml* dosyaları) oluşturulan NuGet paketine eklenmek üzere işaretlenir. `false` değerini varsayılan olarak alır. |
+| `EmbedRazorGenerateSources` | `true`, oluşturulan Razor derlemesine gömülü dosyalar olarak RazorGenerate ( *. cshtml*) öğelerini ekler. `false` değerini varsayılan olarak alır. |
+| `UseRazorBuildServer` | `true`, kod oluşturma işinin yükünü boşaltmak için kalıcı bir yapı sunucusu işlemi kullanır. Varsayılan olarak `UseSharedCompilation`değerini alır. |
 | `GenerateMvcApplicationPartsAssemblyAttributes` | `true`, SDK, uygulama bölümü keşfi gerçekleştirmek için çalışma zamanında MVC tarafından kullanılan ek öznitelikler üretir. |
 | `DefaultWebContentItemExcludes` | Web veya Razor SDK 'Yı hedefleyen projelerde `Content` öğesi grubundan çıkarılacak öğe öğeleri için glob bir model |
 | `ExcludeConfigFilesFromBuildOutput` | `true`, *. config* ve *. JSON* dosyaları yapı çıkış dizinine kopyalanmaz. |
@@ -139,15 +139,15 @@ Aşağıdaki özellikler proje derlemesi bir parçası olarak Razor'ın SDK davr
 
 Razor SDK'sı iki birincil hedefleri tanımlar:
 
-* `RazorGenerate` &ndash; Kod oluşturur *.cs* dosyalarını `RazorGenerate` öğesi öğeleri. Bu hedeften önce veya sonra çalışabilecek ek hedefleri belirtmek için `RazorGenerateDependsOn` özelliğini kullanın.
-* `RazorCompile` &ndash; Oluşturulan derler *.cs* için bir Razor derleme dosyaları. Bu hedeften önce veya sonra çalışabilecek ek hedefleri belirtmek için `RazorCompileDependsOn` kullanın.
+* `RazorGenerate` &ndash; kodu, `RazorGenerate` öğesi öğelerinden *. cs* dosyaları oluşturur. Bu hedeften önce veya sonra çalışabilecek ek hedefleri belirtmek için `RazorGenerateDependsOn` özelliğini kullanın.
+* `RazorCompile` &ndash; oluşturulan *. cs* dosyalarını Razor derlemesinde derler. Bu hedeften önce veya sonra çalışabilecek ek hedefleri belirtmek için `RazorCompileDependsOn` kullanın.
 * `RazorComponentGenerate` &ndash; kod `RazorComponent` öğesi öğeleri için *. cs* dosyaları oluşturur. Bu hedeften önce veya sonra çalışabilecek ek hedefleri belirtmek için `RazorComponentGenerateDependsOn` özelliğini kullanın.
 
 ### <a name="runtime-compilation-of-razor-views"></a>Razor görünüm çalışma zamanı derlemesi
 
-* Varsayılan olarak, Razor SDK'sı, çalışma zamanı derleme gerçekleştirmek için gereken başvuru derlemelerini yayımlama değil. Çalışma zamanı derleme sırasında uygulama modeli kullanır, bu derleme hataları sonuçları&mdash;Örneğin, uygulama yayımlandıktan sonra uygulamayı katıştırılmış görünümleri ya da değişiklikleri görünümler kullanır. Ayarlama `CopyRefAssembliesToPublishDirectory` için `true` başvuru bütünleştirilmiş kodları yayımlamaya devam etmek için.
+* Varsayılan olarak, Razor SDK'sı, çalışma zamanı derleme gerçekleştirmek için gereken başvuru derlemelerini yayımlama değil. Bu, uygulama modeli çalışma zamanı derlemesini kullandığında derleme hatalarıyla sonuçlanır&mdash;Örneğin, uygulama yayımlandıktan sonra uygulamanın katıştırılmış görünümleri veya değişiklik görünümlerini kullanır. Başvuru derlemelerini yayımlamaya devam etmek için `CopyRefAssembliesToPublishDirectory` `true` olarak ayarlayın.
 
-* Bir web uygulaması için uygulamanızın hedeflediği olun `Microsoft.NET.Sdk.Web` SDK.
+* Bir Web uygulaması için uygulamanızın `Microsoft.NET.Sdk.Web` SDK 'Yı hedeflediğinden emin olun.
 
 ## <a name="razor-language-version"></a>Razor dili sürümü
 

@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.date: 03/27/2019
 ms.topic: tutorial
 uid: data/ef-mvc/concurrency
-ms.openlocfilehash: 227128607460f9b5821bd0697fde3f393cf6daa9
-ms.sourcegitcommit: 7d3c6565dda6241eb13f9a8e1e1fd89b1cfe4d18
+ms.openlocfilehash: 6839e383093b993ff55095f26cf88cd68708f001
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72259434"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78657397"
 ---
 # <a name="tutorial-handle-concurrency---aspnet-mvc-with-ef-core"></a>Öğretici: EF Core eşzamanlılık-ASP.NET MVC 'yi Işleme
 
@@ -57,7 +57,7 @@ Kötümser eşzamanlılık yerine iyimser eşzamanlılık yapılır. İyimser e�
 
 ![Bütçe 0 olarak değiştirme](concurrency/_static/change-budget.png)
 
-Jane tıkladığında önce **Kaydet**, John aynı sayfayı ziyaret eder ve alanın başlangıç tarihi 1/9/2013 1/9/2007'deki değiştirir.
+Kemal, **Kaydet**' i tıklamadan önce, John aynı sayfayı ziyaret ettiğinde başlangıç tarihi alanını 9/1/2007 ' den 9/1/2013 ' e değiştirir.
 
 ![2013'e başlangıç tarihini değiştirme](concurrency/_static/change-date.png)
 
@@ -79,7 +79,7 @@ Bazı seçenekler şunlardır:
 
 * John 'un değişikliğini veritabanında güncelleştirilmesini engelleyebilirsiniz.
 
-     Genellikle bir hata iletisi görüntüler, verilerin geçerli durumunu gösterir ve yine de bunu yapmak istiyorsa, yaptığı değişiklikleri yeniden uygular. Bu adlı bir *Store WINS* senaryo. (Veri deposu değerleri, istemci tarafından gönderilen değerlere göre önceliklidir.) Bu öğreticide mağaza WINS senaryosunu uygulayacaksınız. Bu yöntem, bir kullanıcının neler olduğunu bildirmeden önce hiçbir değişikliğin üzerine yazılmamasını sağlar.
+     Genellikle bir hata iletisi görüntüler, verilerin geçerli durumunu gösterir ve yine de bunu yapmak istiyorsa, yaptığı değişiklikleri yeniden uygular. Buna *Mağaza WINS* senaryosu denir. (Veri deposu değerleri, istemci tarafından gönderilen değerlere göre önceliklidir.) Bu öğreticide mağaza WINS senaryosunu uygulayacaksınız. Bu yöntem, bir kullanıcının neler olduğunu bildirmeden önce hiçbir değişikliğin üzerine yazılmamasını sağlar.
 
 ### <a name="detecting-concurrency-conflicts"></a>Eşzamanlılık çakışmalarını algılama
 
@@ -99,7 +99,7 @@ Bu öğreticinin geri kalanında, departman varlığına bir `rowversion` izleme
 
 ## <a name="add-a-tracking-property"></a>İzleme özelliği Ekle
 
-İçinde *Models/Department.cs*, RowVersion adlı izleme özelliği ekleyin:
+*Modeller/departman. cs*' de, rowversion adlı bir izleme özelliği ekleyin:
 
 [!code-csharp[](intro/samples/cu/Models/Department.cs?name=snippet_Final&highlight=26,27)]
 
@@ -180,7 +180,7 @@ Son olarak kod, `departmentToUpdate` `RowVersion` değerini veritabanından alı
 
 [!code-csharp[](intro/samples/cu/Controllers/DepartmentsController.cs?range=199-200)]
 
-`ModelState.Remove` Deyimi, çünkü gereklidir `ModelState` eski olan `RowVersion` değeri. Görünümde, bir alan için `ModelState` değeri, her ikisi de varsa Model özelliği değerlerinin üzerine gelir.
+`ModelState` eski `RowVersion` değerine sahip olduğundan `ModelState.Remove` deyimin olması gerekir. Görünümde, bir alan için `ModelState` değeri, her ikisi de varsa Model özelliği değerlerinin üzerine gelir.
 
 ## <a name="update-edit-view"></a>Güncelleştirme düzenleme görünümü
 
@@ -206,11 +206,11 @@ Tarayıcı, değiştirilen değeri olan dizin sayfasını gösterir.
 
 ![Departman düzenleme değişikliğinden sonra sayfa 2](concurrency/_static/edit-after-change-2.png)
 
-**Kaydet**’e tıklayın. Bir hata iletisi görürsünüz:
+**Kaydet** düğmesine tıklayın. Bir hata iletisi görürsünüz:
 
 ![Departman düzenleme sayfa hata iletisi](concurrency/_static/edit-error.png)
 
-Tıklayın **Kaydet** yeniden. İkinci tarayıcı sekmesinde girdiğiniz değer kaydedilir. Dizin sayfası göründüğünde kaydedilen değerleri görürsünüz.
+Yeniden **Kaydet** ' e tıklayın. İkinci tarayıcı sekmesinde girdiğiniz değer kaydedilir. Dizin sayfası göründüğünde kaydedilen değerleri görürsünüz.
 
 ## <a name="update-the-delete-page"></a>Silme sayfası
 
@@ -256,7 +256,7 @@ Bu, aşağıdaki değişiklikleri yapar:
 
 * `h2` ve `h3` başlıkları arasında bir hata iletisi ekler.
 
-* FullName FirstMidName değiştirir **yönetici** alan.
+* FirstMidName öğesini, **yönetici** alanındaki FullName ile değiştirir.
 
 * RowVersion alanını kaldırır.
 
@@ -286,9 +286,9 @@ Açılan listeye bir SELECT seçeneği eklemek için *views/departmanlar/Create.
 
 [!code-html[](intro/samples/cu/Views/Departments/Create.cshtml?highlight=32-34)]
 
-## <a name="get-the-code"></a>Kodu alın
+## <a name="get-the-code"></a>Kodu alma
 
-[Tamamlanmış uygulamayı indirin veya görüntüleyin.](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final)
+[Tamamlanmış uygulamayı indirin veya görüntüleyin.](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final)
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 

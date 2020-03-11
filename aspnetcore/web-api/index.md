@@ -7,12 +7,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 02/02/2020
 uid: web-api/index
-ms.openlocfilehash: 3dca07db3d6be4ab219a2e05e3adcf1b24ee5c40
-ms.sourcegitcommit: 80286715afb93c4d13c931b008016d6086c0312b
+ms.openlocfilehash: be88b8d58f1f660f3a815c395c210c05a7b4917c
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77074516"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78666007"
 ---
 # <a name="create-web-apis-with-aspnet-core"></a>ASP.NET Core ile Web API 'Leri oluşturma
 
@@ -20,7 +20,7 @@ ms.locfileid: "77074516"
 
 ASP.NET Core, kullanarak C#Web API 'leri olarak da bilinen, yeniden oluşturulan hizmetler oluşturmayı destekler. İstekleri işlemek için, bir Web API 'SI denetleyicileri kullanır. Bir Web API 'sindeki *denetleyiciler* `ControllerBase`türetilen sınıflardır. Bu makalede, Web API isteklerini işlemek için denetleyicilerin nasıl kullanılacağı gösterilmektedir.
 
-[Örnek kodu görüntüleyin veya indirin](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/web-api/index/samples). ([İndirme](xref:index#how-to-download-a-sample)).
+[Örnek kodu görüntüleyin veya indirin](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/web-api/index/samples). ([İndirme](xref:index#how-to-download-a-sample)).
 
 ## <a name="controllerbase-class"></a>ControllerBase sınıfı
 
@@ -156,7 +156,7 @@ namespace WebApiSample
 
 ## <a name="attribute-routing-requirement"></a>Öznitelik yönlendirme gereksinimi
 
-`[ApiController]` özniteliği öznitelik yönlendirme bir gereksinim yapar. Örneğin:
+`[ApiController]` özniteliği öznitelik yönlendirme bir gereksinim yapar. Örnek:
 
 ::: moniker range=">= aspnetcore-3.0"
 
@@ -226,7 +226,7 @@ ASP.NET Core MVC, önceki denetimi yapmak için <xref:Microsoft.AspNetCore.Mvc.I
 
 ### <a name="log-automatic-400-responses"></a>Otomatik 400 yanıtlarını günlüğe kaydet
 
-Bkz. [otomatik 400 yanıtlarını model doğrulama hatalarında günlüğe kaydetme (ASPNET/AspNetCore. Docs #12157)](https://github.com/aspnet/AspNetCore.Docs/issues/12157).
+Bkz. [otomatik 400 yanıtlarını model doğrulama hatalarında günlüğe kaydetme (ASPNET/AspNetCore. Docs #12157)](https://github.com/dotnet/AspNetCore.Docs/issues/12157).
 
 ### <a name="disable-automatic-400-response"></a>Otomatik 400 yanıtını devre dışı bırak
 
@@ -369,7 +369,7 @@ Bir denetleyici eyleminde aşağıdaki kodu göz önünde bulundurun:
 
 [!code-csharp[](index/samples/2.x/2.2/Controllers/PetsController.cs?name=snippet_ProblemDetailsStatusCode)]
 
-`NotFound` yöntemi `ProblemDetails` gövde içeren bir HTTP 404 durum kodu üretir. Örneğin:
+`NotFound` yöntemi `ProblemDetails` gövde içeren bir HTTP 404 durum kodu üretir. Örnek:
 
 ```json
 {
@@ -382,7 +382,7 @@ Bir denetleyici eyleminde aşağıdaki kodu göz önünde bulundurun:
 
 ### <a name="disable-problemdetails-response"></a>ProblemDetails yanıtını devre dışı bırak
 
-<xref:Microsoft.AspNetCore.Mvc.ApiBehaviorOptions.SuppressMapClientErrors%2A> özelliği `true`olarak ayarlandığında `ProblemDetails` örneğinin otomatik olarak oluşturulması devre dışıdır. Aşağıdaki kodu `Startup.ConfigureServices`ekleyin:
+<xref:Microsoft.AspNetCore.Mvc.ApiBehaviorOptions.SuppressMapClientErrors%2A> özelliği `true`olarak ayarlandığında hata durum kodları için `ProblemDetails` otomatik oluşturma devre dışıdır. Aşağıdaki kodu `Startup.ConfigureServices`ekleyin:
 
 ::: moniker-end
 

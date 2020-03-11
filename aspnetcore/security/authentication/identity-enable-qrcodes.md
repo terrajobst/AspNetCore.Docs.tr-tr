@@ -1,51 +1,51 @@
 ---
-title: ASP.NET core'da TOTP authenticator uygulamaları için QR kodu oluşturmayı etkinleştirme
+title: ASP.NET Core 'daki TOTP Authenticator uygulamaları için QR kodu oluşturmayı etkinleştirme
 author: rick-anderson
-description: ASP.NET Core iki öğeli kimlik doğrulama ile çalışmasını TOTP authenticator uygulamaları için QR kodu oluşturmayı etkinleştirme keşfedin.
+description: ASP.NET Core iki öğeli kimlik doğrulamasıyla çalışan TOTP Authenticator uygulamaları için QR kod üretimini nasıl etkinleştireceğinizi öğrenin.
 ms.author: riande
 ms.date: 08/14/2018
 uid: security/authentication/identity-enable-qrcodes
 ms.openlocfilehash: a7fdc86b3fe94e714e5147c89a32fce13757d1c1
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64902714"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78665314"
 ---
-# <a name="enable-qr-code-generation-for-totp-authenticator-apps-in-aspnet-core"></a>ASP.NET core'da TOTP authenticator uygulamaları için QR kodu oluşturmayı etkinleştirme
+# <a name="enable-qr-code-generation-for-totp-authenticator-apps-in-aspnet-core"></a>ASP.NET Core 'daki TOTP Authenticator uygulamaları için QR kodu oluşturmayı etkinleştirme
 
 ::: moniker range="<= aspnetcore-2.0"
 
-QR kodları, ASP.NET Core 2.0 veya sonraki sürümünü gerektirir.
+QR kodları ASP.NET Core 2,0 veya üstünü gerektirir.
 
 ::: moniker-end
 
 ::: moniker range=">= aspnetcore-2.0"
 
-ASP.NET Core, bireysel kimlik doğrulaması için Doğrulayıcı uygulamalar için destek ile birlikte gelir. Kullanarak bir zamana bağlı kerelik parola algoritması (TOTP), iki öğeli kimlik doğrulamayı (2FA) kimlik doğrulayıcısı uygulamalarını önerilen yaklaşımı 2FA için sektöre var. 2fa'yı kullanarak TOTP SMS 2FA için tercih edilir. Authenticator uygulaması, kullanıcı adı ve parola onayladıktan sonra hangi kullanıcıların girmelisiniz 8 6 rakamlı bir kod sağlar. Genellikle bir kimlik doğrulayıcı uygulaması, bir akıllı telefonda yüklenir.
+ASP.NET Core, bireysel kimlik doğrulama için kimlik doğrulayıcı uygulamaları desteğiyle birlikte gönderilir. Kullanarak bir zamana bağlı kerelik parola algoritması (TOTP), iki öğeli kimlik doğrulamayı (2FA) kimlik doğrulayıcısı uygulamalarını önerilen yaklaşımı 2FA için sektöre var. 2fa'yı kullanarak TOTP SMS 2FA için tercih edilir. Bir Authenticator uygulaması, kullanıcıların kullanıcı adını ve parolasını onayladıktan sonra girmesi gereken 6 ' dan 8 basamaklı bir kod sağlar. Genellikle bir akıllı telefona bir kimlik doğrulayıcı uygulaması yüklenir.
 
-ASP.NET Core web uygulaması şablonları kimlik doğrulayıcılar destekler, ancak QRCode oluşturulması için destek sağlaması gerekmez. QRCode oluşturucuları 2FA kurulumu kolaylaştırır. Bu belgede eklerken size yol gösterecek [QR kodunu](https://wikipedia.org/wiki/QR_code) 2fa'yı yapılandırma sayfasına oluşturma.
+ASP.NET Core Web uygulaması şablonları, kimlik doğrulayıcılar destekler, ancak QRCode üretimi için destek sağlamaz. QRCode üreteçleri, 2FA kurulumunu kolaylaştırır. Bu belge, 2FA yapılandırma sayfasına [QR kod](https://wikipedia.org/wiki/QR_code) üretimi ekleme konusunda size kılavuzluk eder.
 
-İki Etmenli kimlik doğrulamasının olmayacak gibi bir dış kimlik doğrulama sağlayıcısı kullanarak [Google](xref:security/authentication/google-logins) veya [Facebook](xref:security/authentication/facebook-logins). Harici oturum açmaları korunmasını dış oturum açma sağlayıcısı tarafından herhangi bir mekanizma sağlar. Örneğin, düşünün [Microsoft](xref:security/authentication/microsoft-logins) kimlik doğrulama sağlayıcısı, donanım anahtarı veya başka bir 2FA yaklaşım gerektirir. "Yerel" 2fa'yı varsayılan şablonlar zorunlu, kullanıcıların yaygın olarak kullanılan bir senaryo değildir iki 2FA yaklaşım karşılamak için duyacaktır.
+İki öğeli kimlik doğrulaması, [Google](xref:security/authentication/google-logins) veya [Facebook](xref:security/authentication/facebook-logins)gibi bir dış kimlik doğrulama sağlayıcısı kullanılarak gerçekleşmez. Dış oturumlar, dış oturum açma sağlayıcısının sağladığı mekanizmaya karşı korunur. Örneğin, [Microsoft](xref:security/authentication/microsoft-logins) kimlik doğrulama sağlayıcısı bir donanım anahtarı ya da başka bir 2FA yaklaşımı gerektirdiğini göz önünde bulundurun. Varsayılan Şablonlar "yerel" 2FA uyguladığında, kullanıcıların yaygın olarak kullanılan bir senaryo olmayan iki 2FA yaklaşımının yerine getirmek gerekir.
 
-## <a name="adding-qr-codes-to-the-2fa-configuration-page"></a>QR kodları 2fa'yı yapılandırma sayfasına ekleme
+## <a name="adding-qr-codes-to-the-2fa-configuration-page"></a>2FA yapılandırma sayfasına QR kodları ekleme
 
-Bu yönergeleri kullanın *qrcode.js* gelen https://davidshimjs.github.io/qrcodejs/ depo.
+Bu yönergeler https://davidshimjs.github.io/qrcodejs/ deposundan *QRCode. js* kullanır.
 
-* İndirme [qrcode.js javascript Kitaplığı](https://davidshimjs.github.io/qrcodejs/) için `wwwroot\lib` projenizdeki klasör.
+* [QRCode. js JavaScript kitaplığını](https://davidshimjs.github.io/qrcodejs/) projenizdeki `wwwroot\lib` klasörüne indirin.
 
 ::: moniker-end
 
 ::: moniker range=">= aspnetcore-2.1"
 
-* Bölümündeki yönergeleri [İskele kimlik](xref:security/authentication/scaffold-identity) oluşturulacak */Areas/Identity/Pages/Account/Manage/EnableAuthenticator.cshtml*.
-* İçinde */Areas/Identity/Pages/Account/Manage/EnableAuthenticator.cshtml*, bulun `Scripts` dosyanın sonunda bölüm:
+* */Areas/Identity/Pages/Account/Manage/enableidentity Tor.exe*' i oluşturmak Için [Scafkatlama kimliği](xref:security/authentication/scaffold-identity) içindeki yönergeleri izleyin.
+* */Areas/Identity/Pages/Account/Manage/enabledoğrulayıcısı Tor.exe*içinde, dosyanın sonundaki `Scripts` bölümünü bulun:
 
 ::: moniker-end
 
 ::: moniker range="= aspnetcore-2.0"
 
-* İçinde *Pages/Account/Manage/EnableAuthenticator.cshtml* (Razor sayfaları) veya *Views/Manage/EnableAuthenticator.cshtml* (MVC) bulun `Scripts` dosyanın sonunda bölüm:
+* *Sayfa/hesap/Yönet/EnableAuthenticator. cshtml* (Razor Pages) veya *Görünümler/Yönet/enableauthenticator. cshtml* (MVC) içinde, dosyanın sonundaki `Scripts` bölümünü bulun:
 
 ::: moniker-end
 
@@ -57,7 +57,7 @@ Bu yönergeleri kullanın *qrcode.js* gelen https://davidshimjs.github.io/qrcode
 }
 ```
 
-* Güncelleştirme `Scripts` bir başvuru eklemek için bölüm `qrcodejs` kitaplığı eklediğiniz ve QR kodunu oluşturmak için bir çağrı. Şu şekilde görünmelidir:
+* `Scripts` bölümünü, eklediğiniz `qrcodejs` kitaplığına bir başvuru ve QR kodu oluşturma çağrısı eklemek için güncelleştirin. Aşağıdaki gibi görünmelidir:
 
 ```cshtml
 @section Scripts {
@@ -75,29 +75,29 @@ Bu yönergeleri kullanın *qrcode.js* gelen https://davidshimjs.github.io/qrcode
 }
 ```
 
-* Bu yönergeleri için bağlantıları paragraf silin.
+* Bu yönergelere bağlanan paragrafı silin.
 
-Uygulamanızı çalıştırın ve QR kodunu tarayın ve Doğrulayıcı kanıtlar doğrulanması emin olun.
+Uygulamanızı çalıştırın ve QR kodunu taramanızı ve kimlik doğrulayıcı ile ilgili kodu doğrulayabilmek için emin olun.
 
-## <a name="change-the-site-name-in-the-qr-code"></a>Site adı QR kodunu değiştirin
+## <a name="change-the-site-name-in-the-qr-code"></a>QR kodundaki site adını değiştirme
 
 ::: moniker-end
 
 ::: moniker range=">= aspnetcore-2.1"
 
-QR kodunu site adı, başlangıçta, projeyi oluştururken seçtiğiniz proje adından alınır. Bakarak değiştirebilirsiniz `GenerateQrCodeUri(string email, string unformattedKey)` yönteminde */Areas/Identity/Pages/Account/Manage/EnableAuthenticator.cshtml.cs*.
+QR kodundaki site adı, projenizi ilk kez oluştururken seçtiğiniz proje adından alınır. */Areas/Identity/Pages/Account/Manage/EnableAuthenticator.cshtml.cs*içinde `GenerateQrCodeUri(string email, string unformattedKey)` yöntemine bakarak bunu değiştirebilirsiniz.
 
 ::: moniker-end
 
 ::: moniker range="= aspnetcore-2.0"
 
-QR kodunu site adı, başlangıçta, projeyi oluştururken seçtiğiniz proje adından alınır. Bakarak değiştirebilirsiniz `GenerateQrCodeUri(string email, string unformattedKey)` yönteminde *Pages/Account/Manage/EnableAuthenticator.cshtml.cs* (Razor sayfaları) dosya veya *Controllers/ManageController.cs* (MVC) dosyası.
+QR kodundaki site adı, projenizi ilk kez oluştururken seçtiğiniz proje adından alınır. *Sayfa/hesap/yönetme/EnableAuthenticator. cshtml. cs* (Razor Pages) dosyasında veya *Controllers/managecontroller. cs* (MVC) dosyasında `GenerateQrCodeUri(string email, string unformattedKey)` yöntemine bakarak bunu değiştirebilirsiniz.
 
 ::: moniker-end
 
 ::: moniker range=">= aspnetcore-2.0"
 
-Şablondan varsayılan kod şu şekilde görünür:
+Şablondaki varsayılan kod aşağıdaki gibi görünür:
 
 ```csharp
 private string GenerateQrCodeUri(string email, string unformattedKey)
@@ -110,19 +110,19 @@ private string GenerateQrCodeUri(string email, string unformattedKey)
 }
 ```
 
-İkinci parametre çağrısında `string.Format` , çözüm adı geçen, site adı kullanılır. Herhangi bir değere değiştirilebilir, ancak her zaman URL olarak kodlanmış olmalıdır.
+`string.Format` çağrısındaki ikinci parametre, çözüm adından alınan sitenizin adıdır. Herhangi bir değere değiştirilebilir, ancak her zaman URL kodlamalı olmalıdır.
 
-## <a name="using-a-different-qr-code-library"></a>Farklı bir QR kodu kitaplığı kullanma
+## <a name="using-a-different-qr-code-library"></a>Farklı bir QR kod kitaplığı kullanma
 
-QR kodu kitaplığı ile tercih edilen kitaplığınızı değiştirebilirsiniz. HTML'yi içeren bir `qrCode` kitaplığınızı öğesi içine yerleştirebileceğiniz bir QR kodu tarafından ne olursa olsun mekanizması sağlar.
+QR kod kitaplığı 'nı tercih ettiğiniz kitaplıkla değiştirebilirsiniz. HTML, kitaplığınızın sağladığı mekanizmaya bir QR kodu yerleştirebileceğiniz bir `qrCode` öğesi içerir.
 
-Doğru biçimlendirilmiş bir URL için QR kodunu kullanılabilir:
+QR kodu için doğru şekilde biçimlendirilen URL şu şekilde kullanılabilir:
 
-* `AuthenticatorUri` model özelliği.
-* `data-url` bir özellik `qrCodeData` öğesi.
+* modelin `AuthenticatorUri` özelliği.
+* `qrCodeData` öğesindeki `data-url` özelliği.
 
-## <a name="totp-client-and-server-time-skew"></a>TOTP istemci ve sunucu zaman eğimi
+## <a name="totp-client-and-server-time-skew"></a>TOTP istemci ve sunucu saati eğriltme
 
-TOTP (zamana bağlı kerelik parola) kimlik doğrulaması doğru bir zaman hem sunucu hem de authenticator cihazda bağlıdır. Belirteçleri, 30 saniye için yalnızca en son. TOTP 2FA oturum açma başarısız oluyorsa, sunucu saatinin doğru ve doğru bir NTP hizmetine tercihen eşitlenmiş olduğunu denetleyin.
+TOTP (zaman tabanlı bir kerelik parola) kimlik doğrulaması, hem sunucu hem de Doğrulayıcı cihazına doğru bir zamana sahip olur. Belirteçler yalnızca en az 30 saniye için geçerlidir. TOTP 2FA oturum açma işlemleri başarısız olursa, sunucu saatinin doğru olduğundan ve tercihen doğru bir NTP hizmeti ile eşitlendiğinden emin olun.
 
 ::: moniker-end

@@ -9,11 +9,11 @@ no-loc:
 - SignalR
 uid: performance/performance-best-practices
 ms.openlocfilehash: c74adf7479d176c41dc26c7e77acfc3dc9cdcb88
-ms.sourcegitcommit: 79850db9e79b1705b89f466c6f2c961ff15485de
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75693966"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78666399"
 ---
 # <a name="aspnet-core-performance-best-practices"></a>ASP.NET Core performans En Iyi yöntemleri
 
@@ -186,7 +186,7 @@ Yukarıdaki kod, istek gövdesini bir C# nesneye zaman uyumsuz olarak serileşti
 
 ## <a name="prefer-readformasync-over-requestform"></a>Istek üzerinde ReadFormAsync tercih et. form
 
-Kullanım `HttpContext.Request.ReadFormAsync` yerine `HttpContext.Request.Form`.
+`HttpContext.Request.Form`yerine `HttpContext.Request.ReadFormAsync` kullanın.
 `HttpContext.Request.Form`, yalnızca aşağıdaki koşullara göre güvenle okunabilir:
 
 * Form, `ReadFormAsync`çağrısıyla okundu ve

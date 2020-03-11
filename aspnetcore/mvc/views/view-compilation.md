@@ -8,15 +8,15 @@ ms.custom: mvc
 ms.date: 12/05/2019
 uid: mvc/views/view-compilation
 ms.openlocfilehash: cd096bba5eb580c0a606699a2bf7c36442fb56f7
-ms.sourcegitcommit: b5ceb0a46d0254cc3425578116e2290142eec0f0
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76809074"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78661107"
 ---
 # <a name="razor-file-compilation-in-aspnet-core"></a>ASP.NET Core 'de Razor dosyası derlemesi
 
-Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
+Gönderen [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 ::: moniker range="= aspnetcore-1.1"
 
@@ -127,7 +127,7 @@ Tüm ortamlar ve yapılandırma modları için çalışma zamanı derlemesini et
 
 1. [Microsoft. AspNetCore. Mvc. Razor. RuntimeCompilation](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation/) NuGet paketini yükler.
 
-1. Projenin `Startup.ConfigureServices` yöntemini `AddRazorRuntimeCompilation`çağrısı içerecek şekilde güncelleştirin. Örneğin:
+1. Projenin `Startup.ConfigureServices` yöntemini `AddRazorRuntimeCompilation`çağrısı içerecek şekilde güncelleştirin. Örnek:
 
     ```csharp
     public void ConfigureServices(IServiceCollection services)

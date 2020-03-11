@@ -1,26 +1,26 @@
 * `-F|--no-formatting`
 
-  HTTP yanıt biçimlendirme, varlığı bastırır bir bayrak.
+  Durumu HTTP yanıt biçimlendirmesini belirten bir bayrak.
 
 * `-h|--header`
 
-  Bir HTTP isteği üstbilgisini ayarlar. Aşağıdaki iki değer biçimleri desteklenir:
+  HTTP istek üst bilgisini ayarlar. Aşağıdaki iki değer biçimi desteklenir:
 
   * `{header}={value}`
   * `{header}:{value}`
 
 * `--response`
 
-  Bir dosya (üstbilgi ve gövde dahil) tüm HTTP yanıtı yazılması gerektiğini belirtir. Örneğin: `--response "C:\response.txt"`. Dosya yoksa oluşturulur.
+  Tüm HTTP yanıtının (üstbilgiler ve gövde dahil) yazılması gereken bir dosyayı belirtir. Örneğin, `--response "C:\response.txt"`. Dosya yoksa oluşturulur.
 
 * `--response:body`
 
-  Bir dosya HTTP yanıt gövdesinde yazılması gerektiğini belirtir. Örneğin: `--response:body "C:\response.json"`. Dosya yoksa oluşturulur.
+  HTTP yanıt gövdesinin yazılması gereken bir dosyayı belirtir. Örneğin, `--response:body "C:\response.json"`. Dosya yoksa oluşturulur.
 
 * `--response:headers`
 
-  Bir dosya HTTP yanıt üstbilgilerinin yazılması gerektiğini belirtir. Örneğin: `--response:headers "C:\response.txt"`. Dosya yoksa oluşturulur.
+  HTTP yanıt üst bilgilerinin yazılması gereken bir dosyayı belirtir. Örneğin, `--response:headers "C:\response.txt"`. Dosya yoksa oluşturulur.
 
 * `-s|--streaming`
 
-  HTTP yanıtı akış, durum sağlayan bir bayrak.
+  Mevcut bir bayrak, HTTP yanıtının akışını mümkün bir şekilde sunar.

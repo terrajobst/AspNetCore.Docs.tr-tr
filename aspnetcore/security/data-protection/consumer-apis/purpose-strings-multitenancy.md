@@ -1,28 +1,28 @@
 ---
-title: Amaç hiyerarşisi ve ASP.NET Core, çok kiracılılık
+title: ASP.NET Core 'de amaç hiyerarşisi ve çok kiracılı
 author: rick-anderson
-description: ASP.NET Core veri koruma API'lerini bağlamında amaçlı dize hiyerarşisi ve çok kiracılılık hakkında bilgi edinin.
+description: ASP.NET Core veri koruma API 'Leri ile ilişkili olduğu için amaç dize hiyerarşisi ve çok kiracılı olma hakkında bilgi edinin.
 ms.author: riande
 ms.date: 10/14/2016
 uid: security/data-protection/consumer-apis/purpose-strings-multitenancy
 ms.openlocfilehash: 1133d40e7b325d58b3f70e7387494dae36ff8ac9
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64902741"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78664754"
 ---
-# <a name="purpose-hierarchy-and-multi-tenancy-in-aspnet-core"></a>Amaç hiyerarşisi ve ASP.NET Core, çok kiracılılık
+# <a name="purpose-hierarchy-and-multi-tenancy-in-aspnet-core"></a>ASP.NET Core 'de amaç hiyerarşisi ve çok kiracılı
 
-Bu yana bir `IDataProtector` de örtülü olarak başvuruluyor bir `IDataProtectionProvider`, amacıyla zincirleme yapılabilir birlikte. Bu bağlamdaki `provider.CreateProtector([ "purpose1", "purpose2" ])` eşdeğerdir `provider.CreateProtector("purpose1").CreateProtector("purpose2")`.
+`IDataProtector` de örtük bir `IDataProtectionProvider`olduğundan, amaçları birlikte zincirleme olabilir. Bu anlamda, `provider.CreateProtector([ "purpose1", "purpose2" ])` `provider.CreateProtector("purpose1").CreateProtector("purpose2")`eşdeğerdir.
 
-Bu bazı ilginç hiyerarşik ilişkiler veri koruma sistemi aracılığıyla sağlar. Önceki örnekte [Contoso.Messaging.SecureMessage](xref:security/data-protection/consumer-apis/purpose-strings#data-protection-contoso-purpose), SecureMessage bileşen çağırabilirsiniz `provider.CreateProtector("Contoso.Messaging.SecureMessage")` kez ön ve sonucu özel bir önbelleğe `_myProvider` alan. Gelecekteki koruyucuları ardından oluşturulabilir çağrılar aracılığıyla `_myProvider.CreateProtector("User: username")`, ve bu koruyucuları, tek bir ileti güvenliğini sağlamak için kullanılacaktır.
+Bu, veri koruma sistemi aracılığıyla bazı ilginç hiyerarşik ilişkilerin kullanılmasına olanak tanır. [Contoso. Messaging. securemessage](xref:security/data-protection/consumer-apis/purpose-strings#data-protection-contoso-purpose)' in önceki örneğinde, securemessage bileşeni, ön uca `provider.CreateProtector("Contoso.Messaging.SecureMessage")` çağırabilir ve sonucu özel bir `_myProvider` alanına önbelleğe alabilir. Daha sonra, `_myProvider.CreateProtector("User: username")`çağrıları aracılığıyla daha sonra oluşturulabilir ve bu koruyucular tek tek iletilerin güvenliğini sağlamak için kullanılır.
 
-Bu ayrıca çevrilebilir. Tek bir mantıksal uygulama birden fazla Kiracı (makuldür bir CMS) ve her kiracının kendi kimlik doğrulama ve durumu yönetimi sistemi ile yapılandırılabilir hangi konakların göz önünde bulundurun. Genel Uygulama tek bir ana sağlayıcısı vardır ve çağrı yaptığı `provider.CreateProtector("Tenant 1")` ve `provider.CreateProtector("Tenant 2")` her kiracının kendi veri koruma sisteminde yalıtılmış dilimin vermek için. Kiracılar, kendi ihtiyaçlarına göre tek tek kendi koruyucuları ardından türetilen, ancak nasıl sabit çalıştıklarında ne olursa olsun, birbiriyle çakışır koruyucuları başka hiçbir kiracıyla sistemde oluşturamaz. Grafik, bu gibi aşağıda gösterilir.
+Bu, ayrıca çevrilebilir. Birden çok kiracıyı barındıran tek bir mantıksal uygulamayı düşünün (bir CMS makul görünmektedir) ve her kiracı kendi kimlik doğrulama ve durum yönetim sistemiyle yapılandırılabilir. Şemsiye uygulaması tek bir ana sağlayıcıya sahiptir ve her kiracının veri koruma sisteminin yalıtılmış dilimine izin vermesi için `provider.CreateProtector("Tenant 1")` ve `provider.CreateProtector("Tenant 2")` çağırır. Kiracılar daha sonra kendi ihtiyaçlarına göre kendi bireysel koruyucularını türetebilir, ancak bunları ne kadar zor bir şekilde, sistemdeki diğer kiracılarla çakıştıkları bir koruyucu oluşturamazlar. Grafik olarak, aşağıda gösterildiği gibi gösterilir.
 
-![Çok kiracılılık amaçları](purpose-strings-multitenancy/_static/purposes-multi-tenancy.png)
+![Çoklu kiracı amaçları](purpose-strings-multitenancy/_static/purposes-multi-tenancy.png)
 
 >[!WARNING]
-> Bu, uygulama denetimleri hangi API'ler ayrı kiracıların kullanımına sunulur ve kiracılar rastgele kod sunucu üzerinde yürütülemiyor terimdir varsayar. Bir kiracı rastgele kod yürütebilir, yalıtım garanti ayırmak için özel yansıma işlemini gerçekleştiremedi veya bunlar yalnızca ana malzemesinin doğrudan okunabilir ve tüm alt anahtarlarını türetilen, istenen.
+> Bu, şemsiye uygulamanın hangi API 'Lerin tek tek kiracılar için kullanılabilir olduğunu ve kiracıların sunucuda rastgele kod yürütemeyeceğini varsayar. Bir kiracı rastgele kod yürütebileceği gibi, yalıtım garantilerini bölmek için özel yansıma gerçekleştirebilir veya doğrudan ana anahtar malzemesini okuyabilir ve istedikleri alt anahtarları türetebilir.
 
-Veri koruma sisteminde gerçekten çok kiracılı, varsayılan kullanıma hazır yapılandırmasında kavramını kullanır. Varsayılan olarak ana anahtar malzemesini çalışan işlemi hesabın kullanıcı profili klasörü (veya IIS uygulama havuzu kimlikleri için kayıt defteri) depolanır. Ancak tek bir hesapta birden çok uygulama çalıştırmak için gerçekten oldukça yaygındır ve malzemesinin asıl paylaşımını ayarlarken bu uygulamalar bu nedenle sonlandırır. Bunu çözmek için veri koruma sisteminde otomatik olarak her uygulamanın benzersiz tanımlayıcısı olarak genel amaçlı zinciri içindeki ilk öğeyi ekler. Örtük bu amaç için hizmet [bireysel uygulamalarını yalıtmak](xref:security/data-protection/configuration/overview#per-application-isolation) diğerinden sistem ve koruyucu oluşturma işlemi içinde benzersiz bir kiracı aynı yukarıdaki resimde göründüğü gibi her bir uygulama etkili bir şekilde değerlendirmesini tarafından.
+Veri koruma sistemi aslında, varsayılan kullanıma hazır yapılandırmasında çok kiracılı bir sıralama kullanır. Varsayılan olarak ana anahtar malzemesi, çalışan işlem hesabının kullanıcı profili klasöründe (veya IIS uygulama havuzu kimlikleri için kayıt defterinde) depolanır. Ancak, çok sayıda uygulama çalıştırmak için tek bir hesap kullanmak oldukça yaygın bir şeydir ve bu nedenle, tüm bu uygulamalar ana anahtar malzemesini paylaşmayı sona erdirmek için kullanılır. Bunu çözümlemek için, veri koruma sistemi otomatik olarak benzersiz bir uygulama başına tanımlayıcıyı genel amaçlı zincirde ilk öğe olarak ekler. Bu örtük amaç, her uygulamayı sistem içinde benzersiz bir kiracı olarak kabul ederek [tek tek uygulamaları diğerlerinden yalıtmak](xref:security/data-protection/configuration/overview#per-application-isolation) için kullanılır ve koruyucu oluşturma işlemi yukarıdaki görüntüyle aynı şekilde görünür.

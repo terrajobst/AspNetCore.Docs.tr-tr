@@ -1,12 +1,12 @@
-# <a name="aspnet-core-model-providers-sample"></a>ASP.NET Core modeli sağlayıcıları örneği
+# <a name="aspnet-core-model-providers-sample"></a>ASP.NET Core model sağlayıcıları örneği
 
-Bu örnek, Razor sayfaları özel rota ve sayfa modeli sağlayıcılar kullanımını gösterir. Bu örnek, açıklanan özellikleri gösterir. [Razor sayfaları yol ve uygulama kuralları](https://docs.microsoft.com/aspnet/core/razor-pages/razor-pages-convention-features) konu.
+Bu örnek, Razor Pages özel yol ve sayfa modeli sağlayıcılarının kullanımını gösterir. Bu örnek [Razor Pages yol ve uygulama kuralları](https://docs.microsoft.com/aspnet/core/razor-pages/razor-pages-convention-features) konusunda açıklanan özellikleri gösterir.
 
-## <a name="examples-in-this-sample"></a>Bu örnekte örnekleri
+## <a name="examples-in-this-sample"></a>Bu örnekteki örnekler
 
-| Senaryo | Örnek Tanıtım |
+| Senaryo | Örnek demo |
 | -------- | ----------- |
-| [Model kuralları](https://docs.microsoft.com/aspnet/core/razor-pages/razor-pages-conventions#model-conventions) | Rota özniteliğinin ve üst bilgi için uygulama sayfaları ekleyin. |
-| [Bir sayfa yolu eklemek için AddPageRoute kullanın](https://docs.microsoft.com/aspnet/core/razor-pages/razor-pages-conventions#configure-a-page-route) | Belirtilen rota belirtilen sayfa sayfa ekler. |
-| [Sayfa modeli eylem kuralları](https://docs.microsoft.com/aspnet/core/razor-pages/razor-pages-conventions#page-model-action-conventions) | Üst bilgi, bir klasördeki sayfalara eklemek, bir üst bilgi tek bir sayfaya ekleyin ve uygulamanın sayfaları için bir başlık eklemek için bir filtre fabrikayı yapılandırma. |
-| [Varsayılan sayfa uygulama modeli sağlayıcısı değiştirin](https://docs.microsoft.com/aspnet/core/razor-pages/razor-pages-conventions#replace-the-default-page-app-model-provider) | İşleyici adlandırma kurallarını değiştirin. |
+| [Model kuralları](https://docs.microsoft.com/aspnet/core/razor-pages/razor-pages-conventions#model-conventions) | Uygulamanın sayfalarına bir Route özniteliği ve üst bilgisi ekleyin. |
+| [Sayfa yolu eklemek için AddPageRoute kullanın](https://docs.microsoft.com/aspnet/core/razor-pages/razor-pages-conventions#configure-a-page-route) | Belirtilen sayfadaki belirtilen yolu sayfaya ekler. |
+| [Sayfa modeli eylem kuralları](https://docs.microsoft.com/aspnet/core/razor-pages/razor-pages-conventions#page-model-action-conventions) | Bir klasördeki sayfalara üst bilgi ekleyin, tek bir sayfaya üst bilgi ekleyin ve bir filtre fabrikası yapılandırarak uygulamanın sayfalarına bir üst bilgi ekleyin. |
+| [Varsayılan sayfa uygulama modeli sağlayıcısını değiştirme](https://docs.microsoft.com/aspnet/core/razor-pages/razor-pages-conventions#replace-the-default-page-app-model-provider) | İşleyici adlandırması için kuralları değiştirin. |

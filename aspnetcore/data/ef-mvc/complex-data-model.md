@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.date: 03/27/2019
 ms.topic: tutorial
 uid: data/ef-mvc/complex-data-model
-ms.openlocfilehash: b8b1ade4c8c29d34200bf8c0944cff6adec0bb95
-ms.sourcegitcommit: f40c9311058c9b1add4ec043ddc5629384af6c56
+ms.openlocfilehash: 91fd09874ecab8bfdb6a38a404faba04aeb73edc
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74288962"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78657432"
 ---
 # <a name="tutorial-create-a-complex-data-model---aspnet-mvc-with-ef-core"></a>Öğretici: EF Core ile karmaşık veri modeli oluşturma-ASP.NET MVC
 
@@ -508,9 +508,9 @@ Veritabanını gösteren Başlatıcı kodunu tetiklemek için uygulamayı çalı
 
 ![SSOX 'te Courseatama verileri](complex-data-model/_static/ssox-ci-data.png)
 
-## <a name="get-the-code"></a>Kodu alın
+## <a name="get-the-code"></a>Kodu alma
 
-[Tamamlanmış uygulamayı indirin veya görüntüleyin.](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final)
+[Tamamlanmış uygulamayı indirin veya görüntüleyin.](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

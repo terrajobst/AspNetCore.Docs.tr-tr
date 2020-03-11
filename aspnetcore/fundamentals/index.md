@@ -8,11 +8,11 @@ ms.custom: mvc
 ms.date: 01/15/2020
 uid: fundamentals/index
 ms.openlocfilehash: 3fbfc7c4c0d5e568339bc00a7cbe84a3932acf1f
-ms.sourcegitcommit: cbd30479f42cbb3385000ef834d9c7d021fd218d
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76146361"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78664236"
 ---
 # <a name="aspnet-core-fundamentals"></a>ASP.NET Core temelleri
 
@@ -61,14 +61,14 @@ ASP.NET Core, zengin bir yerleşik ara yazılım kümesi içerir ve özel ara ya
 
 Daha fazla bilgi için bkz. <xref:fundamentals/middleware/index>.
 
-## <a name="host"></a>Konak
+## <a name="host"></a>Host
 
 ASP.NET Core bir uygulama, başlangıçta bir *konak* oluşturur. Ana bilgisayar, uygulamanın tüm kaynaklarını kapsülleyen bir nesnedir, örneğin:
 
 * Bir HTTP sunucusu uygulama
 * Ara yazılım bileşenleri
-* Günlüğe Kaydetme
-* DI
+* Günlüğe kaydetme
+* IÇERIK
 * Yapılandırma
 
 Uygulamanın tüm birbirine bağlı kaynaklarını tek bir nesnede dahil etmek için başlıca neden, yaşam süresi yönetimi: uygulama başlatma ve düzgün kapanma üzerinde denetim.
@@ -111,7 +111,7 @@ Daha fazla bilgi için bkz. <xref:fundamentals/host/web-host>.
 
 ### <a name="non-web-scenarios"></a>Web dışı senaryolar
 
-Genel ana bilgisayar, diğer uygulama türlerinin günlüğe kaydetme, bağımlılık ekleme (dı), yapılandırma ve uygulama ömür yönetimi gibi çapraz kesme çerçevesi uzantıları kullanmasına izin verir. Daha fazla bilgi için bkz. <xref:fundamentals/host/generic-host> ve <xref:fundamentals/host/hosted-services>.
+Genel ana bilgisayar, diğer uygulama türlerinin günlüğe kaydetme, bağımlılık ekleme (dı), yapılandırma ve uygulama ömür yönetimi gibi çapraz kesme çerçevesi uzantıları kullanmasına izin verir. Daha fazla bilgi için <xref:fundamentals/host/generic-host> ve <xref:fundamentals/host/hosted-services> bölümlerine bakın.
 
 ## <a name="servers"></a>Sunucular
 
@@ -119,7 +119,7 @@ Bir ASP.NET Core uygulaması HTTP isteklerini dinlemek için HTTP sunucu uygulam
 
 ::: moniker range=">= aspnetcore-2.2"
 
-# <a name="windowstabwindows"></a>[Windows](#tab/windows)
+# <a name="windows"></a>[Windows](#tab/windows)
 
 ASP.NET Core aşağıdaki sunucu uygulamalarını sağlar:
 
@@ -127,11 +127,11 @@ ASP.NET Core aşağıdaki sunucu uygulamalarını sağlar:
 * *IIS HTTP sunucusu* , IIS kullanan bir Windows sunucusudur. Bu sunucu ile, ASP.NET Core uygulaması ve IIS aynı işlemde çalışır.
 * *Http. sys* , IIS ile kullanılmayan bir Windows sunucusudur.
 
-# <a name="macostabmacos"></a>[macOS](#tab/macos)
+# <a name="macos"></a>[macOS](#tab/macos)
 
 ASP.NET Core, *Kestrel* platformlar arası sunucu uygulamasını sağlar. ASP.NET Core 2,0 veya üzeri sürümlerde, Kestrel doğrudan Internet 'e açık olan bir genel kullanıma yönelik uç sunucu olarak çalıştırılabilir. Kestrel, genellikle [NGINX](https://nginx.org) veya [Apache](https://httpd.apache.org/)ile ters proxy yapılandırmasında çalıştırılır.
 
-# <a name="linuxtablinux"></a>[Linux](#tab/linux)
+# <a name="linux"></a>[Linux](#tab/linux)
 
 ASP.NET Core, *Kestrel* platformlar arası sunucu uygulamasını sağlar. ASP.NET Core 2,0 veya üzeri sürümlerde, Kestrel doğrudan Internet 'e açık olan bir genel kullanıma yönelik uç sunucu olarak çalıştırılabilir. Kestrel, genellikle [NGINX](https://nginx.org) veya [Apache](https://httpd.apache.org/)ile ters proxy yapılandırmasında çalıştırılır.
 
@@ -141,18 +141,18 @@ ASP.NET Core, *Kestrel* platformlar arası sunucu uygulamasını sağlar. ASP.NE
 
 ::: moniker range="< aspnetcore-2.2"
 
-# <a name="windowstabwindows"></a>[Windows](#tab/windows)
+# <a name="windows"></a>[Windows](#tab/windows)
 
 ASP.NET Core aşağıdaki sunucu uygulamalarını sağlar:
 
 * *Kestrel* , platformlar arası bir Web sunucusudur. Kestrel, genellikle [IIS](https://www.iis.net/)kullanılarak ters bir ara sunucu yapılandırmasında çalıştırılır. ASP.NET Core 2,0 veya üzeri sürümlerde, Kestrel doğrudan Internet 'e açık olan bir genel kullanıma yönelik uç sunucu olarak çalıştırılabilir.
 * *Http. sys* , IIS ile kullanılmayan bir Windows sunucusudur.
 
-# <a name="macostabmacos"></a>[macOS](#tab/macos)
+# <a name="macos"></a>[macOS](#tab/macos)
 
 ASP.NET Core, *Kestrel* platformlar arası sunucu uygulamasını sağlar. ASP.NET Core 2,0 veya üzeri sürümlerde, Kestrel doğrudan Internet 'e açık olan bir genel kullanıma yönelik uç sunucu olarak çalıştırılabilir. Kestrel, genellikle [NGINX](https://nginx.org) veya [Apache](https://httpd.apache.org/)ile ters proxy yapılandırmasında çalıştırılır.
 
-# <a name="linuxtablinux"></a>[Linux](#tab/linux)
+# <a name="linux"></a>[Linux](#tab/linux)
 
 ASP.NET Core, *Kestrel* platformlar arası sunucu uygulamasını sağlar. ASP.NET Core 2,0 veya üzeri sürümlerde, Kestrel doğrudan Internet 'e açık olan bir genel kullanıma yönelik uç sunucu olarak çalıştırılabilir. Kestrel, genellikle [NGINX](https://nginx.org) veya [Apache](https://httpd.apache.org/)ile ters proxy yapılandırmasında çalıştırılır.
 
@@ -199,16 +199,16 @@ Daha fazla bilgi için bkz. <xref:fundamentals/configuration/options>.
 
 Daha fazla bilgi için bkz. <xref:fundamentals/environments>.
 
-## <a name="logging"></a>Günlüğe Kaydetme
+## <a name="logging"></a>Günlüğe kaydetme
 
 ASP.NET Core, çeşitli yerleşik ve üçüncü taraf günlük sağlayıcılarıyla birlikte çalışarak bir günlüğe kaydetme API 'sini destekler. Kullanılabilir sağlayıcılar şunları içerir:
 
-* Konsolu
+* Konsol
 * Hata ayıklama
 * Windows üzerinde olay Izleme
 * Windows olay günlüğü
 * TraceSource
-* Azure App Service
+* Azure uygulama hizmeti
 * Azure Application Insights
 
 Dı ve çağrı günlüğü yöntemlerinden `ILogger` nesne alarak uygulamanın kodundaki her yerden günlükleri yazın.

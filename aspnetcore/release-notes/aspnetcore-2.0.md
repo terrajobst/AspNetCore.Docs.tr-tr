@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/05/2019
 uid: aspnetcore-2.0
-ms.openlocfilehash: 9d1e1b1154113b8825f4d0faf0f4552b8bd22287
-ms.sourcegitcommit: 7dfe6cc8408ac6a4549c29ca57b0c67ec4baa8de
+ms.openlocfilehash: 5ca43bab1496aa9fda65282cbb0b1177ad8689eb
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75828431"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78667260"
 ---
 # <a name="whats-new-in-aspnet-core-20"></a>ASP.NET Core 2,0 ' deki yenilikler
 
@@ -48,7 +48,7 @@ ASP.NET Core 2,0 paketleri .NET Standard 2,0 ' dir. Paketlere diğer .NET Standa
 
 ASP.NET Core 2,0 ' de hizmetler kapsayıcısına varsayılan olarak bir `IConfiguration` örneği eklenir. Hizmetler kapsayıcısında `IConfiguration`, uygulamaların kapsayıcıdan yapılandırma değerlerini almasına daha kolay hale getirir.
 
-Planlı belgelerin durumu hakkında daha fazla bilgi için bkz. [GitHub sorunu](https://github.com/aspnet/AspNetCore.Docs/issues/3387).
+Planlı belgelerin durumu hakkında daha fazla bilgi için bkz. [GitHub sorunu](https://github.com/dotnet/AspNetCore.Docs/issues/3387).
 
 ## <a name="logging-update"></a>Günlük güncelleştirme
 
@@ -62,7 +62,7 @@ Yeni bir kimlik doğrulama modeli, DI kullanarak bir uygulama için kimlik doğr
 
 [Azure AD B2C](https://azure.microsoft.com/services/active-directory-b2c/)kullanarak Web uygulamaları ve Web API 'lerinin kimlik doğrulamasını yapılandırmak için yeni şablonlar kullanılabilir.
 
-Planlı belgelerin durumu hakkında daha fazla bilgi için bkz. [GitHub sorunu](https://github.com/aspnet/AspNetCore.Docs/issues/3054).
+Planlı belgelerin durumu hakkında daha fazla bilgi için bkz. [GitHub sorunu](https://github.com/dotnet/AspNetCore.Docs/issues/3054).
 
 ## <a name="identity-update"></a>Kimlik güncelleştirmesi
 
@@ -114,7 +114,7 @@ Barındırma ortamları artık uygulamanın başlatılması sırasında ek paket
 
 ASP.NET Core 2,0 ' de, bu özellik, Visual Studio 'da hata ayıklarken Application Insights tanılamayı otomatik olarak etkinleştirmek için kullanılır ve Azure Uygulama Hizmetleri 'nde çalışırken (uygulamasına geçtikten sonra). Sonuç olarak, proje şablonları artık varsayılan olarak Application Insights paketleri ve kodu eklemez.
 
-Planlı belgelerin durumu hakkında daha fazla bilgi için bkz. [GitHub sorunu](https://github.com/aspnet/AspNetCore.Docs/issues/3389).
+Planlı belgelerin durumu hakkında daha fazla bilgi için bkz. [GitHub sorunu](https://github.com/dotnet/AspNetCore.Docs/issues/3389).
 
 ## <a name="automatic-use-of-anti-forgery-tokens"></a>Anti-forgery belirteçlerinin otomatik kullanımı
 
@@ -147,14 +147,14 @@ C# 7,1 özelliklerinin durumu hakkında daha fazla bilgi için bkz. [Roslyn GitH
 * [Google kimlik doğrulamasını yapılandırma](xref:security/authentication/google-logins)
 * [Microsoft hesabı kimlik doğrulamasını yapılandırma](xref:security/authentication/microsoft-logins)
 
-## <a name="migration-guidance"></a>Geçiş Kılavuzu
+## <a name="migration-guidance"></a>Geçiş kılavuzu
 
 ASP.NET Core 1. x uygulamalarının ASP.NET Core 2,0 ' e nasıl geçirileceğiyle ilgili yönergeler için aşağıdaki kaynaklara bakın:
 
 * [ASP.NET Core 1. x öğesinden ASP.NET Core 2,0 'e geçirin](xref:migration/1x-to-2x/index)
 * [Kimlik doğrulaması ve kimliği 2,0 ASP.NET Core geçirin](xref:migration/1x-to-2x/identity-2x)
 
-## <a name="additional-information"></a>Ek Bilgiler
+## <a name="additional-information"></a>Ek Bilgi
 
 Değişikliklerin tamamı listesi için [ASP.NET Core 2,0 sürüm notlarına](https://github.com/dotnet/aspnetcore/releases/tag/2.0.0)bakın.
 

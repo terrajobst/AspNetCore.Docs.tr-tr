@@ -10,11 +10,11 @@ no-loc:
 - SignalR
 uid: signalr/messagepackhubprotocol
 ms.openlocfilehash: 3c2a4285945d3fdc6bba195e3160da8b9dcbba44
-ms.sourcegitcommit: 0b0e485a8a6dfcc65a7a58b365622b3839f4d624
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76928184"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78666567"
 ---
 # <a name="use-messagepack-hub-protocol-in-opno-locsignalr-for-aspnet-core"></a>ASP.NET Core için SignalR içinde MessagePack hub protokolünü kullanın
 
@@ -157,7 +157,7 @@ public class ChatMessage
 }
 ```
 
-JavaScript istemcisinden gönderirken, büyük/küçük harf C# sınıfıyla tam olarak eşleşmesi gerektiğinden `PascalCased` özellik adlarını kullanmanız gerekir. Örneğin:
+JavaScript istemcisinden gönderirken, büyük/küçük harf C# sınıfıyla tam olarak eşleşmesi gerektiğinden `PascalCased` özellik adlarını kullanmanız gerekir. Örnek:
 
 ```javascript
 connection.invoke("SomeMethod", { Sender: "Sally", Message: "Hello!" });

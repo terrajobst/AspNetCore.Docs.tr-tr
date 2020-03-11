@@ -1,15 +1,15 @@
 # <a name="aspnet-core-health-check-sample"></a>ASP.NET Core sistem durumu denetimi örneği
 
-Bu örnek, sistem durumu denetleme ara yazılım ve hizmetler kullanımını gösterir. Bu örnek, açıklanan senaryoyu gösterir [durum denetimleri ASP.NET Core](https://docs.microsoft.com/aspnet/core/host-and-deploy/health-checks) konu.
+Bu örnek, sistem durumu denetimi ara yazılımı ve hizmetlerinin kullanımını gösterir. Bu örnek, [ASP.NET Core konusunun durum denetimleri](https://docs.microsoft.com/aspnet/core/host-and-deploy/health-checks) bölümünde açıklanan senaryoyu gösterir.
 
-Konu başlığı altında açıklanan senaryo için örnek uygulama çalıştırmak için kullandığınız [çalıştırma dotnet](https://docs.microsoft.com/dotnet/core/tools/dotnet-run) proje klasöründeki bir komut kabuğu komut. Araştırırken senaryosu için bir anahtar geçirin. Uygulama varsayılanları `basic` geçiş için sağlanan değil yapılandırma `dotnet run`.
+Konu başlığı altında açıklanan bir senaryoya örnek uygulamayı çalıştırmak için, bir komut kabuğunda projenin klasöründen [DotNet Run](https://docs.microsoft.com/dotnet/core/tools/dotnet-run) komutunu kullanın. Araştırırken senaryo için bir anahtar geçirin. `dotnet run`için bir anahtar sağlanmıyorsa uygulamanın `basic` yapılandırmasına varsayılan olarak izin verilir.
 
 | Senaryo                                               | Örnek uygulama komutu               | Açıklama |
 | ------------------------------------------------------ | -------------------------------- | ----------- |
-| Temel durum araştırması (varsayılan)                           | `dotnet run --scenario basic`    | Uygulamanın HTTP isteklerini işleyebilir onaylar. |
-| Veritabanı yoklama                                         | `dotnet run --scenario db`       | Bir SQL sunucusu veritabanı bağlantısını denetler. Bkz: [veritabanı araştırma](https://docs.microsoft.com/aspnet/core/host-and-deploy/health-checks#database-probe) konudaki yönergeler için. |
-| Hazırlık/canlılık araştırmaları                              | `dotnet run --scenario liveness` | İçin Canlı uygulama durumu denetimleri gerçekleştirir (*canlılık*) Canlı olmaya hazırlanma uygulama karşılaştırması (*hazırlık*). |
-| Ölçüm tabanlı araştırma (bellek) /<br>özel bir yanıt yazıcı | `dotnet run --scenario writer`   | Bellek kullanımını karşı denetler ve sistem durumu uç nokta işaretlendiğinde özel JSON yazar. |
-| Bağlantı noktası göre filtrele                                         | `dotnet run --scenario port`     | Belirli bir bağlantı noktası için durum denetimleri filtreler. Bkz: [bağlantı noktasına göre filtre](https://docs.microsoft.com/aspnet/core/host-and-deploy/health-checks#filter-by-port) konudaki yönergeler için. |
+| Temel sistem durumu araştırması (varsayılan)                           | `dotnet run --scenario basic`    | Uygulamanın HTTP isteklerini işleyebileceğinizi onaylar. |
+| Veritabanı araştırması                                         | `dotnet run --scenario db`       | SQL Server veritabanı bağlantısını denetler. Yönergeler için konusunun [veritabanı araştırması](https://docs.microsoft.com/aspnet/core/host-and-deploy/health-checks#database-probe) bölümüne bakın. |
+| Hazırlık/lizlilik araştırmaları                              | `dotnet run --scenario liveness` | Canlı uygulama durumu (*Lisine* *) için*denetim gerçekleştirir. |
+| Ölçüm tabanlı araştırma (bellek)/<br>Özel yanıt yazıcısı | `dotnet run --scenario writer`   | Bellek kullanımına karşı denetler ve sistem durumu uç noktası işaretlendiğinde özel JSON yazar. |
+| Bağlantı noktasına göre filtrele                                         | `dotnet run --scenario port`     | Durum denetimlerini belirli bir bağlantı noktasına filtreler. Yönergeler için konusunun [bağlantı noktasına göre filtrele](https://docs.microsoft.com/aspnet/core/host-and-deploy/health-checks#filter-by-port) bölümüne bakın. |
 
-Veritabanı araştırma ve bağlantı noktası filtresi senaryoları, ek yapılandırma gerektirir. Bkz: [durum denetimleri](https://docs.microsoft.com/aspnet/core/host-and-deploy/health-checks) Ayrıntılar için konu.
+Veritabanı araştırması ve bağlantı noktası filtresi senaryoları için ek yapılandırma gerekir. Ayrıntılar için [sistem durumu denetimleri](https://docs.microsoft.com/aspnet/core/host-and-deploy/health-checks) konusuna bakın.

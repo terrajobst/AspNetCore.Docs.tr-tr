@@ -5,12 +5,12 @@ description: Bu öğreticide, .NET Core CLI dosya İzleyicisi (DotNet Watch) ara
 ms.author: riande
 ms.date: 05/31/2018
 uid: tutorials/dotnet-watch
-ms.openlocfilehash: 053c98ba032c85b61776d5b5644c5575cd4f890c
-ms.sourcegitcommit: 7dfe6cc8408ac6a4549c29ca57b0c67ec4baa8de
+ms.openlocfilehash: bedb3e6a65839db915ca7bc821a267a14d34bf30
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75829003"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78667414"
 ---
 # <a name="develop-aspnet-core-apps-using-a-file-watcher"></a>Dosya İzleyicisi kullanarak ASP.NET Core uygulamalar geliştirme
 
@@ -20,7 +20,7 @@ By [Rick Anderson](https://twitter.com/RickAndMSFT) ve [Victor Hurdugaci](https:
 
 Bu öğretici, iki uç nokta ile mevcut bir Web API 'SI kullanır: bir toplamı ve bir ürünü döndüren bir tane döndürür. Ürün yönteminde, bu öğreticide düzeltilen bir hata vardır.
 
-[Örnek uygulamayı](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/tutorials/dotnet-watch/sample)indirin. İki projeden oluşur: *WebApp* (bir ASP.NET Core Web API 'si) ve *webapptests* (Web API 'si için birim testleri).
+[Örnek uygulamayı](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/tutorials/dotnet-watch/sample)indirin. İki projeden oluşur: *WebApp* (bir ASP.NET Core Web API 'si) ve *webapptests* (Web API 'si için birim testleri).
 
 Bir komut kabuğu 'nda *WebApp* klasörüne gidin. Şu komutu çalıştırın:
 
@@ -41,7 +41,7 @@ Now listening on: http://localhost:5000
 Application started. Press Ctrl+C to shut down.
 ```
 
-Bir web tarayıcısında `http://localhost:<port number>/api/math/sum?a=4&b=5` sayfasına gidin. `9`sonucunu görmeniz gerekir.
+Bir Web tarayıcısında `http://localhost:<port number>/api/math/sum?a=4&b=5`' a gidin. `9`sonucunu görmeniz gerekir.
 
 Ürün API 'sine gidin (`http://localhost:<port number>/api/math/product?a=4&b=5`). Beklendiğinde `20` değil `9`döndürür. Bu sorun öğreticide daha sonra düzeltildi.
 
@@ -69,7 +69,7 @@ Bir web tarayıcısında `http://localhost:<port number>/api/math/sum?a=4&b=5` s
 
 ## <a name="run-net-core-cli-commands-using-dotnet-watch"></a>`dotnet watch` kullanarak .NET Core CLI komutları çalıştırma
 
-Tüm [.NET Core CLI komutları](/dotnet/core/tools#cli-commands) `dotnet watch`çalıştırılabilir. Örneğin:
+Tüm [.NET Core CLI komutları](/dotnet/core/tools#cli-commands) `dotnet watch`çalıştırılabilir. Örnek:
 
 | Komut | İzle komutu |
 | ---- | ----- |
@@ -105,7 +105,7 @@ Verify `http://localhost:<port number>/api/math/product?a=4&b=5` doğru sonucu d
 1. *MathController.cs* `Product` yöntemini geri döndürmek için yeniden değiştirin. Dosyayı kaydedin.
 1. Bir komut kabuğunda *Webapptests* klasörüne gidin.
 1. [DotNet restore](/dotnet/core/tools/dotnet-restore)çalıştırın.
-1. `dotnet watch test`'i çalıştırın. Çıktısı bir testin başarısız olduğunu ve izleyicinin dosya değişikliklerini beklediğini gösterir:
+1. `dotnet watch test` öğesini çalıştırın. Çıktısı bir testin başarısız olduğunu ve izleyicinin dosya değişikliklerini beklediğini gösterir:
 
      ```console
      Total tests: 2. Passed: 1. Failed: 1. Skipped: 0.

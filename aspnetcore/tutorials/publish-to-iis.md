@@ -1,22 +1,20 @@
 ---
 title: IIS 'de ASP.NET Core uygulaması yayımlama
-author: guardrex
+author: rick-anderson
 description: ASP.NET Core uygulamasının bir IIS sunucusunda nasıl barındırılacağını öğrenin.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
 ms.date: 10/03/2019
 uid: tutorials/publish-to-iis
-ms.openlocfilehash: 820527cc15f883c906d2fdf1c073d443a5b3b40e
-ms.sourcegitcommit: d8b12cc1716ee329d7bd2300e201b61e15d506ac
+ms.openlocfilehash: f3860ba6ca7b99e63000ba0066749751f80cdc23
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71942879"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78657838"
 ---
 # <a name="publish-an-aspnet-core-app-to-iis"></a>IIS 'de ASP.NET Core uygulaması yayımlama
-
-Tarafından [Luke Latham](https://github.com/guardrex)
 
 Bu öğreticide bir IIS sunucusunda ASP.NET Core uygulamasının nasıl barındırılacağını gösterilmektedir.
 
@@ -30,7 +28,7 @@ Bu öğreticide aşağıdaki konular ele alınmaktadır:
 ## <a name="prerequisites"></a>Önkoşullar
 
 * Geliştirme makinesinde yüklü [.NET Core SDK](/dotnet/core/sdk) .
-* **Web sunucusu (IIS)** sunucu rolüyle yapılandırılmış Windows Server. Sunucunuz Web sitelerini IIS ile barındırmak üzere yapılandırılmamışsa, <xref:host-and-deploy/iis/index#iis-configuration> makalenin *IIS yapılandırması* bölümündeki yönergeleri izleyin ve ardından Bu öğreticiye geri dönün.
+* **Web sunucusu (IIS)** sunucu rolüyle yapılandırılmış Windows Server. Sunucunuz Web sitelerini IIS ile barındırmak üzere yapılandırılmamışsa, <xref:host-and-deploy/iis/index#iis-configuration> makalesinin *IIS yapılandırması* bölümündeki yönergeleri izleyin ve ardından Bu öğreticiye geri dönün.
 
 > [!WARNING]
 > **IIS yapılandırması ve Web sitesi güvenliği, bu öğretici kapsamında olmayan kavramları içerir.** IIS 'de üretim uygulamalarını barındırmadan önce, [MICROSOFT IIS BELGELERINDEKI](https://www.iis.net/) IIS KıLAVUZUNA ve [IIS ile barındırma hakkında ASP.NET Core makalesine](xref:host-and-deploy/iis/index) başvurun.
@@ -39,15 +37,15 @@ Bu öğreticide aşağıdaki konular ele alınmaktadır:
 >
 > * [ASP.NET Core veri koruması için bir kayıt defteri kovanı oluşturma](xref:host-and-deploy/iis/index#data-protection)
 > * [Uygulama havuzunun Access Control listesi (ACL) yapılandırması](xref:host-and-deploy/iis/index#application-pool-identity)
-> * IIS dağıtım kavramlarına odaklanmak için bu öğretici, IIS 'de HTTPS güvenliği olmayan bir uygulama dağıtır. HTTPS protokolü için etkinleştirilmiş bir uygulamayı barındırma hakkında daha fazla bilgi için, bu makalenin [ek kaynaklar](#additional-resources) bölümündeki güvenlik konularına bakın. ASP.NET Core uygulamalar barındırılmasına yönelik daha fazla rehberlik <xref:host-and-deploy/iis/index> makalesinde sunulmaktadır.
+> * IIS dağıtım kavramlarına odaklanmak için bu öğretici, IIS 'de HTTPS güvenliği olmayan bir uygulama dağıtır. HTTPS protokolü için etkinleştirilmiş bir uygulamayı barındırma hakkında daha fazla bilgi için, bu makalenin [ek kaynaklar](#additional-resources) bölümündeki güvenlik konularına bakın. ASP.NET Core uygulamaları barındırma hakkında daha fazla rehberlik <xref:host-and-deploy/iis/index> makalesinde sunulmaktadır.
 
 ## <a name="install-the-net-core-hosting-bundle"></a>Paket barındırma .NET Core'u yükleme
 
-*.NET Core barındırma paketi* 'ni IIS sunucusuna yükler. .NET Core çalışma zamanı, .NET Core kitaplığı paketi yükler ve [ASP.NET Core Modülü](xref:host-and-deploy/aspnet-core-module). Modül IIS çalıştırılacak uygulamaları ASP.NET Core sağlar.
+*.NET Core barındırma paketi* 'ni IIS sunucusuna yükler. Paket, .NET Core çalışma zamanı, .NET Core kitaplığı ve [ASP.NET Core modülünü](xref:host-and-deploy/aspnet-core-module)de yüklüyor. Modül IIS çalıştırılacak uygulamaları ASP.NET Core sağlar.
 
 Aşağıdaki bağlantıyı kullanarak yükleyiciyi indirin:
 
-[Geçerli .NET Core barındırma Paket Yükleyici (doğrudan indirme)](https://www.microsoft.com/net/permalink/dotnetcore-current-windows-runtime-bundle-installer)
+[Geçerli .NET Core barındırma paketi yükleyicisi (doğrudan indirme)](https://www.microsoft.com/net/permalink/dotnetcore-current-windows-runtime-bundle-installer)
 
 1. Yükleyiciyi IIS sunucusunda çalıştırın.
 
@@ -57,13 +55,13 @@ Aşağıdaki bağlantıyı kullanarak yükleyiciyi indirin:
 
 1. IIS sunucusunda, uygulamanın yayımlanan klasörlerini ve dosyalarını içeren bir klasör oluşturun. Aşağıdaki adımda, klasörün yolu, uygulamanın fiziksel yolu olarak IIS 'ye sağlanır.
 
-1. IIS Yöneticisi 'nde, **Bağlantılar** panelinde sunucunun düğümünü açın. Sağ **siteleri** klasör. Seçin **Web sitesi Ekle** bağlam menüsünde.
+1. IIS Yöneticisi 'nde, **Bağlantılar** panelinde sunucunun düğümünü açın. **Siteler** klasörüne sağ tıklayın. Bağlamsal menüden **Web sitesi Ekle** ' yi seçin.
 
 1. Bir **site adı** belirtin ve **fiziksel yolu** , oluşturduğunuz uygulamanın dağıtım klasörüne ayarlayın. **Bağlama** yapılandırmasını sağlayın ve **Tamam**' ı seçerek Web sitesini oluşturun.
 
 ## <a name="create-an-aspnet-core-razor-pages-app"></a>ASP.NET Core Razor Pages uygulaması oluşturma
 
-Razor Pages uygulaması oluşturmak için öğreticiyiizleyin.<xref:getting-started>
+Razor Pages uygulaması oluşturmak için <xref:getting-started> öğreticisini izleyin.
 
 ## <a name="publish-and-deploy-the-app"></a>Uygulamayı yayımlama ve dağıtma
 
@@ -72,7 +70,7 @@ Razor Pages uygulaması oluşturmak için öğreticiyiizleyin.<xref:getting-star
 * Uygulama bir klasöre yayımlanır.
 * Klasörün içeriği IIS sitesinin klasörüne taşınır (IIS Yöneticisi 'nde sitenin **fiziksel yolu** ).
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 1. **Çözüm Gezgini** projede projeye sağ tıklayın ve **Yayımla**' yı seçin.
 1. **Bir yayımlama hedefi seç** iletişim kutusunda, **klasörü** Yayımla seçeneğini belirleyin.
@@ -80,7 +78,7 @@ Razor Pages uygulaması oluşturmak için öğreticiyiizleyin.<xref:getting-star
    * Geliştirme makinesinde bir ağ paylaşımında bulunan IIS sitesi için bir klasör oluşturduysanız, paylaşımın yolunu belirtin. Geçerli kullanıcının paylaşıma yayımlamak için yazma erişimi olmalıdır.
    * IIS sunucusunda IIS site klasörüne doğrudan dağıtım yapadıysanız, kaldırılabilir medyada bir klasöre yayımlayın ve yayımlanan uygulamayı sunucuda, sitenin **fiziksel yolu** olan sunucudaki IIS site klasörüne fiziksel olarak taşıyın. *Bin/Release/{Target Framework}/Publish* klasörünün IÇERIĞINI sunucusundaki IIS site klasörüne taşıyın, bu site, sitenin IIS Yöneticisi 'ndeki **fiziksel yoludur** .
 
-# <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
+# <a name="net-core-cli"></a>[.NET Core CLI](#tab/netcore-cli)
 
 1. Bir komut kabuğunda, uygulamayı sürüm yapılandırması 'nda [DotNet Publish](/dotnet/core/tools/dotnet-publish) komutuyla yayımlayın:
 
@@ -90,9 +88,9 @@ Razor Pages uygulaması oluşturmak için öğreticiyiizleyin.<xref:getting-star
 
 1. *Bin/Release/{Target Framework}/Publish* klasörünün IÇERIĞINI sunucusundaki IIS site klasörüne taşıyın, bu site, sitenin IIS Yöneticisi 'ndeki **fiziksel yoludur** .
 
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Mac için Visual Studio](#tab/visual-studio-mac)
+# <a name="visual-studio-for-mac"></a>[Mac için Visual Studio](#tab/visual-studio-mac)
 
-1. **Çözümdeki** projeye sağ tıklayın ve**Yayımla klasörünü** **Yayımla ' yı seçin.**  > 
+1. **Çözümdeki** projeye sağ tıklayın ve **Yayınla** ** > Yayımla**' yı seçin.
 1. **Klasör seçin** yolunu ayarlayın.
    * Geliştirme makinesinde bir ağ paylaşımında bulunan IIS sitesi için bir klasör oluşturduysanız, paylaşımın yolunu belirtin. Geçerli kullanıcının paylaşıma yayımlamak için yazma erişimi olmalıdır.
    * IIS sunucusunda IIS site klasörüne doğrudan dağıtım yapadıysanız, kaldırılabilir medyada bir klasöre yayımlayın ve yayımlanan uygulamayı sunucuda, sitenin **fiziksel yolu** olan sunucudaki IIS site klasörüne fiziksel olarak taşıyın. *Bin/Release/{Target Framework}/Publish* klasörünün IÇERIĞINI sunucusundaki IIS site klasörüne taşıyın, bu site, sitenin IIS Yöneticisi 'ndeki **fiziksel yoludur** .
@@ -141,4 +139,4 @@ IIS 'de ASP.NET Core uygulamaları barındırma hakkında daha fazla bilgi için
 ### <a name="articles-on-iis-and-windows-server"></a>IIS ve Windows Server makaleleri
 
 * [Resmi Microsoft IIS sitesi](https://www.iis.net/)
-* [Windows Server Teknik İçerik Kitaplığı](/windows-server/windows-server)
+* [Windows Server teknik içerik kitaplığı](/windows-server/windows-server)

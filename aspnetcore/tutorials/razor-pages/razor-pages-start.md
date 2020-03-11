@@ -6,15 +6,15 @@ ms.author: riande
 ms.date: 11/12/2019
 uid: tutorials/razor-pages/razor-pages-start
 ms.openlocfilehash: 6e1d58ccd83f7d7c1083dc2bf9ce7476650812a1
-ms.sourcegitcommit: da2fb2d78ce70accdba903ccbfdcfffdd0112123
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75723041"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78658545"
 ---
 # <a name="tutorial-get-started-with-razor-pages-in-aspnet-core"></a>Öğretici: ASP.NET Core Razor Pages ile çalışmaya başlama
 
-Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
+Gönderen [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 ::: moniker range=">= aspnetcore-3.0"
 Bu, bir serinin ASP.NET Core Razor Pages Web uygulaması oluşturma hakkında temel bilgileri öğretir.
@@ -36,17 +36,17 @@ Bu öğreticinin sonunda, daha sonraki öğreticilerde oluşturacağınız çal�
 
 ![Giriş veya dizin sayfası](razor-pages-start/_static/home2.2.png)
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Önkoşullar
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 [!INCLUDE[](~/includes/net-core-prereqs-vs-3.1.md)]
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 [!INCLUDE[](~/includes/net-core-prereqs-vsc-3.1.md)]
 
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Mac için Visual Studio](#tab/visual-studio-mac)
+# <a name="visual-studio-for-mac"></a>[Mac için Visual Studio](#tab/visual-studio-mac)
 
 [!INCLUDE[](~/includes/net-core-prereqs-mac-3.1.md)]
 
@@ -54,9 +54,9 @@ Bu öğreticinin sonunda, daha sonraki öğreticilerde oluşturacağınız çal�
 
 ## <a name="create-a-razor-pages-web-app"></a>Razor Pages Web uygulaması oluşturma
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-* Visual Studio'dan **dosya** menüsünde **yeni** > **proje**.
+* Visual Studio **Dosya** menüsünden **Yeni** > **projesi**' ni seçin.
 * Yeni bir ASP.NET Core Web uygulaması oluşturun ve **İleri ' yi**seçin.
   Yeni ASP.NET Core Web uygulaması ![](razor-pages-start/_static/np_2.1.png)
 * Projeyi **RazorPagesMovie**olarak adlandırın. Kodu kopyaladığınızda ve yapıştırdığınızda ad alanlarının eşleşmesi için Project *RazorPagesMovie* olarak adı vermek önemlidir.
@@ -70,9 +70,9 @@ Bu öğreticinin sonunda, daha sonraki öğreticilerde oluşturacağınız çal�
 
   ![Çözüm Gezgini](razor-pages-start/_static/se2.2.png)
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
-* Açık [tümleşik Terminalini](https://code.visualstudio.com/docs/editor/integrated-terminal).
+* [Tümleşik terminali](https://code.visualstudio.com/docs/editor/integrated-terminal)açın.
 
 * Projeyi içerecek dizine (`cd`) geçin.
 
@@ -90,7 +90,7 @@ Bu öğreticinin sonunda, daha sonraki öğreticilerde oluşturacağınız çal�
 
   *Launch. JSON* ve *Tasks. JSON* dosyalarını içeren bir *. vscode* dizini, projenin kök dizinine eklenir.
 
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Mac için Visual Studio](#tab/visual-studio-mac)
+# <a name="visual-studio-for-mac"></a>[Mac için Visual Studio](#tab/visual-studio-mac)
 
 * **Yeni çözüm**> **Dosya** ' yı seçin.
 
@@ -177,17 +177,17 @@ Bu öğreticinin sonunda, daha sonraki öğreticilerde oluşturacağınız çal�
 
 ![Giriş veya dizin sayfası](razor-pages-start/_static/home2.2.png)
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Önkoşullar
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 [!INCLUDE[](~/includes/net-core-prereqs-vs2019-2.2.md)]
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 [!INCLUDE[](~/includes/net-core-prereqs-vsc-2.2.md)]
 
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Mac için Visual Studio](#tab/visual-studio-mac)
+# <a name="visual-studio-for-mac"></a>[Mac için Visual Studio](#tab/visual-studio-mac)
 
 [!INCLUDE[](~/includes/net-core-prereqs-mac-2.2.md)]
 
@@ -195,9 +195,9 @@ Bu öğreticinin sonunda, daha sonraki öğreticilerde oluşturacağınız çal�
 
 ## <a name="create-a-razor-pages-web-app"></a>Razor Pages Web uygulaması oluşturma
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-* Visual Studio'dan **dosya** menüsünde **yeni** > **proje**.
+* Visual Studio **Dosya** menüsünden **Yeni** > **projesi**' ni seçin.
 
 * Yeni bir ASP.NET Core Web uygulaması oluşturun ve **İleri ' yi**seçin.
 
@@ -215,9 +215,9 @@ Bu öğreticinin sonunda, daha sonraki öğreticilerde oluşturacağınız çal�
 
   ![Çözüm Gezgini](razor-pages-start/_static/se2.2.png)
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
-* Açık [tümleşik Terminalini](https://code.visualstudio.com/docs/editor/integrated-terminal).
+* [Tümleşik terminali](https://code.visualstudio.com/docs/editor/integrated-terminal)açın.
 
 * Projeyi içerecek dizine (`cd`) geçin.
 
@@ -235,7 +235,7 @@ Bu öğreticinin sonunda, daha sonraki öğreticilerde oluşturacağınız çal�
 
   *Launch. JSON* ve *Tasks. JSON* dosyalarını içeren bir *. vscode* dizini, projenin kök dizinine eklenir.
 
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Mac için Visual Studio](#tab/visual-studio-mac)
+# <a name="visual-studio-for-mac"></a>[Mac için Visual Studio](#tab/visual-studio-mac)
 
 * **Yeni çözüm**> **Dosya** ' yı seçin.
 
@@ -259,13 +259,13 @@ Bu öğreticinin sonunda, daha sonraki öğreticilerde oluşturacağınız çal�
 
 ## <a name="run-the-app"></a>Uygulamayı çalıştırma
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * Hata ayıklayıcı olmadan çalıştırmak için CTRL + F5 tuşlarına basın.
 
   [!INCLUDE[](~/includes/trustCertVS.md)]
 
-  Visual Studio [IIS Express](/iis/extensions/introduction-to-iis-express/iis-express-overview) başlar ve uygulamayı çalıştırır. Adres çubuğu `example.com`gibi değil `localhost:port#` gösterir. Bunun nedeni, `localhost` yerel bilgisayar için Standart ana bilgisayar adıdır. Localhost yalnızca yerel bilgisayardan Web isteklerine hizmet verir. Visual Studio bir web projesi oluşturduğunda, web sunucusu için rastgele bir bağlantı noktası kullanılır.
+  Visual Studio [IIS Express](/iis/extensions/introduction-to-iis-express/iis-express-overview) başlar ve uygulamayı çalıştırır. Adres çubuğu `example.com`gibi değil `localhost:port#` gösterir. Bunun nedeni, `localhost` yerel bilgisayar için Standart ana bilgisayar adıdır. Localhost yalnızca yerel bilgisayardan Web isteklerine hizmet verir. Visual Studio bir Web projesi oluşturduğunda, Web sunucusu için rastgele bir bağlantı noktası kullanılır.
 
 * Uygulamanın giriş sayfasında, izlemeye izin vermek için **kabul et** ' i seçin.
 
@@ -277,7 +277,7 @@ Bu öğreticinin sonunda, daha sonraki öğreticilerde oluşturacağınız çal�
 
   ![Giriş veya dizin sayfası](razor-pages-start/_static/home2.2.png)
   
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
   [!INCLUDE[](~/includes/trustCertVSC.md)]
 
@@ -295,7 +295,7 @@ Bu öğreticinin sonunda, daha sonraki öğreticilerde oluşturacağınız çal�
 
   ![Giriş veya dizin sayfası](razor-pages-start/_static/home2.2.png)
   
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Mac için Visual Studio](#tab/visual-studio-mac)
+# <a name="visual-studio-for-mac"></a>[Mac için Visual Studio](#tab/visual-studio-mac)
 
   [!INCLUDE[](~/includes/trustCertMac.md)]
 

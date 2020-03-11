@@ -2,7 +2,7 @@
 
 Bu örnek, sistem durumu denetimi ara yazılımı ve hizmetlerinin kullanımını gösterir. Bu örnek, [ASP.NET Core konusunun durum denetimleri](https://docs.microsoft.com/aspnet/core/host-and-deploy/health-checks) bölümünde açıklanan senaryoyu gösterir.
 
-Konu başlığı altında açıklanan bir senaryoya örnek uygulamayı çalıştırmak için, bir komut kabuğunda projenin klasöründen [DotNet Run](https://docs.microsoft.com/dotnet/core/tools/dotnet-run) komutunu kullanın. Araştırırken senaryo için bir anahtar geçirin. Uygulamasına bir anahtar `dotnet run`sağlanmıyorsa `basic` uygulamanın yapılandırması varsayılan olarak olur.
+Konu başlığı altında açıklanan bir senaryoya örnek uygulamayı çalıştırmak için, bir komut kabuğunda projenin klasöründen [DotNet Run](https://docs.microsoft.com/dotnet/core/tools/dotnet-run) komutunu kullanın. Araştırırken senaryo için bir anahtar geçirin. `dotnet run`için bir anahtar sağlanmıyorsa uygulamanın `basic` yapılandırmasına varsayılan olarak izin verilir.
 
 | Senaryo                                               | Örnek uygulama komutu               | Açıklama |
 | ------------------------------------------------------ | -------------------------------- | ----------- |

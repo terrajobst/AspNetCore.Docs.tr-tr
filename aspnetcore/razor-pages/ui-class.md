@@ -6,12 +6,12 @@ ms.author: riande
 ms.date: 01/25/2020
 ms.custom: mvc, seodec18
 uid: razor-pages/ui-class
-ms.openlocfilehash: 8813244ea6d00b170d9f95d12743e9fee38bf810
-ms.sourcegitcommit: 85564ee396c74c7651ac47dd45082f3f1803f7a2
+ms.openlocfilehash: f24dc62eba345a8a3d35143805b4966cb51832fa
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77172656"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78667568"
 ---
 # <a name="create-reusable-ui-using-the-razor-class-library-project-in-aspnet-core"></a>ASP.NET Core 'de Razor Sınıf Kitaplığı projesini kullanarak yeniden kullanılabilir kullanıcı arabirimi oluşturma
 
@@ -21,22 +21,22 @@ Gönderen [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 Razor görünümleri, sayfalar, denetleyiciler, sayfa modelleri, [Razor bileşenleri](xref:blazor/class-libraries), [Görünüm bileşenleri](xref:mvc/views/view-components)ve veri modelleri Razor sınıf kitaplığı 'nda (RCL) yerleşik olarak bulunabilir. RCL paketlenir ve yeniden kullanılabilir. Uygulamalar RCL içerir ve görünümlere ve sayfalara içerdiği geçersiz kılar. Hem Web uygulamasında hem de RCL 'de bir görünüm, kısmi görünüm veya Razor sayfası bulunduğunda, Web uygulamasındaki Razor biçimlendirmesi ( *. cshtml* dosyası) önceliklidir.
 
-[Örnek kodu görüntüleme veya indirme](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/razor-pages/ui-class/samples) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
+[Örnek kodu görüntüleme veya indirme](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/razor-pages/ui-class/samples) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
 
 ## <a name="create-a-class-library-containing-razor-ui"></a>Razor UI içeren bir sınıf kitaplığı oluşturma
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * Visual Studio 'dan **Yeni bir proje oluştur**' u seçin.
 * **Razor sınıfı kitaplığı** > **İleri ' yi**seçin.
 * Kitaplığı adlandırın (örneğin, "RazorClassLib"), > **Oluştur**. Oluşturulan görünüm kitaplığıyla bir dosya adı çarpışmasını önlemek için, kitaplık adının `.Views`bitmediğinden emin olun.
-* Görünümleri desteketmeniz gerekiyorsa **destek sayfaları ve görünümleri '** ni seçin. Varsayılan olarak yalnızca Razor Pages desteklenir. **Oluştur**'u seçin.
+* Görünümleri desteketmeniz gerekiyorsa **destek sayfaları ve görünümleri '** ni seçin. Varsayılan olarak yalnızca Razor Pages desteklenir. **Oluştur**’u seçin.
 
 Razor sınıf kitaplığı (RCL) şablonu varsayılan olarak Razor bileşen geliştirmeyi varsayılan olarak belirler. **Destek sayfaları ve görünümleri** seçeneği sayfaları ve görünümleri destekler.
 
-# <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
+# <a name="net-core-cli"></a>[.NET Core CLI](#tab/netcore-cli)
 
-Komut satırından `dotnet new razorclasslib`' yi çalıştırın. Örneğin:
+Komut satırından `dotnet new razorclasslib`' yi çalıştırın. Örnek:
 
 ```dotnetcli
 dotnet new razorclasslib -o RazorUIClassLib
@@ -186,11 +186,11 @@ Uygulama yayımlandığında, tüm başvurulan projeler ve paketlerin yardımcı
 
 Razor görünümleri, sayfalar, denetleyiciler, sayfa modelleri, [Razor bileşenleri](xref:blazor/class-libraries), [Görünüm bileşenleri](xref:mvc/views/view-components)ve veri modelleri Razor sınıf kitaplığı 'nda (RCL) yerleşik olarak bulunabilir. RCL paketlenir ve yeniden kullanılabilir. Uygulamalar RCL içerir ve görünümlere ve sayfalara içerdiği geçersiz kılar. Hem Web uygulamasında hem de RCL 'de bir görünüm, kısmi görünüm veya Razor sayfası bulunduğunda, Web uygulamasındaki Razor biçimlendirmesi ( *. cshtml* dosyası) önceliklidir.
 
-[Örnek kodu görüntüleme veya indirme](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/razor-pages/ui-class/samples) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
+[Örnek kodu görüntüleme veya indirme](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/razor-pages/ui-class/samples) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
 
 ## <a name="create-a-class-library-containing-razor-ui"></a>Razor UI içeren bir sınıf kitaplığı oluşturma
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * Visual Studio **Dosya** menüsünden **Yeni** > **projesi**' ni seçin.
 * **ASP.NET Core Web uygulaması**' nı seçin.
@@ -202,9 +202,9 @@ RCL aşağıdaki proje dosyasına sahiptir:
 
 [!code-xml[](ui-class/samples/cli/RazorUIClassLib/RazorUIClassLib.csproj)]
 
-# <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
+# <a name="net-core-cli"></a>[.NET Core CLI](#tab/netcore-cli)
 
-Komut satırından `dotnet new razorclasslib`' yi çalıştırın. Örneğin:
+Komut satırından `dotnet new razorclasslib`' yi çalıştırın. Örnek:
 
 ```dotnetcli
 dotnet new razorclasslib -o RazorUIClassLib
@@ -227,17 +227,17 @@ RCL tarafından başvurulabilir:
 
 ## <a name="walkthrough-create-an-rcl-project-and-use-from-a-razor-pages-project"></a>İzlenecek yol: bir Razor Pages projesinden bir RCL projesi oluşturma ve kullanma
 
-[Tüm projeyi](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/razor-pages/ui-class/samples) indirebilir ve oluşturmak yerine test edebilirsiniz. Örnek indirme, ek kod ve test etmek proje kolaylaştırmak bağlantılar içerir. Yükleme örnekleri ve adım adım yönergeler hakkındaki açıklamalarınızla [Bu GitHub sorunuyla](https://github.com/aspnet/AspNetCore.Docs/issues/6098) ilgili geri bildirimde bulunun.
+[Tüm projeyi](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/razor-pages/ui-class/samples) indirebilir ve oluşturmak yerine test edebilirsiniz. Örnek indirme, ek kod ve test etmek proje kolaylaştırmak bağlantılar içerir. Yükleme örnekleri ve adım adım yönergeler hakkındaki açıklamalarınızla [Bu GitHub sorunuyla](https://github.com/dotnet/AspNetCore.Docs/issues/6098) ilgili geri bildirimde bulunun.
 
 ### <a name="test-the-download-app"></a>İndirme uygulamayı test etme
 
 Tamamlanmış uygulamayı indirmediyseniz ve gözden geçirme projesi oluşturmak istiyorsanız, [sonraki bölüme](#create-an-rcl)atlayın.
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 Visual Studio 'da *. sln* dosyasını açın. Uygulamayı çalıştırın.
 
-# <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
+# <a name="net-core-cli"></a>[.NET Core CLI](#tab/netcore-cli)
 
 *CLI* dizinindeki bir komut isteminden RCL ve Web uygulamasını oluşturun.
 
@@ -259,7 +259,7 @@ dotnet run
 
 Bu bölümde bir RCL oluşturulur. Razor dosyaları için RCL eklenir.
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 RCL projesi oluşturun:
 
@@ -270,7 +270,7 @@ RCL projesi oluşturun:
 * **Razor sınıfı kitaplığı** > **Tamam ' ı**seçin.
 * *RazorUIClassLib/Areas/MyFeature/Pages/Shared/_Message. cshtml*adlı bir Razor kısmi görünüm dosyası ekleyin.
 
-# <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
+# <a name="net-core-cli"></a>[.NET Core CLI](#tab/netcore-cli)
 
 Komut satırından şu komutu çalıştırın:
 
@@ -300,7 +300,7 @@ Yukarıdaki komutlar:
 
   [!code-cshtml[](ui-class/samples/cli/RazorUIClassLib/Areas/MyFeature/Pages/Page1.cshtml)]
 
-  kısmi görünümü kullanmak için `@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers` gereklidir (`<partial name="_Message" />`). `@addTagHelper` yönergesini dahil etmek yerine *_ViewImports. cshtml* dosyası ekleyebilirsiniz. Örneğin:
+  kısmi görünümü kullanmak için `@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers` gereklidir (`<partial name="_Message" />`). `@addTagHelper` yönergesini dahil etmek yerine *_ViewImports. cshtml* dosyası ekleyebilirsiniz. Örnek:
 
   ```dotnetcli
   dotnet new viewimports -o RazorUIClassLib/Areas/MyFeature/Pages
@@ -318,7 +318,7 @@ Derleme çıkışı *RazorUIClassLib. dll* ve *RazorUIClassLib. views. dll*içer
 
 ### <a name="use-the-razor-ui-library-from-a-razor-pages-project"></a>Bir Razor sayfaları projeden Razor kullanıcı Arabirimi kitaplığını kullanma
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 Razor sayfaları web uygulaması oluşturun:
 
@@ -336,7 +336,7 @@ Razor sayfaları web uygulaması oluşturun:
 
 Uygulamayı çalıştırın.
 
-# <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
+# <a name="net-core-cli"></a>[.NET Core CLI](#tab/netcore-cli)
 
 Razor Pages uygulamasını ve RCL 'yi içeren bir Razor Pages Web uygulaması ve çözüm dosyası oluşturun:
 

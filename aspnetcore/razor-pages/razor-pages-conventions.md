@@ -1,22 +1,20 @@
 ---
 title: ASP.NET Core Razor Pages yol ve uygulama kuralları
-author: guardrex
+author: rick-anderson
 description: Yönlendirme ve uygulama modeli sağlayıcısı kurallarının sayfa yönlendirmeyi, bulmayı ve işlemeyi denetlemenize nasıl yardımcı olduğunu öğrenin.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
 ms.date: 02/07/2020
 uid: razor-pages/razor-pages-conventions
-ms.openlocfilehash: d8377c0a0b8a29fe4b6a7fa67beeff84927c8b74
-ms.sourcegitcommit: 235623b6e5a5d1841139c82a11ac2b4b3f31a7a9
+ms.openlocfilehash: f45e327051aba54d1cab67148eb540fb1a5cc149
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/10/2020
-ms.locfileid: "77114776"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78667862"
 ---
 # <a name="razor-pages-route-and-app-conventions-in-aspnet-core"></a>ASP.NET Core Razor Pages yol ve uygulama kuralları
-
-[Luke Latham](https://github.com/guardrex) tarafından
 
 ::: moniker range=">= aspnetcore-3.0"
 
@@ -28,7 +26,7 @@ Bir sayfa yolu belirtmek, yol kesimleri eklemek veya bir rotaya parametreler ekl
 
 Yol kesimleri veya parametre adları olarak kullanılamayan ayrılmış sözcükler vardır. Daha fazla bilgi için bkz. [Yönlendirme: ayrılmış yönlendirme adları](xref:fundamentals/routing#reserved-routing-names).
 
-[Örnek kodu görüntüleme veya indirme](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/razor-pages/razor-pages-conventions/samples/) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
+[Örnek kodu görüntüleme veya indirme](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/razor-pages/razor-pages-conventions/samples/) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
 
 | Senaryo | Örnek gösterilmektedir... |
 | -------- | --------------------------- |
@@ -101,7 +99,7 @@ Sayfa yönlendirme modeli oluşturma sırasında uygulanan <xref:Microsoft.AspNe
 
 Mümkün olan yerlerde, `Order``Order = 0`sonuç olarak ayarlanmayın. Doğru yolu seçmek için yönlendirmeyi güvenin.
 
-<xref:Microsoft.AspNetCore.Mvc.RazorPages.RazorPagesOptions.Conventions>ekleme gibi Razor Pages seçenekler, MVC `Startup.ConfigureServices`hizmet koleksiyonuna eklendiğinde eklenir. Örnek için bkz. [örnek uygulama](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/razor-pages/razor-pages-conventions/samples/).
+<xref:Microsoft.AspNetCore.Mvc.RazorPages.RazorPagesOptions.Conventions>ekleme gibi Razor Pages seçenekler, MVC `Startup.ConfigureServices`hizmet koleksiyonuna eklendiğinde eklenir. Örnek için bkz. [örnek uygulama](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/razor-pages/razor-pages-conventions/samples/).
 
 [!code-csharp[](razor-pages-conventions/samples/3.x/SampleApp/Startup.cs?name=snippet1)]
 
@@ -318,7 +316,7 @@ Bir sayfa yolu belirtmek, yol kesimleri eklemek veya bir rotaya parametreler ekl
 
 Yol kesimleri veya parametre adları olarak kullanılamayan ayrılmış sözcükler vardır. Daha fazla bilgi için bkz. [Yönlendirme: ayrılmış yönlendirme adları](xref:fundamentals/routing#reserved-routing-names).
 
-[Örnek kodu görüntüleme veya indirme](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/razor-pages/razor-pages-conventions/samples/) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
+[Örnek kodu görüntüleme veya indirme](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/razor-pages/razor-pages-conventions/samples/) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
 
 | Senaryo | Örnek gösterilmektedir... |
 | -------- | --------------------------- |
@@ -391,7 +389,7 @@ Sayfa yönlendirme modeli oluşturma sırasında uygulanan <xref:Microsoft.AspNe
 
 Mümkün olan yerlerde, `Order``Order = 0`sonuç olarak ayarlanmayın. Doğru yolu seçmek için yönlendirmeyi güvenin.
 
-<xref:Microsoft.AspNetCore.Mvc.RazorPages.RazorPagesOptions.Conventions>ekleme gibi Razor Pages seçenekler, MVC `Startup.ConfigureServices`hizmet koleksiyonuna eklendiğinde eklenir. Örnek için bkz. [örnek uygulama](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/razor-pages/razor-pages-conventions/samples/).
+<xref:Microsoft.AspNetCore.Mvc.RazorPages.RazorPagesOptions.Conventions>ekleme gibi Razor Pages seçenekler, MVC `Startup.ConfigureServices`hizmet koleksiyonuna eklendiğinde eklenir. Örnek için bkz. [örnek uygulama](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/razor-pages/razor-pages-conventions/samples/).
 
 [!code-csharp[](razor-pages-conventions/samples/2.x/SampleApp/Startup.cs?name=snippet1)]
 
@@ -608,7 +606,7 @@ Bir sayfa yolu belirtmek, yol kesimleri eklemek veya bir rotaya parametreler ekl
 
 Yol kesimleri veya parametre adları olarak kullanılamayan ayrılmış sözcükler vardır. Daha fazla bilgi için bkz. [Yönlendirme: ayrılmış yönlendirme adları](xref:fundamentals/routing#reserved-routing-names).
 
-[Örnek kodu görüntüleme veya indirme](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/razor-pages/razor-pages-conventions/samples/) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
+[Örnek kodu görüntüleme veya indirme](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/razor-pages/razor-pages-conventions/samples/) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
 
 | Senaryo | Örnek gösterilmektedir... |
 | -------- | --------------------------- |
@@ -681,7 +679,7 @@ Sayfa yönlendirme modeli oluşturma sırasında uygulanan <xref:Microsoft.AspNe
 
 Mümkün olan yerlerde, `Order``Order = 0`sonuç olarak ayarlanmayın. Doğru yolu seçmek için yönlendirmeyi güvenin.
 
-<xref:Microsoft.AspNetCore.Mvc.RazorPages.RazorPagesOptions.Conventions>ekleme gibi Razor Pages seçenekler, MVC `Startup.ConfigureServices`hizmet koleksiyonuna eklendiğinde eklenir. Örnek için bkz. [örnek uygulama](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/razor-pages/razor-pages-conventions/samples/).
+<xref:Microsoft.AspNetCore.Mvc.RazorPages.RazorPagesOptions.Conventions>ekleme gibi Razor Pages seçenekler, MVC `Startup.ConfigureServices`hizmet koleksiyonuna eklendiğinde eklenir. Örnek için bkz. [örnek uygulama](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/razor-pages/razor-pages-conventions/samples/).
 
 [!code-csharp[](razor-pages-conventions/samples/2.x/SampleApp/Startup.cs?name=snippet1)]
 

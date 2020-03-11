@@ -6,11 +6,11 @@ ms.author: riande
 ms.date: 12/18/2018
 uid: aspnetcore-1.1
 ms.openlocfilehash: df9fd6bda00ac5f5516f40507001463fd7d0b92e
-ms.sourcegitcommit: 7dfe6cc8408ac6a4549c29ca57b0c67ec4baa8de
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75828509"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78668093"
 ---
 # <a name="whats-new-in-aspnet-core-11"></a>ASP.NET Core 1,1 ' deki yenilikler
 
@@ -31,7 +31,7 @@ ASP.NET Core 1,1 aşağıdaki yeni özellikleri içerir:
 
 ASP.NET Core 1,1 ASP.NET Core 1,0 ' den daha fazla özelliğe sahip. Genel olarak, en son sürümü kullanmanızı öneririz.
 
-## <a name="additional-information"></a>Ek Bilgiler
+## <a name="additional-information"></a>Ek Bilgi
 
 - [ASP.NET Core 1.1.0 sürüm notları](https://github.com/dotnet/aspnetcore/releases/tag/1.1.0)
 - ASP.NET Core geliştirme ekibinin ilerleme ve planlarıyla bağlantı kurmak için, [ASP.net Community](https://live.asp.net/)' ye ayarlayın.

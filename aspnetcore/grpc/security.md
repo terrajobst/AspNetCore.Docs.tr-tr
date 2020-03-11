@@ -8,11 +8,11 @@ ms.custom: mvc
 ms.date: 07/07/2019
 uid: grpc/security
 ms.openlocfilehash: f84bec0ef485b701b2be36384a2e49b9b28e473d
-ms.sourcegitcommit: 8b36f75b8931ae3f656e2a8e63572080adc78513
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70310365"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78667323"
 ---
 # <a name="security-considerations-in-grpc-for-aspnet-core"></a>ASP.NET Core için gRPC 'de güvenlik konuları
 
@@ -29,7 +29,7 @@ gRPC iletileri HTTP/2 kullanılarak gönderilir ve alınır. Şunları öneririz
 
 TLS, Kestrel içinde yapılandırılır. Kestrel uç noktalarını yapılandırma hakkında daha fazla bilgi için bkz. [Kestrel Endpoint Configuration](xref:fundamentals/servers/kestrel#endpoint-configuration).
 
-## <a name="exceptions"></a>Özel Durumlar
+## <a name="exceptions"></a>Özel durumlar
 
 Özel durum iletileri genellikle bir istemciye görüntülenmemelidir gizli veriler olarak değerlendirilir. Varsayılan olarak, gRPC, bir gRPC hizmeti tarafından oluşturulan özel durumun ayrıntılarını istemciye göndermez. Bunun yerine, istemci bir hata oluştuğunu belirten genel bir ileti alır. İstemciye özel durum iletisi teslimi, [Enabledetailederrors](xref:grpc/configuration#configure-services-options)ile geçersiz kılınabilir (örneğin, geliştirme veya test). Özel durum iletileri, üretim uygulamalarındaki istemciye gösterilmemelidir.
 
@@ -39,7 +39,7 @@ GRPC istemcilerine ve hizmetlerine gelen iletiler belleğe yüklenir. İleti boy
 
 gRPC gelen ve giden iletileri yönetmek için ileti başına boyut sınırlarını kullanır. Varsayılan olarak, gRPC gelen iletileri 4 MB ile sınırlandırır. Giden iletilerde sınır yoktur.
 
-Sunucusunda, gRPC ileti limitleri bir uygulamadaki tüm hizmetler için ile `AddGrpc`yapılandırılabilir:
+Sunucusunda, gRPC ileti limitleri `AddGrpc`bir uygulamadaki tüm hizmetler için yapılandırılabilir:
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -52,7 +52,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-Ayrıca, kullanılarak `AddServiceOptions<TService>`tek bir hizmet için sınırlamalar da yapılandırılabilir. İleti boyutu sınırlarını yapılandırma hakkında daha fazla bilgi için bkz. [GRPC yapılandırması](xref:grpc/configuration).
+Ayrıca, `AddServiceOptions<TService>`kullanarak ayrı bir hizmet için sınırlamalar da yapılandırılabilir. İleti boyutu sınırlarını yapılandırma hakkında daha fazla bilgi için bkz. [GRPC yapılandırması](xref:grpc/configuration).
 
 ## <a name="client-certificate-validation"></a>İstemci sertifikası doğrulaması
 

@@ -5,28 +5,78 @@ description: ASP.NET Core içinde site tanımlama bilgilerine sahip olmak için 
 ms.author: riande
 ms.custom: mvc
 ms.date: 12/03/2019
+no-loc:
+- Electron
 uid: security/samesite
-ms.openlocfilehash: b344ed8f539979210980b3421659207edd513f32
-ms.sourcegitcommit: cbd30479f42cbb3385000ef834d9c7d021fd218d
+ms.openlocfilehash: eeba2c4403d33312692ed187021a125c22df5d08
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76146439"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78667743"
 ---
 # <a name="work-with-samesite-cookies-in-aspnet-core"></a>ASP.NET Core ' de SameSite tanımlama bilgileriyle çalışma
 
-Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
+Gönderen [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-[SameSite](https://tools.ietf.org/html/draft-west-first-party-cookies-07) , siteler arası istek sahteciliği (CSRF) saldırılarına karşı bir koruma sağlamak için tasarlanmış bir [IETF](https://ietf.org/about/) taslağının olması. [SameSite 2019 taslağı](https://tools.ietf.org/html/draft-west-cookie-incrementalism-00):
+SameSite, siteler arası istek sahteciliği (CSRF) saldırılarına karşı bir koruma sağlamak için tasarlanmış bir [IETF](https://ietf.org/about/) taslak standardıdır. [2016](https://tools.ietf.org/html/draft-west-first-party-cookies-07)içinde orijinal drafted, taslak standart [2019](https://tools.ietf.org/html/draft-west-cookie-incrementalism-00)' de güncelleştirildi. Güncelleştirilmiş standart, önceki standartlarla geriye dönük olarak uyumlu değildir ve aşağıdakiler en belirgin farklılıklardır:
 
-* Tanımlama bilgilerini varsayılan olarak `SameSite=Lax` olarak değerlendirir.
-* Siteler arası teslimin etkinleştirilmesi için `SameSite=None` açıkça onaylama tanımlama bilgileri `Secure`olarak işaretlenmelidir.
+* SameSite üst bilgisi olmayan tanımlama bilgileri varsayılan olarak `SameSite=Lax` olarak değerlendirilir.
+* `SameSite=None` siteler arası tanımlama bilgisi kullanımına izin vermek için kullanılmalıdır.
+* `SameSite=None` onayı olan tanımlama bilgileri ayrıca `Secure`olarak işaretlenmelidir.
+* [`<iframe>`](https://developer.mozilla.org/docs/Web/HTML/Element/iframe) kullanan uygulamalar, `<iframe>` siteler arası senaryolar olarak değerlendirildiğinden `sameSite=Lax` veya `sameSite=Strict` tanımlama bilgileri ile ilgili sorunlarla karşılaşabilir.
+* `SameSite=None` değere [2016 standart](https://tools.ietf.org/html/draft-west-first-party-cookies-07) izin verilmez ve bazı uygulamaların bu tür tanımlama bilgilerini `SameSite=Strict`olarak ele almasına neden olur. Bkz. bu belgede [eski tarayıcıları destekleme](#sob) .
 
-`Lax` çoğu uygulama tanımlama bilgisi için geçerlidir. [OpenID Connect](https://openid.net/connect/) (OIDC) ve [WS-Federation](https://auth0.com/docs/protocols/ws-fed) gibi bazı kimlik doğrulama biçimlerinden bırı, temel yönlendirmeye gönderi sağlar. POST tabanlı yeniden yönlendirmeler, SameSite tarayıcı korumalarının tetiklenmesi, bu nedenle bu bileşenler için SameSite devre dışı bırakıldı. Çoğu [OAuth](https://oauth.net/) oturum açma, istek akışının farklılığı nedeniyle etkilenmez.
-
-`None` parametresi, önceki 2016 taslak standardını uygulayan istemcilerle uyumluluk sorunlarına neden olur (örneğin, iOS 12). Bkz. bu belgede [eski tarayıcıları destekleme](#sob) .
+`SameSite=Lax` ayarı çoğu uygulama tanımlama bilgisi için geçerlidir. [OpenID Connect](https://openid.net/connect/) (OIDC) ve [WS-Federation](https://auth0.com/docs/protocols/ws-fed) gibi bazı kimlik doğrulama biçimlerinden bırı, temel yönlendirmeye gönderi sağlar. POST tabanlı yeniden yönlendirmeler, SameSite tarayıcı korumalarının tetiklenmesi, bu nedenle bu bileşenler için SameSite devre dışı bırakıldı. Çoğu [OAuth](https://oauth.net/) oturum açma, istek akışının farklılığı nedeniyle etkilenmez.
 
 Tanımlama bilgilerini gösteren her bir ASP.NET Core bileşeni, SameSite ' ın uygun olup olmadığına karar vermeniz gerekir.
+
+## <a name="samesite-test-sample-code"></a>SameSite test örnek kodu
+
+ ::: moniker range=">= aspnetcore-2.1 < aspnetcore-3.0"
+
+Aşağıdaki örnekler indirilebilir ve test edilebilir:
+
+| Örnek               | Belge |
+| ----------------- | ------------ |
+| [.NET Core MVC](https://github.com/blowdart/AspNetSameSiteSamples/tree/master/AspNetCore21MVC)  | <xref:security/samesite/mvc21> |
+| [.NET Core Razor Pages](https://github.com/blowdart/AspNetSameSiteSamples/tree/master/AspNetCore21RazorPages)  | <xref:security/samesite/rp21> |
+
+::: moniker-end
+
+::: moniker range=">= aspnetcore-3.0"
+
+Aşağıdaki örnek indirilebilir ve test edilebilir:
+
+
+| Örnek               | Belge |
+| ----------------- | ------------ |
+| [.NET Core Razor Pages](https://github.com/blowdart/AspNetSameSiteSamples/tree/master/AspNetCore31RazorPages)  | <xref:security/samesite/rp31> |
+
+::: moniker-end
+
+::: moniker range=">= aspnetcore-2.2"
+
+## <a name="net-core-support-for-the-samesite-attribute"></a>SameSite özniteliği için .NET Core desteği
+
+.NET Core 2,2, Aralık 2019 ' de güncelleştirmelerin yayımlanmasından bu yana SameSite için 2019 taslak standardını destekler. Geliştiriciler `HttpCookie.SameSite` özelliğini kullanarak sameSite özniteliğinin değerini programlı bir şekilde denetleyebilir. `SameSite` özelliğini Strict, LAX veya None olarak ayarlamak, bu değerlerin tanımlama bilgisiyle ağda yazıldığı sonuçlara neden olur. Şuna eşit ayarı (SameSiteMode) (-1), tanımlama bilgisine sahip ağa hiçbir sameSite özniteliği ekleneceğini belirtir
+
+[!code-csharp[](samesite/snippets/Privacy.cshtml.cs?name=snippet)]
+
+.NET Core 3,0, güncelleştirilmiş SameSite değerlerini destekler ve `SameSiteMode` sabit listesine `SameSiteMode.Unspecified` ek bir sabit listesi değeri ekler.
+Bu yeni değer, tanımlama bilgisiyle birlikte hiçbir sameSite gönderilmesi gerektiğini gösterir.
+
+::: moniker-end
+
+::: moniker range="= aspnetcore-2.1"
+
+## <a name="december-patch-behavior-changes"></a>Aralık düzeltme eki davranış değişiklikleri
+
+.NET Framework ve .NET Core 2,1 için belirli davranış değişikliği, `SameSite` özelliğinin `None` değerini nasıl yorumlayacağını açıklamaktadır. Düzeltme Eki, bir `None` değeri "hiç bir özniteliği yayma" anlamına gelir ve düzeltme eki sonrasında "özniteliği bir `None`değeri ile yayma" anlamına gelir. Düzeltme ekinin bir `SameSite` değeri `(SameSiteMode)(-1)`, özniteliğin yayınlanmasına neden olur.
+
+Form kimlik doğrulaması ve oturum durumu tanımlama bilgileri için varsayılan SameSite değeri `None` `Lax`olarak değiştirildi.
+
+::: moniker-end
 
 ## <a name="api-usage-with-samesite"></a>SameSite ile API kullanımı
 
@@ -36,7 +86,7 @@ Tanımlama bilgilerini gösteren her bir ASP.NET Core bileşeni, SameSite ' ın 
 
 Tanımlama bilgilerini sunan tüm ASP.NET Core bileşenleri, önceki varsayılan değerleri, senaryoları için uygun ayarlarla geçersiz kılar. Geçersiz kılınan önceki varsayılan değerler değişmemiştir.
 
-| Bileşen | tanımlama bilgisi | Varsayılan |
+| Bileşen | bilgilerinin | Varsayılan |
 | ------------- | ------------- |
 | <xref:Microsoft.AspNetCore.Http.CookieBuilder> | <xref:Microsoft.AspNetCore.Http.CookieBuilder.SameSite> | `Unspecified` |
 | <xref:Microsoft.AspNetCore.Http.HttpContext.Session>  | [SessionOptions. Cookie](xref:Microsoft.AspNetCore.Builder.SessionOptions.Cookie) |`Lax` |
@@ -144,6 +194,8 @@ Google, eski Chrome sürümlerini kullanılabilir hale getirir. Chrome 'un eski 
 * [Kmıum 76 Win64](https://commondatastorage.googleapis.com/chromium-browser-snapshots/index.html?prefix=Win_x64/664998/)
 * [Kmıum 74 Win64](https://commondatastorage.googleapis.com/chromium-browser-snapshots/index.html?prefix=Win_x64/638880/)
 
+Canary sürüm `80.0.3975.0`başlayarak, LAX + geçici SONRASı hafifletme, devre dışı bırakılan özelliğin son bitiş durumunda siteler ve hizmetlerin test edilmesine izin vermek için yeni bayrak `--enable-features=SameSiteDefaultChecksMethodRigorously` kullanılarak test amacıyla etkinleştirilebilir. Daha fazla bilgi için, bkz. Kmıum projeleri [SameSite Updates](https://www.chromium.org/updates/same-site)
+
 ### <a name="test-with-safari"></a>Safari ile test etme
 
 Safari 12, önceki taslağı tamamen uyguladık ve yeni `None` değeri bir tanımlama bilgisinde olduğunda başarısız olur. Bu belgede [eski tarayıcıları destekleyen](#sob) tarayıcı algılama kodu aracılığıyla `None` kaçınılmaz. MSAL, ADAL veya kullandığınız herhangi bir kitaplığı kullanarak Safari 12, Safari 13 ve WebKit tabanlı işletim sistemi stili oturum açma stilini test edin. Sorun, temel alınan işletim sistemi sürümüne bağımlıdır. OSX Mojave (10,14) ve iOS 12 ' nin yeni SameSite davranışıyla uyumluluk sorunlarına sahip olduğu bilinmektedir. İşletim sistemini OSX Catalina (10,15) veya iOS 13 ' e yükseltmek sorunu düzeltir. Safari 'nin şu anda yeni belirtim davranışını test etmek için bir katılım bayrağı yoktur.
@@ -154,7 +206,7 @@ Yeni standart için Firefox desteği, `about:config` sayfasında özellik `netwo
 
 ### <a name="test-with-edge-browser"></a>Edge tarayıcısı ile test
 
-Microsoft Edge, eski SameSite standardını destekler. Microsoft Edge sürüm 44, yeni standart ile bilinen uyumluluk sorunlarına sahip değildir.
+Edge, eski SameSite standardını destekler. Edge sürüm 44, yeni standart ile bilinen uyumluluk sorunlarına sahip değildir.
 
 ### <a name="test-with-edge-chromium"></a>Edge ile test (Kmıum)
 
@@ -169,3 +221,20 @@ Elektron sürümleri, daha eski bir Kmıum sürümlerini içerir. Örneğin, tak
 * [Kmıum blogu: geliştiriciler: yeni SameSite için hazırlanın = yok; Güvenli tanımlama bilgisi ayarları](https://blog.chromium.org/2019/10/developers-get-ready-for-new.html)
 * [Aynı şekilde açıklanan SameSite tanımlama bilgileri](https://web.dev/samesite-cookies-explained/)
 * [Kasım 2019 düzeltme ekleri](https://devblogs.microsoft.com/dotnet/net-core-November-2019/)
+
+ ::: moniker range=">= aspnetcore-2.1 < aspnetcore-3.0"
+
+| Örnek               | Belge |
+| ----------------- | ------------ |
+| [.NET Core MVC](https://github.com/blowdart/AspNetSameSiteSamples/tree/master/AspNetCore21MVC)  | <xref:security/samesite/mvc21> |
+| [.NET Core Razor Pages](https://github.com/blowdart/AspNetSameSiteSamples/tree/master/AspNetCore21RazorPages)  | <xref:security/samesite/rp21> |
+
+::: moniker-end
+
+ ::: moniker range=">= aspnetcore-3.0"
+
+| Örnek               | Belge |
+| ----------------- | ------------ |
+| [.NET Core Razor Pages](https://github.com/blowdart/AspNetSameSiteSamples/tree/master/AspNetCore31RazorPages)  | <xref:security/samesite/rp31> |
+
+::: moniker-end

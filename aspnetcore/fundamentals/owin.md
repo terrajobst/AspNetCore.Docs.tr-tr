@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: H1Hack27Feb2017
 ms.date: 12/18/2018
 uid: fundamentals/owin
-ms.openlocfilehash: 980b60512bdeadd2a58b87e633ebf1416f725851
-ms.sourcegitcommit: 85564ee396c74c7651ac47dd45082f3f1803f7a2
+ms.openlocfilehash: 14b23ba6d284413e20417bbd4142e19a656350ac
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77172088"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78666686"
 ---
 # <a name="open-web-interface-for-net-owin-with-aspnet-core"></a>ASP.NET Core ile .NET için Web arabirimi 'ni (OWıN) açın
 
@@ -29,7 +29,7 @@ Bu, ASP.NET Core bir OWIN uyumlu sunucu/konak üzerinde barındırılmasına vey
 > [!NOTE]
 > Bu bağdaştırıcıların kullanılması bir performans maliyetiyle birlikte gelir. Yalnızca ASP.NET Core bileşenleri kullanan uygulamalar `Microsoft.AspNetCore.Owin` paketi veya bağdaştırıcıları kullanmaz.
 
-[Örnek kodu görüntüleme veya indirme](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/owin/sample) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
+[Örnek kodu görüntüleme veya indirme](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/owin/sample) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
 
 ## <a name="running-owin-middleware-in-the-aspnet-core-pipeline"></a>ASP.NET Core ardışık düzeninde OWıN ara yazılımı çalıştırma
 
@@ -217,7 +217,7 @@ public class Startup
 }
 ```
 
-Bu [örnek](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/owin/sample) , öncekiyle aynı `NowinServer` kullanılarak yapılandırılır-tek fark, uygulamanın `Configure` yönteminde nasıl yapılandırıldığına ilişkin bir yöntemdir. [Basit bir WebSocket istemcisi](https://chrome.google.com/webstore/detail/simple-websocket-client/pfdhoblngboilpfeibdedpjgfnlcodoo?hl=en) kullanan bir test, uygulamayı gösterir:
+Bu [örnek](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/owin/sample) , öncekiyle aynı `NowinServer` kullanılarak yapılandırılır-tek fark, uygulamanın `Configure` yönteminde nasıl yapılandırıldığına ilişkin bir yöntemdir. [Basit bir WebSocket istemcisi](https://chrome.google.com/webstore/detail/simple-websocket-client/pfdhoblngboilpfeibdedpjgfnlcodoo?hl=en) kullanan bir test, uygulamayı gösterir:
 
 ![Web yuvası test Istemcisi](owin/_static/websocket-test.png)
 

@@ -11,15 +11,15 @@ no-loc:
 - SignalR
 uid: blazor/routing
 ms.openlocfilehash: 32459f9f42220b01ce04e6444a9bb4a9592ee2da
-ms.sourcegitcommit: 0b0e485a8a6dfcc65a7a58b365622b3839f4d624
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76928278"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78663809"
 ---
 # <a name="aspnet-core-blazor-routing"></a>ASP.NET Core Blazor yönlendirme
 
-Tarafından [Luke Latham](https://github.com/guardrex)
+[Luke Latham](https://github.com/guardrex) tarafından
 
 [!INCLUDE[](~/includes/blazorwasm-preview-notice.md)]
 
@@ -137,16 +137,16 @@ Aşağıdaki örnekte, `Users` bileşene olan yol yalnızca şu durumlarda eşle
 
 Aşağıdaki tabloda gösterilen yol kısıtlamaları mevcuttur. Sabit kültür ile eşleşen yol kısıtlamaları için daha fazla bilgi için tablonun altındaki uyarıya bakın.
 
-| Kısıtlaması | Örnek           | Örnek eşleşmeler                                                                  | Bilmesi<br>kültür<br>eşleştirme |
+| Kısıtlaması | Örnek           | Örnek eşleşmeler                                                                  | Bilmesi<br>culture<br>eşleştirme |
 | ---------- | ----------------- | -------------------------------------------------------------------------------- | :------------------------------: |
 | `bool`     | `{active:bool}`   | `true`, `FALSE`                                                                  | Hayır                               |
-| `datetime` | `{dob:datetime}`  | `2016-12-31`, `2016-12-31 7:32pm`                                                | Evet                              |
-| `decimal`  | `{price:decimal}` | `49.99`, `-1,000.01`                                                             | Evet                              |
-| `double`   | `{weight:double}` | `1.234`, `-1,001.01e8`                                                           | Evet                              |
-| `float`    | `{weight:float}`  | `1.234`, `-1,001.01e8`                                                           | Evet                              |
+| `datetime` | `{dob:datetime}`  | `2016-12-31`, `2016-12-31 7:32pm`                                                | Yes                              |
+| `decimal`  | `{price:decimal}` | `49.99`, `-1,000.01`                                                             | Yes                              |
+| `double`   | `{weight:double}` | `1.234`, `-1,001.01e8`                                                           | Yes                              |
+| `float`    | `{weight:float}`  | `1.234`, `-1,001.01e8`                                                           | Yes                              |
 | `guid`     | `{id:guid}`       | `CD2C1638-1638-72D5-1638-DEADBEEF1638`, `{CD2C1638-1638-72D5-1638-DEADBEEF1638}` | Hayır                               |
-| `int`      | `{id:int}`        | `123456789`, `-123456789`                                                        | Evet                              |
-| `long`     | `{ticks:long}`    | `123456789`, `-123456789`                                                        | Evet                              |
+| `int`      | `{id:int}`        | `123456789`, `-123456789`                                                        | Yes                              |
+| `long`     | `{ticks:long}`    | `123456789`, `-123456789`                                                        | Yes                              |
 
 > [!WARNING]
 > URL 'YI doğrulayan ve bir CLR türüne (örneğin `int` veya `DateTime`) dönüştürülen yol kısıtlamaları her zaman sabit kültürü kullanır. Bu kısıtlamalar, URL 'nin yerelleştirilemeyen olduğunu varsayar.

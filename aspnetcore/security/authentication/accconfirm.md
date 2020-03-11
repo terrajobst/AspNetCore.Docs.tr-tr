@@ -6,11 +6,11 @@ ms.author: riande
 ms.date: 03/11/2019
 uid: security/authentication/accconfirm
 ms.openlocfilehash: 49d3d214fd64edc5b17df2df929ddc3c2af47ede
-ms.sourcegitcommit: 7dfe6cc8408ac6a4549c29ca57b0c67ec4baa8de
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75829276"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78665391"
 ---
 # <a name="account-confirmation-and-password-recovery-in-aspnet-core"></a>ASP.NET Core hesap onaylama ve parola kurtarma
 
@@ -18,8 +18,8 @@ By [Rick Anderson](https://twitter.com/RickAndMSFT), [Ponant](https://github.com
 
 Bu öğreticide, e-posta onayı ve parola sıfırlama ile bir ASP.NET Core uygulamasının nasıl oluşturulacağı gösterilmektedir. Bu öğretici bir başlangıç konusu **değildir** . Sahibi olmalısınız:
 
-* [ASP.NET Core](xref:tutorials/razor-pages/razor-pages-start)
-* [Kimlik Doğrulaması](xref:security/authentication/identity)
+* [ASP.NET Çekirdeği](xref:tutorials/razor-pages/razor-pages-start)
+* [Kimlik doğrulaması](xref:security/authentication/identity)
 * [Entity Framework Core](xref:data/ef-mvc/intro)
 
 <!-- see C:/Dropbox/wrk/Code/SendGridConsole/Program.cs -->
@@ -32,7 +32,7 @@ ASP.NET Core 1,1 sürümü için [Bu PDF dosyasına](https://webpifeed.blob.core
 
 ::: moniker range="> aspnetcore-2.2"
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Önkoşullar
 
 [.NET Core 3,0 SDK veya üzeri](https://dotnet.microsoft.com/download/dotnet-core/3.0)
 
@@ -63,7 +63,7 @@ Güvenli e-posta anahtarını getirmek için bir sınıf oluşturun. Bu örnek i
 
 #### <a name="configure-sendgrid-user-secrets"></a>SendGrid Kullanıcı gizli dizilerini yapılandırma
 
-`SendGridUser` ve `SendGridKey` [gizli-Manager aracı](xref:security/app-secrets)ile ayarlayın. Örneğin:
+`SendGridUser` ve `SendGridKey` [gizli-Manager aracı](xref:security/app-secrets)ile ayarlayın. Örnek:
 
 ```dotnetcli
 dotnet user-secrets set SendGridUser RickAndMSFT
@@ -91,7 +91,7 @@ Bu öğretici, [SendGrid](https://sendgrid.com/)aracılığıyla e-posta bildiri
 
 `SendGrid` NuGet paketini yükler:
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 Paket Yöneticisi konsolundan, aşağıdaki komutu girin:
 
@@ -99,7 +99,7 @@ Paket Yöneticisi konsolundan, aşağıdaki komutu girin:
 Install-Package SendGrid
 ```
 
-# <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
+# <a name="net-core-cli"></a>[.NET Core CLI](#tab/netcore-cli)
 
 Konsolundan aşağıdaki komutu girin:
 
@@ -134,7 +134,7 @@ Web uygulamasını çalıştırın ve hesap onaylama ve parola kurtarma akışı
 * Hesap onay bağlantısı için e-postanızı kontrol edin. E-postayı alamazsanız [hata ayıklama e-postasına](#debug) bakın.
 * E-postanızı onaylamak için bağlantıya tıklayın.
 * E-postanız ve parolanızla oturum açın.
-* Sign out.
+* Oturumunuzu kapatın.
 
 ### <a name="test-password-reset"></a>Sınama parolası sıfırlama
 
@@ -217,7 +217,7 @@ Kullanıcılara bir sitede hesap onayını etkinleştirmek, mevcut tüm kullanı
 
 ::: moniker range="> aspnetcore-2.0 < aspnetcore-3.0"
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Önkoşullar
 
 [.NET Core 2,2 SDK veya üzeri](https://www.microsoft.com/net/download/all)
 
@@ -271,7 +271,7 @@ Güvenli e-posta anahtarını getirmek için bir sınıf oluşturun. Bu örnek i
 
 #### <a name="configure-sendgrid-user-secrets"></a>SendGrid Kullanıcı gizli dizilerini yapılandırma
 
-`SendGridUser` ve `SendGridKey` [gizli-Manager aracı](xref:security/app-secrets)ile ayarlayın. Örneğin:
+`SendGridUser` ve `SendGridKey` [gizli-Manager aracı](xref:security/app-secrets)ile ayarlayın. Örnek:
 
 ```console
 C:/WebAppl>dotnet user-secrets set SendGridUser RickAndMSFT
@@ -297,7 +297,7 @@ Bu öğretici, [SendGrid](https://sendgrid.com/)aracılığıyla e-posta bildiri
 
 `SendGrid` NuGet paketini yükler:
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 Paket Yöneticisi konsolundan, aşağıdaki komutu girin:
 
@@ -305,7 +305,7 @@ Paket Yöneticisi konsolundan, aşağıdaki komutu girin:
 Install-Package SendGrid
 ```
 
-# <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
+# <a name="net-core-cli"></a>[.NET Core CLI](#tab/netcore-cli)
 
 Konsolundan aşağıdaki komutu girin:
 
@@ -354,7 +354,7 @@ Web uygulamasını çalıştırın ve hesap onaylama ve parola kurtarma akışı
 * Hesap onay bağlantısı için e-postanızı kontrol edin. E-postayı alamazsanız [hata ayıklama e-postasına](#debug) bakın.
 * E-postanızı onaylamak için bağlantıya tıklayın.
 * E-postanız ve parolanızla oturum açın.
-* Sign out.
+* Oturumunuzu kapatın.
 
 ### <a name="view-the-manage-page"></a>Yönet sayfasını görüntüle
 

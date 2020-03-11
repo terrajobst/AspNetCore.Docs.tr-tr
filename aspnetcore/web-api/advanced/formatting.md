@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: H1Hack27Feb2017
 ms.date: 12/05/2019
 uid: web-api/advanced/formatting
-ms.openlocfilehash: cab383053751598b882f3716943d3d9392c56f4a
-ms.sourcegitcommit: 29ace642ca0e1f0b48a18d66de266d8811df2b83
+ms.openlocfilehash: 908016720ade67a02ebe30d1dcb7929ad7592270
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74987964"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78661905"
 ---
 # <a name="format-response-data-in-aspnet-core-web-api"></a>ASP.NET Core Web API 'sindeki yanıt verilerini biçimlendirme
 
@@ -19,7 +19,7 @@ By [Rick Anderson](https://twitter.com/RickAndMSFT) ve [Steve Smith](https://ard
 
 ASP.NET Core MVC, yanıt verilerini biçimlendirme desteğine sahiptir. Yanıt verileri, belirli biçimler kullanılarak veya istemci tarafından istenen biçime yanıt olarak biçimlendirilebilir.
 
-[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/web-api/advanced/formatting) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
+[Örnek kodu görüntüleme veya indirme](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/web-api/advanced/formatting) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
 
 ## <a name="format-specific-action-results"></a>Formata özgü eylem sonuçları
 
@@ -135,7 +135,7 @@ services.AddControllers().AddJsonOptions(options =>
 });
 ```
 
-Çıkış serileştirme seçenekleri, eylem başına temelinde, `JsonResult`kullanılarak yapılandırılabilir. Örneğin:
+Çıkış serileştirme seçenekleri, eylem başına temelinde, `JsonResult`kullanılarak yapılandırılabilir. Örnek:
 
 ```csharp
 public IActionResult Get()
@@ -174,7 +174,7 @@ services.AddControllers().AddNewtonsoftJson(options =>
 });
 ```
 
-Çıkış serileştirme seçenekleri, eylem başına temelinde, `JsonResult`kullanılarak yapılandırılabilir. Örneğin:
+Çıkış serileştirme seçenekleri, eylem başına temelinde, `JsonResult`kullanılarak yapılandırılabilir. Örnek:
 
 ```csharp
 public IActionResult Get()
@@ -230,7 +230,7 @@ Bazı özel durumlar, yerleşik formatlayıcılar kullanılarak uygulanır. `str
 
 `StringOutputFormatter`olmadan, yerleşik JSON biçimlendirici `string` dönüş türlerini biçimlendirir. Yerleşik JSON biçimlendiricisi kaldırılırsa ve bir XML biçimlendirici varsa, XML biçimlendirici `string` dönüş türlerini biçimlendirir. Aksi takdirde, `string` dönüş türleri `406 Not Acceptable`döndürür.
 
-`HttpNoContentOutputFormatter`olmadan, null nesneler yapılandırılmış biçimlendirici kullanılarak biçimlendirilir. Örneğin:
+`HttpNoContentOutputFormatter`olmadan, null nesneler yapılandırılmış biçimlendirici kullanılarak biçimlendirilir. Örnek:
 
 * JSON biçimlendiricisi `null`gövdesiyle bir yanıt döndürür.
 * XML biçimlendiricisi, `xsi:nil="true"` ayarlanan özniteliğe sahip boş bir XML öğesi döndürür.
@@ -242,7 +242,7 @@ Bazı özel durumlar, yerleşik formatlayıcılar kullanılarak uygulanır. `str
 * Sorgu dizesinde veya yolun bir bölümünde.
 * . Xml veya. JSON gibi formata özgü bir dosya uzantısı kullanarak.
 
-İstek yolundan eşleme, API 'nin kullandığı rotada belirtilmelidir. Örneğin:
+İstek yolundan eşleme, API 'nin kullandığı rotada belirtilmelidir. Örnek:
 
 [!code-csharp[](./formatting/sample/Controllers/ProductsController.cs?name=snippet)]
 

@@ -4,11 +4,11 @@
 
 Bir *veri* klasörü oluşturun.
 
-Aşağıdaki `MvcMovieContext` sınıfı *veri* klasörüne ekleyin:  
+Aşağıdaki `MvcMovieContext` sınıfını *veri* klasörüne ekleyin:  
 
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie3/zDocOnly/MvcMovieContext.cs?name=snippet)]
 
-Önceki kod, varlık kümesi `DbSet` için bir özellik oluşturur. Entity Framework terimlerinde, genellikle bir varlık kümesi bir veritabanı tablosuna karşılık gelir ve bir varlık tablodaki bir satıra karşılık gelir.
+Önceki kod, varlık kümesi için bir `DbSet` özelliği oluşturur. Entity Framework terimlerinde, genellikle bir varlık kümesi bir veritabanı tablosuna karşılık gelir ve bir varlık tablodaki bir satıra karşılık gelir.
 
 <a name="cs"></a>
 
@@ -33,7 +33,7 @@ using MvcMovie.Data;
 using Microsoft.EntityFrameworkCore;
 ```
 
-Veritabanı bağlamını içindeki `Startup.ConfigureServices` [bağımlılık ekleme](xref:fundamentals/dependency-injection) kapsayıcısına kaydedin.
+Veritabanı bağlamını `Startup.ConfigureServices`içindeki [bağımlılık ekleme](xref:fundamentals/dependency-injection) kapsayıcısına kaydedin.
 
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie3/Startup.cs?name=snippet_UseSqlite&highlight=6-7)]
 
@@ -43,11 +43,11 @@ Projeyi derleyici hatalarına yönelik bir denetim olarak derleyin.
 
 ::: moniker range="< aspnetcore-3.0"
 
-Aşağıdaki `MvcMovieContext` sınıfının *modelleri* klasörü:  
+Aşağıdaki `MvcMovieContext` sınıfını *modeller* klasörüne ekleyin:  
 
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie22/Data/MvcMovieContext.cs)]
 
-Önceki kod, varlık kümesi `DbSet` için bir özellik oluşturur. Entity Framework terimlerinde, genellikle bir varlık kümesi bir veritabanı tablosuna karşılık gelir ve bir varlık tablodaki bir satıra karşılık gelir.
+Önceki kod, varlık kümesi için bir `DbSet` özelliği oluşturur. Entity Framework terimlerinde, genellikle bir varlık kümesi bir veritabanı tablosuna karşılık gelir ve bir varlık tablodaki bir satıra karşılık gelir.
 
 <a name="cs"></a>
 
@@ -66,7 +66,7 @@ dotnet add package Microsoft.EntityFrameworkCore.SQLite
 dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design
 ```
 
-Paket `Microsoft.VisualStudio.Web.CodeGeneration.Design` , yapı iskelesi için gereklidir.
+Yapı iskelesi için `Microsoft.VisualStudio.Web.CodeGeneration.Design` paketi gereklidir.
 
 <a name="reg"></a>
 
@@ -79,7 +79,7 @@ using MvcMovie.Models;
 using Microsoft.EntityFrameworkCore;
 ```
 
-Veritabanı bağlamını içindeki `Startup.ConfigureServices` [bağımlılık ekleme](xref:fundamentals/dependency-injection) kapsayıcısına kaydedin.
+Veritabanı bağlamını `Startup.ConfigureServices`içindeki [bağımlılık ekleme](xref:fundamentals/dependency-injection) kapsayıcısına kaydedin.
 
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie22/Startup.cs?name=snippet_UseSqlite&highlight=11-12)]
 

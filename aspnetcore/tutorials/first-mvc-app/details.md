@@ -6,15 +6,15 @@ ms.author: riande
 ms.date: 12/13/2018
 uid: tutorials/first-mvc-app/details
 ms.openlocfilehash: 04eb2efa4e67d84e575580a6248d0b5b567064af
-ms.sourcegitcommit: b3e1e31e5d8bdd94096cf27444594d4a7b065525
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74803389"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78662913"
 ---
 # <a name="examine-the-details-and-delete-methods-of-an-aspnet-core-app"></a>ASP.NET Core uygulamasının Ayrıntılar ve silme yöntemlerini inceleyin
 
-Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
+Gönderen [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 Film denetleyicisini açın ve `Details` yöntemi inceleyin:
 
@@ -51,9 +51,9 @@ Bu sorunun iki yaklaşımı vardır, biri yöntemlere farklı adlar vermektir. B
 public async Task<IActionResult> Delete(int id, bool notUsed)
 ```
 
-### <a name="publish-to-azure"></a>Azure'a Yayımlama
+### <a name="publish-to-azure"></a>Azure’da Yayımlama
 
 Azure 'a dağıtma hakkında bilgi için bkz. [öğretici: Azure App Service .NET Core ve SQL veritabanı Web uygulaması oluşturma](/azure/app-service/app-service-web-tutorial-dotnetcore-sqldb).
 
 > [!div class="step-by-step"]
-> [Önceki](validation.md)
+> [Öncekini](validation.md)

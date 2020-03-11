@@ -1,22 +1,22 @@
 ---
 title: ASP.NET Core Azure Key Vault yapılandırma sağlayıcısı
-author: guardrex
+author: rick-anderson
 description: Çalışma zamanında yüklenen ad-değer çiftlerini kullanarak bir uygulamayı yapılandırmak için Azure Key Vault yapılandırma sağlayıcısını nasıl kullanacağınızı öğrenin.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
 ms.date: 02/07/2020
 uid: security/key-vault-configuration
-ms.openlocfilehash: 7eb8cf5dcd6b9f112a2ef30e694b6223a7d1f2fe
-ms.sourcegitcommit: 235623b6e5a5d1841139c82a11ac2b4b3f31a7a9
+ms.openlocfilehash: d617627154e3125a6a59d082fd401fc69c25fcb3
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/10/2020
-ms.locfileid: "77114880"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78660351"
 ---
 # <a name="azure-key-vault-configuration-provider-in-aspnet-core"></a>ASP.NET Core Azure Key Vault yapılandırma sağlayıcısı
 
-[Luke Latham](https://github.com/guardrex) ve [Andrew Stanton-nurte](https://github.com/anurse)
+, [Andrew Stanton-nurte](https://github.com/anurse)
 
 ::: moniker range=">= aspnetcore-3.0"
 
@@ -25,7 +25,7 @@ Bu belgede, Azure Key Vault gizliliklerden uygulama yapılandırma değerlerini 
 * Hassas yapılandırma verilerine erişimi denetleme.
 * Yapılandırma verilerini depolarken FIPS 140-2 düzey 2 doğrulanan donanım güvenlik modülleri (HSM 'ler) gereksinimini karşılarsınız.
 
-[Örnek kodu görüntüleme veya indirme](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/key-vault-configuration/samples) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
+[Örnek kodu görüntüleme veya indirme](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/security/key-vault-configuration/samples) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
 
 ## <a name="packages"></a>Paketler
 
@@ -289,7 +289,7 @@ Bu yaklaşım uygulandığında:
 
 Sağlayıcı, bir POCO dizisine bağlamak için yapılandırma değerlerini bir diziye okuyabilme özelliğine sahiptir.
 
-Anahtarların iki nokta (`:`) ayırıcısı içermesine izin veren bir yapılandırma kaynağından okurken, bir dizi oluşturan anahtarları ayırt etmek için bir sayısal anahtar kesimi kullanılır (`:0:`, `:1:`,... `:{n}:`). Daha fazla bilgi için bkz. [yapılandırma: diziyi bir sınıfa bağlama](xref:fundamentals/configuration/index#bind-an-array-to-a-class).
+Anahtarların iki nokta (`:`) ayırıcısı içermesine izin veren bir yapılandırma kaynağından okurken, bir dizi oluşturan anahtarları ayırt etmek için bir sayısal anahtar kesimi kullanılır (`:0:`, `:1:`, &hellip; `:{n}:`). Daha fazla bilgi için bkz. [yapılandırma: diziyi bir sınıfa bağlama](xref:fundamentals/configuration/index#bind-an-array-to-a-class).
 
 Azure Key Vault anahtarlar ayırıcı olarak iki nokta üst üste kullanamaz. Bu konuda açıklanan yaklaşım, hiyerarşik değerler (bölümler) için bir ayırıcı olarak çift tire (`--`) kullanır. Dizi anahtarları çift tireler ve sayısal anahtar kesimleri (`--0--`, `--1--`, &hellip; `--{n}--`) ile Azure Key Vault depolanır.
 
@@ -318,7 +318,7 @@ Bir JSON dosyası tarafından sunulan aşağıdaki [Serilog](https://serilog.net
 
 Önceki JSON dosyasında gösterilen yapılandırma Çift tire (`--`) gösterimi ve sayısal kesimleri kullanarak Azure Key Vault depolanır:
 
-| Anahtar | Değer |
+| Anahtar | Value |
 | --- | ----- |
 | `Serilog--WriteTo--0--Name` | `AzureTableStorage` |
 | `Serilog--WriteTo--0--Args--storageTableName` | `logs` |
@@ -371,7 +371,7 @@ Bu belgede, Azure Key Vault gizliliklerden uygulama yapılandırma değerlerini 
 * Hassas yapılandırma verilerine erişimi denetleme.
 * Yapılandırma verilerini depolarken FIPS 140-2 düzey 2 doğrulanan donanım güvenlik modülleri (HSM 'ler) gereksinimini karşılarsınız.
 
-[Örnek kodu görüntüleme veya indirme](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/key-vault-configuration/samples) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
+[Örnek kodu görüntüleme veya indirme](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/security/key-vault-configuration/samples) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
 
 ## <a name="packages"></a>Paketler
 
@@ -616,7 +616,7 @@ Bu yaklaşım uygulandığında:
 
 Sağlayıcı, bir POCO dizisine bağlamak için yapılandırma değerlerini bir diziye okuyabilme özelliğine sahiptir.
 
-Anahtarların iki nokta (`:`) ayırıcısı içermesine izin veren bir yapılandırma kaynağından okurken, bir dizi oluşturan anahtarları ayırt etmek için bir sayısal anahtar kesimi kullanılır (`:0:`, `:1:`,... `:{n}:`). Daha fazla bilgi için bkz. [yapılandırma: diziyi bir sınıfa bağlama](xref:fundamentals/configuration/index#bind-an-array-to-a-class).
+Anahtarların iki nokta (`:`) ayırıcısı içermesine izin veren bir yapılandırma kaynağından okurken, bir dizi oluşturan anahtarları ayırt etmek için bir sayısal anahtar kesimi kullanılır (`:0:`, `:1:`, &hellip; `:{n}:`). Daha fazla bilgi için bkz. [yapılandırma: diziyi bir sınıfa bağlama](xref:fundamentals/configuration/index#bind-an-array-to-a-class).
 
 Azure Key Vault anahtarlar ayırıcı olarak iki nokta üst üste kullanamaz. Bu konuda açıklanan yaklaşım, hiyerarşik değerler (bölümler) için bir ayırıcı olarak çift tire (`--`) kullanır. Dizi anahtarları çift tireler ve sayısal anahtar kesimleri (`--0--`, `--1--`, &hellip; `--{n}--`) ile Azure Key Vault depolanır.
 
@@ -645,7 +645,7 @@ Bir JSON dosyası tarafından sunulan aşağıdaki [Serilog](https://serilog.net
 
 Önceki JSON dosyasında gösterilen yapılandırma Çift tire (`--`) gösterimi ve sayısal kesimleri kullanarak Azure Key Vault depolanır:
 
-| Anahtar | Değer |
+| Anahtar | Value |
 | --- | ----- |
 | `Serilog--WriteTo--0--Name` | `AzureTableStorage` |
 | `Serilog--WriteTo--0--Args--storageTableName` | `logs` |

@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-3.0'
 ms.author: jamesnk
 ms.date: 08/21/2019
 uid: grpc/client
-ms.openlocfilehash: 1e7887388a752fb35d00e65db210c3924c6ab192
-ms.sourcegitcommit: 7dfe6cc8408ac6a4549c29ca57b0c67ec4baa8de
+ms.openlocfilehash: 6a6a649f7194354b16f3d67160be02428cc01170
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75829107"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78667176"
 ---
 # <a name="call-grpc-services-with-the-net-client"></a>.NET istemcisiyle gRPC hizmetlerini çağırma
 
@@ -54,6 +54,9 @@ Kanal ve istemci performansı ve kullanımı:
 
 > [!NOTE]
 > [.Net istemcisiyle güvenli olmayan gRPC hizmetlerini çağırmak](xref:grpc/troubleshoot#call-insecure-grpc-services-with-net-core-client)için ek yapılandırma gerekir.
+
+> [!NOTE]
+> `Grpc.Net.Client` ile HTTP/2 üzerinden gRPC çağırma, Xamarin üzerinde şu anda desteklenmiyor. Gelecek bir Xamarin sürümünde HTTP/2 desteğini geliştirmek için çalışıyoruz. [GRPC. Core](https://www.nuget.org/packages/Grpc.Core) ve [GRPC-Web](xref:grpc/browser) , bugün çalışan önemli alternatiflerdir.
 
 ## <a name="make-grpc-calls"></a>GRPC çağrıları yapma
 

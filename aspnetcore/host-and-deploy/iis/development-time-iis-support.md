@@ -1,22 +1,22 @@
 ---
 title: ASP.NET Core için Visual Studio 'da geliştirme zamanı IIS desteği
-author: guardrex
+author: rick-anderson
 description: Windows Server 'da IIS ile çalışırken ASP.NET Core uygulamalarda hata ayıklama desteğini bulur.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
 ms.date: 02/07/2020
 uid: host-and-deploy/iis/development-time-iis-support
-ms.openlocfilehash: f03ee94e5890c58addef4ba0d3ba7a4af6b659e7
-ms.sourcegitcommit: 85564ee396c74c7651ac47dd45082f3f1803f7a2
+ms.openlocfilehash: f87a1d8cf41248f14932908c0633f98a7198853f
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77172102"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78664047"
 ---
 # <a name="development-time-iis-support-in-visual-studio-for-aspnet-core"></a>ASP.NET Core için Visual Studio 'da geliştirme zamanı IIS desteği
 
-, [Sourabh Shirhatti](https://twitter.com/sshirhatti) ve [Luke Latham](https://github.com/guardrex) tarafından
+, [Sourabh Shirhatti](https://twitter.com/sshirhatti)
 
 ::: moniker range=">= aspnetcore-3.0"
 

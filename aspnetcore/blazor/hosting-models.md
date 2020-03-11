@@ -5,17 +5,17 @@ description: Blazor WebAssembly ve Blazor sunucusu barındırma modellerini anla
 monikerRange: '>= aspnetcore-3.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/12/2020
+ms.date: 02/18/2020
 no-loc:
 - Blazor
 - SignalR
 uid: blazor/hosting-models
-ms.openlocfilehash: 54be0e032a60c69880f428e52f9d778032385dc5
-ms.sourcegitcommit: 6645435fc8f5092fc7e923742e85592b56e37ada
+ms.openlocfilehash: e6ce2be53c35268854e0e8d408b649a8c6ef497e
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77447054"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78658321"
 ---
 # <a name="aspnet-core-opno-locblazor-hosting-models"></a>Blazor barındırma modellerini ASP.NET Core
 
@@ -33,7 +33,7 @@ Gelişmiş yapılandırma için bkz. <xref:blazor/hosting-model-configuration>.
 
 Blazor için sorumlu barındırma modeli, WebAssembly üzerinde tarayıcıda istemci tarafında çalışmaktadır. Blazor uygulaması, bağımlılıkları ve .NET çalışma zamanı tarayıcıya indirilir. Uygulama doğrudan tarayıcı kullanıcı arabirimi iş parçacığında yürütülür. UI güncelleştirmeleri ve olay işleme aynı işlem içinde oluşur. Uygulamanın varlıkları, istemcilere statik içerik sunan bir Web sunucusuna veya hizmete statik dosyalar olarak dağıtılır.
 
-![[! Üs. NO-LOC (Blazor)] WebAssembly: [! Üs. NO-LOC (Blazor)] uygulaması, tarayıcı içindeki bir kullanıcı arabirimi iş parçacığında çalışır.](hosting-models/_static/blazor-webassembly.png)
+![Blazor WebAssembly: Blazor uygulama tarayıcının içindeki bir kullanıcı arabirimi iş parçacığında çalışır.](hosting-models/_static/blazor-webassembly.png)
 
 İstemci tarafı barındırma modelini kullanarak bir Blazor uygulaması oluşturmak için, **Blazor WebAssembly uygulama** şablonunu ([DotNet New blazorwasm](/dotnet/core/tools/dotnet-new)) kullanın.
 
@@ -62,7 +62,7 @@ WebAssembly barındırma Blazor için aşağı yanlar vardır:
 
 Blazor sunucusu barındırma modeliyle uygulama, sunucuda bir ASP.NET Core uygulamasının içinden yürütülür. Kullanıcı Arabirimi güncelleştirmeleri, olay işleme ve JavaScript çağrıları [SignalR](xref:signalr/introduction) bir bağlantı üzerinden işlenir.
 
-![Tarayıcı, sunucuda bir [! üzerinde barındırılan uygulamayla (bir ASP.NET Core uygulamasının içinde barındırılır) etkileşime girer. Üs. NO-LOC (SignalR)] bağlantısı.](hosting-models/_static/blazor-server.png)
+![tarayıcı, sunucu üzerinde SignalR bir bağlantı üzerinden uygulamayla (ASP.NET Core uygulamasının içinde barındırılan) etkileşime girer.](hosting-models/_static/blazor-server.png)
 
 Blazor sunucusu barındırma modelini kullanarak bir Blazor uygulaması oluşturmak için ASP.NET Core **Blazor Server uygulama** şablonunu ([DotNet New blazorserver](/dotnet/core/tools/dotnet-new)) kullanın. ASP.NET Core uygulaması Blazor sunucusu uygulamasını barındırır ve istemcilerin bağlanacağı SignalR uç noktasını oluşturur.
 
@@ -122,6 +122,8 @@ Blazor sunucusu uygulaması [ASP.NET Core SignalR](xref:signalr/introduction)üz
 Bir Blazor sunucusu uygulamasına bağlı her tarayıcı ekranı (tarayıcı sekmesi veya IFRAME) SignalR bir bağlantı kullanır. Bu, tipik sunucu tarafından işlenmiş uygulamalarla karşılaştırıldığında daha önemli bir ayırım ifade etmiştir. Sunucu tarafından işlenen bir uygulamada, aynı uygulamayı birden çok tarayıcı ekranında açmak genellikle sunucuda ek kaynak taleplerine çevirilmez. Blazor sunucusu uygulamasında, her tarayıcı ekranı, sunucu tarafından yönetilecek ayrı bir devre ve bileşen durumunun ayrı örneklerini gerektirir.
 
 Blazor bir tarayıcı sekmesini kapatmayı *veya bir dış* URL 'ye gidilmesini göz önünde bulundurur. Düzgün sonlandırma durumunda, devre ve ilişkili kaynaklar hemen serbest bırakılır. Bir istemci, örneğin bir ağ kesintisi nedeniyle düzgün şekilde kesilmeyen bir şekilde kesilebilir. Blazor sunucusu, istemcinin yeniden bağlanmasına izin vermek için, yapılandırılabilir bir Aralık için bağlantısı kesilen devreleri depolar.
+
+Blazor sunucusu, kodun bir Kullanıcı devresi durumunda değişiklikler üzerinde kod çalıştırmaya izin veren bir *devhandler*tanımlamasına olanak tanır. Daha fazla bilgi için bkz. <xref:blazor/advanced-scenarios#blazor-server-circuit-handler>.
 
 ### <a name="ui-latency"></a>UI gecikmesi
 

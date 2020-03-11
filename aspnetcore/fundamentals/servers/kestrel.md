@@ -1,22 +1,22 @@
 ---
 title: ASP.NET Core Web sunucusu uygulamasını Kestrel
-author: guardrex
+author: rick-anderson
 description: ASP.NET Core platformlar arası Web sunucusu olan Kestrel hakkında bilgi edinin.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
 ms.date: 02/10/2020
 uid: fundamentals/servers/kestrel
-ms.openlocfilehash: d026e1b6fc1a9ecc66014eacb8eb0b46dd9353ec
-ms.sourcegitcommit: 85564ee396c74c7651ac47dd45082f3f1803f7a2
+ms.openlocfilehash: 8d96118800c47b2c551726342bf4cfba9671a09e
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77171726"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78667372"
 ---
 # <a name="kestrel-web-server-implementation-in-aspnet-core"></a>ASP.NET Core Web sunucusu uygulamasını Kestrel
 
-[Tom Dykstra](https://github.com/tdykstra), [Chris](https://github.com/Tratcher)No, [Stephen halter](https://twitter.com/halter73)ve [Luke Latham](https://github.com/guardrex) tarafından
+[Tom Dykstra](https://github.com/tdykstra), [Chris](https://github.com/Tratcher), ve [Stephen halter](https://twitter.com/halter73) tarafından
 
 ::: moniker range=">= aspnetcore-3.0"
 
@@ -33,7 +33,7 @@ Kestrel aşağıdaki senaryoları destekler:
 
 Kestrel, .NET Core 'un desteklediği tüm platformlarda ve sürümlerde desteklenir.
 
-[Örnek kodu görüntüleme veya indirme](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/servers/kestrel/samples) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
+[Örnek kodu görüntüleme veya indirme](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/servers/kestrel/samples) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
 
 ## <a name="http2-support"></a>HTTP/2 desteği
 
@@ -986,7 +986,7 @@ Kestrel aşağıdaki senaryoları destekler:
 
 Kestrel, .NET Core 'un desteklediği tüm platformlarda ve sürümlerde desteklenir.
 
-[Örnek kodu görüntüleme veya indirme](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/servers/kestrel/samples) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
+[Örnek kodu görüntüleme veya indirme](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/servers/kestrel/samples) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
 
 ## <a name="http2-support"></a>HTTP/2 desteği
 
@@ -1934,7 +1934,7 @@ Kestrel aşağıdaki senaryoları destekler:
 
 Kestrel, .NET Core 'un desteklediği tüm platformlarda ve sürümlerde desteklenir.
 
-[Örnek kodu görüntüleme veya indirme](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/servers/kestrel/samples) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
+[Örnek kodu görüntüleme veya indirme](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/servers/kestrel/samples) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
 
 ## <a name="when-to-use-kestrel-with-a-reverse-proxy"></a>Ters ara sunucu ile Kestrel ne zaman kullanılır?
 
@@ -2714,6 +2714,7 @@ Ana bilgisayar filtreleme ara yazılımı varsayılan olarak devre dışıdır. 
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
+* Linux üzerinde UNIX yuvaları kullanırken, yuva uygulama kapatılırken otomatik olarak silinmez. Daha fazla bilgi için [Bu GitHub sorununa](https://github.com/dotnet/aspnetcore/issues/14134)bakın.
 * <xref:test/troubleshoot>
 * <xref:security/enforcing-ssl>
 * <xref:host-and-deploy/proxy-load-balancer>

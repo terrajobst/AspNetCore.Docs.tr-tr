@@ -6,18 +6,18 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/18/2019
 uid: mvc/views/view-components
-ms.openlocfilehash: 8df070b580b6125db6616b33a81f3ffebad69f3a
-ms.sourcegitcommit: 7dfe6cc8408ac6a4549c29ca57b0c67ec4baa8de
+ms.openlocfilehash: 910fffbf360ed0f62f7fe20bc8bfdf5be8198876
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75828925"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78660652"
 ---
 # <a name="view-components-in-aspnet-core"></a>ASP.NET Core bileşenleri görüntüleme
 
-Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
+Gönderen [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/views/view-components/sample) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
+[Örnek kodu görüntüleme veya indirme](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/views/view-components/sample) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
 
 ## <a name="view-components"></a>Görünüm bileşenleri
 
@@ -155,7 +155,7 @@ Bu örnekte, görünüm bileşeni doğrudan denetleyiciden çağrılır:
 
 ## <a name="walkthrough-creating-a-simple-view-component"></a>İzlenecek yol: basit bir görünüm bileşeni oluşturma
 
-Başlatıcı kodunu [indirin](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/views/view-components/sample), derleyin ve test edin. Bu, *Todo* öğelerinin listesini görüntüleyen `ToDo` denetleyicisi olan basit bir projem dir.
+Başlatıcı kodunu [indirin](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/views/view-components/sample), derleyin ve test edin. Bu, *Todo* öğelerinin listesini görüntüleyen `ToDo` denetleyicisi olan basit bir projem dir.
 
 ![ToDos listesi](view-components/_static/2dos.png)
 

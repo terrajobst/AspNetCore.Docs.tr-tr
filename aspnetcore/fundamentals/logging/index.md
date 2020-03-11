@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 02/05/2020
 uid: fundamentals/logging/index
-ms.openlocfilehash: 3c75fdc940701b8f4d367990b5073861467079b2
-ms.sourcegitcommit: bd896935e91236e03241f75e6534ad6debcecbbf
+ms.openlocfilehash: 58e236ad7f0863b87907d5585e1cb6bf61d46e99
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77044908"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78663305"
 ---
 # <a name="logging-in-net-core-and-aspnet-core"></a>.NET Core ve ASP.NET Core oturum açma
 
@@ -22,13 +22,13 @@ ms.locfileid: "77044908"
 
 ::: moniker range=">= aspnetcore-3.0"
 
-Bu makalede gösterilen kod örneklerinin çoğu ASP.NET Core uygulamalardan oluşur. Bu kod parçacıklarının günlüğe kaydetmeye özgü bölümleri, [genel ana bilgisayarı](xref:fundamentals/host/generic-host)kullanan tüm .NET Core uygulamaları için geçerlidir. Genel konağın Web Konsolu olmayan bir uygulamada nasıl kullanılacağına ilişkin bir örnek için, [arka plan görevleri örnek uygulamasının](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/host/hosted-services/samples) *program.cs* dosyasına bakın (<xref:fundamentals/host/hosted-services>).
+Bu makalede gösterilen kod örneklerinin çoğu ASP.NET Core uygulamalardan oluşur. Bu kod parçacıklarının günlüğe kaydetmeye özgü bölümleri, [genel ana bilgisayarı](xref:fundamentals/host/generic-host)kullanan tüm .NET Core uygulamaları için geçerlidir. Genel konağın Web Konsolu olmayan bir uygulamada nasıl kullanılacağına ilişkin bir örnek için, [arka plan görevleri örnek uygulamasının](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/host/hosted-services/samples) *program.cs* dosyasına bakın (<xref:fundamentals/host/hosted-services>).
 
 Genel ana bilgisayarı olmayan uygulamalar için günlük kodu, [sağlayıcıların Eklenme](#add-providers) ve [günlükçülerin oluşturulma](#create-logs)biçiminde farklılık gösterir. Ana bilgisayar olmayan kod örnekleri, makalenin bu bölümlerinde gösterilmiştir.
 
 ::: moniker-end
 
-[Örnek kodu görüntüleme veya indirme](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/logging/index/samples) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
+[Örnek kodu görüntüleme veya indirme](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/logging/index/samples) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
 
 ## <a name="add-providers"></a>Sağlayıcı Ekle
 
@@ -48,7 +48,7 @@ Konak olmayan bir konsol uygulamasında, bir `LoggerFactory`oluştururken sağla
 
 Varsayılan ASP.NET Core proje şablonları, aşağıdaki günlük sağlayıcılarını ekleyen <xref:Microsoft.Extensions.Hosting.Host.CreateDefaultBuilder%2A>çağırır:
 
-* [Console](#console-provider)
+* [Konsol](#console-provider)
 * [Hata ayıklama](#debug-provider)
 * [EventSource](#event-source-provider)
 * [Olay günlüğü](#windows-eventlog-provider) (yalnızca Windows üzerinde çalışırken)
@@ -69,7 +69,7 @@ Yukarıdaki kod `Microsoft.Extensions.Logging` ve `Microsoft.Extensions.Configur
 
 Varsayılan proje şablonu, aşağıdaki günlük sağlayıcılarını ekleyen <xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder%2A>çağırır:
 
-* Konsolu
+* Konsol
 * Hata ayıklama
 * EventSource (ASP.NET Core 2,2 ' den başlayarak)
 
@@ -295,7 +295,7 @@ public class Program
 
 ### <a name="no-asynchronous-logger-methods"></a>Zaman uyumsuz günlükçü yöntemi yok
 
-Günlüğe kaydetme, zaman uyumsuz kodun performans maliyetine değer olmaması kadar hızlı olmalıdır. Günlüğe kaydetme veri depoluizin yavaşsa, doğrudan buna yazmayın. Başlangıç olarak günlük iletilerini hızlı bir mağazaya yazmayı ve sonra yavaş depoya daha sonra taşımayı düşünün. Örneğin, SQL Server için günlük kaydı yapıyorsanız, `Log` Yöntemler zaman uyumlu olduğundan bunu doğrudan bir `Log` yönteminde yapmak istemezsiniz. Bunun yerine, günlük iletilerini bir bellek içi kuyruğa eşzamanlı olarak ekleyin ve bir arka plan çalışanı, SQL Server veri gönderme zaman uyumsuz çalışmasını sağlamak için iletileri kuyruktan çekin. Daha fazla bilgi için [Bu](https://github.com/aspnet/AspNetCore.Docs/issues/11801) GitHub sorununa bakın.
+Günlüğe kaydetme, zaman uyumsuz kodun performans maliyetine değer olmaması kadar hızlı olmalıdır. Günlüğe kaydetme veri depoluizin yavaşsa, doğrudan buna yazmayın. Başlangıç olarak günlük iletilerini hızlı bir mağazaya yazmayı ve sonra yavaş depoya daha sonra taşımayı düşünün. Örneğin, SQL Server için günlük kaydı yapıyorsanız, `Log` Yöntemler zaman uyumlu olduğundan bunu doğrudan bir `Log` yönteminde yapmak istemezsiniz. Bunun yerine, günlük iletilerini bir bellek içi kuyruğa eşzamanlı olarak ekleyin ve bir arka plan çalışanı, SQL Server veri gönderme zaman uyumsuz çalışmasını sağlamak için iletileri kuyruktan çekin. Daha fazla bilgi için [Bu](https://github.com/dotnet/AspNetCore.Docs/issues/11801) GitHub sorununa bakın.
 
 ## <a name="configuration"></a>Yapılandırma
 
@@ -513,7 +513,7 @@ ASP.NET Core, en küçükten en yüksek öneme doğru sıralanan aşağıdaki g�
 
   Anında ilgilenilmesi gereken hatalarda. Örnekler: veri kaybı senaryoları, disk alanı yetersiz.
 
-Belirli bir depolama ortamında veya görüntüleme penceresinde ne kadar günlük çıkışının yazıldığını denetlemek için günlük düzeyini kullanın. Örneğin:
+Belirli bir depolama ortamında veya görüntüleme penceresinde ne kadar günlük çıkışının yazıldığını denetlemek için günlük düzeyini kullanın. Örnek:
 
 * Üretimde:
   * `Trace` `Information` düzeylerinde günlüğe kaydetme, yüksek hacimli ayrıntılı günlük iletileri oluşturur. Maliyetleri denetlemek ve veri depolama sınırlarını aşmamak için, `Information` düzey iletileri kullanarak `Trace` yüksek hacimli, düşük maliyetli bir veri deposuna günlüğe kaydedin.
@@ -747,10 +747,10 @@ Yapılandırma verileri ve önceki örneklerde gösterilen `AddFilter` kodu, aş
 | Sayı | Sağlayıcı      | Şununla başlayan Kategoriler...          | En düşük günlük düzeyi |
 | :----: | ------------- | --------------------------------------- | ----------------- |
 | 1\.      | Hata ayıklama         | Tüm Kategoriler                          | Bilgiler       |
-| 2      | Konsolu       | Microsoft.AspNetCore.Mvc.Razor.Internal | Uyarı           |
-| 3      | Konsolu       | Microsoft.AspNetCore.Mvc.Razor.Razor    | Hata ayıklama             |
-| 4      | Konsolu       | Microsoft.AspNetCore.Mvc.Razor          | Hata             |
-| 5      | Konsolu       | Tüm Kategoriler                          | Bilgiler       |
+| 2      | Konsol       | Microsoft.AspNetCore.Mvc.Razor.Internal | Uyarı           |
+| 3      | Konsol       | Microsoft.AspNetCore.Mvc.Razor.Razor    | Hata ayıklama             |
+| 4      | Konsol       | Microsoft.AspNetCore.Mvc.Razor          | Hata             |
+| 5      | Konsol       | Tüm Kategoriler                          | Bilgiler       |
 | 6      | Tüm sağlayıcılar | Tüm Kategoriler                          | Hata ayıklama             |
 | 7      | Tüm sağlayıcılar | Sistem                                  | Hata ayıklama             |
 | 8      | Hata ayıklama         | Microsoft                               | İzleme             |
@@ -775,7 +775,7 @@ Elde edilen `ILogger` örneği, hata ayıklama sağlayıcısına `Trace` düzeyi
 
 Her sağlayıcı, tam nitelikli tür adı yerine yapılandırmada kullanılabilecek bir *diğer ad* tanımlar.  Yerleşik sağlayıcılar için aşağıdaki diğer adları kullanın:
 
-* Konsolu
+* Konsol
 * Hata ayıklama
 * EventSource
 * EventLog
@@ -804,7 +804,7 @@ En düşük düzeyi açıkça ayarlamazsanız, varsayılan değer `Information`,
 
 ### <a name="filter-functions"></a>Filtre işlevleri
 
-Configuration veya Code tarafından kendisine atanmış kuralları olmayan tüm sağlayıcılar ve kategoriler için bir filtre işlevi çağırılır. İşlevindeki kodun sağlayıcı türü, kategorisi ve günlük düzeyine erişimi vardır. Örneğin:
+Configuration veya Code tarafından kendisine atanmış kuralları olmayan tüm sağlayıcılar ve kategoriler için bir filtre işlevi çağırılır. İşlevindeki kodun sağlayıcı türü, kategorisi ve günlük düzeyine erişimi vardır. Örnek:
 
 ::: moniker range=">= aspnetcore-3.0"
 
@@ -888,7 +888,7 @@ warn: TodoApiSample.Controllers.TodoController[4000]
 
 ASP.NET Core aşağıdaki sağlayıcıları sevk eder:
 
-* [Console](#console-provider)
+* [Konsol](#console-provider)
 * [Hata ayıklama](#debug-provider)
 * [EventSource](#event-source-provider)
 * [EventLog](#windows-eventlog-provider)
@@ -1024,7 +1024,7 @@ Bir uygulamadan izleme toplamak için DotNet Trace araçları kullanın:
 
 1. Trace 'i [PerfView](#perfview)ile açın. *Trace. NetTrace* dosyasını açın ve izleme olaylarını araştırın.
 
-Daha fazla bilgi için bkz.:
+Daha fazla bilgi için bkz.
 
 * [Performans Analizi yardımcı programı Için izleme (DotNet-Trace)](/dotnet/core/diagnostics/dotnet-trace) (.NET Core belgeleri)
 * [Performans Analizi yardımcı programı (DotNet-Trace) Için izleme](https://github.com/dotnet/diagnostics/blob/master/documentation/dotnet-trace-instructions.md) (DotNet/Diagnostics GitHub deposu belgeleri)

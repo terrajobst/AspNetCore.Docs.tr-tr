@@ -7,11 +7,11 @@ ms.custom: mvc
 ms.date: 10/05/2019
 uid: security/authorization/policies
 ms.openlocfilehash: eeb5ddd63ef8177325b35e5a666aa5e9ab047057
-ms.sourcegitcommit: 7dfe6cc8408ac6a4549c29ca57b0c67ec4baa8de
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75828964"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78661814"
 ---
 # <a name="policy-based-authorization-in-aspnet-core"></a>ASP.NET Core ilke tabanlı yetkilendirme
 
@@ -111,13 +111,13 @@ Yetkilendirme için <xref:Microsoft.AspNetCore.Authorization.IAuthorizationServi
 
 Razor Pages kullanıyorsanız, bkz. bu belgedeki [Razor Pages Ilkeleri uygulama](#applying-policies-to-razor-pages) .
 
-İlkeler, ilke adı ile `[Authorize]` özniteliği kullanılarak denetleyicilere uygulanır. Örneğin:
+İlkeler, ilke adı ile `[Authorize]` özniteliği kullanılarak denetleyicilere uygulanır. Örnek:
 
 [!code-csharp[](policies/samples/PoliciesAuthApp1/Controllers/AlcoholPurchaseController.cs?name=snippet_AlcoholPurchaseControllerClass&highlight=4)]
 
 ## <a name="applying-policies-to-razor-pages"></a>Razor Pages ilke uygulanıyor
 
-İlkeler, ilke adı ile `[Authorize]` özniteliği kullanılarak Razor Pages uygulanır. Örneğin:
+İlkeler, ilke adı ile `[Authorize]` özniteliği kullanılarak Razor Pages uygulanır. Örnek:
 
 [!code-csharp[](policies/samples/PoliciesAuthApp2/Pages/AlcoholPurchase.cshtml.cs?name=snippet_AlcoholPurchaseModelClass&highlight=4)]
 
@@ -164,7 +164,7 @@ Yukarıdaki kod, başarılı olarak işaretlenmemiş gereksinimleri içeren bir 
 
 ### <a name="handler-registration"></a>İşleyici kaydı
 
-İşleyiciler, yapılandırma sırasında hizmetler koleksiyonuna kaydedilir. Örneğin:
+İşleyiciler, yapılandırma sırasında hizmetler koleksiyonuna kaydedilir. Örnek:
 
 [!code-csharp[](policies/samples/3.0PoliciesAuthApp1/Startup.cs?range=31-32,39-40,42-45, 53-55, 58)]
 
@@ -328,13 +328,13 @@ Yetkilendirme için <xref:Microsoft.AspNetCore.Authorization.IAuthorizationServi
 
 Razor Pages kullanıyorsanız, bkz. bu belgedeki [Razor Pages Ilkeleri uygulama](#applying-policies-to-razor-pages) .
 
-İlkeler, ilke adı ile `[Authorize]` özniteliği kullanılarak denetleyicilere uygulanır. Örneğin:
+İlkeler, ilke adı ile `[Authorize]` özniteliği kullanılarak denetleyicilere uygulanır. Örnek:
 
 [!code-csharp[](policies/samples/PoliciesAuthApp1/Controllers/AlcoholPurchaseController.cs?name=snippet_AlcoholPurchaseControllerClass&highlight=4)]
 
 ## <a name="applying-policies-to-razor-pages"></a>Razor Pages ilke uygulanıyor
 
-İlkeler, ilke adı ile `[Authorize]` özniteliği kullanılarak Razor Pages uygulanır. Örneğin:
+İlkeler, ilke adı ile `[Authorize]` özniteliği kullanılarak Razor Pages uygulanır. Örnek:
 
 [!code-csharp[](policies/samples/PoliciesAuthApp2/Pages/AlcoholPurchase.cshtml.cs?name=snippet_AlcoholPurchaseModelClass&highlight=4)]
 
@@ -381,7 +381,7 @@ Yukarıdaki kod, başarılı olarak işaretlenmemiş gereksinimleri içeren bir 
 
 ### <a name="handler-registration"></a>İşleyici kaydı
 
-İşleyiciler, yapılandırma sırasında hizmetler koleksiyonuna kaydedilir. Örneğin:
+İşleyiciler, yapılandırma sırasında hizmetler koleksiyonuna kaydedilir. Örnek:
 
 [!code-csharp[](policies/samples/PoliciesAuthApp1/Startup.cs?range=32-33,48-53,61,62-63,66)]
 

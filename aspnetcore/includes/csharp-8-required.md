@@ -1,2 +1,2 @@
 > [!NOTE]
-> Aşağıdaki örnek gerektirir C# 8.0 veya üzeri.
+> Aşağıdaki örnek 8,0 veya C# üstünü gerektirir.

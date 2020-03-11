@@ -8,12 +8,12 @@ ms.date: 12/05/2019
 no-loc:
 - SignalR
 uid: aspnetcore-2.1
-ms.openlocfilehash: 57fe6c4e32ad666987c782fac75ddb19e3d3b5c7
-ms.sourcegitcommit: 7dfe6cc8408ac6a4549c29ca57b0c67ec4baa8de
+ms.openlocfilehash: af5807b782d4acec8c7d40111dc508dfa6127057
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75829146"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78667547"
 ---
 # <a name="whats-new-in-aspnet-core-21"></a>ASP.NET Core 2,1 ' deki yenilikler
 
@@ -77,7 +77,7 @@ HTTPS kullanımı, [http katı aktarım güvenliği Protokolü (HSTS)](xref:secu
 
 ## <a name="gdpr"></a>GDPR
 
-ASP.NET Core, bazı [ab genel veri koruma yönetmeliği (GDPR)](https://www.eugdpr.org/) gereksinimlerini karşılamaya yardımcı olmak Için API 'ler ve şablonlar sağlar. Daha fazla bilgi için bkz. [GDPR Support in ASP.NET Core](xref:security/gdpr). [Örnek bir uygulama](https://github.com/aspnet/AspNetCore.Docs/tree/live/aspnetcore/security/gdpr/sample) , ' nin nasıl kullanılacağını gösterir ve ASP.NET Core 2,1 ŞABLONLARıNA eklenen GDPR uzantı noktalarının ve API 'lerin çoğunu test etmenizi sağlar.
+ASP.NET Core, bazı [ab genel veri koruma yönetmeliği (GDPR)](https://www.eugdpr.org/) gereksinimlerini karşılamaya yardımcı olmak Için API 'ler ve şablonlar sağlar. Daha fazla bilgi için bkz. [GDPR Support in ASP.NET Core](xref:security/gdpr). [Örnek bir uygulama](https://github.com/dotnet/AspNetCore.Docs/tree/live/aspnetcore/security/gdpr/sample) , ' nin nasıl kullanılacağını gösterir ve ASP.NET Core 2,1 ŞABLONLARıNA eklenen GDPR uzantı noktalarının ve API 'lerin çoğunu test etmenizi sağlar.
 
 ## <a name="integration-tests"></a>Tümleştirme testleri
 

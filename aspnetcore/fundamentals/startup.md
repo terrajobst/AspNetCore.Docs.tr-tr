@@ -7,16 +7,16 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/05/2019
 uid: fundamentals/startup
-ms.openlocfilehash: 8d878d692f0488f99385b0bd6944fc6cd276c306
-ms.sourcegitcommit: 2cb857f0de774df421e35289662ba92cfe56ffd1
+ms.openlocfilehash: e3249df4b7388beeff13fe4b4e0ff481c35725c5
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75355695"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78667659"
 ---
 # <a name="app-startup-in-aspnet-core"></a>ASP.NET Core 'de uygulama başlatma
 
-[Rick Anderson](https://twitter.com/RickAndMSFT), [Tom Dykstra](https://github.com/tdykstra), [Luke Latham](https://github.com/guardrex)ve [Steve Smith](https://ardalis.com)
+By [Rick Anderson](https://twitter.com/RickAndMSFT), [Tom Dykstra](https://github.com/tdykstra)ve [Steve Smith](https://ardalis.com)
 
 `Startup` sınıfı Hizmetleri ve uygulamanın istek ardışık düzenini yapılandırır.
 
@@ -24,7 +24,7 @@ ms.locfileid: "75355695"
 
 ## <a name="the-startup-class"></a>Başlangıç sınıfı
 
-ASP.NET Core uygulamalar, kuralına göre `Startup` adlı bir `Startup` sınıfını kullanır. `Startup` sınıfı:
+ASP.NET Core uygulamalar, kuralına göre `Startup` adlı bir `Startup` sınıfını kullanır. `Startup` Sınıfı:
 
 * İsteğe bağlı olarak, uygulamanın *hizmetlerini*yapılandırmak için bir <xref:Microsoft.AspNetCore.Hosting.StartupBase.ConfigureServices*> yöntemi içerir. Hizmet, uygulama işlevselliği sağlayan yeniden kullanılabilir bir bileşendir. Hizmetler `ConfigureServices` *kaydedilir* ve [bağımlılık ekleme (dı)](xref:fundamentals/dependency-injection) veya <xref:Microsoft.AspNetCore.Builder.IApplicationBuilder.ApplicationServices*>aracılığıyla uygulama genelinde tüketilebilir.
 * Uygulamanın istek işleme ardışık düzenini oluşturmak için bir <xref:Microsoft.AspNetCore.Hosting.StartupBase.Configure*> yöntemi içerir.
@@ -159,7 +159,7 @@ Ara yazılım yürütme sırası `IStartupFilter` kayıt sırasıyla ayarlanır:
 
 ## <a name="the-startup-class"></a>Başlangıç sınıfı
 
-ASP.NET Core uygulamalar, kuralına göre `Startup` adlı bir `Startup` sınıfını kullanır. `Startup` sınıfı:
+ASP.NET Core uygulamalar, kuralına göre `Startup` adlı bir `Startup` sınıfını kullanır. `Startup` Sınıfı:
 
 * İsteğe bağlı olarak, uygulamanın *hizmetlerini*yapılandırmak için bir <xref:Microsoft.AspNetCore.Hosting.StartupBase.ConfigureServices*> yöntemi içerir. Hizmet, uygulama işlevselliği sağlayan yeniden kullanılabilir bir bileşendir. Hizmetler `ConfigureServices` *kaydedilir* ve [bağımlılık ekleme (dı)](xref:fundamentals/dependency-injection) veya <xref:Microsoft.AspNetCore.Builder.IApplicationBuilder.ApplicationServices*>aracılığıyla uygulama genelinde tüketilebilir.
 * Uygulamanın istek işleme ardışık düzenini oluşturmak için bir <xref:Microsoft.AspNetCore.Hosting.StartupBase.Configure*> yöntemi içerir.

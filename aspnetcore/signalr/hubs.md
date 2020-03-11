@@ -9,32 +9,32 @@ ms.date: 01/16/2020
 no-loc:
 - SignalR
 uid: signalr/hubs
-ms.openlocfilehash: e5bc12c5ccafe2b5273d72e6bde0f631ca043428
-ms.sourcegitcommit: f259889044d1fc0f0c7e3882df0008157ced4915
+ms.openlocfilehash: 54ffd8614c1cec4cfeba0878e910ed25fc6ba7d2
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76294634"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78662955"
 ---
-# <a name="use-hubs-in-opno-locsignalr-for-aspnet-core"></a>ASP.NET Core için SignalR hub 'ları kullanma
+# <a name="use-hubs-in-signalr-for-aspnet-core"></a>ASP.NET Core için SignalR içindeki hub 'ları kullanma
 
 , [Rachel Appel](https://twitter.com/rachelappel) ve [Kevin Griffin](https://twitter.com/1kevgriff) tarafından
 
-[Örnek kodu görüntüleme veya indirme](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/signalr/hubs/sample/ ) [(nasıl indirileceği)](xref:index#how-to-download-a-sample)
+[Örnek kodu görüntüleme veya indirme](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/signalr/hubs/sample/ ) [(nasıl indirileceği)](xref:index#how-to-download-a-sample)
 
-## <a name="what-is-a-opno-locsignalr-hub"></a>SignalR hub nedir?
+## <a name="what-is-a-signalr-hub"></a>SignalR hub nedir?
 
-SignalR hub 'Ları API 'SI, bağlı istemcilerdeki yöntemleri sunucudan çağırmanızı sağlar. Sunucu kodunda, istemci tarafından çağrılan yöntemleri tanımlarsınız. İstemci kodunda, sunucudan çağrılan yöntemleri tanımlarsınız. SignalR, gerçek zamanlı istemciden sunucuya ve sunucudan istemciye iletişimleri olanaklı kılan arka planda her şeyi ele alır.
+SignalR hub 'Ları API 'SI, bağlı istemcilerdeki yöntemleri sunucudan çağırmanızı sağlar. Sunucu kodunda, istemci tarafından çağrılan yöntemleri tanımlarsınız. İstemci kodunda, sunucudan çağrılan yöntemleri tanımlarsınız. SignalR, gerçek zamanlı istemciden sunucuya ve sunucudan istemciye iletişimleri mümkün kılan arka planda her şeyi üstlenir.
 
-## <a name="configure-opno-locsignalr-hubs"></a>SignalR hub 'ları yapılandırma
+## <a name="configure-signalr-hubs"></a>SignalR hub 'larını yapılandırma
 
-SignalR ara yazılımı, `services.AddSignalR`çağırarak yapılandırılmış bazı hizmetler gerektirir.
+SignalR ara yazılımı, `services.AddSignalR`çağırarak yapılandırılan bazı hizmetler gerektirir.
 
 [!code-csharp[Configure service](hubs/sample/startup.cs?range=38)]
 
 ::: moniker range=">= aspnetcore-3.0"
 
-Bir ASP.NET Core uygulamasına SignalR işlevselliği eklerken, `Startup.Configure` yönteminin `app.UseEndpoints` geri aramasında `endpoint.MapHub` çağırarak SignalR yollar ayarlayın.
+Bir ASP.NET Core uygulamasına SignalR işlevselliği eklerken, `Startup.Configure` yönteminin `app.UseEndpoints` geri çağırmasında `endpoint.MapHub` çağırarak SignalR yollarını ayarlayın.
 
 ```csharp
 app.UseRouting();
@@ -48,7 +48,7 @@ app.UseEndpoints(endpoints =>
 
 ::: moniker range="<= aspnetcore-2.2"
 
-Bir ASP.NET Core uygulamasına SignalR işlevselliği eklerken, `Startup.Configure` yöntemindeki `app.UseSignalR` çağırarak SignalR yollar ayarlayın.
+Bir ASP.NET Core uygulamasına SignalR işlevselliği eklerken, `Startup.Configure` yönteminde `app.UseSignalR` çağırarak SignalR yollarını ayarlayın.
 
 [!code-csharp[Configure routes to hubs](hubs/sample/startup.cs?range=57-60)]
 
@@ -82,8 +82,8 @@ Herhangi C# bir yöntemde yaptığınız gibi, karmaşık türler ve diziler dah
 
 | Özellik | Açıklama |
 | ------ | ----------- |
-| `ConnectionId` | SignalRtarafından atanan bağlantının benzersiz KIMLIĞINI alır. Her bağlantı için bir bağlantı KIMLIĞI vardır.|
-| `UserIdentifier` | [Kullanıcı tanımlayıcısını](xref:signalr/groups)alır. Varsayılan olarak, SignalR, Kullanıcı tanımlayıcısı olarak bağlantıyla ilişkili `ClaimsPrincipal` `ClaimTypes.NameIdentifier` kullanır. |
+| `ConnectionId` | SignalR tarafından atanan bağlantının benzersiz KIMLIĞINI alır. Her bağlantı için bir bağlantı KIMLIĞI vardır.|
+| `UserIdentifier` | [Kullanıcı tanımlayıcısını](xref:signalr/groups)alır. SignalR, varsayılan olarak, Kullanıcı tanımlayıcısı olarak bağlantıyla ilişkili `ClaimsPrincipal` `ClaimTypes.NameIdentifier` kullanır. |
 | `User` | Geçerli kullanıcıyla ilişkili `ClaimsPrincipal` alır. |
 | `Items` | Bu bağlantının kapsamındaki verileri paylaşmak için kullanılabilecek bir anahtar/değer koleksiyonu alır. Veriler bu koleksiyonda depolanabilir ve farklı hub yöntemi etkinleştirmeleri arasında bağlantı için kalıcı hale gelir. |
 | `Features` | Bağlantıda kullanılabilen özelliklerin koleksiyonunu alır. Şimdilik bu koleksiyon Çoğu senaryoda gerekli değildir, bu nedenle henüz ayrıntılı olarak açıklanmamıştır. |
@@ -146,7 +146,7 @@ Bu arabirim, önceki `ChatHub` örneğini yeniden düzenleme için kullanılabil
 
 `Hub<IChatClient>` kullanmak, istemci yöntemlerinin derleme zamanı denetimini mümkün yapar. Bu, `Hub<T>` yalnızca arabirimde tanımlanan yöntemlere erişim sağlayabileceğinizden, sihirli dizeler kullanılarak oluşan sorunları önler.
 
-Türü kesin belirlenmiş `Hub<T>` kullanmak `SendAsync`kullanma özelliğini devre dışı bırakır. Arabirim üzerinde tanımlanan Yöntemler hala zaman uyumsuz olarak tanımlanabilir. Aslında, bu yöntemlerin her biri bir `Task`döndürmelidir. Bir arabirim olduğundan, `async` anahtar sözcüğünü kullanmayın. Örneğin:
+Türü kesin belirlenmiş `Hub<T>` kullanmak `SendAsync`kullanma özelliğini devre dışı bırakır. Arabirim üzerinde tanımlanan Yöntemler hala zaman uyumsuz olarak tanımlanabilir. Aslında, bu yöntemlerin her biri bir `Task`döndürmelidir. Bir arabirim olduğundan, `async` anahtar sözcüğünü kullanmayın. Örnek:
 
 ```csharp
 public interface IClient
@@ -182,7 +182,7 @@ Hub yöntemleriniz içinde oluşturulan özel durumlar, yöntemi çağıran iste
 
 [!code-javascript[Error](hubs/sample/wwwroot/js/chat.js?range=23)]
 
-Hub 'ınız bir özel durum oluşturursa, bağlantılar kapanmamıştır. Varsayılan olarak, SignalR istemciye genel bir hata iletisi döndürür. Örneğin:
+Hub 'ınız bir özel durum oluşturursa, bağlantılar kapanmamıştır. Varsayılan olarak, SignalR istemciye genel bir hata iletisi döndürür. Örnek:
 
 ```
 Microsoft.AspNetCore.SignalR.HubException: An unexpected error occurred invoking 'MethodName' on the server.

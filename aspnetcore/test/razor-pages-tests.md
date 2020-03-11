@@ -1,22 +1,20 @@
 ---
 title: ASP.NET Core birim testlerini Razor Pages
-author: guardrex
+author: rick-anderson
 description: Razor Pages uygulamalar için birim testleri oluşturmayı öğrenin.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
 ms.date: 08/14/2019
 uid: test/razor-pages-tests
-ms.openlocfilehash: afac97d686ef190ebb92d20a55a15dd774b0d1de
-ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
+ms.openlocfilehash: 0e217b6b7f15519a3da44f5d074cf80fa96a3b3a
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71081433"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78664411"
 ---
 # <a name="razor-pages-unit-tests-in-aspnet-core"></a>ASP.NET Core birim testlerini Razor Pages
-
-Tarafından [Luke Latham](https://github.com/guardrex)
 
 ::: moniker range=">= aspnetcore-3.0"
 
@@ -33,7 +31,7 @@ Bu konu, Razor Pages uygulamalar ve birim testleri hakkında temel bir anladığ
 * <xref:tutorials/razor-pages/razor-pages-start>
 * [DotNet test C# ve xUnit kullanarak .NET Core 'da birim testi](/dotnet/articles/core/testing/unit-testing-with-dotnet-test)
 
-[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/test/razor-pages-tests/samples) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
+[Örnek kodu görüntüleme veya indirme](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/test/razor-pages-tests/samples) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
 
 Örnek proje iki uygulamalardan oluşur:
 
@@ -53,14 +51,14 @@ dotnet test
 İleti uygulaması, aşağıdaki özelliklere sahip bir Razor Pages ileti sistemidir:
 
 * Uygulamanın (*Pages/Index. cshtml* ve *Pages/index. cshtml. cs*) dizin sayfası, iletilerin eklenmesi, silinmesini ve ANALIZINI denetlemek için bir UI ve sayfa modeli yöntemleri sağlar (ileti başına ortalama sözcük sayısını bulur).
-* Bir ileti, `Message` sınıfı (*Data/Message. cs*) ile iki özelliği `Id` olan (anahtar) ve `Text` (ileti) açıklanmaktadır. `Text` Özelliği gereklidir ve 200 karakterle sınırlıdır.
+* Bir ileti, `Message` sınıfı (*Data/Message. cs*) ile iki özellik içeren (`Id` (anahtar) ve `Text` (ileti) açıklanmaktadır. `Text` özelliği gereklidir ve 200 karakterle sınırlıdır.
 * İletiler, [Entity Framework bellek içi veritabanı](/ef/core/providers/in-memory/)&#8224;kullanılarak depolanır.
-* Uygulama, `AppDbContext` veritabanı bağlamı sınıfında (*Data/appdbcontext. cs*) bir dal içerir. DAL Yöntemleri işaretlenir `virtual`ve bu yöntemler, testlerde kullanım için izin verir.
+* Uygulama, `AppDbContext` (*Data/AppDbContext. cs*) veritabanı bağlamı SıNıFıNDA bir dal içerir. DAL yöntemleri `virtual`işaretlenir ve bu yöntemler testlerde kullanım için izin verir.
 * Veritabanı uygulama başlangıcında boşsa, ileti deposu üç iletiyle başlatılır. Bu *sağlanan iletiler* , testlerde de kullanılır.
 
 &#8224;[InMemory Ile test](/ef/core/miscellaneous/testing/in-memory)olan EF konusu, MSTest ile testler için bellek içi bir veritabanının nasıl kullanılacağını açıklar. Bu konu [xUnit](https://xunit.github.io/) test çerçevesini kullanır. Farklı test çerçeveleri genelinde test kavramları ve test uygulamaları benzerdir ancak aynı değildir.
 
-Örnek uygulama depo desenini kullanmaz ve [Iş birimi (UoW) düzeninin](https://martinfowler.com/eaaCatalog/unitOfWork.html)etkin bir örneği olmasa da Razor Pages bu geliştirme düzenlerini destekler. Daha fazla bilgi için bkz. [altyapı Kalıcılık katmanını tasarlama](/dotnet/standard/microservices-architecture/microservice-ddd-cqrs-patterns/infrastructure-persistence-layer-design) ve <xref:mvc/controllers/testing> (örnek depo modelini uygular).
+Örnek uygulama depo desenini kullanmaz ve [Iş birimi (UoW) düzeninin](https://martinfowler.com/eaaCatalog/unitOfWork.html)etkin bir örneği olmasa da Razor Pages bu geliştirme düzenlerini destekler. Daha fazla bilgi için bkz. [altyapı Kalıcılık katmanını tasarlama](/dotnet/standard/microservices-architecture/microservice-ddd-cqrs-patterns/infrastructure-persistence-layer-design) ve <xref:mvc/controllers/testing> (örnek, depo modelini uygular).
 
 ## <a name="test-app-organization"></a>Test uygulaması kuruluşu
 
@@ -69,22 +67,22 @@ Test uygulaması, *testler/RazorPagesTestSample. Tests* klasörünün içindeki 
 | Test uygulaması klasörü | Açıklama |
 | --------------- | ----------- |
 | *UnitTests*     | <ul><li>*DataAccessLayerTest.cs* , dal için birim testlerini içerir.</li><li>*IndexPageTests.cs* , Dizin sayfası modelinin birim testlerini içerir.</li></ul> |
-| *Programların*     | Her bir dal birim testi için yeni veritabanı bağlamı seçenekleri oluşturmak için kullanılan yöntemiiçerir,böyleceveritabanıhertestiçinkenditemelkoşulunasıfırlanır.`TestDbContextOptions` |
+| *Programların*     | Her DAL birim testi için yeni veritabanı bağlamı seçeneklerini oluşturmak için kullanılan `TestDbContextOptions` yöntemini içerir, böylece veritabanı her test için kendi temel koşuluna sıfırlanır. |
 
 Test çerçevesi [xUnit](https://xunit.github.io/)' dir. Nesne sahte işlem çerçevesi [moq](https://github.com/moq/moq4)olur.
 
 ## <a name="unit-tests-of-the-data-access-layer-dal"></a>Veri erişim katmanının birim testleri (DAL)
 
-İleti uygulamasında `AppDbContext` , sınıfında dört yöntem bulunan bir dal vardır (*src/RazorPagesTestSample/Data/appdbcontext. cs*). Her yöntemin test uygulamasında bir veya iki birim testi vardır.
+İleti uygulamasının, `AppDbContext` sınıfında (*src/RazorPagesTestSample/Data/AppDbContext. cs*) dört yöntemi bulunan bir dal vardır. Her yöntemin test uygulamasında bir veya iki birim testi vardır.
 
 | DAL yöntemi               | İşlev                                                                   |
 | ------------------------ | -------------------------------------------------------------------------- |
-| `GetMessagesAsync`       | Özelliği tarafından sıralanan veritabanından bir `List<Message>` alır. `Text` |
-| `AddMessageAsync`        | Veritabanına bir `Message` ekler.                                          |
-| `DeleteAllMessagesAsync` | Tüm `Message` girdileri veritabanından siler.                           |
-| `DeleteMessageAsync`     | Veritabanından tek tek `Message`siler. `Id`                      |
+| `GetMessagesAsync`       | `Text` özelliğine göre sıralanan veritabanından bir `List<Message>` alır. |
+| `AddMessageAsync`        | Veritabanına `Message` ekler.                                          |
+| `DeleteAllMessagesAsync` | Tüm `Message` girişlerini veritabanından siler.                           |
+| `DeleteMessageAsync`     | `Message` veritabanından tek bir `Id`siler.                      |
 
-DAL birim testleri her bir test <xref:Microsoft.EntityFrameworkCore.DbContextOptions> için yeni `AppDbContext` bir oluşturma için gereklidir. Her test için öğesini oluşturmaya `DbContextOptions` yönelik bir yaklaşım, şunu <xref:Microsoft.EntityFrameworkCore.DbContextOptionsBuilder>kullanmaktır:
+DAL birim testleri her test için yeni bir `AppDbContext` oluştururken <xref:Microsoft.EntityFrameworkCore.DbContextOptions> gerektirir. Her test için `DbContextOptions` oluşturmaya yönelik bir yaklaşım <xref:Microsoft.EntityFrameworkCore.DbContextOptionsBuilder>kullanmaktır:
 
 ```csharp
 var optionsBuilder = new DbContextOptionsBuilder<AppDbContext>()
@@ -96,11 +94,11 @@ using (var db = new AppDbContext(optionsBuilder.Options))
 }
 ```
 
-Bu yaklaşımla ilgili sorun, her testin, önceki testin bulunduğu herhangi bir durumda veritabanını aldığından emin olur. Bu, birbirleriyle karışmaz atomik birim testleri yazmaya çalışırken sorunlu olabilir. Her test için `AppDbContext` yeni bir veritabanı bağlamı kullanmaya zorlamak için, yeni bir hizmet sağlayıcısına `DbContextOptions` dayalı bir örnek sağlayın. Test uygulaması, `Utilities` sınıfının sınıf yöntemi `TestDbContextOptions` kullanılarak nasıl yapılacağını gösterir (testler/*RazorPagesTestSample. testler/Utilities/Utilities. cs*):
+Bu yaklaşımla ilgili sorun, her testin, önceki testin bulunduğu herhangi bir durumda veritabanını aldığından emin olur. Bu, birbirleriyle karışmaz atomik birim testleri yazmaya çalışırken sorunlu olabilir. `AppDbContext` her test için yeni bir veritabanı bağlamı kullanmaya zorlamak için, yeni bir hizmet sağlayıcısına dayalı bir `DbContextOptions` örneği sağlayın. Test uygulaması, `Utilities` sınıf yöntemi `TestDbContextOptions` (*testler/RazorPagesTestSample. testler/Utilities/Utilities. cs*) kullanılarak nasıl yapılacağını gösterir:
 
 [!code-csharp[](razor-pages-tests/samples/3.x/tests/RazorPagesTestSample.Tests/Utilities/Utilities.cs?name=snippet1)]
 
-DAL birim `DbContextOptions` testlerinde kullanılması, her testin yeni bir veritabanı örneğiyle otomatik olarak çalıştırılmasına izin verir:
+DAL birim testlerinde `DbContextOptions` kullanmak, her testin yeni bir veritabanı örneğiyle otomatik olarak çalıştırılmasına izin verir:
 
 ```csharp
 using (var db = new AppDbContext(Utilities.TestDbContextOptions()))
@@ -109,82 +107,82 @@ using (var db = new AppDbContext(Utilities.TestDbContextOptions()))
 }
 ```
 
-`DataAccessLayerTest` Sınıftaki her bir test yöntemi (*unittests/DataAccessLayerTest. cs*) benzer bir düzenleme-işlem onaylama düzeni izler:
+`DataAccessLayerTest` sınıfındaki (*unittests/DataAccessLayerTest. cs*) her test yöntemi, benzer bir düzenleme-işlem onaylama düzeni izler:
 
-1. ' Veritabanı test için yapılandırıldı ve/veya beklenen sonuç tanımlandı.
-1. Çalışanlarının Test yürütülür.
-1. Vermediğini Test sonuçlarının başarılı olup olmadığını belirleme onayları yapılır.
+1. Düzenle: veritabanı test için yapılandırılmış ve/veya beklenen sonuç tanımlandı.
+1. Davran: test yürütülür.
+1. Onaylama: test sonucunun başarılı olup olmadığını belirleme onayları yapılır.
 
-Örneğin, `DeleteMessageAsync` yöntemi `Id` (*src/RazorPagesTestSample/Data/appdbcontext. cs*) tarafından tanımlanan tek bir iletinin kaldırılmasından sorumludur:
+Örneğin, `DeleteMessageAsync` yöntemi, `Id` (*src/RazorPagesTestSample/Data/AppDbContext. cs*) tarafından tanımlanan tek bir iletiyi kaldırmaktan sorumludur:
 
 [!code-csharp[](razor-pages-tests/samples/3.x/src/RazorPagesTestSample/Data/AppDbContext.cs?name=snippet4)]
 
-Bu yöntem için iki test vardır. Bir test, bir ileti veritabanında olduğunda yöntemin bir iletiyi sildiğini denetler. Diğer yöntem, silme iletisi `Id` yoksa veritabanının değişmediğini sınar. `DeleteMessageAsync_MessageIsDeleted_WhenMessageIsFound` Yöntemi aşağıda gösterilmiştir:
+Bu yöntem için iki test vardır. Bir test, bir ileti veritabanında olduğunda yöntemin bir iletiyi sildiğini denetler. Diğer yöntem, silinmek üzere `Id` ileti yoksa veritabanının değişmediğini sınar. `DeleteMessageAsync_MessageIsDeleted_WhenMessageIsFound` yöntemi aşağıda gösterilmektedir:
 
 [!code-csharp[](razor-pages-tests/samples_snapshot/3.x/tests/RazorPagesTestSample.Tests/UnitTests/DataAccessLayerTest.cs?name=snippet1)]
 
-İlk olarak, yöntemi, hareket adımının hazırlanması gereken düzenleme adımını gerçekleştirir. Dengeli dağıtım iletileri ' de `seedMessages`alınır ve tutulur. Dengeli dağıtım iletileri veritabanına kaydedilir. `Id` İçeren`1` ileti silinmek üzere ayarlanmış. Yöntemi yürütüldüğünde, beklenen iletilerde, `Id` ' ın `1`dışında bir ileti olmalıdır. `DeleteMessageAsync` Değişken `expectedMessages` , beklenen bu sonucu temsil eder.
+İlk olarak, yöntemi, hareket adımının hazırlanması gereken düzenleme adımını gerçekleştirir. Dengeli dağıtım iletileri `seedMessages`alınır ve tutulur. Dengeli dağıtım iletileri veritabanına kaydedilir. `1` `Id` ileti silinmek üzere ayarlanmış. `DeleteMessageAsync` yöntemi yürütüldüğünde, beklenen iletilerde, `1``Id` hariç olmak üzere tüm iletiler olmalıdır. `expectedMessages` değişkeni beklenen bu sonucu temsil eder.
 
 [!code-csharp[](razor-pages-tests/samples/3.x/tests/RazorPagesTestSample.Tests/UnitTests/DataAccessLayerTest.cs?name=snippet1)]
 
-Yöntemi şu şekilde davranır: `DeleteMessageAsync` Yöntemi ,`recId`' ın içinde geçirme yürütülür: `1`
+Yöntemi şu şekilde davranır: `DeleteMessageAsync` yöntemi `1``recId` geçirme yürütülür:
 
 [!code-csharp[](razor-pages-tests/samples/3.x/tests/RazorPagesTestSample.Tests/UnitTests/DataAccessLayerTest.cs?name=snippet2)]
 
-Son olarak, yöntemi bağlamını edinir `Messages` ve iki eşit olan `expectedMessages` asserile karşılaştırır:
+Son olarak, yöntemi bağlamdan `Messages` edinir ve ikisi de ikisinin eşit olduğunu belirten `expectedMessages` ile karşılaştırılır:
 
 [!code-csharp[](razor-pages-tests/samples/3.x/tests/RazorPagesTestSample.Tests/UnitTests/DataAccessLayerTest.cs?name=snippet3)]
 
-İki ikisinin `List<Message>` de aynı olduğunu karşılaştırmak için:
+İki `List<Message>` aynı olduğunu karşılaştırmak için:
 
-* İletiler tarafından `Id`sıralanır.
+* Mesajlar `Id`göre sıralanır.
 * İleti çiftleri `Text` özelliği ile karşılaştırılır.
 
-Benzer bir test yöntemi, `DeleteMessageAsync_NoMessageIsDeleted_WhenMessageIsNotFound` mevcut olmayan bir iletiyi silmeye çalışılması sonucunu denetler. Bu durumda, veritabanındaki beklenen iletiler, `DeleteMessageAsync` Yöntem yürütüldükten sonra gerçek iletilere eşit olmalıdır. Veritabanının içeriğinde değişiklik olmamalıdır:
+Benzer bir test yöntemi olan `DeleteMessageAsync_NoMessageIsDeleted_WhenMessageIsNotFound`, var olmayan bir iletiyi silmeye çalışılması sonucunu denetler. Bu durumda, `DeleteMessageAsync` yöntemi yürütüldükten sonra veritabanındaki beklenen iletiler gerçek iletilere eşit olmalıdır. Veritabanının içeriğinde değişiklik olmamalıdır:
 
 [!code-csharp[](razor-pages-tests/samples/3.x/tests/RazorPagesTestSample.Tests/UnitTests/DataAccessLayerTest.cs?name=snippet4)]
 
 ## <a name="unit-tests-of-the-page-model-methods"></a>Sayfa modeli yöntemlerinin birim testleri
 
-Başka bir birim testi kümesi, sayfa modeli yöntemlerinin sınamalarından sorumludur. İleti uygulamasında Dizin sayfası modelleri `IndexModel` *src/RazorPagesTestSample/Pages/Index. cshtml. cs*içindeki sınıfta bulunur.
+Başka bir birim testi kümesi, sayfa modeli yöntemlerinin sınamalarından sorumludur. İleti uygulamasında, Dizin sayfası modelleri *src/RazorPagesTestSample/Pages/Index. cshtml. cs*içindeki `IndexModel` sınıfında bulunur.
 
 | Sayfa modeli yöntemi | İşlev |
 | ----------------- | -------- |
-| `OnGetAsync` | `GetMessagesAsync` Yöntemini kullanarak, Kullanıcı arabirimi için dal öğesinden gelen iletileri alır. |
-| `OnPostAddMessageAsync` | [ModelState](xref:Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary) geçerliyse, veritabanına bir ileti eklemek `AddMessageAsync` için çağırır. |
-| `OnPostDeleteAllMessagesAsync` | Veritabanındaki `DeleteAllMessagesAsync` tüm iletileri silmek için çağırır. |
-| `OnPostDeleteMessageAsync` | `Id` Belirtilen `DeleteMessageAsync` bir iletiyi silmek için yürütülür. |
+| `OnGetAsync` | `GetMessagesAsync` yöntemi kullanarak, Kullanıcı arabirimi için DAL öğesinden gelen iletileri alır. |
+| `OnPostAddMessageAsync` | [ModelState](xref:Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary) geçerliyse, veritabanına bir ileti eklemek için `AddMessageAsync` çağırır. |
+| `OnPostDeleteAllMessagesAsync` | Veritabanındaki tüm iletileri silmek için `DeleteAllMessagesAsync` çağırır. |
+| `OnPostDeleteMessageAsync` | Belirtilen `Id` bir iletiyi silmek için `DeleteMessageAsync` yürütür. |
 | `OnPostAnalyzeMessagesAsync` | Veritabanında bir veya daha fazla ileti varsa, ileti başına ortalama sözcük sayısını hesaplar. |
 
-Sayfa modeli yöntemleri, `IndexPageTests` sınıfında yedi test kullanılarak test edilir (*testler/RazorPagesTestSample. testler/unittests/ındexpagetests. cs*). Testler tanıdık düzenleme-onaylama-Işlem düzeni kullanır. Bu sınamalar üzerinde odaklanılmıştır:
+Sayfa modeli yöntemleri `IndexPageTests` sınıfında yedi test kullanılarak test edilir (*testler/RazorPagesTestSample. Tests/UnitTests/ındexpagetests. cs*). Testler tanıdık düzenleme-onaylama-Işlem düzeni kullanır. Bu sınamalar üzerinde odaklanılmıştır:
 
 * [ModelState](xref:Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary) geçersiz olduğunda yöntemlerin doğru davranışı izleyip izlemediğini belirleme.
-* Yöntemlerin doğru <xref:Microsoft.AspNetCore.Mvc.IActionResult>bir şekilde ürettiği doğrulanıyor.
+* Yöntemlerin doğru <xref:Microsoft.AspNetCore.Mvc.IActionResult>üretmesi doğrulanıyor.
 * Özellik değeri atamalarının doğru şekilde yapıldığından emin olup olmadığı denetleniyor.
 
-Bu test grubu genellikle, bir sayfa modeli yönteminin yürütüldüğü Işlem adımı için beklenen verileri oluşturmak üzere DAL yöntemlerini oluşturuyor. Örneğin, `GetMessagesAsync` `AppDbContext` öğesinin yöntemi çıkış oluşturmak için kullanılır. Bir sayfa modeli yöntemi bu yöntemi yürüttüğünde, sahte sonuç döndürür. Veriler veritabanından gelmiyor. Bu, sayfa modeli testlerinde DAL kullanımı için öngörülebilir, güvenilir bir test koşulları oluşturur.
+Bu test grubu genellikle, bir sayfa modeli yönteminin yürütüldüğü Işlem adımı için beklenen verileri oluşturmak üzere DAL yöntemlerini oluşturuyor. Örneğin, `AppDbContext` `GetMessagesAsync` yöntemi, çıkış üretmek için moclenmiş olur. Bir sayfa modeli yöntemi bu yöntemi yürüttüğünde, sahte sonuç döndürür. Veriler veritabanından gelmiyor. Bu, sayfa modeli testlerinde DAL kullanımı için öngörülebilir, güvenilir bir test koşulları oluşturur.
 
-Test, `GetMessagesAsync` yöntemin sayfa modeli için nasıl kullanılacağını gösterir: `OnGetAsync_PopulatesThePageModel_WithAListOfMessages`
+`OnGetAsync_PopulatesThePageModel_WithAListOfMessages` testi, `GetMessagesAsync` yönteminin sayfa modeli için nasıl kullanılacağını gösterir:
 
 [!code-csharp[](razor-pages-tests/samples/3.x/tests/RazorPagesTestSample.Tests/UnitTests/IndexPageTests.cs?name=snippet1&highlight=3-4)]
 
-Yöntem, işlem adımında yürütüldüğünde, sayfa `GetMessagesAsync` modelinin yöntemini çağırır. `OnGetAsync`
+`OnGetAsync` yöntemi hareket adımında yürütüldüğünde, sayfa modelinin `GetMessagesAsync` yöntemini çağırır.
 
 Birim testi Işlem adımı (*testler/RazorPagesTestSample. testler/UnitTests/ındexpagetests. cs*):
 
 [!code-csharp[](razor-pages-tests/samples/3.x/tests/RazorPagesTestSample.Tests/UnitTests/IndexPageTests.cs?name=snippet2)]
 
-`IndexPage`sayfa modelinin `OnGetAsync` yöntemi (*src/RazorPagesTestSample/Pages/Index. cshtml. cs*):
+`IndexPage` sayfa modelinin `OnGetAsync` yöntemi (*src/RazorPagesTestSample/Pages/Index. cshtml. cs*):
 
 [!code-csharp[](razor-pages-tests/samples/3.x/src/RazorPagesTestSample/Pages/Index.cshtml.cs?name=snippet1&highlight=3)]
 
-DAL `GetMessagesAsync` içindeki yöntemi bu yöntem çağrısının sonucunu döndürmez. Metodun moclenmiş sürümü sonucu döndürür.
+DAL içindeki `GetMessagesAsync` yöntemi bu yöntem çağrısının sonucunu döndürmez. Metodun moclenmiş sürümü sonucu döndürür.
 
-Adımda, gerçek iletiler (`actualMessages` `Messages` ) sayfa modelinin özelliğinden atanır. `Assert` İletiler atandığında bir tür denetimi de gerçekleştirilir. Beklenen ve gerçek iletiler `Text` özellikleriyle karşılaştırılır. Test, iki `List<Message>` örneğinin aynı iletileri içerdiğini onaylar.
+`Assert` adımında, gerçek iletiler (`actualMessages`) sayfa modelinin `Messages` özelliğinden atanır. İletiler atandığında bir tür denetimi de gerçekleştirilir. Beklenen ve gerçek mesajlar `Text` özellikleriyle karşılaştırılır. Test, iki `List<Message>` örneğinin aynı iletileri içerdiğini onaylar.
 
 [!code-csharp[](razor-pages-tests/samples/3.x/tests/RazorPagesTestSample.Tests/UnitTests/IndexPageTests.cs?name=snippet3)]
 
-Bu gruptaki diğer testler,,, ve ' ı <xref:Microsoft.AspNetCore.Http.DefaultHttpContext>kurmak `PageContext` <xref:Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary> <xref:Microsoft.AspNetCore.Mvc.ActionContext> `PageContext` `ViewDataDictionary`için,, bir içeren sayfa modeli nesneleri oluşturur. Bunlar, testleri yürütmek için faydalıdır. Örneğin, `ModelState` ileti uygulaması yürütüldüğünde geçerli <xref:Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary.AddModelError*> <xref:Microsoft.AspNetCore.Mvc.RazorPages.PageResult> bir döndürülüp döndürüldüğünden emin olmak için bir hata oluşturur: `OnPostAddMessageAsync`
+Bu gruptaki diğer testler, <xref:Microsoft.AspNetCore.Http.DefaultHttpContext>, <xref:Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary><xref:Microsoft.AspNetCore.Mvc.ActionContext> `PageContext`, `ViewDataDictionary`ve `PageContext`oluşturmak için bir içeren sayfa modeli nesneleri oluşturur. Bunlar, testleri yürütmek için faydalıdır. Örneğin, ileti uygulaması, `OnPostAddMessageAsync` yürütüldüğünde geçerli bir <xref:Microsoft.AspNetCore.Mvc.RazorPages.PageResult> döndürülüp döndürülmeyeceğini denetlemek için <xref:Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary.AddModelError*> `ModelState` bir hata oluşturur:
 
 [!code-csharp[](razor-pages-tests/samples/3.x/tests/RazorPagesTestSample.Tests/UnitTests/IndexPageTests.cs?name=snippet4&highlight=11,26,29,32)]
 
@@ -217,7 +215,7 @@ Bu konu, Razor Pages uygulamalar ve birim testleri hakkında temel bir anladığ
 * <xref:tutorials/razor-pages/razor-pages-start>
 * [DotNet test C# ve xUnit kullanarak .NET Core 'da birim testi](/dotnet/articles/core/testing/unit-testing-with-dotnet-test)
 
-[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/test/razor-pages-tests/samples) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
+[Örnek kodu görüntüleme veya indirme](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/test/razor-pages-tests/samples) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
 
 Örnek proje iki uygulamalardan oluşur:
 
@@ -237,14 +235,14 @@ dotnet test
 İleti uygulaması, aşağıdaki özelliklere sahip bir Razor Pages ileti sistemidir:
 
 * Uygulamanın (*Pages/Index. cshtml* ve *Pages/index. cshtml. cs*) dizin sayfası, iletilerin eklenmesi, silinmesini ve ANALIZINI denetlemek için bir UI ve sayfa modeli yöntemleri sağlar (ileti başına ortalama sözcük sayısını bulur).
-* Bir ileti, `Message` sınıfı (*Data/Message. cs*) ile iki özelliği `Id` olan (anahtar) ve `Text` (ileti) açıklanmaktadır. `Text` Özelliği gereklidir ve 200 karakterle sınırlıdır.
+* Bir ileti, `Message` sınıfı (*Data/Message. cs*) ile iki özellik içeren (`Id` (anahtar) ve `Text` (ileti) açıklanmaktadır. `Text` özelliği gereklidir ve 200 karakterle sınırlıdır.
 * İletiler, [Entity Framework bellek içi veritabanı](/ef/core/providers/in-memory/)&#8224;kullanılarak depolanır.
-* Uygulama, `AppDbContext` veritabanı bağlamı sınıfında (*Data/appdbcontext. cs*) bir dal içerir. DAL Yöntemleri işaretlenir `virtual`ve bu yöntemler, testlerde kullanım için izin verir.
+* Uygulama, `AppDbContext` (*Data/AppDbContext. cs*) veritabanı bağlamı SıNıFıNDA bir dal içerir. DAL yöntemleri `virtual`işaretlenir ve bu yöntemler testlerde kullanım için izin verir.
 * Veritabanı uygulama başlangıcında boşsa, ileti deposu üç iletiyle başlatılır. Bu *sağlanan iletiler* , testlerde de kullanılır.
 
 &#8224;[InMemory Ile test](/ef/core/miscellaneous/testing/in-memory)olan EF konusu, MSTest ile testler için bellek içi bir veritabanının nasıl kullanılacağını açıklar. Bu konu [xUnit](https://xunit.github.io/) test çerçevesini kullanır. Farklı test çerçeveleri genelinde test kavramları ve test uygulamaları benzerdir ancak aynı değildir.
 
-Örnek uygulama depo desenini kullanmaz ve [Iş birimi (UoW) düzeninin](https://martinfowler.com/eaaCatalog/unitOfWork.html)etkin bir örneği olmasa da Razor Pages bu geliştirme düzenlerini destekler. Daha fazla bilgi için bkz. [altyapı Kalıcılık katmanını tasarlama](/dotnet/standard/microservices-architecture/microservice-ddd-cqrs-patterns/infrastructure-persistence-layer-design) ve <xref:mvc/controllers/testing> (örnek depo modelini uygular).
+Örnek uygulama depo desenini kullanmaz ve [Iş birimi (UoW) düzeninin](https://martinfowler.com/eaaCatalog/unitOfWork.html)etkin bir örneği olmasa da Razor Pages bu geliştirme düzenlerini destekler. Daha fazla bilgi için bkz. [altyapı Kalıcılık katmanını tasarlama](/dotnet/standard/microservices-architecture/microservice-ddd-cqrs-patterns/infrastructure-persistence-layer-design) ve <xref:mvc/controllers/testing> (örnek, depo modelini uygular).
 
 ## <a name="test-app-organization"></a>Test uygulaması kuruluşu
 
@@ -253,22 +251,22 @@ Test uygulaması, *testler/RazorPagesTestSample. Tests* klasörünün içindeki 
 | Test uygulaması klasörü | Açıklama |
 | --------------- | ----------- |
 | *UnitTests*     | <ul><li>*DataAccessLayerTest.cs* , dal için birim testlerini içerir.</li><li>*IndexPageTests.cs* , Dizin sayfası modelinin birim testlerini içerir.</li></ul> |
-| *Programların*     | Her bir dal birim testi için yeni veritabanı bağlamı seçenekleri oluşturmak için kullanılan yöntemiiçerir,böyleceveritabanıhertestiçinkenditemelkoşulunasıfırlanır.`TestDbContextOptions` |
+| *Programların*     | Her DAL birim testi için yeni veritabanı bağlamı seçeneklerini oluşturmak için kullanılan `TestDbContextOptions` yöntemini içerir, böylece veritabanı her test için kendi temel koşuluna sıfırlanır. |
 
 Test çerçevesi [xUnit](https://xunit.github.io/)' dir. Nesne sahte işlem çerçevesi [moq](https://github.com/moq/moq4)olur.
 
 ## <a name="unit-tests-of-the-data-access-layer-dal"></a>Veri erişim katmanının birim testleri (DAL)
 
-İleti uygulamasında `AppDbContext` , sınıfında dört yöntem bulunan bir dal vardır (*src/RazorPagesTestSample/Data/appdbcontext. cs*). Her yöntemin test uygulamasında bir veya iki birim testi vardır.
+İleti uygulamasının, `AppDbContext` sınıfında (*src/RazorPagesTestSample/Data/AppDbContext. cs*) dört yöntemi bulunan bir dal vardır. Her yöntemin test uygulamasında bir veya iki birim testi vardır.
 
 | DAL yöntemi               | İşlev                                                                   |
 | ------------------------ | -------------------------------------------------------------------------- |
-| `GetMessagesAsync`       | Özelliği tarafından sıralanan veritabanından bir `List<Message>` alır. `Text` |
-| `AddMessageAsync`        | Veritabanına bir `Message` ekler.                                          |
-| `DeleteAllMessagesAsync` | Tüm `Message` girdileri veritabanından siler.                           |
-| `DeleteMessageAsync`     | Veritabanından tek tek `Message`siler. `Id`                      |
+| `GetMessagesAsync`       | `Text` özelliğine göre sıralanan veritabanından bir `List<Message>` alır. |
+| `AddMessageAsync`        | Veritabanına `Message` ekler.                                          |
+| `DeleteAllMessagesAsync` | Tüm `Message` girişlerini veritabanından siler.                           |
+| `DeleteMessageAsync`     | `Message` veritabanından tek bir `Id`siler.                      |
 
-DAL birim testleri her bir test <xref:Microsoft.EntityFrameworkCore.DbContextOptions> için yeni `AppDbContext` bir oluşturma için gereklidir. Her test için öğesini oluşturmaya `DbContextOptions` yönelik bir yaklaşım, şunu <xref:Microsoft.EntityFrameworkCore.DbContextOptionsBuilder>kullanmaktır:
+DAL birim testleri her test için yeni bir `AppDbContext` oluştururken <xref:Microsoft.EntityFrameworkCore.DbContextOptions> gerektirir. Her test için `DbContextOptions` oluşturmaya yönelik bir yaklaşım <xref:Microsoft.EntityFrameworkCore.DbContextOptionsBuilder>kullanmaktır:
 
 ```csharp
 var optionsBuilder = new DbContextOptionsBuilder<AppDbContext>()
@@ -280,11 +278,11 @@ using (var db = new AppDbContext(optionsBuilder.Options))
 }
 ```
 
-Bu yaklaşımla ilgili sorun, her testin, önceki testin bulunduğu herhangi bir durumda veritabanını aldığından emin olur. Bu, birbirleriyle karışmaz atomik birim testleri yazmaya çalışırken sorunlu olabilir. Her test için `AppDbContext` yeni bir veritabanı bağlamı kullanmaya zorlamak için, yeni bir hizmet sağlayıcısına `DbContextOptions` dayalı bir örnek sağlayın. Test uygulaması, `Utilities` sınıfının sınıf yöntemi `TestDbContextOptions` kullanılarak nasıl yapılacağını gösterir (testler/*RazorPagesTestSample. testler/Utilities/Utilities. cs*):
+Bu yaklaşımla ilgili sorun, her testin, önceki testin bulunduğu herhangi bir durumda veritabanını aldığından emin olur. Bu, birbirleriyle karışmaz atomik birim testleri yazmaya çalışırken sorunlu olabilir. `AppDbContext` her test için yeni bir veritabanı bağlamı kullanmaya zorlamak için, yeni bir hizmet sağlayıcısına dayalı bir `DbContextOptions` örneği sağlayın. Test uygulaması, `Utilities` sınıf yöntemi `TestDbContextOptions` (*testler/RazorPagesTestSample. testler/Utilities/Utilities. cs*) kullanılarak nasıl yapılacağını gösterir:
 
 [!code-csharp[](razor-pages-tests/samples/2.x/tests/RazorPagesTestSample.Tests/Utilities/Utilities.cs?name=snippet1)]
 
-DAL birim `DbContextOptions` testlerinde kullanılması, her testin yeni bir veritabanı örneğiyle otomatik olarak çalıştırılmasına izin verir:
+DAL birim testlerinde `DbContextOptions` kullanmak, her testin yeni bir veritabanı örneğiyle otomatik olarak çalıştırılmasına izin verir:
 
 ```csharp
 using (var db = new AppDbContext(Utilities.TestDbContextOptions()))
@@ -293,82 +291,82 @@ using (var db = new AppDbContext(Utilities.TestDbContextOptions()))
 }
 ```
 
-`DataAccessLayerTest` Sınıftaki her bir test yöntemi (*unittests/DataAccessLayerTest. cs*) benzer bir düzenleme-işlem onaylama düzeni izler:
+`DataAccessLayerTest` sınıfındaki (*unittests/DataAccessLayerTest. cs*) her test yöntemi, benzer bir düzenleme-işlem onaylama düzeni izler:
 
-1. ' Veritabanı test için yapılandırıldı ve/veya beklenen sonuç tanımlandı.
-1. Çalışanlarının Test yürütülür.
-1. Vermediğini Test sonuçlarının başarılı olup olmadığını belirleme onayları yapılır.
+1. Düzenle: veritabanı test için yapılandırılmış ve/veya beklenen sonuç tanımlandı.
+1. Davran: test yürütülür.
+1. Onaylama: test sonucunun başarılı olup olmadığını belirleme onayları yapılır.
 
-Örneğin, `DeleteMessageAsync` yöntemi `Id` (*src/RazorPagesTestSample/Data/appdbcontext. cs*) tarafından tanımlanan tek bir iletinin kaldırılmasından sorumludur:
+Örneğin, `DeleteMessageAsync` yöntemi, `Id` (*src/RazorPagesTestSample/Data/AppDbContext. cs*) tarafından tanımlanan tek bir iletiyi kaldırmaktan sorumludur:
 
 [!code-csharp[](razor-pages-tests/samples/2.x/src/RazorPagesTestSample/Data/AppDbContext.cs?name=snippet4)]
 
-Bu yöntem için iki test vardır. Bir test, bir ileti veritabanında olduğunda yöntemin bir iletiyi sildiğini denetler. Diğer yöntem, silme iletisi `Id` yoksa veritabanının değişmediğini sınar. `DeleteMessageAsync_MessageIsDeleted_WhenMessageIsFound` Yöntemi aşağıda gösterilmiştir:
+Bu yöntem için iki test vardır. Bir test, bir ileti veritabanında olduğunda yöntemin bir iletiyi sildiğini denetler. Diğer yöntem, silinmek üzere `Id` ileti yoksa veritabanının değişmediğini sınar. `DeleteMessageAsync_MessageIsDeleted_WhenMessageIsFound` yöntemi aşağıda gösterilmektedir:
 
 [!code-csharp[](razor-pages-tests/samples_snapshot/2.x/tests/RazorPagesTestSample.Tests/UnitTests/DataAccessLayerTest.cs?name=snippet1)]
 
-İlk olarak, yöntemi, hareket adımının hazırlanması gereken düzenleme adımını gerçekleştirir. Dengeli dağıtım iletileri ' de `seedMessages`alınır ve tutulur. Dengeli dağıtım iletileri veritabanına kaydedilir. `Id` İçeren`1` ileti silinmek üzere ayarlanmış. Yöntemi yürütüldüğünde, beklenen iletilerde, `Id` ' ın `1`dışında bir ileti olmalıdır. `DeleteMessageAsync` Değişken `expectedMessages` , beklenen bu sonucu temsil eder.
+İlk olarak, yöntemi, hareket adımının hazırlanması gereken düzenleme adımını gerçekleştirir. Dengeli dağıtım iletileri `seedMessages`alınır ve tutulur. Dengeli dağıtım iletileri veritabanına kaydedilir. `1` `Id` ileti silinmek üzere ayarlanmış. `DeleteMessageAsync` yöntemi yürütüldüğünde, beklenen iletilerde, `1``Id` hariç olmak üzere tüm iletiler olmalıdır. `expectedMessages` değişkeni beklenen bu sonucu temsil eder.
 
 [!code-csharp[](razor-pages-tests/samples/2.x/tests/RazorPagesTestSample.Tests/UnitTests/DataAccessLayerTest.cs?name=snippet1)]
 
-Yöntemi şu şekilde davranır: `DeleteMessageAsync` Yöntemi ,`recId`' ın içinde geçirme yürütülür: `1`
+Yöntemi şu şekilde davranır: `DeleteMessageAsync` yöntemi `1``recId` geçirme yürütülür:
 
 [!code-csharp[](razor-pages-tests/samples/2.x/tests/RazorPagesTestSample.Tests/UnitTests/DataAccessLayerTest.cs?name=snippet2)]
 
-Son olarak, yöntemi bağlamını edinir `Messages` ve iki eşit olan `expectedMessages` asserile karşılaştırır:
+Son olarak, yöntemi bağlamdan `Messages` edinir ve ikisi de ikisinin eşit olduğunu belirten `expectedMessages` ile karşılaştırılır:
 
 [!code-csharp[](razor-pages-tests/samples/2.x/tests/RazorPagesTestSample.Tests/UnitTests/DataAccessLayerTest.cs?name=snippet3)]
 
-İki ikisinin `List<Message>` de aynı olduğunu karşılaştırmak için:
+İki `List<Message>` aynı olduğunu karşılaştırmak için:
 
-* İletiler tarafından `Id`sıralanır.
+* Mesajlar `Id`göre sıralanır.
 * İleti çiftleri `Text` özelliği ile karşılaştırılır.
 
-Benzer bir test yöntemi, `DeleteMessageAsync_NoMessageIsDeleted_WhenMessageIsNotFound` mevcut olmayan bir iletiyi silmeye çalışılması sonucunu denetler. Bu durumda, veritabanındaki beklenen iletiler, `DeleteMessageAsync` Yöntem yürütüldükten sonra gerçek iletilere eşit olmalıdır. Veritabanının içeriğinde değişiklik olmamalıdır:
+Benzer bir test yöntemi olan `DeleteMessageAsync_NoMessageIsDeleted_WhenMessageIsNotFound`, var olmayan bir iletiyi silmeye çalışılması sonucunu denetler. Bu durumda, `DeleteMessageAsync` yöntemi yürütüldükten sonra veritabanındaki beklenen iletiler gerçek iletilere eşit olmalıdır. Veritabanının içeriğinde değişiklik olmamalıdır:
 
 [!code-csharp[](razor-pages-tests/samples/2.x/tests/RazorPagesTestSample.Tests/UnitTests/DataAccessLayerTest.cs?name=snippet4)]
 
 ## <a name="unit-tests-of-the-page-model-methods"></a>Sayfa modeli yöntemlerinin birim testleri
 
-Başka bir birim testi kümesi, sayfa modeli yöntemlerinin sınamalarından sorumludur. İleti uygulamasında Dizin sayfası modelleri `IndexModel` *src/RazorPagesTestSample/Pages/Index. cshtml. cs*içindeki sınıfta bulunur.
+Başka bir birim testi kümesi, sayfa modeli yöntemlerinin sınamalarından sorumludur. İleti uygulamasında, Dizin sayfası modelleri *src/RazorPagesTestSample/Pages/Index. cshtml. cs*içindeki `IndexModel` sınıfında bulunur.
 
 | Sayfa modeli yöntemi | İşlev |
 | ----------------- | -------- |
-| `OnGetAsync` | `GetMessagesAsync` Yöntemini kullanarak, Kullanıcı arabirimi için dal öğesinden gelen iletileri alır. |
-| `OnPostAddMessageAsync` | [ModelState](xref:Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary) geçerliyse, veritabanına bir ileti eklemek `AddMessageAsync` için çağırır. |
-| `OnPostDeleteAllMessagesAsync` | Veritabanındaki `DeleteAllMessagesAsync` tüm iletileri silmek için çağırır. |
-| `OnPostDeleteMessageAsync` | `Id` Belirtilen `DeleteMessageAsync` bir iletiyi silmek için yürütülür. |
+| `OnGetAsync` | `GetMessagesAsync` yöntemi kullanarak, Kullanıcı arabirimi için DAL öğesinden gelen iletileri alır. |
+| `OnPostAddMessageAsync` | [ModelState](xref:Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary) geçerliyse, veritabanına bir ileti eklemek için `AddMessageAsync` çağırır. |
+| `OnPostDeleteAllMessagesAsync` | Veritabanındaki tüm iletileri silmek için `DeleteAllMessagesAsync` çağırır. |
+| `OnPostDeleteMessageAsync` | Belirtilen `Id` bir iletiyi silmek için `DeleteMessageAsync` yürütür. |
 | `OnPostAnalyzeMessagesAsync` | Veritabanında bir veya daha fazla ileti varsa, ileti başına ortalama sözcük sayısını hesaplar. |
 
-Sayfa modeli yöntemleri, `IndexPageTests` sınıfında yedi test kullanılarak test edilir (*testler/RazorPagesTestSample. testler/unittests/ındexpagetests. cs*). Testler tanıdık düzenleme-onaylama-Işlem düzeni kullanır. Bu sınamalar üzerinde odaklanılmıştır:
+Sayfa modeli yöntemleri `IndexPageTests` sınıfında yedi test kullanılarak test edilir (*testler/RazorPagesTestSample. Tests/UnitTests/ındexpagetests. cs*). Testler tanıdık düzenleme-onaylama-Işlem düzeni kullanır. Bu sınamalar üzerinde odaklanılmıştır:
 
 * [ModelState](xref:Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary) geçersiz olduğunda yöntemlerin doğru davranışı izleyip izlemediğini belirleme.
-* Yöntemlerin doğru <xref:Microsoft.AspNetCore.Mvc.IActionResult>bir şekilde ürettiği doğrulanıyor.
+* Yöntemlerin doğru <xref:Microsoft.AspNetCore.Mvc.IActionResult>üretmesi doğrulanıyor.
 * Özellik değeri atamalarının doğru şekilde yapıldığından emin olup olmadığı denetleniyor.
 
-Bu test grubu genellikle, bir sayfa modeli yönteminin yürütüldüğü Işlem adımı için beklenen verileri oluşturmak üzere DAL yöntemlerini oluşturuyor. Örneğin, `GetMessagesAsync` `AppDbContext` öğesinin yöntemi çıkış oluşturmak için kullanılır. Bir sayfa modeli yöntemi bu yöntemi yürüttüğünde, sahte sonuç döndürür. Veriler veritabanından gelmiyor. Bu, sayfa modeli testlerinde DAL kullanımı için öngörülebilir, güvenilir bir test koşulları oluşturur.
+Bu test grubu genellikle, bir sayfa modeli yönteminin yürütüldüğü Işlem adımı için beklenen verileri oluşturmak üzere DAL yöntemlerini oluşturuyor. Örneğin, `AppDbContext` `GetMessagesAsync` yöntemi, çıkış üretmek için moclenmiş olur. Bir sayfa modeli yöntemi bu yöntemi yürüttüğünde, sahte sonuç döndürür. Veriler veritabanından gelmiyor. Bu, sayfa modeli testlerinde DAL kullanımı için öngörülebilir, güvenilir bir test koşulları oluşturur.
 
-Test, `GetMessagesAsync` yöntemin sayfa modeli için nasıl kullanılacağını gösterir: `OnGetAsync_PopulatesThePageModel_WithAListOfMessages`
+`OnGetAsync_PopulatesThePageModel_WithAListOfMessages` testi, `GetMessagesAsync` yönteminin sayfa modeli için nasıl kullanılacağını gösterir:
 
 [!code-csharp[](razor-pages-tests/samples/2.x/tests/RazorPagesTestSample.Tests/UnitTests/IndexPageTests.cs?name=snippet1&highlight=3-4)]
 
-Yöntem, işlem adımında yürütüldüğünde, sayfa `GetMessagesAsync` modelinin yöntemini çağırır. `OnGetAsync`
+`OnGetAsync` yöntemi hareket adımında yürütüldüğünde, sayfa modelinin `GetMessagesAsync` yöntemini çağırır.
 
 Birim testi Işlem adımı (*testler/RazorPagesTestSample. testler/UnitTests/ındexpagetests. cs*):
 
 [!code-csharp[](razor-pages-tests/samples/2.x/tests/RazorPagesTestSample.Tests/UnitTests/IndexPageTests.cs?name=snippet2)]
 
-`IndexPage`sayfa modelinin `OnGetAsync` yöntemi (*src/RazorPagesTestSample/Pages/Index. cshtml. cs*):
+`IndexPage` sayfa modelinin `OnGetAsync` yöntemi (*src/RazorPagesTestSample/Pages/Index. cshtml. cs*):
 
 [!code-csharp[](razor-pages-tests/samples/2.x/src/RazorPagesTestSample/Pages/Index.cshtml.cs?name=snippet1&highlight=3)]
 
-DAL `GetMessagesAsync` içindeki yöntemi bu yöntem çağrısının sonucunu döndürmez. Metodun moclenmiş sürümü sonucu döndürür.
+DAL içindeki `GetMessagesAsync` yöntemi bu yöntem çağrısının sonucunu döndürmez. Metodun moclenmiş sürümü sonucu döndürür.
 
-Adımda, gerçek iletiler (`actualMessages` `Messages` ) sayfa modelinin özelliğinden atanır. `Assert` İletiler atandığında bir tür denetimi de gerçekleştirilir. Beklenen ve gerçek iletiler `Text` özellikleriyle karşılaştırılır. Test, iki `List<Message>` örneğinin aynı iletileri içerdiğini onaylar.
+`Assert` adımında, gerçek iletiler (`actualMessages`) sayfa modelinin `Messages` özelliğinden atanır. İletiler atandığında bir tür denetimi de gerçekleştirilir. Beklenen ve gerçek mesajlar `Text` özellikleriyle karşılaştırılır. Test, iki `List<Message>` örneğinin aynı iletileri içerdiğini onaylar.
 
 [!code-csharp[](razor-pages-tests/samples/2.x/tests/RazorPagesTestSample.Tests/UnitTests/IndexPageTests.cs?name=snippet3)]
 
-Bu gruptaki diğer testler,,, ve ' ı <xref:Microsoft.AspNetCore.Http.DefaultHttpContext>kurmak `PageContext` <xref:Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary> <xref:Microsoft.AspNetCore.Mvc.ActionContext> `PageContext` `ViewDataDictionary`için,, bir içeren sayfa modeli nesneleri oluşturur. Bunlar, testleri yürütmek için faydalıdır. Örneğin, `ModelState` ileti uygulaması yürütüldüğünde geçerli <xref:Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary.AddModelError*> <xref:Microsoft.AspNetCore.Mvc.RazorPages.PageResult> bir döndürülüp döndürüldüğünden emin olmak için bir hata oluşturur: `OnPostAddMessageAsync`
+Bu gruptaki diğer testler, <xref:Microsoft.AspNetCore.Http.DefaultHttpContext>, <xref:Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary><xref:Microsoft.AspNetCore.Mvc.ActionContext> `PageContext`, `ViewDataDictionary`ve `PageContext`oluşturmak için bir içeren sayfa modeli nesneleri oluşturur. Bunlar, testleri yürütmek için faydalıdır. Örneğin, ileti uygulaması, `OnPostAddMessageAsync` yürütüldüğünde geçerli bir <xref:Microsoft.AspNetCore.Mvc.RazorPages.PageResult> döndürülüp döndürülmeyeceğini denetlemek için <xref:Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary.AddModelError*> `ModelState` bir hata oluşturur:
 
 [!code-csharp[](razor-pages-tests/samples/2.x/tests/RazorPagesTestSample.Tests/UnitTests/IndexPageTests.cs?name=snippet4&highlight=11,26,29,32)]
 

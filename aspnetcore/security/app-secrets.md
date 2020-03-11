@@ -6,18 +6,18 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 12/05/2019
 uid: security/app-secrets
-ms.openlocfilehash: 9b36ae64fbe277cd81ed22ba7b21b0a035082dbd
-ms.sourcegitcommit: c815a9465e7b1bab44ce1643ec345b33e6cf1598
+ms.openlocfilehash: c3f165164f3c95e8c0aab773f3731429ae224bd9
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75606798"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78666868"
 ---
 # <a name="safe-storage-of-app-secrets-in-development-in-aspnet-core"></a>ASP.NET Core sürümünde geliştirme sırasında uygulama gizli dizileri güvenli depolama
 
 By [Rick Anderson](https://twitter.com/RickAndMSFT), [Daniel Roth](https://github.com/danroth27)ve [Scott Ade](https://github.com/scottaddie)
 
-[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/app-secrets/samples) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
+[Örnek kodu görüntüleme veya indirme](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/security/app-secrets/samples) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
 
 Bu belgede, bir geliştirme makinesinde ASP.NET Core uygulamasının geliştirilmesi sırasında hassas verilerin depolanması ve alınması için teknikler açıklanmaktadır. Kaynak kodunda parolaları veya diğer hassas verileri hiçbir şekilde depolamayin. Üretim gizli dizileri geliştirme veya test için kullanılmamalıdır. Gizli dizileri uygulamayla birlikte dağıtılmamalıdır. Bunun yerine, ortamlar, ortam değişkenleri, Azure Key Vault vb. gibi denetimli bir yöntemle üretim ortamında kullanılabilir hale gelmelidir. [Azure Key Vault yapılandırma sağlayıcısıyla](xref:security/key-vault-configuration)Azure test ve üretim gizli dizilerini saklayabilir ve koruyabilirsiniz.
 
@@ -51,13 +51,13 @@ Gizli verileri bir ASP.NET Core projesi geliştirme sırasında depolar. Bu bağ
 
 Gizli dizi Yöneticisi Aracı, değerlerin nerede ve nasıl depolandığı gibi uygulama ayrıntılarını soyutlar. Bu uygulama ayrıntılarını bilmeden aracı kullanabilirsiniz. Değerler, yerel makinedeki sistem korumalı bir kullanıcı profili klasöründe bir JSON yapılandırma dosyasında depolanır:
 
-# <a name="windowstabwindows"></a>[Windows](#tab/windows)
+# <a name="windows"></a>[Windows](#tab/windows)
 
 Dosya sistemi yolu:
 
 `%APPDATA%\Microsoft\UserSecrets\<user_secrets_id>\secrets.json`
 
-# <a name="linux--macostablinuxmacos"></a>[Linux/macOS](#tab/linux+macos)
+# <a name="linux--macos"></a>[Linux/macOS](#tab/linux+macos)
 
 Dosya sistemi yolu:
 
@@ -84,7 +84,7 @@ Kullanılan .NET Core SDK araç içeriyorsa bir uyarı görüntülenir:
 The tool 'Microsoft.Extensions.SecretManager.Tools' is now included in the .NET Core SDK. Information on resolving this warning is available at (https://aka.ms/dotnetclitools-in-box).
 ```
 
-ASP.NET Core projenize [Microsoft. Extensions. SecretManager. Tools](https://www.nuget.org/packages/Microsoft.Extensions.SecretManager.Tools/) NuGet paketini yükle. Örneğin:
+ASP.NET Core projenize [Microsoft. Extensions. SecretManager. Tools](https://www.nuget.org/packages/Microsoft.Extensions.SecretManager.Tools/) NuGet paketini yükle. Örnek:
 
 [!code-xml[](app-secrets/samples/1.x/UserSecrets/UserSecrets.csproj?name=snippet_CsprojFile&highlight=15-16)]
 
@@ -168,7 +168,7 @@ dotnet user-secrets set "Movies:ServiceApiKey" "12345"
 
 Yukarıdaki örnekte, iki nokta üst üste `Movies` bir `ServiceApiKey` özelliğine sahip bir nesne sabit değeri olduğunu gösterir.
 
-Gizli dizi Yöneticisi Aracı diğer dizinlerden de kullanılabilir. *. Csproj* dosyasının bulunduğu dosya sistemi yolunu sağlamak için `--project` seçeneğini kullanın. Örneğin:
+Gizli dizi Yöneticisi Aracı diğer dizinlerden de kullanılabilir. *. Csproj* dosyasının bulunduğu dosya sistemi yolunu sağlamak için `--project` seçeneğini kullanın. Örnek:
 
 ```dotnetcli
 dotnet user-secrets set "Movies:ServiceApiKey" "12345" --project "C:\apps\WebApp1\src\WebApp1"
@@ -176,7 +176,7 @@ dotnet user-secrets set "Movies:ServiceApiKey" "12345" --project "C:\apps\WebApp
 
 ### <a name="json-structure-flattening-in-visual-studio"></a>Visual Studio 'da JSON yapısı düzleştirme
 
-Visual Studio 'nun **Kullanıcı gizli dizilerini Yönet** hareketi metin düzenleyicisinde bir *gizli dizi. JSON* dosyası açar. *Gizlilikler. JSON* içeriğini depolanacak anahtar-değer çiftleriyle değiştirin. Örneğin:
+Visual Studio 'nun **Kullanıcı gizli dizilerini Yönet** hareketi metin düzenleyicisinde bir *gizli dizi. JSON* dosyası açar. *Gizlilikler. JSON* içeriğini depolanacak anahtar-değer çiftleriyle değiştirin. Örnek:
 
 ```json
 {
@@ -199,7 +199,7 @@ JSON yapısı, `dotnet user-secrets remove` veya `dotnet user-secrets set`aracı
 
 Bir toplu işlem, JSON tarafından `set` komutuna boru tarafından ayarlanabilir. Aşağıdaki örnekte, *input. JSON* dosyasının içeriği `set` komutuna yöneldir.
 
-# <a name="windowstabwindows"></a>[Windows](#tab/windows)
+# <a name="windows"></a>[Windows](#tab/windows)
 
 Bir komut kabuğu açın ve şu komutu yürütün:
 
@@ -207,7 +207,7 @@ Bir komut kabuğu açın ve şu komutu yürütün:
   type .\input.json | dotnet user-secrets set
   ```
 
-# <a name="linux--macostablinuxmacos"></a>[Linux/macOS](#tab/linux+macos)
+# <a name="linux--macos"></a>[Linux/macOS](#tab/linux+macos)
 
 Bir komut kabuğu açın ve şu komutu yürütün:
 
@@ -317,13 +317,13 @@ Parolaların düz metin olarak depolanması güvenli değildir. Örneğin, *appS
 
 [!code-json[](app-secrets/samples/2.x/UserSecrets/appsettings-unsecure.json?highlight=3)]
 
-Daha güvenli bir yaklaşım, parolayı gizli olarak depolanmalıdır. Örneğin:
+Daha güvenli bir yaklaşım, parolayı gizli olarak depolanmalıdır. Örnek:
 
 ```dotnetcli
 dotnet user-secrets set "DbPassword" "pass123"
 ```
 
-`Password` anahtar-değer çiftini *appSettings. JSON*içindeki bağlantı dizesinden kaldırın. Örneğin:
+`Password` anahtar-değer çiftini *appSettings. JSON*içindeki bağlantı dizesinden kaldırın. Örnek:
 
 [!code-json[](app-secrets/samples/2.x/UserSecrets/appsettings.json?highlight=3)]
 
@@ -351,7 +351,7 @@ Gizli dizi değeri, bağlantı dizesinin tamamlanabilmesi için <xref:System.Dat
 dotnet user-secrets list
 ```
 
-Şu çıktı görünür:
+Aşağıdaki çıktı görüntülenir:
 
 ```console
 Movies:ConnectionString = Server=(localdb)\mssqllocaldb;Database=Movie-1;Trusted_Connection=True;MultipleActiveResultSets=true
@@ -410,6 +410,6 @@ No secrets configured for this application.
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-* IIS 'den gizli yöneticiye erişme hakkında bilgi için [Bu soruna](https://github.com/aspnet/AspNetCore.Docs/issues/16328) bakın.
+* IIS 'den gizli yöneticiye erişme hakkında bilgi için [Bu soruna](https://github.com/dotnet/AspNetCore.Docs/issues/16328) bakın.
 * <xref:fundamentals/configuration/index>
 * <xref:security/key-vault-configuration>

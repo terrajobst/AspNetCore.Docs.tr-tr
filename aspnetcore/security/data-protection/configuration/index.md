@@ -1,29 +1,29 @@
 ---
-title: ASP.NET core'da veri koruma yapılandırması
+title: ASP.NET Core 'de veri koruma yapılandırması
 author: rick-anderson
-description: ASP.NET Core veri koruma nasıl açıklayan konulara keşfedin.
+description: ASP.NET Core ' de veri korumanın nasıl yapılandırılacağını açıklayan konuları bulun.
 ms.author: riande
 ms.date: 10/12/2017
 uid: security/data-protection/configuration/index
 ms.openlocfilehash: d6b87f8c0b20572929cf7449379c6fa3ade123ad
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64902978"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78667960"
 ---
-# <a name="data-protection-configuration-in-aspnet-core"></a>ASP.NET core'da veri koruma yapılandırması
+# <a name="data-protection-configuration-in-aspnet-core"></a>ASP.NET Core 'de veri koruma yapılandırması
 
-ASP.NET core'da veri koruma yapılandırması hakkında bilgi edinmek için bu konuları ziyaret edin:
+ASP.NET Core ' deki veri koruma yapılandırması hakkında bilgi edinmek için şu konuları ziyaret edin:
 
 * [ASP.NET Core veri korumasını yapılandırma](xref:security/data-protection/configuration/overview)  
-  ASP.NET Core veri korumayı yapılandırma genel bir bakış.
+  ASP.NET Core veri korumasını yapılandırmaya genel bakış.
 
-* [Veri koruma anahtar yönetimi ve yaşam süresi](xref:security/data-protection/configuration/default-settings)  
-  Veri koruma anahtar yönetimi ve yaşam süresi hakkında bilgiler.
+* [Veri koruma anahtarı yönetimi ve ömrü](xref:security/data-protection/configuration/default-settings)  
+  Veri koruma anahtarı yönetimi ve ömrü hakkında bilgi.
 
-* [Veri koruma makine geneli ilke desteği](xref:security/data-protection/configuration/machine-wide-policy)  
-  Veri koruma kullanan tüm uygulamalar için varsayılan bir makineye ilkesini ayarlama hakkında ayrıntılar.
+* [Veri koruma makine genelinde ilke desteği](xref:security/data-protection/configuration/machine-wide-policy)  
+  Veri koruma kullanan tüm uygulamalar için varsayılan makine genelindeki bir ilke ayarlamayla ilgili ayrıntılar.
 
-* [ASP.NET core'da veri koruma için dı kullanmayan senaryolar](xref:security/data-protection/configuration/non-di-scenarios)  
-  Nasıl kullanılacağını [DataProtectionProvider](/dotnet/api/Microsoft.AspNetCore.DataProtection.DataProtectionProvider) somut DI özgü kod yollarını olmadan veri korumayı kullanması için türü.
+* [ASP.NET Core 'de veri koruması için yok kullanmayan senaryolar](xref:security/data-protection/configuration/non-di-scenarios)  
+  [Veriprotectionprovider](/dotnet/api/Microsoft.AspNetCore.DataProtection.DataProtectionProvider) somut türünü, VERI korumasını dı 'e özgü kod yollarına geçmeden kullanmak için kullanma.

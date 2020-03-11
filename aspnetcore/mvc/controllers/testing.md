@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 11/07/2019
 uid: mvc/controllers/testing
-ms.openlocfilehash: 449d8791962e4233d599f364b2e8c922f0975d2f
-ms.sourcegitcommit: 0dd224b2b7efca1fda0041b5c3f45080327033f6
+ms.openlocfilehash: 597f1472bb30ae3b34fa98659c8c8bb464223e84
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74681103"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78666287"
 ---
 # <a name="unit-test-controller-logic-in-aspnet-core"></a>ASP.NET Core 'de birim test denetleyicisi mantığı
 
@@ -30,7 +30,7 @@ Denetleyicinin davranışına odaklanmak için denetleyici eylemlerinin birim te
 
 Denetleyici birim testlerini göstermek için örnek uygulamada aşağıdaki denetleyiciyi gözden geçirin. 
 
-[Örnek kodu görüntüleme veya indirme](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/controllers/testing/samples/) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
+[Örnek kodu görüntüleme veya indirme](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/controllers/testing/samples/) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
 
 Ana denetleyici bir beyin fırtınası oturumlarının listesini görüntüler ve yeni beyin fırtınası oturumlarının bir POST isteğiyle oluşturulmasına izin verir:
 
@@ -78,7 +78,7 @@ Geçersiz bir model durumu, aşağıdaki ilk testte gösterildiği gibi <xref:Mi
 > [!NOTE]
 > Bu örnekte kullanılan moq kitaplığı, doğrulanabilir olmayan bir şekilde ("gevşek" bir veya saplamalar olarak da adlandırılır) doğrulanabilir veya "katı" olarak karışık bir şekilde karışık bir şekilde karıştırılamaz. [Moq Ile sahte davranışı özelleştirme](https://github.com/Moq/moq4/wiki/Quickstart#customizing-mock-behavior)hakkında daha fazla bilgi edinin.
 
-Örnek uygulamadaki [Sessioncontroller](https://github.com/aspnet/AspNetCore.Docs/blob/master/aspnetcore/mvc/controllers/testing/samples/3.x/TestingControllersSample/src/TestingControllersSample/Controllers/SessionController.cs) , belirli bir beyin fırtınası oturumuyla ilgili bilgileri görüntüler. Denetleyici geçersiz `id` değerlerle ilgilenme mantığını içerir (bu senaryoları kapsayan aşağıdaki örnekte iki `return` senaryo vardır). Son `return` ifade görünüme yeni bir `StormSessionViewModel` döndürür (*Controllers/SessionController. cs*):
+Örnek uygulamadaki [Sessioncontroller](https://github.com/dotnet/AspNetCore.Docs/blob/master/aspnetcore/mvc/controllers/testing/samples/3.x/TestingControllersSample/src/TestingControllersSample/Controllers/SessionController.cs) , belirli bir beyin fırtınası oturumuyla ilgili bilgileri görüntüler. Denetleyici geçersiz `id` değerlerle ilgilenme mantığını içerir (bu senaryoları kapsayan aşağıdaki örnekte iki `return` senaryo vardır). Son `return` ifade görünüme yeni bir `StormSessionViewModel` döndürür (*Controllers/SessionController. cs*):
 
 [!code-csharp[](testing/samples/3.x/TestingControllersSample/src/TestingControllersSample/Controllers/SessionController.cs?name=snippet_SessionController&highlight=12-16,18-22,31)]
 
@@ -185,7 +185,7 @@ Geçerli bir oturum `id`için son test şunları onaylar:
 
 [Denetleyiciler](xref:mvc/controllers/actions) herhangi BIR ASP.NET Core MVC uygulamasında merkezi bir rol oynar. Bu nedenle, denetleyicilerin amaçlanan gibi davrandığına güvenmelisiniz. Otomatik testler, uygulama bir üretim ortamına dağıtılmadan önce hataları tespit edebilir.
 
-[Örnek kodu görüntüleme veya indirme](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/controllers/testing/samples/) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
+[Örnek kodu görüntüleme veya indirme](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/controllers/testing/samples/) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
 
 ## <a name="unit-tests-of-controller-logic"></a>Denetleyici mantığının birim testleri
 
@@ -241,7 +241,7 @@ Geçersiz bir model durumu, aşağıdaki ilk testte gösterildiği gibi <xref:Mi
 > [!NOTE]
 > Bu örnekte kullanılan moq kitaplığı, doğrulanabilir olmayan bir şekilde ("gevşek" bir veya saplamalar olarak da adlandırılır) doğrulanabilir veya "katı" olarak karışık bir şekilde karışık bir şekilde karıştırılamaz. [Moq Ile sahte davranışı özelleştirme](https://github.com/Moq/moq4/wiki/Quickstart#customizing-mock-behavior)hakkında daha fazla bilgi edinin.
 
-Örnek uygulamadaki [Sessioncontroller](https://github.com/aspnet/AspNetCore.Docs/blob/master/aspnetcore/mvc/controllers/testing/samples/2.x/TestingControllersSample/src/TestingControllersSample/Controllers/SessionController.cs) , belirli bir beyin fırtınası oturumuyla ilgili bilgileri görüntüler. Denetleyici geçersiz `id` değerlerle ilgilenme mantığını içerir (bu senaryoları kapsayan aşağıdaki örnekte iki `return` senaryo vardır). Son `return` ifade görünüme yeni bir `StormSessionViewModel` döndürür (*Controllers/SessionController. cs*):
+Örnek uygulamadaki [Sessioncontroller](https://github.com/dotnet/AspNetCore.Docs/blob/master/aspnetcore/mvc/controllers/testing/samples/2.x/TestingControllersSample/src/TestingControllersSample/Controllers/SessionController.cs) , belirli bir beyin fırtınası oturumuyla ilgili bilgileri görüntüler. Denetleyici geçersiz `id` değerlerle ilgilenme mantığını içerir (bu senaryoları kapsayan aşağıdaki örnekte iki `return` senaryo vardır). Son `return` ifade görünüme yeni bir `StormSessionViewModel` döndürür (*Controllers/SessionController. cs*):
 
 [!code-csharp[](testing/samples/2.x/TestingControllersSample/src/TestingControllersSample/Controllers/SessionController.cs?name=snippet_SessionController&highlight=12-16,18-22,31)]
 

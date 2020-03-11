@@ -1,71 +1,71 @@
 ---
-title: Veri koruma makine geneli ilke içinde ASP.NET Core desteği
+title: ASP.NET Core 'de veri koruma makineye özel ilke desteği
 author: rick-anderson
-description: Bir ASP.NET Core veri koruması kullanan tüm uygulamalar için varsayılan makine geneli ilke ayarlama desteği hakkında daha fazla bilgi edinin.
+description: ASP.NET Core veri koruma kullanan tüm uygulamalar için varsayılan makine genelindeki bir ilke ayarlamaya yönelik destek hakkında bilgi edinin.
 ms.author: riande
 ms.date: 10/14/2016
 uid: security/data-protection/configuration/machine-wide-policy
 ms.openlocfilehash: 70aaca7afcd3df22cebb4466fbd9845a2277688c
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64902981"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78667953"
 ---
-# <a name="data-protection-machine-wide-policy-support-in-aspnet-core"></a>Veri koruma makine geneli ilke içinde ASP.NET Core desteği
+# <a name="data-protection-machine-wide-policy-support-in-aspnet-core"></a>ASP.NET Core 'de veri koruma makineye özel ilke desteği
 
-Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
+Gönderen [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-Windows üzerinde çalışırken, veri koruma sisteminde bir ASP.NET Core veri koruması kullanan tüm uygulamalar için varsayılan makine geneli ilke ayarlamak için destek sınırlıdır. Genel yönetici gibi kullanılan algoritmalar varsayılan ayarı veya anahtar kullanım süresi, her uygulama makinede el ile güncelleştirmek zorunda kalmadan değiştirmek isteyebileceğiniz olur.
+Windows üzerinde çalışırken, veri koruma sistemi, ASP.NET Core veri korumasını kullanan tüm uygulamalar için varsayılan makine genelinde bir ilke ayarlamak için sınırlı desteğe sahiptir. Genel fikir, bir yöneticinin makinedeki her uygulamayı el ile güncelleştirmek gerekmeden kullanılan algoritmalar veya anahtar yaşam süresi gibi varsayılan bir ayarı değiştirmek isteyebilir.
 
 > [!WARNING]
-> Sistem Yöneticisi varsayılan ilkesi ayarlayabilirsiniz ancak onu zorla uygulayamaz. Uygulama geliştiricisi biriyle kendi seçerek herhangi bir değer her zaman geçersiz kılabilirsiniz. Varsayılan ilke, yalnızca bir ayar için açık bir değer Geliştirici burada belirtilen edilmemiş uygulamalar etkiler.
+> Sistem Yöneticisi varsayılan ilkeyi ayarlayabilir, ancak zorunlu kılamaz. Uygulama geliştiricisi her zaman herhangi bir değeri kendi seçmekten biriyle geçersiz kılabilir. Varsayılan ilke yalnızca geliştiricinin bir ayar için açık bir değer belirtmemiş olduğu uygulamaları etkiler.
 
-## <a name="setting-default-policy"></a>Varsayılan ilke ayarını
+## <a name="setting-default-policy"></a>Varsayılan ilke ayarlanıyor
 
-Varsayılan ilkesini ayarlamak için yönetici bilinen değerler sistem kayıt defterinde aşağıdaki kayıt defteri anahtarı altında ayarlayabilirsiniz:
+Varsayılan ilkeyi ayarlamak için, bir yönetici aşağıdaki kayıt defteri anahtarı altındaki sistem kayıt defterinde bilinen değerleri ayarlayabilir:
 
 **HKLM\SOFTWARE\Microsoft\DotNetPackages\Microsoft.AspNetCore.DataProtection**
 
-Bir 64-bit işletim sisteminde yapıyorsanız ve 32-bit uygulamaları davranışını etkilemek istiyorsunuz, yukarıdaki anahtar Wow6432Node denk yapılandırmayı unutmayın.
+64 bitlik bir işletim sistemdeyse ve 32 bit uygulamaların davranışını etkilemek istiyorsanız Yukarıdaki anahtarın Wow6432Node eşdeğerini yapılandırmayı unutmayın.
 
-Desteklenen değerler aşağıda gösterilmektedir.
+Desteklenen değerler aşağıda gösterilmiştir.
 
-| Değer              | Tür   | Açıklama |
+| Value              | Tür   | Açıklama |
 | ------------------ | :----: | ----------- |
-| EncryptionType     | dize | Hangi algoritmaları veri koruma için kullanılması gerektiğini belirtir. Değer, CNG CBC, CNG GCM veya yönetilen olmalıdır ve aşağıda daha ayrıntılı olarak açıklanmıştır. |
-| DefaultKeyLifetime | DWORD  | Yeni oluşturulan anahtarları için yaşam süresini belirtir. Değer, gün içinde belirtilen ve olmalıdır > = 7. |
-| KeyEscrowSinks     | dize | Anahtar emanet için kullanılan türlerini belirtir. Listedeki her öğe uygulayan bir tür bütünleştirilmiş kodla nitelenen adı olduğu anahtar emanet havuzlarını noktalı virgülle ayrılmış listesini değerdir [IKeyEscrowSink](/dotnet/api/microsoft.aspnetcore.dataprotection.keymanagement.ikeyescrowsink). |
+| EncryptionType     | string | Veri koruma için hangi algoritmaların kullanılması gerektiğini belirtir. Değer CNG-CBC, CNG-GCM veya yönetilen olmalıdır ve aşağıda daha ayrıntılı olarak açıklanmıştır. |
+| DefaultKeyLifetime | DWORD  | Yeni oluşturulan anahtarların yaşam süresini belirtir. Değer, gün cinsinden belirtilir ve > = 7 olmalıdır. |
+| Keyescrowhavuzları     | string | Anahtar Emanet için kullanılan türleri belirtir. Değer, listedeki her öğe [ıkeyescrowsink](/dotnet/api/microsoft.aspnetcore.dataprotection.keymanagement.ikeyescrowsink)uygulayan bir türün derleme nitelikli adı olduğunda, noktalı virgülle ayrılmış anahtar Emanet listesidir. |
 
 ## <a name="encryption-types"></a>Şifreleme türleri
 
-CNG CBC EncryptionType ise sistem CBC modunda simetrik blok şifreleme gizliliği ve HMAC için kimlik doğrulaması için Windows CNG tarafından sağlanan hizmetleri ile kullanmak üzere yapılandırılmış (bkz [özel Windows CNG algoritmaları belirtme](xref:security/data-protection/configuration/overview#specifying-custom-windows-cng-algorithms) için Daha fazla ayrıntı). Aşağıdaki ek değerler desteklenir, her biri CngCbcAuthenticatedEncryptionSettings türünde bir özelliğe karşılık gelir.
+EncryptionType değeri CNG-CBC ise, sistem, Windows CNG tarafından sunulan hizmetlere yönelik gizlilik ve HMAC için bir CBC modu simetrik blok şifresi kullanacak şekilde yapılandırılır (daha fazla ayrıntı için bkz. [özel WINDOWS CNG algoritmaları belirtme](xref:security/data-protection/configuration/overview#specifying-custom-windows-cng-algorithms) ). Her biri CngCbcAuthenticatedEncryptionSettings türündeki bir özelliğe karşılık gelen aşağıdaki ek değerler desteklenir.
 
-| Değer                       | Tür   | Açıklama |
+| Value                       | Tür   | Açıklama |
 | --------------------------- | :----: | ----------- |
-| EncryptionAlgorithm         | dize | CNG tarafından anlaşılan bir simetrik blok şifreleme algoritması adı. Bu algoritma CBC modunda açılır. |
-| EncryptionAlgorithmProvider | dize | Algoritma EncryptionAlgorithm üretebilir CNG sağlayıcıyı uygulama adı. |
-| EncryptionAlgorithmKeySize  | DWORD  | Blok simetrik şifreleme algoritması türetmek için anahtar uzunluğu (bit cinsinden). |
-| HashAlgorithm               | dize | CNG tarafından anlaşılan bir karma algoritması adı. Bu algoritma HMAC modunda açılır. |
-| HashAlgorithmProvider       | dize | Algoritma HashAlgorithm üretebilir CNG sağlayıcıyı uygulama adı. |
+| EncryptionAlgorithm         | string | CNG tarafından anlaşılan simetrik bir blok şifre algoritması adı. Bu algoritma CBC modunda açılır. |
+| EncryptionAlgorithmProvider | string | Algoritma Şifrelemealgoritması oluşturabilecek CNG sağlayıcısı uygulamasının adı. |
+| EncryptionAlgorithmKeySize  | DWORD  | Simetrik blok şifre algoritması için türetmeye yönelik anahtarın uzunluğu (bit cinsinden). |
+| HashAlgorithm               | string | CNG tarafından anlaşılan karma algoritmanın adı. Bu algoritma HMAC modunda açılır. |
+| HashAlgorithmProvider       | string | Algoritma HashAlgorithm üreten CNG sağlayıcı uygulamasının adı. |
 
-CNG GCM EncryptionType ise sistem Galois/sayacı modu simetrik blok şifreleme gizlilik ve kimlik doğrulama için Windows CNG tarafından sağlanan hizmetleri ile kullanmak üzere yapılandırılmış (bkz [özel Windows CNG algoritmaları belirtme](xref:security/data-protection/configuration/overview#specifying-custom-windows-cng-algorithms) Daha fazla ayrıntı için). Aşağıdaki ek değerler desteklenir, her biri CngGcmAuthenticatedEncryptionSettings türünde bir özelliğe karşılık gelir.
+EncryptionType değeri CNG-GCM ise, sistem Windows CNG tarafından sunulan hizmetlerle gizlilik ve özgünlük için bir Galoa/sayaç modu simetrik blok şifresi kullanacak şekilde yapılandırılır (daha fazla ayrıntı için bkz. [özel WINDOWS CNG algoritmaları belirtme](xref:security/data-protection/configuration/overview#specifying-custom-windows-cng-algorithms) ). Aşağıdaki ek değerler desteklenir, her biri Cnggcmakimliksidencryptionsettings türündeki bir özelliğe karşılık gelir.
 
-| Değer                       | Tür   | Açıklama |
+| Value                       | Tür   | Açıklama |
 | --------------------------- | :----: | ----------- |
-| EncryptionAlgorithm         | dize | CNG tarafından anlaşılan bir simetrik blok şifreleme algoritması adı. Bu algoritma Galois/sayacı modunda açılır. |
-| EncryptionAlgorithmProvider | dize | Algoritma EncryptionAlgorithm üretebilir CNG sağlayıcıyı uygulama adı. |
-| EncryptionAlgorithmKeySize  | DWORD  | Blok simetrik şifreleme algoritması türetmek için anahtar uzunluğu (bit cinsinden). |
+| EncryptionAlgorithm         | string | CNG tarafından anlaşılan simetrik bir blok şifre algoritması adı. Bu algoritma Galoa/sayaç modunda açılır. |
+| EncryptionAlgorithmProvider | string | Algoritma Şifrelemealgoritması oluşturabilecek CNG sağlayıcısı uygulamasının adı. |
+| EncryptionAlgorithmKeySize  | DWORD  | Simetrik blok şifre algoritması için türetmeye yönelik anahtarın uzunluğu (bit cinsinden). |
 
-EncryptionType yönetiliyorsa, sistemin bir yönetilen SymmetricAlgorithm gizliliği ve KeyedHashAlgorithm için kimlik doğrulaması için kullanmak üzere yapılandırılmış (bkz [belirtme özel yönetilen algoritmaları](xref:security/data-protection/configuration/overview#specifying-custom-managed-algorithms) daha fazla ayrıntı için). Aşağıdaki ek değerler desteklenir, her biri ManagedAuthenticatedEncryptionSettings türünde bir özelliğe karşılık gelir.
+EncryptionType yönetiliyorsa, sistem, özgünlük için Gizlilik ve KeyedHashAlgorithm için yönetilen bir SymmetricAlgorithm kullanacak şekilde yapılandırılır (daha fazla ayrıntı için bkz. [özel yönetilen algoritmalar belirtme](xref:security/data-protection/configuration/overview#specifying-custom-managed-algorithms) ). Aşağıdaki ek değerler desteklenir, her biri Managedavılationcatedencryptionsettings türündeki bir özelliğe karşılık gelir.
 
-| Değer                      | Tür   | Açıklama |
+| Value                      | Tür   | Açıklama |
 | -------------------------- | :----: | ----------- |
-| EncryptionAlgorithmType    | dize | SymmetricAlgorithm uygulayan bir tür bütünleştirilmiş kodla nitelenen adı. |
-| EncryptionAlgorithmKeySize | DWORD  | Simetrik şifreleme algoritması için türetmek için anahtar uzunluğu (bit cinsinden). |
-| ValidationAlgorithmType    | dize | KeyedHashAlgorithm uygulayan bir tür bütünleştirilmiş kodla nitelenen adı. |
+| EncryptionAlgorithmType    | string | SymmetricAlgorithm uygulayan bir türün derleme nitelikli adı. |
+| EncryptionAlgorithmKeySize | DWORD  | Simetrik şifreleme algoritması için türetmeye yönelik anahtarın uzunluğu (bit cinsinden). |
+| ValidationAlgorithmType    | string | KeyedHashAlgorithm uygulayan bir türün derleme nitelikli adı. |
 
-EncryptionType başka bir değer null dışında ya da boş varsa, veri koruma sisteminde başlatma sırasında bir özel durum oluşturur.
+EncryptionType null ya da boş dışında başka bir değere sahipse, veri koruma sistemi başlangıçta bir özel durum oluşturur.
 
 > [!WARNING]
-> Tür adları (EncryptionAlgorithmType, ValidationAlgorithmType, KeyEscrowSinks) içeren bir varsayılan ilke ayarını yapılandırırken türleri uygulamaya kullanılabilir olması gerekir. Başka bir deyişle, Masaüstü CLR'sini üzerinde çalışan uygulamalar için bu türleri içeren derlemeler Genel Derleme Önbelleği'ne (GAC) mevcut olmalıdır. .NET Core üzerinde çalışan ASP.NET Core uygulamaları için bu türleri içeren paketleri yüklü olması gerekir.
+> Tür adlarını içeren varsayılan bir ilke ayarı yapılandırırken (EncryptionAlgorithmType, ValidationAlgorithmType, Keyescrowhavuzları), bu tür uygulama için kullanılabilir olmalıdır. Bu, masaüstü CLR üzerinde çalışan uygulamalar için, bu türleri içeren derlemelerin genel derleme önbelleğinde (GAC) bulunması anlamına gelir. .NET Core üzerinde çalışan ASP.NET Core uygulamalar için, bu türleri içeren paketlerin yüklenmesi gerekir.

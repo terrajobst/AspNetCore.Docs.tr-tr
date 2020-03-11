@@ -1,9 +1,9 @@
 ## <a name="sqlite"></a>SQLite
 
-[SQLite](https://www.sqlite.org/) Web sitesi durumları:
+[SQLite](https://www.sqlite.org/) Web sitesi şunları belirtir:
 
-> SQLite müstakil, yüksek güvenilirlik, katıştırılmış, tam özellikli, ortak etki alanı, bir SQL veritabanı altyapısı ' dir. SQLite, dünyanın en çok kullanılan veritabanı altyapısıdır.
+> SQLite, kendinden bağımsız, yüksek güvenilirlik, gömülü, tam özellikli, genel etki alanı, SQL veritabanı altyapısı. SQLite, dünyanın en çok kullanılan veritabanı altyapısıdır.
 
-Birçok üçüncü taraf araçları indirebileceğiniz yönetmek ve bir SQLite veritabanı görüntülemek için. Aşağıdaki görüntüde dandır [DB tarayıcı sqlite](https://sqlitebrowser.org/). Bir sık kullanılan SQLite aracınız varsa, bu konuda şeyleri üzerinde bir yorum yazın.
+Bir SQLite veritabanını yönetmek ve görüntülemek için indirebileceğiniz birçok üçüncü taraf araç vardır. Aşağıdaki görüntü, [SQLite Için veritabanı tarayıcısıdır](https://sqlitebrowser.org/). En sevdiğiniz bir SQLite aracınız varsa, onunla ilgili olarak istediğiniz gibi bir yorum bırakın.
 
-![SQLite gösteren film db için DB tarayıcı](~/tutorials/first-mvc-app-xplat/working-with-sql/_static/dbb.png)
+![Film DB 'yi gösteren SQLite için DB tarayıcısı](~/tutorials/first-mvc-app-xplat/working-with-sql/_static/dbb.png)

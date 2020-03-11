@@ -10,11 +10,11 @@ no-loc:
 - SignalR
 uid: signalr/scale
 ms.openlocfilehash: 260e2f0c16288fec2e0a694d070f357529782d8d
-ms.sourcegitcommit: 6645435fc8f5092fc7e923742e85592b56e37ada
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77447340"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78668156"
 ---
 # <a name="aspnet-core-signalr-hosting-and-scaling"></a>ASP.NET Core SignalR barındırma ve ölçeklendirme
 
@@ -42,7 +42,7 @@ Kalıcı bağlantılar, her bağlantıyı izlemek için ek bellek de tüketir.
 
 SignalR tarafından kurulan bağlantıyla ilgili kaynakların ağır kullanımı, aynı sunucuda barındırılan diğer Web uygulamalarını etkileyebilir. SignalR açıldığında ve en son kullanılabilir TCP bağlantılarını tutuyorsa, aynı sunucudaki diğer Web uygulamalarına da daha fazla bağlantı yoktur.
 
-Sunucuda bağlantı biterse rastgele yuva hataları ve bağlantı sıfırlama hataları görürsünüz. Örneğin:
+Sunucuda bağlantı biterse rastgele yuva hataları ve bağlantı sıfırlama hataları görürsünüz. Örnek:
 
 ```
 An attempt was made to access a socket in a way forbidden by its access permissions...
@@ -52,7 +52,7 @@ SignalR kaynak kullanımını diğer Web uygulamalarındaki hatalara neden olmas
 
 Bir SignalR uygulamasında hatalara neden olan SignalR kaynak kullanımını önlemek için, bir sunucunun işleyeceği bağlantı sayısını sınırlamak üzere ölçeği ölçeklendirin.
 
-## <a name="scale-out"></a>Ölçeklendirme
+## <a name="scale-out"></a>Ölçeği genişletme
 
 SignalR kullanan bir uygulamanın, bir sunucu grubu için sorunlar oluşturan tüm bağlantılarını izlemesi gerekir. Bir sunucu ekleyin ve diğer sunucuların hakkında bilgi sahibi olmadığı yeni bağlantıları alır. Örneğin, aşağıdaki diyagramdaki her bir sunucuda SignalR diğer sunuculardaki bağlantılardan haberdar değildir. Sunuculardan birindeki SignalR tüm istemcilere ileti göndermek istediğinde ileti yalnızca bu sunucuya bağlı olan istemcilere gider.
 
@@ -60,7 +60,7 @@ SignalR kullanan bir uygulamanın, bir sunucu grubu için sorunlar oluşturan t�
 
 Bu sorunu çözmeye yönelik seçenekler [Azure SignalR hizmeti](#azure-signalr-service) ve [redsıs arkadüzledir](#redis-backplane).
 
-## <a name="azure-signalr-service"></a>Azure SignalR Hizmeti
+## <a name="azure-signalr-service"></a>Azure SignalR Service
 
 Azure SignalR hizmeti, geri düzlemi yerine bir ara sunucu. İstemci sunucuya bir bağlantı başlattığında, istemci hizmete bağlanmak için yeniden yönlendirilir. Bu işlem aşağıdaki diyagramda gösterilmiştir:
 

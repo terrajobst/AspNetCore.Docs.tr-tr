@@ -1,55 +1,55 @@
 ---
-title: Tüketici API'lerine genel bakış için ASP.NET Core
+title: ASP.NET Core için tüketici API 'Lerine genel bakış
 author: rick-anderson
-description: ASP.NET Core veri koruma kitaplığı içinde mevcut API'lere çeşitli tüketici kısa bir genel bakış alırsınız.
+description: ASP.NET Core veri koruma kitaplığı 'nda bulunan çeşitli tüketici API 'Lerine ilişkin kısa bir genel bakış alın.
 ms.author: riande
 ms.date: 06/11/2019
 uid: security/data-protection/consumer-apis/overview
 ms.openlocfilehash: ff9badb55813cae0aa72d3a95dc53792332f109b
-ms.sourcegitcommit: 1bb3f3f1905b4e7d4ca1b314f2ce6ee5dd8be75f
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2019
-ms.locfileid: "66837373"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78666588"
 ---
-# <a name="consumer-apis-overview-for-aspnet-core"></a>Tüketici API'lerine genel bakış için ASP.NET Core
+# <a name="consumer-apis-overview-for-aspnet-core"></a>ASP.NET Core için tüketici API 'Lerine genel bakış
 
-`IDataProtectionProvider` Ve `IDataProtector` arabirimdir temel arabirimler tüketiciler veri koruma sisteminde kullanır. Bulunan [Microsoft.AspNetCore.DataProtection.Abstractions](https://www.nuget.org/packages/Microsoft.AspNetCore.DataProtection.Abstractions/) paket.
+`IDataProtectionProvider` ve `IDataProtector` arabirimleri, tüketicilerin veri koruma sistemini kullanan temel arabirimlerdir. Bunlar [Microsoft. AspNetCore. DataProtection. soyutlamalar](https://www.nuget.org/packages/Microsoft.AspNetCore.DataProtection.Abstractions/) paketinde bulunur.
 
 ## <a name="idataprotectionprovider"></a>IDataProtectionProvider
 
-Sağlayıcı arabirimi, veri koruma sisteminin kökünü temsil eder. Doğrudan dosya korumak veya veri korumasını kaldırmak için de kullanılamaz. Bunun yerine, tüketici bir başvuru almak gerekir bir `IDataProtector` çağırarak `IDataProtectionProvider.CreateProtector(purpose)`amaçlı tüketici hedeflenen kullanım örneğini tanımlayan bir dize olduğu. Bkz: [amaç dizeleri](xref:security/data-protection/consumer-apis/purpose-strings) amaç çok daha fazla bilgi bu parametre ve uygun bir değer seçin.
+Sağlayıcı arabirimi, veri koruma sisteminin kökünü temsil eder. Verileri korumak veya korumayı kaldırmak için doğrudan kullanılamaz. Bunun yerine, amaç `IDataProtectionProvider.CreateProtector(purpose)`çağırarak bir `IDataProtector` başvurusunu almalıdır; burada amaç hedeflenen tüketicinin kullanım durumunu açıklayan bir dizedir. Bu parametrenin amacı hakkında daha fazla bilgi ve uygun bir değer seçme hakkında daha fazla bilgi için bkz. [Amaç dizeleri](xref:security/data-protection/consumer-apis/purpose-strings) .
 
 ## <a name="idataprotector"></a>IDataProtector
 
-Koruyucu arabirimi için bir çağrı tarafından döndürülen `CreateProtector`ve tüketiciler gerçekleştirmek için kullanabileceğiniz bu arabirimi korumak ve korumasını operations.
+Koruyucu arabirimi bir `CreateProtector`çağrısıyla döndürülür ve bu arabirim, tüketicilerin koruma ve kaldırma işlemleri gerçekleştirmek için kullanabileceği bu arabirimdir.
 
-Bir veri parçasını korumak için verileri geçirmek `Protect` yöntemi. Hangi dönüştürür byte [] -> byte [] bir yöntem temel bir arabirim tanımlar, ancak var olan dize dönüştürür (bir genişletme yöntemi sağlanan) bir aşırı dize ayrıca ->. İki yöntem tarafından sunulan güvenlik aynıdır; Geliştirici, hangi aşırı kullanım örnekleri için en uygun seçmeniz gerekir. Seçilen, aşırı yükleme koruma tarafından döndürülen değer bakılmaksızın yöntemi artık (enciphered ve kurcalamaya haricindeki) korunur ve uygulama güvenilmeyen bir istemciye göndermek için.
+Bir veri parçasını korumak için verileri `Protect` metoduna geçirin. Temel arabirim, Byte []-> Byte [] ' ı dönüştüren bir yöntemi tanımlar, ancak dize > dizesini dönüştüren aşırı yükleme (uzantı yöntemi olarak sağlanmış) de vardır. İki yöntem tarafından sunulan güvenlik aynıdır; geliştirici, kullanım durumu için hangi aşırı yükün en kullanışlı olduğunu seçmelidir. Seçilen aşırı yükleme ne olursa olsun, koruma yöntemi tarafından döndürülen değer artık korunur (şifreleme ve üzerinde oynanarak denetlenen) ve uygulama onu güvenilmeyen bir istemciye gönderebilir.
 
-Daha önce korunan bir veri korumasını kaldırmak için korunan verileri geçirmek `Unprotect` yöntemi. (Byte [] vardır-tabanlı ve dize tabanlı aşırı geliştiriciye kolaylık sağlamak için.) Korumalı yükü daha önceki bir çağrı tarafından oluşturulmuşsa `Protect` bu aynı üzerinde `IDataProtector`, `Unprotect` özgün korumasız yükü yöntemi döndürür. Korumalı yükü oynanmış veya farklı bir tarafından üretilen `IDataProtector`, `Unprotect` CryptographicException yöntemi oluşturur.
+Daha önce korunan bir veri parçasının korumasını kaldırmak için korunan verileri `Unprotect` metoduna geçirin. (Geliştiriciye kolaylık olması için Byte [] tabanlı ve dize tabanlı aşırı yüklemeler vardır.) Korumalı yük bu aynı `IDataProtector`daha önceki bir `Protect` çağrısıyla oluşturulduysa `Unprotect` yöntemi, orijinal korumasız yükü döndürür. Korunan yük üzerinde oynanmış veya farklı bir `IDataProtector`üretildiyse, `Unprotect` yöntemi CryptographicException oluşturur.
 
-Aynı kavram farklı karşılaştırması `IDataProtector` TIES amaçlı kavramını yedekleme. İki `IDataProtector` örnekleri aynı kökünden oluşturuldu `IDataProtectionProvider` ancak farklı bir amaç dizeleri çağrısında aracılığıyla `IDataProtectionProvider.CreateProtector`, kabul edilmeleri sonra [farklı koruyucuları](xref:security/data-protection/consumer-apis/purpose-strings), ve bir olmayacaktır korumasını kaldırmak için tarafından oluşturulan yükler.
+Aynı ve farklı `IDataProtector` kavramı, amaç kavramıyla geri benzer. Aynı kök `IDataProtectionProvider`, ancak `IDataProtectionProvider.CreateProtector`çağrısındaki farklı amaç dizeleri aracılığıyla iki `IDataProtector` örneği oluşturulduysa, [farklı koruyucular](xref:security/data-protection/consumer-apis/purpose-strings)olarak değerlendirilir ve diğeri tarafından oluşturulan yüklerin korumasını kaldırılamaz.
 
-## <a name="consuming-these-interfaces"></a>Bu arabirimler kullanma
+## <a name="consuming-these-interfaces"></a>Bu arabirimleri kullanma
 
-DI algılayan bir bileşen için bileşen aldığını hedeflenen kullanım olduğu bir `IDataProtectionProvider` oluşturucusuna parametre ve bileşen örneği oluşturulduğunda DI sistemi bu hizmeti otomatik olarak sağlar.
+Dı kullanan bir bileşen için, istenen kullanım, bileşenin oluşturucusunda bir `IDataProtectionProvider` parametresi aldığı ve bileşen örneklendirirken dı sisteminin otomatik olarak bu hizmeti sağladığını sunmasıdır.
 
 > [!NOTE]
-> Bazı uygulamalar (örneğin konsol uygulamaları veya ASP.NET 4.x uygulamaları) DI burada açıklanan mekanizması kullanamazlar uyumlu olmayabilir. Bu senaryolar doldurulamayabilir [olmayan dı kullanmayan senaryolar](xref:security/data-protection/configuration/non-di-scenarios) belge örneği alma hakkında daha fazla bilgi için bir `IDataProtection` DI giderek olmadan sağlayıcısı.
+> Bazı uygulamalar (konsol uygulamaları veya ASP.NET 4. x uygulamaları gibi), burada açıklanan mekanizmayı kullanamaz. Bu senaryolar için, bir `IDataProtection` sağlayıcısının örneğini vermeksizin alma hakkında daha fazla bilgi için, bu [olmayan duyarlı senaryolar](xref:security/data-protection/configuration/non-di-scenarios) belgesine başvurun.
 
-Aşağıdaki örnek, üç kavramı gösterir:
+Aşağıdaki örnek üç kavram göstermektedir:
 
-1. [Veri koruma sisteminde ekleme](xref:security/data-protection/configuration/overview) hizmet kapsayıcısı
+1. [Veri koruma sistemini](xref:security/data-protection/configuration/overview) hizmet kapsayıcısına ekleme,
 
-2. DI örneğini almak üzere kullanarak bir `IDataProtectionProvider`, ve
+2. Bir `IDataProtectionProvider`örneğini almak için DI kullanma ve
 
-3. Oluşturma bir `IDataProtector` gelen bir `IDataProtectionProvider` ve korumaya ve veri korumasını kaldırmak için kullanma.
+3. Bir `IDataProtectionProvider` `IDataProtector` oluşturma ve verileri korumak ve korumayı kaldırmak için kullanma.
 
 [!code-csharp[](../using-data-protection/samples/protectunprotect.cs?highlight=26,34,35,36,37,38,39,40)]
 
-' % S'paketi Microsoft.AspNetCore.DataProtection.Abstractions bir genişletme yöntemi içeren `IServiceProvider.GetDataProtector` Geliştirici kolaylık. Hem bir alma tek bir işlem olarak kapsülleyen bir `IDataProtectionProvider` hizmet sağlayıcısı ve arama `IDataProtectionProvider.CreateProtector`. Aşağıdaki örnek, kullanımını gösterir.
+Microsoft. AspNetCore. DataProtection. soyutlamalar paketi geliştirici kolaylığı olarak `IServiceProvider.GetDataProtector` bir genişletme yöntemi içerir. Hizmet sağlayıcısından bir `IDataProtectionProvider` alarak ve `IDataProtectionProvider.CreateProtector`çağırarak tek bir işlem olarak kapsüller. Aşağıdaki örnek kullanımını gösterir.
 
 [!code-csharp[](./overview/samples/getdataprotector.cs?highlight=15)]
 
 >[!TIP]
-> Örneklerini `IDataProtectionProvider` ve `IDataProtector` olan birden çok arayanlar için iş parçacığı açısından güvenli. Bir bileşen için bir başvuru alır. sonra istemiş bir `IDataProtector` çağrısıyla `CreateProtector`, birden çok çağrı için bu başvuru kullanacağı `Protect` ve `Unprotect`. Bir çağrı `Unprotect` korumalı yükü doğrulandı veya yararlanılarak CryptographicException oluşturmaz. Bazı bileşenler hataları yoksayma isteyebilirsiniz sırasında işlemleri; Korumasını Kaldır kimlik doğrulaması tanımlama bilgileri okuyan bir bileşen bu hatayı işlemek ve isteği, tanımlama bilgisi hiç varmış gibi davran yerine yükseltebilir istek başarısız. Bu davranış istediğiniz bileşenleri, tüm özel durumları swallowing yerine CryptographicException özel olarak yakalamalısınız.
+> `IDataProtectionProvider` ve `IDataProtector` örnekleri, birden çok çağıranlar için iş parçacığı güvenlidir. Bir bileşen `CreateProtector`çağrısı aracılığıyla bir `IDataProtector` başvuru aldığında, bu başvuruyu `Protect` ve `Unprotect`birden çok çağrı için kullanacaktır. Korunan yük doğrulanamazsa veya çözülemez bir `Unprotect` çağrısı CryptographicException oluşturur. Bazı bileşenler, kaldırma işlemleri sırasında hataları yoksaymak isteyebilir; kimlik doğrulama tanımlama bilgilerini okuyan bir bileşen bu hatayı işleyebilir ve isteği, isteğin hemen başarısız olması yerine hiç bir tanımlama bilgisine sahip olmamış gibi değerlendirir. Bu davranışın, tüm özel durumlara izin vermek yerine CryptographicException özel olarak yakalamalı bileşenler.

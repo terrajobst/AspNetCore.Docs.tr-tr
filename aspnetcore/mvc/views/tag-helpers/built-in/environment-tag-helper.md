@@ -1,35 +1,35 @@
 ---
-title: ASP.NET core'da ortam etiketi Yardımcısı
+title: ASP.NET Core 'de ortam etiketi Yardımcısı
 author: pkellner
-description: Tüm özellikler dahil olmak üzere tanımlanan ASP.NET Core ortam etiketi Yardımcısı
+description: Tüm özellikler dahil ASP.NET Core ortam etiketi Yardımcısı tanımlandı
 ms.author: riande
 ms.custom: mvc
 ms.date: 10/10/2018
 uid: mvc/views/tag-helpers/builtin-th/environment-tag-helper
-ms.openlocfilehash: e2e038fe69da696b67f7aef61795e23dc8512fdf
-ms.sourcegitcommit: 7a40c56bf6a6aaa63a7ee83a2cac9b3a1d77555e
+ms.openlocfilehash: 308e7db47104ebd4d6bb8d08c64f14bbd118898b
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67856130"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78663991"
 ---
-# <a name="environment-tag-helper-in-aspnet-core"></a>ASP.NET core'da ortam etiketi Yardımcısı
+# <a name="environment-tag-helper-in-aspnet-core"></a>ASP.NET Core 'de ortam etiketi Yardımcısı
 
-Tarafından [Peter Kellner](https://peterkellner.net), [Hisham Bin Ateya](https://twitter.com/hishambinateya), ve [Luke Latham](https://github.com/guardrex)
+, [Peter Kellner](https://peterkellner.net) ve [Hisham bin ateya](https://twitter.com/hishambinateya) tarafından
 
-Ortam etiketi Yardımcısı koşullu olarak geçerli göre kapalı içeriğini işler [barındırma ortamı](xref:fundamentals/environments). Ortam etiketi Yardımcısı'nın tek öznitelik `names`, ortam adlarının virgülle ayrılmış listesidir. Sağlanan ortam adları geçerli ortamı hiçbiriyle, ekteki içeriğin işlenir.
+Ortam etiketi Yardımcısı, Şirket içindeki içeriğini koşullu olarak geçerli [barındırma ortamına](xref:fundamentals/environments)göre oluşturur. Ortam etiketi Yardımcısı 'nın tek özniteliği `names`, ortam adlarının virgülle ayrılmış listesidir. Belirtilen ortam adlarından herhangi biri geçerli ortamla eşleşiyorsa, eklenen içerik işlenir.
 
-Etiket Yardımcıları genel bakış için bkz. <xref:mvc/views/tag-helpers/intro>.
+Etiket Yardımcıları hakkında genel bilgi için bkz. <xref:mvc/views/tag-helpers/intro>.
 
-## <a name="environment-tag-helper-attributes"></a>Ortam etiketi Yardımcısı öznitelikleri
+## <a name="environment-tag-helper-attributes"></a>Ortam etiketi yardımcı öznitelikleri
 
 ### <a name="names"></a>adlar
 
-`names` Tek bir barındırma ortamı adı veya işleme ekteki içeriğin tetikleyen ortam adları barındırma virgülle ayrılmış listesini kabul eder.
+`names`, tek bir barındırma ortamı adını veya ekteki içeriğin işlenmesini tetikleyen barındırma ortamı adlarının virgülle ayrılmış bir listesini kabul eder.
 
-Tarafından döndürülen değeri, geçerli ortam değerlerini karşılaştırılır [IHostingEnvironment.EnvironmentName](xref:Microsoft.AspNetCore.Hosting.IHostingEnvironment.EnvironmentName*). Karşılaştırma çalışması yoksayar.
+Ortam değerleri [ıhostingenvironment. EnvironmentName](xref:Microsoft.AspNetCore.Hosting.IHostingEnvironment.EnvironmentName*)tarafından döndürülen geçerli değerle karşılaştırılır. Karşılaştırma büyük/küçük harf durumunu yoksayar.
 
-Aşağıdaki örnek, bir ortam etiketi Yardımcısı kullanır. Barındırma ortamı hazırlık veya üretim olması durumunda içeriğinin işlenip:
+Aşağıdaki örnek bir ortam etiketi Yardımcısı kullanır. İçerik, barındırma ortamı hazırlama veya üretim ise işlenir:
 
 ```cshtml
 <environment names="Staging,Production">
@@ -39,13 +39,13 @@ Aşağıdaki örnek, bir ortam etiketi Yardımcısı kullanır. Barındırma ort
 
 ::: moniker range=">= aspnetcore-2.0"
 
-## <a name="include-and-exclude-attributes"></a>dahil etme ve dışlama öznitelikleri
+## <a name="include-and-exclude-attributes"></a>öznitelikleri dahil etme ve hariç tutma
 
-`include` & `exclude` dahil veya hariç tutulan barındırma ortamı adlarını temel alarak ekteki içeriğin işleme öznitelikleri denetimi.
+`include` & `exclude` öznitelik denetimi eklenen veya dışlanan barındırma ortamı adlarını temel alarak çevrelenmiş içeriği işleme.
 
 ### <a name="include"></a>include
 
-`include` Özelliği için benzer bir davranış gösteriyor `names` özniteliği. Listelenen bir ortam `include` öznitelik değeri, uygulamanın barındırma ortamına eşleşmelidir ([IHostingEnvironment.EnvironmentName](xref:Microsoft.AspNetCore.Hosting.IHostingEnvironment.EnvironmentName*)) içeriği işlemek için `<environment>` etiketi.
+`include` özelliği, `names` özniteliğine benzer davranışlar sergiler. `include` öznitelik değerinde listelenen bir ortam, `<environment>` etiketinin içeriğini işlemek için uygulamanın barındırma ortamıyla ([ıhostingenvironment. EnvironmentName](xref:Microsoft.AspNetCore.Hosting.IHostingEnvironment.EnvironmentName*)) eşleşmelidir.
 
 ```cshtml
 <environment include="Staging,Production">
@@ -55,7 +55,7 @@ Aşağıdaki örnek, bir ortam etiketi Yardımcısı kullanır. Barındırma ort
 
 ### <a name="exclude"></a>exclude
 
-Tersine `include` özniteliği, içeriğini `<environment>` etiket listede bir ortam barındırma ortamı eşleşmediğinde işlenir `exclude` öznitelik değeri.
+`include` özniteliğinin aksine, `<environment>` etiketinin içeriği, barındırma ortamı `exclude` öznitelik değerinde listelenen bir ortamla eşleşmediği zaman işlenir.
 
 ```cshtml
 <environment exclude="Development">

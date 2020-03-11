@@ -1,22 +1,22 @@
 ---
 title: ASP.NET Core durum denetimleri
-author: guardrex
+author: rick-anderson
 description: Uygulamalar ve veritabanları gibi ASP.NET Core altyapısı için sistem durumu denetimlerini ayarlamayı öğrenin.
 monikerRange: '>= aspnetcore-2.2'
 ms.author: riande
 ms.custom: mvc
 ms.date: 12/15/2019
 uid: host-and-deploy/health-checks
-ms.openlocfilehash: 33e5e71983a55b4ee30436d8e9e1e04186259a5d
-ms.sourcegitcommit: 7dfe6cc8408ac6a4549c29ca57b0c67ec4baa8de
+ms.openlocfilehash: 314e55c818cddf1dad2e3ec74d4d1e041ce7366f
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75829224"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78664887"
 ---
 # <a name="health-checks-in-aspnet-core"></a>ASP.NET Core durum denetimleri
 
-[Luke Latham](https://github.com/guardrex) ve [Glenn CONDRON](https://github.com/glennc) tarafından
+By [Glenn CONDRON](https://github.com/glennc)
 
 ::: moniker range=">= aspnetcore-3.0"
 
@@ -28,11 +28,11 @@ Sistem durumu denetimleri, bir uygulama tarafından HTTP uç noktaları olarak g
 * Bellek, disk ve diğer fiziksel sunucu kaynaklarının kullanımı sağlıklı bir durum için izlenebilir.
 * Sistem durumu denetimleri, kullanılabilirliği ve normal çalışmayı onaylamak için bir uygulamanın veritabanları ve dış hizmet uç noktaları gibi bağımlılıklarını test edebilir.
 
-[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/host-and-deploy/health-checks/samples) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
+[Örnek kodu görüntüleme veya indirme](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/host-and-deploy/health-checks/samples) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
 
 Örnek uygulama, bu konuda açıklanan senaryoların örneklerini içerir. Örnek uygulamayı belirli bir senaryo için çalıştırmak için, bir komut kabuğunda projenin klasöründen [DotNet Run](/dotnet/core/tools/dotnet-run) komutunu kullanın. Örnek uygulamayı kullanma hakkında ayrıntılı bilgi için bu konudaki örnek uygulamanın *README.MD* dosyasına ve senaryo açıklamalarına bakın.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Önkoşullar
 
 Durum denetimleri, genellikle bir uygulamanın durumunu denetlemek için bir dış izleme hizmeti veya kapsayıcı Orchestrator ile birlikte kullanılır. Bir uygulamaya sistem durumu denetimleri eklemeden önce, hangi izleme sisteminin kullanılacağını belirleyin. İzleme sistemi ne tür bir sistem durumu denetimi oluşturulacağını ve bunların uç noktalarını nasıl yapılandıracağınızı belirler.
 
@@ -704,7 +704,7 @@ Bir sistem durumu denetimini kitaplık olarak dağıtmak için:
    * sistem durumu denetim adı (`name`). `null`, `example_health_check` kullanılır.
    * sistem durumu denetimi için dize veri noktası (`data1`).
    * sistem durumu denetimi için tamsayı veri noktası (`data2`). `null`, `1` kullanılır.
-   * hata durumu (<xref:Microsoft.Extensions.Diagnostics.HealthChecks.HealthStatus>). Varsayılan, `null` değeridir. `null`, bir hata durumu için [HealthStatus. sağlıksız durum](xref:Microsoft.Extensions.Diagnostics.HealthChecks.HealthStatus) bildirilir.
+   * hata durumu (<xref:Microsoft.Extensions.Diagnostics.HealthChecks.HealthStatus>). Varsayılan değer: `null`. `null`, bir hata durumu için [HealthStatus. sağlıksız durum](xref:Microsoft.Extensions.Diagnostics.HealthChecks.HealthStatus) bildirilir.
    * Etiketler (`IEnumerable<string>`).
 
    ```csharp
@@ -797,11 +797,11 @@ Sistem durumu denetimleri, bir uygulama tarafından HTTP uç noktaları olarak g
 * Bellek, disk ve diğer fiziksel sunucu kaynaklarının kullanımı sağlıklı bir durum için izlenebilir.
 * Sistem durumu denetimleri, kullanılabilirliği ve normal çalışmayı onaylamak için bir uygulamanın veritabanları ve dış hizmet uç noktaları gibi bağımlılıklarını test edebilir.
 
-[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/host-and-deploy/health-checks/samples) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
+[Örnek kodu görüntüleme veya indirme](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/host-and-deploy/health-checks/samples) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
 
 Örnek uygulama, bu konuda açıklanan senaryoların örneklerini içerir. Örnek uygulamayı belirli bir senaryo için çalıştırmak için, bir komut kabuğunda projenin klasöründen [DotNet Run](/dotnet/core/tools/dotnet-run) komutunu kullanın. Örnek uygulamayı kullanma hakkında ayrıntılı bilgi için bu konudaki örnek uygulamanın *README.MD* dosyasına ve senaryo açıklamalarına bakın.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Önkoşullar
 
 Durum denetimleri, genellikle bir uygulamanın durumunu denetlemek için bir dış izleme hizmeti veya kapsayıcı Orchestrator ile birlikte kullanılır. Bir uygulamaya sistem durumu denetimleri eklemeden önce, hangi izleme sisteminin kullanılacağını belirleyin. İzleme sistemi ne tür bir sistem durumu denetimi oluşturulacağını ve bunların uç noktalarını nasıl yapılandıracağınızı belirler.
 
@@ -1379,7 +1379,7 @@ Bir sistem durumu denetimini kitaplık olarak dağıtmak için:
    * sistem durumu denetim adı (`name`). `null`, `example_health_check` kullanılır.
    * sistem durumu denetimi için dize veri noktası (`data1`).
    * sistem durumu denetimi için tamsayı veri noktası (`data2`). `null`, `1` kullanılır.
-   * hata durumu (<xref:Microsoft.Extensions.Diagnostics.HealthChecks.HealthStatus>). Varsayılan, `null` değeridir. `null`, bir hata durumu için [HealthStatus. sağlıksız durum](xref:Microsoft.Extensions.Diagnostics.HealthChecks.HealthStatus) bildirilir.
+   * hata durumu (<xref:Microsoft.Extensions.Diagnostics.HealthChecks.HealthStatus>). Varsayılan değer: `null`. `null`, bir hata durumu için [HealthStatus. sağlıksız durum](xref:Microsoft.Extensions.Diagnostics.HealthChecks.HealthStatus) bildirilir.
    * Etiketler (`IEnumerable<string>`).
 
    ```csharp

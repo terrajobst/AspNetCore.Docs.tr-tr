@@ -6,11 +6,11 @@ ms.author: riande
 ms.date: 12/05/2019
 uid: mvc/controllers/application-model
 ms.openlocfilehash: 4b6c978e5752eb320412a1c204df8e3d288fe4a1
-ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74881086"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78666434"
 ---
 # <a name="work-with-the-application-model-in-aspnet-core"></a>ASP.NET Core 'de uygulama modeliyle çalışma
 
@@ -192,7 +192,7 @@ Dolgu tarafından belirtilen kurallar yalnızca belirli özniteliklerin uygulanm
 
 `UseWebApiParameterConventionsAttribute`, `WebApiParameterConventionsApplicationModelConvention` eylem kuralını uygulamak için kullanılır. Bu kural, eylem parametreleri olarak kullanılan basit türlerin varsayılan olarak URI 'den bağlandığı, karmaşık türlerin istek gövdesinden bağlandığı bir şekilde belirtir.
 
-### <a name="routes"></a>Rotalar
+### <a name="routes"></a>Yollar
 
 `UseWebApiRoutesAttribute`, `WebApiApplicationModelConvention` denetleyicisi kuralının uygulanıp uygulanmadığını denetler. Bu kural etkinleştirildiğinde, rotadaki [alanlara](xref:mvc/controllers/areas) yönelik destek eklemek için kullanılır.
 

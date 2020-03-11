@@ -8,15 +8,15 @@ ms.custom: mvc
 ms.date: 01/15/2020
 uid: security/authentication/scaffold-identity
 ms.openlocfilehash: b3e077aeac11e62d9e992884100476f7be35b59a
-ms.sourcegitcommit: 990a4c2e623c202a27f60bdf3902f250359c13be
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/03/2020
-ms.locfileid: "76972040"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78663872"
 ---
 # <a name="scaffold-identity-in-aspnet-core-projects"></a>ASP.NET Core projelerinde yapı iskelesi kimliği
 
-Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
+Gönderen [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 ::: moniker range=">= aspnetcore-3.0"
 
@@ -195,7 +195,7 @@ dotnet aspnet-codegenerator identity -dc RPauth.Data.ApplicationDbContext --file
 
 Kullanıcı kaydını devre dışı bırakmak için:
 
-* Yapı iskelesi kimliği. Account. Register, Account. Login ve account. RegisterConfirmation bilgilerini ekleyin. Örneğin:
+* Yapı iskelesi kimliği. Account. Register, Account. Login ve account. RegisterConfirmation bilgilerini ekleyin. Örnek:
 
   ```dotnetcli
    dotnet aspnet-codegenerator identity -dc RPauth.Data.ApplicationDbContext --files "Account.Register;Account.Login;Account.RegisterConfirmation"
@@ -439,7 +439,7 @@ dotnet aspnet-codegenerator identity -dc RPauth.Data.ApplicationDbContext --file
 
 Kullanıcı kaydını devre dışı bırakmak için:
 
-* Yapı iskelesi kimliği. Account. Register, Account. Login ve account. RegisterConfirmation bilgilerini ekleyin. Örneğin:
+* Yapı iskelesi kimliği. Account. Register, Account. Login ve account. RegisterConfirmation bilgilerini ekleyin. Örnek:
 
   ```dotnetcli
    dotnet aspnet-codegenerator identity -dc RPauth.Data.ApplicationDbContext --files "Account.Register;Account.Login;Account.RegisterConfirmation"

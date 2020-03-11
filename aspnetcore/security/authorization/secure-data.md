@@ -6,12 +6,12 @@ ms.author: riande
 ms.date: 12/18/2018
 ms.custom: mvc, seodec18
 uid: security/authorization/secure-data
-ms.openlocfilehash: 65c72d4dd457f85451796c5713bedebafec7a7de
-ms.sourcegitcommit: 8157e5a351f49aeef3769f7d38b787b4386aad5f
+ms.openlocfilehash: 7710a8965771db02e601dafb7da752906bcd43e5
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74239827"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78659581"
 ---
 # <a name="create-an-aspnet-core-app-with-user-data-protected-by-authorization"></a>Kullanıcı verilerinin yetkilendirme tarafından korunduğu ile bir ASP.NET Core uygulaması oluşturma
 
@@ -19,7 +19,7 @@ By [Rick Anderson](https://twitter.com/RickAndMSFT) ve [ali Audette](https://twi
 
 ::: moniker range="<= aspnetcore-1.1"
 
-ASP.NET Core MVC sürümü için [Bu PDF 'ye](https://webpifeed.blob.core.windows.net/webpifeed/Partners/asp.net_repo_pdf_1-16-18.pdf) bakın. Bu öğreticinin ASP.NET Core 1,1 sürümü [Bu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/authorization/secure-data) klasöründedir. 1,1 ASP.NET Core örnek [örnekleri](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/authorization/secure-data/samples/final2).
+ASP.NET Core MVC sürümü için [Bu PDF 'ye](https://webpifeed.blob.core.windows.net/webpifeed/Partners/asp.net_repo_pdf_1-16-18.pdf) bakın. Bu öğreticinin ASP.NET Core 1,1 sürümü [Bu](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/security/authorization/secure-data) klasöründedir. 1,1 ASP.NET Core örnek [örnekleri](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/security/authorization/secure-data/samples/final2).
 
 ::: moniker-end
 
@@ -73,7 +73,7 @@ Uygulama, aşağıdaki `Contact` modeli için [Yapı iskelesi](xref:tutorials/fi
 
 Bu öğreticide gelişmiştir. Sahibi olmalısınız:
 
-* [ASP.NET Core](xref:tutorials/first-mvc-app/start-mvc)
+* [ASP.NET Çekirdeği](xref:tutorials/first-mvc-app/start-mvc)
 * [Kimlik doğrulaması](xref:security/authentication/identity)
 * [Hesap Onaylama ve Parola Kurtarma](xref:security/authentication/accconfirm)
 * [Yetkilendirme](xref:security/authorization/introduction)
@@ -81,11 +81,11 @@ Bu öğreticide gelişmiştir. Sahibi olmalısınız:
 
 ## <a name="the-starter-and-completed-app"></a>Tamamlanmış uygulama ve başlangıç
 
-[Tamamlanmış](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/authorization/secure-data/samples) uygulamayı [indirin](xref:index#how-to-download-a-sample) . Tamamlanmış uygulamayı [Test](#test-the-completed-app) edin, böylece güvenlik özellikleri hakkında bilgi sahibi olun.
+[Tamamlanmış](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/security/authorization/secure-data/samples) uygulamayı [indirin](xref:index#how-to-download-a-sample) . Tamamlanmış uygulamayı [Test](#test-the-completed-app) edin, böylece güvenlik özellikleri hakkında bilgi sahibi olun.
 
 ### <a name="the-starter-app"></a>Başlangıç uygulaması
 
-[Başlangıç](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/authorization/secure-data/samples/) uygulamasını [indirin](xref:index#how-to-download-a-sample) .
+[Başlangıç](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/security/authorization/secure-data/samples/) uygulamasını [indirin](xref:index#how-to-download-a-sample) .
 
 Uygulamayı çalıştırın, **ContactManager** bağlantısına dokunun ve bir kişi oluşturup silemdiğinizi doğrulayın.
 
@@ -267,7 +267,7 @@ Güncelleştirme ayrıntıları sayfa modeli:
 
 ## <a name="add-or-remove-a-user-to-a-role"></a>Ekleme veya bir rolü için bir kullanıcıyı kaldırma
 
-Hakkında bilgi için [Bu soruna](https://github.com/aspnet/AspNetCore.Docs/issues/8502) bakın:
+Hakkında bilgi için [Bu soruna](https://github.com/dotnet/AspNetCore.Docs/issues/8502) bakın:
 
 * Bir kullanıcıdan ayrıcalıklarının kaldırılması. Örneğin, bir sohbet uygulamasındaki kullanıcıyı kapatma.
 * Bir kullanıcı ayrıcalıkları ekleniyor.
@@ -311,8 +311,8 @@ Tamamlanmış uygulamayı test etmek için kolay bir yolu, üç farklı tarayıc
 | Kullanıcı                | Uygulama tarafından sağlanmış | Seçenekler                                  |
 | ------------------- | :---------------: | ---------------------------------------- |
 | test@example.com    | Hayır                | Kendi veri düzenleme veya silme.                |
-| manager@contoso.com | Evet               | Onayla/Reddet ve kendi veri düzenleme/silme. |
-| admin@contoso.com   | Evet               | Onayla/Reddet ve tüm verileri düzenleme/silme. |
+| manager@contoso.com | Yes               | Onayla/Reddet ve kendi veri düzenleme/silme. |
+| admin@contoso.com   | Yes               | Onayla/Reddet ve tüm verileri düzenleme/silme. |
 
 Bir kişi, yöneticinin tarayıcıda oluşturur. Silme için URL'yi kopyalayın ve yönetici kişiden düzenleyin. Bu bağlantıları test kullanıcı bu işlemleri gerçekleştiremezsiniz doğrulamak için test kullanıcının tarayıcısına yapıştırın.
 
@@ -355,7 +355,7 @@ dotnet ef database update
 
 ### <a name="seed-the-database"></a>Veritabanının çekirdeğini oluşturma
 
-*Veri* klasörüne [seeddata](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/authorization/secure-data/samples/starter3/Data/SeedData.cs) sınıfını ekleyin:
+*Veri* klasörüne [seeddata](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/security/authorization/secure-data/samples/starter3/Data/SeedData.cs) sınıfını ekleyin:
 
 [!code-csharp[](secure-data/samples/starter3/Data/SeedData.cs)]
 
@@ -409,7 +409,7 @@ Uygulama, aşağıdaki `Contact` modeli için [Yapı iskelesi](xref:tutorials/fi
 
 Bu öğreticide gelişmiştir. Sahibi olmalısınız:
 
-* [ASP.NET Core](xref:tutorials/first-mvc-app/start-mvc)
+* [ASP.NET Çekirdeği](xref:tutorials/first-mvc-app/start-mvc)
 * [Kimlik doğrulaması](xref:security/authentication/identity)
 * [Hesap Onaylama ve Parola Kurtarma](xref:security/authentication/accconfirm)
 * [Yetkilendirme](xref:security/authorization/introduction)
@@ -417,11 +417,11 @@ Bu öğreticide gelişmiştir. Sahibi olmalısınız:
 
 ## <a name="the-starter-and-completed-app"></a>Tamamlanmış uygulama ve başlangıç
 
-[Tamamlanmış](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/authorization/secure-data/samples) uygulamayı [indirin](xref:index#how-to-download-a-sample) . Tamamlanmış uygulamayı [Test](#test-the-completed-app) edin, böylece güvenlik özellikleri hakkında bilgi sahibi olun.
+[Tamamlanmış](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/security/authorization/secure-data/samples) uygulamayı [indirin](xref:index#how-to-download-a-sample) . Tamamlanmış uygulamayı [Test](#test-the-completed-app) edin, böylece güvenlik özellikleri hakkında bilgi sahibi olun.
 
 ### <a name="the-starter-app"></a>Başlangıç uygulaması
 
-[Başlangıç](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/authorization/secure-data/samples/) uygulamasını [indirin](xref:index#how-to-download-a-sample) .
+[Başlangıç](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/security/authorization/secure-data/samples/) uygulamasını [indirin](xref:index#how-to-download-a-sample) .
 
 Uygulamayı çalıştırın, **ContactManager** bağlantısına dokunun ve bir kişi oluşturup silemdiğinizi doğrulayın.
 
@@ -603,7 +603,7 @@ Güncelleştirme ayrıntıları sayfa modeli:
 
 ## <a name="add-or-remove-a-user-to-a-role"></a>Ekleme veya bir rolü için bir kullanıcıyı kaldırma
 
-Hakkında bilgi için [Bu soruna](https://github.com/aspnet/AspNetCore.Docs/issues/8502) bakın:
+Hakkında bilgi için [Bu soruna](https://github.com/dotnet/AspNetCore.Docs/issues/8502) bakın:
 
 * Bir kullanıcıdan ayrıcalıklarının kaldırılması. Örneğin, bir sohbet uygulamasındaki kullanıcıyı kapatma.
 * Bir kullanıcı ayrıcalıkları ekleniyor.
@@ -638,8 +638,8 @@ Tamamlanmış uygulamayı test etmek için kolay bir yolu, üç farklı tarayıc
 | Kullanıcı                | Uygulama tarafından sağlanmış | Seçenekler                                  |
 | ------------------- | :---------------: | ---------------------------------------- |
 | test@example.com    | Hayır                | Kendi veri düzenleme veya silme.                |
-| manager@contoso.com | Evet               | Onayla/Reddet ve kendi veri düzenleme/silme. |
-| admin@contoso.com   | Evet               | Onayla/Reddet ve tüm verileri düzenleme/silme. |
+| manager@contoso.com | Yes               | Onayla/Reddet ve kendi veri düzenleme/silme. |
+| admin@contoso.com   | Yes               | Onayla/Reddet ve tüm verileri düzenleme/silme. |
 
 Bir kişi, yöneticinin tarayıcıda oluşturur. Silme için URL'yi kopyalayın ve yönetici kişiden düzenleyin. Bu bağlantıları test kullanıcı bu işlemleri gerçekleştiremezsiniz doğrulamak için test kullanıcının tarayıcısına yapıştırın.
 
@@ -678,7 +678,7 @@ Bir kişi, yöneticinin tarayıcıda oluşturur. Silme için URL'yi kopyalayın 
 
 ### <a name="seed-the-database"></a>Veritabanının çekirdeğini oluşturma
 
-*Veri* klasörüne [seeddata](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/authorization/secure-data/samples/starter2.1/Data/SeedData.cs) sınıfını ekleyin.
+*Veri* klasörüne [seeddata](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/security/authorization/secure-data/samples/starter2.1/Data/SeedData.cs) sınıfını ekleyin.
 
 `Main``SeedData.Initialize` çağrısı:
 

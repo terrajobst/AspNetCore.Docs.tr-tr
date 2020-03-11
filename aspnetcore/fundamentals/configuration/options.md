@@ -1,22 +1,20 @@
 ---
 title: ASP.NET Core için seçenek kalıbı
-author: guardrex
+author: rick-anderson
 description: ASP.NET Core uygulamalarında ilgili ayarların gruplarını temsil etmek için seçenekler deseninin nasıl kullanılacağını öğrenin.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
 ms.date: 02/12/2020
 uid: fundamentals/configuration/options
-ms.openlocfilehash: 1f3625380d816c7d4df5a7a24b0ac146500330de
-ms.sourcegitcommit: 6645435fc8f5092fc7e923742e85592b56e37ada
+ms.openlocfilehash: 756d3d57122642ab10ab671c9accb75975c3799d
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77447211"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78665461"
 ---
 # <a name="options-pattern-in-aspnet-core"></a>ASP.NET Core için seçenek kalıbı
-
-[Luke Latham](https://github.com/guardrex) tarafından
 
 ::: moniker range=">= aspnetcore-3.0"
 
@@ -27,7 +25,7 @@ Seçenekler stili, ilişkili ayarların gruplarını temsil etmek için sınıfl
 
 Seçenekler Ayrıca yapılandırma verilerini doğrulamaya yönelik bir mekanizma sağlar. Daha fazla bilgi için [Seçenekler doğrulama](#options-validation) bölümüne bakın.
 
-[Örnek kodu görüntüleme veya indirme](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/configuration/options/samples) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
+[Örnek kodu görüntüleme veya indirme](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/configuration/options/samples) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
 
 ## <a name="package"></a>Paket
 
@@ -324,6 +322,8 @@ catch (OptionsValidationException e)
 }
 ```
 
+[!INCLUDE[about the series](~/includes/code-comments-loc.md)]
+
 Önceki örnekte, adlandırılmış seçenekler örneği `optionalOptionsName`olarak ayarlanır. Varsayılan Seçenekler örneği `Options.DefaultName`.
 
 Seçenekler örneği oluşturulduğunda doğrulama çalıştırılır. Bir seçenek örneği, ilk erişildiği zaman doğrulamayı geçecek garanti edilir.
@@ -451,7 +451,7 @@ Seçenekler stili, ilişkili ayarların gruplarını temsil etmek için sınıfl
 
 Seçenekler Ayrıca yapılandırma verilerini doğrulamaya yönelik bir mekanizma sağlar. Daha fazla bilgi için [Seçenekler doğrulama](#options-validation) bölümüne bakın.
 
-[Örnek kodu görüntüleme veya indirme](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/configuration/options/samples) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
+[Örnek kodu görüntüleme veya indirme](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/configuration/options/samples) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -873,7 +873,7 @@ Seçenekler stili, ilişkili ayarların gruplarını temsil etmek için sınıfl
 
 Seçenekler Ayrıca yapılandırma verilerini doğrulamaya yönelik bir mekanizma sağlar. Daha fazla bilgi için [Seçenekler doğrulama](#options-validation) bölümüne bakın.
 
-[Örnek kodu görüntüleme veya indirme](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/configuration/options/samples) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
+[Örnek kodu görüntüleme veya indirme](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/configuration/options/samples) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
 
 ## <a name="prerequisites"></a>Önkoşullar
 

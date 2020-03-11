@@ -1,22 +1,22 @@
 ---
 title: ASP.NET Core içinde barındırılan hizmetlerle arka plan görevleri
-author: guardrex
+author: rick-anderson
 description: ASP.NET Core barındırılan hizmetler ile arka plan görevleri uygulamak öğrenin.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
 ms.date: 02/10/2020
 uid: fundamentals/host/hosted-services
-ms.openlocfilehash: 9b7224c07df027c9466db34dcc23505410893f1f
-ms.sourcegitcommit: 85564ee396c74c7651ac47dd45082f3f1803f7a2
+ms.openlocfilehash: d3f409170eedd281fd7608c4b9835bf9443c49b0
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77171790"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78666203"
 ---
 # <a name="background-tasks-with-hosted-services-in-aspnet-core"></a>ASP.NET Core içinde barındırılan hizmetlerle arka plan görevleri
 
-, [Luke Latham](https://github.com/guardrex) ve [Jeow li Hua](https://github.com/huan086) tarafından
+, [Jeow li Hua](https://github.com/huan086) tarafından
 
 ::: moniker range=">= aspnetcore-3.0"
 
@@ -26,7 +26,7 @@ ASP.NET Core, arka plan görevleri *barındırılan hizmetler*olarak uygulanabil
 * [Kapsamlı bir hizmeti](xref:fundamentals/dependency-injection#service-lifetimes)etkinleştiren barındırılan hizmet. Kapsamlı hizmet [bağımlılık ekleme (dı)](xref:fundamentals/dependency-injection)kullanabilir.
 * Sıralı olarak çalışan sıraya alınmış arka plan görevleri.
 
-[Örnek kodu görüntüleme veya indirme](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/host/hosted-services/samples/) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
+[Örnek kodu görüntüleme veya indirme](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/host/hosted-services/samples/) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
 
 ## <a name="worker-service-template"></a>Çalışan hizmeti şablonu
 
@@ -181,7 +181,7 @@ ASP.NET Core, arka plan görevleri *barındırılan hizmetler*olarak uygulanabil
 * [Kapsamlı bir hizmeti](xref:fundamentals/dependency-injection#service-lifetimes)etkinleştiren barındırılan hizmet. Kapsamlı hizmet [bağımlılık ekleme (dı)](xref:fundamentals/dependency-injection) kullanabilir
 * Sıralı olarak çalışan sıraya alınmış arka plan görevleri.
 
-[Örnek kodu görüntüleme veya indirme](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/host/hosted-services/samples/) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
+[Örnek kodu görüntüleme veya indirme](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/host/hosted-services/samples/) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
 
 ## <a name="package"></a>Paket
 

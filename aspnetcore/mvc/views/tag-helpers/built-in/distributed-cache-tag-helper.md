@@ -6,16 +6,16 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 01/24/2020
 uid: mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper
-ms.openlocfilehash: e5100d7244600358186b653073990985f48434a7
-ms.sourcegitcommit: b5ceb0a46d0254cc3425578116e2290142eec0f0
+ms.openlocfilehash: f5957adf3cef8966812a1bf0cbc6b2627d19d026
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76809061"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78664019"
 ---
 # <a name="distributed-cache-tag-helper-in-aspnet-core"></a>ASP.NET Core dağıtılmış önbellek etiketi Yardımcısı
 
-By [Peter Kellner](https://peterkellner.net) ve [Luke Latham](https://github.com/guardrex)
+By [Peter Kellner](https://peterkellner.net)
 
 Dağıtılmış önbellek etiketi Yardımcısı, içeriğini dağıtılmış bir önbellek kaynağına önbelleğe alarak ASP.NET Core uygulamanızın performansını önemli ölçüde iyileştirebilme olanağı sağlar.
 
@@ -42,11 +42,11 @@ Dağıtılmış önbellek etiketi Yardımcısı, [Oluşturucu Ekleme](xref:funda
 
 Dağıtılmış önbellek etiketi Yardımcısı, önbellek etiketi Yardımcısı ile aynı sınıftan devralınır. Bu özniteliklerin açıklamaları için [önbellek etiketi Yardımcısı](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper)' na bakın.
 
-### <a name="name"></a>{1&gt;name&lt;1}
+### <a name="name"></a>ad
 
 | Öznitelik türü | Örnek                               |
 | -------------- | ------------------------------------- |
-| Dize         | `my-distributed-cache-unique-key-101` |
+| String         | `my-distributed-cache-unique-key-101` |
 
 `name` gereklidir. `name` özniteliği, depolanan her önbellek örneği için bir anahtar olarak kullanılır. Razor sayfasındaki Razor sayfası adı ve konumuna göre her örneğe bir önbellek anahtarı atayan önbellek etiketi Yardımcısı 'nın aksine, dağıtılmış önbellek etiketi Yardımcısı yalnızca anahtarını öznitelik `name`temel alır.
 

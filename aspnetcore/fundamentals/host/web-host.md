@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/07/2019
 uid: fundamentals/host/web-host
-ms.openlocfilehash: bc18b5490d232758b796d33a62cd8d1a7dd7289f
-ms.sourcegitcommit: 3d082bd46e9e00a3297ea0314582b1ed2abfa830
+ms.openlocfilehash: e02d6efcb3aec1329469b8654e66ba845870421a
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72007101"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78666714"
 ---
 # <a name="aspnet-core-web-host"></a>ASP.NET Core Web ana bilgisayarı
 
@@ -134,7 +134,7 @@ Bir ana bilgisayar ayarlanırken, [yapılandırma](/dotnet/api/microsoft.aspnetc
 
 [Webhostbuilder](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilder) , ana bilgisayar yapılandırma değerlerini ayarlamak için aşağıdaki yaklaşımları kullanır:
 
-* `ASPNETCORE_{configurationKey}`biçimindeki ortam değişkenlerini içeren konak Oluşturucu yapılandırması. Örneğin: `ASPNETCORE_ENVIRONMENT`
+* `ASPNETCORE_{configurationKey}`biçimindeki ortam değişkenlerini içeren konak Oluşturucu yapılandırması. Örneğin, `ASPNETCORE_ENVIRONMENT`.
 * [Usecontentroot](/dotnet/api/microsoft.aspnetcore.hosting.hostingabstractionswebhostbuilderextensions.usecontentroot) ve [useconfiguration](/dotnet/api/microsoft.aspnetcore.hosting.hostingabstractionswebhostbuilderextensions.useconfiguration) gibi uzantılar ( [geçersiz kılma yapılandırması](#override-configuration) bölümüne bakın).
 * [Usesetting](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilder.usesetting) ve ilişkili anahtar. `UseSetting`ile bir değer ayarlarken, değer türünden bağımsız olarak bir dize olarak ayarlanır.
 
@@ -199,7 +199,7 @@ WebHost.CreateDefaultBuilder(args)
     .UseContentRoot("c:\\<content-root>")
 ```
 
-Daha fazla bilgi için bkz.:
+Daha fazla bilgi için bkz.
 
 * [Temel bilgiler: Içerik kökü](xref:fundamentals/index#content-root)
 * [Web kökü](#web-root)
@@ -326,7 +326,7 @@ Sunucunun istekler için dinlemesi gereken bağlantı noktaları ve protokoller 
 Şunu **kullanarak ayarla**: `UseUrls`  
 **Ortam değişkeni**: `ASPNETCORE_URLS`
 
-Noktalı virgülle ayrılmış olarak ayarlayın (;) sunucunun yanıtlaması gereken URL ön eklerinin listesi. Örneğin: `http://localhost:123` Sunucunun belirtilen bağlantı noktasını ve Protokolü (örneğin, `http://*:5000`) kullanarak herhangi bir IP adresi veya ana bilgisayar için istekleri dinlemesi gerektiğini belirtmek için "\*" kullanın. Protokol (`http://` veya `https://`) her URL 'ye dahil olmalıdır. Desteklenen biçimler sunucular arasında farklılık gösterir.
+Noktalı virgülle ayrılmış olarak ayarlayın (;) sunucunun yanıtlaması gereken URL ön eklerinin listesi. Örneğin, `http://localhost:123`. Sunucunun belirtilen bağlantı noktasını ve Protokolü (örneğin, `http://*:5000`) kullanarak herhangi bir IP adresi veya ana bilgisayar için istekleri dinlemesi gerektiğini belirtmek için "\*" kullanın. Protokol (`http://` veya `https://`) her URL 'ye dahil olmalıdır. Desteklenen biçimler sunucular arasında farklılık gösterir.
 
 ```csharp
 WebHost.CreateDefaultBuilder(args)
@@ -396,7 +396,7 @@ WebHost.CreateDefaultBuilder(args)
     .UseWebRoot("public")
 ```
 
-Daha fazla bilgi için bkz.:
+Daha fazla bilgi için bkz.
 
 * [Temel bilgiler: Web kökü](xref:fundamentals/index#web-root)
 * [İçerik kökü](#content-root)
@@ -444,9 +444,7 @@ public class Program
 ```
 
 > [!NOTE]
-> [Useconfiguration](/dotnet/api/microsoft.aspnetcore.hosting.hostingabstractionswebhostbuilderextensions.useconfiguration) uzantı yöntemi şu anda `GetSection` tarafından döndürülen bir yapılandırma bölümünü ayrıştırma özelliğine sahip değil (örneğin, `.UseConfiguration(Configuration.GetSection("section"))`. `GetSection` yöntemi, yapılandırma anahtarlarını istenen bölüme süzer ancak bölüm adını anahtarlar üzerinde bırakır (örneğin, `section:urls`, `section:environment`). `UseConfiguration` yöntemi, anahtarların `WebHostBuilder` anahtarlarla eşleşmesini bekler (örneğin, `urls`, `environment`). Anahtarlarda bölüm adının varlığı, bölümün değerlerinin konak yapılandırmasını engeller. Bu soruna önümüzdeki sürümlerden birinde çözüm getirilecektir. Daha fazla bilgi ve geçici çözüm için bkz [. yapılandırma bölümünü WebHostBuilder 'A geçirme. UseConfiguration tam anahtarları kullanır](https://github.com/aspnet/Hosting/issues/839).
->
-> `UseConfiguration`, anahtarları yalnızca belirtilen `IConfiguration` ana bilgisayar Oluşturucu yapılandırmasına kopyalar. Bu nedenle, JSON, INI ve XML ayarları dosyaları için `reloadOnChange: true` ayarlamanın hiçbir etkisi yoktur.
+> [Useconfiguration](/dotnet/api/microsoft.aspnetcore.hosting.hostingabstractionswebhostbuilderextensions.useconfiguration) yalnızca belirtilen `IConfiguration` anahtarları ana bilgisayar Oluşturucu yapılandırmasına kopyalar. Bu nedenle, JSON, INI ve XML ayarları dosyaları için `reloadOnChange: true` ayarlamanın hiçbir etkisi yoktur.
 
 Belirli bir URL 'de çalıştırılacak Konağı belirtmek için, [DotNet çalıştırması](/dotnet/core/tools/dotnet-run)yürütürken istenen değer bir komut isteminden geçirilebilir. Komut satırı bağımsız değişkeni, *HostSettings. JSON* dosyasından `urls` değerini geçersiz kılar ve sunucu 8080 numaralı bağlantı noktasını dinler:
 
@@ -456,7 +454,7 @@ dotnet run --urls "http://*:8080"
 
 ## <a name="manage-the-host"></a>Konağı yönetme
 
-**Çalıştırma**
+**Çalıştır**
 
 `Run` yöntemi, Web uygulamasını başlatır ve konak kapanana kadar çağıran iş parçacığını engeller:
 

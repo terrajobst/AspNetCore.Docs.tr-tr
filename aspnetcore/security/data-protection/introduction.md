@@ -1,81 +1,81 @@
 ---
-title: ASP.NET Core veri koruması
+title: ASP.NET Core veri koruma
 author: rick-anderson
-description: Veri koruma kavramını ve ASP.NET Core veri koruma API'lerini tasarım prensipleri hakkında bilgi edinin.
+description: Veri koruma kavramı ve ASP.NET Core veri koruma API 'Lerinin tasarım ilkeleri hakkında bilgi edinin.
 ms.author: riande
 ms.custom: mvc
 ms.date: 10/24/2018
 uid: security/data-protection/introduction
 ms.openlocfilehash: 37f170a3e8a46ef2215b0999358d46dd402636df
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64903281"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78664446"
 ---
-# <a name="aspnet-core-data-protection"></a>ASP.NET Core veri koruması
+# <a name="aspnet-core-data-protection"></a>ASP.NET Core veri koruma
 
-Web uygulamaları, genellikle güvenlik bakımından hassas verileri depolamak gerekir. Windows için masaüstü uygulamalarının DPAPI sağlar, ancak bu web uygulamaları için uygun değildir. ASP.NET Core veri koruma yığınından bir geliştirici, anahtar yönetimi ve döndürme gibi verileri korumak için kullanabileceğiniz basit, kullanımı kolay bir şifreleme API'si sağlar.
+Web uygulamalarının genellikle güvenliğe duyarlı verileri depolaması gerekir. Windows Masaüstü uygulamaları için DPAPI sağlar, ancak bu Web uygulamaları için uygun değildir. ASP.NET Core veri koruma yığını, bir geliştiricinin anahtar yönetimi ve döndürme dahil olmak üzere verileri korumak için kullanabileceği basit ve kullanımı kolay bir şifreleme API 'SI sağlar.
 
-ASP.NET Core veri koruma yığın uzun vadeli ardılı olarak hizmet vermek için tasarlanmış &lt;machineKey&gt; ASP.NET öğesinde 1.x - 4.x. Eski şifreleme yığın eksikliklerini birçoğu Çoğu modern uygulamalar karşılaşabileceğiniz olası kullanım durumu için kullanıma hazır çözüm sağlarken yönelik olarak tasarlanmıştır.
+ASP.NET Core veri koruma yığını ASP.NET 1. x-4. x içindeki &lt;machineKey&gt; öğesi için uzun süreli değiştirme işlevi görecek şekilde tasarlanmıştır. Bu, eski şifreleme yığınının birçok eksikine yönelik olarak tasarlanmıştır ve bu da çoğu kullanım durumunda Modern uygulamaların karşılaştığı büyük bir çözüm sunar.
 
 ## <a name="problem-statement"></a>Sorun bildirimi
 
-Genel Sorun bildirimi temellerini tek bir cümlede belirtilebilir: Sonraki alma için güvenilen bilgilerini kalıcı hale gerekir, ancak Kalıcılık mekanizması güven yok. "Güvenilmeyen bir istemci aracılığıyla güvenilen gidiş dönüş durumu istiyorum."olarak web bağlamında, bu yazılı olabilir
+Genel sorun açıklaması tek bir tümcede succinctly belirtilebilir: daha sonra alımı sağlamak için güvenilir bilgileri kalıcı hale getirmeniz gerekiyor, ancak Kalıcılık mekanizmasına güvenmiyor. Web koşullarında bu, "güvenilmeyen bir istemci aracılığıyla güvenilir duruma gidiş dönüş olması gerekir." şeklinde yazılmış olabilir.
 
-Kurallı örnek bir kimlik doğrulama tanımlama bilgisi taşıyıcı mi belirteci. Sunucu oluşturur bir "I Groot am ve xyz izinlere sahip" belirtecini ve istemciye uygulamalı. İleriki bir tarihte istemci sunucuya geri belirtecini sunar ancak sunucu istemci belirteci sahte taşınmadığından güvencesi tür gerekiyor. Bu nedenle ilk gereksinim: Orijinallik Sertifikası (yani) bütünlüğü, kurcalamaya sağlama).
+Bunun kurallı örneği, bir kimlik doğrulama tanımlama bilgisidir veya taşıyıcı belirteçtir. Sunucu bir "I ÖÖ ve XYZ izinleri var" belirtecini oluşturur ve istemciye ister. Daha sonraki bir tarihte, istemci bu belirteci sunucuya geri sunacaktır, ancak sunucunun belirteci sahte olmadığı bir tür güvence ihtiyacı vardır. Bu nedenle, ilk gereksinim: özgünlük (deyişle bütünlük, yetkisiz sağlama).
 
-Kalıcı durum sunucusu tarafından güvenilir olduğundan, bu durum için işletim sistemi ortamında özel bilgiler içerebilir beklenir. Bu, bir dosya yolu, bir izin, bir tanıtıcı ya da diğer dolaylı başvuru biçiminde veya bazı bir sunucuya özgü veri parçası olabilir. Bu bilgiler genellikle güvenilmeyen bir istemciye açıklanmaması gereken. Böylece ikinci gereksinime: gizliliği.
+Kalıcı duruma sunucu tarafından güvenildiğinden, bu durumun işletim ortamına özgü bilgiler içerebileceğini tahmin ederiz. Bu, bir dosya yolu, izin, bir tanıtıcı veya başka bir dolaylı başvuru biçiminde veya sunucuya özgü başka bir veri parçası olabilir. Bu tür bilgiler genellikle güvenilmeyen bir istemciye açıklanmamalıdır. Bu nedenle, ikinci gereksinim: Gizlilik.
 
-Modern uygulamalar bileşenlerden, son olarak, hangi gördük tek tek bileşenler sistemdeki diğer bileşenlere bakılmaksızın bu sistem yararlanmak isteyeceksiniz olduğu. Örneğin, bir taşıyıcı belirteç bileşeni bu yığın kullanıyorsanız, de aynı yığınına kullanıyor olabilecek bir anti-CSRF mekanizması girişime olmadan çalışması. Bu nedenle son gereksinimi: yalıtım.
+Son olarak, modern uygulamalar bileşen olduğundan, gördük, tek tek bileşenlerin, sistemdeki diğer bileşenlere bakılmaksızın bu sistemden yararlanmak ister. Örneğin, bir taşıyıcı belirteç bileşeni bu yığını kullanıyorsa aynı yığını da kullanan bir anti-CSRF mekanizmasından parazit olmadan çalışır. Bu nedenle son gereksinim: yalıtım.
 
-Size daha fazla tutmamız kapsamını daraltmak için kısıtlamalar sağlayabilir. Cryptosystem içinde çalışan tüm hizmetlerin eşit oranda güvenilir ve veri oluşturulan ya da hizmetler doğrudan denetimimiz dışında kullanılan gerektirmeyeceği varsayıyoruz. Ayrıca, her web hizmeti isteğine bir veya daha fazla kez cryptosystem geçebilir beri operations mümkün olduğunca hızlı olmalarını gerektirir. Bu simetrik şifreleme senaryomuz için ideal hale getirir ve biz asimetrik şifreleme gibi kadar gerekli olan bir zaman indirim.
+Gereksinimlerimizin kapsamını daraltmak için daha fazla kısıtlama sağlayabiliriz. //Tr.wikipedia.org/wiki/RSA içinde çalışan tüm hizmetlerin eşit olarak güvenilir olduğunu ve verilerin doğrudan denetimizin altında oluşturulmaları veya hizmetlerin dışında harcanması gerektiğini varsaytık. Ayrıca, Web hizmetine yönelik her istek//tr.wikipedia.org/wiki/RSA 'e bir veya daha fazla kez gidebilecek olduğundan, bu işlemlerin mümkün olduğunca hızlı olmasını gerektiririz. Bu, simetrik şifrelemeyi senaryolarımız için ideal hale getirir ve bu tür bir süre kadar asimetrik şifrelemeyi indirimleriz.
 
-## <a name="design-philosophy"></a>Tasarımı felsefesi
+## <a name="design-philosophy"></a>Tasarım felseü
 
-Var olan yığın sorunları tanımlayarak Başladık. Vardı, sonra biz varolan çözümleri yatay Uzmanı ile görüşmeler ve varolan bir çözümü oldukça biz Aranan özelliklerine sahip tamamlanmış. Biz ardından, bazı temel kurallara göre bir çözüm de tasarlanmıştır.
+Mevcut yığın ile ilgili sorunları tanımlayarak başladık. Bunu yaptıktan sonra, mevcut çözümlerin Yatayı gözettik ve mevcut bir çözüm, yalnızca bir çok aranan yeteneğe sahip değil. Daha sonra çeşitli temel ilkelere göre bir çözüm sunuyoruz.
 
-* Sistem Yapılandırması basitliğinin sunmalıdır. İdeal olarak, sistem, sıfır yapılandırmalı olacaktır ve geliştiriciler kubernetes'i oluşabilir. Geliştiriciler (örneğin, anahtar deposu) belirli bir yönüne yapılandırmak için gereken yere durumlarda, bu belirli yapılandırmaları basit hale getirmek için göz önünde bulundurarak verilmelidir.
+* Sistemin yapılandırma basitliği sağlaması gerekir. İdeal olarak, sistem sıfır-yapılandırma olabilir ve geliştiriciler bir yerden çalışır. Geliştiricilerin belirli bir yönü (anahtar deposu gibi) yapılandırması gereken durumlarda, söz konusu yapılandırmaların basit hale getirilmesi için dikkate alınması gerekir.
 
-* Basit bir tüketiciye yönelik API sunar. API'leri, doğru bir şekilde kullanmak kolay ve yanlış kullanmak zor olmalıdır.
+* Basit bir tüketiciye yönelik API sunar. API 'Lerin düzgün şekilde kullanılması kolay ve yanlış kullanılması zor olmalıdır.
 
-* Geliştiriciler, anahtar yönetimi ilkelerini öğrenin olmamalıdır. Sistem seçimi algoritması ve anahtar yaşam süresi geliştiricinin adınıza işlemelidir. İdeal olarak Geliştirici hiçbir zaman bile ham anahtar malzemesi erişiminiz olması.
+* Geliştiriciler anahtar yönetim ilkelerini öğrenmemelidir. Sistem, geliştirici adına algoritma seçimini ve anahtar yaşam süresini işlemelidir. İdeal olarak, geliştirici ham anahtar malzemesine asla erişemez.
 
-* Mümkün olduğunda bekleyen korumalı anahtarlar. Bir uygun varsayılan koruma mekanizması şekil ve otomatik olarak uygulama gerekir.
+* Anahtarlar mümkün olduğunda Rest 'te korunmalıdır. Sistem uygun bir varsayılan koruma mekanizmasını göstermelidir ve bunu otomatik olarak uygular.
 
-Bu ilkeleri göz önünde ile basit, biz geliştirilen [kullanımı kolay](xref:security/data-protection/using-data-protection) veri koruma yığını.
+Bu ilkeler göz önünde bulundurularak basit ve kullanımı [kolay](xref:security/data-protection/using-data-protection) bir veri koruma yığını geliştirdik.
 
-ASP.NET Core veri koruma API'lerini öncelikle amaçlanmayan gizli yükü belirsiz kalıcılığını. Diğer teknolojiler ister [Windows CNG DPAPI](https://msdn.microsoft.com/library/windows/desktop/hh706794%28v=vs.85%29.aspx) ve [Azure Rights Management](/rights-management/) belirsiz depolama senaryosu için daha uygundur ve bunlar gelenlere güçlü anahtar yönetim olanaklarına sahip olursunuz. Bu, gizli verilerin uzun dönem koruma için ASP.NET Core veri koruma API'lerini kullanarak bir geliştirici yasaklanması bir şey yoktur söylenir.
+ASP.NET Core veri koruma API 'Leri öncelikle gizli yüklerin sınırsız kalıcılığı için tasarlanmamıştır. [WINDOWS CNG DPAPI](https://msdn.microsoft.com/library/windows/desktop/hh706794%28v=vs.85%29.aspx) ve [Azure Rights Management](/rights-management/) gibi diğer teknolojiler, sınırsız depolama senaryosuna daha uygundur ve bunlara karşılık olarak güçlü anahtar yönetim özelliklerine sahiptir. Yani, bir geliştiricinin gizli verilerin uzun süreli korunması için ASP.NET Core veri koruma API 'Lerini kullanmasını engelleyen bir şey yoktur.
 
-## <a name="audience"></a>Hedef Kitle
+## <a name="audience"></a>Hedef kitle
 
-Veri koruma sisteminde beş ana paketler bölünmüştür. Bu API'ler çeşitli yönlerini üç ana olarak Hedef Kitleleri belirlemenizi;
+Veri koruma sistemi beş ana pakete bölünmüştür. Bu API 'lerin çeşitli yönleri üç ana hedef kitleye sahiptir;
 
-1. [Tüketici API'lerine genel bakış](xref:security/data-protection/consumer-apis/overview) hedef uygulama ve framework geliştiriciler.
+1. [Tüketici API 'Lerine genel bakış](xref:security/data-protection/consumer-apis/overview) hedef uygulama ve çerçeve geliştiricileri.
 
-   "Nasıl yapılandırıldığı hakkında veya yığın nasıl çalıştığı hakkında bilgi edinmek istemiyorum. Yalnızca bazı işlemde olarak basit bir şekilde mümkün olduğunca başarıyla API'leri kullanarak yüksek olasılık ile gerçekleştirmek istiyorum."
+   "Yığının nasıl çalıştığı veya nasıl yapılandırıldığı hakkında bilgi almak istemiyorum. API 'Leri başarılı bir şekilde kullanmanın yüksek olasılığa karşı basit bir şekilde bir işlem gerçekleştirmek istiyorum. "
 
-2. [Yapılandırma API'leri](xref:security/data-protection/configuration/overview) hedef uygulama geliştiriciler ve sistem yöneticileri.
+2. [Yapılandırma API 'leri](xref:security/data-protection/configuration/overview) , uygulama geliştiricileri ve sistem yöneticileri için hedef.
 
-   "Veri koruma sisteminde ortamımın varsayılan olmayan yollar veya ayarları gerektirdiğini bildirmek ihtiyacım var."
+   "Veri koruma sistemine ortamımın varsayılan olmayan yollar veya ayarlar gerektirdiğini söylemem gerekiyor."
 
-3. Genişletilebilirlik API'leri hedef özel ilke uygulama sorumlu geliştiriciler. Bu API'lerin kullanımını bazı nadir durumlar için sınırlı ve yaşadı, güvenlik kullanan geliştiriciler.
+3. Genişletilebilirlik API 'Leri, geliştiricilerin özel ilke uygulama ücretlendirme aşamasında hedeflemesini hedefler. Bu API 'lerin kullanımı nadir durumlarla ve deneyimli güvenlik özellikli geliştiricilerle sınırlı olacaktır.
 
-   "I davranış gerçekten benzersiz gereksinimleri çünkü sistem içindeki tüm bir bileşen değiştirmeniz gerekiyor. My gereksinimleri karşılayan bir eklenti oluşturmak için bir API yüzeyi uncommonly kullanılan bölümlerini öğrenmek istiyorum."
+   "Gerçekten benzersiz davranış gereksinimlerine sahip olduğumu sistem içindeki bir bileşenin tamamını değiştirmem gerekiyor. Gereksinimlerimi yerine getiren bir eklenti oluşturmak için API yüzeyinin yaygın olarak kullanılan parçalarını öğrenmek istiyorum. "
 
 ## <a name="package-layout"></a>Paket düzeni
 
-Veri koruma yığın beş paketlerini oluşur.
+Veri koruma yığını beş paketten oluşur.
 
-* [Microsoft.AspNetCore.DataProtection.Abstractions](https://www.nuget.org/packages/Microsoft.AspNetCore.DataProtection.Abstractions/) içeren <xref:Microsoft.AspNetCore.DataProtection.IDataProtectionProvider> ve <xref:Microsoft.AspNetCore.DataProtection.IDataProtector> veri koruma hizmetleri oluşturmak için gereken arabirimler. Ayrıca, bu türleriyle çalışmak için yararlı genişletme yöntemleri içerir (örneğin, [IDataProtector.Protect](xref:Microsoft.AspNetCore.DataProtection.DataProtectionCommonExtensions.Protect*)). Veri koruma sisteminde başka bir örneği ve API kullanan, başvuru `Microsoft.AspNetCore.DataProtection.Abstractions`.
+* [Microsoft. AspNetCore. DataProtection. soyutlamalar](https://www.nuget.org/packages/Microsoft.AspNetCore.DataProtection.Abstractions/) , veri koruma hizmetleri oluşturmak için <xref:Microsoft.AspNetCore.DataProtection.IDataProtectionProvider> ve <xref:Microsoft.AspNetCore.DataProtection.IDataProtector> arabirimlerini içerir. Ayrıca, bu türlerle çalışmak için yararlı genişletme yöntemleri içerir (örneğin, [ıdataprotector. Protect](xref:Microsoft.AspNetCore.DataProtection.DataProtectionCommonExtensions.Protect*)). Veri koruma sisteminin başka bir yerde örneği varsa ve API 'yi kullanıyorsanız, `Microsoft.AspNetCore.DataProtection.Abstractions`başvurun.
 
-* [Microsoft.AspNetCore.DataProtection](https://www.nuget.org/packages/Microsoft.AspNetCore.DataProtection/) çekirdek şifreleme işlemleri, anahtar yönetimi, yapılandırma ve genişletilebilirlik gibi veri koruma sisteminde çekirdek uygulamasını içerir. Veri koruma sisteminde örneklemek için (örneğin, eklemeden bir <xref:Microsoft.Extensions.DependencyInjection.IServiceCollection>) veya değiştirme veya davranışını genişletme, başvuru `Microsoft.AspNetCore.DataProtection`.
+* [Microsoft. aspnetcore. DataProtection](https://www.nuget.org/packages/Microsoft.AspNetCore.DataProtection/) , temel şifreleme işlemleri, anahtar yönetimi, yapılandırma ve genişletilebilirlik dahil olmak üzere veri koruma sisteminin temel uygulamasını içerir. Veri koruma sisteminin örneğini oluşturmak için (örneğin, bir <xref:Microsoft.Extensions.DependencyInjection.IServiceCollection>ekleme) veya davranışını değiştirerek veya genişleterek `Microsoft.AspNetCore.DataProtection`başvuru.
 
-* [Microsoft.AspNetCore.DataProtection.Extensions](https://www.nuget.org/packages/Microsoft.AspNetCore.DataProtection.Extensions/) geliştiricilerin yararlı olabilir ancak çekirdek pakete ait olmayan ek API'ler içerir. Örneğin, bu paket bağımlılık ekleme olmadan dosya sistemindeki bir konumda anahtarları depolamak için veri koruma sisteminde örneklemek için Fabrika yöntemleri içerir (bkz <xref:Microsoft.AspNetCore.DataProtection.DataProtectionProvider>). Ayrıca, korumalı yüklerin ömrünü sınırlama için genişletme yöntemleri içerir (bkz <xref:Microsoft.AspNetCore.DataProtection.ITimeLimitedDataProtector>).
+* [Microsoft. AspNetCore. DataProtection. Extensions](https://www.nuget.org/packages/Microsoft.AspNetCore.DataProtection.Extensions/) , geliştiricilerin yararlı bulabileceği ancak çekirdek pakete ait olmayan ek API 'leri içerir. Örneğin, bu paket, anahtarları bağımlılık ekleme olmadan dosya sisteminde bir konumda depolamak için veri koruma sisteminin örneğini oluşturmaya yönelik Fabrika yöntemleri içerir (bkz. <xref:Microsoft.AspNetCore.DataProtection.DataProtectionProvider>). Ayrıca, korumalı yüklerin ömrünü kısıtlamak için uzantı yöntemleri de içerir (bkz. <xref:Microsoft.AspNetCore.DataProtection.ITimeLimitedDataProtector>).
 
-* [Microsoft.AspNetCore.DataProtection.SystemWeb](https://www.nuget.org/packages/Microsoft.AspNetCore.DataProtection.SystemWeb/) yönlendirileceği varolan ASP.NET 4.x uygulamaya yüklenebilir, `<machineKey>` işlemlerinin yeni ASP.NET Core veri koruma yığını kullanın. Daha fazla bilgi için bkz. <xref:security/data-protection/compatibility/replacing-machinekey>.
+* Yeni ASP.NET Core Data Protection yığınını kullanmak üzere `<machineKey>` işlemlerini yeniden yönlendirmek için [Microsoft. AspNetCore. DataProtection. SystemWeb](https://www.nuget.org/packages/Microsoft.AspNetCore.DataProtection.SystemWeb/) , var olan bir ASP.NET 4. x uygulamasına yüklenebilir. Daha fazla bilgi için bkz. <xref:security/data-protection/compatibility/replacing-machinekey>.
 
-* [Microsoft.AspNetCore.Cryptography.KeyDerivation](https://www.nuget.org/packages/Microsoft.AspNetCore.Cryptography.KeyDerivation/) PBKDF2 parola yordamı karma uygulaması sağlar ve kullanıcı parolalarını güvenli bir şekilde işlemelidir sistemleri tarafından kullanılabilir. Daha fazla bilgi için bkz. <xref:security/data-protection/consumer-apis/password-hashing>.
+* [Microsoft. AspNetCore. Cryptography. Keytüretme](https://www.nuget.org/packages/Microsoft.AspNetCore.Cryptography.KeyDerivation/) , PBKDF2 Password karma yordamının bir uygulamasını sağlar ve Kullanıcı parolalarını güvenli bir şekilde işlemesi gereken sistemler tarafından kullanılabilir. Daha fazla bilgi için bkz. <xref:security/data-protection/consumer-apis/password-hashing>.
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 

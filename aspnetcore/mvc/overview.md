@@ -6,11 +6,11 @@ ms.author: riande
 ms.date: 02/12/2020
 uid: mvc/overview
 ms.openlocfilehash: 2911399f6ed4e14345171c908c4306b9c3e33805
-ms.sourcegitcommit: 6645435fc8f5092fc7e923742e85592b56e37ada
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77447418"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78658433"
 ---
 # <a name="overview-of-aspnet-core-mvc"></a>ASP.NET Core MVC’ye Genel Bakış
 
@@ -161,7 +161,7 @@ Uygulamanız Ayrıca, `@inject` yönergesini kullanarak, [görüntüleme dosyala
 </html>
 ```
 
-### <a name="filters"></a>FilTReleri
+### <a name="filters"></a>Filtreler
 
 [Filtreler](controllers/filters.md) , geliştiricilerin özel durum işleme veya yetkilendirme gibi çapraz sorunları yalıtmalarına yardımcı olur. Filtreler, eylem yöntemleri için özel ön ve son işlem dışı mantığı çalıştırmayı etkinleştirir ve belirli bir istek için yürütme işlem hattının içindeki belirli noktalarda çalışacak şekilde yapılandırılabilir. Filtreler, denetleyicilere veya eylemlere öznitelik olarak uygulanabilir (veya küresel olarak çalıştırılabilir). Çeşitli filtreler (örneğin `Authorize`) çerçeveye dahil edilir. `[Authorize]`, MVC yetkilendirme filtrelerini oluşturmak için kullanılan özniteliktir.
 

@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 07/23/2019
 uid: security/authentication/identity-custom-storage-providers
-ms.openlocfilehash: 70951085474d88fd57f1b1496a41adcda520b91f
-ms.sourcegitcommit: 7dfe6cc8408ac6a4549c29ca57b0c67ec4baa8de
+ms.openlocfilehash: 574e66e4dedaf0bfd01d600c3ded4bfb5d1865cd
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75829160"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78664481"
 ---
 # <a name="custom-storage-providers-for-aspnet-core-identity"></a>ASP.NET Core kimlik için özel depolama sağlayıcıları
 
@@ -19,11 +19,11 @@ ms.locfileid: "75829160"
 
 ASP.NET Core kimlik, özel bir depolama sağlayıcısı oluşturup uygulamanıza bağlayabilmenizi sağlayan genişletilebilir bir sistemdir. Bu konu, ASP.NET Core kimlik için özelleştirilmiş bir depolama sağlayıcısının nasıl oluşturulacağını açıklamaktadır. Kendi depolama sağlayıcınızı oluşturmaya yönelik önemli kavramları ele alır, ancak adım adım bir adım adım değildir.
 
-[GitHub 'dan örnek görüntüleyin veya indirin](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/authentication/identity/sample).
+[GitHub 'dan örnek görüntüleyin veya indirin](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/security/authentication/identity/sample).
 
 ## <a name="introduction"></a>Giriş
 
-Varsayılan olarak ASP.NET Core kimlik sistemi, Kullanıcı bilgilerini Entity Framework Core kullanarak SQL Server veritabanında depolar. Birçok uygulama için bu yaklaşım iyi bir sonuç verir. Ancak, farklı bir Kalıcılık mekanizması veya veri şeması kullanmayı tercih edebilirsiniz. Örneğin:
+Varsayılan olarak ASP.NET Core kimlik sistemi, Kullanıcı bilgilerini Entity Framework Core kullanarak SQL Server veritabanında depolar. Birçok uygulama için bu yaklaşım iyi bir sonuç verir. Ancak, farklı bir Kalıcılık mekanizması veya veri şeması kullanmayı tercih edebilirsiniz. Örnek:
 
 * [Azure Tablo depolama](/azure/storage/) veya başka bir veri deposu kullanıyorsunuz.
 * Veritabanı tablolarınız farklı bir yapıya sahip. 
@@ -132,13 +132,13 @@ Kullanıcı üzerindeki tüm veri işlemlerine yönelik yöntemleri sağlayan bi
 * [Iuserpasswordstore](/dotnet/api/microsoft.aspnetcore.identity.iuserpasswordstore-1)
 * [Iusersecuritystampstore](/dotnet/api/microsoft.aspnetcore.identity.iusersecuritystampstore-1)
 * [Iuseremailstore](/dotnet/api/microsoft.aspnetcore.identity.iuseremailstore-1)
-* [IUserPhoneNumberStore](/dotnet/api/microsoft.aspnetcore.identity.iuserphonenumberstore-1)
+* [Iuserphonenumberstore](/dotnet/api/microsoft.aspnetcore.identity.iuserphonenumberstore-1)
 * [Iqueryableuserstore](/dotnet/api/microsoft.aspnetcore.identity.iqueryableuserstore-1)
 * [Iuserloginstore](/dotnet/api/microsoft.aspnetcore.identity.iuserloginstore-1)
 * [Iusertwofactorstore](/dotnet/api/microsoft.aspnetcore.identity.iusertwofactorstore-1)
 * [Iuserlockoutstore](/dotnet/api/microsoft.aspnetcore.identity.iuserlockoutstore-1)
 
-İsteğe bağlı arabirimler `IUserStore<TUser>`devralınır. [Örnek uygulamada](https://github.com/aspnet/AspNetCore.Docs/blob/master/aspnetcore/security/authentication/identity-custom-storage-providers/sample/CustomIdentityProviderSample/CustomProvider/CustomUserStore.cs)kısmen uygulanmış bir örnek kullanıcı deposu görebilirsiniz.
+İsteğe bağlı arabirimler `IUserStore<TUser>`devralınır. [Örnek uygulamada](https://github.com/dotnet/AspNetCore.Docs/blob/master/aspnetcore/security/authentication/identity-custom-storage-providers/sample/CustomIdentityProviderSample/CustomProvider/CustomUserStore.cs)kısmen uygulanmış bir örnek kullanıcı deposu görebilirsiniz.
 
 `UserStore` sınıfı içinde, işlemleri gerçekleştirmek için oluşturduğunuz veri erişim sınıflarını kullanırsınız. Bunlar bağımlılık ekleme kullanılarak geçirilir. Örneğin, kaber uygulamasıyla SQL Server, `UserStore` sınıfı yeni bir kayıt eklemek için `DapperUsersTable` örneğini kullanan `CreateAsync` yöntemine sahiptir:
 
@@ -160,7 +160,7 @@ Kullanıcı üzerindeki tüm veri işlemlerine yönelik yöntemleri sağlayan bi
  [Iusersecuritystampstore&lt;tuser&gt;](/dotnet/api/microsoft.aspnetcore.identity.iusersecuritystampstore-1) arabirimi, kullanıcının hesap bilgilerinin değişip değişmediğini belirten bir güvenlik damgası kullanmak için uyguladığınız yöntemleri tanımlar. Bu damga, Kullanıcı parolayı değiştirdiğinde veya oturum açma ekler veya kaldırdığında güncelleştirilir. Güvenlik damgasını alma ve ayarlama yöntemlerini içerir.
 * **Iusertwofactorstore**  
  [Iusertwofactorstore&lt;TUser&gt;](/dotnet/api/microsoft.aspnetcore.identity.iusertwofactorstore-1) arabirimi iki öğeli kimlik doğrulamayı desteklemek için uyguladığınız yöntemleri tanımlar. Bir kullanıcı için iki öğeli kimlik doğrulamasının etkin olup olmadığını alma ve ayarlama yöntemlerini içerir.
-* **IUserPhoneNumberStore**  
+* **Iuserphonenumberstore**  
  [Iuserphonenumberstore&lt;tuser&gt;](/dotnet/api/microsoft.aspnetcore.identity.iuserphonenumberstore-1) arabirimi, Kullanıcı telefon numaralarını depolamak için uyguladığınız yöntemleri tanımlar. Telefon numarasını alma ve ayarlama ve telefon numarasının onaylanıp onaylanmayacağı yöntemlerini içerir.
 * **Iuseremailstore**  
  [Iuseremailstore&lt;tuser&gt;](/dotnet/api/microsoft.aspnetcore.identity.iuseremailstore-1) arabirimi, kullanıcı e-posta adreslerini depolamak için uyguladığınız yöntemleri tanımlar. E-posta adresini alma ve ayarlama yöntemlerini ve e-postanın onaylanıp onaylanmadığını içerir.
@@ -169,7 +169,7 @@ Kullanıcı üzerindeki tüm veri işlemlerine yönelik yöntemleri sağlayan bi
 * **Iqueryableuserstore**  
  [Iqueryableuserstore&lt;TUser&gt;](/dotnet/api/microsoft.aspnetcore.identity.iqueryableuserstore-1) arabirimi, bir sorgulanabilir kullanıcı deposu sağlamak için uyguladığınız üyeleri tanımlar.
 
-Yalnızca uygulamanızda gerekli olan arabirimleri uygulayabilirsiniz. Örneğin:
+Yalnızca uygulamanızda gerekli olan arabirimleri uygulayabilirsiniz. Örnek:
 
 ```csharp
 public class UserStore : IUserStore<IdentityUser>,

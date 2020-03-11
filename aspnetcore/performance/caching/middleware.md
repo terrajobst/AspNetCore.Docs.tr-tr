@@ -1,28 +1,28 @@
 ---
 title: ASP.NET Core 'de yanıt önbelleğe alma ara yazılımı
-author: guardrex
+author: rick-anderson
 description: ASP.NET Core 'de yanıt önbelleğe alma ara yazılımını yapılandırmayı ve kullanmayı öğrenin.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
 ms.date: 02/07/2020
 uid: performance/caching/middleware
-ms.openlocfilehash: 61fa42161560ce2b512a73f1d7e32d11cd9bcb2c
-ms.sourcegitcommit: 235623b6e5a5d1841139c82a11ac2b4b3f31a7a9
+ms.openlocfilehash: 4deac15538d4607bd611c4e072daae39447681c1
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/10/2020
-ms.locfileid: "77114802"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78655738"
 ---
 # <a name="response-caching-middleware-in-aspnet-core"></a>ASP.NET Core 'de yanıt önbelleğe alma ara yazılımı
 
-[Luke Latham](https://github.com/guardrex) ve [John Luo](https://github.com/JunTaoLuo) tarafından
+[John Luo](https://github.com/JunTaoLuo) tarafından
 
 ::: moniker range=">= aspnetcore-3.0"
 
 Bu makalede, yanıt önbelleğe alma ara yazılımı ASP.NET Core bir uygulamada nasıl yapılandırılacağı açıklanmaktadır. Ara yazılım, yanıtların önbelleklenebilir olup olmadığını belirler, yanıtları depolar ve önbellekten yanıt verir. HTTP önbelleği ve [`[ResponseCache]`](xref:Microsoft.AspNetCore.Mvc.ResponseCacheAttribute) özniteliğine giriş için bkz. [Yanıt önbelleği](xref:performance/caching/response).
 
-[Örnek kodu görüntüleme veya indirme](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/performance/caching/middleware/samples) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
+[Örnek kodu görüntüleme veya indirme](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/performance/caching/middleware/samples) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
 
 ## <a name="configuration"></a>Yapılandırma
 
@@ -95,7 +95,7 @@ Aşağıdaki tabloda, yanıt önbelleğini etkileyen HTTP üstbilgileri hakkınd
 | Üst bilgi | Ayrıntılar |
 | ------ | ------- |
 | `Authorization` | Üst bilgi varsa yanıt önbelleğe alınmaz. |
-| `Cache-Control` | Ara yazılım yalnızca `public` cache yönergesi ile işaretlenmiş önbelleğe alma yanıtlarını dikkate alır. Aşağıdaki parametrelerle önbelleğe alma denetimi:<ul><li>Maksimum yaş</li><li>en fazla-eski&#8224;</li><li>en az-yeni</li><li>yeniden doğrulama gerekir</li><li>önbellek yok</li><li>mağaza yok</li><li>yalnızca-if-önbelleğe alındı</li><li>private</li><li>public</li><li>s-maxage</li><li>ara sunucu-yeniden doğrulama&#8225;</li></ul>&#8224;`max-stale`için hiçbir sınır belirtilmemişse, ara yazılım hiçbir işlem gerçekleşmez.<br>&#8225;`proxy-revalidate` `must-revalidate`ile aynı etkiye sahiptir.<br><br>Daha fazla bilgi için bkz. [RFC 7231: Istek Cache-Control yönergeleri](https://tools.ietf.org/html/rfc7234#section-5.2.1). |
+| `Cache-Control` | Ara yazılım yalnızca `public` cache yönergesi ile işaretlenmiş önbelleğe alma yanıtlarını dikkate alır. Aşağıdaki parametrelerle önbelleğe alma denetimi:<ul><li>Maksimum yaş</li><li>en fazla-eski&#8224;</li><li>en az-yeni</li><li>yeniden doğrulama gerekir</li><li>önbellek yok</li><li>mağaza yok</li><li>yalnızca-if-önbelleğe alındı</li><li>özel</li><li>{1&gt;public&lt;1}</li><li>s-maxage</li><li>ara sunucu-yeniden doğrulama&#8225;</li></ul>&#8224;`max-stale`için hiçbir sınır belirtilmemişse, ara yazılım hiçbir işlem gerçekleşmez.<br>&#8225;`proxy-revalidate` `must-revalidate`ile aynı etkiye sahiptir.<br><br>Daha fazla bilgi için bkz. [RFC 7231: Istek Cache-Control yönergeleri](https://tools.ietf.org/html/rfc7234#section-5.2.1). |
 | `Pragma` | İstekteki bir `Pragma: no-cache` üst bilgisi `Cache-Control: no-cache`ile aynı etkiyi üretir. Bu üst bilgi, varsa `Cache-Control` üst bilgisinde ilgili yönergeler tarafından geçersiz kılınır. HTTP/1.0 ile geriye dönük uyumluluk için değerlendirilir. |
 | `Set-Cookie` | Üst bilgi varsa yanıt önbelleğe alınmaz. İstek işleme ardışık düzeninde bir veya daha fazla tanımlama bilgisi ayarlayan herhangi bir ara yazılım, yanıt önbelleğe alma ara hattının yanıtı önbelleğe almasını önler (örneğin, [tanımlama bilgisi tabanlı TempData sağlayıcısı](xref:fundamentals/app-state#tempdata)).  |
 | `Vary` | `Vary` üstbilgisi, başka bir üst bilgi tarafından önbelleğe alınan yanıtı değiştirmek için kullanılır. Örneğin, üst bilgileri `Accept-Encoding: gzip` ve `Accept-Encoding: text/plain` ayrı olarak istekler için yanıtları önbelleğe alan `Vary: Accept-Encoding` üst bilgisini ekleyerek, kodlamaya göre yanıtları önbelleğe alır. `*` üstbilgi değeri olan bir yanıt hiçbir şekilde depolanmaz. |
@@ -162,7 +162,7 @@ Ara yazılım, [HTTP 1,1 önbelleğe alma belirtiminin](https://tools.ietf.org/h
 
 Bu makalede, yanıt önbelleğe alma ara yazılımı ASP.NET Core bir uygulamada nasıl yapılandırılacağı açıklanmaktadır. Ara yazılım, yanıtların önbelleklenebilir olup olmadığını belirler, yanıtları depolar ve önbellekten yanıt verir. HTTP önbelleği ve [`[ResponseCache]`](xref:Microsoft.AspNetCore.Mvc.ResponseCacheAttribute) özniteliğine giriş için bkz. [Yanıt önbelleği](xref:performance/caching/response).
 
-[Örnek kodu görüntüleme veya indirme](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/performance/caching/middleware/samples) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
+[Örnek kodu görüntüleme veya indirme](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/performance/caching/middleware/samples) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
 
 ## <a name="configuration"></a>Yapılandırma
 
@@ -235,7 +235,7 @@ Aşağıdaki tabloda, yanıt önbelleğini etkileyen HTTP üstbilgileri hakkınd
 | Üst bilgi | Ayrıntılar |
 | ------ | ------- |
 | `Authorization` | Üst bilgi varsa yanıt önbelleğe alınmaz. |
-| `Cache-Control` | Ara yazılım yalnızca `public` cache yönergesi ile işaretlenmiş önbelleğe alma yanıtlarını dikkate alır. Aşağıdaki parametrelerle önbelleğe alma denetimi:<ul><li>Maksimum yaş</li><li>en fazla-eski&#8224;</li><li>en az-yeni</li><li>yeniden doğrulama gerekir</li><li>önbellek yok</li><li>mağaza yok</li><li>yalnızca-if-önbelleğe alındı</li><li>private</li><li>public</li><li>s-maxage</li><li>ara sunucu-yeniden doğrulama&#8225;</li></ul>&#8224;`max-stale`için hiçbir sınır belirtilmemişse, ara yazılım hiçbir işlem gerçekleşmez.<br>&#8225;`proxy-revalidate` `must-revalidate`ile aynı etkiye sahiptir.<br><br>Daha fazla bilgi için bkz. [RFC 7231: Istek Cache-Control yönergeleri](https://tools.ietf.org/html/rfc7234#section-5.2.1). |
+| `Cache-Control` | Ara yazılım yalnızca `public` cache yönergesi ile işaretlenmiş önbelleğe alma yanıtlarını dikkate alır. Aşağıdaki parametrelerle önbelleğe alma denetimi:<ul><li>Maksimum yaş</li><li>en fazla-eski&#8224;</li><li>en az-yeni</li><li>yeniden doğrulama gerekir</li><li>önbellek yok</li><li>mağaza yok</li><li>yalnızca-if-önbelleğe alındı</li><li>özel</li><li>{1&gt;public&lt;1}</li><li>s-maxage</li><li>ara sunucu-yeniden doğrulama&#8225;</li></ul>&#8224;`max-stale`için hiçbir sınır belirtilmemişse, ara yazılım hiçbir işlem gerçekleşmez.<br>&#8225;`proxy-revalidate` `must-revalidate`ile aynı etkiye sahiptir.<br><br>Daha fazla bilgi için bkz. [RFC 7231: Istek Cache-Control yönergeleri](https://tools.ietf.org/html/rfc7234#section-5.2.1). |
 | `Pragma` | İstekteki bir `Pragma: no-cache` üst bilgisi `Cache-Control: no-cache`ile aynı etkiyi üretir. Bu üst bilgi, varsa `Cache-Control` üst bilgisinde ilgili yönergeler tarafından geçersiz kılınır. HTTP/1.0 ile geriye dönük uyumluluk için değerlendirilir. |
 | `Set-Cookie` | Üst bilgi varsa yanıt önbelleğe alınmaz. İstek işleme ardışık düzeninde bir veya daha fazla tanımlama bilgisi ayarlayan herhangi bir ara yazılım, yanıt önbelleğe alma ara hattının yanıtı önbelleğe almasını önler (örneğin, [tanımlama bilgisi tabanlı TempData sağlayıcısı](xref:fundamentals/app-state#tempdata)).  |
 | `Vary` | `Vary` üstbilgisi, başka bir üst bilgi tarafından önbelleğe alınan yanıtı değiştirmek için kullanılır. Örneğin, üst bilgileri `Accept-Encoding: gzip` ve `Accept-Encoding: text/plain` ayrı olarak istekler için yanıtları önbelleğe alan `Vary: Accept-Encoding` üst bilgisini ekleyerek, kodlamaya göre yanıtları önbelleğe alır. `*` üstbilgi değeri olan bir yanıt hiçbir şekilde depolanmaz. |

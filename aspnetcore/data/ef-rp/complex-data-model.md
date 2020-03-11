@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 07/22/2019
 uid: data/ef-rp/complex-data-model
-ms.openlocfilehash: 411c0874d2b2c6ecadd1da9aff7a093f1e8e525a
-ms.sourcegitcommit: d2ba66023884f0dca115ff010bd98d5ed6459283
+ms.openlocfilehash: 1d81a0444487c6396bb32381ed2cb26d44312c3a
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77213434"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78665720"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---data-model---5-of-8"></a>ASP.NET Core veri modelinde EF Core ile Razor Pages-5/8
 
@@ -59,7 +59,7 @@ Yukarıdaki kod, bir `FullName` özelliği ekler ve var olan özelliklere aşağ
 
 Öğrenci kayıt tarihleri için, tüm sayfalar şu anda tarihle birlikte tarih ile görüntülenir, ancak yalnızca tarihin ilgili olması gerekir. Veri ek açıklaması özniteliklerini kullanarak, verileri gösteren her sayfada görüntü biçimini giderecek bir kod değişikliği yapabilirsiniz. 
 
-[DataType](/dotnet/api/system.componentmodel.dataannotations.datatypeattribute?view=netframework-4.7.1) özniteliği, veritabanı iç türünden daha belirgin bir veri türünü belirtir. Bu durumda, tarih ve saat değil yalnızca tarih görüntülenmelidir. Veri [türü numaralandırması](/dotnet/api/system.componentmodel.dataannotations.datatype?view=netframework-4.7.1) , tarih, saat, PhoneNumber, para birimi, emaadresi vb. gibi birçok veri türü sağlar. `DataType` özniteliği Ayrıca uygulamanın türe özgü özellikleri otomatik olarak sağlamasını da sağlayabilir. Örneğin:
+[DataType](/dotnet/api/system.componentmodel.dataannotations.datatypeattribute?view=netframework-4.7.1) özniteliği, veritabanı iç türünden daha belirgin bir veri türünü belirtir. Bu durumda, tarih ve saat değil yalnızca tarih görüntülenmelidir. Veri [türü numaralandırması](/dotnet/api/system.componentmodel.dataannotations.datatype?view=netframework-4.7.1) , tarih, saat, PhoneNumber, para birimi, emaadresi vb. gibi birçok veri türü sağlar. `DataType` özniteliği Ayrıca uygulamanın türe özgü özellikleri otomatik olarak sağlamasını da sağlayabilir. Örnek:
 
 * `mailto:` bağlantısı `DataType.EmailAddress`için otomatik olarak oluşturulur.
 * Tarih Seçici çoğu tarayıcıda `DataType.Date` için sağlanır.
@@ -99,7 +99,7 @@ Veri doğrulama kuralları ve doğrulama hatası iletileri özniteliklerle belir
 [RegularExpression(@"^[A-Z]+[a-zA-Z""'\s-]*$")]
 ```
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 **SQL Server Nesne Gezgini** (ssox) içinde **öğrenci** tablosuna çift tıklayarak öğrenci tablosu tasarımcısını açın.
 
@@ -107,7 +107,7 @@ Veri doğrulama kuralları ve doğrulama hatası iletileri özniteliklerle belir
 
 Önceki görüntüde `Student` tablo şeması gösterilmektedir. Ad alanlarında tür `nvarchar(MAX)`vardır. Bu öğreticide daha sonra bir geçiş oluşturulup uygulandığında, ad alanları dize uzunluğu özniteliklerinin bir sonucu olarak `nvarchar(50)` olur.
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 SQLite aracında `Student` tablo için sütun tanımlarını inceleyin. Ad alanlarında tür `Text`vardır. İlk ad alanının `FirstMidName`çağrıldığından emin olun. Sonraki bölümde, bu sütunun adını `FirstName`olarak değiştirirsiniz.
 
@@ -157,7 +157,7 @@ public string LastName { get; set; }
 
 Uygulamayı çalıştırın ve öğrenciler sayfasına gidin. Bir özel durum oluşturulur. `[Column]` özniteliği, EF 'in `FirstName`adlı bir sütun bulmasını beklemesine neden olur, ancak veritabanındaki sütun adı hala `FirstMidName`.
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 Hata iletisi aşağıdaki örneğe benzer:
 
@@ -187,7 +187,7 @@ SqlException: Invalid column name 'FirstName'.
 
   Geçiş uygulanmadan önce ad sütunları [nvarchar (max)](/sql/t-sql/data-types/nchar-and-nvarchar-transact-sql)türünde idi. Ad sütunları artık `nvarchar(50)`. Sütun adı, `FirstMidName` `FirstName`olarak değiştirildi.
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 Hata iletisi aşağıdaki örneğe benzer:
 
@@ -534,9 +534,9 @@ Yukarıdaki kod, yeni varlıklar için tohum verileri sağlar. Bu kodun çoğu y
 
 ## <a name="add-a-migration"></a>Geçiş Ekle
 
-Projeyi derleyin.
+Projeyi oluşturun.
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 PMC 'de aşağıdaki komutu çalıştırın.
 
@@ -561,7 +561,7 @@ database "ContosoUniversity", table "dbo.Department", column 'DepartmentID'.
 
 Sonraki bölümde, bu hatayla ilgili ne yapılacağını görürsünüz.
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 Bir geçiş ekler ve `database update` komutunu çalıştırırsanız, aşağıdaki hata üretilir:
 
@@ -591,7 +591,7 @@ SQL Server kullanıyorsanız ve aşağıdaki bölümde uygulanacak geçiş yakla
 
 Yeni bir veritabanı oluşturmak için EF Core zorlamak için veritabanını bırakıp güncelleştirin:
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * **Paket Yöneticisi konsolunda** (PMC), aşağıdaki komutu çalıştırın:
 
@@ -606,7 +606,7 @@ Yeni bir veritabanı oluşturmak için EF Core zorlamak için veritabanını bı
   Update-Database
   ```
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 * Bir komut penceresi açın ve proje klasörüne gidin. Proje klasörü *Contosouniversity. csproj* dosyasını içerir.
 
@@ -627,7 +627,7 @@ Yeni bir veritabanı oluşturmak için EF Core zorlamak için veritabanını bı
 
 Uygulamayı çalıştırın. Uygulamayı çalıştırmak `DbInitializer.Initialize` yöntemini çalıştırır. `DbInitializer.Initialize` yeni veritabanını doldurur.
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 Veritabanını SSOX içinde açın:
 
@@ -643,7 +643,7 @@ Veritabanını SSOX içinde açın:
 
   ![SSOX 'te Courseatama verileri](complex-data-model/_static/ssox-ci-data.png)
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 Veritabanını incelemek için SQLite aracınızı kullanın:
 
@@ -691,7 +691,7 @@ Burada gösterilen durumu işlemenin yolu, bu öğretici için basitleştirilmi�
 * Yeni `Department` satırlarına `Department` satırları ve ilgili `Course` satırlarını eklemek için kod veya komut dosyaları ekleyin.
 * "Geçici" Departmanı veya `Course.DepartmentID`için varsayılan değeri kullanmayın.
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * **Paket Yöneticisi konsolunda** (PMC), aşağıdaki komutu çalıştırın:
 
@@ -701,7 +701,7 @@ Burada gösterilen durumu işlemenin yolu, bu öğretici için basitleştirilmi�
 
 `DbInitializer.Initialize` yöntemi yalnızca boş bir veritabanıyla çalışacak şekilde tasarlandığından, öğrenci ve kurs tablolarındaki tüm satırları silmek için SSOX kullanın. (Cascade silme, kayıt tablosundan işlem gerçekleştirir.)
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 * Visual Studio Code ile SQL Server LocalDB kullanıyorsanız şu komutu çalıştırın:
 
@@ -735,7 +735,7 @@ Tamamlanan veri modeli için varlık sınıfları aşağıdaki çizimde gösteri
 ![Varlık diyagramı](complex-data-model/_static/diagram.png)
 
 Çözemediğiniz sorunlarla karşılaşırsanız, [Tamamlanmış uygulamayı](
-https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-rp/intro/samples)indirin.
+https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-rp/intro/samples)indirin.
 
 ## <a name="customize-the-data-model-with-attributes"></a>Veri modelini özniteliklerle özelleştirme
 
@@ -749,7 +749,7 @@ Bu bölümde, veri modeli öznitelikler kullanılarak özelleştirilir.
 
 [!code-csharp[](intro/samples/cu21/Models/Student.cs?name=snippet_DataType&highlight=3,12-13)]
 
-[DataType](/dotnet/api/system.componentmodel.dataannotations.datatypeattribute?view=netframework-4.7.1) özniteliği, veritabanı iç türünden daha belirgin bir veri türünü belirtir. Bu durumda, tarih ve saat değil yalnızca tarih görüntülenmelidir. Veri [türü numaralandırması](/dotnet/api/system.componentmodel.dataannotations.datatype?view=netframework-4.7.1) , tarih, saat, PhoneNumber, para birimi, emaadresi vb. gibi birçok veri türü sağlar. `DataType` özniteliği Ayrıca uygulamanın türe özgü özellikleri otomatik olarak sağlamasını da sağlayabilir. Örneğin:
+[DataType](/dotnet/api/system.componentmodel.dataannotations.datatypeattribute?view=netframework-4.7.1) özniteliği, veritabanı iç türünden daha belirgin bir veri türünü belirtir. Bu durumda, tarih ve saat değil yalnızca tarih görüntülenmelidir. Veri [türü numaralandırması](/dotnet/api/system.componentmodel.dataannotations.datatype?view=netframework-4.7.1) , tarih, saat, PhoneNumber, para birimi, emaadresi vb. gibi birçok veri türü sağlar. `DataType` özniteliği Ayrıca uygulamanın türe özgü özellikleri otomatik olarak sağlamasını da sağlayabilir. Örnek:
 
 * `mailto:` bağlantısı `DataType.EmailAddress`için otomatik olarak oluşturulur.
 * Tarih Seçici çoğu tarayıcıda `DataType.Date` için sağlanır.
@@ -827,17 +827,17 @@ SqlException: Invalid column name 'FirstName'.
 
 DB 'yi güncelleştirmek için:
 
-* Projeyi derleyin.
+* Projeyi oluşturun.
 * Proje klasöründe bir komut penceresi açın. Yeni bir geçiş oluşturmak ve DB 'yi güncelleştirmek için aşağıdaki komutları girin:
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 ```powershell
 Add-Migration ColumnFirstName
 Update-Database
 ```
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 ```dotnetcli
 dotnet ef migrations add ColumnFirstName
@@ -1242,15 +1242,15 @@ Yukarıdaki kod, yeni varlıklar için tohum verileri sağlar. Bu kodun çoğu y
 
 ## <a name="add-a-migration"></a>Geçiş Ekle
 
-Projeyi derleyin.
+Projeyi oluşturun.
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 ```powershell
 Add-Migration ComplexDataModel
 ```
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 ```dotnetcli
 dotnet ef migrations add ComplexDataModel
@@ -1286,7 +1286,7 @@ Artık var olan bir veritabanınız olduğuna göre, bundan sonraki değişiklik
 
 Güncelleştirilmiş `DbInitializer` kod, yeni varlıklar için tohum verileri ekler. Yeni bir VERITABANı oluşturmak için EF Core zorlamak için DB 'yi bırakıp güncelleştirin:
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 **Paket Yöneticisi konsolunda** (PMC), aşağıdaki komutu çalıştırın:
 
@@ -1297,7 +1297,7 @@ Update-Database
 
 Yardım bilgileri almak için PMC 'ten `Get-Help about_EntityFrameworkCore` çalıştırın.
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 Bir komut penceresi açın ve proje klasörüne gidin. Proje klasörü *Startup.cs* dosyasını içerir.
 

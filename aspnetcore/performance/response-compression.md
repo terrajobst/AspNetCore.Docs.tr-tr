@@ -1,28 +1,26 @@
 ---
 title: ASP.NET Core 'de yanıt sıkıştırması
-author: guardrex
+author: rick-anderson
 description: Yanıt sıkıştırması ve ASP.NET Core uygulamalarında yanıt sıkıştırma ara yazılımı kullanma hakkında bilgi edinin.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
 ms.date: 02/07/2020
 uid: performance/response-compression
-ms.openlocfilehash: d37b05edd55ac0d3910855563b819114cf815b43
-ms.sourcegitcommit: 235623b6e5a5d1841139c82a11ac2b4b3f31a7a9
+ms.openlocfilehash: aae0b8d74fc424cc81c046e9042279856865bf6a
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/10/2020
-ms.locfileid: "77114815"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78665979"
 ---
 # <a name="response-compression-in-aspnet-core"></a>ASP.NET Core 'de yanıt sıkıştırması
-
-[Luke Latham](https://github.com/guardrex) tarafından
 
 ::: moniker range=">= aspnetcore-3.0"
 
 Ağ bant genişliği sınırlı bir kaynaktır. Yanıt boyutunu azaltmak genellikle önemli ölçüde önemli ölçüde bir uygulamanın yanıt hızını artırır. Yük boyutlarını azaltmanın bir yolu, uygulamanın yanıtlarını sıkıştırmaktır.
 
-[Örnek kodu görüntüleme veya indirme](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/performance/response-compression/samples) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
+[Örnek kodu görüntüleme veya indirme](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/performance/response-compression/samples) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
 
 ## <a name="when-to-use-response-compression-middleware"></a>Yanıt sıkıştırma ara yazılımı ne zaman kullanılır?
 
@@ -73,7 +71,7 @@ Sıkıştırılmış içerik isteme, gönderme, önbelleğe alma ve alma ile ilg
 | `Content-Type`     | İçeriğin MIME türünü belirtir. Her yanıt `Content-Type`belirtmelidir. Ara yazılım, yanıtın sıkıştırılıp sıkıştırılmadığını belirlemede bu değeri denetler. Ara yazılım, kodlayamadığı bir dizi [varsayılan MIME türünü](#mime-types) belirtir, ancak MIME türlerini değiştirebilir veya ekleyebilirsiniz. |
 | `Vary`             | Sunucu tarafından istemciler ve proxy 'ler için bir `Accept-Encoding` değeri ile gönderildiğinde, `Vary` üst bilgisi, isteğin `Accept-Encoding` üst bilgisinin değerine göre önbelleğe alma (değişiklik) gerektiğini istemci veya ara sunucuya bildirir. `Vary: Accept-Encoding` üst bilgisiyle içerik döndürmesinin sonucu, hem sıkıştırılmış hem de sıkıştırılmamış yanıtların ayrı olarak önbelleğe alınıp alınmayadır. |
 
-[Örnek uygulamayla](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/performance/response-compression/samples)yanıt sıkıştırma ara yazılımı 'nın özelliklerini gezin. Örnek şunu gösterir:
+[Örnek uygulamayla](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/performance/response-compression/samples)yanıt sıkıştırma ara yazılımı 'nın özelliklerini gezin. Örnek şunu gösterir:
 
 * Gzip ve özel sıkıştırma sağlayıcıları kullanılarak uygulama yanıtlarının sıkıştırılması.
 * Sıkıştırma için varsayılan MIME türleri listesine MIME türü ekleme.
@@ -268,7 +266,7 @@ Bir uygulama için devre dışı bırakmak istediğiniz sunucu düzeyinde yapıl
 
 Ağ bant genişliği sınırlı bir kaynaktır. Yanıt boyutunu azaltmak genellikle önemli ölçüde önemli ölçüde bir uygulamanın yanıt hızını artırır. Yük boyutlarını azaltmanın bir yolu, uygulamanın yanıtlarını sıkıştırmaktır.
 
-[Örnek kodu görüntüleme veya indirme](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/performance/response-compression/samples) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
+[Örnek kodu görüntüleme veya indirme](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/performance/response-compression/samples) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
 
 ## <a name="when-to-use-response-compression-middleware"></a>Yanıt sıkıştırma ara yazılımı ne zaman kullanılır?
 
@@ -319,7 +317,7 @@ Sıkıştırılmış içerik isteme, gönderme, önbelleğe alma ve alma ile ilg
 | `Content-Type`     | İçeriğin MIME türünü belirtir. Her yanıt `Content-Type`belirtmelidir. Ara yazılım, yanıtın sıkıştırılıp sıkıştırılmadığını belirlemede bu değeri denetler. Ara yazılım, kodlayamadığı bir dizi [varsayılan MIME türünü](#mime-types) belirtir, ancak MIME türlerini değiştirebilir veya ekleyebilirsiniz. |
 | `Vary`             | Sunucu tarafından istemciler ve proxy 'ler için bir `Accept-Encoding` değeri ile gönderildiğinde, `Vary` üst bilgisi, isteğin `Accept-Encoding` üst bilgisinin değerine göre önbelleğe alma (değişiklik) gerektiğini istemci veya ara sunucuya bildirir. `Vary: Accept-Encoding` üst bilgisiyle içerik döndürmesinin sonucu, hem sıkıştırılmış hem de sıkıştırılmamış yanıtların ayrı olarak önbelleğe alınıp alınmayadır. |
 
-[Örnek uygulamayla](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/performance/response-compression/samples)yanıt sıkıştırma ara yazılımı 'nın özelliklerini gezin. Örnek şunu gösterir:
+[Örnek uygulamayla](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/performance/response-compression/samples)yanıt sıkıştırma ara yazılımı 'nın özelliklerini gezin. Örnek şunu gösterir:
 
 * Gzip ve özel sıkıştırma sağlayıcıları kullanılarak uygulama yanıtlarının sıkıştırılması.
 * Sıkıştırma için varsayılan MIME türleri listesine MIME türü ekleme.
@@ -513,7 +511,7 @@ Bir uygulama için devre dışı bırakmak istediğiniz sunucu düzeyinde yapıl
 
 Ağ bant genişliği sınırlı bir kaynaktır. Yanıt boyutunu azaltmak genellikle önemli ölçüde önemli ölçüde bir uygulamanın yanıt hızını artırır. Yük boyutlarını azaltmanın bir yolu, uygulamanın yanıtlarını sıkıştırmaktır.
 
-[Örnek kodu görüntüleme veya indirme](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/performance/response-compression/samples) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
+[Örnek kodu görüntüleme veya indirme](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/performance/response-compression/samples) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
 
 ## <a name="when-to-use-response-compression-middleware"></a>Yanıt sıkıştırma ara yazılımı ne zaman kullanılır?
 
@@ -564,7 +562,7 @@ Sıkıştırılmış içerik isteme, gönderme, önbelleğe alma ve alma ile ilg
 | `Content-Type`     | İçeriğin MIME türünü belirtir. Her yanıt `Content-Type`belirtmelidir. Ara yazılım, yanıtın sıkıştırılıp sıkıştırılmadığını belirlemede bu değeri denetler. Ara yazılım, kodlayamadığı bir dizi [varsayılan MIME türünü](#mime-types) belirtir, ancak MIME türlerini değiştirebilir veya ekleyebilirsiniz. |
 | `Vary`             | Sunucu tarafından istemciler ve proxy 'ler için bir `Accept-Encoding` değeri ile gönderildiğinde, `Vary` üst bilgisi, isteğin `Accept-Encoding` üst bilgisinin değerine göre önbelleğe alma (değişiklik) gerektiğini istemci veya ara sunucuya bildirir. `Vary: Accept-Encoding` üst bilgisiyle içerik döndürmesinin sonucu, hem sıkıştırılmış hem de sıkıştırılmamış yanıtların ayrı olarak önbelleğe alınıp alınmayadır. |
 
-[Örnek uygulamayla](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/performance/response-compression/samples)yanıt sıkıştırma ara yazılımı 'nın özelliklerini gezin. Örnek şunu gösterir:
+[Örnek uygulamayla](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/performance/response-compression/samples)yanıt sıkıştırma ara yazılımı 'nın özelliklerini gezin. Örnek şunu gösterir:
 
 * Gzip ve özel sıkıştırma sağlayıcıları kullanılarak uygulama yanıtlarının sıkıştırılması.
 * Sıkıştırma için varsayılan MIME türleri listesine MIME türü ekleme.

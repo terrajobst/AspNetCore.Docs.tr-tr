@@ -7,11 +7,11 @@ ms.custom: mvc
 ms.date: 7/23/2019
 uid: tutorials/razor-pages/validation
 ms.openlocfilehash: f283234ed8a32dc9b7904bc6fee1cc9c04741029
-ms.sourcegitcommit: 85564ee396c74c7651ac47dd45082f3f1803f7a2
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77172598"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78666021"
 ---
 # <a name="add-validation-to-an-aspnet-core-razor-page"></a>ASP.NET Core Razor sayfasına doğrulama ekleme
 
@@ -157,7 +157,7 @@ Sınıfa uygulanan Dataek açıklamaları şemayı değiştirir. Örneğin, `Tit
 * Karakterleri 60 olarak sınırlandırır.
 * `null` değere izin vermez.
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 `Movie` tablosu şu anda aşağıdaki şemaya sahiptir:
 
@@ -201,7 +201,7 @@ CREATE TABLE [dbo].[Movie] (
 );
 ```
 
-# <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Visual Studio Code/Mac için Visual Studio](#tab/visual-studio-code+visual-studio-mac)
+# <a name="visual-studio-code--visual-studio-for-mac"></a>[Visual Studio Code/Mac için Visual Studio](#tab/visual-studio-code+visual-studio-mac)
 
 SQLite için geçişler gerekli değildir.
 

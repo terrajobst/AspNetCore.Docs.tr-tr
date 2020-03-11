@@ -1,48 +1,48 @@
 ---
-title: ASP.NET core'da ASP.NET machineKey değiştirin
+title: ASP.NET Core ASP.NET machineKey değiştirme
 author: rick-anderson
-description: Yeni ve daha güvenli veri koruma sisteminde kullanımına olanak tanımak için ASP.NET machineKey nasıl değiştirileceğini keşfedin.
+description: Yeni ve daha güvenli bir veri koruma sisteminin kullanımına izin vermek için ASP.NET içindeki machineKey nasıl değiştirileceğini öğrenin.
 ms.author: riande
 ms.date: 04/06/2019
 uid: security/data-protection/compatibility/replacing-machinekey
 ms.openlocfilehash: 2317cb50cfe63226baf336ebfc5d681d1cebe5c6
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64901955"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78667988"
 ---
-# <a name="replace-the-aspnet-machinekey-in-aspnet-core"></a>ASP.NET core'da ASP.NET machineKey değiştirin
+# <a name="replace-the-aspnet-machinekey-in-aspnet-core"></a>ASP.NET Core ASP.NET machineKey değiştirme
 
 <a name="compatibility-replacing-machinekey"></a>
 
-Uygulamasını `<machineKey>` ASP.NET öğesinde [değiştirilebilen](https://blogs.msdn.microsoft.com/webdev/2012/10/23/cryptographic-improvements-in-asp-net-4-5-pt-2/). Bu, ASP.NET şifreleme rutinleri için çoğu çağrıları yeni veri koruma sistemi dahil olmak üzere bir değiştirme veri koruma mekanizması yönlendirilmesini sağlar.
+ASP.NET içinde `<machineKey>` öğesinin uygulanması [değiştirilebilir](https://blogs.msdn.microsoft.com/webdev/2012/10/23/cryptographic-improvements-in-asp-net-4-5-pt-2/). Bu, ASP.NET şifreleme yordamlarına yapılan çağrıların, yeni veri koruma sistemi dahil olmak üzere bir değiştirme veri koruma mekanizması aracılığıyla yönlendirilmesini sağlar.
 
 ## <a name="package-installation"></a>Paket yüklemesi
 
 > [!NOTE]
-> Yeni veri koruma sisteminde yalnızca .NET 4.5.1 targeting mevcut bir ASP.NET uygulamasına veya üzeri yüklenebilir. Yükleme uygulaması, .NET 4.5 hedefliyse başarısız veya azaltın.
+> Yeni veri koruma sistemi yalnızca .NET 4.5.1 veya üstünü hedefleyen mevcut bir ASP.NET uygulamasına yüklenebilir. Uygulama .NET 4,5 veya daha düşük bir düzeye hedefliyorsa yükleme başarısız olur.
 
-Yeni veri koruma sisteminde mevcut bir ASP.NET 4.5.1+ projeye yüklemek için ' % s'paketi Microsoft.AspNetCore.DataProtection.SystemWeb yükleyin. Veri koruma sistemi kullanarak örneği oluşturulmaz [varsayılan yapılandırmayı](xref:security/data-protection/configuration/default-settings) ayarları.
+Yeni veri koruma sistemini mevcut bir ASP.NET 4.5.1 + projesine yüklemek için Microsoft. AspNetCore. DataProtection. SystemWeb paketini yüklemek için. Bu, [varsayılan yapılandırma](xref:security/data-protection/configuration/default-settings) ayarları kullanılarak veri koruma sisteminin örneğini oluşturur.
 
-Paket yükleme sırasında bir satıra ekler. *Web.config* ASP.NET için kullanılacağını söyler [en şifreleme işlemleri](https://blogs.msdn.microsoft.com/webdev/2012/10/23/cryptographic-improvements-in-asp-net-4-5-pt-2/)form kimlik doğrulaması, Görünüm durumu ve çağrılar dahil olmak üzere MachineKey.Protect. Eklenen satırın aşağıdaki gibidir.
+Paketi yüklediğinizde, ASP.NET. *config* dosyasına form kimlik doğrulaması, Görünüm durumu ve machineKey. Protect çağrıları gibi [birçok şifreleme işlemi](https://blogs.msdn.microsoft.com/webdev/2012/10/23/cryptographic-improvements-in-asp-net-4-5-pt-2/)için bunu kullanmasını söyleyen bir satır ekler. Eklenen satır aşağıdaki gibi okur.
 
 ```xml
 <machineKey compatibilityMode="Framework45" dataProtectorType="..." />
 ```
 
 >[!TIP]
-> Yeni veri koruma sisteminde gibi alanlarını inceleyerek etkin olup olmadığını söyleyebilir `__VIEWSTATE`, aşağıdaki örnekte olduğu gibi "CfDJ8" ile başlatılması. "CfDJ8" Sihirli "09 F0 C9 F0" üstbilgisinin veri koruma sistemi tarafından korunan bir yükü tanımlayan base64 gösterimidir.
+> Yeni veri koruma sisteminin, aşağıdaki örnekte olduğu gibi, "CfDJ8" ile başlaması gereken `__VIEWSTATE`gibi alanları inceleyerek etkin olup olmadığını söyleyebilirsiniz. "CfDJ8", veri koruma sistemi tarafından korunan bir yükü tanımlayan Magic "09 F0 C9 F0" üstbilgisinin Base64 gösterimidir.
 
 ```html
 <input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="CfDJ8AWPr2EQPTBGs3L2GCZOpk...">
 ```
 
-## <a name="package-configuration"></a>Paketi yapılandırması
+## <a name="package-configuration"></a>Paket yapılandırması
 
-Veri koruma sisteminde varsayılan sıfır kurulum yapılandırma ile oluşturulur. Varsayılan olarak yerel dosya sistemine anahtarları kalıcı olduğundan, ancak bu bir sunucu grubunda dağıtılan uygulamalar için çalışmaz. Bu sorunu çözmek için alt DataProtectionStartup bir tür oluşturarak yapılandırması sağlayabilir ve onun Createservicereplicalisteners() yöntemini geçersiz kılar.
+Veri koruma sistemi, varsayılan sıfır kurulum yapılandırmasıyla birlikte oluşturulur. Ancak, varsayılan anahtarlar yerel dosya sistemine kalıcı olduğundan, bu, bir gruba dağıtılan uygulamalar için çalışmaz. Bu sorunu çözmek için, alt sınıfları DataProtectionStartup ve ConfigureServices metodunu geçersiz kılan bir tür oluşturarak yapılandırmayı sağlayabilirsiniz.
 
-Burada anahtarları kalıcı hem de bekleme sırasında nasıl şifrelenmeden yapılandırılan özel veri koruma başlangıç türü örneği aşağıda verilmiştir. Ayrıca varsayılan uygulama yalıtımı İlkesi, kendi uygulama adı sağlayarak geçersiz kılar.
+Aşağıda, her ikisi de anahtarların kalıcı olduğu ve REST 'de nasıl şifrelendikleri üzerinde yapılandırılmış bir özel veri koruma başlangıç türü örneği verilmiştir. Ayrıca, kendi uygulama adını sağlayarak varsayılan uygulama yalıtımı ilkesini geçersiz kılar.
 
 ```csharp
 using System;
@@ -67,9 +67,9 @@ namespace DataProtectionDemo
 ```
 
 >[!TIP]
-> Ayrıca `<machineKey applicationName="my-app" ... />` SetApplicationName açık çağrı yerine. Tüm yapılandırma istedikleri ayarlanması, uygulama adı DataProtectionStartup türetilmiş bir tür oluşturmak için geliştirici zorlama önlemek için bir kolaylık mekanizması budur.
+> Ayrıca, SetApplicationName 'e açık bir çağrı yerine `<machineKey applicationName="my-app" ... />` de kullanabilirsiniz. Bu, geliştiricilerin yapılandırmak istiyorlarsa, uygulama adı ayarlarsa, geliştiricinin bir DataProtectionStartup ile türetilmiş tür oluşturmasını zormaktan kaçınmak için kullanışlı bir mekanizmadır.
 
-Bu özel yapılandırmasını etkinleştirmek için Web.config dosyasına geri dönün ve Ara `<appSettings>` paket yükleme yapılandırma dosyasına eklenen öğe. Bunu, aşağıdaki biçimlendirme gibi görünür:
+Bu özel yapılandırmayı etkinleştirmek için, Web. config dosyasına dönün ve paket yüklemesinin yapılandırma dosyasına eklendiği `<appSettings>` öğesini arayın. Aşağıdaki biçimlendirme gibi görünür:
 
 ```xml
 <appSettings>
@@ -82,11 +82,11 @@ Bu özel yapılandırmasını etkinleştirmek için Web.config dosyasına geri d
 </appSettings>
 ```
 
-Yeni oluşturduğunuz DataProtectionStartup türetilen tür bütünleştirilmiş kodla nitelenen adı boş değeriyle doldurun. Uygulamanın adını DataProtectionDemo ise, bu gibi görünür aşağıda.
+Yeni oluşturduğunuz DataProtectionStartup türetilmiş türünün derleme nitelikli adı ile boş değeri girin. Uygulamanın adı DataProtectionDemo ise, bu, aşağıdaki gibi görünür.
 
 ```xml
 <add key="aspnet:dataProtectionStartupType"
      value="DataProtectionDemo.MyDataProtectionStartup, DataProtectionDemo" />
 ```
 
-Yeni yapılandırılmış veri koruma sisteminde artık uygulama içinde kullanılmaya hazırdır.
+Yeni yapılandırılan veri koruma sistemi artık uygulamanın içinde kullanıma hazırdır.

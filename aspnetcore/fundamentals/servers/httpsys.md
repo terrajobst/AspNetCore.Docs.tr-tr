@@ -1,22 +1,22 @@
 ---
 title: ASP.NET Core 'de HTTP. sys Web sunucusu uygulama
-author: guardrex
+author: rick-anderson
 description: Windows üzerinde ASP.NET Core için bir Web sunucusu olan HTTP. sys hakkında bilgi edinin. HTTP. sys çekirdek modu sürücüsü üzerine inşa edilen HTTP. sys, Kestrel için IIS olmadan doğrudan Internet bağlantısı için kullanılabilen bir alternatiftir.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
 ms.date: 02/07/2020
 uid: fundamentals/servers/httpsys
-ms.openlocfilehash: 8a315d859fa70d97501156ff3cf97d4c3a5c5bd4
-ms.sourcegitcommit: 85564ee396c74c7651ac47dd45082f3f1803f7a2
+ms.openlocfilehash: 3e858a974d6a5c008969c3c51a507880cc25a7ff
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77171762"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78666924"
 ---
 # <a name="httpsys-web-server-implementation-in-aspnet-core"></a>ASP.NET Core 'de HTTP. sys Web sunucusu uygulama
 
-[Tom Dykstra](https://github.com/tdykstra), [Chris](https://github.com/Tratcher), ve [Luke Latham](https://github.com/guardrex) tarafından
+[Tom Dykstra](https://github.com/tdykstra) ve [Chris](https://github.com/Tratcher) 'e göre
 
 ::: moniker range=">= aspnetcore-3.1"
 
@@ -40,7 +40,7 @@ Desteklenen Windows sürümleri:
 * Windows 7 veya üzeri
 * Windows Server 2008 R2 veya üzeri
 
-[Örnek kodu görüntüleme veya indirme](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/servers/httpsys/samples) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
+[Örnek kodu görüntüleme veya indirme](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/servers/httpsys/samples) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
 
 ## <a name="when-to-use-httpsys"></a>HTTP. sys ne zaman kullanılır
 
@@ -133,7 +133,7 @@ Visual Studio 'da varsayılan başlatma profili IIS Express içindir. Projeyi ko
 
 1. Gerekirse, X. 509.440 sertifikalarını edinin ve yükler.
 
-   Windows 'da, [New-SelfSignedCertificate PowerShell cmdlet 'ini](/powershell/module/pkiclient/new-selfsignedcertificate)kullanarak otomatik olarak imzalanan sertifikalar oluşturun. Desteklenmeyen bir örnek için bkz [. UpdateIISExpressSSLForChrome. ps1](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/includes/make-x509-cert/UpdateIISExpressSSLForChrome.ps1).
+   Windows 'da, [New-SelfSignedCertificate PowerShell cmdlet 'ini](/powershell/module/pkiclient/new-selfsignedcertificate)kullanarak otomatik olarak imzalanan sertifikalar oluşturun. Desteklenmeyen bir örnek için bkz [. UpdateIISExpressSSLForChrome. ps1](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/includes/make-x509-cert/UpdateIISExpressSSLForChrome.ps1).
 
    **Kişisel** mağaza > sunucunun **Yerel makinesine** OTOMATIK olarak imzalanan veya CA imzalı sertifikalar yükler.
 
@@ -293,7 +293,7 @@ Desteklenen Windows sürümleri:
 * Windows 7 veya üzeri
 * Windows Server 2008 R2 veya üzeri
 
-[Örnek kodu görüntüleme veya indirme](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/servers/httpsys/samples) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
+[Örnek kodu görüntüleme veya indirme](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/servers/httpsys/samples) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
 
 ## <a name="when-to-use-httpsys"></a>HTTP. sys ne zaman kullanılır
 
@@ -384,7 +384,7 @@ Visual Studio 'da varsayılan başlatma profili IIS Express içindir. Projeyi ko
 
 1. Gerekirse, X. 509.440 sertifikalarını edinin ve yükler.
 
-   Windows 'da, [New-SelfSignedCertificate PowerShell cmdlet 'ini](/powershell/module/pkiclient/new-selfsignedcertificate)kullanarak otomatik olarak imzalanan sertifikalar oluşturun. Desteklenmeyen bir örnek için bkz [. UpdateIISExpressSSLForChrome. ps1](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/includes/make-x509-cert/UpdateIISExpressSSLForChrome.ps1).
+   Windows 'da, [New-SelfSignedCertificate PowerShell cmdlet 'ini](/powershell/module/pkiclient/new-selfsignedcertificate)kullanarak otomatik olarak imzalanan sertifikalar oluşturun. Desteklenmeyen bir örnek için bkz [. UpdateIISExpressSSLForChrome. ps1](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/includes/make-x509-cert/UpdateIISExpressSSLForChrome.ps1).
 
    **Kişisel** mağaza > sunucunun **Yerel makinesine** OTOMATIK olarak imzalanan veya CA imzalı sertifikalar yükler.
 
@@ -544,7 +544,7 @@ Desteklenen Windows sürümleri:
 * Windows 7 veya üzeri
 * Windows Server 2008 R2 veya üzeri
 
-[Örnek kodu görüntüleme veya indirme](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/servers/httpsys/samples) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
+[Örnek kodu görüntüleme veya indirme](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/servers/httpsys/samples) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
 
 ## <a name="when-to-use-httpsys"></a>HTTP. sys ne zaman kullanılır
 
@@ -637,7 +637,7 @@ Visual Studio 'da varsayılan başlatma profili IIS Express içindir. Projeyi ko
 
 1. Gerekirse, X. 509.440 sertifikalarını edinin ve yükler.
 
-   Windows 'da, [New-SelfSignedCertificate PowerShell cmdlet 'ini](/powershell/module/pkiclient/new-selfsignedcertificate)kullanarak otomatik olarak imzalanan sertifikalar oluşturun. Desteklenmeyen bir örnek için bkz [. UpdateIISExpressSSLForChrome. ps1](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/includes/make-x509-cert/UpdateIISExpressSSLForChrome.ps1).
+   Windows 'da, [New-SelfSignedCertificate PowerShell cmdlet 'ini](/powershell/module/pkiclient/new-selfsignedcertificate)kullanarak otomatik olarak imzalanan sertifikalar oluşturun. Desteklenmeyen bir örnek için bkz [. UpdateIISExpressSSLForChrome. ps1](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/includes/make-x509-cert/UpdateIISExpressSSLForChrome.ps1).
 
    **Kişisel** mağaza > sunucunun **Yerel makinesine** OTOMATIK olarak imzalanan veya CA imzalı sertifikalar yükler.
 
@@ -797,7 +797,7 @@ Desteklenen Windows sürümleri:
 * Windows 7 veya üzeri
 * Windows Server 2008 R2 veya üzeri
 
-[Örnek kodu görüntüleme veya indirme](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/servers/httpsys/samples) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
+[Örnek kodu görüntüleme veya indirme](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/servers/httpsys/samples) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
 
 ## <a name="when-to-use-httpsys"></a>HTTP. sys ne zaman kullanılır
 
@@ -890,7 +890,7 @@ Visual Studio 'da varsayılan başlatma profili IIS Express içindir. Projeyi ko
 
 1. Gerekirse, X. 509.440 sertifikalarını edinin ve yükler.
 
-   Windows 'da, [New-SelfSignedCertificate PowerShell cmdlet 'ini](/powershell/module/pkiclient/new-selfsignedcertificate)kullanarak otomatik olarak imzalanan sertifikalar oluşturun. Desteklenmeyen bir örnek için bkz [. UpdateIISExpressSSLForChrome. ps1](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/includes/make-x509-cert/UpdateIISExpressSSLForChrome.ps1).
+   Windows 'da, [New-SelfSignedCertificate PowerShell cmdlet 'ini](/powershell/module/pkiclient/new-selfsignedcertificate)kullanarak otomatik olarak imzalanan sertifikalar oluşturun. Desteklenmeyen bir örnek için bkz [. UpdateIISExpressSSLForChrome. ps1](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/includes/make-x509-cert/UpdateIISExpressSSLForChrome.ps1).
 
    **Kişisel** mağaza > sunucunun **Yerel makinesine** OTOMATIK olarak imzalanan veya CA imzalı sertifikalar yükler.
 

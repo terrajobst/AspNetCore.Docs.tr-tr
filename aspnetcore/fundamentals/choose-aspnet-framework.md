@@ -9,17 +9,17 @@ no-loc:
 - SignalR
 uid: fundamentals/choose-between-aspnet-and-aspnetcore
 ms.openlocfilehash: a7280b59578ee1d96edeeccf9c9df0b0e4eb4eb8
-ms.sourcegitcommit: 6645435fc8f5092fc7e923742e85592b56e37ada
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77447301"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78665244"
 ---
 # <a name="choose-between-aspnet-4x-and-aspnet-core"></a>Seçin arasında ASP.NET 4.x ve ASP.NET Core
 
 ASP.NET Core, ASP.NET'in yeniden 4.x. Bu makalede, aralarındaki farklılıklar listelenmektedir.
 
-## <a name="aspnet-core"></a>ASP.NET Core
+## <a name="aspnet-core"></a>ASP.NET Çekirdeği
 
 ASP.NET Core Windows, macOS veya Linux'ta modern, bulut tabanlı web uygulamaları oluşturmaya yönelik açık kaynaklı, platformlar arası bir çerçevedir.
 
@@ -33,7 +33,7 @@ ASP.NET 4.x, kurumsal sınıf, oluşturmak için gereken hizmetleri Windows serv
 
 Aşağıdaki tabloda karşılaştırılmıştır ASP.NET Core, ASP.NET 4.x.
 
-| ASP.NET Core | ASP.NET 4.x |
+| ASP.NET Çekirdeği | ASP.NET 4.x |
 |---|---|
 |Windows, macOS veya Linux için derleme|Windows için derleme|
 |[Razor Pages](xref:razor-pages/index) , bir Web kullanıcı arabirimini ASP.NET Core 2. x olarak oluşturmak için önerilen yaklaşımdır. Ayrıca bkz. [MVC](xref:mvc/overview), [Web API](xref:tutorials/first-web-api)ve [SignalR](xref:signalr/introduction).|[Web Forms](/aspnet/web-forms), [SignalR](/aspnet/signalr), [MVC](/aspnet/mvc), [Web API](/aspnet/web-api/), Web [kancaları](/aspnet/webhooks/)veya [Web sayfaları](/aspnet/web-pages) kullanın|

@@ -1,16 +1,16 @@
 ---
 title: ASP.NET Core ile EF Core Razor Pages-Ilgili verileri güncelleştirme-7/8
-author: tdykstra
+author: rick-anderson
 description: Bu öğreticide, yabancı anahtar alanlarını ve gezinti özelliklerini güncelleştirerek ilgili verileri güncelleyerek.
 ms.author: riande
 ms.date: 07/22/2019
 uid: data/ef-rp/update-related-data
-ms.openlocfilehash: bc237cf928d852b92c5c1984527129404f88018d
-ms.sourcegitcommit: 257cc3fe8c1d61341aa3b07e5bc0fa3d1c1c1d1c
+ms.openlocfilehash: fdfdb14ff8414b8bf30f9b95be7ba0a6bcbd2995
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69583501"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78656424"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---update-related-data---7-of-8"></a>ASP.NET Core ile EF Core Razor Pages-Ilgili verileri güncelleştirme-7/8
 
@@ -22,8 +22,8 @@ ms.locfileid: "69583501"
 
 Bu öğreticide ilgili verileri güncelleştirme gösterilmektedir. Aşağıdaki çizimler tamamlanan sayfalardan bazılarını göstermektedir.
 
-![Kurs düzenleme sayfası](update-related-data/_static/course-edit30.png)
-![eğitmeni düzenleme sayfası](update-related-data/_static/instructor-edit-courses30.png)
+![kurs düzenleme sayfası](update-related-data/_static/course-edit30.png)
+![eğitmen düzenleme sayfası](update-related-data/_static/instructor-edit-courses30.png)
 
 ## <a name="update-the-course-create-and-edit-pages"></a>Kurs oluşturma ve düzenleme sayfalarını güncelleştirme
 
@@ -35,13 +35,13 @@ Aşağıdaki kodla bir *Pages/kurslar/DepartmentNamePageModel. cs* dosyası olu�
 
 [!code-csharp[](intro/samples/cu30/Pages/Courses/DepartmentNamePageModel.cs)]
 
-Yukarıdaki kod, bölüm adlarının listesini içeren bir [SelectList](/dotnet/api/microsoft.aspnetcore.mvc.rendering.selectlist?view=aspnetcore-2.0) oluşturur. Belirtilmişse, bu departman `SelectList`öğesinde seçilir. `selectedDepartment`
+Yukarıdaki kod, bölüm adlarının listesini içeren bir [SelectList](/dotnet/api/microsoft.aspnetcore.mvc.rendering.selectlist?view=aspnetcore-2.0) oluşturur. `selectedDepartment` belirtilmişse, bu departman `SelectList`seçilir.
 
-Oluşturma ve düzenleme sayfa modeli sınıfları öğesinden `DepartmentNamePageModel`türetilir.
+Oluşturma ve düzenleme sayfa modeli sınıfları `DepartmentNamePageModel`türetilir.
 
 ### <a name="update-the-course-create-page-model"></a>Kursu güncelleştirme sayfa modeli oluşturma
 
-Bir kurs bir departmana atanır. Oluşturma ve düzenleme sayfaları için temel sınıf, departmanı seçmek için `SelectList` bir sağlar. Yabancı anahtar (FK) özelliğini kullanan `SelectList` açılan liste. `Course.DepartmentID` EF Core, `Course.DepartmentID` `Department` gezinti özelliğini yüklemek için FK kullanır.
+Bir kurs bir departmana atanır. Oluşturma ve düzenleme sayfaları için temel sınıf, departmanı seçmek için bir `SelectList` sağlar. `SelectList` kullanan aşağı açılan liste, `Course.DepartmentID` yabancı anahtar (FK) özelliğini ayarlar. EF Core, `Department` gezinti özelliğini yüklemek için `Course.DepartmentID` FK kullanır.
 
 ![Kurs oluştur](update-related-data/_static/ddl30.png)
 
@@ -49,11 +49,13 @@ Bir kurs bir departmana atanır. Oluşturma ve düzenleme sayfaları için temel
 
 [!code-csharp[](intro/samples/cu30/Pages/Courses/Create.cshtml.cs?highlight=7,18,27-41)]
 
+[!INCLUDE[about the series](~/includes/code-comments-loc.md)]
+
 Yukarıdaki kod:
 
-* Türetiliyor `DepartmentNamePageModel`.
-* `TryUpdateModelAsync` [Aşırı nakletmeyi](xref:data/ef-rp/crud#overposting)engellemek için kullanır.
-* Kaldırır `ViewData["DepartmentID"]`. `DepartmentNameSL`temel sınıftan türü kesin belirlenmiş bir modeldir ve Razor sayfası tarafından kullanılır. Kesin olarak belirlenmiş modeller, kesin olarak yazılan zayıf bir şekilde tercih edilir. Daha fazla bilgi için bkz. [zayıf yazılmış veriler (ViewData ve ViewBag)](xref:mvc/views/overview#VD_VB).
+* `DepartmentNamePageModel`türetilir.
+* [Fazla nakletmeyi](xref:data/ef-rp/crud#overposting)engellemek için `TryUpdateModelAsync` kullanır.
+* `ViewData["DepartmentID"]`kaldırır. temel sınıftan `DepartmentNameSL`, türü kesin belirlenmiş bir modeldir ve Razor sayfası tarafından kullanılır. Kesin olarak belirlenmiş modeller, kesin olarak yazılan zayıf bir şekilde tercih edilir. Daha fazla bilgi için bkz. [zayıf yazılmış veriler (ViewData ve ViewBag)](xref:mvc/views/overview#VD_VB).
 
 ### <a name="update-the-course-create-razor-page"></a>Kursu güncelleştirme Razor oluşturma sayfası
 
@@ -64,7 +66,7 @@ Yukarıdaki kod:
 Yukarıdaki kod aşağıdaki değişiklikleri yapar:
 
 * **DepartmentID** etiketini **departmana**dönüştürür.
-* `"ViewBag.DepartmentID"` İle`DepartmentNameSL` değiştirir (taban sınıfından).
+* `"ViewBag.DepartmentID"`, `DepartmentNameSL` (taban sınıftan) ile değiştirir.
 * "Departmanı Seç" seçeneğini ekler. Bu değişiklik, ilk departman yerine henüz bir departman seçilmedikçe açılan kutuda "departmanı Seç" i işler.
 * Departman seçili olmadığında bir doğrulama iletisi ekler.
 
@@ -80,7 +82,7 @@ Oluştur sayfasını test edin. Oluştur sayfası departman KIMLIĞI yerine depa
 
 [!code-csharp[](intro/samples/cu30/Pages/Courses/Edit.cshtml.cs?highlight=8,28,35,36,40-66)]
 
-Değişiklikler, oluşturma sayfası modelinde yapılanlarla benzerdir. Yukarıdaki kodda, `PopulateDepartmentsDropDownList` bu departmanı açılan listede seçen departman kimliği ' nde geçirilir.
+Değişiklikler, oluşturma sayfası modelinde yapılanlarla benzerdir. Yukarıdaki kodda `PopulateDepartmentsDropDownList`, bu departmanı açılan listeden seçen departman KIMLIĞINDE geçirilir.
 
 ### <a name="update-the-course-edit-razor-page"></a>Kurs düzenleme Razor sayfasını güncelleştirme
 
@@ -92,9 +94,9 @@ Yukarıdaki kod aşağıdaki değişiklikleri yapar:
 
 * Kurs KIMLIĞINI görüntüler. Genellikle bir varlığın birincil anahtarı (PK) gösterilmez. PKs 'ler genellikle kullanıcılara daha az anlamlı olur. Bu durumda, PK kurs numarasıdır.
 * Bölüm açılan başlığını **DepartmentID** ' dan **departmana**dönüştürür.
-* `"ViewBag.DepartmentID"` İle`DepartmentNameSL` değiştirir (taban sınıfından).
+* `"ViewBag.DepartmentID"`, `DepartmentNameSL` (taban sınıftan) ile değiştirir.
 
-Sayfa, kurs numarası için gizli bir`<input type="hidden">`alan () içerir. `<label>` Etiket`asp-for="Course.CourseID"` Yardımcısı ekleme, gizli alan gereksinimini ortadan kaldırmaz. `<input type="hidden">`Kullanıcı **Kaydet**' e tıkladığında, gönderilen veriler için kurs numarasının dahil olması gerekir.
+Sayfa, kurs numarası için bir gizli alan (`<input type="hidden">`) içerir. `asp-for="Course.CourseID"` bir `<label>` etiketi Yardımcısı eklemek, gizli alan gereksinimini ortadan kaldırmaz. `<input type="hidden">`, Kullanıcı **Kaydet**' i tıklattığında, gönderilen verilere dahil edilecek kurs numarası için gereklidir.
 
 ## <a name="update-the-course-details-and-delete-pages"></a>Kurs ayrıntılarını güncelleştirme ve sayfaları silme
 
@@ -102,7 +104,7 @@ Sayfa, kurs numarası için gizli bir`<input type="hidden">`alan () içerir. `<l
 
 ### <a name="update-the-course-page-models"></a>Kurs sayfası modellerini güncelleştirme
 
-*Sayfa/kurslar/delete. cshtml. cs* öğesini aşağıdaki kodla `AsNoTracking`güncelleştirin:
+`AsNoTracking`eklemek için *sayfaları/kursu/delete. cshtml. cs* dosyasını aşağıdaki kodla güncelleştirin:
 
 [!code-csharp[](intro/samples/cu30/Pages/Courses/Delete.cshtml.cs?highlight=29)]
 
@@ -138,7 +140,7 @@ Aşağıdaki kodla *SchoolViewModels/AssignedCourseData. cs* oluşturun:
 
 [!code-csharp[](intro/samples/cu30/Models/SchoolViewModels/AssignedCourseData.cs)]
 
-Sınıfı `AssignedCourseData` , bir eğitmene atanan kurslar için onay kutularını oluşturmak üzere verileri içerir.
+`AssignedCourseData` sınıfı, bir eğitmene atanan kurslar için onay kutularını oluşturmak üzere verileri içerir.
 
 ### <a name="create-an-instructor-page-model-base-class"></a>Bir eğitmen sayfa modeli temel sınıfı oluşturma
 
@@ -146,31 +148,31 @@ Sınıfı `AssignedCourseData` , bir eğitmene atanan kurslar için onay kutular
 
 [!code-csharp[](intro/samples/cu30/Pages/Instructors/InstructorCoursesPageModel.cs?name=snippet_All)]
 
-, `InstructorCoursesPageModel` Düzenleme ve oluşturma sayfa modelleri için kullanacağınız temel sınıftır. `PopulateAssignedCourseData``Course` doldurmak`AssignedCourseDataList`için tüm varlıkları okur. Her kurs için kod, başlığı ve eğitmenin `CourseID`kursa atanıp atanmadığını belirler. Bir [diyez kümesi](/dotnet/api/system.collections.generic.hashset-1) etkili aramalar için kullanılır.
+`InstructorCoursesPageModel`, düzenleme ve oluşturma sayfa modelleri için kullanacağınız temel sınıftır. `PopulateAssignedCourseData`, `AssignedCourseDataList`doldurmak için tüm `Course` varlıklarını okur. Her kurs için, kod `CourseID`, başlığı ve eğitmenin kursa atanıp atanmadığını belirler. Bir [diyez kümesi](/dotnet/api/system.collections.generic.hashset-1) etkili aramalar için kullanılır.
 
-Razor sayfasında bir kurs varlıkları koleksiyonu olmadığından, model Bağlayıcısı `CourseAssignments` gezinti özelliğini otomatik olarak güncelleştiremez. `CourseAssignments` Gezinti özelliğini güncelleştirmek için model cildi kullanmak yerine, bunu yeni `UpdateInstructorCourses` yöntemde yapmanız gerekir. Bu nedenle, `CourseAssignments` özelliği model bağlamadan hariç bırakmanız gerekir. Bu, beyaz liste aşırı yüklemesini kullandığınız ve `TryUpdateModel` `CourseAssignments` içerme listesinde olmadığı için çağıran kodda herhangi bir değişiklik yapılmasını gerektirmez.
+Razor sayfası bir kurs varlıkları koleksiyonuna sahip olmadığından, model Bağlayıcısı `CourseAssignments` gezinti özelliğini otomatik olarak güncelleştiremez. `CourseAssignments` gezinti özelliğini güncelleştirmek için model cildi kullanmak yerine, bunu yeni `UpdateInstructorCourses` yönteminde yapmanız gerekir. Bu nedenle `CourseAssignments` özelliğini model bağlamadan çıkarmanız gerekir. Bu, `TryUpdateModel` çağıran kodda herhangi bir değişiklik yapılmasını gerektirmez, çünkü beyaz liste aşırı yüklemesini kullanıyorsunuz ve `CourseAssignments` dahil etme listesinde yok.
 
-Hiçbir onay kutusu seçili değilse, içindeki `UpdateInstructorCourses` kod `CourseAssignments` gezinti özelliğini boş bir koleksiyonla başlatır ve döndürür:
+Hiçbir onay kutusu seçilmediyse `UpdateInstructorCourses` kod, `CourseAssignments` gezinti özelliğini boş bir koleksiyonla başlatır ve döndürür:
 
 [!code-csharp[](intro/samples/cu30/Pages/Instructors/InstructorCoursesPageModel.cs?name=snippet_IfNull)]
 
-Kod daha sonra, veritabanındaki tüm kurslardan geçer ve bu her kursu, sayfada seçili olanlar ile ilgili olarak, eğitmene atanmış olanlara karşı denetler. Etkili aramaları kolaylaştırmak için, ikinci iki koleksiyon `HashSet` nesnelerde depolanır.
+Kod daha sonra, veritabanındaki tüm kurslardan geçer ve bu her kursu, sayfada seçili olanlar ile ilgili olarak, eğitmene atanmış olanlara karşı denetler. Etkili aramaları kolaylaştırmak için, ikinci iki koleksiyon `HashSet` nesnelerinde depolanır.
 
-Kurs onay kutusu seçilmişse ancak kurs, `Instructor.CourseAssignments` gezinti özelliğinde değilse kurs, Gezinti özelliğindeki koleksiyona eklenir.
+Kurs onay kutusu seçilmişse ancak kurs `Instructor.CourseAssignments` gezinti özelliğinde değilse, kurs, Gezinti özelliğindeki koleksiyona eklenir.
 
 [!code-csharp[](intro/samples/cu30/Pages/Instructors/InstructorCoursesPageModel.cs?name=snippet_UpdateCourses)]
 
-Kurs onay kutusu seçili değilse, ancak kurs `Instructor.CourseAssignments` gezinti özelliği ise, kurs, gezinti özelliğinden kaldırılır.
+Kurs onay kutusu seçilmemişse, ancak kurs `Instructor.CourseAssignments` gezinti özelliği ise, kurs, gezinti özelliğinden kaldırılır.
 
 [!code-csharp[](intro/samples/cu30/Pages/Instructors/InstructorCoursesPageModel.cs?name=snippet_UpdateCoursesElse)]
 
 ### <a name="handle-office-location"></a>Office konumunu işle
 
-Düzenleme sayfasının işlemesi gereken başka bir ilişki ise, eğitmen varlığının `OfficeAssignment` varlığa sahip olduğu bire sıfır veya-bir ilişkidir. Eğitmen düzenleme kodu aşağıdaki senaryoları işlemelidir: 
+Düzenleme sayfasının işlemesi gereken başka bir ilişki ise, eğitmen varlığının `OfficeAssignment` varlığı ile sahip olduğu bire sıfır veya-bir ilişkidir. Eğitmen düzenleme kodu aşağıdaki senaryoları işlemelidir: 
 
-* Kullanıcı Office atamasını temizlediğinde `OfficeAssignment` varlığı silin.
-* Kullanıcı bir Office ataması girerse ve boşsa, yeni `OfficeAssignment` bir varlık oluşturun.
-* Kullanıcı Office atamasını değiştirirse `OfficeAssignment` varlığı güncelleştirin.
+* Kullanıcı Office atamasını temizlediğinde `OfficeAssignment` varlığını silin.
+* Kullanıcı bir Office ataması girerse ve boşsa, yeni bir `OfficeAssignment` varlık oluşturun.
+* Kullanıcı Office atamasını değiştirirse `OfficeAssignment` varlığını güncelleştirin.
 
 ### <a name="update-the-instructor-edit-page-model"></a>Eğitmen düzenleme sayfası modelini güncelleştirme
 
@@ -180,12 +182,12 @@ Düzenleme sayfasının işlemesi gereken başka bir ilişki ise, eğitmen varl�
 
 Yukarıdaki kod:
 
-* `OfficeAssignment`, `Instructor` ,Ve`CourseAssignment.Course` gezinme özellikleri için Eager yükleme kullanarak geçerli varlığı veritabanından alır. `CourseAssignment`
-* Alınan `Instructor` varlığı model Ciltçideki değerlerle güncelleştirir. `TryUpdateModel`[fazla nakletmeyi](xref:data/ef-rp/crud#overposting)önler.
-* Office konumu boşsa, null olarak ayarlar `Instructor.OfficeAssignment` . Null `Instructor.OfficeAssignment` olduğunda, `OfficeAssignment` tablodaki ilgili satır silinir.
-* Görüntüleme modeli `OnGetAsync` sınıfını kullanarak onay kutuları `PopulateAssignedCourseData` için bilgi sağlamak üzere ' de çağırır. `AssignedCourseData`
-* Onay `UpdateInstructorCourses` kutularından `OnPostAsync` düzenlenmekte olan eğitmen varlığına bilgi uygulamak için ' de çağırır.
-* Başarısız olursa `UpdateInstructorCourses` , `OnPostAsync` ve ' de `PopulateAssignedCourseData` çağırır. `TryUpdateModel` Bu yöntem çağrıları, bir hata iletisiyle yeniden görüntülendiğinde sayfaya girilen atanan kurs verilerini geri yükler.
+* `OfficeAssignment`, `CourseAssignment`ve `CourseAssignment.Course` gezinti özellikleri için Eager yükleme kullanarak geçerli `Instructor` varlığını veritabanından alır.
+* Alınan `Instructor` varlığını model Ciltçideki değerlerle güncelleştirir. `TryUpdateModel` [fazla nakletmeyi](xref:data/ef-rp/crud#overposting)önler.
+* Office konumu boşsa, `Instructor.OfficeAssignment` null olarak ayarlar. `Instructor.OfficeAssignment` null olduğunda, `OfficeAssignment` tablosundaki ilgili satır silinir.
+* `AssignedCourseData` View model sınıfını kullanarak onay kutuları için bilgi sağlamak üzere `OnGetAsync` `PopulateAssignedCourseData` çağırır.
+* , Onay kutularından düzenlenmekte olan eğitmen varlığına bilgi uygulamak için `OnPostAsync` `UpdateInstructorCourses` çağırır.
+* `TryUpdateModel` başarısız olursa `OnPostAsync` `PopulateAssignedCourseData` ve `UpdateInstructorCourses` çağırır. Bu yöntem çağrıları, bir hata iletisiyle yeniden görüntülendiğinde sayfaya girilen atanan kurs verilerini geri yükler.
 
 ### <a name="update-the-instructor-edit-razor-page"></a>Eğitmen düzenleme Razor sayfasını güncelleştirme
 
@@ -193,11 +195,11 @@ Yukarıdaki kod:
 
 [!code-cshtml[](intro/samples/cu30/Pages/Instructors/Edit.cshtml?highlight=29-59)]
 
-Yukarıdaki kod, üç sütun içeren bir HTML tablosu oluşturur. Her sütunda, kurs numarasını ve başlığını içeren bir CheckBox ve bir açıklamalı alt yazı vardır. Onay kutularının hepsi aynı ada ("Selectedkurslar") sahiptir. Aynı adı kullanmak model cildi bir grup olarak kabul etmek üzere bilgilendirir. Her onay kutusunun değer özniteliği olarak `CourseID`ayarlanır. Sayfa gönderildiğinde, model Ciltçi yalnızca seçili onay kutularının `CourseID` değerlerinden oluşan bir dizi geçirir.
+Yukarıdaki kod, üç sütun içeren bir HTML tablosu oluşturur. Her sütunda, kurs numarasını ve başlığını içeren bir CheckBox ve bir açıklamalı alt yazı vardır. Onay kutularının hepsi aynı ada ("Selectedkurslar") sahiptir. Aynı adı kullanmak model cildi bir grup olarak kabul etmek üzere bilgilendirir. Her onay kutusunun değer özniteliği `CourseID`olarak ayarlanır. Sayfa gönderildiğinde, model Ciltçi yalnızca seçili onay kutuları için `CourseID` değerlerinden oluşan bir dizi geçirir.
 
 Onay kutuları başlangıçta işlendiğinde, eğitmen 'e atanan kurslar seçilir.
 
-Not: Eğitim kursu verilerini düzenlemek için buradaki yaklaşım, sınırlı sayıda kurs olduğunda iyi bir şekilde gerçekleştirilir. Çok daha büyük olan koleksiyonlar için, farklı bir kullanıcı arabirimi ve farklı bir güncelleştirme yöntemi daha erişilebilir ve verimli olacaktır.
+Note: Eğitmen Kursu verilerini düzenlemek için buradaki yaklaşım, sınırlı sayıda kurs olduğunda iyi bir şekilde gerçekleştirilir. Çok daha büyük olan koleksiyonlar için, farklı bir kullanıcı arabirimi ve farklı bir güncelleştirme yöntemi daha erişilebilir ve verimli olacaktır.
 
 Uygulamayı çalıştırın ve güncelleştirilmiş eğitmenler düzenleme sayfasını test edin. Bazı kurs atamalarını değiştirin. Değişiklikler Dizin sayfasında yansıtılır.
 
@@ -219,7 +221,7 @@ Eğitmen oluşturma sayfasını test edin.
 
 Yukarıdaki kod aşağıdaki değişiklikleri yapar:
 
-* `CourseAssignments` Gezinti özelliği için Eager yüklemesi kullanır. `CourseAssignments`eğitmen silindiğinde, dahil edilmiş veya silinmemelidir. Bunları okumaktan kaçınmak için, veritabanında basamaklı silme 'yı yapılandırın.
+* `CourseAssignments` gezinti özelliği için Eager yüklemesi kullanır. `CourseAssignments`, eğitmen silindiğinde silinmemiş veya silinmemelidir. Bunları okumaktan kaçınmak için, veritabanında basamaklı silme 'yı yapılandırın.
 
 * Silinecek eğitmen herhangi bir departmanların Yöneticisi olarak atanırsa, bu departmanlardan eğitmen atamasını kaldırır.
 
@@ -235,12 +237,12 @@ Uygulamayı çalıştırın ve silme sayfasını test edin.
 
 ::: moniker range="< aspnetcore-3.0"
 
-Bu öğreticide ilgili verilerin güncelleştirilmesi gösterilmektedir. Olamaz çözmenize, sorunlarla karşılaşırsanız, [indirin veya tamamlanmış uygulamayı görüntüleyin.](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-rp/intro/samples) [Yükleme yönergeleri](xref:index#how-to-download-a-sample).
+Bu öğreticide ilgili verilerin güncelleştirilmesi gösterilmektedir. Sorun yaşıyorsanız, bu [uygulamayı indiremez veya görüntüleyemezsiniz.](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-rp/intro/samples) [Yönergeleri indirin](xref:index#how-to-download-a-sample).
 
 Aşağıdaki çizimler tamamlanan sayfalardan bazılarını göstermektedir.
 
-![Kurs düzenleme sayfası](update-related-data/_static/course-edit.png)
-![eğitmeni düzenleme sayfası](update-related-data/_static/instructor-edit-courses.png)
+![kurs düzenleme sayfası](update-related-data/_static/course-edit.png)
+![eğitmen düzenleme sayfası](update-related-data/_static/instructor-edit-courses.png)
 
 Kurs oluşturma ve düzenleme sayfalarını inceleyin ve test edin. Yeni bir kurs oluşturun. Departman, adı değil, birincil anahtarı (bir tamsayı) tarafından seçilir. Yeni kursu düzenleyin. Sınamayı bitirdiğinizde yeni kursu silin.
 
@@ -250,13 +252,13 @@ Kurslar/oluştur ve kurslar/Düzenle sayfaları, her birinin departman adları l
 
 [!code-csharp[](intro/samples/cu/Pages/Courses/DepartmentNamePageModel.cshtml.cs?highlight=9,11,20-21)]
 
-Yukarıdaki kod, bölüm adlarının listesini içeren bir [SelectList](/dotnet/api/microsoft.aspnetcore.mvc.rendering.selectlist?view=aspnetcore-2.0) oluşturur. Belirtilmişse, bu departman `SelectList`öğesinde seçilir. `selectedDepartment`
+Yukarıdaki kod, bölüm adlarının listesini içeren bir [SelectList](/dotnet/api/microsoft.aspnetcore.mvc.rendering.selectlist?view=aspnetcore-2.0) oluşturur. `selectedDepartment` belirtilmişse, bu departman `SelectList`seçilir.
 
-Oluşturma ve düzenleme sayfa modeli sınıfları öğesinden `DepartmentNamePageModel`türetilir.
+Oluşturma ve düzenleme sayfa modeli sınıfları `DepartmentNamePageModel`türetilir.
 
 ## <a name="customize-the-courses-pages"></a>Kurslar sayfalarını özelleştirme
 
-Yeni bir kurs varlığı oluşturulduğunda, mevcut bir departmanla bir ilişkisi olmalıdır. Bir kurs oluştururken bir departman eklemek için, oluşturma ve düzenleme için temel sınıf, departmanı seçmeye yönelik bir açılan liste içerir. Açılan liste, `Course.DepartmentID` yabancı anahtar (FK) özelliğini ayarlar. EF Core, `Course.DepartmentID` `Department` gezinti özelliğini yüklemek için FK kullanır.
+Yeni bir kurs varlığı oluşturulduğunda, mevcut bir departmanla bir ilişkisi olmalıdır. Bir kurs oluştururken bir departman eklemek için, oluşturma ve düzenleme için temel sınıf, departmanı seçmeye yönelik bir açılan liste içerir. Açılır liste `Course.DepartmentID` yabancı anahtar (FK) özelliğini ayarlar. EF Core, `Department` gezinti özelliğini yüklemek için `Course.DepartmentID` FK kullanır.
 
 ![Kurs oluştur](update-related-data/_static/ddl.png)
 
@@ -266,11 +268,11 @@ Oluşturma sayfası modelini aşağıdaki kodla güncelleştirin:
 
 Yukarıdaki kod:
 
-* Türetiliyor `DepartmentNamePageModel`.
-* `TryUpdateModelAsync` [Aşırı nakletmeyi](xref:data/ef-rp/crud#overposting)engellemek için kullanır.
-* `ViewData["DepartmentID"]` İle`DepartmentNameSL` değiştirir (taban sınıfından).
+* `DepartmentNamePageModel`türetilir.
+* [Fazla nakletmeyi](xref:data/ef-rp/crud#overposting)engellemek için `TryUpdateModelAsync` kullanır.
+* `ViewData["DepartmentID"]`, `DepartmentNameSL` (taban sınıftan) ile değiştirir.
 
-`ViewData["DepartmentID"]`, türü kesin belirlenmiş `DepartmentNameSL`olan ile değiştirilmiştir. Kesin olarak belirlenmiş modeller, kesin olarak yazılan zayıf bir şekilde tercih edilir. Daha fazla bilgi için bkz. [zayıf yazılmış veriler (ViewData ve ViewBag)](xref:mvc/views/overview#VD_VB).
+`ViewData["DepartmentID"]`, türü kesin belirlenmiş `DepartmentNameSL`ile değiştirilmiştir. Kesin olarak belirlenmiş modeller, kesin olarak yazılan zayıf bir şekilde tercih edilir. Daha fazla bilgi için bkz. [zayıf yazılmış veriler (ViewData ve ViewBag)](xref:mvc/views/overview#VD_VB).
 
 ### <a name="update-the-courses-create-page"></a>Kurslar oluşturma sayfasını güncelleştirme
 
@@ -281,7 +283,7 @@ Yukarıdaki kod:
 Önceki biçimlendirme, aşağıdaki değişiklikleri yapar:
 
 * **DepartmentID** etiketini **departmana**dönüştürür.
-* `"ViewBag.DepartmentID"` İle`DepartmentNameSL` değiştirir (taban sınıfından).
+* `"ViewBag.DepartmentID"`, `DepartmentNameSL` (taban sınıftan) ile değiştirir.
 * "Departmanı Seç" seçeneğini ekler. Bu değişiklik, ilk departman yerine "departmanı Seç" i işler.
 * Departman seçili olmadığında bir doğrulama iletisi ekler.
 
@@ -297,7 +299,7 @@ Oluştur sayfasını test edin. Oluştur sayfası departman KIMLIĞI yerine depa
 
 [!code-csharp[](intro/samples/cu/Pages/Courses/Edit.cshtml.cs?highlight=8,28,35,36,40,47-999)]
 
-Değişiklikler, oluşturma sayfası modelinde yapılanlarla benzerdir. Yukarıdaki kodda `PopulateDepartmentsDropDownList` , açılan listede belirtilen departmanı belirleyen departman kimliği ' nde geçirilir.
+Değişiklikler, oluşturma sayfası modelinde yapılanlarla benzerdir. Yukarıdaki kodda `PopulateDepartmentsDropDownList`, Bölüm KIMLIĞINDE geçirilir ve bu, açılan listede belirtilen departmanı seçer.
 
 *Pages/kurslar/Edit. cshtml* 'yi şu biçimlendirmeyle güncelleştirin:
 
@@ -307,19 +309,19 @@ Değişiklikler, oluşturma sayfası modelinde yapılanlarla benzerdir. Yukarıd
 
 * Kurs KIMLIĞINI görüntüler. Genellikle bir varlığın birincil anahtarı (PK) gösterilmez. PKs 'ler genellikle kullanıcılara daha az anlamlı olur. Bu durumda, PK kurs numarasıdır.
 * **DepartmentID** etiketini **departmana**dönüştürür.
-* `"ViewBag.DepartmentID"` İle`DepartmentNameSL` değiştirir (taban sınıfından).
+* `"ViewBag.DepartmentID"`, `DepartmentNameSL` (taban sınıftan) ile değiştirir.
 
-Sayfa, kurs numarası için gizli bir`<input type="hidden">`alan () içerir. `<label>` Etiket`asp-for="Course.CourseID"` Yardımcısı ekleme, gizli alan gereksinimini ortadan kaldırmaz. `<input type="hidden">`Kullanıcı **Kaydet**' e tıkladığında, gönderilen veriler için kurs numarasının dahil olması gerekir.
+Sayfa, kurs numarası için bir gizli alan (`<input type="hidden">`) içerir. `asp-for="Course.CourseID"` bir `<label>` etiketi Yardımcısı eklemek, gizli alan gereksinimini ortadan kaldırmaz. `<input type="hidden">`, Kullanıcı **Kaydet**' i tıklattığında, gönderilen verilere dahil edilecek kurs numarası için gereklidir.
 
 Güncelleştirilmiş kodu test edin. Kurs oluşturun, düzenleyin ve silin.
 
 ## <a name="add-asnotracking-to-the-details-and-delete-page-models"></a>Ayrıntılara AsNoTracking ekleme ve sayfa modellerini silme
 
-[Anotracking](/dotnet/api/microsoft.entityframeworkcore.entityframeworkqueryableextensions.asnotracking?view=efcore-2.0#Microsoft_EntityFrameworkCore_EntityFrameworkQueryableExtensions_AsNoTracking__1_System_Linq_IQueryable___0__) , izleme gerekli olmadığında performansı iyileştirebilir. Sil `AsNoTracking` ve Ayrıntılar sayfa modeline ekleyin. Aşağıdaki kod, güncelleştirilmiş silme sayfası modelini göstermektedir:
+[Anotracking](/dotnet/api/microsoft.entityframeworkcore.entityframeworkqueryableextensions.asnotracking?view=efcore-2.0#Microsoft_EntityFrameworkCore_EntityFrameworkQueryableExtensions_AsNoTracking__1_System_Linq_IQueryable___0__) , izleme gerekli olmadığında performansı iyileştirebilir. Silme ve Ayrıntılar sayfa modeline `AsNoTracking` ekleyin. Aşağıdaki kod, güncelleştirilmiş silme sayfası modelini göstermektedir:
 
 [!code-csharp[](intro/samples/cu/Pages/Courses/Delete.cshtml.cs?name=snippet&highlight=21,23,40,41)]
 
-*Pages/kurslar/details. cshtml. cs* dosyasındaki yöntemigüncelleştirin:`OnGetAsync`
+*Pages/kurslar/details. cshtml. cs* dosyasındaki `OnGetAsync` yöntemini güncelleştirin:
 
 [!code-csharp[](intro/samples/cu/Pages/Courses/Details.cshtml.cs?name=snippet)]
 
@@ -341,11 +343,11 @@ Aşağıdaki bölümlerde, eğitmen sayfaları günceldir.
 
 ### <a name="add-office-location"></a>Office konumu Ekle
 
-Bir eğitmen kaydını düzenlediğinizde, eğitmenin Office atamasını güncelleştirmek isteyebilirsiniz. `Instructor` Varlığın `OfficeAssignment` varlıkla bire sıfır veya-bir ilişkisi vardır. Eğitmen kodu şu şekilde olmalıdır:
+Bir eğitmen kaydını düzenlediğinizde, eğitmenin Office atamasını güncelleştirmek isteyebilirsiniz. `Instructor` varlığı, `OfficeAssignment` varlığı ile bire sıfır veya-arasında bir ilişkiye sahiptir. Eğitmen kodu şu şekilde olmalıdır:
 
-* Kullanıcı Office atamasını temizlediğinde `OfficeAssignment` varlığı silin.
-* Kullanıcı bir Office ataması girerse ve boşsa, yeni `OfficeAssignment` bir varlık oluşturun.
-* Kullanıcı Office atamasını değiştirirse `OfficeAssignment` varlığı güncelleştirin.
+* Kullanıcı Office atamasını temizlediğinde `OfficeAssignment` varlığını silin.
+* Kullanıcı bir Office ataması girerse ve boşsa, yeni bir `OfficeAssignment` varlık oluşturun.
+* Kullanıcı Office atamasını değiştirirse `OfficeAssignment` varlığını güncelleştirin.
 
 Eğitmenler düzenleme sayfası modelini aşağıdaki kodla güncelleştirin:
 
@@ -353,9 +355,9 @@ Eğitmenler düzenleme sayfası modelini aşağıdaki kodla güncelleştirin:
 
 Yukarıdaki kod:
 
-* Gezinti`OfficeAssignment` özelliği için `Instructor` Eager yüklemesini kullanarak geçerli varlığı veritabanından alır.
-* Alınan `Instructor` varlığı model Ciltçideki değerlerle güncelleştirir. `TryUpdateModel`[fazla nakletmeyi](xref:data/ef-rp/crud#overposting)önler.
-* Office konumu boşsa, null olarak ayarlar `Instructor.OfficeAssignment` . Null `Instructor.OfficeAssignment` olduğunda, `OfficeAssignment` tablodaki ilgili satır silinir.
+* `OfficeAssignment` gezinti özelliği için Eager yükleme kullanarak geçerli `Instructor` varlığını veritabanından alır.
+* Alınan `Instructor` varlığını model Ciltçideki değerlerle güncelleştirir. `TryUpdateModel` [fazla nakletmeyi](xref:data/ef-rp/crud#overposting)önler.
+* Office konumu boşsa, `Instructor.OfficeAssignment` null olarak ayarlar. `Instructor.OfficeAssignment` null olduğunda, `OfficeAssignment` tablosundaki ilgili satır silinir.
 
 ### <a name="update-the-instructor-edit-page"></a>Eğitmen düzenleme sayfasını güncelleştirme
 
@@ -371,7 +373,7 @@ Eğitmenler, istediğiniz sayıda kurs öğretebilir. Bu bölümde kurs atamalar
 
 ![Kurslar ile eğitmen düzenleme sayfası](update-related-data/_static/instructor-edit-courses.png)
 
-`Course`ve `Instructor` çoktan çoğa ilişkisine sahiptir. İlişki eklemek ve kaldırmak için, `CourseAssignments` JOIN varlık kümesinden varlık ekleyin ve kaldırın.
+`Course` ve `Instructor` çoktan çoğa bir ilişkiye sahiptir. İlişki eklemek ve kaldırmak için `CourseAssignments` JOIN varlık kümesinden varlık ekleyin ve kaldırın.
 
 Onay kutuları, bir eğitmenin atandığı kurslara değişiklikler sağlar. Veritabanındaki her kurs için bir onay kutusu görüntülenir. Eğitmenin atandığı kurslar denetlenir. Kullanıcı kurs atamalarını değiştirmek için onay kutularını seçebilir veya temizleyebilir. Kurs sayısı çok fazlaysa:
 
@@ -384,13 +386,13 @@ Aşağıdaki kodla *SchoolViewModels/AssignedCourseData. cs* oluşturun:
 
 [!code-csharp[](intro/samples/cu/Models/SchoolViewModels/AssignedCourseData.cs)]
 
-Sınıfı `AssignedCourseData` , bir eğitmen tarafından atanan kurslar için onay kutularını oluşturacak verileri içerir.
+`AssignedCourseData` sınıfı, bir eğitmen tarafından atanan kurslar için onay kutularını oluşturacak verileri içerir.
 
 *Pages/eğitmenler/Komutctorcoursespagemodel. cshtml. cs* temel sınıfını oluşturun:
 
 [!code-csharp[](intro/samples/cu/Pages/Instructors/InstructorCoursesPageModel.cshtml.cs)]
 
-, `InstructorCoursesPageModel` Düzenleme ve oluşturma sayfa modelleri için kullanacağınız temel sınıftır. `PopulateAssignedCourseData``Course` doldurmak`AssignedCourseDataList`için tüm varlıkları okur. Her kurs için kod, başlığı ve eğitmenin `CourseID`kursa atanıp atanmadığını belirler. Bir [diyez kümesi](/dotnet/api/system.collections.generic.hashset-1) , verimli aramalar oluşturmak için kullanılır.
+`InstructorCoursesPageModel`, düzenleme ve oluşturma sayfa modelleri için kullanacağınız temel sınıftır. `PopulateAssignedCourseData`, `AssignedCourseDataList`doldurmak için tüm `Course` varlıklarını okur. Her kurs için, kod `CourseID`, başlığı ve eğitmenin kursa atanıp atanmadığını belirler. Bir [diyez kümesi](/dotnet/api/system.collections.generic.hashset-1) , verimli aramalar oluşturmak için kullanılır.
 
 ### <a name="instructors-edit-page-model"></a>Eğitmenler sayfa modelini Düzenle
 
@@ -406,15 +408,15 @@ Eğitmen Razor görünümünü güncelleştirin:
 
 <a id="notepad"></a>
 > [!NOTE]
-> Kodu Visual Studio 'Ya yapıştırdığınızda, satır sonları kodu kesen bir şekilde değiştirilir. Otomatik biçimlendirmeyi geri almak için CTRL + Z bir kez tuşuna basın. CTRL + Z, burada gördüğünüz gibi görünmeleri için satır sonlarını düzeltir. Girintide kusursuz `@:</tr><tr>`olması gerekmez, ancak `@:<td>` `@:</td>`,, ve `@:</tr>` çizgilerinin her biri gösterildiği gibi tek bir satırda olması gerekir. Yeni kod bloğu seçiliyken, yeni kodu mevcut kodla hizalamak için üç kez Tab tuşuna basın. Bu [bağlantı ile](https://developercommunity.visualstudio.com/content/problem/147795/razor-editor-malforms-pasted-markup-and-creates-in.html)bu hatanın durumunu oylayın veya gözden geçirin.
+> Kodu Visual Studio 'Ya yapıştırdığınızda, satır sonları kodu kesen bir şekilde değiştirilir. Otomatik biçimlendirmeyi geri almak için CTRL + Z bir kez tuşuna basın. CTRL + Z, burada gördüğünüz gibi görünmeleri için satır sonlarını düzeltir. Girintide kusursuz olması gerekmez, ancak `@:</tr><tr>`, `@:<td>`, `@:</td>`ve `@:</tr>` satırların her biri gösterildiği gibi tek bir satırda olması gerekir. Yeni kod bloğu seçiliyken, yeni kodu mevcut kodla hizalamak için üç kez Tab tuşuna basın. Bu [bağlantı ile](https://developercommunity.visualstudio.com/content/problem/147795/razor-editor-malforms-pasted-markup-and-creates-in.html)bu hatanın durumunu oylayın veya gözden geçirin.
 
-Yukarıdaki kod, üç sütun içeren bir HTML tablosu oluşturur. Her sütunda bir onay kutusu ve kurs numarasını ve başlığını içeren bir açıklamalı alt yazı vardır. Onay kutularının hepsi aynı ada ("Selectedkurslar") sahiptir. Aynı adı kullanmak model cildi bir grup olarak kabul etmek üzere bilgilendirir. Her onay kutusunun değer özniteliği olarak `CourseID`ayarlanır. Sayfa gönderildiğinde, model Ciltçi yalnızca seçili onay kutularının `CourseID` değerlerinden oluşan bir dizi geçirir.
+Yukarıdaki kod, üç sütun içeren bir HTML tablosu oluşturur. Her sütunda bir onay kutusu ve kurs numarasını ve başlığını içeren bir açıklamalı alt yazı vardır. Onay kutularının hepsi aynı ada ("Selectedkurslar") sahiptir. Aynı adı kullanmak model cildi bir grup olarak kabul etmek üzere bilgilendirir. Her onay kutusunun değer özniteliği `CourseID`olarak ayarlanır. Sayfa gönderildiğinde, model Ciltçi yalnızca seçili onay kutuları için `CourseID` değerlerinden oluşan bir dizi geçirir.
 
 Onay kutuları başlangıçta işlendiğinde, eğitmenin atandığı kursların denetlenen öznitelikleri vardır.
 
 Uygulamayı çalıştırın ve güncelleştirilmiş eğitmenler düzenleme sayfasını test edin. Bazı kurs atamalarını değiştirin. Değişiklikler Dizin sayfasında yansıtılır.
 
-Not: Eğitim kursu verilerini düzenlemek için buradaki yaklaşım, sınırlı sayıda kurs olduğunda iyi bir şekilde gerçekleştirilir. Çok daha büyük olan koleksiyonlar için, farklı bir kullanıcı arabirimi ve farklı bir güncelleştirme yöntemi daha erişilebilir ve verimli olacaktır.
+Note: Eğitmen Kursu verilerini düzenlemek için buradaki yaklaşım, sınırlı sayıda kurs olduğunda iyi bir şekilde gerçekleştirilir. Çok daha büyük olan koleksiyonlar için, farklı bir kullanıcı arabirimi ve farklı bir güncelleştirme yöntemi daha erişilebilir ve verimli olacaktır.
 
 ### <a name="update-the-instructors-create-page"></a>Eğitmenler oluştur sayfasını güncelleştirme
 
@@ -438,7 +440,7 @@ Delete sayfa modeli aşağıdaki kodla güncelleştirin:
 
 Yukarıdaki kod aşağıdaki değişiklikleri yapar:
 
-* `CourseAssignments` Gezinti özelliği için Eager yüklemesi kullanır. `CourseAssignments`eğitmen silindiğinde, dahil edilmiş veya silinmemelidir. Bunları okumaktan kaçınmak için, veritabanında basamaklı silme 'yı yapılandırın.
+* `CourseAssignments` gezinti özelliği için Eager yüklemesi kullanır. `CourseAssignments`, eğitmen silindiğinde silinmemiş veya silinmemelidir. Bunları okumaktan kaçınmak için, veritabanında basamaklı silme 'yı yapılandırın.
 
 * Silinecek eğitmen herhangi bir departmanların Yöneticisi olarak atanırsa, bu departmanlardan eğitmen atamasını kaldırır.
 
@@ -448,7 +450,7 @@ Yukarıdaki kod aşağıdaki değişiklikleri yapar:
 * [Bu öğreticinin YouTube sürümü (Bölüm 2)](https://www.youtube.com/watch?v=mOAankB_Zgc)
 
 > [!div class="step-by-step"]
-> [Önceki](xref:data/ef-rp/read-related-data)İleri
-> [](xref:data/ef-rp/concurrency)
+> [Önceki](xref:data/ef-rp/read-related-data)
+> [İleri](xref:data/ef-rp/concurrency)
 
 ::: moniker-end

@@ -7,12 +7,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 03/07/2019
 uid: spa/react
-ms.openlocfilehash: bbe5328bfa5b4187989a00c3c94e98dabc5d032a
-ms.sourcegitcommit: 032113208bb55ecfb2faeb6d3e9ea44eea827950
+ms.openlocfilehash: 9703a62eb7f779974382fe0fb01702d9fcd37d64
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73190521"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78664964"
 ---
 # <a name="use-the-react-project-template-with-aspnet-core"></a>ASP.NET Core ile tepki verme proje şablonunu kullanın
 
@@ -22,7 +22,7 @@ Güncelleştirilmiş tepki verme projesi şablonu, zengin, istemci tarafı Kulla
 
 Tepki verme projesi şablonu, sunucu tarafı işleme (SSR) için tasarlanmamıştır. Yanıt verme ve Node. js ile SSR için, [Next. js](https://github.com/zeit/next.js/) veya [rampale](https://github.com/jaredpalmer/razzle)'yı göz önünde bulundurun.
 
-## <a name="create-a-new-app"></a>Yeni bir uygulama oluşturun
+## <a name="create-a-new-app"></a>Yeni bir uygulama oluşturma
 
 ASP.NET Core 2,1 yüklüyse, tepki verme projesi şablonunu yüklemeniz gerekmez.
 
@@ -35,13 +35,13 @@ cd my-new-app
 
 Uygulamayı Visual Studio 'dan veya .NET Core CLI çalıştırın:
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 Oluşturulan *. csproj* dosyasını açın ve uygulamayı buradan normal olarak çalıştırın.
 
 Yapı işlemi ilk çalıştırmada NPM bağımlılıklarını geri yükler ve bu işlem birkaç dakika sürebilir. Sonraki derlemeler çok daha hızlıdır.
 
-# <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
+# <a name="net-core-cli"></a>[.NET Core CLI](#tab/netcore-cli)
 
 `Development`değerine sahip `ASPNETCORE_Environment` adlı bir ortam değişkenine sahip olduğunuzdan emin olun. Windows 'da (PowerShell olmayan istemlerinde) `SET ASPNETCORE_Environment=Development`çalıştırın. Linux veya macOS üzerinde `export ASPNETCORE_Environment=Development`çalıştırın.
 
@@ -55,13 +55,13 @@ Proje şablonu, bir ASP.NET Core uygulaması ve bir tepki verme uygulaması olu�
 
 ## <a name="add-pages-images-styles-modules-etc"></a>Sayfa, resim, stil, modül vb. ekleyin
 
-*Clientapp* dizini standart bir CRA tepki uygulamadır. Daha fazla bilgi için resmi [CRA belgelerine](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md) bakın.
+*Clientapp* dizini standart bir CRA tepki uygulamadır. Daha fazla bilgi için resmi [CRA belgelerine](https://create-react-app.dev/docs/getting-started/) bakın.
 
 Bu şablon tarafından oluşturulan ve CRA tarafından oluşturulan tepki verme uygulaması arasında hafif farklar vardır; Ancak, uygulamanın özellikleri değiştirilmez. Şablon tarafından oluşturulan uygulama, [önyükleme](https://getbootstrap.com/)tabanlı bir düzen ve temel bir yönlendirme örneği içerir.
 
 ## <a name="install-npm-packages"></a>NPM paketlerini yükler
 
-Üçüncü taraf NPM paketlerini yüklemek için *clientapp* alt dizininde bir komut istemi kullanın. Örneğin:
+Üçüncü taraf NPM paketlerini yüklemek için *clientapp* alt dizininde bir komut istemi kullanın. Örnek:
 
 ```console
 cd ClientApp

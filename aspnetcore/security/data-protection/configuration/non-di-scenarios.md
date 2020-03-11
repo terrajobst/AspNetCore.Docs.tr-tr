@@ -1,34 +1,34 @@
 ---
-title: ASP.NET core'da veri koruma için dı kullanmayan senaryolar
+title: ASP.NET Core 'de veri koruması için yok kullanmayan senaryolar
 author: rick-anderson
-description: Burada olamaz veya bağımlılık ekleme tarafından sağlanan bir hizmet kullanmak istemiyorsanız veri koruma senaryolarını desteklemek üzere öğrenin.
+description: Bağımlılık ekleme tarafından sağlanmış bir hizmeti kullanmak istemediğiniz veya kullanmak istemediğiniz veri koruma senaryolarını nasıl destekleyeceğinizi öğrenin.
 ms.author: riande
 ms.date: 10/14/2016
 uid: security/data-protection/configuration/non-di-scenarios
 ms.openlocfilehash: 62280a9f911b003383cbe348b9b62942766a2b99
-ms.sourcegitcommit: f5762967df3be8b8c868229e679301f2f7954679
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67048233"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78666238"
 ---
-# <a name="non-di-aware-scenarios-for-data-protection-in-aspnet-core"></a>ASP.NET core'da veri koruma için dı kullanmayan senaryolar
+# <a name="non-di-aware-scenarios-for-data-protection-in-aspnet-core"></a>ASP.NET Core 'de veri koruması için yok kullanmayan senaryolar
 
-Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
+Gönderen [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-ASP.NET Core veri koruma normalde sistemidir [hizmet kapsayıcıya eklenen](xref:security/data-protection/consumer-apis/overview) ve bağımlılık ekleme (dı) aracılığıyla bağımlı bileşenler tarafından kullanılır. Ancak, burada bu değildir uygun ya da istediğiniz durumlar vardır özellikle sistem var olan bir uygulamayı içeri aktarılırken.
+ASP.NET Core Data Protection sistemi normalde [bir hizmet kapsayıcısına eklenir](xref:security/data-protection/consumer-apis/overview) ve bağımlılık ekleme (dı) yoluyla bağımlı bileşenler tarafından kullanılır. Ancak, özellikle de sistem mevcut bir uygulamaya aktarılırken bunun uygulanabilir veya istenen durumlar vardır.
 
-Bu senaryoları desteklemek için [Microsoft.AspNetCore.DataProtection.Extensions](https://www.nuget.org/packages/Microsoft.AspNetCore.DataProtection.Extensions/) paket sağlar somut bir türde [DataProtectionProvider](/dotnet/api/Microsoft.AspNetCore.DataProtection.DataProtectionProvider), veri korumayı kullanması için basit bir yol sunar DI üzerinde bağlı olmadan. `DataProtectionProvider` Yazın uygular [IDataProtectionProvider](/dotnet/api/microsoft.aspnetcore.dataprotection.idataprotectionprovider). Oluşturma `DataProtectionProvider` yalnızca sağlanmasını gerektirir. bir [DirectoryInfo](/dotnet/api/system.io.directoryinfo) sağlayıcıya ait şifreleme anahtarlarını depolanması gereken yere, aşağıdaki kod örneğinde görüldüğü gibi göstermek için örnek:
+Bu senaryoları desteklemek için, [Microsoft. AspNetCore. DataProtection. Extensions](https://www.nuget.org/packages/Microsoft.AspNetCore.DataProtection.Extensions/) paketi, bir somut tür olan [dataprotectionprovider](/dotnet/api/Microsoft.AspNetCore.DataProtection.DataProtectionProvider)sağlar ve bu da, dı 'ye bağlı olmadan veri koruma kullanmanın basit bir yolunu sunar. `DataProtectionProvider` türü [ıdataprotectionprovider](/dotnet/api/microsoft.aspnetcore.dataprotection.idataprotectionprovider)'ı uygular. Yalnızca `DataProtectionProvider`, aşağıdaki kod örneğinde görüldüğü gibi, sağlayıcının şifreleme anahtarlarının nerede depolanacağını belirtmek için bir [DirectoryInfo](/dotnet/api/system.io.directoryinfo) örneği sağlanması gerekir:
 
 [!code-csharp[](non-di-scenarios/_static/nodisample1.cs)]
 
-Varsayılan olarak, `DataProtectionProvider` somut bir türde değil ham anahtar malzemesi şifreleme dosya sistemi için önce kalıcı. Burada bir ağ paylaşımı ve veri koruma sisteminde Geliştirici noktalara uygun bekleyen bir anahtar şifreleme mekanizması otomatik olarak çıkarılamıyor senaryolarını desteklemek üzere budur.
+Varsayılan olarak `DataProtectionProvider` somut tür, ham anahtar malzemesini dosya sistemine kalıcı yapmadan önce şifrelemez. Bu, geliştiricinin bir ağ paylaşımının gösterdiği ve veri koruma sisteminin uygun bir rest anahtar şifreleme mekanizmasını otomatik olarak kaldırabildiği senaryoları destekler.
 
-Ayrıca, `DataProtectionProvider` somut bir türde değil [Ayır uygulamalar](xref:security/data-protection/configuration/overview#per-application-isolation) varsayılan olarak. Anahtar ile aynı dizine kullanarak tüm uygulamaları yüklerini sürece paylaşabilirsiniz kendi [amaç parametreleri](xref:security/data-protection/consumer-apis/purpose-strings) eşleşmesi.
+Ayrıca, `DataProtectionProvider` somut tür uygulamaları varsayılan olarak [yalımaz](xref:security/data-protection/configuration/overview#per-application-isolation) . Aynı anahtar dizinini kullanan tüm uygulamalar, kendi [Amaç parametreleri](xref:security/data-protection/consumer-apis/purpose-strings) eşleştiği sürece yükleri paylaşabilir.
 
-[DataProtectionProvider](/dotnet/api/microsoft.aspnetcore.dataprotection.dataprotectionprovider) Oluşturucusu sistem davranışlarını ayarlamak için kullanılan isteğe bağlı yapılandırma geri çağırma kabul eder. Aşağıdaki örnekte, geri yükleme için açık çağrı yalıtımıyla gösterir [SetApplicationName](/dotnet/api/microsoft.aspnetcore.dataprotection.dataprotectionbuilderextensions.setapplicationname). Örnek ayrıca, sistem otomatik olarak Windows DPAPI kullanarak kalıcı anahtarlarını şifrelemek için yapılandırma gösterir. Dizini için bir UNC paylaşımı işaret ediyorsa, paylaşılan sertifika ilgili tüm makinelerde dağıtmak ve sertifika tabanlı şifreleme çağrısı ile kullanmak için sistemi yapılandırmak için hazırlandığını [ProtectKeysWithCertificate](/dotnet/api/microsoft.aspnetcore.dataprotection.dataprotectionbuilderextensions.protectkeyswithcertificate).
+[Dataprotectionprovider](/dotnet/api/microsoft.aspnetcore.dataprotection.dataprotectionprovider) Oluşturucusu, sistemin davranışlarını ayarlamak için kullanılabilen isteğe bağlı bir yapılandırma geri aramasını kabul eder. Aşağıdaki örnek, bir [Setapplicationname](/dotnet/api/microsoft.aspnetcore.dataprotection.dataprotectionbuilderextensions.setapplicationname)öğesine açık bir çağrı ile yalıtımı geri yüklemeyi gösterir. Örnek ayrıca, Windows DPAPI kullanarak kalıcı anahtarları otomatik olarak şifrelemek için sistemi yapılandırmayı gösterir. Dizin bir UNC paylaşımının işaret ediyorsa, tüm ilgili makinelerde paylaşılan bir sertifikayı dağıtmak ve sistemi, [ProtectKeysWithCertificate](/dotnet/api/microsoft.aspnetcore.dataprotection.dataprotectionbuilderextensions.protectkeyswithcertificate)çağrısıyla sertifika tabanlı şifrelemeyi kullanacak şekilde yapılandırmak isteyebilirsiniz.
 
 [!code-csharp[](non-di-scenarios/_static/nodisample2.cs)]
 
 > [!TIP]
-> Örneklerini `DataProtectionProvider` somut türünü oluşturmak pahalı. Bir uygulama birden çok örneğini bu tür tutar ve tümünü aynı dizinde anahtar depolama alanı kullanıyorsanız, uygulama performansı düşebilir. Kullanırsanız `DataProtectionProvider` türü öneririz bu tür bir kez oluşturun ve mümkün olduğunca yeniden. `DataProtectionProvider` Türü ve tüm [Idataprotector](/dotnet/api/microsoft.aspnetcore.dataprotection.idataprotector) oluşturulan iş parçacığı açısından güvenli örnekleridir birden çok arayanlar için.
+> `DataProtectionProvider` somut türün örnekleri oluşturmak pahalıdır. Bir uygulama bu türün birden fazla örneğini tutar ve hepsi aynı anahtar depolama dizinini kullanıyorsa, uygulama performansı düşebilir. `DataProtectionProvider` türünü kullanırsanız, bu türü bir kez oluşturup mümkün olduğunca yeniden kullanmanız önerilir. `DataProtectionProvider` türü ve bundan oluşturulan tüm [ıdataprotector](/dotnet/api/microsoft.aspnetcore.dataprotection.idataprotector) örnekleri birden çok çağıranlar için iş parçacığı güvenlidir.

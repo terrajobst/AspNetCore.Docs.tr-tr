@@ -1,3 +1,3 @@
-Uygulamanın varsayar *secrets.json* dosyası aşağıdaki iki gizli dizileri içerir:
+Uygulamanın *gizli dizileri. JSON* dosyasının aşağıdaki iki gizli dizi olduğunu varsayalım:
 
 [!INCLUDE[secrets.json file](secrets-json-file.md)]

@@ -1,57 +1,57 @@
 ---
-title: ASP.NET core'da anahtar yönetimi
+title: ASP.NET Core 'de anahtar yönetimi
 author: rick-anderson
-description: ASP.NET Core veri koruma anahtar yönetimi API'leri uygulama ayrıntılarını öğrenin.
+description: ASP.NET Core veri koruma anahtarı yönetim API 'Lerinin uygulama ayrıntılarını öğrenin.
 ms.author: riande
 ms.date: 10/14/2016
 uid: security/data-protection/implementation/key-management
-ms.openlocfilehash: 431bdf2d3076c83279b78f327ddb647f69e6e584
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: c571222d734fa69183563aefa5cc6ce5a10e7612
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64898772"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78664712"
 ---
-# <a name="key-management-in-aspnet-core"></a>ASP.NET core'da anahtar yönetimi
+# <a name="key-management-in-aspnet-core"></a>ASP.NET Core 'de anahtar yönetimi
 
 <a name="data-protection-implementation-key-management"></a>
 
-Veri koruma sisteminde ana korumak ve yüklerin korumasını kaldırma için kullanılan anahtarları ömrünü otomatik olarak yönetir. Her anahtar dört aşamasını biri mevcut olabilir:
+Veri koruma sistemi, yükleri korumak ve korumayı kaldırmak için kullanılan ana anahtarların ömrünü otomatik olarak yönetir. Her anahtar dört aşamanın birinde bulunabilir:
 
-* Oluşturulan - anahtar, anahtar halka var ancak henüz etkinleştirilmedi. Yeterli süre kadar anahtarı bu anahtarı kademeyi kullanan tüm makinelere yaymak için bir fırsat oluşmuş anahtarı yeni koruma işlemleri için kullanılmamalıdır.
+* Oluşturuldu-anahtar, anahtar halkada mevcut ancak henüz etkinleştirilmemiş. Anahtar, bu anahtar halkasını kullanan tüm makinelere yaymaya bir şansa kadar, anahtarın, yeni koruma işlemleri için kullanılmaması gerekir.
 
-* Etkin - anahtar, anahtar halka var ve tüm yeni koruma işlemleri için kullanılmalıdır.
+* Etkin-anahtar halkada bulunur ve tüm yeni koruma işlemleri için kullanılmalıdır.
 
-* Kullanım süresi doldu - anahtar doğal ömrü çalıştırıldı ve artık yeni koruma işlemleri için kullanılmalıdır.
+* Süresi doldu-anahtar, doğal ömrünü çalıştırmıştır ve artık yeni koruma işlemleri için kullanılmamalıdır.
 
-* İptal edilen - anahtar tehlikeye ve yeni koruma işlemleri için kullanılmamalıdır.
+* İptal edildi-anahtar tehlikeye alındı ve yeni koruma işlemleri için kullanılmamalıdır.
 
-Oluşturulan, etkin ve süresi dolan anahtarlar tüm gelen yüklerin korumasını kaldırma için kullanılabilir. Varsayılan olarak, iptal edilen anahtarları yüklerin korumasını kaldırma için kullanılamaz, ancak uygulama geliştiricisi için [bu davranışı geçersiz kılma](xref:security/data-protection/consumer-apis/dangerous-unprotect#data-protection-consumer-apis-dangerous-unprotect) gerekirse.
+Oluşturulan, etkin ve süre dolma anahtarları, gelen yüklerin korumasını kaldırmak için kullanılabilir. İptal edilen anahtarlar varsayılan olarak yük korumasını kaldırmak için kullanılamaz, ancak uygulama geliştiricisi gerekirse [Bu davranışı geçersiz kılabilir](xref:security/data-protection/consumer-apis/dangerous-unprotect#data-protection-consumer-apis-dangerous-unprotect) .
 
 >[!WARNING]
-> Geliştirici (örneğin, karşılık gelen dosyayı dosya sisteminden silerek) anahtar halka dışında bir anahtarı silme fikri size cazip olabilir. Bu noktada, anahtar tarafından korunan tüm verileri kalıcı olarak undecipherable ve iptal edilen anahtarlarla gibi Acil Durum geçersiz kılma yoktur. Bir anahtarı silme gerçekten yıkıcı davranıştır ve sonuç olarak bu işlemi gerçekleştirmek için veri koruma sisteminde birinci sınıf yok API sunar.
+> Geliştirici, anahtar halkadan bir anahtar silmeye (ör. dosya sisteminden karşılık gelen dosyayı silerek) izin verebilir. Bu noktada, anahtar tarafından korunan tüm veriler kalıcı olarak çözülemez ve iptal edilmiş anahtarlarla benzer şekilde acil durum geçersiz kılma yoktur. Bir anahtarın silinmesi gerçekten bozucu bir davranıştır ve bu nedenle veri koruma sistemi bu işlemi gerçekleştirmek için birinci sınıf API 'YI kullanıma sunmaz.
 
 ## <a name="default-key-selection"></a>Varsayılan anahtar seçimi
 
-Veri koruma sisteminde yedekleme deposundan anahtar halkası okuduğunda, bir "varsayılan" anahtar, anahtar halkası bulun dener. Varsayılan anahtar yeni koruma işlemleri için kullanılır.
+Veri koruma sistemi, yedekleme deposundan anahtar halkasını okuduğunda, anahtar halkasının bir "varsayılan" anahtarını bulmaya çalışır. Varsayılan anahtar, yeni koruma işlemleri için kullanılır.
 
-Veri koruma sisteminde varsayılan anahtarı olarak en son etkinleştirme tarihi anahtarla seçtiği genel buluşsal yöntem olur. (Küçük karamelli faktörü için sunucudan sunucuya saat eğriltme olanak yoktur.) Anahtarın süresi doldu veya iptal, anahtar oluşturma ve uygulama otomatik devre dışı ise durumunda yeni bir anahtar hemen etkinleştirme ile oluşturulan [anahtar süre sonu ve sıralı](xref:security/data-protection/implementation/key-management#data-protection-implementation-key-management-expiration) aşağıdaki ilke.
+Genel buluşsal yöntemi, veri koruma sisteminin anahtarı varsayılan anahtar olarak en son etkinleştirme tarihi ile seçtiği bir değer. (Sunucudan sunucuya saat eğmaya izin veren küçük bir faktör vardır.) Anahtarın süresi dolmuşsa veya iptal edildiğinde ve uygulama otomatik anahtar oluşturmayı devre dışı bırakılmamışsa, [anahtar süre sonu ve](xref:security/data-protection/implementation/key-management#data-protection-implementation-key-management-expiration) sıralı ilke başına hemen etkinleştirme ile yeni bir anahtar oluşturulur.
 
-Veri koruma sisteminde neden yeni bir anahtar hemen oluşturur yerine yeni anahtar oluşturma, yeni anahtar önce etkinleştirilen tüm anahtarların örtük bir sona erme olarak değerlendirilip olan farklı bir anahtara geri dönülüyor. Genel yeni anahtarları farklı algoritmalar veya daha eski anahtarları bekleyen şifreleme mekanizmaları ile yapılandırılmış olabilir ve sistemin geçerli yapılandırmasını dönülüyor tercih etmelisiniz olur.
+Veri koruma sisteminin farklı bir anahtara geri dönmesi yerine hemen yeni bir anahtar üretmesinin nedeni, yeni anahtar oluşturmanın yeni anahtardan önce etkinleştirilen tüm anahtarların örtük bir süre sonu olarak değerlendirilmesidir. Genel fikir, yeni anahtarların farklı algoritmalarla veya eski anahtarlardan gelen Rest mekanizmalarıyla yapılandırılmış olabileceği ve sistem geçerli yapılandırmanın geri düşmesini tercih etmelidir.
 
-Bir özel durum söz konusudur. Uygulama geliştiricisi varsa [otomatik anahtar oluşturma devre dışı](xref:security/data-protection/configuration/overview#disableautomatickeygeneration), sonra da veri koruma sisteminde bir varsayılan anahtar olarak seçmeniz gerekir. Geri dönüş Bu senaryoda, kümedeki diğer makinelere yaymak için bir süre beklendiğinden anahtarlarına öncelik ile en son etkinleştirme tarihi olmayan iptal anahtarla sistemi seçer. Geri dönüş sistemi, süresi dolmuş varsayılan anahtar sonucunda seçme sonlandırabiliriz. Geri dönüş sistemi hiçbir zaman iptal edilen bir anahtar varsayılan anahtarı olarak seçer ve ardından anahtar halkası boş ise veya her anahtarı iptal edilmiş sistem başlatma sırasında bir hata üretecektir.
+Bir özel durum var. Uygulama geliştiricisi [otomatik anahtar oluşturmayı devre dışı bırakıldıysa](xref:security/data-protection/configuration/overview#disableautomatickeygeneration), veri koruma sisteminin varsayılan anahtar olarak bir şey seçmesi gerekir. Bu geri dönüş senaryosunda, sistem, kümedeki diğer makinelere yaymak üzere süresi geçen anahtarlara verilen tercihle, en son etkinleştirme tarihi ile iptal edilmemiş anahtarı seçer. Geri dönüş sistemi, zaman aşımına uğradı bir varsayılan anahtarın bir sonucu olarak seçilerek bitemeyebilir. Geri dönüş sistemi hiçbir şekilde varsayılan anahtar olarak iptal edilmiş bir anahtar seçmeyecektir ve anahtar halkası boşsa veya her anahtar iptal edildiğinde, sistem başlatma sırasında bir hata üretir.
 
 <a name="data-protection-implementation-key-management-expiration"></a>
 
-## <a name="key-expiration-and-rolling"></a>Anahtarı süre sonu ve sıralı
+## <a name="key-expiration-and-rolling"></a>Anahtar süre sonu ve yuvarlama
 
-Bir anahtar oluşturulduğunda bir etkinleştirme tarihi {now + 2 gün} ve {now + 90 gün} bir sona erme tarihi otomatik olarak sağlamıştır. Etkinleştirme 2 gün gecikmeyle sistem üzerinden yaymak için anahtar zaman verir. Diğer bir deyişle, anahtar, sonraki otomatik yenileme dönemi boyunca, böylece anahtar halka ettiğinde, yayılmadan olur mu etkin gerekebilecek tüm uygulamaları kullanın, büyük olasılıkla en üst düzeye gözlemlemek yedekleme mağazada işaret eden diğer uygulamaların izin verir.
+Bir anahtar oluşturulduğunda, otomatik olarak {Now + 2 gün} etkinleştirme tarihi ve {Now + 90 gün} tarihinde sona erme tarihi verilir. Etkinleştirmeden önce 2 günlük gecikme, sistem aracılığıyla yaymaya yönelik anahtar zamanına izin verir. Yani, yedekleme deposuna işaret eden diğer uygulamaların, sonraki otomatik yenileme döneminde anahtarı gözlemleyecek şekilde, anahtar halkasının etkin hale gelmesi durumunda kullanması gerekebilecek tüm uygulamalara yayıldığı ihtimalini en üst düzeye çıkarır.
 
-Varsayılan anahtar 2 gün içinde sona erecek ve anahtar halkası varsayılan anahtarı sona erdikten sonra etkin olan bir anahtar zaten yoksa, veri koruma sisteminde yeni bir anahtar halkası anahtarına otomatik olarak korunur. Bu yeni anahtar bir etkinleştirme tarihi {varsayılan anahtarının sona erme tarihi} ve {now + 90 gün} bir sona erme tarihi vardır. Bu anahtarlar düzenli olarak hizmet kesinti olmadan otomatik olarak geri almak sistem sağlar.
+Varsayılan anahtar 2 gün içinde sona erecektir ve anahtar halkasının varsayılan anahtarın süresi dolduktan sonra etkin olacak bir anahtarı yoksa, veri koruma sistemi otomatik olarak anahtar halkasının yeni bir anahtarını kalıcı hale alır. Bu yeni anahtar, {default anahtarının sona erme tarihi} için bir etkinleştirme tarihi ve {Now + 90 gün} tarihinde sona erme tarihi içeriyor. Bu, sistemin hiçbir hizmet kesintisi olmadan otomatik olarak anahtarları düzenli olarak almasına olanak tanır.
 
-Bir anahtar ile hemen etkinleştirme oluşturulacağı durumlar olabilir. Bir örnek uygulama için bir saat boyunca çalışmamışsa ve tüm anahtar halkası anahtarlarında süresi dolmuş olabilir. Bu durumda, anahtar {şimdi} normal 2 günlük etkinleştirme gecikme olmadan bir etkinleştirme tarihi verilir.
+Anında etkinleştirme ile bir anahtarın oluşturulacağı durumlar olabilir. Bir örnek, uygulamanın bir süre boyunca çalıştırılmadığı zaman ve anahtar halkadaki tüm anahtarların süresi dolduğunda olacaktır. Bu durumda, anahtara normal 2 günlük etkinleştirme gecikmesi olmadan {Now} etkinleştirme tarihi verilir.
 
-Varsayılan anahtar yaşam süresi 90 gün, aşağıdaki örnekte olduğu gibi yapılandırılabilir ancak.
+Varsayılan anahtar yaşam süresi 90 gündür, ancak bu, aşağıdaki örnekte olduğu gibi yapılandırılabilir.
 
 ```csharp
 services.AddDataProtection()
@@ -59,26 +59,28 @@ services.AddDataProtection()
        .SetDefaultKeyLifetime(TimeSpan.FromDays(14));
 ```
 
-Açık bir çağrı olsa yönetici aynı zamanda varsayılan sistem genelinde değiştirebilirsiniz `SetDefaultKeyLifetime` tüm sistem genelinde bir ilke geçersiz kılar. Varsayılan anahtar yaşam süresi 7 günden daha kısa olamaz.
+Yönetici, varsayılan sistem genelinde de değişiklik yapabilir, ancak `SetDefaultKeyLifetime` açık çağrısı sistem genelinde tüm ilkeleri geçersiz kılar. Varsayılan anahtar yaşam süresi 7 günden daha kısa olamaz.
 
-## <a name="automatic-key-ring-refresh"></a>Otomatik anahtar halkası yenileme
+## <a name="automatic-key-ring-refresh"></a>Otomatik anahtar halkasını yenileme
 
-Veri koruma sisteminde başlatır, temel alınan depodan anahtar halkası okur ve bellekte önbelleğe alır. Bu önbellek yedekleme deposu ulaşmaktan olmadan devam etmek, koruma ve Unprotect işlemlere izin verir. Sistem otomatik olarak yaklaşık 24 saatte veya geçerli varsayılan anahtar süresi dolduğunda, hangisinin önce geldiğine bağlı değişiklikleri yedekleme deposu kontrol edecektir.
+Veri koruma sistemi başlatıldığında, temel alınan depodan anahtar halkasını okur ve bellekte önbelleğe alır. Bu önbellek, yedekleme deposuna girmeden devam etmek için koruma ve kaldırma işlemleri yapılmasına izin verir. Sistem, her 24 saatte bir veya geçerli varsayılan anahtarın ne zaman dolacağını, ne olursa olsun, değişiklikler için yedekleme deposunu otomatik olarak denetler.
 
 >[!WARNING]
-> Geliştiriciler gereken çok nadir (Şimdiye kadar değilse) anahtar yönetimi API'lerini doğrudan kullanmanız gerekir. Veri koruma sistemi otomatik anahtar yönetimi, yukarıda açıklanan şekilde gerçekleştirir.
+> Geliştiricilerin, anahtar yönetim API 'Lerini doğrudan kullanması gerekir (her zaman). Veri koruma sistemi, yukarıda açıklandığı şekilde otomatik anahtar yönetimi gerçekleştirecek.
 
-Veri koruma sisteminde bir arabirimi kullanıma sunan `IKeyManager` incelemek için anahtar halkası değişiklikler yapmak için kullanılabilir. Örneğini sağlanan DI sistem `IDataProtectionProvider` örneği de sağlayabilirsiniz `IKeyManager` tüketiminiz için. Alternatif olarak, çekme `IKeyManager` doğrudan gelen `IServiceProvider` aşağıdaki örnekte olduğu gibi.
+Veri koruma sistemi, anahtar halkasını incelemek ve değişiklikler yapmak için kullanılabilecek bir arabirim `IKeyManager` sunar. `IDataProtectionProvider` örneğini sağlayan dı sistemi, tüketiminize yönelik bir `IKeyManager` örneği de verebilir. Alternatif olarak, aşağıdaki örnekte olduğu gibi `IKeyManager` `IServiceProvider` düz olarak çekebilirsiniz.
 
-Anahtar (yeni bir anahtar açıkça oluşturma veya iptali gerçekleştirme) halkası değiştirir, herhangi bir işlem, bellek içi önbellek geçersiz kılar. Sonraki çağrı `Protect` veya `Unprotect` anahtar halkası yeniden okuyun ve önbelleği yeniden oluşturmak veri koruma sisteminde neden olur.
+Anahtar halkasını değiştiren tüm işlemler (açıkça veya iptal işlemi gerçekleştirerek), bellek içi önbelleği geçersiz kılar. `Protect` veya `Unprotect` sonraki çağrısı, veri koruma sisteminin anahtar halkasını yeniden kullanmasına ve önbelleğin yeniden oluşturulmasına neden olur.
 
-Aşağıdaki örneği kullanarak gösterir `IKeyManager` inceleyin ve belirtece anahtarları mevcut ve yeni bir anahtarı el ile oluşturma da dahil olmak üzere anahtar halkası işlemek için arabirim.
+Aşağıdaki örnek, anahtar halkasını denetlemek ve işlemek için, mevcut anahtarları iptal etme ve yeni bir anahtarı el ile oluşturma dahil olmak üzere `IKeyManager` arabirimini kullanmayı göstermektedir.
 
 [!code-csharp[](key-management/samples/key-management.cs)]
 
+[!INCLUDE[about the series](~/includes/code-comments-loc.md)]
+
 ## <a name="key-storage"></a>Anahtar depolama
 
-Veri koruma sisteminde verebileceğiniz bir uygun anahtar depolama konumu ve bekleyen şifreleme mekanizması otomatik olarak çıkarmaya çalışır bir buluşsal yönteme sahip. Anahtar kalıcılığı mekanizmasının Ayrıca uygulama geliştiricisi tarafından yapılandırılabilir. Aşağıdaki belgeler, bu mekanizmaların yerleşik uygulamalar açıklanmaktadır:
+Veri koruma sistemi, uygun bir anahtar depolama konumunu ve geri kalan şifreleme mekanizmasını otomatik olarak getirmeye çalıştığını bir buluşsal yöntem içerir. Anahtar Kalıcılık mekanizması, uygulama geliştiricisi tarafından da yapılandırılabilir. Aşağıdaki belgeler, bu mekanizmaların yerleşik uygulamalarını tartışır:
 
 * <xref:security/data-protection/implementation/key-storage-providers>
 * <xref:security/data-protection/implementation/key-encryption-at-rest>

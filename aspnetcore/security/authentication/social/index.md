@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 01/23/2020
 uid: security/authentication/social/index
-ms.openlocfilehash: 7d0f6647a6f5a4d41067b13acd3d294144027bb7
-ms.sourcegitcommit: eca76bd065eb94386165a0269f1e95092f23fa58
+ms.openlocfilehash: c698edbd85d665509366287b1dcad08e276e71cc
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76727324"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78668044"
 ---
 # <a name="facebook-google-and-external-provider-authentication-in-aspnet-core"></a>ASP.NET Core Facebook, Google ve dış sağlayıcı kimlik doğrulaması
 
@@ -30,16 +30,16 @@ Sosyal oturumların trafik ve müşteri dönüştürmelerini nasıl ve ne şekil
 
 ## <a name="create-a-new-aspnet-core-project"></a>Yeni bir ASP.NET Core projesi oluştur
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-* Yeni bir proje oluşturun.
+* Yeni bir proje oluşturma.
 * **ASP.NET Core Web uygulaması** ' nı ve **İleri ' yi**seçin.
 * Bir **Proje adı** girin ve **konumu**onaylayın veya değiştirin. **Oluştur**’u seçin.
 * Açılan kutuda ASP.NET Core en son sürümünü (**ASP.NET Core {X. Y}** ) seçin ve ardından **Web uygulaması**' nı seçin.
 * **Kimlik doğrulaması**altında **Değiştir** ' i seçin ve kimlik doğrulamasını **bireysel kullanıcı hesapları**olarak ayarlayın. **Tamam**’ı seçin.
 * **Yeni ASP.NET Core Web uygulaması oluştur** penceresinde **Oluştur**' u seçin.
 
-# <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Visual Studio Code/Mac için Visual Studio](#tab/visual-studio-code+visual-studio-mac)
+# <a name="visual-studio-code--visual-studio-for-mac"></a>[Visual Studio Code/Mac için Visual Studio](#tab/visual-studio-code+visual-studio-mac)
 
 * Terminali açın.  Visual Studio Code için [Tümleşik Terminal](https://code.visualstudio.com/docs/editor/integrated-terminal)' i açabilirsiniz.
 
@@ -111,7 +111,7 @@ Bir parola oluşturmak ve dış sağlayıcılar ile oturum açma işlemi sıras�
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* Oturum açma düğmelerinin nasıl özelleştirileceği hakkında bilgi edinmek için [Bu GitHub sorununa](https://github.com/aspnet/AspNetCore.Docs/issues/10563) bakın.
+* Oturum açma düğmelerinin nasıl özelleştirileceği hakkında bilgi edinmek için [Bu GitHub sorununa](https://github.com/dotnet/AspNetCore.Docs/issues/10563) bakın.
 * Bu makalede dış kimlik doğrulaması tanıtılmıştır ve ASP.NET Core uygulamanıza dış oturum açma bilgileri eklemek için gereken önkoşullar açıklanacaktır.
 * Uygulamanız için gereken sağlayıcıları için oturum açma işlemlerini yapılandırmak üzere sağlayıcıya özgü sayfalara başvurun.
 * Kullanıcı ve bunların erişim ve yenileme belirteçleriyle ilgili ek verileri kalıcı hale getirmek isteyebilirsiniz. Daha fazla bilgi için bkz. <xref:security/authentication/social/additional-claims>.

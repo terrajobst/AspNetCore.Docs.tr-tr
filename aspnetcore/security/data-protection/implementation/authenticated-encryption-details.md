@@ -1,40 +1,40 @@
 ---
 title: ASP.NET Core kimliği doğrulanmış şifreleme ayrıntıları
 author: rick-anderson
-description: ASP.NET Core veri koruma kimliği doğrulanmış şifreleme uygulama ayrıntıları öğrenin.
+description: ASP.NET Core veri koruma kimliği doğrulanmış şifrelemenin uygulama ayrıntılarını öğrenin.
 ms.author: riande
 ms.date: 10/14/2016
 uid: security/data-protection/implementation/authenticated-encryption-details
 ms.openlocfilehash: 9def03e6b27e19fc34a839e923d6152e086889db
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64902663"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78667764"
 ---
 # <a name="authenticated-encryption-details-in-aspnet-core"></a>ASP.NET Core kimliği doğrulanmış şifreleme ayrıntıları
 
 <a name="data-protection-implementation-authenticated-encryption-details"></a>
 
-Kimliği doğrulanmış şifreleme IDataProtector.Protect çağrıları işlemlerdir. Bu Idataprotector örnekte kendi kök IDataProtectionProvider türetmek için kullanılan amaçlı zinciri bağlıdır ve koruma yöntemi hem gizliliği ve kimlik doğrulama sunar.
+Idataprotector. Protect çağrısı kimliği doğrulanmış şifreleme operasyonlardır. Koru yöntemi hem gizlilik hem de özgünlük sağlar ve bu belirli ıdataprotector örneğini kök ıdataprotectionprovider 'dan türetmede kullanılan amaç zincirine bağlıdır.
 
-IDataProtector.Protect bayt [] düz metin parametre alır ve aşağıda açıklanan biçimde bir bayt [] korumalı yükü üretir. (Var. Ayrıca bir dize düz metin parametresi alan ve bir dize korumalı yükü döndüren bir genişletme yöntemi aşırı yüklemesi Bu API kullanılıyorsa, korumalı yükü biçimde hala olan yapısı, aşağıda ancak olur [base64url kodlu](https://tools.ietf.org/html/rfc4648#section-5).)
+Idataprotector. Protect bir Byte [] düz metin parametresi alır ve biçimi aşağıda açıklanan bir Byte [] korumalı yük üretir. (Ayrıca bir dize düz metin parametresi alan ve bir dize korumalı yük döndüren bir genişletme yöntemi aşırı yüklemesi de vardır. Bu API kullanılıyorsa, korumalı yük biçimi yine de aşağıdaki yapıya sahip olur, ancak [base64url-Encoded](https://tools.ietf.org/html/rfc4648#section-5)olur.)
 
 ## <a name="protected-payload-format"></a>Korumalı yük biçimi
 
-Korumalı yük biçimi üç birincil bileşenden oluşur:
+Korumalı yük biçimi üç ana bileşenden oluşur:
 
-* Veri koruma sisteminde sürümünü tanımlayan bir 32-bit Sihirli üstbilgisi.
+* Veri koruma sisteminin sürümünü tanımlayan 32 bitlik bir sihirli üst bilgi.
 
-* Bu belirli yük korumak için kullanılan anahtarı tanımlar 128 bit anahtar kimliği.
+* Bu belirli yükü korumak için kullanılan anahtarı tanımlayan 128 bitlik bir anahtar kimliği.
 
-* Korumalı yük kalan [bu anahtara göre kapsüllenmiş Şifreleyici özgü](xref:security/data-protection/implementation/subkeyderivation#data-protection-implementation-subkey-derivation). Aşağıdaki örnekte, bir AES 256 CBC + HMACSHA256 Şifreleyici tuşunu temsil eder ve yükü daha ayrıntılı şekilde ayrılır:
-  * 128 bit anahtar değiştiricisi.
-  * Bir 128-bit başlatma vektörü.
-  * AES 256 CBC çıkış 48 bayt.
-  * HMACSHA256 kimlik doğrulaması etiketi.
+* Korunan yükün geri kalanı, [Bu anahtarla kapsüllenmiş Şifreleyici 'ye özgüdür](xref:security/data-protection/implementation/subkeyderivation#data-protection-implementation-subkey-derivation). Aşağıdaki örnekte, anahtar AES-256-CBC + HMACSHA256 Şifreleyici 'yi temsil eder ve yük daha sonra aşağıdaki gibi bölünür:
+  * 128 bitlik bir anahtar değiştiricisi.
+  * 128 bitlik bir başlatma vektörü.
+  * 48 bayt AES-256-CBC çıkışı.
+  * Bir HMACSHA256 kimlik doğrulama etiketi.
 
-Bir korumalı örnek yük aşağıda gösterilmiştir.
+Örnek korumalı yük aşağıda gösterilmiştir.
 
 ```
 09 F0 C9 F0 80 9C 81 0C 19 66 19 40 95 36 53 F8
@@ -48,11 +48,11 @@ AA FF EE 57 57 2F 40 4C 3F 7F CC 9D CC D9 32 3E
 52 C9 74 A0
 ```
 
-(09 F0 C9 F0) sürümünü tanımlayan Sihirli üstbilgi ilk 32 bit veya 4 bayt yukarıda yük biçimi arasındadır
+İlk 32 bitin üzerindeki yük biçiminden veya 4 bayt sürümü tanımlayan sihirli üst bilgi (09 F0 C9 F0)
 
-Sonraki 128 bit ya da 16 bayt olan anahtar tanımlayıcısı (80 9C 81 0C 19 66 19 40 95 36 53 F8 AA FF EE 57)
+Sonraki 128 bit veya 16 bayt anahtar tanımlayıcısıdır (80 9C 81 0C 19 66 19 40 95 36 53 F8 AA FF EE 57)
 
-Kalan yükü içerir ve kullanılan biçimi özgüdür.
+Kalan, yükü içerir ve kullanılan biçime özeldir.
 
 > [!WARNING]
-> Belirli bir anahtarın için korunan tüm yükleri aynı 20 baytlık (Sihirli değeri, anahtar kimliği) üst bilgisi ile başlar. Yöneticiler, bir yük oluşturulduğunda yaklaşık olarak belirlemenizi sağlayan bu olgu tanılama amacıyla kullanabilir. Örneğin, yukarıdaki yükü {0c819c80-6619-4019-9536-53f8aaffee57} anahtarına karşılık gelir. Anahtar deposu denetledikten sonra bu belirli bir anahtarın etkinleştirme tarihine gelindiğinden 2015-01-01 ve 2015-03-01, sona erme tarihine gelindiğinden sonra varsayımında şüphelenilebilir fark ederseniz yük (değiştirilmiş değil) sağlar, pencere içinde oluşturulan veya küçük olması Her iki tarafında karamelli faktörü.
+> Belirli bir anahtara korunan tüm yüklerin aynı 20 baytlık (sihirli değer, anahtar kimliği) üst bilgisi ile başlaması gerekir. Yöneticiler bu olguyu, bir yükün ne zaman oluşturulduğunu yaklaşık olarak tanılama amacıyla kullanabilir. Örneğin, yukarıdaki yük {0c819c80-6619-4019-9536-53f8aaffee57} anahtarına karşılık gelir. Anahtar deposunu denetledikten sonra, bu anahtarın etkinleştirme tarihinin 2015-01-01 olduğunu ve sona erme tarihi 2015-03-01 olduğunu fark ederseniz, bu pencerede yükün (üzerinde oynanmadıysa) Bu pencerede oluşturulduğunu varsaymak mantıklı, Her iki tarafta da bir faktör vardır.

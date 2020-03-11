@@ -1,6 +1,6 @@
-# <a name="gdpr-sample"></a>GDPR örnek
+# <a name="gdpr-sample"></a>GDPR örneği
 
-* İçinde *appsettings.json*ayarlayın `CheckNotConsentNeeded` için `false` onay; zorunlu tutmak için true ya da atlamak için Aksi takdirde ayarlayın. Uygulamayı test `CheckNotConsentNeeded` kümesine `false` ayarlanmış ve `true`.
-* Temel ve gerekli olmayan tanımlama bilgileri ile her çeşitlemesi Oluştur `CheckConsentNeeded` ve onay verilmiş.
-* Bir kullanıcı kaydı.
+* *AppSettings. JSON*içinde `CheckNotConsentNeeded` onay gerektirmek için `false` olarak ayarlayın; Aksi halde doğru olarak ayarlayın veya atlayın. Uygulamayı `false` ve `true`olarak ayarlayın `CheckNotConsentNeeded` ile test edin.
+* `CheckConsentNeeded` ve onay verilen her çeşitlemesiyle temel ve temel olmayan tanımlama bilgilerini oluşturun.
+* Bir kullanıcıyı kaydedin.
 * Tanımlama bilgilerini silin.

@@ -8,17 +8,17 @@ ms.custom: mvc
 ms.date: 08/03/2019
 uid: fundamentals/localization-extensibility
 ms.openlocfilehash: dfa2efe78b2e1e118e6b3f09bfc41f3330e1d721
-ms.sourcegitcommit: 020c3760492efed71b19e476f25392dda5dd7388
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/12/2019
-ms.locfileid: "72288944"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78662101"
 ---
 # <a name="localization-extensibility"></a>Yerelleştirme genişletilebilirliği
 
 , [Hisham bin Ateya](https://github.com/hishamco) tarafından
 
-Bu makale:
+Bu makalede:
 
 * Yerelleştirme API 'Lerinde genişletilebilirlik noktalarını listeler.
 * ASP.NET Core uygulama yerelleştirmesini genişletme hakkında yönergeler sağlar.

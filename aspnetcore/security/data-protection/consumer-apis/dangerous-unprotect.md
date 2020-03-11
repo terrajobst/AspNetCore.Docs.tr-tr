@@ -1,47 +1,47 @@
 ---
-title: ASP.NET Core anahtarları iptal edilen yüklerin korumasını kaldırma
+title: ASP.NET Core anahtarları iptal edilen yüklerin korumasını kaldır
 author: rick-anderson
-description: Sonra ASP.NET Core uygulamanızı iptal edilmiş anahtarlara sahip korumalı veri korumasını öğrenin.
+description: ASP.NET Core bir uygulamada, bu yana gelen anahtarlarla korunan verilerin korumasını kaldırma hakkında bilgi edinin.
 ms.author: riande
 ms.custom: mvc
 ms.date: 10/24/2018
 uid: security/data-protection/consumer-apis/dangerous-unprotect
 ms.openlocfilehash: 26061d048dcd9c1e3d8909e9388d8b565376fa2f
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64902909"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78666602"
 ---
-# <a name="unprotect-payloads-whose-keys-have-been-revoked-in-aspnet-core"></a>ASP.NET Core anahtarları iptal edilen yüklerin korumasını kaldırma
+# <a name="unprotect-payloads-whose-keys-have-been-revoked-in-aspnet-core"></a>ASP.NET Core anahtarları iptal edilen yüklerin korumasını kaldır
 
 <a name="data-protection-consumer-apis-dangerous-unprotect"></a>
 
-ASP.NET Core veri koruma API'lerini öncelikle amaçlanmayan gizli yükü belirsiz kalıcılığını. Diğer teknolojiler ister [Windows CNG DPAPI](https://msdn.microsoft.com/library/windows/desktop/hh706794%28v=vs.85%29.aspx) ve [Azure Rights Management](/rights-management/) belirsiz depolama senaryosu için daha uygundur ve bunlar gelenlere güçlü anahtar yönetim olanaklarına sahip olursunuz. Bu, gizli verilerin uzun dönem koruma için ASP.NET Core veri koruma API'lerini kullanarak bir geliştirici yasaklanması bir şey yoktur söylenir. Anahtarları asla kaldırılır anahtar halka dışında bu nedenle `IDataProtector.Unprotect` anahtarlar kullanılabilir ve geçerli olduğu sürece her zaman var olan yükü kurtarabilirsiniz.
+ASP.NET Core veri koruma API 'Leri öncelikle gizli yüklerin sınırsız kalıcılığı için tasarlanmamıştır. [WINDOWS CNG DPAPI](https://msdn.microsoft.com/library/windows/desktop/hh706794%28v=vs.85%29.aspx) ve [Azure Rights Management](/rights-management/) gibi diğer teknolojiler, sınırsız depolama senaryosuna daha uygundur ve bunlara karşılık olarak güçlü anahtar yönetim özelliklerine sahiptir. Yani, bir geliştiricinin gizli verilerin uzun süreli korunması için ASP.NET Core veri koruma API 'Lerini kullanmasını engelleyen bir şey yoktur. Anahtarlar hiçbir zaman anahtar halkadan kaldırılmaz, bu nedenle `IDataProtector.Unprotect` anahtarlar kullanılabilir ve geçerli olduğu sürece mevcut yükleri her zaman kurtarabilirler.
 
-Ancak, geliştirici olarak iptal edilen bir anahtar ile korunan verilerin korumasını çalıştığında bir sorun ortaya çıkar `IDataProtector.Unprotect` bu durumda bir özel durum oluşturur. Sistem tarafından bu tür yüklerini kolayca yeniden oluşturulabilir ve en kötü olasılıkla ziyaretçi yeniden oturum açmak için gerekli olabilir, bu bağlantı için (örneğin, kimlik doğrulama belirteçlerinizi), kısa süreli veya geçici yükü olabilir. Ancak sahip kalıcı yüklerini `Unprotect` throw kabul edilebilir veri kaybına neden olabilir.
+Ancak geliştirici, iptal edilmiş bir anahtarla korunan verilerin korumasını denediğinde, `IDataProtector.Unprotect` bu durumda bir özel durum oluşturdukça bir sorun ortaya çıkar. Bu yük türleri sistem tarafından kolayca yeniden oluşturulabilir ve en kötü site ziyaretçisinin tekrar oturum açması gerekebilecek için, kısa süreli veya geçici yüklere (kimlik doğrulama belirteçleri gibi) uygun olabilir. Ancak kalıcı yükleri için `Unprotect` throw olması, kabul edilemez veri kaybına neden olabilir.
 
 ## <a name="ipersisteddataprotector"></a>IPersistedDataProtector
 
-İptal edilen anahtarları karşılaşıldığında bile korumasız olacak şekilde yüklerini zorlu senaryoyu desteklemek için veri koruma sisteminde içeren bir `IPersistedDataProtector` türü. Bir kopyasını almak için `IPersistedDataProtector`, yalnızca bir örneğini almak `IDataProtector` normal bir biçimde ve deneyin atama `IDataProtector` için `IPersistedDataProtector`.
+İptal edilen anahtarların yanında bile yüklerin korumasız hale geçmesine izin verme senaryosunu desteklemek için, veri koruma sistemi bir `IPersistedDataProtector` türü içerir. Bir `IPersistedDataProtector`örneğini almak için, normal biçimde `IDataProtector` bir örneğini alın ve `IDataProtector` `IPersistedDataProtector`için dönüştürmeyi deneyin.
 
 > [!NOTE]
-> Tüm `IDataProtector` örnekleri yayımlanabilir `IPersistedDataProtector`. Geliştiricilerin kullanması gereken C# işleci olarak ya da benzeri çalışma zamanı özel durumları engellemek için neden tarafından geçersiz yayınları ve hata durumunda uygun şekilde işlemeye hazırlıklı olmalıdır.
+> `IDataProtector` örneklerinin tümü `IPersistedDataProtector`atanamaz. Geliştiriciler, geçersiz yayınları C# neden olan çalışma zamanı özel durumlarını önlemek için as işlecini veya benzer şekilde kullanmalıdır ve hata durumunu uygun şekilde işleyecek şekilde hazırlanmalıdır.
 
-`IPersistedDataProtector` Aşağıdaki API yüzeyi kullanıma sunar:
+`IPersistedDataProtector` aşağıdaki API yüzeyini kullanıma sunar:
 
 ```csharp
 DangerousUnprotect(byte[] protectedData, bool ignoreRevocationErrors,
      out bool requiresMigration, out bool wasRevoked) : byte[]
 ```
 
-Bu API, korumalı Yükü (olarak, bir bayt dizisi) alır ve korumasız yükü döndürür. Hiçbir dize tabanlı aşırı yüklemesi vardır. İki out parametreleri aşağıdaki gibidir.
+Bu API, korumalı yükü (bir bayt dizisi olarak) alır ve korumasız yükü döndürür. Dize tabanlı aşırı yükleme yoktur. İki out parametresi aşağıdaki gibidir.
 
-* `requiresMigration`: Bu yükü korumak için kullanılan anahtarı artık etkin varsayılan anahtardır, örneğin, bu yükü korumak için kullanılan anahtarı eski ve işlem çalışırken bir anahtar beri varsa true olarak ayarlanırsa, gerçekleştirilen. Çağıran, yükü işletme gereksinimlerine bağlı olarak bulunmayı dikkate alınması gereken isteyebilir.
+* `requiresMigration`: Bu yükü korumak için kullanılan anahtar artık etkin varsayılan anahtar değilse true olarak ayarlanacak. Örneğin, bu yükü korumak için kullanılan anahtar eski ve bir anahtar toplama işlemi gerçekleştiğinden daha sonra çalışır. Çağıran, iş ihtiyaçlarına bağlı olarak yükü yeniden korumayı düşünmek isteyebilir.
 
-* `wasRevoked`: Bu yükü korumak için kullanılan anahtarı iptal edildi durumunda true olarak ayarlayın.
+* `wasRevoked`: Bu yükü korumak için kullanılan anahtar iptal edildiyse, true olarak ayarlanır.
 
 >[!WARNING]
-> Dikkatli aşırı geçerken `ignoreRevocationErrors: true` için `DangerousUnprotect` yöntemi. Bu yöntemi çağrıldıktan sonra eğer `wasRevoked` değeri true ise daha sonra bu yükü korumak için kullanılan anahtarı iptal edildi ve yükü'nın kimlik doğrulaması şüpheli olarak değerlendirilmelidir. Bu durumda, yalnızca korumasız yükünü, örneğin gerçek, olduğundan bazı ayrı güvencesi varsa çalışan bir güvenilmeyen web istemcisi tarafından gönderilen yerine güvenli bir veritabanında geldiğinden emin devam edin.
+> `DangerousUnprotect` yöntemine `ignoreRevocationErrors: true` geçirirken çok dikkatli olun. Bu yöntemi çağırdıktan sonra `wasRevoked` değeri true olduğunda, bu yükü korumak için kullanılan anahtar iptal edilir ve yükün kimlik doğrulaması şüpheli olarak değerlendirilmelidir. Bu durumda, gerçek bir güveninin, örneğin güvenilmeyen bir Web istemcisi tarafından gönderilmesi yerine güvenli bir veritabanından geldiği durumlarda, yalnızca korumasız yük üzerinde çalışmaya devam edin.
 
 [!code-csharp[](dangerous-unprotect/samples/dangerous-unprotect.cs)]

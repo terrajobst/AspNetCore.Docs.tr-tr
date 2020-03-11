@@ -1,72 +1,72 @@
 ---
-title: ASP.NET core'da TransactionAffinity ile nesne yeniden kullanma
+title: ASP.NET Core içinde ObjectPool ile nesne yeniden kullanımı
 author: rick-anderson
-description: TransactionAffinity kullanarak ASP.NET Core uygulamalarında performans artırmaya yönelik ipuçları.
+description: ObjectPool kullanan ASP.NET Core uygulamalarında performansı artırmaya yönelik ipuçları.
 monikerRange: '>= aspnetcore-1.1'
 ms.author: riande
 ms.date: 04/11/2019
 uid: performance/ObjectPool
 ms.openlocfilehash: 771f19e54a908b8b2cd85ff72f368f16e94a2310
-ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67815520"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78666112"
 ---
-# <a name="object-reuse-with-objectpool-in-aspnet-core"></a>ASP.NET core'da TransactionAffinity ile nesne yeniden kullanma
+# <a name="object-reuse-with-objectpool-in-aspnet-core"></a>ASP.NET Core içinde ObjectPool ile nesne yeniden kullanımı
 
-Tarafından [Steve Gordon](https://twitter.com/stevejgordon), [Ryan Nowak](https://github.com/rynowak), ve [Rick Anderson](https://twitter.com/RickAndMSFT)
+, [Steve Gordon](https://twitter.com/stevejgordon), [Ryan şimdi ak](https://github.com/rynowak)ve [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-<xref:Microsoft.Extensions.ObjectPool> toplanabilir nesneler çöp yerine nesne grubu yeniden kullanım için bellekte tutulması destekler ASP.NET Core altyapısının bir parçasıdır.
+<xref:Microsoft.Extensions.ObjectPool>, nesnelerin çöp toplanmasına izin vermek yerine, bir nesne grubunu yeniden kullanım için bellekte tutmayı destekleyen ASP.NET Core altyapısının bir parçasıdır.
 
-Yönetilen nesneleri nesne havuzu kullanmak isteyebilirsiniz:
+Yönetilebilecek nesneler şunları içeriyorsa, nesne havuzunu kullanmak isteyebilirsiniz:
 
-- Pahalı tahsis başlatılamadı.
-- Bazı sınırlı kaynak temsil eder.
-- Tahmin edilebilir bir biçimde ve sık sık kullanılır.
+- Ayırma/başlatma pahalıdır.
+- Sınırlı bir kaynağı temsil eder.
+- Tahmin edilebilir ve sık kullanılır.
 
-Örneğin, ASP.NET Core framework yeniden kullanmak için bazı yerlerde nesne havuzu kullanır <xref:System.Text.StringBuilder> örnekleri. `StringBuilder` ayırır ve karakter verileri tutmak için kendi duyulan arabellekleri yöneten. ASP.NET Core düzenli olarak kullandığı `StringBuilder` uygulamak için özellikleri ve bunları yeniden bir performans kazancı sağlar.
+Örneğin, ASP.NET Core Framework <xref:System.Text.StringBuilder> örnekleri yeniden kullanmak için bazı yerlerde nesne havuzunu kullanır. `StringBuilder` karakter verilerini tutmak için kendi arabelleğini ayırır ve yönetir. ASP.NET Core düzenli olarak özellik uygulamak için `StringBuilder` kullanır ve bunları yeniden kullanmak bir performans avantajı sağlar.
 
-Nesne havuzu her zaman performansı değil:
+Nesne havuzu her zaman performansı iyileştirmez:
 
-- Bir nesnenin başlangıç maliyeti yüksek olmadığı sürece, nesne havuzdan almak genellikle daha yavaştır.
-- Havuz paylaştırılmamış olana kadar havuzu tarafından yönetilen nesnelere paylaştırılmamış değildir.
+- Bir nesnenin başlatma maliyeti yüksek değilse, havuzdan nesneyi almak genellikle daha yavaştır.
+- Havuz tarafından yönetilen nesneler, havuz serbest olarak ayrılana kadar ayrılmış değildir.
 
-Yalnızca uygulama veya kitaplık için gerçekçi senaryoları kullanarak performans verilerini topladıktan sonra nesne havuzu kullanın.
+Yalnızca uygulamanız veya kitaplığınız için gerçekçi senaryolar kullanarak performans verilerini topladıktan sonra nesne havuzunu kullanın.
 
-**UYARI: `ObjectPool` Uygulamayan `IDisposable`. Çıkarma gereken türleri ile kullanımı önerilmemektedir.**
+**Uyarı: `ObjectPool` `IDisposable`uygulamıyor. Bunu, aktiften çıkarma gerektiren türlerle kullanmanızı önermiyoruz.**
 
-**NOT: TransactionAffinity, tahsis nesneleri sayısına bir sınır yerleştirmez, nesneleri, korur sayısına bir sınır yerleştirir.**
+**UNUTMAYıN: ObjectPool, ayırabilecek nesne sayısına bir sınır yerleştirmez, saklanacak nesne sayısına bir sınır koyar.**
 
 ## <a name="concepts"></a>Kavramlar
 
-<xref:Microsoft.Extensions.ObjectPool.ObjectPool`1> -temel nesne havuzu Özet. Alma ve nesneleri döndürmek için kullanılır.
+<xref:Microsoft.Extensions.ObjectPool.ObjectPool`1>-temel nesne havuzu soyutlama. Nesneleri almak ve döndürmek için kullanılır.
 
-<xref:Microsoft.Extensions.ObjectPool.PooledObjectPolicy%601> -Bu nesneyi nasıl oluşturulduğunu ve nasıl özelleştirileceği uygulamak *sıfırlama* havuza geri döndürüldüğünde. Bu, doğrudan oluşturmak bir nesne havuzu geçirilebilir... VEYA
+<xref:Microsoft.Extensions.ObjectPool.PooledObjectPolicy%601>, bir nesnenin nasıl oluşturulduğunu ve havuza döndürüldüğünde nasıl *sıfırlandığını* özelleştirmek için bunu uygulayın. Bu, doğrudan oluşturduğunuz bir nesne havuzuna geçirilebilir.... VEYA
 
-<xref:Microsoft.Extensions.ObjectPool.ObjectPoolProvider.Create*> Nesne havuzu oluşturmak için bir üreteci olarak görev yapar.
+<xref:Microsoft.Extensions.ObjectPool.ObjectPoolProvider.Create*>, nesne havuzları oluşturmak için bir fabrika işlevi görür.
 <!-- REview, there is no ObjectPoolProvider<T> -->
 
-Bir uygulamada birden çok yolla TransactionAffinity kullanılabilir:
+ObjectPool bir uygulamada birden çok şekilde kullanılabilir:
 
-* Bir havuz örnekleme.
-* Bir havuzda kaydetme [bağımlılık ekleme](xref:fundamentals/dependency-injection) (dı) bir örneği olarak.
-* Kaydetme `ObjectPoolProvider<>` DI ve bir Fabrika kullanarak.
+* Havuz örneği oluşturuluyor.
+* Bir havuzu bir örnek olarak [bağımlılık ekleme](xref:fundamentals/dependency-injection) (dı) içinde kaydetme.
+* `ObjectPoolProvider<>`, DI 'ye kaydediliyor ve fabrika olarak kullanılıyor.
 
-## <a name="how-to-use-objectpool"></a>TransactionAffinity kullanma
+## <a name="how-to-use-objectpool"></a>ObjectPool kullanma
 
-Çağrı <xref:Microsoft.Extensions.ObjectPool.ObjectPool`1> bir nesne almak için ve <xref:Microsoft.Extensions.ObjectPool.ObjectPool`1.Return*> nesneyi döndürmek için.  Her nesnenin dönüş gereksinimi yoktur. Bir nesne döndürmeyin, çöp olarak toplanacak olacaktır.
+Nesne almak için <xref:Microsoft.Extensions.ObjectPool.ObjectPool`1> çağırın ve nesneyi döndürmek için <xref:Microsoft.Extensions.ObjectPool.ObjectPool`1.Return*>.  Her nesneyi döndürmenizde gereksinim yoktur. Bir nesne döndürmezseniz atık olarak toplanacaktır.
 
-## <a name="objectpool-sample"></a>TransactionAffinity örnek
+## <a name="objectpool-sample"></a>ObjectPool örneği
 
-Aşağıdaki kodu:
+Aşağıdaki kod:
 
-* Ekler `ObjectPoolProvider` için [bağımlılık ekleme](xref:fundamentals/dependency-injection) (dı) kapsayıcı.
-* Ekler ve yapılandırır `ObjectPool<StringBuilder>` DI kapsayıcısı.
-* Ekler `BirthdayMiddleware`.
+* [Bağımlılık ekleme](xref:fundamentals/dependency-injection) (dı) kapsayıcısına `ObjectPoolProvider` ekler.
+* Dı kapsayıcısına `ObjectPool<StringBuilder>` ekler ve yapılandırır.
+* `BirthdayMiddleware`ekler.
 
 [!code-csharp[](ObjectPool/ObjectPoolSample/Startup.cs?name=snippet)]
 
-Aşağıdaki kod uygular `BirthdayMiddleware`
+Aşağıdaki kod `BirthdayMiddleware` uygular
 
 [!code-csharp[](ObjectPool/ObjectPoolSample/BirthdayMiddleware.cs?name=snippet)]

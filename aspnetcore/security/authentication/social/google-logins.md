@@ -1,19 +1,19 @@
 ---
-title: ASP.NET Core 'de Google dış oturum açma kurulumu
+title: ASP.NET core'da Google dış oturum açma Kurulumu
 author: rick-anderson
-description: Bu öğreticide, Google hesabı kullanıcı kimlik doğrulamasının mevcut bir ASP.NET Core uygulamasına tümleştirilmesi gösterilmektedir.
+description: Bu öğreticide, mevcut bir ASP.NET Core uygulamasına Google hesabı kullanıcı kimlik doğrulaması tümleştirmesini gösterilmektedir.
 ms.author: riande
 ms.custom: mvc, seodec18
 ms.date: 10/30/2019
 uid: security/authentication/google-logins
 ms.openlocfilehash: 83f45143eca1be43410880bfd875a3fce1d2e9c9
-ms.sourcegitcommit: de0fc77487a4d342bcc30965ec5c142d10d22c03
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73143460"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78667512"
 ---
-# <a name="google-external-login-setup-in-aspnet-core"></a>ASP.NET Core 'de Google dış oturum açma kurulumu
+# <a name="google-external-login-setup-in-aspnet-core"></a>ASP.NET core'da Google dış oturum açma Kurulumu
 
 Tarafından [Valeriy Novyıtskyy](https://github.com/01binary) ve [Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -28,7 +28,7 @@ Bu öğreticide, kullanıcıların [önceki sayfada](xref:security/authenticatio
 * **ISTEMCI kimliğini** ve **istemci parolasını**kaydedin.
 * Siteyi dağıttığınızda, **Google konsolundan**yeni ortak URL 'yi kaydedin.
 
-## <a name="store-google-clientid-and-clientsecret"></a>Google ClientID ve ClientSecret 'i depola
+## <a name="store-google-clientid-and-clientsecret"></a>Store Google ClientID ve ClientSecret
 
 Google `Client ID` ve `Client Secret` gibi hassas ayarları [gizli yönetici](xref:security/app-secrets)ile depolayın. Bu öğreticinin amaçları doğrultusunda belirteçleri `Authentication:Google:ClientId` ve `Authentication:Google:ClientSecret`olarak adlandırın:
 
@@ -49,7 +49,7 @@ Google Service 'i `Startup.ConfigureServices`ekleyin:
 
 [!INCLUDE [default settings configuration](includes/default-settings2-2.md)]
 
-## <a name="sign-in-with-google"></a>Google ile oturum açın
+## <a name="sign-in-with-google"></a>Google ile oturum aç
 
 * Uygulamayı çalıştırın ve **oturum aç**' a tıklayın. Google ile oturum açma seçeneği görüntülenir.
 * Kimlik doğrulaması için Google 'a yönlendiren **Google** düğmesine tıklayın.
@@ -59,7 +59,7 @@ Google Service 'i `Startup.ConfigureServices`ekleyin:
 
 [!INCLUDE[](includes/chain-auth-providers.md)]
 
-Google kimlik doğrulaması tarafından desteklenen yapılandırma seçenekleri hakkında daha fazla bilgi için <xref:Microsoft.AspNetCore.Authentication.Google.GoogleOptions> API başvurusuna bakın. Bu, Kullanıcı hakkında farklı bilgiler istemek için kullanılabilir.
+Google kimlik doğrulaması tarafından desteklenen yapılandırma seçenekleri hakkında daha fazla bilgi için <xref:Microsoft.AspNetCore.Authentication.Google.GoogleOptions> API başvurusuna bakın. Bu kullanıcı ile ilgili farklı bilgi istemek için kullanılabilir.
 
 ## <a name="change-the-default-callback-uri"></a>Varsayılan geri çağırma URI 'sini değiştirme
 
@@ -68,11 +68,11 @@ Google kimlik doğrulaması tarafından desteklenen yapılandırma seçenekleri 
 ## <a name="troubleshooting"></a>Sorun giderme
 
 * Oturum açma işe yaramazsa ve herhangi bir hata alamıyorsanız, sorunu ayıklamanın daha kolay olması için geliştirme moduna geçin.
-* Kimlik `ConfigureServices``services.AddIdentity` çağırarak, ArgumentException 'de sonuçların doğrulanması denenerek, *' Signınscheme ' seçeneğinin sağlanması gerekir*. Bu öğreticide kullanılan proje şablonu bunun yapılmasını sağlar.
+* Kimlik `ConfigureServices``services.AddIdentity` çağırarak, ArgumentException 'de sonuçların doğrulanması denenerek, *' Signınscheme ' seçeneğinin sağlanması gerekir*. Bu öğreticide kullanılan proje şablonu, bu gerçekleştirilir sağlar.
 * Site veritabanı ilk geçiş uygulanarak oluşturulmadıysa, *istek hatasını Işlerken bir veritabanı işlemi başarısız oldu* . Veritabanını oluşturmak için **geçişleri Uygula** ' yı seçin ve hatanın ötesinde devam etmek için sayfayı yenileyin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* Bu makalede, Google ile kimlik doğrulaması yapabilirsiniz. [Önceki sayfada](xref:security/authentication/social/index)listelenen diğer sağlayıcılarla kimlik doğrulaması yapmak için benzer bir yaklaşımı izleyebilirsiniz.
+* Bu makalede, Google ile kimliğini nasıl doğrulayabileceğiniz gösterdi. [Önceki sayfada](xref:security/authentication/social/index)listelenen diğer sağlayıcılarla kimlik doğrulaması yapmak için benzer bir yaklaşımı izleyebilirsiniz.
 * Uygulamayı Azure 'da yayımladıktan sonra, Google API konsolundaki `ClientSecret` sıfırlayın.
-* `Authentication:Google:ClientId` ve `Authentication:Google:ClientSecret` Azure portal uygulama ayarları olarak ayarlayın. Yapılandırma sistemi, ortam değişkenlerinden anahtarları okumak üzere ayarlanır.
+* `Authentication:Google:ClientId` ve `Authentication:Google:ClientSecret` Azure portal uygulama ayarları olarak ayarlayın. Yapılandırma sistemi ortam değişkenlerinden anahtarları okumak için ayarlanır.

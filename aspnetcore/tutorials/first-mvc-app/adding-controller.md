@@ -6,15 +6,15 @@ ms.author: riande
 ms.date: 08/05/2017
 uid: tutorials/first-mvc-app/adding-controller
 ms.openlocfilehash: fb670902b0dafa7dce2b3372e550095387844936
-ms.sourcegitcommit: 57b85708f4cded99b8f008a69830cb104cd8e879
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75914244"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78666994"
 ---
 # <a name="add-a-controller-to-an-aspnet-core-mvc-app"></a>ASP.NET Core MVC uygulamasına denetleyici ekleme
 
-Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
+Gönderen [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 ::: moniker range=">= aspnetcore-3.0"
 
@@ -32,7 +32,7 @@ Bu kavramları, bu öğretici serisinde ele alınmaktadır ve bir film uygulamas
 
 ## <a name="add-a-controller"></a>Denetleyici ekleme
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * **Çözüm Gezgini**, denetleyiciler öğesine sağ tıklayın **> > denetleyicisi ekleyin**
   ![bağlamsal menü](adding-controller/_static/add_controller.png)
@@ -43,13 +43,13 @@ Bu kavramları, bu öğretici serisinde ele alınmaktadır ve bir film uygulamas
 
 * **Boş MVC denetleyicisi Ekle iletişim kutusunda**, **Merhaba worldcontroller** yazın ve **Ekle**' yi seçin.
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 **Gezgin** simgesini seçin ve ardından **Yeni Dosya > denetleyiciler** ' i (sağ tıklayın) ve yeni dosyayı *HelloWorldController.cs*olarak adlandırın.
 
   ![Bağlamsal menü](~/tutorials/first-mvc-app-xplat/adding-controller/_static/new_file.png)
 
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Mac için Visual Studio](#tab/visual-studio-mac)
+# <a name="visual-studio-for-mac"></a>[Mac için Visual Studio](#tab/visual-studio-mac)
 
 **Çözüm Gezgini**, denetleyiciler ' e sağ tıklayın **> yeni > dosya ekleyin**.
 ![bağlamsal menü](~/tutorials/first-mvc-app-mac/adding-controller/_static/add_controller.png)
@@ -88,11 +88,11 @@ Uygulamaya gözatıp hiçbir URL kesimini sağlamadığınızda, varsayılan ola
 
 İlk URL segmenti, çalıştırılacak denetleyici sınıfını belirler. `localhost:{PORT}/HelloWorld` **HelloWorld**denetleyici sınıfıyla eşlenir. URL segmentinin ikinci bölümü, sınıfındaki Action metodunu belirler. `localhost:{PORT}/HelloWorld/Index` `HelloWorldController` sınıfının `Index` yönteminin çalışmasına neden olur. Yalnızca `localhost:{PORT}/HelloWorld` göz atmanızı ve `Index` yöntemi varsayılan olarak çağrıldığına dikkat edin. Çünkü `Index`, açıkça bir yöntem adı belirtilmemişse bir denetleyicide çağrılacak olan varsayılan yöntemdir. URL segmentinin (`id`) üçüncü bölümü rota verileri içindir. Rota verileri öğreticide daha sonra açıklanmaktadır.
 
-konumuna gözatın `https://localhost:{PORT}/HelloWorld/Welcome`. `Welcome` yöntemi çalışır ve `This is the Welcome action method...`dize döndürür. Bu URL için, denetleyici `HelloWorld` ve `Welcome` Action yöntemidir. URL 'nin `[Parameters]` parçasını henüz kullanmadınız.
+`https://localhost:{PORT}/HelloWorld/Welcome` adresine gidin. `Welcome` yöntemi çalışır ve `This is the Welcome action method...`dize döndürür. Bu URL için, denetleyici `HelloWorld` ve `Welcome` Action yöntemidir. URL 'nin `[Parameters]` parçasını henüz kullanmadınız.
 
 ![Uygulamanın uygulama yanıtını gösteren tarayıcı penceresi, hoş geldiniz eylemi yöntemidir](~/tutorials/first-mvc-app/adding-controller/_static/welcome.png)
 
-URL 'den denetleyiciye bazı parametre bilgilerini geçirmek için kodu değiştirin. Örneğin: `/HelloWorld/Welcome?name=Rick&numtimes=4`. `Welcome` yöntemini aşağıdaki kodda gösterildiği gibi iki parametre içerecek şekilde değiştirin.
+URL 'den denetleyiciye bazı parametre bilgilerini geçirmek için kodu değiştirin. Örneğin, `/HelloWorld/Welcome?name=Rick&numtimes=4`. `Welcome` yöntemini aşağıdaki kodda gösterildiği gibi iki parametre içerecek şekilde değiştirin.
 
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/HelloWorldController.cs?name=snippet_2)]
 
@@ -146,7 +146,7 @@ Bu kavramları, bu öğretici serisinde ele alınmaktadır ve bir film uygulamas
 
 ## <a name="add-a-controller"></a>Denetleyici ekleme
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * **Çözüm Gezgini**, denetleyiciler öğesine sağ tıklayın **> > denetleyicisi ekleyin**
   ![bağlamsal menü](adding-controller/_static/add_controller.png)
@@ -157,13 +157,13 @@ Bu kavramları, bu öğretici serisinde ele alınmaktadır ve bir film uygulamas
 
 * **Boş MVC denetleyicisi Ekle iletişim kutusunda**, **Merhaba worldcontroller** yazın ve **Ekle**' yi seçin.
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 **Gezgin** simgesini seçin ve ardından **Yeni Dosya > denetleyiciler** ' i (sağ tıklayın) ve yeni dosyayı *HelloWorldController.cs*olarak adlandırın.
 
   ![Bağlamsal menü](~/tutorials/first-mvc-app-xplat/adding-controller/_static/new_file.png)
 
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Mac için Visual Studio](#tab/visual-studio-mac)
+# <a name="visual-studio-for-mac"></a>[Mac için Visual Studio](#tab/visual-studio-mac)
 
 **Çözüm Gezgini**, denetleyiciler ' e sağ tıklayın **> yeni > dosya ekleyin**.
 ![bağlamsal menü](~/tutorials/first-mvc-app-mac/adding-controller/_static/add_controller.png)
@@ -207,11 +207,11 @@ Uygulamaya gözatıp hiçbir URL kesimini sağlamadığınızda, varsayılan ola
 
 İlk URL segmenti, çalıştırılacak denetleyici sınıfını belirler. `localhost:{PORT}/HelloWorld` `HelloWorldController` sınıfıyla eşlenir. URL segmentinin ikinci bölümü, sınıfındaki Action metodunu belirler. `localhost:{PORT}/HelloWorld/Index` `HelloWorldController` sınıfının `Index` yönteminin çalışmasına neden olur. Yalnızca `localhost:{PORT}/HelloWorld` göz atmanızı ve `Index` yöntemi varsayılan olarak çağrıldığına dikkat edin. Bunun nedeni, bir yöntem adı açıkça belirtilmemişse bir denetleyicide çağrılacak olan varsayılan yöntemdir `Index`. URL segmentinin (`id`) üçüncü bölümü rota verileri içindir. Rota verileri öğreticide daha sonra açıklanmaktadır.
 
-konumuna gözatın `https://localhost:{PORT}/HelloWorld/Welcome`. `Welcome` yöntemi çalışır ve `This is the Welcome action method...`dize döndürür. Bu URL için, denetleyici `HelloWorld` ve `Welcome` Action yöntemidir. URL 'nin `[Parameters]` parçasını henüz kullanmadınız.
+`https://localhost:{PORT}/HelloWorld/Welcome` adresine gidin. `Welcome` yöntemi çalışır ve `This is the Welcome action method...`dize döndürür. Bu URL için, denetleyici `HelloWorld` ve `Welcome` Action yöntemidir. URL 'nin `[Parameters]` parçasını henüz kullanmadınız.
 
 ![Uygulamanın uygulama yanıtını gösteren tarayıcı penceresi, hoş geldiniz eylemi yöntemidir](~/tutorials/first-mvc-app/adding-controller/_static/welcome.png)
 
-URL 'den denetleyiciye bazı parametre bilgilerini geçirmek için kodu değiştirin. Örneğin: `/HelloWorld/Welcome?name=Rick&numtimes=4`. `Welcome` yöntemini aşağıdaki kodda gösterildiği gibi iki parametre içerecek şekilde değiştirin.
+URL 'den denetleyiciye bazı parametre bilgilerini geçirmek için kodu değiştirin. Örneğin, `/HelloWorld/Welcome?name=Rick&numtimes=4`. `Welcome` yöntemini aşağıdaki kodda gösterildiği gibi iki parametre içerecek şekilde değiştirin.
 
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/HelloWorldController.cs?name=snippet_2)]
 

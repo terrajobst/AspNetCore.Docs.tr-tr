@@ -4,14 +4,14 @@ author: jamesnk
 description: ASP.NET Core GRPC hizmetlerini, gRPC-Web kullanan tarayıcı uygulamalarından çağrılabilir olacak şekilde nasıl yapılandıracağınızı öğrenin.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: jamesnk
-ms.date: 02/10/2020
+ms.date: 02/16/2020
 uid: grpc/browser
-ms.openlocfilehash: 333fc8c4277bbac47042d4904c276e963186914a
-ms.sourcegitcommit: 85564ee396c74c7651ac47dd45082f3f1803f7a2
+ms.openlocfilehash: 3beeffc26ffd3c2dc85bfc22a46d97d5fd78d3d0
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77172273"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78664201"
 ---
 # <a name="use-grpc-in-browser-apps"></a>Tarayıcı uygulamalarında gRPC kullanma
 
@@ -49,7 +49,19 @@ Alternatif olarak, tüm hizmetleri, bir `services.AddGrpcWeb(o => o.GrpcWebEnabl
 
 [!code-csharp[](~/grpc/browser/sample/AllServicesSupportExample_Startup.cs?name=snippet_1&highlight=6,13)]
 
-ASP.NET Core CORS 'yi destekleyecek şekilde yapılandırmak gibi, tarayıcıdan gRPC-Web ' i çağırmak için bazı ek yapılandırmalar gerekebilir. Daha fazla bilgi için bkz. [cors desteği](xref:security/cors).
+### <a name="grpc-web-and-cors"></a>gRPC-Web ve CORS
+
+Tarayıcı güvenliği, bir Web sayfasının Web sayfasını sunduğundan farklı bir etki alanına istek yapmasını engeller. Bu kısıtlama, tarayıcı uygulamalarıyla gRPC Web çağrıları yapmak için geçerlidir. Örneğin, `https://www.contoso.com` tarafından sunulan bir tarayıcı uygulamasının, `https://services.contoso.com`barındırılan gRPC-Web hizmetlerinden çağrılması engellenir. Bu kısıtlamayı rahatmak için çapraz kaynak kaynak paylaşımı (CORS) kullanılabilir.
+
+Tarayıcı uygulamanızın çıkış noktaları arası gRPC-Web çağrıları yapmasına izin vermek için [ASP.NET Core 'de CORS](xref:security/cors)'yi ayarlayın. Yerleşik CORS desteğini kullanın ve <xref:Microsoft.AspNetCore.Cors.Infrastructure.CorsPolicyBuilder.WithExposedHeaders*>ile gRPC 'ye özgü üst bilgileri sunun.
+
+[!code-csharp[](~/grpc/browser/sample/CORS_Startup.cs?name=snippet_1&highlight=5-11,19,24)]
+
+Yukarıdaki kod:
+
+* CORS hizmetleri eklemek için `AddCors` çağırır ve gRPC 'ye özgü üst bilgileri sunan bir CORS ilkesi yapılandırır.
+* , Yönlendirmeden ve bitiş noktalarından önce CORS ara yazılımını eklemek için `UseCors` çağırır.
+* `endpoints.MapGrpcService<GreeterService>()` yönteminin `RequiresCors`ile CORS 'yi desteklediğini belirtir.
 
 ## <a name="call-grpc-web-from-the-browser"></a>Tarayıcıdan gRPC-Web 'i çağırma
 

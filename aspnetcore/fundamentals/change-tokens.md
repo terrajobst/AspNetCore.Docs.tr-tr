@@ -1,27 +1,25 @@
 ---
 title: ASP.NET Core değişiklik belirteçleriyle değişiklikleri Algıla
-author: guardrex
+author: rick-anderson
 description: Değişiklikleri izlemek için değişiklik belirteçlerini nasıl kullanacağınızı öğrenin.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.date: 10/07/2019
 uid: fundamentals/change-tokens
-ms.openlocfilehash: bb30d7a4c7dc82200821c60a49c314b246562111
-ms.sourcegitcommit: 3d082bd46e9e00a3297ea0314582b1ed2abfa830
+ms.openlocfilehash: 70451e219f1295b854e2f84aac55f0cfd1786b19
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72007213"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78656347"
 ---
 # <a name="detect-changes-with-change-tokens-in-aspnet-core"></a>ASP.NET Core değişiklik belirteçleriyle değişiklikleri Algıla
-
-Tarafından [Luke Latham](https://github.com/guardrex)
 
 ::: moniker range=">= aspnetcore-3.0"
 
 *Değişiklik belirteci* , durum değişikliklerini izlemek için kullanılan genel amaçlı, düşük düzey bir yapı taşıdır.
 
-[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/change-tokens/samples/) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
+[Örnek kodu görüntüleme veya indirme](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/change-tokens/samples/) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
 
 ## <a name="ichangetoken-interface"></a>Ichangetoken arabirimi
 
@@ -83,7 +81,7 @@ Yapılandırma dosyası `FileSystemWatcher`, tek bir yapılandırma dosyası de�
 
 Değişiklik bildirimleri için bir belirteç tüketicisi `Action` geri çağırma işlemini yapılandırma yeniden yükleme belirtecine kaydedin.
 
-`Startup.Configure`:
+`Startup.Configure` içinde:
 
 [!code-csharp[](change-tokens/samples/3.x/SampleApp/Startup.cs?name=snippet2)]
 
@@ -178,7 +176,7 @@ Aşağıdaki örnekte, dosyalar uygulamanın [içerik kökünde](xref:fundamenta
 
 `FileService`, bellek önbelleği hizmeti ile birlikte hizmet kapsayıcısına kaydedilir.
 
-`Startup.ConfigureServices`:
+`Startup.ConfigureServices` içinde:
 
 [!code-csharp[](change-tokens/samples/3.x/SampleApp/Startup.cs?name=snippet4)]
 
@@ -219,7 +217,7 @@ var compositeChangeToken =
 
 *Değişiklik belirteci* , durum değişikliklerini izlemek için kullanılan genel amaçlı, düşük düzey bir yapı taşıdır.
 
-[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/change-tokens/samples/) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
+[Örnek kodu görüntüleme veya indirme](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/change-tokens/samples/) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
 
 ## <a name="ichangetoken-interface"></a>Ichangetoken arabirimi
 
@@ -281,7 +279,7 @@ Yapılandırma dosyası `FileSystemWatcher`, tek bir yapılandırma dosyası de�
 
 Değişiklik bildirimleri için bir belirteç tüketicisi `Action` geri çağırma işlemini yapılandırma yeniden yükleme belirtecine kaydedin.
 
-`Startup.Configure`:
+`Startup.Configure` içinde:
 
 [!code-csharp[](change-tokens/samples/2.x/SampleApp/Startup.cs?name=snippet2)]
 
@@ -376,7 +374,7 @@ Aşağıdaki örnekte, dosyalar uygulamanın [içerik kökünde](xref:fundamenta
 
 `FileService`, bellek önbelleği hizmeti ile birlikte hizmet kapsayıcısına kaydedilir.
 
-`Startup.ConfigureServices`:
+`Startup.ConfigureServices` içinde:
 
 [!code-csharp[](change-tokens/samples/2.x/SampleApp/Startup.cs?name=snippet4)]
 

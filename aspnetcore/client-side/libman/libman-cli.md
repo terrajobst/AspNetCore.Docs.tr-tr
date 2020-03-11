@@ -9,11 +9,11 @@ no-loc:
 - SignalR
 uid: client-side/libman/libman-cli
 ms.openlocfilehash: 02d88d09805bd23a86ef924766373245fec7ff52
-ms.sourcegitcommit: 0b0e485a8a6dfcc65a7a58b365622b3839f4d624
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76928359"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78664635"
 ---
 # <a name="use-the-libman-cli-with-aspnet-core"></a>ASP.NET Core ile LibMan CLı kullanın
 
@@ -21,7 +21,7 @@ ms.locfileid: "76928359"
 
 [Libman](xref:client-side/libman/index) CLI, .NET Core 'un desteklendiği her yerde desteklenen platformlar arası bir araçtır.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Önkoşullar
 
 * [!INCLUDE [2.1-SDK](../../includes/2.1-SDK.md)]
 
@@ -157,7 +157,7 @@ libman install <LIBRARY> [-d|--destination] [--files] [-p|--provider] [--verbosi
 libman install [-h|--help]
 ```
 
-### <a name="arguments"></a>Arguments
+### <a name="arguments"></a>Bağımsız Değişkenler
 
 `LIBRARY`
 
@@ -336,7 +336,7 @@ libman uninstall <LIBRARY> [--verbosity]
 libman uninstall [-h|--help]
 ```
 
-### <a name="arguments"></a>Arguments
+### <a name="arguments"></a>Bağımsız Değişkenler
 
 `LIBRARY`
 
@@ -388,7 +388,7 @@ libman update <LIBRARY> [-pre] [--to] [--verbosity]
 libman update [-h|--help]
 ```
 
-### <a name="arguments"></a>Arguments
+### <a name="arguments"></a>Bağımsız Değişkenler
 
 `LIBRARY`
 
@@ -440,7 +440,7 @@ libman cache list [--files] [--libraries] [--verbosity]
 libman cache [-h|--help]
 ```
 
-### <a name="arguments"></a>Arguments
+### <a name="arguments"></a>Bağımsız Değişkenler
 
 `PROVIDER`
 

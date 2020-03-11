@@ -7,11 +7,11 @@ ms.custom: mvc
 ms.date: 4/05/2019
 uid: test/loadtests
 ms.openlocfilehash: 1fd77a767fb53b9276081dd712e13108094a0382
-ms.sourcegitcommit: cb6015f737b6a93127016ab0f21b58e34b624ff3
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "77004298"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78664691"
 ---
 # <a name="aspnet-core-loadstress-testing"></a>Yük/stres testini ASP.NET Core
 
@@ -25,7 +25,7 @@ Stres testleri, stres kapsamındaki bir uygulamanın hatadan kurtulacağını ve
 
 Visual Studio 2019, Visual Studio 'nun yük testi özellikleriyle son sürümüdür. Gelecekte yük testi araçları gerektiren müşteriler için Apache JMeter, Akamai CloudTest ve BlazeMeter gibi alternatif araçlar önerilir. Daha fazla bilgi için bkz. [Visual Studio 2019 sürüm notları](/visualstudio/releases/2019/release-notes-v16.0#test-tools).
 
-## <a name="visual-studio-tools"></a>Visual Studio Araçları
+## <a name="visual-studio-tools"></a>Visual Studio araçları
 
 Visual Studio, kullanıcıların Web performans ve yük testleri oluşturmalarına, geliştirmesine ve hata ayıklamasına olanak tanır. Bir Web tarayıcısında eylemleri kaydederek testler oluşturmak için bir seçenek mevcuttur.
 

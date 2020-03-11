@@ -6,12 +6,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 12/05/2019
 uid: tutorials/get-started-with-nswag
-ms.openlocfilehash: bd68e134fb71fd396a30ec9c674111bc8536860d
-ms.sourcegitcommit: 851b921080fe8d719f54871770ccf6f78052584e
+ms.openlocfilehash: 3eae5d3c66204a10806a8036c8f114af6c501b2c
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74944180"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78666056"
 ---
 # <a name="get-started-with-nswag-and-aspnet-core"></a>NSwag ve ASP.NET Core kullanmaya başlayın
 
@@ -19,13 +19,13 @@ ms.locfileid: "74944180"
 
 ::: moniker range=">= aspnetcore-2.1"
 
-[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/tutorials/web-api-help-pages-using-swagger/samples/2.1/TodoApi.NSwag) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
+[Örnek kodu görüntüleme veya indirme](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/tutorials/web-api-help-pages-using-swagger/samples/2.1/TodoApi.NSwag) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
 
 ::: moniker-end
 
 ::: moniker range="<= aspnetcore-2.0"
 
-[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/tutorials/web-api-help-pages-using-swagger/samples/2.0/TodoApi.NSwag) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
+[Örnek kodu görüntüleme veya indirme](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/tutorials/web-api-help-pages-using-swagger/samples/2.0/TodoApi.NSwag) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
 
 ::: moniker-end
 
@@ -47,7 +47,7 @@ NSwag ara yazılımını şu şekilde kaydedin:
 
 NSwag NuGet paketini yüklemek için aşağıdaki yaklaşımlardan birini kullanın:
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * **Paket Yöneticisi konsol** penceresinde:
   * **Diğer Windows** > **paket Yöneticisi konsolu** > **görüntüle** ' ye gidin
@@ -64,14 +64,14 @@ NSwag NuGet paketini yüklemek için aşağıdaki yaklaşımlardan birini kullan
   * Arama kutusuna "NSwag. AspNetCore" yazın
   * **Araştır** sekmesinden "NSwag. aspnetcore" paketini seçin ve sonra da **yüklensin** ' e tıklayın.
 
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Mac için Visual Studio](#tab/visual-studio-mac)
+# <a name="visual-studio-for-mac"></a>[Mac için Visual Studio](#tab/visual-studio-mac)
 
 * Paket Ekle ' **Çözüm Bölmesi** > *paketler* klasörüne sağ tıklayın **...**
 * **Paket Ekle** penceresinin **kaynak** açılan penceresini "NuGet.org" olarak ayarlayın
 * Arama kutusuna "NSwag. AspNetCore" yazın
 * Sonuçlar bölmesinden "NSwag. AspNetCore" paketini seçin ve **paket Ekle** ' ye tıklayın.
 
-# <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
+# <a name="net-core-cli"></a>[.NET Core CLI](#tab/netcore-cli)
 
 Şu komutu çalıştırın:
 
@@ -93,7 +93,7 @@ Aşağıdaki adımları gerçekleştirerek ASP.NET Core uygulamanızda Swagger e
 
 [!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/2.0/TodoApi.NSwag/Startup.cs?name=snippet_Configure&highlight=6-7)]
 
-* Uygulamayı başlatma. Şuraya gidin:
+* Uygulamayı başlatın. Şuraya gidin:
   * Swagger Kullanıcı arabirimini görüntülemek için `http://localhost:<port>/swagger`.
   * Swagger belirtimini görüntülemek için `http://localhost:<port>/swagger/v1/swagger.json`.
 
@@ -193,7 +193,7 @@ Swagger Kullanıcı arabirimi, sürümün bilgilerini görüntüler:
 
 XML açıklamalarını etkinleştirmek için aşağıdaki adımları uygulayın:
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 ::: moniker range=">= aspnetcore-2.0"
 
@@ -211,7 +211,7 @@ XML açıklamalarını etkinleştirmek için aşağıdaki adımları uygulayın:
 
 ::: moniker-end
 
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Mac için Visual Studio](#tab/visual-studio-mac)
+# <a name="visual-studio-for-mac"></a>[Mac için Visual Studio](#tab/visual-studio-mac)
 
 ::: moniker range=">= aspnetcore-2.0"
 
@@ -229,7 +229,7 @@ XML açıklamalarını etkinleştirmek için aşağıdaki adımları uygulayın:
 
 ::: moniker-end
 
-# <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
+# <a name="net-core-cli"></a>[.NET Core CLI](#tab/netcore-cli)
 
 Vurgulanan satırları *. csproj* dosyasına el ile ekleyin:
 

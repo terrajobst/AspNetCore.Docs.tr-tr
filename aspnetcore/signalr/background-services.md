@@ -9,12 +9,12 @@ ms.date: 11/12/2019
 no-loc:
 - SignalR
 uid: signalr/background-services
-ms.openlocfilehash: 324592759af79d1229eb147fb4551e97c678ef64
-ms.sourcegitcommit: 2cb857f0de774df421e35289662ba92cfe56ffd1
+ms.openlocfilehash: 86319cc93febab18c29e2fb6366cef0d025943ba
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75358684"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78658146"
 ---
 # <a name="host-aspnet-core-opno-locsignalr-in-background-services"></a>Arka plan hizmetlerinde ana bilgisayar ASP.NET Core SignalR
 
@@ -25,7 +25,7 @@ Bu makalede şu yönergelere kılavuzluk sunulmaktadır:
 * ASP.NET Core ile barındırılan arka plan çalışan işlemini kullanarak SignalR hub 'Ları barındırma.
 * .NET Core [Backgroundservice](xref:Microsoft.Extensions.Hosting.BackgroundService)içinden bağlı istemcilere ileti gönderme.
 
-[Örnek kodu görüntüleme veya indirme](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/signalr/background-service/sample/) [(nasıl indirileceği)](xref:index#how-to-download-a-sample)
+[Örnek kodu görüntüleme veya indirme](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/signalr/background-service/sample/) [(nasıl indirileceği)](xref:index#how-to-download-a-sample)
 
 ## <a name="enable-opno-locsignalr-in-startup"></a>Başlangıçta SignalR etkinleştir
 
@@ -121,7 +121,7 @@ Başlatma sırasında `ClockHubClient`, bir `HubConnection` örneğini oluşturu
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-* [Kullanmaya başlama](xref:tutorials/signalr)
+* [Başlarken](xref:tutorials/signalr)
 * [Merkezler](xref:signalr/hubs)
 * [Azure'a Yayımlama](xref:signalr/publish-to-azure-web-app)
 * [Türü kesin belirlenmiş hub 'Lar](xref:signalr/hubs#strongly-typed-hubs)

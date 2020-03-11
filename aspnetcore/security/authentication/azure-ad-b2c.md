@@ -7,11 +7,11 @@ ms.custom: mvc
 ms.date: 01/21/2019
 uid: security/authentication/azure-ad-b2c
 ms.openlocfilehash: 136fa47788456492a9a7fe6d9d9e5996c13e8c20
-ms.sourcegitcommit: eca76bd065eb94386165a0269f1e95092f23fa58
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76727279"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78663662"
 ---
 # <a name="cloud-authentication-with-azure-active-directory-b2c-in-aspnet-core"></a>ASP.NET Core Azure Active Directory B2C ile bulut kimlik doğrulaması
 
@@ -22,7 +22,7 @@ ms.locfileid: "76727279"
 > [!TIP]
 > Azure Active Directory (Azure AD) ve Azure AD B2C olan ayrı bir ürün teklifleri. Azure AD kiracısı, Azure AD B2C kiracısı ile bağlı olan taraf uygulamaları kullanılacak kimlikleri koleksiyonunu temsil ederken, bir kuruluşun temsil eder. Daha fazla bilgi için bkz. [Azure AD B2C: sık sorulan sorular (SSS)](/azure/active-directory-b2c/active-directory-b2c-faqs).
 
-Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz:
+Bu öğreticide, bilgi nasıl yapılır:
 
 > [!div class="checklist"]
 > * Azure Active Directory B2C kiracı oluşturma
@@ -30,7 +30,7 @@ Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz:
 > * Kimlik doğrulaması için Azure AD B2C kiracısını kullanacak şekilde yapılandırılmış bir ASP.NET Core Web uygulaması oluşturmak için Visual Studio 'Yu kullanma
 > * Azure AD B2C kiracının davranışını denetleyen ilkeleri yapılandırın
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu kılavuz için aşağıdakiler gereklidir:
 
@@ -47,12 +47,12 @@ Yeni oluşturulan Azure AD B2C kiracısında, **Web uygulaması kaydetme** böl�
 
 Aşağıdaki değerleri kullanın:
 
-| Ayar                       | Değer                     | Notlar                                                                                                                                                                                              |
+| Ayar                       | Value                     | Notlar                                                                                                                                                                                              |
 |-------------------------------|---------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **Ad**                      | *&lt;uygulama adı&gt;*        | Uygulamanızı tüketicilere açıklayan uygulama için bir **ad** girin.                                                                                                                                 |
-| **Web uygulamasını / web API'sini dahil etme** | Evet                       |                                                                                                                                                                                                    |
-| **Örtük akışa izin verme**       | Evet                       |                                                                                                                                                                                                    |
-| **Yanıt URL'si**                 | `https://localhost:44300/signin-oidc` | Yanıt URL'leri, Azure AD B2C'nin, uygulamanız tarafından istenen belirteçleri döndürdüğü uç noktalardır. Visual Studio, kullanılacak yanıt URL 'sini sağlar. Şimdilik, formu doldurmak için `https://localhost:44300/signin-oidc` girin. |
+| **Web uygulamasını / web API'sini dahil etme** | Yes                       |                                                                                                                                                                                                    |
+| **Örtük akışa izin verme**       | Yes                       |                                                                                                                                                                                                    |
+| **Yanıt URL'si**                 | `https://localhost:44300/signin-oidc` | Yanıt URL'leri, Azure AD B2C, uygulamanız tarafından istenen belirteçleri döndürdüğü uç noktalardır. Visual Studio, kullanılacak yanıt URL 'sini sağlar. Şimdilik, formu doldurmak için `https://localhost:44300/signin-oidc` girin. |
 | **Uygulama Kimliği URI'si**                | Boş bırakın               | Bu öğretici için gerekli değildir.                                                                                                                                                                    |
 | **Yerel istemci ekle**     | Hayır                        |                                                                                                                                                                                                    |
 
@@ -81,7 +81,7 @@ Visual Studio'da:
 
 5. Formu aşağıdaki değerlerle izleyin:
     
-    | Ayar                       | Değer                                                 |
+    | Ayar                       | Value                                                 |
     |-------------------------------|-------------------------------------------------------|
     | **Etki alanı adı**               | *B2C kiracınızın etki alanı adını &lt;&gt;*          |
     | **Uygulama KIMLIĞI**            | *&lt;uygulama KIMLIĞINI panodan yapıştırın&gt;* |
@@ -138,7 +138,7 @@ Visual Studio 'da **F5** ' e basarak uygulamayı derleyin ve çalıştırın. We
 
 Tarayıcı Azure AD B2C kiracıya yeniden yönlendirir. Mevcut bir hesapla oturum açın (ilkeleri test etmeyi oluşturulduysa) veya yeni bir hesap oluşturmak için **Şimdi kaydolun** ' ı seçin. Unutulan bir parolayı sıfırlamak için **parolanızı mı unuttunuz?** bağlantısı kullanılır.
 
-![Azure AD B2C oturum açma](./azure-ad-b2c/_static/b2csts.png)
+![Azure AD B2C oturumu açma](./azure-ad-b2c/_static/b2csts.png)
 
 Başarıyla oturum açtıktan sonra tarayıcı web uygulamasına yeniden yönlendirir.
 

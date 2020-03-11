@@ -1,62 +1,62 @@
 ---
-title: ASP.NET core'da görüntü etiketi Yardımcısı
+title: ASP.NET Core resim etiketi Yardımcısı
 author: pkellner
-description: Görüntü etiketi Yardımcısı ile çalışma işlemi gösterilmektedir.
+description: Resim etiketi Yardımcısı ile çalışmayı gösterir.
 ms.author: riande
 ms.custom: mvc
 ms.date: 04/06/2019
 uid: mvc/views/tag-helpers/builtin-th/image-tag-helper
 ms.openlocfilehash: 964072ad276f7e3e411ee41cb03a2efb9d05c585
-ms.sourcegitcommit: 7a40c56bf6a6aaa63a7ee83a2cac9b3a1d77555e
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67856123"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78663998"
 ---
-# <a name="image-tag-helper-in-aspnet-core"></a>ASP.NET core'da görüntü etiketi Yardımcısı
+# <a name="image-tag-helper-in-aspnet-core"></a>ASP.NET Core resim etiketi Yardımcısı
 
-Tarafından [Peter Kellner](https://peterkellner.net)
+By [Peter Kellner](https://peterkellner.net)
 
-Görüntü etiketi Yardımcısı geliştirir `<img>` statik resim dosyaları için önbellek busting davranışı sağlamak için etiket.
+Resim etiketi Yardımcısı, statik görüntü dosyaları için önbellek-busting davranışı sağlamak üzere `<img>` etiketini geliştirir.
 
-Bir önbellek busting dize varlığın URL'ye eklenen statik görüntü dosyasının bir karmasını temsil eden benzersiz bir değerdir. Benzersiz bir dize istemciler (ve bazı Ara sunucular) konak web sunucusu ve istemci önbelleğinden görüntü yeniden yüklemek ister.
+Önbellek-busting dizesi, varlığın URL 'sine eklenen statik görüntü dosyasının karmasını temsil eden benzersiz bir değerdir. Benzersiz dize, istemcilerin (ve bazı proxy 'lerde), görüntüyü istemci önbelleğinden değil, ana bilgisayar Web sunucusundan yeniden yüklemesi için istemde bulunur.
 
-Varsa resim kaynağını (`src`) konak web sunucusundaki bir statik dosya:
+Görüntü kaynağı (`src`), ana bilgisayar Web sunucusunda bir statik dosya ise:
 
-* Önbellek busting benzersiz bir dize, görüntü kaynağı için bir sorgu parametresi olarak eklenir.
-* Konak web sunucusunda dosyayı değişirse, güncelleştirilmiş istek parametresi içeren bir benzersiz istek URL'si oluşturulur.
+* Benzersiz bir önbellek-busting dizesi, resim kaynağına bir sorgu parametresi olarak eklenir.
+* Ana bilgisayar Web sunucusundaki dosya değişirse, güncelleştirilmiş istek parametresini içeren benzersiz bir istek URL 'SI oluşturulur.
 
-Etiket Yardımcıları genel bakış için bkz. <xref:mvc/views/tag-helpers/intro>.
+Etiket Yardımcıları hakkında genel bilgi için bkz. <xref:mvc/views/tag-helpers/intro>.
 
-## <a name="image-tag-helper-attributes"></a>Görüntü etiketi Yardımcısı öznitelikleri
+## <a name="image-tag-helper-attributes"></a>Resim etiketi Yardımcısı öznitelikleri
 
-### <a name="src"></a>src
+### <a name="src"></a>YN
 
-Görüntü etiketi Yardımcısı, etkinleştirme `src` öznitelik gerekli `<img>` öğesi.
+Resim etiketi yardımcısını etkinleştirmek için, `<img>` öğesinde `src` özniteliği gereklidir.
 
-Resim kaynağını (`src`) statik fiziksel bir dosya sunucusuna işaret etmelidir. Varsa `src` uzak bir URI önbelleği busting sorgu dizesi parametresi oluşturulmadığından.
+Görüntü kaynağı (`src`), sunucudaki bir fiziksel statik dosyayı göstermelidir. `src` uzak bir URI ise, önbellek-busting sorgu dizesi parametresi oluşturulmaz.
 
-### <a name="asp-append-version"></a>ASP ekleme sürümü
+### <a name="asp-append-version"></a>ASP-Append-sürüm
 
-Zaman `asp-append-version` ile belirtilen bir `true` değer ile birlikte bir `src` özniteliği, görüntü etiketi Yardımcısı çağrılır.
+`asp-append-version`, bir `src` özniteliğiyle birlikte bir `true` değeriyle belirtildiğinde, resim etiketi Yardımcısı çağrılır.
 
-Aşağıdaki örnek, bir görüntü etiketi Yardımcısı kullanır:
+Aşağıdaki örnek bir resim etiketi yardımcısını kullanır:
 
 ```cshtml
 <img src="~/images/asplogo.png" asp-append-version="true">
 ```
 
-Statik dosya dizininde bulunuyorsa */wwwroot/resimler/* , oluşturulan HTML (karma farklı olacaktır) aşağıdakine benzer:
+Statik dosya */Wwwroot/images/* dizininde varsa, oluşturulan HTML şuna benzerdir (karma farklı olur):
 
 ```html
 <img src="/images/asplogo.png?v=Kl_dqr9NVtnMdsM2MUg4qthUnWZm5T1fCEimBPWDNgM">
 ```
 
-Parametresine atanan değer `v` karma değeri *asplogo.png* diskteki dosya. Web sunucusu statik dosya için okuma erişimi alamadı ise hiçbir `v` parametresi eklenir `src` biçimlendirmenin özniteliği.
+`v` parametreye atanan değer, diskteki *asplogo. png* dosyasının karma değeridir. Web sunucusu statik dosyaya okuma erişimi alamadığında, işlenmiş İşaretlemede `src` özniteliğine `v` parametresi eklenmez.
 
 ## <a name="hash-caching-behavior"></a>Karma önbelleğe alma davranışı
 
-Görüntü etiketi Yardımcısı önbelleği sağlayıcısı hesaplanan depolamak için yerel web sunucusu üzerinde kullanır `Sha512` belirli bir dosya karması. Dosyanın birden çok kez istenirse, karma yeniden hesaplanması değil. Önbellek dosyaya eklenmiş bir dosya İzleyicisi tarafından geçersiz olduğunda dosyanın `Sha512` karma hesaplanır. Dosyanın diskte değiştiğinde yeni bir karma hesaplanır ve önbelleğe alınmış.
+Resim etiketi Yardımcısı, belirli bir dosyanın hesaplanmış `Sha512` karmasını depolamak için yerel Web sunucusundaki önbellek sağlayıcısını kullanır. Dosya birden çok kez isteniyorsa, karma yeniden hesaplanmadı. Önbellek, dosyanın `Sha512` karması hesaplandığında dosyaya iliştirilmiş bir dosya İzleyicisi tarafından geçersiz kılınır. Dosya diskte değiştiğinde yeni bir karma hesaplanır ve önbelleğe alınır.
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 

@@ -5,12 +5,12 @@ description: ASP.NET Core MVC 'nin, gelen isteklerin URL 'Lerini eşleştirmek v
 ms.author: riande
 ms.date: 12/05/2019
 uid: mvc/controllers/routing
-ms.openlocfilehash: 8cf7e74df292a614f287eff8561a22187f6558ce
-ms.sourcegitcommit: 7dfe6cc8408ac6a4549c29ca57b0c67ec4baa8de
+ms.openlocfilehash: 1116cc699f749a137638b75095a7172ad0d4858a
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75866065"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78663725"
 ---
 # <a name="routing-to-controller-actions-in-aspnet-core"></a>ASP.NET Core denetleyici eylemlerine yönlendirme
 
@@ -159,13 +159,13 @@ Rota koleksiyonundaki yollar sıralanır ve eklendikleri sırada işlenir. Bu ö
 > [!NOTE]
 > *Adanmış geleneksel yollar* genellıkle, URL yolunun kalan kısmını yakalamak için `{*article}` gibi catch-all Route parametrelerini kullanır. Bu, ' çok Greedy ' yolunu diğer yollarla eşleştirirken hedeflediğiniz URL 'Lerle eşleşen bir yol haline getirir. Bunu çözümlemek için ' Greedy ' yollarını daha sonra yol tablosuna koyun.
 
-### <a name="fallback"></a>Geri dönüş
+### <a name="fallback"></a>Dönüş
 
 İstek işlemenin bir parçası olarak, MVC, uygulamanızdaki bir denetleyiciyi ve eylemi bulmak için yol değerlerinin kullanılabileceğini doğrular. Rota değerleri bir eylemle eşleşmezse, yol eşleşme olarak kabul edilmez ve sonraki rota denenir. Buna *geri dönüş*denir ve geleneksel yolların çakıştığı durumları basitleştirmek için tasarlanmıştır.
 
 ### <a name="disambiguating-actions"></a>Kesinleştirme eylemleri
 
-İki eylem yönlendirme aracılığıyla eşleşiyorsa, MVC ' en iyi ' adayı seçmek için bir özel durum oluşturması veya bir özel durum oluşturmak için, MVC 'nin belirsizliğini Örneğin:
+İki eylem yönlendirme aracılığıyla eşleşiyorsa, MVC ' en iyi ' adayı seçmek için bir özel durum oluşturması veya bir özel durum oluşturmak için, MVC 'nin belirsizliğini Örnek:
 
 ```csharp
 public class ProductsController : Controller
@@ -559,7 +559,7 @@ Eylemler genel olarak Dolaştırılan veya Attribute olarak yönlendirilir. Bir 
 
 ## <a name="complex-segments"></a>Karmaşık segmentler
 
-Karmaşık segmentler (örneğin, `[Route("/dog{token}cat")]`), sabit değerli olmayan değişmez değerler ile sağdan sola eşleştirilirken işlenir. Bir açıklama için bkz. [kaynak kodu](https://github.com/aspnet/Routing/blob/9cea167cfac36cf034dbb780e3f783114ef94780/src/Microsoft.AspNetCore.Routing/Patterns/RoutePatternMatcher.cs#L296) . Daha fazla bilgi için [Bu soruna](https://github.com/aspnet/AspNetCore.Docs/issues/8197)bakın.
+Karmaşık segmentler (örneğin, `[Route("/dog{token}cat")]`), sabit değerli olmayan değişmez değerler ile sağdan sola eşleştirilirken işlenir. Bir açıklama için bkz. [kaynak kodu](https://github.com/aspnet/Routing/blob/9cea167cfac36cf034dbb780e3f783114ef94780/src/Microsoft.AspNetCore.Routing/Patterns/RoutePatternMatcher.cs#L296) . Daha fazla bilgi için [Bu soruna](https://github.com/dotnet/AspNetCore.Docs/issues/8197)bakın.
 
 <a name="routing-url-gen-ref-label"></a>
 
@@ -597,7 +597,7 @@ MVC, tüm öznitelik yönlendirilmiş eylemlerinin bir arama tablosunu oluşturu
 
 ### <a name="generating-urls-by-action-name"></a>Eylem adına göre URL 'Leri oluşturma
 
-`Url.Action` (`IUrlHelper` . `Action`) ve tüm ilgili aşırı yüklemeler, bir denetleyici adı ve eylem adı belirterek ne bağlandığınızı belirtmek istediğinizi temel alır.
+`Url.Action` (`IUrlHelper`. `Action`) ve tüm ilgili aşırı yüklemeler, bir denetleyici adı ve eylem adı belirterek ne bağlandığınızı belirtmek istediğinizi temel alır.
 
 > [!NOTE]
 > `Url.Action`kullanırken, `controller` ve `action` için geçerli yol değerleri sizin için belirtilir; `controller` değeri, `action` hem *ortam değerlerinin* **hem** de *değerlerinin*bir parçasıdır. `Url.Action`yöntemi her zaman `action` ve `controller` geçerli değerlerini kullanır ve geçerli eyleme yönlendiren bir URL yolu oluşturacaktır.

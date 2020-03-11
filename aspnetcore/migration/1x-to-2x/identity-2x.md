@@ -5,12 +5,12 @@ description: Bu makalede ASP.NET Core 1. x kimlik doğrulamasını ve kimliğini
 ms.author: scaddie
 ms.date: 06/21/2019
 uid: migration/1x-to-2x/identity-2x
-ms.openlocfilehash: f3817fa1808c331f7e167618e3bb00d68ad08571
-ms.sourcegitcommit: 2cb857f0de774df421e35289662ba92cfe56ffd1
+ms.openlocfilehash: af905f1127d504839f66d9e0e1ca1dfc27e32772
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75355175"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78667610"
 ---
 # <a name="migrate-authentication-and-identity-to-aspnet-core-20"></a>Kimlik doğrulaması ve kimliği 2,0 ASP.NET Core geçirin
 
@@ -219,7 +219,7 @@ Aşağıdaki iki seçenekten birini seçin ve *Startup.cs*'de gerekli değişikl
 
 ### <a name="microsoft-account-authentication"></a>Microsoft Hesabı kimlik doğrulaması
 
-Microsoft hesabı kimlik doğrulaması hakkında daha fazla bilgi için [Bu GitHub sorununa](https://github.com/aspnet/AspNetCore.Docs/issues/14455)bakın.
+Microsoft hesabı kimlik doğrulaması hakkında daha fazla bilgi için [Bu GitHub sorununa](https://github.com/dotnet/AspNetCore.Docs/issues/14455)bakın.
 
 *Startup.cs*içinde aşağıdaki değişiklikleri yapın:
 - `Configure` yönteminde `UseMicrosoftAccountAuthentication` yöntemi çağrısını `UseAuthentication`ile değiştirin:

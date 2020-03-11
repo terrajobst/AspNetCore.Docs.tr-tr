@@ -10,20 +10,20 @@ no-loc:
 - SignalR
 uid: signalr/publish-to-azure-web-app
 ms.openlocfilehash: d03a007ca883b3d0391b848e3e92c90469ee640a
-ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73963927"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78661359"
 ---
-# <a name="publish-an-aspnet-core-opno-locsignalr-app-to-azure-app-service"></a>Azure App Service için ASP.NET Core SignalR uygulaması yayımlama
+# <a name="publish-an-aspnet-core-signalr-app-to-azure-app-service"></a>Azure App Service için ASP.NET Core SignalR uygulaması yayımlama
 
 , [Brady Gaster](https://twitter.com/bradygaster) tarafından
 
 [Azure App Service](/azure/app-service/app-service-web-overview) , Web uygulamalarını barındırmak için ASP.NET Core dahil olmak üzere bir [Microsoft bulut bilgi işlem](https://azure.microsoft.com/) platformu hizmetidir.
 
 > [!NOTE]
-> Bu makale, Visual Studio 'dan bir ASP.NET Core SignalR uygulaması yayımlamaya başvurur. Daha fazla bilgi için bkz. [Azure içinSignalR hizmeti](https://azure.microsoft.com/services/signalr-service).
+> Bu makale, Visual Studio 'dan bir ASP.NET Core SignalR uygulaması yayımlamaya başvurur. Daha fazla bilgi için bkz. [Azure Için SignalR hizmeti](https://azure.microsoft.com/services/signalr-service).
 
 ## <a name="publish-the-app"></a>Uygulamayı yayımlama
 
@@ -40,13 +40,13 @@ Bu makalede, Visual Studio 'daki araçları kullanarak yayımlama ele alınmakta
    | Öğe               | Açıklama |
    | ------------------ | ----------- |
    | **Ad**           | Uygulamanın benzersiz adı. |
-   | **Aboneliğiniz**   | Uygulamanın kullandığı Azure aboneliği. |
-   | **Kaynak grubu** | Uygulamanın ait olduğu ilgili kaynaklar grubu. |
-   | **Barındırma planı**   | Web uygulaması için fiyatlandırma planı. |
+   | **Abonelik**   | Uygulamanın kullandığı Azure aboneliği. |
+   | **Kaynak Grubu** | Uygulamanın ait olduğu ilgili kaynaklar grubu. |
+   | **Barındırma Planı**   | Web uygulaması için fiyatlandırma planı. |
 
 1. **Bağımlılıklar** > **Ekle** açılan listesinden **Azure SignalR hizmetini** seçin:
 
-   ![Azure seçimini gösteren bağımlılıklar alanı [! Üs. NO-LOC (SignalR)] Ekle açılan listesinde hizmet](publish-to-azure-web-app/_static/signalr-service-dependency.png)
+   Ekle açılan listesinde Azure SignalR hizmetinin seçimini gösteren ![bağımlılıklar alanı](publish-to-azure-web-app/_static/signalr-service-dependency.png)
 
 1. **Azure SignalR hizmeti** iletişim kutusunda **yeni bir Azure SignalR hizmet örneği oluştur**' u seçin.
 

@@ -6,11 +6,11 @@ ms.author: riande
 ms.date: 12/05/2019
 uid: client-side/using-grunt
 ms.openlocfilehash: e516b85da7e94d0c93be642086fede0a11fea3c2
-ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74879785"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78657593"
 ---
 # <a name="use-grunt-in-aspnet-core"></a>ASP.NET Core Grönyı kullanma
 
@@ -118,7 +118,7 @@ Her bir `devDependencies` öğesi için paketler, her paketin gerektirdiği tüm
 > [!NOTE]
 > Gerekirse, `Dependencies\NPM` ' a sağ tıklayıp **paketleri geri yükle** menü seçeneğini belirleyerek **Çözüm Gezgini** bağımlılıkları el ile geri yükleyebilirsiniz.
 
-![paketleri geri yükle](using-grunt/_static/restore-packages.png)
+![Paketleri geri yükle](using-grunt/_static/restore-packages.png)
 
 ## <a name="configuring-grunt"></a>Grönbağlama yapılandırma
 
@@ -238,7 +238,7 @@ Gror, el ile çalıştırılabilecek veya Visual Studio 'daki olaylara göre oto
     > [!NOTE]
     > Her pakete ilişkin seçenekler hakkında daha fazla bilgi için [https://www.npmjs.com/](https://www.npmjs.com/) ziyaret edin ve ana sayfadaki arama kutusunda paket adını arayın. Örneğin, tüm parametrelerini açıklayan bir belge bağlantısı almak için grcönt-contrib-Clean paketini arayabilirsiniz.
 
-### <a name="all-together-now"></a>Şimdi hepsi bir arada
+### <a name="all-together-now"></a>Hemen hepsi bir arada
 
 Belirli bir dizideki bir dizi görevi çalıştırmak için Gryeniden `registerTask()` yöntemini kullanın. Örneğin, yukarıdaki örnek adımları sırayla çalıştırmak için > Concat-> jshınt-> uıshowmy ' a gidin ve aşağıdaki kodu modüle ekleyin. Kod, InitConfig dışında loadNpmTasks () çağrılarıyla aynı düzeye eklenmelidir.
 

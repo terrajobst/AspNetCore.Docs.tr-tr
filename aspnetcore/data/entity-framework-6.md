@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/24/2018
 uid: data/entity-framework-6
-ms.openlocfilehash: ace937e72efa2343e50b11d52ebc0a2530505758
-ms.sourcegitcommit: 8835b6777682da6fb3becf9f9121c03f89dc7614
+ms.openlocfilehash: 85cf86dcb22ef94cfc87975abaab176e4f1227d3
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69975590"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78656389"
 ---
 # <a name="get-started-with-aspnet-core-and-entity-framework-6"></a>ASP.NET Core ve Entity Framework 6 ile çalışmaya başlama
 
@@ -23,7 +23,7 @@ Bu makalede, Entity Framework 6 ' nın ASP.NET Core bir uygulamada nasıl kullan
 
 Entity Framework 6 ' yı kullanmak için, Entity Framework 6 ' nın .NET Core 'u desteklemediği için, projenizin .NET Framework karşı derlenmesi gerekir. Platformlar arası özelliklere ihtiyacınız varsa [Entity Framework Core](/ef/)yükseltmeniz gerekir.
 
-ASP.NET Core uygulamasında 6 Entity Framework kullanmanın önerilen yolu, tam Framework 'ü hedefleyen bir sınıf kitaplığı projesine EF6 bağlamını ve model sınıflarını koykullanmaktır. ASP.NET Core projesinden sınıf kitaplığına bir başvuru ekleyin. Örnek [Visual Studio çözümüne EF6 ve ASP.NET Core projelerine](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/entity-framework-6/sample/)bakın.
+ASP.NET Core uygulamasında 6 Entity Framework kullanmanın önerilen yolu, EF6 bağlamını ve model sınıflarını .NET Framework hedefleyen bir sınıf kitaplığı projesine koykullanmaktır. ASP.NET Core projesinden sınıf kitaplığına bir başvuru ekleyin. Örnek [Visual Studio çözümüne EF6 ve ASP.NET Core projelerine](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/data/entity-framework-6/sample/)bakın.
 
 .NET Core projeleri, *Enable-geçişler* gibi EF6 komutlarının tüm işlevlerini desteklemediğinden, bir ASP.NET Core projesine EF6 bağlamı koyamazsınız.
 
@@ -31,7 +31,7 @@ EF6 bağlamını bulmakta olduğunuz proje türünden bağımsız olarak, yalnı
 
 ## <a name="reference-full-framework-and-ef6-in-the-aspnet-core-project"></a>ASP.NET Core projesindeki tam Framework ve EF6 başvurusu
 
-ASP.NET Core projenizin .NET Framework ve EF6 'e başvurması gerekiyor. Örneğin, ASP.NET Core projenizin *. csproj* dosyası aşağıdaki örneğe benzer olacaktır (yalnızca dosyanın ilgili bölümleri gösterilir).
+ASP.NET Core projenizin .NET Framework ve başvuru EF6 hedeflemesi gerekir. Örneğin, ASP.NET Core projenizin *. csproj* dosyası aşağıdaki örneğe benzer olacaktır (yalnızca dosyanın ilgili bölümleri gösterilir).
 
 [!code-xml[](entity-framework-6/sample/MVCCore/MVCCore.csproj?range=3-9&highlight=2)]
 
@@ -39,19 +39,19 @@ Yeni bir proje oluştururken **ASP.NET Core Web uygulaması (.NET Framework)** �
 
 ## <a name="handle-connection-strings"></a>Bağlantı dizelerini işle
 
-EF6 sınıf kitaplığı projesinde kullanacağınız EF6 komut satırı araçları, bağlamı örneklenebilen bir varsayılan Oluşturucu gerektirir. Ancak büyük olasılıkla, ASP.NET Core projesinde kullanılacak bağlantı dizesini belirtmek isteyeceksiniz. Bu durumda, bağlam oluşturucunun bağlantı dizesinde geçiş yapmanızı sağlayan bir parametreye sahip olması gerekir. İşte bir örnek.
+EF6 sınıf kitaplığı projesinde kullanacağınız EF6 komut satırı araçları, bağlamı örneklenebilen bir varsayılan Oluşturucu gerektirir. Ancak büyük olasılıkla, ASP.NET Core projesinde kullanılacak bağlantı dizesini belirtmek isteyeceksiniz. Bu durumda, bağlam oluşturucunun bağlantı dizesinde geçiş yapmanızı sağlayan bir parametreye sahip olması gerekir. Bir örneği aşağıda verilmiştir.
 
 [!code-csharp[](entity-framework-6/sample/EF6/SchoolContext.cs?name=snippet_Constructor)]
 
-EF6 içeriğiniz parametresiz bir oluşturucuya sahip olmadığından, EF6 projenizin bir [ıdbcontextfactory](https://msdn.microsoft.com/library/hh506876)uygulamasını sağlaması gerekir. EF6 komut satırı araçları, bağlamı örneklebilmeleri için bu uygulamayı bulup kullanacaktır. İşte bir örnek.
+EF6 içeriğiniz parametresiz bir oluşturucuya sahip olmadığından, EF6 projenizin bir [ıdbcontextfactory](https://msdn.microsoft.com/library/hh506876)uygulamasını sağlaması gerekir. EF6 komut satırı araçları, bağlamı örneklebilmeleri için bu uygulamayı bulup kullanacaktır. Bir örneği aşağıda verilmiştir.
 
 [!code-csharp[](entity-framework-6/sample/EF6/SchoolContextFactory.cs?name=snippet_IDbContextFactory)]
 
-Bu örnek kodda, `IDbContextFactory` uygulama sabit kodlanmış bir bağlantı dizesinde geçirilir. Bu, komut satırı araçlarının kullanacağı bağlantı dizesidir. Sınıf kitaplığının çağıran uygulamanın kullandığı bağlantı dizesini kullandığından emin olmak için bir strateji uygulamak isteyeceksiniz. Örneğin, her iki projedeki bir ortam değişkeninden değeri alabilirsiniz.
+Bu örnek kodda `IDbContextFactory` uygulama, sabit kodlanmış bir bağlantı dizesinde geçirilir. Bu, komut satırı araçlarının kullanacağı bağlantı dizesidir. Sınıf kitaplığının çağıran uygulamanın kullandığı bağlantı dizesini kullandığından emin olmak için bir strateji uygulamak isteyeceksiniz. Örneğin, her iki projedeki bir ortam değişkeninden değeri alabilirsiniz.
 
 ## <a name="set-up-dependency-injection-in-the-aspnet-core-project"></a>ASP.NET Core projesine bağımlılık ekleme işlemini ayarlama
 
-Çekirdek projenin *Startup.cs* dosyasında, içindeki `ConfigureServices`bağımlılık ekleme (dı) için EF6 bağlamını ayarlayın. EF bağlam nesneleri, istek başına ömür için kapsamı belirlenmiş olmalıdır.
+Çekirdek projenin *Startup.cs* dosyasında, `ConfigureServices`bağımlılık ekleme (dı) için EF6 bağlamını ayarlayın. EF bağlam nesneleri, istek başına ömür için kapsamı belirlenmiş olmalıdır.
 
 [!code-csharp[](entity-framework-6/sample/MVCCore/Startup.cs?name=snippet_ConfigureServices&highlight=5)]
 
@@ -61,22 +61,22 @@ Daha sonra, DI kullanarak denetleyicilerinizdeki bağlamın bir örneğini alabi
 
 ## <a name="sample-application"></a>Örnek uygulama
 
-Çalışan bir örnek uygulama için, bu makaleye eşlik eden [örnek Visual Studio çözümü](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/entity-framework-6/sample/) ' ne bakın.
+Çalışan bir örnek uygulama için, bu makaleye eşlik eden [örnek Visual Studio çözümü](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/data/entity-framework-6/sample/) ' ne bakın.
 
 Bu örnek, Visual Studio 'da aşağıdaki adımlarla sıfırdan oluşturulabilir:
 
 * Bir çözüm oluşturun.
 
-*  > **Yeni Project**WebASP.NETCore > Web uygulaması Ekle > 
+* **Web > ** **ASP.NET Core Web uygulaması** > **Yeni > proje** **ekleme**
   * Proje şablonu seçimi iletişim kutusunda, açılan menüde API ve .NET Framework seçin
 
-*  > **Yeni proje**EkleWindows > Masaüstü**sınıf kitaplığı (.NET Framework)**  > 
+* **Windows masaüstü** > sınıf kitaplığı > **Yeni > proje** **Ekle** **(.NET Framework)**
 
-* Her iki proje için de **Paket Yöneticisi konsolunda** (PMC) komutunu `Install-Package Entityframework`çalıştırın.
+* Her iki proje için de **Paket Yöneticisi konsolunda** (PMC), `Install-Package Entityframework`komutunu çalıştırın.
 
-* Sınıf kitaplığı projesinde, veri modeli sınıfları ve bağlam sınıfı ve uygulamasını `IDbContextFactory`oluşturun.
+* Sınıf kitaplığı projesinde, veri modeli sınıfları ve bağlam sınıfı ve bir `IDbContextFactory`uygulamasını oluşturun.
 
-* Sınıf kitaplığı projesi için PMC 'de, ve `Enable-Migrations` `Add-Migration Initial`komutlarını çalıştırın. ASP.NET Core projesini başlangıç projesi olarak ayarladıysanız, bu komutlara ekleyin `-StartupProjectName EF6` .
+* Sınıf kitaplığı projesi için PMC 'de `Enable-Migrations` ve `Add-Migration Initial`komutlarını çalıştırın. ASP.NET Core projesini başlangıç projesi olarak ayarladıysanız, bu komutlara `-StartupProjectName EF6` ekleyin.
 
 * Çekirdek projede, sınıf kitaplığı projesine bir proje başvurusu ekleyin.
 

@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/02/2019
 uid: fundamentals/host/generic-host
-ms.openlocfilehash: 2ed4af109b5ccd303a03a0d9167649dda7793126
-ms.sourcegitcommit: 3b6b0a54b20dc99b0c8c5978400c60adf431072f
+ms.openlocfilehash: 6a0ef02db883db3bc91722786cd042ccec092735
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74717028"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78659924"
 ---
 # <a name="net-generic-host"></a>.NET genel ana bilgisayar
 
@@ -25,7 +25,7 @@ Bu makalede .NET Core genel ana bilgisayarı (<xref:Microsoft.Extensions.Hosting
 *Ana bilgisayar* , bir uygulamanın kaynaklarını kapsülleyen bir nesnedir, örneğin:
 
 * Bağımlılık ekleme (dı)
-* Günlüğe Kaydetme
+* Günlüğe kaydetme
 * Yapılandırma
 * `IHostedService` uygulamalar
 
@@ -89,7 +89,7 @@ Uygulama Entity Framework Core kullanıyorsa `CreateHostBuilder` yönteminin ad�
   * Ortam değişkenleri.
   * Komut satırı bağımsız değişkenleri.
 * Aşağıdaki [günlük](xref:fundamentals/logging/index) sağlayıcılarını ekler:
-  * Konsolu
+  * Konsol
   * Hata ayıklama
   * EventSource
   * Olay günlüğü (yalnızca Windows üzerinde çalışırken)
@@ -181,7 +181,7 @@ Bu bölüm, hem HTTP hem de HTTP olmayan iş yükleri için uygulanan konak ayar
 
 Bu değeri ayarlamak için ortam değişkenini kullanın. 
 
-### <a name="contentrootpath"></a>Contentrootyolu
+### <a name="contentrootpath"></a>ContentRootPath
 
 [Ihostenvironment. ContentRootPath](xref:Microsoft.Extensions.Hosting.IHostEnvironment.ContentRootPath*) özelliği, konağın içerik dosyalarını aramaya başladığı yeri belirler. Yol yoksa, ana bilgisayar başlatılamaz.
 
@@ -203,7 +203,7 @@ Daha fazla bilgi için bkz.
 * [Temel bilgiler: Içerik kökü](xref:fundamentals/index#content-root)
 * [WebRoot](#webroot)
 
-### <a name="environmentname"></a>environmentName
+### <a name="environmentname"></a>EnvironmentName
 
 [Ihostenvironment. EnvironmentName](xref:Microsoft.Extensions.Hosting.IHostEnvironment.EnvironmentName*) özelliği herhangi bir değere ayarlanabilir. Çerçeve tanımlı değerler `Development`, `Staging`ve `Production`içerir. Değerler büyük/küçük harfe duyarlı değildir.
 
@@ -220,7 +220,7 @@ Host.CreateDefaultBuilder(args)
     //...
 ```
 
-### <a name="shutdowntimeout"></a>ShutdownTimeout
+### <a name="shutdowntimeout"></a>shutdownTimeout
 
 [Hostoptions. shutdowntimeout](xref:Microsoft.Extensions.Hosting.HostOptions.ShutdownTimeout*) <xref:Microsoft.Extensions.Hosting.IHost.StopAsync*>için zaman aşımını ayarlar. Varsayılan değer beş saniyedir.  Zaman aşımı süresi boyunca ana bilgisayar:
 
@@ -377,7 +377,7 @@ webBuilder.UseStartup("StartupAssemblyName");
 webBuilder.UseStartup<Startup>();
 ```
 
-### <a name="urls"></a>URL'ler
+### <a name="urls"></a>URL’ler
 
 Sunucu istekleri için dinlemesi gereken bağlantı noktaları ve protokollerle, noktalı virgülle ayrılmış IP adresleri listesi veya ana bilgisayar adresleri. Örneğin, `http://localhost:123`. Sunucunun belirtilen bağlantı noktasını ve Protokolü (örneğin, `http://*:5000`) kullanarak herhangi bir IP adresi veya ana bilgisayar için istekleri dinlemesi gerektiğini belirtmek için "\*" kullanın. Protokol (`http://` veya `https://`) her URL 'ye dahil olmalıdır. Desteklenen biçimler sunucular arasında farklılık gösterir.
 
@@ -418,7 +418,7 @@ Daha fazla bilgi için bkz.
 
 Uygulamayı başlatmak ve durdurmak için oluşturulan <xref:Microsoft.Extensions.Hosting.IHost> uygulamasındaki Yöntemleri çağırın. Bu yöntemler, hizmet kapsayıcısında kayıtlı olan tüm <xref:Microsoft.Extensions.Hosting.IHostedService> uygulamalarını etkiler.
 
-### <a name="run"></a>Çalıştır
+### <a name="run"></a>Çalıştırın
 
 <xref:Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions.Run*> uygulamayı çalıştırır ve konak kapanana kadar çağıran iş parçacığını engeller.
 
@@ -430,7 +430,7 @@ Uygulamayı başlatmak ve durdurmak için oluşturulan <xref:Microsoft.Extension
 
 <xref:Microsoft.Extensions.Hosting.HostingHostBuilderExtensions.RunConsoleAsync*>, konsol desteği sağlar, Konağı oluşturur ve başlatır ve CTRL + C/SIGINT ya da SIGDÖNEM 'in kapatılmasını bekler.
 
-### <a name="start"></a>Başlangıç
+### <a name="start"></a>Başlat
 
 <xref:Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions.Start*> Konağı zaman uyumlu olarak başlatır.
 
@@ -486,7 +486,7 @@ public class Program
 
 ::: moniker range="< aspnetcore-3.0"
 
-ASP.NET Core uygulamalar bir konağı yapılandırıp başlatır. Ana bilgisayar, uygulama başlatma ve ömür yönetiminden sorumludur.
+ASP.NET Core uygulamalar bir konağı yapılandırıp başlatır. Uygulama başlatma ve ömür yönetimi için konak sorumludur.
 
 Bu makalede, HTTP isteklerini işlemeyin uygulamalar için kullanılan ASP.NET Core genel ana bilgisayar (<xref:Microsoft.Extensions.Hosting.HostBuilder>) ele alınmaktadır.
 
@@ -494,7 +494,7 @@ Genel konağın amacı, daha geniş bir konak senaryolarını etkinleştirmek ü
 
 Genel ana bilgisayar ASP.NET Core 2,1 ' de yenidir ve Web barındırma senaryolarında uygun değildir. Web barındırma senaryolarında [Web konağını](xref:fundamentals/host/web-host)kullanın. Genel ana bilgisayar gelecek bir sürümdeki Web konağını değiştirecek ve hem HTTP hem de HTTP olmayan senaryolarda birincil ana bilgisayar API 'SI olarak görev yapacak.
 
-[Örnek kodu görüntüleme veya indirme](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/host/generic-host/samples/) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
+[Örnek kodu görüntüleme veya indirme](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/host/generic-host/samples/) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
 
 Örnek uygulamayı [Visual Studio Code](https://code.visualstudio.com/)' de çalıştırırken, *dış veya tümleşik bir Terminal*kullanın. Örneği bir `internalConsole`çalıştırmayın.
 
@@ -670,7 +670,7 @@ Ayar dosyalarını çıkış dizinine taşımak için, ayarlar dosyalarını pro
 
 Barındırılan hizmet, <xref:Microsoft.Extensions.Hosting.IHostedService> arabirimini uygulayan bir arka plan görevi mantığı içeren bir sınıftır. Daha fazla bilgi için bkz. <xref:fundamentals/host/hosted-services>.
 
-[Örnek uygulama](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/host/generic-host/samples/) , yaşam süresi olayları, `LifetimeEventsHostedService`ve zaman aşımına uğramış bir arka plan görevi olan `TimedHostedService`uygulamaya bir hizmet eklemek için `AddHostedService` uzantısı yöntemini kullanır:
+[Örnek uygulama](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/host/generic-host/samples/) , yaşam süresi olayları, `LifetimeEventsHostedService`ve zaman aşımına uğramış bir arka plan görevi olan `TimedHostedService`uygulamaya bir hizmet eklemek için `AddHostedService` uzantısı yöntemini kullanır:
 
 [!code-csharp[](generic-host/samples-snapshot/2.x/GenericHostSample/Program.cs?name=snippet_ConfigureServices)]
 
@@ -738,7 +738,7 @@ public static class Extensions
 
 <xref:Microsoft.Extensions.Hosting.IHost> uygulaması, hizmet kapsayıcısında kayıtlı <xref:Microsoft.Extensions.Hosting.IHostedService> uygulamalarını başlatma ve durdurma sorumluluğundadır.
 
-### <a name="run"></a>Çalıştır
+### <a name="run"></a>Çalıştırın
 
 <xref:Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions.Run*> uygulamayı çalıştırır ve konak kapanana kadar çağıran iş parçacığını engeller:
 
@@ -946,7 +946,7 @@ Daha fazla bilgi için bkz. <xref:fundamentals/environments>.
 | <xref:Microsoft.Extensions.Hosting.IApplicationLifetime.ApplicationStopped*> | Ana bilgisayar düzgün kapanma işlemini tamamlıyor. Tüm isteklerin işlenmesi gerekir. Bu olay tamamlanana kadar kapalı bloklar. |
 | <xref:Microsoft.Extensions.Hosting.IApplicationLifetime.ApplicationStopping*> | Ana bilgisayar düzgün bir şekilde kapanma gerçekleştiriyor. İstekler hala işliyor olabilir. Bu olay tamamlanana kadar kapalı bloklar. |
 
-Constructor-<xref:Microsoft.Extensions.Hosting.IApplicationLifetime> hizmetini herhangi bir sınıfa ekleyin. [Örnek uygulama](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/host/generic-host/samples/) , olayları kaydetmek için bir `LifetimeEventsHostedService` sınıfına (bir <xref:Microsoft.Extensions.Hosting.IHostedService> uygulaması) Oluşturucu ekleme işlemini kullanır.
+Constructor-<xref:Microsoft.Extensions.Hosting.IApplicationLifetime> hizmetini herhangi bir sınıfa ekleyin. [Örnek uygulama](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/host/generic-host/samples/) , olayları kaydetmek için bir `LifetimeEventsHostedService` sınıfına (bir <xref:Microsoft.Extensions.Hosting.IHostedService> uygulaması) Oluşturucu ekleme işlemini kullanır.
 
 *LifetimeEventsHostedService.cs*:
 

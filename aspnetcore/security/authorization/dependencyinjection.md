@@ -1,26 +1,26 @@
 ---
-title: ASP.NET core'da gereksinim işleyicilerine bağımlılık ekleme
+title: ASP.NET Core 'de gereksinim işleyicilerde bağımlılık ekleme
 author: rick-anderson
-description: Yetkilendirme gereksinim işleyicilerine bağımlılık ekleme kullanılarak ASP.NET Core uygulaması ekleme hakkında bilgi edinin.
+description: Bağımlılık ekleme kullanarak ASP.NET Core uygulamasına yetkilendirme gereksinimi işleyicilerini nasıl ekleyeceğinizi öğrenin.
 ms.author: riande
 ms.date: 10/14/2016
 uid: security/authorization/dependencyinjection
 ms.openlocfilehash: 71d563e11d308a95c08e6d012d3a071f4697d2de
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64902507"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78666091"
 ---
-# <a name="dependency-injection-in-requirement-handlers-in-aspnet-core"></a>ASP.NET core'da gereksinim işleyicilerine bağımlılık ekleme
+# <a name="dependency-injection-in-requirement-handlers-in-aspnet-core"></a>ASP.NET Core 'de gereksinim işleyicilerde bağımlılık ekleme
 
 <a name="security-authorization-di"></a>
 
-[Yetkilendirme işleyicileri kaydedilmelidir](xref:security/authorization/policies#handler-registration) yapılandırma sırasında hizmet koleksiyondaki (kullanarak [bağımlılık ekleme](xref:fundamentals/dependency-injection)).
+[Yetkilendirme işleyicilerinin](xref:security/authorization/policies#handler-registration) yapılandırma sırasında hizmet koleksiyonunda kayıtlı olması gerekir ( [bağımlılık ekleme](xref:fundamentals/dependency-injection)kullanılarak).
 
-Bir yetkilendirme işleyicisi değerlendirilecek istiyordu kurallarının bir depo olan varsayalım ve bu depo hizmeti koleksiyonda kaydedildi. Yetkilendirme çözümleyin ve bu, oluşturucuya ekleme.
+Bir yetkilendirme işleyicisinde değerlendirmek istediğiniz bir kural deposudur olduğunu ve bu deponun hizmet koleksiyonunda kayıtlı olduğunu varsayalım. Yetkilendirme çözülecek ve oluşturucuya eklenecektir.
 
-Örneğin, ASP kullanmak istiyorsanız. NET eklemesine isteyeceğiniz altyapı günlüğü `ILoggerFactory` işleyicinizi içine. Böyle bir işleyici aşağıdaki gibi görünmelidir:
+Örneğin, ASP 'yi kullanmak isterseniz. İşleyicisine `ILoggerFactory` eklemek istediğiniz NET günlük altyapısı. Böyle bir işleyici şöyle görünebilir:
 
 ```csharp
 public class LoggingAuthorizationHandler : AuthorizationHandler<MyRequirement>
@@ -41,13 +41,13 @@ public class LoggingAuthorizationHandler : AuthorizationHandler<MyRequirement>
    }
    ```
 
-İşleyici ile kaydetmek `services.AddSingleton()`:
+İşleyiciyi `services.AddSingleton()`kaydetmelisiniz:
 
 ```csharp
 services.AddSingleton<IAuthorizationHandler, LoggingAuthorizationHandler>();
 ```
 
-İşleyici, uygulamanız başlatıldığında oluşturulması örneğini ve kayıtlı ekleme DI `ILoggerFactory` atladığından içine.
+Uygulamanız başlatıldığında işleyicinin bir örneği oluşturulur ve bu, kayıtlı `ILoggerFactory` oluşturucuya eklenir.
 
 > [!NOTE]
-> Entity Framework kullanan işleyicileri teklileri kayıtlı olması gerekir.
+> Entity Framework kullanan işleyiciler tekton olarak kaydedilmelidir.

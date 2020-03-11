@@ -7,23 +7,23 @@ ms.custom: mvc, seodec18
 ms.date: 10/24/2018
 uid: security/data-protection/extensibility/key-management
 ms.openlocfilehash: 28932cbef1cc797338980f3e0de8b09caee324c0
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64902795"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78665881"
 ---
 # <a name="key-management-extensibility-in-aspnet-core"></a>ASP.NET Core anahtar yönetimi genişletilebilirliği
 
 > [!TIP]
-> Okuma [anahtar yönetimi](xref:security/data-protection/implementation/key-management#data-protection-implementation-key-management) bölümden önce bu bölümü okunurken gibi bazı bu API'leri temel kavramları açıklar.
+> Bu API 'nin arkasındaki temel kavramların bazılarını açıklandığı için, bu bölümü okumadan önce [anahtar yönetimi](xref:security/data-protection/implementation/key-management#data-protection-implementation-key-management) bölümünü okuyun.
 
 > [!WARNING]
 > Aşağıdaki arabirimlerinden birini uygulayan türler, iş parçacığı açısından güvenli olmalıdır birden çok arayanlar için.
 
 ## <a name="key"></a>Anahtar
 
-`IKey` Cryptosystem anahtarında temel gösterimini arabirimidir. Terim anahtarı burada "şifreleme anahtar malzemesi" değişmez değer duygusu değil, soyut anlamında kullanılmıştır. Bir anahtarı aşağıdaki özelliklere sahiptir:
+`IKey` arabirimi, Cryptosystem içindeki bir anahtarın temel gösterimidir. Terim anahtarı burada "şifreleme anahtar malzemesi" değişmez değer duygusu değil, soyut anlamında kullanılmıştır. Bir anahtarı aşağıdaki özelliklere sahiptir:
 
 * Etkinleştirme, oluşturma ve sona erme tarihleri
 
@@ -33,22 +33,22 @@ ms.locfileid: "64902795"
 
 ::: moniker range=">= aspnetcore-2.0"
 
-Ayrıca, `IKey` sunan bir `CreateEncryptor` oluşturmak için kullanılan yöntemi bir [IAuthenticatedEncryptor](xref:security/data-protection/extensibility/core-crypto#data-protection-extensibility-core-crypto-iauthenticatedencryptor) örneği bu anahtara bağlı.
+Ayrıca `IKey`, bu anahtara bağlı bir [ıauthenticatedencryptor](xref:security/data-protection/extensibility/core-crypto#data-protection-extensibility-core-crypto-iauthenticatedencryptor) örneği oluşturmak için kullanılabilecek bir `CreateEncryptor` yöntemi kullanıma sunar.
 
 ::: moniker-end
 
 ::: moniker range="< aspnetcore-2.0"
 
-Ayrıca, `IKey` sunan bir `CreateEncryptorInstance` oluşturmak için kullanılan yöntemi bir [IAuthenticatedEncryptor](xref:security/data-protection/extensibility/core-crypto#data-protection-extensibility-core-crypto-iauthenticatedencryptor) örneği bu anahtara bağlı.
+Ayrıca `IKey`, bu anahtara bağlı bir [ıauthenticatedencryptor](xref:security/data-protection/extensibility/core-crypto#data-protection-extensibility-core-crypto-iauthenticatedencryptor) örneği oluşturmak için kullanılabilecek bir `CreateEncryptorInstance` yöntemi kullanıma sunar.
 
 ::: moniker-end
 
 > [!NOTE]
-> Ham şifreleme malzemesini almak için hiçbir API yoktur bir `IKey` örneği.
+> Ham şifreleme malzemesini bir `IKey` örneğinden almak için API yok.
 
 ## <a name="ikeymanager"></a>IKeyManager
 
-`IKeyManager` Arabirimi genel anahtar depolama alanı, alma ve düzenleme için sorumlu bir nesneyi temsil eder. Bu, üç üst düzey işlemini kullanıma sunar:
+`IKeyManager` arabirimi, genel anahtar depolama, alma ve düzenleme işleminden sorumlu bir nesneyi temsil eder. Bu, üç üst düzey işlemini kullanıma sunar:
 
 * Yeni bir anahtar oluşturun ve depolama için kalıcı.
 
@@ -57,45 +57,45 @@ Ayrıca, `IKey` sunan bir `CreateEncryptorInstance` oluşturmak için kullanıla
 * Bir veya daha fazla anahtarı iptal edin ve depolama için iptal bilgilerini kalıcı hale.
 
 >[!WARNING]
-> Yazma bir `IKeyManager` çok gelişmiş bir görevdir ve geliştiricilerin çoğu, çalışmayın. Bunun yerine, çoğu geliştirici tarafından sunulan özellikleri yararlanmak [XmlKeyManager](#xmlkeymanager) sınıfı.
+> `IKeyManager` yazmak çok gelişmiş bir görevdir ve geliştiricilerin çoğunluğu bunu denememelidir. Bunun yerine, çoğu Geliştirici [Xmlkeymanager](#xmlkeymanager) sınıfı tarafından sunulan tesislerin avantajlarından yararlanmalıdır.
 
 ## <a name="xmlkeymanager"></a>XmlKeyManager
 
-`XmlKeyManager` Türüdür yerleşik somut uygulamasını `IKeyManager`. Bu anahtar emanet ve anahtarları, bekleyen veri şifrelemesi gibi birçok yararlı olanakları sağlar. Bu sistemde anahtarları XML öğeleri olarak temsil edilir (özellikle [XElement](/dotnet/csharp/programming-guide/concepts/linq/xelement-class-overview)).
+`XmlKeyManager` türü, `IKeyManager`'ın yerleşik somut uygulamasıdır. Bu anahtar emanet ve anahtarları, bekleyen veri şifrelemesi gibi birçok yararlı olanakları sağlar. Bu sistemdeki anahtarlar XML öğeleri (özellikle, [XElement](/dotnet/csharp/programming-guide/concepts/linq/xelement-class-overview)) olarak temsil edilir.
 
-`XmlKeyManager` görevleri yerine getirerek sırasında birkaç diğer bileşenlere bağlıdır:
+`XmlKeyManager` görevlerini yerine getirdikten sonra diğer birçok bileşene bağlıdır:
 
 ::: moniker range=">= aspnetcore-2.0"
 
-* `AlgorithmConfiguration`, yeni anahtarlar tarafından kullanılan algoritmalar belirler.
+* Yeni anahtarlar tarafından kullanılan algoritmaları belirleyen `AlgorithmConfiguration`.
 
-* `IXmlRepository`, burada anahtarları kalıcı depolama alanında hangi denetimleri.
+* `IXmlRepository`, anahtarların depolamada nerede kalıcı olduğunu denetler.
 
-* `IXmlEncryptor` [isteğe bağlı], anahtarları, bekleyen veri şifreleme sağlar.
+* bekleyen anahtarları şifrelemeye izin veren [optional] `IXmlEncryptor`.
 
-* `IKeyEscrowSink` [isteğe bağlı], anahtar emanet hizmetleri sağlar.
+* anahtar emanet hizmetleri sağlayan `IKeyEscrowSink` [isteğe bağlı].
 
 ::: moniker-end
 
 ::: moniker range="< aspnetcore-2.0"
 
-* `IXmlRepository`, burada anahtarları kalıcı depolama alanında hangi denetimleri.
+* `IXmlRepository`, anahtarların depolamada nerede kalıcı olduğunu denetler.
 
-* `IXmlEncryptor` [isteğe bağlı], anahtarları, bekleyen veri şifreleme sağlar.
+* bekleyen anahtarları şifrelemeye izin veren [optional] `IXmlEncryptor`.
 
-* `IKeyEscrowSink` [isteğe bağlı], anahtar emanet hizmetleri sağlar.
+* anahtar emanet hizmetleri sağlayan `IKeyEscrowSink` [isteğe bağlı].
 
 ::: moniker-end
 
-Nasıl bu bileşenler birlikte içinde kablolu arabirimlerdir gösteren yüksek düzey şemalarını aşağıda verilmiştir `XmlKeyManager`.
+Aşağıda, bu bileşenlerin `XmlKeyManager`içinde nasıl birbirine bağlanacağını gösteren üst düzey diyagramlar bulunur.
 
 ::: moniker range=">= aspnetcore-2.0"
 
 ![Anahtar oluşturma](key-management/_static/keycreation2.png)
 
-*Anahtar oluşturma / CreateNewKey*
+*Anahtar oluşturma/CreateNewKey*
 
-Uygulamasında `CreateNewKey`, `AlgorithmConfiguration` benzersiz bir oluşturmak için kullanılan bileşen `IAuthenticatedEncryptorDescriptor`, hangi sonra serileştirilmiş XML olarak. Ham (şifrelenmemiş) XML anahtar emanet havuz varsa, havuz için uzun vadeli depolama için sağlanır. Şifrelenmemiş XML ardından çalıştırın bir `IXmlEncryptor` (gerekliyse) şifrelenmiş bir XML belgesi oluşturmak için. Şifrelenmiş bu belgenin uzun vadeli depolama için kalıcı `IXmlRepository`. (Hiçbir `IXmlEncryptor` olan yapılandırılmış, şifrelenmemiş belge içinde kalıcı `IXmlRepository`.)
+`CreateNewKey`uygulamasında `AlgorithmConfiguration` bileşeni, daha sonra XML olarak seri hale getirilen benzersiz bir `IAuthenticatedEncryptorDescriptor`oluşturmak için kullanılır. Ham (şifrelenmemiş) XML anahtar emanet havuz varsa, havuz için uzun vadeli depolama için sağlanır. Şifrelenmemiş XML, şifrelenmiş XML belgesi oluşturmak için bir `IXmlEncryptor` (gerekliyse) ile çalıştırılır. Bu şifrelenmiş belge, `IXmlRepository`aracılığıyla uzun süreli depolamaya devam ediyor. (`IXmlEncryptor` yapılandırılmamışsa, şifrelenmemiş belge `IXmlRepository`kalıcı hale getirilir.)
 
 ![Anahtar alma](key-management/_static/keyretrieval2.png)
 
@@ -105,37 +105,37 @@ Uygulamasında `CreateNewKey`, `AlgorithmConfiguration` benzersiz bir oluşturma
 
 ![Anahtar oluşturma](key-management/_static/keycreation1.png)
 
-*Anahtar oluşturma / CreateNewKey*
+*Anahtar oluşturma/CreateNewKey*
 
-Uygulamasında `CreateNewKey`, `IAuthenticatedEncryptorConfiguration` benzersiz bir oluşturmak için kullanılan bileşen `IAuthenticatedEncryptorDescriptor`, hangi sonra serileştirilmiş XML olarak. Ham (şifrelenmemiş) XML anahtar emanet havuz varsa, havuz için uzun vadeli depolama için sağlanır. Şifrelenmemiş XML ardından çalıştırın bir `IXmlEncryptor` (gerekliyse) şifrelenmiş bir XML belgesi oluşturmak için. Şifrelenmiş bu belgenin uzun vadeli depolama için kalıcı `IXmlRepository`. (Hiçbir `IXmlEncryptor` olan yapılandırılmış, şifrelenmemiş belge içinde kalıcı `IXmlRepository`.)
+`CreateNewKey`uygulamasında `IAuthenticatedEncryptorConfiguration` bileşeni, daha sonra XML olarak seri hale getirilen benzersiz bir `IAuthenticatedEncryptorDescriptor`oluşturmak için kullanılır. Ham (şifrelenmemiş) XML anahtar emanet havuz varsa, havuz için uzun vadeli depolama için sağlanır. Şifrelenmemiş XML, şifrelenmiş XML belgesi oluşturmak için bir `IXmlEncryptor` (gerekliyse) ile çalıştırılır. Bu şifrelenmiş belge, `IXmlRepository`aracılığıyla uzun süreli depolamaya devam ediyor. (`IXmlEncryptor` yapılandırılmamışsa, şifrelenmemiş belge `IXmlRepository`kalıcı hale getirilir.)
 
 ![Anahtar alma](key-management/_static/keyretrieval1.png)
 
 ::: moniker-end
 
-*Anahtar alma / GetAllKeys*
+*Anahtar alımı/GetAllKeys*
 
-Uygulamasında `GetAllKeys`, XML belgeleri temsil eden tuşları ve geri alma işlemleri temel okunur `IXmlRepository`. Bu belgeler şifrelenir, sistem otomatik olarak bunların şifresini çözer. `XmlKeyManager` uygun oluşturur `IAuthenticatedEncryptorDescriptorDeserializer` belgeleri seri durumdan çıkarılacak örnekleri yeniden `IAuthenticatedEncryptorDescriptor` örnekleri, sonra ayrı ayrı sarmalanır `IKey` örnekleri. Bu koleksiyonu `IKey` örnekleri, çağırana döndürülür.
+`GetAllKeys`uygulamasında, anahtarları temsil eden XML belgeleri ve geri alınamaz, temel `IXmlRepository`okundu. Bu belgeler şifrelenir, sistem otomatik olarak bunların şifresini çözer. `XmlKeyManager`, `IAuthenticatedEncryptorDescriptor` belgelerin serisini kaldırmak için uygun `IAuthenticatedEncryptorDescriptorDeserializer` örnekleri oluşturur, böylece tek tek `IKey` örneklerine sarmalanır. Bu `IKey` örnekleri koleksiyonu çağırana döndürülür.
 
-Belirli bir XML öğeleri hakkında daha fazla bilgi bulunabilir [anahtar depolama biçimi belge](xref:security/data-protection/implementation/key-storage-format#data-protection-implementation-key-storage-format).
+Belirli XML öğeleri hakkında daha fazla bilgi, [anahtar depolama biçimi belgesinde](xref:security/data-protection/implementation/key-storage-format#data-protection-implementation-key-storage-format)bulunabilir.
 
 ## <a name="ixmlrepository"></a>IXmlRepository
 
-`IXmlRepository` Arabirimi XML kalıcı hale getirmek ve yedekleme deposundan XML almak bir türü temsil eder. Bu, iki API'lerini kullanıma sunar:
+`IXmlRepository` arabirimi, bir yedekleme deposundan XML 'i kalıcı hale getirebilen ve XML alabileceği bir türü temsil eder. Bu, iki API'lerini kullanıma sunar:
 
-* `GetAllElements` :`IReadOnlyCollection<XElement>`
+* `GetAllElements`:`IReadOnlyCollection<XElement>`
 
 * `StoreElement(XElement element, string friendlyName)`
 
-Uygulamaları `IXmlRepository` aracılığıyla geçirme XML'i ayrıştırmakta gerekmez. XML belgeleri donuk ele almanız ve belgelerini ayrıştırma ve oluşturma hakkında endişe daha yüksek katmanları olanak tanır.
+`IXmlRepository` uygulamalarının, bu nesnelerin üzerinden geçen XML 'yi ayrıştırması gerekmez. XML belgeleri donuk ele almanız ve belgelerini ayrıştırma ve oluşturma hakkında endişe daha yüksek katmanları olanak tanır.
 
-Uygulayan dört yerleşik somut tür `IXmlRepository`:
+`IXmlRepository`uygulayan dört yerleşik somut tür vardır:
 
 ::: moniker range=">= aspnetcore-2.2"
 
 * [FileSystemXmlRepository](/dotnet/api/microsoft.aspnetcore.dataprotection.repositories.filesystemxmlrepository)
 * [RegistryXmlRepository](/dotnet/api/microsoft.aspnetcore.dataprotection.repositories.registryxmlrepository)
-* [AzureStorage.AzureBlobXmlRepository](/dotnet/api/microsoft.aspnetcore.dataprotection.azurestorage.azureblobxmlrepository)
+* [AzureStorage. AzureBlobXmlRepository](/dotnet/api/microsoft.aspnetcore.dataprotection.azurestorage.azureblobxmlrepository)
 * [RedisXmlRepository](/dotnet/api/microsoft.aspnetcore.dataprotection.stackexchangeredis.redisxmlrepository)
 
 ::: moniker-end
@@ -144,16 +144,16 @@ Uygulayan dört yerleşik somut tür `IXmlRepository`:
 
 * [FileSystemXmlRepository](/dotnet/api/microsoft.aspnetcore.dataprotection.repositories.filesystemxmlrepository)
 * [RegistryXmlRepository](/dotnet/api/microsoft.aspnetcore.dataprotection.repositories.registryxmlrepository)
-* [AzureStorage.AzureBlobXmlRepository](/dotnet/api/microsoft.aspnetcore.dataprotection.azurestorage.azureblobxmlrepository)
+* [AzureStorage. AzureBlobXmlRepository](/dotnet/api/microsoft.aspnetcore.dataprotection.azurestorage.azureblobxmlrepository)
 * [RedisXmlRepository](/dotnet/api/microsoft.aspnetcore.dataprotection.redisxmlrepository)
 
 ::: moniker-end
 
-Bkz: [anahtar depolama sağlayıcıları belge](xref:security/data-protection/implementation/key-storage-providers) daha fazla bilgi için.
+Daha fazla bilgi için bkz. [anahtar depolama sağlayıcıları belgesi](xref:security/data-protection/implementation/key-storage-providers) .
 
-Özel bir kayıt `IXmlRepository` farklı yedekleme deposu (örneğin, Azure tablo depolama) kullanılırken uygundur.
+Özel bir `IXmlRepository` kaydetmek, farklı bir yedekleme deposu (örneğin, Azure Tablo Depolaması) kullanılırken uygundur.
 
-Varsayılan depo birçok farklı uygulama değiştirmek için özel bir kayıt `IXmlRepository` örneği:
+Varsayılan depo uygulama genelinde değiştirmek için özel bir `IXmlRepository` örneğini kaydedin:
 
 ::: moniker range=">= aspnetcore-2.0"
 
@@ -173,22 +173,22 @@ services.AddSingleton<IXmlRepository>(new MyCustomXmlRepository());
 
 ## <a name="ixmlencryptor"></a>IXmlEncryptor
 
-`IXmlEncryptor` Arabirimi düz metin XML öğesi şifreleyebilirsiniz bir türü temsil eder. Bu, tek bir API sunar:
+`IXmlEncryptor` arabirimi, düz metin XML öğesini şifreleyemeyen bir türü temsil eder. Bu, tek bir API sunar:
 
-* Encrypt(XElement plaintextElement): EncryptedXmlInfo
+* (XElement plaintextElement) şifrelemek: EncryptedXmlInfo
 
-Seri hale getirilmiş bir, `IAuthenticatedEncryptorDescriptor` işaretlenmiş ardından "şifreleme gerektiren" tüm öğeleri içerir `XmlKeyManager` bu öğeleri yapılandırılan çalışacak `IXmlEncryptor`'s `Encrypt` yöntemi ve kalıcı hale gelir enciphered öğe yerine düz metin öğesine `IXmlRepository`. Çıkışı `Encrypt` yöntemi bir `EncryptedXmlInfo` nesne. Bu nesne enciphered hem sonuç içeren bir sarmalayıcı olan `XElement` ve türünü temsil eden bir `IXmlDecryptor` karşılık gelen öğe çözmek için kullanılabilir.
+Serileştirilmiş bir `IAuthenticatedEncryptorDescriptor` "şifreleme gerektirir" olarak işaretlenen herhangi bir öğe içeriyorsa, `XmlKeyManager` bu öğeleri yapılandırılmış `IXmlEncryptor``Encrypt` yöntemi aracılığıyla çalıştırır ve düz metin `IXmlRepository`öğesi yerine şifreli öğeyi kalıcı hale gelir. `Encrypt` yönteminin çıktısı bir `EncryptedXmlInfo` nesnesidir. Bu nesne, hem sonuç veren `XElement` hem de karşılık gelen öğeyi şifre altına almak için kullanılabilecek bir `IXmlDecryptor` temsil eden tür içeren bir sarmalayıcıdır.
 
-Uygulayan dört yerleşik somut tür `IXmlEncryptor`:
+`IXmlEncryptor`uygulayan dört yerleşik somut tür vardır:
 
 * [CertificateXmlEncryptor](/dotnet/api/microsoft.aspnetcore.dataprotection.xmlencryption.certificatexmlencryptor)
 * [DpapiNGXmlEncryptor](/dotnet/api/microsoft.aspnetcore.dataprotection.xmlencryption.dpapingxmlencryptor)
-* [DpapiXmlEncryptor](/dotnet/api/microsoft.aspnetcore.dataprotection.xmlencryption.dpapixmlencryptor)
+* [Dpapikselmlencryptor](/dotnet/api/microsoft.aspnetcore.dataprotection.xmlencryption.dpapixmlencryptor)
 * [NullXmlEncryptor](/dotnet/api/microsoft.aspnetcore.dataprotection.xmlencryption.nullxmlencryptor)
 
-Bkz: [rest belge, anahtar şifreleme](xref:security/data-protection/implementation/key-encryption-at-rest) daha fazla bilgi için.
+Daha fazla bilgi için [rest belgesinde anahtar şifrelemeyi](xref:security/data-protection/implementation/key-encryption-at-rest) inceleyin.
 
-Varsayılan bekleyen anahtar şifreleme mekanizması birçok farklı uygulama değiştirmek için özel bir kayıt `IXmlEncryptor` örneği:
+Varsayılan anahtar şifreleme-Rest mekanizmasını uygulama genelinde değiştirmek için özel bir `IXmlEncryptor` örneğini kaydedin:
 
 ::: moniker range=">= aspnetcore-2.0"
 
@@ -208,35 +208,35 @@ services.AddSingleton<IXmlEncryptor>(new MyCustomXmlEncryptor());
 
 ## <a name="ixmldecryptor"></a>IXmlDecryptor
 
-`IXmlDecryptor` Arabirimi şifresini çözmek bildiği bir türü temsil eder bir `XElement` , enciphered aracılığıyla bir `IXmlEncryptor`. Bu, tek bir API sunar:
+`IXmlDecryptor` arabirimi, bir `IXmlEncryptor`ile şifreleme olan bir `XElement` şifresini çözmeyi bilen bir türü temsil eder. Bu, tek bir API sunar:
 
-* Şifre çözme (XElement encryptedElement): XElement
+* (XElement encryptedElement) şifresini: XElement
 
-`Decrypt` Yöntemi tarafından gerçekleştirilen şifreleme alır `IXmlEncryptor.Encrypt`. Genellikle, her somut `IXmlEncryptor` uygulamasına karşılık gelen bir somut sahipseniz `IXmlDecryptor` uygulaması.
+`Decrypt` yöntemi, `IXmlEncryptor.Encrypt`tarafından gerçekleştirilen şifrelemeyi geri alır. Genellikle, her somut `IXmlEncryptor` uygulama karşılık gelen somut `IXmlDecryptor` uygulamasına sahip olur.
 
-Türleri uygulayan `IXmlDecryptor` aşağıdaki iki genel oluşturucular biri olmalıdır:
+`IXmlDecryptor` uygulayan türler aşağıdaki iki ortak oluşturucudan birine sahip olmalıdır:
 
 * .ctor(IServiceProvider)
 * .ctor()
 
 > [!NOTE]
-> `IServiceProvider` Geçirilen oluşturucuya null olabilir.
+> Oluşturucuya geçirilen `IServiceProvider` null olabilir.
 
 ## <a name="ikeyescrowsink"></a>IKeyEscrowSink
 
-`IKeyEscrowSink` Arabirimi hassas bilgilerin emanet gerçekleştirebileceği bir türü temsil eder. Seri hale getirilmiş tanımlayıcıları (şifreleme malzemelerini gibi) hassas bilgiler içerebilir ve ne için giriş neden budur geri çağırma [IXmlEncryptor](#ixmlencryptor) ilk başta yazın. Ancak, Kazalar olabilir ve anahtar halkaları silinebilir veya bozulmuş.
+`IKeyEscrowSink` arabirimi, hassas bilgileri Emanet gerçekleştirebilen bir türü temsil eder. Seri hale getirilmiş tanımlayıcıların gizli bilgiler (örneğin, şifreleme malzemeleri) içerebileceğini ve bu, ilk yerde [ıxmlencryptor](#ixmlencryptor) türünün giriş ile ilgili olduğunu unutmayın. Ancak, Kazalar olabilir ve anahtar halkaları silinebilir veya bozulmuş.
 
-Yapılandırılmış tüm tarafından dönüştürülür önce ham serileştirilmiş XML erişimine bir Acil Durum kaçış noktası, emanet arabirimidir [IXmlEncryptor](#ixmlencryptor). Arabirim, tek bir API sunar:
+Emanet arabirimi, bir acil durum çıkış taraması sağlar ve bu, yapılandırılmış [ıxmlencryptor](#ixmlencryptor)tarafından dönüştürülmeden önce ham serileştirilmiş XML erişimine izin verir. Arabirim, tek bir API sunar:
 
 * Store (GUID Keyıd, XElement öğe)
 
-En fazla olan `IKeyEscrowSink` belirtilen öğe işletme ilkesiyle uyumlu güvenli bir şekilde işlemek üzere uygulama. Sertifikanın özel anahtarı bir yere kalacakları XML öğesi bilinen bir kurumsal X.509 sertifikası kullanarak şifrelemek emanet havuz için bir olası uygulama olabilir; `CertificateXmlEncryptor` türü bu konuda yardımcı olabilir. `IKeyEscrowSink` Uygulamasıdır ayrıca belirtilen öğe uygun şekilde kalıcı hale getirmekten sorumludur.
+İş ilkesiyle güvenli bir şekilde tutarlı bir şekilde, sunulan öğeyi işlemek için `IKeyEscrowSink` uygulamasına kadar. Mümkün olan bir uygulama,, sertifikanın özel anahtarının esutde olduğu bilinen bir kurumsal X. 509.440 sertifikası kullanarak XML öğesini şifrelemek üzere, Emanet havuzu için olabilir. `CertificateXmlEncryptor` türü bu yardımcı olabilir. `IKeyEscrowSink` uygulama, Ayrıca, belirtilen öğeyi uygun şekilde kalıcı hale getirmekten sorumludur.
 
-Sunucu yöneticileri olabilir ancak varsayılan olarak emanet bir mekanizma, etkin [bu genel yapılandırma](xref:security/data-protection/configuration/machine-wide-policy). Ayrıca programlı olarak aracılığıyla yapılandırılabilir `IDataProtectionBuilder.AddKeyEscrowSink` aşağıdaki örnekte gösterildiği gibi yöntemi. `AddKeyEscrowSink` Yöntemi aşırı yüklemeleri yansıtma `IServiceCollection.AddSingleton` ve `IServiceCollection.AddInstance` aşırı olarak `IKeyEscrowSink` örnekleri teklileri olmasını yöneliktir. Birden çok `IKeyEscrowSink` örnekleri kayıtlı, her biri anahtar oluşturma sırasında çağrılacak şekilde anahtarları için birden fazla mekanizmayı aynı anda kalacakları.
+Varsayılan olarak, sunucu yöneticileri [bunu genel olarak yapılandırabilse](xref:security/data-protection/configuration/machine-wide-policy)de bir emanet mekanizması etkinleştirilmez. Ayrıca, aşağıdaki örnekte gösterildiği gibi `IDataProtectionBuilder.AddKeyEscrowSink` yöntemi aracılığıyla programlı bir şekilde yapılandırılabilir. `AddKeyEscrowSink` yöntemi, `IKeyEscrowSink` örneklerinin tekton olmasını amaçlandığı için `IServiceCollection.AddSingleton` ve `IServiceCollection.AddInstance` aşırı yüklerini yansıtır. Birden çok `IKeyEscrowSink` örneği kayıtlıysa, her biri anahtar oluşturma sırasında çağrılır, bu nedenle anahtarlar birden çok mekanizmayı eşzamanlı olarak gerçekleştirebilir.
 
-Malzemesini okumak için hiçbir API yoktur bir `IKeyEscrowSink` örneği. Emanet mekanizmasının tasarım kuramsal ile tutarlı budur: anahtar malzemesi güvenilir bir yetkili tarafından erişilebilir kılın yönelik ve uygulamanın kendisini güvenilir bir yetkili olmadığından, kendi escrowed malzeme erişimi olmamalıdır.
+`IKeyEscrowSink` örneğinden malzeme okuma API 'SI yoktur. Emanet mekanizmasının tasarım kuramsal ile tutarlı budur: anahtar malzemesi güvenilir bir yetkili tarafından erişilebilir kılın yönelik ve uygulamanın kendisini güvenilir bir yetkili olmadığından, kendi escrowed malzeme erişimi olmamalıdır.
 
-Aşağıdaki örnek kod oluşturma ve kaydetme işlemlerini gösterir bir `IKeyEscrowSink` burada anahtarları kalacakları sağlayacak şekilde yalnızca "CONTOSODomain Admins" üyeleri bunları kurtarabilirsiniz.
+Aşağıdaki örnek kod, anahtarların yalnızca "CONTOSODomain Admins" üyelerinin kurtarabileceği şekilde bir `IKeyEscrowSink` oluşturulmasını ve kaydolduğunu gösterir.
 
 > [!NOTE]
 > Bu örneği çalıştırmak için bir etki alanına katılmış Windows 8'olmalıdır. / Windows Server 2012 makine ve etki alanı denetleyicisi Windows Server 2012 veya üzeri olması gerekir.
