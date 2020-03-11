@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 02/10/2020
 uid: fundamentals/configuration/index
-ms.openlocfilehash: d0ef670aa0ac4960318f86ea7888b9eab71f17fd
-ms.sourcegitcommit: 85564ee396c74c7651ac47dd45082f3f1803f7a2
+ms.openlocfilehash: 3dcabae3f76d81e641057c346dbb9097c2da42c7
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77171894"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78656333"
 ---
 # <a name="configuration-in-aspnet-core"></a>ASP.NET Core yapılandırma
 
@@ -22,7 +22,7 @@ ms.locfileid: "77171894"
 
 ASP.NET Core içindeki uygulama yapılandırması, *yapılandırma sağlayıcıları*tarafından belirlenen anahtar-değer çiftlerini temel alır. Yapılandırma sağlayıcıları yapılandırma verilerini çeşitli yapılandırma kaynaklarından anahtar-değer çiftlerine okur:
 
-* Azure Key Vault
+* Azure anahtar kasası
 * Azure Uygulama Yapılandırması
 * Komut satırı bağımsız değişkenleri
 * Özel sağlayıcılar (yüklü veya oluşturulmuş)
@@ -41,7 +41,7 @@ using Microsoft.Extensions.Configuration;
 
 *Seçenekler stili* , bu konuda açıklanan yapılandırma kavramlarının bir uzantısıdır. Seçenekler, ilgili ayarların gruplarını temsil etmek için sınıfları kullanır. Daha fazla bilgi için bkz. <xref:fundamentals/configuration/options>.
 
-[Örnek kodu görüntüleme veya indirme](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/configuration/index/samples) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
+[Örnek kodu görüntüleme veya indirme](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/configuration/index/samples) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
 
 ## <a name="host-versus-app-configuration"></a>Uygulama yapılandırmasına karşı konak
 
@@ -187,7 +187,7 @@ Aşağıdaki tabloda ASP.NET Core uygulamalar için kullanılabilen yapılandır
 
 | Sağlayıcı | &hellip; yapılandırma sağlar |
 | -------- | ----------------------------------- |
-| [Azure Key Vault yapılandırma sağlayıcısı](xref:security/key-vault-configuration) (*güvenlik* konuları) | Azure Key Vault |
+| [Azure Key Vault yapılandırma sağlayıcısı](xref:security/key-vault-configuration) (*güvenlik* konuları) | Azure anahtar kasası |
 | [Azure uygulama yapılandırma sağlayıcısı](/azure/azure-app-configuration/quickstart-aspnet-core-app) (Azure belgeleri) | Azure Uygulama Yapılandırması |
 | [Komut satırı yapılandırma sağlayıcısı](#command-line-configuration-provider) | Komut satırı parametreleri |
 | [Özel yapılandırma sağlayıcısı](#custom-configuration-provider) | Özel kaynak |
@@ -360,7 +360,7 @@ Anahtar eşlemeleri kullanan uygulamalar için `CreateDefaultBuilder` çağrıs�
 
 Anahtar eşlemeleri sözlüğü oluşturulduktan sonra, aşağıdaki tabloda gösterilen verileri içerir.
 
-| Anahtar       | Değer             |
+| Anahtar       | Value             |
 | --------- | ----------------- |
 | `-CLKey1` | `CommandLineKey1` |
 | `-CLKey2` | `CommandLineKey2` |
@@ -373,7 +373,7 @@ dotnet run -CLKey1=value1 -CLKey2=value2
 
 Önceki komutu çalıştırdıktan sonra, yapılandırma aşağıdaki tabloda gösterilen değerleri içerir.
 
-| Anahtar               | Değer    |
+| Anahtar               | Value    |
 | ----------------- | -------- |
 | `CommandLineKey1` | `value1` |
 | `CommandLineKey2` | `value2` |
@@ -856,7 +856,7 @@ Yapılandırma değerleri dizeler olarak döndürülür, ancak <xref:Microsoft.E
 
 Aşağıdaki yapılandırma anahtar-değer çiftleri oluşturulur:
 
-| Anahtar                   | Değer                                             |
+| Anahtar                   | Value                                             |
 | --------------------- | ------------------------------------------------- |
 | starsevk: ad         | USS kurumsal                                    |
 | starsevk: kayıt defteri     | NCC-1701                                          |
@@ -906,11 +906,11 @@ TvShow = tvShow;
 
 Aşağıdaki tabloda gösterilen yapılandırma anahtarlarını ve değerlerini göz önünde bulundurun.
 
-| Anahtar             | Değer  |
+| Anahtar             | Value  |
 | :-------------: | :----: |
 | dizi: girdiler: 0 | value0 |
-| dizi: girdiler: 1 | value1 |
-| dizi: girdiler: 2 | value2 |
+| dizi: girdiler: 1 | Value1 |
+| dizi: girdiler: 2 | Value2 |
 | dizi: girdiler: 4 | value4 |
 | dizi: girdiler: 5 | value5 |
 
@@ -940,8 +940,8 @@ _config.GetSection("array").Bind(arrayExample);
 | `ArrayExample.Entries` dizini | `ArrayExample.Entries` değeri |
 | :--------------------------: | :--------------------------: |
 | 0                            | value0                       |
-| 1                            | value1                       |
-| 2                            | value2                       |
+| 1\.                            | Value1                       |
+| 2                            | Value2                       |
 | 3                            | value4                       |
 | 4                            | value5                       |
 
@@ -966,7 +966,7 @@ config.AddJsonFile(
 
 Tabloda gösterilen anahtar-değer çifti, yapılandırmaya yüklendi.
 
-| Anahtar             | Değer  |
+| Anahtar             | Value  |
 | :-------------: | :----: |
 | dizi: girdiler: 3 | value3 |
 
@@ -975,8 +975,8 @@ Tabloda gösterilen anahtar-değer çifti, yapılandırmaya yüklendi.
 | `ArrayExample.Entries` dizini | `ArrayExample.Entries` değeri |
 | :--------------------------: | :--------------------------: |
 | 0                            | value0                       |
-| 1                            | value1                       |
-| 2                            | value2                       |
+| 1\.                            | Value1                       |
+| 2                            | Value2                       |
 | 3                            | value3                       |
 | 4                            | value4                       |
 | 5                            | value5                       |
@@ -989,7 +989,7 @@ JSON dosyası bir dizi içeriyorsa, sıfır tabanlı bölüm diziniyle dizi öğ
 
 JSON yapılandırma sağlayıcısı, yapılandırma verilerini aşağıdaki anahtar-değer çiftlerine okur:
 
-| Anahtar                     | Değer  |
+| Anahtar                     | Value  |
 | ----------------------- | :----: |
 | json_array: anahtar          | değer EA |
 | json_array: alt bölüm: 0 | valueB |
@@ -1005,7 +1005,7 @@ Bağlamadan sonra, `JsonArrayExample.Key` `valueA`değerini tutar. Alt bölüm d
 | `JsonArrayExample.Subsection` dizini | `JsonArrayExample.Subsection` değeri |
 | :---------------------------------: | :---------------------------------: |
 | 0                                   | valueB                              |
-| 1                                   | değer EC                              |
+| 1\.                                   | değer EC                              |
 | 2                                   | Değerler                              |
 
 ## <a name="custom-configuration-provider"></a>Özel yapılandırma sağlayıcısı
@@ -1136,7 +1136,7 @@ MVC görünümünde:
 
 ASP.NET Core içindeki uygulama yapılandırması, *yapılandırma sağlayıcıları*tarafından belirlenen anahtar-değer çiftlerini temel alır. Yapılandırma sağlayıcıları yapılandırma verilerini çeşitli yapılandırma kaynaklarından anahtar-değer çiftlerine okur:
 
-* Azure Key Vault
+* Azure anahtar kasası
 * Azure Uygulama Yapılandırması
 * Komut satırı bağımsız değişkenleri
 * Özel sağlayıcılar (yüklü veya oluşturulmuş)
@@ -1155,7 +1155,7 @@ using Microsoft.Extensions.Configuration;
 
 *Seçenekler stili* , bu konuda açıklanan yapılandırma kavramlarının bir uzantısıdır. Seçenekler, ilgili ayarların gruplarını temsil etmek için sınıfları kullanır. Daha fazla bilgi için bkz. <xref:fundamentals/configuration/options>.
 
-[Örnek kodu görüntüleme veya indirme](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/configuration/index/samples) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
+[Örnek kodu görüntüleme veya indirme](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/configuration/index/samples) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
 
 ## <a name="host-versus-app-configuration"></a>Uygulama yapılandırmasına karşı konak
 
@@ -1296,7 +1296,7 @@ Aşağıdaki tabloda ASP.NET Core uygulamalar için kullanılabilen yapılandır
 
 | Sağlayıcı | &hellip; yapılandırma sağlar |
 | -------- | ----------------------------------- |
-| [Azure Key Vault yapılandırma sağlayıcısı](xref:security/key-vault-configuration) (*güvenlik* konuları) | Azure Key Vault |
+| [Azure Key Vault yapılandırma sağlayıcısı](xref:security/key-vault-configuration) (*güvenlik* konuları) | Azure anahtar kasası |
 | [Azure uygulama yapılandırma sağlayıcısı](/azure/azure-app-configuration/quickstart-aspnet-core-app) (Azure belgeleri) | Azure Uygulama Yapılandırması |
 | [Komut satırı yapılandırma sağlayıcısı](#command-line-configuration-provider) | Komut satırı parametreleri |
 | [Özel yapılandırma sağlayıcısı](#custom-configuration-provider) | Özel kaynak |
@@ -1469,7 +1469,7 @@ Anahtar eşlemeleri kullanan uygulamalar için `CreateDefaultBuilder` çağrıs�
 
 Anahtar eşlemeleri sözlüğü oluşturulduktan sonra, aşağıdaki tabloda gösterilen verileri içerir.
 
-| Anahtar       | Değer             |
+| Anahtar       | Value             |
 | --------- | ----------------- |
 | `-CLKey1` | `CommandLineKey1` |
 | `-CLKey2` | `CommandLineKey2` |
@@ -1482,7 +1482,7 @@ dotnet run -CLKey1=value1 -CLKey2=value2
 
 Önceki komutu çalıştırdıktan sonra, yapılandırma aşağıdaki tabloda gösterilen değerleri içerir.
 
-| Anahtar               | Değer    |
+| Anahtar               | Value    |
 | ----------------- | -------- |
 | `CommandLineKey1` | `value1` |
 | `CommandLineKey2` | `value2` |
@@ -1965,7 +1965,7 @@ Yapılandırma değerleri dizeler olarak döndürülür, ancak <xref:Microsoft.E
 
 Aşağıdaki yapılandırma anahtar-değer çiftleri oluşturulur:
 
-| Anahtar                   | Değer                                             |
+| Anahtar                   | Value                                             |
 | --------------------- | ------------------------------------------------- |
 | starsevk: ad         | USS kurumsal                                    |
 | starsevk: kayıt defteri     | NCC-1701                                          |
@@ -2015,11 +2015,11 @@ TvShow = tvShow;
 
 Aşağıdaki tabloda gösterilen yapılandırma anahtarlarını ve değerlerini göz önünde bulundurun.
 
-| Anahtar             | Değer  |
+| Anahtar             | Value  |
 | :-------------: | :----: |
 | dizi: girdiler: 0 | value0 |
-| dizi: girdiler: 1 | value1 |
-| dizi: girdiler: 2 | value2 |
+| dizi: girdiler: 1 | Value1 |
+| dizi: girdiler: 2 | Value2 |
 | dizi: girdiler: 4 | value4 |
 | dizi: girdiler: 5 | value5 |
 
@@ -2049,8 +2049,8 @@ _config.GetSection("array").Bind(arrayExample);
 | `ArrayExample.Entries` dizini | `ArrayExample.Entries` değeri |
 | :--------------------------: | :--------------------------: |
 | 0                            | value0                       |
-| 1                            | value1                       |
-| 2                            | value2                       |
+| 1\.                            | Value1                       |
+| 2                            | Value2                       |
 | 3                            | value4                       |
 | 4                            | value5                       |
 
@@ -2075,7 +2075,7 @@ config.AddJsonFile(
 
 Tabloda gösterilen anahtar-değer çifti, yapılandırmaya yüklendi.
 
-| Anahtar             | Değer  |
+| Anahtar             | Value  |
 | :-------------: | :----: |
 | dizi: girdiler: 3 | value3 |
 
@@ -2084,8 +2084,8 @@ Tabloda gösterilen anahtar-değer çifti, yapılandırmaya yüklendi.
 | `ArrayExample.Entries` dizini | `ArrayExample.Entries` değeri |
 | :--------------------------: | :--------------------------: |
 | 0                            | value0                       |
-| 1                            | value1                       |
-| 2                            | value2                       |
+| 1\.                            | Value1                       |
+| 2                            | Value2                       |
 | 3                            | value3                       |
 | 4                            | value4                       |
 | 5                            | value5                       |
@@ -2098,7 +2098,7 @@ JSON dosyası bir dizi içeriyorsa, sıfır tabanlı bölüm diziniyle dizi öğ
 
 JSON yapılandırma sağlayıcısı, yapılandırma verilerini aşağıdaki anahtar-değer çiftlerine okur:
 
-| Anahtar                     | Değer  |
+| Anahtar                     | Value  |
 | ----------------------- | :----: |
 | json_array: anahtar          | değer EA |
 | json_array: alt bölüm: 0 | valueB |
@@ -2114,7 +2114,7 @@ Bağlamadan sonra, `JsonArrayExample.Key` `valueA`değerini tutar. Alt bölüm d
 | `JsonArrayExample.Subsection` dizini | `JsonArrayExample.Subsection` değeri |
 | :---------------------------------: | :---------------------------------: |
 | 0                                   | valueB                              |
-| 1                                   | değer EC                              |
+| 1\.                                   | değer EC                              |
 | 2                                   | Değerler                              |
 
 ## <a name="custom-configuration-provider"></a>Özel yapılandırma sağlayıcısı

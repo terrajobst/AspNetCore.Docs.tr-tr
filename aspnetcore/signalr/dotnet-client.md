@@ -9,26 +9,26 @@ ms.date: 01/14/2020
 no-loc:
 - SignalR
 uid: signalr/dotnet-client
-ms.openlocfilehash: 39d9eccdb1e0457b177e75e6f94f3dd185b0093d
-ms.sourcegitcommit: cbd30479f42cbb3385000ef834d9c7d021fd218d
+ms.openlocfilehash: a9583c9d6df52ff81a402df03e663ccc3847e51f
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76146322"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78660043"
 ---
-# <a name="aspnet-core-opno-locsignalr-net-client"></a>.NET Client ASP.NET Core SignalR
+# <a name="aspnet-core-signalr-net-client"></a>ASP.NET Core SignalR .NET Istemcisi
 
 ASP.NET Core SignalR .NET istemci kitaplığı, .NET uygulamalarından SignalR hub 'larla iletişim kurmanızı sağlar.
 
-[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/signalr/dotnet-client/sample) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
+[Örnek kodu görüntüleme veya indirme](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/signalr/dotnet-client/sample) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
 
-Bu makaledeki kod örneği, SignalR .NET Client ASP.NET Core kullanan bir WPF uygulamasıdır.
+Bu makaledeki kod örneği, ASP.NET Core SignalR .NET istemcisini kullanan bir WPF uygulamasıdır.
 
-## <a name="install-the-opno-locsignalr-net-client-package"></a>SignalR .NET istemci paketini yükler
+## <a name="install-the-signalr-net-client-package"></a>SignalR .NET istemci paketini yükler
 
-[Microsoft.AspNetCore.SignalR.](https://www.nuget.org/packages/Microsoft.AspNetCore.SignalR.Client).Net istemcilerinin SignalR hub 'lara bağlanması için istemci paketi gerekir.
+.NET istemcilerinin SignalR hub 'larına bağlanması için [Microsoft. AspNetCore. SignalR. Client](https://www.nuget.org/packages/Microsoft.AspNetCore.SignalR.Client) paketi gerekir.
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 İstemci kitaplığını yüklemek için, **Paket Yöneticisi konsolu** penceresinde aşağıdaki komutu çalıştırın:
 
@@ -36,7 +36,7 @@ Bu makaledeki kod örneği, SignalR .NET Client ASP.NET Core kullanan bir WPF uy
 Install-Package Microsoft.AspNetCore.SignalR.Client
 ```
 
-# <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
+# <a name="net-core-cli"></a>[.NET Core CLI](#tab/netcore-cli)
 
 İstemci kitaplığını yüklemek için komut kabuğu 'nda aşağıdaki komutu çalıştırın:
 

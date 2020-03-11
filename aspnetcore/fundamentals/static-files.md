@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/07/2019
 uid: fundamentals/static-files
-ms.openlocfilehash: 00bab51cb411552c884f85fa63d42d0691b401b1
-ms.sourcegitcommit: 3b6b0a54b20dc99b0c8c5978400c60adf431072f
+ms.openlocfilehash: 95a77defc7e98328e1f4e3615648b1d14485e51e
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74717279"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78660127"
 ---
 # <a name="static-files-in-aspnet-core"></a>ASP.NET Core statik dosyalar
 
@@ -19,7 +19,7 @@ By [Rick Anderson](https://twitter.com/RickAndMSFT) ve [Scott Ade](https://twitt
 
 HTML, CSS, resim ve JavaScript gibi statik dosyalar, ASP.NET Core bir uygulamanın doğrudan istemcilere hizmet verdiği varlıklardır. Bu dosyalara hizmet sunma özelliğini etkinleştirmek için bazı yapılandırmalar gerekir.
 
-[Örnek kodu görüntüleme veya indirme](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/static-files/samples) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
+[Örnek kodu görüntüleme veya indirme](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/static-files/samples) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
 
 ## <a name="serve-static-files"></a>Statik dosyaları sunma
 
@@ -111,6 +111,7 @@ Aşağıdaki biçimlendirme *Mystaticfiles/Images/banner1. SVG*' ye başvurur:
 [Staticfileoptions](/dotnet/api/microsoft.aspnetcore.builder.staticfileoptions) NESNESI, http yanıt üst bilgilerini ayarlamak için kullanılabilir. [Web kökünden](xref:fundamentals/index#web-root)statik dosya sunma yapılandırmasına ek olarak, aşağıdaki kod `Cache-Control` üst bilgisini ayarlar:
 
 [!code-csharp[](static-files/samples/1x/StartupAddHeader.cs?name=snippet_ConfigureMethod)]
+[!INCLUDE[about the series](~/includes/code-comments-loc.md)]
 
 [Headerdictionaryextensions. Append](/dotnet/api/microsoft.aspnetcore.http.headerdictionaryextensions.append) yöntemi, [Microsoft. Aspnetcore. http](https://www.nuget.org/packages/Microsoft.AspNetCore.Http/) paketinde bulunur.
 
@@ -206,7 +207,7 @@ Aşağıdaki kod, `MyStaticFiles`statik dosyaları, varsayılan dosyaları ve di
 
 Dosya hiyerarşisini ve önceki kodu kullanarak, URL 'Ler aşağıdaki şekilde çözümlenir:
 
-| {1&gt;URI&lt;1}            |                             Yanıtıyla  |
+| URI            |                             Yanıt  |
 | ------- | ------|
 | *http://\<server_address >/StaticFiles/images/banner1.svg*    |      MyStaticFiles/Images/banner1. SVG |
 | *http://\<server_address >/StaticFiles*             |     MyStaticFiles/default.html |
@@ -241,9 +242,9 @@ Yukarıdaki kodla, bilinmeyen içerik türüne sahip bir dosya isteği görünt�
 
 ## <a name="serve-files-from-multiple-locations"></a>Birden çok konumdan dosyaları sunma
 
-`UseStaticFiles` ve `UseFileServer`, *Wwwroot*' a işaret eden dosya sağlayıcısına varsayılan olarak sahiptir. Diğer konumlardan dosya sunmak için diğer dosya sağlayıcılarıyla `UseStaticFiles` ve `UseFileServer` ek örnekleri sağlayabilirsiniz. Daha fazla bilgi için [Bu GitHub sorununa](https://github.com/aspnet/AspNetCore.Docs/issues/15578)bakın.
+`UseStaticFiles` ve `UseFileServer`, *Wwwroot*' a işaret eden dosya sağlayıcısına varsayılan olarak sahiptir. Diğer konumlardan dosya sunmak için diğer dosya sağlayıcılarıyla `UseStaticFiles` ve `UseFileServer` ek örnekleri sağlayabilirsiniz. Daha fazla bilgi için [Bu GitHub sorununa](https://github.com/dotnet/AspNetCore.Docs/issues/15578)bakın.
 
-### <a name="considerations"></a>Dikkat Edilecekler
+### <a name="considerations"></a>Dikkat edilmesi gerekenler
 
 > [!WARNING]
 > `UseDirectoryBrowser` ve `UseStaticFiles` gizli dizileri sızıntısına neden olabilir. Üretimde dizin taramayı devre dışı bırakmak önemle önerilir. Hangi dizinlerin `UseStaticFiles` veya `UseDirectoryBrowser`aracılığıyla etkinleştirildiğini dikkatle gözden geçirin. Tüm dizin ve alt dizinleri herkese açık şekilde erişilebilir hale gelir. *\<content_root >/Wwwroot*gibi özel bir dizinde herkese sunma için uygun dosyaları depolayın. Bu dosyaları MVC görünümlerinden ayırın, Razor Pages (yalnızca 2. x), yapılandırma dosyaları vb.

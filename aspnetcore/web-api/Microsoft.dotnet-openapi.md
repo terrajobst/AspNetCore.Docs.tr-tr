@@ -7,11 +7,11 @@ ms.date: 09/26/2019
 monikerRange: '>= aspnetcore-3.0'
 uid: web-api/Microsoft.dotnet-openapi
 ms.openlocfilehash: 079e36511b63c186ffa7726bdb1e3c3bcbda9d34
-ms.sourcegitcommit: 7dfe6cc8408ac6a4549c29ca57b0c67ec4baa8de
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75829263"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78655269"
 ---
 # <a name="develop-aspnet-core-apps-using-openapi-tools"></a>Openapı araçlarını kullanarak ASP.NET Core uygulamaları geliştirme
 
@@ -62,7 +62,7 @@ Uygulamanın oluşturulan istemci kodunu çağırması için önceki başvuru ge
 | -c|--Code-Generator| Başvuruya uygulanacak kod Oluşturucu. Seçenekler `NSwagCSharp` ve `NSwagTypeScript`. `--code-generator` belirtilmemişse araç varsayılan olarak `NSwagCSharp`.|DotNet openapı Add dosyası .\Openapi.exe JSON--Code-Generator
 | -h|--yardım|Yardım bilgilerini göster|DotNet openapı dosya Ekle--yardım|
 
-#### <a name="arguments"></a>Arguments
+#### <a name="arguments"></a>Bağımsız Değişkenler
 
 |  Bağımsız Değişken  | Açıklama | Örnek |
 |-------------|-------------|---------|
@@ -79,7 +79,7 @@ Uygulamanın oluşturulan istemci kodunu çağırması için önceki başvuru ge
 | -c|--Code-Generator| Başvuruya uygulanacak kod Oluşturucu. Seçenekler `NSwagCSharp` ve `NSwagTypeScript`. |DotNet openapı Add dosyası .\Openapi.exe JSON--Code-Generator
 | -h|--yardım|Yardım bilgilerini göster|DotNet openapı URL ekleme--Yardım|
 
-#### <a name="arguments"></a>Arguments
+#### <a name="arguments"></a>Bağımsız Değişkenler
 
 |  Bağımsız Değişken  | Açıklama | Örnek |
 |-------------|-------------|---------|
@@ -96,7 +96,7 @@ Verilen dosya adıyla eşleşen Openapı başvurusunu *. csproj* dosyasından ka
 | -p|--updateProject | Üzerinde çalışılacak proje. |DotNet openapı Remove *--updateproject .\ref. csproj* .\openapi.exe |
 | -h|--yardım|Yardım bilgilerini göster|DotNet openapı Remove--Help|
 
-### <a name="arguments"></a>Arguments
+### <a name="arguments"></a>Bağımsız Değişkenler
 
 |  Bağımsız Değişken  | Açıklama| Örnek |
 | ------------|------------|---------|
@@ -113,7 +113,7 @@ Verilen dosya adıyla eşleşen Openapı başvurusunu *. csproj* dosyasından ka
 | -p|--updateProject | Üzerinde çalışılacak proje. | DotNet openapı yenilemesi *--updateproject .\Ref.exe* `https://contoso.com/openapi.json` |
 | -h|--yardım|Yardım bilgilerini göster|DotNet openapı yenilemesi--yardım|
 
-### <a name="arguments"></a>Arguments
+### <a name="arguments"></a>Bağımsız Değişkenler
 
 |  Bağımsız Değişken  | Açıklama | Örnek |
 | ------------|-------------|---------|

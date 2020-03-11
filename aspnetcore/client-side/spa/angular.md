@@ -7,12 +7,12 @@ ms.author: stevesa
 ms.custom: mvc
 ms.date: 02/06/2020
 uid: spa/angular
-ms.openlocfilehash: 11ad5d4c7cadcc582b3e288a331569f62f0b98ac
-ms.sourcegitcommit: bd896935e91236e03241f75e6534ad6debcecbbf
+ms.openlocfilehash: fee872ff237e14cbe491efed9b320809df4c5654
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77044853"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78657635"
 ---
 # <a name="use-the-angular-project-template-with-aspnet-core"></a>Angular proje şablonunu ASP.NET Core ile kullanma
 
@@ -33,13 +33,13 @@ cd my-new-app
 
 Uygulamayı Visual Studio 'dan veya .NET Core CLI çalıştırın:
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio/)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio/)
 
 Oluşturulan *. csproj* dosyasını açın ve uygulamayı buradan normal olarak çalıştırın.
 
 Yapı işlemi ilk çalıştırmada NPM bağımlılıklarını geri yükler ve bu işlem birkaç dakika sürebilir. Sonraki derlemeler çok daha hızlıdır.
 
-# <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli/)
+# <a name="net-core-cli"></a>[.NET Core CLI](#tab/netcore-cli/)
 
 `Development`değerine sahip `ASPNETCORE_Environment` adlı bir ortam değişkenine sahip olduğunuzdan emin olun. Windows 'da (PowerShell olmayan istemlerinde) `SET ASPNETCORE_Environment=Development`çalıştırın. Linux veya macOS üzerinde `export ASPNETCORE_Environment=Development`çalıştırın.
 
@@ -53,7 +53,8 @@ Now listening on: http://localhost:<port>
 
 Bu URL 'yi bir tarayıcıda gezin.
 
-Uygulama arka planda angular CLı sunucusunun bir örneğini başlatır. Aşağıdakine benzer bir ileti günlüğe kaydedilir: *ng Live Development Server, localhost üzerinde dinleme yapıyor:&lt;otherport&gt;, tarayıcınızı http://localhost:&lt; diğer bağlantı noktası&gt;/açın* . Bu iletiyi yoksayın&mdash;birleştirilmiş ASP.NET Core ve angular CLı uygulamasının URL 'SI **değildir** .
+> [!WARNING]
+> Uygulama arka planda angular CLı sunucusunun bir örneğini başlatır. Aşağıdakine benzer bir ileti günlüğe kaydedilir: *ng Live Development Server, localhost üzerinde dinleme yapıyor:&lt;otherport&gt;, http://localhost:&lt; otherport&gt;/için bir tarayıcı açın* . Bu iletiyi yoksayın&mdash;birleştirilmiş ASP.NET Core ve angular CLı uygulamasının URL 'SI **değildir** .
 
 ---
 
@@ -79,7 +80,7 @@ cd ClientApp
 
 ## <a name="install-npm-packages"></a>NPM paketlerini yükler
 
-Üçüncü taraf NPM paketlerini yüklemek için *clientapp* alt dizininde bir komut istemi kullanın. Örneğin:
+Üçüncü taraf NPM paketlerini yüklemek için *clientapp* alt dizininde bir komut istemi kullanın. Örnek:
 
 ```console
 cd ClientApp

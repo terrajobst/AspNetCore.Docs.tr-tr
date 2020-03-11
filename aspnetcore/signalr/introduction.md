@@ -10,15 +10,15 @@ no-loc:
 - SignalR
 uid: signalr/introduction
 ms.openlocfilehash: 635431abf9263c2dff261aea47e6f8324061763f
-ms.sourcegitcommit: 7dfe6cc8408ac6a4549c29ca57b0c67ec4baa8de
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75829289"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78662920"
 ---
 # <a name="introduction-to-aspnet-core-opno-locsignalr"></a>ASP.NET Core SignalR giriş
 
-## <a name="what-is-opno-locsignalr"></a>SignalR nedir?
+## <a name="what-is-opno-locsignalr"></a>SignalRnedir?
 
 ASP.NET Core SignalR, uygulamalara gerçek zamanlı Web işlevselliği eklemeyi kolaylaştıran açık kaynaklı bir kitaplıktır. Gerçek zamanlı Web işlevselliği, sunucu tarafı kodun anında istemcilere içerik gönderebilmesine olanak sağlar.
 
@@ -50,7 +50,7 @@ SignalR gerçek zamanlı iletişimi (düzgün geri dönüş sırasıyla) işleme
 
 SignalR, sunucu ve istemci özellikleri içinde en iyi taşıma yöntemini otomatik olarak seçer.
 
-## <a name="hubs"></a>Merkezler
+## <a name="hubs"></a>Hub'lar
 
 SignalR, istemciler ve sunucular arasında iletişim kurmak için *hub 'lar* kullanır.
 

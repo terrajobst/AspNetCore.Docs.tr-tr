@@ -6,18 +6,18 @@ monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.date: 11/04/2019
 uid: performance/caching/response
-ms.openlocfilehash: ab5d1414ae72edade81ab55aef6b0fa5af30f0f4
-ms.sourcegitcommit: 990a4c2e623c202a27f60bdf3902f250359c13be
+ms.openlocfilehash: 91358e2553d09c5e7366ba7a2301a798ad921d69
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/03/2020
-ms.locfileid: "76971971"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78655731"
 ---
 # <a name="response-caching-in-aspnet-core"></a>ASP.NET Core 'de yanıt önbelleğe alma
 
-[John Luo](https://github.com/JunTaoLuo), [Rick Anderson](https://twitter.com/RickAndMSFT), [Steve Smith](https://ardalis.com/)ve [Luke Latham](https://github.com/guardrex) tarafından
+[John Luo](https://github.com/JunTaoLuo), [Rick Anderson](https://twitter.com/RickAndMSFT)ve [Steve Smith](https://ardalis.com/) tarafından
 
-[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/performance/caching/response/samples) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
+[Örnek kodu görüntüleme veya indirme](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/performance/caching/response/samples) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
 
 Yanıt önbelleğe alma, bir istemcinin veya proxy 'nin bir Web sunucusunda yaptığı istek sayısını azaltır. Yanıt önbelleği Ayrıca, Web sunucusunun yanıt oluşturmak için gerçekleştirdiği iş miktarını azaltır. Yanıt önbelleğe alma, istemci, ara sunucu ve ara yazılım 'nin yanıtları nasıl önbellekte istediğinizi belirten üstbilgiler tarafından denetlenir.
 
@@ -41,9 +41,9 @@ Ortak `Cache-Control` yönergeleri aşağıdaki tabloda gösterilmiştir.
 
 Önbelleğe alma işleminde bir rol oynatacak diğer önbellek üstbilgileri aşağıdaki tabloda gösterilmiştir.
 
-| Üstbilgi                                                     | İşlev |
+| Üst bilgi                                                     | İşlev |
 | ---------------------------------------------------------- | -------- |
-| [Geçerlilik süresi](https://tools.ietf.org/html/rfc7234#section-5.1)     | Yanıt oluşturulduktan veya kaynak sunucuda başarıyla doğrulandıktan sonra geçen sürenin saniye cinsinden tahmini. |
+| [Ölçerin](https://tools.ietf.org/html/rfc7234#section-5.1)     | Yanıt oluşturulduktan veya kaynak sunucuda başarıyla doğrulandıktan sonra geçen sürenin saniye cinsinden tahmini. |
 | [Bitiminden](https://tools.ietf.org/html/rfc7234#section-5.3) | Yanıtın eski kabul edildiği zaman. |
 | [Prag](https://tools.ietf.org/html/rfc7234#section-5.4)  | `no-cache` davranışı ayarlamak için HTTP/1.0 önbellekler ile geriye dönük uyumluluk için mevcuttur. `Cache-Control` üst bilgisi varsa, `Pragma` üst bilgisi yok sayılır. |
 | [Değiş](https://tools.ietf.org/html/rfc7231#section-7.1.4)  | Tüm `Vary` üstbilgi alanları önbelleğe alınan yanıtın orijinal isteği ve yeni istek içinde eşleşmediğinden, önbelleğe alınmış bir yanıtın gönderilmemesi gerektiğini belirtir. |
@@ -107,7 +107,7 @@ Daha fazla bilgi için bkz. <xref:mvc/views/tag-helpers/builtin-th/distributed-c
 * <xref:Microsoft.AspNetCore.Mvc.ResponseCacheAttribute>ayarlanan özelliklere göre uygun üstbilgileri yazar.
 * <xref:Microsoft.AspNetCore.Mvc.CacheProfile.VaryByQueryKeys> ayarlandıysa, yanıt önbelleğe alma HTTP özelliğini güncelleştirir.
 
-### <a name="vary"></a>Değiş
+### <a name="vary"></a>değiş
 
 Bu üst bilgi yalnızca <xref:Microsoft.AspNetCore.Mvc.CacheProfile.VaryByHeader> özelliği ayarlandığında yazılır. Özelliği `Vary` özelliğinin değerine ayarlanır. Aşağıdaki örnek <xref:Microsoft.AspNetCore.Mvc.CacheProfile.VaryByHeader> özelliğini kullanır:
 

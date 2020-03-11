@@ -8,15 +8,15 @@ ms.custom: mvc
 ms.date: 09/05/2019
 uid: web-api/advanced/analyzers
 ms.openlocfilehash: 7b6a7328deb8718a2a1c67c104cec359a4f13497
-ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71082519"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78661919"
 ---
 # <a name="use-web-api-analyzers"></a>Web API Çözümleyicileri kullanma
 
-ASP.NET Core 2,2 ve üzeri, Web API projeleriyle kullanılması amaçlanan bir MVC Çözümleyicileri paketi sağlar. Çözümleyiciler, [Web API kuralları](xref:web-api/advanced/conventions)üzerinde oluşturma sırasında <xref:Microsoft.AspNetCore.Mvc.ApiControllerAttribute>ile açıklanmış olan denetleyicilerle birlikte çalışır.
+ASP.NET Core 2,2 ve üzeri, Web API projeleriyle kullanılması amaçlanan bir MVC Çözümleyicileri paketi sağlar. Çözümleyiciler, [Web API kuralları](xref:web-api/advanced/conventions)üzerinde derlenirken <xref:Microsoft.AspNetCore.Mvc.ApiControllerAttribute>ile açıklanmış olan denetleyicilerle çalışır.
 
 Çözümleyiciler paketi şu şekilde bir denetleyici eylemi bildirir:
 
@@ -29,7 +29,7 @@ ASP.NET Core 2,2 ve üzeri, Web API projeleriyle kullanılması amaçlanan bir M
 
 ## <a name="reference-the-analyzer-package"></a>Çözümleyici paketine başvur
 
-ASP.NET Core 3,0 veya sonraki sürümlerde, çözümleyiciler .NET Core SDK dahil edilmiştir. Projenizdeki çözümleyici 'yi etkinleştirmek için, proje dosyasına `IncludeOpenAPIAnalyzers` özelliği ekleyin:
+ASP.NET Core 3,0 veya sonraki sürümlerde, çözümleyiciler .NET Core SDK dahil edilmiştir. Projenizde çözümleyici 'yi etkinleştirmek için, proje dosyasına `IncludeOpenAPIAnalyzers` özelliğini dahil edin:
 
 ```xml
 <PropertyGroup>
@@ -45,10 +45,10 @@ ASP.NET Core 3,0 veya sonraki sürümlerde, çözümleyiciler .NET Core SDK dahi
 
 Aşağıdaki yaklaşımlardan biriyle [Microsoft. AspNetCore. Mvc. api. çözümleyiciler](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc.Api.Analyzers) NuGet paketini yükler:
 
-### <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+### <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 **Paket Yöneticisi konsol** penceresinde:
-  * > **Diğer** Windows paket> **Yöneticisi konsolunu**görüntüle ' ye gidin.
+  * **Diğer Windows** > **paket Yöneticisi konsolu**> **görüntüle** ' ye gidin.
   * *Apiconventions. csproj* dosyasının bulunduğu dizine gidin.
   * Aşağıdaki komutu yürütün:
 
@@ -56,14 +56,14 @@ Aşağıdaki yaklaşımlardan biriyle [Microsoft. AspNetCore. Mvc. api. çözüm
     Install-Package Microsoft.AspNetCore.Mvc.Api.Analyzers
     ```
 
-### <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Mac için Visual Studio](#tab/visual-studio-mac)
+### <a name="visual-studio-for-mac"></a>[Mac için Visual Studio](#tab/visual-studio-mac)
 
-* **Çözüm bölmesi** paket> **Ekle...** ' da paketler klasörüne sağ tıklayın.
+* Paket Ekle ' **Çözüm Bölmesi** > *paketler* klasörüne sağ tıklayın **...** .
 * **Paket Ekle** penceresinin **kaynak** açılan penceresini "NuGet.org" olarak ayarlayın.
 * Arama kutusuna "Microsoft. AspNetCore. Mvc. api. çözümleyiciler" yazın.
 * Sonuçlar bölmesinden "Microsoft. AspNetCore. Mvc. api. çözümleyiciler" paketini seçin ve **paket Ekle**' ye tıklayın.
 
-### <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+### <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 **Tümleşik terminalden**aşağıdaki komutu çalıştırın:
 
@@ -71,7 +71,7 @@ Aşağıdaki yaklaşımlardan biriyle [Microsoft. AspNetCore. Mvc. api. çözüm
 dotnet add ApiConventions.csproj package Microsoft.AspNetCore.Mvc.Api.Analyzers
 ```
 
-### <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
+### <a name="net-core-cli"></a>[.NET Core CLI](#tab/netcore-cli)
 
 Şu komutu çalıştırın:
 
@@ -85,9 +85,9 @@ dotnet add ApiConventions.csproj package Microsoft.AspNetCore.Mvc.Api.Analyzers
 
 ## <a name="analyzers-for-web-api-conventions"></a>Web API kuralları için çözümleyiciler
 
-Openapı belgeleri, bir eylemin döndürebildiği durum kodlarını ve yanıt türlerini içerir. ASP.NET Core MVC 'de, <xref:Microsoft.AspNetCore.Mvc.ProducesResponseTypeAttribute> ve <xref:Microsoft.AspNetCore.Mvc.ProducesAttribute> gibi öznitelikler bir eylemi belgelemek için kullanılır. <xref:tutorials/web-api-help-pages-using-swagger>Web API 'nizi belgeleme hakkında daha fazla ayrıntıya gider.
+Openapı belgeleri, bir eylemin döndürebildiği durum kodlarını ve yanıt türlerini içerir. ASP.NET Core MVC 'de <xref:Microsoft.AspNetCore.Mvc.ProducesResponseTypeAttribute> ve <xref:Microsoft.AspNetCore.Mvc.ProducesAttribute> gibi öznitelikler bir eylemi belgelemek için kullanılır. <xref:tutorials/web-api-help-pages-using-swagger>, Web API 'nizi belgeleme hakkında daha fazla ayrıntıya gider.
 
-Paketteki çözümleyicilerden biri ile <xref:Microsoft.AspNetCore.Mvc.ApiControllerAttribute> açıklanmış denetimleri inceler ve yanıtlarını tamamen belgemeyen eylemleri tanımlar. Aşağıdaki örnek göz önünde bulundurun:
+Paketteki çözümleyiciler, <xref:Microsoft.AspNetCore.Mvc.ApiControllerAttribute> ile açıklanmış denetimleri inceler ve yanıtlarını tamamen belgemeyen eylemleri tanımlar. Aşağıdaki örnek göz önünde bulundurun:
 
 [!code-csharp[](conventions/sample/Controllers/ContactsController.cs?name=missing404docs&highlight=10)]
 

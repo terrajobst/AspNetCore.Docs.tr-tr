@@ -7,11 +7,11 @@ ms.custom: mvc, seodec18
 ms.date: 07/10/2019
 uid: azure/devops/monitor
 ms.openlocfilehash: 1d8ed99f4387dbc99929164c558cc2ce14bd9ea0
-ms.sourcegitcommit: b40613c603d6f0cc71f3232c16df61550907f550
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68307953"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78659504"
 ---
 # <a name="monitor-and-debug"></a>İzleme ve hata ayıklama
 
@@ -31,95 +31,95 @@ Bu bölümde, aşağıdaki görevleri tamamlamanız:
 
 App Service web uygulamalarını kolayca gerçek zamanlı olarak izlenir. Azure portal, ölçümleri anlaşılması kolay grafikler ve graflar, işler.
 
-1. Açık [Azure portalında](https://portal.azure.com)ve ardından gidin *mywebapp şeklindedir\<unique_number\>*  App Service.
+1. [Azure Portal](https://portal.azure.com)açın ve sonra *mywebapp\<unique_number\>* App Service gidin.
 
-1. **Genel bakış** sekmesi son ölçümleri gösteren grafikler de dahil olmak üzere faydalı "bir bakışta" bilgiler görüntüler.
+1. **Genel bakış** sekmesi, son ölçümleri görüntüleyen grafikler dahil yararlı "bir bakışta" bilgileri görüntüler.
 
     ![Ekran gösteren genel bakış paneli](./media/monitoring/overview.png)
 
-    * **Http 5xx**: Sunucu tarafı hatalarının sayısı, genellikle ASP.NET Core kodundaki özel durumlar.
-    * **Veri**: Web uygulamanıza gelen veri girişi.
+    * **Http 5xx**: sunucu tarafı hatalarının sayısı, genellikle ASP.NET Core kodundaki özel durumlar.
+    * **Veri girişi**: Web uygulamanıza gelen veri girişi.
     * **Giden veri**: Web uygulamanızdan istemcilere giden veri çıkışı.
-    * **Istek sayısı**: HTTP isteklerinin sayısı.
-    * **Ortalama yanıt süresi**: Web uygulamasının HTTP isteklerine yanıt vermesi için geçen ortalama süre.
+    * **İstekler**: http isteklerinin sayısı.
+    * **Ortalama yanıt süresi**: Web uygulamasının http isteklerine yanıt vermesi için geçen ortalama süre.
 
     Sorun giderme ve en iyi duruma getirme için Self Servis çeşitli araçlar Ayrıca bu sayfada bulunur.
 
     ![Self Servis gösteren araçları ekran](./media/monitoring/wizards.png)
 
-    * **Sorunları tanılama ve çözme** olan bir Self Servis sorun giderici.
-    * **Application Insights** performans ve uygulama davranışını profil oluşturma için olan ve daha sonra bu bölümde ele alınmıştır.
-    * **App Service Danışmanı** uygulama deneyiminizi ayarlamak için öneriler sağlar.
+    * **Sorunları tanılama ve çözme** , bir self servis sorun gidericidir.
+    * **Application Insights** , profil oluşturma performansı ve uygulama davranışına yöneliktir ve bu bölümün ilerleyen kısımlarında ele alınmıştır.
+    * **App Service Danışmanı** , uygulama deneyiminizi ayarlama önerilerini sağlar.
 
 ## <a name="advanced-monitoring"></a>Gelişmiş izleme
 
-[Azure İzleyici](/azure/monitoring-and-diagnostics/) tüm ölçümleri izleme ve Azure Hizmetleri genelinde uyarılar ayarlanması için merkezi hizmetidir. Azure İzleyici'içinde yöneticileri hedefle performansını izleyebilir ve eğilimleri belirleyin. Her bir Azure hizmeti, kendi sunar [ölçüm kümesini](/azure/monitoring-and-diagnostics/monitoring-supported-metrics#microsoftwebsites-excluding-functions) Azure İzleyicisi.
+[Azure izleyici](/azure/monitoring-and-diagnostics/) , tüm ölçümleri Izlemek ve Azure hizmetleri genelinde uyarı ayarlamak için merkezi bir hizmettir. Azure İzleyici'içinde yöneticileri hedefle performansını izleyebilir ve eğilimleri belirleyin. Her Azure hizmeti, Azure Izleyici 'ye kendi [ölçüm kümesini](/azure/monitoring-and-diagnostics/monitoring-supported-metrics#microsoftwebsites-excluding-functions) sunar.
 
 ## <a name="profile-with-application-insights"></a>Application Insights ile profili
 
-[Application Insights](/azure/application-insights/app-insights-overview) web uygulamaları ve kullanıcıların bunları nasıl kullanılacağını kararlılığı ve performansı analiz etmek için bir Azure hizmetidir. Application Insights verilerini, daha geniş ve Azure İzleyici'den daha derin. Veriler, geliştiricilerin ve yöneticilerin uygulamaları geliştirmek için anahtar bilgilerini sağlayabilir. Application ınsights'ı bir Azure App Service kaynak kod değişikliği yapmadan eklenebilir.
+[Application Insights](/azure/application-insights/app-insights-overview) , Web uygulamalarının performansını ve kararlılığını ve kullanıcıların bunları nasıl kullandığını analiz eden bir Azure hizmetidir. Application Insights verilerini, daha geniş ve Azure İzleyici'den daha derin. Veriler, geliştiricilerin ve yöneticilerin uygulamaları geliştirmek için anahtar bilgilerini sağlayabilir. Application ınsights'ı bir Azure App Service kaynak kod değişikliği yapmadan eklenebilir.
 
-1. Açık [Azure portalında](https://portal.azure.com)ve ardından gidin *mywebapp şeklindedir\<unique_number\>*  App Service.
-1. Gelen **genel bakış** sekmesinde **Application Insights** Döşe.
+1. [Azure Portal](https://portal.azure.com)açın ve sonra *mywebapp\<unique_number\>* App Service gidin.
+1. **Genel bakış** sekmesinden **Application Insights** kutucuğuna tıklayın.
 
     ![Application Insights kutucuğunu](./media/monitoring/app-insights.png)
 
-1. Seçin **yeni kaynak Oluştur** radyo düğmesi. Varsayılan kaynak adı kullanın ve Application Insights kaynağı için konum seçin. Konum, web uygulamanızın eşleşmesi gerekmez.
+1. **Yeni kaynak oluştur** radyo düğmesini seçin. Varsayılan kaynak adı kullanın ve Application Insights kaynağı için konum seçin. Konum, web uygulamanızın eşleşmesi gerekmez.
 
     ![Application Insights Kurulumu](./media/monitoring/new-app-insights.png)
 
-1. İçin **çalışma zamanı/Framework**seçin **ASP.NET Core**. Varsayılan ayarları kabul edin.
-1. **Tamam**’ı seçin. Onaylamanız istendiğinde belirleyin **devam**.
+1. **Çalışma zamanı/çerçeve**için **ASP.NET Core**seçin. Varsayılan ayarları kabul edin.
+1. **Tamam**’ı seçin. Onaylamanız istenirse **devam**' ı seçin.
 1. Kaynak oluşturulduktan sonra Application Insights sayfasına doğrudan gitmek için Application Insights kaynağı adına tıklayın.
 
     ![Yeni Application Insights kaynağı hazır](./media/monitoring/new-app-insights-done.png)
 
-Uygulama kullanıldıkça, verileri toplanır. Seçin **Yenile** dikey penceresinde yeni verilerle yeniden yüklemek için.
+Uygulama kullanıldıkça, verileri toplanır. Yeni verilerle dikey pencereyi yeniden yüklemek için **Yenile** ' yi seçin.
 
 ![Application Insights genel bakış sekmesi](./media/monitoring/app-insights-overview.png)
 
-Application ınsights'ı hiçbir ek yapılandırma yararlı sunucu tarafı bilgiler sağlar. Uygulama anlayışları'ndan en fazla değeri elde etmek [uygulamanızı Application Insights SDK'sı ile izleme](/azure/application-insights/app-insights-asp-net-core). Düzgün bir şekilde yapılandırıldığında, istemci tarafında performans dahil olmak üzere, tarayıcı ve web sunucusu arasında uçtan uca izleme hizmetidir. Daha fazla bilgi için [Application Insights belgeleri](/azure/application-insights/app-insights-overview).
+Application ınsights'ı hiçbir ek yapılandırma yararlı sunucu tarafı bilgiler sağlar. Application Insights en fazla değeri almak için [uygulamanızı APPLICATION INSIGHTS SDK ile işaretleyin](/azure/application-insights/app-insights-asp-net-core). Düzgün bir şekilde yapılandırıldığında, istemci tarafında performans dahil olmak üzere, tarayıcı ve web sunucusu arasında uçtan uca izleme hizmetidir. Daha fazla bilgi için [Application Insights belgelerine](/azure/application-insights/app-insights-overview)bakın.
 
-## <a name="logging"></a>Günlüğe Kaydetme
+## <a name="logging"></a>Günlüğe kaydetme
 
 Web sunucusu ve uygulama günlüklerini Azure App Service'te varsayılan olarak devre dışı bırakılır. Aşağıdaki adımlarla günlüklerini etkinleştirin:
 
-1. Açık [Azure portalında](https://portal.azure.com)gidin *mywebapp şeklindedir\<unique_number\>*  App Service.
-1. Sol menüde, aşağı kaydırarak **izleme** bölümü. Seçin **tanılama günlükleri**.
+1. [Azure Portal](https://portal.azure.com)açın ve *mywebapp\<unique_number\>* App Service gidin.
+1. Soldaki menüde, **izleme** bölümüne gidin. **Tanılama günlükleri**' ni seçin.
 
     ![Tanılama günlükleri bağlantı](./media/monitoring/logging.png)
 
-1. Açma **uygulama günlüğü (dosya sistemi)** . İstenirse, web uygulamasında oturum uygulamasını etkinleştirmek için uzantıları yüklemek için kutusuna tıklayın.
-1. Ayarlama **Web sunucusu günlüğü** için **dosya sistemi**.
-1. Girin **saklama süresi** gün. Örneğin, 30.
-1. **Kaydet**'e tıklayın.
+1. **Uygulama günlüğünü açın (dosya sistemi)** . İstenirse, web uygulamasında oturum uygulamasını etkinleştirmek için uzantıları yüklemek için kutusuna tıklayın.
+1. **Web sunucusu günlüğünü** **dosya sistemine**ayarlayın.
+1. **Saklama süresini** gün olarak girin. Örneğin, 30.
+1. **Kaydet** düğmesine tıklayın.
 
-Web uygulaması için ASP.NET Core ve web sunucusu (App Service) günlükleri üretilir. Görüntülenen bilgileri FTP/FTPS kullanarak yüklenebilir. Parola, bu kılavuzda daha önce oluşturduğunuz dağıtım kimlik bilgileri ile aynıdır. Günlükleri olabilir [PowerShell veya Azure CLI ile yerel makinenize doğrudan akışla](/azure/app-service/web-sites-enable-diagnostic-log#download). Günlükleri de olabilir [uygulama anlayışları'nda görüntülenen](/azure/app-service/web-sites-enable-diagnostic-log#how-to-view-logs-in-application-insights).
+Web uygulaması için ASP.NET Core ve web sunucusu (App Service) günlükleri üretilir. Görüntülenen bilgileri FTP/FTPS kullanarak yüklenebilir. Parola, bu kılavuzda daha önce oluşturduğunuz dağıtım kimlik bilgileri ile aynıdır. Günlükler [doğrudan PowerShell veya Azure CLI ile yerel makinenize akışla](/azure/app-service/web-sites-enable-diagnostic-log#download)eklenebilir. Günlükler, Application Insights de [görüntülenebilir](/azure/app-service/web-sites-enable-diagnostic-log#how-to-view-logs-in-application-insights).
 
 ## <a name="log-streaming"></a>Günlük akışı
 
 Uygulama ve web sunucusu günlükleri, portal üzerinden gerçek zamanlı aktarılabilir.
 
-1. Açık [Azure portalında](https://portal.azure.com)gidin *mywebapp şeklindedir\<unique_number\>*  App Service.
-1. Sol menüde, aşağı kaydırarak **izleme** seçin ve bölüm **günlük akışı**.
+1. [Azure Portal](https://portal.azure.com)açın ve *mywebapp\<unique_number\>* App Service gidin.
+1. Soldaki menüde, **izleme** bölümüne gidin ve **günlük akışı**' nı seçin.
 
     ![Ekran gösteren günlük akış bağlantısı](./media/monitoring/log-stream.png)
 
-Günlükleri de olabilir [Azure CLI veya Azure PowerShell](/azure/app-service/web-sites-enable-diagnostic-log#streamlogs)de dahil olmak üzere Cloud Shell aracılığıyla.
+Günlükler, Cloud Shell dahil olmak üzere [Azure CLI veya Azure PowerShell aracılığıyla da akışla](/azure/app-service/web-sites-enable-diagnostic-log#streamlogs)eklenebilir.
 
 ## <a name="alerts"></a>Uyarılar
 
-Azure İzleyici ayrıca sağlar [gerçek zamanlı uyarılar](/azure/monitoring-and-diagnostics/insights-alerts-portal) ölçümleri, yönetim olayları ve diğer ölçütlere göre.
+Azure Izleyici Ayrıca ölçümler, yönetim olayları ve diğer ölçütlere göre [gerçek zamanlı uyarılar](/azure/monitoring-and-diagnostics/insights-alerts-portal) sağlar.
 
-> *Not: Web uygulaması ölçümlerinde Şu anda uyarı verme yalnızca uyarılar (klasik) hizmetinde kullanılabilir.*
+> *Note: Şu anda Web uygulaması ölçümlerinde uyarı verme yalnızca uyarılar (klasik) hizmetinde kullanılabilir.*
 
-[Uyarılar (Klasik) hizmeti](/azure/monitoring-and-diagnostics/monitor-quick-resource-metric-alert-portal) Azure İzleyicisi'nde veya altında bulunabilir **izleme** App Service ayarları bölümü.
+[Uyarılar (klasik) hizmeti](/azure/monitoring-and-diagnostics/monitor-quick-resource-metric-alert-portal) Azure izleyici 'de veya App Service ayarlarının **izleme** bölümünde bulunabilir.
 
 ![Uyarılar (Klasik) bağlantısı](./media/monitoring/alerts.png)
 
 ## <a name="live-debugging"></a>Canlı hata ayıklama
 
-Azure App Service olabilir [ile Visual Studio uzaktan hata ayıklama](/azure/app-service/web-sites-dotnet-troubleshoot-visual-studio#remotedebug) zaman günlükleri sağlamadığınızdan yeterli bilgi. Ancak, uzaktan hata ayıklama, hata ayıklama sembolleriyle derlenmiş uygulamanın gerektirir. Hata ayıklama üretimde dışında son çare olarak yapılması gerekir.
+Günlüklerde yeterli bilgi sağlamadığında, [Visual Studio ile Azure App Service uzaktan hata ayıklanabilir](/azure/app-service/web-sites-dotnet-troubleshoot-visual-studio#remotedebug) . Ancak, uzaktan hata ayıklama, hata ayıklama sembolleriyle derlenmiş uygulamanın gerektirir. Hata ayıklama üretimde dışında son çare olarak yapılması gerekir.
 
 ## <a name="conclusion"></a>Sonuç
 
@@ -137,7 +137,7 @@ Bu bölümde, aşağıdaki görevleri tamamlandı:
 
 * <xref:test/troubleshoot-azure-iis>
 * <xref:host-and-deploy/azure-iis-errors-reference>
-* [Application Insights ile Azure web uygulaması performansını izleme](/azure/application-insights/app-insights-azure-web-apps)
-* [Azure App Service'te web apps için tanılama günlüğünü etkinleştirme](/azure/app-service/web-sites-enable-diagnostic-log)
-* [Visual Studio kullanarak Azure App Service'te bir web uygulaması sorunlarını giderme](/azure/app-service/web-sites-dotnet-troubleshoot-visual-studio)
-* [Klasik ölçüm uyarıları, Azure İzleyici'de Azure Hizmetleri için - oluşturun. Azure portalı](/azure/monitoring-and-diagnostics/insights-alerts-portal)
+* [Application Insights ile Azure Web uygulaması performansını izleme](/azure/application-insights/app-insights-azure-web-apps)
+* [Azure App Service Web Apps için tanılama günlüğünü etkinleştirme](/azure/app-service/web-sites-enable-diagnostic-log)
+* [Visual Studio 'Yu kullanarak Azure App Service bir Web uygulamasının sorunlarını giderme](/azure/app-service/web-sites-dotnet-troubleshoot-visual-studio)
+* [Azure hizmetleri için Azure Izleyici 'de klasik ölçüm uyarıları oluşturma-Azure portal](/azure/monitoring-and-diagnostics/insights-alerts-portal)

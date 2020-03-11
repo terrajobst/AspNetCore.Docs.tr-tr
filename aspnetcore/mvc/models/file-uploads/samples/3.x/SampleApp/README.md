@@ -8,27 +8,27 @@ Kullanıcılara bir sunucuya dosya yükleme yeteneği sağlarken dikkatli olun. 
 
 Başarılı bir saldırının olasılığını azaltan güvenlik adımları şunlardır:
 
-* Dosyaları, tercihen sistem dışı bir sürücüye sahip bir özel dosya yükleme alanına yükleyin. Adanmış bir konumun kullanılması, karşıya yüklenen dosyalar üzerinde güvenlik önlemleri yapmayı kolaylaştırır. Dosya karşıya yükleme konumunda yürütme izinlerini devre dışı bırak. &dagger;
-* Karşıya yüklenen dosyaları uygulamayla aynı dizin ağacında hiçbir şekilde kalıcı hale getirme. &dagger;
-* Uygulama tarafından belirlenen bir güvenli dosya adı kullanın. Kullanıcı girişi veya karşıya yüklenen dosyanın güvenilmeyen dosya adı tarafından belirtilen bir dosya adı kullanmayın. &dagger;
-* Yalnızca belirli bir onaylanan dosya uzantıları kümesine izin ver. &dagger;
-* Kullanıcının bir açılan dosyayı karşıya yüklemesini engellemek için dosya biçimi imzasını denetleyin (örneğin,. *exe* dosyasını *. txt* uzantısıyla karşıya yükleme). &dagger;
-* Sunucu üzerinde istemci tarafı denetimlerinin de gerçekleştirildiğinden emin olun. İstemci tarafı denetimlerinin kolayca atlayabilmesi kolaydır. &dagger;
-* Karşıya yükleme işleminin boyutunu denetleyin ve beklenenden daha büyük olan karşıya yüklemeleri önleyin. &dagger;
+* Dosyaları, tercihen sistem dışı bir sürücüye sahip bir özel dosya yükleme alanına yükleyin. Adanmış bir konumun kullanılması, karşıya yüklenen dosyalar üzerinde güvenlik önlemleri yapmayı kolaylaştırır. Dosya yükleme konumunda yürütme izinlerini devre dışı bırakın.&dagger;
+* Karşıya yüklenen dosyaları uygulamayla aynı dizin ağacında hiçbir şekilde kalıcı hale getirme.&dagger;
+* Uygulama tarafından belirlenen bir güvenli dosya adı kullanın. Kullanıcı girişi veya karşıya yüklenen dosyanın güvenilmeyen dosya adı tarafından belirtilen bir dosya adı kullanmayın.&dagger;
+* Yalnızca belirli bir onaylanan dosya uzantıları kümesine izin verin.&dagger;
+* Kullanıcının bir kendini gizleyen dosya yüklemesini engellemek için dosya biçimi imzasını denetleyin (örneğin,. *exe* dosyasını *. txt* uzantısıyla karşıya yükleme).&dagger;
+* Sunucu üzerinde istemci tarafı denetimlerinin de gerçekleştirildiğinden emin olun. İstemci tarafı denetimleri kolayca atmayı kolaylaştırır.&dagger;
+* Karşıya yükleme işleminin boyutunu denetleyin ve beklenenden daha büyük olan karşıya yüklemeleri önleyin.&dagger;
 * Aynı ada sahip karşıya yüklenen bir dosya tarafından dosyaların üzerine yazılmaması gerektiğinde, dosyayı karşıya yüklemeden önce dosya adını veritabanına veya fiziksel depolamaya göre denetleyin.
 * **Dosya depolanmadan önce karşıya yüklenen içerik üzerinde bir virüs/kötü amaçlı yazılım tarayıcısı çalıştırın.**
 
-&dagger; örnek uygulama, ölçütlere uyan bir yaklaşımı gösterir.
+örnek uygulama &dagger;ölçütleri karşılayan bir yaklaşımı gösterir.
 
 > [!WARNING]
-> Kötü amaçlı kodun bir sisteme yüklenmesi genellikle şu şekilde kod yürütmenin ilk adımıdır:
+> Kötü amaçlı bir kodun bir sisteme karşıya yükleme için kod yürütme için ilk adımı sık şöyledir:
 >
-> * Bir sistemi tamamen ele.
+> * Tamamen devralma sistemin.
 > * Sistemin kilitlenme sonucuyla bir sistemi aşırı yükleme.
-> * Kullanıcı veya Sistem verilerinin güvenliğini tehlikeye atabilir.
+> * Kullanıcı veya sistem verilerini tehlikeye.
 > * Genel Kullanıcı arabirimine Graffiti uygulayın.
 >
-> Kullanıcılardan dosya kabul edilirken saldırı yüzeyi alanını azaltma hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın:
+> Kullanıcıların dosyaları kabul ederken saldırı yüzey alanı azaltma hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın:
 >
 > * [Kısıtlanmamış dosya yükleme](https://www.owasp.org/index.php/Unrestricted_File_Upload)
 > * [Azure güvenliği: kullanıcılardan dosya kabul edilirken uygun denetimlerin yerinde olduğundan emin olun](/azure/security/azure-security-threat-modeling-tool-input-validation#controls-users)
@@ -41,9 +41,9 @@ Daha fazla bilgi için bkz. [ASP.NET Core dosyaları karşıya yükleme](https:/
 
 1. Depolanan dosyalar için yolu ayarlayın (`StoredFilesPath`).
 
-   * Örnek uygulama, değeri `c:\\files` olarak ayarlar. Bu, sistem C: sürücü kökünde *Dosya* adında bir klasör olduğunu varsaymaktadır.
+   * Örnek uygulama, değeri, sistem C: sürücü kökünde *Dosya* adında bir klasör olduğunu varsayan `c:\\files`olarak ayarlar.
    * Yolun mevcut olması gerekir. Sistemin C: sürücüsünde bir *dosyalar* klasörü oluşturun veya yolu uygun bir konum olarak ayarlayın.
    * Uygulamanın işlemi, yola okuma/yazma izinleri gerektiriyor.
    * **ÖNEMLI!** Yoldaki tüm kullanıcılar için yürütme izinlerini devre dışı bırakın.
 
-1. Dosya boyutu sınırını (`FileSizeLimit`) bayt cinsinden ayarlayın. Örnek uygulamanın varsayılan `2097152` (2.097.152 bayt) değeri 2 MB 'a kadar dosya yüklemeye izin verir.
+1. Dosya boyutu sınırını (`FileSizeLimit`) bayt cinsinden ayarlayın. Örnek uygulamanın varsayılan değer olan `2097152` (2.097.152 bayt), dosya yüklemelerine 2 MB 'a kadar izin verir.

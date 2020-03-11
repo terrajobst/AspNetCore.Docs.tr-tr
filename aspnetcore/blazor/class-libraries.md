@@ -11,11 +11,11 @@ no-loc:
 - SignalR
 uid: blazor/class-libraries
 ms.openlocfilehash: 32088b43f91174596f6b9251d36782e806f966b9
-ms.sourcegitcommit: d2ba66023884f0dca115ff010bd98d5ed6459283
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77213255"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78660491"
 ---
 # <a name="aspnet-core-razor-components-class-libraries"></a>ASP.NET Core Razor bileşenleri sınıf kitaplıkları
 
@@ -33,12 +33,12 @@ Bileşenler normal .NET türleri olduğu gibi, bir RCL tarafından sunulan bile�
 
 Ortamınızı Blazor için yapılandırmak üzere <xref:blazor/get-started> makalesindeki yönergeleri izleyin.
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 1. Yeni bir proje oluşturma.
 1. **Razor sınıfı kitaplığı**' nı seçin. **İleri**’yi seçin.
 1. **Yeni bir Razor sınıf kitaplığı oluştur** Iletişim kutusunda **Oluştur**' u seçin.
-1. **Proje adı** alanında bir proje adı girin veya varsayılan proje adını kabul edin. Bu konudaki örneklerde `MyComponentLib1`proje adı kullanılır. **Oluştur**'u seçin.
+1. **Proje adı** alanında bir proje adı girin veya varsayılan proje adını kabul edin. Bu konudaki örneklerde `MyComponentLib1`proje adı kullanılır. **Oluştur**’u seçin.
 1. RCL 'yi bir çözüme ekleyin:
    1. Çözüme sağ tıklayın.  > **var olan projeyi** **Ekle** ' yi seçin.
    1. RCL 'nin proje dosyasına gidin.
@@ -56,7 +56,7 @@ Ortamınızı Blazor için yapılandırmak üzere <xref:blazor/get-started> maka
 >
 > Dosyayı oluşturulan projenin köküne el ile ekleyin.
 
-# <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
+# <a name="net-core-cli"></a>[.NET Core CLI](#tab/netcore-cli)
 
 1. Bir komut kabuğunda [DotNet New](/dotnet/core/tools/dotnet-new) komutuyla **Razor sınıf kitaplığı** şablonunu (`razorclasslib`) kullanın. Aşağıdaki örnekte, `MyComponentLib1`adlı bir RCL oluşturulur. `MyComponentLib1` tutan klasör komut yürütüldüğünde otomatik olarak oluşturulur:
 

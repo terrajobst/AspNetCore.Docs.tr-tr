@@ -6,12 +6,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 12/05/2019
 uid: migration/webapi
-ms.openlocfilehash: c68cf83f427f53b110075168c6d5e4d021808782
-ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
+ms.openlocfilehash: 7f61b78c589fc9d01061b50554e5a639e372c3d8
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74881142"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78661849"
 ---
 # <a name="migrate-from-aspnet-web-api-to-aspnet-core"></a>ASP.NET Web API 'sinden ASP.NET Core 'e geçiş
 
@@ -19,9 +19,9 @@ ms.locfileid: "74881142"
 
 ASP.NET 4. x Web API 'SI, tarayıcılar ve mobil cihazlar dahil olmak üzere çok çeşitli istemcilere ulaşan bir HTTP hizmetidir. ASP.NET Core, ASP.NET 4. x ' in MVC ve Web API uygulaması modellerini ASP.NET Core MVC olarak bilinen daha basit bir programlama modeline ayırır. Bu makalede, ASP.NET 4. x Web API 'sinden ASP.NET Core MVC 'ye geçiş yapmak için gereken adımlar gösterilmektedir.
 
-[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/migration/webapi/sample) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
+[Örnek kodu görüntüleme veya indirme](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/migration/webapi/sample) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Önkoşullar
 
 [!INCLUDE [prerequisites](../includes/net-core-prereqs-vs2019-2.2.md)]
 
@@ -69,7 +69,7 @@ ASP.NET Core MVC 'de, <xref:Microsoft.AspNetCore.Builder.MvcApplicationBuilderEx
 
 ## <a name="migrate-models-and-controllers"></a>Modelleri ve denetleyicileri geçirme
 
-*Productapp* projesinin denetleyicisi ve kullandığı model üzerine kopyalayın. Aşağıdaki adımları uygulayın:
+*Productapp* projesinin denetleyicisi ve kullandığı model üzerine kopyalayın. Şu adımları uygulayın:
 
 1. *Denetleyiciyi/ProductsController. cs* öğesini özgün projeden yeni bir kopyaya kopyalayın.
 1. Tüm *modeller* klasörünü özgün projeden yeni bir klasöre kopyalayın.
@@ -83,7 +83,7 @@ Bu noktada, uygulamanın oluşturulması bir dizi derleme hatası ile sonuçlan�
 
 Hataları aşağıdaki gibi düzeltir:
 
-1. Değişiklik `ApiController` için <xref:Microsoft.AspNetCore.Mvc.ControllerBase>. `ControllerBase` başvurusunu çözümlemek için `using Microsoft.AspNetCore.Mvc;` ekleyin.
+1. `ApiController` <xref:Microsoft.AspNetCore.Mvc.ControllerBase>olarak değiştirin. `ControllerBase` başvurusunu çözümlemek için `using Microsoft.AspNetCore.Mvc;` ekleyin.
 1. `using System.Web.Http;` klasörünü silin.
 1. `GetProduct` eyleminin dönüş türünü `IHttpActionResult` `ActionResult<Product>`olarak değiştirin.
 
@@ -123,7 +123,7 @@ Yönlendirmeyi aşağıdaki şekilde yapılandırın:
 
 [!code-csharp[](webapi/sample/ProductsCore/Controllers/ProductsController.cs)]
 
-Geçirilen projeyi çalıştırın ve `/api/products`gidin. Üç ürünün tam bir listesi görüntülenir. konumuna gözatın `/api/products/1`. İlk ürün görüntülenir.
+Geçirilen projeyi çalıştırın ve `/api/products`gidin. Üç ürünün tam bir listesi görüntülenir. `/api/products/1` adresine gidin. İlk ürün görüntülenir.
 
 ## <a name="compatibility-shim"></a>Uyumluluk dolgusu
 

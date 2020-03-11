@@ -1,22 +1,20 @@
 ---
 title: ASP.NET Core ile IIS modülleri
-author: guardrex
+author: rick-anderson
 description: ASP.NET Core uygulamaları ve IIS modüllerini yönetmek nasıl etkin ve etkin olmayan IIS modülleri keşfedin.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
 ms.date: 01/13/2020
 uid: host-and-deploy/iis/modules
-ms.openlocfilehash: ca6cf349aa05db97e145f1cd0cae97a107761fd8
-ms.sourcegitcommit: 2388c2a7334ce66b6be3ffbab06dd7923df18f60
+ms.openlocfilehash: 0f13ef3eb1da03960ef1fa54d33532b6ebbdc128
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75951805"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78657908"
 ---
 # <a name="iis-modules-with-aspnet-core"></a>ASP.NET Core ile IIS modülleri
-
-Tarafından [Luke Latham](https://github.com/guardrex)
 
 Yerel IIS modüllerinden bazıları ve tüm IIS yönetilen modülleri, ASP.NET Core Apps isteklerini işleyemez. Birçok durumda ASP.NET Core, IIS yerel ve yönetilen modüller tarafından ele alınan senaryolara bir alternatif sağlar.
 
@@ -24,40 +22,40 @@ Yerel IIS modüllerinden bazıları ve tüm IIS yönetilen modülleri, ASP.NET C
 
 Tablo, ASP.NET Core uygulamalar ve ASP.NET Core modülü ile işlevsel yerel IIS modüllerini gösterir.
 
-| Modülü | ASP.NET Core uygulamalarla işlevsel | ASP.NET Core seçeneği |
+| Modül | ASP.NET Core uygulamalarla işlevsel | ASP.NET Core seçeneği |
 | --- | :---: | --- |
-| **Anonim Kimlik Doğrulaması**<br>`AnonymousAuthenticationModule`                                  | Evet | |
-| **Temel Kimlik Doğrulaması**<br>`BasicAuthenticationModule`                                          | Evet | |
-| **İstemci sertifikası eşleme kimlik doğrulaması**<br>`CertificateMappingAuthenticationModule`      | Evet | |
+| **Anonim kimlik doğrulaması**<br>`AnonymousAuthenticationModule`                                  | Yes | |
+| **Temel Kimlik Doğrulama**<br>`BasicAuthenticationModule`                                          | Yes | |
+| **İstemci sertifikası eşleme kimlik doğrulaması**<br>`CertificateMappingAuthenticationModule`      | Yes | |
 | **CGI**<br>`CgiModule`                                                                           | Hayır  | |
-| **Yapılandırma doğrulaması**<br>`ConfigurationValidationModule`                                  | Evet | |
+| **Yapılandırma doğrulaması**<br>`ConfigurationValidationModule`                                  | Yes | |
 | **HTTP Hataları**<br>`CustomErrorModule`                                                           | Hayır  | [Durum kodu sayfaları ara yazılımı](xref:fundamentals/error-handling#usestatuscodepages) |
-| **Özel günlüğe kaydetme**<br>`CustomLoggingModule`                                                      | Evet | |
+| **Özel günlüğe kaydetme**<br>`CustomLoggingModule`                                                      | Yes | |
 | **Varsayılan Belge**<br>`DefaultDocumentModule`                                                  | Hayır  | [Varsayılan dosyalar ara yazılımı](xref:fundamentals/static-files#serve-a-default-document) |
-| **Özet kimlik doğrulaması**<br>`DigestAuthenticationModule`                                        | Evet | |
+| **Özet kimlik doğrulaması**<br>`DigestAuthenticationModule`                                        | Yes | |
 | **Dizin Tarama**<br>`DirectoryListingModule`                                               | Hayır  | [Dizin tarama ara yazılımı](xref:fundamentals/static-files#enable-directory-browsing) |
-| **Dinamik sıkıştırma**<br>`DynamicCompressionModule`                                            | Evet | [Yanıt Sıkıştırma Ara Yazılımı](xref:performance/response-compression) |
-| **Başarısız Istek Izleme**<br>`FailedRequestsTracingModule`                                     | Evet | [Günlüğe kaydetme ASP.NET Core](xref:fundamentals/logging/index#tracesource-provider) |
+| **Dinamik sıkıştırma**<br>`DynamicCompressionModule`                                            | Yes | [Yanıt Sıkıştırma Ara Yazılımı](xref:performance/response-compression) |
+| **Başarısız Istek Izleme**<br>`FailedRequestsTracingModule`                                     | Yes | [Günlüğe kaydetme ASP.NET Core](xref:fundamentals/logging/index#tracesource-provider) |
 | **Dosya önbelleğe alma**<br>`FileCacheModule`                                                            | Hayır  | [Yanıtları Önbelleğe Alma Ara Yazılımı](xref:performance/caching/middleware) |
 | **HTTP önbelleği**<br>`HttpCacheModule`                                                            | Hayır  | [Yanıtları Önbelleğe Alma Ara Yazılımı](xref:performance/caching/middleware) |
-| **HTTP Günlüğü**<br>`HttpLoggingModule`                                                          | Evet | [Günlüğe kaydetme ASP.NET Core](xref:fundamentals/logging/index) |
-| **HTTP Yeniden Yönlendirmesi**<br>`HttpRedirectionModule`                                                  | Evet | [URL Yeniden Yazma Ara Yazılımı](xref:fundamentals/url-rewriting) |
-| **HTTP Izleme**<br>`TracingModule`                                                              | Evet | |
-| **IIS Istemci sertifikası eşleme kimlik doğrulaması**<br>`IISCertificateMappingAuthenticationModule` | Evet | |
-| **IP ve Etki Alanı Kısıtlamaları**<br>`IpRestrictionModule`                                          | Evet | |
-| **ISAPI Filtreleri**<br>`IsapiFilterModule`                                                         | Evet | [Ara Yazılım](xref:fundamentals/middleware/index) |
-| **I**<br>`IsapiModule`                                                                       | Evet | [Ara Yazılım](xref:fundamentals/middleware/index) |
-| **Protokol desteği**<br>`ProtocolSupportModule`                                                  | Evet | |
-| **İstek Filtreleme**<br>`RequestFilteringModule`                                                | Evet | [URL yeniden yazma ara yazılımı `IRule`](xref:fundamentals/url-rewriting#irule-based-rule) |
-| **İstek İzleyicisi**<br>`RequestMonitorModule`                                                    | Evet | |
-| **URL yeniden yazma**&#8224;<br>`RewriteModule`                                                      | Evet | [URL Yeniden Yazma Ara Yazılımı](xref:fundamentals/url-rewriting) |
+| **HTTP Günlüğü**<br>`HttpLoggingModule`                                                          | Yes | [Günlüğe kaydetme ASP.NET Core](xref:fundamentals/logging/index) |
+| **HTTP Yeniden Yönlendirmesi**<br>`HttpRedirectionModule`                                                  | Yes | [URL Yeniden Yazma Ara Yazılımı](xref:fundamentals/url-rewriting) |
+| **HTTP Izleme**<br>`TracingModule`                                                              | Yes | |
+| **IIS Istemci sertifikası eşleme kimlik doğrulaması**<br>`IISCertificateMappingAuthenticationModule` | Yes | |
+| **IP ve Etki Alanı Kısıtlamaları**<br>`IpRestrictionModule`                                          | Yes | |
+| **ISAPI Filtreleri**<br>`IsapiFilterModule`                                                         | Yes | [Ara Yazılım](xref:fundamentals/middleware/index) |
+| **I**<br>`IsapiModule`                                                                       | Yes | [Ara Yazılım](xref:fundamentals/middleware/index) |
+| **Protokol desteği**<br>`ProtocolSupportModule`                                                  | Yes | |
+| **İstek Filtreleme**<br>`RequestFilteringModule`                                                | Yes | [URL yeniden yazma ara yazılımı `IRule`](xref:fundamentals/url-rewriting#irule-based-rule) |
+| **İstek İzleyicisi**<br>`RequestMonitorModule`                                                    | Yes | |
+| **URL yeniden yazma**&#8224;<br>`RewriteModule`                                                      | Yes | [URL Yeniden Yazma Ara Yazılımı](xref:fundamentals/url-rewriting) |
 | **Sunucu tarafı eklemeleri**<br>`ServerSideIncludeModule`                                            | Hayır  | |
 | **Statik sıkıştırma**<br>`StaticCompressionModule`                                              | Hayır  | [Yanıt Sıkıştırma Ara Yazılımı](xref:performance/response-compression) |
 | **Statik İçerik**<br>`StaticFileModule`                                                         | Hayır  | [Statik dosya ara yazılımı](xref:fundamentals/static-files) |
-| **Belirteç önbelleğe alma**<br>`TokenCacheModule`                                                          | Evet | |
-| **URI önbelleğe alma**<br>`UriCacheModule`                                                              | Evet | |
-| **URL Yetkilendirmesi**<br>`UrlAuthorizationModule`                                                | Evet | [ASP.NET Core kimliği](xref:security/authentication/identity) |
-| **Windows Kimlik Doğrulaması**<br>`WindowsAuthenticationModule`                                      | Evet | |
+| **Belirteç önbelleğe alma**<br>`TokenCacheModule`                                                          | Yes | |
+| **URI önbelleğe alma**<br>`UriCacheModule`                                                              | Yes | |
+| **URL Yetkilendirmesi**<br>`UrlAuthorizationModule`                                                | Yes | [ASP.NET Core kimliği](xref:security/authentication/identity) |
+| **Windows Kimlik Doğrulaması**<br>`WindowsAuthenticationModule`                                      | Yes | |
 
 &#8224;[Dizin yapısındaki](xref:host-and-deploy/directory-structure)değişiklikler nedenıyle, URL yeniden yazma modülünün `isFile` ve `isDirectory` eşleşme türleri ASP.NET Core uygulamalarla çalışmıyor.
 
@@ -65,7 +63,7 @@ Tablo, ASP.NET Core uygulamalar ve ASP.NET Core modülü ile işlevsel yerel IIS
 
 Yönetilen modüller, uygulama havuzunun .NET CLR sürümü **yönetilen kod olmadan**ayarlandığında barındırılan ASP.NET Core uygulamalarıyla işlevsel *değildir* . ASP.NET Core çeşitli durumlarda ara yazılım alternatifleri sunmaktadır.
 
-| Modülü                  | ASP.NET Core seçeneği |
+| Modül                  | ASP.NET Core seçeneği |
 | ----------------------- | ------------------- |
 | AnonymousIdentification | |
 | DefaultAuthentication   | |

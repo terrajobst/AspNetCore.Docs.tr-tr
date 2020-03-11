@@ -6,15 +6,15 @@ ms.author: riande
 ms.date: 12/20/2018
 uid: tutorials/razor-pages/da1
 ms.openlocfilehash: 0f6535462fe2d308825bf7289c10d2b0690cebd4
-ms.sourcegitcommit: 07d98ada57f2a5f6d809d44bdad7a15013109549
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72334108"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78666217"
 ---
 # <a name="update-the-generated-pages-in-an-aspnet-core-app"></a>ASP.NET Core uygulamasında oluşturulan sayfaları güncelleştirme
 
-Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
+Gönderen [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 ::: moniker range=">= aspnetcore-3.0"
 
@@ -76,7 +76,7 @@ Tamsayıyı **içermeyen "** {id: int}" yol şablonuna sahip sayfaya yönelik bi
 
 * *Pages/filmler/details. cshtml* içindeki page yönergesini `@page "{id:int?}"`olarak ayarlayın.
 * `public async Task<IActionResult> OnGetAsync(int? id)` ( *sayfalarda/filmlerde/details. cshtml. cs*) bir kesme noktası ayarlayın.
-* [https://test-cors.org](`https://localhost:5001/Movies/Details/`) sayfasına gidin.
+* `https://localhost:5001/Movies/Details/` sayfasına gidin.
 
 `@page "{id:int}"` yönergesi ile, kesme noktası hiçbir şekilde vurılmaz. Yönlendirme Altyapısı HTTP 404 döndürür. `@page "{id:int?}"`kullanarak `OnGetAsync` yöntemi `NotFound` (HTTP 404) döndürür.
 
@@ -189,7 +189,7 @@ Tamsayıyı **içermeyen "** {id: int}" yol şablonuna sahip sayfaya yönelik bi
 
 * *Pages/filmler/details. cshtml* içindeki page yönergesini `@page "{id:int?}"`olarak ayarlayın.
 * `public async Task<IActionResult> OnGetAsync(int? id)` ( *sayfalarda/filmlerde/details. cshtml. cs*) bir kesme noktası ayarlayın.
-* [https://test-cors.org](`https://localhost:5001/Movies/Details/`) sayfasına gidin.
+* `https://localhost:5001/Movies/Details/` sayfasına gidin.
 
 `@page "{id:int}"` yönergesi ile, kesme noktası hiçbir şekilde vurılmaz. Yönlendirme Altyapısı HTTP 404 döndürür. `@page "{id:int?}"`kullanarak `OnGetAsync` yöntemi `NotFound` (HTTP 404) döndürür.
 

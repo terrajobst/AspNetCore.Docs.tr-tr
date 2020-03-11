@@ -1,5 +1,5 @@
-# <a name="aspnet-core-distributed-cache-sample"></a>ASP.NET Core dağıtılmış önbellek örneği
+# <a name="aspnet-core-distributed-cache-sample"></a>Dağıtılmış önbellek örneğini ASP.NET Core
 
-Bu örnek, bir dağıtılmış önbellek kullanımını gösterir. Bu örnek, açıklanan senaryoyu gösterir [ASP.NET Core dağıtılmış bir önbellekte çalışın](https://docs.microsoft.com/aspnet/core/performance/caching/distributed) konu.
+Bu örnek, dağıtılmış bir önbelleğin kullanımını gösterir. Bu örnek, ASP.NET Core konu başlığında [Dağıtılmış önbellek Ile çalışma](https://docs.microsoft.com/aspnet/core/performance/caching/distributed) bölümünde açıklanan senaryoyu gösterir.
 
-Üretim ortamında, örnek uygulama, dağıtılmış bir SQL Server Önbelleği kullanmak üzere yapılandırılır. Dağıtılmış bir Redis önbelleği kullanmak üzere uygulamayı yapılandırmak için önişlemci yönergesi en üstündeki değiştirme *Startup.cs* Redis kullanılacak dosyasını (`#define Redis // SQLServer`). Daha fazla bilgi için [önişlemci yönergeleri örnek kodda](https://docs.microsoft.com/aspnet/core/#preprocessor-directives-in-sample-code).
+Üretim ortamında, örnek uygulama dağıtılmış bir SQL Server önbelleği kullanacak şekilde yapılandırılmıştır. Uygulamayı dağıtılmış Redsıs önbelleği kullanmak üzere yeniden yapılandırmak için, *Startup.cs* dosyasının en üstündeki Önişlemci yönergesini redsıs (`#define Redis // SQLServer`) kullanmak üzere değiştirin. Daha fazla bilgi için bkz. [örnek kodda Önişlemci yönergeleri](https://docs.microsoft.com/aspnet/core/#preprocessor-directives-in-sample-code).

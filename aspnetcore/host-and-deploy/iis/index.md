@@ -1,22 +1,20 @@
 ---
 title: Windows IIS üzerinde ASP.NET Core barındırma
-author: guardrex
+author: rick-anderson
 description: ASP.NET Core uygulamaları Windows Server Internet Information Services (IIS) üzerinde barındırmayı öğrenin.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
 ms.date: 02/07/2020
 uid: host-and-deploy/iis/index
-ms.openlocfilehash: ee7918783c0189a63d17678cda02f54dc40bdc24
-ms.sourcegitcommit: 85564ee396c74c7651ac47dd45082f3f1803f7a2
+ms.openlocfilehash: c2ca867e3eebdc3fcf512cc5d457ff3c1967f9b1
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77172477"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78657985"
 ---
 # <a name="host-aspnet-core-on-windows-with-iis"></a>Windows IIS üzerinde ASP.NET Core barındırma
-
-[Luke Latham](https://github.com/guardrex) tarafından
 
 ::: moniker range=">= aspnetcore-3.0"
 
@@ -26,7 +24,7 @@ ASP.NET Core uygulamasını bir IIS sunucusuna yayımlamaya yönelik bir öğret
 
 ## <a name="supported-operating-systems"></a>Desteklenen işletim sistemleri
 
-Aşağıdaki işletim sistemleri desteklenmektedir:
+Aşağıdaki işletim sistemleri desteklenir:
 
 * Windows 7 veya üzeri
 * Windows Server 2012 R2 veya üzeri
@@ -638,7 +636,7 @@ ASP.NET Core uygulamasını bir IIS sunucusuna yayımlamaya yönelik bir öğret
 
 ## <a name="supported-operating-systems"></a>Desteklenen işletim sistemleri
 
-Aşağıdaki işletim sistemleri desteklenmektedir:
+Aşağıdaki işletim sistemleri desteklenir:
 
 * Windows 7 veya üzeri
 * Windows Server 2008 R2 veya üzeri
@@ -1242,7 +1240,7 @@ ASP.NET Core uygulamasını bir IIS sunucusuna yayımlamaya yönelik bir öğret
 
 ## <a name="supported-operating-systems"></a>Desteklenen işletim sistemleri
 
-Aşağıdaki işletim sistemleri desteklenmektedir:
+Aşağıdaki işletim sistemleri desteklenir:
 
 * Windows 7 veya üzeri
 * Windows Server 2008 R2 veya üzeri

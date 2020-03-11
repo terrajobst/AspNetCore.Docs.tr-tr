@@ -9,12 +9,12 @@ ms.date: 11/12/2019
 no-loc:
 - SignalR
 uid: signalr/java-client
-ms.openlocfilehash: d7143b2c22ecdc4e68f484aa4c244e1c520beae0
-ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
+ms.openlocfilehash: 6919eabf454f16887e012161a454a4848c45002b
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73963791"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78660519"
 ---
 # <a name="aspnet-core-opno-locsignalr-java-client"></a>ASP.NET Core SignalR Java istemcisi
 
@@ -24,7 +24,7 @@ Java istemcisi, Android uygulamaları dahil olmak üzere Java kodundan bir ASP.N
 
 Bu makalede başvurulan örnek Java konsol uygulaması SignalR Java istemcisini kullanır.
 
-[Örnek kodu görüntüleme veya indirme](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/signalr/java-client/sample) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
+[Örnek kodu görüntüleme veya indirme](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/signalr/java-client/sample) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
 
 ## <a name="install-the-opno-locsignalr-java-client-package"></a>SignalR Java istemci paketini yükler
 
@@ -40,13 +40,13 @@ Maven kullanıyorsanız, *Pok. xml* dosyanızın `<dependencies>` öğesinin iç
 
 [!code-xml[pom.xml dependency element](java-client/sample/pom.xml?name=snippet_dependencyElement)]
 
-## <a name="connect-to-a-hub"></a>Bir hub 'a bağlanma
+## <a name="connect-to-a-hub"></a>Bir hub'ına bağlama
 
 `HubConnection`oluşturmak için `HubConnectionBuilder` kullanılmalıdır. Hub URL 'SI ve günlük düzeyi bir bağlantı derlenirken yapılandırılabilir. `build`önce `HubConnectionBuilder` yöntemlerinden herhangi birini çağırarak gerekli seçenekleri yapılandırın. Bağlantıyı `start`başlatın.
 
 [!code-java[Build hub connection](java-client/sample/src/main/java/Chat.java?range=16-17)]
 
-## <a name="call-hub-methods-from-client"></a>İstemciden çağrı merkezi yöntemleri
+## <a name="call-hub-methods-from-client"></a>İstemciden hub yöntemlerini çağırma
 
 Bir `send` çağrısı, hub yöntemini çağırır. Hub yöntemi adını ve hub yönteminde tanımlanan tüm bağımsız değişkenleri `send`geçirin.
 
@@ -55,7 +55,7 @@ Bir `send` çağrısı, hub yöntemini çağırır. Hub yöntemi adını ve hub 
 > [!NOTE]
 > Azure SignalR hizmetini *sunucusuz modda*kullanıyorsanız, bir istemciden hub yöntemlerini çağıramezsiniz. Daha fazla bilgi için [SignalR hizmeti belgelerine](/azure/azure-signalr/signalr-concept-serverless-development-config)bakın.
 
-## <a name="call-client-methods-from-hub"></a>Hub 'dan istemci yöntemlerini çağır
+## <a name="call-client-methods-from-hub"></a>İstemci hub'ından yöntemleri çağırma
 
 İstemcide hub 'ın çağırakullanabileceği yöntemleri tanımlamak için `hubConnection.on` kullanın. Bağlantıyı başlatmadan önce, oluşturma işleminden sonra yöntemleri tanımlayın.
 

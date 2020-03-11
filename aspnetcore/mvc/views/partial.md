@@ -6,16 +6,16 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 06/12/2019
 uid: mvc/views/partial
-ms.openlocfilehash: 50c4f41d5d3099184aa3992ed7e176b74c488d2a
-ms.sourcegitcommit: 805f625d16d74e77f02f5f37326e5aceafcb78e3
+ms.openlocfilehash: 04b6d6e620f34ac7154728b1b3048195e87c5860
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70985565"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78663053"
 ---
 # <a name="partial-views-in-aspnet-core"></a>ASP.NET Core kısmi görünümler
 
-[Steve Smith](https://ardalis.com/), [Luke Latham](https://github.com/guardrex), [madan Jendoubı](https://twitter.com/maherjend), [Rick Anderson](https://twitter.com/RickAndMSFT)ve [Scott Sauber](https://twitter.com/scottsauber) tarafından
+[Steve Smith](https://ardalis.com/), [Maa jendoubi](https://twitter.com/maherjend), [Rick Anderson](https://twitter.com/RickAndMSFT)ve [Scott Sauber](https://twitter.com/scottsauber)
 
 Kısmi görünüm *, başka bir* biçimlendirme dosyasının işlenmiş ÇıKTıSıNDAKI HTML çıkışını Işleyen bir [Razor](xref:mvc/views/razor) biçimlendirme dosyasıdır ( *. cshtml*).
 
@@ -25,7 +25,7 @@ Kısmi görünüm *, başka bir* biçimlendirme dosyasının işlenmiş ÇıKTı
 
 ::: moniker-end
 
-[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/views/partial/sample) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
+[Örnek kodu görüntüleme veya indirme](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/views/partial/sample) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
 
 ## <a name="when-to-use-partial-views"></a>Kısmi görünümlerin ne zaman kullanılacağı
 
@@ -38,7 +38,7 @@ Kısmi görünümler şu şekilde etkili bir yoldur:
 
   Biçimlendirme dosyalarında aynı biçimlendirme öğeleri kullanıldığında, kısmi bir görünüm biçimlendirme içeriğinin tek bir kısmi görünüm dosyasına çoğaltılmasını kaldırır. Kısmi görünümdeki biçimlendirme değiştirildiğinde, kısmi görünümü kullanan biçimlendirme dosyalarının işlenmiş çıkışını günceller.
 
-Yaygın düzen öğelerini korumak için kısmi görünümler kullanılmamalıdır. [_Layout. cshtml](xref:mvc/views/layout) dosyalarında ortak düzen öğeleri belirtilmelidir.
+Yaygın düzen öğelerini korumak için kısmi görünümler kullanılmamalıdır. Ortak düzen öğeleri [_Layout. cshtml](xref:mvc/views/layout) dosyalarında belirtilmelidir.
 
 Biçimlendirmeyi işlemek için karmaşık işleme mantığının veya kod yürütmenin gerekli olduğu kısmi bir görünüm kullanmayın. Kısmi bir görünüm yerine bir [Görünüm bileşeni](xref:mvc/views/view-components)kullanın.
 
@@ -48,9 +48,9 @@ Biçimlendirmeyi işlemek için karmaşık işleme mantığının veya kod yür�
 
 Kısmi görünüm, *Görünümler* klasörü (MVC) veya *sayfalar* klasörü (Razor Pages) içinde tutulan bir *. cshtml* biçimlendirme dosyasıdır.
 
-ASP.NET Core MVC 'de, denetleyici <xref:Microsoft.AspNetCore.Mvc.ViewResult> bir görünüm veya kısmi görünüm döndürmektedir. Razor Pages, bir <xref:Microsoft.AspNetCore.Mvc.RazorPages.PageModel> <xref:Microsoft.AspNetCore.Mvc.PartialViewResult> nesnesi olarak temsil edilen kısmi bir görünüm döndürebilir. Kısmi görünümlere başvurmak ve işlemek [kısmi görünüm başvurusu](#reference-a-partial-view) bölümünde açıklanmaktadır.
+ASP.NET Core MVC 'de, denetleyicinin <xref:Microsoft.AspNetCore.Mvc.ViewResult> bir görünüm veya kısmi görünüm döndürme yeteneğine sahiptir. Razor Pages, bir <xref:Microsoft.AspNetCore.Mvc.RazorPages.PageModel> <xref:Microsoft.AspNetCore.Mvc.PartialViewResult> nesnesi olarak temsil edilen kısmi bir görünüm döndürebilir. Kısmi görünümlere başvurmak ve işlemek [kısmi görünüm başvurusu](#reference-a-partial-view) bölümünde açıklanmaktadır.
 
-MVC görünümü veya sayfa işleme farklı olarak, kısmi bir görünüm *_Viewstart. cshtml*çalıştırmaz. *_Viewstart. cshtml*hakkında daha fazla bilgi için bkz <xref:mvc/views/layout>.
+MVC görünümü veya sayfa işleme farklı olarak, kısmi bir görünüm *_ViewStart. cshtml*çalıştırmaz. *_ViewStart. cshtml*hakkında daha fazla bilgi için bkz. <xref:mvc/views/layout>.
 
 Kısmi görünüm dosya adları genellikle bir alt çizgi (`_`) ile başlar. Bu adlandırma kuralı gerekli değildir, ancak görünüm ve sayfalardan kısmi görünümleri görsel açıdan ayırt etmeye yardımcı olur.
 
@@ -60,9 +60,9 @@ Kısmi görünüm dosya adları genellikle bir alt çizgi (`_`) ile başlar. Bu 
 
 Kısmi görünüm, *Görünümler* klasörü içinde tutulan bir *. cshtml* biçimlendirme dosyasıdır.
 
-Denetleyicinin bir görünüm <xref:Microsoft.AspNetCore.Mvc.ViewResult> veya kısmi görünüm döndürme özelliği vardır. Kısmi görünümlere başvurmak ve işlemek [kısmi görünüm başvurusu](#reference-a-partial-view) bölümünde açıklanmaktadır.
+Denetleyicinin <xref:Microsoft.AspNetCore.Mvc.ViewResult> bir görünümü veya kısmi görünümü döndürmesinin bir özelliği olabilir. Kısmi görünümlere başvurmak ve işlemek [kısmi görünüm başvurusu](#reference-a-partial-view) bölümünde açıklanmaktadır.
 
-MVC görünüm işlemenin aksine, kısmi bir görünüm *_Viewstart. cshtml*çalıştırmaz. *_Viewstart. cshtml*hakkında daha fazla bilgi için bkz <xref:mvc/views/layout>.
+MVC görünüm işlemenin aksine, kısmi bir görünüm *_ViewStart. cshtml*çalıştırmaz. *_ViewStart. cshtml*hakkında daha fazla bilgi için bkz. <xref:mvc/views/layout>.
 
 Kısmi görünüm dosya adları genellikle bir alt çizgi (`_`) ile başlar. Bu adlandırma kuralı gerekli değildir, ancak kısmen görünümlerini görünümlerde görsel açıdan ayırt etmeye yardımcı olur.
 
@@ -74,7 +74,7 @@ Kısmi görünüm dosya adları genellikle bir alt çizgi (`_`) ile başlar. Bu 
 
 ### <a name="use-a-partial-view-in-a-razor-pages-pagemodel"></a>Razor Pages PageModel içinde kısmi bir görünüm kullanma
 
-ASP.NET Core 2,0 veya 2,1 ' de, aşağıdaki işleyici yöntemi  *\_authorpartialrp. cshtml* kısmi görünümünü yanıta işler:
+ASP.NET Core 2,0 veya 2,1 ' de, aşağıdaki işleyici yöntemi yanıt olarak *\_AuthorPartialRP. cshtml* kısmi görünümünü işler:
 
 ```csharp
 public IActionResult OnGetPartial() =>
@@ -89,7 +89,7 @@ public IActionResult OnGetPartial() =>
 
 ::: moniker range=">= aspnetcore-2.2"
 
-ASP.NET Core 2,2 veya sonraki sürümlerde, bir işleyici yöntemi alternatif olarak bir <xref:Microsoft.AspNetCore.Mvc.RazorPages.PageBase.Partial*> `PartialViewResult` nesnesi oluşturmak için yöntemini çağırabilir:
+ASP.NET Core 2,2 veya üzeri sürümlerde, bir işleyici yöntemi bir `PartialViewResult` nesnesi oluşturmak için alternatif olarak <xref:Microsoft.AspNetCore.Mvc.RazorPages.PageBase.Partial*> metodunu çağırabilir:
 
 [!code-csharp[](partial/sample/PartialViewsSample/Pages/DiscoveryRP.cshtml.cs?name=snippet_OnGetPartial)]
 
@@ -163,7 +163,7 @@ Daha fazla bilgi için bkz. <xref:mvc/views/tag-helpers/builtin-th/partial-tag-h
 
 ### <a name="asynchronous-html-helper"></a>Zaman uyumsuz HTML Yardımcısı
 
-Bir HTML Yardımcısı kullanırken en iyi yöntem <xref:Microsoft.AspNetCore.Mvc.Rendering.HtmlHelperPartialExtensions.PartialAsync*>kullanılır. `PartialAsync`içinde Sarmalanan bir <xref:Microsoft.AspNetCore.Html.IHtmlContent> tür döndürür. <xref:System.Threading.Tasks.Task%601> Yöntemine, beklenen çağrının bir `@` karakterle önek olarak eklenerek başvurulur:
+Bir HTML Yardımcısı kullanırken en iyi yöntem <xref:Microsoft.AspNetCore.Mvc.Rendering.HtmlHelperPartialExtensions.PartialAsync*>kullanmaktır. `PartialAsync`, <xref:System.Threading.Tasks.Task%601>Sarmalanan bir <xref:Microsoft.AspNetCore.Html.IHtmlContent> türü döndürür. Yöntemine, bir `@` karakteriyle beklenen çağrının önüne önek olarak başvurulur:
 
 ```cshtml
 @await Html.PartialAsync("_PartialName")
@@ -201,26 +201,26 @@ Aşağıdaki örnek, göreli bir yol ile kısmi bir görünüme başvurur:
 @await Html.PartialAsync("../Account/_LoginPartial.cshtml")
 ```
 
-Alternatif olarak, ile <xref:Microsoft.AspNetCore.Mvc.Rendering.HtmlHelperPartialExtensions.RenderPartialAsync*>kısmi bir görünüm işleyebilirsiniz. Bu yöntem bir <xref:Microsoft.AspNetCore.Html.IHtmlContent>döndürmez. İşlenmiş çıktıyı doğrudan yanıta akıp. Yöntem bir sonuç döndürmediği için, bir Razor kod bloğu içinde çağrılmalıdır:
+Alternatif olarak, <xref:Microsoft.AspNetCore.Mvc.Rendering.HtmlHelperPartialExtensions.RenderPartialAsync*>ile kısmi bir görünüm işleyebilirsiniz. Bu yöntem bir <xref:Microsoft.AspNetCore.Html.IHtmlContent>döndürmez. İşlenmiş çıktıyı doğrudan yanıta akıp. Yöntem bir sonuç döndürmediği için, bir Razor kod bloğu içinde çağrılmalıdır:
 
 [!code-cshtml[](partial/sample/PartialViewsSample/Views/Home/Discovery.cshtml?name=snippet_RenderPartialAsync)]
 
-`RenderPartialAsync` , İçeriği oluşturduğundan, bazı senaryolarda daha iyi performans sağlar. Performans açısından kritik durumlarda, her iki yaklaşımı kullanarak sayfayı kıyaslar ve daha hızlı bir yanıt üreten yaklaşımı kullanır.
+`RenderPartialAsync` işlenmiş içerik akışı yaptığından, bazı senaryolarda daha iyi performans sağlar. Performans açısından kritik durumlarda, her iki yaklaşımı kullanarak sayfayı kıyaslar ve daha hızlı bir yanıt üreten yaklaşımı kullanır.
 
 ### <a name="synchronous-html-helper"></a>Zaman uyumlu HTML Yardımcısı
 
-<xref:Microsoft.AspNetCore.Mvc.Rendering.HtmlHelperPartialExtensions.Partial*>ve sırasıyla zaman uyumlu `RenderPartialAsync` `PartialAsync` <xref:Microsoft.AspNetCore.Mvc.Rendering.HtmlHelperPartialExtensions.RenderPartial*> eşdeğerlerdir. Zaman uyumlu eşdeğerleri, kilitlendikleri senaryolar olduğu için önerilmez. Zaman uyumlu yöntemler gelecek sürümlerde kaldırılmak üzere hedeflenmiştir.
+<xref:Microsoft.AspNetCore.Mvc.Rendering.HtmlHelperPartialExtensions.Partial*> ve <xref:Microsoft.AspNetCore.Mvc.Rendering.HtmlHelperPartialExtensions.RenderPartial*>, sırasıyla `PartialAsync` ve `RenderPartialAsync`zaman uyumlu eşdeğerlerine sahiptir. Zaman uyumlu eşdeğerleri, kilitlendikleri senaryolar olduğu için önerilmez. Zaman uyumlu yöntemler gelecek sürümlerde kaldırılmak üzere hedeflenmiştir.
 
 > [!IMPORTANT]
 > Kodu yürütmeniz gerekiyorsa, kısmi bir görünüm yerine bir [Görünüm bileşeni](xref:mvc/views/view-components) kullanın.
 
 ::: moniker range=">= aspnetcore-2.1"
 
-Bir `Partial` Visual `RenderPartial` Studio Çözümleyicisi uyarısıyla çağırma veya sonuç. Örneğin, varlığı `Partial` aşağıdaki uyarı iletisini verir:
+`Partial` veya `RenderPartial` çağırmak, Visual Studio çözümleyici uyarısıyla sonuçlanır. Örneğin, `Partial` varlığı aşağıdaki uyarı iletisini verir:
 
-> Ihtmlhelper. Partial kullanımı uygulama kilitlenmeleri oluşmasına neden olabilir. &lt;Kısmi&gt; etiket Yardımcısı veya ıhtmlhelper. partıalasync kullanmayı düşünün.
+> Ihtmlhelper. Partial kullanımı uygulama kilitlenmeleri oluşmasına neden olabilir. &lt;kısmi&gt; etiketi Yardımcısı veya ıhtmlhelper. Partıalasync kullanmayı düşünün.
 
-Çağrıları `@Html.Partial` ile veya [kısmi etiket Yardımcısı](xref:mvc/views/tag-helpers/builtin-th/partial-tag-helper)ile `@await Html.PartialAsync` değiştirin. Kısmi etiket Yardımcısı geçişi hakkında daha fazla bilgi için bkz. [HTML Yardımcısı 'Ndan geçiş](xref:mvc/views/tag-helpers/builtin-th/partial-tag-helper#migrate-from-an-html-helper).
+`@Html.Partial` çağrılarını `@await Html.PartialAsync` veya [kısmi etiket Yardımcısı](xref:mvc/views/tag-helpers/builtin-th/partial-tag-helper)ile değiştirin. Kısmi etiket Yardımcısı geçişi hakkında daha fazla bilgi için bkz. [HTML Yardımcısı 'Ndan geçiş](xref:mvc/views/tag-helpers/builtin-th/partial-tag-helper#migrate-from-an-html-helper).
 
 ::: moniker-end
 
@@ -263,14 +263,14 @@ Kısmi görünüm bulma için aşağıdaki kurallar geçerlidir:
 
 * Kısmi görünümler farklı klasörlerde olduğunda aynı dosya adına sahip farklı kısmi görünümlere izin verilir.
 * Dosya uzantısı olmadan kısmi bir görünüme ada göre başvurulması ve kısmi görünümün hem arayanın klasöründe hem de *paylaşılan* klasörde mevcut olması halinde, çağıranın klasöründeki kısmi görünüm kısmi görünümü sağlar. Kısmi görünüm çağıranın klasöründe yoksa, kısmi görünüm *paylaşılan* klasörden sağlanır. *Paylaşılan* klasördeki kısmi görünümler, *paylaşılan kısmi görünümler* veya *varsayılan kısmi görünümler*olarak adlandırılır.
-* Kısmi Görünümler *zincirleme*&mdash;olabilir kısmi görünüm, çağrılar tarafından bir döngüsel başvuru oluşturulmadığı durumlarda başka bir kısmi görünümü çağırabilir. Göreli yollar her zaman geçerli dosyaya göredir, dosyanın köküne veya üst öğesine göre değil.
+* Kısmi Görünümler *zincirleme* olabilir&mdash;, çağrılar tarafından bir döngüsel başvuru oluşturulmadığı durumlarda kısmi bir görünüm başka bir kısmi görünümü çağırabilir. Göreli yollar her zaman geçerli dosyaya göredir, dosyanın köküne veya üst öğesine göre değil.
 
 > [!NOTE]
-> Kısmi görünümde tanımlanan bir [Razor](xref:mvc/views/razor) `section` , üst biçimlendirme dosyaları için görünmez değildir. `section` Yalnızca tanımlandığı kısmi görünüm için görülebilir.
+> Kısmi görünümde tanımlanan bir [Razor](xref:mvc/views/razor) `section`, üst biçimlendirme dosyaları için görünmez hale gelir. `section` yalnızca tanımlandığı kısmi görünüm için görülebilir.
 
 ## <a name="access-data-from-partial-views"></a>Kısmi görünümlerde verilere erişin
 
-Kısmi bir görünüm örneği oluşturulduğunda, üst öğenin `ViewData` sözlüğünün bir *kopyasını* alır. Kısmi görünüm içindeki verilerde yapılan güncelleştirmeler üst görünümde kalıcı değildir. `ViewData`kısmi görünüm geri döndüğünde kısmi görünümdeki değişiklikler kaybolur.
+Kısmi bir görünüm örneği oluşturulduğunda, üst öğenin `ViewData` sözlüğünün bir *kopyasını* alır. Kısmi görünüm içindeki verilerde yapılan güncelleştirmeler üst görünümde kalıcı değildir. kısmi görünüm geri döndüğünde kısmi görünümdeki `ViewData` değişiklikler kaybolur.
 
 Aşağıdaki örnek, bir [ViewDataDictionary](/dotnet/api/microsoft.aspnetcore.mvc.viewfeatures.viewdatadictionary) örneğinin kısmi bir görünüme nasıl geçirileceğini göstermektedir:
 
@@ -278,7 +278,7 @@ Aşağıdaki örnek, bir [ViewDataDictionary](/dotnet/api/microsoft.aspnetcore.m
 @await Html.PartialAsync("_PartialName", customViewData)
 ```
 
-Bir modeli kısmi bir görünüme geçirebilirsiniz. Model özel bir nesne olabilir. Bir modeli ile `PartialAsync` geçirebilirsiniz (bir içerik bloğunu çağırana kaydedebilir) veya `RenderPartialAsync` (içeriği çıkışa akıp):
+Bir modeli kısmi bir görünüme geçirebilirsiniz. Model özel bir nesne olabilir. `PartialAsync` (bir içerik bloğunu çağırana) veya `RenderPartialAsync` (içeriği çıkışa akışlar) ile bir model geçirebilirsiniz:
 
 ```cshtml
 @await Html.PartialAsync("_PartialName", model)
@@ -288,7 +288,7 @@ Bir modeli kısmi bir görünüme geçirebilirsiniz. Model özel bir nesne olabi
 
 **Razor Sayfaları**
 
-Örnek uygulamada aşağıdaki biçimlendirme, *Pages/ArticlesRP/ReadRP. cshtml* sayfasından yapılır. Sayfada iki kısmi görünüm bulunur. İkinci kısmi görünüm bir modelde ve `ViewData` kısmi görünüme geçer. Oluşturucu aşırı yüklemesi, var olan `ViewData` sözlüğü korurken yeni `ViewData` bir sözlüğü geçirmek için kullanılır. `ViewDataDictionary`
+Örnek uygulamada aşağıdaki biçimlendirme, *Pages/ArticlesRP/ReadRP. cshtml* sayfasından yapılır. Sayfada iki kısmi görünüm bulunur. İkinci kısmi görünüm bir modelde geçirilir ve kısmi görünüme `ViewData`. `ViewDataDictionary` Oluşturucu aşırı yüklemesi, var olan `ViewData` sözlüğünü korurken yeni bir `ViewData` sözlüğünü geçirmek için kullanılır.
 
 [!code-cshtml[](partial/sample/PartialViewsSample/Pages/ArticlesRP/ReadRP.cshtml?name=snippet_ReadPartialViewRP&highlight=5,15-20)]
 
@@ -304,7 +304,7 @@ Bir modeli kısmi bir görünüme geçirebilirsiniz. Model özel bir nesne olabi
 
 ::: moniker-end
 
-Örnek uygulamada aşağıdaki biçimlendirme *görünümleri/makaleleri/Read. cshtml* görünümünü gösterir. Görünüm iki kısmi görünüm içerir. İkinci kısmi görünüm bir modelde ve `ViewData` kısmi görünüme geçer. Oluşturucu aşırı yüklemesi, var olan `ViewData` sözlüğü korurken yeni `ViewData` bir sözlüğü geçirmek için kullanılır. `ViewDataDictionary`
+Örnek uygulamada aşağıdaki biçimlendirme *görünümleri/makaleleri/Read. cshtml* görünümünü gösterir. Görünüm iki kısmi görünüm içerir. İkinci kısmi görünüm bir modelde geçirilir ve kısmi görünüme `ViewData`. `ViewDataDictionary` Oluşturucu aşırı yüklemesi, var olan `ViewData` sözlüğünü korurken yeni bir `ViewData` sözlüğünü geçirmek için kullanılır.
 
 [!code-cshtml[](partial/sample/PartialViewsSample/Views/Articles/Read.cshtml?name=snippet_ReadPartialView&highlight=5,15-20)]
 
@@ -312,7 +312,7 @@ Bir modeli kısmi bir görünüme geçirebilirsiniz. Model özel bir nesne olabi
 
 [!code-cshtml[](partial/sample/PartialViewsSample/Views/Shared/_AuthorPartial.cshtml)]
 
-*Görünümler/makaleler/_ArticleSection. cshtml* , *Read. cshtml* biçimlendirme dosyası tarafından başvurulan ikinci kısmi görünümdür:
+*Görünümler/makaleler/_ArticleSection. cshtml* *Read. cshtml* biçimlendirme dosyası tarafından başvurulan ikinci kısmi görünümdür:
 
 [!code-cshtml[](partial/sample/PartialViewsSample/Views/Articles/_ArticleSection.cshtml)]
 
@@ -320,7 +320,7 @@ Bir modeli kısmi bir görünüme geçirebilirsiniz. Model özel bir nesne olabi
 
 > Abrayhelincoln
 >
-> &lt;Paylaşılan kısmi görünüm dosyası yolundan&gt;bu kısmi görünüm.
+> &lt;paylaşılan kısmi görünüm dosyası yolundan bu kısmi görünüm&gt;.
 > 11/19/1863 12:00:00
 
 İkinci kısmi görünüm, makalenin bölümlerini işler:
@@ -329,7 +329,7 @@ Bir modeli kısmi bir görünüme geçirebilirsiniz. Model özel bir nesne olabi
 >
 > Dört puan ve yedi yıl önce...
 >
-> Bölüm Iki Dizin: 1.
+> Bölüm Iki Dizin: 1
 >
 > Artık harika bir hukuki War, test ediyor...
 >

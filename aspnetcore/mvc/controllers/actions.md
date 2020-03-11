@@ -6,15 +6,15 @@ ms.author: riande
 ms.date: 12/05/2019
 uid: mvc/controllers/actions
 ms.openlocfilehash: 715a73863513870d1cbd522e75013d41830da1e7
-ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74881101"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78662794"
 ---
 # <a name="handle-requests-with-controllers-in-aspnet-core-mvc"></a>ASP.NET Core MVC 'de denetleyicilerle istekleri işleme
 
-Tarafından [Steve Smith](https://ardalis.com/) ve [Scott Addie](https://github.com/scottaddie)
+, [Steve Smith](https://ardalis.com/) ve [Scott Ade](https://github.com/scottaddie) tarafından
 
 Denetleyiciler, Eylemler ve eylem sonuçları, geliştiricilerin ASP.NET Core MVC kullanarak uygulama oluşturma konusunda temel bir parçasıdır.
 

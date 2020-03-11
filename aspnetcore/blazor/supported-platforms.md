@@ -11,21 +11,21 @@ no-loc:
 - SignalR
 uid: blazor/supported-platforms
 ms.openlocfilehash: 505974280b5c96ec2bcae42c6e076ab67a15bb07
-ms.sourcegitcommit: 9ee99300a48c810ca6fd4f7700cd95c3ccb85972
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76160138"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78658860"
 ---
-# <a name="aspnet-core-opno-locblazor-supported-platforms"></a>Desteklenen Blazor platformları ASP.NET Core
+# <a name="aspnet-core-blazor-supported-platforms"></a>ASP.NET Core Blazor desteklenen platformlar
 
-Tarafından [Luke Latham](https://github.com/guardrex)
+[Luke Latham](https://github.com/guardrex) tarafından
 
 [!INCLUDE[](~/includes/blazorwasm-preview-notice.md)]
 
 ## <a name="browser-requirements"></a>Tarayıcı gereksinimleri
 
-### <a name="opno-locblazor-webassembly"></a>Blazor WebAssembly
+### <a name="blazor-webassembly"></a>Blazor WebAssembly
 
 | Tarayıcı                          | Sürüm               |
 | -------------------------------- | :-------------------: |
@@ -37,7 +37,7 @@ Tarafından [Luke Latham](https://github.com/guardrex)
 
 &dagger;Microsoft Internet Explorer, [Webassembly](https://webassembly.org)'yi desteklemez.
 
-### <a name="opno-locblazor-server"></a>Blazor sunucusu
+### <a name="blazor-server"></a>Blazor Server
 
 | Tarayıcı                          | Sürüm    |
 | -------------------------------- | :--------: |

@@ -6,18 +6,18 @@ monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.date: 11/08/2019
 uid: security/authorization/limitingidentitybyscheme
-ms.openlocfilehash: 9c173a4589279b03bc12b4b7dea594fae88cf471
-ms.sourcegitcommit: 0b0e485a8a6dfcc65a7a58b365622b3839f4d624
+ms.openlocfilehash: a3be2b8171c146beef7e62c8f7e55883ca5dc687
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76928384"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78661821"
 ---
 # <a name="authorize-with-a-specific-scheme-in-aspnet-core"></a>ASP.NET Core belirli bir şemayla yetkilendir
 
-Tek sayfalı uygulamalar (maça 'Lar) gibi bazı senaryolarda, birden çok kimlik doğrulama yöntemi kullanılması yaygındır. Örneğin, uygulama, JavaScript istekleri için oturum açma ve JWT taşıyıcı kimlik doğrulaması için tanımlama bilgisi tabanlı kimlik doğrulaması kullanabilir. Bazı durumlarda, uygulamanın bir kimlik doğrulama işleyicisinin birden çok örneği olabilir. Örneğin, biri temel kimlik içeren ve bir Multi-Factor Authentication (MFA) tetiklendiğinde bir tane olan iki tanımlama bilgisi işleyicisi oluşturulur. Kullanıcı ek güvenlik gerektiren bir işlem istediği için MFA tetiklenebilir. Kullanıcı MFA gerektiren bir kaynak istediğinde MFA zorlama hakkında daha fazla bilgi için [MFA Ile GitHub sorun koruması bölümüne](https://github.com/aspnet/AspNetCore.Docs/issues/15791#issuecomment-580464195)bakın.
+Tek sayfalı uygulamalar (maça 'Lar) gibi bazı senaryolarda, birden çok kimlik doğrulama yöntemi kullanılması yaygındır. Örneğin, uygulama, JavaScript istekleri için oturum açma ve JWT taşıyıcı kimlik doğrulaması için tanımlama bilgisi tabanlı kimlik doğrulaması kullanabilir. Bazı durumlarda, uygulamanın bir kimlik doğrulama işleyicisinin birden çok örneği olabilir. Örneğin, biri temel kimlik içeren ve bir Multi-Factor Authentication (MFA) tetiklendiğinde bir tane olan iki tanımlama bilgisi işleyicisi oluşturulur. Kullanıcı ek güvenlik gerektiren bir işlem istediği için MFA tetiklenebilir. Kullanıcı MFA gerektiren bir kaynak istediğinde MFA zorlama hakkında daha fazla bilgi için [MFA Ile GitHub sorun koruması bölümüne](https://github.com/dotnet/AspNetCore.Docs/issues/15791#issuecomment-580464195)bakın.
 
-Kimlik doğrulaması sırasında kimlik doğrulama hizmeti yapılandırıldığında bir kimlik doğrulama düzeni adlandırılır. Örneğin:
+Kimlik doğrulaması sırasında kimlik doğrulama hizmeti yapılandırıldığında bir kimlik doğrulama düzeni adlandırılır. Örnek:
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -42,7 +42,7 @@ Yukarıdaki kodda iki kimlik doğrulama işleyicisi eklenmiştir: biri tanımlam
 
 ## <a name="selecting-the-scheme-with-the-authorize-attribute"></a>Yetkilendir özniteliğiyle düzeni seçme
 
-Uygulama, yetkilendirme noktasında kullanılacak işleyiciyi gösterir. `[Authorize]`için virgülle ayrılmış bir kimlik doğrulama düzeni listesi geçirerek uygulamanın yetkilendirdiği işleyiciyi seçin. `[Authorize]` özniteliği, varsayılan olarak yapılandırılıp yapılandırılmadığını ne olursa olsun, kullanılacak kimlik doğrulama düzenini veya düzenlerini belirtir. Örneğin:
+Uygulama, yetkilendirme noktasında kullanılacak işleyiciyi gösterir. `[Authorize]`için virgülle ayrılmış bir kimlik doğrulama düzeni listesi geçirerek uygulamanın yetkilendirdiği işleyiciyi seçin. `[Authorize]` özniteliği, varsayılan olarak yapılandırılıp yapılandırılmadığını ne olursa olsun, kullanılacak kimlik doğrulama düzenini veya düzenlerini belirtir. Örnek:
 
 ```csharp
 [Authorize(AuthenticationSchemes = AuthSchemes)]
@@ -118,7 +118,7 @@ public void ConfigureServices(IServiceCollection services)
 > [!NOTE]
 > Varsayılan kimlik doğrulama düzenine `JwtBearerDefaults.AuthenticationScheme`yalnızca bir JWT taşıyıcı kimlik doğrulaması kaydedilir. Ek kimlik doğrulaması, benzersiz bir kimlik doğrulama şemasına kaydedilmelidir.
 
-Bir sonraki adım, varsayılan yetkilendirme ilkesini her iki kimlik doğrulama şemasını kabul edecek şekilde güncelleştirmesidir. Örneğin:
+Bir sonraki adım, varsayılan yetkilendirme ilkesini her iki kimlik doğrulama şemasını kabul edecek şekilde güncelleştirmesidir. Örnek:
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)

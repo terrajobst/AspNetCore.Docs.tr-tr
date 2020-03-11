@@ -5,16 +5,16 @@ description: Kodu sunucu tabanlı Web sayfalarını eklemek için Razor söz diz
 ms.author: riande
 ms.date: 02/12/2020
 uid: mvc/views/razor
-ms.openlocfilehash: 0b1eed2816329d62fca4bdb5719825a4197af353
-ms.sourcegitcommit: 6645435fc8f5092fc7e923742e85592b56e37ada
+ms.openlocfilehash: e9d2e42ba3c36bc1661739f3b105ec8efe03de48
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77447184"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78658720"
 ---
 # <a name="razor-syntax-reference-for-aspnet-core"></a>ASP.NET Core Razor söz dizimi başvurusu
 
-[Rick Anderson](https://twitter.com/RickAndMSFT), [Luke Latham](https://github.com/guardrex), [Taylor Mullen](https://twitter.com/ntaylormullen)ve [dan vicarel](https://github.com/Rabadash8820)
+By [Rick Anderson](https://twitter.com/RickAndMSFT), [Taylor Mullen](https://twitter.com/ntaylormullen)ve [dan vicarel](https://github.com/Rabadash8820)
 
 Razor kod sunucu tabanlı Web sayfalarını eklemek için bir biçimlendirme sözdizimi aşağıdaki gibidir. Razor işaretlemesi Razor sözdizimini oluşur C#ve HTML. Razor içeren dosyalar genellikle *. cshtml* dosya uzantısına sahiptir. Razor, [Razor bileşenleri](xref:blazor/components) dosyalarında ( *. Razor*) de bulunur.
 
@@ -22,7 +22,7 @@ Razor kod sunucu tabanlı Web sayfalarını eklemek için bir biçimlendirme sö
 
 HTML varsayılan Razor dilidir. HTML Razor işaretlemesi işleme bir HTML dosyasından HTML'yi işlemeye değerinden farklı değildir. *. Cshtml* Razor dosyalarındaki HTML işaretlemesi sunucu tarafından değiştirilmeden işlenir.
 
-## <a name="razor-syntax"></a>Razor söz dizimi
+## <a name="razor-syntax"></a>Razor sözdizimi
 
 Razor, C# HTML 'den ' ye C#geçiş yapmak için `@` sembolünü destekler ve kullanır. Razor değerlendirir C# ifadeleri ve bunları HTML çıktısında oluşturur.
 
@@ -389,7 +389,7 @@ Razor kilit deyimleri kritik bölümlerle korumanın yeteneğine sahiptir:
 }
 ```
 
-### <a name="comments"></a>Açıklamalar
+### <a name="comments"></a>Yorumlar
 
 Razor destekler C# ve HTML yorumlarında:
 
@@ -487,7 +487,7 @@ Razor bileşenleri için, `@code` [`@functions`](#functions) diğer adı `@funct
 
 ::: moniker-end
 
-Örneğin:
+Örnek:
 
 [!code-cshtml[](razor/sample/Views/Home/Contact6.cshtml)]
 
@@ -901,9 +901,9 @@ Razor anahtar kelimelerinde `@(Razor Keyword)` (örneğin, `@(functions)`) yok e
 * foreach
 * if
 * else
-* lock
+* Kilit
 * anahtarı
-* Deneme
+* deneyin
 * Yakalama
 * finally
 * kullanma

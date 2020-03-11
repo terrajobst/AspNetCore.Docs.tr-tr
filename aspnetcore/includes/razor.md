@@ -1,1 +1,1 @@
-Bu öğretici, ASP.NET Core MVC denetleyicileri ve görünümleri ile web geliştirme öğretir. ASP.NET Core web geliştirmeye yeni başladıysanız göz önünde bulundurun [Razor sayfaları](xref:tutorials/razor-pages/razor-pages-start) sürümü bu öğreticinin bir daha kolay bir başlangıç noktası sağlar.
+Bu öğreticide, denetleyiciler ve görünümlerle ASP.NET Core MVC web geliştirme öğretilir. Web geliştirme ASP.NET Core yeni başladıysanız, Bu öğreticinin daha kolay bir başlangıç noktası sağlayan [Razor Pages](xref:tutorials/razor-pages/razor-pages-start) sürümünü göz önünde bulundurun.

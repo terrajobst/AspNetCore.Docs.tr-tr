@@ -1,30 +1,30 @@
 ---
-title: ASP.NET core'da görünümlere bağımlılık ekleme
+title: ASP.NET Core görünümlere bağımlılık ekleme
 author: ardalis
-description: ASP.NET Core MVC görünümlere bağımlılık ekleme nasıl desteklediğini öğrenin.
+description: ASP.NET Core MVC görünümlerine bağımlılık ekleme işlemini nasıl desteklediğini öğrenin.
 ms.author: riande
 ms.date: 10/14/2016
 uid: mvc/views/dependency-injection
-ms.openlocfilehash: 63feea5ddf286dd3e659f3a622cfb0f7451b9bba
-ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
+ms.openlocfilehash: 6241bb8e262f64e2e30721bc5fe6f8f1be84b60d
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67815333"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78656102"
 ---
-# <a name="dependency-injection-into-views-in-aspnet-core"></a>ASP.NET core'da görünümlere bağımlılık ekleme
+# <a name="dependency-injection-into-views-in-aspnet-core"></a>ASP.NET Core görünümlere bağımlılık ekleme
 
-Tarafından [Steve Smith](https://ardalis.com/)
+[Steve Smith](https://ardalis.com/) tarafından
 
-ASP.NET Core destekler [bağımlılık ekleme](xref:fundamentals/dependency-injection) görünümlere. Bu, yerelleştirme veya yalnızca görünüm öğeleri doldurmak için gerekli veriler gibi özel görünüm Hizmetleri için yararlı olabilir. Korunacak denemelisiniz [görev ayrımı nettir](/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#separation-of-concerns) denetleyici ve görünüm arasında. Kendi görünümlerinizi görüntüleyin verilerden en iyi şekilde denetleyicisinden geçirilmelidir.
+ASP.NET Core, görünümlere [bağımlılık ekleme](xref:fundamentals/dependency-injection) işlemini destekler. Bu, yalnızca görünüm öğelerini doldurmak için gereken yerelleştirme veya veriler gibi görünüme özgü hizmetler için yararlı olabilir. Denetleyicileriniz ve görünümleriniz arasındaki [kaygıların ayrılmasını](/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#separation-of-concerns) korumayı denemelisiniz. Görünümlerinizin görüntüleyeceği verilerin çoğu denetleyiciden geçirilmelidir.
 
-[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/views/dependency-injection/sample) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
+[Örnek kodu görüntüleme veya indirme](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/views/dependency-injection/sample) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
 
 ## <a name="configuration-injection"></a>Yapılandırma ekleme
 
-*appSettings.JSON* değerleri doğrudan bir görünüme eklenmiş.
+*appSettings. JSON* değerleri doğrudan bir görünüme eklenebilir.
 
-Örnek bir *appsettings.json* dosyası:
+Bir *appSettings. JSON* dosyası örneği:
 
 ```json
 {
@@ -36,9 +36,9 @@ ASP.NET Core destekler [bağımlılık ekleme](xref:fundamentals/dependency-inje
 }
 ```
 
-Sözdizimi `@inject`: `@inject <type> <name>`
+`@inject`için sözdizimi: `@inject <type> <name>`
 
-Bir örnek kullanarak `@inject`:
+`@inject`kullanarak bir örnek:
 
 ```csharp
 @using Microsoft.Extensions.Configuration
@@ -51,59 +51,59 @@ Bir örnek kullanarak `@inject`:
 
 ## <a name="service-injection"></a>Hizmet ekleme
 
-Bir görünümü kullanarak bir hizmet yerleştirilebilir `@inject` yönergesi. Düşünebilirsiniz `@inject` görünüme özellik ekleme ve DI kullanan özellik dolduruluyor.
+Bir hizmet `@inject` yönergesini kullanarak bir görünüme eklenebilir. `@inject`, görünüme özellik ekleme ve dı kullanarak özelliği doldurma olarak düşünebilirsiniz.
 
 [!code-csharp[](../../mvc/views/dependency-injection/sample/src/ViewInjectSample/Views/ToDo/Index.cshtml?highlight=4,5,15,16,17)]
 
-Bu görünüm listesini görüntüler `ToDoItem` örnekleri, genel istatistiklerini gösteren bir özetiyle birlikte. Özet doldurulur eklenen gelen `StatisticsService`. Bu hizmet bağımlılık ekleme için kayıtlı `ConfigureServices` içinde *Startup.cs*:
+Bu görünüm, genel istatistikleri gösteren bir Özet ile birlikte `ToDoItem` örneklerinin bir listesini görüntüler. Özet, eklenen `StatisticsService`doldurulur. Bu hizmet, *Startup.cs*içinde `ConfigureServices` bağımlılık ekleme için kaydedilir:
 
 [!code-csharp[](../../mvc/views/dependency-injection/sample/src/ViewInjectSample/Startup.cs?highlight=6,7&range=15-22)]
 
-`StatisticsService` Dizi üzerinde bazı hesaplamalar yapan `ToDoItem` bir depo erişir örnekleri:
+`StatisticsService`, bir depo aracılığıyla eriştiği `ToDoItem` örnekleri kümesi üzerinde bazı hesaplamalar yapar:
 
 [!code-csharp[](../../mvc/views/dependency-injection/sample/src/ViewInjectSample/Model/Services/StatisticsService.cs?highlight=15,20,25)]
 
-Örnek depoyu bir bellek içi koleksiyon kullanır. Yukarıda gösterilen uygulama (Bu, tüm verilerin bellek içinde çalışır), büyük, uzaktan erişim veri kümeleri için önerilmez.
+Örnek depo, bellek içi bir koleksiyon kullanır. Yukarıda gösterilen uygulama (bellekteki tüm veriler üzerinde çalışır), büyük ve uzaktan erişilen veri kümeleri için önerilmez.
 
-Örnek verileri modele görünüme bağlı ve görünüme eklenen hizmet görüntüler:
+Örnek, görüntüleme ile bağlantılı modeldeki verileri ve görünüme eklenen hizmeti görüntüler:
 
-![Toplam öğe listesi görüntülemek için öğeleri, ortalama öncelik ve öncelik düzeyleri ve tamamlama belirten Boole değerleri görevlerinin listesi tamamlandı.](dependency-injection/_static/screenshot.png)
+![Toplam öğe, tamamlanan öğe, ortalama öncelik ve tamamlanma düzeylerine sahip bir görev listesi ve tamamlanma belirten Boole değerlerini görüntülemek için.](dependency-injection/_static/screenshot.png)
 
-## <a name="populating-lookup-data"></a>Arama verilerini doldurma
+## <a name="populating-lookup-data"></a>Arama verileri dolduruluyor
 
-Görünüm ekleme açılır listeleri gibi kullanıcı Arabirimi öğeleri seçeneklerinde doldurmak yararlı olabilir. Cinsiyet, durumunu ve diğer tercihlerinizi belirtmek için seçenekleri içeren bir kullanıcı profili form göz önünde bulundurun. Bir standart MVC yaklaşımı kullanarak form işleme her biri, bu seçenekler için veri erişim Hizmetleri isteyin ve ardından bir model doldurmak için denetleyici içerseydi veya `ViewBag` her bağlanacak seçenek kümesi ile.
+Görünüm ekleme, açılan listeler gibi kullanıcı arabirimi öğelerindeki seçenekleri doldurmak için yararlı olabilir. Cinsiyet, eyalet ve diğer tercihlerin belirtilmesine yönelik seçenekleri içeren bir kullanıcı profili formu düşünün. Standart bir MVC yaklaşımı kullanarak bu tür bir formu işlemek, denetleyicinin Bu seçenek kümelerinin her biri için veri erişim Hizmetleri istemesi ve ardından bir modeli veya `ViewBag`, bağlanacak her seçenek kümesiyle doldurmasını gerektirir.
 
-Alternatif bir yaklaşım Hizmetleri seçenekleri elde etmek için doğrudan görünümüne ekler. Bu görünüme bu görünüm öğesi oluşturma mantığı taşıma denetleyicisi tarafından gereken kod miktarını azaltır. Profil örneği form geçirmek bir profil düzenleme formu görüntülemek için denetleyici eylemi yeterlidir:
+Alternatif yaklaşım, seçenekleri almak için Hizmetleri doğrudan görünüme çıkarır. Bu, denetleyicinin gerektirdiği kod miktarını en aza indirir ve bu görünüm öğesi oluşturma mantığını görünümün içine taşır. Bir profil düzenlemesi formunu görüntülemeye yönelik denetleyici eylemi yalnızca profil örneği formunu geçirmeniz gerekir:
 
 [!code-csharp[](../../mvc/views/dependency-injection/sample/src/ViewInjectSample/Controllers/ProfileController.cs?highlight=9,19)]
 
-Bu tercihler güncelleştirmek için kullanılan HTML formu açılır listeleri üç özellikleri içerir:
+Bu tercihleri güncelleştirmek için kullanılan HTML formu, özelliklerin üç yanındaki açılan listeleri içerir:
 
-![Profil görünümü adı, cinsiyet, durum ve sık kullanılan renk girişi sağlayan bir formla güncelleştirin.](dependency-injection/_static/updateprofile.png)
+![Ad, cinsiyet, eyalet ve sık kullanılan renk girişine izin veren bir formla profil görünümünü güncelleştirin.](dependency-injection/_static/updateprofile.png)
 
-Bu listeler, görünüme eklenmiş bir hizmet tarafından doldurulur:
+Bu listeler, görünüme eklenen bir hizmet tarafından doldurulur:
 
 [!code-cshtml[](../../mvc/views/dependency-injection/sample/src/ViewInjectSample/Views/Profile/Index.cshtml?highlight=4,16,17,21,22,26,27)]
 
-`ProfileOptionsService` Yalnızca bu form için gereken verileri sağlamak üzere tasarlanmış bir UI düzeyi hizmeti:
+`ProfileOptionsService`, yalnızca bu form için gereken verileri sağlamak üzere tasarlanan bir UI düzeyi hizmettir:
 
 [!code-csharp[](../../mvc/views/dependency-injection/sample/src/ViewInjectSample/Model/Services/ProfileOptionsService.cs?highlight=7,13,24)]
 
 > [!IMPORTANT]
-> Bağımlılık ekleme aracılığıyla istek türleri kaydedilecek unutmayın `Startup.ConfigureServices`. Hizmet sağlayıcısı aracılığıyla dahili olarak sorgulanır çünkü bir kaydı türü çalışma zamanında bir özel durum oluşturur. [GetRequiredService](/dotnet/api/microsoft.extensions.dependencyinjection.serviceproviderserviceextensions.getrequiredservice).
+> `Startup.ConfigureServices`, bağımlılık ekleme yoluyla istediğiniz türleri kaydetmeyi unutmayın. Kaydedilmemiş bir tür, hizmet sağlayıcısı, [GetRequiredService](/dotnet/api/microsoft.extensions.dependencyinjection.serviceproviderserviceextensions.getrequiredservice)aracılığıyla dahili olarak sorgulandığından çalışma zamanında bir özel durum oluşturur.
 
 ## <a name="overriding-services"></a>Hizmetleri geçersiz kılma
 
-Yeni hizmet ekleme ek olarak, bu tekniği de bir sayfada daha önce eklenen Hizmetleri geçersiz kılmak için kullanılabilir. Aşağıdaki şekilde ilk örnekte kullanılan sayfasında, kullanılabilir alanların tümünü gösterilmektedir:
+Bu teknik, ekleme yeni hizmetlere ek olarak, bir sayfada önceden eklenen Hizmetleri geçersiz kılmak için de kullanılabilir. Aşağıdaki şekilde, ilk örnekte kullanılan sayfada bulunan tüm alanlar gösterilmektedir:
 
-![IntelliSense bağlam menüsünde bir türü belirtilmiş @ sembolünü Html, bileşen, StatsService ve Url alanları listeleme](dependency-injection/_static/razor-fields.png)
+![HTML, bileşen, StatsService ve URL alanları için belirlenmiş bir @ symbol üzerinde IntelliSense bağlamsal menüsü](dependency-injection/_static/razor-fields.png)
 
-Gördüğünüz gibi varsayılan alanları dahil `Html`, `Component`, ve `Url` (yanı sıra `StatsService` biz hatalara). Örneği için varsayılan HTML Yardımcıları kendinizinkilerle değiştirildiğinden isteseydiniz, kolayca kullanarak bunu `@inject`:
+Gördüğünüz gibi, varsayılan alanlar `Html`, `Component`ve `Url` (Ayrıca eklediğimiz `StatsService`) içerir. Örneğin, varsayılan HTML yardımcılarını kendi kendinize değiştirmek istiyorsanız, `@inject`kullanarak kolayca bunu yapabilirsiniz:
 
 [!code-cshtml[](../../mvc/views/dependency-injection/sample/src/ViewInjectSample/Views/Helper/Index.cshtml?highlight=3,11)]
 
-Var olan hizmetleri genişletmek isterseniz, dan devralan veya mevcut bir uygulama ile kendi sarmalama sırasında yalnızca bu tekniği kullanabilirsiniz.
+Mevcut hizmetleri genişletmek istiyorsanız, bu tekniği kullanarak var olan uygulamadan devralma veya kaydırma yaparken bu tekniği kullanabilirsiniz.
 
 ## <a name="see-also"></a>Ayrıca Bkz.
 
-* Simon Timms Blog: [Arama verileri görünümünüzü alma](https://blog.simontimms.com/2015/06/09/getting-lookup-data-into-you-view/)
+* Simon Timms blogu: [görünümünüze arama verileri alma](https://blog.simontimms.com/2015/06/09/getting-lookup-data-into-you-view/)

@@ -6,16 +6,16 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 07/22/2019
 uid: data/ef-rp/concurrency
-ms.openlocfilehash: 944e746624bf5fe7c586a521059fa4eb34b0f1e7
-ms.sourcegitcommit: 7d3c6565dda6241eb13f9a8e1e1fd89b1cfe4d18
+ms.openlocfilehash: c4d43f26ba80e7922c3cbd37d9a5f8e1561b11ad
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72259385"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78656914"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---concurrency---8-of-8"></a>ASP.NET core'da - eşzamanlılık - 8 8 EF çekirdekli Razor sayfaları
 
-Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT), [Tom Dykstra](https://github.com/tdykstra), ve [Jon P Smith](https://twitter.com/thereformedprog)
+By [Rick Anderson](https://twitter.com/RickAndMSFT), [Tom Dykstra](https://github.com/tdykstra)ve [Jon P Smith](https://twitter.com/thereformedprog)
 
 [!INCLUDE [about the series](../../includes/RP-EF/intro.md)]
 
@@ -44,13 +44,13 @@ Kilitleri yönetmek dezavantajlara sahiptir. Program, karmaşık olabilir ve Kul
 
 ![Bütçe 0 olarak değiştirme](concurrency/_static/change-budget30.png)
 
-Jane tıkladığında önce **Kaydet**, John aynı sayfayı ziyaret eder ve alanın başlangıç tarihi 1/9/2013 1/9/2007'deki değiştirir.
+Kemal, **Kaydet**' i tıklamadan önce, John aynı sayfayı ziyaret ettiğinde başlangıç tarihi alanını 9/1/2007 ' den 9/1/2013 ' e değiştirir.
 
 ![2013'e başlangıç tarihini değiştirme](concurrency/_static/change-date30.png)
 
 Gamze önce **Kaydet** ' i tıklatır ve değişiklik etkin duruma geçer çünkü tarayıcı Dizin sayfasını bütçe miktarı olarak sıfır ile görüntülüyor.
 
-John tıkladığında **Kaydet** yine de bir bütçe $350,000.00 birini gösteren bir Düzenle sayfasında. Sonraki durum eşzamanlılık çakışmalarını nasıl işleydiğinize göre belirlenir:
+John, hala $350.000,00 bütçesini gösteren bir düzenleme sayfasında **Kaydet** ' i tıklatır. Sonraki durum eşzamanlılık çakışmalarını nasıl işleydiğinize göre belirlenir:
 
 * Bir kullanıcının hangi özelliği değiştirdiği ve yalnızca ilgili sütunları veritabanında güncelleştirdiğinden haberdar olabilirsiniz.
 
@@ -62,7 +62,7 @@ John tıkladığında **Kaydet** yine de bir bütçe $350,000.00 birini göstere
 
 * Gamze'nin değişikliğinin üzerine Can'ın değişiklik sağlayabilirsiniz.
 
-  Sonraki biri İngilizce departmanı gözatar, 1/9/2013 görürler ve getirilen $350,000.00 değeri. Bu yaklaşım olarak adlandırılan bir *istemci WINS* veya *WINS'te son* senaryo. (İstemciden gelen tüm değerler veri deposunda yer alacak şekilde önceliklidir.) Eşzamanlılık işleme için herhangi bir kodlama yapmazsanız, Istemci WINS otomatik olarak gerçekleşir.
+  Sonraki biri İngilizce departmanı gözatar, 1/9/2013 görürler ve getirilen $350,000.00 değeri. Bu yaklaşım, *Istemci WINS* veya *son WINS* senaryosu olarak adlandırılır. (İstemciden gelen tüm değerler veri deposunda yer alacak şekilde önceliklidir.) Eşzamanlılık işleme için herhangi bir kodlama yapmazsanız, Istemci WINS otomatik olarak gerçekleşir.
 
 * John 'un değişikliğini veritabanında güncelleştirilmesini engelleyebilirsiniz. Genellikle, bir uygulamayı atadığınız:
 
@@ -70,7 +70,7 @@ John tıkladığında **Kaydet** yine de bir bütçe $350,000.00 birini göstere
   * Verilerin geçerli durumunu gösterir.
   * Değişiklikleri uygulamak verin.
 
-  Bu adlı bir *Store WINS* senaryo. (Veri deposu değerleri, istemci tarafından gönderilen değerlere göre önceliklidir.) Bu öğreticide mağaza WINS senaryosunu uygulamanız gerekir. Bu yöntem, hiçbir değişiklik uyarı bir kullanıcı kılınmamasını sağlar.
+  Buna *Mağaza WINS* senaryosu denir. (Veri deposu değerleri, istemci tarafından gönderilen değerlere göre önceliklidir.) Bu öğreticide mağaza WINS senaryosunu uygulamanız gerekir. Bu yöntem, hiçbir değişiklik uyarı bir kullanıcı kılınmamasını sağlar.
 
 ## <a name="conflict-detection-in-ef-core"></a>EF Core çakışma algılama
 
@@ -86,7 +86,7 @@ EF Core, çakışmalar algıladığında `DbConcurrencyException` özel durum ol
 
 ## <a name="add-a-tracking-property"></a>İzleme özelliği Ekle
 
-İçinde *Models/Department.cs*, RowVersion adlı izleme özelliği ekleyin:
+*Modeller/departman. cs*' de, rowversion adlı bir izleme özelliği ekleyin:
 
 [!code-csharp[](intro/samples/cu30/Models/Department.cs?highlight=26,27)]
 
@@ -98,7 +98,7 @@ modelBuilder.Entity<Department>()
   .IsRowVersion();
 ```
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 Bir SQL Server veritabanı için, bayt dizisi olarak tanımlanan bir varlık özelliğindeki `[Timestamp]` özniteliği:
 
@@ -109,21 +109,21 @@ Veritabanı, satır her güncelleştirildiği zaman artılan sıralı bir satır
 
 * Geçerli satır sürümü değeri getirilen değerle eşleşmiyor.
 * `Where` yan tümcesi getirilen satır sürümü değerini aradığı için `Update` veya `Delete` komutları bir satır bulamaz.
-* A `DbUpdateConcurrencyException` oluşturulur.
+* Bir `DbUpdateConcurrencyException` oluşturulur.
 
 Aşağıdaki kod, T-SQL bölüm adını güncelleştirildiğinde EF Core tarafından oluşturulan bir bölümü gösterilmektedir:
 
 [!code-sql[](intro/samples/cu30snapshots/8-concurrency/sql.txt?highlight=2-3)]
 
-Önceki kodun gösterdiği vurgulanmış `WHERE` yan tümcesi içeren `RowVersion`. Veritabanı `RowVersion` `RowVersion` parametresine eşit değilse (`@p2`), hiçbir satır güncellenmez.
+Önceki vurgulanan kod, `RowVersion`içeren `WHERE` yan tümcesini gösterir. Veritabanı `RowVersion` `RowVersion` parametresine eşit değilse (`@p2`), hiçbir satır güncellenmez.
 
 Aşağıdaki vurgulanmış kodu tam olarak bir satır güncellenmedi doğrular T-SQL gösterir:
 
 [!code-sql[](intro/samples/cu30snapshots/8-concurrency/sql.txt?highlight=4-6)]
 
-[@@ROWCOUNT ](/sql/t-sql/functions/rowcount-transact-sql) son deyiminden etkilenen satır sayısını döndürür. Hiçbir satır güncellenmemişse, EF Core bir `DbUpdateConcurrencyException`oluşturur.
+[@@ROWCOUNT](/sql/t-sql/functions/rowcount-transact-sql) , son deyimden etkilenen satır sayısını döndürür. Hiçbir satır güncellenmemişse, EF Core bir `DbUpdateConcurrencyException`oluşturur.
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 Bir SQLite veritabanı için, bir varlık özelliğindeki `[Timestamp]` özniteliği byte dizisi olarak tanımlanır:
 
@@ -134,7 +134,7 @@ Veritabanı Tetikleyicileri satır her güncelleştirildiğinde, RowVersion süt
 
 * Geçerli satır sürümü değeri getirilen değerle eşleşmiyor.
 * `Where` yan tümcesi orijinal satır sürümü değerini aradığı için `Update` veya `Delete` komutu bir satır bulamaz.
-* A `DbUpdateConcurrencyException` oluşturulur.
+* Bir `DbUpdateConcurrencyException` oluşturulur.
 
 ---
 
@@ -144,7 +144,7 @@ Veritabanı Tetikleyicileri satır her güncelleştirildiğinde, RowVersion süt
 
 Projeyi oluşturun. 
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * PMC 'de şu komutu çalıştırın:
 
@@ -152,7 +152,7 @@ Projeyi oluşturun.
   Add-Migration RowVersion
   ```
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 * Bir terminalde aşağıdaki komutu çalıştırın:
 
@@ -165,11 +165,11 @@ Projeyi oluşturun.
 Bu komut:
 
 * *Geçişleri/{zaman damgası} _RowVersion. cs* geçiş dosyasını oluşturur.
-* Güncelleştirmeleri *Migrations/SchoolContextModelSnapshot.cs* dosya. Bu güncelleştirme aşağıdaki vurgulanmış kodu ekler `BuildModel` yöntemi:
+* *Geçişler/SchoolContextModelSnapshot. cs* dosyasını güncelleştirir. Güncelleştirme, `BuildModel` yöntemine aşağıdaki vurgulanmış kodu ekler:
 
   [!code-csharp[](intro/samples/cu30/Migrations/SchoolContextModelSnapshot.cs?name=snippet_Department&highlight=15-17)]
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * PMC 'de şu komutu çalıştırın:
 
@@ -177,7 +177,7 @@ Bu komut:
   Update-Database
   ```
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 * `Migrations/<timestamp>_RowVersion.cs` dosyasını açın ve vurgulanan kodu ekleyin:
 
@@ -200,7 +200,7 @@ Bu komut:
 
 ## <a name="scaffold-department-pages"></a>Yapı iskelesi departmanı sayfaları
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * Aşağıdaki özel durumlarla birlikte [Yapı Fkatlama öğrenci sayfalarındaki](xref:data/ef-rp/intro#scaffold-student-pages) yönergeleri izleyin:
 
@@ -208,13 +208,13 @@ Bu komut:
 * Model sınıfı için `Department` kullanın.
   * Yeni bir tane oluşturmak yerine var olan bağlam sınıfını kullanın.
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 * *Sayfalar/departmanlar* klasörü oluşturun.
 
 * Bölüm sayfalarını iskele almak için aşağıdaki komutu çalıştırın.
 
-  **Windows üzerinde:**
+  **Windows'da:**
 
   ```dotnetcli
   dotnet aspnet-codegenerator razorpage -m Department -dc SchoolContext -udl -outDir Pages\Departments --referenceScriptLibraries
@@ -250,7 +250,7 @@ Aşağıdaki kodla *Pages\Departments\Edit.cshtml.cs* güncelleştirin:
 
 [!code-csharp[](intro/samples/cu30/Pages/Departments/Edit.cshtml.cs?name=snippet_All)]
 
-[OriginalValue](/dotnet/api/microsoft.entityframeworkcore.changetracking.propertyentry.originalvalue?view=efcore-2.0#Microsoft_EntityFrameworkCore_ChangeTracking_PropertyEntry_OriginalValue) , `OnGet` yönteminde alındığı sırada varlıktaki `rowVersion` değeriyle güncelleştirilir. EF Core özgün içeren bir WHERE yan tümcesi ile SQL güncelleştirme komut oluşturur `RowVersion` değeri. Hiçbir satır güncelleştirme komutu tarafından etkileniyorsanız (hiçbir satır özgün sahip `RowVersion` değer), `DbUpdateConcurrencyException` özel durumu oluşturulur.
+[OriginalValue](/dotnet/api/microsoft.entityframeworkcore.changetracking.propertyentry.originalvalue?view=efcore-2.0#Microsoft_EntityFrameworkCore_ChangeTracking_PropertyEntry_OriginalValue) , `OnGet` yönteminde alındığı sırada varlıktaki `rowVersion` değeriyle güncelleştirilir. EF Core, özgün `RowVersion` değerini içeren WHERE yan tümcesiyle bir SQL UPDATE komutu oluşturur. GÜNCELLEŞTIRME komutundan hiçbir satır etkilenmeden (hiçbir satır özgün `RowVersion` değerine sahip değilse), bir `DbUpdateConcurrencyException` özel durumu oluşturulur.
 
 [!code-csharp[](intro/samples/cu30/Pages/Departments/Edit.cshtml.cs?name=snippet_RowVersion&highlight=17-18)]
 
@@ -268,11 +268,11 @@ Aşağıdaki kod, `OnPostAsync`gönderilen değerden farklı veritabanı değerl
 
 [!code-csharp[](intro/samples/cu30/Pages/Departments/Edit.cshtml.cs?name=snippet_Error)]
 
-Aşağıdaki vurgulanan kod, `RowVersion` değerini veritabanından alınan yeni değer olarak ayarlar. Kullanıcının bir sonraki tıklayışında **Kaydet**, düzenleme sayfası son görüntülenmesini yakalandı beri gerçekleşen eşzamanlılık hataları.
+Aşağıdaki vurgulanan kod, `RowVersion` değerini veritabanından alınan yeni değer olarak ayarlar. Kullanıcının bir dahaki sefer **Kaydet**' i tıklatması durumunda, yalnızca düzenleme sayfasının son görüntüsü bu yana gerçekleşen eşzamanlılık hataları yakalanacaktır.
 
 [!code-csharp[](intro/samples/cu30/Pages/Departments/Edit.cshtml.cs?name=snippet_TryUpdateModel&highlight=28)]
 
-`ModelState.Remove` Deyimi, çünkü gereklidir `ModelState` eski olan `RowVersion` değeri. Razor Sayfası'nda `ModelState` değerinin ikisi de mevcut olduğunda alan üzerinde model özellik değerlerini öncelik kazanır.
+`ModelState` eski `RowVersion` değerine sahip olduğundan `ModelState.Remove` deyimin olması gerekir. Razor sayfasında, bir alan için `ModelState` değeri, her ikisi de varsa Model özelliği değerlerinin üzerine gelir.
 
 ### <a name="update-the-razor-page"></a>Razor sayfasını güncelleştirme
 
@@ -282,22 +282,22 @@ Aşağıdaki vurgulanan kod, `RowVersion` değerini veritabanından alınan yeni
 
 Yukarıdaki kod:
 
-* Güncelleştirmeleri `page` gelen yönerge `@page` için `@page "{id:int}"`.
-* Gizli satır sürümü ekler. `RowVersion` POST geri değere bağlar, böylece eklenmesi gerekir.
-* Son baytı görüntüler `RowVersion` hata ayıklama amacıyla.
-* Değiştirir `ViewData` türü kesin belirlenmiş ile `InstructorNameSL`.
+* `@page` `page` yönergesini `@page "{id:int}"`olarak güncelleştirir.
+* Gizli satır sürümü ekler. `RowVersion` eklenmesi gerekir, bu yüzden geri gönder değeri bağlar.
+* Hata ayıklama amacıyla `RowVersion` son baytını görüntüler.
+* `ViewData`, türü kesin belirlenmiş `InstructorNameSL`ile değiştirir.
 
 ### <a name="test-concurrency-conflicts-with-the-edit-page"></a>Eşzamanlılık çakışmalarını düzenleme sayfası ile test
 
 İki tarayıcılar örneklerinde düzenleme İngilizce departmanı açın:
 
 * Uygulamayı çalıştırın ve bölümleri seçin.
-* Sağ **Düzenle** seçin ve İngilizce departmanı için köprü **yeni sekmede aç**.
-* Birinci sekmede tıklayın **Düzenle** İngilizce departmanı için köprü.
+* Ingilizce departman için **düzenleme** köprüsüne sağ tıklayın ve **Yeni sekmede aç**' ı seçin.
+* İlk sekmede, Ingilizce bölümünün **düzenleme** Köprüsü ' ne tıklayın.
 
 Aynı bilgilerin iki tarayıcı sekmeleri görüntüleyin.
 
-' A tıklayın ve ilk tarayıcı sekmesine adını değiştirmek **Kaydet**.
+İlk tarayıcı sekmesinde adı değiştirin ve **Kaydet**' e tıklayın.
 
 ![Departman düzenleme değişikliğinden sonra sayfa 1](concurrency/_static/edit-after-change-130.png)
 
@@ -307,13 +307,13 @@ Tarayıcı değiştirilen değer ve güncelleştirilmiş rowVersion göstergesi 
 
 ![Departman düzenleme değişikliğinden sonra sayfa 2](concurrency/_static/edit-after-change-230.png)
 
-**Kaydet**’e tıklayın. Veritabanı değerleriyle eşleşmeyen tüm alanlar için hata iletileri görürsünüz:
+**Kaydet** düğmesine tıklayın. Veritabanı değerleriyle eşleşmeyen tüm alanlar için hata iletileri görürsünüz:
 
 ![Departman düzenleme sayfa hata iletisi](concurrency/_static/edit-error30.png)
 
 Ad alanı değiştirmek bu tarayıcı penceresini düşünmediğiniz. Kopyalama ve geçerli değerin (dil) adı alanına yapıştırın. Sekme genişletme. İstemci tarafı doğrulaması hata iletisini kaldırır.
 
-Tıklayın **Kaydet** yeniden. İkinci tarayıcı sekmesinde girdiğiniz değer kaydedilir. Dizin sayfasında kaydedilen değerler görürsünüz.
+Yeniden **Kaydet** ' e tıklayın. İkinci tarayıcı sekmesinde girdiğiniz değer kaydedilir. Dizin sayfasında kaydedilen değerler görürsünüz.
 
 ## <a name="update-the-delete-page"></a>Silme sayfası
 
@@ -321,24 +321,24 @@ Tıklayın **Kaydet** yeniden. İkinci tarayıcı sekmesinde girdiğiniz değer 
 
 [!code-csharp[](intro/samples/cu30/Pages/Departments/Delete.cshtml.cs)]
 
-Varlık getirildi sonra değiştiğinde silme sayfası eşzamanlılık çakışmalarını algılar. `Department.RowVersion` Varlık getirildi satır sürümü andır. EF Core SQL DELETE komutu oluşturduğunda, WHERE yan tümcesi ile içerdiği `RowVersion`. Sıfır satır SQL DELETE komutu sonuçları etkileniyorsa:
+Varlık getirildi sonra değiştiğinde silme sayfası eşzamanlılık çakışmalarını algılar. `Department.RowVersion`, varlık getirilen satır sürümüdür. EF Core, SQL DELETE komutunu oluşturduğunda, bir WHERE yan tümcesini `RowVersion`içerir. Sıfır satır SQL DELETE komutu sonuçları etkileniyorsa:
 
 * SQL DELETE komutundaki `RowVersion` veritabanındaki `RowVersion` eşleşmiyor.
 * DbUpdateConcurrencyException özel durum oluşturulur.
-* `OnGetAsync` çağrılır `concurrencyError`.
+* `OnGetAsync` `concurrencyError`çağırılır.
 
 ### <a name="update-the-delete-razor-page"></a>Razor Sil sayfasını Güncelleştir
 
-Güncelleştirme *Pages/Departments/Delete.cshtml* aşağıdaki kod ile:
+*Sayfaları/departmanları/delete. cshtml* 'yi aşağıdaki kodla güncelleştirin:
 
 [!code-html[](intro/samples/cu30/Pages/Departments/Delete.cshtml?highlight=1,10,39,51)]
 
 Yukarıdaki kod aşağıdaki değişiklikleri yapar:
 
-* Güncelleştirmeleri `page` gelen yönerge `@page` için `@page "{id:int}"`.
+* `@page` `page` yönergesini `@page "{id:int}"`olarak güncelleştirir.
 * Bir hata iletisi ekler.
-* FullName FirstMidName değiştirir **yönetici** alan.
-* Değişiklikleri `RowVersion` son bayt görüntülenecek.
+* FirstMidName öğesini, **yönetici** alanındaki FullName ile değiştirir.
+* Son baytın görüntüleneceği `RowVersion` değiştirir.
 * Gizli satır sürümü ekler. `RowVersion` eklenmesi gerekir, çünkü postgit ekleme geri eklemesi değeri bağlar.
 
 ### <a name="test-concurrency-conflicts"></a>Eşzamanlılık çakışmalarını test et
@@ -348,22 +348,22 @@ Test bölümü oluşturun.
 İki tarayıcılar örneklerinde DELETE test departmanı açın:
 
 * Uygulamayı çalıştırın ve bölümleri seçin.
-* Sağ **Sil** seçin ve test departmanı için köprü **yeni sekmede aç**.
-* Tıklayın **Düzenle** köprü test bölümü için.
+* Test departmanı için **silme** köprüsünü sağ tıklayın ve **Yeni sekmede aç**' ı seçin.
+* Test departmanı için **düzenleme** köprüsüne tıklayın.
 
 Aynı bilgilerin iki tarayıcı sekmeleri görüntüleyin.
 
-İlk tarayıcı sekmesine bütçede değiştirip'ı **Kaydet**.
+İlk tarayıcı sekmesinde bütçeyi değiştirin ve **Kaydet**' e tıklayın.
 
 Tarayıcı değiştirilen değer ve güncelleştirilmiş rowVersion göstergesi ile dizin sayfası gösterilir. Güncelleştirilmiş rowVersion göstergesi, Not, ikinci geri göndermenin diğer sekmesinde görüntülenir.
 
-İkinci sekmeden test departmanını silin. Veritabanında geçerli değerlerle birlikte bir eşzamanlılık hatası görüntülenir. Tıklayarak **Sil** sürece varlığını siler `RowVersion` updated.department silinmiş olmuştur.
+İkinci sekmeden test departmanını silin. Veritabanında geçerli değerlerle birlikte bir eşzamanlılık hatası görüntülenir. `RowVersion` güncelleştirilmemiş olmadığı takdirde **Sil** ' i tıklattığınızda varlık silinir. departman silindi.
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [EF Core eşzamanlılık belirteçleri](/ef/core/modeling/concurrency)
-* [EF Core eşzamanlılık işleme](/ef/core/saving/concurrency)
-* [2. x kaynağı ASP.NET Core hata ayıklaması](https://github.com/aspnet/AspNetCore.Docs/issues/4155)
+* [EF Core eşzamanlılık işle](/ef/core/saving/concurrency)
+* [2. x kaynağı ASP.NET Core hata ayıklaması](https://github.com/dotnet/AspNetCore.Docs/issues/4155)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
@@ -376,7 +376,7 @@ Bu, serideki son öğreticidir. [Bu öğretici serisinin MVC sürümünde](xref:
 
 ::: moniker range="< aspnetcore-3.0"
 
-Bu öğreticide, birden çok kullanıcı aynı anda (aynı anda) bir varlık güncelleştirdiğinizde çakışmalarına gösterilmektedir. Olamaz çözmenize, sorunlarla karşılaşırsanız, [indirin veya tamamlanmış uygulamayı görüntüleyin.](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-rp/intro/samples) [Yükleme yönergeleri](xref:index#how-to-download-a-sample).
+Bu öğreticide, birden çok kullanıcı aynı anda (aynı anda) bir varlık güncelleştirdiğinizde çakışmalarına gösterilmektedir. Sorun yaşıyorsanız, bu [uygulamayı indiremez veya görüntüleyemezsiniz.](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-rp/intro/samples) [Yönergeleri indirin](xref:index#how-to-download-a-sample).
 
 ## <a name="concurrency-conflicts"></a>Eşzamanlılık çakışmaları
 
@@ -396,15 +396,15 @@ Eşzamanlılık algılama etkin değil, eş zamanlı güncelleştirmeler olduğu
 
 ![Bütçe 0 olarak değiştirme](concurrency/_static/change-budget.png)
 
-Jane tıkladığında önce **Kaydet**, John aynı sayfayı ziyaret eder ve alanın başlangıç tarihi 1/9/2013 1/9/2007'deki değiştirir.
+Kemal, **Kaydet**' i tıklamadan önce, John aynı sayfayı ziyaret ettiğinde başlangıç tarihi alanını 9/1/2007 ' den 9/1/2013 ' e değiştirir.
 
 ![2013'e başlangıç tarihini değiştirme](concurrency/_static/change-date.png)
 
-Jane tıkladığında **Kaydet** ilk ve her tarayıcı dizin sayfası görüntülendiğinde değiştirme görür.
+Gamze önce **Kaydet** ' i tıklatır ve tarayıcı Dizin sayfasını görüntülediğinde değişikliği görür.
 
 ![Bütçe sıfır olarak değiştirildi](concurrency/_static/budget-zero.png)
 
-John tıkladığında **Kaydet** yine de bir bütçe $350,000.00 birini gösteren bir Düzenle sayfasında. Sonraki işlemin ne eşzamanlılık çakışmalarını nasıl ele tarafından belirlenir.
+John, hala $350.000,00 bütçesini gösteren bir düzenleme sayfasında **Kaydet** ' i tıklatır. Sonraki işlemin ne eşzamanlılık çakışmalarını nasıl ele tarafından belirlenir.
 
 İyimser eşzamanlılık aşağıdaki seçenekleri içerir:
 
@@ -418,7 +418,7 @@ John tıkladığında **Kaydet** yine de bir bütçe $350,000.00 birini göstere
 
 * Gamze'nin değişikliğinin üzerine Can'ın değişiklik sağlayabilirsiniz.
 
-  Sonraki biri İngilizce departmanı gözatar, 1/9/2013 görürler ve getirilen $350,000.00 değeri. Bu yaklaşım olarak adlandırılan bir *istemci WINS* veya *WINS'te son* senaryo. (İstemciden gelen tüm değerler veri deposunda yer alacak şekilde önceliklidir.) Eşzamanlılık işleme için herhangi bir kodlama yapmazsanız, Istemci WINS otomatik olarak gerçekleşir.
+  Sonraki biri İngilizce departmanı gözatar, 1/9/2013 görürler ve getirilen $350,000.00 değeri. Bu yaklaşım, *Istemci WINS* veya *son WINS* senaryosu olarak adlandırılır. (İstemciden gelen tüm değerler veri deposunda yer alacak şekilde önceliklidir.) Eşzamanlılık işleme için herhangi bir kodlama yapmazsanız, Istemci WINS otomatik olarak gerçekleşir.
 
 * Can'ın değişiklik DB'de güncelleştirilmesini engelleyebilir. Genellikle, bir uygulamayı atadığınız:
 
@@ -426,45 +426,45 @@ John tıkladığında **Kaydet** yine de bir bütçe $350,000.00 birini göstere
   * Verilerin geçerli durumunu gösterir.
   * Değişiklikleri uygulamak verin.
 
-  Bu adlı bir *Store WINS* senaryo. (Veri deposu değerleri, istemci tarafından gönderilen değerlere göre önceliklidir.) Bu öğreticide mağaza WINS senaryosunu uygulamanız gerekir. Bu yöntem, hiçbir değişiklik uyarı bir kullanıcı kılınmamasını sağlar.
+  Buna *Mağaza WINS* senaryosu denir. (Veri deposu değerleri, istemci tarafından gönderilen değerlere göre önceliklidir.) Bu öğreticide mağaza WINS senaryosunu uygulamanız gerekir. Bu yöntem, hiçbir değişiklik uyarı bir kullanıcı kılınmamasını sağlar.
 
 ## <a name="handling-concurrency"></a>Eşzamanlılığı işleme 
 
-Ne zaman bir özellik olarak yapılandırıldığında bir [eşzamanlılık belirteci](/ef/core/modeling/concurrency):
+Bir özellik [eşzamanlılık belirteci](/ef/core/modeling/concurrency)olarak yapılandırıldığında:
 
-* EF Core getirildi sonra'nın özellik değiştirilmedi doğrular. Onay gerçekleşir, [SaveChanges](/dotnet/api/microsoft.entityframeworkcore.dbcontext.savechanges?view=efcore-2.0#Microsoft_EntityFrameworkCore_DbContext_SaveChanges) veya [SaveChangesAsync](/dotnet/api/microsoft.entityframeworkcore.dbcontext.savechangesasync?view=efcore-2.0#Microsoft_EntityFrameworkCore_DbContext_SaveChangesAsync_System_Threading_CancellationToken_) çağrılır.
-* Özelliği, getirildikten sonra değiştirilmişse, bir [DbUpdateConcurrencyException](/dotnet/api/microsoft.entityframeworkcore.dbupdateconcurrencyexception?view=efcore-2.0) oluşturulur. 
+* EF Core getirildi sonra'nın özellik değiştirilmedi doğrular. Bu denetim, [SaveChanges](/dotnet/api/microsoft.entityframeworkcore.dbcontext.savechanges?view=efcore-2.0#Microsoft_EntityFrameworkCore_DbContext_SaveChanges) veya [Savechangesasync](/dotnet/api/microsoft.entityframeworkcore.dbcontext.savechangesasync?view=efcore-2.0#Microsoft_EntityFrameworkCore_DbContext_SaveChangesAsync_System_Threading_CancellationToken_) çağrıldığında gerçekleşir.
+* Özellik alındıktan sonra değiştirilmişse, bir [DbUpdateConcurrencyException](/dotnet/api/microsoft.entityframeworkcore.dbupdateconcurrencyexception?view=efcore-2.0) oluşturulur. 
 
-DB ve veri modeli oluşturma destekleyecek şekilde yapılandırılması gerekir `DbUpdateConcurrencyException`.
+DB ve veri modelinin `DbUpdateConcurrencyException`üretilmesini destekleyecek şekilde yapılandırılması gerekir.
 
 ### <a name="detecting-concurrency-conflicts-on-a-property"></a>Bir özellik eşzamanlılık çakışmaları algılama
 
-Eşzamanlılık çakışmaları ile özellik düzeyinde algılanamıyor [ConcurrencyCheck](/dotnet/api/system.componentmodel.dataannotations.concurrencycheckattribute?view=netcore-2.0) özniteliği. Öznitelik, birden çok modelin özellikleri için uygulanabilir. Daha fazla bilgi için [veri ek açıklamaları-ConcurrencyCheck](/ef/core/modeling/concurrency#data-annotations).
+Eşzamanlılık çakışmaları özellik düzeyinde [ConcurrencyCheck](/dotnet/api/system.componentmodel.dataannotations.concurrencycheckattribute?view=netcore-2.0) özniteliğiyle algılanabilir. Öznitelik, birden çok modelin özellikleri için uygulanabilir. Daha fazla bilgi için bkz. [veri ek açıklamaları-ConcurrencyCheck](/ef/core/modeling/concurrency#data-annotations).
 
-`[ConcurrencyCheck]` Özniteliği, bu öğreticide kullanılmaz.
+`[ConcurrencyCheck]` özniteliği bu öğreticide kullanılmıyor.
 
 ### <a name="detecting-concurrency-conflicts-on-a-row"></a>Bir satırda eşzamanlılık çakışmaları algılama
 
-Eşzamanlılık çakışmalarını algılamak için bir [rowversion](/sql/t-sql/data-types/rowversion-transact-sql) sütun izleme modele eklenir.  `rowversion` :
+Eşzamanlılık çakışmalarını algılamak için, modele bir [ROWVERSION](/sql/t-sql/data-types/rowversion-transact-sql) izleme sütunu eklenir.  `rowversion` hatasıyla başarısız oldu:
 
 * SQL Server özeldir. Diğer veritabanlarının benzer bir özellik sağlamayabilir.
 * Veritabanından getirildikten sonra'nın bir varlık değiştirilmediğinden belirlemek için kullanılır. 
 
-Bir sıralı bir veritabanı oluşturur `rowversion` her zaman satır artan sayısı güncelleştirilir. İçinde bir `Update` veya `Delete` komutu `Where` yan tümcesi içeren getirilen değeri `rowversion`. Güncelleştirilen satır değiştiyse:
+DB, satır her güncelleştirildiği sırada artan bir sıralı `rowversion` numarası oluşturur. Bir `Update` veya `Delete` komutunda, `Where` yan tümcesi `rowversion`getirilen değerini içerir. Güncelleştirilen satır değiştiyse:
 
-* `rowversion` getirilen değeri ile eşleşmiyor.
-* `Update` Veya `Delete` olduğundan, komut satır Bul yok `Where` yan tümcesi içeren getirilen `rowversion`.
-* A `DbUpdateConcurrencyException` oluşturulur.
+* `rowversion` getirilen değerle eşleşmiyor.
+* `Where` yan tümcesi getirilen `rowversion`içerdiğinden `Update` veya `Delete` komutları bir satır bulamaz.
+* Bir `DbUpdateConcurrencyException` oluşturulur.
 
-EF Core tarafından hiçbir satır güncelleştirildiğinde içinde bir `Update` veya `Delete` komutu, bir eşzamanlılık özel durumu oluşturulur.
+EF Core, hiçbir satır bir `Update` veya `Delete` komutuyla güncellenmemişse, bir eşzamanlılık özel durumu oluşturulur.
 
 ### <a name="add-a-tracking-property-to-the-department-entity"></a>Departman varlığa izleme özelliği ekleme
 
-İçinde *Models/Department.cs*, RowVersion adlı izleme özelliği ekleyin:
+*Modeller/departman. cs*' de, rowversion adlı bir izleme özelliği ekleyin:
 
 [!code-csharp[](intro/samples/cu/Models/Department.cs?name=snippet_Final&highlight=26,27)]
 
-[Zaman damgası](/dotnet/api/system.componentmodel.dataannotations.timestampattribute) özniteliği, bu sütunda yer belirtir `Where` yan tümcesi `Update` ve `Delete` komutları. Adlandırılan öznitelik `Timestamp` bir SQL SQL Server'ın önceki sürümlerinde kullanılan çünkü `timestamp` veri türü SQL önce `rowversion` türü değiştirildi.
+[Timestamp](/dotnet/api/system.componentmodel.dataannotations.timestampattribute) özniteliği, bu sütunun `Update` ve `Delete` komutlarının `Where` yan tümcesine dahil edildiğini belirtir. Önceki SQL Server sürümleri, SQL `rowversion` türü değiştirilmeden önce bir SQL `timestamp` veri türü kullandığından özniteliğe `Timestamp` denir.
 
 Fluent API'si izleme özelliği de belirtebilirsiniz:
 
@@ -478,19 +478,19 @@ Aşağıdaki kod, T-SQL bölüm adını güncelleştirildiğinde EF Core tarafı
 
 [!code-sql[](intro/samples/cu21snapshots/sql.txt?highlight=2-3)]
 
-Önceki kodun gösterdiği vurgulanmış `WHERE` yan tümcesi içeren `RowVersion`. Varsa DB `RowVersion` eşit değildir `RowVersion` parametre (`@p2`), satır güncelleştirilir.
+Önceki vurgulanan kod, `RowVersion`içeren `WHERE` yan tümcesini gösterir. DB `RowVersion` `RowVersion` parametresine eşit değilse (`@p2`), hiçbir satır güncellenmez.
 
 Aşağıdaki vurgulanmış kodu tam olarak bir satır güncellenmedi doğrular T-SQL gösterir:
 
 [!code-sql[](intro/samples/cu21snapshots/sql.txt?highlight=4-6)]
 
-[@@ROWCOUNT ](/sql/t-sql/functions/rowcount-transact-sql) son deyiminden etkilenen satır sayısını döndürür. Hayır, satır güncelleştirilir, EF Core oluşturur bir `DbUpdateConcurrencyException`.
+[@@ROWCOUNT](/sql/t-sql/functions/rowcount-transact-sql) , son deyimden etkilenen satır sayısını döndürür. Hiçbir satır güncelleştirilmemiş EF Core, bir `DbUpdateConcurrencyException`oluşturur.
 
 T-SQL EF Core oluşturur Visual Studio çıktı penceresinde görebilirsiniz.
 
 ### <a name="update-the-db"></a>DB update
 
-Ekleme `RowVersion` geçiş gerektiren DB modeli özelliğini değiştirir.
+`RowVersion` özelliği eklendiğinde, geçiş gerektiren DB modeli değişir.
 
 Projeyi oluşturun. Bir komut penceresinde aşağıdakileri girin:
 
@@ -501,8 +501,8 @@ dotnet ef database update
 
 Yukarıdaki komutlar:
 
-* Ekler *geçişleri / {zaman stamp}_RowVersion.cs* geçiş dosyası.
-* Güncelleştirmeleri *Migrations/SchoolContextModelSnapshot.cs* dosya. Bu güncelleştirme aşağıdaki vurgulanmış kodu ekler `BuildModel` yöntemi:
+* *Geçişler/{zaman damgası} _RowVersion. cs* geçiş dosyasını ekler.
+* *Geçişler/SchoolContextModelSnapshot. cs* dosyasını güncelleştirir. Güncelleştirme, `BuildModel` yöntemine aşağıdaki vurgulanmış kodu ekler:
 
   [!code-csharp[](intro/samples/cu/Migrations/SchoolContextModelSnapshot.cs?name=snippet_Department&highlight=14-16)]
 
@@ -512,11 +512,11 @@ Yukarıdaki komutlar:
 
 ## <a name="scaffold-the-departments-model"></a>İskele Departmanlar modeli
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio) 
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio) 
 
-Bölümündeki yönergeleri [Öğrenci modeli iskelesini](xref:data/ef-rp/intro#scaffold-student-pages) ve `Department` model sınıfı için.
+[Öğrenci modelini Scafkatlama](xref:data/ef-rp/intro#scaffold-student-pages) ve model sınıfı için `Department` kullanma bölümündeki yönergeleri izleyin.
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
  Şu komutu çalıştırın:
 
@@ -526,18 +526,18 @@ Bölümündeki yönergeleri [Öğrenci modeli iskelesini](xref:data/ef-rp/intro#
 
 ---
 
-Önceki komut iskelesini kurar `Department` modeli. Projeyi Visual Studio'da açın.
+Yukarıdaki komut, `Department` modelini yasaklıyor. Projeyi Visual Studio'da açın.
 
 Projeyi oluşturun.
 
 ### <a name="update-the-departments-index-page"></a>Departmanlar dizin sayfası
 
-Oluşturulan yapı iskelesi altyapısı bir `RowVersion` sütunu için dizin sayfasını, ancak bu alanı olmamalıdır görüntülenecek. Bu öğreticide, son baytı `RowVersion` eşzamanlılık anlamanıza yardımcı olması için görüntülenir. Son bayta kalan benzersiz olması garanti yoktur. Gerçek bir uygulamada görüntüleyemiyordu `RowVersion` veya son baytı `RowVersion`.
+Yapı iskelesi altyapısı Dizin sayfası için bir `RowVersion` sütunu oluşturdu, ancak bu alan gösterilmemelidir. Bu öğreticide, eşzamanlılık kavramasına yardımcı olmak için `RowVersion` son baytı görüntülenir. Son bayta kalan benzersiz olması garanti yoktur. Gerçek bir uygulama `RowVersion` veya `RowVersion`son baytını görüntülemez.
 
 Dizin Sayfası güncelleştirin:
 
 * Dizin bölümlerine değiştirin.
-* Biçimlendirme içeren değiştirin `RowVersion` son baytı ile `RowVersion`.
+* `RowVersion` içeren biçimlendirmeyi `RowVersion`son baytla değiştirin.
 * FirstMidName tam adı ile değiştirin.
 
 Güncelleştirilen sayfaya aşağıdaki işaretlemeyi gösterir:
@@ -550,11 +550,11 @@ Aşağıdaki kodla *Pages\Departments\Edit.cshtml.cs* güncelleştirin:
 
 [!code-csharp[](intro/samples/cu/Pages/Departments/Edit.cshtml.cs?name=snippet)]
 
-Bir eşzamanlılık algılanması [OriginalValue](/dotnet/api/microsoft.entityframeworkcore.changetracking.propertyentry.originalvalue?view=efcore-2.0#Microsoft_EntityFrameworkCore_ChangeTracking_PropertyEntry_OriginalValue) güncelleştirilmesi `rowVersion` alınan varlık değeri. EF Core özgün içeren bir WHERE yan tümcesi ile SQL güncelleştirme komut oluşturur `RowVersion` değeri. Hiçbir satır güncelleştirme komutu tarafından etkileniyorsanız (hiçbir satır özgün sahip `RowVersion` değer), `DbUpdateConcurrencyException` özel durumu oluşturulur.
+Bir eşzamanlılık sorunu tespit etmek için [OriginalValue](/dotnet/api/microsoft.entityframeworkcore.changetracking.propertyentry.originalvalue?view=efcore-2.0#Microsoft_EntityFrameworkCore_ChangeTracking_PropertyEntry_OriginalValue) , getirilen varlıktaki `rowVersion` değeri ile güncelleştirilir. EF Core, özgün `RowVersion` değerini içeren WHERE yan tümcesiyle bir SQL UPDATE komutu oluşturur. GÜNCELLEŞTIRME komutundan hiçbir satır etkilenmeden (hiçbir satır özgün `RowVersion` değerine sahip değilse), bir `DbUpdateConcurrencyException` özel durumu oluşturulur.
 
 [!code-csharp[](intro/samples/cu/Pages/Departments/Edit.cshtml.cs?name=snippet_rv&highlight=24-999)]
 
-Önceki kodda, `Department.RowVersion` varlık getirildi değeri olur. `OriginalValue` DB değer olduğunda `FirstOrDefaultAsync` bu yöntemi çağrıldı.
+Yukarıdaki kodda, `Department.RowVersion` varlık getirilirken değerdir. `OriginalValue`, bu yöntemde `FirstOrDefaultAsync` çağrıldığında VERITABANıNDAKI değerdir.
 
 Aşağıdaki kod, istemci değerler (Bu yönteme gönderilen değerler) ve DB değerleri alır:
 
@@ -564,36 +564,36 @@ Aşağıdaki kod, `OnPostAsync`gönderilen değerden farklı olan DB değerleri 
 
 [!code-csharp[](intro/samples/cu/Pages/Departments/Edit.cshtml.cs?name=snippet_err)]
 
-Aşağıdaki vurgulanmış kodu kümeleri `RowVersion` değerden yeni değere Veritabanından alınır. Kullanıcının bir sonraki tıklayışında **Kaydet**, düzenleme sayfası son görüntülenmesini yakalandı beri gerçekleşen eşzamanlılık hataları.
+Aşağıdaki vurgulanan kod, `RowVersion` değerini veritabanından alınan yeni değer olarak ayarlar. Kullanıcının bir dahaki sefer **Kaydet**' i tıklatması durumunda, yalnızca düzenleme sayfasının son görüntüsü bu yana gerçekleşen eşzamanlılık hataları yakalanacaktır.
 
 [!code-csharp[](intro/samples/cu/Pages/Departments/Edit.cshtml.cs?name=snippet_try&highlight=23)]
 
-`ModelState.Remove` Deyimi, çünkü gereklidir `ModelState` eski olan `RowVersion` değeri. Razor Sayfası'nda `ModelState` değerinin ikisi de mevcut olduğunda alan üzerinde model özellik değerlerini öncelik kazanır.
+`ModelState` eski `RowVersion` değerine sahip olduğundan `ModelState.Remove` deyimin olması gerekir. Razor sayfasında, bir alan için `ModelState` değeri, her ikisi de varsa Model özelliği değerlerinin üzerine gelir.
 
 ## <a name="update-the-edit-page"></a>Güncelleştirme düzenleme sayfası
 
-Güncelleştirme *Pages/Departments/Edit.cshtml* aşağıdaki işaretlemeyle:
+*Sayfaları/departmanları/Düzenle. cshtml* 'yi şu biçimlendirmeyle güncelleştirin:
 
 [!code-html[](intro/samples/cu/Pages/Departments/Edit.cshtml?highlight=1,14,16-17,37-39)]
 
 Önceki işaretlemesi:
 
-* Güncelleştirmeleri `page` gelen yönerge `@page` için `@page "{id:int}"`.
-* Gizli satır sürümü ekler. `RowVersion` POST geri değere bağlar, böylece eklenmesi gerekir.
-* Son baytı görüntüler `RowVersion` hata ayıklama amacıyla.
-* Değiştirir `ViewData` türü kesin belirlenmiş ile `InstructorNameSL`.
+* `@page` `page` yönergesini `@page "{id:int}"`olarak güncelleştirir.
+* Gizli satır sürümü ekler. `RowVersion` eklenmesi gerekir, bu yüzden geri gönder değeri bağlar.
+* Hata ayıklama amacıyla `RowVersion` son baytını görüntüler.
+* `ViewData`, türü kesin belirlenmiş `InstructorNameSL`ile değiştirir.
 
 ## <a name="test-concurrency-conflicts-with-the-edit-page"></a>Eşzamanlılık çakışmalarını düzenleme sayfası ile test
 
 İki tarayıcılar örneklerinde düzenleme İngilizce departmanı açın:
 
 * Uygulamayı çalıştırın ve bölümleri seçin.
-* Sağ **Düzenle** seçin ve İngilizce departmanı için köprü **yeni sekmede aç**.
-* Birinci sekmede tıklayın **Düzenle** İngilizce departmanı için köprü.
+* Ingilizce departman için **düzenleme** köprüsüne sağ tıklayın ve **Yeni sekmede aç**' ı seçin.
+* İlk sekmede, Ingilizce bölümünün **düzenleme** Köprüsü ' ne tıklayın.
 
 Aynı bilgilerin iki tarayıcı sekmeleri görüntüleyin.
 
-' A tıklayın ve ilk tarayıcı sekmesine adını değiştirmek **Kaydet**.
+İlk tarayıcı sekmesinde adı değiştirin ve **Kaydet**' e tıklayın.
 
 ![Departman düzenleme değişikliğinden sonra sayfa 1](concurrency/_static/edit-after-change-1.png)
 
@@ -603,7 +603,7 @@ Tarayıcı değiştirilen değer ve güncelleştirilmiş rowVersion göstergesi 
 
 ![Departman düzenleme değişikliğinden sonra sayfa 2](concurrency/_static/edit-after-change-2.png)
 
-**Kaydet**’e tıklayın. DB değerleri eşleşmeyen tüm alanlar için hata iletileri görürsünüz:
+**Kaydet** düğmesine tıklayın. DB değerleri eşleşmeyen tüm alanlar için hata iletileri görürsünüz:
 
 ![Departman düzenleme sayfa hata iletisi](concurrency/_static/edit-error.png)
 
@@ -611,7 +611,7 @@ Ad alanı değiştirmek bu tarayıcı penceresini düşünmediğiniz. Kopyalama 
 
 ![Departman düzenleme sayfa hata iletisi](concurrency/_static/cv.png)
 
-Tıklayın **Kaydet** yeniden. İkinci tarayıcı sekmesinde girdiğiniz değer kaydedilir. Dizin sayfasında kaydedilen değerler görürsünüz.
+Yeniden **Kaydet** ' e tıklayın. İkinci tarayıcı sekmesinde girdiğiniz değer kaydedilir. Dizin sayfasında kaydedilen değerler görürsünüz.
 
 ## <a name="update-the-delete-page"></a>Silme sayfası
 
@@ -619,25 +619,25 @@ Delete sayfa modeli aşağıdaki kodla güncelleştirin:
 
 [!code-csharp[](intro/samples/cu/Pages/Departments/Delete.cshtml.cs)]
 
-Varlık getirildi sonra değiştiğinde silme sayfası eşzamanlılık çakışmalarını algılar. `Department.RowVersion` Varlık getirildi satır sürümü andır. EF Core SQL DELETE komutu oluşturduğunda, WHERE yan tümcesi ile içerdiği `RowVersion`. Sıfır satır SQL DELETE komutu sonuçları etkileniyorsa:
+Varlık getirildi sonra değiştiğinde silme sayfası eşzamanlılık çakışmalarını algılar. `Department.RowVersion`, varlık getirilen satır sürümüdür. EF Core, SQL DELETE komutunu oluşturduğunda, bir WHERE yan tümcesini `RowVersion`içerir. Sıfır satır SQL DELETE komutu sonuçları etkileniyorsa:
 
-* `RowVersion` SQL DELETE komutu eşleşmiyor `RowVersion` DB'de.
+* SQL DELETE komutundaki `RowVersion` VERITABANıNDAKI `RowVersion` eşleşmiyor.
 * DbUpdateConcurrencyException özel durum oluşturulur.
-* `OnGetAsync` çağrılır `concurrencyError`.
+* `OnGetAsync` `concurrencyError`çağırılır.
 
 ### <a name="update-the-delete-page"></a>Silme sayfası
 
-Güncelleştirme *Pages/Departments/Delete.cshtml* aşağıdaki kod ile:
+*Sayfaları/departmanları/delete. cshtml* 'yi aşağıdaki kodla güncelleştirin:
 
 [!code-html[](intro/samples/cu/Pages/Departments/Delete.cshtml?highlight=1,10,39,51)]
 
 Yukarıdaki kod aşağıdaki değişiklikleri yapar:
 
-* Güncelleştirmeleri `page` gelen yönerge `@page` için `@page "{id:int}"`.
+* `@page` `page` yönergesini `@page "{id:int}"`olarak güncelleştirir.
 * Bir hata iletisi ekler.
-* FullName FirstMidName değiştirir **yönetici** alan.
-* Değişiklikleri `RowVersion` son bayt görüntülenecek.
-* Gizli satır sürümü ekler. `RowVersion` POST geri değere bağlar, böylece eklenmesi gerekir.
+* FirstMidName öğesini, **yönetici** alanındaki FullName ile değiştirir.
+* Son baytın görüntüleneceği `RowVersion` değiştirir.
+* Gizli satır sürümü ekler. `RowVersion` eklenmesi gerekir, bu yüzden geri gönder değeri bağlar.
 
 ### <a name="test-concurrency-conflicts-with-the-delete-page"></a>Eşzamanlılık çakışmalarını silme sayfası ile test
 
@@ -646,29 +646,29 @@ Test bölümü oluşturun.
 İki tarayıcılar örneklerinde DELETE test departmanı açın:
 
 * Uygulamayı çalıştırın ve bölümleri seçin.
-* Sağ **Sil** seçin ve test departmanı için köprü **yeni sekmede aç**.
-* Tıklayın **Düzenle** köprü test bölümü için.
+* Test departmanı için **silme** köprüsünü sağ tıklayın ve **Yeni sekmede aç**' ı seçin.
+* Test departmanı için **düzenleme** köprüsüne tıklayın.
 
 Aynı bilgilerin iki tarayıcı sekmeleri görüntüleyin.
 
-İlk tarayıcı sekmesine bütçede değiştirip'ı **Kaydet**.
+İlk tarayıcı sekmesinde bütçeyi değiştirin ve **Kaydet**' e tıklayın.
 
 Tarayıcı değiştirilen değer ve güncelleştirilmiş rowVersion göstergesi ile dizin sayfası gösterilir. Güncelleştirilmiş rowVersion göstergesi, Not, ikinci geri göndermenin diğer sekmesinde görüntülenir.
 
-İkinci sekmeden test departmanını silin. Bir eşzamanlılık hatası, VERITABANıNDAKI geçerli değerlerle birlikte görüntülenir. Tıklayarak **Sil** sürece varlığını siler `RowVersion` updated.department silinmiş olmuştur.
+İkinci sekmeden test departmanını silin. Bir eşzamanlılık hatası, VERITABANıNDAKI geçerli değerlerle birlikte görüntülenir. `RowVersion` güncelleştirilmemiş olmadığı takdirde **Sil** ' i tıklattığınızda varlık silinir. departman silindi.
 
-Bkz: [devralma](xref:data/ef-mvc/inheritance) nasıl bir veri modeli devralır.
+Veri modelinin nasıl devralınacağını öğrenmek için bkz. [Devralma](xref:data/ef-mvc/inheritance) .
 
 ### <a name="additional-resources"></a>Ek kaynaklar
 
 * [EF Core eşzamanlılık belirteçleri](/ef/core/modeling/concurrency)
-* [EF Core eşzamanlılık işleme](/ef/core/saving/concurrency)
+* [EF Core eşzamanlılık işle](/ef/core/saving/concurrency)
 * [Bu öğreticinin YouTube sürümü (eşzamanlılık çakışmalarını Işleme)](https://youtu.be/EosxHTFgYps)
 * [Bu öğreticinin YouTube sürümü (Bölüm 2)](https://www.youtube.com/watch?v=kcxERLnaGO0)
 * [Bu öğreticinin YouTube sürümü (Bölüm 3)](https://www.youtube.com/watch?v=d4RbpfvELRs)
 
 > [!div class="step-by-step"]
-> [Önceki](xref:data/ef-rp/update-related-data)
+> [Öncekini](xref:data/ef-rp/update-related-data)
 
 ::: moniker-end
 

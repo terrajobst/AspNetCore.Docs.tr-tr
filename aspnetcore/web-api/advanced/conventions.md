@@ -7,12 +7,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 12/05/2019
 uid: web-api/advanced/conventions
-ms.openlocfilehash: 2c7e33da24322504fc5e1be83c0b814710186687
-ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
+ms.openlocfilehash: d49b51d11d3f14d0c3edbe1765d74fd63e3ac061
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74881313"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78657754"
 ---
 # <a name="use-web-api-conventions"></a>Web API 'SI kurallarını kullanma
 
@@ -29,7 +29,7 @@ ASP.NET Core MVC 2,2 ve üzeri, <xref:Microsoft.AspNetCore.Mvc.DefaultApiConvent
 
 Çalışma zamanında <xref:Microsoft.AspNetCore.Mvc.ApiExplorer> kuralları anlamıştır. `ApiExplorer`, [Openapı](https://www.openapis.org/) (Swagger olarak da bilinir) belge oluşturucuları ile iletişim kurmak için MVC 'nin soyutlamasıdır. Uygulanan kuraldaki öznitelikler bir eylemle ilişkilendirilir ve eylemin Openapı belgelerine dahil edilir. [API Çözümleyicileri](xref:web-api/advanced/analyzers) , kuralları da anlalar. Eyleminiz geleneksel değilse (örneğin, uygulanan kural tarafından belgelenmemiş bir durum kodu döndürürse), durum kodunu belgeleyerek bir uyarı görürsünüz.
 
-[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/web-api/advanced/conventions/sample) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
+[Örnek kodu görüntüleme veya indirme](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/web-api/advanced/conventions/sample) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
 
 ## <a name="apply-web-api-conventions"></a>Web API 'SI kurallarını Uygula
 
@@ -73,7 +73,7 @@ Varsayılan API kuralları gereksinimlerinizi karşılamıyorsa, kendi kurallar�
 
 ### <a name="response-types"></a>Yanıt türleri
 
-Bu yöntemlere `[ProducesResponseType]` veya `[ProducesDefaultResponseType]` öznitelikleriyle açıklama eklenir. Örneğin:
+Bu yöntemlere `[ProducesResponseType]` veya `[ProducesDefaultResponseType]` öznitelikleriyle açıklama eklenir. Örnek:
 
 ```csharp
 public static class MyAppConventions
@@ -93,7 +93,7 @@ Daha özel meta veri öznitelikleri yoksa, bu kuralı bir derlemeye uygulamak ş
 
 ### <a name="naming-requirements"></a>Adlandırma gereksinimleri
 
-`[ApiConventionNameMatch]` ve `[ApiConventionTypeMatch]` öznitelikleri, uygulandıkları eylemleri belirleyen kural yöntemine uygulanabilir. Örneğin:
+`[ApiConventionNameMatch]` ve `[ApiConventionTypeMatch]` öznitelikleri, uygulandıkları eylemleri belirleyen kural yöntemine uygulanabilir. Örnek:
 
 ```csharp
 [ProducesResponseType(StatusCodes.Status200OK)]

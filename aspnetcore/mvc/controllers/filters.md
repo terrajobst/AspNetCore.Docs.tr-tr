@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 02/04/2020
 uid: mvc/controllers/filters
-ms.openlocfilehash: c4bb9d5746e494106ead6ad5bbf972bbcc5a39f1
-ms.sourcegitcommit: 0e21d4f8111743bcb205a2ae0f8e57910c3e8c25
+ms.openlocfilehash: 03335811766ea3a1455901199863c6da0e35f7e4
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77034071"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78662787"
 ---
 # <a name="filters-in-aspnet-core"></a>ASP.NET Core filtreler
 
@@ -33,7 +33,7 @@ Bu belge, görünümler içeren Razor Pages, API denetleyicileri ve denetleyicil
 * Bileşen bir sayfa veya görünüme katıştırılır.
 * Sayfa veya denetleyici/görünüm filtreyi kullanır.
 
-Örneği ([indirme](xref:index#how-to-download-a-sample)) [görüntüleyin veya indirin](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/controllers/filters/3.1sample) .
+Örneği ([indirme](xref:index#how-to-download-a-sample)) [görüntüleyin veya indirin](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/controllers/filters/3.1sample) .
 
 ## <a name="how-filters-work"></a>Filtreler nasıl çalışır?
 
@@ -176,14 +176,14 @@ Filtre iç içe geçme sonucu *olarak, filtrenin kodu,* *önceki* kodun ters sı
   
 Zaman uyumlu eylem filtreleri için filtre yöntemlerinin çağrıldığı sırayı gösteren aşağıdaki örnek.
 
-| Sequence | Filtre kapsamı | Filter yöntemi |
+| Dizisi | Filtre kapsamı | Filter yöntemi |
 |:--------:|:------------:|:-------------:|
-| 1\. | Global | `OnActionExecuting` |
+| 1\. | Genel | `OnActionExecuting` |
 | 2 | Denetleyici veya Razor sayfası| `OnActionExecuting` |
 | 3 | Yöntem | `OnActionExecuting` |
 | 4 | Yöntem | `OnActionExecuted` |
 | 5 | Denetleyici veya Razor sayfası | `OnActionExecuted` |
-| 6 | Global | `OnActionExecuted` |
+| 6 | Genel | `OnActionExecuted` |
 
 ### <a name="controller-level-filters"></a>Denetleyici düzeyi filtreleri
 
@@ -544,7 +544,7 @@ Filtre aşağıdaki kodda uygulanır:
 
 [!code-csharp[](./filters/3.1sample/FiltersSample/Controllers/SampleController.cs?name=snippet3&highlight=21)]
 
-Önceki kodu [indirme örneğini](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/controllers/filters/3.1sample)çalıştırarak test edin:
+Önceki kodu [indirme örneğini](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/controllers/filters/3.1sample)çalıştırarak test edin:
 
 * F12 geliştirici araçlarını çağırın.
 * `https://localhost:5001/Sample/HeaderWithFactory` sayfasına gidin.
@@ -596,7 +596,7 @@ Ara yazılım filtreleri, filtre işlem hattının aynı aşamasında, model ba�
 ## <a name="next-actions"></a>Sonraki eylemler
 
 * [Razor Pages Için filtre yöntemlerine](xref:razor-pages/filter)bakın.
-* Filtrelerle denemek için [GitHub örneğini indirin, test edin ve değiştirin](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/controllers/filters/3.1sample).
+* Filtrelerle denemek için [GitHub örneğini indirin, test edin ve değiştirin](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/controllers/filters/3.1sample).
 
 ::: moniker-end
 
@@ -615,7 +615,7 @@ Yerleşik Filtreler şunları gibi görevleri işler:
 
 Bu belge, görünümler içeren Razor Pages, API denetleyicileri ve denetleyiciler için geçerlidir.
 
-Örneği ([indirme](xref:index#how-to-download-a-sample)) [görüntüleyin veya indirin](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/controllers/filters/sample) .
+Örneği ([indirme](xref:index#how-to-download-a-sample)) [görüntüleyin veya indirin](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/controllers/filters/sample) .
 
 ## <a name="how-filters-work"></a>Filtreler nasıl çalışır?
 
@@ -717,14 +717,14 @@ Filtre iç içe geçme sonucu *olarak, filtrenin kodu,* *önceki* kodun ters sı
   
 Zaman uyumlu eylem filtreleri için filtre yöntemlerinin çağrıldığı sırayı gösteren aşağıdaki örnek.
 
-| Sequence | Filtre kapsamı | Filter yöntemi |
+| Dizisi | Filtre kapsamı | Filter yöntemi |
 |:--------:|:------------:|:-------------:|
-| 1\. | Global | `OnActionExecuting` |
+| 1\. | Genel | `OnActionExecuting` |
 | 2 | Denetleyici | `OnActionExecuting` |
 | 3 | Yöntem | `OnActionExecuting` |
 | 4 | Yöntem | `OnActionExecuted` |
 | 5 | Denetleyici | `OnActionExecuted` |
-| 6 | Global | `OnActionExecuted` |
+| 6 | Genel | `OnActionExecuted` |
 
 Bu sıra şunları gösterir:
 
@@ -777,12 +777,12 @@ Varsayılan yürütme sırası <xref:Microsoft.AspNetCore.Mvc.Filters.IOrderedFi
 
 Yukarıdaki örnekte gösterilen 3 eylem filtresini göz önünde bulundurun. Denetleyicinin ve genel filtrelerin `Order` özelliği sırasıyla 1 ve 2 ' ye ayarlandıysa, yürütme sırası tersine çevrilir.
 
-| Sequence | Filtre kapsamı | `Order` özelliği | Filter yöntemi |
+| Dizisi | Filtre kapsamı | `Order` özelliği | Filter yöntemi |
 |:--------:|:------------:|:-----------------:|:-------------:|
 | 1\. | Yöntem | 0 | `OnActionExecuting` |
 | 2 | Denetleyici | 1\.  | `OnActionExecuting` |
-| 3 | Global | 2  | `OnActionExecuting` |
-| 4 | Global | 2  | `OnActionExecuted` |
+| 3 | Genel | 2  | `OnActionExecuting` |
+| 4 | Genel | 2  | `OnActionExecuted` |
 | 5 | Denetleyici | 1\.  | `OnActionExecuted` |
 | 6 | Yöntem | 0  | `OnActionExecuted` |
 
@@ -1067,7 +1067,7 @@ Framework, alt sınıflı olabilecek bir soyut `ResultFilterAttribute` sağlar. 
 
 [!code-csharp[](./filters/sample/FiltersSample/Filters/AddHeaderWithFactoryAttribute.cs?name=snippet_IFilterFactory&highlight=1,4,5,6,7)]
 
-Önceki kod, [indirme örneği](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/controllers/filters/sample)çalıştırılarak test edilebilir:
+Önceki kod, [indirme örneği](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/controllers/filters/sample)çalıştırılarak test edilebilir:
 
 * F12 geliştirici araçlarını çağırın.
 * `https://localhost:5001/Sample/HeaderWithFactory` sayfasına gidin.
@@ -1119,6 +1119,6 @@ Ara yazılım filtreleri, filtre işlem hattının aynı aşamasında, model ba�
 ## <a name="next-actions"></a>Sonraki eylemler
 
 * [Razor Pages Için filtre yöntemlerine](xref:razor-pages/filter)bakın.
-* Filtrelerle denemek için [GitHub örneğini indirin, test edin ve değiştirin](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/controllers/filters/sample).
+* Filtrelerle denemek için [GitHub örneğini indirin, test edin ve değiştirin](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/controllers/filters/sample).
 
 ::: moniker-end

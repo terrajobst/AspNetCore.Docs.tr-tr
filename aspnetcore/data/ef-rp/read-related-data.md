@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 09/28/2019
 uid: data/ef-rp/read-related-data
-ms.openlocfilehash: 5feed175999bf021cadc7e18f14e00066b50db5b
-ms.sourcegitcommit: 7d3c6565dda6241eb13f9a8e1e1fd89b1cfe4d18
+ms.openlocfilehash: d244ce1527486466bcbc6557ec35869aa206bc4f
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72259686"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78656578"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---read-related-data---6-of-8"></a>ASP.NET Core EF Core ile Razor Pages-Ilgili verileri oku-6/8
 
@@ -48,7 +48,7 @@ EF Core bir varlığın gezinti özelliklerine ilgili verileri yükleyebilmenin 
 
   Note: EF Core, daha önce bağlam örneğine yüklenmiş olan diğer varlıklar için gezinti özelliklerini otomatik olarak düzeltir. Bir gezinti özelliği için veriler açıkça dahil *edilmese* bile, ilgili varlıkların bazıları veya tümü daha önce yüklenmişse Özellik yine de doldurulabilir.
 
-* [Açık yükleme](/ef/core/querying/related-data#explicit-loading). Varlık ilk kez okunmadıysa ilgili veriler alınmadı. Gerektiğinde ilgili verileri almak için kodun yazılması gerekir. Ayrı sorgularla açık yükleme, veritabanına birden çok sorgu gönderilmesine neden olur. Açık yükleme ile kod, yüklenecek gezinti özelliklerini belirtir. Açık yükleme yapmak için `Load` yöntemini kullanın. Örneğin:
+* [Açık yükleme](/ef/core/querying/related-data#explicit-loading). Varlık ilk kez okunmadıysa ilgili veriler alınmadı. Gerektiğinde ilgili verileri almak için kodun yazılması gerekir. Ayrı sorgularla açık yükleme, veritabanına birden çok sorgu gönderilmesine neden olur. Açık yükleme ile kod, yüklenecek gezinti özelliklerini belirtir. Açık yükleme yapmak için `Load` yöntemini kullanın. Örnek:
 
   ![Açık yükleme örneği](read-related-data/_static/explicit-loading.png)
 
@@ -69,7 +69,7 @@ Bir kurs için atanan departmanın adını göstermek için:
 
 ### <a name="scaffold-course-pages"></a>Yapı iskelesi kurs sayfaları
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * Aşağıdaki özel durumlarla birlikte [Yapı Fkatlama öğrenci sayfalarındaki](xref:data/ef-rp/intro#scaffold-student-pages) yönergeleri izleyin:
 
@@ -77,13 +77,13 @@ Bir kurs için atanan departmanın adını göstermek için:
   * Model sınıfı için `Course` kullanın.
   * Yeni bir tane oluşturmak yerine var olan bağlam sınıfını kullanın.
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 * Bir *Sayfalar/kurslar* klasörü oluşturun.
 
 * Kurs sayfalarını iskele almak için aşağıdaki komutu çalıştırın.
 
-  **Windows üzerinde:**
+  **Windows'da:**
 
   ```dotnetcli
   dotnet aspnet-codegenerator razorpage -m Course -dc SchoolContext -udl -outDir Pages\Courses --referenceScriptLibraries
@@ -141,7 +141,7 @@ Aşağıdaki kod `Select` yöntemiyle ilgili verileri yükler:
 
 [!code-csharp[](intro/samples/cu30snapshots/6-related/Models/SchoolViewModels/CourseViewModel.cs?name=snippet)]
 
-Tüm örnek için bkz. [ındexselect. cshtml](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/cu30snapshots/6-related/Pages/Courses/IndexSelect.cshtml) ve [IndexSelect.cshtml.cs](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/cu30snapshots/6-related/Pages/Courses/IndexSelect.cshtml.cs) .
+Tüm örnek için bkz. [ındexselect. cshtml](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/cu30snapshots/6-related/Pages/Courses/IndexSelect.cshtml) ve [IndexSelect.cshtml.cs](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/cu30snapshots/6-related/Pages/Courses/IndexSelect.cshtml.cs) .
 
 ## <a name="create-instructor-pages"></a>Eğitmen sayfaları oluşturma
 
@@ -166,7 +166,7 @@ Aşağıdaki kodla *SchoolViewModels/ıncpctorındexdata. cs* oluşturun:
 
 ### <a name="scaffold-instructor-pages"></a>Yapı iskelesi eğitmeni sayfaları
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * Öğrenci sayfalarını aşağıdaki özel durumlarla birlikte [Scaffold](xref:data/ef-rp/intro#scaffold-student-pages) içindeki yönergeleri izleyin:
 
@@ -174,13 +174,13 @@ Aşağıdaki kodla *SchoolViewModels/ıncpctorındexdata. cs* oluşturun:
   * Model sınıfı için `Instructor` kullanın.
   * Yeni bir tane oluşturmak yerine var olan bağlam sınıfını kullanın.
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 * Bir *sayfa/eğitmenler* klasörü oluşturun.
 
 * Eğitmen sayfalarını iskele almak için aşağıdaki komutu çalıştırın.
 
-  **Windows üzerinde:**
+  **Windows'da:**
 
   ```dotnetcli
   dotnet aspnet-codegenerator razorpage -m Instructor -dc SchoolContext -udl -outDir Pages\Instructors --referenceScriptLibraries
@@ -241,7 +241,7 @@ Aşağıdaki kod, bir kurs seçildiğinde görünüm modelinin `Enrollments` öz
 
 Yukarıdaki kod aşağıdaki değişiklikleri yapar:
 
-* Güncelleştirmeleri `page` gelen yönerge `@page` için `@page "{id:int?}"`. `"{id:int?}"` bir rota şablonudur. Yol şablonu, verileri yönlendirmek için URL 'deki tamsayı Sorgu dizelerini değiştirir. Örneğin, yalnızca `@page` yönergesine sahip bir eğitmenin **Select** bağlantısına tıkladığınızda aşağıdakiler gıbı bir URL üretilir:
+* `@page` `page` yönergesini `@page "{id:int?}"`olarak güncelleştirir. `"{id:int?}"` bir rota şablonudur. Yol şablonu, verileri yönlendirmek için URL 'deki tamsayı Sorgu dizelerini değiştirir. Örneğin, yalnızca `@page` yönergesine sahip bir eğitmenin **Select** bağlantısına tıkladığınızda aşağıdakiler gıbı bir URL üretilir:
 
   `https://localhost:5001/Instructors?id=2`
 
@@ -297,7 +297,7 @@ Kayıtlı öğrenciler ve bunların onların listesini görmek için bir kurs se
 
 Where koşulunun kişisel tercihle ilgili olduğu `Single` kullanımı. `Where` yöntemi kullanılarak herhangi bir avantaj sağlamaz.
 
-## <a name="explicit-loading"></a>Açık yükleme
+## <a name="explicit-loading"></a>açık yükleme
 
 Geçerli kod `Enrollments` ve `Students`için Eager yüklemeyi belirtir:
 
@@ -316,7 +316,7 @@ Yukarıdaki kod, kayıt ve öğrenci verileri için *Thenınclude* Yöntem çağ
 
 Yukarıdaki kod yorumlarının `.AsNoTracking()`dikkat edin. Gezinti özellikleri yalnızca izlenen varlıklar için açık bir şekilde yüklenebilir.
 
-Uygulamayı test edin. Bir kullanıcının perspektifinden, uygulama önceki sürümle aynı şekilde davranır.
+Uygulamayı test etme. Bir kullanıcının perspektifinden, uygulama önceki sürümle aynı şekilde davranır.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
@@ -332,7 +332,7 @@ Sonraki öğreticide ilgili verileri güncelleştirme gösterilmektedir.
 
 Bu öğreticide ilgili veriler okundu ve görüntülenir. İlgili veriler, EF Core gezinti özelliklerine yüklediği veri.
 
-Olamaz çözmenize, sorunlarla karşılaşırsanız, [indirin veya tamamlanmış uygulamayı görüntüleyin.](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-rp/intro/samples) [Yükleme yönergeleri](xref:index#how-to-download-a-sample).
+Sorun yaşıyorsanız, bu [uygulamayı indiremez veya görüntüleyemezsiniz.](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-rp/intro/samples) [Yönergeleri indirin](xref:index#how-to-download-a-sample).
 
 Aşağıdaki çizimler, Bu öğreticinin tamamlanan sayfalarını göstermektedir:
 
@@ -359,7 +359,7 @@ EF Core bir varlığın gezinti özelliklerine ilgili verileri yükleyebilmenin 
 
   Note: EF Core, daha önce bağlam örneğine yüklenmiş olan diğer varlıklar için gezinti özelliklerini otomatik olarak düzeltir. Bir gezinti özelliği için veriler açıkça dahil *edilmese* bile, ilgili varlıkların bazıları veya tümü daha önce yüklenmişse Özellik yine de doldurulabilir.
 
-* [Açık yükleme](/ef/core/querying/related-data#explicit-loading). Varlık ilk kez okunmadıysa ilgili veriler alınmadı. Gerektiğinde ilgili verileri almak için kodun yazılması gerekir. Ayrı sorgularla açık yükleme, VERITABANıNA birden çok sorgu gönderilmesine neden olur. Açık yükleme ile kod, yüklenecek gezinti özelliklerini belirtir. Açık yükleme yapmak için `Load` yöntemini kullanın. Örneğin:
+* [Açık yükleme](/ef/core/querying/related-data#explicit-loading). Varlık ilk kez okunmadıysa ilgili veriler alınmadı. Gerektiğinde ilgili verileri almak için kodun yazılması gerekir. Ayrı sorgularla açık yükleme, VERITABANıNA birden çok sorgu gönderilmesine neden olur. Açık yükleme ile kod, yüklenecek gezinti özelliklerini belirtir. Açık yükleme yapmak için `Load` yöntemini kullanın. Örnek:
 
   ![Açık yükleme örneği](read-related-data/_static/explicit-loading.png)
 
@@ -382,11 +382,11 @@ Bir kurs listesinde atanan departmanın adını göstermek için:
 
 ### <a name="scaffold-the-course-model"></a>Kurs modelini temklesi
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio) 
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio) 
 
-Bölümündeki yönergeleri [Öğrenci modeli iskelesini](xref:data/ef-rp/intro#scaffold-the-student-model) ve `Course` model sınıfı için.
+[Öğrenci modelini Scafkatlama](xref:data/ef-rp/intro#scaffold-the-student-model) ve model sınıfı için `Course` kullanma bölümündeki yönergeleri izleyin.
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
  Şu komutu çalıştırın:
 
@@ -396,7 +396,7 @@ Bölümündeki yönergeleri [Öğrenci modeli iskelesini](xref:data/ef-rp/intro#
 
 ---
 
-Önceki komut iskelesini kurar `Course` modeli. Projeyi Visual Studio'da açın.
+Yukarıdaki komut, `Course` modelini yasaklıyor. Projeyi Visual Studio'da açın.
 
 *Pages/kurslar/Index. cshtml. cs* dosyasını açın ve `OnGetAsync` metodunu inceleyin. Yapı iskelesi altyapısı, `Department` gezinti özelliği için bir yükleme belirtti. `Include` yöntemi Eager yüklemeyi belirtir.
 
@@ -444,7 +444,7 @@ Aşağıdaki kod `Select` yöntemiyle ilgili verileri yükler:
 
 [!code-csharp[](intro/samples/cu/Models/SchoolViewModels/CourseViewModel.cs?name=snippet)]
 
-Tüm örnek için bkz. [ındexselect. cshtml](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/cu/Pages/Courses/IndexSelect.cshtml) ve [IndexSelect.cshtml.cs](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/cu/Pages/Courses/IndexSelect.cshtml.cs) .
+Tüm örnek için bkz. [ındexselect. cshtml](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/cu/Pages/Courses/IndexSelect.cshtml) ve [IndexSelect.cshtml.cs](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/cu/Pages/Courses/IndexSelect.cshtml.cs) .
 
 ## <a name="create-an-instructors-page-that-shows-courses-and-enrollments"></a>Kurslar ve kayıtları gösteren bir eğitmenler sayfası oluşturun
 
@@ -469,11 +469,11 @@ Eğitmenler sayfasında, üç farklı tablodan alınan veriler gösterilir. Üç
 
 ### <a name="scaffold-the-instructor-model"></a>Eğitmen modelini scafkatlama
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio) 
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio) 
 
-Bölümündeki yönergeleri [Öğrenci modeli iskelesini](xref:data/ef-rp/intro#scaffold-the-student-model) ve `Instructor` model sınıfı için.
+[Öğrenci modelini Scafkatlama](xref:data/ef-rp/intro#scaffold-the-student-model) ve model sınıfı için `Instructor` kullanma bölümündeki yönergeleri izleyin.
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
  Şu komutu çalıştırın:
 
@@ -483,7 +483,7 @@ Bölümündeki yönergeleri [Öğrenci modeli iskelesini](xref:data/ef-rp/intro#
 
 ---
 
-Önceki komut iskelesini kurar `Instructor` modeli. 
+Yukarıdaki komut, `Instructor` modelini yasaklıyor. 
 Uygulamayı çalıştırın ve eğitmenler sayfasına gidin.
 
 *Pages/eğitmenler/Index. cshtml. cs* öğesini şu kodla değiştirin:
@@ -509,7 +509,7 @@ Sorgunun iki içerme vardır:
 
 Önceki biçimlendirme, aşağıdaki değişiklikleri yapar:
 
-* Güncelleştirmeleri `page` gelen yönerge `@page` için `@page "{id:int?}"`. `"{id:int?}"` bir rota şablonudur. Yol şablonu, verileri yönlendirmek için URL 'deki tamsayı Sorgu dizelerini değiştirir. Örneğin, yalnızca `@page` yönergesine sahip bir eğitmenin **Select** bağlantısına tıkladığınızda aşağıdakiler gıbı bir URL üretilir:
+* `@page` `page` yönergesini `@page "{id:int?}"`olarak güncelleştirir. `"{id:int?}"` bir rota şablonudur. Yol şablonu, verileri yönlendirmek için URL 'deki tamsayı Sorgu dizelerini değiştirir. Örneğin, yalnızca `@page` yönergesine sahip bir eğitmenin **Select** bağlantısına tıkladığınızda aşağıdakiler gıbı bir URL üretilir:
 
   `http://localhost:1234/Instructors?id=2`
 
@@ -589,7 +589,7 @@ Aşağıdaki kod, bir kurs seçildiğinde görünüm modelinin `Enrollments` öz
 
 Yukarıdaki biçimlendirme, bir eğitmen seçildiğinde bir eğitmenin ilgili kursların bir listesini görüntüler.
 
-Uygulamayı test edin. Eğitmenler sayfasında bir **seçme** bağlantısına tıklayın.
+Uygulamayı test etme. Eğitmenler sayfasında bir **seçme** bağlantısına tıklayın.
 
 ### <a name="show-student-data"></a>Öğrenci verilerini göster
 
@@ -617,7 +617,7 @@ Sayfayı yenileyin ve bir eğitmen seçin. Kayıtlı öğrenciler ve bunların o
 
 Yukarıdaki `Single` yaklaşım, `Where`kullanmaktan faydalanır. Bazı geliştiriciler `Single` yaklaşım stilini tercih eder.
 
-## <a name="explicit-loading"></a>Açık yükleme
+## <a name="explicit-loading"></a>açık yükleme
 
 Geçerli kod `Enrollments` ve `Students`için Eager yüklemeyi belirtir:
 
@@ -636,7 +636,7 @@ Yukarıdaki kod, kayıt ve öğrenci verileri için *Thenınclude* Yöntem çağ
 
 Yukarıdaki kod açıklamalarının `.AsNoTracking()`dikkat edin. Gezinti özellikleri yalnızca izlenen varlıklar için açık bir şekilde yüklenebilir.
 
-Uygulamayı test edin. Bir kullanıcının perspektifinden, uygulama önceki sürümle aynı şekilde davranır.
+Uygulamayı test etme. Bir kullanıcının perspektifinden, uygulama önceki sürümle aynı şekilde davranır.
 
 Sonraki öğreticide ilgili verileri güncelleştirme gösterilmektedir.
 

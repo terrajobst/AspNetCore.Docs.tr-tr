@@ -1,22 +1,22 @@
 ---
 title: Web çiftliğinde ASP.NET Core ana bilgisayar
-author: guardrex
+author: rick-anderson
 description: Bir ASP.NET Core uygulamasının birden çok örneğini bir Web grubu ortamında paylaşılan kaynaklarla nasıl barındıracağınızı öğrenin.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
 ms.date: 01/13/2020
 uid: host-and-deploy/web-farm
-ms.openlocfilehash: 5c13e9bc4c514f9b42871d55a430265c8ec2da23
-ms.sourcegitcommit: 2388c2a7334ce66b6be3ffbab06dd7923df18f60
+ms.openlocfilehash: 316c87e5f49593c05991a94cbe5e55d175a49bb3
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75951825"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78659371"
 ---
 # <a name="host-aspnet-core-in-a-web-farm"></a>Web çiftliğinde ASP.NET Core ana bilgisayar
 
-[Luke Latham](https://github.com/guardrex) ve [Chris](https://github.com/Tratcher) 'e göre
+[Chris](https://github.com/Tratcher) 'e göre
 
 Bir *Web grubu* , bir uygulamanın birden çok örneğini barındıran iki veya daha fazla Web sunucusu (veya *düğüm*) grubudur. Kullanıcılardan gelen istekler bir Web grubuna ulaştığında, *yük dengeleyici* istekleri Web grubunun düğümlerine dağıtır. Web gruplarının geliştirilmesi:
 
@@ -60,13 +60,13 @@ Aşağıdaki senaryolar ek yapılandırma gerektirmez, ancak Web grupları için
 
 | Senaryo | &hellip; bağımlıdır |
 | -------- | ------------------- |
-| Kimlik Doğrulama | Veri koruma (bkz. <xref:security/data-protection/configuration/overview>).<br><br>Daha fazla bilgi için bkz. <xref:security/authentication/cookie> ve <xref:security/cookie-sharing>. |
+| Kimlik Doğrulaması | Veri koruma (bkz. <xref:security/data-protection/configuration/overview>).<br><br>Daha fazla bilgi için <xref:security/authentication/cookie> ve <xref:security/cookie-sharing> bölümlerine bakın. |
 | Kimlik | Kimlik doğrulama ve veritabanı yapılandırması.<br><br>Daha fazla bilgi için bkz. <xref:security/authentication/identity>. |
-| Oturum | Veri koruma (şifreli tanımlama bilgileri) (bkz. <xref:security/data-protection/configuration/overview>) ve önbelleğe alma (bkz. <xref:performance/caching/distributed>).<br><br>Daha fazla bilgi için bkz. [oturum ve uygulama durumu: oturum durumu](xref:fundamentals/app-state#session-state). |
-| TempData | Veri koruma (şifreli tanımlama bilgileri) (bkz. <xref:security/data-protection/configuration/overview>) veya oturum (bkz. [oturum ve uygulama durumu: oturum durumu](xref:fundamentals/app-state#session-state)).<br><br>Daha fazla bilgi için bkz. [oturum ve uygulama durumu: TempData](xref:fundamentals/app-state#tempdata). |
+| Oturum | Veri koruma (şifreli tanımlama bilgileri) (bkz. <xref:security/data-protection/configuration/overview>) ve önbelleğe alma (bkz. <xref:performance/caching/distributed>).<br><br>Daha fazla bilgi için bkz. [oturum ve durum yönetimi: oturum durumu](xref:fundamentals/app-state#session-state). |
+| TempData | Veri koruma (şifreli tanımlama bilgileri) (bkz. <xref:security/data-protection/configuration/overview>) veya oturum (bkz. [oturum ve durum yönetimi: oturum durumu](xref:fundamentals/app-state#session-state)).<br><br>Daha fazla bilgi için bkz. [oturum ve durum yönetimi: TempData](xref:fundamentals/app-state#tempdata). |
 | Korsanlığa karşı koruma | Veri koruma (bkz. <xref:security/data-protection/configuration/overview>).<br><br>Daha fazla bilgi için bkz. <xref:security/anti-request-forgery>. |
 
-## <a name="troubleshoot"></a>Sorunları Gider
+## <a name="troubleshoot"></a>Sorun giderme
 
 ### <a name="data-protection-and-caching"></a>Veri koruma ve önbelleğe alma
 
@@ -93,3 +93,4 @@ Web grubu uygulamalarının isteklere yanıt verme yeteneği varsa, Terminal sat
 
 * [Windows &ndash; Için özel Betik uzantısı](/azure/virtual-machines/extensions/custom-script-windows) , dağıtım sonrası yapılandırma ve yazılım yüklemesi için yararlı olan Azure sanal makinelerinde betikleri indirir ve yürütür.
 * <xref:host-and-deploy/proxy-load-balancer>
+ 

@@ -10,22 +10,22 @@ no-loc:
 - Blazor
 - SignalR
 uid: security/blazor/server
-ms.openlocfilehash: d87aac02137681e62cf8f5cbd4dc8b0be6f8431e
-ms.sourcegitcommit: cbd30479f42cbb3385000ef834d9c7d021fd218d
+ms.openlocfilehash: 61030f9b5beb849a7cf03571da425e49b144994c
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76146309"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78663354"
 ---
-# <a name="secure-aspnet-core-opno-locblazor-server-apps"></a>Güvenli ASP.NET Core Blazor Server uygulamaları
+# <a name="secure-aspnet-core-blazor-server-apps"></a>Güvenli ASP.NET Core Blazor Server uygulamaları
 
 Sağlayan [Javier Calvarro Nelson](https://github.com/javiercn)
 
-sunucu uygulamaları Blazor sunucu ve istemcinin uzun süreli bir ilişki korumasını gerektiren, *durum bilgisi olan* bir veri işleme modelini benimseyin. Kalıcı durum, büyük olasılıkla uzun süreli bağlantılara yayılabilen bir [devre](xref:blazor/state-management)tarafından korunur.
+Blazor Server uygulamaları, sunucu ve istemcinin uzun süreli bir ilişki korumasını gerektiren, *durum bilgisi olan* bir veri işleme modelini benimseyin. Kalıcı durum, büyük olasılıkla uzun süreli bağlantılara yayılabilen bir [devre](xref:blazor/state-management)tarafından korunur.
 
-Bir Kullanıcı Blazor sunucu sitesi ziyaret ettiğinde sunucu, sunucunun belleğinde bir devre oluşturur. Devre, kullanıcının Kullanıcı ARABIRIMINDE bir düğme seçtiğinde olduğu gibi olaylara hangi içeriğin işleneceğini ve yanıt verdiğini tarayıcıya gösterir. Bu işlemleri gerçekleştirmek için, devre bir bağlantı, kullanıcının tarayıcısında ve .NET yöntemlerinde JavaScript işlevlerini çağırır. Bu iki yönlü JavaScript tabanlı etkileşim, [JavaScript birlikte çalışma (js birlikte çalışma)](xref:blazor/javascript-interop)olarak adlandırılır.
+Bir Kullanıcı bir Blazor sunucu sitesini ziyaret ettiğinde sunucu, sunucunun belleğinde bir devre oluşturur. Devre, kullanıcının Kullanıcı ARABIRIMINDE bir düğme seçtiğinde olduğu gibi olaylara hangi içeriğin işleneceğini ve yanıt verdiğini tarayıcıya gösterir. Bu işlemleri gerçekleştirmek için, devre bir bağlantı, kullanıcının tarayıcısında ve .NET yöntemlerinde JavaScript işlevlerini çağırır. Bu iki yönlü JavaScript tabanlı etkileşim, [JavaScript birlikte çalışma (js birlikte çalışma)](xref:blazor/call-javascript-from-dotnet)olarak adlandırılır.
 
-JS birlikte çalışması Internet üzerinden yapıldığından ve istemci uzak bir tarayıcı kullandığından Blazor sunucu uygulamaları çoğu Web uygulaması güvenlik kaygılarını paylaşır. Bu konu, sunucu uygulamalarına Blazor yönelik yaygın tehditleri açıklar ve Internet 'e yönelik uygulamalara odaklanmış tehdit azaltma kılavuzu sağlar.
+JS birlikte çalışması Internet üzerinden yapıldığından ve istemci uzak bir tarayıcı kullandığından, Blazor Server Apps çoğu Web uygulaması güvenlik kaygılarını paylaşır. Bu konu, Blazor sunucu uygulamalarına yönelik yaygın tehditleri açıklar ve Internet 'e yönelik uygulamalara odaklanan tehdit azaltma kılavuzu sağlar.
 
 Şirket ağları veya intranetleri gibi kısıtlı ortamlarda, azaltma yönerglarından bazıları şunlardır:
 
@@ -36,27 +36,27 @@ JS birlikte çalışması Internet üzerinden yapıldığından ve istemci uzak 
 
 İstemci sunucuyla etkileşime geçtiğinde kaynak tükenmesi gerçekleşebilir ve sunucunun aşırı kaynak kullanmasına neden olur. Aşırı kaynak tüketimi öncelikle şunları etkiler:
 
-* [CPU](#cpu)
+* ['SUNA](#cpu)
 * [Bellek](#memory)
 * [İstemci bağlantıları](#client-connections)
 
 Hizmet reddi (DoS) saldırıları genellikle bir uygulamanın veya sunucunun kaynaklarını tüketme konusunda arama yapılır. Ancak, kaynak tükenmesi sistem üzerinde bir saldırının sonucu değildir. Örneğin, yüksek Kullanıcı talebi nedeniyle sınırlı kaynaklar tükenebilir. DoS, [hizmet reddi (DOS) saldırıları](#denial-of-service-dos-attacks) bölümünde daha fazla ele alınmıştır.
 
-Veritabanları ve dosya tutamaçları (dosyaları okumak ve yazmak için kullanılır) gibi Blazor Framework harici kaynakları kaynak tükenmesi de yaşayabilir. Daha fazla bilgi için bkz. <xref:performance/performance-best-practices>.
+Veritabanları ve dosya tutamaçları (dosyaları okumak ve yazmak için kullanılır) gibi Blazor Framework dışındaki kaynaklar da kaynak tükenmesi ile karşılaşabilir. Daha fazla bilgi için bkz. <xref:performance/performance-best-practices>.
 
 ### <a name="cpu"></a>CPU
 
 Bir veya daha fazla istemci, yoğun CPU işi gerçekleştirmeye çalışan bir veya daha fazla istemci tarafından meydana gelebilir.
 
-Örneğin, *Fibonnacci numarasını*hesaplayan bir Blazor sunucusu uygulaması düşünün. Bir Fibonnacci numarası, dizideki her bir sayının önceki iki sayının toplamı olduğu bir Fibonnacci sırasından oluşturulur. Yanıta ulaşmak için gereken iş miktarı, sıranın uzunluğuna ve ilk değerin boyutuna bağlıdır. Uygulama bir istemcinin isteğine sınır yerleştirmezse, CPU yoğunluklu hesaplamalar CPU 'nun süresini ayırt edebilir ve diğer görevlerin performansını azalrlar. Aşırı kaynak tüketimi, kullanılabilirliği etkileyen bir güvenlik konusudur.
+Örneğin, *Fibonnacci numarasını*hesaplayan bir Blazor Server uygulaması düşünün. Bir Fibonnacci numarası, dizideki her bir sayının önceki iki sayının toplamı olduğu bir Fibonnacci sırasından oluşturulur. Yanıta ulaşmak için gereken iş miktarı, sıranın uzunluğuna ve ilk değerin boyutuna bağlıdır. Uygulama bir istemcinin isteğine sınır yerleştirmezse, CPU yoğunluklu hesaplamalar CPU 'nun süresini ayırt edebilir ve diğer görevlerin performansını azalrlar. Aşırı kaynak tüketimi, kullanılabilirliği etkileyen bir güvenlik konusudur.
 
-CPU tükenmesi, herkese açık olan tüm uygulamalar için bir sorun teşkil etmez. Normal Web uygulamalarında, istekler ve bağlantılar bir güvenlik önlemi olarak zaman aşımına uğrar, ancak Blazor Server uygulamaları aynı korumaları sağlamaz. Blazor Server uygulamaları, CPU yoğun olabilecek işleri gerçekleştirmeden önce uygun denetimleri ve limitleri içermelidir.
+CPU tükenmesi, herkese açık olan tüm uygulamalar için bir sorun teşkil etmez. Normal Web uygulamalarında, istekler ve bağlantılar bir güvenlik önlemi olarak zaman aşımına uğrar, ancak Blazor Server uygulamaları aynı korumaları sağlamaz. Blazor Server uygulamaları, yoğun CPU yoğunluklu iş yapmadan önce uygun denetimleri ve limitleri içermelidir.
 
 ### <a name="memory"></a>Bellek
 
 Bir veya daha fazla istemci, sunucuyu büyük miktarda bellek kullanmaya zorlmaya zorlarsanız bellek tükenmesi meydana gelebilir.
 
-Örneğin, öğelerin listesini kabul eden ve görüntüleyen bir bileşen ile Blazorsunucu tarafı uygulamasını düşünün. Blazor uygulama, izin verilen öğe sayısı veya istemciye geri işlenen öğe sayısı için sınır yerleştirmezse, bellek yoğun işleme ve işleme sunucu belleğini sunucunun performansının bulunduğu noktaya göre olumsuz etkileyebilir. Sunucu kilitlenmişse veya çöktüğünde göründüğü noktadan yavaş olabilir.
+Örneğin, bir Blazor-Server yan uygulamasını, öğelerin listesini kabul eden ve görüntüleyen bir bileşen ile düşünün. Blazor uygulaması, izin verilen öğe sayısı veya istemciye geri işlenen öğe sayısı için sınır yerleştirmezse, bellek yoğun işleme ve işleme sunucu belleğini sunucunun performansının bulunduğu noktaya ayırt edebilir. Sunucu kilitlenmişse veya çöktüğünde göründüğü noktadan yavaş olabilir.
 
 Sunucuda olası bir bellek tükenmesi senaryosuna ait öğelerin listesini sürdürmek ve görüntülemek için aşağıdaki senaryoyu göz önünde bulundurun:
 
@@ -68,7 +68,7 @@ Sunucuda olası bir bellek tükenmesi senaryosuna ait öğelerin listesini sürd
 
 Blazor Server Apps, WPF, Windows Forms veya Blazor WebAssembly gibi durum bilgisi olan uygulamalar için diğer kullanıcı arabirimi çerçevelerine benzer bir programlama modeli sunar. Ana fark, uygulama tarafından tüketilen belleğin, istemciye ait olduğu ve yalnızca o tek istemciyi etkilediği bazı Kullanıcı arabirimi çerçevelerinden biridir. Örneğin, bir Blazor WebAssembly uygulaması tamamen istemcide çalışır ve yalnızca istemci bellek kaynaklarını kullanır. Blazor sunucusu senaryosunda, uygulama tarafından tüketilen bellek sunucuya aittir ve sunucu örneğindeki istemciler arasında paylaşılır.
 
-Sunucu tarafı bellek talepleri tüm Blazor sunucu uygulamaları için bir noktadır. Ancak, çoğu Web uygulaması durum bilgisiz olur ve bir isteği işlerken kullanılan bellek, yanıt döndürüldüğünde serbest bırakılır. Genel bir öneri olarak, istemcilerin, istemci bağlantılarını devam eden diğer tüm sunucu tarafı uygulamalarda olduğu gibi ilişkisiz miktarda bellek ayırmasına izin vermez. Bir Blazor sunucusu uygulaması tarafından tüketilen bellek, tek bir istekten daha uzun bir süre devam ettirir.
+Sunucu tarafı bellek istekleri tüm Blazor Server uygulamaları için bir noktadır. Ancak, çoğu Web uygulaması durum bilgisiz olur ve bir isteği işlerken kullanılan bellek, yanıt döndürüldüğünde serbest bırakılır. Genel bir öneri olarak, istemcilerin, istemci bağlantılarını devam eden diğer tüm sunucu tarafı uygulamalarda olduğu gibi ilişkisiz miktarda bellek ayırmasına izin vermez. Bir Blazor Server uygulaması tarafından tüketilen bellek, tek bir istekten daha uzun bir süre devam ettirir.
 
 > [!NOTE]
 > Geliştirme sırasında, bir profil oluşturucu kullanılabilir veya istemci bellek taleplerini değerlendirmek için yakalanan bir izleme olabilir. Profil Oluşturucu veya izleme, belirli bir istemciye ayrılan belleği yakalamaz. Geliştirme sırasında belirli bir istemcinin bellek kullanımını yakalamak için, bir döküm yakalayın ve Kullanıcı devresi içinde kök olan tüm nesnelerin bellek talebini inceleyin.
@@ -79,7 +79,7 @@ Bir veya daha fazla istemci sunucuya çok fazla eş zamanlı bağlantı açtıkl
 
 Blazor istemcileri, oturum başına tek bir bağlantı kurar ve tarayıcı penceresi açık olduğu sürece bağlantıyı açık halde tutar. Tüm bağlantıları koruma sunucusundaki talepler Blazor uygulamalarına özgü değildir. Bağlantıların kalıcı doğası ve Blazor Server uygulamalarının durum bilgisi olan doğası göz önüne alındığında, bağlantı tükenmesi uygulamanın kullanılabilirliğine daha fazla risk taşır.
 
-Varsayılan olarak, bir Blazor sunucusu uygulaması için Kullanıcı başına bağlantı sayısı sınırı yoktur. Uygulama bir bağlantı sınırı gerektiriyorsa aşağıdaki yaklaşımlardan birini veya daha fazlasını yapın:
+Varsayılan olarak, bir Blazor Server uygulaması için Kullanıcı başına bağlantı sayısı sınırı yoktur. Uygulama bir bağlantı sınırı gerektiriyorsa aşağıdaki yaklaşımlardan birini veya daha fazlasını yapın:
 
 * Yetkisiz kullanıcıların uygulamaya bağlanma yeteneğini doğal olarak sınırlayan kimlik doğrulaması gerektir. Bu senaryonun etkili olabilmesi için kullanıcıların, ' de Yeni Kullanıcı sağlaması engellenmelidir.
 * Kullanıcı başına bağlantı sayısını sınırlayın. Bağlantıları sınırlandırma, aşağıdaki yaklaşımlar aracılığıyla gerçekleştirilebilir. Meşru kullanıcıların uygulamaya erişmesine izin vermeye özen gösterin (örneğin, istemcinin IP adresine göre bir bağlantı sınırı oluşturulduğunda).
@@ -87,12 +87,12 @@ Varsayılan olarak, bir Blazor sunucusu uygulaması için Kullanıcı başına b
     * Uç nokta yönlendirme genişletilebilirliği.
     * Uygulamaya bağlanmak ve Kullanıcı başına etkin oturumları izlemek için kimlik doğrulaması gerektir.
     * Sınıra ulaştıktan sonra yeni oturumları reddedin.
-    * İstemcilerden bir uygulamaya bağlantıları oluşturan [Azure SignalR hizmeti](/azure/azure-signalr/signalr-overview) gibi bir ara sunucu aracılığıyla uygulamaya yönelik proxy WebSocket bağlantıları. Bu, tek bir istemcinin yapabileceğinden daha fazla bağlantı kapasitesine sahip bir uygulama sağlar ve istemcinin sunucu bağlantılarını tüketmesini önler.
+    * İstemcilerden bir uygulamaya bağlantı oluşturan [Azure SignalR hizmeti](/azure/azure-signalr/signalr-overview) gibi bir ara sunucu aracılığıyla uygulamaya yönelik proxy WebSocket bağlantıları. Bu, tek bir istemcinin yapabileceğinden daha fazla bağlantı kapasitesine sahip bir uygulama sağlar ve istemcinin sunucu bağlantılarını tüketmesini önler.
   * Sunucu düzeyinde: uygulamanın önünde bir proxy/ağ geçidi kullanın. Örneğin, [Azure ön kapısı](/azure/frontdoor/front-door-overview) , Web trafiğinin bir uygulamaya küresel olarak yönlendirilmesini tanımlamanıza, yönetmenize ve izlemenize olanak sağlar.
 
 ## <a name="denial-of-service-dos-attacks"></a>Hizmet reddi (DoS) saldırıları
 
-Hizmet reddi (DoS) saldırıları, istemcinin bir veya daha fazla kaynağın bir veya daha fazla uygulamayı tüketmesine neden olan bir istemciyi içerir. Blazor Server uygulamaları, bazı varsayılan limitleri içerir ve DoS saldırılarına karşı koruma sağlamak için diğer ASP.NET Core ve SignalR limitlerini kullanır:
+Hizmet reddi (DoS) saldırıları, istemcinin bir veya daha fazla kaynağın bir veya daha fazla uygulamayı tüketmesine neden olan bir istemciyi içerir. Blazor Server uygulamaları, DoS saldırılarına karşı koruma sağlamak için bazı varsayılan limitleri içerir ve diğer ASP.NET Core ve SignalR sınırlarına bağımlıdır:
 
 | Blazor sunucusu uygulama sınırı                            | Açıklama | Varsayılan |
 | ------------------------------------------------------- | ----------- | ------- |
@@ -118,7 +118,7 @@ Hizmet reddi (DoS) saldırıları, istemcinin bir veya daha fazla kaynağın bir
 .NET yöntemlerinden JavaScript 'e yapılan çağrılar için:
 
 * Tüm etkinleştirmeleri, başarısız olduktan sonra, çağırana bir <xref:System.OperationCanceledException> döndüren yapılandırılabilir bir zaman aşımı sağlar.
-  * Bir dakikalık çağrılar (`CircuitOptions.JSInteropDefaultCallTimeout`) için varsayılan bir zaman aşımı vardır. Bu sınırı yapılandırmak için bkz. <xref:blazor/javascript-interop#harden-js-interop-calls>.
+  * Bir dakikalık çağrılar (`CircuitOptions.JSInteropDefaultCallTimeout`) için varsayılan bir zaman aşımı vardır. Bu sınırı yapılandırmak için bkz. <xref:blazor/call-javascript-from-dotnet#harden-js-interop-calls>.
   * İptal belirtecini çağrı başına temelinde denetlemek için bir iptal belirteci sağlayabilirsiniz. Bir iptal belirteci sağlandıysa, mümkün olan ve istemciye yapılan tüm çağrıların zaman içinde sağlandığı varsayılan çağrı zaman aşımını kullanır.
 * JavaScript çağrısının sonucu güvenilir olamaz. Tarayıcıda çalışan Blazor uygulama istemcisi çağırmak için JavaScript işlevini arar. İşlev çağrılır ve sonuç ya da bir hata oluşturulur. Kötü amaçlı bir istemci şunları gerçekleştirmeye çalışabilir:
   * JavaScript işlevinden bir hata döndürerek uygulamada sorun oluşmasına neden olur.
@@ -148,7 +148,7 @@ JavaScript 'e yönelik çağrılara .NET yöntemlerine güvenmeyin. JavaScript '
 
 Olaylar Blazor sunucusu uygulamasına bir giriş noktası sağlar. Web Apps 'teki uç noktaları koruma için aynı kurallar, Blazor Server uygulamalarındaki olay işleme için geçerlidir. Kötü amaçlı bir istemci, istediği verileri bir olay için yük olarak gönderebilirler.
 
-Örneğin:
+Örnek:
 
 * Bir `<select>` için değişiklik olayı, uygulamanın istemciye sunulan seçenekler içinde olmayan bir değer gönderebilir.
 * `<input>`, istemci tarafı doğrulamayı atlayarak herhangi bir metin verisini sunucuya gönderebilir.
@@ -387,7 +387,7 @@ Bu öneri, uygulamanın bir parçası olarak bağlantılar işlenirken de geçer
 
 Daha fazla bilgi için bkz. <xref:security/preventing-open-redirects>.
 
-## <a name="authentication-and-authorization"></a>Kimlik doğrulaması ve yetkilendirme
+## <a name="authentication-and-authorization"></a>Kimlik doğrulama ve yetkilendirme
 
 Kimlik doğrulama ve yetkilendirme hakkında yönergeler için bkz. <xref:security/blazor/index>.
 

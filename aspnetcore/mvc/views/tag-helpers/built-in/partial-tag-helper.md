@@ -7,12 +7,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 04/06/2019
 uid: mvc/views/tag-helpers/builtin-th/partial-tag-helper
-ms.openlocfilehash: 508f91cdcd93c149602223250520eecb73625b24
-ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
+ms.openlocfilehash: 269be9ece674b39d03cb50720f4fb182c565a639
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74880984"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78659651"
 ---
 # <a name="partial-tag-helper-in-aspnet-core"></a>ASP.NET Core kısmi etiket Yardımcısı
 
@@ -20,9 +20,9 @@ ms.locfileid: "74880984"
 
 Etiket Yardımcıları hakkında genel bilgi için bkz. <xref:mvc/views/tag-helpers/intro>.
 
-[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/views/tag-helpers/built-in/samples) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
+[Örnek kodu görüntüleme veya indirme](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/views/tag-helpers/built-in/samples) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
 
-## <a name="overview"></a>Genel bakış
+## <a name="overview"></a>Genel Bakış
 
 Kısmi etiket Yardımcısı Razor Pages ve MVC uygulamalarında kısmi bir [Görünüm](xref:mvc/views/partial) oluşturmak için kullanılır. Bunu göz önünde bulundurun:
 
@@ -43,7 +43,7 @@ Kısmi görünümü işlemeye yönelik HTML yardımcı seçenekleri şunlardır:
 
 Kısmi etiket Yardımcısı özniteliklerinin bir stoku aşağıda verilmiştir.
 
-## <a name="name"></a>{1&gt;name&lt;1}
+## <a name="name"></a>ad
 
 `name` özniteliği gereklidir. İşlenecek kısmi görünümün adını veya yolunu gösterir. Kısmi bir görünüm adı sağlandığında, [görünüm bulma](xref:mvc/views/overview#view-discovery) işlemi başlatılır. Açık bir yol sağlandığında bu işlem atlanır. Tüm kabul edilebilir `name` değerleri için bkz. [kısmi görünüm bulma](xref:mvc/views/partial#partial-view-discovery).
 
@@ -63,7 +63,7 @@ Kısmi görünüm, ilişkili sayfa modelinin `Product` özelliğine bağlanır:
 
 [!code-csharp[](samples/TagHelpersBuiltIn/Pages/Product.cshtml.cs?highlight=8)]
 
-## <a name="model"></a>{1&gt;model&lt;1}
+## <a name="model"></a>model
 
 `model` özniteliği kısmi görünüme geçirilecek bir model örneği atar. `model` özniteliği [for](#for) özniteliğiyle birlikte kullanılamaz.
 

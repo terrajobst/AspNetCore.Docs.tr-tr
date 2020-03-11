@@ -5,12 +5,12 @@ description: ASP.NET MVC projesinden yapılandırmayı ASP.NET Core MVC projesin
 ms.author: riande
 ms.date: 10/14/2016
 uid: migration/configuration
-ms.openlocfilehash: 455e66b94dd69ee6aab88768b64c525d56b8bbcf
-ms.sourcegitcommit: 16cf016035f0c9acf3ff0ad874c56f82e013d415
+ms.openlocfilehash: 2c50ea768a42aa38d14c55d8c403fea4176b3650
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73033900"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78659329"
 ---
 # <a name="migrate-configuration-to-aspnet-core"></a>Yapılandırmayı ASP.NET Core geçir
 
@@ -18,7 +18,7 @@ ms.locfileid: "73033900"
 
 Önceki makalede, [bir ASP.NET MVC projesini ASP.NET Core MVC 'ye geçirmeye](xref:migration/mvc)başladık. Bu makalede, yapılandırmayı geçiririz.
 
-[Örnek kodu görüntüleme veya indirme](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/migration/configuration/samples) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
+[Örnek kodu görüntüleme veya indirme](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/migration/configuration/samples) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
 
 ## <a name="setup-configuration"></a>Kurulum yapılandırması
 
@@ -46,7 +46,7 @@ ASP.NET MVC projemiz, *Web. config*dosyasına gerekli veritabanı bağlantı diz
 
 [!code-json[](../migration/configuration/samples/WebApp1/src/WebApp1/appsettings.json?highlight=4)]
 
-Yukarıda gösterilen vurgulanan satırda veritabanının adını **_Change_me** konumundan veritabanınızın adına değiştirin.
+Yukarıda gösterilen vurgulanan satırda veritabanının adını **_CHANGE_ME** ' dan veritabanınızın adına değiştirin.
 
 ## <a name="summary"></a>Özet
 

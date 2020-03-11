@@ -6,18 +6,18 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 08/31/2018
 uid: security/ip-safelist
-ms.openlocfilehash: ca5b0f8088773027f7403120247cbeca8900bcf5
-ms.sourcegitcommit: 16cf016035f0c9acf3ff0ad874c56f82e013d415
+ms.openlocfilehash: d25c375f7e659168ab8cc9d8e11753cb7dfde831
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73034340"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78659777"
 ---
 # <a name="client-ip-safelist-for-aspnet-core"></a>ASP.NET Core için istemci IP SafeList
 
 By [Davmıen Bowden](https://twitter.com/damien_bod) ve [Tom Dykstra](https://github.com/tdykstra)
  
-Bu makalede bir ASP.NET Core uygulamasında bir IP SafeList (izin verilenler listesi olarak da bilinir) uygulamanın üç yolu gösterilmektedir. Şunu kullanabilirsiniz:
+Bu makalede bir ASP.NET Core uygulamasında bir IP SafeList (beyaz liste olarak da bilinir) uygulamanın üç yolu gösterilmektedir. Şunu kullanabilirsiniz:
 
 * Her isteğin uzak IP adresini denetlemek için ara yazılım.
 * Belirli denetleyiciler veya eylem yöntemlerine yönelik isteklerin uzak IP adresini denetlemek için eylem filtreleri.
@@ -25,7 +25,7 @@ Bu makalede bir ASP.NET Core uygulamasında bir IP SafeList (izin verilenler lis
 
 Her durumda, onaylanan istemci IP adreslerini içeren bir dize bir uygulama ayarında saklanır. Ara yazılım veya filtre, dizeyi bir liste olarak ayrıştırır ve uzak IP 'nin listede olup olmadığını denetler. Aksi takdirde, HTTP 403 yasaklanmış durum kodu döndürülür.
 
-[Örnek kodu görüntüleme veya indirme](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/ip-safelist/samples/2.x/ClientIpAspNetCore) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
+[Örnek kodu görüntüleme veya indirme](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/security/ip-safelist/samples/2.x/ClientIpAspNetCore) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
 
 ## <a name="the-safelist"></a>SafeList
 
@@ -45,7 +45,7 @@ Ara yazılım, dizeyi bir dizi olarak ayrıştırır ve dizideki uzak IP adresin
 
 ## <a name="action-filter"></a>Eylem filtresi
 
-Yalnızca belirli denetleyiciler veya eylem yöntemleri için bir SafeList istiyorsanız, bir eylem filtresi kullanın. Örnek buradadır: 
+Yalnızca belirli denetleyiciler veya eylem yöntemleri için bir SafeList istiyorsanız, bir eylem filtresi kullanın. Bir örneği aşağıda verilmiştir: 
 
 [!code-csharp[](ip-safelist/samples/2.x/ClientIpAspNetCore/Filters/ClientIpCheckFilter.cs)]
 
@@ -61,7 +61,7 @@ Filtre daha sonra bir denetleyici veya eylem yönteminde kullanılabilir.
 
 ## <a name="razor-pages-filter"></a>Razor Pages filtresi 
 
-Razor Pages bir uygulama için bir SafeList istiyorsanız, bir Razor Pages filtresi kullanın. Örnek buradadır: 
+Razor Pages bir uygulama için bir SafeList istiyorsanız, bir Razor Pages filtresi kullanın. Bir örneği aşağıda verilmiştir: 
 
 [!code-csharp[](ip-safelist/samples/2.x/ClientIpAspNetCore/Filters/ClientIpCheckPageFilter.cs)]
 

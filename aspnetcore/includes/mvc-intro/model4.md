@@ -7,9 +7,9 @@ Aşağıdaki tabloda ASP.NET Core kod Oluşturucu parametrelerinin ayrıntılar�
 | -UDL | Varsayılan düzeni kullanın. |
 | --relativeFolderPath | Dosyaları oluşturmak için göreli çıkış klasörü yolu. |
 | --useDefaultLayout | Görünümler için varsayılan düzen kullanılmalıdır. |
-| --referenceScriptLibraries | Sayfaları `_ValidationScriptsPartial` Düzenle ve oluştur 'a ekler |
+| --referenceScriptLibraries | Sayfaları düzenlemek ve oluşturmak için `_ValidationScriptsPartial` ekler |
 
-Komutuyla ilgili yardım almak için anahtarıkullanın:`h` `aspnet-codegenerator controller`
+`aspnet-codegenerator controller` komutu hakkında yardım almak için `h` anahtarını kullanın:
 
 ```dotnetcli
 dotnet aspnet-codegenerator controller -h

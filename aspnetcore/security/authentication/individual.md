@@ -6,11 +6,11 @@ ms.author: riande
 ms.date: 12/11/2019
 uid: security/authentication/individual
 ms.openlocfilehash: 7ef0d5eabded61d04fb9fe7be384a663ad7ea5f4
-ms.sourcegitcommit: 7dfe6cc8408ac6a4549c29ca57b0c67ec4baa8de
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75828717"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78659623"
 ---
 # <a name="articles-based-on-aspnet-core-projects-created-with-individual-user-accounts"></a>Bireysel kullanıcı hesaplarıyla oluşturulan ASP.NET Core projelerine dayalı makaleler
 
@@ -63,12 +63,12 @@ Aşağıdaki tabloda yeni Web uygulamaları için kullanılabilen kimlik doğrul
 
 | Seçenek | Kimlik doğrulama türü | Daha fazla bilgi için bağlantı |
  | ----------------- | ------------ | ---------- |
-| Yok.            |  Kimlik doğrulaması yok | | 
-| Tekli      |  Tek kimlik doğrulama | <xref:security/authentication/identity>
+| Yok            |  Kimlik doğrulaması yok | | 
+| Ye      |  Tek kimlik doğrulama | <xref:security/authentication/identity>
 | IndividualB2C   |  Azure AD B2C ile bulutta barındırılan bireysel kimlik doğrulaması | [Azure AD B2C](/azure/active-directory-b2c/) |
 | SingleOrg       |  Tek bir kiracı için kuruluş kimlik doğrulaması | [Azure AD](/azure/active-directory/develop/quickstart-v2-aspnet-core-webapp) |
 | MultiOrg        |  Birden çok kiracı için kuruluş kimlik doğrulaması | [Azure AD](/azure/active-directory/develop/quickstart-v2-aspnet-core-webapp) |
-| Windows         |  Windows kimlik doğrulama | [Windows Kimlik Doğrulaması](xref:security/authentication/windowsauth)
+| Windows         |  Windows kimlik doğrulaması | [Windows Kimlik Doğrulaması](xref:security/authentication/windowsauth)
 
 ## <a name="visual-studio-new-webapp-authentication-options"></a>Visual Studio yeni WebApp kimlik doğrulama seçenekleri
 
@@ -76,12 +76,12 @@ Aşağıdaki tabloda, Visual Studio ile yeni bir Web uygulaması oluştururken k
 
 | Seçenek | Kimlik doğrulama türü | Daha fazla bilgi için bağlantı |
  | ----------------- | ------------ | ---------- |
-| Yok.            |  Kimlik doğrulaması yok | | 
+| Yok            |  Kimlik doğrulaması yok | | 
 | Uygulama içi bireysel kullanıcı hesapları/mağaza Kullanıcı hesapları |  Tek kimlik doğrulama | <xref:security/authentication/identity> |
 | Bireysel kullanıcı hesapları/buluttaki mevcut bir Kullanıcı deposuna bağlanma |  Azure AD B2C ile bulutta barındırılan bireysel kimlik doğrulaması | [Azure AD B2C](/azure/active-directory-b2c/) |
 | İş veya okul bulutu/tek kuruluş  |  Tek bir kiracı için kuruluş kimlik doğrulaması | [Azure AD](/azure/active-directory/develop/quickstart-v2-aspnet-core-webapp) |
 | İş veya okul bulutu/birden çok kuruluş |  Birden çok kiracı için kuruluş kimlik doğrulaması | [Azure AD](/azure/active-directory/develop/quickstart-v2-aspnet-core-webapp) |
-| Windows         |  Windows kimlik doğrulama | [Windows Kimlik Doğrulaması](xref:security/authentication/windowsauth)
+| Windows         |  Windows kimlik doğrulaması | [Windows Kimlik Doğrulaması](xref:security/authentication/windowsauth)
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 

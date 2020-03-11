@@ -1,76 +1,76 @@
 ---
 title: Performans Tanılama araçları
 author: mjrousos
-description: ASP.NET Core uygulamalarında performans sorunlarını tanılamak için faydalı araçlar.
+description: ASP.NET Core uygulamalarında performans sorunlarını tanılamaya yönelik faydalı araçlar.
 monikerRange: '>= aspnetcore-1.1'
 ms.author: riande
 ms.date: 04/11/2019
 uid: performance/diagnostic-tools
 ms.openlocfilehash: d273897b9ad26d57eb94b196b58f14019a96d07d
-ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67815630"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78661079"
 ---
-# <a name="performance-diagnostic-tools"></a>Performans Tanılama araçları
+# <a name="performance-diagnostic-tools"></a>Performans Tanılama Araçları
 
-Tarafından [Mike Rousos](https://github.com/mjrousos)
+, [Mike Rousos](https://github.com/mjrousos) tarafından
 
-Bu makalede, ASP.NET Core performans sorunları tanılamaya yönelik araçları listeler.
+Bu makalede ASP.NET Core performans sorunlarını tanılamaya yönelik araçlar listelenmektedir.
 
-## <a name="visual-studio-diagnostic-tools"></a>Visual Studio tanılama araçları
+## <a name="visual-studio-diagnostic-tools"></a>Visual Studio Tanılama Araçları
 
-[Profil oluşturma ve tanılama araçları](/visualstudio/profiling) Visual Studio'da yerleşik olarak bulunan performans sorunlarını araştırma başlatmak için iyi bir yerdir. Bu araçlar, güçlü ve Visual Studio geliştirme ortamından kullanmak uygun. Araç, ASP.NET Core uygulamalarında CPU kullanımı, bellek kullanımı ve performans olayları analiz sağlar. Yerleşik olan kolay geliştirme zaman profil oluşturmayı kolaylaştırır.
+Visual Studio 'da yerleşik olarak bulunan [profil oluşturma ve tanılama araçları](/visualstudio/profiling) , performans sorunlarını araştırmaya başlamak için iyi bir yerdir. Bu araçlar, Visual Studio geliştirme ortamından güçlü ve kullanımı kolay bir yöntemdir. Araç, ASP.NET Core uygulamalardaki CPU kullanımı, bellek kullanımı ve performans olaylarının analizine izin verir. Yerleşik olarak, geliştirme sırasında profil oluşturma kolaylaşır.
 
-Daha fazla bilgi kullanılabilir [Visual Studio belgeleri](/visualstudio/profiling/profiling-overview).
+[Visual Studio belgelerinde](/visualstudio/profiling/profiling-overview)daha fazla bilgi bulabilirsiniz.
 
 ## <a name="application-insights"></a>Application Insights
 
-[Application Insights](/azure/application-insights/app-insights-overview) uygulamanız için ayrıntılı performans verileri sağlar. Application Insights bilgileri otomatik olarak toplar yanıt hızlarını, hata oranları, bağımlılık yanıt süreleri ve daha fazlası. Application Insights, uygulamanızın özel olayları ve ölçümleri belirli oturum destekler.
+[Application Insights](/azure/application-insights/app-insights-overview) , uygulamanız için ayrıntılı performans verileri sağlar. Application Insights, yanıt oranları, hata oranları, bağımlılık yanıt süreleri ve daha fazlası için otomatik olarak veri toplar. Application Insights, uygulamanıza özel olayları ve ölçümleri günlüğe kaydetmeyi destekler.
 
-Azure Application Insights ınsights izlenen uygulamaları sağlamak için birden çok yol sağlar:
+Azure Application Insights, izlenen uygulamalar hakkında öngörü sağlamak için birden çok yol sağlar:
 
-- [Uygulama Haritası](/azure/application-insights/app-insights-app-map) – nokta performans sorunlarını veya sık erişimli hatası-nokta dağıtılmış uygulamaların tüm bileşenler genelinde yardımcı olur.
-- [Azure ölçüm Gezgini](/azure/azure-monitor/platform/metrics-getting-started) grafikleri, eğilimler ve görsel olarak bağıntı çizim sağlayan Microsoft Azure portalında bir bileşenidir ve araştırma ani artışlar ve düşüşler ölçümleri değerleri.
-- [Application Insights portalında performans dikey penceresini](/azure/application-insights/app-insights-tutorial-performance):
+- [Uygulama eşlemesi](/azure/application-insights/app-insights-app-map) – Dağıtılmış uygulamaların tüm bileşenlerinde performans sorunlarını ve hata durumunda etkin noktaları belirlemesine yardımcı olur.
+- [Azure Ölçüm Gezgini](/azure/azure-monitor/platform/metrics-getting-started) , grafikleri çizdirme, eğilimleri görsel olarak ilişkilendirme ve ölçüm değerlerinde ani artışları ve DIP 'leri araştırmanıza olanak tanıyan bir Microsoft Azure Portal bileşenidir.
+- [Application Insights portalındaki performans dikey](/azure/application-insights/app-insights-tutorial-performance)penceresi:
 
-  - İzlenen uygulamada farklı işlemlerin performans ayrıntılarını gösterir.
-  - Tüm bölümleri/uzun bir süre için katkıda bulunan bağımlılıkları kontrol etmek için tek bir işlem araştırıp bulma sağlar.
-  - Profiler performans izlemeleri üzerine toplamak için buradan çağrılabilir.
+  - İzlenen uygulamadaki farklı işlemlere yönelik performans ayrıntılarını gösterir.
+  - Uzun bir süreye katkıda bulunan tüm parçaları/bağımlılıkları denetlemek için tek bir işleme detaya gitmeyi sağlar.
+  - Profil Oluşturucu, isteğe bağlı performans izlemeleri toplamak için Buradan çağrılabilir.
 
-- [Azure Application Insights Profiler](/azure/azure-monitor/app/profiler) normal ve isteğe bağlı .NET uygulamaları profil oluşturma sağlar.  Azure portal gösterir performans izlemeleri çağrı yığınları ve etkin yolları ile yakalanır. İzleme dosyaları da PerfView kullanma daha ayrıntılı analiz için indirilebilir.
+- [Azure Application Insights Profiler](/azure/azure-monitor/app/profiler) , .NET uygulamalarının düzenli ve isteğe bağlı olarak profil oluşturulmasına olanak sağlar.  Azure portal, çağrı yığınları ve etkin yollarla yakalanan performans izlerini gösterir. İzleme dosyaları PerfView kullanılarak daha derin analizler için de indirilebilir.
 
 Application Insights, çeşitli ortamlarda kullanılabilir:
 
-- Azure'da çalışması için en iyi duruma getirilmiş.
-- Üretim, geliştirme ve hazırlama çalışır.
-- Öğesinden yerel olarak çalıştığı [Visual Studio](/azure/application-insights/app-insights-visual-studio) veya diğer barındırma ortamlarında.
+- Azure 'da çalışmak için iyileştirildi.
+- Üretim, geliştirme ve hazırlama için geçerlidir.
+- [Visual Studio](/azure/application-insights/app-insights-visual-studio) 'dan veya diğer barındırma ortamlarında yerel olarak çalışmaktadır.
 
-Daha fazla bilgi için [ASP.NET Core için Application Insights](/azure/application-insights/app-insights-asp-net-core).
+Daha fazla bilgi için bkz. [ASP.NET Core Application Insights](/azure/application-insights/app-insights-asp-net-core).
 
 ## <a name="perfview"></a>PerfView
 
-[PerfView](https://github.com/Microsoft/perfview) .NET Performans sorunlarını tanılamak için özel olarak .NET ekibi tarafından oluşturulan bir Performans Analizi aracıdır. PerfView CPU kullanımı, bellek ve GC davranışı, performans olayları ve duvar saati süresi analizini sağlar.
+[PerfView](https://github.com/Microsoft/perfview) , .NET ekibi tarafından .net performans sorunlarını tanılamak için özel olarak oluşturulan bir performans analizi aracıdır. PerfView CPU kullanımı, bellek ve GC davranışı, performans olayları ve duvar saati saatinin analizine izin verir.
 
-PerfView ve kullanmaya başlama hakkında daha fazla bilgi [PerfView video öğreticiler](https://channel9.msdn.com/Series/PerfView-Tutorial) veya Kullanıcı Kılavuzu Aracı'nda kullanılabilir okuyarak veya [github'da](https://github.com/Microsoft/perfview).
+PerfView hakkında daha fazla bilgi edinmek ve [PerfView video öğreticileri](https://channel9.msdn.com/Series/PerfView-Tutorial) ile çalışmaya başlama ya da araç veya [GitHub üzerinde](https://github.com/Microsoft/perfview)bulunan kullanıcı kılavuzunu okuma hakkında daha fazla bilgi edinebilirsiniz.
 
-## <a name="windows-performance-toolkit"></a>Windows Performans Araç Seti
+## <a name="windows-performance-toolkit"></a>Windows performans araç seti
 
-[Windows Performans Araç Seti](/windows-hardware/test/wpt/) (WPT) iki bileşenden oluşur: Windows Performans Kaydedicisi (WPR) ve Windows Performans Çözümleyicisi'ni (WPA). Windows işletim sistemlerinin ve uygulamalarının ayrıntılı performans Profil Araçları üretir. WPT veri görselleştirmenin daha kapsamlı yollar var, ancak veri toplanırken PerfView ait daha güçlü.
+[Windows performans araç seti](/windows-hardware/test/wpt/) (WPT) iki bileşenden oluşur: Windows performans Kaydedicisi (WPR) ve Windows performans ÇÖZÜMLEYICISI (WPA). Araçlar, Windows işletim sistemlerinin ve uygulamalarının ayrıntılı performans profillerini üretir. WPT, verileri görselleştirmenin daha zengin yollarına sahiptir, ancak veri toplama işlemi PerfView 'dan daha az güçlüdür.
 
 ## <a name="perfcollect"></a>PerfCollect
 
-PerfView bir .NET senaryoları için faydalı performans çözümleme aracı olsa da, Linux ortamlarında çalışan ASP.NET Core uygulamaları izlemeleri toplamak için kullanamazsınız yalnızca Windows üzerinde çalışır.
+PerfView, .NET senaryoları için faydalı bir performans Analizi Aracı olsa da, yalnızca Windows üzerinde çalışır, bu sayede Linux ortamlarında çalışan ASP.NET Core uygulamalardan izleme toplamak için kullanamazsınız.
 
-[PerfCollect](https://github.com/dotnet/coreclr/blob/master/Documentation/project-docs/linux-performance-tracing.md) profil oluşturma araçları, yerel Linux kullanan bir bash komut dosyası ([Perf](https://perf.wiki.kernel.org/index.php/Main_Page) ve [LTTng](https://lttng.org/)) tarafından PerfView çözümlenebilir Linux'ta izlemeleri toplamak için. PerfCollect, PerfView burada doğrudan kullanılamaz Linux ortamlarında performans sorunlarını gösterilmesi yararlıdır. Bunun yerine, PerfCollect izlemeleri ardından analiz .NET Core uygulamaları PerfView kullanan bir Windows bilgisayara toplayabilirsiniz.
+[PerfCollect](https://github.com/dotnet/coreclr/blob/master/Documentation/project-docs/linux-performance-tracing.md) , PerfView tarafından çözümlenebilecek Linux üzerinde izlemeler toplamak Için yerel Linux profil oluşturma araçları 'Nı ([perf](https://perf.wiki.kernel.org/index.php/Main_Page) ve [lttng](https://lttng.org/)) kullanan bir bash betiğdir. PerfCollect, PerfView 'in doğrudan kullanılabileceği Linux ortamlarında görüntülendiğinde yararlı olur. Bunun yerine, PerfCollect .NET Core uygulamalarından daha sonra PerfView kullanılarak bir Windows bilgisayarında çözümlenen izlemeler toplayabilir.
 
-Yükleme ve PerfCollect ile çalışmaya başlama hakkında daha fazla bilgi edinilebilir [github'da](https://github.com/dotnet/coreclr/blob/master/Documentation/project-docs/linux-performance-tracing.md).
+PerfCollect 'i yüklemek ve kullanmaya başlamak hakkında daha fazla bilgiyi [GitHub ' da](https://github.com/dotnet/coreclr/blob/master/Documentation/project-docs/linux-performance-tracing.md)bulabilirsiniz.
 
 ## <a name="other-third-party-performance-tools"></a>Diğer üçüncü taraf performans araçları
 
-.NET Core uygulamaları performans araştırmada yararlı olan bazı üçüncü taraf performans araçları listeler.
+Aşağıda, .NET Core uygulamalarının performans araştırmasına faydalı olan bazı üçüncü taraf performans araçları listelenmektedir.
 
-- [MiniProfiler](https://miniprofiler.com/)
-- dotTrace ve dotMemory JetBrains gelen
-- Intel'in VTune
+- [Mini profil Oluşturucu](https://miniprofiler.com/)
+- JetBrains 'den dotTrace ve dotMemory
+- Intel 'ten sanal ayar

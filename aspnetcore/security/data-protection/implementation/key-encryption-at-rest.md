@@ -1,29 +1,29 @@
 ---
-title: ASP.NET core'da bekleme durumunda anahtar şifreleme
+title: ASP.NET Core bekleyen anahtar şifreleme
 author: rick-anderson
-description: Bekleme durumunda anahtar şifreleme ASP.NET Core veri koruma uygulama ayrıntılarını öğrenin.
+description: Bekleyen ASP.NET Core veri koruma anahtarı şifrelemesinin uygulama ayrıntılarını öğrenin.
 ms.author: riande
 ms.date: 07/16/2018
 uid: security/data-protection/implementation/key-encryption-at-rest
 ms.openlocfilehash: 52c3137dbe467096364b42430c92aecc7c15e313
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64898775"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78658391"
 ---
-# <a name="key-encryption-at-rest-in-aspnet-core"></a>ASP.NET core'da bekleme durumunda anahtar şifreleme
+# <a name="key-encryption-at-rest-in-aspnet-core"></a>ASP.NET Core bekleyen anahtar şifreleme
 
-Veri koruma sisteminde [bulma mekanizmasından varsayılan olarak kullandığı](xref:security/data-protection/configuration/default-settings) nasıl şifreleme anahtarlarını belirlemek için bekleme durumundayken şifrelenir. Geliştirici, Keşif mekanizması geçersiz kılmak ve el ile nasıl anahtarları bekleyen şifrelenmesi gerektiğini belirtin.
+Veri koruma sistemi, şifreleme anahtarlarının bekleyen bir şekilde nasıl şifrelendiğini belirlemekte [Varsayılan olarak bir bulma mekanizması kullanır](xref:security/data-protection/configuration/default-settings) . Geliştirici bulma mekanizmasını geçersiz kılabilir ve anahtarların Rest 'te nasıl şifrelendiğini el ile belirtebilir.
 
 > [!WARNING]
-> Açık bir belirtirseniz [anahtar Kalıcılık konumuna](xref:security/data-protection/implementation/key-storage-providers), veri koruma sisteminde rest mekanizması, varsayılan anahtar şifreleme deregisters. Sonuç olarak, anahtarlar artık bekleme durumundayken şifrelenir. Olmasını öneririz, [açık anahtar şifreleme mekanizması belirtin](xref:security/data-protection/implementation/key-encryption-at-rest) üretim dağıtımları için. Bu konudaki bekleyen şifreleme mekanizması seçenekleri açıklanmaktadır.
+> Açık [anahtar kalıcılığı konumu](xref:security/data-protection/implementation/key-storage-providers)belirtirseniz, veri koruma sistemi REST mekanizmasında varsayılan anahtar şifrelemesini kaldırır. Sonuç olarak, anahtarlar artık Rest 'de şifrelenmez. Üretim dağıtımları için [bir açık anahtar şifreleme mekanizması belirtmenizi](xref:security/data-protection/implementation/key-encryption-at-rest) öneririz. Bu konuda, bekleyen şifreleme mekanizması seçenekleri açıklanmaktadır.
 
 ::: moniker range=">= aspnetcore-2.1"
 
-## <a name="azure-key-vault"></a>Azure Key Vault
+## <a name="azure-key-vault"></a>Azure anahtar kasası
 
-İçindeki anahtarları depolamak için [Azure anahtar kasası](https://azure.microsoft.com/services/key-vault/), sistemle yapılandırma [ProtectKeysWithAzureKeyVault](/dotnet/api/microsoft.aspnetcore.dataprotection.azuredataprotectionbuilderextensions.protectkeyswithazurekeyvault) içinde `Startup` sınıfı:
+Anahtarları [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)içinde depolamak için, `Startup` sınıfında sistemi [ProtectKeysWithAzureKeyVault](/dotnet/api/microsoft.aspnetcore.dataprotection.azuredataprotectionbuilderextensions.protectkeyswithazurekeyvault) ile yapılandırın:
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -34,7 +34,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-Daha fazla bilgi için [ASP.NET Core veri koruma yapılandırın: ProtectKeysWithAzureKeyVault](xref:security/data-protection/configuration/overview#protectkeyswithazurekeyvault).
+Daha fazla bilgi için bkz. [Configure ASP.NET Core Data Protection: ProtectKeysWithAzureKeyVault](xref:security/data-protection/configuration/overview#protectkeyswithazurekeyvault).
 
 ::: moniker-end
 
@@ -42,7 +42,7 @@ Daha fazla bilgi için [ASP.NET Core veri koruma yapılandırın: ProtectKeysWit
 
 **Yalnızca Windows dağıtımları için geçerlidir.**
 
-Windows DPAPI kullanıldığında, anahtar malzemesi ile şifrelenir [CryptProtectData](/windows/desktop/api/dpapi/nf-dpapi-cryptprotectdata) Depolama'da kalıcı hale önce. DPAPI geçerli makine dışında hiçbir zaman okunan veriler için bir uygun şifreleme mekanizması olduğunu (ancak Active Directory kadar bu anahtarları yedeklemek mümkündür; bkz [DPAPI ve dolaşım profillerini](https://support.microsoft.com/kb/309408/#6)). DPAPI anahtarı bekleyen şifreleme yapılandırmak için aşağıdakilerden birini çağırın [ProtectKeysWithDpapi](/dotnet/api/microsoft.aspnetcore.dataprotection.dataprotectionbuilderextensions.protectkeyswithdpapi) genişletme yöntemleri:
+Windows DPAPI kullanıldığında, depolama alanına kalıcı olmadan önce anahtar malzeme [CryptProtectData](/windows/desktop/api/dpapi/nf-dpapi-cryptprotectdata) ile şifrelenir. DPAPI, geçerli makinenin dışında hiçbir şekilde okunmayacak olan veriler için uygun bir şifreleme mekanizmasıdır (ancak, bu anahtarları Active Directory için geri yüklemek mümkün olsa da, bkz. [DPAPI ve dolaşım profilleri](https://support.microsoft.com/kb/309408/#6)). DPAPI anahtar Rest şifrelemesini yapılandırmak için [ProtectKeysWithDpapi](/dotnet/api/microsoft.aspnetcore.dataprotection.dataprotectionbuilderextensions.protectkeyswithdpapi) uzantı yöntemlerinden birini çağırın:
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -53,7 +53,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-Varsa `ProtectKeysWithDpapi` hiçbir parametre olmadan, yalnızca geçerli Windows kullanıcı hesabı kalıcı anahtar halkası çözülebilir çağrılır. İsteğe bağlı olarak, herhangi bir kullanıcı hesabı makinedeki (yalnızca geçerli kullanıcı hesabı) anahtar halkası şifre çözme yapabilmek belirtebilirsiniz:
+`ProtectKeysWithDpapi` parametre olmadan çağrılırsa, yalnızca geçerli Windows Kullanıcı hesabı kalıcı anahtar halkasını çözebilir. İsteğe bağlı olarak, makinedeki herhangi bir kullanıcı hesabının (yalnızca geçerli kullanıcı hesabı değil) anahtar halkasını çözebilmesini sağlayabilirsiniz:
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -66,9 +66,9 @@ public void ConfigureServices(IServiceCollection services)
 
 ::: moniker range=">= aspnetcore-2.0"
 
-## <a name="x509-certificate"></a>X.509 sertifikası
+## <a name="x509-certificate"></a>X. 509.440 sertifikası
 
-Uygulama, birden çok makineye yayılmış, paylaşılan bir X.509 sertifikasının makinelerde dağıtmak ve barındırılan uygulamaları şifreleme anahtarları, bekleyen veri için sertifikayı kullanacak şekilde yapılandırmak kullanışlı olabilir:
+Uygulama birden çok makineye yayılıyorsa, makineler arasında paylaşılan bir X. 509.952 sertifikası dağıtmak ve barındırılan uygulamaları, bekleyen anahtarların şifrelenmesi için sertifikayı kullanacak şekilde yapılandırmak kullanışlı olabilir:
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -78,17 +78,17 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-.NET Framework sınırlamaları nedeniyle, yalnızca CAPI özel anahtarları olan sertifikaları desteklenir. Olası geçici çözümleri için bu sınırlamalar aşağıda içeriğine bakın.
+.NET Framework sınırlamaları nedeniyle, yalnızca CAPı özel anahtarlarına sahip sertifikalar desteklenir. Bu sınırlamalar için olası geçici çözümler için aşağıdaki içeriğe bakın.
 
 ::: moniker-end
 
 ## <a name="windows-dpapi-ng"></a>Windows DPAPI-NG
 
-**Bu mekanizma, yalnızca Windows 8/Windows Server 2012 veya sonraki bir sürümü kullanılabilir.**
+**Bu mekanizma yalnızca Windows 8/Windows Server 2012 veya üzeri sürümlerde kullanılabilir.**
 
-Windows 8'le başlayarak, Windows işletim sistemi DPAPI-NG (CNG DPAPI olarak da bilinir) destekler. Daha fazla bilgi için [CNG DPAPI hakkında](/windows/desktop/SecCNG/cng-dpapi).
+Windows 8 ' den itibaren, Windows işletim sistemi DPAPI-NG ' i (CNG DPAPI da denir) destekler. Daha fazla bilgi için bkz. [CNG DPAPI hakkında](/windows/desktop/SecCNG/cng-dpapi).
 
-Asıl koruma tanımlayıcısı kural olarak kodlanır. Çağıran aşağıdaki örnekte [ProtectKeysWithDpapiNG](/dotnet/api/microsoft.aspnetcore.dataprotection.dataprotectionbuilderextensions.protectkeyswithdpaping), yalnızca belirtilen SID ile etki alanına katılmış kullanıcı anahtarı halka şifresini çözebilir:
+Sorumlu bir koruma tanımlayıcı kuralı olarak kodlanır. [ProtectKeysWithDpapiNG](/dotnet/api/microsoft.aspnetcore.dataprotection.dataprotectionbuilderextensions.protectkeyswithdpaping)çağıran aşağıdaki örnekte, yalnızca belirtilen SID 'ye sahip etki alanına katılmış Kullanıcı anahtar halkasının şifresini çözebilir:
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -100,7 +100,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-Ayrıca bir parametresiz aşırı yüklemesi vardır `ProtectKeysWithDpapiNG`. Bu kolaylık yöntemi, kural belirtmek için kullanın "SID {CURRENT_ACCOUNT_SID} =" burada *CURRENT_ACCOUNT_SID* geçerli Windows kullanıcı hesabı SID'si:
+Ayrıca, `ProtectKeysWithDpapiNG`Parametresiz aşırı yüklemesi de vardır. "SID = {CURRENT_ACCOUNT_SID}" kuralını belirtmek için bu kullanışlı yöntemi kullanın; burada *CURRENT_ACCOUNT_SID* geçerli Windows Kullanıcı hesabının SID 'sidir:
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -111,11 +111,11 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-Bu senaryoda, AD etki alanı denetleyicisi DPAPI-NG işlemleri tarafından kullanılan şifreleme anahtarlarını dağıtmaktan sorumludur. (İşlem kimliklerini altında çalışıyor olması koşuluyla) hedef kullanıcı etki alanına katılmış herhangi bir makineden şifreli yük çözülebilir.
+Bu senaryoda, AD etki alanı denetleyicisi, DPAPI-NG işlemleri tarafından kullanılan şifreleme anahtarlarını dağıtmaktan sorumludur. Hedef Kullanıcı, etki alanına katılmış herhangi bir makineden şifrelenmiş yükün şifresini çözebilir (işlemin kimlikleri altında çalışıyor olması şartıyla).
 
-## <a name="certificate-based-encryption-with-windows-dpapi-ng"></a>Sertifika tabanlı şifreleme ile Windows DPAPI-NG
+## <a name="certificate-based-encryption-with-windows-dpapi-ng"></a>Windows DPAPI-NG ile sertifika tabanlı şifreleme
 
-Uygulamayı Windows 8.1 / Windows Server 2012 R2 çalıştıran veya daha sonra sertifika tabanlı şifreleme gerçekleştirmek için Windows DPAPI-NG kullanabileceğiniz olur. Kural tanımlayıcısı dizesi kullan "Sertifika HashId:THUMBPRINT =" burada *parmak İZİ* onaltılık kodlanmış SHA1 parmak izi sertifika:
+Uygulama Windows 8.1/Windows Server 2012 R2 veya sonraki sürümlerde çalışıyorsa, sertifika tabanlı şifrelemeyi gerçekleştirmek için Windows DPAPI-NG kullanabilirsiniz. "CERTIFICATE = Hashıd: parmak ızı" kural tanımlayıcı dizesini kullanın; burada *parmak izi* , sertifikanın onaltılı olarak kodlanmış SHA1 parmak izdir:
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -126,8 +126,8 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-Windows 8.1 / Windows Server 2012 R2 veya daha sonra anahtarları çözmek için bu depoyu işaret eden herhangi bir uygulamayı çalıştırması gerekir.
+Anahtarların şifre açmak için bu havuzda işaret edilen tüm uygulamaların Windows 8.1/Windows Server 2012 R2 veya üzeri üzerinde çalışıyor olması gerekir.
 
-## <a name="custom-key-encryption"></a>Özel anahtar şifreleme
+## <a name="custom-key-encryption"></a>Özel anahtar şifrelemesi
 
-Yerleşik mekanizmalar uygun değilse, geliştirici, kendi anahtar şifreleme mekanizması bir özel sağlayarak belirtebilirsiniz [IXmlEncryptor](/dotnet/api/microsoft.aspnetcore.dataprotection.xmlencryption.ixmlencryptor).
+Yerleşik mekanizmalar uygun değilse, geliştirici özel bir [ıxmlencryptor](/dotnet/api/microsoft.aspnetcore.dataprotection.xmlencryption.ixmlencryptor)sağlayarak kendi anahtar şifreleme mekanizmalarını belirtebilir.

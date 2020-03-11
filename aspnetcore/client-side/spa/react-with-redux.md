@@ -1,23 +1,23 @@
 ---
-title: ASP.NET Core ile React-ile-Redux proje şablonu kullanın
+title: ASP.NET Core ile tepki verme-Redux proje şablonunu kullanın
 author: SteveSandersonMS
-description: React ile Redux ve oluşturma-react-uygulama için ASP.NET Core tek sayfa uygulama (SPA) proje şablonu ile çalışmaya başlama hakkında bilgi edinin.
+description: Redux ve Create-tepki-App ile tepki vermek için ASP.NET Core tek sayfalı uygulama (SPA) proje şablonunu kullanmaya nasıl başlacağınızı öğrenin.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: scaddie
 ms.custom: mvc
 ms.date: 02/13/2019
 uid: spa/react-with-redux
 ms.openlocfilehash: ed2e9aea449ddb09fef049a391f40f57452786a8
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64900005"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78657642"
 ---
-# <a name="use-the-react-with-redux-project-template-with-aspnet-core"></a>ASP.NET Core ile React-ile-Redux proje şablonu kullanın
+# <a name="use-the-react-with-redux-project-template-with-aspnet-core"></a>ASP.NET Core ile tepki verme-Redux proje şablonunu kullanın
 
-Güncelleştirilmiş Redux ile React proje şablonu kullanarak ASP.NET Core uygulamaları, React Redux, uygun bir başlama noktası sağlar ve [oluşturma-react-app](https://github.com/facebookincubator/create-react-app) (CRA) kuralları, istemci tarafı zengin kullanıcı arabirimi (UI) uygulamak için.
+Güncelleştirilmiş Redux proje şablonu, zengin, istemci tarafı bir kullanıcı arabirimi (UI) uygulamak için tepki verme, Redux ve [oluşturma-tepki düzeyi uygulama](https://github.com/facebookincubator/create-react-app) (CRA) kurallarını kullanan ASP.NET Core uygulamalar için uygun bir başlangıç noktası sağlar.
 
-Proje oluşturma komutuna dışında React-ile-Redux şablonu hakkındaki tüm bilgileri React şablonu ile aynıdır. Bu proje türü oluşturmak için çalıştırılması `dotnet new reactredux` yerine `dotnet new react`. Her iki React tabanlı şablonlar için ortak olan işlevselliği hakkında daha fazla bilgi için bkz: [React şablon belgeleri](xref:spa/react).
+Proje oluşturma komutu hariç, Redux şablonuyla ilgili tüm bilgiler, yanıt verme şablonuyla aynıdır. Bu proje türünü oluşturmak için `dotnet new react`yerine `dotnet new reactredux` çalıştırın. Yanıt tabanlı şablonlar için ortak işlevsellik hakkında daha fazla bilgi için bkz. tepki verme [şablonu belgeleri](xref:spa/react).
 
-IIS React-ile-Redux bir alt uygulama yapılandırma hakkında daha fazla bilgi için bkz: [açarken kilitlenmesi şablon 2.1: IIS üzerinde SPA kullanılamıyor (aspnet/şablon &num;555)](https://github.com/aspnet/Templating/issues/555).
+IIS 'de bir tepki verme-Redux alt uygulaması yapılandırma hakkında bilgi için bkz. [ReactRedux Template 2,1: IIS 'de Spa kullanılamıyor (ASPNET/şablon &num;555)](https://github.com/aspnet/Templating/issues/555).

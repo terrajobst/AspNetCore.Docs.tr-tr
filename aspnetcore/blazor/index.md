@@ -10,12 +10,12 @@ no-loc:
 - Blazor
 - SignalR
 uid: blazor/index
-ms.openlocfilehash: 02c95c19ebfb5ea6ad722f9d49f4cddc7471f8e1
-ms.sourcegitcommit: 0e21d4f8111743bcb205a2ae0f8e57910c3e8c25
+ms.openlocfilehash: 038799564078c4d3e8a7aa3a9841c6303edf9d12
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77034094"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78658279"
 ---
 # <a name="introduction-to-aspnet-core-opno-locblazor"></a>ASP.NET Core Blazor giriş
 
@@ -114,7 +114,7 @@ Web tarayıcıları içinde .NET kodu çalıştırmak, [Webassembly](https://web
 
 WebAssembly Code, JavaScript ile *birlikte çalışabilirlik* (veya *JavaScript birlikte çalışma*) olarak adlandırılan JavaScript aracılığıyla tarayıcının tüm işlevlerine erişebilir. Tarayıcıda WebAssembly aracılığıyla yürütülen .NET kodu, sanal makinenin istemci makinesindeki kötü amaçlı eylemlere karşı sağladığı korumalar ile tarayıcının JavaScript korumalı alanında çalışır.
 
-![[! Üs. NO-LOC (Blazor)] WebAssembly, WebAssembly ile tarayıcıda .NET kodu çalıştırır.](index/_static/blazor-webassembly.png)
+![Blazor WebAssembly, WebAssembly ile tarayıcıda .NET kodu çalıştırır.](index/_static/blazor-webassembly.png)
 
 Blazor WebAssembly uygulaması bir tarayıcıda oluşturulup çalıştırıldığında:
 
@@ -136,11 +136,14 @@ Blazor, Kullanıcı arabirimi güncelleştirmelerinin uygulanma, bileşen işlem
 
 Blazor sunucusu tarafından tarayıcıyla iletişim kurmak için kullanılan bağlantı, JavaScript birlikte çalışma çağrılarını işlemek için de kullanılır.
 
-![[! Üs. NO-LOC (Blazor)] sunucusu, sunucuda .NET kodu çalıştırır ve istemcide bir [! üzerinden Belge Nesne Modeli etkileşime girer. Üs. NO-LOC (SignalR)] bağlantı](index/_static/blazor-server.png)
+![Blazor sunucusu, sunucuda .NET kodu çalıştırır ve SignalR bir bağlantı üzerinden istemcideki Belge Nesne Modeli etkileşime girer](index/_static/blazor-server.png)
 
 ## <a name="javascript-interop"></a>JavaScript ile birlikte çalışma
 
-Üçüncü taraf JavaScript kitaplıklarını ve tarayıcı API 'Lerine erişimi gerektiren uygulamalar için, bileşenler JavaScript ile birlikte çalışır. Bileşenler, JavaScript 'in kullanabileceği herhangi bir kitaplığı veya API kullanma yeteneğine sahiptir. C#kod JavaScript kodunu çağırabilir ve JavaScript kodu C# koda çağrı yapabilir. Daha fazla bilgi için bkz. <xref:blazor/javascript-interop>.
+Üçüncü taraf JavaScript kitaplıklarını ve tarayıcı API 'Lerine erişimi gerektiren uygulamalar için, bileşenler JavaScript ile birlikte çalışır. Bileşenler, JavaScript 'in kullanabileceği herhangi bir kitaplığı veya API kullanma yeteneğine sahiptir. C#kod JavaScript kodunu çağırabilir ve JavaScript kodu C# koda çağrı yapabilir. Daha fazla bilgi için aşağıdaki makalelere bakın:
+
+* <xref:blazor/call-javascript-from-dotnet>
+* <xref:blazor/call-dotnet-from-javascript>
 
 ## <a name="code-sharing-and-net-standard"></a>Kod paylaşımı ve .NET Standard
 

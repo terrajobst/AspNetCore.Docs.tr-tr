@@ -1,58 +1,58 @@
 ---
-title: ASP.NET core'da korumalı yüklerin ömrünü sınırlama
+title: ASP.NET Core korumalı yüklerin ömrünü sınırlayın
 author: rick-anderson
-description: ASP.NET Core veri koruma API'lerini kullanarak korumalı bir yükü ömrünü sınırlama hakkında bilgi edinin.
+description: ASP.NET Core veri koruma API 'Lerini kullanarak korumalı yükün ömrünü sınırlamayı öğrenin.
 ms.author: riande
 ms.date: 10/14/2016
 uid: security/data-protection/consumer-apis/limited-lifetime-payloads
 ms.openlocfilehash: 8dc3b856ec67477ec8ae777749c9bf3107eb4eda
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64902912"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78656060"
 ---
-# <a name="limit-the-lifetime-of-protected-payloads-in-aspnet-core"></a>ASP.NET core'da korumalı yüklerin ömrünü sınırlama
+# <a name="limit-the-lifetime-of-protected-payloads-in-aspnet-core"></a>ASP.NET Core korumalı yüklerin ömrünü sınırlayın
 
-Burada, belirlenen bir süre sonra süresi dolan bir korumalı yükü oluşturmak için uygulama geliştiricisinin istediği senaryoları vardır. Örneğin, korumalı yükü yalnızca bir saat için geçerli olacak bir parola sıfırlama belirteci temsil edebilir. Bir katıştırılmış sona erme tarihi içeren, kendi yük biçiminde oluşturmak geliştirici için kesinlikle mümkündür ve İleri düzey geliştiriciler bunu yapmak isteyebilirsiniz ancak bu süre sonu yönetme geliştiricilerin çoğu için tedious büyüyebilir.
+Uygulama geliştiricisinin, belirlenen süre sonunda süresi dolan korumalı bir yük oluşturmak istediği senaryolar vardır. Örneğin, korumalı yük yalnızca bir saat için geçerli olması gereken bir parola sıfırlama belirtecini temsil edebilir. Geliştiricinin, gömülü bir sona erme tarihi içeren kendi yük biçimini oluşturması kesinlikle olasıdır ve gelişmiş geliştiriciler bunu yapmak isteyebilir, ancak bu süre sonlarını yöneten geliştiricilerin çoğunluğu sıkıcı bir şekilde büyüyebilir.
 
-Geliştirici hedef için paket kolaylaştırmak için [Microsoft.AspNetCore.DataProtection.Extensions](https://www.nuget.org/packages/Microsoft.AspNetCore.DataProtection.Extensions/) otomatik olarak ayarlanmış bir süre sonunda süresi dolacak yükü oluşturmak için yardımcı programı API'lerini içerir. Bu API'leri kapatıp askıda `ITimeLimitedDataProtector` türü.
+Geliştirici izleyicilerimizin bu kadar kolay olması için, [Microsoft. AspNetCore. DataProtection. Extensions](https://www.nuget.org/packages/Microsoft.AspNetCore.DataProtection.Extensions/) paketi, belirlenen süre sonunda otomatik olarak süresi dolan yük oluşturma API 'lerini içerir. Bu API 'Ler `ITimeLimitedDataProtector` türünde kapanır.
 
 ## <a name="api-usage"></a>API kullanımı
 
-`ITimeLimitedDataProtector` Koruması kaldırıldıktan süre sınırlı / şirket içinde süresi dolan yükler ve koruma için çekirdek arabirimi arabirimidir. Bir örneğini oluşturmak için bir `ITimeLimitedDataProtector`, önce normal örneği gerekir [Idataprotector](xref:security/data-protection/consumer-apis/overview) belirli bir amaç ile oluşturulmuş. Bir kez `IDataProtector` örneği kullanılabilir, çağrı `IDataProtector.ToTimeLimitedDataProtector` bir koruyucu yerleşik bir sona erme özellikleriyle geri almak için genişletme yöntemi.
+`ITimeLimitedDataProtector` arabirimi, zaman sınırlı/kendi kendine süresi dolan yükleri korumak ve korumayı kaldırmak için çekirdek arabirimdir. Bir `ITimeLimitedDataProtector`örneği oluşturmak için öncelikle belirli bir amaca göre oluşturulan normal bir [ıdataprotector](xref:security/data-protection/consumer-apis/overview) örneğine ihtiyacınız vardır. `IDataProtector` örneği kullanılabilir olduğunda, yerleşik süre sonu özellikleri ile bir koruyucu geri almak için `IDataProtector.ToTimeLimitedDataProtector` uzantısı yöntemini çağırın.
 
-`ITimeLimitedDataProtector` Aşağıdaki API yüzeyi ve uzantı yöntemleri sunar:
+`ITimeLimitedDataProtector` aşağıdaki API yüzeyini ve genişletme yöntemlerini kullanıma sunar:
 
-* CreateProtector (dize amaçlı): ITimeLimitedDataProtector - bu API, varolan benzerdir `IDataProtectionProvider.CreateProtector` oluşturmak için kullanılabilir olduğunu [amaç zincirleri](xref:security/data-protection/consumer-apis/purpose-strings) kök süre sınırlı koruyucu öğesinden.
+* CreateProtector (dize amacı): ıomelimiteddataprotector-bu API, bir kök zaman sınırlı koruyucudan [Amaç zincirlerini](xref:security/data-protection/consumer-apis/purpose-strings) oluşturmak için kullanılabilecek mevcut `IDataProtectionProvider.CreateProtector` benzerdir.
 
-* (Bayt [] düz metin, DateTimeOffset sona erme) koruma: byte]
+* Koruma (Byte [] düz metin, DateTimeOffset süre sonu): Byte []
 
-* Koruma (bayt [] düz metin, TimeSpan yaşam süresi): byte]
+* Koruma (Byte [] düz metin, TimeSpan yaşam süresi): Byte []
 
-* (Bayt [] düz) korumak: byte]
+* Koruma (Byte [] düz metin): Byte []
 
-* (Düz dize, DateTimeOffset sona erme) koruma: dize
+* Koruma (dize düz metin, DateTimeOffset süre sonu): dize
 
-* Koruma (dizesi düz metin, TimeSpan yaşam süresi): dize
+* Koruma (dize düz metin, zaman aralığı ömrü): dize
 
-* (String düz) korumak: dize
+* Koru (dize düz metin): dize
 
-Çekirdek yanı sıra `Protect` yalnızca düz metin, alan yöntemleri yükü'nın son kullanma tarihini belirterek izin veren yeni aşırı yüklemeleri vardır. Süre sonu mutlak bir tarih belirtilebilir (aracılığıyla bir `DateTimeOffset`) veya göreli zaman olarak (geçerli sisteminden zaman aracılığıyla bir `TimeSpan`). Bir süre sonu verdiği hızlı tepkilerden faydalanamamış aşırı çağrılırsa, yükü süresiz olarak kabul edilir.
+Yalnızca düz metin olan çekirdek `Protect` yöntemlerine ek olarak, yükün sona erme tarihinin belirtilmesine izin veren yeni aşırı yüklemeler vardır. Sona erme tarihi mutlak bir tarih (`DateTimeOffset`aracılığıyla) veya göreli bir süre (geçerli sistem saatinden bir `TimeSpan`aracılığıyla) olarak belirtilebilir. Süre sonu olmayan bir aşırı yükleme çağrıldığında yükün süresinin dolmayacağı varsayılır.
 
-* (Bayt [] protectedData, DateTimeOffset sona erme kullanıma) korumasını: byte]
+* Korumasını kaldır (Byte [] protectedData, Out DateTimeOffset süre sonu): Byte []
 
-* (Bayt [] protectedData) korumasını: byte]
+* Korumasını kaldır (Byte [] protectedData): Byte []
 
-* (DateTimeOffset sona erme çıkış dizesi protectedData) korumasını: dize
+* Korumasını kaldırma (dize protectedData, Out DateTimeOffset Expiration): dize
 
-* (String protectedData) korumasını: dize
+* Korumasını kaldır (dize protectedData): dize
 
-`Unprotect` Yöntemleri özgün korumasız veri döndürür. Yükü henüz süresi dolmadığından, mutlak out parametresi özgün korumasız verileriyle birlikte isteğe bağlı olarak döndürülür. Yük süresi dolmuşsa, Unprotect yöntemin tüm aşırı yüklemeler CryptographicException durum oluşturur.
+`Unprotect` yöntemleri, ilk korumasız verileri döndürür. Yükün süresi dolmamışsa, mutlak süre sonu, özgün korumasız verilerle birlikte isteğe bağlı bir out parametresi olarak döndürülür. Yükün geçerliliği dolmuşsa, korumasını kaldırma yönteminin tüm aşırı yüklemeleri CryptographicException oluşturur.
 
 >[!WARNING]
-> Bu uzun vadeli veya belirsiz Kalıcılık gerektiren yüklerini korumak için bu API'leri kullanmak için önerilir değil. "I için bir ay sonra kalıcı olarak kurtarılamaz olarak korumalı yüklerin destekleyebilir?" bir iyi kural karşısında hizmet verebilen; yanıt yok sonra geliştiriciler alternatif API'leri düşünmelisiniz.
+> Uzun süreli veya sonsuz Kalıcılık gerektiren yükleri korumak için bu API 'Lerin kullanılması önerilmez. "Korumalı yüklerin bir aydan sonra kalıcı olarak kurtarılamadığında emin olabilir mi?" , Thumb 'in iyi bir kuralı olarak işlev görebilir; Yanıt yoksa, geliştiricilerin alternatif API 'Leri dikkate almalıdır.
 
-Örnek kullanımlar aşağıda [DI olmayan kod yollarını](xref:security/data-protection/configuration/non-di-scenarios) veri koruma sisteminde örnekleme için. Bu örneği çalıştırmak için önce Microsoft.AspNetCore.DataProtection.Extensions paketine bir başvuru eklediğinizden emin olun.
+Aşağıdaki örnek, veri koruma sisteminin örneğini oluşturmak için, [dı olmayan kod yollarını](xref:security/data-protection/configuration/non-di-scenarios) kullanır. Bu örneği çalıştırmak için, ilk olarak Microsoft. AspNetCore. DataProtection. Extensions paketine bir başvuru eklemiş olduğunuzdan emin olun.
 
 [!code-csharp[](limited-lifetime-payloads/samples/limitedlifetimepayloads.cs)]

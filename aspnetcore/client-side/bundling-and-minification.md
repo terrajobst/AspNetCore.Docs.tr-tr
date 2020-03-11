@@ -7,11 +7,11 @@ ms.custom: mvc
 ms.date: 06/17/2019
 uid: client-side/bundling-and-minification
 ms.openlocfilehash: a7a5c40d6c31c4416212c02c1b491dd794f2a1d3
-ms.sourcegitcommit: b3e1e31e5d8bdd94096cf27444594d4a7b065525
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74803285"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78658272"
 ---
 # <a name="bundle-and-minify-static-assets-in-aspnet-core"></a>ASP.NET Core statik varlıkları paketleyin ve azın
 
@@ -53,10 +53,10 @@ Açıklamaları ve gereksiz boşlukları kaldırmanın yanı sıra aşağıdaki 
 
 Aşağıdaki tabloda, tek tek yükleme varlıkları ve paketleme ve küçültme kullanımı arasındaki farklılıklar özetlenmektedir:
 
-Eylem | B/M ile | B/M olmadan | Değişiklik
+Eylem | B/M ile | B/M olmadan | Değiştir
 --- | :---: | :---: | :---:
 Dosya Istekleri  | 7   | 18     | 157%
-KB aktarıldı | 156 | 264.68 | 70%
+KB aktarıldı | 156 | 264.68 | %70
 Yükleme süresi (MS) | 885 | 2360   | 167%
 
 Tarayıcılar HTTP istek üst bilgileriyle ilgili oldukça ayrıntılıdır. Gönderilen toplam bayt ölçümü, paketleme sırasında önemli bir düşüş gördük. Yükleme zamanı önemli bir geliştirme gösterir, ancak bu örnek yerel olarak çalışır. Ağ üzerinden aktarılan varlıklarla paketleme ve küçültmeye karşı kullanım sırasında daha fazla performans artışı gerçekleştirilir.
@@ -103,7 +103,7 @@ Yapılandırma seçenekleri şunlardır:
 > [!NOTE]
 > BuildBundlerMinifier, GitHub 'da Microsoft 'un destek sunmamakta olan topluluk odaklı bir projeye aittir. Sorunlar [burada](https://github.com/madskristensen/BundlerMinifier/issues)dosyalanmalıdır.
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 *BuildBundlerMinifier* paketini projenize ekleyin.
 
@@ -130,7 +130,7 @@ Projeyi temizleyin. Çıkış penceresinde aşağıdakiler görüntülenir:
 ========== Clean: 1 succeeded, 0 failed, 0 skipped ==========
 ```
 
-# <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
+# <a name="net-core-cli"></a>[.NET Core CLI](#tab/netcore-cli)
 
 *BuildBundlerMinifier* paketini projenize ekleyin:
 
@@ -168,7 +168,7 @@ Projeyi temizle:
 dotnet clean
 ```
 
-Şu çıktı görünür:
+Aşağıdaki çıktı görüntülenir:
 
 ```console
 Microsoft (R) Build Engine version 15.4.8.50001 for .NET Core

@@ -8,22 +8,22 @@ Bu örnek ASP.NET Core URL yeniden yazma ara yazılımı kullanımını gösteri
 
 * `AddRedirect("redirect-rule/(.*)", "redirected/$1")`
   - Başarı durum kodu: 302 (bulundu)
-  - Örnek (yeniden yönlendirme): **/redirect-Rule/{capture_group}** ila **/redirected/{capture_group}**
+  - Örnek (yeniden yönlendirme): **/redirect-Rule/{capture_group}** - **/redirected/{capture_group}**
 * `AddRewrite(@"^rewrite-rule/(\d+)/(\d+)", "rewritten?var1=$1&var2=$2", skipRemainingRules: true)`
-  - Başarı durum kodu: 200 (TAMAM)
-  - Örnek (yeniden yazma): **/rewrite-Rule/{capture_group_1}/{capture_group_2}** - **/yeniden yazıldı? var1 = {capture_group_1} & var2 = {capture_group_2}**
+  - Başarı durum kodu: 200 (Tamam)
+  - Örnek (yeniden yazma): **/rewrite-Rule/{capture_group_1}/{capture_group_2}** için **/yeniden yazıldı? var1 = {capture_group_1} & var2 = {capture_group_2}**
 * `AddApacheModRewrite(env.ContentRootFileProvider, "ApacheModRewrite.txt")`
   - Başarı durum kodu: 302 (bulundu)
-  - Örnek (yeniden yönlendirme): **/Apache-mod-Rules-Redirect/{capture_group}** to **/yönlendirileceği? id = {capture_group}**
+  - Örnek (Redirect): **/apache-mod-rules-redirect/{capture_group}** **/yeniden yönlendirme için? ıd = {capture_group}**
 * `AddIISUrlRewrite(env.ContentRootFileProvider, "IISUrlRewrite.xml")`
-  - Başarı durum kodu: 200 (TAMAM)
-  - Örnek (yeniden yazma): **/iis-Rules-rewrite/{capture_group}** to **/yeniden yazıldı? id = {capture_group}**
+  - Başarı durum kodu: 200 (Tamam)
+  - Örnek (yeniden yazma): **/iis-rules-rewrite/{capture_group}** için **/yeniden yazıldı? id = {capture_group}**
 * `Add(RedirectXmlFileRequests)`
   - Başarı durum kodu: 301 (kalıcı olarak taşındı)
   - Örnek (yeniden yönlendirme): **/File.xml** to **/xmlfiles/File.xml**
 * `Add(RewriteTextFileRequests)`
-  - Başarı durum kodu: 200 (TAMAM)
-  - Örnek (yeniden yazma): **/some_dosya.txt** **/dosya.txt**
+  - Başarı durum kodu: 200 (Tamam)
+  - Örnek (yeniden yazma): **/some_file. txt** - **/dosya.txt**
 * `Add(new RedirectImageRequests(".png", "/png-images")))`<br>`Add(new RedirectImageRequests(".jpg", "/jpg-images")))`
   - Başarı durum kodu: 301 (kalıcı olarak taşındı)
   - Örnek (yeniden yönlendirme): **/Image.png 'den** **/PNG-images/Image.png**
@@ -31,7 +31,7 @@ Bu örnek ASP.NET Core URL yeniden yazma ara yazılımı kullanımını gösteri
 
 ## <a name="use-a-physicalfileprovider"></a>PhysicalFileProvider kullanma
 
-`IFileProvider` Ayrıca, `PhysicalFileProvider` ve`AddIISUrlRewrite()`yöntemlerine geçirilecek bir oluşturarak elde edebilirsiniz: `AddApacheModRewrite()`
+Ayrıca, `AddApacheModRewrite()` ve `AddIISUrlRewrite()` yöntemlerine geçirilecek bir `PhysicalFileProvider` oluşturarak `IFileProvider` elde edebilirsiniz:
 
 ```csharp
 using Microsoft.Extensions.FileProviders;
@@ -40,9 +40,9 @@ PhysicalFileProvider fileProvider = new PhysicalFileProvider(Directory.GetCurren
 
 ## <a name="secure-redirection-extensions"></a>Güvenli yeniden yönlendirme uzantıları
 
-Bu örnek, `WebHostBuilder` güvenli yeniden yönlendirme yöntemlerini keşfetmeye yardımcı olmak üzere`https://localhost:5001`, `https://localhost`uygulamanın URL 'leri (,) ve bir test sertifikası (*testCert. pfx*) kullanması için yapılandırma içerir. Sunucuda 443 numaralı bağlantı noktası zaten varsa veya `https://localhost` kullanımda ise, örnek çalışmıyor &mdash;program.cs dosyası `CreateWebHostBuilder` yönteminde bağlantı noktası `ListenOptions` 443 için veya Kestrel 'in kullanabilmesi için sunucudaki bağlantı noktası 443 bağlantısını kaldırın. bağlantı noktası.
+Bu örnek, güvenli yeniden yönlendirme yöntemlerini keşfetmeye yardımcı olmak üzere, uygulamanın URL 'Leri (`https://localhost:5001`, `https://localhost`) ve bir test sertifikası (*testCert. pfx*) kullanması için `WebHostBuilder` yapılandırmayı içerir. Sunucuda 443 numaralı bağlantı noktası zaten varsa veya kullanımda ise, `https://localhost` örnek çalışmaz&mdash;*program.cs* dosyasının `CreateWebHostBuilder` yönteminde bağlantı noktası 443 için `ListenOptions` kaldırır ya da sunucu bağlantı noktasını kullanabilmesi için sunucudaki bağlantı noktası 443 bağlantısını kaldırın.
 
-| Yöntem                           | Durum kodu |    Bağlantı Noktası    |
+| Yöntem                           | Durum Kodu |    Bağlantı Noktası    |
 | -------------------------------- | :---------: | :--------: |
 | `.AddRedirectToHttpsPermanent()` |     301     | null (465) |
 | `.AddRedirectToHttps()`          |     302     | null (465) |
