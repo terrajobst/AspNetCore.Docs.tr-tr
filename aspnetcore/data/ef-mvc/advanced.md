@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.date: 03/27/2019
 ms.topic: tutorial
 uid: data/ef-mvc/advanced
-ms.openlocfilehash: abea9b189861954533b24cb73650af41952d1a86
-ms.sourcegitcommit: 57b85708f4cded99b8f008a69830cb104cd8e879
+ms.openlocfilehash: fc6f8d8c4ab09848cf316be2e522bf5ce3b9ac76
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75914111"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78657040"
 ---
 # <a name="tutorial-learn-about-advanced-scenarios---aspnet-mvc-with-ef-core"></a>Öğretici: Gelişmiş senaryolar hakkında bilgi edinin-EF Core ASP.NET MVC
 
@@ -31,7 +31,7 @@ Bu öğreticide şunları yaptınız:
 > * EF Core kaynak kodu ve geliştirme planları hakkında bilgi edinin
 > * Kodu basitleştirmek için dinamik LINQ kullanmayı öğrenin
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Önkoşullar
 
 * [Devralmayı Uygula](inheritance.md)
 
@@ -103,7 +103,7 @@ Denetleyici bir HttpGet isteğini işlediğinde `ViewData["RowsAffected"]`hiçbi
 
 ![Kurs kredileri sayfasını Güncelleştir](advanced/_static/update-credits.png)
 
-Tıklayın **güncelleştirme**. Etkilenen satır sayısını görürsünüz:
+**Güncelleştir**’e tıklayın. Etkilenen satır sayısını görürsünüz:
 
 ![Güncelleştirme kursu kredileri sayfa satırları etkilendi](advanced/_static/update-credits-rows-affected.png)
 
@@ -142,7 +142,7 @@ INNER JOIN (
 ORDER BY [t].[ID]
 ```
 
-Size beklenmedik bir şekilde bir sorun olduğunu fark edeceksiniz: SQL, kişi tablosundan 2 ' ye kadar satır (`TOP(2)`) seçer. `SingleOrDefaultAsync` yöntemi sunucuda 1 satıra çözümlenmiyor. Bunu istememizin nedeni:
+Size beklenmedik bir şekilde bir sorun olduğunu fark edeceksiniz: SQL, kişi tablosundan 2 ' ye kadar satır (`TOP(2)`) seçer. `SingleOrDefaultAsync` yöntemi sunucuda 1 satıra çözümlenmiyor. İşte şunları yapın:
 
 * Sorgu birden çok satır döndürürse, yöntemi null döndürür.
 * Sorgunun birden çok satır döndürüp döndürmeyeceğini anlamak için EF 'in en az 2 değerini döndürüp döndürmediğini denetlemesi gerekir.
@@ -173,7 +173,7 @@ Entity Framework bir varlığın geçerli değerlerini özgün değerlerle karş
 
 * ChangeTracker. Entries
 
-Çok sayıda varlığı izliyorsanız ve bu yöntemlerden birini bir döngüde birçok kez çağırırsanız, `ChangeTracker.AutoDetectChangesEnabled` özelliğini kullanarak otomatik değişiklik algılamayı geçici olarak kapatarak önemli performans iyileştirmeleri alabilirsiniz. Örneğin:
+Çok sayıda varlığı izliyorsanız ve bu yöntemlerden birini bir döngüde birçok kez çağırırsanız, `ChangeTracker.AutoDetectChangesEnabled` özelliğini kullanarak otomatik değişiklik algılamayı geçici olarak kapatarak önemli performans iyileştirmeleri alabilirsiniz. Örnek:
 
 ```csharp
 _context.ChangeTracker.AutoDetectChangesEnabled = false;
@@ -197,7 +197,7 @@ Mevcut bir veritabanından varlık sınıfları dahil bir veri modeline ters mü
 
 [!code-csharp[](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_DynamicLinq)]
 
-## <a name="acknowledgments"></a>İlgili kaynaklar
+## <a name="acknowledgments"></a>Bilgilendirme
 
 Tom Dykstra ve Rick Anderson (Twitter @RickAndMSFT) bu öğreticiyi yazdı. ROWA Miller, Diego Vega ve kod incelemeleri ile Entity Framework ekip yardımlı diğer üyeleri ve öğreticiler için kod yazarken oluşan sorunları ayıkladık. John Parente ve Paul Goldman, 2,2 ASP.NET Core öğreticisini güncelleştirmeye çalıştı.
 
@@ -241,17 +241,17 @@ dotnet ef database drop
 
 ### <a name="error-locating-sql-server-instance"></a>SQL Server örneği bulunurken hata oluştu
 
-Hata Iletisi:
+Hata İletisi:
 
-> SQL Server ile bağlantı kurulmaya çalışılırken ağ ile ilişkili veya örneğe özgü bir hata oluştu. Sunucu bulunamadı veya erişim sağlanamadı. Örnek adının doğru olduğundan ve SQL Server uzak bağlantılara izin verecek şekilde yapılandırıldığından emin olun. (sağlayıcı: SQL ağ arabirimleri, hata: 26-belirtilen sunucu/örnek bulunurken hata oluştu)
+> SQL Server ile bağlantı kurulmaya çalışılırken ağ ile ilişkili veya örneğe özgü bir hata oluştu. Sunucu bulunamadı veya erişilebilir değildi. Örnek adının doğru olduğundan ve SQL Server uzak bağlantılara izin verecek şekilde yapılandırıldığından emin olun. (sağlayıcı: SQL ağ arabirimleri, hata: 26-belirtilen sunucu/örnek bulunurken hata oluştu)
 
 Çözüm:
 
 Bağlantı dizesini denetleyin. Veritabanı dosyasını el ile sildiyseniz, oluşturma dizesindeki veritabanının adını yeni bir veritabanı ile başlatılacak şekilde değiştirin.
 
-## <a name="get-the-code"></a>Kodu edinin
+## <a name="get-the-code"></a>Kodu alma
 
-[Tamamlanmış uygulamayı indirin veya görüntüleyin.](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final)
+[Tamamlanmış uygulamayı indirin veya görüntüleyin.](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final)
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 

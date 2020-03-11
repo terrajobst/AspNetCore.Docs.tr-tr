@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/05/2019
 uid: mvc/views/working-with-forms
-ms.openlocfilehash: 1c7652c909432b25ae373873cd593afd879cfa00
-ms.sourcegitcommit: 85564ee396c74c7651ac47dd45082f3f1803f7a2
+ms.openlocfilehash: 5af532db35b858d157f61a6aca30f55d15e9ff1e
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77172557"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78657537"
 ---
 # <a name="tag-helpers-in-forms-in-aspnet-core"></a>ASP.NET Core formlardaki etiket yardımcıları
 
@@ -199,7 +199,7 @@ Type expected
 |.NET türü|Giriş türü|
 |---|---|
 |Bool|Type = "onay kutusu"|
-|Dize|Type = "metin"|
+|String|Type = "metin"|
 |DateTime|Type =["TarihSaat-yerel"](https://developer.mozilla.org/docs/Web/HTML/Element/input/datetime-local)|
 |Bayt|Type = "Number"|
 |Int|Type = "Number"|
@@ -454,7 +454,7 @@ Sunucu tarafı doğrulama hatası oluştuğunda (örneğin, özel sunucu tarafı
 |--- |--- |
 |ValidationSummary. All|Özellik ve model düzeyi|
 |Yalnızca ValidationSummary. model|Model|
-|ValidationSummary. None|Hiçbiri|
+|ValidationSummary. None|Yok|
 
 ### <a name="sample"></a>Örnek
 
@@ -491,7 +491,7 @@ Oluşturulan HTML (model geçerli olduğunda):
 
 * Bir HTML Yardımcısı alternatifi `Html.DropDownListFor` ve `Html.ListBoxFor`
 
-`Select Tag Helper` `asp-for`, [Select](https://www.w3.org/wiki/HTML/Elements/select) öğesi için model özelliği adını belirtir ve `asp-items` [seçenek](https://www.w3.org/wiki/HTML/Elements/option) öğelerini belirtir.  Örneğin:
+`Select Tag Helper` `asp-for`, [Select](https://www.w3.org/wiki/HTML/Elements/select) öğesi için model özelliği adını belirtir ve `asp-items` [seçenek](https://www.w3.org/wiki/HTML/Elements/option) öğelerini belirtir.  Örnek:
 
 [!code-HTML[](working-with-forms/sample/final/Views/Home/Index.cshtml?range=4)]
 
@@ -670,4 +670,4 @@ Geçerli `Country` değerine bağlı olarak doğru `<option>` öğesi seçilecek
 * <xref:mvc/models/model-binding>
 * <xref:mvc/models/validation>
 * [Iattributeadapter arabirimi](/dotnet/api/Microsoft.AspNetCore.Mvc.DataAnnotations.IAttributeAdapter)
-* [Bu belge için kod parçacıkları](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/views/working-with-forms/sample/final)
+* [Bu belge için kod parçacıkları](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/views/working-with-forms/sample/final)
