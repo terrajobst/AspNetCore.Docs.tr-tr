@@ -315,8 +315,10 @@
           uid: blazor/dependency-injection
         - name: Yönlendirme
           uid: blazor/routing
-        - name: JavaScript ile birlikte çalışma
-          uid: blazor/javascript-interop
+        - name: .NET’ten JavaScript’i çağırma
+          uid: blazor/call-javascript-from-dotnet
+        - name: JavaScript’ten .NET’i çağırma
+          uid: blazor/call-dotnet-from-javascript
         - name: Barındırma modeli yapılandırması
           uid: blazor/hosting-model-configuration
         - name: Bileşen kitaplıkları
@@ -325,8 +327,30 @@
           items:
             - name: Genel Bakış
               uid: security/blazor/index
+            - name: Blazor WebAssembly
+              items:
+                - name: Genel Bakış
+                  uid: security/blazor/webassembly/index
+                - name: Kimlik doğrulaması kitaplığı ile bağımsız
+                  uid: security/blazor/webassembly/standalone-with-authentication-library
+                - name: Microsoft Hesapları ile bağımsız
+                  uid: security/blazor/webassembly/standalone-with-microsoft-accounts
+                - name: AAD ile bağımsız
+                  uid: security/blazor/webassembly/standalone-with-azure-active-directory
+                - name: AAD B2C ile bağımsız
+                  uid: security/blazor/webassembly/standalone-with-azure-active-directory-b2c
+                - name: Kimlik Sunucusu ile barındırılan
+                  uid: security/blazor/webassembly/hosted-with-identity-server
+                - name: AAD ile barındırılan
+                  uid: security/blazor/webassembly/hosted-with-azure-active-directory
+                - name: AAD B2C ile barındırılan
+                  uid: security/blazor/webassembly/hosted-with-azure-active-directory-b2c
+                - name: İlave senaryolar
+                  uid: security/blazor/webassembly/additional-scenarios
             - name: Blazor Server
               uid: security/blazor/server
+            - name: İçerik Güvenliği İlkesi
+              uid: security/blazor/content-security-policy
         - name: Durum yönetimi
           uid: blazor/state-management
         - name: Hataları işleme
@@ -335,6 +359,8 @@
           uid: blazor/debug
         - name: Web API’si çağırma
           uid: blazor/call-web-api
+        - name: Aşamalı Web Uygulamaları
+          uid: blazor/progressive-web-app
         - name: Barındırma ve dağıtma
           items:
             - name: Genel Bakış
@@ -373,7 +399,7 @@
           uid: client-side/bundling-and-minification
         - name: Tarayıcı Bağlantısı
           uid: client-side/using-browserlink
-    - name: Oturum ve uygulama durumu
+    - name: Oturum ve durum yönetimi
       uid: fundamentals/app-state
     - name: Düzen
       uid: mvc/views/layout
@@ -1066,6 +1092,14 @@
       uid: security/cookie-sharing
     - name: SameSite tanımlama bilgileri
       uid: security/samesite
+    - name: SameSite örnekleri
+      items:
+        - name: Razor Pages 2.1 SameSite tanımlama bilgisi örneği
+          uid: security/samesite/rp21
+        - name: Razor Pages 3.1 SameSite tanımlama bilgisi örneği
+          uid: security/samesite/rp31
+        - name: MVC SameSite tanımlama bilgisi örneği
+          uid: security/samesite/mvc21
     - name: IP güvenli listesi
       uid: security/ip-safelist
     - name: Uygulama güvenliği - OWASP
@@ -1074,8 +1108,30 @@
       items:
         - name: Genel Bakış
           uid: security/blazor/index
+        - name: Blazor WebAssembly
+          items:
+            - name: Genel Bakış
+              uid: security/blazor/webassembly/index
+            - name: Kimlik doğrulaması kitaplığı ile bağımsız
+              uid: security/blazor/webassembly/standalone-with-authentication-library
+            - name: Microsoft Hesapları ile bağımsız
+              uid: security/blazor/webassembly/standalone-with-microsoft-accounts
+            - name: AAD ile bağımsız
+              uid: security/blazor/webassembly/standalone-with-azure-active-directory
+            - name: AAD B2C ile bağımsız
+              uid: security/blazor/webassembly/standalone-with-azure-active-directory-b2c
+            - name: Kimlik Sunucusu ile barındırılan
+              uid: security/blazor/webassembly/hosted-with-identity-server
+            - name: AAD ile barındırılan
+              uid: security/blazor/webassembly/hosted-with-azure-active-directory
+            - name: AAD B2C ile barındırılan
+              uid: security/blazor/webassembly/hosted-with-azure-active-directory-b2c
+            - name: İlave senaryolar
+              uid: security/blazor/webassembly/additional-scenarios
         - name: Blazor Server
           uid: security/blazor/server
+        - name: İçerik Güvenliği İlkesi
+          uid: security/blazor/content-security-policy
 - name: Performans
   items:
     - name: Genel Bakış
@@ -1203,4 +1259,4 @@
 - name: API başvurusu
   href: /dotnet/api/?view=aspnetcore-2.2
 - name: Katkıda Bulun
-  href: 'https://github.com/aspnet/AspNetCore.Docs/blob/master/CONTRIBUTING.md'
+  href: 'https://github.com/dotnet/AspNetCore.Docs/blob/master/CONTRIBUTING.md'
