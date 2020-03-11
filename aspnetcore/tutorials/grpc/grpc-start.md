@@ -5,100 +5,100 @@ description: Bu öğreticide, ASP.NET Core bir gRPC hizmeti ve gRPC istemcisinin
 ms.author: johluo
 ms.date: 12/05/2019
 uid: tutorials/grpc/grpc-start
-ms.openlocfilehash: c179dd31e6484246498c857aad797eb752f00bf5
-ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
+ms.openlocfilehash: 0cedeb021427455c3f60a8a8cc36b52794a055bc
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74879644"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78665825"
 ---
-# <a name="tutorial-create-a-grpc-client-and-server-in-aspnet-core"></a><span data-ttu-id="313b4-104">Öğretici: ASP.NET Core bir gRPC istemcisi ve sunucusu oluşturma</span><span class="sxs-lookup"><span data-stu-id="313b4-104">Tutorial: Create a gRPC client and server in ASP.NET Core</span></span>
+# <a name="tutorial-create-a-grpc-client-and-server-in-aspnet-core"></a><span data-ttu-id="12fc3-104">Öğretici: ASP.NET Core bir gRPC istemcisi ve sunucusu oluşturma</span><span class="sxs-lookup"><span data-stu-id="12fc3-104">Tutorial: Create a gRPC client and server in ASP.NET Core</span></span>
 
-<span data-ttu-id="313b4-105">[John Luo](https://github.com/juntaoluo) tarafından</span><span class="sxs-lookup"><span data-stu-id="313b4-105">By [John Luo](https://github.com/juntaoluo)</span></span>
+<span data-ttu-id="12fc3-105">[John Luo](https://github.com/juntaoluo) tarafından</span><span class="sxs-lookup"><span data-stu-id="12fc3-105">By [John Luo](https://github.com/juntaoluo)</span></span>
 
-<span data-ttu-id="313b4-106">Bu öğreticide, bir .NET Core [GRPC](https://grpc.io/docs/guides/) istemcisinin ve bir ASP.NET Core GRPC sunucusunun nasıl oluşturulacağı gösterilmektedir.</span><span class="sxs-lookup"><span data-stu-id="313b4-106">This tutorial shows how to create a .NET Core [gRPC](https://grpc.io/docs/guides/) client and an ASP.NET Core gRPC Server.</span></span>
+<span data-ttu-id="12fc3-106">Bu öğreticide, bir .NET Core [GRPC](https://grpc.io/docs/guides/) istemcisinin ve bir ASP.NET Core GRPC sunucusunun nasıl oluşturulacağı gösterilmektedir.</span><span class="sxs-lookup"><span data-stu-id="12fc3-106">This tutorial shows how to create a .NET Core [gRPC](https://grpc.io/docs/guides/) client and an ASP.NET Core gRPC Server.</span></span>
 
-<span data-ttu-id="313b4-107">Sonda, gRPC Greeter hizmeti ile iletişim kuran bir gRPC istemcisine sahip olacaksınız.</span><span class="sxs-lookup"><span data-stu-id="313b4-107">At the end, you'll have a gRPC client that communicates with the gRPC Greeter service.</span></span>
+<span data-ttu-id="12fc3-107">Sonda, gRPC Greeter hizmeti ile iletişim kuran bir gRPC istemcisine sahip olacaksınız.</span><span class="sxs-lookup"><span data-stu-id="12fc3-107">At the end, you'll have a gRPC client that communicates with the gRPC Greeter service.</span></span>
 
-<span data-ttu-id="313b4-108">[Örnek kodu görüntüleyin veya indirin](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/tutorials/grpc/grpc-start/sample) ([nasıl indirilir](xref:index#how-to-download-a-sample)).</span><span class="sxs-lookup"><span data-stu-id="313b4-108">[View or download sample code](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/tutorials/grpc/grpc-start/sample) ([how to download](xref:index#how-to-download-a-sample)).</span></span>
+<span data-ttu-id="12fc3-108">[Örnek kodu görüntüleyin veya indirin](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/tutorials/grpc/grpc-start/sample) ([nasıl indirilir](xref:index#how-to-download-a-sample)).</span><span class="sxs-lookup"><span data-stu-id="12fc3-108">[View or download sample code](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/tutorials/grpc/grpc-start/sample) ([how to download](xref:index#how-to-download-a-sample)).</span></span>
 
-<span data-ttu-id="313b4-109">Bu öğreticide şunları yaptınız:</span><span class="sxs-lookup"><span data-stu-id="313b4-109">In this tutorial, you:</span></span>
+<span data-ttu-id="12fc3-109">Bu öğreticide şunları yaptınız:</span><span class="sxs-lookup"><span data-stu-id="12fc3-109">In this tutorial, you:</span></span>
 
 > [!div class="checklist"]
-> * <span data-ttu-id="313b4-110">GRPC sunucusu oluşturun.</span><span class="sxs-lookup"><span data-stu-id="313b4-110">Create a gRPC Server.</span></span>
-> * <span data-ttu-id="313b4-111">GRPC istemcisi oluşturun.</span><span class="sxs-lookup"><span data-stu-id="313b4-111">Create a gRPC client.</span></span>
-> * <span data-ttu-id="313b4-112">GRPC istemci hizmetini gRPC Greeter hizmeti ile test edin.</span><span class="sxs-lookup"><span data-stu-id="313b4-112">Test the gRPC client service with the gRPC Greeter service.</span></span>
+> * <span data-ttu-id="12fc3-110">GRPC sunucusu oluşturun.</span><span class="sxs-lookup"><span data-stu-id="12fc3-110">Create a gRPC Server.</span></span>
+> * <span data-ttu-id="12fc3-111">GRPC istemcisi oluşturun.</span><span class="sxs-lookup"><span data-stu-id="12fc3-111">Create a gRPC client.</span></span>
+> * <span data-ttu-id="12fc3-112">GRPC istemci hizmetini gRPC Greeter hizmeti ile test edin.</span><span class="sxs-lookup"><span data-stu-id="12fc3-112">Test the gRPC client service with the gRPC Greeter service.</span></span>
 
-## <a name="prerequisites"></a><span data-ttu-id="313b4-113">Prerequisites</span><span class="sxs-lookup"><span data-stu-id="313b4-113">Prerequisites</span></span>
+## <a name="prerequisites"></a><span data-ttu-id="12fc3-113">Önkoşullar</span><span class="sxs-lookup"><span data-stu-id="12fc3-113">Prerequisites</span></span>
 
-# <a name="visual-studiotabvisual-studio"></a>[<span data-ttu-id="313b4-114">Visual Studio</span><span class="sxs-lookup"><span data-stu-id="313b4-114">Visual Studio</span></span>](#tab/visual-studio)
+# <a name="visual-studio"></a>[<span data-ttu-id="12fc3-114">Visual Studio</span><span class="sxs-lookup"><span data-stu-id="12fc3-114">Visual Studio</span></span>](#tab/visual-studio)
 
 [!INCLUDE[](~/includes/net-core-prereqs-vs-3.0.md)]
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[<span data-ttu-id="313b4-115">Visual Studio Code</span><span class="sxs-lookup"><span data-stu-id="313b4-115">Visual Studio Code</span></span>](#tab/visual-studio-code)
+# <a name="visual-studio-code"></a>[<span data-ttu-id="12fc3-115">Visual Studio Code</span><span class="sxs-lookup"><span data-stu-id="12fc3-115">Visual Studio Code</span></span>](#tab/visual-studio-code)
 
 [!INCLUDE[](~/includes/net-core-prereqs-vsc-3.0.md)]
 
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[<span data-ttu-id="313b4-116">Mac için Visual Studio</span><span class="sxs-lookup"><span data-stu-id="313b4-116">Visual Studio for Mac</span></span>](#tab/visual-studio-mac)
+# <a name="visual-studio-for-mac"></a>[<span data-ttu-id="12fc3-116">Mac için Visual Studio</span><span class="sxs-lookup"><span data-stu-id="12fc3-116">Visual Studio for Mac</span></span>](#tab/visual-studio-mac)
 
 [!INCLUDE[](~/includes/net-core-prereqs-mac-3.0.md)]
 
 ---
 
-## <a name="create-a-grpc-service"></a><span data-ttu-id="313b4-117">GRPC hizmeti oluşturma</span><span class="sxs-lookup"><span data-stu-id="313b4-117">Create a gRPC service</span></span>
+## <a name="create-a-grpc-service"></a><span data-ttu-id="12fc3-117">GRPC hizmeti oluşturma</span><span class="sxs-lookup"><span data-stu-id="12fc3-117">Create a gRPC service</span></span>
 
-# <a name="visual-studiotabvisual-studio"></a>[<span data-ttu-id="313b4-118">Visual Studio</span><span class="sxs-lookup"><span data-stu-id="313b4-118">Visual Studio</span></span>](#tab/visual-studio)
+# <a name="visual-studio"></a>[<span data-ttu-id="12fc3-118">Visual Studio</span><span class="sxs-lookup"><span data-stu-id="12fc3-118">Visual Studio</span></span>](#tab/visual-studio)
 
-* <span data-ttu-id="313b4-119">Visual Studio 'Yu başlatın ve **Yeni proje oluştur**' u seçin.</span><span class="sxs-lookup"><span data-stu-id="313b4-119">Start Visual Studio and select **Create a new project**.</span></span> <span data-ttu-id="313b4-120">Alternatif olarak, Visual Studio **Dosya** menüsünden **Yeni** > **projesi**' ni seçin.</span><span class="sxs-lookup"><span data-stu-id="313b4-120">Alternatively, from the Visual Studio **File** menu, select **New** > **Project**.</span></span>
-* <span data-ttu-id="313b4-121">**Yeni proje oluştur** Iletişim kutusunda **GRPC hizmeti** ' ni seçin ve **İleri**' yi seçin:</span><span class="sxs-lookup"><span data-stu-id="313b4-121">In the **Create a new project** dialog, select **gRPC Service** and select **Next**:</span></span>
+* <span data-ttu-id="12fc3-119">Visual Studio 'Yu başlatın ve **Yeni proje oluştur**' u seçin.</span><span class="sxs-lookup"><span data-stu-id="12fc3-119">Start Visual Studio and select **Create a new project**.</span></span> <span data-ttu-id="12fc3-120">Alternatif olarak, Visual Studio **Dosya** menüsünden **Yeni** > **projesi**' ni seçin.</span><span class="sxs-lookup"><span data-stu-id="12fc3-120">Alternatively, from the Visual Studio **File** menu, select **New** > **Project**.</span></span>
+* <span data-ttu-id="12fc3-121">**Yeni proje oluştur** Iletişim kutusunda **GRPC hizmeti** ' ni seçin ve **İleri**' yi seçin:</span><span class="sxs-lookup"><span data-stu-id="12fc3-121">In the **Create a new project** dialog, select **gRPC Service** and select **Next**:</span></span>
 
   ![Yeni proje iletişim kutusu oluştur](~/tutorials/grpc/grpc-start/static/cnp.png)
 
-* <span data-ttu-id="313b4-123">Projeyi **Grpcgreeter**olarak adlandırın.</span><span class="sxs-lookup"><span data-stu-id="313b4-123">Name the project **GrpcGreeter**.</span></span> <span data-ttu-id="313b4-124">Kodu kopyalayıp yapıştırdığınızda ad alanlarının eşleşmesi için, proje *Grpcgreeter* adında bir ad vermek önemlidir.</span><span class="sxs-lookup"><span data-stu-id="313b4-124">It's important to name the project *GrpcGreeter* so the namespaces will match when you copy and paste code.</span></span>
-* <span data-ttu-id="313b4-125">Seçin **oluşturma**.</span><span class="sxs-lookup"><span data-stu-id="313b4-125">Select **Create**.</span></span>
-* <span data-ttu-id="313b4-126">**Yeni bir gRPC hizmeti oluştur** iletişim kutusunda:</span><span class="sxs-lookup"><span data-stu-id="313b4-126">In the **Create a new gRPC service** dialog:</span></span>
-  * <span data-ttu-id="313b4-127">**GRPC hizmeti** şablonu seçilidir.</span><span class="sxs-lookup"><span data-stu-id="313b4-127">The **gRPC Service** template is selected.</span></span>
-  * <span data-ttu-id="313b4-128">Seçin **oluşturma**.</span><span class="sxs-lookup"><span data-stu-id="313b4-128">Select **Create**.</span></span>
+* <span data-ttu-id="12fc3-123">Projeyi **Grpcgreeter**olarak adlandırın.</span><span class="sxs-lookup"><span data-stu-id="12fc3-123">Name the project **GrpcGreeter**.</span></span> <span data-ttu-id="12fc3-124">Kodu kopyalayıp yapıştırdığınızda ad alanlarının eşleşmesi için, proje *Grpcgreeter* adında bir ad vermek önemlidir.</span><span class="sxs-lookup"><span data-stu-id="12fc3-124">It's important to name the project *GrpcGreeter* so the namespaces will match when you copy and paste code.</span></span>
+* <span data-ttu-id="12fc3-125">**Oluştur**’u seçin.</span><span class="sxs-lookup"><span data-stu-id="12fc3-125">Select **Create**.</span></span>
+* <span data-ttu-id="12fc3-126">**Yeni bir gRPC hizmeti oluştur** iletişim kutusunda:</span><span class="sxs-lookup"><span data-stu-id="12fc3-126">In the **Create a new gRPC service** dialog:</span></span>
+  * <span data-ttu-id="12fc3-127">**GRPC hizmeti** şablonu seçilidir.</span><span class="sxs-lookup"><span data-stu-id="12fc3-127">The **gRPC Service** template is selected.</span></span>
+  * <span data-ttu-id="12fc3-128">**Oluştur**’u seçin.</span><span class="sxs-lookup"><span data-stu-id="12fc3-128">Select **Create**.</span></span>
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[<span data-ttu-id="313b4-129">Visual Studio Code</span><span class="sxs-lookup"><span data-stu-id="313b4-129">Visual Studio Code</span></span>](#tab/visual-studio-code)
+# <a name="visual-studio-code"></a>[<span data-ttu-id="12fc3-129">Visual Studio Code</span><span class="sxs-lookup"><span data-stu-id="12fc3-129">Visual Studio Code</span></span>](#tab/visual-studio-code)
 
-* <span data-ttu-id="313b4-130">Açık [tümleşik Terminalini](https://code.visualstudio.com/docs/editor/integrated-terminal).</span><span class="sxs-lookup"><span data-stu-id="313b4-130">Open the [integrated terminal](https://code.visualstudio.com/docs/editor/integrated-terminal).</span></span>
-* <span data-ttu-id="313b4-131">Dizinleri (`cd`), projeyi içerecek bir klasöre değiştirin.</span><span class="sxs-lookup"><span data-stu-id="313b4-131">Change directories (`cd`) to a folder which will contain the project.</span></span>
-* <span data-ttu-id="313b4-132">Aşağıdaki komutları çalıştırın:</span><span class="sxs-lookup"><span data-stu-id="313b4-132">Run the following commands:</span></span>
+* <span data-ttu-id="12fc3-130">[Tümleşik terminali](https://code.visualstudio.com/docs/editor/integrated-terminal)açın.</span><span class="sxs-lookup"><span data-stu-id="12fc3-130">Open the [integrated terminal](https://code.visualstudio.com/docs/editor/integrated-terminal).</span></span>
+* <span data-ttu-id="12fc3-131">Dizinleri (`cd`), projeyi içerecek bir klasöre değiştirin.</span><span class="sxs-lookup"><span data-stu-id="12fc3-131">Change directories (`cd`) to a folder which will contain the project.</span></span>
+* <span data-ttu-id="12fc3-132">Aşağıdaki komutları çalıştırın:</span><span class="sxs-lookup"><span data-stu-id="12fc3-132">Run the following commands:</span></span>
 
   ```dotnetcli
   dotnet new grpc -o GrpcGreeter
   code -r GrpcGreeter
   ```
 
-  * <span data-ttu-id="313b4-133">`dotnet new` komutu, *Grpcgreeter* klasöründe yeni bir GRPC hizmeti oluşturur.</span><span class="sxs-lookup"><span data-stu-id="313b4-133">The `dotnet new` command creates a new gRPC service in the *GrpcGreeter* folder.</span></span>
-  * <span data-ttu-id="313b4-134">`code` komutu *Grpcgreeter* klasörünü yeni bir Visual Studio Code örneğinde açar.</span><span class="sxs-lookup"><span data-stu-id="313b4-134">The `code` command opens the *GrpcGreeter* folder in a new instance of Visual Studio Code.</span></span>
+  * <span data-ttu-id="12fc3-133">`dotnet new` komutu, *Grpcgreeter* klasöründe yeni bir GRPC hizmeti oluşturur.</span><span class="sxs-lookup"><span data-stu-id="12fc3-133">The `dotnet new` command creates a new gRPC service in the *GrpcGreeter* folder.</span></span>
+  * <span data-ttu-id="12fc3-134">`code` komutu *Grpcgreeter* klasörünü yeni bir Visual Studio Code örneğinde açar.</span><span class="sxs-lookup"><span data-stu-id="12fc3-134">The `code` command opens the *GrpcGreeter* folder in a new instance of Visual Studio Code.</span></span>
 
-  <span data-ttu-id="313b4-135">**Gerekli varlıkların derlenmesi ve hata ayıklaması için ' GrpcGreeter ' içinde eksik bir iletişim kutusu görüntülenir. Bunları ekleyin mi?**</span><span class="sxs-lookup"><span data-stu-id="313b4-135">A dialog box appears with **Required assets to build and debug are missing from 'GrpcGreeter'. Add them?**</span></span>
-* <span data-ttu-id="313b4-136">**Evet**’i seçin.</span><span class="sxs-lookup"><span data-stu-id="313b4-136">Select **Yes**.</span></span>
+  <span data-ttu-id="12fc3-135">**Gerekli varlıkların derlenmesi ve hata ayıklaması için ' GrpcGreeter ' içinde eksik bir iletişim kutusu görüntülenir. Bunları ekleyin mi?**</span><span class="sxs-lookup"><span data-stu-id="12fc3-135">A dialog box appears with **Required assets to build and debug are missing from 'GrpcGreeter'. Add them?**</span></span>
+* <span data-ttu-id="12fc3-136">**Evet**’i seçin.</span><span class="sxs-lookup"><span data-stu-id="12fc3-136">Select **Yes**.</span></span>
 
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[<span data-ttu-id="313b4-137">Mac için Visual Studio</span><span class="sxs-lookup"><span data-stu-id="313b4-137">Visual Studio for Mac</span></span>](#tab/visual-studio-mac)
+# <a name="visual-studio-for-mac"></a>[<span data-ttu-id="12fc3-137">Mac için Visual Studio</span><span class="sxs-lookup"><span data-stu-id="12fc3-137">Visual Studio for Mac</span></span>](#tab/visual-studio-mac)
 
-<span data-ttu-id="313b4-138">Terminalden aşağıdaki komutları çalıştırın:</span><span class="sxs-lookup"><span data-stu-id="313b4-138">From a terminal, run the following commands:</span></span>
+<span data-ttu-id="12fc3-138">Terminalden aşağıdaki komutları çalıştırın:</span><span class="sxs-lookup"><span data-stu-id="12fc3-138">From a terminal, run the following commands:</span></span>
 
 ```dotnetcli
 dotnet new grpc -o GrpcGreeter
 cd GrpcGreeter
 ```
 
-<span data-ttu-id="313b4-139">Yukarıdaki komutlar, gRPC hizmeti oluşturmak için [.NET Core CLI](/dotnet/core/tools/dotnet) kullanır.</span><span class="sxs-lookup"><span data-stu-id="313b4-139">The preceding commands use the [.NET Core CLI](/dotnet/core/tools/dotnet) to create a gRPC service.</span></span>
+<span data-ttu-id="12fc3-139">Yukarıdaki komutlar, gRPC hizmeti oluşturmak için [.NET Core CLI](/dotnet/core/tools/dotnet) kullanır.</span><span class="sxs-lookup"><span data-stu-id="12fc3-139">The preceding commands use the [.NET Core CLI](/dotnet/core/tools/dotnet) to create a gRPC service.</span></span>
 
-### <a name="open-the-project"></a><span data-ttu-id="313b4-140">Projeyi açın</span><span class="sxs-lookup"><span data-stu-id="313b4-140">Open the project</span></span>
+### <a name="open-the-project"></a><span data-ttu-id="12fc3-140">Projeyi açın</span><span class="sxs-lookup"><span data-stu-id="12fc3-140">Open the project</span></span>
 
-<span data-ttu-id="313b4-141">Visual Studio 'da **dosya** > **Aç**' ı seçin ve ardından *grpcgreeter. csproj* dosyasını seçin.</span><span class="sxs-lookup"><span data-stu-id="313b4-141">From Visual Studio, select **File** > **Open**, and then select the *GrpcGreeter.csproj* file.</span></span>
+<span data-ttu-id="12fc3-141">Visual Studio 'da **dosya** > **Aç**' ı seçin ve ardından *grpcgreeter. csproj* dosyasını seçin.</span><span class="sxs-lookup"><span data-stu-id="12fc3-141">From Visual Studio, select **File** > **Open**, and then select the *GrpcGreeter.csproj* file.</span></span>
 
 ---
 
-### <a name="run-the-service"></a><span data-ttu-id="313b4-142">Hizmeti çalıştırma</span><span class="sxs-lookup"><span data-stu-id="313b4-142">Run the service</span></span>
+### <a name="run-the-service"></a><span data-ttu-id="12fc3-142">Hizmeti çalıştırma</span><span class="sxs-lookup"><span data-stu-id="12fc3-142">Run the service</span></span>
 
   [!INCLUDE[](~/includes/run-the-app.md)]
 
-<span data-ttu-id="313b4-143">Günlükler, `https://localhost:5001`üzerinde dinleme hizmetini gösterir.</span><span class="sxs-lookup"><span data-stu-id="313b4-143">The logs show the service listening on `https://localhost:5001`.</span></span>
+<span data-ttu-id="12fc3-143">Günlükler, `https://localhost:5001`üzerinde dinleme hizmetini gösterir.</span><span class="sxs-lookup"><span data-stu-id="12fc3-143">The logs show the service listening on `https://localhost:5001`.</span></span>
 
 ```console
 info: Microsoft.Hosting.Lifetime[0]
@@ -110,62 +110,62 @@ info: Microsoft.Hosting.Lifetime[0]
 ```
 
 > [!NOTE]
-> <span data-ttu-id="313b4-144">GRPC şablonu, [Aktarım Katmanı Güvenliği (TLS)](https://tools.ietf.org/html/rfc5246)kullanmak üzere yapılandırılmıştır.</span><span class="sxs-lookup"><span data-stu-id="313b4-144">The gRPC template is configured to use [Transport Layer Security (TLS)](https://tools.ietf.org/html/rfc5246).</span></span> <span data-ttu-id="313b4-145">gRPC istemcilerinin, sunucuyu çağırmak için HTTPS kullanması gerekir.</span><span class="sxs-lookup"><span data-stu-id="313b4-145">gRPC clients need to use HTTPS to call the server.</span></span>
+> <span data-ttu-id="12fc3-144">GRPC şablonu, [Aktarım Katmanı Güvenliği (TLS)](https://tools.ietf.org/html/rfc5246)kullanmak üzere yapılandırılmıştır.</span><span class="sxs-lookup"><span data-stu-id="12fc3-144">The gRPC template is configured to use [Transport Layer Security (TLS)](https://tools.ietf.org/html/rfc5246).</span></span> <span data-ttu-id="12fc3-145">gRPC istemcilerinin, sunucuyu çağırmak için HTTPS kullanması gerekir.</span><span class="sxs-lookup"><span data-stu-id="12fc3-145">gRPC clients need to use HTTPS to call the server.</span></span>
 >
-> <span data-ttu-id="313b4-146">macOS, TLS ile ASP.NET Core gRPC 'yi desteklemez.</span><span class="sxs-lookup"><span data-stu-id="313b4-146">macOS doesn't support ASP.NET Core gRPC with TLS.</span></span> <span data-ttu-id="313b4-147">MacOS 'ta gRPC hizmetlerini başarıyla çalıştırmak için ek yapılandırma gerekir.</span><span class="sxs-lookup"><span data-stu-id="313b4-147">Additional configuration is required to successfully run gRPC services on macOS.</span></span> <span data-ttu-id="313b4-148">Daha fazla bilgi için bkz. [macOS üzerinde gRPC uygulaması ASP.NET Core başlatılamıyor](xref:grpc/troubleshoot#unable-to-start-aspnet-core-grpc-app-on-macos).</span><span class="sxs-lookup"><span data-stu-id="313b4-148">For more information, see [Unable to start ASP.NET Core gRPC app on macOS](xref:grpc/troubleshoot#unable-to-start-aspnet-core-grpc-app-on-macos).</span></span>
+> <span data-ttu-id="12fc3-146">macOS, TLS ile ASP.NET Core gRPC 'yi desteklemez.</span><span class="sxs-lookup"><span data-stu-id="12fc3-146">macOS doesn't support ASP.NET Core gRPC with TLS.</span></span> <span data-ttu-id="12fc3-147">MacOS 'ta gRPC hizmetlerini başarıyla çalıştırmak için ek yapılandırma gerekir.</span><span class="sxs-lookup"><span data-stu-id="12fc3-147">Additional configuration is required to successfully run gRPC services on macOS.</span></span> <span data-ttu-id="12fc3-148">Daha fazla bilgi için bkz. [macOS üzerinde gRPC uygulaması ASP.NET Core başlatılamıyor](xref:grpc/troubleshoot#unable-to-start-aspnet-core-grpc-app-on-macos).</span><span class="sxs-lookup"><span data-stu-id="12fc3-148">For more information, see [Unable to start ASP.NET Core gRPC app on macOS](xref:grpc/troubleshoot#unable-to-start-aspnet-core-grpc-app-on-macos).</span></span>
 
-### <a name="examine-the-project-files"></a><span data-ttu-id="313b4-149">Proje dosyalarını inceleyin</span><span class="sxs-lookup"><span data-stu-id="313b4-149">Examine the project files</span></span>
+### <a name="examine-the-project-files"></a><span data-ttu-id="12fc3-149">Proje dosyalarını inceleyin</span><span class="sxs-lookup"><span data-stu-id="12fc3-149">Examine the project files</span></span>
 
-<span data-ttu-id="313b4-150">*Grpcgreeter* proje dosyaları:</span><span class="sxs-lookup"><span data-stu-id="313b4-150">*GrpcGreeter* project files:</span></span>
+<span data-ttu-id="12fc3-150">*Grpcgreeter* proje dosyaları:</span><span class="sxs-lookup"><span data-stu-id="12fc3-150">*GrpcGreeter* project files:</span></span>
 
-* <span data-ttu-id="313b4-151">*Greet. proto* &ndash; *prototips/Greet. proto* dosyası `Greeter` GRPC 'Yi tanımlar ve GRPC sunucu varlıklarını oluşturmak için kullanılır.</span><span class="sxs-lookup"><span data-stu-id="313b4-151">*greet.proto* &ndash; The *Protos/greet.proto* file defines the `Greeter` gRPC and is used to generate the gRPC server assets.</span></span> <span data-ttu-id="313b4-152">Daha fazla bilgi için bkz. [gRPC 'ye giriş](xref:grpc/index).</span><span class="sxs-lookup"><span data-stu-id="313b4-152">For more information, see [Introduction to gRPC](xref:grpc/index).</span></span>
-* <span data-ttu-id="313b4-153">*Hizmetler* klasörü: `Greeter` hizmetinin uygulamasını içerir.</span><span class="sxs-lookup"><span data-stu-id="313b4-153">*Services* folder: Contains the implementation of the `Greeter` service.</span></span>
-* <span data-ttu-id="313b4-154">*appSettings. json* &ndash;, Kestrel tarafından kullanılan protokol gibi yapılandırma verilerini içerir.</span><span class="sxs-lookup"><span data-stu-id="313b4-154">*appSettings.json* &ndash; Contains configuration data, such as protocol used by Kestrel.</span></span> <span data-ttu-id="313b4-155">Daha fazla bilgi için bkz. <xref:fundamentals/configuration/index>.</span><span class="sxs-lookup"><span data-stu-id="313b4-155">For more information, see <xref:fundamentals/configuration/index>.</span></span>
-* <span data-ttu-id="313b4-156">*Program.cs* &ndash;, GRPC hizmetinin giriş noktasını içerir.</span><span class="sxs-lookup"><span data-stu-id="313b4-156">*Program.cs* &ndash; Contains the entry point for the gRPC service.</span></span> <span data-ttu-id="313b4-157">Daha fazla bilgi için bkz. <xref:fundamentals/host/generic-host>.</span><span class="sxs-lookup"><span data-stu-id="313b4-157">For more information, see <xref:fundamentals/host/generic-host>.</span></span>
-* <span data-ttu-id="313b4-158">*Startup.cs* &ndash; uygulama davranışını yapılandıran kodu içerir.</span><span class="sxs-lookup"><span data-stu-id="313b4-158">*Startup.cs* &ndash; Contains code that configures app behavior.</span></span> <span data-ttu-id="313b4-159">Daha fazla bilgi için bkz. [uygulama başlatma](xref:fundamentals/startup).</span><span class="sxs-lookup"><span data-stu-id="313b4-159">For more information, see [App startup](xref:fundamentals/startup).</span></span>
+* <span data-ttu-id="12fc3-151">*Greet. proto* &ndash; *prototips/Greet. proto* dosyası `Greeter` GRPC 'Yi tanımlar ve GRPC sunucu varlıklarını oluşturmak için kullanılır.</span><span class="sxs-lookup"><span data-stu-id="12fc3-151">*greet.proto* &ndash; The *Protos/greet.proto* file defines the `Greeter` gRPC and is used to generate the gRPC server assets.</span></span> <span data-ttu-id="12fc3-152">Daha fazla bilgi için bkz. [gRPC 'ye giriş](xref:grpc/index).</span><span class="sxs-lookup"><span data-stu-id="12fc3-152">For more information, see [Introduction to gRPC](xref:grpc/index).</span></span>
+* <span data-ttu-id="12fc3-153">*Hizmetler* klasörü: `Greeter` hizmetinin uygulamasını içerir.</span><span class="sxs-lookup"><span data-stu-id="12fc3-153">*Services* folder: Contains the implementation of the `Greeter` service.</span></span>
+* <span data-ttu-id="12fc3-154">*appSettings. json* &ndash;, Kestrel tarafından kullanılan protokol gibi yapılandırma verilerini içerir.</span><span class="sxs-lookup"><span data-stu-id="12fc3-154">*appSettings.json* &ndash; Contains configuration data, such as protocol used by Kestrel.</span></span> <span data-ttu-id="12fc3-155">Daha fazla bilgi için bkz. <xref:fundamentals/configuration/index>.</span><span class="sxs-lookup"><span data-stu-id="12fc3-155">For more information, see <xref:fundamentals/configuration/index>.</span></span>
+* <span data-ttu-id="12fc3-156">*Program.cs* &ndash;, GRPC hizmetinin giriş noktasını içerir.</span><span class="sxs-lookup"><span data-stu-id="12fc3-156">*Program.cs* &ndash; Contains the entry point for the gRPC service.</span></span> <span data-ttu-id="12fc3-157">Daha fazla bilgi için bkz. <xref:fundamentals/host/generic-host>.</span><span class="sxs-lookup"><span data-stu-id="12fc3-157">For more information, see <xref:fundamentals/host/generic-host>.</span></span>
+* <span data-ttu-id="12fc3-158">*Startup.cs* &ndash; uygulama davranışını yapılandıran kodu içerir.</span><span class="sxs-lookup"><span data-stu-id="12fc3-158">*Startup.cs* &ndash; Contains code that configures app behavior.</span></span> <span data-ttu-id="12fc3-159">Daha fazla bilgi için bkz. [uygulama başlatma](xref:fundamentals/startup).</span><span class="sxs-lookup"><span data-stu-id="12fc3-159">For more information, see [App startup](xref:fundamentals/startup).</span></span>
 
-## <a name="create-the-grpc-client-in-a-net-console-app"></a><span data-ttu-id="313b4-160">Bir .NET konsol uygulamasında gRPC istemcisini oluşturma</span><span class="sxs-lookup"><span data-stu-id="313b4-160">Create the gRPC client in a .NET console app</span></span>
+## <a name="create-the-grpc-client-in-a-net-console-app"></a><span data-ttu-id="12fc3-160">Bir .NET konsol uygulamasında gRPC istemcisini oluşturma</span><span class="sxs-lookup"><span data-stu-id="12fc3-160">Create the gRPC client in a .NET console app</span></span>
 
-# <a name="visual-studiotabvisual-studio"></a>[<span data-ttu-id="313b4-161">Visual Studio</span><span class="sxs-lookup"><span data-stu-id="313b4-161">Visual Studio</span></span>](#tab/visual-studio)
+# <a name="visual-studio"></a>[<span data-ttu-id="12fc3-161">Visual Studio</span><span class="sxs-lookup"><span data-stu-id="12fc3-161">Visual Studio</span></span>](#tab/visual-studio)
 
-* <span data-ttu-id="313b4-162">Visual Studio 'nun ikinci bir örneğini açın ve **Yeni proje oluştur**' u seçin.</span><span class="sxs-lookup"><span data-stu-id="313b4-162">Open a second instance of Visual Studio and select **Create a new project**.</span></span>
-* <span data-ttu-id="313b4-163">**Yeni proje oluştur** Iletişim kutusunda **konsol uygulaması (.NET Core)** öğesini seçin ve **İleri**' yi seçin.</span><span class="sxs-lookup"><span data-stu-id="313b4-163">In the **Create a new project** dialog, select **Console App (.NET Core)** and select **Next**.</span></span>
-* <span data-ttu-id="313b4-164">**Ad** metin kutusuna **Grpcgreeterclient** girin ve **Oluştur**' u seçin.</span><span class="sxs-lookup"><span data-stu-id="313b4-164">In the **Name** text box, enter **GrpcGreeterClient** and select **Create**.</span></span>
+* <span data-ttu-id="12fc3-162">Visual Studio 'nun ikinci bir örneğini açın ve **Yeni proje oluştur**' u seçin.</span><span class="sxs-lookup"><span data-stu-id="12fc3-162">Open a second instance of Visual Studio and select **Create a new project**.</span></span>
+* <span data-ttu-id="12fc3-163">**Yeni proje oluştur** Iletişim kutusunda **konsol uygulaması (.NET Core)** öğesini seçin ve **İleri**' yi seçin.</span><span class="sxs-lookup"><span data-stu-id="12fc3-163">In the **Create a new project** dialog, select **Console App (.NET Core)** and select **Next**.</span></span>
+* <span data-ttu-id="12fc3-164">**Ad** metin kutusuna **Grpcgreeterclient** girin ve **Oluştur**' u seçin.</span><span class="sxs-lookup"><span data-stu-id="12fc3-164">In the **Name** text box, enter **GrpcGreeterClient** and select **Create**.</span></span>
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[<span data-ttu-id="313b4-165">Visual Studio Code</span><span class="sxs-lookup"><span data-stu-id="313b4-165">Visual Studio Code</span></span>](#tab/visual-studio-code)
+# <a name="visual-studio-code"></a>[<span data-ttu-id="12fc3-165">Visual Studio Code</span><span class="sxs-lookup"><span data-stu-id="12fc3-165">Visual Studio Code</span></span>](#tab/visual-studio-code)
 
-* <span data-ttu-id="313b4-166">Açık [tümleşik Terminalini](https://code.visualstudio.com/docs/editor/integrated-terminal).</span><span class="sxs-lookup"><span data-stu-id="313b4-166">Open the [integrated terminal](https://code.visualstudio.com/docs/editor/integrated-terminal).</span></span>
-* <span data-ttu-id="313b4-167">Dizinleri (`cd`), projeyi içerecek bir klasöre değiştirin.</span><span class="sxs-lookup"><span data-stu-id="313b4-167">Change directories (`cd`) to a folder which will contain the project.</span></span>
-* <span data-ttu-id="313b4-168">Aşağıdaki komutları çalıştırın:</span><span class="sxs-lookup"><span data-stu-id="313b4-168">Run the following commands:</span></span>
+* <span data-ttu-id="12fc3-166">[Tümleşik terminali](https://code.visualstudio.com/docs/editor/integrated-terminal)açın.</span><span class="sxs-lookup"><span data-stu-id="12fc3-166">Open the [integrated terminal](https://code.visualstudio.com/docs/editor/integrated-terminal).</span></span>
+* <span data-ttu-id="12fc3-167">Dizinleri (`cd`), projeyi içerecek bir klasöre değiştirin.</span><span class="sxs-lookup"><span data-stu-id="12fc3-167">Change directories (`cd`) to a folder which will contain the project.</span></span>
+* <span data-ttu-id="12fc3-168">Aşağıdaki komutları çalıştırın:</span><span class="sxs-lookup"><span data-stu-id="12fc3-168">Run the following commands:</span></span>
 
   ```dotnetcli
   dotnet new console -o GrpcGreeterClient
   code -r GrpcGreeterClient
   ```
 
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[<span data-ttu-id="313b4-169">Mac için Visual Studio</span><span class="sxs-lookup"><span data-stu-id="313b4-169">Visual Studio for Mac</span></span>](#tab/visual-studio-mac)
+# <a name="visual-studio-for-mac"></a>[<span data-ttu-id="12fc3-169">Mac için Visual Studio</span><span class="sxs-lookup"><span data-stu-id="12fc3-169">Visual Studio for Mac</span></span>](#tab/visual-studio-mac)
 
-<span data-ttu-id="313b4-170">*Grpcgreeterclient*adlı bir konsol uygulaması oluşturmak için [Mac için Visual Studio kullanarak MacOS 'ta kapsamlı bir .NET Core çözümü oluşturma](/dotnet/core/tutorials/using-on-mac-vs-full-solution) konusundaki yönergeleri izleyin.</span><span class="sxs-lookup"><span data-stu-id="313b4-170">Follow the instructions in [Building a complete .NET Core solution on macOS using Visual Studio for Mac](/dotnet/core/tutorials/using-on-mac-vs-full-solution) to create a console app with the name *GrpcGreeterClient*.</span></span>
+<span data-ttu-id="12fc3-170">*Grpcgreeterclient*adlı bir konsol uygulaması oluşturmak için [Mac için Visual Studio kullanarak MacOS 'ta kapsamlı bir .NET Core çözümü oluşturma](/dotnet/core/tutorials/using-on-mac-vs-full-solution) konusundaki yönergeleri izleyin.</span><span class="sxs-lookup"><span data-stu-id="12fc3-170">Follow the instructions in [Building a complete .NET Core solution on macOS using Visual Studio for Mac](/dotnet/core/tutorials/using-on-mac-vs-full-solution) to create a console app with the name *GrpcGreeterClient*.</span></span>
 
 ---
 
-### <a name="add-required-packages"></a><span data-ttu-id="313b4-171">Gerekli paketleri Ekle</span><span class="sxs-lookup"><span data-stu-id="313b4-171">Add required packages</span></span>
+### <a name="add-required-packages"></a><span data-ttu-id="12fc3-171">Gerekli paketleri Ekle</span><span class="sxs-lookup"><span data-stu-id="12fc3-171">Add required packages</span></span>
 
-<span data-ttu-id="313b4-172">GRPC istemci projesi aşağıdaki paketleri gerektirir:</span><span class="sxs-lookup"><span data-stu-id="313b4-172">The gRPC client project requires the following packages:</span></span>
+<span data-ttu-id="12fc3-172">GRPC istemci projesi aşağıdaki paketleri gerektirir:</span><span class="sxs-lookup"><span data-stu-id="12fc3-172">The gRPC client project requires the following packages:</span></span>
 
-* <span data-ttu-id="313b4-173">.NET Core istemcisini içeren [GRPC .net. Client](https://www.nuget.org/packages/Grpc.Net.Client).</span><span class="sxs-lookup"><span data-stu-id="313b4-173">[Grpc.Net.Client](https://www.nuget.org/packages/Grpc.Net.Client), which contains the .NET Core client.</span></span>
-* <span data-ttu-id="313b4-174">İçin C#prototipsiz Ileti API 'Leri içeren [Google. protoarabellek](https://www.nuget.org/packages/Google.Protobuf/).</span><span class="sxs-lookup"><span data-stu-id="313b4-174">[Google.Protobuf](https://www.nuget.org/packages/Google.Protobuf/), which contains protobuf message APIs for C#.</span></span>
-* <span data-ttu-id="313b4-175">Prototipleme dosyaları için araç desteğini C# Içeren [GRPC. Tools](https://www.nuget.org/packages/Grpc.Tools/).</span><span class="sxs-lookup"><span data-stu-id="313b4-175">[Grpc.Tools](https://www.nuget.org/packages/Grpc.Tools/), which contains C# tooling support for protobuf files.</span></span> <span data-ttu-id="313b4-176">Araç, çalışma zamanında gerekli değildir, bu nedenle bağımlılık `PrivateAssets="All"`olarak işaretlenir.</span><span class="sxs-lookup"><span data-stu-id="313b4-176">The tooling package isn't required at runtime, so the dependency is marked with `PrivateAssets="All"`.</span></span>
+* <span data-ttu-id="12fc3-173">.NET Core istemcisini içeren [GRPC .net. Client](https://www.nuget.org/packages/Grpc.Net.Client).</span><span class="sxs-lookup"><span data-stu-id="12fc3-173">[Grpc.Net.Client](https://www.nuget.org/packages/Grpc.Net.Client), which contains the .NET Core client.</span></span>
+* <span data-ttu-id="12fc3-174">İçin C#prototipsiz Ileti API 'Leri içeren [Google. protoarabellek](https://www.nuget.org/packages/Google.Protobuf/).</span><span class="sxs-lookup"><span data-stu-id="12fc3-174">[Google.Protobuf](https://www.nuget.org/packages/Google.Protobuf/), which contains protobuf message APIs for C#.</span></span>
+* <span data-ttu-id="12fc3-175">Prototipleme dosyaları için araç desteğini C# Içeren [GRPC. Tools](https://www.nuget.org/packages/Grpc.Tools/).</span><span class="sxs-lookup"><span data-stu-id="12fc3-175">[Grpc.Tools](https://www.nuget.org/packages/Grpc.Tools/), which contains C# tooling support for protobuf files.</span></span> <span data-ttu-id="12fc3-176">Araç, çalışma zamanında gerekli değildir, bu nedenle bağımlılık `PrivateAssets="All"`olarak işaretlenir.</span><span class="sxs-lookup"><span data-stu-id="12fc3-176">The tooling package isn't required at runtime, so the dependency is marked with `PrivateAssets="All"`.</span></span>
 
-# <a name="visual-studiotabvisual-studio"></a>[<span data-ttu-id="313b4-177">Visual Studio</span><span class="sxs-lookup"><span data-stu-id="313b4-177">Visual Studio</span></span>](#tab/visual-studio)
+# <a name="visual-studio"></a>[<span data-ttu-id="12fc3-177">Visual Studio</span><span class="sxs-lookup"><span data-stu-id="12fc3-177">Visual Studio</span></span>](#tab/visual-studio)
 
-<span data-ttu-id="313b4-178">Paket Yöneticisi Konsolu (PMC) veya NuGet Paketlerini Yönet ' i kullanarak paketleri yükler.</span><span class="sxs-lookup"><span data-stu-id="313b4-178">Install the packages using either the Package Manager Console (PMC) or Manage NuGet Packages.</span></span>
+<span data-ttu-id="12fc3-178">Paket Yöneticisi Konsolu (PMC) veya NuGet Paketlerini Yönet ' i kullanarak paketleri yükler.</span><span class="sxs-lookup"><span data-stu-id="12fc3-178">Install the packages using either the Package Manager Console (PMC) or Manage NuGet Packages.</span></span>
 
-#### <a name="pmc-option-to-install-packages"></a><span data-ttu-id="313b4-179">Paket yüklemek için PMC seçeneği</span><span class="sxs-lookup"><span data-stu-id="313b4-179">PMC option to install packages</span></span>
+#### <a name="pmc-option-to-install-packages"></a><span data-ttu-id="12fc3-179">Paket yüklemek için PMC seçeneği</span><span class="sxs-lookup"><span data-stu-id="12fc3-179">PMC option to install packages</span></span>
 
-* <span data-ttu-id="313b4-180">Visual Studio 'da **araçlar** > **NuGet Paket Yöneticisi** > **Paket Yöneticisi konsolu** ' nu seçin.</span><span class="sxs-lookup"><span data-stu-id="313b4-180">From Visual Studio, select **Tools** > **NuGet Package Manager** > **Package Manager Console**</span></span>
-* <span data-ttu-id="313b4-181">**Paket Yöneticisi konsol** penceresinde, *Grpcgreeterclient. csproj* dosyalarını içeren klasöre Dizin değiştirmek için `cd GrpcGreeterClient` çalıştırın.</span><span class="sxs-lookup"><span data-stu-id="313b4-181">From the **Package Manager Console** window, run `cd GrpcGreeterClient` to change directories to the folder containing the *GrpcGreeterClient.csproj* files.</span></span>
-* <span data-ttu-id="313b4-182">Aşağıdaki komutları çalıştırın:</span><span class="sxs-lookup"><span data-stu-id="313b4-182">Run the following commands:</span></span>
+* <span data-ttu-id="12fc3-180">Visual Studio 'da **araçlar** > **NuGet Paket Yöneticisi** > **Paket Yöneticisi konsolu** ' nu seçin.</span><span class="sxs-lookup"><span data-stu-id="12fc3-180">From Visual Studio, select **Tools** > **NuGet Package Manager** > **Package Manager Console**</span></span>
+* <span data-ttu-id="12fc3-181">**Paket Yöneticisi konsol** penceresinde, *Grpcgreeterclient. csproj* dosyalarını içeren klasöre Dizin değiştirmek için `cd GrpcGreeterClient` çalıştırın.</span><span class="sxs-lookup"><span data-stu-id="12fc3-181">From the **Package Manager Console** window, run `cd GrpcGreeterClient` to change directories to the folder containing the *GrpcGreeterClient.csproj* files.</span></span>
+* <span data-ttu-id="12fc3-182">Aşağıdaki komutları çalıştırın:</span><span class="sxs-lookup"><span data-stu-id="12fc3-182">Run the following commands:</span></span>
 
   ```powershell
   Install-Package Grpc.Net.Client
@@ -173,17 +173,17 @@ info: Microsoft.Hosting.Lifetime[0]
   Install-Package Grpc.Tools
   ```
 
-#### <a name="manage-nuget-packages-option-to-install-packages"></a><span data-ttu-id="313b4-183">Paket yüklemek için NuGet Paketlerini Yönet seçeneği</span><span class="sxs-lookup"><span data-stu-id="313b4-183">Manage NuGet Packages option to install packages</span></span>
+#### <a name="manage-nuget-packages-option-to-install-packages"></a><span data-ttu-id="12fc3-183">Paket yüklemek için NuGet Paketlerini Yönet seçeneği</span><span class="sxs-lookup"><span data-stu-id="12fc3-183">Manage NuGet Packages option to install packages</span></span>
 
-* <span data-ttu-id="313b4-184">**NuGet paketlerini yönetmek** > **Çözüm Gezgini** ' de projeye sağ tıklayın</span><span class="sxs-lookup"><span data-stu-id="313b4-184">Right-click the project in **Solution Explorer** > **Manage NuGet Packages**</span></span>
-* <span data-ttu-id="313b4-185">**Gözat** sekmesini seçin.</span><span class="sxs-lookup"><span data-stu-id="313b4-185">Select the **Browse** tab.</span></span>
-* <span data-ttu-id="313b4-186">Arama kutusuna **GRPC .net. Client** girin.</span><span class="sxs-lookup"><span data-stu-id="313b4-186">Enter **Grpc.Net.Client** in the search box.</span></span>
-* <span data-ttu-id="313b4-187">**Araştır** sekmesinden **GRPC .net. Client** paketini seçin ve ardından **Install**' ı seçin.</span><span class="sxs-lookup"><span data-stu-id="313b4-187">Select the **Grpc.Net.Client** package from the **Browse** tab and select **Install**.</span></span>
-* <span data-ttu-id="313b4-188">`Google.Protobuf` ve `Grpc.Tools`için yineleyin.</span><span class="sxs-lookup"><span data-stu-id="313b4-188">Repeat for `Google.Protobuf` and `Grpc.Tools`.</span></span>
+* <span data-ttu-id="12fc3-184">**NuGet paketlerini yönetmek** > **Çözüm Gezgini** ' de projeye sağ tıklayın</span><span class="sxs-lookup"><span data-stu-id="12fc3-184">Right-click the project in **Solution Explorer** > **Manage NuGet Packages**</span></span>
+* <span data-ttu-id="12fc3-185">**Gözat** sekmesini seçin.</span><span class="sxs-lookup"><span data-stu-id="12fc3-185">Select the **Browse** tab.</span></span>
+* <span data-ttu-id="12fc3-186">Arama kutusuna **GRPC .net. Client** girin.</span><span class="sxs-lookup"><span data-stu-id="12fc3-186">Enter **Grpc.Net.Client** in the search box.</span></span>
+* <span data-ttu-id="12fc3-187">**Araştır** sekmesinden **GRPC .net. Client** paketini seçin ve ardından **Install**' ı seçin.</span><span class="sxs-lookup"><span data-stu-id="12fc3-187">Select the **Grpc.Net.Client** package from the **Browse** tab and select **Install**.</span></span>
+* <span data-ttu-id="12fc3-188">`Google.Protobuf` ve `Grpc.Tools`için yineleyin.</span><span class="sxs-lookup"><span data-stu-id="12fc3-188">Repeat for `Google.Protobuf` and `Grpc.Tools`.</span></span>
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[<span data-ttu-id="313b4-189">Visual Studio Code</span><span class="sxs-lookup"><span data-stu-id="313b4-189">Visual Studio Code</span></span>](#tab/visual-studio-code)
+# <a name="visual-studio-code"></a>[<span data-ttu-id="12fc3-189">Visual Studio Code</span><span class="sxs-lookup"><span data-stu-id="12fc3-189">Visual Studio Code</span></span>](#tab/visual-studio-code)
 
-<span data-ttu-id="313b4-190">**Tümleşik terminalden**aşağıdaki komutları çalıştırın:</span><span class="sxs-lookup"><span data-stu-id="313b4-190">Run the following commands from the **Integrated Terminal**:</span></span>
+<span data-ttu-id="12fc3-190">**Tümleşik terminalden**aşağıdaki komutları çalıştırın:</span><span class="sxs-lookup"><span data-stu-id="12fc3-190">Run the following commands from the **Integrated Terminal**:</span></span>
 
 ```dotnetcli
 dotnet add GrpcGreeterClient.csproj package Grpc.Net.Client
@@ -191,36 +191,36 @@ dotnet add GrpcGreeterClient.csproj package Google.Protobuf
 dotnet add GrpcGreeterClient.csproj package Grpc.Tools
 ```
 
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[<span data-ttu-id="313b4-191">Mac için Visual Studio</span><span class="sxs-lookup"><span data-stu-id="313b4-191">Visual Studio for Mac</span></span>](#tab/visual-studio-mac)
+# <a name="visual-studio-for-mac"></a>[<span data-ttu-id="12fc3-191">Mac için Visual Studio</span><span class="sxs-lookup"><span data-stu-id="12fc3-191">Visual Studio for Mac</span></span>](#tab/visual-studio-mac)
 
-* <span data-ttu-id="313b4-192">**Çözüm Bölmesi** > paket **Ekle** ' de **paketler** klasörüne sağ tıklayın</span><span class="sxs-lookup"><span data-stu-id="313b4-192">Right-click the **Packages** folder in **Solution Pad** > **Add Packages**</span></span>
-* <span data-ttu-id="313b4-193">Arama kutusuna **GRPC .net. Client** girin.</span><span class="sxs-lookup"><span data-stu-id="313b4-193">Enter **Grpc.Net.Client** in the search box.</span></span>
-* <span data-ttu-id="313b4-194">Sonuçlar bölmesinden **GRPC .net. Client** paketini seçin ve **paket Ekle** ' yi seçin.</span><span class="sxs-lookup"><span data-stu-id="313b4-194">Select the **Grpc.Net.Client** package from the results pane and select **Add Package**</span></span>
-* <span data-ttu-id="313b4-195">`Google.Protobuf` ve `Grpc.Tools`için yineleyin.</span><span class="sxs-lookup"><span data-stu-id="313b4-195">Repeat for `Google.Protobuf` and `Grpc.Tools`.</span></span>
+* <span data-ttu-id="12fc3-192">**Çözüm Bölmesi** > paket **Ekle** ' de **paketler** klasörüne sağ tıklayın</span><span class="sxs-lookup"><span data-stu-id="12fc3-192">Right-click the **Packages** folder in **Solution Pad** > **Add Packages**</span></span>
+* <span data-ttu-id="12fc3-193">Arama kutusuna **GRPC .net. Client** girin.</span><span class="sxs-lookup"><span data-stu-id="12fc3-193">Enter **Grpc.Net.Client** in the search box.</span></span>
+* <span data-ttu-id="12fc3-194">Sonuçlar bölmesinden **GRPC .net. Client** paketini seçin ve **paket Ekle** ' yi seçin.</span><span class="sxs-lookup"><span data-stu-id="12fc3-194">Select the **Grpc.Net.Client** package from the results pane and select **Add Package**</span></span>
+* <span data-ttu-id="12fc3-195">`Google.Protobuf` ve `Grpc.Tools`için yineleyin.</span><span class="sxs-lookup"><span data-stu-id="12fc3-195">Repeat for `Google.Protobuf` and `Grpc.Tools`.</span></span>
 
 ---
 
-### <a name="add-greetproto"></a><span data-ttu-id="313b4-196">Greet. proto Ekle</span><span class="sxs-lookup"><span data-stu-id="313b4-196">Add greet.proto</span></span>
+### <a name="add-greetproto"></a><span data-ttu-id="12fc3-196">Greet. proto Ekle</span><span class="sxs-lookup"><span data-stu-id="12fc3-196">Add greet.proto</span></span>
 
-* <span data-ttu-id="313b4-197">GRPC istemci projesinde bir *Prototips* klasörü oluşturun.</span><span class="sxs-lookup"><span data-stu-id="313b4-197">Create a *Protos* folder in the gRPC client project.</span></span>
-* <span data-ttu-id="313b4-198">*Protos\bilgisem. proto* dosyasını GRPC Greeter hizmetinden GRPC istemci projesine kopyalayın.</span><span class="sxs-lookup"><span data-stu-id="313b4-198">Copy the *Protos\greet.proto* file from the gRPC Greeter service to the gRPC client project.</span></span>
-* <span data-ttu-id="313b4-199">*Grpcgreeterclient. csproj* proje dosyasını düzenleyin:</span><span class="sxs-lookup"><span data-stu-id="313b4-199">Edit the *GrpcGreeterClient.csproj* project file:</span></span>
+* <span data-ttu-id="12fc3-197">GRPC istemci projesinde bir *Prototips* klasörü oluşturun.</span><span class="sxs-lookup"><span data-stu-id="12fc3-197">Create a *Protos* folder in the gRPC client project.</span></span>
+* <span data-ttu-id="12fc3-198">*Protos\bilgisem. proto* dosyasını GRPC Greeter hizmetinden GRPC istemci projesine kopyalayın.</span><span class="sxs-lookup"><span data-stu-id="12fc3-198">Copy the *Protos\greet.proto* file from the gRPC Greeter service to the gRPC client project.</span></span>
+* <span data-ttu-id="12fc3-199">*Grpcgreeterclient. csproj* proje dosyasını düzenleyin:</span><span class="sxs-lookup"><span data-stu-id="12fc3-199">Edit the *GrpcGreeterClient.csproj* project file:</span></span>
 
-  # <a name="visual-studiotabvisual-studio"></a>[<span data-ttu-id="313b4-200">Visual Studio</span><span class="sxs-lookup"><span data-stu-id="313b4-200">Visual Studio</span></span>](#tab/visual-studio)
+  # <a name="visual-studio"></a>[<span data-ttu-id="12fc3-200">Visual Studio</span><span class="sxs-lookup"><span data-stu-id="12fc3-200">Visual Studio</span></span>](#tab/visual-studio)
 
-  <span data-ttu-id="313b4-201">Projeye sağ tıklayın ve **Proje dosyasını Düzenle**' yi seçin.</span><span class="sxs-lookup"><span data-stu-id="313b4-201">Right-click the project and select **Edit Project File**.</span></span>
+  <span data-ttu-id="12fc3-201">Projeye sağ tıklayın ve **Proje dosyasını Düzenle**' yi seçin.</span><span class="sxs-lookup"><span data-stu-id="12fc3-201">Right-click the project and select **Edit Project File**.</span></span>
 
-  # <a name="visual-studio-codetabvisual-studio-code"></a>[<span data-ttu-id="313b4-202">Visual Studio Code</span><span class="sxs-lookup"><span data-stu-id="313b4-202">Visual Studio Code</span></span>](#tab/visual-studio-code)
+  # <a name="visual-studio-code"></a>[<span data-ttu-id="12fc3-202">Visual Studio Code</span><span class="sxs-lookup"><span data-stu-id="12fc3-202">Visual Studio Code</span></span>](#tab/visual-studio-code)
 
-  <span data-ttu-id="313b4-203">*Grpcgreeterclient. csproj* dosyasını seçin.</span><span class="sxs-lookup"><span data-stu-id="313b4-203">Select the *GrpcGreeterClient.csproj* file.</span></span>
+  <span data-ttu-id="12fc3-203">*Grpcgreeterclient. csproj* dosyasını seçin.</span><span class="sxs-lookup"><span data-stu-id="12fc3-203">Select the *GrpcGreeterClient.csproj* file.</span></span>
 
-  # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[<span data-ttu-id="313b4-204">Mac için Visual Studio</span><span class="sxs-lookup"><span data-stu-id="313b4-204">Visual Studio for Mac</span></span>](#tab/visual-studio-mac)
+  # <a name="visual-studio-for-mac"></a>[<span data-ttu-id="12fc3-204">Mac için Visual Studio</span><span class="sxs-lookup"><span data-stu-id="12fc3-204">Visual Studio for Mac</span></span>](#tab/visual-studio-mac)
 
-  <span data-ttu-id="313b4-205">Projeye sağ tıklayın ve **dosyayı düzenle** > **Araçlar** ' ı seçin.</span><span class="sxs-lookup"><span data-stu-id="313b4-205">Right-click the project and select **Tools** > **Edit File**.</span></span>
+  <span data-ttu-id="12fc3-205">Projeye sağ tıklayın ve **dosyayı düzenle** > **Araçlar** ' ı seçin.</span><span class="sxs-lookup"><span data-stu-id="12fc3-205">Right-click the project and select **Tools** > **Edit File**.</span></span>
 
   ---
 
-* <span data-ttu-id="313b4-206">*Greet. proto* dosyasına başvuran `<Protobuf>` öğesi olan bir öğe grubu ekleyin:</span><span class="sxs-lookup"><span data-stu-id="313b4-206">Add an item group with a `<Protobuf>` element that refers to the *greet.proto* file:</span></span>
+* <span data-ttu-id="12fc3-206">*Greet. proto* dosyasına başvuran `<Protobuf>` öğesi olan bir öğe grubu ekleyin:</span><span class="sxs-lookup"><span data-stu-id="12fc3-206">Add an item group with a `<Protobuf>` element that refers to the *greet.proto* file:</span></span>
 
   ```xml
   <ItemGroup>
@@ -228,55 +228,55 @@ dotnet add GrpcGreeterClient.csproj package Grpc.Tools
   </ItemGroup>
   ```
 
-### <a name="create-the-greeter-client"></a><span data-ttu-id="313b4-207">Greeter istemcisini oluşturma</span><span class="sxs-lookup"><span data-stu-id="313b4-207">Create the Greeter client</span></span>
+### <a name="create-the-greeter-client"></a><span data-ttu-id="12fc3-207">Greeter istemcisini oluşturma</span><span class="sxs-lookup"><span data-stu-id="12fc3-207">Create the Greeter client</span></span>
 
-<span data-ttu-id="313b4-208">`GrpcGreeter` ad alanındaki türleri oluşturmak için projeyi derleyin.</span><span class="sxs-lookup"><span data-stu-id="313b4-208">Build the project to create the types in the `GrpcGreeter` namespace.</span></span> <span data-ttu-id="313b4-209">`GrpcGreeter` türleri yapı işlemi tarafından otomatik olarak oluşturulur.</span><span class="sxs-lookup"><span data-stu-id="313b4-209">The `GrpcGreeter` types are generated automatically by the build process.</span></span>
+<span data-ttu-id="12fc3-208">`GrpcGreeter` ad alanındaki türleri oluşturmak için projeyi derleyin.</span><span class="sxs-lookup"><span data-stu-id="12fc3-208">Build the project to create the types in the `GrpcGreeter` namespace.</span></span> <span data-ttu-id="12fc3-209">`GrpcGreeter` türleri yapı işlemi tarafından otomatik olarak oluşturulur.</span><span class="sxs-lookup"><span data-stu-id="12fc3-209">The `GrpcGreeter` types are generated automatically by the build process.</span></span>
 
-<span data-ttu-id="313b4-210">GRPC Client *program.cs* dosyasını aşağıdaki kodla güncelleştirin:</span><span class="sxs-lookup"><span data-stu-id="313b4-210">Update the gRPC client *Program.cs* file with the following code:</span></span>
+<span data-ttu-id="12fc3-210">GRPC Client *program.cs* dosyasını aşağıdaki kodla güncelleştirin:</span><span class="sxs-lookup"><span data-stu-id="12fc3-210">Update the gRPC client *Program.cs* file with the following code:</span></span>
 
 [!code-csharp[](~/tutorials/grpc/grpc-start/sample/GrpcGreeterClient/Program.cs?name=snippet2)]
 
-<span data-ttu-id="313b4-211">*Program.cs* , GRPC istemcisinin giriş noktasını ve mantığını içerir.</span><span class="sxs-lookup"><span data-stu-id="313b4-211">*Program.cs* contains the entry point and logic for the gRPC client.</span></span>
+<span data-ttu-id="12fc3-211">*Program.cs* , GRPC istemcisinin giriş noktasını ve mantığını içerir.</span><span class="sxs-lookup"><span data-stu-id="12fc3-211">*Program.cs* contains the entry point and logic for the gRPC client.</span></span>
 
-<span data-ttu-id="313b4-212">Greeter istemcisi şu şekilde oluşturulur:</span><span class="sxs-lookup"><span data-stu-id="313b4-212">The Greeter client is created by:</span></span>
+<span data-ttu-id="12fc3-212">Greeter istemcisi şu şekilde oluşturulur:</span><span class="sxs-lookup"><span data-stu-id="12fc3-212">The Greeter client is created by:</span></span>
 
-* <span data-ttu-id="313b4-213">GRPC hizmetine bağlantı oluşturma bilgilerini içeren bir `GrpcChannel` örnekleniyor.</span><span class="sxs-lookup"><span data-stu-id="313b4-213">Instantiating a `GrpcChannel` containing the information for creating the connection to the gRPC service.</span></span>
-* <span data-ttu-id="313b4-214">Greeter istemcisini oluşturmak için `GrpcChannel` kullanma:</span><span class="sxs-lookup"><span data-stu-id="313b4-214">Using the `GrpcChannel` to construct the Greeter client:</span></span>
+* <span data-ttu-id="12fc3-213">GRPC hizmetine bağlantı oluşturma bilgilerini içeren bir `GrpcChannel` örnekleniyor.</span><span class="sxs-lookup"><span data-stu-id="12fc3-213">Instantiating a `GrpcChannel` containing the information for creating the connection to the gRPC service.</span></span>
+* <span data-ttu-id="12fc3-214">Greeter istemcisini oluşturmak için `GrpcChannel` kullanma:</span><span class="sxs-lookup"><span data-stu-id="12fc3-214">Using the `GrpcChannel` to construct the Greeter client:</span></span>
 
 [!code-csharp[](~/tutorials/grpc/grpc-start/sample/GrpcGreeterClient/Program.cs?name=snippet&highlight=3-5)]
 
-<span data-ttu-id="313b4-215">Greeter istemcisi zaman uyumsuz `SayHello` yöntemini çağırır.</span><span class="sxs-lookup"><span data-stu-id="313b4-215">The Greeter client calls the asynchronous `SayHello` method.</span></span> <span data-ttu-id="313b4-216">`SayHello` çağrısının sonucu görüntülenir:</span><span class="sxs-lookup"><span data-stu-id="313b4-216">The result of the `SayHello` call is displayed:</span></span>
+<span data-ttu-id="12fc3-215">Greeter istemcisi zaman uyumsuz `SayHello` yöntemini çağırır.</span><span class="sxs-lookup"><span data-stu-id="12fc3-215">The Greeter client calls the asynchronous `SayHello` method.</span></span> <span data-ttu-id="12fc3-216">`SayHello` çağrısının sonucu görüntülenir:</span><span class="sxs-lookup"><span data-stu-id="12fc3-216">The result of the `SayHello` call is displayed:</span></span>
 
 [!code-csharp[](~/tutorials/grpc/grpc-start/sample/GrpcGreeterClient/Program.cs?name=snippet&highlight=6-8)]
 
-## <a name="test-the-grpc-client-with-the-grpc-greeter-service"></a><span data-ttu-id="313b4-217">GRPC istemcisini gRPC Greeter hizmeti ile test etme</span><span class="sxs-lookup"><span data-stu-id="313b4-217">Test the gRPC client with the gRPC Greeter service</span></span>
+## <a name="test-the-grpc-client-with-the-grpc-greeter-service"></a><span data-ttu-id="12fc3-217">GRPC istemcisini gRPC Greeter hizmeti ile test etme</span><span class="sxs-lookup"><span data-stu-id="12fc3-217">Test the gRPC client with the gRPC Greeter service</span></span>
 
-# <a name="visual-studiotabvisual-studio"></a>[<span data-ttu-id="313b4-218">Visual Studio</span><span class="sxs-lookup"><span data-stu-id="313b4-218">Visual Studio</span></span>](#tab/visual-studio)
+# <a name="visual-studio"></a>[<span data-ttu-id="12fc3-218">Visual Studio</span><span class="sxs-lookup"><span data-stu-id="12fc3-218">Visual Studio</span></span>](#tab/visual-studio)
 
-* <span data-ttu-id="313b4-219">Greeter hizmetinde, hata ayıklayıcı olmadan sunucuyu başlatmak için `Ctrl+F5` ' a basın.</span><span class="sxs-lookup"><span data-stu-id="313b4-219">In the Greeter service, press `Ctrl+F5` to start the server without the debugger.</span></span>
-* <span data-ttu-id="313b4-220">`GrpcGreeterClient` projede, hata ayıklayıcı olmadan istemcisini başlatmak için `Ctrl+F5` ' a basın.</span><span class="sxs-lookup"><span data-stu-id="313b4-220">In the `GrpcGreeterClient` project, press `Ctrl+F5` to start the client without the debugger.</span></span>
+* <span data-ttu-id="12fc3-219">Greeter hizmetinde, hata ayıklayıcı olmadan sunucuyu başlatmak için `Ctrl+F5` ' a basın.</span><span class="sxs-lookup"><span data-stu-id="12fc3-219">In the Greeter service, press `Ctrl+F5` to start the server without the debugger.</span></span>
+* <span data-ttu-id="12fc3-220">`GrpcGreeterClient` projede, hata ayıklayıcı olmadan istemcisini başlatmak için `Ctrl+F5` ' a basın.</span><span class="sxs-lookup"><span data-stu-id="12fc3-220">In the `GrpcGreeterClient` project, press `Ctrl+F5` to start the client without the debugger.</span></span>
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[<span data-ttu-id="313b4-221">Visual Studio Code</span><span class="sxs-lookup"><span data-stu-id="313b4-221">Visual Studio Code</span></span>](#tab/visual-studio-code)
+# <a name="visual-studio-code"></a>[<span data-ttu-id="12fc3-221">Visual Studio Code</span><span class="sxs-lookup"><span data-stu-id="12fc3-221">Visual Studio Code</span></span>](#tab/visual-studio-code)
 
-* <span data-ttu-id="313b4-222">Greeter hizmetini başlatın.</span><span class="sxs-lookup"><span data-stu-id="313b4-222">Start the Greeter service.</span></span>
-* <span data-ttu-id="313b4-223">İstemcisini başlatın.</span><span class="sxs-lookup"><span data-stu-id="313b4-223">Start the client.</span></span>
+* <span data-ttu-id="12fc3-222">Greeter hizmetini başlatın.</span><span class="sxs-lookup"><span data-stu-id="12fc3-222">Start the Greeter service.</span></span>
+* <span data-ttu-id="12fc3-223">İstemcisini başlatın.</span><span class="sxs-lookup"><span data-stu-id="12fc3-223">Start the client.</span></span>
 
 
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[<span data-ttu-id="313b4-224">Mac için Visual Studio</span><span class="sxs-lookup"><span data-stu-id="313b4-224">Visual Studio for Mac</span></span>](#tab/visual-studio-mac)
+# <a name="visual-studio-for-mac"></a>[<span data-ttu-id="12fc3-224">Mac için Visual Studio</span><span class="sxs-lookup"><span data-stu-id="12fc3-224">Visual Studio for Mac</span></span>](#tab/visual-studio-mac)
 
-* <span data-ttu-id="313b4-225">Greeter hizmetini başlatın.</span><span class="sxs-lookup"><span data-stu-id="313b4-225">Start the Greeter service.</span></span>
-* <span data-ttu-id="313b4-226">İstemcisini başlatın.</span><span class="sxs-lookup"><span data-stu-id="313b4-226">Start the client.</span></span>
+* <span data-ttu-id="12fc3-225">Greeter hizmetini başlatın.</span><span class="sxs-lookup"><span data-stu-id="12fc3-225">Start the Greeter service.</span></span>
+* <span data-ttu-id="12fc3-226">İstemcisini başlatın.</span><span class="sxs-lookup"><span data-stu-id="12fc3-226">Start the client.</span></span>
 
 ---
 
-<span data-ttu-id="313b4-227">İstemci, adı *Greeterclient*olan bir iletiyle hizmete bir tebrik gönderir.</span><span class="sxs-lookup"><span data-stu-id="313b4-227">The client sends a greeting to the service with a message containing its name, *GreeterClient*.</span></span> <span data-ttu-id="313b4-228">Hizmet, "Hello GreeterClient" iletisini yanıt olarak gönderir.</span><span class="sxs-lookup"><span data-stu-id="313b4-228">The service sends the message "Hello GreeterClient" as a response.</span></span> <span data-ttu-id="313b4-229">Komut isteminde "Hello GreeterClient" yanıtı görüntülenir:</span><span class="sxs-lookup"><span data-stu-id="313b4-229">The "Hello GreeterClient" response is displayed in the command prompt:</span></span>
+<span data-ttu-id="12fc3-227">İstemci, adı *Greeterclient*olan bir iletiyle hizmete bir tebrik gönderir.</span><span class="sxs-lookup"><span data-stu-id="12fc3-227">The client sends a greeting to the service with a message containing its name, *GreeterClient*.</span></span> <span data-ttu-id="12fc3-228">Hizmet, "Hello GreeterClient" iletisini yanıt olarak gönderir.</span><span class="sxs-lookup"><span data-stu-id="12fc3-228">The service sends the message "Hello GreeterClient" as a response.</span></span> <span data-ttu-id="12fc3-229">Komut isteminde "Hello GreeterClient" yanıtı görüntülenir:</span><span class="sxs-lookup"><span data-stu-id="12fc3-229">The "Hello GreeterClient" response is displayed in the command prompt:</span></span>
 
 ```console
 Greeting: Hello GreeterClient
 Press any key to exit...
 ```
 
-<span data-ttu-id="313b4-230">GRPC hizmeti, komut istemine yazılan günlüklerde başarılı çağrının ayrıntılarını kaydeder:</span><span class="sxs-lookup"><span data-stu-id="313b4-230">The gRPC service records the details of the successful call in the logs written to the command prompt:</span></span>
+<span data-ttu-id="12fc3-230">GRPC hizmeti, komut istemine yazılan günlüklerde başarılı çağrının ayrıntılarını kaydeder:</span><span class="sxs-lookup"><span data-stu-id="12fc3-230">The gRPC service records the details of the successful call in the logs written to the command prompt:</span></span>
 
 ```console
 info: Microsoft.Hosting.Lifetime[0]
@@ -298,11 +298,11 @@ info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
 ```
 
 > [!NOTE]
-> <span data-ttu-id="313b4-231">Bu makaledeki kod, gRPC hizmetini güvenli hale getirmek için ASP.NET Core HTTPS geliştirme sertifikası gerektirir.</span><span class="sxs-lookup"><span data-stu-id="313b4-231">The code in this article requires the ASP.NET Core HTTPS development certificate to secure the gRPC service.</span></span> <span data-ttu-id="313b4-232">İstemci `The remote certificate is invalid according to the validation procedure.`ileti ile başarısız olursa, geliştirme sertifikası güvenilir değildir.</span><span class="sxs-lookup"><span data-stu-id="313b4-232">If the client fails with the message `The remote certificate is invalid according to the validation procedure.`, the development certificate is not trusted.</span></span> <span data-ttu-id="313b4-233">Bu sorunu gidermeye yönelik yönergeler için bkz. [Windows ve macOS 'ta ASP.NET Core https geliştirme sertifikasına güvenin](xref:security/enforcing-ssl#trust-the-aspnet-core-https-development-certificate-on-windows-and-macos).</span><span class="sxs-lookup"><span data-stu-id="313b4-233">For instructions to fix this issue, see [Trust the ASP.NET Core HTTPS development certificate on Windows and macOS](xref:security/enforcing-ssl#trust-the-aspnet-core-https-development-certificate-on-windows-and-macos).</span></span>
+> <span data-ttu-id="12fc3-231">Bu makaledeki kod, gRPC hizmetini güvenli hale getirmek için ASP.NET Core HTTPS geliştirme sertifikası gerektirir.</span><span class="sxs-lookup"><span data-stu-id="12fc3-231">The code in this article requires the ASP.NET Core HTTPS development certificate to secure the gRPC service.</span></span> <span data-ttu-id="12fc3-232">İstemci `The remote certificate is invalid according to the validation procedure.`ileti ile başarısız olursa, geliştirme sertifikası güvenilir değildir.</span><span class="sxs-lookup"><span data-stu-id="12fc3-232">If the client fails with the message `The remote certificate is invalid according to the validation procedure.`, the development certificate is not trusted.</span></span> <span data-ttu-id="12fc3-233">Bu sorunu gidermeye yönelik yönergeler için bkz. [Windows ve macOS 'ta ASP.NET Core https geliştirme sertifikasına güvenin](xref:security/enforcing-ssl#trust-the-aspnet-core-https-development-certificate-on-windows-and-macos).</span><span class="sxs-lookup"><span data-stu-id="12fc3-233">For instructions to fix this issue, see [Trust the ASP.NET Core HTTPS development certificate on Windows and macOS](xref:security/enforcing-ssl#trust-the-aspnet-core-https-development-certificate-on-windows-and-macos).</span></span>
 
 [!INCLUDE[](~/includes/gRPCazure.md)]
 
-### <a name="next-steps"></a><span data-ttu-id="313b4-234">Sonraki adımlar</span><span class="sxs-lookup"><span data-stu-id="313b4-234">Next steps</span></span>
+### <a name="next-steps"></a><span data-ttu-id="12fc3-234">Sonraki adımlar</span><span class="sxs-lookup"><span data-stu-id="12fc3-234">Next steps</span></span>
 
 * <xref:grpc/index>
 * <xref:grpc/basics>
