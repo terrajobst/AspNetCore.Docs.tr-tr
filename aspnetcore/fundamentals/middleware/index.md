@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 02/02/2020
 uid: fundamentals/middleware/index
-ms.openlocfilehash: 6698e269e0a6480cd5a03c59f9a19da31e23bf69
-ms.sourcegitcommit: 235623b6e5a5d1841139c82a11ac2b4b3f31a7a9
+ms.openlocfilehash: afa71b2c2b75be2c000fadd9545ac3fb4587825a
+ms.sourcegitcommit: 51c86c003ab5436598dbc42f26ea4a83a795fd6e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77089155"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78964459"
 ---
 # <a name="aspnet-core-middleware"></a>ASP.NET Core ara yazılımı
 
@@ -60,6 +60,7 @@ Bir temsilci bir sonraki temsilciye bir istek iletmezse, *istek ardışık düze
 <xref:Microsoft.AspNetCore.Builder.RunExtensions.Run*> temsilciler bir `next` parametresi almaz. İlk `Run` temsilci her zaman terminaldir ve ardışık düzeni sonlandırır. `Run` bir kuraldır. Bazı ara yazılım bileşenleri, işlem hattının sonunda çalışan `Run[Middleware]` Yöntemler sunabilir:
 
 [!code-csharp[](index/snapshot/Chain/Startup.cs?highlight=12-15)]
+[!INCLUDE[about the series](~/includes/code-comments-loc.md)]
 
 Yukarıdaki örnekte, `Run` temsilci yanıta `"Hello from 2nd delegate."` yazar ve ardından işlem hattını sonlandırır. `Run` temsilcisinden sonra başka bir `Use` veya `Run` temsilcisi eklenirse, çağrılmaz.
 
@@ -214,9 +215,9 @@ Aşağıdaki tabloda, önceki kodu kullanarak `http://localhost:1234` gelen iste
 | localhost: 1234                | Eşleme olmayan temsilciden Merhaba. |
 | localhost: 1234/? dalı = ana | Kullanılan dal = ana         |
 
-<xref:Microsoft.AspNetCore.Builder.UseWhenExtensions.UseWhen*> Ayrıca, belirtilen koşulun sonucuna göre istek ardışık düzenini dallandırır. `MapWhen`aksine, bu dal, kısa devre veya bir Terminal ara yazılımı içeriyorsa ana işlem hattına yeniden katılır:
+<xref:Microsoft.AspNetCore.Builder.UseWhenExtensions.UseWhen*> Ayrıca, belirtilen koşulun sonucuna göre istek ardışık düzenini dallandırır. `MapWhen`aksine bu dal, kısa devre olmaması veya bir Terminal ara yazılımı içermesi durumunda ana işlem hattına yeniden katılır:
 
-[!code-csharp[](index/snapshot/Chain/StartupUseWhen.cs?highlight=23-24)]
+[!code-csharp[](index/snapshot/Chain/StartupUseWhen.cs?highlight=25-26)]
 
 Yukarıdaki örnekte, "ana ardışık düzen üzerinden Merhaba" yanıtı. Tüm istekler için yazılmıştır. İstek bir sorgu dizesi değişkeni içeriyorsa `branch`, ana işlem hattı yeniden birleştirilmadan önce değeri günlüğe kaydedilir.
 
@@ -226,7 +227,7 @@ ASP.NET Core aşağıdaki ara yazılım bileşenleriyle birlikte gönderilir. *O
 
 | Ara yazılım | Açıklama | Sipariş verme |
 | ---------- | ----------- | ----- |
-| [Kimlik doğrulaması](xref:security/authentication/identity) | Kimlik doğrulama desteği sağlar. | `HttpContext.User` önce. OAuth geri çağırmaları için Terminal. |
+| [Kimlik Doğrulaması](xref:security/authentication/identity) | Kimlik doğrulama desteği sağlar. | `HttpContext.User` önce. OAuth geri çağırmaları için Terminal. |
 | [Yetkilendirme](xref:Microsoft.AspNetCore.Builder.AuthorizationAppBuilderExtensions.UseAuthorization*) | Yetkilendirme desteği sağlar. | Kimlik doğrulama ara yazılımı hemen sonrasında. |
 | [Tanımlama bilgisi Ilkesi](xref:security/gdpr) | Kişisel bilgileri depolamak için kullanıcılardan onay izler ve `secure` ve `SameSite`gibi tanımlama bilgisi alanları için en düşük standartları uygular. | Tanımlama bilgilerini veren ara yazılım öncesi. Örnekler: Authentication, Session, MVC (TempData). |
 | [CORS](xref:security/cors) | Çıkış noktaları arası kaynak paylaşımını yapılandırır. | CORS kullanan bileşenlerden önce. |
@@ -432,7 +433,7 @@ ASP.NET Core aşağıdaki ara yazılım bileşenleriyle birlikte gönderilir. *O
 
 | Ara yazılım | Açıklama | Sipariş verme |
 | ---------- | ----------- | ----- |
-| [Kimlik doğrulaması](xref:security/authentication/identity) | Kimlik doğrulama desteği sağlar. | `HttpContext.User` önce. OAuth geri çağırmaları için Terminal. |
+| [Kimlik Doğrulaması](xref:security/authentication/identity) | Kimlik doğrulama desteği sağlar. | `HttpContext.User` önce. OAuth geri çağırmaları için Terminal. |
 | [Tanımlama bilgisi Ilkesi](xref:security/gdpr) | Kişisel bilgileri depolamak için kullanıcılardan onay izler ve `secure` ve `SameSite`gibi tanımlama bilgisi alanları için en düşük standartları uygular. | Tanımlama bilgilerini veren ara yazılım öncesi. Örnekler: Authentication, Session, MVC (TempData). |
 | [CORS](xref:security/cors) | Çıkış noktaları arası kaynak paylaşımını yapılandırır. | CORS kullanan bileşenlerden önce. |
 | [Tanılama](xref:fundamentals/error-handling) | Geliştirici özel durum sayfası, özel durum işleme, durum kodu sayfaları ve yeni uygulamalar için varsayılan Web sayfası sağlayan çeşitli ayrı middlewares. | Hata oluşturan bileşenlerden önce. Özel durumlar için Terminal veya yeni uygulamalar için varsayılan Web sayfasına hizmet sunma. |
