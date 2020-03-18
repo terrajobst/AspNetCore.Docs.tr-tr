@@ -5,17 +5,17 @@ description: Blazor uygulamalarının nasıl barındırılacağını ve dağıt�
 monikerRange: '>= aspnetcore-3.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/18/2019
+ms.date: 03/11/2020
 no-loc:
 - Blazor
 - SignalR
 uid: host-and-deploy/blazor/index
-ms.openlocfilehash: 238e7fc8f8d64c7847dc8847fb66e22442a3c8e0
-ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.openlocfilehash: ddf70da29a82d462422c1bdf74ff45b92bb10b56
+ms.sourcegitcommit: 5bdc54162d7dea8d9fa54ac3055678db23586af1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78667155"
+ms.lasthandoff: 03/17/2020
+ms.locfileid: "79434271"
 ---
 # <a name="host-and-deploy-aspnet-core-blazor"></a>ASP.NET Core Blazor barındırma ve dağıtma
 
@@ -45,7 +45,12 @@ dotnet publish -c Release
 
 Uygulamanın yayımlanması, projenin bağımlılıklarını [geri yüklemeyi](/dotnet/core/tools/dotnet-restore) tetikler ve dağıtım için varlıkları oluşturmadan önce projeyi [oluşturur](/dotnet/core/tools/dotnet-build) . Yapı işleminin bir parçası olarak, uygulama indirme boyutunu ve yükleme sürelerini azaltmak için kullanılmayan Yöntemler ve derlemeler kaldırılır.
 
-Blazor WebAssembly uygulaması */BIN/Release/{Target Framework}/publish/{ASSEMBLY Name}/Dist* klasörüne yayımlanır. Bir Blazor sunucusu uygulaması */BIN/Release/{Target Framework}/Publish* klasörüne yayımlanır.
+Yayımlama konumları:
+
+* Blazor WebAssembly
+  * Uygulamanın tek başına &ndash; */BIN/Release/{Target Framework}/Publish/Wwwroot* klasöründe yayımlanması. Uygulamayı statik bir site olarak dağıtmak için *Wwwroot* klasörünün içeriğini statik site konağına kopyalayın.
+  * İstemci Blazor WebAssembly uygulamasının barındırılan &ndash;, sunucu uygulamasının diğer statik Web varlıklarıyla birlikte sunucu uygulamasının */BIN/Release/{Target Framework}/Publish/Wwwroot* klasöründe yayımlanır. *Yayımla* klasörünün içeriğini konağa dağıtın.
+* Blazor sunucu &ndash; *Framework}/Publish* klasöründe yayımlanır. *Yayımla* klasörünün içeriğini konağa dağıtın.
 
 Klasördeki varlıklar Web sunucusuna dağıtılır. Dağıtım, kullanımdaki geliştirme araçlarına bağlı olarak el ile veya otomatik bir süreç olabilir.
 

@@ -5,16 +5,16 @@ description: Blazor uygulaması oluşturun adım adım.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 01/13/2020
+ms.date: 03/13/2020
 no-loc:
 - Blazor
 uid: tutorials/first-blazor-app
-ms.openlocfilehash: 8830dcf26b58b5f5fdd36b60298e7b365f99bdd9
-ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.openlocfilehash: 8b3802a6ffe3613e5d4ca65c57fafc3f404c8329
+ms.sourcegitcommit: 5bdc54162d7dea8d9fa54ac3055678db23586af1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78655311"
+ms.lasthandoff: 03/17/2020
+ms.locfileid: "79434505"
 ---
 # <a name="build-your-first-opno-locblazor-app"></a>İlk Blazor uygulamanızı oluşturma
 
@@ -24,9 +24,9 @@ ms.locfileid: "78655311"
 
 Bu öğreticide bir Blazor uygulamasının nasıl oluşturulacağı ve değiştirileceği gösterilmektedir.
 
-Bu öğreticide bir Blazor projesi oluşturmak için <xref:blazor/get-started> makalesindeki yönergeleri izleyin. Projeyi *ToDoList*olarak adlandırın.
-
 ## <a name="build-components"></a>Derleme bileşenleri
+
+1. Bu öğreticide bir Blazor projesi oluşturmak için <xref:blazor/get-started> makalesindeki yönergeleri izleyin. Projeyi *ToDoList*olarak adlandırın.
 
 1. *Sayfalar* klasöründe uygulamanın üç sayfasının her birine gidin: giriş, sayaç ve veri getirme. Bu sayfalar, Razor bileşen dosyaları *dizini. Razor*, *Counter. Razor*ve *fetchdata. Razor*tarafından uygulanır.
 
@@ -133,14 +133,14 @@ Blazor WebAssembly uygulamasıyla çalışıyorsanız, *Wwwroot/Sample-Data* kla
 
 Uygulamaya basit bir yapılacaklar listesi uygulayan yeni bir bileşen ekleyin.
 
-1. Uygulamalar *klasörüne* *Todo. Razor* adlı boş bir dosya ekleyin:
+1. Yeni bir `Todo` Razor bileşenini *Sayfalar* klasöründe uygulamaya ekleyin. Visual Studio 'da **Sayfalar** klasörüne sağ tıklayın ve > **yeni öğe** **Ekle** > **Razor bileşeni**' ni seçin. Bileşenin dosya *Todo. Razor*olarak adlandırın. Diğer geliştirme ortamlarında, *Todo. Razor*adlı **Sayfalar** klasörüne boş bir dosya ekleyin.
 
 1. Bileşen için ilk biçimlendirmeyi belirtin:
 
    ```razor
    @page "/todo"
 
-   <h1>Todo</h1>
+   <h3>Todo</h3>
    ```
 
 1. Gezinti çubuğuna `Todo` bileşenini ekleyin.

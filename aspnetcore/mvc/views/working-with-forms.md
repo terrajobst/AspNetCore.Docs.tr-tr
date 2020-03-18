@@ -7,11 +7,11 @@ ms.custom: mvc
 ms.date: 12/05/2019
 uid: mvc/views/working-with-forms
 ms.openlocfilehash: 5af532db35b858d157f61a6aca30f55d15e9ff1e
-ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.sourcegitcommit: 98bcf5fe210931e3eb70f82fd675d8679b33f5d6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78657537"
+ms.lasthandoff: 03/16/2020
+ms.locfileid: "79416242"
 ---
 # <a name="tag-helpers-in-forms-in-aspnet-core"></a>ASP.NET Core formlardaki etiket yardımcıları
 
@@ -199,10 +199,10 @@ Type expected
 |.NET türü|Giriş türü|
 |---|---|
 |Bool|Type = "onay kutusu"|
-|String|Type = "metin"|
+|Dize|Type = "metin"|
 |DateTime|Type =["TarihSaat-yerel"](https://developer.mozilla.org/docs/Web/HTML/Element/input/datetime-local)|
 |Bayt|Type = "Number"|
-|Int|Type = "Number"|
+|int|Type = "Number"|
 |Tek, Çift|Type = "Number"|
 
 Aşağıdaki tabloda, giriş etiketi Yardımcısı 'nın belirli giriş türleriyle eşleşecağı bazı ortak [veri ek açıklamaları](/dotnet/api/microsoft.aspnetcore.mvc.dataannotations.iattributeadapter) (her doğrulama özniteliği listelenmez) gösterilmektedir:

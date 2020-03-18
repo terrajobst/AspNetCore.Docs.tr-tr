@@ -5,17 +5,17 @@ description: ''
 monikerRange: '>= aspnetcore-3.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 03/09/2020
+ms.date: 03/16/2020
 no-loc:
 - Blazor
 - SignalR
 uid: security/blazor/webassembly/standalone-with-azure-active-directory-b2c
-ms.openlocfilehash: 0ea42943c908d8cf9d083c1cfc568c1835588ce9
-ms.sourcegitcommit: 98bcf5fe210931e3eb70f82fd675d8679b33f5d6
+ms.openlocfilehash: b4d32e91b4013cbea37baecb972a535d2874d3d1
+ms.sourcegitcommit: 5bdc54162d7dea8d9fa54ac3055678db23586af1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79083834"
+ms.lasthandoff: 03/17/2020
+ms.locfileid: "79434466"
 ---
 # <a name="secure-an-aspnet-core-opno-locblazor-webassembly-standalone-app-with-azure-active-directory-b2c"></a>Azure Active Directory B2C ile bir ASP.NET Core Blazor WebAssembly tek başına uygulamasını güvenli hale getirme
 
@@ -42,7 +42,9 @@ Kimlik doğrulaması için [Azure Active Directory (AAD) B2C](/azure/active-dire
 
      Uygulama KIMLIĞINI (Istemci KIMLIĞI) kaydedin (örneğin, `11111111-1111-1111-1111-111111111111`).
 
-   * & Ndash; [Kullanıcı akışları oluşturun](/azure/active-directory-b2c/tutorial-create-user-flows) Kaydolma ve oturum açma Kullanıcı akışı oluşturun.
+   * Kaydolma ve oturum açma Kullanıcı akışı oluşturmak &ndash; [Kullanıcı akışları oluşturun](/azure/active-directory-b2c/tutorial-create-user-flows) .
+
+     En azından, `LoginDisplay` bileşenindeki (*Shared/LoginDisplay. Razor*) `context.User.Identity.Name` doldurmak için **uygulama talepleri** > **görünen ad** Kullanıcı özniteliği ' ni seçin.
 
      Uygulama için oluşturulan kaydolma ve oturum açma Kullanıcı akış adını kaydedin (örneğin, `B2C_1_signupsignin`).
 

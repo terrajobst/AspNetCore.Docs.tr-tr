@@ -5,17 +5,17 @@ description: ''
 monikerRange: '>= aspnetcore-3.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 03/09/2020
+ms.date: 03/16/2020
 no-loc:
 - Blazor
 - SignalR
 uid: security/blazor/webassembly/hosted-with-azure-active-directory-b2c
-ms.openlocfilehash: 232a4247f8bea23eec3dc35cba4659c88887124d
-ms.sourcegitcommit: 98bcf5fe210931e3eb70f82fd675d8679b33f5d6
+ms.openlocfilehash: 12e09cf7e27f85473d84f42564d13e1c0ed5dff1
+ms.sourcegitcommit: 5bdc54162d7dea8d9fa54ac3055678db23586af1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79083883"
+ms.lasthandoff: 03/17/2020
+ms.locfileid: "79434453"
 ---
 # <a name="secure-an-aspnet-core-opno-locblazor-webassembly-hosted-app-with-azure-active-directory-b2c"></a>Azure Active Directory B2C ile bir ASP.NET Core Blazor Weelsembly barındırılan uygulaması güvenli hale getirme
 
@@ -95,6 +95,8 @@ Eğitim bölümünde yer alan yönergeleri izleyin: **Azure Active Directory** >
 **Giriş** > **Azure AD B2C** > **Kullanıcı akışları**:
 
 [Kaydolma ve oturum açma Kullanıcı akışı oluşturma](/azure/active-directory-b2c/tutorial-create-user-flows)
+
+En azından, `LoginDisplay` bileşenindeki (*Shared/LoginDisplay. Razor*) `context.User.Identity.Name` doldurmak için **uygulama talepleri** > **görünen ad** Kullanıcı özniteliği ' ni seçin.
 
 Aşağıdaki bilgileri kaydedin:
 
@@ -260,6 +262,10 @@ builder.Services.AddMsalAuthentication(options =>
 ### <a name="fetchdata-component"></a>FetchData bileşeni
 
 [!INCLUDE[](~/includes/blazor-security/fetchdata-component.md)]
+
+## <a name="run-the-app"></a>Uygulamayı çalıştırma
+
+Uygulamayı sunucu projesinden çalıştırın. Visual Studio 'Yu kullanırken **Çözüm Gezgini** ' de sunucu projesini seçin ve araç çubuğundaki **Çalıştır** düğmesini seçin veya uygulamayı **Hata Ayıkla** menüsünden başlatın.
 
 [!INCLUDE[](~/includes/blazor-security/troubleshoot.md)]
 

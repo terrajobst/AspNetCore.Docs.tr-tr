@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 03/03/2020
 uid: security/authentication/index
-ms.openlocfilehash: 24113fd4f090cf76746a7b077212fdab012f82c1
-ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.openlocfilehash: 404904ecfa30d1fe7e47f0daaa423ddd6f1b06e8
+ms.sourcegitcommit: 5bdc54162d7dea8d9fa54ac3055678db23586af1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78659630"
+ms.lasthandoff: 03/17/2020
+ms.locfileid: "79434336"
 ---
 # <a name="overview-of-aspnet-core-authentication"></a>ASP.NET Core kimlik doğrulamasına genel bakış
 
@@ -110,6 +110,18 @@ Challenge ve fordeklarasyon arasındaki farklılıklar için aşağıdaki bağla
 
 * [İşletimsel kaynak Işleyicisiyle Challenge ve fordeklarasyonu](xref:security/authorization/resourcebased#challenge-and-forbid-with-an-operational-resource-handler).
 * [Çekişme ve fordeklarasyon arasındaki farklar](xref:security/authorization/secure-data#challenge).
+
+## <a name="authentication-providers-per-tenant"></a>Kiracı başına kimlik doğrulama sağlayıcıları
+
+ASP.NET Core Framework 'te çok kiracılı kimlik doğrulaması için yerleşik bir çözüm yoktur.
+Müşterilerin, yerleşik özellikleri kullanarak bir tane yazabilmesi kesinlikle mümkün olsa da, müşterilerin bu amaçla daha fazla [çekirdeğe](https://www.orchardcore.net/) bakmalarını öneririz.
+
+Orchard Core:
+
+* ASP.NET Core ile oluşturulan açık kaynaklı modüler ve çok kiracılı bir uygulama çerçevesi.
+* Bu uygulama çerçevesinin üzerine inşa edilen bir içerik yönetim sistemi (CMS).
+
+Kiracı başına kimlik doğrulama sağlayıcılarının bir örneği için bkz. [Orchard Core](https://github.com/OrchardCMS/OrchardCore) kaynağı.
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 

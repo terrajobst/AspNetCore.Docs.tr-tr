@@ -5,17 +5,17 @@ description: ASP.NET Core, Içerik teslim ağları (CDN), dosya sunucuları ve G
 monikerRange: '>= aspnetcore-3.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/19/2020
+ms.date: 03/11/2020
 no-loc:
 - Blazor
 - SignalR
 uid: host-and-deploy/blazor/webassembly
-ms.openlocfilehash: eae12b266e91a30a47daf63ac77ba082c25225aa
-ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.openlocfilehash: 748ac9969134f4c89cc8c1235958dcc7ac1d1080
+ms.sourcegitcommit: 5bdc54162d7dea8d9fa54ac3055678db23586af1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78664103"
+ms.lasthandoff: 03/17/2020
+ms.locfileid: "79434284"
 ---
 # <a name="host-and-deploy-aspnet-core-opno-locblazor-webassembly"></a>ASP.NET Core Blazor WebAssembly 'ı barındırma ve dağıtma
 
@@ -59,7 +59,7 @@ Bir IIS sunucusuna dağıtım yaparken, URL yeniden yazma modülünü uygulaman�
 
 *Barındırılan bir dağıtım* , bir Web sunucusu üzerinde çalışan bir [ASP.NET Core uygulamasındaki](xref:index) tarayıcılara Blazor webassembly uygulamasını sunar.
 
-Blazor uygulaması, yayımlanan çıktıda ASP.NET Core uygulamasına dahildir, böylece iki uygulama birlikte dağıtılır. ASP.NET Core uygulamasını barındırabilen bir Web sunucusu gereklidir. Barındırılan bir dağıtım için Visual Studio, **barındırılan** seçeneği belirlenmiş olarak, **Blazor Webassembly uygulama** projesi şablonunu ( [DotNet New](/dotnet/core/tools/dotnet-new) komutu kullanılırken`blazorwasm` şablonu) içerir.
+İstemci Blazor WebAssembly uygulaması sunucu uygulamasının */BIN/Release/{Target Framework}/Publish/Wwwroot* klasöründe, sunucu uygulamasının diğer statik Web varlıklarıyla birlikte yayımlanır. İki uygulama birlikte dağıtılır. ASP.NET Core uygulamasını barındırabilen bir Web sunucusu gereklidir. Barındırılan bir dağıtım için Visual Studio, **barındırılan** seçenek seçili olan (`dotnet new` komutu kullanılırken`-ho|--hosted`) **Webassembly uygulama** projesi şablonu ( [DotNet New](/dotnet/core/tools/dotnet-new) komutu kullanılırken`blazorwasm` şablonu)Blazor içerir.
 
 Uygulama barındırma ve dağıtım ASP.NET Core hakkında daha fazla bilgi için bkz. <xref:host-and-deploy/index>.
 
@@ -69,7 +69,7 @@ Azure App Service dağıtma hakkında daha fazla bilgi için bkz. <xref:tutorial
 
 *Tek başına dağıtım* , istemci tarafından doğrudan istenen statik dosyalar kümesi olarak Blazor WebAssembly uygulamasına hizmet verir. Herhangi bir statik dosya sunucusu Blazor uygulamasına sunabilir.
 
-Tek başına dağıtım varlıkları *bin/Release/{Target Framework}/publish/{ASSEMBLY Name}/Dist* klasöründe yayımlanır.
+Tek başına dağıtım varlıkları */BIN/Release/{Target Framework}/Publish/Wwwroot* klasöründe yayımlanır.
 
 ### <a name="iis"></a>IIS
 
@@ -146,7 +146,7 @@ Tek başına bir uygulama bir IIS alt uygulaması olarak barındırılıyorsa, a
 
 IIS ile dağıtım sorunlarını giderme hakkında daha fazla bilgi için bkz. <xref:test/troubleshoot-azure-iis>.
 
-### <a name="azure-storage"></a>Azure Storage
+### <a name="azure-storage"></a>Azure Depolama
 
 [Azure depolama](/azure/storage/) statik dosya barındırma, sunucusuz Blazor uygulama barındırılmasına olanak sağlar. Özel etki alanı adları, Azure Content Delivery Network (CDN) ve HTTPS desteklenir.
 
@@ -294,7 +294,7 @@ Bir kuruluş sitesi yerine bir proje sitesi kullanırken, *index. html*' de `<ba
   --pathbase=/relative-URL-path
   ```
 
-### <a name="urls"></a>URL’ler
+### <a name="urls"></a>URL'ler
 
 `--urls` bağımsız değişkeni, istekler için dinlemek üzere bağlantı noktaları ve protokollerle IP adreslerini veya konak adreslerini ayarlar.
 
@@ -316,6 +316,6 @@ Bir kuruluş sitesi yerine bir proje sitesi kullanırken, *index. html*' de `<ba
   --urls=http://127.0.0.1:0
   ```
 
-## <a name="configure-the-linker"></a>Bağlayıcı yapılandırma
+## <a name="configure-the-linker"></a>Bağlayıcıyı yapılandırma
 
-Blazor, çıkış derlemelerinden gereksiz Il 'yi kaldırmak için her bir derlemede ara dil (IL) bağlamayı gerçekleştirir. Derleme bağlama, derleme üzerinde denetlenebilir. Daha fazla bilgi için bkz. <xref:host-and-deploy/blazor/configure-linker>.
+Blazor, çıkış derlemelerinden gereksiz Il 'yi kaldırmak için her sürüm derlemesinde ara dil (IL) bağlamayı gerçekleştirir. Daha fazla bilgi için bkz. <xref:host-and-deploy/blazor/configure-linker>.

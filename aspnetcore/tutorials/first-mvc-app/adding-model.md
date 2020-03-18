@@ -5,12 +5,12 @@ description: Basit bir ASP.NET Core uygulamasına model ekleyin.
 ms.author: riande
 ms.date: 01/13/2020
 uid: tutorials/first-mvc-app/adding-model
-ms.openlocfilehash: d044ae4416c4528791755506314fc81275474f79
-ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.openlocfilehash: e7fc0496438734e13cfafcecf432da4a94737897
+ms.sourcegitcommit: 5bdc54162d7dea8d9fa54ac3055678db23586af1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78660239"
+ms.lasthandoff: 03/17/2020
+ms.locfileid: "79434518"
 ---
 # <a name="add-a-model-to-an-aspnet-core-mvc-app"></a>ASP.NET Core MVC uygulamasına model ekleme
 
@@ -20,7 +20,7 @@ Bu bölümde, bir veritabanında film yönetmeye yönelik sınıflar eklersiniz.
 
 Bu sınıfları bir veritabanıyla çalışmak için [Entity Framework Core](/ef/core) (EF Core) ile birlikte kullanırsınız. EF Core, yazmanız gereken veri erişim kodunu kolaylaştıran bir nesne ilişkisel eşleme (ORM) çerçevesidir.
 
-Oluşturduğunuz model sınıfları, EF Core hiçbir bağımlılığı olmadığından, POCO sınıfları olarak bilinir ( **P**Lain **O**). Yalnızca veritabanında depolanacak verilerin özelliklerini tanımlar.
+Oluşturduğunuz model sınıfları, EF Core hiçbir bağımlılığı olmadığından, POCO sınıfları olarak bilinir ( **P**Lain **C** **O**) **O**. Yalnızca veritabanında depolanacak verilerin özelliklerini tanımlar.
 
 Bu öğreticide, önce model sınıflarını yazdığınızda EF Core veritabanını oluşturur.
 
@@ -48,7 +48,7 @@ Bu öğreticide, önce model sınıflarını yazdığınızda EF Core veritaban�
 
 `Movie` sınıfı, birincil anahtar için veritabanı için gerekli olan bir `Id` alanı içerir.
 
-`ReleaseDate` [veri türü özniteliği,](/dotnet/api/microsoft.aspnetcore.mvc.dataannotations.internal.datatypeattributeadapter) verilerin türünü belirtir (`Date`). Bu öznitelikle:
+`ReleaseDate` <xref:System.ComponentModel.DataAnnotations.DataType> özniteliği, verilerin türünü belirtir (`Date`). Bu öznitelikle:
 
 * Kullanıcının Tarih alanına saat bilgilerini girmesi gerekli değildir.
 * Zaman bilgisi değil yalnızca tarih görüntülenir.
