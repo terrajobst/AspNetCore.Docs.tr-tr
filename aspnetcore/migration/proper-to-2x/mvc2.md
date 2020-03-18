@@ -6,12 +6,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 10/24/2018
 uid: migration/mvc2
-ms.openlocfilehash: 11bd3b948afaedc675ac4249099969382683f653
-ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.openlocfilehash: 5a2437f8dddee49d402bf7df67cb15aa895367b2
+ms.sourcegitcommit: d64ef143c64ee4fdade8f9ea0b753b16752c5998
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78664614"
+ms.lasthandoff: 03/18/2020
+ms.locfileid: "79511096"
 ---
 # <a name="migrate-from-aspnet-to-aspnet-core-20"></a>ASP.NET 'den ASP.NET Core 2,0 'ye geçiş
 
@@ -21,7 +21,7 @@ Bu makale, ASP.NET uygulamalarını ASP.NET Core 2,0 ' ye geçirmeye yönelik bi
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-.Net downloads 'lerden **aşağıdakilerden birini** yükler [: Windows](https://www.microsoft.com/net/download/windows):
+.Net downloads 'lerden **aşağıdakilerden birini** yükler [: Windows](https://dotnet.microsoft.com/download):
 
 * .NET Core SDK
 * Windows için Visual Studio

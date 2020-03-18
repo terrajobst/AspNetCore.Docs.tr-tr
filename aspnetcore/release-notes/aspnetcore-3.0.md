@@ -9,12 +9,12 @@ no-loc:
 - Blazor
 - SignalR
 uid: aspnetcore-3.0
-ms.openlocfilehash: 35accdd2f65ac5430525be88cc621094e37d3e40
-ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.openlocfilehash: 1a4efcd4e9e3296e9c208f1419bc86734951b0c1
+ms.sourcegitcommit: d64ef143c64ee4fdade8f9ea0b753b16752c5998
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78667253"
+ms.lasthandoff: 03/18/2020
+ms.locfileid: "79511528"
 ---
 # <a name="whats-new-in-aspnet-core-30"></a>ASP.NET Core 3,0 ' deki yenilikler
 
@@ -517,7 +517,7 @@ ASP.NET Core 3,0, bellek kullanımını azaltan ve üretilen işi geliştiren bi
 
 ## <a name="aspnet-core-30-only-runs-on-net-core-30"></a>ASP.NET Core 3,0 yalnızca .NET Core 3,0 üzerinde çalışır
 
-ASP.NET Core 3,0 itibariyle, .NET Framework artık desteklenen bir hedef çerçeve değildir. .NET Framework hedefleyen projeler [.NET Core 2,1 LTS sürümünü](https://www.microsoft.com/net/download/dotnet-core/2.1)kullanarak tam olarak desteklenen bir biçimde devam edebilir. ASP.NET Core 2.1. x ile ilgili paketlerin çoğu, .NET Core 2,1 için üç yıllık LTS döneminin ötesinde süresiz olarak desteklenecektir.
+ASP.NET Core 3,0 itibariyle, .NET Framework artık desteklenen bir hedef çerçeve değildir. .NET Framework hedefleyen projeler [.NET Core 2,1 LTS sürümünü](https://dotnet.microsoft.com/download/dotnet-core/2.1)kullanarak tam olarak desteklenen bir biçimde devam edebilir. ASP.NET Core 2.1. x ile ilgili paketlerin çoğu, .NET Core 2,1 için üç yıllık LTS döneminin ötesinde süresiz olarak desteklenecektir.
 
 Geçiş bilgileri için bkz. [kodunuzu .NET Core 'a .NET Framework](/dotnet/core/porting/).
 
@@ -542,3 +542,4 @@ Paylaşılan çerçeveden kaldırılan derlemelerin tamamen listesi için bkz [.
 ## Additional information
 For the complete list of changes, see the [ASP.NET Core 3.0 Release Notes](WHERE IS THIS????).
 -->
+ 

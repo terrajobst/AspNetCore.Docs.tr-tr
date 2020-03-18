@@ -5,17 +5,17 @@ description: Veri bağlama, olayları işleme ve bileşen yaşam döngülerini y
 monikerRange: '>= aspnetcore-3.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/25/2020
+ms.date: 03/16/2020
 no-loc:
 - Blazor
 - SignalR
 uid: blazor/components
-ms.openlocfilehash: e444ebfef5143a6c33ed2d122933903ad3a4f4a7
-ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.openlocfilehash: 7afc9250cdfb4b791ef939ead0f41b503d83fad8
+ms.sourcegitcommit: d64ef143c64ee4fdade8f9ea0b753b16752c5998
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78660701"
+ms.lasthandoff: 03/18/2020
+ms.locfileid: "79511281"
 ---
 # <a name="create-and-use-aspnet-core-razor-components"></a>ASP.NET Core Razor bileşenleri oluşturma ve kullanma
 
@@ -87,8 +87,6 @@ Razor bileşenlerinde ( *. Razor* dosyaları) [Etiket Yardımcıları](xref:mvc/
 ## <a name="use-components"></a>Bileşenleri kullanma
 
 Bileşenler, HTML öğesi söz dizimini kullanarak bildirerek diğer bileşenleri içerebilir. Bir bileşeni kullanmak için biçimlendirme, etiket adının bileşen türü olduğu bir HTML etiketi gibi görünür.
-
-Öznitelik bağlama büyük/küçük harfe duyarlıdır. Örneğin, `@bind` geçerlidir ve `@Bind` geçersizdir.
 
 *Index. Razor* dosyasında aşağıdaki biçimlendirme `HeadingComponent` örneği işler:
 
@@ -389,7 +387,7 @@ Aşağıdaki örnek göz önünde bulundurun:
 ```csharp
 @foreach (var person in People)
 {
-    <DetailsEditor Details="person.Details" />
+    <DetailsEditor Details="@person.Details" />
 }
 
 @code {
@@ -405,7 +403,7 @@ Eşleme işlemi `@key` Directive özniteliğiyle denetlenebilir. `@key`, anahtar
 ```csharp
 @foreach (var person in People)
 {
-    <DetailsEditor @key="person" Details="person.Details" />
+    <DetailsEditor @key="person" Details="@person.Details" />
 }
 
 @code {

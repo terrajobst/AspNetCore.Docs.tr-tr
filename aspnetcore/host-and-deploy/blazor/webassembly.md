@@ -5,17 +5,17 @@ description: ASP.NET Core, Içerik teslim ağları (CDN), dosya sunucuları ve G
 monikerRange: '>= aspnetcore-3.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 03/11/2020
+ms.date: 03/16/2020
 no-loc:
 - Blazor
 - SignalR
 uid: host-and-deploy/blazor/webassembly
-ms.openlocfilehash: 748ac9969134f4c89cc8c1235958dcc7ac1d1080
-ms.sourcegitcommit: 5bdc54162d7dea8d9fa54ac3055678db23586af1
+ms.openlocfilehash: ea2c625f424447209a362cdc58bdb18be061e47f
+ms.sourcegitcommit: d64ef143c64ee4fdade8f9ea0b753b16752c5998
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/17/2020
-ms.locfileid: "79434284"
+ms.lasthandoff: 03/18/2020
+ms.locfileid: "79511359"
 ---
 # <a name="host-and-deploy-aspnet-core-opno-locblazor-webassembly"></a>ASP.NET Core Blazor WebAssembly 'ı barındırma ve dağıtma
 
@@ -91,8 +91,8 @@ Bir Blazor projesi yayımlandığında, aşağıdaki IIS yapılandırmasıyla bi
   * `application/octet-stream`
   * `application/wasm`
 * URL yeniden yazma modülü kuralları oluşturuldu:
-  * Uygulamanın statik varlıklarının bulunduğu alt dizini ( *{Assembly Name}/dist/{PATH istenen}* ) sunar.
-  * Dosya olmayan varlıklar için isteklerin statik varlıklar klasöründe ( *{Assembly Name}/Dist/index.html*) uygulamanın varsayılan belgesine yeniden YÖNLENDIRILMESI için Spa geri dönüş yönlendirmesi oluşturun.
+  * Uygulamanın statik varlıklarının bulunduğu alt dizini (*Wwwroot/{Path istenen}* ) sunar.
+  * Dosya olmayan varlıklar için isteklerin statik varlıklar klasöründe (*Wwwroot/index.html*) uygulamanın varsayılan belgesine yeniden YÖNLENDIRILMESI için Spa geri dönüş yönlendirmesi oluşturun.
 
 #### <a name="install-the-url-rewrite-module"></a>URL yeniden yazma modülünü yükler
 
@@ -146,7 +146,7 @@ Tek başına bir uygulama bir IIS alt uygulaması olarak barındırılıyorsa, a
 
 IIS ile dağıtım sorunlarını giderme hakkında daha fazla bilgi için bkz. <xref:test/troubleshoot-azure-iis>.
 
-### <a name="azure-storage"></a>Azure Depolama
+### <a name="azure-storage"></a>Azure Storage
 
 [Azure depolama](/azure/storage/) statik dosya barındırma, sunucusuz Blazor uygulama barındırılmasına olanak sağlar. Özel etki alanı adları, Azure Content Delivery Network (CDN) ve HTTPS desteklenir.
 
@@ -294,7 +294,7 @@ Bir kuruluş sitesi yerine bir proje sitesi kullanırken, *index. html*' de `<ba
   --pathbase=/relative-URL-path
   ```
 
-### <a name="urls"></a>URL'ler
+### <a name="urls"></a>URL’ler
 
 `--urls` bağımsız değişkeni, istekler için dinlemek üzere bağlantı noktaları ve protokollerle IP adreslerini veya konak adreslerini ayarlar.
 

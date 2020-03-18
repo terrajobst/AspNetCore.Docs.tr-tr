@@ -8,18 +8,18 @@ products:
 - aspnet-core
 - vs
 urlFragment: aspnetcore-webapi-mongodb
-ms.openlocfilehash: 01f9cf237dcf2a9b95c181c2cb87ef9f59102244
-ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.openlocfilehash: 09d73e25667822b8748a00cc76ad6d4f0e5fe290
+ms.sourcegitcommit: d64ef143c64ee4fdade8f9ea0b753b16752c5998
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78663501"
+ms.lasthandoff: 03/18/2020
+ms.locfileid: "79511411"
 ---
 # <a name="create-a-web-api-with-aspnet-core-and-mongodb"></a>MongoDB ile ASP.NET Core ile web API'si oluşturma
 
 Bu öğretici, bir [MongoDB](https://www.mongodb.com/what-is-mongodb) NoSQL veritabanında oluşturma, okuma, güncelleştirme ve SILME (CRUD) işlemlerini gerçekleştiren BIR Web API 'si oluşturur.
 
-Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
+Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz:
 
 * MongoDB yapılandırın
 * MongoDB veritabanı oluşturma
@@ -29,7 +29,7 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-* [.NET Core SDK 3.0 veya üzeri](https://www.microsoft.com/net/download/all)
+* [.NET Core SDK 3.0 veya üzeri](https://dotnet.microsoft.com/download/dotnet-core)
 * **ASP.net ve Web geliştirme** iş yüküyle [Visual Studio 2019 Preview](https://visualstudio.microsoft.com/thank-you-downloading-visual-studio/?sku=community&ch=pre&rel=16&utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=inline+link&utm_content=download+vs2019preview)
 * [MongoDB](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-windows/)
 

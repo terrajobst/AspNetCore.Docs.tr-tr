@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 02/07/2020
 uid: host-and-deploy/iis/index
-ms.openlocfilehash: c2ca867e3eebdc3fcf512cc5d457ff3c1967f9b1
-ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.openlocfilehash: e4da57001ad369a8df87c7e0887772e3d75c032d
+ms.sourcegitcommit: d64ef143c64ee4fdade8f9ea0b753b16752c5998
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78657985"
+ms.lasthandoff: 03/18/2020
+ms.locfileid: "79511229"
 ---
 # <a name="host-aspnet-core-on-windows-with-iis"></a>Windows IIS üzerinde ASP.NET Core barındırma
 
@@ -24,7 +24,7 @@ ASP.NET Core uygulamasını bir IIS sunucusuna yayımlamaya yönelik bir öğret
 
 ## <a name="supported-operating-systems"></a>Desteklenen işletim sistemleri
 
-Aşağıdaki işletim sistemleri desteklenir:
+Aşağıdaki işletim sistemleri desteklenmektedir:
 
 * Windows 7 veya üzeri
 * Windows Server 2012 R2 veya üzeri
@@ -243,14 +243,14 @@ Yayımlama sırasında *Web. config* ' i dönüştürmeniz gerekiyorsa (örneği
 
 Aşağıdaki bağlantıyı kullanarak yükleyiciyi indirin:
 
-[Geçerli .NET Core barındırma paketi yükleyicisi (doğrudan indirme)](https://www.microsoft.com/net/permalink/dotnetcore-current-windows-runtime-bundle-installer)
+[Geçerli .NET Core barındırma paketi yükleyicisi (doğrudan indirme)](https://dotnet.microsoft.com/permalink/dotnetcore-current-windows-runtime-bundle-installer)
 
 ### <a name="earlier-versions-of-the-installer"></a>Yükleyici önceki sürümleri
 
 Yükleyici önceki bir sürümünü almak için:
 
-1. [.Net indirme arşivleri](https://www.microsoft.com/net/download/archives)' ne gidin.
-1. **.NET Core**altında .NET Core sürümünü seçin.
+1. [.NET Core 'U indir](https://dotnet.microsoft.com/download/dotnet-core) sayfasına gidin.
+1. İstenen .NET Core sürümüne tıklayın.
 1. **Uygulamaları Çalıştır-çalışma zamanı** sütununda, Istenen .NET Core çalışma zamanı sürümünün satırını bulun.
 1. **Çalışma zamanı & barındırma paketi** bağlantısını kullanarak yükleyiciyi indirin.
 
@@ -464,7 +464,7 @@ Yalıtılmış uygulama havuzlarında çalışan ayrı uygulamalara yönelik ort
 
 ASP.NET Core uygulamaları, diğer yapılandırma sağlayıcıları kullanılarak yapılandırılır. Daha fazla bilgi için bkz. [yapılandırma](xref:fundamentals/configuration/index).
 
-## <a name="application-pools"></a>Uygulama havuzları
+## <a name="application-pools"></a>Uygulama Havuzları
 
 Uygulama havuzu yalıtımı barındırma modeli tarafından belirlenir:
 
@@ -473,7 +473,7 @@ Uygulama havuzu yalıtımı barındırma modeli tarafından belirlenir:
 
 IIS **Web sitesi ekleme** iletişim kutusu varsayılan olarak uygulama başına tek bir uygulama havuzu olur. Bir **site adı** sağlandığında, metin otomatik olarak **uygulama havuzu** metin kutusuna aktarılır. Yeni bir uygulama havuzu, bir site eklendiğinde site adı kullanılarak oluşturulur.
 
-## <a name="application-pool-identity"></a>Uygulama havuzu kimliği
+## <a name="application-pool-identity"></a>Uygulama Havuzu Kimliği
 
 Bir uygulama havuzu kimlik hesabının etki alanı veya yerel hesap oluşturmak ve yönetmek zorunda kalmadan benzersiz bir hesabı altında çalıştırılacak bir uygulama sağlar. IIS 8.0 veya sonraki sürümlerde, IIS Yönetici çalışan işlemi (WAS) yeni uygulama havuzu adı ile bir sanal hesabı oluşturur ve uygulama havuzunun çalışan işlemlerini bu hesap altında çalıştırır. Uygulama havuzunun **Gelişmiş ayarlar** altındaki IIS Yönetim Konsolu 'Nda, **kimliğin** **applicationpokaydentity**kullanılacak şekilde ayarlandığından emin olun:
 
@@ -636,7 +636,7 @@ ASP.NET Core uygulamasını bir IIS sunucusuna yayımlamaya yönelik bir öğret
 
 ## <a name="supported-operating-systems"></a>Desteklenen işletim sistemleri
 
-Aşağıdaki işletim sistemleri desteklenir:
+Aşağıdaki işletim sistemleri desteklenmektedir:
 
 * Windows 7 veya üzeri
 * Windows Server 2008 R2 veya üzeri
@@ -850,14 +850,14 @@ Yayımlama sırasında *Web. config* ' i dönüştürmeniz gerekiyorsa (örneği
 
 Aşağıdaki bağlantıyı kullanarak yükleyiciyi indirin:
 
-[Geçerli .NET Core barındırma paketi yükleyicisi (doğrudan indirme)](https://www.microsoft.com/net/permalink/dotnetcore-current-windows-runtime-bundle-installer)
+[Geçerli .NET Core barındırma paketi yükleyicisi (doğrudan indirme)](https://dotnet.microsoft.com/permalink/dotnetcore-current-windows-runtime-bundle-installer)
 
 ### <a name="earlier-versions-of-the-installer"></a>Yükleyici önceki sürümleri
 
 Yükleyici önceki bir sürümünü almak için:
 
-1. [.Net indirme arşivleri](https://www.microsoft.com/net/download/archives)' ne gidin.
-1. **.NET Core**altında .NET Core sürümünü seçin.
+1. [.NET Core 'U indir](https://dotnet.microsoft.com/download/dotnet-core) sayfasına gidin.
+1. İstenen .NET Core sürümüne tıklayın.
 1. **Uygulamaları Çalıştır-çalışma zamanı** sütununda, Istenen .NET Core çalışma zamanı sürümünün satırını bulun.
 1. **Çalışma zamanı & barındırma paketi** bağlantısını kullanarak yükleyiciyi indirin.
 
@@ -1068,7 +1068,7 @@ Yalıtılmış uygulama havuzlarında çalışan ayrı uygulamalara yönelik ort
 
 ASP.NET Core uygulamaları, diğer yapılandırma sağlayıcıları kullanılarak yapılandırılır. Daha fazla bilgi için bkz. [yapılandırma](xref:fundamentals/configuration/index).
 
-## <a name="application-pools"></a>Uygulama havuzları
+## <a name="application-pools"></a>Uygulama Havuzları
 
 Uygulama havuzu yalıtımı barındırma modeli tarafından belirlenir:
 
@@ -1077,7 +1077,7 @@ Uygulama havuzu yalıtımı barındırma modeli tarafından belirlenir:
 
 IIS **Web sitesi ekleme** iletişim kutusu varsayılan olarak uygulama başına tek bir uygulama havuzu olur. Bir **site adı** sağlandığında, metin otomatik olarak **uygulama havuzu** metin kutusuna aktarılır. Yeni bir uygulama havuzu, bir site eklendiğinde site adı kullanılarak oluşturulur.
 
-## <a name="application-pool-identity"></a>Uygulama havuzu kimliği
+## <a name="application-pool-identity"></a>Uygulama Havuzu Kimliği
 
 Bir uygulama havuzu kimlik hesabının etki alanı veya yerel hesap oluşturmak ve yönetmek zorunda kalmadan benzersiz bir hesabı altında çalıştırılacak bir uygulama sağlar. IIS 8.0 veya sonraki sürümlerde, IIS Yönetici çalışan işlemi (WAS) yeni uygulama havuzu adı ile bir sanal hesabı oluşturur ve uygulama havuzunun çalışan işlemlerini bu hesap altında çalıştırır. Uygulama havuzunun **Gelişmiş ayarlar** altındaki IIS Yönetim Konsolu 'Nda, **kimliğin** **applicationpokaydentity**kullanılacak şekilde ayarlandığından emin olun:
 
@@ -1240,7 +1240,7 @@ ASP.NET Core uygulamasını bir IIS sunucusuna yayımlamaya yönelik bir öğret
 
 ## <a name="supported-operating-systems"></a>Desteklenen işletim sistemleri
 
-Aşağıdaki işletim sistemleri desteklenir:
+Aşağıdaki işletim sistemleri desteklenmektedir:
 
 * Windows 7 veya üzeri
 * Windows Server 2008 R2 veya üzeri
@@ -1426,14 +1426,14 @@ Yayımlama sırasında *Web. config* ' i dönüştürmeniz gerekiyorsa (örneği
 
 Aşağıdaki bağlantıyı kullanarak yükleyiciyi indirin:
 
-[Geçerli .NET Core barındırma paketi yükleyicisi (doğrudan indirme)](https://www.microsoft.com/net/permalink/dotnetcore-current-windows-runtime-bundle-installer)
+[Geçerli .NET Core barındırma paketi yükleyicisi (doğrudan indirme)](https://dotnet.microsoft.com/permalink/dotnetcore-current-windows-runtime-bundle-installer)
 
 ### <a name="earlier-versions-of-the-installer"></a>Yükleyici önceki sürümleri
 
 Yükleyici önceki bir sürümünü almak için:
 
-1. [.Net indirme arşivleri](https://www.microsoft.com/net/download/archives)' ne gidin.
-1. **.NET Core**altında .NET Core sürümünü seçin.
+1. [.NET Core 'U indir](https://dotnet.microsoft.com/download/dotnet-core) sayfasına gidin.
+1. İstenen .NET Core sürümüne tıklayın.
 1. **Uygulamaları Çalıştır-çalışma zamanı** sütununda, Istenen .NET Core çalışma zamanı sürümünün satırını bulun.
 1. **Çalışma zamanı & barındırma paketi** bağlantısını kullanarak yükleyiciyi indirin.
 
@@ -1677,11 +1677,11 @@ Yalıtılmış uygulama havuzlarında çalışan ayrı uygulamalara yönelik ort
 
 ASP.NET Core uygulamaları, diğer yapılandırma sağlayıcıları kullanılarak yapılandırılır. Daha fazla bilgi için bkz. [yapılandırma](xref:fundamentals/configuration/index).
 
-## <a name="application-pools"></a>Uygulama havuzları
+## <a name="application-pools"></a>Uygulama Havuzları
 
 Bir sunucuda birden fazla Web sitesi barındırma, her uygulamayı kendi uygulama havuzunda çalıştırarak uygulamaları birbirinden yalıtmak öneririz. IIS **Web sitesi ekleme** iletişim kutusu varsayılan olarak bu yapılandırmaya sahiptir. Bir **site adı** sağlandığında, metin otomatik olarak **uygulama havuzu** metin kutusuna aktarılır. Yeni bir uygulama havuzu, bir site eklendiğinde site adı kullanılarak oluşturulur.
 
-## <a name="application-pool-identity"></a>Uygulama havuzu kimliği
+## <a name="application-pool-identity"></a>Uygulama Havuzu Kimliği
 
 Bir uygulama havuzu kimlik hesabının etki alanı veya yerel hesap oluşturmak ve yönetmek zorunda kalmadan benzersiz bir hesabı altında çalıştırılacak bir uygulama sağlar. IIS 8.0 veya sonraki sürümlerde, IIS Yönetici çalışan işlemi (WAS) yeni uygulama havuzu adı ile bir sanal hesabı oluşturur ve uygulama havuzunun çalışan işlemlerini bu hesap altında çalıştırır. Uygulama havuzunun **Gelişmiş ayarlar** altındaki IIS Yönetim Konsolu 'Nda, **kimliğin** **applicationpokaydentity**kullanılacak şekilde ayarlandığından emin olun:
 

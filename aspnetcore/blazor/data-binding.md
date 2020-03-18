@@ -1,27 +1,29 @@
 ---
 title: ASP.NET Core Blazor veri bağlama
 author: guardrex
-description: Blazor uygulamalarında bileşenler ve DOM öğeleri için veri bağlama senaryoları hakkında bilgi edinin.
+description: Blazor Apps 'teki bileşenlere ve DOM öğelerine yönelik veri bağlama özellikleri hakkında bilgi edinin.
 monikerRange: '>= aspnetcore-3.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/24/2020
+ms.date: 03/16/2020
 no-loc:
 - Blazor
 - SignalR
 uid: blazor/data-binding
-ms.openlocfilehash: 92377730b9d353a507ffd384710fb979affe7265
-ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.openlocfilehash: 5b49d2598a451ee607e034913bd1aeaa03f941c6
+ms.sourcegitcommit: d64ef143c64ee4fdade8f9ea0b753b16752c5998
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78661289"
+ms.lasthandoff: 03/18/2020
+ms.locfileid: "79511203"
 ---
 # <a name="aspnet-core-opno-locblazor-data-binding"></a>ASP.NET Core Blazor veri bağlama
 
 , [Luke Latham](https://github.com/guardrex) ve [Daniel Roth](https://github.com/danroth27) tarafından
 
-Hem bileşenlere hem de DOM öğelerine veri bağlama [`@bind`](xref:mvc/views/razor#bind) özniteliğiyle gerçekleştirilir. Aşağıdaki örnek, bir `CurrentValue` özelliğini metin kutusu değerine bağlar:
+Razor bileşenleri, bir alan, özellik veya Razor ifadesi değeriyle [`@bind`](xref:mvc/views/razor#bind) ADLı bir HTML öğesi özniteliği aracılığıyla veri bağlama özellikleri sağlar.
+
+Aşağıdaki örnek, `CurrentValue` özelliğini metin kutusu değerine bağlar:
 
 ```razor
 <input @bind="CurrentValue" />
@@ -78,6 +80,8 @@ Bir `event` parametresiyle `@bind:event` özniteliği de ekleyerek diğer olayla
     private string _paragraphStyle = "color:red";
 }
 ```
+
+Öznitelik bağlama büyük/küçük harfe duyarlıdır. Örneğin, `@bind` geçerlidir ve `@Bind` geçersizdir.
 
 ## <a name="unparsable-values"></a>Ayrıştırılamayan değerler
 

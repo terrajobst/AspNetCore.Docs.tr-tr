@@ -1,27 +1,27 @@
 ---
 title: ASP.NET Core Blazor olay işleme
 author: guardrex
-description: Olay bağımsız değişkeni türleri, olay geri çağırmaları ve varsayılan tarayıcı olaylarını yönetmek dahil Blazorolay işleme senaryoları hakkında bilgi edinin.
+description: Olay bağımsız değişkeni türleri, olay geri çağırmaları ve varsayılan tarayıcı olaylarını yönetmek dahil Blazorolay işleme özellikleri hakkında bilgi edinin.
 monikerRange: '>= aspnetcore-3.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/12/2020
+ms.date: 03/16/2020
 no-loc:
 - Blazor
 - SignalR
 uid: blazor/event-handling
-ms.openlocfilehash: 25844ef39aee849072d16f3d73eda0a1c20ee788
-ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.openlocfilehash: c144841805e07a136f153c25a78c7f9af7c5801b
+ms.sourcegitcommit: d64ef143c64ee4fdade8f9ea0b753b16752c5998
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78661877"
+ms.lasthandoff: 03/18/2020
+ms.locfileid: "79511372"
 ---
 # <a name="aspnet-core-blazor-event-handling"></a>ASP.NET Core Blazor olay işleme
 
 , [Luke Latham](https://github.com/guardrex) ve [Daniel Roth](https://github.com/danroth27) tarafından
 
-Razor bileşenleri olay işleme özellikleri sağlar. `on{EVENT}` adlı bir HTML öğesi özniteliği için (örneğin, `onclick` ve `onsubmit`), temsilci türü belirtilmiş bir değer ile, Razor bileşenleri özniteliğin değerini bir olay işleyicisi olarak değerlendirir. Özniteliğin adı her zaman [`@on{EVENT}`](xref:mvc/views/razor#onevent)biçimlendirilir.
+Razor bileşenleri olay işleme özellikleri sağlar. [`@on{EVENT}`](xref:mvc/views/razor#onevent) ADLı bir HTML öğesi özniteliği için (örneğin, `@onclick`), temsilci türü belirtilmiş bir değer Ile, Razor bileşeni özniteliğin değerini bir olay işleyicisi olarak değerlendirir.
 
 Aşağıdaki kod, Kullanıcı arabiriminde düğme seçildiğinde `UpdateHeading` yöntemini çağırır:
 
@@ -81,13 +81,13 @@ Desteklenen `EventArgs` aşağıdaki tabloda gösterilmiştir.
 | Hata            | `ErrorEventArgs`     | `onerror` |
 | Olay            | `EventArgs`          | *Genel*<br>`onactivate`, `onbeforeactivate`, `onbeforedeactivate`, `ondeactivate`, `onended`, `onfullscreenchange`, `onfullscreenerror`, `onloadeddata`, `onloadedmetadata`, `onpointerlockchange`, `onpointerlockerror`, `onreadystatechange`, `onscroll`<br><br>*Pano*<br>`onbeforecut`, `onbeforecopy`, `onbeforepaste`<br><br>*Girdi*<br>`oninvalid`, `onreset`, `onselect`, `onselectionchange`, `onselectstart`, `onsubmit`<br><br>*Medyasını*<br>`oncanplay`, `oncanplaythrough`, `oncuechange`, `ondurationchange`, `onemptied`, `onpause`, `onplay`, `onplaying`, `onratechange`, `onseeked`, `onseeking`, `onstalled`, `onstop`, `onsuspend`, `ontimeupdate`, `onvolumechange`, `onwaiting` |
 | Çı            | `FocusEventArgs`     | `onfocus`, `onblur`, `onfocusin`, `onfocusout`<br><br>`relatedTarget`için destek içermez. |
-| Giriş            | `ChangeEventArgs`    | `onchange`, `oninput` |
+| Girdi            | `ChangeEventArgs`    | `onchange`, `oninput` |
 | Klavye         | `KeyboardEventArgs`  | `onkeydown`, `onkeypress`, `onkeyup` |
 | Tığında            | `MouseEventArgs`     | `onclick`, `oncontextmenu`, `ondblclick`, `onmousedown`, `onmouseup`, `onmouseover`, `onmousemove`, `onmouseout` |
 | Fare işaretçisi    | `PointerEventArgs`   | `onpointerdown`, `onpointerup`, `onpointercancel`, `onpointermove`, `onpointerover`, `onpointerout`, `onpointerenter`, `onpointerleave`, `ongotpointercapture`, `onlostpointercapture` |
 | Fare tekerleği      | `WheelEventArgs`     | `onwheel`, `onmousewheel` |
 | İlerleme durumu         | `ProgressEventArgs`  | `onabort`, `onload`, `onloadend`, `onloadstart`, `onprogress`, `ontimeout` |
-| Dokunmatik            | `TouchEventArgs`     | `ontouchstart`, `ontouchend`, `ontouchmove`, `ontouchenter`, `ontouchleave`, `ontouchcancel`<br><br>`TouchPoint`, dokunmaya duyarlı bir cihazdaki tek bir iletişim noktasını temsil eder. |
+| Dokunma            | `TouchEventArgs`     | `ontouchstart`, `ontouchend`, `ontouchmove`, `ontouchenter`, `ontouchleave`, `ontouchcancel`<br><br>`TouchPoint`, dokunmaya duyarlı bir cihazdaki tek bir iletişim noktasını temsil eder. |
 
 Daha fazla bilgi için aşağıdaki kaynaklara bakın:
 

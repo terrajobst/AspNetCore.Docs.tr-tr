@@ -8,12 +8,12 @@ ms.date: 02/10/2020
 no-loc:
 - SignalR
 uid: tutorials/signalr-typescript-webpack
-ms.openlocfilehash: e6dd200367278b1697ef232f5d79dfbd138bb82b
-ms.sourcegitcommit: 40dc9b00131985abcd99bd567647420d798e798a
+ms.openlocfilehash: ce5752743912a979a95fb5d504e4bcbb2b69ce1e
+ms.sourcegitcommit: d64ef143c64ee4fdade8f9ea0b753b16752c5998
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78935486"
+ms.lasthandoff: 03/18/2020
+ms.locfileid: "79511346"
 ---
 # <a name="use-aspnet-core-signalr-with-typescript-and-webpack"></a>TypeScript ve WebPack ile ASP.NET Core SignalR kullanın
 
@@ -21,7 +21,7 @@ ms.locfileid: "78935486"
 
 [WebPack](https://webpack.js.org/) , geliştiricilerin bir Web uygulamasının istemci tarafı kaynaklarını paketleyip oluşturmalarına olanak sağlar. Bu öğreticide, istemcisinin [TypeScript](https://www.typescriptlang.org/)'te yazıldığı bir ASP.NET Core SignalR Web uygulamasında WebPack 'in kullanımı gösterilmektedir.
 
-Bu öğreticide şunların nasıl yapıladığını öğreneceksiniz:
+Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz:
 
 > [!div class="checklist"]
 > * Bir başlatıcı ASP.NET Core SignalR uygulaması yapı iskelesi
@@ -39,13 +39,13 @@ Bu öğreticide şunların nasıl yapıladığını öğreneceksiniz:
 # <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * **ASP.net ve Web geliştirme** iş yüküyle [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=inline+link&utm_content=download+vs2019)
-* [.NET Core SDK 3.0 veya üzeri](https://www.microsoft.com/net/download/all)
+* [.NET Core SDK 3.0 veya üzeri](https://dotnet.microsoft.com/download/dotnet-core)
 * [NPM](https://www.npmjs.com/) ile [Node. js](https://nodejs.org/)
 
 # <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 * [Visual Studio Code](https://code.visualstudio.com/download)
-* [.NET Core SDK 3.0 veya üzeri](https://www.microsoft.com/net/download/all)
+* [.NET Core SDK 3.0 veya üzeri](https://dotnet.microsoft.com/download/dotnet-core)
 * [C#Visual Studio Code sürüm 1.17.1 veya üzeri için](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)
 * [NPM](https://www.npmjs.com/) ile [Node. js](https://nodejs.org/)
 
@@ -296,13 +296,13 @@ Uygulamanın aşağıdaki adımlarla çalıştığından emin olun.
 # <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * **ASP.net ve Web geliştirme** iş yüküyle [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=inline+link&utm_content=download+vs2019)
-* [.NET Core SDK 2,2 veya üzeri](https://www.microsoft.com/net/download/all)
+* [.NET Core SDK 2,2 veya üzeri](https://dotnet.microsoft.com/download/dotnet-core)
 * [NPM](https://www.npmjs.com/) ile [Node. js](https://nodejs.org/)
 
 # <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 * [Visual Studio Code](https://code.visualstudio.com/download)
-* [.NET Core SDK 2,2 veya üzeri](https://www.microsoft.com/net/download/all)
+* [.NET Core SDK 2,2 veya üzeri](https://dotnet.microsoft.com/download/dotnet-core)
 * [C#Visual Studio Code sürüm 1.17.1 veya üzeri için](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)
 * [NPM](https://www.npmjs.com/) ile [Node. js](https://nodejs.org/)
 

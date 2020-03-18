@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/25/2018
 uid: fundamentals/metapackage
-ms.openlocfilehash: e47f583d0fa75bdeb26b669303747a70619117c1
-ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.openlocfilehash: cc00c075909da5c17a4aa2fd252c9e662e5a0fc9
+ms.sourcegitcommit: d64ef143c64ee4fdade8f9ea0b753b16752c5998
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78663151"
+ms.lasthandoff: 03/18/2020
+ms.locfileid: "79511073"
 ---
 # <a name="microsoftaspnetcoreall-metapackage-for-aspnet-core-20"></a>ASP.NET Core 2,0 için Microsoft. AspNetCore. All metapackage
 
@@ -94,6 +94,6 @@ Aşağıdaki paketler `Microsoft.AspNetCore.All`, `Microsoft.AspNetCore.App` pak
 
 2,1 ve üzeri için `Microsoft.AspNetCore.App` metapackage 'e geçiş yapmanızı öneririz. `Microsoft.AspNetCore.All` metapackage kullanmaya devam etmek ve en son düzeltme eki sürümünün dağıtıldığından emin olmak için:
 
-* Geliştirme makinelerinde ve yapı sunucularında: en son [.NET Core SDK](https://www.microsoft.com/net/download)yükler.
-* Dağıtım sunucularında: en son [.NET Core çalışma zamanını](https://www.microsoft.com/net/download)yükler.
+* Geliştirme makinelerinde ve yapı sunucularında: en son [.NET Core SDK](https://dotnet.microsoft.com/download)yükler.
+* Dağıtım sunucularında: en son [.NET Core çalışma zamanını](https://dotnet.microsoft.com/download)yükler.
  Uygulamanız, uygulama yeniden başlatıldığında en son yüklenen sürüme ileri alınacaktır.

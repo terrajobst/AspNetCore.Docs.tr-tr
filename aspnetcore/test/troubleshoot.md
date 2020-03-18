@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 07/10/2019
 uid: test/troubleshoot
-ms.openlocfilehash: 042e1c84a7226cb4bf56bcc0ff4e576b67e68e1b
-ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.openlocfilehash: 345967f08cf99ef5f18d0c9bcd59ab29c74454f1
+ms.sourcegitcommit: d64ef143c64ee4fdade8f9ea0b753b16752c5998
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78655304"
+ms.lasthandoff: 03/18/2020
+ms.locfileid: "79511515"
 ---
 # <a name="troubleshoot-and-debug-aspnet-core-projects"></a>ASP.NET Core projelerinde sorun giderme ve hata ayıklama
 
@@ -32,7 +32,7 @@ Aşağıdaki bağlantılar sorun giderme kılavuzunu sağlar:
 
 > .NET Core SDK hem 32-bit hem de 64-bit sürümleri yüklenir. Yalnızca ' C:\\Program Files\\DotNet\\SDK\\' konumunda yüklü 64 bitlik sürümlerden alınan şablonlar görüntülenir.
 
-Bu uyarı, [.NET Core SDK](https://www.microsoft.com/net/download/all) hem 32-bit (x86) hem de 64-bit (x64) sürümleri yüklendiğinde görüntülenir. Her iki sürümün de sık yüklenebileceği yaygın nedenler şunlardır:
+Bu uyarı, [.NET Core SDK](https://dotnet.microsoft.com/download/dotnet-core) hem 32-bit (x86) hem de 64-bit (x64) sürümleri yüklendiğinde görüntülenir. Her iki sürümün de sık yüklenebileceği yaygın nedenler şunlardır:
 
 * İlk olarak 32 bitlik bir makine kullanarak .NET Core SDK yükleyicisini indirdiniz, ancak bu dosyayı bir 64 bit makineye kopyaladınız ve bu makinede yüklediniz.
 * 32 bit .NET Core SDK başka bir uygulama tarafından yüklendi.
