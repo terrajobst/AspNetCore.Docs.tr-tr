@@ -7,39 +7,39 @@ ms.custom: mvc
 ms.date: 12/05/2019
 uid: mvc/views/working-with-forms
 ms.openlocfilehash: 5af532db35b858d157f61a6aca30f55d15e9ff1e
-ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.sourcegitcommit: 98bcf5fe210931e3eb70f82fd675d8679b33f5d6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78657537"
+ms.lasthandoff: 03/16/2020
+ms.locfileid: "79416242"
 ---
-# <a name="tag-helpers-in-forms-in-aspnet-core"></a><span data-ttu-id="e5fdf-103">ASP.NET Core formlardaki etiket yardımcıları</span><span class="sxs-lookup"><span data-stu-id="e5fdf-103">Tag Helpers in forms in ASP.NET Core</span></span>
+# <a name="tag-helpers-in-forms-in-aspnet-core"></a><span data-ttu-id="94fa6-103">ASP.NET Core formlardaki etiket yardımcıları</span><span class="sxs-lookup"><span data-stu-id="94fa6-103">Tag Helpers in forms in ASP.NET Core</span></span>
 
-<span data-ttu-id="e5fdf-104">By [Rick Anderson](https://twitter.com/RickAndMSFT), [N. Taylor Mullen](https://github.com/NTaylorMullen), [Davve Patıı](https://twitter.com/Dave_Paquette)ve [Jerrie Pelser](https://github.com/jerriep)</span><span class="sxs-lookup"><span data-stu-id="e5fdf-104">By [Rick Anderson](https://twitter.com/RickAndMSFT), [N. Taylor Mullen](https://github.com/NTaylorMullen), [Dave Paquette](https://twitter.com/Dave_Paquette), and [Jerrie Pelser](https://github.com/jerriep)</span></span>
+<span data-ttu-id="94fa6-104">By [Rick Anderson](https://twitter.com/RickAndMSFT), [N. Taylor Mullen](https://github.com/NTaylorMullen), [Davve Patıı](https://twitter.com/Dave_Paquette)ve [Jerrie Pelser](https://github.com/jerriep)</span><span class="sxs-lookup"><span data-stu-id="94fa6-104">By [Rick Anderson](https://twitter.com/RickAndMSFT), [N. Taylor Mullen](https://github.com/NTaylorMullen), [Dave Paquette](https://twitter.com/Dave_Paquette), and [Jerrie Pelser](https://github.com/jerriep)</span></span>
 
-<span data-ttu-id="e5fdf-105">Bu belge, formlarda ve genellikle form üzerinde kullanılan HTML öğeleriyle çalışmayı gösterir.</span><span class="sxs-lookup"><span data-stu-id="e5fdf-105">This document demonstrates working with Forms and the HTML elements commonly used on a Form.</span></span> <span data-ttu-id="e5fdf-106">HTML [form](https://www.w3.org/TR/html401/interact/forms.html) öğesi, Web uygulamalarının sunucuya veri geri göndermek için kullanacağı birincil mekanizmayı sağlar.</span><span class="sxs-lookup"><span data-stu-id="e5fdf-106">The HTML [Form](https://www.w3.org/TR/html401/interact/forms.html) element provides the primary mechanism web apps use to post back data to the server.</span></span> <span data-ttu-id="e5fdf-107">Bu belgenin çoğunda [Etiket Yardımcıları](tag-helpers/intro.md) ve BUNLARıN güçlü HTML formları oluşturma konusunda nasıl yardımcı olabilecekleri açıklanmaktadır.</span><span class="sxs-lookup"><span data-stu-id="e5fdf-107">Most of this document describes [Tag Helpers](tag-helpers/intro.md) and how they can help you productively create robust HTML forms.</span></span> <span data-ttu-id="e5fdf-108">Bu belgeyi okuyabilmeniz [Için yardımcıları etiketleyerek](tag-helpers/intro.md) okumanız önerilir.</span><span class="sxs-lookup"><span data-stu-id="e5fdf-108">We recommend you read [Introduction to Tag Helpers](tag-helpers/intro.md) before you read this document.</span></span>
+<span data-ttu-id="94fa6-105">Bu belge, formlarda ve genellikle form üzerinde kullanılan HTML öğeleriyle çalışmayı gösterir.</span><span class="sxs-lookup"><span data-stu-id="94fa6-105">This document demonstrates working with Forms and the HTML elements commonly used on a Form.</span></span> <span data-ttu-id="94fa6-106">HTML [form](https://www.w3.org/TR/html401/interact/forms.html) öğesi, Web uygulamalarının sunucuya veri geri göndermek için kullanacağı birincil mekanizmayı sağlar.</span><span class="sxs-lookup"><span data-stu-id="94fa6-106">The HTML [Form](https://www.w3.org/TR/html401/interact/forms.html) element provides the primary mechanism web apps use to post back data to the server.</span></span> <span data-ttu-id="94fa6-107">Bu belgenin çoğunda [Etiket Yardımcıları](tag-helpers/intro.md) ve BUNLARıN güçlü HTML formları oluşturma konusunda nasıl yardımcı olabilecekleri açıklanmaktadır.</span><span class="sxs-lookup"><span data-stu-id="94fa6-107">Most of this document describes [Tag Helpers](tag-helpers/intro.md) and how they can help you productively create robust HTML forms.</span></span> <span data-ttu-id="94fa6-108">Bu belgeyi okuyabilmeniz [Için yardımcıları etiketleyerek](tag-helpers/intro.md) okumanız önerilir.</span><span class="sxs-lookup"><span data-stu-id="94fa6-108">We recommend you read [Introduction to Tag Helpers](tag-helpers/intro.md) before you read this document.</span></span>
 
-<span data-ttu-id="e5fdf-109">Birçok durumda, HTML Yardımcıları belirli bir etiket Yardımcısı için alternatif bir yaklaşım sağlar, ancak bu etiket yardımcıların HTML yardımcılarını değiştirmez ve her HTML Yardımcısı için bir etiket Yardımcısı olmadığını bilmek önemlidir.</span><span class="sxs-lookup"><span data-stu-id="e5fdf-109">In many cases, HTML Helpers provide an alternative approach to a specific Tag Helper, but it's important to recognize that Tag Helpers don't replace HTML Helpers and there's not a Tag Helper for each HTML Helper.</span></span> <span data-ttu-id="e5fdf-110">Bir HTML Yardımcısı alternatifi varsa, bu, bahsedilir.</span><span class="sxs-lookup"><span data-stu-id="e5fdf-110">When an HTML Helper alternative exists, it's mentioned.</span></span>
+<span data-ttu-id="94fa6-109">Birçok durumda, HTML Yardımcıları belirli bir etiket Yardımcısı için alternatif bir yaklaşım sağlar, ancak bu etiket yardımcıların HTML yardımcılarını değiştirmez ve her HTML Yardımcısı için bir etiket Yardımcısı olmadığını bilmek önemlidir.</span><span class="sxs-lookup"><span data-stu-id="94fa6-109">In many cases, HTML Helpers provide an alternative approach to a specific Tag Helper, but it's important to recognize that Tag Helpers don't replace HTML Helpers and there's not a Tag Helper for each HTML Helper.</span></span> <span data-ttu-id="94fa6-110">Bir HTML Yardımcısı alternatifi varsa, bu, bahsedilir.</span><span class="sxs-lookup"><span data-stu-id="94fa6-110">When an HTML Helper alternative exists, it's mentioned.</span></span>
 
 <a name="my-asp-route-param-ref-label"></a>
 
-## <a name="the-form-tag-helper"></a><span data-ttu-id="e5fdf-111">Form etiketi Yardımcısı</span><span class="sxs-lookup"><span data-stu-id="e5fdf-111">The Form Tag Helper</span></span>
+## <a name="the-form-tag-helper"></a><span data-ttu-id="94fa6-111">Form etiketi Yardımcısı</span><span class="sxs-lookup"><span data-stu-id="94fa6-111">The Form Tag Helper</span></span>
 
-<span data-ttu-id="e5fdf-112">[Form](https://www.w3.org/TR/html401/interact/forms.html) etiketi Yardımcısı:</span><span class="sxs-lookup"><span data-stu-id="e5fdf-112">The [Form](https://www.w3.org/TR/html401/interact/forms.html) Tag Helper:</span></span>
+<span data-ttu-id="94fa6-112">[Form](https://www.w3.org/TR/html401/interact/forms.html) etiketi Yardımcısı:</span><span class="sxs-lookup"><span data-stu-id="94fa6-112">The [Form](https://www.w3.org/TR/html401/interact/forms.html) Tag Helper:</span></span>
 
-* <span data-ttu-id="e5fdf-113">MVC denetleyicisi eylemi veya adlandırılmış yol için HTML [\<FORM >](https://www.w3.org/TR/html401/interact/forms.html) `action` öznitelik değeri oluşturur</span><span class="sxs-lookup"><span data-stu-id="e5fdf-113">Generates the HTML [\<FORM>](https://www.w3.org/TR/html401/interact/forms.html) `action` attribute value for a MVC controller action or named route</span></span>
+* <span data-ttu-id="94fa6-113">MVC denetleyicisi eylemi veya adlandırılmış yol için HTML [\<FORM >](https://www.w3.org/TR/html401/interact/forms.html) `action` öznitelik değeri oluşturur</span><span class="sxs-lookup"><span data-stu-id="94fa6-113">Generates the HTML [\<FORM>](https://www.w3.org/TR/html401/interact/forms.html) `action` attribute value for a MVC controller action or named route</span></span>
 
-* <span data-ttu-id="e5fdf-114">Siteler arası istek yasaklamasını engellemek için gizli bir [Istek doğrulama belirteci](/aspnet/mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages) ÜRETIR (http post eylem yönteminde `[ValidateAntiForgeryToken]` özniteliğiyle kullanıldığında)</span><span class="sxs-lookup"><span data-stu-id="e5fdf-114">Generates a hidden [Request Verification Token](/aspnet/mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages) to prevent cross-site request forgery (when used with the `[ValidateAntiForgeryToken]` attribute in the HTTP Post action method)</span></span>
+* <span data-ttu-id="94fa6-114">Siteler arası istek yasaklamasını engellemek için gizli bir [Istek doğrulama belirteci](/aspnet/mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages) ÜRETIR (http post eylem yönteminde `[ValidateAntiForgeryToken]` özniteliğiyle kullanıldığında)</span><span class="sxs-lookup"><span data-stu-id="94fa6-114">Generates a hidden [Request Verification Token](/aspnet/mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages) to prevent cross-site request forgery (when used with the `[ValidateAntiForgeryToken]` attribute in the HTTP Post action method)</span></span>
 
-* <span data-ttu-id="e5fdf-115">Yol değerlerine `<Parameter Name>` eklendiği `asp-route-<Parameter Name>` özniteliğini sağlar.</span><span class="sxs-lookup"><span data-stu-id="e5fdf-115">Provides the `asp-route-<Parameter Name>` attribute, where `<Parameter Name>` is added to the route values.</span></span> <span data-ttu-id="e5fdf-116">`Html.BeginForm` ve `Html.BeginRouteForm` `routeValues` parametreleri benzer işlevlere sahiptir.</span><span class="sxs-lookup"><span data-stu-id="e5fdf-116">The  `routeValues` parameters to `Html.BeginForm` and `Html.BeginRouteForm` provide similar functionality.</span></span>
+* <span data-ttu-id="94fa6-115">Yol değerlerine `<Parameter Name>` eklendiği `asp-route-<Parameter Name>` özniteliğini sağlar.</span><span class="sxs-lookup"><span data-stu-id="94fa6-115">Provides the `asp-route-<Parameter Name>` attribute, where `<Parameter Name>` is added to the route values.</span></span> <span data-ttu-id="94fa6-116">`Html.BeginForm` ve `Html.BeginRouteForm` `routeValues` parametreleri benzer işlevlere sahiptir.</span><span class="sxs-lookup"><span data-stu-id="94fa6-116">The  `routeValues` parameters to `Html.BeginForm` and `Html.BeginRouteForm` provide similar functionality.</span></span>
 
-* <span data-ttu-id="e5fdf-117">Bir HTML Yardımcısı alternatifi `Html.BeginForm` ve `Html.BeginRouteForm`</span><span class="sxs-lookup"><span data-stu-id="e5fdf-117">Has an HTML Helper alternative `Html.BeginForm` and `Html.BeginRouteForm`</span></span>
+* <span data-ttu-id="94fa6-117">Bir HTML Yardımcısı alternatifi `Html.BeginForm` ve `Html.BeginRouteForm`</span><span class="sxs-lookup"><span data-stu-id="94fa6-117">Has an HTML Helper alternative `Html.BeginForm` and `Html.BeginRouteForm`</span></span>
 
-<span data-ttu-id="e5fdf-118">Örnek:</span><span class="sxs-lookup"><span data-stu-id="e5fdf-118">Sample:</span></span>
+<span data-ttu-id="94fa6-118">Örnek:</span><span class="sxs-lookup"><span data-stu-id="94fa6-118">Sample:</span></span>
 
 [!code-HTML[](working-with-forms/sample/final/Views/Demo/RegisterFormOnly.cshtml)]
 
-<span data-ttu-id="e5fdf-119">Yukarıdaki form etiketi Yardımcısı aşağıdaki HTML 'yi oluşturur:</span><span class="sxs-lookup"><span data-stu-id="e5fdf-119">The Form Tag Helper above generates the following HTML:</span></span>
+<span data-ttu-id="94fa6-119">Yukarıdaki form etiketi Yardımcısı aşağıdaki HTML 'yi oluşturur:</span><span class="sxs-lookup"><span data-stu-id="94fa6-119">The Form Tag Helper above generates the following HTML:</span></span>
 
 ```html
 <form method="post" action="/Demo/Register">
@@ -48,15 +48,15 @@ ms.locfileid: "78657537"
 </form>
 ```
 
-<span data-ttu-id="e5fdf-120">MVC çalışma zamanı, etiket Yardımcısı öznitelikleri `asp-controller` ve `asp-action`olan `action` öznitelik değerini oluşturur.</span><span class="sxs-lookup"><span data-stu-id="e5fdf-120">The MVC runtime generates the `action` attribute value from the Form Tag Helper attributes `asp-controller` and `asp-action`.</span></span> <span data-ttu-id="e5fdf-121">Form etiketi Yardımcısı ayrıca, siteler arası istek sahteciliği (HTTP POST eylem yönteminde `[ValidateAntiForgeryToken]` özniteliğiyle kullanıldığında) engellemek için gizli bir [Istek doğrulama belirteci](/aspnet/mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages) oluşturur.</span><span class="sxs-lookup"><span data-stu-id="e5fdf-121">The Form Tag Helper also generates a hidden [Request Verification Token](/aspnet/mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages) to prevent cross-site request forgery (when used with the `[ValidateAntiForgeryToken]` attribute in the HTTP Post action method).</span></span> <span data-ttu-id="e5fdf-122">Bir saf HTML formunun siteler arası istek sahteciliğini önleme 'den korunması zordur, form etiketi Yardımcısı bu hizmeti sizin için sağlar.</span><span class="sxs-lookup"><span data-stu-id="e5fdf-122">Protecting a pure HTML Form from cross-site request forgery is difficult, the Form Tag Helper provides this service for you.</span></span>
+<span data-ttu-id="94fa6-120">MVC çalışma zamanı, etiket Yardımcısı öznitelikleri `asp-controller` ve `asp-action`olan `action` öznitelik değerini oluşturur.</span><span class="sxs-lookup"><span data-stu-id="94fa6-120">The MVC runtime generates the `action` attribute value from the Form Tag Helper attributes `asp-controller` and `asp-action`.</span></span> <span data-ttu-id="94fa6-121">Form etiketi Yardımcısı ayrıca, siteler arası istek sahteciliği (HTTP POST eylem yönteminde `[ValidateAntiForgeryToken]` özniteliğiyle kullanıldığında) engellemek için gizli bir [Istek doğrulama belirteci](/aspnet/mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages) oluşturur.</span><span class="sxs-lookup"><span data-stu-id="94fa6-121">The Form Tag Helper also generates a hidden [Request Verification Token](/aspnet/mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages) to prevent cross-site request forgery (when used with the `[ValidateAntiForgeryToken]` attribute in the HTTP Post action method).</span></span> <span data-ttu-id="94fa6-122">Bir saf HTML formunun siteler arası istek sahteciliğini önleme 'den korunması zordur, form etiketi Yardımcısı bu hizmeti sizin için sağlar.</span><span class="sxs-lookup"><span data-stu-id="94fa6-122">Protecting a pure HTML Form from cross-site request forgery is difficult, the Form Tag Helper provides this service for you.</span></span>
 
-### <a name="using-a-named-route"></a><span data-ttu-id="e5fdf-123">Adlandırılmış yol kullanma</span><span class="sxs-lookup"><span data-stu-id="e5fdf-123">Using a named route</span></span>
+### <a name="using-a-named-route"></a><span data-ttu-id="94fa6-123">Adlandırılmış yol kullanma</span><span class="sxs-lookup"><span data-stu-id="94fa6-123">Using a named route</span></span>
 
-<span data-ttu-id="e5fdf-124">`asp-route` Tag Helper özniteliği, HTML `action` özniteliği için de biçimlendirme oluşturabilir.</span><span class="sxs-lookup"><span data-stu-id="e5fdf-124">The `asp-route` Tag Helper attribute can also generate markup for the HTML `action` attribute.</span></span> <span data-ttu-id="e5fdf-125">`register` [adlı bir](../../fundamentals/routing.md) uygulama, kayıt sayfası için aşağıdaki biçimlendirmeyi kullanabilir:</span><span class="sxs-lookup"><span data-stu-id="e5fdf-125">An app with a [route](../../fundamentals/routing.md)  named `register` could use the following markup for the registration page:</span></span>
+<span data-ttu-id="94fa6-124">`asp-route` Tag Helper özniteliği, HTML `action` özniteliği için de biçimlendirme oluşturabilir.</span><span class="sxs-lookup"><span data-stu-id="94fa6-124">The `asp-route` Tag Helper attribute can also generate markup for the HTML `action` attribute.</span></span> <span data-ttu-id="94fa6-125">`register` [adlı bir](../../fundamentals/routing.md) uygulama, kayıt sayfası için aşağıdaki biçimlendirmeyi kullanabilir:</span><span class="sxs-lookup"><span data-stu-id="94fa6-125">An app with a [route](../../fundamentals/routing.md)  named `register` could use the following markup for the registration page:</span></span>
 
 [!code-HTML[](../../mvc/views/working-with-forms/sample/final/Views/Demo/RegisterRoute.cshtml)]
 
-<span data-ttu-id="e5fdf-126">*Görünümler/hesap* klasöründeki görünümlerin birçoğu ( *bireysel kullanıcı hesaplarıyla*yeni bir Web uygulaması oluşturduğunuzda oluşturulur), [ASP-Route-ReturnUrl](xref:mvc/views/working-with-forms) özniteliğini içerir:</span><span class="sxs-lookup"><span data-stu-id="e5fdf-126">Many of the views in the *Views/Account* folder (generated when you create a new web app with *Individual User Accounts*) contain the [asp-route-returnurl](xref:mvc/views/working-with-forms) attribute:</span></span>
+<span data-ttu-id="94fa6-126">*Görünümler/hesap* klasöründeki görünümlerin birçoğu ( *bireysel kullanıcı hesaplarıyla*yeni bir Web uygulaması oluşturduğunuzda oluşturulur), [ASP-Route-ReturnUrl](xref:mvc/views/working-with-forms) özniteliğini içerir:</span><span class="sxs-lookup"><span data-stu-id="94fa6-126">Many of the views in the *Views/Account* folder (generated when you create a new web app with *Individual User Accounts*) contain the [asp-route-returnurl](xref:mvc/views/working-with-forms) attribute:</span></span>
 
 ```cshtml
 <form asp-controller="Account" asp-action="Login"
@@ -65,29 +65,29 @@ ms.locfileid: "78657537"
 ```
 
 >[!NOTE]
-><span data-ttu-id="e5fdf-127">Yerleşik şablonlarla `returnUrl`, yalnızca yetkili bir kaynağa erişmeye çalıştığınızda ancak kimliği doğrulanmamış veya yetkilendirilmeyen otomatik olarak doldurulur.</span><span class="sxs-lookup"><span data-stu-id="e5fdf-127">With the built in templates, `returnUrl` is only populated automatically when you try to access an authorized resource but are not authenticated or authorized.</span></span> <span data-ttu-id="e5fdf-128">Yetkisiz erişim yapmaya çalıştığınızda, güvenlik ara yazılımı sizi `returnUrl` kümesi ile oturum açma sayfasına yönlendirir.</span><span class="sxs-lookup"><span data-stu-id="e5fdf-128">When you attempt an unauthorized access, the security middleware redirects you to the login page with the `returnUrl` set.</span></span>
+><span data-ttu-id="94fa6-127">Yerleşik şablonlarla `returnUrl`, yalnızca yetkili bir kaynağa erişmeye çalıştığınızda ancak kimliği doğrulanmamış veya yetkilendirilmeyen otomatik olarak doldurulur.</span><span class="sxs-lookup"><span data-stu-id="94fa6-127">With the built in templates, `returnUrl` is only populated automatically when you try to access an authorized resource but are not authenticated or authorized.</span></span> <span data-ttu-id="94fa6-128">Yetkisiz erişim yapmaya çalıştığınızda, güvenlik ara yazılımı sizi `returnUrl` kümesi ile oturum açma sayfasına yönlendirir.</span><span class="sxs-lookup"><span data-stu-id="94fa6-128">When you attempt an unauthorized access, the security middleware redirects you to the login page with the `returnUrl` set.</span></span>
 
-## <a name="the-form-action-tag-helper"></a><span data-ttu-id="e5fdf-129">Form eylemi etiketi Yardımcısı</span><span class="sxs-lookup"><span data-stu-id="e5fdf-129">The Form Action Tag Helper</span></span>
+## <a name="the-form-action-tag-helper"></a><span data-ttu-id="94fa6-129">Form eylemi etiketi Yardımcısı</span><span class="sxs-lookup"><span data-stu-id="94fa6-129">The Form Action Tag Helper</span></span>
 
-<span data-ttu-id="e5fdf-130">Form eylemi etiketi Yardımcısı, `formaction` özniteliği oluşturulan `<button ...>` veya `<input type="image" ...>` etiketi üzerinde oluşturur.</span><span class="sxs-lookup"><span data-stu-id="e5fdf-130">The Form Action Tag Helper generates the `formaction` attribute on the generated `<button ...>` or `<input type="image" ...>` tag.</span></span> <span data-ttu-id="e5fdf-131">`formaction` özniteliği bir formun verilerini nereden gönderdiğini denetler.</span><span class="sxs-lookup"><span data-stu-id="e5fdf-131">The `formaction` attribute controls where a form submits its data.</span></span> <span data-ttu-id="e5fdf-132">`image` ve [\<düğme >](https://www.w3.org/wiki/HTML/Elements/button) öğeleri [\<giriş >](https://www.w3.org/wiki/HTML/Elements/input) öğelerine bağlanır.</span><span class="sxs-lookup"><span data-stu-id="e5fdf-132">It binds to [\<input>](https://www.w3.org/wiki/HTML/Elements/input) elements of type `image` and [\<button>](https://www.w3.org/wiki/HTML/Elements/button) elements.</span></span> <span data-ttu-id="e5fdf-133">Form eylemi etiketi Yardımcısı, karşılık gelen öğe için `formaction` bağlantısının oluşturulduğunu denetlemek için birkaç [AnchorTagHelper](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper) `asp-` özniteliği kullanımını sağlar.</span><span class="sxs-lookup"><span data-stu-id="e5fdf-133">The Form Action Tag Helper enables the usage of several [AnchorTagHelper](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper) `asp-` attributes to control what `formaction` link is generated for the corresponding element.</span></span>
+<span data-ttu-id="94fa6-130">Form eylemi etiketi Yardımcısı, `formaction` özniteliği oluşturulan `<button ...>` veya `<input type="image" ...>` etiketi üzerinde oluşturur.</span><span class="sxs-lookup"><span data-stu-id="94fa6-130">The Form Action Tag Helper generates the `formaction` attribute on the generated `<button ...>` or `<input type="image" ...>` tag.</span></span> <span data-ttu-id="94fa6-131">`formaction` özniteliği bir formun verilerini nereden gönderdiğini denetler.</span><span class="sxs-lookup"><span data-stu-id="94fa6-131">The `formaction` attribute controls where a form submits its data.</span></span> <span data-ttu-id="94fa6-132">`image` ve [\<düğme >](https://www.w3.org/wiki/HTML/Elements/button) öğeleri [\<giriş >](https://www.w3.org/wiki/HTML/Elements/input) öğelerine bağlanır.</span><span class="sxs-lookup"><span data-stu-id="94fa6-132">It binds to [\<input>](https://www.w3.org/wiki/HTML/Elements/input) elements of type `image` and [\<button>](https://www.w3.org/wiki/HTML/Elements/button) elements.</span></span> <span data-ttu-id="94fa6-133">Form eylemi etiketi Yardımcısı, karşılık gelen öğe için `formaction` bağlantısının oluşturulduğunu denetlemek için birkaç [AnchorTagHelper](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper) `asp-` özniteliği kullanımını sağlar.</span><span class="sxs-lookup"><span data-stu-id="94fa6-133">The Form Action Tag Helper enables the usage of several [AnchorTagHelper](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper) `asp-` attributes to control what `formaction` link is generated for the corresponding element.</span></span>
 
-<span data-ttu-id="e5fdf-134">`formaction`değerini denetlemek için desteklenen [AnchorTagHelper](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper) öznitelikleri:</span><span class="sxs-lookup"><span data-stu-id="e5fdf-134">Supported [AnchorTagHelper](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper) attributes to control the value of `formaction`:</span></span>
+<span data-ttu-id="94fa6-134">`formaction`değerini denetlemek için desteklenen [AnchorTagHelper](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper) öznitelikleri:</span><span class="sxs-lookup"><span data-stu-id="94fa6-134">Supported [AnchorTagHelper](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper) attributes to control the value of `formaction`:</span></span>
 
-|<span data-ttu-id="e5fdf-135">Öznitelik</span><span class="sxs-lookup"><span data-stu-id="e5fdf-135">Attribute</span></span>|<span data-ttu-id="e5fdf-136">Açıklama</span><span class="sxs-lookup"><span data-stu-id="e5fdf-136">Description</span></span>|
+|<span data-ttu-id="94fa6-135">Öznitelik</span><span class="sxs-lookup"><span data-stu-id="94fa6-135">Attribute</span></span>|<span data-ttu-id="94fa6-136">Açıklama</span><span class="sxs-lookup"><span data-stu-id="94fa6-136">Description</span></span>|
 |---|---|
-|[<span data-ttu-id="e5fdf-137">ASP-Controller</span><span class="sxs-lookup"><span data-stu-id="e5fdf-137">asp-controller</span></span>](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper#asp-controller)|<span data-ttu-id="e5fdf-138">Denetleyicinin adı.</span><span class="sxs-lookup"><span data-stu-id="e5fdf-138">The name of the controller.</span></span>|
-|[<span data-ttu-id="e5fdf-139">ASP-eylem</span><span class="sxs-lookup"><span data-stu-id="e5fdf-139">asp-action</span></span>](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper#asp-action)|<span data-ttu-id="e5fdf-140">Eylem yönteminin adı.</span><span class="sxs-lookup"><span data-stu-id="e5fdf-140">The name of the action method.</span></span>|
-|[<span data-ttu-id="e5fdf-141">ASP-alanı</span><span class="sxs-lookup"><span data-stu-id="e5fdf-141">asp-area</span></span>](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper#asp-area)|<span data-ttu-id="e5fdf-142">Alanın adı.</span><span class="sxs-lookup"><span data-stu-id="e5fdf-142">The name of the area.</span></span>|
-|[<span data-ttu-id="e5fdf-143">asp-sayfa</span><span class="sxs-lookup"><span data-stu-id="e5fdf-143">asp-page</span></span>](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper#asp-page)|<span data-ttu-id="e5fdf-144">Razor sayfasının adı.</span><span class="sxs-lookup"><span data-stu-id="e5fdf-144">The name of the Razor page.</span></span>|
-|[<span data-ttu-id="e5fdf-145">ASP-Page-Handler</span><span class="sxs-lookup"><span data-stu-id="e5fdf-145">asp-page-handler</span></span>](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper#asp-page-handler)|<span data-ttu-id="e5fdf-146">Razor sayfası işleyicisinin adı.</span><span class="sxs-lookup"><span data-stu-id="e5fdf-146">The name of the Razor page handler.</span></span>|
-|[<span data-ttu-id="e5fdf-147">ASP-Route</span><span class="sxs-lookup"><span data-stu-id="e5fdf-147">asp-route</span></span>](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper#asp-route)|<span data-ttu-id="e5fdf-148">Rotanın adı.</span><span class="sxs-lookup"><span data-stu-id="e5fdf-148">The name of the route.</span></span>|
-|[<span data-ttu-id="e5fdf-149">ASP-Route-{Value}</span><span class="sxs-lookup"><span data-stu-id="e5fdf-149">asp-route-{value}</span></span>](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper#asp-route-value)|<span data-ttu-id="e5fdf-150">Tek bir URL yol değeri.</span><span class="sxs-lookup"><span data-stu-id="e5fdf-150">A single URL route value.</span></span> <span data-ttu-id="e5fdf-151">Örneğin, `asp-route-id="1234"`.</span><span class="sxs-lookup"><span data-stu-id="e5fdf-151">For example, `asp-route-id="1234"`.</span></span>|
-|[<span data-ttu-id="e5fdf-152">ASP-All-Route-Data</span><span class="sxs-lookup"><span data-stu-id="e5fdf-152">asp-all-route-data</span></span>](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper#asp-all-route-data)|<span data-ttu-id="e5fdf-153">Tüm rota değerleri.</span><span class="sxs-lookup"><span data-stu-id="e5fdf-153">All route values.</span></span>|
-|[<span data-ttu-id="e5fdf-154">ASP-Fragment</span><span class="sxs-lookup"><span data-stu-id="e5fdf-154">asp-fragment</span></span>](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper#asp-fragment)|<span data-ttu-id="e5fdf-155">URL parçası.</span><span class="sxs-lookup"><span data-stu-id="e5fdf-155">The URL fragment.</span></span>|
+|[<span data-ttu-id="94fa6-137">ASP-Controller</span><span class="sxs-lookup"><span data-stu-id="94fa6-137">asp-controller</span></span>](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper#asp-controller)|<span data-ttu-id="94fa6-138">Denetleyicinin adı.</span><span class="sxs-lookup"><span data-stu-id="94fa6-138">The name of the controller.</span></span>|
+|[<span data-ttu-id="94fa6-139">ASP-eylem</span><span class="sxs-lookup"><span data-stu-id="94fa6-139">asp-action</span></span>](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper#asp-action)|<span data-ttu-id="94fa6-140">Eylem yönteminin adı.</span><span class="sxs-lookup"><span data-stu-id="94fa6-140">The name of the action method.</span></span>|
+|[<span data-ttu-id="94fa6-141">ASP-alanı</span><span class="sxs-lookup"><span data-stu-id="94fa6-141">asp-area</span></span>](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper#asp-area)|<span data-ttu-id="94fa6-142">Alanın adı.</span><span class="sxs-lookup"><span data-stu-id="94fa6-142">The name of the area.</span></span>|
+|[<span data-ttu-id="94fa6-143">asp-sayfa</span><span class="sxs-lookup"><span data-stu-id="94fa6-143">asp-page</span></span>](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper#asp-page)|<span data-ttu-id="94fa6-144">Razor sayfasının adı.</span><span class="sxs-lookup"><span data-stu-id="94fa6-144">The name of the Razor page.</span></span>|
+|[<span data-ttu-id="94fa6-145">ASP-Page-Handler</span><span class="sxs-lookup"><span data-stu-id="94fa6-145">asp-page-handler</span></span>](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper#asp-page-handler)|<span data-ttu-id="94fa6-146">Razor sayfası işleyicisinin adı.</span><span class="sxs-lookup"><span data-stu-id="94fa6-146">The name of the Razor page handler.</span></span>|
+|[<span data-ttu-id="94fa6-147">ASP-Route</span><span class="sxs-lookup"><span data-stu-id="94fa6-147">asp-route</span></span>](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper#asp-route)|<span data-ttu-id="94fa6-148">Rotanın adı.</span><span class="sxs-lookup"><span data-stu-id="94fa6-148">The name of the route.</span></span>|
+|[<span data-ttu-id="94fa6-149">ASP-Route-{Value}</span><span class="sxs-lookup"><span data-stu-id="94fa6-149">asp-route-{value}</span></span>](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper#asp-route-value)|<span data-ttu-id="94fa6-150">Tek bir URL yol değeri.</span><span class="sxs-lookup"><span data-stu-id="94fa6-150">A single URL route value.</span></span> <span data-ttu-id="94fa6-151">Örneğin, `asp-route-id="1234"`.</span><span class="sxs-lookup"><span data-stu-id="94fa6-151">For example, `asp-route-id="1234"`.</span></span>|
+|[<span data-ttu-id="94fa6-152">ASP-All-Route-Data</span><span class="sxs-lookup"><span data-stu-id="94fa6-152">asp-all-route-data</span></span>](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper#asp-all-route-data)|<span data-ttu-id="94fa6-153">Tüm rota değerleri.</span><span class="sxs-lookup"><span data-stu-id="94fa6-153">All route values.</span></span>|
+|[<span data-ttu-id="94fa6-154">ASP-Fragment</span><span class="sxs-lookup"><span data-stu-id="94fa6-154">asp-fragment</span></span>](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper#asp-fragment)|<span data-ttu-id="94fa6-155">URL parçası.</span><span class="sxs-lookup"><span data-stu-id="94fa6-155">The URL fragment.</span></span>|
 
-### <a name="submit-to-controller-example"></a><span data-ttu-id="e5fdf-156">Denetleyiciye gönder örneği</span><span class="sxs-lookup"><span data-stu-id="e5fdf-156">Submit to controller example</span></span>
+### <a name="submit-to-controller-example"></a><span data-ttu-id="94fa6-156">Denetleyiciye gönder örneği</span><span class="sxs-lookup"><span data-stu-id="94fa6-156">Submit to controller example</span></span>
 
-<span data-ttu-id="e5fdf-157">Aşağıdaki biçimlendirme, giriş veya düğme seçildiğinde formu `HomeController` `Index` eylemine gönderir:</span><span class="sxs-lookup"><span data-stu-id="e5fdf-157">The following markup submits the form to the `Index` action of `HomeController` when the input or button are selected:</span></span>
+<span data-ttu-id="94fa6-157">Aşağıdaki biçimlendirme, giriş veya düğme seçildiğinde formu `HomeController` `Index` eylemine gönderir:</span><span class="sxs-lookup"><span data-stu-id="94fa6-157">The following markup submits the form to the `Index` action of `HomeController` when the input or button are selected:</span></span>
 
 ```cshtml
 <form method="post">
@@ -97,7 +97,7 @@ ms.locfileid: "78657537"
 </form>
 ```
 
-<span data-ttu-id="e5fdf-158">Önceki biçimlendirme, aşağıdaki HTML 'yi oluşturur:</span><span class="sxs-lookup"><span data-stu-id="e5fdf-158">The previous markup generates following HTML:</span></span>
+<span data-ttu-id="94fa6-158">Önceki biçimlendirme, aşağıdaki HTML 'yi oluşturur:</span><span class="sxs-lookup"><span data-stu-id="94fa6-158">The previous markup generates following HTML:</span></span>
 
 ```html
 <form method="post">
@@ -106,9 +106,9 @@ ms.locfileid: "78657537"
 </form>
 ```
 
-### <a name="submit-to-page-example"></a><span data-ttu-id="e5fdf-159">Sayfa örneğine gönder</span><span class="sxs-lookup"><span data-stu-id="e5fdf-159">Submit to page example</span></span>
+### <a name="submit-to-page-example"></a><span data-ttu-id="94fa6-159">Sayfa örneğine gönder</span><span class="sxs-lookup"><span data-stu-id="94fa6-159">Submit to page example</span></span>
 
-<span data-ttu-id="e5fdf-160">Aşağıdaki biçimlendirme formu `About` Razor sayfasına gönderir:</span><span class="sxs-lookup"><span data-stu-id="e5fdf-160">The following markup submits the form to the `About` Razor Page:</span></span>
+<span data-ttu-id="94fa6-160">Aşağıdaki biçimlendirme formu `About` Razor sayfasına gönderir:</span><span class="sxs-lookup"><span data-stu-id="94fa6-160">The following markup submits the form to the `About` Razor Page:</span></span>
 
 ```cshtml
 <form method="post">
@@ -117,7 +117,7 @@ ms.locfileid: "78657537"
 </form>
 ```
 
-<span data-ttu-id="e5fdf-161">Önceki biçimlendirme, aşağıdaki HTML 'yi oluşturur:</span><span class="sxs-lookup"><span data-stu-id="e5fdf-161">The previous markup generates following HTML:</span></span>
+<span data-ttu-id="94fa6-161">Önceki biçimlendirme, aşağıdaki HTML 'yi oluşturur:</span><span class="sxs-lookup"><span data-stu-id="94fa6-161">The previous markup generates following HTML:</span></span>
 
 ```html
 <form method="post">
@@ -126,9 +126,9 @@ ms.locfileid: "78657537"
 </form>
 ```
 
-### <a name="submit-to-route-example"></a><span data-ttu-id="e5fdf-162">Yönlendirme örneğine gönder</span><span class="sxs-lookup"><span data-stu-id="e5fdf-162">Submit to route example</span></span>
+### <a name="submit-to-route-example"></a><span data-ttu-id="94fa6-162">Yönlendirme örneğine gönder</span><span class="sxs-lookup"><span data-stu-id="94fa6-162">Submit to route example</span></span>
 
-<span data-ttu-id="e5fdf-163">`/Home/Test` uç noktasını göz önünde bulundurun:</span><span class="sxs-lookup"><span data-stu-id="e5fdf-163">Consider the `/Home/Test` endpoint:</span></span>
+<span data-ttu-id="94fa6-163">`/Home/Test` uç noktasını göz önünde bulundurun:</span><span class="sxs-lookup"><span data-stu-id="94fa6-163">Consider the `/Home/Test` endpoint:</span></span>
 
 ```csharp
 public class HomeController : Controller
@@ -141,7 +141,7 @@ public class HomeController : Controller
 }
 ```
 
-<span data-ttu-id="e5fdf-164">Aşağıdaki biçimlendirme formu `/Home/Test` uç noktasına gönderir.</span><span class="sxs-lookup"><span data-stu-id="e5fdf-164">The following markup submits the form to the `/Home/Test` endpoint.</span></span>
+<span data-ttu-id="94fa6-164">Aşağıdaki biçimlendirme formu `/Home/Test` uç noktasına gönderir.</span><span class="sxs-lookup"><span data-stu-id="94fa6-164">The following markup submits the form to the `/Home/Test` endpoint.</span></span>
 
 ```cshtml
 <form method="post">
@@ -150,7 +150,7 @@ public class HomeController : Controller
 </form>
 ```
 
-<span data-ttu-id="e5fdf-165">Önceki biçimlendirme, aşağıdaki HTML 'yi oluşturur:</span><span class="sxs-lookup"><span data-stu-id="e5fdf-165">The previous markup generates following HTML:</span></span>
+<span data-ttu-id="94fa6-165">Önceki biçimlendirme, aşağıdaki HTML 'yi oluşturur:</span><span class="sxs-lookup"><span data-stu-id="94fa6-165">The previous markup generates following HTML:</span></span>
 
 ```html
 <form method="post">
@@ -159,29 +159,29 @@ public class HomeController : Controller
 </form>
 ```
 
-## <a name="the-input-tag-helper"></a><span data-ttu-id="e5fdf-166">Giriş etiketi Yardımcısı</span><span class="sxs-lookup"><span data-stu-id="e5fdf-166">The Input Tag Helper</span></span>
+## <a name="the-input-tag-helper"></a><span data-ttu-id="94fa6-166">Giriş etiketi Yardımcısı</span><span class="sxs-lookup"><span data-stu-id="94fa6-166">The Input Tag Helper</span></span>
 
-<span data-ttu-id="e5fdf-167">Giriş etiketi Yardımcısı, bir HTML [\<girişi >](https://www.w3.org/wiki/HTML/Elements/input) öğesini Razor görünüminizdeki bir model ifadesine bağlar.</span><span class="sxs-lookup"><span data-stu-id="e5fdf-167">The Input Tag Helper binds an HTML [\<input>](https://www.w3.org/wiki/HTML/Elements/input) element to a model expression in your razor view.</span></span>
+<span data-ttu-id="94fa6-167">Giriş etiketi Yardımcısı, bir HTML [\<girişi >](https://www.w3.org/wiki/HTML/Elements/input) öğesini Razor görünüminizdeki bir model ifadesine bağlar.</span><span class="sxs-lookup"><span data-stu-id="94fa6-167">The Input Tag Helper binds an HTML [\<input>](https://www.w3.org/wiki/HTML/Elements/input) element to a model expression in your razor view.</span></span>
 
-<span data-ttu-id="e5fdf-168">Söz dizimi:</span><span class="sxs-lookup"><span data-stu-id="e5fdf-168">Syntax:</span></span>
+<span data-ttu-id="94fa6-168">Söz dizimi:</span><span class="sxs-lookup"><span data-stu-id="94fa6-168">Syntax:</span></span>
 
 ```cshtml
 <input asp-for="<Expression Name>">
 ```
 
-<span data-ttu-id="e5fdf-169">Giriş etiketi Yardımcısı:</span><span class="sxs-lookup"><span data-stu-id="e5fdf-169">The Input Tag Helper:</span></span>
+<span data-ttu-id="94fa6-169">Giriş etiketi Yardımcısı:</span><span class="sxs-lookup"><span data-stu-id="94fa6-169">The Input Tag Helper:</span></span>
 
-* <span data-ttu-id="e5fdf-170">`asp-for` özniteliğinde belirtilen ifade adı için `id` ve `name` HTML özniteliklerini üretir.</span><span class="sxs-lookup"><span data-stu-id="e5fdf-170">Generates the `id` and `name` HTML attributes for the expression name specified in the `asp-for` attribute.</span></span> <span data-ttu-id="e5fdf-171">`asp-for="Property1.Property2"` `m => m.Property1.Property2`eşdeğerdir.</span><span class="sxs-lookup"><span data-stu-id="e5fdf-171">`asp-for="Property1.Property2"` is equivalent to `m => m.Property1.Property2`.</span></span> <span data-ttu-id="e5fdf-172">İfadenin adı, `asp-for` özniteliği değeri için kullanılan şeydir.</span><span class="sxs-lookup"><span data-stu-id="e5fdf-172">The name of the expression is what is used for the `asp-for` attribute value.</span></span> <span data-ttu-id="e5fdf-173">Ek bilgi için [ifade adları](#expression-names) bölümüne bakın.</span><span class="sxs-lookup"><span data-stu-id="e5fdf-173">See the [Expression names](#expression-names) section for additional information.</span></span>
+* <span data-ttu-id="94fa6-170">`asp-for` özniteliğinde belirtilen ifade adı için `id` ve `name` HTML özniteliklerini üretir.</span><span class="sxs-lookup"><span data-stu-id="94fa6-170">Generates the `id` and `name` HTML attributes for the expression name specified in the `asp-for` attribute.</span></span> <span data-ttu-id="94fa6-171">`asp-for="Property1.Property2"` `m => m.Property1.Property2`eşdeğerdir.</span><span class="sxs-lookup"><span data-stu-id="94fa6-171">`asp-for="Property1.Property2"` is equivalent to `m => m.Property1.Property2`.</span></span> <span data-ttu-id="94fa6-172">İfadenin adı, `asp-for` özniteliği değeri için kullanılan şeydir.</span><span class="sxs-lookup"><span data-stu-id="94fa6-172">The name of the expression is what is used for the `asp-for` attribute value.</span></span> <span data-ttu-id="94fa6-173">Ek bilgi için [ifade adları](#expression-names) bölümüne bakın.</span><span class="sxs-lookup"><span data-stu-id="94fa6-173">See the [Expression names](#expression-names) section for additional information.</span></span>
 
-* <span data-ttu-id="e5fdf-174">Model özelliğine uygulanan model türüne ve [veri ek açıklaması](/dotnet/api/microsoft.aspnetcore.mvc.dataannotations.iattributeadapter) ÖZNITELIKLERINE göre HTML `type` öznitelik değerini ayarlar</span><span class="sxs-lookup"><span data-stu-id="e5fdf-174">Sets the HTML `type` attribute value based on the model type and  [data annotation](/dotnet/api/microsoft.aspnetcore.mvc.dataannotations.iattributeadapter) attributes applied to the model property</span></span>
+* <span data-ttu-id="94fa6-174">Model özelliğine uygulanan model türüne ve [veri ek açıklaması](/dotnet/api/microsoft.aspnetcore.mvc.dataannotations.iattributeadapter) ÖZNITELIKLERINE göre HTML `type` öznitelik değerini ayarlar</span><span class="sxs-lookup"><span data-stu-id="94fa6-174">Sets the HTML `type` attribute value based on the model type and  [data annotation](/dotnet/api/microsoft.aspnetcore.mvc.dataannotations.iattributeadapter) attributes applied to the model property</span></span>
 
-* <span data-ttu-id="e5fdf-175">Belirtilirse, HTML `type` öznitelik değerinin üzerine yazmaz</span><span class="sxs-lookup"><span data-stu-id="e5fdf-175">Won't overwrite the HTML `type` attribute value when one is specified</span></span>
+* <span data-ttu-id="94fa6-175">Belirtilirse, HTML `type` öznitelik değerinin üzerine yazmaz</span><span class="sxs-lookup"><span data-stu-id="94fa6-175">Won't overwrite the HTML `type` attribute value when one is specified</span></span>
 
-* <span data-ttu-id="e5fdf-176">Model özelliklerine uygulanan [veri ek açıklama](/dotnet/api/microsoft.aspnetcore.mvc.dataannotations.iattributeadapter) özniteliklerinden [HTML5](https://developer.mozilla.org/docs/Web/Guide/HTML/HTML5) doğrulama öznitelikleri oluşturur</span><span class="sxs-lookup"><span data-stu-id="e5fdf-176">Generates [HTML5](https://developer.mozilla.org/docs/Web/Guide/HTML/HTML5)  validation attributes from [data annotation](/dotnet/api/microsoft.aspnetcore.mvc.dataannotations.iattributeadapter) attributes applied to model properties</span></span>
+* <span data-ttu-id="94fa6-176">Model özelliklerine uygulanan [veri ek açıklama](/dotnet/api/microsoft.aspnetcore.mvc.dataannotations.iattributeadapter) özniteliklerinden [HTML5](https://developer.mozilla.org/docs/Web/Guide/HTML/HTML5) doğrulama öznitelikleri oluşturur</span><span class="sxs-lookup"><span data-stu-id="94fa6-176">Generates [HTML5](https://developer.mozilla.org/docs/Web/Guide/HTML/HTML5)  validation attributes from [data annotation](/dotnet/api/microsoft.aspnetcore.mvc.dataannotations.iattributeadapter) attributes applied to model properties</span></span>
 
-* <span data-ttu-id="e5fdf-177">`Html.TextBoxFor` ve `Html.EditorFor`bir HTML Yardımcısı özelliği örtüşüyor.</span><span class="sxs-lookup"><span data-stu-id="e5fdf-177">Has an HTML Helper feature overlap with `Html.TextBoxFor` and `Html.EditorFor`.</span></span> <span data-ttu-id="e5fdf-178">Ayrıntılar için bkz. **giriş etiketi Yardımcısı Için HTML Yardımcısı alternatifleri** .</span><span class="sxs-lookup"><span data-stu-id="e5fdf-178">See the **HTML Helper alternatives to Input Tag Helper** section for details.</span></span>
+* <span data-ttu-id="94fa6-177">`Html.TextBoxFor` ve `Html.EditorFor`bir HTML Yardımcısı özelliği örtüşüyor.</span><span class="sxs-lookup"><span data-stu-id="94fa6-177">Has an HTML Helper feature overlap with `Html.TextBoxFor` and `Html.EditorFor`.</span></span> <span data-ttu-id="94fa6-178">Ayrıntılar için bkz. **giriş etiketi Yardımcısı Için HTML Yardımcısı alternatifleri** .</span><span class="sxs-lookup"><span data-stu-id="94fa6-178">See the **HTML Helper alternatives to Input Tag Helper** section for details.</span></span>
 
-* <span data-ttu-id="e5fdf-179">Güçlü yazma sağlar.</span><span class="sxs-lookup"><span data-stu-id="e5fdf-179">Provides strong typing.</span></span> <span data-ttu-id="e5fdf-180">Özelliğin adı değişirse ve etiket yardımcısını güncelleştirmezseniz aşağıdakine benzer bir hata alırsınız:</span><span class="sxs-lookup"><span data-stu-id="e5fdf-180">If the name of the property changes and you don't update the Tag Helper you'll get an error similar to the following:</span></span>
+* <span data-ttu-id="94fa6-179">Güçlü yazma sağlar.</span><span class="sxs-lookup"><span data-stu-id="94fa6-179">Provides strong typing.</span></span> <span data-ttu-id="94fa6-180">Özelliğin adı değişirse ve etiket yardımcısını güncelleştirmezseniz aşağıdakine benzer bir hata alırsınız:</span><span class="sxs-lookup"><span data-stu-id="94fa6-180">If the name of the property changes and you don't update the Tag Helper you'll get an error similar to the following:</span></span>
 
 ```
 An error occurred during the compilation of a resource required to process
@@ -194,36 +194,36 @@ Type expected
  could be found (are you missing a using directive or an assembly reference?)
 ```
 
-<span data-ttu-id="e5fdf-181">`Input` Tag Yardımcısı, HTML `type` özniteliğini .NET türüne göre ayarlar.</span><span class="sxs-lookup"><span data-stu-id="e5fdf-181">The `Input` Tag Helper sets the HTML `type` attribute based on the .NET type.</span></span> <span data-ttu-id="e5fdf-182">Aşağıdaki tabloda bazı ortak .NET türleri ve oluşturulan HTML türü listelenmekte (her .NET türü listelenmemiştir).</span><span class="sxs-lookup"><span data-stu-id="e5fdf-182">The following table lists some common .NET types and generated HTML type (not every .NET type is listed).</span></span>
+<span data-ttu-id="94fa6-181">`Input` Tag Yardımcısı, HTML `type` özniteliğini .NET türüne göre ayarlar.</span><span class="sxs-lookup"><span data-stu-id="94fa6-181">The `Input` Tag Helper sets the HTML `type` attribute based on the .NET type.</span></span> <span data-ttu-id="94fa6-182">Aşağıdaki tabloda bazı ortak .NET türleri ve oluşturulan HTML türü listelenmekte (her .NET türü listelenmemiştir).</span><span class="sxs-lookup"><span data-stu-id="94fa6-182">The following table lists some common .NET types and generated HTML type (not every .NET type is listed).</span></span>
 
-|<span data-ttu-id="e5fdf-183">.NET türü</span><span class="sxs-lookup"><span data-stu-id="e5fdf-183">.NET type</span></span>|<span data-ttu-id="e5fdf-184">Giriş türü</span><span class="sxs-lookup"><span data-stu-id="e5fdf-184">Input Type</span></span>|
+|<span data-ttu-id="94fa6-183">.NET türü</span><span class="sxs-lookup"><span data-stu-id="94fa6-183">.NET type</span></span>|<span data-ttu-id="94fa6-184">Giriş türü</span><span class="sxs-lookup"><span data-stu-id="94fa6-184">Input Type</span></span>|
 |---|---|
-|<span data-ttu-id="e5fdf-185">Bool</span><span class="sxs-lookup"><span data-stu-id="e5fdf-185">Bool</span></span>|<span data-ttu-id="e5fdf-186">Type = "onay kutusu"</span><span class="sxs-lookup"><span data-stu-id="e5fdf-186">type="checkbox"</span></span>|
-|<span data-ttu-id="e5fdf-187">String</span><span class="sxs-lookup"><span data-stu-id="e5fdf-187">String</span></span>|<span data-ttu-id="e5fdf-188">Type = "metin"</span><span class="sxs-lookup"><span data-stu-id="e5fdf-188">type="text"</span></span>|
-|<span data-ttu-id="e5fdf-189">DateTime</span><span class="sxs-lookup"><span data-stu-id="e5fdf-189">DateTime</span></span>|<span data-ttu-id="e5fdf-190">Type =["TarihSaat-yerel"](https://developer.mozilla.org/docs/Web/HTML/Element/input/datetime-local)</span><span class="sxs-lookup"><span data-stu-id="e5fdf-190">type=["datetime-local"](https://developer.mozilla.org/docs/Web/HTML/Element/input/datetime-local)</span></span>|
-|<span data-ttu-id="e5fdf-191">Bayt</span><span class="sxs-lookup"><span data-stu-id="e5fdf-191">Byte</span></span>|<span data-ttu-id="e5fdf-192">Type = "Number"</span><span class="sxs-lookup"><span data-stu-id="e5fdf-192">type="number"</span></span>|
-|<span data-ttu-id="e5fdf-193">Int</span><span class="sxs-lookup"><span data-stu-id="e5fdf-193">Int</span></span>|<span data-ttu-id="e5fdf-194">Type = "Number"</span><span class="sxs-lookup"><span data-stu-id="e5fdf-194">type="number"</span></span>|
-|<span data-ttu-id="e5fdf-195">Tek, Çift</span><span class="sxs-lookup"><span data-stu-id="e5fdf-195">Single, Double</span></span>|<span data-ttu-id="e5fdf-196">Type = "Number"</span><span class="sxs-lookup"><span data-stu-id="e5fdf-196">type="number"</span></span>|
+|<span data-ttu-id="94fa6-185">Bool</span><span class="sxs-lookup"><span data-stu-id="94fa6-185">Bool</span></span>|<span data-ttu-id="94fa6-186">Type = "onay kutusu"</span><span class="sxs-lookup"><span data-stu-id="94fa6-186">type="checkbox"</span></span>|
+|<span data-ttu-id="94fa6-187">Dize</span><span class="sxs-lookup"><span data-stu-id="94fa6-187">String</span></span>|<span data-ttu-id="94fa6-188">Type = "metin"</span><span class="sxs-lookup"><span data-stu-id="94fa6-188">type="text"</span></span>|
+|<span data-ttu-id="94fa6-189">DateTime</span><span class="sxs-lookup"><span data-stu-id="94fa6-189">DateTime</span></span>|<span data-ttu-id="94fa6-190">Type =["TarihSaat-yerel"](https://developer.mozilla.org/docs/Web/HTML/Element/input/datetime-local)</span><span class="sxs-lookup"><span data-stu-id="94fa6-190">type=["datetime-local"](https://developer.mozilla.org/docs/Web/HTML/Element/input/datetime-local)</span></span>|
+|<span data-ttu-id="94fa6-191">Bayt</span><span class="sxs-lookup"><span data-stu-id="94fa6-191">Byte</span></span>|<span data-ttu-id="94fa6-192">Type = "Number"</span><span class="sxs-lookup"><span data-stu-id="94fa6-192">type="number"</span></span>|
+|<span data-ttu-id="94fa6-193">int</span><span class="sxs-lookup"><span data-stu-id="94fa6-193">Int</span></span>|<span data-ttu-id="94fa6-194">Type = "Number"</span><span class="sxs-lookup"><span data-stu-id="94fa6-194">type="number"</span></span>|
+|<span data-ttu-id="94fa6-195">Tek, Çift</span><span class="sxs-lookup"><span data-stu-id="94fa6-195">Single, Double</span></span>|<span data-ttu-id="94fa6-196">Type = "Number"</span><span class="sxs-lookup"><span data-stu-id="94fa6-196">type="number"</span></span>|
 
-<span data-ttu-id="e5fdf-197">Aşağıdaki tabloda, giriş etiketi Yardımcısı 'nın belirli giriş türleriyle eşleşecağı bazı ortak [veri ek açıklamaları](/dotnet/api/microsoft.aspnetcore.mvc.dataannotations.iattributeadapter) (her doğrulama özniteliği listelenmez) gösterilmektedir:</span><span class="sxs-lookup"><span data-stu-id="e5fdf-197">The following table shows some common [data annotations](/dotnet/api/microsoft.aspnetcore.mvc.dataannotations.iattributeadapter) attributes that the input tag helper will map to specific input types (not every validation attribute is listed):</span></span>
+<span data-ttu-id="94fa6-197">Aşağıdaki tabloda, giriş etiketi Yardımcısı 'nın belirli giriş türleriyle eşleşecağı bazı ortak [veri ek açıklamaları](/dotnet/api/microsoft.aspnetcore.mvc.dataannotations.iattributeadapter) (her doğrulama özniteliği listelenmez) gösterilmektedir:</span><span class="sxs-lookup"><span data-stu-id="94fa6-197">The following table shows some common [data annotations](/dotnet/api/microsoft.aspnetcore.mvc.dataannotations.iattributeadapter) attributes that the input tag helper will map to specific input types (not every validation attribute is listed):</span></span>
 
-|<span data-ttu-id="e5fdf-198">Öznitelik</span><span class="sxs-lookup"><span data-stu-id="e5fdf-198">Attribute</span></span>|<span data-ttu-id="e5fdf-199">Giriş türü</span><span class="sxs-lookup"><span data-stu-id="e5fdf-199">Input Type</span></span>|
+|<span data-ttu-id="94fa6-198">Öznitelik</span><span class="sxs-lookup"><span data-stu-id="94fa6-198">Attribute</span></span>|<span data-ttu-id="94fa6-199">Giriş türü</span><span class="sxs-lookup"><span data-stu-id="94fa6-199">Input Type</span></span>|
 |---|---|
-|<span data-ttu-id="e5fdf-200">EmailAddress</span><span class="sxs-lookup"><span data-stu-id="e5fdf-200">[EmailAddress]</span></span>|<span data-ttu-id="e5fdf-201">Type = "e-posta"</span><span class="sxs-lookup"><span data-stu-id="e5fdf-201">type="email"</span></span>|
-|<span data-ttu-id="e5fdf-202">'Deki</span><span class="sxs-lookup"><span data-stu-id="e5fdf-202">[Url]</span></span>|<span data-ttu-id="e5fdf-203">Type = "URL"</span><span class="sxs-lookup"><span data-stu-id="e5fdf-203">type="url"</span></span>|
-|<span data-ttu-id="e5fdf-204">[Hiddenınput]</span><span class="sxs-lookup"><span data-stu-id="e5fdf-204">[HiddenInput]</span></span>|<span data-ttu-id="e5fdf-205">Type = "Hidden"</span><span class="sxs-lookup"><span data-stu-id="e5fdf-205">type="hidden"</span></span>|
-|<span data-ttu-id="e5fdf-206">Numarası</span><span class="sxs-lookup"><span data-stu-id="e5fdf-206">[Phone]</span></span>|<span data-ttu-id="e5fdf-207">Type = "tel"</span><span class="sxs-lookup"><span data-stu-id="e5fdf-207">type="tel"</span></span>|
-|<span data-ttu-id="e5fdf-208">[DataType (DataType. Password)]</span><span class="sxs-lookup"><span data-stu-id="e5fdf-208">[DataType(DataType.Password)]</span></span>|<span data-ttu-id="e5fdf-209">Type = "Password"</span><span class="sxs-lookup"><span data-stu-id="e5fdf-209">type="password"</span></span>|
-|<span data-ttu-id="e5fdf-210">[DataType (DataType. Date)]</span><span class="sxs-lookup"><span data-stu-id="e5fdf-210">[DataType(DataType.Date)]</span></span>|<span data-ttu-id="e5fdf-211">Type = "Date"</span><span class="sxs-lookup"><span data-stu-id="e5fdf-211">type="date"</span></span>|
-|<span data-ttu-id="e5fdf-212">[DataType (DataType. Time)]</span><span class="sxs-lookup"><span data-stu-id="e5fdf-212">[DataType(DataType.Time)]</span></span>|<span data-ttu-id="e5fdf-213">yazın = "Time"</span><span class="sxs-lookup"><span data-stu-id="e5fdf-213">type="time"</span></span>|
+|<span data-ttu-id="94fa6-200">EmailAddress</span><span class="sxs-lookup"><span data-stu-id="94fa6-200">[EmailAddress]</span></span>|<span data-ttu-id="94fa6-201">Type = "e-posta"</span><span class="sxs-lookup"><span data-stu-id="94fa6-201">type="email"</span></span>|
+|<span data-ttu-id="94fa6-202">'Deki</span><span class="sxs-lookup"><span data-stu-id="94fa6-202">[Url]</span></span>|<span data-ttu-id="94fa6-203">Type = "URL"</span><span class="sxs-lookup"><span data-stu-id="94fa6-203">type="url"</span></span>|
+|<span data-ttu-id="94fa6-204">[Hiddenınput]</span><span class="sxs-lookup"><span data-stu-id="94fa6-204">[HiddenInput]</span></span>|<span data-ttu-id="94fa6-205">Type = "Hidden"</span><span class="sxs-lookup"><span data-stu-id="94fa6-205">type="hidden"</span></span>|
+|<span data-ttu-id="94fa6-206">Numarası</span><span class="sxs-lookup"><span data-stu-id="94fa6-206">[Phone]</span></span>|<span data-ttu-id="94fa6-207">Type = "tel"</span><span class="sxs-lookup"><span data-stu-id="94fa6-207">type="tel"</span></span>|
+|<span data-ttu-id="94fa6-208">[DataType (DataType. Password)]</span><span class="sxs-lookup"><span data-stu-id="94fa6-208">[DataType(DataType.Password)]</span></span>|<span data-ttu-id="94fa6-209">Type = "Password"</span><span class="sxs-lookup"><span data-stu-id="94fa6-209">type="password"</span></span>|
+|<span data-ttu-id="94fa6-210">[DataType (DataType. Date)]</span><span class="sxs-lookup"><span data-stu-id="94fa6-210">[DataType(DataType.Date)]</span></span>|<span data-ttu-id="94fa6-211">Type = "Date"</span><span class="sxs-lookup"><span data-stu-id="94fa6-211">type="date"</span></span>|
+|<span data-ttu-id="94fa6-212">[DataType (DataType. Time)]</span><span class="sxs-lookup"><span data-stu-id="94fa6-212">[DataType(DataType.Time)]</span></span>|<span data-ttu-id="94fa6-213">yazın = "Time"</span><span class="sxs-lookup"><span data-stu-id="94fa6-213">type="time"</span></span>|
 
-<span data-ttu-id="e5fdf-214">Örnek:</span><span class="sxs-lookup"><span data-stu-id="e5fdf-214">Sample:</span></span>
+<span data-ttu-id="94fa6-214">Örnek:</span><span class="sxs-lookup"><span data-stu-id="94fa6-214">Sample:</span></span>
 
 [!code-csharp[](working-with-forms/sample/final/ViewModels/RegisterViewModel.cs)]
 
 [!code-HTML[](working-with-forms/sample/final/Views/Demo/RegisterInput.cshtml)]
 
-<span data-ttu-id="e5fdf-215">Yukarıdaki kod, aşağıdaki HTML 'yi oluşturur:</span><span class="sxs-lookup"><span data-stu-id="e5fdf-215">The code above generates the following HTML:</span></span>
+<span data-ttu-id="94fa6-215">Yukarıdaki kod, aşağıdaki HTML 'yi oluşturur:</span><span class="sxs-lookup"><span data-stu-id="94fa6-215">The code above generates the following HTML:</span></span>
 
 ```html
   <form method="post" action="/Demo/RegisterInput">
@@ -241,24 +241,24 @@ Type expected
    </form>
 ```
 
-<span data-ttu-id="e5fdf-216">`Email` ve `Password` özelliklerine uygulanan veri ek açıklamaları modelde meta veriler oluşturur.</span><span class="sxs-lookup"><span data-stu-id="e5fdf-216">The data annotations applied to the `Email` and `Password` properties generate metadata on the model.</span></span> <span data-ttu-id="e5fdf-217">Giriş etiketi Yardımcısı, model meta verilerini kullanır ve [HTML5](https://developer.mozilla.org/docs/Web/Guide/HTML/HTML5) `data-val-*` öznitelikleri üretir (bkz. [model doğrulama](../models/validation.md)).</span><span class="sxs-lookup"><span data-stu-id="e5fdf-217">The Input Tag Helper consumes the model metadata and produces [HTML5](https://developer.mozilla.org/docs/Web/Guide/HTML/HTML5) `data-val-*` attributes (see [Model Validation](../models/validation.md)).</span></span> <span data-ttu-id="e5fdf-218">Bu öznitelikler, giriş alanlarına iliştirilecek Doğrulayıcıları anlatmaktadır.</span><span class="sxs-lookup"><span data-stu-id="e5fdf-218">These attributes describe the validators to attach to the input fields.</span></span> <span data-ttu-id="e5fdf-219">Bu unobtrusive HTML5 ve [jQuery](https://jquery.com/) doğrulaması sağlar.</span><span class="sxs-lookup"><span data-stu-id="e5fdf-219">This provides unobtrusive HTML5 and [jQuery](https://jquery.com/) validation.</span></span> <span data-ttu-id="e5fdf-220">Unobtrusive özniteliklerinin biçimi `data-val-rule="Error Message"`, burada kural doğrulama kuralının adıdır (örneğin, `data-val-required`, `data-val-email`, `data-val-maxlength`vb.) Öznitelikte bir hata iletisi sağlanırsa, `data-val-rule` özniteliği için değer olarak görüntülenir.</span><span class="sxs-lookup"><span data-stu-id="e5fdf-220">The unobtrusive attributes have the format `data-val-rule="Error Message"`, where rule is the name of the validation rule (such as `data-val-required`, `data-val-email`, `data-val-maxlength`, etc.) If an error message is provided in the attribute, it's displayed as the value for the `data-val-rule` attribute.</span></span> <span data-ttu-id="e5fdf-221">Ayrıca, kuralla ilgili ek ayrıntılar sağlayan `data-val-ruleName-argumentName="argumentValue"` form öznitelikleri de vardır, örneğin, `data-val-maxlength-max="1024"`.</span><span class="sxs-lookup"><span data-stu-id="e5fdf-221">There are also attributes of the form `data-val-ruleName-argumentName="argumentValue"` that provide additional details about the rule, for example, `data-val-maxlength-max="1024"` .</span></span>
+<span data-ttu-id="94fa6-216">`Email` ve `Password` özelliklerine uygulanan veri ek açıklamaları modelde meta veriler oluşturur.</span><span class="sxs-lookup"><span data-stu-id="94fa6-216">The data annotations applied to the `Email` and `Password` properties generate metadata on the model.</span></span> <span data-ttu-id="94fa6-217">Giriş etiketi Yardımcısı, model meta verilerini kullanır ve [HTML5](https://developer.mozilla.org/docs/Web/Guide/HTML/HTML5) `data-val-*` öznitelikleri üretir (bkz. [model doğrulama](../models/validation.md)).</span><span class="sxs-lookup"><span data-stu-id="94fa6-217">The Input Tag Helper consumes the model metadata and produces [HTML5](https://developer.mozilla.org/docs/Web/Guide/HTML/HTML5) `data-val-*` attributes (see [Model Validation](../models/validation.md)).</span></span> <span data-ttu-id="94fa6-218">Bu öznitelikler, giriş alanlarına iliştirilecek Doğrulayıcıları anlatmaktadır.</span><span class="sxs-lookup"><span data-stu-id="94fa6-218">These attributes describe the validators to attach to the input fields.</span></span> <span data-ttu-id="94fa6-219">Bu unobtrusive HTML5 ve [jQuery](https://jquery.com/) doğrulaması sağlar.</span><span class="sxs-lookup"><span data-stu-id="94fa6-219">This provides unobtrusive HTML5 and [jQuery](https://jquery.com/) validation.</span></span> <span data-ttu-id="94fa6-220">Unobtrusive özniteliklerinin biçimi `data-val-rule="Error Message"`, burada kural doğrulama kuralının adıdır (örneğin, `data-val-required`, `data-val-email`, `data-val-maxlength`vb.) Öznitelikte bir hata iletisi sağlanırsa, `data-val-rule` özniteliği için değer olarak görüntülenir.</span><span class="sxs-lookup"><span data-stu-id="94fa6-220">The unobtrusive attributes have the format `data-val-rule="Error Message"`, where rule is the name of the validation rule (such as `data-val-required`, `data-val-email`, `data-val-maxlength`, etc.) If an error message is provided in the attribute, it's displayed as the value for the `data-val-rule` attribute.</span></span> <span data-ttu-id="94fa6-221">Ayrıca, kuralla ilgili ek ayrıntılar sağlayan `data-val-ruleName-argumentName="argumentValue"` form öznitelikleri de vardır, örneğin, `data-val-maxlength-max="1024"`.</span><span class="sxs-lookup"><span data-stu-id="94fa6-221">There are also attributes of the form `data-val-ruleName-argumentName="argumentValue"` that provide additional details about the rule, for example, `data-val-maxlength-max="1024"` .</span></span>
 
-### <a name="html-helper-alternatives-to-input-tag-helper"></a><span data-ttu-id="e5fdf-222">Giriş etiketi Yardımcısı için HTML Yardımcısı alternatifleri</span><span class="sxs-lookup"><span data-stu-id="e5fdf-222">HTML Helper alternatives to Input Tag Helper</span></span>
+### <a name="html-helper-alternatives-to-input-tag-helper"></a><span data-ttu-id="94fa6-222">Giriş etiketi Yardımcısı için HTML Yardımcısı alternatifleri</span><span class="sxs-lookup"><span data-stu-id="94fa6-222">HTML Helper alternatives to Input Tag Helper</span></span>
 
-<span data-ttu-id="e5fdf-223">`Html.TextBox`, `Html.TextBoxFor`, `Html.Editor` ve `Html.EditorFor`, giriş etiketi Yardımcısı ile çakışan özelliklere sahiptir.</span><span class="sxs-lookup"><span data-stu-id="e5fdf-223">`Html.TextBox`, `Html.TextBoxFor`, `Html.Editor` and `Html.EditorFor` have overlapping features with the Input Tag Helper.</span></span> <span data-ttu-id="e5fdf-224">Giriş etiketi Yardımcısı `type` özniteliğini otomatik olarak ayarlar; `Html.TextBox` ve `Html.TextBoxFor`.</span><span class="sxs-lookup"><span data-stu-id="e5fdf-224">The Input Tag Helper will automatically set the `type` attribute; `Html.TextBox` and `Html.TextBoxFor` won't.</span></span> <span data-ttu-id="e5fdf-225">`Html.Editor` ve `Html.EditorFor` tanıtıcı koleksiyonları, karmaşık nesneler ve şablonlar; Giriş etiketi Yardımcısı yok.</span><span class="sxs-lookup"><span data-stu-id="e5fdf-225">`Html.Editor` and `Html.EditorFor` handle collections, complex objects and templates; the Input Tag Helper doesn't.</span></span> <span data-ttu-id="e5fdf-226">Giriş etiketi Yardımcısı, `Html.EditorFor` ve `Html.TextBoxFor` kesin türdedir (lambda ifadeleri kullanırlar); `Html.TextBox` ve `Html.Editor` değildir (ifade adlarını kullanırlar).</span><span class="sxs-lookup"><span data-stu-id="e5fdf-226">The Input Tag Helper, `Html.EditorFor`  and  `Html.TextBoxFor` are strongly typed (they use lambda expressions); `Html.TextBox` and `Html.Editor` are not (they use expression names).</span></span>
+<span data-ttu-id="94fa6-223">`Html.TextBox`, `Html.TextBoxFor`, `Html.Editor` ve `Html.EditorFor`, giriş etiketi Yardımcısı ile çakışan özelliklere sahiptir.</span><span class="sxs-lookup"><span data-stu-id="94fa6-223">`Html.TextBox`, `Html.TextBoxFor`, `Html.Editor` and `Html.EditorFor` have overlapping features with the Input Tag Helper.</span></span> <span data-ttu-id="94fa6-224">Giriş etiketi Yardımcısı `type` özniteliğini otomatik olarak ayarlar; `Html.TextBox` ve `Html.TextBoxFor`.</span><span class="sxs-lookup"><span data-stu-id="94fa6-224">The Input Tag Helper will automatically set the `type` attribute; `Html.TextBox` and `Html.TextBoxFor` won't.</span></span> <span data-ttu-id="94fa6-225">`Html.Editor` ve `Html.EditorFor` tanıtıcı koleksiyonları, karmaşık nesneler ve şablonlar; Giriş etiketi Yardımcısı yok.</span><span class="sxs-lookup"><span data-stu-id="94fa6-225">`Html.Editor` and `Html.EditorFor` handle collections, complex objects and templates; the Input Tag Helper doesn't.</span></span> <span data-ttu-id="94fa6-226">Giriş etiketi Yardımcısı, `Html.EditorFor` ve `Html.TextBoxFor` kesin türdedir (lambda ifadeleri kullanırlar); `Html.TextBox` ve `Html.Editor` değildir (ifade adlarını kullanırlar).</span><span class="sxs-lookup"><span data-stu-id="94fa6-226">The Input Tag Helper, `Html.EditorFor`  and  `Html.TextBoxFor` are strongly typed (they use lambda expressions); `Html.TextBox` and `Html.Editor` are not (they use expression names).</span></span>
 
-### <a name="htmlattributes"></a><span data-ttu-id="e5fdf-227">HtmlAttributes</span><span class="sxs-lookup"><span data-stu-id="e5fdf-227">HtmlAttributes</span></span>
+### <a name="htmlattributes"></a><span data-ttu-id="94fa6-227">HtmlAttributes</span><span class="sxs-lookup"><span data-stu-id="94fa6-227">HtmlAttributes</span></span>
 
-<span data-ttu-id="e5fdf-228">`@Html.Editor()` ve `@Html.EditorFor()`, varsayılan şablonlarını yürütürken `htmlAttributes` adlı özel bir `ViewDataDictionary` girişi kullanır.</span><span class="sxs-lookup"><span data-stu-id="e5fdf-228">`@Html.Editor()` and `@Html.EditorFor()` use a special `ViewDataDictionary` entry named `htmlAttributes` when executing their default templates.</span></span> <span data-ttu-id="e5fdf-229">Bu davranış, isteğe bağlı olarak `additionalViewData` parametreleri kullanılarak genişletilebilir.</span><span class="sxs-lookup"><span data-stu-id="e5fdf-229">This behavior is optionally augmented using `additionalViewData` parameters.</span></span> <span data-ttu-id="e5fdf-230">"HtmlAttributes" anahtarı büyük/küçük harfe duyarlıdır.</span><span class="sxs-lookup"><span data-stu-id="e5fdf-230">The key "htmlAttributes" is case-insensitive.</span></span> <span data-ttu-id="e5fdf-231">"HtmlAttributes" anahtarı, `@Html.TextBox()`gibi giriş yardımcılarını geçirilmiş `htmlAttributes` nesnesine benzer şekilde işlenir.</span><span class="sxs-lookup"><span data-stu-id="e5fdf-231">The key "htmlAttributes" is handled similarly to the `htmlAttributes` object passed to input helpers like `@Html.TextBox()`.</span></span>
+<span data-ttu-id="94fa6-228">`@Html.Editor()` ve `@Html.EditorFor()`, varsayılan şablonlarını yürütürken `htmlAttributes` adlı özel bir `ViewDataDictionary` girişi kullanır.</span><span class="sxs-lookup"><span data-stu-id="94fa6-228">`@Html.Editor()` and `@Html.EditorFor()` use a special `ViewDataDictionary` entry named `htmlAttributes` when executing their default templates.</span></span> <span data-ttu-id="94fa6-229">Bu davranış, isteğe bağlı olarak `additionalViewData` parametreleri kullanılarak genişletilebilir.</span><span class="sxs-lookup"><span data-stu-id="94fa6-229">This behavior is optionally augmented using `additionalViewData` parameters.</span></span> <span data-ttu-id="94fa6-230">"HtmlAttributes" anahtarı büyük/küçük harfe duyarlıdır.</span><span class="sxs-lookup"><span data-stu-id="94fa6-230">The key "htmlAttributes" is case-insensitive.</span></span> <span data-ttu-id="94fa6-231">"HtmlAttributes" anahtarı, `@Html.TextBox()`gibi giriş yardımcılarını geçirilmiş `htmlAttributes` nesnesine benzer şekilde işlenir.</span><span class="sxs-lookup"><span data-stu-id="94fa6-231">The key "htmlAttributes" is handled similarly to the `htmlAttributes` object passed to input helpers like `@Html.TextBox()`.</span></span>
 
 ```cshtml
 @Html.EditorFor(model => model.YourProperty, 
   new { htmlAttributes = new { @class="myCssClass", style="Width:100px" } })
 ```
 
-### <a name="expression-names"></a><span data-ttu-id="e5fdf-232">İfade adları</span><span class="sxs-lookup"><span data-stu-id="e5fdf-232">Expression names</span></span>
+### <a name="expression-names"></a><span data-ttu-id="94fa6-232">İfade adları</span><span class="sxs-lookup"><span data-stu-id="94fa6-232">Expression names</span></span>
 
-<span data-ttu-id="e5fdf-233">`asp-for` öznitelik değeri, bir lambda ifadesinin bir `ModelExpression` ve sağ tarafıdır.</span><span class="sxs-lookup"><span data-stu-id="e5fdf-233">The `asp-for` attribute value is a `ModelExpression` and the right hand side of a lambda expression.</span></span> <span data-ttu-id="e5fdf-234">Bu nedenle, `asp-for="Property1"` oluşturulan kodda `m => m.Property1` hale gelir ve bu nedenle `Model`ile önek gerektirmez.</span><span class="sxs-lookup"><span data-stu-id="e5fdf-234">Therefore, `asp-for="Property1"` becomes `m => m.Property1` in the generated code which is why you don't need to prefix with `Model`.</span></span> <span data-ttu-id="e5fdf-235">"\@" karakterini kullanarak bir satır içi ifadeyi başlatabilir ve `m.`önce taşıyabilirsiniz:</span><span class="sxs-lookup"><span data-stu-id="e5fdf-235">You can use the "\@" character to start an inline expression and move before the `m.`:</span></span>
+<span data-ttu-id="94fa6-233">`asp-for` öznitelik değeri, bir lambda ifadesinin bir `ModelExpression` ve sağ tarafıdır.</span><span class="sxs-lookup"><span data-stu-id="94fa6-233">The `asp-for` attribute value is a `ModelExpression` and the right hand side of a lambda expression.</span></span> <span data-ttu-id="94fa6-234">Bu nedenle, `asp-for="Property1"` oluşturulan kodda `m => m.Property1` hale gelir ve bu nedenle `Model`ile önek gerektirmez.</span><span class="sxs-lookup"><span data-stu-id="94fa6-234">Therefore, `asp-for="Property1"` becomes `m => m.Property1` in the generated code which is why you don't need to prefix with `Model`.</span></span> <span data-ttu-id="94fa6-235">"\@" karakterini kullanarak bir satır içi ifadeyi başlatabilir ve `m.`önce taşıyabilirsiniz:</span><span class="sxs-lookup"><span data-stu-id="94fa6-235">You can use the "\@" character to start an inline expression and move before the `m.`:</span></span>
 
 ```cshtml
 @{
@@ -268,44 +268,44 @@ Type expected
 <input asp-for="@joe">
 ```
 
-<span data-ttu-id="e5fdf-236">Şunları üretir:</span><span class="sxs-lookup"><span data-stu-id="e5fdf-236">Generates the following:</span></span>
+<span data-ttu-id="94fa6-236">Şunları üretir:</span><span class="sxs-lookup"><span data-stu-id="94fa6-236">Generates the following:</span></span>
 
 ```html
 <input type="text" id="joe" name="joe" value="Joe">
 ```
 
-<span data-ttu-id="e5fdf-237">Koleksiyon özellikleriyle `asp-for="CollectionProperty[23].Member"`, `i` değer `23`olduğunda `asp-for="CollectionProperty[i].Member"` aynı adı üretir.</span><span class="sxs-lookup"><span data-stu-id="e5fdf-237">With collection properties, `asp-for="CollectionProperty[23].Member"` generates the same name as `asp-for="CollectionProperty[i].Member"` when `i` has the value `23`.</span></span>
+<span data-ttu-id="94fa6-237">Koleksiyon özellikleriyle `asp-for="CollectionProperty[23].Member"`, `i` değer `23`olduğunda `asp-for="CollectionProperty[i].Member"` aynı adı üretir.</span><span class="sxs-lookup"><span data-stu-id="94fa6-237">With collection properties, `asp-for="CollectionProperty[23].Member"` generates the same name as `asp-for="CollectionProperty[i].Member"` when `i` has the value `23`.</span></span>
 
-<span data-ttu-id="e5fdf-238">ASP.NET Core MVC `ModelExpression`değerini hesapladığında `ModelState`dahil olmak üzere çeşitli kaynakları inceler.</span><span class="sxs-lookup"><span data-stu-id="e5fdf-238">When ASP.NET Core MVC calculates the value of `ModelExpression`, it inspects several sources, including `ModelState`.</span></span> <span data-ttu-id="e5fdf-239">`<input type="text" asp-for="@Name">`göz önünde bulundurun.</span><span class="sxs-lookup"><span data-stu-id="e5fdf-239">Consider `<input type="text" asp-for="@Name">`.</span></span> <span data-ttu-id="e5fdf-240">Hesaplanan `value` özniteliği, öğesinden gelen ilk null olmayan değerdir:</span><span class="sxs-lookup"><span data-stu-id="e5fdf-240">The calculated `value` attribute is the first non-null value from:</span></span>
+<span data-ttu-id="94fa6-238">ASP.NET Core MVC `ModelExpression`değerini hesapladığında `ModelState`dahil olmak üzere çeşitli kaynakları inceler.</span><span class="sxs-lookup"><span data-stu-id="94fa6-238">When ASP.NET Core MVC calculates the value of `ModelExpression`, it inspects several sources, including `ModelState`.</span></span> <span data-ttu-id="94fa6-239">`<input type="text" asp-for="@Name">`göz önünde bulundurun.</span><span class="sxs-lookup"><span data-stu-id="94fa6-239">Consider `<input type="text" asp-for="@Name">`.</span></span> <span data-ttu-id="94fa6-240">Hesaplanan `value` özniteliği, öğesinden gelen ilk null olmayan değerdir:</span><span class="sxs-lookup"><span data-stu-id="94fa6-240">The calculated `value` attribute is the first non-null value from:</span></span>
 
-* <span data-ttu-id="e5fdf-241">"Name" anahtarına sahip giriş `ModelState`.</span><span class="sxs-lookup"><span data-stu-id="e5fdf-241">`ModelState` entry with key "Name".</span></span>
-* <span data-ttu-id="e5fdf-242">İfadenin sonucu `Model.Name`.</span><span class="sxs-lookup"><span data-stu-id="e5fdf-242">Result of the expression `Model.Name`.</span></span>
+* <span data-ttu-id="94fa6-241">"Name" anahtarına sahip giriş `ModelState`.</span><span class="sxs-lookup"><span data-stu-id="94fa6-241">`ModelState` entry with key "Name".</span></span>
+* <span data-ttu-id="94fa6-242">İfadenin sonucu `Model.Name`.</span><span class="sxs-lookup"><span data-stu-id="94fa6-242">Result of the expression `Model.Name`.</span></span>
 
-### <a name="navigating-child-properties"></a><span data-ttu-id="e5fdf-243">Alt özelliklerde gezinme</span><span class="sxs-lookup"><span data-stu-id="e5fdf-243">Navigating child properties</span></span>
+### <a name="navigating-child-properties"></a><span data-ttu-id="94fa6-243">Alt özelliklerde gezinme</span><span class="sxs-lookup"><span data-stu-id="94fa6-243">Navigating child properties</span></span>
 
-<span data-ttu-id="e5fdf-244">Ayrıca, görünüm modelinin özellik yolunu kullanarak alt Özellikler ' e gidebilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="e5fdf-244">You can also navigate to child properties using the property path of the view model.</span></span> <span data-ttu-id="e5fdf-245">Alt `Address` özelliği içeren daha karmaşık bir model sınıfı düşünün.</span><span class="sxs-lookup"><span data-stu-id="e5fdf-245">Consider a more complex model class that contains a child `Address` property.</span></span>
+<span data-ttu-id="94fa6-244">Ayrıca, görünüm modelinin özellik yolunu kullanarak alt Özellikler ' e gidebilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="94fa6-244">You can also navigate to child properties using the property path of the view model.</span></span> <span data-ttu-id="94fa6-245">Alt `Address` özelliği içeren daha karmaşık bir model sınıfı düşünün.</span><span class="sxs-lookup"><span data-stu-id="94fa6-245">Consider a more complex model class that contains a child `Address` property.</span></span>
 
 [!code-csharp[](../../mvc/views/working-with-forms/sample/final/ViewModels/AddressViewModel.cs?highlight=1,2,3,4&range=5-8)]
 
 [!code-csharp[](../../mvc/views/working-with-forms/sample/final/ViewModels/RegisterAddressViewModel.cs?highlight=8&range=5-13)]
 
-<span data-ttu-id="e5fdf-246">Görünümde `Address.AddressLine1`bağlandık:</span><span class="sxs-lookup"><span data-stu-id="e5fdf-246">In the view, we bind to `Address.AddressLine1`:</span></span>
+<span data-ttu-id="94fa6-246">Görünümde `Address.AddressLine1`bağlandık:</span><span class="sxs-lookup"><span data-stu-id="94fa6-246">In the view, we bind to `Address.AddressLine1`:</span></span>
 
 [!code-HTML[](../../mvc/views/working-with-forms/sample/final/Views/Demo/RegisterAddress.cshtml?highlight=6)]
 
-<span data-ttu-id="e5fdf-247">`Address.AddressLine1`için aşağıdaki HTML oluşturulmuştur:</span><span class="sxs-lookup"><span data-stu-id="e5fdf-247">The following HTML is generated for `Address.AddressLine1`:</span></span>
+<span data-ttu-id="94fa6-247">`Address.AddressLine1`için aşağıdaki HTML oluşturulmuştur:</span><span class="sxs-lookup"><span data-stu-id="94fa6-247">The following HTML is generated for `Address.AddressLine1`:</span></span>
 
 ```html
 <input type="text" id="Address_AddressLine1" name="Address.AddressLine1" value="">
 ```
 
-### <a name="expression-names-and-collections"></a><span data-ttu-id="e5fdf-248">İfade adları ve koleksiyonlar</span><span class="sxs-lookup"><span data-stu-id="e5fdf-248">Expression names and Collections</span></span>
+### <a name="expression-names-and-collections"></a><span data-ttu-id="94fa6-248">İfade adları ve koleksiyonlar</span><span class="sxs-lookup"><span data-stu-id="94fa6-248">Expression names and Collections</span></span>
 
-<span data-ttu-id="e5fdf-249">Örnek, bir dizi `Colors`içeren bir modeldir:</span><span class="sxs-lookup"><span data-stu-id="e5fdf-249">Sample, a model containing an array of `Colors`:</span></span>
+<span data-ttu-id="94fa6-249">Örnek, bir dizi `Colors`içeren bir modeldir:</span><span class="sxs-lookup"><span data-stu-id="94fa6-249">Sample, a model containing an array of `Colors`:</span></span>
 
 [!code-csharp[](../../mvc/views/working-with-forms/sample/final/ViewModels/Person.cs?highlight=3&range=5-10)]
 
-<span data-ttu-id="e5fdf-250">Eylem yöntemi:</span><span class="sxs-lookup"><span data-stu-id="e5fdf-250">The action method:</span></span>
+<span data-ttu-id="94fa6-250">Eylem yöntemi:</span><span class="sxs-lookup"><span data-stu-id="94fa6-250">The action method:</span></span>
 
 ```csharp
 public IActionResult Edit(int id, int colorIndex)
@@ -315,50 +315,50 @@ public IActionResult Edit(int id, int colorIndex)
 }
 ```
 
-<span data-ttu-id="e5fdf-251">Aşağıdaki Razor, belirli bir `Color` öğesine nasıl erişistediğinizi göstermektedir:</span><span class="sxs-lookup"><span data-stu-id="e5fdf-251">The following Razor shows how you access a specific `Color` element:</span></span>
+<span data-ttu-id="94fa6-251">Aşağıdaki Razor, belirli bir `Color` öğesine nasıl erişistediğinizi göstermektedir:</span><span class="sxs-lookup"><span data-stu-id="94fa6-251">The following Razor shows how you access a specific `Color` element:</span></span>
 
 [!code-HTML[](working-with-forms/sample/final/Views/Demo/EditColor.cshtml)]
 
-<span data-ttu-id="e5fdf-252">*Views/Shared/EditorTemplates/String. cshtml* şablonu:</span><span class="sxs-lookup"><span data-stu-id="e5fdf-252">The *Views/Shared/EditorTemplates/String.cshtml* template:</span></span>
+<span data-ttu-id="94fa6-252">*Views/Shared/EditorTemplates/String. cshtml* şablonu:</span><span class="sxs-lookup"><span data-stu-id="94fa6-252">The *Views/Shared/EditorTemplates/String.cshtml* template:</span></span>
 
 [!code-HTML[](working-with-forms/sample/final/Views/Shared/EditorTemplates/String.cshtml)]
 
-<span data-ttu-id="e5fdf-253">`List<T>`kullanarak örnek:</span><span class="sxs-lookup"><span data-stu-id="e5fdf-253">Sample using `List<T>`:</span></span>
+<span data-ttu-id="94fa6-253">`List<T>`kullanarak örnek:</span><span class="sxs-lookup"><span data-stu-id="94fa6-253">Sample using `List<T>`:</span></span>
 
 [!code-csharp[](working-with-forms/sample/final/ViewModels/ToDoItem.cs?range=3-8)]
 
-<span data-ttu-id="e5fdf-254">Aşağıdaki Razor, bir koleksiyonun üzerinde nasıl yineleme yapılacağını göstermektedir:</span><span class="sxs-lookup"><span data-stu-id="e5fdf-254">The following Razor shows how to iterate over a collection:</span></span>
+<span data-ttu-id="94fa6-254">Aşağıdaki Razor, bir koleksiyonun üzerinde nasıl yineleme yapılacağını göstermektedir:</span><span class="sxs-lookup"><span data-stu-id="94fa6-254">The following Razor shows how to iterate over a collection:</span></span>
 
 [!code-HTML[](working-with-forms/sample/final/Views/Demo/Edit.cshtml)]
 
-<span data-ttu-id="e5fdf-255">*Views/Shared/EditorTemplates/TodoItem. cshtml* şablonu:</span><span class="sxs-lookup"><span data-stu-id="e5fdf-255">The *Views/Shared/EditorTemplates/ToDoItem.cshtml* template:</span></span>
+<span data-ttu-id="94fa6-255">*Views/Shared/EditorTemplates/TodoItem. cshtml* şablonu:</span><span class="sxs-lookup"><span data-stu-id="94fa6-255">The *Views/Shared/EditorTemplates/ToDoItem.cshtml* template:</span></span>
 
 [!code-HTML[](working-with-forms/sample/final/Views/Shared/EditorTemplates/ToDoItem.cshtml)]
 
-<span data-ttu-id="e5fdf-256">değer bir `asp-for` veya `Html.DisplayFor` denk bir bağlamda kullanılacaksa, mümkünse `foreach` kullanılmalıdır.</span><span class="sxs-lookup"><span data-stu-id="e5fdf-256">`foreach` should be used if possible when the value is going to be used in an `asp-for` or `Html.DisplayFor` equivalent context.</span></span> <span data-ttu-id="e5fdf-257">Genel olarak, `for` bir Numaralandırıcı ayırması gerekmiyorsa, `foreach` daha iyidir (senaryo buna izin veriyorsa). Ancak, bir LINQ ifadesinde bir dizin oluşturucuyu değerlendirmek pahalı olabilir ve simge durumuna küçültülmüş olmalıdır.</span><span class="sxs-lookup"><span data-stu-id="e5fdf-257">In general, `for` is better than `foreach` (if the scenario allows it) because it doesn't need to allocate an enumerator; however, evaluating an indexer in a LINQ expression can be expensive and should be minimized.</span></span>
+<span data-ttu-id="94fa6-256">değer bir `asp-for` veya `Html.DisplayFor` denk bir bağlamda kullanılacaksa, mümkünse `foreach` kullanılmalıdır.</span><span class="sxs-lookup"><span data-stu-id="94fa6-256">`foreach` should be used if possible when the value is going to be used in an `asp-for` or `Html.DisplayFor` equivalent context.</span></span> <span data-ttu-id="94fa6-257">Genel olarak, `for` bir Numaralandırıcı ayırması gerekmiyorsa, `foreach` daha iyidir (senaryo buna izin veriyorsa). Ancak, bir LINQ ifadesinde bir dizin oluşturucuyu değerlendirmek pahalı olabilir ve simge durumuna küçültülmüş olmalıdır.</span><span class="sxs-lookup"><span data-stu-id="94fa6-257">In general, `for` is better than `foreach` (if the scenario allows it) because it doesn't need to allocate an enumerator; however, evaluating an indexer in a LINQ expression can be expensive and should be minimized.</span></span>
 
 &nbsp;
 
 >[!NOTE]
-><span data-ttu-id="e5fdf-258">Yukarıdaki açıklamalı örnek kod, listedeki her bir `ToDoItem` erişmek için lambda ifadesinin `@` işleçle nasıl değiştirileceğini gösterir.</span><span class="sxs-lookup"><span data-stu-id="e5fdf-258">The commented sample code above shows how you would replace the lambda expression with the `@` operator to access each `ToDoItem` in the list.</span></span>
+><span data-ttu-id="94fa6-258">Yukarıdaki açıklamalı örnek kod, listedeki her bir `ToDoItem` erişmek için lambda ifadesinin `@` işleçle nasıl değiştirileceğini gösterir.</span><span class="sxs-lookup"><span data-stu-id="94fa6-258">The commented sample code above shows how you would replace the lambda expression with the `@` operator to access each `ToDoItem` in the list.</span></span>
 
-## <a name="the-textarea-tag-helper"></a><span data-ttu-id="e5fdf-259">TextArea etiketi Yardımcısı</span><span class="sxs-lookup"><span data-stu-id="e5fdf-259">The Textarea Tag Helper</span></span>
+## <a name="the-textarea-tag-helper"></a><span data-ttu-id="94fa6-259">TextArea etiketi Yardımcısı</span><span class="sxs-lookup"><span data-stu-id="94fa6-259">The Textarea Tag Helper</span></span>
 
-<span data-ttu-id="e5fdf-260">`Textarea Tag Helper` Tag Yardımcısı giriş etiketi Yardımcısı ile benzerdir.</span><span class="sxs-lookup"><span data-stu-id="e5fdf-260">The `Textarea Tag Helper` tag helper is  similar to the Input Tag Helper.</span></span>
+<span data-ttu-id="94fa6-260">`Textarea Tag Helper` Tag Yardımcısı giriş etiketi Yardımcısı ile benzerdir.</span><span class="sxs-lookup"><span data-stu-id="94fa6-260">The `Textarea Tag Helper` tag helper is  similar to the Input Tag Helper.</span></span>
 
-* <span data-ttu-id="e5fdf-261">`id` ve `name` özniteliklerini ve [\<textarea >](https://www.w3.org/wiki/HTML/Elements/textarea) öğesi için modelden veri doğrulama özniteliklerini üretir.</span><span class="sxs-lookup"><span data-stu-id="e5fdf-261">Generates the `id` and `name` attributes, and the data validation attributes from the model for a [\<textarea>](https://www.w3.org/wiki/HTML/Elements/textarea) element.</span></span>
+* <span data-ttu-id="94fa6-261">`id` ve `name` özniteliklerini ve [\<textarea >](https://www.w3.org/wiki/HTML/Elements/textarea) öğesi için modelden veri doğrulama özniteliklerini üretir.</span><span class="sxs-lookup"><span data-stu-id="94fa6-261">Generates the `id` and `name` attributes, and the data validation attributes from the model for a [\<textarea>](https://www.w3.org/wiki/HTML/Elements/textarea) element.</span></span>
 
-* <span data-ttu-id="e5fdf-262">Güçlü yazma sağlar.</span><span class="sxs-lookup"><span data-stu-id="e5fdf-262">Provides strong typing.</span></span>
+* <span data-ttu-id="94fa6-262">Güçlü yazma sağlar.</span><span class="sxs-lookup"><span data-stu-id="94fa6-262">Provides strong typing.</span></span>
 
-* <span data-ttu-id="e5fdf-263">HTML Yardımcısı alternatifi: `Html.TextAreaFor`</span><span class="sxs-lookup"><span data-stu-id="e5fdf-263">HTML Helper alternative: `Html.TextAreaFor`</span></span>
+* <span data-ttu-id="94fa6-263">HTML Yardımcısı alternatifi: `Html.TextAreaFor`</span><span class="sxs-lookup"><span data-stu-id="94fa6-263">HTML Helper alternative: `Html.TextAreaFor`</span></span>
 
-<span data-ttu-id="e5fdf-264">Örnek:</span><span class="sxs-lookup"><span data-stu-id="e5fdf-264">Sample:</span></span>
+<span data-ttu-id="94fa6-264">Örnek:</span><span class="sxs-lookup"><span data-stu-id="94fa6-264">Sample:</span></span>
 
 [!code-csharp[](working-with-forms/sample/final/ViewModels/DescriptionViewModel.cs)]
 
 [!code-HTML[](../../mvc/views/working-with-forms/sample/final/Views/Demo/RegisterTextArea.cshtml?highlight=4)]
 
-<span data-ttu-id="e5fdf-265">Aşağıdaki HTML oluşturulur:</span><span class="sxs-lookup"><span data-stu-id="e5fdf-265">The following HTML is generated:</span></span>
+<span data-ttu-id="94fa6-265">Aşağıdaki HTML oluşturulur:</span><span class="sxs-lookup"><span data-stu-id="94fa6-265">The following HTML is generated:</span></span>
 
 ```html
 <form method="post" action="/Demo/RegisterTextArea">
@@ -374,53 +374,53 @@ public IActionResult Edit(int id, int colorIndex)
 </form>
 ```
 
-## <a name="the-label-tag-helper"></a><span data-ttu-id="e5fdf-266">Etiket etiketi Yardımcısı</span><span class="sxs-lookup"><span data-stu-id="e5fdf-266">The Label Tag Helper</span></span>
+## <a name="the-label-tag-helper"></a><span data-ttu-id="94fa6-266">Etiket etiketi Yardımcısı</span><span class="sxs-lookup"><span data-stu-id="94fa6-266">The Label Tag Helper</span></span>
 
-* <span data-ttu-id="e5fdf-267">Bir ifade adı için bir [\<label >](https://www.w3.org/wiki/HTML/Elements/label) öğesinde etiket başlık yazısı ve `for` özniteliği oluşturur</span><span class="sxs-lookup"><span data-stu-id="e5fdf-267">Generates the label caption and `for` attribute on a [\<label>](https://www.w3.org/wiki/HTML/Elements/label) element for an expression name</span></span>
+* <span data-ttu-id="94fa6-267">Bir ifade adı için bir [\<label >](https://www.w3.org/wiki/HTML/Elements/label) öğesinde etiket başlık yazısı ve `for` özniteliği oluşturur</span><span class="sxs-lookup"><span data-stu-id="94fa6-267">Generates the label caption and `for` attribute on a [\<label>](https://www.w3.org/wiki/HTML/Elements/label) element for an expression name</span></span>
 
-* <span data-ttu-id="e5fdf-268">HTML Yardımcısı alternatifi: `Html.LabelFor`.</span><span class="sxs-lookup"><span data-stu-id="e5fdf-268">HTML Helper alternative: `Html.LabelFor`.</span></span>
+* <span data-ttu-id="94fa6-268">HTML Yardımcısı alternatifi: `Html.LabelFor`.</span><span class="sxs-lookup"><span data-stu-id="94fa6-268">HTML Helper alternative: `Html.LabelFor`.</span></span>
 
-<span data-ttu-id="e5fdf-269">`Label Tag Helper`, saf HTML etiket öğesi üzerinde aşağıdaki avantajları sağlar:</span><span class="sxs-lookup"><span data-stu-id="e5fdf-269">The `Label Tag Helper`  provides the following benefits over a pure HTML label element:</span></span>
+<span data-ttu-id="94fa6-269">`Label Tag Helper`, saf HTML etiket öğesi üzerinde aşağıdaki avantajları sağlar:</span><span class="sxs-lookup"><span data-stu-id="94fa6-269">The `Label Tag Helper`  provides the following benefits over a pure HTML label element:</span></span>
 
-* <span data-ttu-id="e5fdf-270">`Display` özniteliğinden açıklayıcı etiket değerini otomatik olarak alırsınız.</span><span class="sxs-lookup"><span data-stu-id="e5fdf-270">You automatically get the descriptive label value from the `Display` attribute.</span></span> <span data-ttu-id="e5fdf-271">İstenen görünen ad zaman içinde değişebilir ve `Display` özniteliği ve etiket etiketi Yardımcısı 'nın birleşimi, `Display` her yere uygular.</span><span class="sxs-lookup"><span data-stu-id="e5fdf-271">The intended display name might change over time, and the combination of `Display` attribute and Label Tag Helper will apply the `Display` everywhere it's used.</span></span>
+* <span data-ttu-id="94fa6-270">`Display` özniteliğinden açıklayıcı etiket değerini otomatik olarak alırsınız.</span><span class="sxs-lookup"><span data-stu-id="94fa6-270">You automatically get the descriptive label value from the `Display` attribute.</span></span> <span data-ttu-id="94fa6-271">İstenen görünen ad zaman içinde değişebilir ve `Display` özniteliği ve etiket etiketi Yardımcısı 'nın birleşimi, `Display` her yere uygular.</span><span class="sxs-lookup"><span data-stu-id="94fa6-271">The intended display name might change over time, and the combination of `Display` attribute and Label Tag Helper will apply the `Display` everywhere it's used.</span></span>
 
-* <span data-ttu-id="e5fdf-272">Kaynak kodunda daha az biçimlendirme</span><span class="sxs-lookup"><span data-stu-id="e5fdf-272">Less markup in source code</span></span>
+* <span data-ttu-id="94fa6-272">Kaynak kodunda daha az biçimlendirme</span><span class="sxs-lookup"><span data-stu-id="94fa6-272">Less markup in source code</span></span>
 
-* <span data-ttu-id="e5fdf-273">Model özelliğiyle güçlü yazma.</span><span class="sxs-lookup"><span data-stu-id="e5fdf-273">Strong typing with the model property.</span></span>
+* <span data-ttu-id="94fa6-273">Model özelliğiyle güçlü yazma.</span><span class="sxs-lookup"><span data-stu-id="94fa6-273">Strong typing with the model property.</span></span>
 
-<span data-ttu-id="e5fdf-274">Örnek:</span><span class="sxs-lookup"><span data-stu-id="e5fdf-274">Sample:</span></span>
+<span data-ttu-id="94fa6-274">Örnek:</span><span class="sxs-lookup"><span data-stu-id="94fa6-274">Sample:</span></span>
 
 [!code-csharp[](working-with-forms/sample/final/ViewModels/SimpleViewModel.cs)]
 
 [!code-HTML[](../../mvc/views/working-with-forms/sample/final/Views/Demo/RegisterLabel.cshtml?highlight=4)]
 
-<span data-ttu-id="e5fdf-275">`<label>` öğesi için aşağıdaki HTML oluşturulur:</span><span class="sxs-lookup"><span data-stu-id="e5fdf-275">The following HTML is generated for the `<label>` element:</span></span>
+<span data-ttu-id="94fa6-275">`<label>` öğesi için aşağıdaki HTML oluşturulur:</span><span class="sxs-lookup"><span data-stu-id="94fa6-275">The following HTML is generated for the `<label>` element:</span></span>
 
 ```html
 <label for="Email">Email Address</label>
 ```
 
-<span data-ttu-id="e5fdf-276">Etiket etiketi Yardımcısı, `<input>` öğesiyle ilişkili KIMLIK olan "e-posta" `for` öznitelik değerini oluşturdu.</span><span class="sxs-lookup"><span data-stu-id="e5fdf-276">The Label Tag Helper generated the `for` attribute value of "Email", which is the ID associated with the `<input>` element.</span></span> <span data-ttu-id="e5fdf-277">Etiket Yardımcıları, doğru ilişkilendirilebilen şekilde tutarlı `id` ve `for` öğeleri oluşturur.</span><span class="sxs-lookup"><span data-stu-id="e5fdf-277">The Tag Helpers generate consistent `id` and `for` elements so they can be correctly associated.</span></span> <span data-ttu-id="e5fdf-278">Bu örnekteki başlık `Display` özniteliğinden gelir.</span><span class="sxs-lookup"><span data-stu-id="e5fdf-278">The caption in this sample comes from the `Display` attribute.</span></span> <span data-ttu-id="e5fdf-279">Modelde bir `Display` özniteliği yoksa, başlık ifadenin Özellik adı olacaktır.</span><span class="sxs-lookup"><span data-stu-id="e5fdf-279">If the model didn't contain a `Display` attribute, the caption would be the property name of the expression.</span></span>
+<span data-ttu-id="94fa6-276">Etiket etiketi Yardımcısı, `<input>` öğesiyle ilişkili KIMLIK olan "e-posta" `for` öznitelik değerini oluşturdu.</span><span class="sxs-lookup"><span data-stu-id="94fa6-276">The Label Tag Helper generated the `for` attribute value of "Email", which is the ID associated with the `<input>` element.</span></span> <span data-ttu-id="94fa6-277">Etiket Yardımcıları, doğru ilişkilendirilebilen şekilde tutarlı `id` ve `for` öğeleri oluşturur.</span><span class="sxs-lookup"><span data-stu-id="94fa6-277">The Tag Helpers generate consistent `id` and `for` elements so they can be correctly associated.</span></span> <span data-ttu-id="94fa6-278">Bu örnekteki başlık `Display` özniteliğinden gelir.</span><span class="sxs-lookup"><span data-stu-id="94fa6-278">The caption in this sample comes from the `Display` attribute.</span></span> <span data-ttu-id="94fa6-279">Modelde bir `Display` özniteliği yoksa, başlık ifadenin Özellik adı olacaktır.</span><span class="sxs-lookup"><span data-stu-id="94fa6-279">If the model didn't contain a `Display` attribute, the caption would be the property name of the expression.</span></span>
 
-## <a name="the-validation-tag-helpers"></a><span data-ttu-id="e5fdf-280">Doğrulama etiketi yardımcıları</span><span class="sxs-lookup"><span data-stu-id="e5fdf-280">The Validation Tag Helpers</span></span>
+## <a name="the-validation-tag-helpers"></a><span data-ttu-id="94fa6-280">Doğrulama etiketi yardımcıları</span><span class="sxs-lookup"><span data-stu-id="94fa6-280">The Validation Tag Helpers</span></span>
 
-<span data-ttu-id="e5fdf-281">İki doğrulama etiketi yardımcıları vardır.</span><span class="sxs-lookup"><span data-stu-id="e5fdf-281">There are two Validation Tag Helpers.</span></span> <span data-ttu-id="e5fdf-282">`Validation Message Tag Helper` (modelinizdeki tek bir özellik için bir doğrulama iletisi görüntüler) ve `Validation Summary Tag Helper` (doğrulama hatalarının özetini görüntüler).</span><span class="sxs-lookup"><span data-stu-id="e5fdf-282">The `Validation Message Tag Helper` (which displays a validation message for a single property on your model), and the `Validation Summary Tag Helper` (which displays a summary of validation errors).</span></span> <span data-ttu-id="e5fdf-283">`Input Tag Helper`, model sınıflarınızda bulunan veri ek açıklaması özniteliklerini temel alan giriş öğelerine HTML5 istemci tarafı doğrulama öznitelikleri ekler.</span><span class="sxs-lookup"><span data-stu-id="e5fdf-283">The `Input Tag Helper` adds HTML5 client side validation attributes to input elements based on data annotation attributes on your model classes.</span></span> <span data-ttu-id="e5fdf-284">Doğrulama de sunucuda gerçekleştirilir.</span><span class="sxs-lookup"><span data-stu-id="e5fdf-284">Validation is also performed on the server.</span></span> <span data-ttu-id="e5fdf-285">Doğrulama etiketi Yardımcısı, bir doğrulama hatası oluştuğunda bu hata iletilerini görüntüler.</span><span class="sxs-lookup"><span data-stu-id="e5fdf-285">The Validation Tag Helper displays these error messages when a validation error occurs.</span></span>
+<span data-ttu-id="94fa6-281">İki doğrulama etiketi yardımcıları vardır.</span><span class="sxs-lookup"><span data-stu-id="94fa6-281">There are two Validation Tag Helpers.</span></span> <span data-ttu-id="94fa6-282">`Validation Message Tag Helper` (modelinizdeki tek bir özellik için bir doğrulama iletisi görüntüler) ve `Validation Summary Tag Helper` (doğrulama hatalarının özetini görüntüler).</span><span class="sxs-lookup"><span data-stu-id="94fa6-282">The `Validation Message Tag Helper` (which displays a validation message for a single property on your model), and the `Validation Summary Tag Helper` (which displays a summary of validation errors).</span></span> <span data-ttu-id="94fa6-283">`Input Tag Helper`, model sınıflarınızda bulunan veri ek açıklaması özniteliklerini temel alan giriş öğelerine HTML5 istemci tarafı doğrulama öznitelikleri ekler.</span><span class="sxs-lookup"><span data-stu-id="94fa6-283">The `Input Tag Helper` adds HTML5 client side validation attributes to input elements based on data annotation attributes on your model classes.</span></span> <span data-ttu-id="94fa6-284">Doğrulama de sunucuda gerçekleştirilir.</span><span class="sxs-lookup"><span data-stu-id="94fa6-284">Validation is also performed on the server.</span></span> <span data-ttu-id="94fa6-285">Doğrulama etiketi Yardımcısı, bir doğrulama hatası oluştuğunda bu hata iletilerini görüntüler.</span><span class="sxs-lookup"><span data-stu-id="94fa6-285">The Validation Tag Helper displays these error messages when a validation error occurs.</span></span>
 
-### <a name="the-validation-message-tag-helper"></a><span data-ttu-id="e5fdf-286">Doğrulama Iletisi etiketi Yardımcısı</span><span class="sxs-lookup"><span data-stu-id="e5fdf-286">The Validation Message Tag Helper</span></span>
+### <a name="the-validation-message-tag-helper"></a><span data-ttu-id="94fa6-286">Doğrulama Iletisi etiketi Yardımcısı</span><span class="sxs-lookup"><span data-stu-id="94fa6-286">The Validation Message Tag Helper</span></span>
 
-* <span data-ttu-id="e5fdf-287">Belirtilen model özelliğinin giriş alanındaki doğrulama hatası mesajlarını bağlayan [span](https://developer.mozilla.org/docs/Web/HTML/Element/span) öğesine [HTML5](https://developer.mozilla.org/docs/Web/Guide/HTML/HTML5)`data-valmsg-for="property"` özniteliğini ekler.</span><span class="sxs-lookup"><span data-stu-id="e5fdf-287">Adds the [HTML5](https://developer.mozilla.org/docs/Web/Guide/HTML/HTML5)  `data-valmsg-for="property"` attribute to the [span](https://developer.mozilla.org/docs/Web/HTML/Element/span) element, which attaches the validation error messages on the input field of the specified model property.</span></span> <span data-ttu-id="e5fdf-288">İstemci tarafı doğrulama hatası oluştuğunda, [jQuery](https://jquery.com/) `<span>` öğesinde hata iletisini görüntüler.</span><span class="sxs-lookup"><span data-stu-id="e5fdf-288">When a client side validation error occurs, [jQuery](https://jquery.com/) displays the error message in the `<span>` element.</span></span>
+* <span data-ttu-id="94fa6-287">Belirtilen model özelliğinin giriş alanındaki doğrulama hatası mesajlarını bağlayan [span](https://developer.mozilla.org/docs/Web/HTML/Element/span) öğesine [HTML5](https://developer.mozilla.org/docs/Web/Guide/HTML/HTML5)`data-valmsg-for="property"` özniteliğini ekler.</span><span class="sxs-lookup"><span data-stu-id="94fa6-287">Adds the [HTML5](https://developer.mozilla.org/docs/Web/Guide/HTML/HTML5)  `data-valmsg-for="property"` attribute to the [span](https://developer.mozilla.org/docs/Web/HTML/Element/span) element, which attaches the validation error messages on the input field of the specified model property.</span></span> <span data-ttu-id="94fa6-288">İstemci tarafı doğrulama hatası oluştuğunda, [jQuery](https://jquery.com/) `<span>` öğesinde hata iletisini görüntüler.</span><span class="sxs-lookup"><span data-stu-id="94fa6-288">When a client side validation error occurs, [jQuery](https://jquery.com/) displays the error message in the `<span>` element.</span></span>
 
-* <span data-ttu-id="e5fdf-289">Doğrulama de sunucuda gerçekleşir.</span><span class="sxs-lookup"><span data-stu-id="e5fdf-289">Validation also takes place on the server.</span></span> <span data-ttu-id="e5fdf-290">İstemciler JavaScript devre dışı bırakılmış olabilir ve bazı doğrulamalar yalnızca sunucu tarafında yapılabilir.</span><span class="sxs-lookup"><span data-stu-id="e5fdf-290">Clients may have JavaScript disabled and some validation can only be done on the server side.</span></span>
+* <span data-ttu-id="94fa6-289">Doğrulama de sunucuda gerçekleşir.</span><span class="sxs-lookup"><span data-stu-id="94fa6-289">Validation also takes place on the server.</span></span> <span data-ttu-id="94fa6-290">İstemciler JavaScript devre dışı bırakılmış olabilir ve bazı doğrulamalar yalnızca sunucu tarafında yapılabilir.</span><span class="sxs-lookup"><span data-stu-id="94fa6-290">Clients may have JavaScript disabled and some validation can only be done on the server side.</span></span>
 
-* <span data-ttu-id="e5fdf-291">HTML Yardımcısı alternatifi: `Html.ValidationMessageFor`</span><span class="sxs-lookup"><span data-stu-id="e5fdf-291">HTML Helper alternative: `Html.ValidationMessageFor`</span></span>
+* <span data-ttu-id="94fa6-291">HTML Yardımcısı alternatifi: `Html.ValidationMessageFor`</span><span class="sxs-lookup"><span data-stu-id="94fa6-291">HTML Helper alternative: `Html.ValidationMessageFor`</span></span>
 
-<span data-ttu-id="e5fdf-292">`Validation Message Tag Helper`, bir HTML [span](https://developer.mozilla.org/docs/Web/HTML/Element/span) öğesinde `asp-validation-for` özniteliğiyle kullanılır.</span><span class="sxs-lookup"><span data-stu-id="e5fdf-292">The `Validation Message Tag Helper`  is used with the `asp-validation-for` attribute on a HTML [span](https://developer.mozilla.org/docs/Web/HTML/Element/span) element.</span></span>
+<span data-ttu-id="94fa6-292">`Validation Message Tag Helper`, bir HTML [span](https://developer.mozilla.org/docs/Web/HTML/Element/span) öğesinde `asp-validation-for` özniteliğiyle kullanılır.</span><span class="sxs-lookup"><span data-stu-id="94fa6-292">The `Validation Message Tag Helper`  is used with the `asp-validation-for` attribute on a HTML [span](https://developer.mozilla.org/docs/Web/HTML/Element/span) element.</span></span>
 
 ```cshtml
 <span asp-validation-for="Email"></span>
 ```
 
-<span data-ttu-id="e5fdf-293">Doğrulama Iletisi etiketi Yardımcısı aşağıdaki HTML 'yi oluşturur:</span><span class="sxs-lookup"><span data-stu-id="e5fdf-293">The Validation Message Tag Helper will generate the following HTML:</span></span>
+<span data-ttu-id="94fa6-293">Doğrulama Iletisi etiketi Yardımcısı aşağıdaki HTML 'yi oluşturur:</span><span class="sxs-lookup"><span data-stu-id="94fa6-293">The Validation Message Tag Helper will generate the following HTML:</span></span>
 
 ```html
 <span class="field-validation-valid"
@@ -428,12 +428,12 @@ public IActionResult Edit(int id, int colorIndex)
   data-valmsg-replace="true"></span>
 ```
 
-<span data-ttu-id="e5fdf-294">Aynı özellik için bir `Input` etiketi Yardımcısı sonrasında `Validation Message Tag Helper` genellikle kullanırsınız.</span><span class="sxs-lookup"><span data-stu-id="e5fdf-294">You generally use the `Validation Message Tag Helper`  after an `Input` Tag Helper for the same property.</span></span> <span data-ttu-id="e5fdf-295">Bunun yapılması, hataya neden olan girişin yakınında herhangi bir doğrulama hata iletisi görüntüler.</span><span class="sxs-lookup"><span data-stu-id="e5fdf-295">Doing so displays any validation error messages near the input that caused the error.</span></span>
+<span data-ttu-id="94fa6-294">Aynı özellik için bir `Input` etiketi Yardımcısı sonrasında `Validation Message Tag Helper` genellikle kullanırsınız.</span><span class="sxs-lookup"><span data-stu-id="94fa6-294">You generally use the `Validation Message Tag Helper`  after an `Input` Tag Helper for the same property.</span></span> <span data-ttu-id="94fa6-295">Bunun yapılması, hataya neden olan girişin yakınında herhangi bir doğrulama hata iletisi görüntüler.</span><span class="sxs-lookup"><span data-stu-id="94fa6-295">Doing so displays any validation error messages near the input that caused the error.</span></span>
 
 > [!NOTE]
-> <span data-ttu-id="e5fdf-296">İstemci tarafı doğrulaması için doğru JavaScript ve [jQuery](https://jquery.com/) betik başvurularını içeren bir görünümsiniz olmalıdır.</span><span class="sxs-lookup"><span data-stu-id="e5fdf-296">You must have a view with the correct JavaScript and [jQuery](https://jquery.com/) script references in place for client side validation.</span></span> <span data-ttu-id="e5fdf-297">Daha fazla bilgi için bkz. [model doğrulaması](../models/validation.md) .</span><span class="sxs-lookup"><span data-stu-id="e5fdf-297">See [Model Validation](../models/validation.md) for more information.</span></span>
+> <span data-ttu-id="94fa6-296">İstemci tarafı doğrulaması için doğru JavaScript ve [jQuery](https://jquery.com/) betik başvurularını içeren bir görünümsiniz olmalıdır.</span><span class="sxs-lookup"><span data-stu-id="94fa6-296">You must have a view with the correct JavaScript and [jQuery](https://jquery.com/) script references in place for client side validation.</span></span> <span data-ttu-id="94fa6-297">Daha fazla bilgi için bkz. [model doğrulaması](../models/validation.md) .</span><span class="sxs-lookup"><span data-stu-id="94fa6-297">See [Model Validation](../models/validation.md) for more information.</span></span>
 
-<span data-ttu-id="e5fdf-298">Sunucu tarafı doğrulama hatası oluştuğunda (örneğin, özel sunucu tarafı doğrulamadan veya istemci tarafı doğrulaması devre dışı bırakılmışsa), MVC bu hata iletisini `<span>` öğesinin gövdesi olarak koyar.</span><span class="sxs-lookup"><span data-stu-id="e5fdf-298">When a server side validation error occurs (for example when you have custom server side validation or client-side validation is disabled), MVC places that error message as the body of the `<span>` element.</span></span>
+<span data-ttu-id="94fa6-298">Sunucu tarafı doğrulama hatası oluştuğunda (örneğin, özel sunucu tarafı doğrulamadan veya istemci tarafı doğrulaması devre dışı bırakılmışsa), MVC bu hata iletisini `<span>` öğesinin gövdesi olarak koyar.</span><span class="sxs-lookup"><span data-stu-id="94fa6-298">When a server side validation error occurs (for example when you have custom server side validation or client-side validation is disabled), MVC places that error message as the body of the `<span>` element.</span></span>
 
 ```html
 <span class="field-validation-error" data-valmsg-for="Email"
@@ -442,29 +442,29 @@ public IActionResult Edit(int id, int colorIndex)
 </span>
 ```
 
-### <a name="the-validation-summary-tag-helper"></a><span data-ttu-id="e5fdf-299">Doğrulama Özeti etiketi Yardımcısı</span><span class="sxs-lookup"><span data-stu-id="e5fdf-299">The Validation Summary Tag Helper</span></span>
+### <a name="the-validation-summary-tag-helper"></a><span data-ttu-id="94fa6-299">Doğrulama Özeti etiketi Yardımcısı</span><span class="sxs-lookup"><span data-stu-id="94fa6-299">The Validation Summary Tag Helper</span></span>
 
-* <span data-ttu-id="e5fdf-300">`asp-validation-summary` özniteliği olan öğeleri `<div>` hedefleri</span><span class="sxs-lookup"><span data-stu-id="e5fdf-300">Targets `<div>` elements with the `asp-validation-summary` attribute</span></span>
+* <span data-ttu-id="94fa6-300">`asp-validation-summary` özniteliği olan öğeleri `<div>` hedefleri</span><span class="sxs-lookup"><span data-stu-id="94fa6-300">Targets `<div>` elements with the `asp-validation-summary` attribute</span></span>
 
-* <span data-ttu-id="e5fdf-301">HTML Yardımcısı alternatifi: `@Html.ValidationSummary`</span><span class="sxs-lookup"><span data-stu-id="e5fdf-301">HTML Helper alternative: `@Html.ValidationSummary`</span></span>
+* <span data-ttu-id="94fa6-301">HTML Yardımcısı alternatifi: `@Html.ValidationSummary`</span><span class="sxs-lookup"><span data-stu-id="94fa6-301">HTML Helper alternative: `@Html.ValidationSummary`</span></span>
 
-<span data-ttu-id="e5fdf-302">`Validation Summary Tag Helper`, doğrulama iletilerinin özetini göstermek için kullanılır.</span><span class="sxs-lookup"><span data-stu-id="e5fdf-302">The `Validation Summary Tag Helper`  is used to display a summary of validation messages.</span></span> <span data-ttu-id="e5fdf-303">`asp-validation-summary` öznitelik değeri, aşağıdakilerden herhangi biri olabilir:</span><span class="sxs-lookup"><span data-stu-id="e5fdf-303">The `asp-validation-summary` attribute value can be any of the following:</span></span>
+<span data-ttu-id="94fa6-302">`Validation Summary Tag Helper`, doğrulama iletilerinin özetini göstermek için kullanılır.</span><span class="sxs-lookup"><span data-stu-id="94fa6-302">The `Validation Summary Tag Helper`  is used to display a summary of validation messages.</span></span> <span data-ttu-id="94fa6-303">`asp-validation-summary` öznitelik değeri, aşağıdakilerden herhangi biri olabilir:</span><span class="sxs-lookup"><span data-stu-id="94fa6-303">The `asp-validation-summary` attribute value can be any of the following:</span></span>
 
-|<span data-ttu-id="e5fdf-304">ASP-doğrulama-Özet</span><span class="sxs-lookup"><span data-stu-id="e5fdf-304">asp-validation-summary</span></span>|<span data-ttu-id="e5fdf-305">Görünen doğrulama iletileri</span><span class="sxs-lookup"><span data-stu-id="e5fdf-305">Validation messages displayed</span></span>|
+|<span data-ttu-id="94fa6-304">ASP-doğrulama-Özet</span><span class="sxs-lookup"><span data-stu-id="94fa6-304">asp-validation-summary</span></span>|<span data-ttu-id="94fa6-305">Görünen doğrulama iletileri</span><span class="sxs-lookup"><span data-stu-id="94fa6-305">Validation messages displayed</span></span>|
 |--- |--- |
-|<span data-ttu-id="e5fdf-306">ValidationSummary. All</span><span class="sxs-lookup"><span data-stu-id="e5fdf-306">ValidationSummary.All</span></span>|<span data-ttu-id="e5fdf-307">Özellik ve model düzeyi</span><span class="sxs-lookup"><span data-stu-id="e5fdf-307">Property and model level</span></span>|
-|<span data-ttu-id="e5fdf-308">Yalnızca ValidationSummary. model</span><span class="sxs-lookup"><span data-stu-id="e5fdf-308">ValidationSummary.ModelOnly</span></span>|<span data-ttu-id="e5fdf-309">Model</span><span class="sxs-lookup"><span data-stu-id="e5fdf-309">Model</span></span>|
-|<span data-ttu-id="e5fdf-310">ValidationSummary. None</span><span class="sxs-lookup"><span data-stu-id="e5fdf-310">ValidationSummary.None</span></span>|<span data-ttu-id="e5fdf-311">Yok</span><span class="sxs-lookup"><span data-stu-id="e5fdf-311">None</span></span>|
+|<span data-ttu-id="94fa6-306">ValidationSummary. All</span><span class="sxs-lookup"><span data-stu-id="94fa6-306">ValidationSummary.All</span></span>|<span data-ttu-id="94fa6-307">Özellik ve model düzeyi</span><span class="sxs-lookup"><span data-stu-id="94fa6-307">Property and model level</span></span>|
+|<span data-ttu-id="94fa6-308">Yalnızca ValidationSummary. model</span><span class="sxs-lookup"><span data-stu-id="94fa6-308">ValidationSummary.ModelOnly</span></span>|<span data-ttu-id="94fa6-309">Model</span><span class="sxs-lookup"><span data-stu-id="94fa6-309">Model</span></span>|
+|<span data-ttu-id="94fa6-310">ValidationSummary. None</span><span class="sxs-lookup"><span data-stu-id="94fa6-310">ValidationSummary.None</span></span>|<span data-ttu-id="94fa6-311">Yok</span><span class="sxs-lookup"><span data-stu-id="94fa6-311">None</span></span>|
 
-### <a name="sample"></a><span data-ttu-id="e5fdf-312">Örnek</span><span class="sxs-lookup"><span data-stu-id="e5fdf-312">Sample</span></span>
+### <a name="sample"></a><span data-ttu-id="94fa6-312">Örnek</span><span class="sxs-lookup"><span data-stu-id="94fa6-312">Sample</span></span>
 
-<span data-ttu-id="e5fdf-313">Aşağıdaki örnekte, veri modelinde `<input>` öğesinde doğrulama hata iletileri üreten `DataAnnotation` öznitelikleri vardır.</span><span class="sxs-lookup"><span data-stu-id="e5fdf-313">In the following example, the data model has `DataAnnotation` attributes, which generates validation error messages on the `<input>` element.</span></span>  <span data-ttu-id="e5fdf-314">Doğrulama hatası oluştuğunda, doğrulama etiketi Yardımcısı şu hata iletisini görüntüler:</span><span class="sxs-lookup"><span data-stu-id="e5fdf-314">When a validation error occurs, the Validation Tag Helper displays the error message:</span></span>
+<span data-ttu-id="94fa6-313">Aşağıdaki örnekte, veri modelinde `<input>` öğesinde doğrulama hata iletileri üreten `DataAnnotation` öznitelikleri vardır.</span><span class="sxs-lookup"><span data-stu-id="94fa6-313">In the following example, the data model has `DataAnnotation` attributes, which generates validation error messages on the `<input>` element.</span></span>  <span data-ttu-id="94fa6-314">Doğrulama hatası oluştuğunda, doğrulama etiketi Yardımcısı şu hata iletisini görüntüler:</span><span class="sxs-lookup"><span data-stu-id="94fa6-314">When a validation error occurs, the Validation Tag Helper displays the error message:</span></span>
 
 [!code-csharp[](working-with-forms/sample/final/ViewModels/RegisterViewModel.cs)]
 
 [!code-HTML[](../../mvc/views/working-with-forms/sample/final/Views/Demo/RegisterValidation.cshtml?highlight=4,6,8&range=1-10)]
 
-<span data-ttu-id="e5fdf-315">Oluşturulan HTML (model geçerli olduğunda):</span><span class="sxs-lookup"><span data-stu-id="e5fdf-315">The generated HTML (when the model is valid):</span></span>
+<span data-ttu-id="94fa6-315">Oluşturulan HTML (model geçerli olduğunda):</span><span class="sxs-lookup"><span data-stu-id="94fa6-315">The generated HTML (when the model is valid):</span></span>
 
 ```html
 <form action="/DemoReg/Register" method="post">
@@ -485,33 +485,33 @@ public IActionResult Edit(int id, int colorIndex)
 </form>
 ```
 
-## <a name="the-select-tag-helper"></a><span data-ttu-id="e5fdf-316">Etiket Seç Yardımcısı</span><span class="sxs-lookup"><span data-stu-id="e5fdf-316">The Select Tag Helper</span></span>
+## <a name="the-select-tag-helper"></a><span data-ttu-id="94fa6-316">Etiket Seç Yardımcısı</span><span class="sxs-lookup"><span data-stu-id="94fa6-316">The Select Tag Helper</span></span>
 
-* <span data-ttu-id="e5fdf-317">Modelinizin özellikleri için [Select](https://www.w3.org/wiki/HTML/Elements/select) ve ilişkili [seçenek](https://www.w3.org/wiki/HTML/Elements/option) öğeleri oluşturur.</span><span class="sxs-lookup"><span data-stu-id="e5fdf-317">Generates [select](https://www.w3.org/wiki/HTML/Elements/select) and associated [option](https://www.w3.org/wiki/HTML/Elements/option) elements for properties of your model.</span></span>
+* <span data-ttu-id="94fa6-317">Modelinizin özellikleri için [Select](https://www.w3.org/wiki/HTML/Elements/select) ve ilişkili [seçenek](https://www.w3.org/wiki/HTML/Elements/option) öğeleri oluşturur.</span><span class="sxs-lookup"><span data-stu-id="94fa6-317">Generates [select](https://www.w3.org/wiki/HTML/Elements/select) and associated [option](https://www.w3.org/wiki/HTML/Elements/option) elements for properties of your model.</span></span>
 
-* <span data-ttu-id="e5fdf-318">Bir HTML Yardımcısı alternatifi `Html.DropDownListFor` ve `Html.ListBoxFor`</span><span class="sxs-lookup"><span data-stu-id="e5fdf-318">Has an HTML Helper alternative `Html.DropDownListFor` and `Html.ListBoxFor`</span></span>
+* <span data-ttu-id="94fa6-318">Bir HTML Yardımcısı alternatifi `Html.DropDownListFor` ve `Html.ListBoxFor`</span><span class="sxs-lookup"><span data-stu-id="94fa6-318">Has an HTML Helper alternative `Html.DropDownListFor` and `Html.ListBoxFor`</span></span>
 
-<span data-ttu-id="e5fdf-319">`Select Tag Helper` `asp-for`, [Select](https://www.w3.org/wiki/HTML/Elements/select) öğesi için model özelliği adını belirtir ve `asp-items` [seçenek](https://www.w3.org/wiki/HTML/Elements/option) öğelerini belirtir.</span><span class="sxs-lookup"><span data-stu-id="e5fdf-319">The `Select Tag Helper` `asp-for` specifies the model property  name for the [select](https://www.w3.org/wiki/HTML/Elements/select) element  and `asp-items` specifies the [option](https://www.w3.org/wiki/HTML/Elements/option) elements.</span></span>  <span data-ttu-id="e5fdf-320">Örnek:</span><span class="sxs-lookup"><span data-stu-id="e5fdf-320">For example:</span></span>
+<span data-ttu-id="94fa6-319">`Select Tag Helper` `asp-for`, [Select](https://www.w3.org/wiki/HTML/Elements/select) öğesi için model özelliği adını belirtir ve `asp-items` [seçenek](https://www.w3.org/wiki/HTML/Elements/option) öğelerini belirtir.</span><span class="sxs-lookup"><span data-stu-id="94fa6-319">The `Select Tag Helper` `asp-for` specifies the model property  name for the [select](https://www.w3.org/wiki/HTML/Elements/select) element  and `asp-items` specifies the [option](https://www.w3.org/wiki/HTML/Elements/option) elements.</span></span>  <span data-ttu-id="94fa6-320">Örnek:</span><span class="sxs-lookup"><span data-stu-id="94fa6-320">For example:</span></span>
 
 [!code-HTML[](working-with-forms/sample/final/Views/Home/Index.cshtml?range=4)]
 
-<span data-ttu-id="e5fdf-321">Örnek:</span><span class="sxs-lookup"><span data-stu-id="e5fdf-321">Sample:</span></span>
+<span data-ttu-id="94fa6-321">Örnek:</span><span class="sxs-lookup"><span data-stu-id="94fa6-321">Sample:</span></span>
 
 [!code-csharp[](working-with-forms/sample/final/ViewModels/CountryViewModel.cs)]
 
-<span data-ttu-id="e5fdf-322">`Index` yöntemi `CountryViewModel`başlatır, seçilen ülkeyi ayarlar ve `Index` görünümüne geçirir.</span><span class="sxs-lookup"><span data-stu-id="e5fdf-322">The `Index` method initializes the `CountryViewModel`, sets the selected country and passes it to the `Index` view.</span></span>
+<span data-ttu-id="94fa6-322">`Index` yöntemi `CountryViewModel`başlatır, seçilen ülkeyi ayarlar ve `Index` görünümüne geçirir.</span><span class="sxs-lookup"><span data-stu-id="94fa6-322">The `Index` method initializes the `CountryViewModel`, sets the selected country and passes it to the `Index` view.</span></span>
 
 [!code-csharp[](working-with-forms/sample/final/Controllers/HomeController.cs?range=8-13)]
 
-<span data-ttu-id="e5fdf-323">HTTP POST `Index` yöntemi seçimi görüntüler:</span><span class="sxs-lookup"><span data-stu-id="e5fdf-323">The HTTP POST `Index` method displays the selection:</span></span>
+<span data-ttu-id="94fa6-323">HTTP POST `Index` yöntemi seçimi görüntüler:</span><span class="sxs-lookup"><span data-stu-id="94fa6-323">The HTTP POST `Index` method displays the selection:</span></span>
 
 [!code-csharp[](working-with-forms/sample/final/Controllers/HomeController.cs?range=15-27)]
 
-<span data-ttu-id="e5fdf-324">`Index` görünümü:</span><span class="sxs-lookup"><span data-stu-id="e5fdf-324">The `Index` view:</span></span>
+<span data-ttu-id="94fa6-324">`Index` görünümü:</span><span class="sxs-lookup"><span data-stu-id="94fa6-324">The `Index` view:</span></span>
 
 [!code-cshtml[](working-with-forms/sample/final/Views/Home/Index.cshtml?highlight=4)]
 
-<span data-ttu-id="e5fdf-325">Aşağıdaki HTML 'yi üreten ("CA" seçiliyken):</span><span class="sxs-lookup"><span data-stu-id="e5fdf-325">Which generates the following HTML (with "CA" selected):</span></span>
+<span data-ttu-id="94fa6-325">Aşağıdaki HTML 'yi üreten ("CA" seçiliyken):</span><span class="sxs-lookup"><span data-stu-id="94fa6-325">Which generates the following HTML (with "CA" selected):</span></span>
 
 ```html
 <form method="post" action="/">
@@ -526,31 +526,31 @@ public IActionResult Edit(int id, int colorIndex)
 ```
 
 > [!NOTE]
-> <span data-ttu-id="e5fdf-326">Etiket Seç Yardımcısı ile `ViewBag` veya `ViewData` kullanmanızı önermiyoruz.</span><span class="sxs-lookup"><span data-stu-id="e5fdf-326">We don't recommend using `ViewBag` or `ViewData` with the Select Tag Helper.</span></span> <span data-ttu-id="e5fdf-327">Bir görünüm modeli, MVC meta verileri sağlamaya ve genellikle daha az soruna neden olacak daha sağlamdır.</span><span class="sxs-lookup"><span data-stu-id="e5fdf-327">A view model is more robust at providing MVC metadata and generally less problematic.</span></span>
+> <span data-ttu-id="94fa6-326">Etiket Seç Yardımcısı ile `ViewBag` veya `ViewData` kullanmanızı önermiyoruz.</span><span class="sxs-lookup"><span data-stu-id="94fa6-326">We don't recommend using `ViewBag` or `ViewData` with the Select Tag Helper.</span></span> <span data-ttu-id="94fa6-327">Bir görünüm modeli, MVC meta verileri sağlamaya ve genellikle daha az soruna neden olacak daha sağlamdır.</span><span class="sxs-lookup"><span data-stu-id="94fa6-327">A view model is more robust at providing MVC metadata and generally less problematic.</span></span>
 
-<span data-ttu-id="e5fdf-328">`asp-for` öznitelik değeri özel bir durumdur ve `Model` öneki gerektirmez, diğer etiket Yardımcısı öznitelikleri olur (`asp-items`gibi)</span><span class="sxs-lookup"><span data-stu-id="e5fdf-328">The `asp-for` attribute value is a special case and doesn't require a `Model` prefix, the other Tag Helper attributes do (such as `asp-items`)</span></span>
+<span data-ttu-id="94fa6-328">`asp-for` öznitelik değeri özel bir durumdur ve `Model` öneki gerektirmez, diğer etiket Yardımcısı öznitelikleri olur (`asp-items`gibi)</span><span class="sxs-lookup"><span data-stu-id="94fa6-328">The `asp-for` attribute value is a special case and doesn't require a `Model` prefix, the other Tag Helper attributes do (such as `asp-items`)</span></span>
 
 [!code-HTML[](working-with-forms/sample/final/Views/Home/Index.cshtml?range=4)]
 
-### <a name="enum-binding"></a><span data-ttu-id="e5fdf-329">Sabit Listesi bağlama</span><span class="sxs-lookup"><span data-stu-id="e5fdf-329">Enum binding</span></span>
+### <a name="enum-binding"></a><span data-ttu-id="94fa6-329">Sabit Listesi bağlama</span><span class="sxs-lookup"><span data-stu-id="94fa6-329">Enum binding</span></span>
 
-<span data-ttu-id="e5fdf-330">`<select>`, `enum` bir özellik ile kullanmak ve `enum` değerlerinden `SelectListItem` öğeleri oluşturmak için kullanışlıdır.</span><span class="sxs-lookup"><span data-stu-id="e5fdf-330">It's often convenient to use `<select>` with an `enum` property and generate the `SelectListItem` elements from the `enum` values.</span></span>
+<span data-ttu-id="94fa6-330">`<select>`, `enum` bir özellik ile kullanmak ve `enum` değerlerinden `SelectListItem` öğeleri oluşturmak için kullanışlıdır.</span><span class="sxs-lookup"><span data-stu-id="94fa6-330">It's often convenient to use `<select>` with an `enum` property and generate the `SelectListItem` elements from the `enum` values.</span></span>
 
-<span data-ttu-id="e5fdf-331">Örnek:</span><span class="sxs-lookup"><span data-stu-id="e5fdf-331">Sample:</span></span>
+<span data-ttu-id="94fa6-331">Örnek:</span><span class="sxs-lookup"><span data-stu-id="94fa6-331">Sample:</span></span>
 
 [!code-csharp[](working-with-forms/sample/final/ViewModels/CountryEnumViewModel.cs?range=3-7)]
 
 [!code-csharp[](working-with-forms/sample/final/ViewModels/CountryEnum.cs)]
 
-<span data-ttu-id="e5fdf-332">`GetEnumSelectList` yöntemi bir numaralandırma için `SelectList` nesnesi oluşturur.</span><span class="sxs-lookup"><span data-stu-id="e5fdf-332">The `GetEnumSelectList` method generates a `SelectList` object for an enum.</span></span>
+<span data-ttu-id="94fa6-332">`GetEnumSelectList` yöntemi bir numaralandırma için `SelectList` nesnesi oluşturur.</span><span class="sxs-lookup"><span data-stu-id="94fa6-332">The `GetEnumSelectList` method generates a `SelectList` object for an enum.</span></span>
 
 [!code-HTML[](../../mvc/views/working-with-forms/sample/final/Views/Home/IndexEnum.cshtml?highlight=5)]
 
-<span data-ttu-id="e5fdf-333">Daha zengin bir kullanıcı arabirimi almak için, Numaralandırıcı listenizi `Display` özniteliğiyle işaretleyebilirsiniz:</span><span class="sxs-lookup"><span data-stu-id="e5fdf-333">You can mark your enumerator list with the `Display` attribute to get a richer UI:</span></span>
+<span data-ttu-id="94fa6-333">Daha zengin bir kullanıcı arabirimi almak için, Numaralandırıcı listenizi `Display` özniteliğiyle işaretleyebilirsiniz:</span><span class="sxs-lookup"><span data-stu-id="94fa6-333">You can mark your enumerator list with the `Display` attribute to get a richer UI:</span></span>
 
 [!code-csharp[](working-with-forms/sample/final/ViewModels/CountryEnum.cs?highlight=5,7)]
 
-<span data-ttu-id="e5fdf-334">Aşağıdaki HTML oluşturulur:</span><span class="sxs-lookup"><span data-stu-id="e5fdf-334">The following HTML is generated:</span></span>
+<span data-ttu-id="94fa6-334">Aşağıdaki HTML oluşturulur:</span><span class="sxs-lookup"><span data-stu-id="94fa6-334">The following HTML is generated:</span></span>
 
 ```html
   <form method="post" action="/Home/IndexEnum">
@@ -568,19 +568,19 @@ public IActionResult Edit(int id, int colorIndex)
     </form>
 ```
 
-### <a name="option-group"></a><span data-ttu-id="e5fdf-335">Seçenek grubu</span><span class="sxs-lookup"><span data-stu-id="e5fdf-335">Option Group</span></span>
+### <a name="option-group"></a><span data-ttu-id="94fa6-335">Seçenek grubu</span><span class="sxs-lookup"><span data-stu-id="94fa6-335">Option Group</span></span>
 
-<span data-ttu-id="e5fdf-336">HTML [\<SeçenekGrubu >](https://www.w3.org/wiki/HTML/Elements/optgroup) öğesi, görünüm modelinde bir veya daha fazla `SelectListGroup` nesnesi içerdiğinde oluşturulur.</span><span class="sxs-lookup"><span data-stu-id="e5fdf-336">The HTML  [\<optgroup>](https://www.w3.org/wiki/HTML/Elements/optgroup) element is generated when the view model contains one or more `SelectListGroup` objects.</span></span>
+<span data-ttu-id="94fa6-336">HTML [\<SeçenekGrubu >](https://www.w3.org/wiki/HTML/Elements/optgroup) öğesi, görünüm modelinde bir veya daha fazla `SelectListGroup` nesnesi içerdiğinde oluşturulur.</span><span class="sxs-lookup"><span data-stu-id="94fa6-336">The HTML  [\<optgroup>](https://www.w3.org/wiki/HTML/Elements/optgroup) element is generated when the view model contains one or more `SelectListGroup` objects.</span></span>
 
-<span data-ttu-id="e5fdf-337">`CountryViewModelGroup`, `SelectListItem` öğelerini "Kuzey Amerika" ve "Avrupa" gruplarına gruplandırır:</span><span class="sxs-lookup"><span data-stu-id="e5fdf-337">The `CountryViewModelGroup` groups the `SelectListItem` elements into the "North America" and "Europe" groups:</span></span>
+<span data-ttu-id="94fa6-337">`CountryViewModelGroup`, `SelectListItem` öğelerini "Kuzey Amerika" ve "Avrupa" gruplarına gruplandırır:</span><span class="sxs-lookup"><span data-stu-id="94fa6-337">The `CountryViewModelGroup` groups the `SelectListItem` elements into the "North America" and "Europe" groups:</span></span>
 
 [!code-csharp[](../../mvc/views/working-with-forms/sample/final/ViewModels/CountryViewModelGroup.cs?highlight=5,6,14,20,26,32,38,44&range=6-56)]
 
-<span data-ttu-id="e5fdf-338">İki grup aşağıda gösterilmiştir:</span><span class="sxs-lookup"><span data-stu-id="e5fdf-338">The two groups are shown below:</span></span>
+<span data-ttu-id="94fa6-338">İki grup aşağıda gösterilmiştir:</span><span class="sxs-lookup"><span data-stu-id="94fa6-338">The two groups are shown below:</span></span>
 
 ![seçenek grubu örneği](working-with-forms/_static/grp.png)
 
-<span data-ttu-id="e5fdf-340">Oluşturulan HTML:</span><span class="sxs-lookup"><span data-stu-id="e5fdf-340">The generated HTML:</span></span>
+<span data-ttu-id="94fa6-340">Oluşturulan HTML:</span><span class="sxs-lookup"><span data-stu-id="94fa6-340">The generated HTML:</span></span>
 
 ```html
  <form method="post" action="/Home/IndexGroup">
@@ -601,17 +601,17 @@ public IActionResult Edit(int id, int colorIndex)
  </form>
 ```
 
-### <a name="multiple-select"></a><span data-ttu-id="e5fdf-341">Çoklu seçim</span><span class="sxs-lookup"><span data-stu-id="e5fdf-341">Multiple select</span></span>
+### <a name="multiple-select"></a><span data-ttu-id="94fa6-341">Çoklu seçim</span><span class="sxs-lookup"><span data-stu-id="94fa6-341">Multiple select</span></span>
 
-<span data-ttu-id="e5fdf-342">`asp-for` özniteliğinde belirtilen özellik bir `IEnumerable`ise, select etiketi Yardımcısı otomatik olarak [birden çok = "Multiple"](https://w3c.github.io/html-reference/select.html) özniteliği oluşturacaktır.</span><span class="sxs-lookup"><span data-stu-id="e5fdf-342">The Select Tag Helper  will automatically generate the [multiple = "multiple"](https://w3c.github.io/html-reference/select.html)  attribute if the property specified in the `asp-for` attribute is an `IEnumerable`.</span></span> <span data-ttu-id="e5fdf-343">Örneğin, aşağıdaki model verildiğinde:</span><span class="sxs-lookup"><span data-stu-id="e5fdf-343">For example, given the following model:</span></span>
+<span data-ttu-id="94fa6-342">`asp-for` özniteliğinde belirtilen özellik bir `IEnumerable`ise, select etiketi Yardımcısı otomatik olarak [birden çok = "Multiple"](https://w3c.github.io/html-reference/select.html) özniteliği oluşturacaktır.</span><span class="sxs-lookup"><span data-stu-id="94fa6-342">The Select Tag Helper  will automatically generate the [multiple = "multiple"](https://w3c.github.io/html-reference/select.html)  attribute if the property specified in the `asp-for` attribute is an `IEnumerable`.</span></span> <span data-ttu-id="94fa6-343">Örneğin, aşağıdaki model verildiğinde:</span><span class="sxs-lookup"><span data-stu-id="94fa6-343">For example, given the following model:</span></span>
 
 [!code-csharp[](../../mvc/views/working-with-forms/sample/final/ViewModels/CountryViewModelIEnumerable.cs?highlight=6)]
 
-<span data-ttu-id="e5fdf-344">Aşağıdaki görünümle:</span><span class="sxs-lookup"><span data-stu-id="e5fdf-344">With the following view:</span></span>
+<span data-ttu-id="94fa6-344">Aşağıdaki görünümle:</span><span class="sxs-lookup"><span data-stu-id="94fa6-344">With the following view:</span></span>
 
 [!code-HTML[](../../mvc/views/working-with-forms/sample/final/Views/Home/IndexMultiSelect.cshtml?highlight=4)]
 
-<span data-ttu-id="e5fdf-345">Aşağıdaki HTML 'yi oluşturur:</span><span class="sxs-lookup"><span data-stu-id="e5fdf-345">Generates the following HTML:</span></span>
+<span data-ttu-id="94fa6-345">Aşağıdaki HTML 'yi oluşturur:</span><span class="sxs-lookup"><span data-stu-id="94fa6-345">Generates the following HTML:</span></span>
 
 ```html
 <form method="post" action="/Home/IndexMultiSelect">
@@ -629,23 +629,23 @@ public IActionResult Edit(int id, int colorIndex)
 </form>
 ```
 
-### <a name="no-selection"></a><span data-ttu-id="e5fdf-346">Seçim yok</span><span class="sxs-lookup"><span data-stu-id="e5fdf-346">No selection</span></span>
+### <a name="no-selection"></a><span data-ttu-id="94fa6-346">Seçim yok</span><span class="sxs-lookup"><span data-stu-id="94fa6-346">No selection</span></span>
 
-<span data-ttu-id="e5fdf-347">Birden çok sayfada "belirtilmemiş" seçeneğini kullanarak kendinizi bulursanız, HTML 'yi yinelemeyi ortadan kaldırmak için bir şablon oluşturabilirsiniz:</span><span class="sxs-lookup"><span data-stu-id="e5fdf-347">If you find yourself using the "not specified" option in multiple pages, you can create a template to eliminate repeating the HTML:</span></span>
+<span data-ttu-id="94fa6-347">Birden çok sayfada "belirtilmemiş" seçeneğini kullanarak kendinizi bulursanız, HTML 'yi yinelemeyi ortadan kaldırmak için bir şablon oluşturabilirsiniz:</span><span class="sxs-lookup"><span data-stu-id="94fa6-347">If you find yourself using the "not specified" option in multiple pages, you can create a template to eliminate repeating the HTML:</span></span>
 
 [!code-HTML[](../../mvc/views/working-with-forms/sample/final/Views/Home/IndexEmptyTemplate.cshtml?highlight=5)]
 
-<span data-ttu-id="e5fdf-348">*Views/Shared/EditorTemplates/CountryViewModel. cshtml* şablonu:</span><span class="sxs-lookup"><span data-stu-id="e5fdf-348">The *Views/Shared/EditorTemplates/CountryViewModel.cshtml* template:</span></span>
+<span data-ttu-id="94fa6-348">*Views/Shared/EditorTemplates/CountryViewModel. cshtml* şablonu:</span><span class="sxs-lookup"><span data-stu-id="94fa6-348">The *Views/Shared/EditorTemplates/CountryViewModel.cshtml* template:</span></span>
 
 [!code-HTML[](working-with-forms/sample/final/Views/Shared/EditorTemplates/CountryViewModel.cshtml)]
 
-<span data-ttu-id="e5fdf-349">HTML [\<seçenek >](https://www.w3.org/wiki/HTML/Elements/option) öğeleri ekleme *hiçbir seçim* durumuyla sınırlı değildir.</span><span class="sxs-lookup"><span data-stu-id="e5fdf-349">Adding HTML [\<option>](https://www.w3.org/wiki/HTML/Elements/option) elements isn't limited to the *No selection* case.</span></span> <span data-ttu-id="e5fdf-350">Örneğin, aşağıdaki görünüm ve eylem yöntemi yukarıdaki koda benzer HTML oluşturur:</span><span class="sxs-lookup"><span data-stu-id="e5fdf-350">For example, the following view and action method will generate HTML similar to the code above:</span></span>
+<span data-ttu-id="94fa6-349">HTML [\<seçenek >](https://www.w3.org/wiki/HTML/Elements/option) öğeleri ekleme *hiçbir seçim* durumuyla sınırlı değildir.</span><span class="sxs-lookup"><span data-stu-id="94fa6-349">Adding HTML [\<option>](https://www.w3.org/wiki/HTML/Elements/option) elements isn't limited to the *No selection* case.</span></span> <span data-ttu-id="94fa6-350">Örneğin, aşağıdaki görünüm ve eylem yöntemi yukarıdaki koda benzer HTML oluşturur:</span><span class="sxs-lookup"><span data-stu-id="94fa6-350">For example, the following view and action method will generate HTML similar to the code above:</span></span>
 
 [!code-csharp[](working-with-forms/sample/final/Controllers/HomeController.cs?name=snippetNone)]
 
 [!code-HTML[](working-with-forms/sample/final/Views/Home/IndexOption.cshtml)]
 
-<span data-ttu-id="e5fdf-351">Geçerli `Country` değerine bağlı olarak doğru `<option>` öğesi seçilecek (`selected="selected"` özniteliğini içerir).</span><span class="sxs-lookup"><span data-stu-id="e5fdf-351">The correct `<option>` element will be selected ( contain the `selected="selected"` attribute) depending on the current `Country` value.</span></span>
+<span data-ttu-id="94fa6-351">Geçerli `Country` değerine bağlı olarak doğru `<option>` öğesi seçilecek (`selected="selected"` özniteliğini içerir).</span><span class="sxs-lookup"><span data-stu-id="94fa6-351">The correct `<option>` element will be selected ( contain the `selected="selected"` attribute) depending on the current `Country` value.</span></span>
 
 [!code-csharp[](working-with-forms/sample/final/Controllers/HomeController.cs?range=114-119)]
 
@@ -662,12 +662,12 @@ public IActionResult Edit(int id, int colorIndex)
  </form>
  ```
 
-## <a name="additional-resources"></a><span data-ttu-id="e5fdf-352">Ek kaynaklar</span><span class="sxs-lookup"><span data-stu-id="e5fdf-352">Additional resources</span></span>
+## <a name="additional-resources"></a><span data-ttu-id="94fa6-352">Ek kaynaklar</span><span class="sxs-lookup"><span data-stu-id="94fa6-352">Additional resources</span></span>
 
 * <xref:mvc/views/tag-helpers/intro>
-* [<span data-ttu-id="e5fdf-353">HTML form öğesi</span><span class="sxs-lookup"><span data-stu-id="e5fdf-353">HTML Form element</span></span>](https://www.w3.org/TR/html401/interact/forms.html)
-* [<span data-ttu-id="e5fdf-354">İstek doğrulama belirteci</span><span class="sxs-lookup"><span data-stu-id="e5fdf-354">Request Verification Token</span></span>](/aspnet/mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages)
+* [<span data-ttu-id="94fa6-353">HTML form öğesi</span><span class="sxs-lookup"><span data-stu-id="94fa6-353">HTML Form element</span></span>](https://www.w3.org/TR/html401/interact/forms.html)
+* [<span data-ttu-id="94fa6-354">İstek doğrulama belirteci</span><span class="sxs-lookup"><span data-stu-id="94fa6-354">Request Verification Token</span></span>](/aspnet/mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages)
 * <xref:mvc/models/model-binding>
 * <xref:mvc/models/validation>
-* [<span data-ttu-id="e5fdf-355">Iattributeadapter arabirimi</span><span class="sxs-lookup"><span data-stu-id="e5fdf-355">IAttributeAdapter Interface</span></span>](/dotnet/api/Microsoft.AspNetCore.Mvc.DataAnnotations.IAttributeAdapter)
-* [<span data-ttu-id="e5fdf-356">Bu belge için kod parçacıkları</span><span class="sxs-lookup"><span data-stu-id="e5fdf-356">Code snippets for this document</span></span>](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/views/working-with-forms/sample/final)
+* [<span data-ttu-id="94fa6-355">Iattributeadapter arabirimi</span><span class="sxs-lookup"><span data-stu-id="94fa6-355">IAttributeAdapter Interface</span></span>](/dotnet/api/Microsoft.AspNetCore.Mvc.DataAnnotations.IAttributeAdapter)
+* [<span data-ttu-id="94fa6-356">Bu belge için kod parçacıkları</span><span class="sxs-lookup"><span data-stu-id="94fa6-356">Code snippets for this document</span></span>](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/views/working-with-forms/sample/final)
