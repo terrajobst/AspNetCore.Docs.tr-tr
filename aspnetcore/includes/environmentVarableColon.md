@@ -1,1 +1,4 @@
-Ortam değişkenlerinde hiyerarşik anahtarlarla çalışırken, bir iki nokta ayırıcı (`:`) tüm platformlarda çalışmayabilir (örneğin, Bash). Çift alt çizgi (`__`) tüm platformlar tarafından desteklenir ve otomatik olarak iki nokta ile değiştirilmiştir.
+`:` ayırıcısı tüm platformlarda ortam değişkeni hiyerarşik anahtarlarla birlikte çalışmaz. Çift alt çizgi `__`:
+
+* Tüm platformlar tarafından desteklenir. Örneğin, `:` ayırıcısı [Bash](https://linuxhint.com/bash-environment-variables/)tarafından desteklenmez, ancak `__`.
+* `:` tarafından otomatik olarak değiştiriliyor
