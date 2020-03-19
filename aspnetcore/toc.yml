@@ -969,6 +969,8 @@
           uid: security/authentication/individual
         - name: Sertifika kimlik doğrulamasını yapılandırma
           uid: security/authentication/certauth
+        - name: Multi-factor authentication
+          uid: security/authentication/mfa
     - name: Yetkilendirme
       items:
         - name: Genel Bakış
