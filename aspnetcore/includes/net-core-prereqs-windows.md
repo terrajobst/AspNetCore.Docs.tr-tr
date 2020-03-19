@@ -5,6 +5,6 @@ Aşağıdaki iş yükleriyle [Visual Studio 2019](https://visualstudio.microsoft
 
 ::: moniker range=">= aspnetcore-2.1"
 
-[.NET Core 2.1 SDK veya üzeri](https://www.microsoft.com/net/download/windows)
+[.NET Core 2.1 SDK veya üzeri](https://dotnet.microsoft.com/download)
 
 ::: moniker-end
