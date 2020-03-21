@@ -4,15 +4,15 @@ author: rick-anderson
 description: Bu öğreticide, Twitter hesabı kullanıcı kimlik doğrulamasının mevcut bir ASP.NET Core uygulamasına tümleştirilmesi gösterilmektedir.
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/06/2019
+ms.date: 03/19/2020
 monikerRange: '>= aspnetcore-3.0'
 uid: security/authentication/twitter-logins
-ms.openlocfilehash: 4710c033018710ce3620f8d7221ae2253b2c0b69
-ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.openlocfilehash: b848486415fd72ce6180b4cf8fc1ba00410d694a
+ms.sourcegitcommit: 9b6e7f421c243963d5e419bdcfc5c4bde71499aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78665930"
+ms.lasthandoff: 03/21/2020
+ms.locfileid: "79989748"
 ---
 # <a name="twitter-external-sign-in-setup-with-aspnet-core"></a>ASP.NET Core ile Twitter dışarıdan oturum açma kurulumu
 
@@ -39,16 +39,19 @@ Bu örnek, [önceki sayfada](xref:security/authentication/social/index)oluşturu
 
 * Formun geri kalanını doldurun ve **Oluştur**' u seçin. Yeni uygulama ayrıntıları görüntülenir:
 
-## <a name="storing-twitter-consumer-api-key-and-secret"></a>Twitter tüketici API anahtarı ve gizli dizisi depolanıyor
+## <a name="store-the-twitter-consumer-api-key-and-secret"></a>Twitter tüketici API anahtarını ve gizli dizisini depolayın
 
-`ClientId` ve `ClientSecret` [gizli Yöneticisi](xref:security/app-secrets)kullanarak güvenli bir şekilde depolamak için aşağıdaki komutları çalıştırın:
+Twitter tüketicisi API anahtarı ve gizli dizi [Yöneticisi](xref:security/app-secrets)ile gizli dizi gibi hassas ayarları depolayın. Bu örnek için aşağıdaki adımları kullanın:
 
-```dotnetcli
-dotnet user-secrets set Authentication:Twitter:ConsumerAPIKey <Key>
-dotnet user-secrets set Authentication:Twitter:ConsumerSecret <Secret>
-```
+1. [Gizli depolamayı etkinleştirme](xref:security/app-secrets#enable-secret-storage)konusundaki yönergeler temelinde projeyi gizli depolama için başlatın.
+1. Gizli ayarları gizli anahtar deposunda depolar `Authentication:Twitter:ConsumerKey` ve `Authentication:Twitter:ConsumerSecret`:
 
-Gizli ayarları, Twitter `Consumer Key` ve `Consumer Secret` [gizli Yöneticisi](xref:security/app-secrets)kullanarak uygulama yapılandırmanıza bağlayın. Bu örneğin amaçları doğrultusunda belirteçleri `Authentication:Twitter:ConsumerKey` ve `Authentication:Twitter:ConsumerSecret`olarak adlandırın.
+    ```dotnetcli
+    dotnet user-secrets set "Authentication:Twitter:ConsumerAPIKey" "<consumer-api-key>"
+    dotnet user-secrets set "Authentication:Twitter:ConsumerSecret" "<consumer-secret>"
+    ```
+
+[!INCLUDE[](~/includes/environmentVarableColon.md)]
 
 Bu belirteçler, yeni bir Twitter uygulaması oluşturduktan sonra **anahtarlar ve erişim belirteçleri** sekmesinde bulunabilir:
 

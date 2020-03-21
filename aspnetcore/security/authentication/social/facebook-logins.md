@@ -4,15 +4,15 @@ author: rick-anderson
 description: Facebook hesabı kullanıcı kimlik doğrulamasının mevcut bir ASP.NET Core uygulamasına tümleştirilmesini gösteren kod örnekleri ile öğretici.
 ms.author: riande
 ms.custom: seoapril2019, mvc, seodec18
-ms.date: 12/02/2019
+ms.date: 03/19/2020
 monikerRange: '>= aspnetcore-3.0'
 uid: security/authentication/facebook-logins
-ms.openlocfilehash: 2e4cc04c6e7ff8e5f5701cc7f9ede73dbc1b4685
-ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.openlocfilehash: bb26a27f026e744c7d4925aa2281bf0625fff8a2
+ms.sourcegitcommit: 9b6e7f421c243963d5e419bdcfc5c4bde71499aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78667470"
+ms.lasthandoff: 03/21/2020
+ms.locfileid: "79989789"
 ---
 # <a name="facebook-external-login-setup-in-aspnet-core"></a>ASP.NET core'da Facebook dış oturum açma Kurulumu
 
@@ -59,18 +59,19 @@ Kod örnekleri ile bu öğreticide, kullanıcılarınızın [önceki sayfada](xr
 
 * Siteyi dağıttığınızda **Facebook oturum açma** kurulumu sayfasını yeniden ziyaret etmeniz ve yeni BIR ortak URI kaydetmeniz gerekir.
 
-## <a name="store-facebook-app-id-and-app-secret"></a>Facebook uygulama Kimliğiniz ve parolanız App Store
+## <a name="store-the-facebook-app-id-and-secret"></a>Facebook uygulama KIMLIĞI ve gizli anahtarını depolayın
 
-Gizli ayarları, Facebook `App ID` ve `App Secret` gibi hassas ayarları, uygulama yapılandırmanıza [gizli yönetici](xref:security/app-secrets)kullanarak bağlayın. Bu öğreticinin amaçları doğrultusunda belirteçleri `Authentication:Facebook:AppId` ve `Authentication:Facebook:AppSecret`adlandırın.
+Facebook uygulama KIMLIĞI ve gizli anahtar değerleri gibi hassas ayarları [gizli bir yöneticiye](xref:security/app-secrets)depolayın. Bu örnek için aşağıdaki adımları kullanın:
+
+1. [Gizli depolamayı etkinleştirme](xref:security/app-secrets#enable-secret-storage)konusundaki yönergeler temelinde projeyi gizli depolama için başlatın.
+1. Hassas ayarları, gizli anahtarlar `Authentication:Facebook:AppId` ve `Authentication:Facebook:AppSecret`ile yerel gizli depolama alanına depolayın:
+
+    ```dotnetcli
+    dotnet user-secrets set "Authentication:Facebook:AppId" "<app-id>"
+    dotnet user-secrets set "Authentication:Facebook:AppSecret" "<app-secret>"
+    ```
 
 [!INCLUDE[](~/includes/environmentVarableColon.md)]
-
-`App ID` ve `App Secret` gizli Yöneticisi kullanarak güvenli bir şekilde depolamak için aşağıdaki komutları yürütün:
-
-```dotnetcli
-dotnet user-secrets set Authentication:Facebook:AppId <app-id>
-dotnet user-secrets set Authentication:Facebook:AppSecret <app-secret>
-```
 
 ## <a name="configure-facebook-authentication"></a>Facebook kimlik doğrulamasını yapılandırma
 

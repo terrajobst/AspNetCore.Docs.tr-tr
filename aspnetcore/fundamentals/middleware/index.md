@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 02/02/2020
 uid: fundamentals/middleware/index
-ms.openlocfilehash: afa71b2c2b75be2c000fadd9545ac3fb4587825a
-ms.sourcegitcommit: 51c86c003ab5436598dbc42f26ea4a83a795fd6e
+ms.openlocfilehash: 9dcd061d2807fb90884327916d0348af4593df9d
+ms.sourcegitcommit: 9b6e7f421c243963d5e419bdcfc5c4bde71499aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "78964459"
+ms.lasthandoff: 03/21/2020
+ms.locfileid: "79989713"
 ---
 # <a name="aspnet-core-middleware"></a>ASP.NET Core ara yazılımı
 
@@ -163,12 +163,12 @@ public void Configure(IApplicationBuilder app)
 }
 ```
 
-Tek sayfalı uygulamalarda, SPA ara yazılım <xref:Microsoft.Extensions.DependencyInjection.SpaStaticFilesExtensions.UseSpaStaticFiles*> genellikle en son ara yazılım ardışık düzeninde gelir. SPA ara yazılımı son olarak gelir:
+Tek sayfalı uygulamalarda (maça), SPA ara yazılım <xref:Microsoft.Extensions.DependencyInjection.SpaStaticFilesExtensions.UseSpaStaticFiles*> genellikle, ara yazılım ardışık düzeninde en son gelir. SPA ara yazılımı son olarak gelir:
 
 * Tüm diğer middlewares önce eşleşen isteklere yanıt vermek için.
 * İstemci tarafı yönlendirmenin sunucu uygulaması tarafından tanınmayan tüm yollar için çalışmasına izin vermek için.
 
-Tek sayfalı uygulamalarla ilgili daha fazla ayrıntı için bkz. [tepki](xref:spa/react) verme ve [angular](xref:spa/angular) proje şablonları için kılavuzlar.
+Maça hakkında daha fazla bilgi için bkz. [tepki](xref:spa/react) verme ve [angular](xref:spa/angular) proje şablonları için kılavuzlar.
 
 ## <a name="branch-the-middleware-pipeline"></a>Ara yazılım ardışık düzenini dallandırma
 
@@ -227,7 +227,7 @@ ASP.NET Core aşağıdaki ara yazılım bileşenleriyle birlikte gönderilir. *O
 
 | Ara yazılım | Açıklama | Sipariş verme |
 | ---------- | ----------- | ----- |
-| [Kimlik Doğrulaması](xref:security/authentication/identity) | Kimlik doğrulama desteği sağlar. | `HttpContext.User` önce. OAuth geri çağırmaları için Terminal. |
+| [Kimlik doğrulaması](xref:security/authentication/identity) | Kimlik doğrulama desteği sağlar. | `HttpContext.User` önce. OAuth geri çağırmaları için Terminal. |
 | [Yetkilendirme](xref:Microsoft.AspNetCore.Builder.AuthorizationAppBuilderExtensions.UseAuthorization*) | Yetkilendirme desteği sağlar. | Kimlik doğrulama ara yazılımı hemen sonrasında. |
 | [Tanımlama bilgisi Ilkesi](xref:security/gdpr) | Kişisel bilgileri depolamak için kullanıcılardan onay izler ve `secure` ve `SameSite`gibi tanımlama bilgisi alanları için en düşük standartları uygular. | Tanımlama bilgilerini veren ara yazılım öncesi. Örnekler: Authentication, Session, MVC (TempData). |
 | [CORS](xref:security/cors) | Çıkış noktaları arası kaynak paylaşımını yapılandırır. | CORS kullanan bileşenlerden önce. |
@@ -433,7 +433,7 @@ ASP.NET Core aşağıdaki ara yazılım bileşenleriyle birlikte gönderilir. *O
 
 | Ara yazılım | Açıklama | Sipariş verme |
 | ---------- | ----------- | ----- |
-| [Kimlik Doğrulaması](xref:security/authentication/identity) | Kimlik doğrulama desteği sağlar. | `HttpContext.User` önce. OAuth geri çağırmaları için Terminal. |
+| [Kimlik doğrulaması](xref:security/authentication/identity) | Kimlik doğrulama desteği sağlar. | `HttpContext.User` önce. OAuth geri çağırmaları için Terminal. |
 | [Tanımlama bilgisi Ilkesi](xref:security/gdpr) | Kişisel bilgileri depolamak için kullanıcılardan onay izler ve `secure` ve `SameSite`gibi tanımlama bilgisi alanları için en düşük standartları uygular. | Tanımlama bilgilerini veren ara yazılım öncesi. Örnekler: Authentication, Session, MVC (TempData). |
 | [CORS](xref:security/cors) | Çıkış noktaları arası kaynak paylaşımını yapılandırır. | CORS kullanan bileşenlerden önce. |
 | [Tanılama](xref:fundamentals/error-handling) | Geliştirici özel durum sayfası, özel durum işleme, durum kodu sayfaları ve yeni uygulamalar için varsayılan Web sayfası sağlayan çeşitli ayrı middlewares. | Hata oluşturan bileşenlerden önce. Özel durumlar için Terminal veya yeni uygulamalar için varsayılan Web sayfasına hizmet sunma. |

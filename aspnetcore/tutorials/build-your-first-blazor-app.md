@@ -5,16 +5,16 @@ description: Blazor uygulaması oluşturun adım adım.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 03/13/2020
+ms.date: 03/20/2020
 no-loc:
 - Blazor
 uid: tutorials/first-blazor-app
-ms.openlocfilehash: 8b3802a6ffe3613e5d4ca65c57fafc3f404c8329
-ms.sourcegitcommit: 5bdc54162d7dea8d9fa54ac3055678db23586af1
+ms.openlocfilehash: 138057c2ceb9ed01bdf958c01f5cf2275387df23
+ms.sourcegitcommit: 9b6e7f421c243963d5e419bdcfc5c4bde71499aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/17/2020
-ms.locfileid: "79434505"
+ms.lasthandoff: 03/21/2020
+ms.locfileid: "79989429"
 ---
 # <a name="build-your-first-opno-locblazor-app"></a>İlk Blazor uygulamanızı oluşturma
 
@@ -198,10 +198,10 @@ Uygulamaya basit bir yapılacaklar listesi uygulayan yeni bir bileşen ekleyin.
 
    [!code-razor[](build-your-first-blazor-app/samples_snapshot/3.x/ToDo9.razor?highlight=5-6)]
 
-1. Bu değerlerin bağlandığını doğrulamak için `<h1>` üst bilgisini, tamamlanmamış olan Todo öğelerinin sayısının sayısını gösterecek şekilde güncelleştirin (`IsDone` `false`).
+1. Bu değerlerin bağlandığını doğrulamak için `<h3>` üst bilgisini, tamamlanmamış olan Todo öğelerinin sayısının sayısını gösterecek şekilde güncelleştirin (`IsDone` `false`).
 
    ```razor
-   <h1>Todo (@todos.Count(todo => !todo.IsDone))</h1>
+   <h3>Todo (@todos.Count(todo => !todo.IsDone))</h3>
    ```
 
 1. Tamamlanan `Todo` bileşeni (*Sayfalar/Todo. Razor*):

@@ -4,14 +4,14 @@ author: rick-anderson
 description: Bu öğreticide, mevcut bir ASP.NET Core uygulamasına Google hesabı kullanıcı kimlik doğrulaması tümleştirmesini gösterilmektedir.
 ms.author: riande
 ms.custom: mvc, seodec18
-ms.date: 10/30/2019
+ms.date: 03/19/2020
 uid: security/authentication/google-logins
-ms.openlocfilehash: 83f45143eca1be43410880bfd875a3fce1d2e9c9
-ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.openlocfilehash: a114d23c25201c9fe31ad0397efaf99fe98a312a
+ms.sourcegitcommit: 9b6e7f421c243963d5e419bdcfc5c4bde71499aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78667512"
+ms.lasthandoff: 03/21/2020
+ms.locfileid: "79989765"
 ---
 # <a name="google-external-login-setup-in-aspnet-core"></a>ASP.NET core'da Google dış oturum açma Kurulumu
 
@@ -28,14 +28,17 @@ Bu öğreticide, kullanıcıların [önceki sayfada](xref:security/authenticatio
 * **ISTEMCI kimliğini** ve **istemci parolasını**kaydedin.
 * Siteyi dağıttığınızda, **Google konsolundan**yeni ortak URL 'yi kaydedin.
 
-## <a name="store-google-clientid-and-clientsecret"></a>Store Google ClientID ve ClientSecret
+## <a name="store-the-google-client-id-and-secret"></a>Google istemci KIMLIĞINI ve gizli anahtarını depolayın
 
-Google `Client ID` ve `Client Secret` gibi hassas ayarları [gizli yönetici](xref:security/app-secrets)ile depolayın. Bu öğreticinin amaçları doğrultusunda belirteçleri `Authentication:Google:ClientId` ve `Authentication:Google:ClientSecret`olarak adlandırın:
+Google istemci KIMLIĞI ve gizli anahtar değerleri gibi gizli ayarları [gizli yönetici](xref:security/app-secrets)olarak depolayın. Bu örnek için aşağıdaki adımları kullanın:
 
-```dotnetcli
-dotnet user-secrets set "Authentication:Google:ClientId" "<client id>"
-dotnet user-secrets set "Authentication:Google:ClientSecret" "<client secret>"
-```
+1. [Gizli depolamayı etkinleştirme](xref:security/app-secrets#enable-secret-storage)konusundaki yönergeler temelinde projeyi gizli depolama için başlatın.
+1. Hassas ayarları, gizli anahtarlar `Authentication:Google:ClientId` ve `Authentication:Google:ClientSecret`ile yerel gizli depolama alanına depolayın:
+
+    ```dotnetcli
+    dotnet user-secrets set "Authentication:Google:ClientId" "<client-id>"
+    dotnet user-secrets set "Authentication:Google:ClientSecret" "<client-secret>"
+    ```
 
 [!INCLUDE[](~/includes/environmentVarableColon.md)]
 
