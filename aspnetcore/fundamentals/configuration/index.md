@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 02/29/2020
 uid: fundamentals/configuration/index
-ms.openlocfilehash: e1237db2625a127bfa5c31ac29b4394be6941b2f
-ms.sourcegitcommit: 9e2b3aaccc9a41291eb23bf4561159e79cf6bc9d
+ms.openlocfilehash: b4fa082c5a53bc9ecb3c7b8ddcbf243ef0d94ba7
+ms.sourcegitcommit: 9b6e7f421c243963d5e419bdcfc5c4bde71499aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2020
-ms.locfileid: "79546347"
+ms.lasthandoff: 03/21/2020
+ms.locfileid: "79989686"
 ---
 # <a name="configuration-in-aspnet-core"></a>ASP.NET Core yapılandırma
 
@@ -31,7 +31,7 @@ ASP.NET Core yapılandırma bir veya daha fazla [yapılandırma sağlayıcısı]
 * Dizin dosyaları
 * Bellek içi .NET nesneleri
 
-[Örnek kodu görüntüleme veya indirme](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/configuration/index/samples) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
+[Görüntüleme veya indirme örnek kodu](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/configuration/index/samples) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
 
 <a name="default"></a>
 
@@ -43,7 +43,7 @@ ASP.NET Core yapılandırma bir veya daha fazla [yapılandırma sağlayıcısı]
 
  <xref:Microsoft.Extensions.Hosting.Host.CreateDefaultBuilder*>, uygulama için aşağıdaki sırayla varsayılan yapılandırmayı sağlar:
 
-1. [Chainedconfigurationprovider](xref:Microsoft.Extensions.Configuration.ChainedConfigurationSource) : mevcut bir `IConfiguration` kaynak olarak ekler. Varsayılan yapılandırma durumunda, [ana bilgisayar](#hvac) yapılandırmasını ekler ve _uygulama_ yapılandırması için ilk kaynak olarak ayarlar.
+1. [Chainedconfigurationprovider](xref:Microsoft.Extensions.Configuration.ChainedConfigurationSource) :  Mevcut bir `IConfiguration` kaynak olarak ekler. Varsayılan yapılandırma durumunda, [ana bilgisayar](#hvac) yapılandırmasını ekler ve _uygulama_ yapılandırması için ilk kaynak olarak ayarlar.
 1. [JSON yapılandırma sağlayıcısı](#file-configuration-provider)kullanılarak [appSettings. JSON](#appsettingsjson) .
 1. *appSettings.* [JSON yapılandırma sağlayıcısını](#file-configuration-provider)kullanarak`Environment` *. JSON* . Örneğin, *appSettings*. ***Üretim***. *JSON* ve *appSettings*. ***Geliştirme***. *JSON*.
 1. Uygulama `Development` ortamda çalıştığında [uygulama gizli](xref:security/app-secrets) dizileri.
@@ -70,7 +70,7 @@ Aşağıdaki *appSettings. JSON* dosyasını göz önünde bulundurun:
 
 Varsayılan <xref:Microsoft.Extensions.Configuration.Json.JsonConfigurationProvider> yapılandırmayı aşağıdaki sırayla yükler:
 
-1. *appSettings. JSON*
+1. *appsettings.json*
 1. *appSettings.* `Environment` *. JSON* : Örneğin, *appSettings*. ***Üretim***. *JSON* ve *appSettings*. ***Geliştirme***. *JSON* dosyaları. Dosyanın ortam sürümü, [ıhostingenvironment. EnvironmentName](xref:Microsoft.Extensions.Hosting.IHostingEnvironment.EnvironmentName*)temel alınarak yüklenir. Daha fazla bilgi için bkz. <xref:fundamentals/environments>.
 
 *appSettings*.`Environment`. *JSON* değerleri *appSettings. JSON*içindeki anahtarları geçersiz kılar. Örneğin, varsayılan olarak:
@@ -135,7 +135,7 @@ Yapılandırma verileri yönergeleri:
 Parolaları veya diğer hassas verileri depolama hakkında daha fazla bilgi için:
 
 * <xref:fundamentals/environments>
-* <xref:security/app-secrets>: hassas verileri depolamak için ortam değişkenlerini kullanma hakkında öneriler Içerir. Gizli dizi Yöneticisi, Kullanıcı gizli dizilerini yerel sistemdeki bir JSON dosyasında depolamak için [dosya yapılandırma sağlayıcısını](#fcp) kullanır.
+* <xref:security/app-secrets>:  Hassas verileri depolamak için ortam değişkenlerini kullanma hakkında öneriler içerir. Gizli dizi Yöneticisi, Kullanıcı gizli dizilerini yerel sistemdeki bir JSON dosyasında depolamak için [dosya yapılandırma sağlayıcısını](#fcp) kullanır.
 
 [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) ASP.NET Core uygulamalar için uygulama gizli dizilerini güvenli bir şekilde depolar. Daha fazla bilgi için bkz. <xref:security/key-vault-configuration>.
 
@@ -152,7 +152,7 @@ Aşağıdaki `set` komutları:
 * Windows üzerinde [önceki örneğin](#appsettingsjson) ortam anahtarlarını ve değerlerini ayarlayın.
 * [Örnek indirmeyi](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/configuration/index/samples/3.x/ConfigSample)kullanırken ayarları test edin. `dotnet run` komutunun proje dizininde çalıştırılması gerekir.
 
-```cmd
+```dotnetcli
 set MyKey="My key from Environment"
 set Position__Title=Environment_Editor
 set Position__Name=Environment_Rick
@@ -172,10 +172,10 @@ setx Position__Title Setx_Environment_Editor /M
 setx Position__Name Environment_Rick /M
 ```
 
-Önceki komutların *apsettings. JSON* ve *appSettings.* `Environment` *. JSON*' i geçersiz kılmasını test etmek için:
+Yukarıdaki komutların *appSettings. JSON* ve *appSettings* .`Environment` *. JSON*' i geçersiz kılmasını test etmek için:
 
-* Visual Studio ile: Exit ve Visual Studio 'Yu yeniden başlatın.
-* CLı ile: yeni bir komut penceresi başlatın ve `dotnet run`girin.
+* Visual Studio ile: Çıkın ve Visual Studio 'Yu yeniden başlatın.
+* CLı ile: Yeni bir komut penceresi başlatın ve `dotnet run`girin.
 
 Ortam değişkenlerinin önekini belirtmek için bir dizeyle <xref:Microsoft.Extensions.Configuration.EnvironmentVariablesExtensions.AddEnvironmentVariables*> çağırın:
 
@@ -190,7 +190,7 @@ Yapılandırma anahtar-değer çiftleri okunduktan sonra önek çıkarılır.
 
 Aşağıdaki komutlar özel öneki test et:
 
-```cmd
+```dotnetcli
 set MyCustomPrefix_MyKey="My key with MyCustomPrefix_ Environment"
 set MyCustomPrefix_Position__Title=Editor_with_customPrefix
 set MyCustomPrefix_Position__Name=Environment_Rick_cp
@@ -204,7 +204,7 @@ dotnet run
 * Rest 'de şifrelenir ve şifreli bir kanal üzerinden iletilir.
 * Ortam değişkenleri olarak sunulur.
 
-Daha fazla bilgi için bkz. [Azure uygulamaları: Azure portalını kullanarak uygulama yapılandırmasını geçersiz kılma](xref:host-and-deploy/azure-apps/index#override-app-configuration-using-the-azure-portal).
+Daha fazla bilgi için bkz. Azure uygulamaları [: Azure portalını](xref:host-and-deploy/azure-apps/index#override-app-configuration-using-the-azure-portal)kullanarak uygulama yapılandırmasını geçersiz kılın.
 
 Azure veritabanı bağlantı dizeleri hakkında bilgi için bkz. [bağlantı dizesi önekleri](#constr) .
 
@@ -272,7 +272,7 @@ Anahtar değişimini test etmek için aşağıdaki komutu çalıştırın:
 dotnet run -k1=value1 -k2 value2 --alt3=value2 /alt4=value3 --alt5 value5 /alt6 value6
 ```
 
-Note: Şu anda `=`, anahtar değiştirme değerlerini tek bir tire `-`ayarlamak için kullanılamaz. [Bu GitHub sorununa](https://github.com/dotnet/extensions/issues/3059)bakın.
+Not: Şu anda `=`, anahtar değiştirme değerlerini tek bir tire `-`ayarlamak için kullanılamaz. [Bu GitHub sorununa](https://github.com/dotnet/extensions/issues/3059)bakın.
 
 Aşağıdaki komut, anahtar değişimini test etmek için işe yarar:
 
@@ -341,7 +341,7 @@ Yapılandırma kaynakları, yapılandırma sağlayıcılarının belirtilme sır
 
 Yapılandırma sağlayıcılarının tipik bir sırası şunlardır:
 
-1. *appSettings. JSON*
+1. *appsettings.json*
 1. *appSettings*.`Environment`. *JSON*
 1. [Gizli dizi Yöneticisi](xref:security/app-secrets)
 1. Ortam [değişkenleri yapılandırma sağlayıcısını](#evcp)kullanarak ortam değişkenleri.
@@ -394,8 +394,8 @@ Aşağıdaki kodu göz önünde bulundurun:
 Yukarıdaki kod:
 
 * JSON yapılandırma sağlayıcısını, *MyConfig. JSON* dosyasını yüklemek için aşağıdaki seçeneklerle yapılandırır:
-  * `optional: true`: dosya isteğe bağlıdır.
-  * `reloadOnChange: true`: değişiklikler kaydedildiğinde dosya yeniden yüklenir.
+  * `optional: true`: Dosya isteğe bağlıdır.
+  * `reloadOnChange: true` : Değişiklikler kaydedildiğinde dosya yeniden yüklenir.
 * *MyConfig. JSON* dosyasından önce [varsayılan yapılandırma sağlayıcılarını](#default) okur. [Ortam değişkenleri yapılandırma sağlayıcısı](#evcp) ve [komut satırı yapılandırma sağlayıcısı](#clcp)da dahil olmak üzere varsayılan yapılandırma sağlayıcılarındaki *MyConfig. JSON* dosyası geçersiz kılma ayarındaki ayarlar.
 
 Genellikle, [ortam değişkenleri Yapılandırma sağlayıcısında](#evcp) ve [komut satırı yapılandırma sağlayıcısında](#clcp)ayarlanmış özel bir JSON dosyası değerlerini geçersiz ***kılmayı istemezsiniz.***
@@ -707,7 +707,7 @@ Aşağıdaki kod `Startup` yöntemlerde yapılandırma verilerini görüntüler:
 
 [!code-csharp[](index/samples/3.x/ConfigSample/StartupKey.cs?name=snippet&highlight=13,18)]
 
-Başlangıç kolaylığı yöntemlerini kullanarak yapılandırmaya erişme örneği için bkz. [uygulama başlatma: kullanışlı yöntemler](xref:fundamentals/startup#convenience-methods).
+Başlangıç kolaylığı yöntemlerini kullanarak yapılandırmaya erişme örneği için bkz. uygulama başlatma [. Kullanışlı yöntemler](xref:fundamentals/startup#convenience-methods).
 
 ## <a name="access-configuration-in-razor-pages"></a>Razor Pages 'de erişim yapılandırması
 
@@ -789,7 +789,7 @@ using Microsoft.Extensions.Configuration;
 
 *Seçenekler stili* , bu konuda açıklanan yapılandırma kavramlarının bir uzantısıdır. Seçenekler, ilgili ayarların gruplarını temsil etmek için sınıfları kullanır. Daha fazla bilgi için bkz. <xref:fundamentals/configuration/options>.
 
-[Örnek kodu görüntüleme veya indirme](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/configuration/index/samples) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
+[Görüntüleme veya indirme örnek kodu](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/configuration/index/samples) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
 
 ## <a name="host-versus-app-configuration"></a>Uygulama yapılandırmasına karşı konak
 
@@ -832,7 +832,7 @@ Hassas yapılandırma verilerini güvenli hale getirmek için aşağıdaki uygul
 * Geliştirme veya test ortamlarında üretim gizli dizileri kullanmayın.
 * Yanlışlıkla bir kaynak kodu deposuna uygulanamazlar için proje dışındaki gizli dizileri belirtin.
 
-Daha fazla bilgi edinmek için aşağıdaki kaynaklara bakın:
+Daha fazla bilgi için aşağıdaki konulara bakın:
 
 * <xref:fundamentals/environments>
 * <xref:security/app-secrets> &ndash;, hassas verileri depolamak için ortam değişkenlerini kullanma hakkında öneriler Içerir. Gizli dizi Yöneticisi, Kullanıcı gizli dizilerini yerel sistemdeki bir JSON dosyasında depolamak için dosya yapılandırma sağlayıcısını kullanır. Dosya yapılandırma sağlayıcısı, bu konunun ilerleyen kısımlarında açıklanmıştır.
@@ -1129,7 +1129,7 @@ Ortam değişkenleri yapılandırmasını etkinleştirmek için, <xref:Microsoft
 
 [!INCLUDE[](~/includes/environmentVarableColon.md)]
 
-[Azure App Service](https://azure.microsoft.com/services/app-service/) , Azure portalında ortam değişkenleri yapılandırma sağlayıcısını kullanarak uygulama yapılandırmasını geçersiz kılabileceği ortam değişkenlerini ayarlamaya izin verir. Daha fazla bilgi için bkz. [Azure uygulamaları: Azure portalını kullanarak uygulama yapılandırmasını geçersiz kılma](xref:host-and-deploy/azure-apps/index#override-app-configuration-using-the-azure-portal).
+[Azure App Service](https://azure.microsoft.com/services/app-service/) , Azure portalında ortam değişkenleri yapılandırma sağlayıcısını kullanarak uygulama yapılandırmasını geçersiz kılabileceği ortam değişkenlerini ayarlamaya izin verir. Daha fazla bilgi için bkz. Azure uygulamaları [: Azure portalını](xref:host-and-deploy/azure-apps/index#override-app-configuration-using-the-azure-portal)kullanarak uygulama yapılandırmasını geçersiz kılın.
 
 `AddEnvironmentVariables`, [Web ana](xref:fundamentals/host/web-host) bilgisayarıyla yeni bir ana bilgisayar Oluşturucu başlatıldığında ve `CreateDefaultBuilder` çağrıldığında, [ana bilgisayar yapılandırması](#host-versus-app-configuration) için `ASPNETCORE_` ön eki eklenmiş ortam değişkenlerini yüklemek için kullanılır. Daha fazla bilgi için [varsayılan yapılandırma](#default-configuration) bölümüne bakın.
 
@@ -1654,7 +1654,7 @@ _config.GetSection("array").Bind(arrayExample);
 | `ArrayExample.Entries` dizini | `ArrayExample.Entries` değeri |
 | :--------------------------: | :--------------------------: |
 | 0                            | value0                       |
-| 1                            | Value1                       |
+| 1\.                            | Value1                       |
 | 2                            | Value2                       |
 | 3                            | value4                       |
 | 4                            | value5                       |
@@ -1689,7 +1689,7 @@ Tabloda gösterilen anahtar-değer çifti, yapılandırmaya yüklendi.
 | `ArrayExample.Entries` dizini | `ArrayExample.Entries` değeri |
 | :--------------------------: | :--------------------------: |
 | 0                            | value0                       |
-| 1                            | Value1                       |
+| 1\.                            | Value1                       |
 | 2                            | Value2                       |
 | 3                            | value3                       |
 | 4                            | value4                       |
@@ -1719,7 +1719,7 @@ Bağlamadan sonra, `JsonArrayExample.Key` `valueA`değerini tutar. Alt bölüm d
 | `JsonArrayExample.Subsection` dizini | `JsonArrayExample.Subsection` değeri |
 | :---------------------------------: | :---------------------------------: |
 | 0                                   | valueB                              |
-| 1                                   | değer EC                              |
+| 1\.                                   | değer EC                              |
 | 2                                   | Değerler                              |
 
 ## <a name="custom-configuration-provider"></a>Özel yapılandırma sağlayıcısı
@@ -1792,7 +1792,7 @@ public class Startup
 }
 ```
 
-Başlangıç kolaylığı yöntemlerini kullanarak yapılandırmaya erişme örneği için bkz. [uygulama başlatma: kullanışlı yöntemler](xref:fundamentals/startup#convenience-methods).
+Başlangıç kolaylığı yöntemlerini kullanarak yapılandırmaya erişme örneği için bkz. uygulama başlatma [. Kullanışlı yöntemler](xref:fundamentals/startup#convenience-methods).
 
 ## <a name="access-configuration-in-a-razor-pages-page-or-mvc-view"></a>Razor Pages sayfasında veya MVC görünümünde erişim yapılandırması
 
