@@ -5,17 +5,17 @@ description: Uygulamalardaki istekleri yönlendirme ve gezinti bağlantısı bil
 monikerRange: '>= aspnetcore-3.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/18/2019
+ms.date: 03/17/2020
 no-loc:
 - Blazor
 - SignalR
 uid: blazor/routing
-ms.openlocfilehash: 32459f9f42220b01ce04e6444a9bb4a9592ee2da
-ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.openlocfilehash: 87579c88a37e0258921e199db2b5d8c7627f5499
+ms.sourcegitcommit: 91dc1dd3d055b4c7d7298420927b3fd161067c64
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78663809"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80218901"
 ---
 # <a name="aspnet-core-blazor-routing"></a>ASP.NET Core Blazor yönlendirme
 
@@ -137,7 +137,7 @@ Aşağıdaki örnekte, `Users` bileşene olan yol yalnızca şu durumlarda eşle
 
 Aşağıdaki tabloda gösterilen yol kısıtlamaları mevcuttur. Sabit kültür ile eşleşen yol kısıtlamaları için daha fazla bilgi için tablonun altındaki uyarıya bakın.
 
-| Kısıtlaması | Örnek           | Örnek eşleşmeler                                                                  | Bilmesi<br>culture<br>eşleştirme |
+| Kısıtlaması | Örnek           | Örnek eşleşmeler                                                                  | Bilmesi<br>kültür<br>eşleştirme |
 | ---------- | ----------------- | -------------------------------------------------------------------------------- | :------------------------------: |
 | `bool`     | `{active:bool}`   | `true`, `FALSE`                                                                  | Hayır                               |
 | `datetime` | `{dob:datetime}`  | `2016-12-31`, `2016-12-31 7:32pm`                                                | Yes                              |
@@ -198,16 +198,16 @@ Aşağıdaki HTML biçimlendirmesi işlenir:
 
 ## <a name="uri-and-navigation-state-helpers"></a>URI ve gezinti durumu yardımcıları
 
-Kod içinde C# , URI 'ler ve gezinme ile çalışmak için `Microsoft.AspNetCore.Components.NavigationManager` kullanın. `NavigationManager`, aşağıdaki tabloda gösterilen olay ve yöntemleri sağlar.
+Kod içinde C# , URI 'ler ve gezinme ile çalışmak için <xref:Microsoft.AspNetCore.Components.NavigationManager> kullanın. `NavigationManager`, aşağıdaki tabloda gösterilen olay ve yöntemleri sağlar.
 
 | Üye | Açıklama |
 | ------ | ----------- |
-| `Uri` | Geçerli mutlak URI 'yi alır. |
-| `BaseUri` | Mutlak bir URI oluşturmak için göreli URI yollarına eklenebilir olan temel URI 'yi (sondaki eğik çizgiyle birlikte) alır. Genellikle `BaseUri`, belgenin *Wwwroot/index.html* (Blazor WebAssembly) veya *Pages/_Host. cshtml* (Blazor Server) içindeki `<base>` öğesinde `href` özniteliğine karşılık gelir. |
-| `NavigateTo` | Belirtilen URI 'ye gider. `forceLoad` `true`:<ul><li>İstemci tarafı yönlendirme atlanır.</li><li>Bu tarayıcı, URI 'nin normalde istemci tarafı yönlendirici tarafından işlenip işlenmediğini sunucudan yeni sayfayı yüklemeye zorlanır.</li></ul> |
-| `LocationChanged` | Gezinti konumu değiştiğinde harekete gelen bir olay. |
-| `ToAbsoluteUri` | Göreli bir URI 'yi mutlak bir URI 'ye dönüştürür. |
-| `ToBaseRelativePath` | Temel URI (örneğin, daha önce `GetBaseUri`tarafından döndürülen bir URI) verildiğinde, mutlak bir URI 'yi taban URI ön ekine göre bir URI 'ye dönüştürür. |
+| Uri | Geçerli mutlak URI 'yi alır. |
+| BaseUri | Mutlak bir URI oluşturmak için göreli URI yollarına eklenebilir olan temel URI 'yi (sondaki eğik çizgiyle birlikte) alır. Genellikle `BaseUri`, belgenin *Wwwroot/index.html* (Blazor WebAssembly) veya *Pages/_Host. cshtml* (Blazor Server) içindeki `<base>` öğesinde `href` özniteliğine karşılık gelir. |
+| Gezin | Belirtilen URI 'ye gider. `forceLoad` `true`:<ul><li>İstemci tarafı yönlendirme atlanır.</li><li>Bu tarayıcı, URI 'nin normalde istemci tarafı yönlendirici tarafından işlenip işlenmediğini sunucudan yeni sayfayı yüklemeye zorlanır.</li></ul> |
+| LocationChanged | Gezinti konumu değiştiğinde harekete gelen bir olay. |
+| ToAbsoluteUri | Göreli bir URI 'yi mutlak bir URI 'ye dönüştürür. |
+| <span style="word-break:normal;word-wrap:normal">ToBaseRelativePath</span> | Temel URI (örneğin, daha önce `GetBaseUri`tarafından döndürülen bir URI) verildiğinde, mutlak bir URI 'yi taban URI ön ekine göre bir URI 'ye dönüştürür. |
 
 Aşağıdaki bileşen, düğme seçildiğinde uygulamanın `Counter` bileşenine gider:
 
@@ -228,3 +228,34 @@ Aşağıdaki bileşen, düğme seçildiğinde uygulamanın `Counter` bileşenine
     }
 }
 ```
+
+Aşağıdaki bileşen bir konum değişti olayını işler. `HandleLocationChanged` yöntemi, Framework tarafından `Dispose` çağrıldığında geri çağırılır. Yöntemi kaldırmak, bileşenin çöp toplamasına izin verir.
+
+```razor
+@implement IDisposable
+@inject NavigationManager NavigationManager
+
+...
+
+protected override void OnInitialized()
+{
+    NavigationManager.LocationChanged += HandleLocationChanged;
+}
+
+private void HandleLocationChanged(object sender, LocationChangedEventArgs e)
+{
+    ...
+}
+
+public void Dispose()
+{
+    NavigationManager.LocationChanged -= HandleLocationChanged;
+}
+```
+
+<xref:Microsoft.AspNetCore.Components.Routing.LocationChangedEventArgs> olayla ilgili aşağıdaki bilgileri sağlar:
+
+* yeni konumun URL 'sini &ndash; <xref:Microsoft.AspNetCore.Components.Routing.LocationChangedEventArgs.Location>.
+* <xref:Microsoft.AspNetCore.Components.Routing.LocationChangedEventArgs.IsNavigationIntercepted> &ndash; `true`tarayıcıdan gezinmeyi Blazor. `false`, [Navigationmanager. Navigate,](xref:Microsoft.AspNetCore.Components.NavigationManager.NavigateTo%2A) gezintinin oluşmasına neden oldu.
+
+Bileşen aktiften çıkarma hakkında daha fazla bilgi için bkz. <xref:blazor/lifecycle#component-disposal-with-idisposable>.

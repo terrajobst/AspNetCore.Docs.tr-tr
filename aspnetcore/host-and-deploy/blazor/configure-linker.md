@@ -5,17 +5,17 @@ description: Blazor uygulaması oluştururken ara dil (IL) bağlayıcı denetimi
 monikerRange: '>= aspnetcore-3.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 03/10/2020
+ms.date: 03/23/2020
 no-loc:
 - Blazor
 - SignalR
 uid: host-and-deploy/blazor/configure-linker
-ms.openlocfilehash: b08ec26fb8d139223c57774600bc3cb19a56ac49
-ms.sourcegitcommit: 98bcf5fe210931e3eb70f82fd675d8679b33f5d6
+ms.openlocfilehash: 109da5ef400c3b9d64ccf3ceb33a5387ea6b5618
+ms.sourcegitcommit: 91dc1dd3d055b4c7d7298420927b3fd161067c64
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79083294"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80218667"
 ---
 # <a name="configure-the-linker-for-aspnet-core-blazor"></a>ASP.NET Core Blazor için bağlayıcı yapılandırma
 
@@ -36,7 +36,7 @@ Blazor uygulamaları için bağlama, bu MSBuild özellikleri kullanılarak yapı
 
 ## <a name="control-linking-with-an-msbuild-property"></a>MSBuild özelliği ile bağlamayı denetleme
 
-Bir uygulama `Release` yapılandırma sırasında oluşturulduğunda bağlama etkinleştirilir. Bunu değiştirmek için, proje dosyasında `BlazorWebAssemblyEnableLinking` MSBuild özelliğini yapılandırın:
+Bir uygulama `Release` yapılandırmada oluşturulduğunda bağlama etkinleştirilir. Bunu değiştirmek için, proje dosyasında `BlazorWebAssemblyEnableLinking` MSBuild özelliğini yapılandırın:
 
 ```xml
 <PropertyGroup>
@@ -50,11 +50,11 @@ Bir XML yapılandırma dosyası sağlayarak ve dosyayı proje dosyasında MSBuil
 
 ```xml
 <ItemGroup>
-  <BlazorLinkerDescriptor Include="Linker.xml" />
+  <BlazorLinkerDescriptor Include="LinkerConfig.xml" />
 </ItemGroup>
 ```
 
-*Bağlayıcı. xml*:
+*Linkerconfig. xml*:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8" ?>
@@ -86,7 +86,21 @@ Bir XML yapılandırma dosyası sağlayarak ve dosyayı proje dosyasında MSBuil
 </linker>
 ```
 
-Daha fazla bilgi için bkz. [Il Bağlayıcısı: XML tanımlayıcısının sözdizimi](https://github.com/mono/linker/blob/master/src/linker/README.md#syntax-of-xml-descriptor).
+Daha fazla bilgi için bkz. [XML dosyası örneklerini bağlama (mono/bağlayıcı GitHub deposu)](https://github.com/mono/linker#link-xml-file-examples).
+
+## <a name="add-an-xml-linker-configuration-file-to-a-library"></a>Kitaplığa bir XML bağlayıcı yapılandırma dosyası ekleme
+
+Bağlayıcıyı belirli bir kitaplık için yapılandırmak için, kitaplığa katıştırılmış kaynak olarak bir XML bağlayıcı yapılandırma dosyası ekleyin. Katıştırılmış kaynak, derlemeyle aynı ada sahip olmalıdır.
+
+Aşağıdaki örnekte, *Linkerconfig. xml* dosyası, kitaplığın derlemesi ile aynı ada sahip gömülü bir kaynak olarak belirtilir:
+
+```xml
+<ItemGroup>
+  <EmbeddedResource Include="LinkerConfig.xml">
+    <LogicalName>$(MSBuildProjectName).xml</LogicalName>
+  </EmbeddedResource>
+</ItemGroup>
+```
 
 ### <a name="configure-the-linker-for-internationalization"></a>Bağlayıcıyı uluslararası duruma getirme için yapılandırma
 
@@ -105,7 +119,7 @@ Hangi I18N derlemelerinin korunacağını denetlemek için, proje dosyasında `<
 | `all`            | Tüm derlemeler dahil |
 | `cjk`            | *I18N. CJK. dll*          |
 | `mideast`        | *I18N. MIDEAST. dll*      |
-| `none` (varsayılan) | Yok.                    |
+| `none` (varsayılan) | Hiçbiri                    |
 | `other`          | *I18N. Diğer. dll*        |
 | `rare`           | *I18N. Nadir. dll*         |
 | `west`           | *I18N. Batı. dll*         |

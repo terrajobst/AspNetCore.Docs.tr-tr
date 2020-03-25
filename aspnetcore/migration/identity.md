@@ -3,14 +3,14 @@ title: Kimlik doğrulaması ve kimliği ASP.NET Core geçir
 author: ardalis
 description: Bir ASP.NET MVC projesinden kimlik doğrulaması ve kimliği ASP.NET Core MVC projesine geçirmeyi öğrenin.
 ms.author: riande
-ms.date: 10/14/2016
+ms.date: 3/22/2020
 uid: migration/identity
-ms.openlocfilehash: f821930dbd36de18db31104cddf34c563009a506
-ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.openlocfilehash: c5727c974e455144d04e66fe14ea591e160cb963
+ms.sourcegitcommit: 91dc1dd3d055b4c7d7298420927b3fd161067c64
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78661856"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80219200"
 ---
 # <a name="migrate-authentication-and-identity-to-aspnet-core"></a>Kimlik doğrulaması ve kimliği ASP.NET Core geçir
 
@@ -22,9 +22,13 @@ ms.locfileid: "78661856"
 
 ASP.NET MVC 'de, kimlik doğrulama ve kimlik özellikleri, *App_Start* klasöründe bulunan *Startup.Auth.cs* ve *IdentityConfig.cs*ASP.NET Identity kullanılarak yapılandırılır. ASP.NET Core MVC 'de, bu özellikler *Startup.cs*' de yapılandırılır.
 
-`Microsoft.AspNetCore.Identity.EntityFrameworkCore` ve `Microsoft.AspNetCore.Authentication.Cookies` NuGet paketlerini yükler.
+Aşağıdaki NuGet paketlerini yükler:
 
-Sonra, *Startup.cs* 'i açın ve `Startup.ConfigureServices` yöntemi Entity Framework ve kimlik hizmetlerini kullanacak şekilde güncelleştirin:
+* `Microsoft.AspNetCore.Identity.EntityFrameworkCore`
+* `Microsoft.AspNetCore.Authentication.Cookies`
+* `Microsoft.EntityFrameworkCore.SqlServer`
+
+*Startup.cs*' de, `Startup.ConfigureServices` yöntemini Entity Framework ve kimlik hizmetlerini kullanacak şekilde güncelleştirin:
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)

@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 01/15/2020
 uid: fundamentals/index
-ms.openlocfilehash: a16a2fbb4ad2a79f96b6646ffdc359619d361a25
-ms.sourcegitcommit: 5bdc54162d7dea8d9fa54ac3055678db23586af1
+ms.openlocfilehash: 7533242140c31a937f32cc9082d760103347ce25
+ms.sourcegitcommit: 91dc1dd3d055b4c7d7298420927b3fd161067c64
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/17/2020
-ms.locfileid: "79434323"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80219187"
 ---
 # <a name="aspnet-core-fundamentals"></a>ASP.NET Core temelleri
 
@@ -63,13 +63,13 @@ ASP.NET Core, zengin bir yerleşik ara yazılım kümesi içerir ve özel ara ya
 
 Daha fazla bilgi için bkz. <xref:fundamentals/middleware/index>.
 
-## <a name="host"></a>Ana bilgisayar
+## <a name="host"></a>Host
 
 ASP.NET Core bir uygulama, başlangıçta bir *konak* oluşturur. Ana bilgisayar, uygulamanın tüm kaynaklarını kapsülleyen bir nesnedir, örneğin:
 
 * Bir HTTP sunucusu uygulama
 * Ara yazılım bileşenleri
-* Günlüğe Kaydetme
+* Günlüğe kaydetme
 * IÇERIK
 * Yapılandırma
 
@@ -91,7 +91,7 @@ Daha fazla bilgi için bkz. <xref:fundamentals/host/generic-host>.
 
 ### <a name="non-web-scenarios"></a>Web dışı senaryolar
 
-Genel ana bilgisayar, diğer uygulama türlerinin günlüğe kaydetme, bağımlılık ekleme (dı), yapılandırma ve uygulama ömür yönetimi gibi çapraz kesme çerçevesi uzantıları kullanmasına izin verir. Daha fazla bilgi için bkz. <xref:fundamentals/host/generic-host> ve <xref:fundamentals/host/hosted-services>.
+Genel ana bilgisayar, diğer uygulama türlerinin günlüğe kaydetme, bağımlılık ekleme (dı), yapılandırma ve uygulama ömür yönetimi gibi çapraz kesme çerçevesi uzantıları kullanmasına izin verir. Daha fazla bilgi için <xref:fundamentals/host/generic-host> ve <xref:fundamentals/host/hosted-services> bölümlerine bakın.
 
 ## <a name="servers"></a>Sunucular
 
@@ -154,7 +154,7 @@ Daha fazla bilgi için bkz. <xref:fundamentals/configuration/options>.
 
 Daha fazla bilgi için bkz. <xref:fundamentals/environments>.
 
-## <a name="logging"></a>Günlüğe Kaydetme
+## <a name="logging"></a>Günlüğe kaydetme
 
 ASP.NET Core, çeşitli yerleşik ve üçüncü taraf günlük sağlayıcılarıyla birlikte çalışarak bir günlüğe kaydetme API 'sini destekler. Kullanılabilir sağlayıcılar şunları içerir:
 
@@ -301,13 +301,13 @@ ASP.NET Core, zengin bir yerleşik ara yazılım kümesi içerir ve özel ara ya
 
 Daha fazla bilgi için bkz. <xref:fundamentals/middleware/index>.
 
-## <a name="host"></a>Ana bilgisayar
+## <a name="host"></a>Host
 
 ASP.NET Core bir uygulama, başlangıçta bir *konak* oluşturur. Ana bilgisayar, uygulamanın tüm kaynaklarını kapsülleyen bir nesnedir, örneğin:
 
 * Bir HTTP sunucusu uygulama
 * Ara yazılım bileşenleri
-* Günlüğe Kaydetme
+* Günlüğe kaydetme
 * IÇERIK
 * Yapılandırma
 
@@ -329,7 +329,7 @@ Daha fazla bilgi için bkz. <xref:fundamentals/host/web-host>.
 
 ### <a name="non-web-scenarios"></a>Web dışı senaryolar
 
-Genel ana bilgisayar, diğer uygulama türlerinin günlüğe kaydetme, bağımlılık ekleme (dı), yapılandırma ve uygulama ömür yönetimi gibi çapraz kesme çerçevesi uzantıları kullanmasına izin verir. Daha fazla bilgi için bkz. <xref:fundamentals/host/generic-host> ve <xref:fundamentals/host/hosted-services>.
+Genel ana bilgisayar, diğer uygulama türlerinin günlüğe kaydetme, bağımlılık ekleme (dı), yapılandırma ve uygulama ömür yönetimi gibi çapraz kesme çerçevesi uzantıları kullanmasına izin verir. Daha fazla bilgi için <xref:fundamentals/host/generic-host> ve <xref:fundamentals/host/hosted-services> bölümlerine bakın.
 
 ## <a name="servers"></a>Sunucular
 
@@ -421,7 +421,7 @@ Daha fazla bilgi için bkz. <xref:fundamentals/configuration/options>.
 
 Daha fazla bilgi için bkz. <xref:fundamentals/environments>.
 
-## <a name="logging"></a>Günlüğe Kaydetme
+## <a name="logging"></a>Günlüğe kaydetme
 
 ASP.NET Core, çeşitli yerleşik ve üçüncü taraf günlük sağlayıcılarıyla birlikte çalışarak bir günlüğe kaydetme API 'sini destekler. Kullanılabilir sağlayıcılar şunları içerir:
 

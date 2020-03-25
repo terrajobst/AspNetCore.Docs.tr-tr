@@ -5,17 +5,17 @@ description: Bileşenlerin bir dış bileşen kitaplığından Blazor uygulamala
 monikerRange: '>= aspnetcore-3.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 01/23/2020
+ms.date: 03/23/2020
 no-loc:
 - Blazor
 - SignalR
 uid: blazor/class-libraries
-ms.openlocfilehash: 32088b43f91174596f6b9251d36782e806f966b9
-ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.openlocfilehash: f2cc57638922bd1f6ab036adb2ed37209d14c5b0
+ms.sourcegitcommit: 91dc1dd3d055b4c7d7298420927b3fd161067c64
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78660491"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80218772"
 ---
 # <a name="aspnet-core-razor-components-class-libraries"></a>ASP.NET Core Razor bileşenleri sınıf kitaplıkları
 
@@ -38,7 +38,7 @@ Ortamınızı Blazor için yapılandırmak üzere <xref:blazor/get-started> maka
 1. Yeni bir proje oluşturma.
 1. **Razor sınıfı kitaplığı**' nı seçin. **İleri**’yi seçin.
 1. **Yeni bir Razor sınıf kitaplığı oluştur** Iletişim kutusunda **Oluştur**' u seçin.
-1. **Proje adı** alanında bir proje adı girin veya varsayılan proje adını kabul edin. Bu konudaki örneklerde `MyComponentLib1`proje adı kullanılır. **Oluştur**’u seçin.
+1. **Proje adı** alanında bir proje adı girin veya varsayılan proje adını kabul edin. Bu konudaki örneklerde `MyComponentLib1`proje adı kullanılır. **Oluştur**'u seçin.
 1. RCL 'yi bir çözüme ekleyin:
    1. Çözüme sağ tıklayın.  > **var olan projeyi** **Ekle** ' yi seçin.
    1. RCL 'nin proje dosyasına gidin.
@@ -114,6 +114,10 @@ Welcome to your new app.
 
 Kitaplığın bileşenlerini bir projenin tamamına kullanılabilir hale getirmek için en üst düzey *_Import. Razor* dosyasına `@using MyComponentLib1` yönergesini ekleyin. Ad alanını tek bir sayfaya veya bir klasör içindeki sayfa kümesine uygulamak için herhangi bir düzeydeki bir *_Import. Razor* dosyasına yönergesini ekleyin.
 
+## <a name="create-a-razor-components-class-library-with-static-assets"></a>Statik varlıklar ile Razor bileşenleri sınıf kitaplığı oluşturma
+
+RCL statik varlıkları içerebilir. Statik varlıklar, kitaplığı kullanan tüm uygulamalar tarafından kullanılabilir. Daha fazla bilgi için bkz. <xref:razor-pages/ui-class#create-an-rcl-with-static-assets>.
+
 ## <a name="build-pack-and-ship-to-nuget"></a>NuGet 'i derleyin, paketleyebilir ve iade edin
 
 Bileşen kitaplıkları standart .NET kitaplıkları olduğundan, paketlemeden ve tüm kitaplıkları NuGet 'e dağıtmadan farklı değildir. Paketleme, bir komut kabuğu 'nda [DotNet Pack](/dotnet/core/tools/dotnet-pack) komutu kullanılarak gerçekleştirilir:
@@ -124,10 +128,7 @@ dotnet pack
 
 Bir komut kabuğunda [DotNet NuGet Push](/dotnet/core/tools/dotnet-nuget-push) komutunu kullanarak paketi NuGet 'e yükleyin.
 
-## <a name="create-a-razor-components-class-library-with-static-assets"></a>Statik varlıklar ile Razor bileşenleri sınıf kitaplığı oluşturma
-
-RCL statik varlıkları içerebilir. Statik varlıklar, kitaplığı kullanan tüm uygulamalar tarafından kullanılabilir. Daha fazla bilgi için bkz. <xref:razor-pages/ui-class#create-an-rcl-with-static-assets>.
-
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * <xref:razor-pages/ui-class>
+* [Kitaplığa bir XML bağlayıcı yapılandırma dosyası ekleme](xref:host-and-deploy/blazor/configure-linker#add-an-xml-linker-configuration-file-to-a-library)

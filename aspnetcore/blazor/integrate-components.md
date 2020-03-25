@@ -5,17 +5,17 @@ description: Blazor uygulamalarında bileşenler ve DOM öğeleri için veri ba�
 monikerRange: '>= aspnetcore-3.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/12/2020
+ms.date: 03/17/2020
 no-loc:
 - Blazor
 - SignalR
 uid: blazor/integrate-components
-ms.openlocfilehash: de1a37ffd9456c956e3d84fcc69431ecb794513c
-ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.openlocfilehash: cf6056e0985d5433bddecac8dd183ca3f4c2af5b
+ms.sourcegitcommit: 91dc1dd3d055b4c7d7298420927b3fd161067c64
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78663319"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80218940"
 ---
 # <a name="integrate-aspnet-core-razor-components-into-razor-pages-and-mvc-apps"></a>ASP.NET Core Razor bileşenlerini Razor Pages ve MVC uygulamalarıyla tümleştirin
 
@@ -60,7 +60,7 @@ Mevcut bir Razor Pages veya MVC uygulaması, Razor bileşenlerini sayfalarla ve 
    @using MyAppNamespace
    ```
 
-1. `Startup.ConfigureServices`, Blazor sunucu hizmetini kaydedin:
+1. `Startup.ConfigureServices`Blazor sunucusu hizmetini kaydedin:
 
    ```csharp
    services.AddServerSideBlazor();
@@ -124,7 +124,7 @@ Razor Pages uygulamalarda yönlendirilebilir Razor bileşenlerini desteklemek i�
    });
    ```
 
-1. Uygulamaya yönlendirilebilir bileşenler ekleyin. Örnek:
+1. Uygulamaya yönlendirilebilir bileşenler ekleyin. Örneğin:
 
    ```razor
    @page "/counter"
@@ -194,7 +194,7 @@ MVC uygulamalarında yönlendirilebilir Razor bileşenlerini desteklemek için:
    });
    ```
 
-1. Bir *Sayfalar* klasörü oluşturun ve uygulamaya yönlendirilebilir bileşenler ekleyin. Örnek:
+1. Bir *Sayfalar* klasörü oluşturun ve uygulamaya yönlendirilebilir bileşenler ekleyin. Örneğin:
 
    ```razor
    @page "/counter"
@@ -225,31 +225,10 @@ Daha fazla bilgi için bkz. <xref:blazor/components#import-components>.
 
 *Bu bölüm, bileşenlerin Kullanıcı isteklerinden doğrudan yönlendirilemeyen sayfalara veya görünümlere bileşen eklenmesine aittir.*
 
-Bir sayfadan veya görünümden bir bileşeni işlemek için `Component` etiketi yardımcısını kullanın:
-
-```cshtml
-<component type="typeof(Counter)" render-mode="ServerPrerendered" 
-    param-IncrementAmount="10" />
-```
-
-Parametre türünün JSON serileştirilebilir olması gerekir, bu, genellikle türün bir varsayılan oluşturucuya ve ayarlanabilir özelliklere sahip olması anlamına gelir. Örneğin, `IncrementAmount` için bir değer belirtebilirsiniz çünkü `IncrementAmount` türü, JSON seri hale getirici tarafından desteklenen bir temel tür `int`.
-
-`RenderMode`, bileşenin şunları yapıp kullanmadığını yapılandırır:
-
-* , Sayfaya ön gönderilir.
-* , Sayfada statik HTML olarak veya Kullanıcı aracısından bir Blazor uygulamasını önyüklemek için gerekli bilgileri içeriyorsa.
-
-| `RenderMode`        | Açıklama |
-| ------------------- | ----------- |
-| `ServerPrerendered` | Bileşeni statik HTML olarak işler ve Blazor sunucusu uygulaması için bir işaret içerir. Kullanıcı Aracısı başladığında, bu işaretleyici bir Blazor uygulamasının önyüklemesi için kullanılır. |
-| `Server`            | Blazor sunucusu uygulaması için bir işaret oluşturur. Bileşen çıkışı dahil değildir. Kullanıcı Aracısı başladığında, bu işaretleyici bir Blazor uygulamasının önyüklemesi için kullanılır. |
-| `Static`            | Bileşeni statik HTML olarak işler. |
-
-Sayfalar ve görünümler bileşenleri kullanırken, listesiyse doğru değildir. Bileşenler, kısmi görünümler ve bölümler gibi görüntüleme ve sayfaya özgü senaryolar kullanamaz. Bir bileşende kısmi görünümden mantığı kullanmak için kısmi görünüm mantığını bir bileşene ayırın.
-
-Statik HTML sayfasından sunucu bileşenleri işleme desteklenmiyor.
+Bir sayfadan veya görünümden bir bileşeni işlemek için [bileşen etiketi yardımcısını](xref:mvc/views/tag-helpers/builtin-th/component-tag-helper)kullanın.
 
 Bileşenlerin nasıl işlendiği, bileşen durumu ve `Component` etiketi Yardımcısı hakkında daha fazla bilgi için aşağıdaki makalelere bakın:
 
 * <xref:blazor/hosting-models>
 * <xref:blazor/hosting-model-configuration>
+* <xref:mvc/views/tag-helpers/builtin-th/component-tag-helper>
