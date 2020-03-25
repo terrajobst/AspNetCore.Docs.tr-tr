@@ -5,12 +5,12 @@ description: ASP.NET Core 'de denetleyici yöntemleri, görünümler ve Dataaç�
 ms.author: riande
 ms.date: 12/13/2018
 uid: tutorials/first-mvc-app/controller-methods-views
-ms.openlocfilehash: 2c442060872ab1d2d79a2e355ae257fdf1005914
-ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.openlocfilehash: 87b3cb2f4429157123d30274d1f12cd589c1cc99
+ms.sourcegitcommit: 99e71ae03319ab386baf2ebde956fc2d511df8b8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78663508"
+ms.lasthandoff: 03/25/2020
+ms.locfileid: "80242516"
 ---
 # <a name="controller-methods-and-views-in-aspnet-core"></a>ASP.NET Core içindeki denetleyici yöntemleri ve görünümleri
 
@@ -53,6 +53,8 @@ Entity Framework Core `[Column(TypeName = "decimal(18, 2)")]` veri ek açıklama
 ASP.NET Core, `https://localhost:5001/Movies/Edit/4` `Movies` `Edit` Action yöntemine bir isteğe çevirir, 4 parametresi `Id`. (Denetleyici yöntemleri de eylem yöntemleri olarak bilinir.)
 
 [Etiket yardımcıları](xref:mvc/views/tag-helpers/intro) ASP.NET Core ' deki en popüler yeni özelliklerden biridir. Daha fazla bilgi için bkz. [ek kaynaklar](#additional-resources).
+
+<a name="get-post"></a>
 
 `Movies` denetleyiciyi açın ve iki `Edit` eylemi yöntemini inceleyin. Aşağıdaki kod, filmi getiren ve *Edit. cshtml* Razor dosyası tarafından oluşturulan düzenleme formunu dolduran `HTTP GET Edit` yöntemini gösterir.
 

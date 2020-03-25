@@ -1,17 +1,17 @@
 ---
 title: Visual Studio Code ile Azure 'da ASP.NET Core uygulaması yayımlama
-author: ricardoserradas
+author: rick-anderson
 description: Visual Studio Code kullanarak Azure App Service ASP.NET Core uygulama yayımlamayı öğrenin
 ms.author: riserrad
 ms.custom: mvc
 ms.date: 07/10/2019
 uid: tutorials/publish-to-azure-webapp-using-vscode
-ms.openlocfilehash: eaf9cca61b21d04d127ff15a579f3d8da794f7d9
-ms.sourcegitcommit: 40dc9b00131985abcd99bd567647420d798e798a
+ms.openlocfilehash: 5f117cb2867a6e7b54269ef39abe819256b429ec
+ms.sourcegitcommit: 99e71ae03319ab386baf2ebde956fc2d511df8b8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78935419"
+ms.lasthandoff: 03/25/2020
+ms.locfileid: "80242684"
 ---
 # <a name="publish-an-aspnet-core-app-to-azure-with-visual-studio-code"></a>Visual Studio Code ile Azure 'da ASP.NET Core uygulaması yayımlama
 
@@ -147,5 +147,5 @@ Uzantı, güncelleştirilmiş içeriği Web uygulamasına dağıtacaktır. Tamam
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-- [Azure Uygulama Hizmeti](/azure/app-service/app-service-web-overview)
+- [Azure App Service](/azure/app-service/app-service-web-overview)
 - [Azure Kaynak grupları](/azure/azure-resource-manager/resource-group-overview#resource-groups)
