@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 3/25/2020
 uid: fundamentals/routing
-ms.openlocfilehash: 69d8aa65084d4d2ee13a8ca0e8e275f4344d08c5
-ms.sourcegitcommit: 99e71ae03319ab386baf2ebde956fc2d511df8b8
+ms.openlocfilehash: 2ebba716de90f142a66cf7619b5a4b0c77684bd4
+ms.sourcegitcommit: 0c62042d7d030ec5296c73bccd9f9b961d84496a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/25/2020
-ms.locfileid: "80242671"
+ms.locfileid: "80270452"
 ---
 # <a name="routing-in-aspnet-core"></a>ASP.NET Core yönlendirme
 
@@ -65,7 +65,7 @@ Yönlendirme, <xref:Microsoft.AspNetCore.Builder.EndpointRoutingApplicationBuild
   * `Hello World!` HTTP yanıtına yazılır. Varsayılan olarak, `/` kök URL 'SI `https://localhost:5001/`.
 * İstek yöntemi `GET` yoksa veya kök URL `/`değilse, hiçbir yol eşleşmesi ve HTTP 404 döndürülür.
 
-### <a name="endpoint"></a>Uç Noktası
+### <a name="endpoint"></a>Uç Nokta
 
 <a name="endpoint"></a>
 
@@ -101,7 +101,7 @@ Aşağıdaki örnek, [durum denetimleri](xref:host-and-deploy/health-checks) ve 
 
 [!code-csharp[](routing/samples/3.x/RoutingSample/AuthorizationStartup.cs?name=snippet)]
 
-[!INCLUDE[](~/includes/MTcomments.md)]
+[!INCLUDE[request localized comments](~/includes/code-comments-loc.md)]
 
 Yukarıdaki örnekte nasıl yapılacağı gösterilmektedir:
 
@@ -553,12 +553,12 @@ Yönlendirme parametresi sınırlayıcı karakterlerinin `{`, `}`, `[`, `]`, ifa
 
 Yönlendirmelerde kullanılan normal ifadeler, genellikle `^` karakteriyle başlar ve dizenin başlangıç konumuyla eşleşir. İfadeler genellikle `$` karakteriyle biter ve dizenin sonuyla eşleşir. `^` ve `$` karakterler, normal ifadenin tüm yol parametresi değeri ile eşleştiğinden emin olun. `^` ve `$` karakterleri olmadan normal ifade, dize içindeki herhangi bir alt dizeden eşleşir ve bu genellikle istenmeyen bir ifadedir. Aşağıdaki tabloda örnekler verilmektedir ve bunların eşleşmesinin neden eşleşmediği veya eşleşmemesi açıklanmaktadır:
 
-| İfade   | Dize    | Eşleştirme | Yorum               |
+| Expression   | Dize    | Eşleştirme | Açıklama               |
 | ------------ | --------- | :---: |  -------------------- |
-| `[a-z]{2}`   | herkese     | Evet   | Alt dize eşleşmeleri     |
-| `[a-z]{2}`   | 123abc456 | Evet   | Alt dize eşleşmeleri     |
-| `[a-z]{2}`   | mz        | Evet   | Eşleşen ifadesi    |
-| `[a-z]{2}`   | MZ        | Evet   | Büyük/küçük harfe duyarlı değil    |
+| `[a-z]{2}`   | herkese     | Yes   | Alt dize eşleşmeleri     |
+| `[a-z]{2}`   | 123abc456 | Yes   | Alt dize eşleşmeleri     |
+| `[a-z]{2}`   | mz        | Yes   | Eşleşen ifadesi    |
+| `[a-z]{2}`   | MZ        | Yes   | Büyük/küçük harfe duyarlı değil    |
 | `^[a-z]{2}$` | herkese     | Hayır    | Yukarıdaki `^` ve `$` bakın |
 | `^[a-z]{2}$` | 123abc456 | Hayır    | Yukarıdaki `^` ve `$` bakın |
 
@@ -1024,7 +1024,7 @@ Geliştiriciler, genellikle [öznitelik yönlendirme](xref:mvc/controllers/routi
 
 Web API 'Leri, uygulamanın işlevselliğini HTTP fiilleri tarafından temsil edilen bir kaynak kümesi olarak modellemek için öznitelik yönlendirmeyi kullanmalıdır. Bu, örneğin, al ve POST gibi birçok işlemin aynı mantıksal kaynakta aynı URL 'YI kullanması anlamına gelir. Öznitelik yönlendirme, bir API 'nin Genel uç nokta yerleşimini dikkatle tasarlamak için gereken bir denetim düzeyi sağlar.
 
-Razor Pages uygulamalar, bir uygulamanın *Sayfalar* klasöründe adlandırılmış kaynaklara hizmeti sağlamak için varsayılan geleneksel yönlendirmeyi kullanır. Razor Pages yönlendirme davranışını özelleştirmenizi sağlayan ek kurallar mevcuttur. Daha fazla bilgi için bkz. <xref:razor-pages/index> ve <xref:razor-pages/razor-pages-conventions>.
+Razor Pages uygulamalar, bir uygulamanın *Sayfalar* klasöründe adlandırılmış kaynaklara hizmeti sağlamak için varsayılan geleneksel yönlendirmeyi kullanır. Razor Pages yönlendirme davranışını özelleştirmenizi sağlayan ek kurallar mevcuttur. Daha fazla bilgi için <xref:razor-pages/index> ve <xref:razor-pages/razor-pages-conventions> bölümlerine bakın.
 
 URL oluşturma desteği, uygulamanın, uygulamayı birbirine bağlamak için sabit kodlama URL 'Leri olmadan geliştirilebilmesine izin verir. Bu destek, temel bir yönlendirme yapılandırmasıyla başlayıp uygulamanın kaynak düzeni belirlendikten sonra yolların değiştirilmesini sağlar.
 
@@ -1470,12 +1470,12 @@ Yönlendirme parametresi sınırlayıcı karakterlerinin `{`, `}`, `[`, `]`ve if
 
 Yönlendirmelerde kullanılan normal ifadeler, genellikle şapka `^` karakteriyle başlar ve dizenin başlangıç konumuyla eşleşir. İfadeler, genellikle dolar işareti `$` karakteriyle biter ve dizenin sonuyla eşleşir. `^` ve `$` karakterler, normal ifadenin tüm yol parametresi değeri ile eşleştiğinden emin olun. `^` ve `$` karakterleri olmadan normal ifade, dize içindeki herhangi bir alt dizeden eşleşir ve bu genellikle istenmeyen bir ifadedir. Aşağıdaki tabloda örnekler verilmektedir ve bunların eşleşmesinin neden eşleşmediği veya eşleşmemesi açıklanmaktadır.
 
-| İfade   | Dize    | Eşleştirme | Yorum               |
+| Expression   | Dize    | Eşleştirme | Açıklama               |
 | ------------ | --------- | :---: |  -------------------- |
-| `[a-z]{2}`   | herkese     | Evet   | Alt dize eşleşmeleri     |
-| `[a-z]{2}`   | 123abc456 | Evet   | Alt dize eşleşmeleri     |
-| `[a-z]{2}`   | mz        | Evet   | Eşleşen ifadesi    |
-| `[a-z]{2}`   | MZ        | Evet   | Büyük/küçük harfe duyarlı değil    |
+| `[a-z]{2}`   | herkese     | Yes   | Alt dize eşleşmeleri     |
+| `[a-z]{2}`   | 123abc456 | Yes   | Alt dize eşleşmeleri     |
+| `[a-z]{2}`   | mz        | Yes   | Eşleşen ifadesi    |
+| `[a-z]{2}`   | MZ        | Yes   | Büyük/küçük harfe duyarlı değil    |
 | `^[a-z]{2}$` | herkese     | Hayır    | Yukarıdaki `^` ve `$` bakın |
 | `^[a-z]{2}$` | 123abc456 | Hayır    | Yukarıdaki `^` ve `$` bakın |
 
@@ -1606,7 +1606,7 @@ Geliştiriciler, [öznitelik yönlendirme](xref:mvc/controllers/routing#attribut
 
 Web API 'Leri, uygulamanın işlevselliğini HTTP fiilleri tarafından temsil edilen bir kaynak kümesi olarak modellemek için öznitelik yönlendirmeyi kullanmalıdır. Bu, aynı mantıksal kaynaktaki birçok işlemin (örneğin, GET, POST) aynı URL 'YI kullanacağı anlamına gelir. Öznitelik yönlendirme, bir API 'nin Genel uç nokta yerleşimini dikkatle tasarlamak için gereken bir denetim düzeyi sağlar.
 
-Razor Pages uygulamalar, bir uygulamanın *Sayfalar* klasöründe adlandırılmış kaynaklara hizmeti sağlamak için varsayılan geleneksel yönlendirmeyi kullanır. Razor Pages yönlendirme davranışını özelleştirmenizi sağlayan ek kurallar mevcuttur. Daha fazla bilgi için bkz. <xref:razor-pages/index> ve <xref:razor-pages/razor-pages-conventions>.
+Razor Pages uygulamalar, bir uygulamanın *Sayfalar* klasöründe adlandırılmış kaynaklara hizmeti sağlamak için varsayılan geleneksel yönlendirmeyi kullanır. Razor Pages yönlendirme davranışını özelleştirmenizi sağlayan ek kurallar mevcuttur. Daha fazla bilgi için <xref:razor-pages/index> ve <xref:razor-pages/razor-pages-conventions> bölümlerine bakın.
 
 URL oluşturma desteği, uygulamanın, uygulamayı birbirine bağlamak için sabit kodlama URL 'Leri olmadan geliştirilebilmesine izin verir. Bu destek, temel bir yönlendirme yapılandırmasıyla başlayıp uygulamanın kaynak düzeni belirlendikten sonra yolların değiştirilmesini sağlar.
 
@@ -1914,12 +1914,12 @@ Normal ifadeler, C# yönlendirme ve dil tarafından kullanılanlarla aynı sın�
 
 Yönlendirmelerde kullanılan normal ifadeler, genellikle şapka işareti (`^`) karakteriyle başlar ve dizenin başlangıç konumuyla eşleşir. İfadeler genellikle dolar işareti (`$`) karakteriyle biter ve dizenin sonuyla eşleşir. `^` ve `$` karakterler, normal ifadenin tüm yol parametresi değeri ile eşleştiğinden emin olun. `^` ve `$` karakterleri olmadan normal ifade, dize içindeki herhangi bir alt dizeden eşleşir ve bu genellikle istenmeyen bir ifadedir. Aşağıdaki tabloda örnekler verilmektedir ve bunların eşleşmesinin neden eşleşmediği veya eşleşmemesi açıklanmaktadır.
 
-| İfade   | Dize    | Eşleştirme | Yorum               |
+| Expression   | Dize    | Eşleştirme | Açıklama               |
 | ------------ | --------- | :---: |  -------------------- |
-| `[a-z]{2}`   | herkese     | Evet   | Alt dize eşleşmeleri     |
-| `[a-z]{2}`   | 123abc456 | Evet   | Alt dize eşleşmeleri     |
-| `[a-z]{2}`   | mz        | Evet   | Eşleşen ifadesi    |
-| `[a-z]{2}`   | MZ        | Evet   | Büyük/küçük harfe duyarlı değil    |
+| `[a-z]{2}`   | herkese     | Yes   | Alt dize eşleşmeleri     |
+| `[a-z]{2}`   | 123abc456 | Yes   | Alt dize eşleşmeleri     |
+| `[a-z]{2}`   | mz        | Yes   | Eşleşen ifadesi    |
+| `[a-z]{2}`   | MZ        | Yes   | Büyük/küçük harfe duyarlı değil    |
 | `^[a-z]{2}$` | herkese     | Hayır    | Yukarıdaki `^` ve `$` bakın |
 | `^[a-z]{2}$` | 123abc456 | Hayır    | Yukarıdaki `^` ve `$` bakın |
 
