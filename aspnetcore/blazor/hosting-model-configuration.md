@@ -5,17 +5,17 @@ description: Razor bileşenlerini Razor Pages ve MVC uygulamalarına tümleştir
 monikerRange: '>= aspnetcore-3.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/12/2020
+ms.date: 03/24/2020
 no-loc:
 - Blazor
 - SignalR
 uid: blazor/hosting-model-configuration
-ms.openlocfilehash: bd44643877e45c5b48b0972bcc2f637fbc5d98f2
-ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.openlocfilehash: 1f71ac63bbe9dc9d56cfca2ded19a5b863be828f
+ms.sourcegitcommit: 6ffb583991d6689326605a24565130083a28ef85
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78658307"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80306427"
 ---
 # <a name="aspnet-core-blazor-hosting-model-configuration"></a>ASP.NET Core Blazor barındırma modeli yapılandırması
 
@@ -25,11 +25,26 @@ ms.locfileid: "78658307"
 
 Bu makalede barındırma modeli yapılandırması ele alınmaktadır.
 
-<!-- For future use:
+## <a name="blazor-webassembly"></a>Blazor WebAssembly
 
-## Blazor WebAssembly
+ASP.NET Core 3,2 Preview 3 sürümünden itibaren, Blazor WebAssembly yapılandırmayı şunları destekler:
 
--->
+* *Wwwroot/appSettings. JSON*
+* *Wwwroot/appSettings. {ENVIRONMENT}. JSON*
+
+Blazor barındırılan bir uygulamada, [çalışma zamanı ortamı](xref:fundamentals/environments) , sunucu uygulamasının değeri ile aynıdır.
+
+Uygulamayı yerel olarak çalıştırırken, ortam varsayılan olarak geliştirme aşamasındadır. Uygulama yayımlandığında, ortam varsayılan olarak üretim olur. Ortamın nasıl yapılandırılacağı dahil olmak üzere daha fazla bilgi için bkz. <xref:fundamentals/environments>.
+
+> [!WARNING]
+> Blazor WebAssembly uygulamasındaki yapılandırma kullanıcılar tarafından görülebilir. **Yapılandırma bölümünde uygulama gizli dizilerini veya kimlik bilgilerini depolamamayın.**
+
+Yapılandırma dosyaları çevrimdışı kullanım için önbelleğe alınır. [Aşamalı Web uygulamaları (PWAs)](xref:blazor/progressive-web-app)ile, yalnızca yeni bir dağıtım oluştururken yapılandırma dosyalarını güncelleştirebilirsiniz. Yapılandırma dosyalarının dağıtımlar arasında düzenlenmesinin hiçbir etkisi yoktur çünkü:
+
+* Kullanıcıların, kullanmaya devam ettikleri dosyaların önbelleğe alınmış sürümleri vardır.
+* PWA 'nın *Service-Worker. js* ve *Service-Worker-assets. js* dosyalarının derlemede yeniden oluşturulması gerekir. Bu, kullanıcının bir sonraki çevrimiçi sitesinde uygulamaya işaret eden uygulamanın yeniden dağıtıldığını belirten, derleme üzerinde yeniden oluşturulmalıdır.
+
+Arka plan güncelleştirmelerinin PWAs tarafından nasıl işlendiği hakkında daha fazla bilgi için bkz. <xref:blazor/progressive-web-app#background-updates>.
 
 ## <a name="blazor-server"></a>Blazor Server
 

@@ -5,17 +5,17 @@ description: Blazor WebAssembly ile ASP.NET Core SignalR kullanan bir sohbet uyg
 monikerRange: '>= aspnetcore-3.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 01/31/2020
+ms.date: 03/26/2020
 no-loc:
 - Blazor
 - SignalR
 uid: tutorials/signalr-blazor-webassembly
-ms.openlocfilehash: 605cf8ebd3e85586f3e479c815f0b9902ce5a91a
-ms.sourcegitcommit: 98bcf5fe210931e3eb70f82fd675d8679b33f5d6
+ms.openlocfilehash: c4843dc282e1978b39738e206ecc79ded87fcff9
+ms.sourcegitcommit: 6ffb583991d6689326605a24565130083a28ef85
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79083388"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80306566"
 ---
 # <a name="use-aspnet-core-signalr-with-blazor-webassembly"></a>Blazor WebAssembly ile ASP.NET Core SignalR kullanma
 
@@ -36,7 +36,7 @@ Bu öğreticinin sonunda, çalışan bir sohbet uygulamanız olacaktır.
 
 [Örnek kodu görüntüleme veya indirme](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/tutorials/signalr-blazor-webassembly/samples/) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
 
-## <a name="prerequisites"></a>Önkoşullar
+## <a name="prerequisites"></a>Prerequisites
 
 # <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
@@ -58,10 +58,10 @@ Bu öğreticinin sonunda, çalışan bir sohbet uygulamanız olacaktır.
 
 ## <a name="create-a-hosted-blazor-webassembly-app-project"></a>Barındırılan Blazor WebAssembly uygulama projesi oluşturma
 
-[Blazor WebAssembly](xref:blazor/hosting-models#blazor-webassembly) şablonunu yükler. [Microsoft. AspNetCore. components. WebAssembly. Templates](https://www.nuget.org/packages/Microsoft.AspNetCore.Components.WebAssembly.Templates/) paketinin önizleme sürümü vardır, ancak Blazor WebAssembly önizlemededir. Bir komut kabuğunda, aşağıdaki komutu yürütün:
+Visual Studio sürüm 16,6 Preview 2 veya sonraki bir sürümü kullanmadığınız durumlarda, [Blazor WebAssembly](xref:blazor/hosting-models#blazor-webassembly) şablonunu ' nı yükledikten sonra. [Microsoft. AspNetCore. components. WebAssembly. Templates](https://www.nuget.org/packages/Microsoft.AspNetCore.Components.WebAssembly.Templates/) paketinin önizleme sürümü vardır, ancak Blazor WebAssembly önizlemededir. Bir komut kabuğunda, aşağıdaki komutu yürütün:
 
 ```dotnetcli
-dotnet new -i Microsoft.AspNetCore.Components.WebAssembly.Templates::3.2.0-preview2.20160.5
+dotnet new -i Microsoft.AspNetCore.Components.WebAssembly.Templates::3.2.0-preview3.20168.3
 ```
 
 Araç seçiminiz için yönergeleri izleyin:
@@ -72,13 +72,13 @@ Araç seçiminiz için yönergeleri izleyin:
 
 1. **Blazor uygulamasını** seçin ve **İleri ' yi**seçin.
 
-1. **Proje adı** alanına "BlazorSignalRApp" yazın. **Konum** girişinin doğru olduğunu onaylayın veya proje için bir konum belirtin. **Oluştur**’u seçin.
+1. **Proje adı** alanına "BlazorSignalRApp" yazın. **Konum** girişinin doğru olduğunu onaylayın veya proje için bir konum belirtin. **Oluştur**'u seçin.
 
 1. **Blazor WebAssembly uygulama** şablonunu seçin.
 
 1. **Gelişmiş**' in altında, **ASP.NET Core barındırılan** onay kutusunu seçin.
 
-1. **Oluştur**’u seçin.
+1. **Oluştur**'u seçin.
 
 > [!NOTE]
 > Visual Studio 'nun yeni bir sürümünü yükselttiyseniz veya yüklediyseniz ve Blazor WebAssembly şablonu VS Kullanıcı arabiriminde görünmüyorsa, daha önce gösterilen `dotnet new` komutunu kullanarak şablonu yeniden yükleyin.
