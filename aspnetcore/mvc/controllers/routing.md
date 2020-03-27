@@ -5,12 +5,12 @@ description: ASP.NET Core MVC 'nin, gelen isteklerin URL 'Lerini eşleştirmek v
 ms.author: riande
 ms.date: 3/25/2020
 uid: mvc/controllers/routing
-ms.openlocfilehash: be7da9eeaf64c2f52c095b5179ccc22db43d57c3
-ms.sourcegitcommit: 99e71ae03319ab386baf2ebde956fc2d511df8b8
+ms.openlocfilehash: c1c0d978714718af1de0f627e50a54f66ed391ed
+ms.sourcegitcommit: 4b166b49ec557a03f99f872dd069ca5e56faa524
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/25/2020
-ms.locfileid: "80242587"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80362657"
 ---
 # <a name="routing-to-controller-actions-in-aspnet-core"></a>ASP.NET Core denetleyici eylemlerine yönlendirme
 
@@ -418,10 +418,10 @@ Aşağıdaki tabloda, önceki koddaki `[Route]` öznitelikleri açıklanmaktadı
 
 | Öznitelik               | `[Route("Home")]` ile birleştirir | Rota şablonunu tanımlar |
 | ----------------- | ------------ | --------- |
-| `[Route("")]` | Evet | `"Home"` |
-| `[Route("Index")]` | Evet | `"Home/Index"` |
+| `[Route("")]` | Yes | `"Home"` |
+| `[Route("Index")]` | Yes | `"Home/Index"` |
 | `[Route("/")]` | **Hayır** | `""` |
-| `[Route("About")]` | Evet | `"Home/About"` |
+| `[Route("About")]` | Yes | `"Home/About"` |
 
 <a name="routing-ordering-ref-label"></a>
 <a name="oar"></a>
@@ -846,6 +846,8 @@ Bir denetleyicide, [Nonactıon](xref:Microsoft.AspNetCore.Mvc.NonActionAttribute
 
  * [Mydisplayrouteınfo](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/controllers/routing/samples/3.x/main/Extensions/ControllerContextExtensions.cs) yöntemi [örnek karşıdan yüklemeye](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/controllers/routing/samples/3.x) dahildir ve yönlendirme bilgilerini görüntülemek için kullanılır.
 * [Örnek kodu görüntüleme veya indirme](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/controllers/routing/samples/3.x) ([nasıl indirileceği](xref:index#how-to-download-a-sample))
+
+[!INCLUDE[](~/includes/dbg-route.md)]
 
 ::: moniker-end
 
