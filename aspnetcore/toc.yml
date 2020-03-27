@@ -355,7 +355,7 @@
           uid: blazor/state-management
         - name: Hataları işleme
           uid: blazor/handle-errors
-        - name: Hata ayıklama
+        - name: WebAssembly hata ayıklaması
           uid: blazor/debug
         - name: Web API’si çağırma
           uid: blazor/call-web-api
