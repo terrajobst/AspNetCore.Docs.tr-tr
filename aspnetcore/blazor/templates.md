@@ -5,17 +5,17 @@ description: ASP.NET Core Blazor uygulama şablonları ve Blazor proje yapısı 
 monikerRange: '>= aspnetcore-3.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 01/29/2020
+ms.date: 03/26/2020
 no-loc:
 - Blazor
 - SignalR
 uid: blazor/templates
-ms.openlocfilehash: acfa4b8a42cbd310c6fc6dc973573578e94ef999
-ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.openlocfilehash: 71a9d9eee8637dda0b3cecac82ff96a0c3bfedb5
+ms.sourcegitcommit: f3b1bcfd108e5d53f73abc0bf2555890869d953b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78664243"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80320974"
 ---
 # <a name="aspnet-core-opno-locblazor-templates"></a>ASP.NET Core Blazor şablonları
 
@@ -58,18 +58,17 @@ Aşağıdaki dosya ve klasörler, Blazor şablonundan oluşturulan Blazor bir uy
     * .NET çalışma zamanını, uygulamayı ve uygulamanın bağımlılıklarını indirir.
     * Uygulamayı çalıştırmak için çalışma zamanını başlatır.
 
-* *Pages/_Host. cshtml* (Blazor Server), Razor sayfası olarak uygulanan uygulamanın kök sayfasına &ndash;:
-  * Uygulamanın herhangi bir sayfası başlangıçta istendiğinde, Bu sayfa işlenir ve yanıtta döndürülür.
-  * Tarayıcı ve sunucu arasındaki gerçek zamanlı SignalR bağlantısını ayarlayan `_framework/blazor.server.js` JavaScript dosyası yüklenir.
-  * Ana bilgisayar sayfası, kök `App` bileşeni 'nin (*app. Razor*) nerede işleneceğini belirtir.
-
 * *App. razor* &ndash; <xref:Microsoft.AspNetCore.Components.Routing.Router> bileşenini kullanarak istemci tarafı yönlendirmeyi ayarlayan uygulamanın kök bileşenidir. `Router` bileşeni tarayıcı gezintisini karşılar ve istenen adresle eşleşen sayfayı işler.
 
-* *Sayfalar* klasörü &ndash; Blazor uygulamayı oluşturan yönlendirilebilir bileşenleri/sayfaları ( *. Razor*) içerir. Her sayfanın yolu [`@page`](xref:mvc/views/razor#page) yönergesi kullanılarak belirtilir. Şablon aşağıdaki bileşenleri içerir:
-  * `Index` (*Index. Razor*) &ndash; giriş sayfasını uygular.
+* *Sayfalar* klasörü &ndash;, Blazor sunucu uygulamasının Blazor uygulamasını ve kök Razor sayfasını oluşturan yönlendirilebilir bileşenleri/sayfaları ( *. Razor*) içerir. Her sayfanın yolu [`@page`](xref:mvc/views/razor#page) yönergesi kullanılarak belirtilir. Şablon şunları içerir:
+  * *_Host. cshtml* (Blazor sunucusu), Razor sayfası olarak uygulanan uygulamanın kök sayfasına &ndash;:
+    * Uygulamanın herhangi bir sayfası başlangıçta istendiğinde, Bu sayfa işlenir ve yanıtta döndürülür.
+    * Tarayıcı ve sunucu arasındaki gerçek zamanlı SignalR bağlantısını ayarlayan `_framework/blazor.server.js` JavaScript dosyası yüklenir.
+    * Ana bilgisayar sayfası, kök `App` bileşeni 'nin (*app. Razor*) nerede işleneceğini belirtir.
   * `Counter` (*Counter. Razor*) &ndash; sayaç sayfasını uygular.
   * uygulamada işlenmeyen bir özel durum oluştuğunda `Error` (yalnızca*hata. Razor*, Blazor sunucu uygulaması) &ndash;.
   * `FetchData` (*fetchdata. Razor*) &ndash; verileri getir sayfasını uygular.
+  * `Index` (*Index. Razor*) &ndash; giriş sayfasını uygular.
 
 * *Paylaşılan* klasör &ndash;, uygulama tarafından kullanılan diğer Kullanıcı Arabirimi bileşenlerini ( *. Razor*) içerir:
   * `MainLayout` (*mainlayout. Razor*) uygulamanın düzen bileşeni &ndash;.

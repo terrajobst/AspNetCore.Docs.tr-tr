@@ -5,16 +5,16 @@ description: Nasıl ASP.NET Core Razor sayfalar kodlama sayfa odaklı senaryolar
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc, seodec18
-ms.date: 08/23/2019
+ms.date: 03/26/2020
 no-loc:
 - Blazor
 uid: razor-pages/sdk
-ms.openlocfilehash: 872d90662494735dc0e4caa01c46fcdcc2606bc6
-ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.openlocfilehash: 2284131ce2d45ec6bc01ce38f91e2c951b108605
+ms.sourcegitcommit: f3b1bcfd108e5d53f73abc0bf2555890869d953b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78660071"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80321006"
 ---
 # <a name="aspnet-core-razor-sdk"></a>ASP.NET Core Razor SDK'sı
 
@@ -110,8 +110,34 @@ Aşağıdaki özellikler proje derlemesi bir parçası olarak Razor'ın SDK davr
 | `RazorGenerate` | Kod oluşturmaya giriş olan öğe öğeleri ( *. cshtml* dosyaları). |
 | `RazorComponent` | Razor bileşen kodu oluşturmaya giriş olan öğe öğeleri ( *. Razor* dosyaları). |
 | `RazorCompile` | Razor derleme hedeflerine giriş olan öğe öğeleri ( *. cs* dosyaları). Razor derlemesine derlenecek ek dosyaları belirtmek için bu `ItemGroup` kullanın. |
-| `RazorTargetAssemblyAttribute` | Kod için kullanılan öğeler için Razor derleme öznitelikleri oluşturur. Örnek:  <br>`RazorAssemblyAttribute`<br>`Include="System.Reflection.AssemblyMetadataAttribute"`<br>`_Parameter1="BuildSource" _Parameter2="https://docs.microsoft.com/">` |
+| `RazorTargetAssemblyAttribute` | Kod için kullanılan öğeler için Razor derleme öznitelikleri oluşturur. Örneğin:  <br>`RazorAssemblyAttribute`<br>`Include="System.Reflection.AssemblyMetadataAttribute"`<br>`_Parameter1="BuildSource" _Parameter2="https://docs.microsoft.com/">` |
 | `RazorEmbeddedResource` | Oluşturulan Razor derlemesine katıştırılmış kaynakları olarak eklenen öğeler. |
+
+::: moniker range=">= aspnetcore-3.0"
+
+| Özellik | Açıklama |
+| -------- | ----------- |
+| `RazorTargetName` | Razor tarafından üretilen derleme dosya adı (uzantısı olmadan). |
+| `RazorOutputPath` | Razor çıkış dizini. |
+| `RazorCompileToolset` | Razor derlemesi oluşturmak için kullanılan araç kümesini belirlemek için kullanılır. Geçerli değerler `Implicit`, `RazorSDK`ve `PrecompilationTool`. |
+| [Enabledefaultcontentıtems](https://github.com/aspnet/websdk/blob/rel-2.0.0/src/ProjectSystem/Microsoft.NET.Sdk.Web.ProjectSystem.Targets/netstandard1.0/Microsoft.NET.Sdk.Web.ProjectSystem.targets#L21) | `true` varsayılan değerdir. `true`, *Web. config*, *. JSON*ve *. cshtml* dosyalarını projeye içerik olarak ekler. `Microsoft.NET.Sdk.Web`aracılığıyla başvuruluyorsa, *Wwwroot* ve yapılandırma dosyaları altındaki dosyalar da dahil edilir. |
+| `EnableDefaultRazorGenerateItems` | `true`, `RazorGenerate` öğelerinde `Content` öğelerden *. cshtml* dosyalarını ekler. |
+| `GenerateRazorTargetAssemblyInfo` | `true`, `RazorAssemblyAttribute` tarafından belirtilen öznitelikleri içeren bir *. cs* dosyası oluşturur ve derleme çıkışında dosyayı içerir. |
+| `EnableDefaultRazorTargetAssemblyInfoAttributes` | `true`, `RazorAssemblyAttribute`derleme özniteliklerinin varsayılan bir kümesini ekler. |
+| `CopyRazorGenerateFilesToPublishDirectory` | `true`, `RazorGenerate` öğeleri ( *. cshtml*) dosyalarını Yayımla dizinine kopyalar. Genellikle, derleme zamanı veya yayımlama zamanı derleme katıldıkları, Razor dosyaları bir yayımlanan uygulama için gerekli değildir. `false` değerini varsayılan olarak alır. |
+| `PreserveCompilationReferences` | `true`, başvuru derleme öğelerini yayımlama dizinine kopyalayın. Genellikle, Razor derleme, derleme zamanı veya yayımlama zamanı oluşursa başvuru bütünleştirilmiş kodları yayınlanmış bir uygulama için gerekli değildir. Yayımlanmış uygulamanız çalışma zamanı derlemesi gerektiriyorsa `true` olarak ayarlayın. Örneğin, uygulama çalışma zamanında *. cshtml* dosyalarını değiştirirse veya gömülü görünümleri kullanıyorsa değeri `true` olarak ayarlayın. `false` değerini varsayılan olarak alır. |
+| `IncludeRazorContentInPack` | `true`, tüm Razor içerik öğeleri ( *. cshtml* dosyaları) oluşturulan NuGet paketine eklenmek üzere işaretlenir. `false` değerini varsayılan olarak alır. |
+| `EmbedRazorGenerateSources` | `true`, oluşturulan Razor derlemesine gömülü dosyalar olarak RazorGenerate ( *. cshtml*) öğelerini ekler. `false` değerini varsayılan olarak alır. |
+| `UseRazorBuildServer` | `true`, kod oluşturma işinin yükünü boşaltmak için kalıcı bir yapı sunucusu işlemi kullanır. Varsayılan olarak `UseSharedCompilation`değerini alır. |
+| `GenerateMvcApplicationPartsAssemblyAttributes` | `true`, SDK, uygulama bölümü keşfi gerçekleştirmek için çalışma zamanında MVC tarafından kullanılan ek öznitelikler üretir. |
+| `DefaultWebContentItemExcludes` | Web veya Razor SDK 'Yı hedefleyen projelerde `Content` öğesi grubundan çıkarılacak öğe öğeleri için glob bir model |
+| `ExcludeConfigFilesFromBuildOutput` | `true`, *. config* ve *. JSON* dosyaları yapı çıkış dizinine kopyalanmaz. |
+| `AddRazorSupportForMvc` | `true`,, MVC görünümlerini veya Razor Pages içeren uygulamalar oluştururken gerekli olan MVC yapılandırmasına yönelik destek eklemek için Razor SDK 'sını yapılandırır. Bu özellik, Web SDK 'sını hedefleyen .NET Core 3,0 veya üzeri projeler için örtük olarak ayarlanmıştır |
+| `RazorLangVersion` | Hedeflenecek Razor dilinin sürümü. |
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
 
 | Özellik | Açıklama |
 | -------- | ----------- |
@@ -132,6 +158,8 @@ Aşağıdaki özellikler proje derlemesi bir parçası olarak Razor'ın SDK davr
 | `ExcludeConfigFilesFromBuildOutput` | `true`, *. config* ve *. JSON* dosyaları yapı çıkış dizinine kopyalanmaz. |
 | `AddRazorSupportForMvc` | `true`,, MVC görünümlerini veya Razor Pages içeren uygulamalar oluştururken gerekli olan MVC yapılandırmasına yönelik destek eklemek için Razor SDK 'sını yapılandırır. Bu özellik, Web SDK 'sını hedefleyen .NET Core 3,0 veya üzeri projeler için örtük olarak ayarlanmıştır |
 | `RazorLangVersion` | Hedeflenecek Razor dilinin sürümü. |
+
+::: moniker-end
 
 Özellikler hakkında daha fazla bilgi için bkz. [MSBuild özellikleri](/visualstudio/msbuild/msbuild-properties).
 

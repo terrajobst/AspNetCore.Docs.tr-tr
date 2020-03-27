@@ -10,12 +10,12 @@ no-loc:
 - Blazor
 - SignalR
 uid: blazor/get-started
-ms.openlocfilehash: abecb640930c1e5770c0fad45a1e9a6df31a20f4
-ms.sourcegitcommit: 6ffb583991d6689326605a24565130083a28ef85
+ms.openlocfilehash: 9ebeb57d2fad7e4c288d61a46911f2bf64cac2fb
+ms.sourcegitcommit: f3b1bcfd108e5d53f73abc0bf2555890869d953b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/26/2020
-ms.locfileid: "80306451"
+ms.locfileid: "80320941"
 ---
 # <a name="get-started-with-aspnet-core-blazor"></a>ASP.NET Core Blazor kullanmaya başlama
 
@@ -33,7 +33,7 @@ Blazor kullanmaya başlamak için araç seçiminiz için yönergeleri izleyin:
 
    İki Blazor barındırma modeli hakkında daha fazla bilgi için, *Blazor WebAssembly* ve *Blazor Server*<xref:blazor/hosting-models>bkz.
 
-1. Yeni bir proje oluşturun.
+1. Yeni bir proje oluşturma.
 
 1. **Blazor uygulamasını**seçin. **İleri**’yi seçin.
 
@@ -78,7 +78,7 @@ Blazor kullanmaya başlamak için araç seçiminiz için yönergeleri izleyin:
 
 1. IDE, projeyi derlemek ve hatalarını ayıklamak için varlık eklemenizi ister. **Evet**’i seçin.
 
-1. Visual Studio Code hata ayıklayıcıyı kullanarak uygulamayı tun.
+1. Visual Studio Code hata ayıklayıcıyı kullanarak uygulamayı çalıştırın.
 
 1. Bir tarayıcıda `https://localhost:5001`' a gidin.
 
@@ -141,7 +141,7 @@ Geliştirme sertifikasına güvenmek için bir istem görünürse, sertifikaya g
 
 Kenar çubuğu 'ndaki sekmelerde birden çok sayfa mevcuttur:
 
-* Ana Sayfası
+* Giriş
 * Sayaç
 * Verileri getir
 

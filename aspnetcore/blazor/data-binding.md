@@ -5,17 +5,17 @@ description: Blazor Apps 'teki bileşenlere ve DOM öğelerine yönelik veri ba�
 monikerRange: '>= aspnetcore-3.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 03/16/2020
+ms.date: 03/26/2020
 no-loc:
 - Blazor
 - SignalR
 uid: blazor/data-binding
-ms.openlocfilehash: 5b49d2598a451ee607e034913bd1aeaa03f941c6
-ms.sourcegitcommit: d64ef143c64ee4fdade8f9ea0b753b16752c5998
+ms.openlocfilehash: a7b3730dad48b5bbb6134dab181051da4e3651b4
+ms.sourcegitcommit: f3b1bcfd108e5d53f73abc0bf2555890869d953b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2020
-ms.locfileid: "79511203"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80320958"
 ---
 # <a name="aspnet-core-opno-locblazor-data-binding"></a>ASP.NET Core Blazor veri bağlama
 
@@ -241,7 +241,7 @@ Aşağıdaki `PasswordField` bileşeni (*Passwordfield. Razor*):
 * , `ToggleShowPassword` yöntemini tetiklemek için kullanılan `onclick` olayını kullanır. Daha fazla bilgi için bkz. <xref:blazor/event-handling>.
 
 ```razor
-<h1>Child Component</h2>
+<h1>Child Component</h1>
 
 Password: 
 
@@ -299,9 +299,7 @@ Password:
 Aşağıdaki örnek, parolanın değerinde bir boşluk kullanılmışsa kullanıcıya anında geri bildirim sağlar:
 
 ```razor
-@page "/ParentComponent"
-
-<h1>Parent Component</h1>
+<h1>Child Component</h1>
 
 Password: 
 
