@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 3/25/2020
 uid: fundamentals/routing
-ms.openlocfilehash: 2ebba716de90f142a66cf7619b5a4b0c77684bd4
-ms.sourcegitcommit: 0c62042d7d030ec5296c73bccd9f9b961d84496a
+ms.openlocfilehash: 689f9757aeadd66e1d06ba1a774db13b0011c1d2
+ms.sourcegitcommit: 4b166b49ec557a03f99f872dd069ca5e56faa524
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/25/2020
-ms.locfileid: "80270452"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80362693"
 ---
 # <a name="routing-in-aspnet-core"></a>ASP.NET Core yönlendirme
 
@@ -984,6 +984,8 @@ Bu yönergeye örnek olarak `UseAuthorization` ara yazılımını göz önünde 
 * Bir uç noktasıyla eşleşmeyen istekler.
 
 Bu, yetkilendirme ara yazılımını yönlendirme bağlamı dışında yararlı hale getirir. Yetkilendirme ara yazılımı geleneksel ara yazılım programlama için kullanılabilir.
+
+[!INCLUDE[](~/includes/dbg-route.md)]
 
 ::: moniker-end
 
@@ -1980,6 +1982,5 @@ Bağlantı oluşturma yalnızca `controller` ve `action` için eşleşen değerl
 ## <a name="complex-segments"></a>Karmaşık segmentler
 
 Karmaşık segmentler (örneğin `[Route("/x{token}y")]`), sabit değerli olmayan değişmez değerler ile sağdan sola eşleştirilirken işlenir. Karmaşık segmentlerin nasıl eşleştirileceği hakkında ayrıntılı bir açıklama için [bu koda](https://github.com/aspnet/AspNetCore/blob/release/2.2/src/Http/Routing/src/Patterns/RoutePatternMatcher.cs#L293) bakın. [Kod örneği](https://github.com/aspnet/AspNetCore/blob/release/2.2/src/Http/Routing/src/Patterns/RoutePatternMatcher.cs#L293) ASP.NET Core tarafından kullanılmaz, ancak karmaşık segmentler hakkında iyi bir açıklama sağlar.
-
 
 ::: moniker-end
